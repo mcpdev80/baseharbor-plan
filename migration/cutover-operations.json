@@ -1,0 +1,1253 @@
+{
+  "activation_sha": "47474109ea69475e60be4f065ad17476c71665bb",
+  "planning_authority": "mcpdev80/baseharbor-plan/main",
+  "ui_acceptance": "unverified, explicitly deferred",
+  "project_retirement": {
+    "project": 4,
+    "status": "not performed: connector lacks Projects write capability"
+  },
+  "issues": [
+    {
+      "source": "mcpdev80/baseharbor#100",
+      "number": 100,
+      "repo": "mcpdev80/baseharbor",
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-100-access-operator-rbac-jit.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:56Z",
+      "updated_at": "2026-10-15T21:28:54Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#102",
+      "repo": "mcpdev80/baseharbor",
+      "number": 102,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-102-kubernetes-namespace-scoped-runtime-foundation.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:50Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#155",
+      "repo": "mcpdev80/baseharbor",
+      "number": 155,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "ROADMAP.md",
+          "kind": "roadmap",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:44Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#174",
+      "repo": "mcpdev80/baseharbor",
+      "number": 174,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.31.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:37Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#175",
+      "repo": "mcpdev80/baseharbor",
+      "number": 175,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.5.x.md",
+          "kind": "release",
+          "role": "additional"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:30Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#181",
+      "repo": "mcpdev80/baseharbor",
+      "number": 181,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-181-distribution-air-gap-private-oci.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:24Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#209",
+      "repo": "mcpdev80/baseharbor",
+      "number": 209,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/core-209-future-capabilities-integrations.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:17Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#297",
+      "repo": "mcpdev80/baseharbor",
+      "number": 297,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-297-state-versioning-migration-compatibility.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:11Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#298",
+      "repo": "mcpdev80/baseharbor",
+      "number": 298,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-298-contracts-cross-component-compatibility.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:54:04Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#299",
+      "repo": "mcpdev80/baseharbor",
+      "number": 299,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-299-lifecycle-upgrades-recovery-deprecation.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:58Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#300",
+      "repo": "mcpdev80/baseharbor",
+      "number": 300,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-300-acceptance-portability-compatibility.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:51Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#304",
+      "repo": "mcpdev80/baseharbor",
+      "number": 304,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-304-kubernetes-security-identity-networking.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:45Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#305",
+      "repo": "mcpdev80/baseharbor",
+      "number": 305,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-305-kubernetes-http-access-gateway-api.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:38Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#306",
+      "repo": "mcpdev80/baseharbor",
+      "number": 306,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-306-kubernetes-namespaced-persistent-storage.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:32Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#307",
+      "repo": "mcpdev80/baseharbor",
+      "number": 307,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-307-kubernetes-stateful-workloads.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:26Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#308",
+      "repo": "mcpdev80/baseharbor",
+      "number": 308,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-308-kubernetes-availability-guarantees.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:20Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#309",
+      "repo": "mcpdev80/baseharbor",
+      "number": 309,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-309-tests-kubernetes-restricted-permissions.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:14Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#310",
+      "repo": "mcpdev80/baseharbor",
+      "number": 310,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-310-acceptance-compose-to-kubernetes-portability.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:08Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#313",
+      "repo": "mcpdev80/baseharbor",
+      "number": 313,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-313-kubernetes-complete-app-lifecycle.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:53:00Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#314",
+      "repo": "mcpdev80/baseharbor",
+      "number": 314,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-314-kubernetes-capabilities-provider-placement.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:54Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#315",
+      "repo": "mcpdev80/baseharbor",
+      "number": 315,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-315-kubernetes-backup-disaster-recovery.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:48Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#316",
+      "repo": "mcpdev80/baseharbor",
+      "number": 316,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-316-kubernetes-observability-diagnostics-evidence.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:42Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#317",
+      "repo": "mcpdev80/baseharbor",
+      "number": 317,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-317-kubernetes-updates-migration-recovery.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:35Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#318",
+      "repo": "mcpdev80/baseharbor",
+      "number": 318,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-318-kubernetes-cli-agent-developer-parity.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:29Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#319",
+      "repo": "mcpdev80/baseharbor",
+      "number": 319,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-319-kubernetes-production-hardening-conformance.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:24Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#320",
+      "repo": "mcpdev80/baseharbor",
+      "number": 320,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-320-acceptance-complete-kubernetes-support.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:17Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#325",
+      "repo": "mcpdev80/baseharbor",
+      "number": 325,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-325-delivery-delegated-deployment-gitops.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:11Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#390",
+      "repo": "mcpdev80/baseharbor",
+      "number": 390,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-390-architecture-service-contracts-provider-catalog.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:52:05Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#427",
+      "repo": "mcpdev80/baseharbor",
+      "number": 427,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:59Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#428",
+      "repo": "mcpdev80/baseharbor",
+      "number": 428,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.5.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:52Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#430",
+      "repo": "mcpdev80/baseharbor",
+      "number": 430,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.7.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:46Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#431",
+      "repo": "mcpdev80/baseharbor",
+      "number": 431,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.8.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:40Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#750",
+      "repo": "mcpdev80/baseharbor",
+      "number": 750,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-750-inspect-source-neutral-findings.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:33Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#751",
+      "repo": "mcpdev80/baseharbor",
+      "number": 751,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-751-inspect-no-false-positives-comments-text.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:27Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#752",
+      "repo": "mcpdev80/baseharbor",
+      "number": 752,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-752-inspect-reconcile-default-instances.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:21Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#754",
+      "repo": "mcpdev80/baseharbor",
+      "number": 754,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-754-mcp-classify-expected-preconditions.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:15Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#766",
+      "repo": "mcpdev80/baseharbor",
+      "number": 766,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-766-cleanup-orphaned-owned-runtime-resources.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:08Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#777",
+      "repo": "mcpdev80/baseharbor",
+      "number": 777,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/core-777-developer-access-and-profiles.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:51:01Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#815",
+      "repo": "mcpdev80/baseharbor",
+      "number": 815,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-815-tests-greenfield-stacks-native-runtimes.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:55Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#817",
+      "repo": "mcpdev80/baseharbor",
+      "number": 817,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-817-audit-host-portability-architecture.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:49Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#818",
+      "repo": "mcpdev80/baseharbor",
+      "number": 818,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/core-818-host-platforms.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:42Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#819",
+      "repo": "mcpdev80/baseharbor",
+      "number": 819,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-819-architecture-host-interface-guard.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:35Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#820",
+      "repo": "mcpdev80/baseharbor",
+      "number": 820,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-820-linux-host-adapters-regressions.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:29Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#821",
+      "repo": "mcpdev80/baseharbor",
+      "number": 821,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-821-wsl2-host-behavior-windows-boundaries.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:23Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#822",
+      "repo": "mcpdev80/baseharbor",
+      "number": 822,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-822-macos-darwin-adapters.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:17Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#823",
+      "repo": "mcpdev80/baseharbor",
+      "number": 823,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-823-tests-platform-conformance-support.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:10Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#862",
+      "repo": "mcpdev80/baseharbor",
+      "number": 862,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:50:04Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#873",
+      "repo": "mcpdev80/baseharbor",
+      "number": 873,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.26.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T19:36:55Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#874",
+      "repo": "mcpdev80/baseharbor",
+      "number": 874,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.27.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:51Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#875",
+      "repo": "mcpdev80/baseharbor",
+      "number": 875,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.28.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:45Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#876",
+      "repo": "mcpdev80/baseharbor",
+      "number": 876,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.29.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:39Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#882",
+      "repo": "mcpdev80/baseharbor",
+      "number": 882,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-882-macos-fix-darwin-builds-build-vet.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:30Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#883",
+      "repo": "mcpdev80/baseharbor",
+      "number": 883,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-883-macos-quadlet-inside-podman-machine.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:24Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#884",
+      "repo": "mcpdev80/baseharbor",
+      "number": 884,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-884-tests-macos-runtime-real-mac.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:18Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#885",
+      "repo": "mcpdev80/baseharbor",
+      "number": 885,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-885-macos-signing-notarization.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:12Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#886",
+      "repo": "mcpdev80/baseharbor",
+      "number": 886,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-886-macos-keychain-trust-dev-remote.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:06Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#887",
+      "repo": "mcpdev80/baseharbor",
+      "number": 887,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-887-review-assess-technical-evaluations.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:49:00Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#888",
+      "repo": "mcpdev80/baseharbor",
+      "number": 888,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/core-888-development-and-ci.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T19:36:50Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#893",
+      "repo": "mcpdev80/baseharbor",
+      "number": 893,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-893-ci-enforce-selected-pr-checks.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/core-893-interface-agree-planning-execution-interface.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T20:35:28Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#894",
+      "repo": "mcpdev80/baseharbor",
+      "number": 894,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-894-actions-concise-names-clear-results.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:48:23Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#895",
+      "repo": "mcpdev80/baseharbor",
+      "number": 895,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-895-reviews-require-maintainer-approval.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T19:46:16Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#896",
+      "repo": "mcpdev80/baseharbor",
+      "number": 896,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-896-runners-isolate-parallel-pr-checks.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T20:35:26Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#900",
+      "repo": "mcpdev80/baseharbor",
+      "number": 900,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-900-gc-preserve-active-prs-candidates-evidence.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T19:49:39Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#901",
+      "repo": "mcpdev80/baseharbor",
+      "number": 901,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:47:38Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#902",
+      "repo": "mcpdev80/baseharbor",
+      "number": 902,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/core-902-native-tls-justified-proxies.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:47:32Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#903",
+      "repo": "mcpdev80/baseharbor",
+      "number": 903,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/core-903-attack-protection-ddos-boundaries.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:47:26Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#904",
+      "repo": "mcpdev80/baseharbor",
+      "number": 904,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "releases/v0.4.30.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:47:19Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#909",
+      "repo": "mcpdev80/baseharbor",
+      "number": 909,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-909-maintenance-remove-superseded-branches.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:47:13Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#910",
+      "repo": "mcpdev80/baseharbor",
+      "number": 910,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-910-wizard-shared-read-only-editing-state.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T20:29:55Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#911",
+      "repo": "mcpdev80/baseharbor",
+      "number": 911,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-911-app-edit-load-existing-selections.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:59Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#912",
+      "repo": "mcpdev80/baseharbor",
+      "number": 912,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-912-wizard-needs-first-selection.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:52Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#913",
+      "repo": "mcpdev80/baseharbor",
+      "number": 913,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-913-wizard-compatible-providers-same-view.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:46Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#914",
+      "repo": "mcpdev80/baseharbor",
+      "number": 914,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-914-preview-actual-footprint.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:40Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#915",
+      "repo": "mcpdev80/baseharbor",
+      "number": 915,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-915-preview-provider-consequences-partial-results.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:34Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#916",
+      "repo": "mcpdev80/baseharbor",
+      "number": 916,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-916-wizard-back-cancel-eof-no-side-effects.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:28Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#917",
+      "repo": "mcpdev80/baseharbor",
+      "number": 917,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-917-app-new-connect-wizard-lifecycle.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:23Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#918",
+      "repo": "mcpdev80/baseharbor",
+      "number": 918,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-918-app-edit-apply-confirmed-changes.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:17Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#919",
+      "repo": "mcpdev80/baseharbor",
+      "number": 919,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-919-footprint-cli-json-one-projection.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:11Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#920",
+      "repo": "mcpdev80/baseharbor",
+      "number": 920,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-920-machine-adapters-capability-changes-footprint.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:46:05Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#921",
+      "repo": "mcpdev80/baseharbor",
+      "number": 921,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-921-cli-mcp-register-new-interfaces.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:45:53Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#922",
+      "repo": "mcpdev80/baseharbor",
+      "number": 922,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-922-docs-new-edit-provider-selection.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:45:47Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#923",
+      "repo": "mcpdev80/baseharbor",
+      "number": 923,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/core-923-acceptance-new-edit-journeys-consumers.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-15T16:45:40Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#24",
+      "repo": "mcpdev80/baseharbor-demo",
+      "number": 24,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/demo-24-managed-exposure-https-default.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-09-22T23:35:17Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#1",
+      "repo": "mcpdev80/baseharbor-console",
+      "number": 1,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "epics/console-1-console-product-plan.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-06T13:50:00Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#2",
+      "repo": "mcpdev80/baseharbor-console",
+      "number": 2,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/console-2-live-core-adapter-workflow-proofs.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-08T13:49:16Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-node-connector#3",
+      "repo": "mcpdev80/baseharbor-node-connector",
+      "number": 3,
+      "closed": true,
+      "destinations": [
+        {
+          "path": "tasks/nc-3-core-enrollment-remote-runtime-acceptance.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ],
+      "previous_updated_at": "2026-10-08T13:52:57Z"
+    }
+  ],
+  "errors": [],
+  "entry_point_merges": [
+    {
+      "repository": "mcpdev80/baseharbor",
+      "sha": "1b2f57e063ae4d1c691af087c697d54df885507b",
+      "merged": true,
+      "message": "Pull Request successfully merged"
+    },
+    {
+      "repository": "mcpdev80/baseharbor-console",
+      "sha": "1d014c0b1eb5fd3be79b1ea859abecd59ec3d504",
+      "merged": true,
+      "message": "Pull Request successfully merged"
+    },
+    {
+      "repository": "mcpdev80/baseharbor-demo",
+      "sha": "85c0db5a6f078c0331e802765d018939caaf07f4",
+      "merged": true,
+      "message": "Pull Request successfully merged"
+    },
+    {
+      "repository": "mcpdev80/baseharbor-node-connector",
+      "sha": "c33ef10fdebd4833193dee66fb0a4894e0d5b058",
+      "merged": true,
+      "message": "Pull Request successfully merged"
+    }
+  ],
+  "consistency_merge": {
+    "sha": "242a01bb398e35ad2dc5a803c9831fd3751b6eb1",
+    "merged": true,
+    "message": "Pull Request successfully merged"
+  }
+}
