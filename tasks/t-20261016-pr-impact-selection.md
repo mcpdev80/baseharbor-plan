@@ -8,14 +8,14 @@ owner: mcpdev80 (session 2)
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#942"]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/active #view/active
+- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/review #view/active
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** high  
     <!-- /generated:card -->
@@ -58,4 +58,4 @@ Correct the existing #892 trusted diff-to-check planner without changing the #89
 
 ## Handoff
 
-- Claimed by session 2 for [BaseHarbor #941](https://github.com/mcpdev80/baseharbor/issues/941) and a separate bounded correction PR. Review evidence and remaining consumer work to follow.
+- 2026-10-16 — **Review handoff (not accepted)**: [BaseHarbor Draft PR #942](https://github.com/mcpdev80/baseharbor/pull/942), exact source `4394edd2dc16805bf5c2663d141f3303c460ab21`. [Actions 38819462167](https://github.com/mcpdev80/baseharbor/actions/runs/38819462167) `Exact PR planner tests` PASS: Python syntax, 11 focused tests (including actual 65-gate catalog, docs requiring validations with zero release gates, code/CI/native scoped mappings, malformed inputs, rename/delete, immutable revisions and unknown fail-closed). Temporary isolated pilot workflow is not part of PR #942 and is not to be merged. Output `coverage_status` / `unresolved_coverage` is defined in [consumer contract](https://github.com/mcpdev80/baseharbor/blob/4394edd2dc16805bf5c2663d141f3303c460ab21/docs/internal/pr-impact-selection-contract.md). **Integration remains open**: core-893 must independently adopt and review the explicit fail-closed coverage and zero-native-gates consumer semantics in its owned workflow/final-check code. No #893 workflow edit, runtime matrix, release evidence alteration, merge or release.\n- Claimed by session 2 for [BaseHarbor #941](https://github.com/mcpdev80/baseharbor/issues/941) and a separate bounded correction PR. Review evidence and remaining consumer work to follow.
