@@ -17,6 +17,12 @@ evidence: []
 ---
 
 - [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/blocked
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (session 1) · **Priority:** not set  
+    **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936)  
+    **Blocker:** Outstanding conservative selected-gate coverage and immutable Console/Connector candidates for genuinely private consumer gates; targeted Docker/Podman Backup/Restore original evidence is qualified and merged core-896 is not a blocker.  
+    **Needs:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
