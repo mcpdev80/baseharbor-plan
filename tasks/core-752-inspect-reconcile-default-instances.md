@@ -16,10 +16,10 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/active
+- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
@@ -60,6 +60,7 @@ A declared canonical `default` instance reconciles with the single detected name
 
 ## Handoff
 
+- 2026-10-15T21:58Z (session 3, this note's claim held under owner `mcpdev80`; claim already `active`, not re-claimed): implementation complete in draft PR baseharbor#935, tested source SHA `4804cb1d53a1caaa44da6f384b0a18c170cae431` (head of `task/752-reconcile-default-instances`; supersedes `8e00e7e4` and `d5bd0d23`). Sole-candidate membership correction confirmed and covered by an exact-evidence-attribution regression for both declaration orders. Local results green: `go test -count=1 ./internal/repositoryinspect/` (all default-instance, duplicate-evidence, direction-boundary, OTLP, QuickInit and sole-unclaimed-candidate tests), `go vet`, `gofmt`, `go test ./cmd/baha -run 'Inspect|Reconcile'`, CLI build. Focused **GitHub-hosted** verification requested from Session 1 (CI ownership) in baseharbor#752 (comment) and PR #935 (comment), because develop currently exposes no dispatchable hosted Go-source lane without the broad legacy runtime-validation job; runner isolation (core-896) is merged through #932. Remaining prerequisites: core-893 selected-check enforcement qualified and core-895 review protection accepted; PR stays draft until then. Not accepted; Maintainer decision pending.
 - Live migration review: PR #935 head `8e00e7e4a2f30c4094094e1f153cb61447f415d3`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
 
 - 2026-10-15 (after snapshot): draft PR #935 (`task/752-reconcile-default-instances`, head `d5bd0d236e` at check time) implements the fix in `internal/repositoryinspect` with focused tests. No claim comment on the issue; owner taken from the assignee. Must not be integrated before the qualified foundation.
