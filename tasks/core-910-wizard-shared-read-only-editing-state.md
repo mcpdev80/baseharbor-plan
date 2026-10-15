@@ -16,7 +16,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/active
+- [ ] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/review
 
 <!-- generated:links -->
 **State:** active  
@@ -53,6 +53,8 @@ New/Edit and the machine adapters consume the same short-lived state from existi
 - Owns the new guided-application context files.
 
 ## Handoff
+
+- 2026-10-15 — **Review handoff, preparatory implementation only.** Draft [baseharbor PR #934](https://github.com/mcpdev80/baseharbor/pull/934), verified immutable source `574488ba3ae9b3c07ac78e057f7abc5168d69e5a`. [GitHub Actions run 38813614933](https://github.com/mcpdev80/baseharbor/actions/runs/38813614933), **job `PR934 · Exact Guided Go`: SUCCESS**. Exact SHA assertion PASS; complete-file `gofmt` PASS; focused `TestGuided` PASS; `internal/application/... ./contracts/...` PASS; `go vet ./cmd/baha` PASS; `go build ./cmd/baha` PASS. Workflow policy PASS. **Separate general `validate` job FAILED**, so **the overall workflow is not green**; its diagnostic formatting output came from the pilot validation branch, not the immutable #934 checkout. The temporary [pilot PR #936](https://github.com/mcpdev80/baseharbor/pull/936) must not be merged. No release/runtime qualification or claim that core-893 selected-check enforcement is accepted. #934 remains Draft, awaiting Maintainer review and the still-unqualified core-893/core-895/core-896 foundation before integration/final acceptance. No further product edits are authorized without concrete review findings.
 
 - Live migration review: PR #934 head `03088e52f0b98b4106f703647ca02dae49f37e0e`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
 
