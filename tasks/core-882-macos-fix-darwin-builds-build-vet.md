@@ -1,5 +1,6 @@
 ---
 id: core-882
+areas: [platform]
 type: bug
 release: v0.4.29
 version: ""
@@ -17,7 +18,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-882 · macOS: fix Darwin builds and verify build/vet #task #release/v0-4-29 #status/planned #view/ready
+- [ ] core-882 · macOS: fix Darwin builds and verify build/vet #task #release/v0-4-29 #status/planned #view/ready #area/platform #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Ready to assign** · prerequisites accepted  

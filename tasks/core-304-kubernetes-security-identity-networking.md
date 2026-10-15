@@ -1,5 +1,6 @@
 ---
 id: core-304
+areas: [kubernetes]
 type: feature
 release: v0.7.x
 version: v0.7.1
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-304 · Kubernetes: implement security, identity and networking #task #release/v0-7-x #status/planned #view/waiting
+- [ ] core-304 · Kubernetes: implement security, identity and networking #task #release/v0-7-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md)  

@@ -1,5 +1,6 @@
 ---
 id: console-2
+areas: [console]
 type: task
 release: v0.4.28
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/queued
+- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/queued #area/console #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Later release** · prerequisites accepted  

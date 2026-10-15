@@ -1,5 +1,6 @@
 ---
 id: core-315
+areas: [kubernetes]
 type: feature
 release: v0.8.x
 version: v0.8.2
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-315 · Kubernetes: verify backup and disaster recovery #task #release/v0-8-x #status/planned #view/waiting
+- [ ] core-315 · Kubernetes: verify backup and disaster recovery #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md)  

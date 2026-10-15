@@ -1,5 +1,6 @@
 ---
 id: core-895
+areas: [workflow]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/active #view/active
+- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/active #view/active #area/workflow #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  

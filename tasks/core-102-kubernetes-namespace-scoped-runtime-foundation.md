@@ -1,5 +1,6 @@
 ---
 id: core-102
+areas: [kubernetes]
 type: feature
 release: v0.7.x
 version: v0.7.0
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-102 · Kubernetes: establish a namespace-scoped runtime foundation #task #release/v0-7-x #status/planned #view/queued
+- [ ] core-102 · Kubernetes: establish a namespace-scoped runtime foundation #task #release/v0-7-x #status/planned #view/queued #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Later release** · prerequisites accepted  

@@ -1,5 +1,6 @@
 ---
 id: core-909
+areas: [maintenance]
 type: maintenance
 release: maintenance
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/planned #view/ready
+- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/planned #view/ready #area/maintenance #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Ready to assign** · prerequisites accepted  

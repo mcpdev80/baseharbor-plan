@@ -1,5 +1,6 @@
 ---
 id: core-317
+areas: [kubernetes]
 type: feature
 release: v0.8.x
 version: v0.8.4
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-317 · Kubernetes: secure updates, migration and recovery #task #release/v0-8-x #status/planned #view/waiting
+- [ ] core-317 · Kubernetes: secure updates, migration and recovery #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md)  
