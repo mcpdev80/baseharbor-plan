@@ -1,5 +1,6 @@
 ---
 id: core-883
+areas: [platform]
 type: feature
 release: v0.4.29
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-883 · macOS: run Quadlet inside Podman Machine #task #release/v0-4-29 #status/planned #view/waiting
+- [ ] core-883 · macOS: run Quadlet inside Podman Machine #task #release/v0-4-29 #status/planned #view/waiting #area/platform #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-820](core-820-linux-host-adapters-regressions.md)  

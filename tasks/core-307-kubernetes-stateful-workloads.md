@@ -1,5 +1,6 @@
 ---
 id: core-307
+areas: [kubernetes]
 type: feature
 release: v0.7.x
 version: v0.7.4
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-307 · Kubernetes: support stateful workloads #task #release/v0-7-x #status/planned #view/waiting
+- [ ] core-307 · Kubernetes: support stateful workloads #task #release/v0-7-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md)  

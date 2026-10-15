@@ -1,5 +1,6 @@
 ---
 id: core-325
+areas: [delivery]
 type: architecture
 release: v0.7.x
 version: v0.7.8
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-325 · Delivery: support delegated deployment and GitOps #task #release/v0-7-x #status/planned #view/waiting
+- [ ] core-325 · Delivery: support delegated deployment and GitOps #task #release/v0-7-x #status/planned #view/waiting #area/delivery #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  

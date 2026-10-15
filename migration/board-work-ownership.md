@@ -16,4 +16,8 @@ Implementation uses an isolated checkout and a small PR. Derived previews and bo
 
 ## Follow-up assignment
 
-Maintainer assigned visible area/kind badges and a derived release-roadmap presentation on 2026-10-16. Owner: Codex (planning presentation session), active. Scope extends this presentation task only: renderer, validator, focused tests, board settings, CSS and concise navigation; no changes to product task ownership, acceptance or release scope.
+Maintainer assigned visible area/kind badges and a derived release-roadmap presentation on 2026-10-16. Owner: Codex (planning presentation session), implementation handed off. Scope extends this presentation task only: renderer, validator, focused tests, board settings, CSS and concise navigation; no changes to product task ownership, acceptance or release scope.
+
+### Follow-up verification
+
+Visible `area`/`kind` badges are derived from optional `areas` and existing `type`; all 69 existing notes received explicit topic metadata only. A generated Roadmap board provides one read-only release/series card with maintained release status, accepted task counts, blockers and scope/task links. No dates, qualification or acceptance are inferred. `plan.py check`: 0 errors, 4 existing prerequisite warnings. 37 unit tests pass, including topic tampering, invalid topics, roadmap edits, acceptance-vs-review and board schema. Rendering is idempotent. Other task fields, status and handoffs are unchanged. Native Obsidian verification remains with the local vault. Follow-up merged in [PR #5](https://github.com/mcpdev80/baseharbor-plan/pull/5) at `9e60e4f73620ae7f58a3593243973558a4a41b7a`. Exact source `36c0a3596ec66a698ddd2b66b4937955e7789423` passed GitHub `Plan · validate` and was independently fetched for 37 passing unit tests and the validator. Implementation handoff complete; actual local Obsidian UI remains to verify.

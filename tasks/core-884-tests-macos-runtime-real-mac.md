@@ -1,5 +1,6 @@
 ---
 id: core-884
+areas: [testing]
 type: acceptance
 release: v0.4.29
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-884 · Tests: verify the macOS runtime on a real Mac #task #release/v0-4-29 #status/planned #view/queued
+- [ ] core-884 · Tests: verify the macOS runtime on a real Mac #task #release/v0-4-29 #status/planned #view/queued #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Later release** · prerequisites accepted  

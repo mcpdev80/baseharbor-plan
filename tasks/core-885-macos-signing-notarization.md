@@ -1,5 +1,6 @@
 ---
 id: core-885
+areas: [platform]
 type: feature
 release: backlog
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-885 · macOS: signing and notarization #task #release/backlog #status/backlog #view/backlog
+- [ ] core-885 · macOS: signing and notarization #task #release/backlog #status/backlog #view/backlog #area/platform #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     <!-- /generated:card -->

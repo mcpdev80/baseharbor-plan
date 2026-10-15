@@ -1,5 +1,6 @@
 ---
 id: core-298
+areas: [contracts]
 type: architecture
 release: v0.5.x
 version: v0.5.2
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-298 · Contracts: define cross-component compatibility #task #release/v0-5-x #status/planned #view/waiting
+- [ ] core-298 · Contracts: define cross-component compatibility #task #release/v0-5-x #status/planned #view/waiting #area/contracts #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-297](core-297-state-versioning-migration-compatibility.md)  

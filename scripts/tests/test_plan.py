@@ -312,6 +312,65 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(code, 0, out)
 
 
+    def test_topic_badges_follow_frontmatter_and_preserve_state(self):
+        f = self.fixture()
+        note = task_note("core-1", "CI: readable").replace("type: task", "type: bug\nareas: [ci, security]")
+        f.add_task("core-1", note)
+        f.finish()
+        self.assertEqual(f.checked()[0], 0)
+        path = f.dir / "tasks/core-1-x.md"
+        self.assertIn("#area/ci #area/security #kind/bug", path.read_text())
+        path.write_text(path.read_text().replace("#area/ci", "#area/wrong"))
+        self.assertEqual(f.run("check")[0], 1)
+        f.run("render")
+        self.assertNotIn("#area/wrong", path.read_text())
+        self.assertIn("#status/planned", path.read_text())
+
+    def test_invalid_or_duplicate_topic_slugs_are_rejected(self):
+        for areas in ("[CI]", "[ci, ci]", "[ci/other]"):
+            f = self.fixture()
+            f.add_task("core-1", task_note("core-1", "CI: bad").replace("type: task", "type: task\nareas: " + areas))
+            f.finish()
+            self.assertCheckFails(f, "areas must contain unique lowercase tag slugs")
+
+    def test_roadmap_counts_acceptance_not_review_and_keeps_release_status(self):
+        f = self.fixture()
+        note = task_note("core-1", "A: review", status="review", extra="tester").replace("prs: []", 'prs: ["mcpdev80/baseharbor#1"]')
+        f.add_task("core-1", note)
+        f.finish()
+        f.run("render")
+        roadmap = f.dir / "roadmap/cards.md"
+        self.assertIn("**Accepted tasks:** 0/1", roadmap.read_text())
+        path = f.dir / "tasks/core-1-x.md"
+        path.write_text(path.read_text().replace("- [ ]", "- [x]").replace("#status/review", "#status/closed")
+                        .replace('resolution: ""', 'resolution: accepted').replace("evidence: []", '[REPLACE]'))
+        path.write_text(path.read_text().replace('[REPLACE]', 'evidence: ["https://example.org/proof"]'))
+        f.run("render")
+        self.assertIn("**Accepted tasks:** 1/1", roadmap.read_text())
+        self.assertIn("**Release:** active", roadmap.read_text())
+        self.assertIn("#roadmap-state/next", roadmap.read_text())
+        self.assertIn("no executable tasks cut yet", roadmap.read_text())
+        self.assertEqual(f.run("check")[0], 0)
+
+    def test_roadmap_ui_edits_are_rejected_not_task_acceptance(self):
+        f = self.fixture().finish()
+        f.run("render")
+        path = f.dir / "roadmap/cards.md"
+        path.write_text(path.read_text().replace("- [ ]", "- [x]", 1))
+        code, out = f.run("check")
+        self.assertEqual(code, 1)
+        self.assertIn("generated file is stale", out)
+        self.assertEqual(len(plan.Vault(f.dir).load().tasks), 0)
+
+    def test_topic_css_hides_routing_not_topic_badges(self):
+        css = (REPO / ".obsidian/snippets/baseharbor-board.css").read_text()
+        self.assertIn('[href^="#area/"]', css)
+        self.assertIn('[href^="#kind/"]', css)
+        cfg = json.loads((REPO / ".obsidian/plugins/card-board/data.json").read_text())
+        roadmap = next(b for b in cfg['data']['boardConfigs'] if b['name'] == 'Roadmap')
+        self.assertEqual(roadmap['filters'], [{'tag': 'tagFilter', 'data': 'roadmap'}])
+        self.assertEqual(plan.validate_cardboard(cfg, {plan.release_tag(x.stem) for x in (REPO / 'releases').glob('*.md')}), [])
+
     def test_generated_card_has_actual_owner_priority_and_pr(self):
         f = self.fixture()
         note = task_note("core-1", "Area: readable", extra="tester (session 2)")

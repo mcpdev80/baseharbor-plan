@@ -1,5 +1,6 @@
 ---
 id: core-914
+areas: [wizard]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned #view/waiting
+- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned #view/waiting #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  

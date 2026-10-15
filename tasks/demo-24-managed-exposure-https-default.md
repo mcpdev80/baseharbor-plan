@@ -1,5 +1,6 @@
 ---
 id: demo-24
+areas: [demo]
 type: task
 release: triage
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] demo-24 · Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI #task #release/triage #status/backlog #view/backlog
+- [ ] demo-24 · Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI #task #release/triage #status/backlog #view/backlog #area/demo #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     <!-- /generated:card -->

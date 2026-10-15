@@ -1,5 +1,6 @@
 ---
 id: core-314
+areas: [kubernetes]
 type: feature
 release: v0.8.x
 version: v0.8.1
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-314 · Kubernetes: add capabilities and provider placement #task #release/v0-8-x #status/planned #view/waiting
+- [ ] core-314 · Kubernetes: add capabilities and provider placement #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md)  
