@@ -1,0 +1,22 @@
+{
+  "source": "mcpdev80/baseharbor#754",
+  "number": 754,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/754",
+  "title": "[v0.4.x] MCP: classify expected preconditions correctly",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/bug",
+    "area/mcp",
+    "area/dx",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [
+    "mcpdev80"
+  ],
+  "created_at": "2026-10-02T14:47:36Z",
+  "updated_at": "2026-10-15T16:51:15Z",
+  "body": "## Current triage — outstanding pre-freeze work\n\nMilestone: **v0.4.x**; final semantic acceptance: #174. Original v0.4.20/v0.4.21/v0.4.24 references below describe the historical report, not proof of completion or a new release assignment.\n\nSome expected-precondition classification is now implemented in [main.go at `1b1ae323`](https://github.com/mcpdev80/baseharbor/blob/1b1ae323284d436f379777a3ab65b37072df14c3/cmd/baha/main.go), including workspace/manifest absence and organization configuration errors. That source inspection alone does not prove every MCP case in this issue. Keep open for bounded CLI/MCP verification of the listed organization, unknown application/deployment and workspace outcomes, cancellation and unexpected-error behavior; record the actual remaining failures rather than assuming the entire original defect is still present.\n\n---\n\n## Bug\n\nExpected machine/MCP preconditions are currently flattened to `internal_error` because `machine.Classify` only preserves already-typed `*machine.Error` values.\n\nConfirmed on v0.4.20 and still present on the active v0.4.21 release branch.\n\nAffected examples include:\n\n- organization configuration not configured\n- unsupported organization source kind\n- application has no registered deployment\n- repository manifest not found for workspace operations\n\nCLI output remains actionable, but MCP/agent automation cannot distinguish expected user/configuration state from an actual internal failure.\n\n## Required behavior\n\nUse stable typed machine codes for expected preconditions.\n\n- missing registered application/deployment -> `not_found`\n- repository manifest/workspace source absent -> `source_missing`\n- organization configuration absent -> `validation_failed`\n- unsupported organization source kind -> `unsupported_operation`\n- actual internal/unclassified failures remain `internal_error`\n\n## Acceptance\n\n- [ ] `baseharbor.organization.inspect` without org config is not `internal_error`.\n- [ ] unsupported organization source kind is not `internal_error`.\n- [ ] `baseharbor.status` / `policy.explain` for unknown app return `not_found`.\n- [ ] `baseharbor.workspace.status` outside an app repo returns `source_missing`.\n- [ ] CLI and MCP use the same underlying typed error semantics.\n- [ ] context timeout/cancellation behavior remains unchanged.\n- [ ] unknown unexpected errors still classify as `internal_error`.\n- [ ] focused machine/MCP tests and go vet pass.\n- [ ] fix lands directly in active v0.4.21.\n\nRelated inspect fixes: #750 #751 #752\nRelease work: #569",
+  "comments": []
+}

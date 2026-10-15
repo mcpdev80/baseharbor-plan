@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#901",
+  "number": 901,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/901",
+  "title": "[v0.4.26] Pilot: verify parallel task PRs and CI costs",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/evidence"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T08:44:24Z",
+  "updated_at": "2026-10-15T16:47:38Z",
+  "body": "Parent/Epic: #888 · Release: #873 · Paket 6\n\n**Ergebnis:** Den neuen Ablauf anhand nötiger regulärer Arbeit qualifizieren und die Vorher-/Nachher-Dokumentation verantworten.\n\n**Abhängigkeiten:** #890, #891, #892, #893, #894, #895, #896, #897, #898, #899, #900.\n\n**Akzeptanz**\n\n- [ ] Zwei unabhängige kleine PRs parallel; ein Fall mit gemeinsamer Schnittstelle/Vorvertrag oder Konfliktlösung ohne Überschreiben.\n- [ ] Auswahl/Fail-Closed/Review/Runner und Candidate-Handoff der Vorgängerpakete zusammen nachvollziehen; unabhängigen Abschlussreview dokumentieren.\n- [ ] Run/Attempt, SHAs, Runner, Scope, neu ausgeführte/wiederverwendete Gates, Wandzeit und Runner-Minuten vor/nach angeben.\n- [ ] Reale Einsparung belegen oder verbleibende Kosten ehrlich dokumentieren; keine Zielwerte erfinden und keine Extra-Vollmatrix zum Benchmarken.\n\n**Prüfung:** Vorhandene grüne Läufe und nötige kleine reguläre Pilot-PRs nutzen; finale Release-Evidence bleibt eigener autorisierter Schritt. Dieses Issue blockiert keine frühe unabhängige Produktarbeit nach qualifizierter PR-/Review-/Runner-Basis.\n\n**Arbeitsweise:** eigener kleiner Branch/PR gegen develop; bei unabhängig reviewbaren Teilergebnissen weiter schneiden. Owner bei Übernahme setzen; aktuelle Regeln/Remote-Stände lesen, fremde Commits erhalten.\n\n**Grenze:** Umsetzung erst ab v0.4.26 nach qualifiziertem v0.4.25-Abschluss/Promotion. Aktive #881-Workflows/Evidence unverändert. Keine Autorisierung für vollständigen Pre-Release, Merge, Tag oder Veröffentlichung. Konservative V1/Freigabegrenzen aus #888 gelten. Parent/Dependencies sind Textverweise; native GitHub-Hierarchie noch zu setzen.\n\n**Ausgewählter Produkt-Pilot: #752 (Default-Instanz-Reconciliation, Ziel v0.4.26/#873).** Vor Implementierung aktuellen Fehler reproduzieren; fokussierte Paket-/Verbraucherprüfung, kein Full-E2E allein wegen dieses Fixes. Falls inzwischen behoben, keinen künstlichen Fix erzeugen: einen anderen unabhängig bestätigten kleinen Fehler nach expliziter Scope-Prüfung auswählen. Zweiter unabhängiger PR und gemeinsamer Schnittstellenfall bleiben separate Pilotanforderungen. Andere Altfehler #750/#751/#754/#766 bekommen hierdurch kein pauschales neues Releaseziel.\n",
+  "comments": []
+}

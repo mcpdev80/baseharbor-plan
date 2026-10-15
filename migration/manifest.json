@@ -1,0 +1,1256 @@
+{
+  "inventory_captured_at": "2026-10-15T20:53:44Z",
+  "repositories": [
+    "mcpdev80/baseharbor",
+    "mcpdev80/baseharbor-demo",
+    "mcpdev80/baseharbor-console",
+    "mcpdev80/baseharbor-node-connector"
+  ],
+  "open_issue_count": 87,
+  "mapped_count": 87,
+  "issues": [
+    {
+      "source": "mcpdev80/baseharbor#100",
+      "title": "[Backlog] Access: operator RBAC and just-in-time access",
+      "source_updated": "2026-10-15T16:54:56Z",
+      "snapshot": "migration/source-snapshot/baseharbor/100.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-100-access-operator-rbac-jit.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#102",
+      "title": "[v0.7.0] Kubernetes: establish a namespace-scoped runtime foundation",
+      "source_updated": "2026-10-15T16:54:50Z",
+      "snapshot": "migration/source-snapshot/baseharbor/102.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-102-kubernetes-namespace-scoped-runtime-foundation.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#155",
+      "title": "[Roadmap] Overview: BaseHarbor releases and development",
+      "source_updated": "2026-10-15T16:54:44Z",
+      "snapshot": "migration/source-snapshot/baseharbor/155.json",
+      "disposition": "roadmap",
+      "destinations": [
+        {
+          "path": "ROADMAP.md",
+          "kind": "roadmap",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#174",
+      "title": "[v0.4.31] Release: final semantic acceptance",
+      "source_updated": "2026-10-15T16:54:37Z",
+      "snapshot": "migration/source-snapshot/baseharbor/174.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.31.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#175",
+      "title": "[v0.5.0] Release: freeze the complete BaseHarbor contract",
+      "source_updated": "2026-10-15T16:54:30Z",
+      "snapshot": "migration/source-snapshot/baseharbor/175.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.5.x.md",
+          "kind": "release",
+          "role": "additional"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#181",
+      "title": "[Backlog] Distribution: air gap and private OCI registries",
+      "source_updated": "2026-10-15T16:54:24Z",
+      "snapshot": "migration/source-snapshot/baseharbor/181.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-181-distribution-air-gap-private-oci.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#209",
+      "title": "[Backlog] Epic: track future capabilities and integrations",
+      "source_updated": "2026-10-15T16:54:17Z",
+      "snapshot": "migration/source-snapshot/baseharbor/209.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/core-209-future-capabilities-integrations.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#297",
+      "title": "[v0.5.1] State: define versioning and migration compatibility",
+      "source_updated": "2026-10-15T16:54:11Z",
+      "snapshot": "migration/source-snapshot/baseharbor/297.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-297-state-versioning-migration-compatibility.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#298",
+      "title": "[v0.5.2] Contracts: define cross-component compatibility",
+      "source_updated": "2026-10-15T16:54:04Z",
+      "snapshot": "migration/source-snapshot/baseharbor/298.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-298-contracts-cross-component-compatibility.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#299",
+      "title": "[v0.5.3] Lifecycle: secure upgrades, recovery and deprecation",
+      "source_updated": "2026-10-15T16:53:58Z",
+      "snapshot": "migration/source-snapshot/baseharbor/299.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-299-lifecycle-upgrades-recovery-deprecation.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#300",
+      "title": "[v0.5.4] Acceptance: verify portability and compatibility",
+      "source_updated": "2026-10-15T16:53:51Z",
+      "snapshot": "migration/source-snapshot/baseharbor/300.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-300-acceptance-portability-compatibility.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#304",
+      "title": "[v0.7.1] Kubernetes: implement security, identity and networking",
+      "source_updated": "2026-10-15T16:53:45Z",
+      "snapshot": "migration/source-snapshot/baseharbor/304.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-304-kubernetes-security-identity-networking.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#305",
+      "title": "[v0.7.2] Kubernetes: provide HTTP access through Gateway API",
+      "source_updated": "2026-10-15T16:53:38Z",
+      "snapshot": "migration/source-snapshot/baseharbor/305.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-305-kubernetes-http-access-gateway-api.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#306",
+      "title": "[v0.7.3] Kubernetes: implement namespaced persistent storage",
+      "source_updated": "2026-10-15T16:53:32Z",
+      "snapshot": "migration/source-snapshot/baseharbor/306.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-306-kubernetes-namespaced-persistent-storage.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#307",
+      "title": "[v0.7.4] Kubernetes: support stateful workloads",
+      "source_updated": "2026-10-15T16:53:26Z",
+      "snapshot": "migration/source-snapshot/baseharbor/307.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-307-kubernetes-stateful-workloads.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#308",
+      "title": "[v0.7.5] Kubernetes: implement availability guarantees",
+      "source_updated": "2026-10-15T16:53:20Z",
+      "snapshot": "migration/source-snapshot/baseharbor/308.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-308-kubernetes-availability-guarantees.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#309",
+      "title": "[v0.7.6] Tests: verify Kubernetes with restricted permissions",
+      "source_updated": "2026-10-15T16:53:14Z",
+      "snapshot": "migration/source-snapshot/baseharbor/309.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-309-tests-kubernetes-restricted-permissions.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#310",
+      "title": "[v0.7.7] Acceptance: verify Compose-to-Kubernetes portability",
+      "source_updated": "2026-10-15T16:53:08Z",
+      "snapshot": "migration/source-snapshot/baseharbor/310.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-310-acceptance-compose-to-kubernetes-portability.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#313",
+      "title": "[v0.8.0] Kubernetes: implement the complete app lifecycle",
+      "source_updated": "2026-10-15T16:53:00Z",
+      "snapshot": "migration/source-snapshot/baseharbor/313.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-313-kubernetes-complete-app-lifecycle.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#314",
+      "title": "[v0.8.1] Kubernetes: add capabilities and provider placement",
+      "source_updated": "2026-10-15T16:52:54Z",
+      "snapshot": "migration/source-snapshot/baseharbor/314.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-314-kubernetes-capabilities-provider-placement.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#315",
+      "title": "[v0.8.2] Kubernetes: verify backup and disaster recovery",
+      "source_updated": "2026-10-15T16:52:48Z",
+      "snapshot": "migration/source-snapshot/baseharbor/315.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-315-kubernetes-backup-disaster-recovery.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#316",
+      "title": "[v0.8.3] Kubernetes: add observability, diagnostics and evidence",
+      "source_updated": "2026-10-15T16:52:42Z",
+      "snapshot": "migration/source-snapshot/baseharbor/316.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-316-kubernetes-observability-diagnostics-evidence.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#317",
+      "title": "[v0.8.4] Kubernetes: secure updates, migration and recovery",
+      "source_updated": "2026-10-15T16:52:35Z",
+      "snapshot": "migration/source-snapshot/baseharbor/317.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-317-kubernetes-updates-migration-recovery.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#318",
+      "title": "[v0.8.5] Kubernetes: establish CLI, agent and developer parity",
+      "source_updated": "2026-10-15T16:52:29Z",
+      "snapshot": "migration/source-snapshot/baseharbor/318.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-318-kubernetes-cli-agent-developer-parity.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#319",
+      "title": "[v0.8.6] Kubernetes: verify production hardening and conformance",
+      "source_updated": "2026-10-15T16:52:24Z",
+      "snapshot": "migration/source-snapshot/baseharbor/319.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-319-kubernetes-production-hardening-conformance.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#320",
+      "title": "[v0.8.7] Acceptance: verify complete Kubernetes support",
+      "source_updated": "2026-10-15T16:52:17Z",
+      "snapshot": "migration/source-snapshot/baseharbor/320.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-320-acceptance-complete-kubernetes-support.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#325",
+      "title": "[v0.7.8] Delivery: support delegated deployment and GitOps",
+      "source_updated": "2026-10-15T16:52:11Z",
+      "snapshot": "migration/source-snapshot/baseharbor/325.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-325-delivery-delegated-deployment-gitops.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#390",
+      "title": "[v0.4.x] Architecture: align service contracts and provider catalog",
+      "source_updated": "2026-10-15T16:52:05Z",
+      "snapshot": "migration/source-snapshot/baseharbor/390.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-390-architecture-service-contracts-provider-catalog.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#427",
+      "title": "[v0.4.x] Roadmap: product readiness before the contract freeze",
+      "source_updated": "2026-10-15T16:51:59Z",
+      "snapshot": "migration/source-snapshot/baseharbor/427.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#428",
+      "title": "[v0.5.x] Roadmap: contract freeze and compatibility",
+      "source_updated": "2026-10-15T16:51:52Z",
+      "snapshot": "migration/source-snapshot/baseharbor/428.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.5.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#430",
+      "title": "[v0.7.x] Roadmap: Kubernetes runtime",
+      "source_updated": "2026-10-15T16:51:46Z",
+      "snapshot": "migration/source-snapshot/baseharbor/430.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.7.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#431",
+      "title": "[v0.8.x] Roadmap: complete Kubernetes support",
+      "source_updated": "2026-10-15T16:51:40Z",
+      "snapshot": "migration/source-snapshot/baseharbor/431.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.8.x.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#750",
+      "title": "[v0.4.x] Inspect: present complete source-neutral findings",
+      "source_updated": "2026-10-15T16:51:33Z",
+      "snapshot": "migration/source-snapshot/baseharbor/750.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-750-inspect-source-neutral-findings.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#751",
+      "title": "[v0.4.x] Inspect: avoid false positives from comments and text",
+      "source_updated": "2026-10-15T16:51:27Z",
+      "snapshot": "migration/source-snapshot/baseharbor/751.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-751-inspect-no-false-positives-comments-text.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#752",
+      "title": "[v0.4.26] Inspect: reconcile default instances unambiguously",
+      "source_updated": "2026-10-15T16:51:21Z",
+      "snapshot": "migration/source-snapshot/baseharbor/752.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-752-inspect-reconcile-default-instances.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#754",
+      "title": "[v0.4.x] MCP: classify expected preconditions correctly",
+      "source_updated": "2026-10-15T16:51:15Z",
+      "snapshot": "migration/source-snapshot/baseharbor/754.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-754-mcp-classify-expected-preconditions.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#766",
+      "title": "[v0.4.x] Cleanup: remove orphaned owned runtime resources",
+      "source_updated": "2026-10-15T16:51:08Z",
+      "snapshot": "migration/source-snapshot/baseharbor/766.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-766-cleanup-orphaned-owned-runtime-resources.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#777",
+      "title": "[v0.4.27] Epic: make developer access and profiles portable",
+      "source_updated": "2026-10-15T16:51:01Z",
+      "snapshot": "migration/source-snapshot/baseharbor/777.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/core-777-developer-access-and-profiles.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#815",
+      "title": "[v0.4.x] Tests: start all greenfield stacks on native runtimes",
+      "source_updated": "2026-10-15T16:50:55Z",
+      "snapshot": "migration/source-snapshot/baseharbor/815.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-815-tests-greenfield-stacks-native-runtimes.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#817",
+      "title": "[v0.4.29] Audit: verify host portability and architecture",
+      "source_updated": "2026-10-15T16:50:49Z",
+      "snapshot": "migration/source-snapshot/baseharbor/817.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-817-audit-host-portability-architecture.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#818",
+      "title": "[v0.4.29] Epic: support host platforms",
+      "source_updated": "2026-10-15T16:50:42Z",
+      "snapshot": "migration/source-snapshot/baseharbor/818.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/core-818-host-platforms.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#819",
+      "title": "[v0.4.29] Architecture: define the host interface and guard",
+      "source_updated": "2026-10-15T16:50:35Z",
+      "snapshot": "migration/source-snapshot/baseharbor/819.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-819-architecture-host-interface-guard.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#820",
+      "title": "[v0.4.29] Linux: integrate host adapters and verify regressions",
+      "source_updated": "2026-10-15T16:50:29Z",
+      "snapshot": "migration/source-snapshot/baseharbor/820.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-820-linux-host-adapters-regressions.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#821",
+      "title": "[v0.4.29] WSL2: implement host behavior and Windows boundaries",
+      "source_updated": "2026-10-15T16:50:23Z",
+      "snapshot": "migration/source-snapshot/baseharbor/821.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-821-wsl2-host-behavior-windows-boundaries.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#822",
+      "title": "[v0.4.29] macOS: implement and qualify Darwin adapters",
+      "source_updated": "2026-10-15T16:50:17Z",
+      "snapshot": "migration/source-snapshot/baseharbor/822.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-822-macos-darwin-adapters.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#823",
+      "title": "[v0.4.29] Tests: verify platform conformance and support",
+      "source_updated": "2026-10-15T16:50:10Z",
+      "snapshot": "migration/source-snapshot/baseharbor/823.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-823-tests-platform-conformance-support.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#862",
+      "title": "[v0.4.x] Quality: staticcheck, govulncheck and risk-focused tests",
+      "source_updated": "2026-10-15T16:50:04Z",
+      "snapshot": "migration/source-snapshot/baseharbor/862.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#873",
+      "title": "[v0.4.26] Release: app wizard and capability editing",
+      "source_updated": "2026-10-15T19:36:55Z",
+      "snapshot": "migration/source-snapshot/baseharbor/873.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.26.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#874",
+      "title": "[v0.4.27] Release: remote development and onboarding",
+      "source_updated": "2026-10-15T16:49:51Z",
+      "snapshot": "migration/source-snapshot/baseharbor/874.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.27.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#875",
+      "title": "[v0.4.28] Release: Console and management workflows",
+      "source_updated": "2026-10-15T16:49:45Z",
+      "snapshot": "migration/source-snapshot/baseharbor/875.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.28.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#876",
+      "title": "[v0.4.29] Release: Linux, WSL2 and macOS",
+      "source_updated": "2026-10-15T16:49:39Z",
+      "snapshot": "migration/source-snapshot/baseharbor/876.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.29.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#882",
+      "title": "[v0.4.29] macOS: fix Darwin builds and verify build/vet",
+      "source_updated": "2026-10-15T16:49:30Z",
+      "snapshot": "migration/source-snapshot/baseharbor/882.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-882-macos-fix-darwin-builds-build-vet.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#883",
+      "title": "[v0.4.29] macOS: run Quadlet inside Podman Machine",
+      "source_updated": "2026-10-15T16:49:24Z",
+      "snapshot": "migration/source-snapshot/baseharbor/883.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-883-macos-quadlet-inside-podman-machine.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#884",
+      "title": "[v0.4.29] Tests: verify the macOS runtime on a real Mac",
+      "source_updated": "2026-10-15T16:49:18Z",
+      "snapshot": "migration/source-snapshot/baseharbor/884.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-884-tests-macos-runtime-real-mac.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#885",
+      "title": "[Backlog] macOS: signing and notarization",
+      "source_updated": "2026-10-15T16:49:12Z",
+      "snapshot": "migration/source-snapshot/baseharbor/885.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-885-macos-signing-notarization.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#886",
+      "title": "[Backlog] macOS: Keychain trust and developer remote access",
+      "source_updated": "2026-10-15T16:49:06Z",
+      "snapshot": "migration/source-snapshot/baseharbor/886.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-886-macos-keychain-trust-dev-remote.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#887",
+      "title": "[Backlog] Review: assess technical project evaluations",
+      "source_updated": "2026-10-15T16:49:00Z",
+      "snapshot": "migration/source-snapshot/baseharbor/887.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-887-review-assess-technical-evaluations.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#888",
+      "title": "[v0.4.26] Epic: streamline development and CI",
+      "source_updated": "2026-10-15T19:36:50Z",
+      "snapshot": "migration/source-snapshot/baseharbor/888.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/core-888-development-and-ci.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#889",
+      "title": "Dependency Dashboard",
+      "source_updated": "2026-10-15T16:21:32Z",
+      "snapshot": "migration/source-snapshot/baseharbor/889.json",
+      "disposition": "external-tooling",
+      "destinations": [
+        {
+          "path": "migration/external-tooling.md",
+          "kind": "external-tooling",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#893",
+      "title": "[v0.4.26] CI: enforce selected PR checks",
+      "source_updated": "2026-10-15T20:35:28Z",
+      "snapshot": "migration/source-snapshot/baseharbor/893.json",
+      "disposition": "split",
+      "destinations": [
+        {
+          "path": "tasks/core-893-ci-enforce-selected-pr-checks.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/core-893-interface-agree-planning-execution-interface.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#894",
+      "title": "[v0.4.26] Actions: use concise names and clear results",
+      "source_updated": "2026-10-15T16:48:23Z",
+      "snapshot": "migration/source-snapshot/baseharbor/894.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-894-actions-concise-names-clear-results.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#895",
+      "title": "[v0.4.26] Reviews: require maintainer approval for develop",
+      "source_updated": "2026-10-15T19:46:16Z",
+      "snapshot": "migration/source-snapshot/baseharbor/895.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-895-reviews-require-maintainer-approval.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#896",
+      "title": "[v0.4.26] Runners: isolate parallel PR checks safely",
+      "source_updated": "2026-10-15T20:35:26Z",
+      "snapshot": "migration/source-snapshot/baseharbor/896.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-896-runners-isolate-parallel-pr-checks.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#900",
+      "title": "[v0.4.26] GC: preserve active PRs, candidates and evidence origins",
+      "source_updated": "2026-10-15T19:49:39Z",
+      "snapshot": "migration/source-snapshot/baseharbor/900.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-900-gc-preserve-active-prs-candidates-evidence.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#901",
+      "title": "[v0.4.26] Pilot: verify parallel task PRs and CI costs",
+      "source_updated": "2026-10-15T16:47:38Z",
+      "snapshot": "migration/source-snapshot/baseharbor/901.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#902",
+      "title": "[v0.4.30] Epic: prefer native TLS and justify proxies",
+      "source_updated": "2026-10-15T16:47:32Z",
+      "snapshot": "migration/source-snapshot/baseharbor/902.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/core-902-native-tls-justified-proxies.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#903",
+      "title": "[v0.4.30] Epic: establish attack protection and DDoS boundaries",
+      "source_updated": "2026-10-15T16:47:26Z",
+      "snapshot": "migration/source-snapshot/baseharbor/903.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/core-903-attack-protection-ddos-boundaries.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#904",
+      "title": "[v0.4.30] Release: simplify TLS and strengthen attack protection",
+      "source_updated": "2026-10-15T16:47:19Z",
+      "snapshot": "migration/source-snapshot/baseharbor/904.json",
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.30.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#909",
+      "title": "[Maintenance] Branches: safely remove superseded branches",
+      "source_updated": "2026-10-15T16:47:13Z",
+      "snapshot": "migration/source-snapshot/baseharbor/909.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-909-maintenance-remove-superseded-branches.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#910",
+      "title": "[v0.4.26] Wizard: provide shared read-only editing state",
+      "source_updated": "2026-10-15T20:29:55Z",
+      "snapshot": "migration/source-snapshot/baseharbor/910.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-910-wizard-shared-read-only-editing-state.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#911",
+      "title": "[v0.4.26] App edit: load existing selections completely",
+      "source_updated": "2026-10-15T16:46:59Z",
+      "snapshot": "migration/source-snapshot/baseharbor/911.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-911-app-edit-load-existing-selections.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#912",
+      "title": "[v0.4.26] Wizard: present a compact needs-first selection",
+      "source_updated": "2026-10-15T16:46:52Z",
+      "snapshot": "migration/source-snapshot/baseharbor/912.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-912-wizard-needs-first-selection.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#913",
+      "title": "[v0.4.26] Wizard: offer compatible providers in the same view",
+      "source_updated": "2026-10-15T16:46:46Z",
+      "snapshot": "migration/source-snapshot/baseharbor/913.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-913-wizard-compatible-providers-same-view.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#914",
+      "title": "[v0.4.26] Preview: present the actual footprint concisely",
+      "source_updated": "2026-10-15T16:46:40Z",
+      "snapshot": "migration/source-snapshot/baseharbor/914.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-914-preview-actual-footprint.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#915",
+      "title": "[v0.4.26] Preview: explain provider consequences and partial results",
+      "source_updated": "2026-10-15T16:46:34Z",
+      "snapshot": "migration/source-snapshot/baseharbor/915.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-915-preview-provider-consequences-partial-results.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#916",
+      "title": "[v0.4.26] Wizard: handle back, cancel and EOF without side effects",
+      "source_updated": "2026-10-15T16:46:28Z",
+      "snapshot": "migration/source-snapshot/baseharbor/916.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-916-wizard-back-cancel-eof-no-side-effects.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#917",
+      "title": "[v0.4.26] App new: connect the compact wizard to the existing lifecycle",
+      "source_updated": "2026-10-15T16:46:23Z",
+      "snapshot": "migration/source-snapshot/baseharbor/917.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-917-app-new-connect-wizard-lifecycle.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#918",
+      "title": "[v0.4.26] App edit: apply confirmed changes safely",
+      "source_updated": "2026-10-15T16:46:17Z",
+      "snapshot": "migration/source-snapshot/baseharbor/918.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-918-app-edit-apply-confirmed-changes.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#919",
+      "title": "[v0.4.26] Footprint: serve CLI and JSON from one projection",
+      "source_updated": "2026-10-15T16:46:11Z",
+      "snapshot": "migration/source-snapshot/baseharbor/919.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-919-footprint-cli-json-one-projection.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#920",
+      "title": "[v0.4.26] Machine adapters: reuse capability changes and footprint",
+      "source_updated": "2026-10-15T16:46:05Z",
+      "snapshot": "migration/source-snapshot/baseharbor/920.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-920-machine-adapters-capability-changes-footprint.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#921",
+      "title": "[v0.4.26] CLI and MCP: register new interfaces consistently",
+      "source_updated": "2026-10-15T16:45:53Z",
+      "snapshot": "migration/source-snapshot/baseharbor/921.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-921-cli-mcp-register-new-interfaces.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#922",
+      "title": "[v0.4.26] Docs: explain New/Edit and provider selection concisely",
+      "source_updated": "2026-10-15T16:45:47Z",
+      "snapshot": "migration/source-snapshot/baseharbor/922.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-922-docs-new-edit-provider-selection.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#923",
+      "title": "[v0.4.26] Acceptance: verify New/Edit journeys and ecosystem consumers",
+      "source_updated": "2026-10-15T16:45:40Z",
+      "snapshot": "migration/source-snapshot/baseharbor/923.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/core-923-acceptance-new-edit-journeys-consumers.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#24",
+      "title": "demo app: BaseHarbor-managed exposure must be HTTPS by default using managed PKI certificates",
+      "source_updated": "2026-09-22T23:35:17Z",
+      "snapshot": "migration/source-snapshot/baseharbor-demo/24.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/demo-24-managed-exposure-https-default.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#1",
+      "title": "BaseHarbor Console: product architecture and implementation plan",
+      "source_updated": "2026-10-06T13:50:00Z",
+      "snapshot": "migration/source-snapshot/baseharbor-console/1.json",
+      "disposition": "epic",
+      "destinations": [
+        {
+          "path": "epics/console-1-console-product-plan.md",
+          "kind": "epic",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#2",
+      "title": "v0.4.23 integration: replace Console fixtures with protected Core adapter and live workflow/stream proofs",
+      "source_updated": "2026-10-08T13:49:16Z",
+      "snapshot": "migration/source-snapshot/baseharbor-console/2.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/console-2-live-core-adapter-workflow-proofs.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor-node-connector#3",
+      "title": "v0.4.23 integration: Core-compatible enrollment/session fixtures and real remote Docker/Podman acceptance",
+      "source_updated": "2026-10-08T13:52:57Z",
+      "snapshot": "migration/source-snapshot/baseharbor-node-connector/3.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/nc-3-core-enrollment-remote-runtime-acceptance.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    }
+  ],
+  "open_pull_requests": [
+    "mcpdev80/baseharbor#616",
+    "mcpdev80/baseharbor#930",
+    "mcpdev80/baseharbor#932",
+    "mcpdev80/baseharbor#933",
+    "mcpdev80/baseharbor#934",
+    "mcpdev80/baseharbor#935",
+    "mcpdev80/baseharbor#936",
+    "mcpdev80/baseharbor-console#3",
+    "mcpdev80/baseharbor-demo#61",
+    "mcpdev80/baseharbor-demo#62",
+    "mcpdev80/baseharbor-demo#86",
+    "mcpdev80/baseharbor-demo#104",
+    "mcpdev80/baseharbor-demo#106",
+    "mcpdev80/baseharbor-node-connector#4",
+    "mcpdev80/baseharbor#937",
+    "mcpdev80/baseharbor-console#5",
+    "mcpdev80/baseharbor-demo#114",
+    "mcpdev80/baseharbor-node-connector#6"
+  ]
+}

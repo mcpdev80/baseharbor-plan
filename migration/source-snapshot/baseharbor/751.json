@@ -1,0 +1,21 @@
+{
+  "source": "mcpdev80/baseharbor#751",
+  "number": 751,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/751",
+  "title": "[v0.4.x] Inspect: avoid false positives from comments and text",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/bug",
+    "area/dx",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [
+    "mcpdev80"
+  ],
+  "created_at": "2026-10-02T14:18:34Z",
+  "updated_at": "2026-10-15T16:51:27Z",
+  "body": "## Aufräumprüfung 15.10.2026\n\nAm aktuellen develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231` ist die relevante Entscheidungslogik weiterhin vorhanden; kein Abschluss allein wegen des Alters oder alter Fix-Branches.\n\nVorhandene Vorarbeit vor Neuimplementierung prüfen:\n- `fix/751-capability-import-noise-v0421` — `aabd82ff6cb7f6a55f33001638e51e53dfc7f2a8`\n\nDiese Branches sind gegenüber develop divergiert; weder komplette Integration noch sichere Löschbarkeit ist durch Ancestry belegt. Kein pauschaler Merge/Rebase. Gezielt brauchbare Änderungen mit dem aktuellen Vertrag vergleichen. Keine neuen Tests in dieser Hygiene-Prüfung gestartet.\n\n---\n\n## Current triage — outstanding pre-freeze work\n\nMilestone: **v0.4.x**; final semantic acceptance: #174. Original v0.4.20/v0.4.21/v0.4.24 references below describe the historical report, not proof of completion or a new release assignment.\n\nThe original risk remains visible in [capability_detection_runtime.go at `1b1ae323`](https://github.com/mcpdev80/baseharbor/blob/1b1ae323284d436f379777a3ab65b37072df14c3/internal/repositoryinspect/capability_detection_runtime.go): source import evidence still uses `isSourceFile(base) && containsAny(lower, signals.imports)`. Keep open until real import syntax is distinguished from prompts/comments/string literals with the listed negative and positive regressions.\n\n---\n\n## Bug\n\n`baha app inspect` reports `database.document` as `suggested` for `baseharbor-demo` although the application does not use a document database.\n\nConfirmed against v0.4.20 and still present on the active v0.4.21 release branch.\n\n### Reproducer\n\n`baseharbor-demo` commit `5e17de4dbf0050e7ab34398ac6e11fd8533f0365` contains:\n\n```python\nRule(r\"MongoDB-compatible document database instances ...\", ...)\n```\n\nin `tests/guided/drive.py`.\n\nThe current source/import detector scans every source file with raw substring matching:\n\n```go\nif isSourceFile(base) && containsAny(lower, signals.imports)\n```\n\nso the string literal containing `MongoDB-compatible` becomes false `EvidenceImport`.\n\n## Required behavior\n\nCapability import evidence must come from actual import/require/reference syntax, not arbitrary prose, comments, prompts, regexes or string literals.\n\nTest/E2E harness source must not imply production application capabilities merely because it contains provider/client names.\n\n## Acceptance\n\n- [ ] `MongoDB-compatible` prompt text does not suggest `database.document`.\n- [ ] Real Python `import pymongo` / `from pymongo ...` is detected.\n- [ ] Real Go imports such as mongo-driver/pgx remain detected.\n- [ ] Real JS/TS import/require references remain detected.\n- [ ] Comments and unrelated strings do not create import evidence.\n- [ ] Existing dependency metadata detection remains unchanged.\n- [ ] Source scanning remains bounded/read-only.\n- [ ] Focused repositoryinspect tests + go vet pass.\n- [ ] Fix is integrated into the active v0.4.21 release line.\n\nRelated source-neutral inspect fix: #750\nRelease work: #569\nSemantic acceptance: #174",
+  "comments": []
+}

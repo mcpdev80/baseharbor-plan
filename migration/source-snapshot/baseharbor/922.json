@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#922",
+  "number": 922,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/922",
+  "title": "[v0.4.26] Docs: explain New/Edit and provider selection concisely",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:43:21Z",
+  "updated_at": "2026-10-15T16:45:47Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: EN/DE Anleitung\n\n**Ergebnis:** Entwickler finden eine kurze zutreffende New-/Edit-Anleitung ohne Infrastrukturprodukt-Vorwissen.\n\n**Abhängigkeiten:** #921; für finale Candidate-/Evidence-Qualifikation zusätzlich #897–#900, für den gemeinsamen Pilot #901 abstimmen.\n\n**Dateigrenze:** EN/DE öffentliche Guides, Navigation, Beispiele, Changelog und v0.4.26-Release Notes. Generierte CLI-/MCP-Referenzen bleiben beim Registrierungstask; Prozessdoku gehört #890.\n\n**Akzeptanz**\n\n- [ ] Needs-first, optionaler Provider, Preview, No/Cancel, zero capabilities, Footprint und Auswirkungen an echten unterstützten Beispielen erklären.\n- [ ] Nur wesentliche gelieferte Entwickleränderungen; Console-/Connector-Verbrauch nach tatsächlicher Reichweite beschreiben, keine v0.4.28-/Plattformfunktion vorwegnehmen.\n- [ ] EN/DE gleich; Pages-Kandidatenbuild/Navigation prüfen; README nicht mit Prozessregeln erweitern und öffentliche Pages nicht vor Promotion deployen.\n\n**Prüfung:** Bestehende gezielte Doku-/Link-/EN-DE-/Kandidatenbuild-Prüfungen; keine Runtime-Matrix nur für Text.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop, Owner bei Übernahme setzen. Vorab vorhandene stabile Schnittstellen lesen, finale Abnahme auf tatsächlichem Integrations-/Candidate-SHA. Gemeinsame generierte Referenzen nicht parallel neu generieren; Fehler als eigene kleine Fix-PRs behandeln.\n\n**Quelle/Scope:** Zuschnitt an develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`, aktuelle Stände vor Umsetzung neu lesen. Alle #873-Anforderungen erhalten; nichts als bestanden deklarieren, das fehlt, fehlschlägt oder unqualifiziert ist. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen separat setzen; hier Textverweise.",
+  "comments": []
+}

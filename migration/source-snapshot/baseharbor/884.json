@@ -1,0 +1,20 @@
+{
+  "source": "mcpdev80/baseharbor#884",
+  "number": 884,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/884",
+  "title": "[v0.4.29] Tests: verify the macOS runtime on a real Mac",
+  "state": "open",
+  "author": "patplu",
+  "labels": [
+    "kind/acceptance",
+    "area/runtime",
+    "area/evidence",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-14T21:59:16Z",
+  "updated_at": "2026-10-15T16:49:18Z",
+  "body": "Parent: #818 · Release: v0.4.29 #876 · Consumed by: #822, #823\n\n## Why\n\nGitHub-hosted Apple Silicon macOS runners do not support the nested virtualization needed by these Docker Desktop/Podman Machine journeys. Intel runner availability and capabilities must be checked separately; an Intel/native-build result is not Apple Silicon runtime evidence. In this release plan the hosted Darwin lane is scoped to native build/unit/host conformance, while the dedicated self-hosted Apple Silicon lane proves actual container journeys. #876/#823 require real execution before a macOS combination is TESTED or SUPPORTED.\n\n## Decision (2026-10-14)\n\nReal macOS runtime evidence comes from a **dedicated self-hosted Apple Silicon Mac** registered as a GitHub Actions runner for this repository. Manual developer-machine receipts are not the release gate.\n\n## Required work\n\n1. **Machine:** dedicated Apple Silicon Mac, current macOS, with Docker Desktop and Podman (`podman machine`) installed. The runner gets its own macOS user account; no personal data or credentials on it.\n2. **Registration and labels:** repository-scoped runner with labels such as `self-hosted, macOS, ARM64, baha-macos-runtime`. Jobs select it only through these labels.\n3. **Hardening:**\n   - Never run untrusted code. Restrict to `workflow_dispatch`/protected-branch triggers, never `pull_request` from forks, and gate with a protected GitHub environment.\n   - Use an ephemeral or cleaned workspace per job. Clean up owned containers, volumes, networks, Podman Machine state and BaseHarbor state after every job, and keep the cleanup evidence.\n   - Do not store secrets on the host beyond the runner registration.\n4. **Runtime state control:** jobs set and record the VM allocation (Docker Desktop resources, `podman machine` CPUs/memory) so that capacity tests are reproducible. Both engines are started/stopped by the job so that stopped-VM negative tests are possible.\n5. **Licensing:** confirm the Docker Desktop subscription terms for this CI use and record the decision in the issue.\n6. **Inventory:** each run records macOS version, architecture, Docker Desktop version, Podman version and machine image, matching the existing exact-SHA evidence receipts.\n7. Wire the lanes into the existing workflow surface (#823) and update `scripts/ci-workflow-policy.sh` only if a new workflow file is unavoidable.\n\n## Acceptance\n\n- [ ] Runner registered, labelled and restricted to trusted triggers.\n- [ ] A smoke job proves Docker Desktop and Podman Machine start, report their VM capacity and clean up.\n- [ ] Licensing decision recorded.\n- [ ] Per-run environment inventory captured in evidence receipts.\n",
+  "comments": []
+}

@@ -1,0 +1,18 @@
+{
+  "source": "mcpdev80/baseharbor#428",
+  "number": 428,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/428",
+  "title": "[v0.5.x] Roadmap: contract freeze and compatibility",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/compatibility"
+  ],
+  "milestone": "v0.5.x",
+  "assignees": [],
+  "created_at": "2026-09-25T11:08:49Z",
+  "updated_at": "2026-10-15T16:51:52Z",
+  "body": "## Purpose\n\nParent issue for the BaseHarbor v0.5.x freeze and compatibility line.\n\nChildren:\n- v0.5.0 contract freeze;\n- state versioning/migration;\n- cross-component compatibility;\n- upgrade/recovery/deprecation;\n- portability/compatibility acceptance.\n\nMaster roadmap: #155",
+  "comments": []
+}

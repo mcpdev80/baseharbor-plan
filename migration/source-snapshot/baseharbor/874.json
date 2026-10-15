@@ -1,0 +1,19 @@
+{
+  "source": "mcpdev80/baseharbor#874",
+  "number": 874,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/874",
+  "title": "[v0.4.27] Release: remote development and onboarding",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/security",
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-10T11:20:31Z",
+  "updated_at": "2026-10-15T16:49:51Z",
+  "body": "## Goal\nFinish the end-to-end remote Node, Core/Target, authentication and developer profile experience without overloading the Console release.\n\n## Session 1 — Remote infrastructure\n- Node Connector enrollment (`baha node add/connect`), token -> mTLS, rotation, reconnect, offboarding and deterministic Core/Target ownership across multiple nodes.\n- Core and remote Target selection, access, lifecycle and failure recovery; preserve existing #767/#768/#769/#846 work, fill only verified gaps.\n- Own connector/Core/remote transport and shared authority domain; no Console UX files.\n\n## Session 2 — Developer onboarding and access (#777)\n- Local development without login; remote one-time connection bundle import/enrollment followed by normal work; shared/Test/Prod external/managed OIDC only when required.\n- Import/export using schema set in v0.4.25, secure optional credential portability, native auth reuse, multi-device, device/user/access removal, actionable wizards.\n- Coordinate CLI registration through owned integration seam; no duplicate Core/Target state authority; no Console feature-completeness promise.\n- Own developer access/profile and enrollment human/machine adapters, not connector internals.\n\n## Acceptance\n- [ ] Two real end-to-end Dev Local/Remote journeys, multiple Targets, mTLS rotation/offboarding and no-login local.\n- [ ] Profile export/import and ownership protection verified.\n- [ ] CLI/JSON/MCP state and authority parity, negative and lost-connection tests; EN/DE.\n- [ ] Two isolated PRs and exact-SHA integration/targeted runtime evidence.\n\nRelated: #777, #769, #846, #174. Depends on v0.4.26; Console usage follows in v0.4.28.\n\n## Verbindlicher PR-Workflow: ein gemeinsamer Release-PR, zwei Sessions (2026-10-10)\n\n- **Genau ein gemeinsamer Entwicklungs-/Integrations-PR pro Release** gegen `release/v0.4.xx`; keine zwei parallelen Session-PRs.\n- Beide Sessions arbeiten **direkt in diesem einen PR** auf demselben Feature-/Integrationsbranch und pushen ihre abgegrenzten Commits dorthin. Keine getrennten Session-PRs als Standard.\n- Vor jeder Änderung aktuellen Branch-HEAD prüfen, eigene Dateigrenzen einhalten, bei gemeinsamen Dateien abstimmen; niemals fremde Commits überschreiben oder Force-Push. Häufig synchronisieren und gezielte Tests nach Änderungen ausführen.\n- Die Sessions können parallel arbeiten, jedoch geteilte Schnittstellen zuerst abstimmen. Gemeinsamer PR zeigt jederzeit den tatsächlich integrierten Stand.\n- Ein gemeinsamer finaler SHA, gezielte Gates vor teuren Runtime-Gates, anschließend Pre-Release und Release nach gesonderter Freigabe.\n- **Diese Regel ersetzt jede ältere Angabe zu „zwei PRs“, „separaten Arbeitsbranches/PRs“ oder Session-3-Integrationsbranches in dieser Issue-Planung.**",
+  "comments": []
+}

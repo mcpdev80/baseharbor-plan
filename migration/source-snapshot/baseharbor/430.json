@@ -1,0 +1,18 @@
+{
+  "source": "mcpdev80/baseharbor#430",
+  "number": 430,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/430",
+  "title": "[v0.7.x] Roadmap: Kubernetes runtime",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/runtime"
+  ],
+  "milestone": "v0.7.x",
+  "assignees": [],
+  "created_at": "2026-09-25T11:08:52Z",
+  "updated_at": "2026-10-15T16:51:46Z",
+  "body": "## Purpose\n\nParent issue for the BaseHarbor v0.7.x Kubernetes Runtime implementation line.\n\nNamespace-only operation remains the primary authorization profile.\n\nChildren cover security/networking, exposure, storage, stateful workloads, availability, conformance, portability proof and delegated delivery/GitOps.\n\nMaster roadmap: #155\n\n## Foundation and release children\n\n- [ ] #102 — v0.7.0 Kubernetes Runtime foundation and namespace-only access model (implementation/evidence remains outstanding; historical runtime-selection seams are not runtime support).\n- [ ] #304–#310 — namespaced security, exposure, storage, stateful workloads, availability, conformance and portability.\n- [ ] #325 — delegated delivery / GitOps provider architecture.\n\nHistorical v0.4 foundations stay delivered; these open issues own the later Kubernetes implementation. #155 is the authoritative roadmap.\n",
+  "comments": []
+}

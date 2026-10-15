@@ -1,0 +1,30 @@
+{
+  "source": "mcpdev80/baseharbor#766",
+  "number": 766,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/766",
+  "title": "[v0.4.x] Cleanup: remove orphaned owned runtime resources",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/bug",
+    "area/runtime",
+    "area/security",
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [
+    "mcpdev80"
+  ],
+  "created_at": "2026-10-02T16:39:42Z",
+  "updated_at": "2026-10-15T16:51:08Z",
+  "body": "## Current triage — outstanding pre-freeze work\n\nMilestone: **v0.4.x**; final semantic acceptance: #174. Original v0.4.20/v0.4.21/v0.4.24 references below describe the historical report, not proof of completion or a new release assignment.\n\nKeep open for the remaining native orphan inventory/classification and cleanup evidence, including the concrete residue reported in the existing comment. Related current lifecycle work belongs to #872 / #881. Removal requires verified installation/target/resource ownership; a BaseHarbor-looking name or an unknown discovered target alone must never grant destruction authority. Verify retained workload data versus unwanted networks, foreign-resource preservation and deduplicated preservation output on Docker and Podman. Scoped or historical cleanup receipts do not automatically close all these acceptance criteria.\n\n---\n\n## Bug\n\n`baha destroy --all --yes` can report `Registered deployments: 0` while BaseHarbor-owned runtime projects still exist.\n\nThe current full-destroy flow removes resources reachable from deployment/provider/state metadata, then only audits residual containers. If deployment state was already lost, incomplete or removed, orphaned projects such as `bh-local-<app>-<env>`, `bh-local-dev-gateway-dev` or stale shared modules are detected but never destroyed.\n\nExample residuals include runtime broker/workload, dev gateway, OpenBao/PostgreSQL/Prometheus/SeaweedFS and shared Valkey modules.\n\n## Root cause\n\n`destroyTargetBestEffort` performs provider/state-specific cleanup and then:\n\n1. `ListRuntimeContainers`\n2. `targetOwnedRuntimeContainers`\n3. fail `runtime-audit` when residual BaseHarbor containers exist\n\nThere is no fallback cleanup step between detection and audit.\n\n## Required behavior\n\nFor full installation destroy only:\n\n- after normal semantic/state cleanup, discover residual projects from runtime containers;\n- restrict candidates to the target-owned BaseHarbor namespace (`bh-<target>-*`);\n- for each residual project use the provider-neutral ownership API:\n  - `ListOwnedProjectResources(project)`\n  - `DestroyOwnedProjectResources(project, resources)`\n  - verify `ListOwnedProjectResources(project)` is empty;\n- then perform the final runtime audit;\n- preserve state only if owned resources still cannot be removed/verified.\n\nThis fallback must not target non-BaseHarbor projects and must not rely on missing Compose/Quadlet files.\n\n## Acceptance\n\n- [ ] `destroy --all --yes` removes orphaned app/runtime-broker projects even with zero registered deployments.\n- [ ] orphaned shared/provider/dev-gateway projects are removed when ownership labels identify them as BaseHarbor-owned.\n- [ ] foreign projects are untouched.\n- [ ] provider-neutral for Docker and Podman through RuntimeProvider ownership APIs.\n- [ ] residual resources are verified after deletion.\n- [ ] XDG state is removed only after the runtime audit is clean.\n- [ ] focused tests + go vet pass.\n- [ ] lands directly in active v0.4.21.",
+  "comments": [
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-10-08T12:04:33Z",
+      "updated_at": "2026-10-08T12:04:33Z",
+      "url": "https://github.com/mcpdev80/baseharbor/issues/766#issuecomment-6059451047",
+      "body": "Additional v0.4.23 Docker-rootless evidence: `baha up --yes --plain` → `baha app destroy --yes` → outside repository `baha destroy --all --yes` leaves `bh-local-baseharbor-demo-dev_demo-app-state` (preserved app data) and network `bh-local-baseharbor-demo-observability` with no named residue in destroy output. Recovery file `PRESERVED` reported twice. Required v0.4.24: inventory managed orphan resource names after registry deletion, distinguish intentionally preserved workload data from unwanted orphan networks, don't remove foreign resources, report all residuals explicitly and deduplicate preservation messages. Regression: full destroy after app destroy, Docker/Podman."
+    }
+  ]
+}

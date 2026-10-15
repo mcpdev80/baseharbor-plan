@@ -1,0 +1,20 @@
+{
+  "source": "mcpdev80/baseharbor#886",
+  "number": 886,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/886",
+  "title": "[Backlog] macOS: Keychain trust and developer remote access",
+  "state": "open",
+  "author": "patplu",
+  "labels": [
+    "kind/feature",
+    "area/security",
+    "area/compatibility",
+    "status/backlog"
+  ],
+  "milestone": null,
+  "assignees": [],
+  "created_at": "2026-10-14T21:59:34Z",
+  "updated_at": "2026-10-15T16:49:06Z",
+  "body": "Parent: #818 · **Follow-up, not part of v0.4.29 #876** · Deferred from: #822\n\n## Context\n\nOn 2026-10-14 the v0.4.29 macOS target was set to the **full Dev Local journey** (Docker Desktop and Podman Machine). The following parts of #822's \"v0.4.25 mandatory macOS delivery acceptance\" were explicitly **deferred to this issue**, so that #822 does not shrink silently:\n\n- Dev Remote enrollment/import, scoped Core mTLS, reconnection/rotation and credential-safe offboarding on macOS.\n- Automatic host trust installation into the macOS Keychain.\n- The independent macOS user walkthrough for Dev Remote.\n\nIn v0.4.29 macOS host trust stays **manual and honest**: `baha trust export` plus a documented `security add-trusted-cert` next action. BaseHarbor reports the trust status read-only and never claims trust it did not verify.\n\n## Scope\n\n### Keychain trust backend (behind the existing `hosttrust` semantics)\n\n- User (login) keychain vs System keychain: the user keychain is the default and needs no admin rights; System only with explicit consent.\n- `security add-trusted-cert` may raise a GUI authorization prompt. Define the behavior for interactive CLI vs JSON/MCP/non-interactive callers: typed `requires_user_interaction` instead of hanging.\n- Ownership: install and remove by SHA-256 fingerprint (`security delete-certificate -Z`), keeping the existing fingerprint-ownership rule that never removes a foreign or changed anchor.\n- Firefox uses its own NSS store: report this explicitly and do not claim browser-wide trust.\n- Tests on hosted macOS runners only where they are reversible; real verification on the self-hosted runner.\n\n### Dev Remote on macOS\n\n- Enrollment/import, mTLS, rotation, revocation and offboarding using the existing Core/Node authority. Credential material in protected owner storage; Keychain storage only if the existing protected-owner semantics are preserved.\n\n## Acceptance\n\n- [ ] Keychain trust install/verify/remove with fingerprint ownership; non-interactive behavior typed.\n- [ ] Real Dev Remote macOS journey on an exact SHA (self-hosted runner).\n- [ ] Support matrix updated only from evidence.\n",
+  "comments": []
+}

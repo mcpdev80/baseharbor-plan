@@ -1,0 +1,32 @@
+{
+  "source": "mcpdev80/baseharbor#910",
+  "number": 910,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/910",
+  "title": "[v0.4.26] Wizard: provide shared read-only editing state",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:41:14Z",
+  "updated_at": "2026-10-15T20:29:55Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Grundlage\n\n**Ergebnis:** New/Edit und Maschinenadapter konsumieren denselben kurzlebigen Zustand aus bestehenden Authorities.\n\n**Abhängigkeiten:** gemeinsame v0.4.26-PR-/Review-/Runner-Basis aus #890–#893, #895/#896; keine andere Produktaufgabe.\n\n**Dateigrenze:** Bestehende Development-/Application-Lesepfade; schmale neue guided_application-Kontextdateien und fokussierte Tests. Keine TUI-/Command-Registry-Dateien.\n\n**Akzeptanz**\n\n- [ ] Vorhandene Manifest-/Target-/Binding-/Footprint-/Consequence-Typen verwenden; kein zweiter Resolver, keine Registry und keine persistierte Wizard-Datei.\n- [ ] Ein-/Ausgaben und kompilierende read-only Adapter mit Fixtures für Folge-Tasks bereitstellen; existierende Wahrheit nicht durch Dummy-/Stub-Ergebnisse ersetzen.\n- [ ] Portable Capability-Absicht, systemeigene ID und Target-spezifische Provider-Präferenz bleiben getrennt; Snapshot-/Plan-Revision prüfbar weiterreichen.\n\n**Prüfung:** Paket-/Contracttests: read-only, falscher Target, unbekannte Inputs, keine Secrets in Ausgabe. Kein Container.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop, Owner bei Übernahme setzen. Nach integrierten Dependencies gegen deren tatsächliche Schnittstellen entwickeln. Gemeinsame fremde Dateien nicht nebenbei ändern; nötige Schnittstellendeltas zuerst als kleiner abgestimmter PR. Vor Push/Basisänderung gezielt integrieren und betroffene Prüfungen neu planen. Kein dauerhafter Dateilock.\n\n**Quelle/Scope:** Zuschnitt gegen develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; vor Umsetzung aktuelle Regeln/SHAs und vorhandene Implementierung erneut lesen. #873-Anforderungen vollständig erhalten, #872-Resolver/Lifecycle wiederverwenden, keine neue Domain-/State-Autorität. EN/DE relevante Fachbegriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen sind noch separat zu setzen; diese Angaben sind Textverweise.",
+  "comments": [
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-10-15T17:05:37Z",
+      "updated_at": "2026-10-15T17:05:37Z",
+      "url": "https://github.com/mcpdev80/baseharbor/issues/910#issuecomment-6197753033",
+      "body": "Session ownership: I am taking #910 for read-only preparation only. I will inspect the existing authorities and produce a concrete implementation proposal; I will not implement or open a task PR until the required PR/review/runner prerequisites are integrated and qualified and Marcel gives a new explicit assignment."
+    },
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-10-15T20:29:55Z",
+      "updated_at": "2026-10-15T20:29:55Z",
+      "url": "https://github.com/mcpdev80/baseharbor/issues/910#issuecomment-6201641730",
+      "body": "Session 2 resumes ownership of #910 for preparatory implementation only, superseding the previous read-only preparation restriction. The work will stay in an isolated Draft PR with dedicated read-adapter files and tests. Integration and final acceptance remain blocked on qualified #890–#893 and #895/#896 CI/review/runner foundations. No TUI, CLI/MCP registration, lifecycle mutation, or repositoryinspect changes."
+    }
+  ]
+}

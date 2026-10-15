@@ -1,0 +1,25 @@
+{
+  "source": "mcpdev80/baseharbor#900",
+  "number": 900,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/900",
+  "title": "[v0.4.26] GC: preserve active PRs, candidates and evidence origins",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/evidence"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T08:44:18Z",
+  "updated_at": "2026-10-15T19:49:39Z",
+  "body": "Parent/Epic: #888 · Release: #873 · Paket 5\n\n**Ergebnis:** Bereinigung entfernt keine Referenz oder Evidence, die der neue Ablauf noch benötigt.\n\n**Abhängigkeiten:** #899.\n\n**Akzeptanz**\n\n- [ ] Offene Task-PRs, aktive Candidate-Linien und freigegebene Source-Refs schützen.\n- [ ] Originalnachweise bis zum Ende ihrer Nutzung/Retention authentifizierbar halten; abgelaufene Evidence nicht als gültig behandeln.\n- [ ] Geschlossene/inaktive Daten weiterhin nach vorhandener expliziter Policy bereinigen; keine pauschale unbegrenzte Aufbewahrung.\n\n**Prüfung:** GC-Dry-Run/Fixtures für offen, geschlossen, aktiven Candidate und Evidence-Origin; keine echten Löschungen zur Qualifikation.\n\n**Arbeitsweise:** eigener kleiner Branch/PR gegen develop; bei unabhängig reviewbaren Teilergebnissen weiter schneiden. Owner bei Übernahme setzen; aktuelle Regeln/Remote-Stände lesen, fremde Commits erhalten.\n\n**Grenze:** Umsetzung erst ab v0.4.26 nach qualifiziertem v0.4.25-Abschluss/Promotion. Aktive #881-Workflows/Evidence unverändert. Keine Autorisierung für vollständigen Pre-Release, Merge, Tag oder Veröffentlichung. Konservative V1/Freigabegrenzen aus #888 gelten. Parent/Dependencies sind Textverweise; native GitHub-Hierarchie noch zu setzen.",
+  "comments": [
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-10-15T19:49:39Z",
+      "updated_at": "2026-10-15T19:49:39Z",
+      "url": "https://github.com/mcpdev80/baseharbor/issues/900#issuecomment-6200913587",
+      "body": "Session 2 owns #900 only. I will update the existing artifact/branch GC authority and focused dry-run tests on a dedicated branch against develop. Open PRs, active candidate refs, and evidence origins must be preserved; failed discovery will fail closed. I will not touch PR #930, CI/runner execution, the evidence verifier, or perform production deletion."
+    }
+  ]
+}

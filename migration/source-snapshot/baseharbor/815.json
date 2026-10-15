@@ -1,0 +1,20 @@
+{
+  "source": "mcpdev80/baseharbor#815",
+  "number": 815,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/815",
+  "title": "[v0.4.x] Tests: start all greenfield stacks on native runtimes",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/acceptance",
+    "area/runtime",
+    "area/evidence",
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-06T16:32:16Z",
+  "updated_at": "2026-10-15T16:50:55Z",
+  "body": "## Remaining scope after published v0.4.23\n\nThe Go/Next.js/Quarkus build corrections are delivered in [merged PR #809](https://github.com/mcpdev80/baseharbor/pull/809) and [v0.4.23](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.23). The recorded native receipt below qualifies image builds for all four stacks and actual Python startup; it explicitly does **not** qualify startup of all four stacks.\n\nKeep this issue open for the remaining Docker/Podman generated-application startup and READY evidence for Go, Next.js, Python and Quarkus, with required managed bindings and no manual source repairs. This is outstanding pre-freeze acceptance under #174, not a claim that the old build defects remain unfixed. Current-candidate evidence must identify exact inputs; historical v0.4.23 greens cannot substitute for that. Milestone: v0.4.x.\n\nOriginal report and scoped build evidence retained below.\n\n---\n\nParent: #571\nRelated: #210, #174\n\nBugHunt baseline: v0.4.22 `1aa1a503facc1f4cbbd58fab21619fda53ed6d47`.\n\n## Problem\nThree built-in greenfield templates are not deployable out of the box:\n\n- Go: generated Docker build fails because module state/go.sum handling is inconsistent and `go build` requires `go mod tidy`.\n- Next.js: generated code validates runtime env at module/build time, so `next build` fails while collecting page data.\n- Quarkus: generated Maven plugin config does not execute the Quarkus build goal, so `target/quarkus-app/` is never produced.\n\nPython greenfield path succeeds and is a useful control.\n\n## Required fix\nMake every shipped built-in stack satisfy the same product promise:\n\n```text\nbaha app new ...\n-> generated normal source repo\n-> baha up\n-> READY\n```\n\nNo undocumented host-side repair step.\n\n## Acceptance\n- [ ] Go fresh scaffold builds and reaches READY without manual `go mod tidy`;\n- [ ] Next.js fresh scaffold builds with runtime bindings resolved at runtime, not build import time;\n- [ ] Quarkus fresh scaffold produces the artifact layout its Dockerfile consumes;\n- [ ] Python remains green;\n- [ ] generated portable contract remains equivalent across stacks except app identity;\n- [ ] focused Docker + Podman scaffold acceptance.\n\n## v0.4.23 implementation evidence — 2026-10-06\n\nNative template run [37508074031](https://github.com/mcpdev80/baseharbor/actions/runs/37508074031) passed fresh Go, Next.js, Python and Quarkus image builds on both Docker and Podman at `9865135c613c2c5cb73f88f95c60a65685ee6227`, with SQL/managed-secret contracts and no runtime credential build inputs. Generated Compose workload selection was subsequently fixed to parse valid YAML regardless of indentation and tested through full template creation. Actual generated Python startup/secret delivery passed on both runtimes; this does not claim native startup of all four stacks.\n\nImplementation is in draft PR #809. These scoped receipts do not constitute complete v0.4.23 pre-release approval; #808 retains the final gate requirements.",
+  "comments": []
+}

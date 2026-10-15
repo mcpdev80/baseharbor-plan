@@ -1,0 +1,20 @@
+{
+  "source": "mcpdev80/baseharbor#885",
+  "number": 885,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/885",
+  "title": "[Backlog] macOS: signing and notarization",
+  "state": "open",
+  "author": "patplu",
+  "labels": [
+    "kind/feature",
+    "area/compatibility",
+    "area/artifacts",
+    "status/backlog"
+  ],
+  "milestone": null,
+  "assignees": [],
+  "created_at": "2026-10-14T21:59:33Z",
+  "updated_at": "2026-10-15T16:49:12Z",
+  "body": "Parent: #818 · **Follow-up, not part of v0.4.29 #876**\n\n## Context\n\nv0.4.29 ships darwin arm64/amd64 artifacts **without notarization** (decision 2026-10-14, #876/#822):\n\n- Go ad-hoc signs darwin/arm64 binaries at link time, so they run.\n- The curl/Go-HTTP installation/update path must be qualified on a clean supported Mac, including actual quarantine/Gatekeeper behavior and checksum/provenance checks. Absence of a quarantine attribute is not publisher identity or a universal guarantee of execution.\n- Qualify browser-downloaded artifact behavior separately and document observed Gatekeeper warnings/restrictions. v0.4.29 documents the qualified installer path and its unsigned/not-notarized distribution limits.\n\n## Scope\n\n- Apple Developer Program membership and a Developer ID Application certificate owned by the project.\n- Release workflow: codesign with the hardened runtime, `notarytool submit --wait` and record the notarization result in the release evidence. Bare CLI binaries in a tar.gz cannot be stapled, so check whether a signed `.pkg`/zip distribution is needed.\n- Secrets handling in `release.yml` without exposing signing material in logs or artifacts.\n- Verify with `spctl --assess` and `codesign --verify --strict` on a clean Mac.\n- Optional: Homebrew tap (separate decision).\n\n## Acceptance\n\n- [ ] Browser-downloaded darwin artifact runs without a Gatekeeper override.\n- [ ] Signing and notarization evidence is part of the release receipt.\n- [ ] No signing secret leaks into logs or artifacts.\n",
+  "comments": []
+}

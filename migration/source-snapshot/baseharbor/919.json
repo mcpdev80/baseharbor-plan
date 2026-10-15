@@ -1,0 +1,18 @@
+{
+  "source": "mcpdev80/baseharbor#919",
+  "number": 919,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/919",
+  "title": "[v0.4.26] Footprint: serve CLI and JSON from one projection",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:42:35Z",
+  "updated_at": "2026-10-15T16:46:11Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: CLI/JSON read-only\n\n**Ergebnis:** baha app footprint show liefert menschlich und als JSON die vorhandene maßgebliche Projektion.\n\n**Abhängigkeiten:** #910, #914. Gemeinsame PR-/Review-/Runner-Basis aus #890–#893, #895/#896 beachten.\n\n**Dateigrenze:** Dedizierte Footprint-Command-/Output-Dateien und Tests; keine Änderung zentraler Command-/MCP-Registry oder Footprint-Schema.\n\n**Akzeptanz**\n\n- [ ] Bestehende Footprint-Version/Resolver, aktuelle Target-/Consumer-/Provider-Facts nutzen; kein zweiter Footprint- oder State-Rechner.\n- [ ] Reale Vollständigkeit, measured/estimated/unknown und denied/unverifiable/source_missing wahrheitsgemäß ausgeben.\n- [ ] Read-only auch bei fehlenden/teilweisen Installationen; sichere Fehler/Exitcodes, keine Credential-/internen Pfadlecks.\n\n**Prüfung:** Golden-/Contracttests für dieselben Facts in Mensch/JSON, leer/partial/wrong Target; keine Container und keine Registry-Golden-Änderungen in diesem PR.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop, Owner bei Übernahme setzen. Abhängige Schnittstellen zuerst integrieren. Gemeinsame Dateien anderer Tasks nicht nebenbei ändern; nötige Vertragsdeltas als kleiner abgestimmter Vorab-PR, kein dauerhafter Dateilock. Nach Basisänderungen Integrationsstand gezielt prüfen.\n\n**Quelle/Scope:** develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; aktuelle Regeln/SHAs und vorhandene Implementierung vor Umsetzung lesen. #873-Anforderungen erhalten; bestehende #872-Domain-/Lifecycle-Owner verwenden. Kein zweiter Resolver, State oder Ausführungsmanager. Relevante EN/DE-Begriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen noch separat setzen; hier Textverweise.",
+  "comments": []
+}

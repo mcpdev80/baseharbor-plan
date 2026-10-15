@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#916",
+  "number": 916,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/916",
+  "title": "[v0.4.26] Wizard: handle back, cancel and EOF without side effects",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:42:05Z",
+  "updated_at": "2026-10-15T16:46:28Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: TUI-Steuerung\n\n**Ergebnis:** No kehrt beliebig oft zur erhaltenen Auswahl zurück; Abbruch schreibt nichts.\n\n**Abhängigkeiten:** #912, #913, #914, #915. Gemeinsame PR-/Review-/Runner-Basis aus #890–#893, #895/#896 beachten.\n\n**Dateigrenze:** Separate Wizard-Controller-/State-Machine-Dateien und Tests; Komponenten nur über vereinbarte Schnittstellen; kein Lifecycle-/Registry-Wiring.\n\n**Akzeptanz**\n\n- [ ] Capability- und Provider-Auswahl sowie komplexe Originaldaten bei jeder Rückkehr erhalten.\n- [ ] Cancel/EOF/Context-Cancel und ungeeignete non-TTY/--no-input-Nutzung ohne versteckte Datei-, Profil-, Target-, Credential- oder Runtime-Schreibvorgänge.\n- [ ] Preview-Controller und Execution-Hook sauber trennen; tatsächliche Mutation erst nach bestehendem gültigen Consent.\n\n**Prüfung:** Sequenz-/PTY-Tests für mehrfaches No, veränderte Auswahl, Abort an jedem Übergang und EOF; Filesystem-/State-Snapshots mit kontrollierten Fakes, keine Runtime.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop; Owner bei Übernahme setzen. Abhängige Schnittstellen zuerst integrieren. Gemeinsame Dateien anderer Tasks nicht nebenbei ändern; nötige Vertragsdeltas als kleiner abgestimmter Vorab-PR, kein dauerhafter Dateilock. Nach Basisänderungen den Integrationsstand gezielt prüfen.\n\n**Quelle/Scope:** develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; aktuelle Regeln/SHAs und existierende Implementierung vor Umsetzung lesen. Anforderungen aus #873 erhalten; bestehende #872-Domain-/Lifecycle-Owner verwenden. Keine neue State-Autorität und kein pauschaler Refactor. Relevante EN/DE-Begriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen noch separat setzen; hier nur Textverweise.",
+  "comments": []
+}

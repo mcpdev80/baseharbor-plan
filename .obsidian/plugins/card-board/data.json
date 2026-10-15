@@ -1,0 +1,315 @@
+{
+  "version": "0.13.0",
+  "data": {
+    "boardConfigs": [
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Planned",
+              "tag": "status/planned"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Active",
+              "tag": "status/active"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Blocked",
+              "tag": "status/blocked"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Review",
+              "tag": "status/review"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Closed but unchecked (fix)",
+              "tag": "status/closed"
+            }
+          },
+          {
+            "tag": "completed",
+            "data": {
+              "collapsed": true,
+              "index": 5,
+              "limit": 10,
+              "name": "Closed"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "release/v0-4-26"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "Current \u00b7 v0.4.26",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      },
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Blocked",
+              "tag": "status/blocked"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Review",
+              "tag": "status/review"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Active",
+              "tag": "status/active"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "task"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "Attention",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      },
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "v0.4.26",
+              "tag": "release/v0-4-26"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "v0.4.27",
+              "tag": "release/v0-4-27"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.4.28",
+              "tag": "release/v0-4-28"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.4.29",
+              "tag": "release/v0-4-29"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.4.30",
+              "tag": "release/v0-4-30"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.4.31",
+              "tag": "release/v0-4-31"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.4.x unscheduled",
+              "tag": "release/v0-4-x"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.5.x",
+              "tag": "release/v0-5-x"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.7.x",
+              "tag": "release/v0-7-x"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "v0.8.x",
+              "tag": "release/v0-8-x"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Triage",
+              "tag": "release/triage"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Backlog",
+              "tag": "release/backlog"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Maintenance",
+              "tag": "release/maintenance"
+            }
+          },
+          {
+            "tag": "completed",
+            "data": {
+              "collapsed": true,
+              "index": 13,
+              "limit": 10,
+              "name": "Closed"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "task"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "Releases",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      },
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Backlog",
+              "tag": "status/backlog"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Planned (any release)",
+              "tag": "status/planned"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "task"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "Backlog",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      }
+    ],
+    "globalSettings": {
+      "defaultColumnNames": {
+        "today": "",
+        "tomorrow": "",
+        "future": "",
+        "undated": "",
+        "otherTags": "",
+        "untagged": "",
+        "completed": ""
+      },
+      "filters": [
+        {
+          "tag": "pathFilter",
+          "data": "templates"
+        },
+        {
+          "tag": "pathFilter",
+          "data": "migration"
+        },
+        {
+          "tag": "pathFilter",
+          "data": "views"
+        },
+        {
+          "tag": "pathFilter",
+          "data": "decisions"
+        },
+        {
+          "tag": "pathFilter",
+          "data": "releases"
+        },
+        {
+          "tag": "pathFilter",
+          "data": "epics"
+        },
+        {
+          "tag": "pathFilter",
+          "data": "scripts"
+        }
+      ],
+      "firstDayOfWeek": "FromLocale",
+      "ignoreFileNameDates": true,
+      "taskCompletionFormat": "ObsidianCardBoard",
+      "taskCompletionInLocalTime": false,
+      "taskCompletionShowUtcOffset": true
+    }
+  }
+}

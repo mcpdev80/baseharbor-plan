@@ -1,0 +1,18 @@
+{
+  "source": "mcpdev80/baseharbor#431",
+  "number": 431,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/431",
+  "title": "[v0.8.x] Roadmap: complete Kubernetes support",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/runtime"
+  ],
+  "milestone": "v0.8.x",
+  "assignees": [],
+  "created_at": "2026-09-25T11:08:54Z",
+  "updated_at": "2026-10-15T16:51:40Z",
+  "body": "## Purpose\n\nParent issue for the BaseHarbor v0.8.x Kubernetes Complete line.\n\nChildren close full lifecycle, capability/provider, recovery, observability, update/migration, agent/DX and production-hardening parity.\n\nMaster roadmap: #155",
+  "comments": []
+}
