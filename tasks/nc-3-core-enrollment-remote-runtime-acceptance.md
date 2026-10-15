@@ -1,5 +1,6 @@
 ---
 id: nc-3
+areas: [connector]
 type: task
 release: v0.4.27
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/queued
+- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/queued #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Later release** · prerequisites accepted  

@@ -53,3 +53,9 @@ CardBoard reads only top-level checkboxes in `tasks/`. To move a card to another
 | `views/` | Generated summaries — do not edit |
 | `migration/` | Source inventory, snapshot, manifest, coverage, cutover checklist |
 | `scripts/` | Validator/generator, snapshot tool and tests |
+
+## Roadmap and topic badges
+
+CardBoard **Roadmap** shows one generated card per release/series: current, next, later and qualified/published. Cards link to scope and tasks; accepted-task counts never qualify a release. Markdown equivalent: [roadmap/cards.md](roadmap/cards.md). No dates are invented.
+
+Task cards show `#area/…` and `#kind/…` badges with the `baseharbor-board` CSS snippet enabled. Maintain `areas: [ci]` (lowercase slugs) and the existing `type` in task frontmatter, then run `python3 scripts/plan.py render`. Routing tags stay hidden. Pull with CardBoard disabled, then enable it again to reload shared board settings without overwriting them with cached settings.

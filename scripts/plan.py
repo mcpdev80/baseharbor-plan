@@ -277,6 +277,7 @@ class Vault:
             "release": as_str(meta.get("release")), "version": as_str(meta.get("version")),
             "parent": as_str(meta.get("parent")), "owner": as_str(meta.get("owner")),
             "priority": as_str(meta.get("priority")),
+            "areas": as_list(meta.get("areas")),
             "depends_on": as_list(meta.get("depends_on")), "repos": as_list(meta.get("repos")),
             "prs": as_list(meta.get("prs")), "sources": as_list(meta.get("sources")),
             "blocker": as_str(meta.get("blocker")), "resolution": as_str(meta.get("resolution")),
@@ -290,7 +291,7 @@ class Vault:
             self.err(path, f"card id {m.group('id')!r} differs from frontmatter id {tid!r}")
         if "#task" not in tags:
             self.err(path, "card must carry #task")
-        unknown = [t for t in tags if t != "#task" and not t.startswith(("#status/", "#release/", "#view/"))]
+        unknown = [t for t in tags if t != "#task" and not t.startswith(("#status/", "#release/", "#view/", "#area/", "#kind/"))]
         if unknown:
             self.err(path, f"card carries unsupported tags {unknown}; keep metadata in frontmatter")
         if len(release_tags) != 1:
@@ -320,6 +321,8 @@ class Vault:
                 self.err(path, "resolution is only valid on a checked card")
         if m.group("completed") and not done:
             self.err(path, "@completed marker on an unchecked card")
+        if any(not re.fullmatch(r"[a-z][a-z0-9-]*", area) for area in item["areas"]) or len(set(item["areas"])) != len(item["areas"]):
+            self.err(path, "areas must contain unique lowercase tag slugs")
         if item["priority"] and item["priority"] not in PRIORITIES:
             self.err(path, f"priority must be empty or one of {PRIORITIES}")
         if item["type"] not in TASK_TYPES:
@@ -451,7 +454,7 @@ class Vault:
     def check_stray_checkboxes(self):
         for path in self.markdown_files():
             rel = self.rel(path)
-            if rel.startswith("tasks/"):
+            if rel.startswith("tasks/") or rel == "roadmap/cards.md":
                 continue
             for i, line in enumerate(path.read_text(encoding="utf-8").split("\n"), 1):
                 if TOP_CHECKBOX.match(line) and not rel.startswith("templates/"):
@@ -578,10 +581,10 @@ def validate_cardboard(cfg, release_tags):
             problems.append(f"board {name!r}: invalid filterScope")
         tag_filters = [f.get("data") for f in b.get("filters", []) if f.get("tag") == "tagFilter"]
         if b.get("filterPolarity") != "Allow" or not (
-                "task" in tag_filters or any(t in release_tags for t in tag_filters)):
+                "task" in tag_filters or "roadmap" in tag_filters or any(t in release_tags for t in tag_filters)):
             problems.append(f"board {name!r}: must allow-filter on #task or a known #release tag")
         for t in tag_filters:
-            if t != "task" and t not in release_tags and not t.startswith(("status/", "view/")):
+            if t not in ("task", "roadmap") and t not in release_tags and not t.startswith(("status/", "view/")):
                 problems.append(f"board {name!r}: filter tag {t!r} is not a known release or status tag")
         seen_singletons = set()
         for i, c in enumerate(b.get("columns", [])):
@@ -601,7 +604,8 @@ def validate_cardboard(cfg, release_tags):
                 tag = c["data"].get("tag", "")
                 ok = (tag in release_tags
                       or tag.startswith("status/") and tag[len("status/"):] in STATUSES + [CLOSED]
-                      or tag.startswith("view/") and tag[len("view/"):] in VIEW_STATES)
+                      or tag.startswith("view/") and tag[len("view/"):] in VIEW_STATES
+                      or tag in ("roadmap-state/current", "roadmap-state/next", "roadmap-state/later", "roadmap-state/delivered"))
                 if not ok:
                     problems.append(f"board {name!r}: column tag {tag!r} is not a known status or release tag")
     return problems
@@ -633,8 +637,10 @@ def view_state(vault, task):
 def card_line(vault, task):
     """Only the derived view tag changes; preserve the canonical status and completion."""
     match = CARD.match(task["body"].split("\n")[task["card_line"]])
-    tags = [tag for tag in match.group("tags").split() if not tag.startswith("#view/")]
+    tags = [tag for tag in match.group("tags").split() if not tag.startswith(("#view/", "#area/", "#kind/"))]
     tags.append("#view/" + view_state(vault, task))
+    tags += ["#area/" + a for a in sorted(task.get("areas", []))]
+    tags.append("#kind/" + task["type"])
     return (f"- [{match.group('done')}] {task['id']} · {task['title']} "
             + " ".join(tags) + (match.group("completed") or ""))
 
@@ -767,6 +773,38 @@ def table(vault, tasks, d):
     return "\n".join(rows)
 
 
+def render_roadmap(vault):
+    """Read-only release cards; checkboxes are presentation, never acceptance."""
+    directory = vault.root / "roadmap"
+    releases = [r for r in sorted_releases(vault) if r["kind"] in ("release", "series")]
+    upcoming = [r for r in releases if r["status"] == "planned"]
+    next_id = upcoming[0]["id"] if upcoming else None
+    lines = ["# Release roadmap", "", GENERATED_NOTICE, "",
+             "Read-only release cards, not executable tasks. Edit releases/ and tasks/, then render. "
+             "Accepted task counts are not release qualification; zero tasks means work is not cut yet. "
+             "No target dates are inferred.", ""]
+    for release in releases:
+        rid = release["id"]
+        items = [t for t in vault.tasks.values() if t["release"] == rid]
+        accepted = sum(vault.accepted(t["id"]) for t in items)
+        blocked = [t for t in items if t["status"] == "blocked"]
+        waiting = sum(derived_state(vault, t) == "waiting" for t in items)
+        state = ("delivered" if release["status"] in ("qualified", "published") else
+                 "current" if release["status"] in ACTIVE_RELEASE_STATUSES else
+                 "next" if rid == next_id else "later")
+        lines += [f"- [ ] {rid} · {card_text(release['title'])} #roadmap #roadmap-state/{state}",
+                  f"    **Release:** {release['status']}  ",
+                  f"    **Accepted tasks:** {accepted}/{len(items)} · **Blocked:** {len(blocked)} · **Waiting:** {waiting}  "]
+        if not items:
+            lines.append("    **Scope:** no executable tasks cut yet; see release scope.  ")
+        for task in blocked[:2]:
+            lines.append(f"    **Blocker:** {task_link(vault, task['id'], directory)} — {card_text(task['blocker'], 160)}  ")
+        if len(blocked) > 2:
+            lines.append(f"    Plus {len(blocked) - 2} further blockers in the task list.  ")
+        lines += [f"    [Scope]({relpath(release['path'], directory)}) · [Tasks](../views/releases/{rid}.md)", ""]
+    return "\n".join(lines)
+
+
 def render_views(vault):
     out = {}
     views = vault.root / "views"
@@ -800,6 +838,7 @@ def render_views(vault):
         lines.append(f"- {release_link(vault, r['id'], views)}: {r['title']} — {len(items)} open, {closed} closed "
                      f"([view](releases/{r['id']}.md))")
     lines.append("")
+    out[vault.root / "roadmap" / "cards.md"] = render_roadmap(vault)
     out[views / "overview.md"] = "\n".join(lines)
 
     ready = by_state.get("ready", [])

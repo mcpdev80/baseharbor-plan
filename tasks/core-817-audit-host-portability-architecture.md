@@ -1,5 +1,6 @@
 ---
 id: core-817
+areas: [platform]
 type: acceptance
 release: v0.4.29
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting
+- [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting #area/platform #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-823](core-823-tests-platform-conformance-support.md)  

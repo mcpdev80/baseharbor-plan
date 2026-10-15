@@ -16,8 +16,21 @@
 .card-board-view .card-board-column-header { margin-bottom: 8px; font-size: 14px; }
 .card-board-view ul.card-board-column-list { gap: 8px; max-height: calc(100vh - 10rem); }
 .card-board-view .card-board-card-content-area { padding: 8px 7px 6px 3px; }
-/* Membership tags are routing metadata; owner/priority/PR are rendered in notes. */
-.card-board-view .card-board-card-tag-area { display: none; }
+/* Show only human topic/type badges; keep routing metadata out of the UI. */
+.card-board-view .card-board-card-tag-area { display: block; margin: 5px 3px; }
+.card-board-view .card-board-card-tag-area a.tag { display: none; }
+.card-board-view .card-board-card-tag-area a.tag:is([href^="#area/"], [href^="#kind/"]) {
+  display: inline-block;
+  font-size: 11px;
+  margin: 2px 4px 2px 0;
+  padding: 2px 7px;
+  border-radius: 9px;
+  background: var(--background-modifier-hover);
+  color: var(--text-accent);
+}
+/* Generated roadmap cards have no writable checkbox control. */
+.card-board-view .card-board-card[data-tags~="roadmap"] input[type="checkbox"],
+.card-board-view .card-board-card[data-tags~="roadmap"] .card-board-card-footer-area { display: none; }
 .card-board-view .card-board-card-title {
   display: block;
   -webkit-line-clamp: unset;

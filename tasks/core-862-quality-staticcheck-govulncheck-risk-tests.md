@@ -1,5 +1,6 @@
 ---
 id: core-862
+areas: [quality]
 type: maintenance
 release: v0.4.31
 version: ""
@@ -17,7 +18,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-862 · Quality: staticcheck, govulncheck and risk-focused tests #task #release/v0-4-31 #status/planned #view/ready
+- [ ] core-862 · Quality: staticcheck, govulncheck and risk-focused tests #task #release/v0-4-31 #status/planned #view/ready #area/quality #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Ready to assign** · prerequisites accepted  

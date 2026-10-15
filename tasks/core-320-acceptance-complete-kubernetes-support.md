@@ -1,5 +1,6 @@
 ---
 id: core-320
+areas: [acceptance]
 type: acceptance
 release: v0.8.x
 version: v0.8.7
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-320 · Acceptance: verify complete Kubernetes support #task #release/v0-8-x #status/planned #view/waiting
+- [ ] core-320 · Acceptance: verify complete Kubernetes support #task #release/v0-8-x #status/planned #view/waiting #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md)  

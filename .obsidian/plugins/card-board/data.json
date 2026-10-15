@@ -8,6 +8,53 @@
             "tag": "namedTag",
             "data": {
               "collapsed": false,
+              "name": "Current",
+              "tag": "roadmap-state/current"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Next",
+              "tag": "roadmap-state/next"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Later",
+              "tag": "roadmap-state/later"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Qualified / Published",
+              "tag": "roadmap-state/delivered"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "roadmap"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "Roadmap",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      },
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
               "name": "Ready",
               "tag": "view/ready"
             }
@@ -62,7 +109,7 @@
         ],
         "filterPolarity": "Allow",
         "filterScope": "TopLevelOnly",
-        "name": "Current · v0.4.26",
+        "name": "Current \u00b7 v0.4.26",
         "showColumnTags": false,
         "showFilteredTags": false
       },

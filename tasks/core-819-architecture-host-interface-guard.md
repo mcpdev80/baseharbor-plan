@@ -1,5 +1,6 @@
 ---
 id: core-819
+areas: [architecture]
 type: architecture
 release: v0.4.29
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting
+- [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md)  

@@ -1,5 +1,6 @@
 ---
 id: core-887
+areas: [quality]
 type: review
 release: backlog
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-887 · Review: assess technical project evaluations #task #release/backlog #status/backlog #view/backlog
+- [ ] core-887 · Review: assess technical project evaluations #task #release/backlog #status/backlog #view/backlog #area/quality #kind/review
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     <!-- /generated:card -->
