@@ -1,0 +1,16 @@
+{
+  "commitMessage": "plan: {{date}}",
+  "autoCommitMessage": "plan: {{date}}",
+  "autoSaveInterval": 0,
+  "autoPushInterval": 0,
+  "autoPullInterval": 0,
+  "autoPullOnBoot": false,
+  "autoBackupAfterFileChange": false,
+  "disablePush": false,
+  "pullBeforePush": true,
+  "squashCommitsBeforePush": false,
+  "syncMethod": "merge",
+  "listChangedFilesInMessageBody": true,
+  "showStatusBar": true,
+  "refreshSourceControl": true
+}
