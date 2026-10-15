@@ -3,14 +3,17 @@
 __pycache__/
 
 # Obsidian: commit only portable, shared configuration.
+# Local UI state and per-plugin runtime data are ignored so Obsidian's
+# frequent local edits don't keep the working tree dirty.
 .obsidian/*
 !.obsidian/community-plugins.json
 !.obsidian/core-plugins.json
 !.obsidian/templates.json
-!.obsidian/plugins/
+!.obsidian/snippets/
+.obsidian/snippets/*
+!.obsidian/snippets/baseharbor-board.css
 .obsidian/plugins/*
 !.obsidian/plugins/card-board/
-!.obsidian/plugins/obsidian-git/
 .obsidian/plugins/*/*
 !.obsidian/plugins/card-board/data.json
 !.obsidian/plugins/obsidian-git/data.json
