@@ -371,6 +371,29 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(roadmap['filters'], [{'tag': 'tagFilter', 'data': 'roadmap'}])
         self.assertEqual(plan.validate_cardboard(cfg, {plan.release_tag(x.stem) for x in (REPO / 'releases').glob('*.md')}), [])
 
+    def test_current_board_shows_every_planned_task_without_duplicates(self):
+        cfg = json.loads((REPO / ".obsidian/plugins/card-board/data.json").read_text())
+        board = next(b for b in cfg["data"]["boardConfigs"] if b["name"] == "Current · v0.4.26")
+        tags = [col["data"].get("tag") for col in board["columns"]]
+        self.assertEqual(board["columns"][0]["data"]["name"], "Planned")
+        self.assertEqual(tags.count("status/planned"), 1)
+        self.assertNotIn("view/waiting", tags)
+        self.assertNotIn("view/ready", tags)
+        self.assertNotIn("view/queued", tags)
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: ready"))
+        f.add_task("core-2", task_note("core-2", "B: waiting", deps="[core-1]"))
+        f.finish()
+        f.run("render")
+        ready = (f.dir / "tasks/core-1-x.md").read_text()
+        waiting = (f.dir / "tasks/core-2-x.md").read_text()
+        self.assertIn("**Ready to assign**", ready)
+        self.assertIn("**Waiting for prerequisites**", waiting)
+        self.assertIn("**Needs:** [core-1]", waiting)
+        for text in (ready, waiting):
+            self.assertIn("#status/planned", text)
+        self.assertEqual(f.run("check")[0], 0)
+
     def test_generated_card_has_actual_owner_priority_and_pr(self):
         f = self.fixture()
         note = task_note("core-1", "Area: readable", extra="tester (session 2)")

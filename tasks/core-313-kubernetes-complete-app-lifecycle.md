@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-313 · Kubernetes: implement the complete app lifecycle #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md)  
     <!-- /generated:card -->
 

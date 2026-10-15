@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/planned #view/waiting #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
     <!-- /generated:card -->
 

@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-916 · Wizard: handle back, cancel and EOF without side effects #task #release/v0-4-26 #status/planned #view/waiting #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
     <!-- /generated:card -->
 

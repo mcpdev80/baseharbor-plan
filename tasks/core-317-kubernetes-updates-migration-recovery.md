@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-317 · Kubernetes: secure updates, migration and recovery #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md)  
     <!-- /generated:card -->
 
