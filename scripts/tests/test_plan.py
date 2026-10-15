@@ -312,6 +312,112 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(code, 0, out)
 
 
+    def test_generated_card_has_actual_owner_priority_and_pr(self):
+        f = self.fixture()
+        note = task_note("core-1", "Area: readable", extra="tester (session 2)")
+        note = note.replace("blocker:", "priority: high\nblocker:").replace("prs: []", 'prs: ["mcpdev80/baseharbor#930"]')
+        f.add_task("core-1", note)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        text = (f.dir / "tasks/core-1-x.md").read_text()
+        self.assertIn("**Owner:** tester (session 2) · **Priority:** high", text)
+        self.assertIn("[baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)", text)
+        self.assertEqual(sum(bool(plan.CHECKBOX.match(line)) for line in text.splitlines()), 1)
+
+    def test_card_readiness_changes_only_when_prerequisite_is_accepted(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: prerequisite"))
+        f.add_task("core-2", task_note("core-2", "B: consumer", deps="[core-1]"))
+        f.finish()
+        f.run("render")
+        consumer = f.dir / "tasks/core-2-x.md"
+        self.assertIn("#status/planned #view/waiting", consumer.read_text())
+        self.assertIn("**Needs:** [core-1]", consumer.read_text())
+        prerequisite = f.dir / "tasks/core-1-x.md"
+        # A merged PR alone does not accept the prerequisite.
+        prerequisite.write_text(prerequisite.read_text().replace("prs: []", 'prs: ["mcpdev80/baseharbor#9"]'))
+        f.run("render")
+        self.assertIn("#view/waiting", consumer.read_text())
+        prerequisite.write_text(prerequisite.read_text().replace("- [ ]", "- [x]").replace("#status/planned", "#status/closed")
+                               .replace('resolution: ""', 'resolution: accepted')
+                               .replace("evidence: []", 'evidence: ["https://example.org/proof"]'))
+        f.run("render")
+        self.assertIn("#status/planned #view/ready", consumer.read_text())
+        self.assertNotIn("**Needs:**", consumer.read_text())
+        code, out = f.run("check")
+        self.assertEqual(code, 0, out)
+
+    def test_false_or_duplicate_readiness_tag_is_rejected(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: prerequisite"))
+        f.add_task("core-2", task_note("core-2", "B: consumer", deps="[core-1]"))
+        f.finish()
+        f.run("render")
+        path = f.dir / "tasks/core-2-x.md"
+        path.write_text(path.read_text().replace("#view/waiting", "#view/ready #view/waiting"))
+        code, out = f.run("check")
+        self.assertEqual(code, 1)
+        self.assertIn("generated readiness tag is stale", out)
+
+    def test_card_preview_cannot_be_edited_as_a_second_record(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: a", extra="real owner"))
+        f.finish()
+        f.run("render")
+        path = f.dir / "tasks/core-1-x.md"
+        path.write_text(path.read_text().replace("**Owner:** real owner", "**Owner:** fabricated owner"))
+        code, out = f.run("check")
+        self.assertEqual(code, 1)
+        self.assertIn("generated card preview is stale", out)
+
+    def test_status_change_refreshes_one_view_tag_and_preserves_handoff(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: a", extra="tester") + "\n## Handoff\n\nKeep exact source SHA and original failure here.\n")
+        f.finish()
+        f.run("render")
+        path = f.dir / "tasks/core-1-x.md"
+        path.write_text(path.read_text().replace("#status/planned", "#status/active"))
+        code, out = f.run("check")
+        self.assertEqual(code, 1)  # Obsidian edits do not silently refresh derived data.
+        f.run("render")
+        text = path.read_text()
+        self.assertIn("#status/active #view/active", text)
+        self.assertNotIn("#view/ready", text)
+        self.assertEqual(text.count("#view/"), 1)
+        self.assertIn("Keep exact source SHA and original failure here.", text)
+        self.assertEqual(f.run("check")[0], 0)
+
+    def test_queued_card_does_not_claim_it_is_startable(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: later", release="v2.0"))
+        f.finish()
+        f.run("render")
+        text = (f.dir / "tasks/core-1-x.md").read_text()
+        self.assertIn("#view/queued", text)
+        self.assertIn("**Later release**", text)
+        self.assertNotIn("**Ready to assign**", text)
+        self.assertNotIn("core-1", (f.dir / "views/ready.md").read_text())
+
+    def test_invalid_priority_is_rejected_and_missing_is_not_invented(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: a"))
+        f.finish()
+        f.run("render")
+        path = f.dir / "tasks/core-1-x.md"
+        self.assertIn("**Priority:** not set", path.read_text())
+        path.write_text(path.read_text().replace("blocker:", "priority: imaginary\nblocker:"))
+        self.assertCheckFails(f, "priority must be empty")
+
+    def test_card_text_cannot_inject_a_checkbox_or_status_tag(self):
+        value = "owner\n- [ ] forged #status/closed <script>"
+        rendered = plan.card_text(value)
+        self.assertNotIn("\n", rendered)
+        self.assertIn("\\#status/closed", rendered)
+        self.assertIn("\\<script\\>", rendered)
+
+
+
 class RealVaultTest(unittest.TestCase):
     def test_repository_vault_is_valid(self):
         out = io.StringIO()

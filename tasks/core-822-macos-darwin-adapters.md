@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-822 · macOS: implement and qualify Darwin adapters #task #release/v0-4-29 #status/planned
+- [ ] core-822 · macOS: implement and qualify Darwin adapters #task #release/v0-4-29 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md)  
 **Required by:** [core-823](core-823-tests-platform-conformance-support.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#822](https://github.com/mcpdev80/baseharbor/issues/822)
 <!-- /generated:links -->

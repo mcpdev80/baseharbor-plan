@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/review
+- [ ] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/review #view/review
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (session 2) · **Priority:** not set  
+    **PR:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** review  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** none  
 **Required by:** [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md)  
 **Owner:** mcpdev80 (session 2)  
+**Priority:** not set  
 **PRs:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  
 **Source:** [baseharbor#900](https://github.com/mcpdev80/baseharbor/issues/900)
 <!-- /generated:links -->

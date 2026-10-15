@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned
+- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/queued
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Later release** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** queued  
@@ -24,6 +28,7 @@ evidence: []
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2)
 <!-- /generated:links -->

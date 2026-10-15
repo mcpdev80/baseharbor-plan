@@ -16,13 +16,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned
+- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/queued
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Later release** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** queued  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
 <!-- /generated:links -->

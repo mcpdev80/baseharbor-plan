@@ -16,13 +16,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned
+- [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-823](core-823-tests-platform-conformance-support.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Depends on:** [core-823](core-823-tests-platform-conformance-support.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#817](https://github.com/mcpdev80/baseharbor/issues/817)
 <!-- /generated:links -->

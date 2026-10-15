@@ -1,0 +1,46 @@
+/* Scoped to CardBoard 0.7.9 DOM. Does not alter task state or hide task content. */
+.card-board-view { font-size: 14px; }
+.card-board-view .card-board-columns { min-width: 100%; gap: 10px; }
+.card-board-view .card-board-column:not(.collapsed) {
+  flex: 1 0 18rem;
+  width: 20rem;
+  padding: 10px;
+  margin-inline: 0;
+}
+.card-board-view .card-board-column.collapsed {
+  flex: 0 0 2rem;
+  width: 2rem;
+  min-width: 2rem;
+  margin-inline: 0;
+}
+.card-board-view .card-board-column-header { margin-bottom: 8px; font-size: 14px; }
+.card-board-view ul.card-board-column-list { gap: 8px; max-height: calc(100vh - 10rem); }
+.card-board-view .card-board-card-content-area { padding: 8px 7px 6px 3px; }
+/* Membership tags are routing metadata; owner/priority/PR are rendered in notes. */
+.card-board-view .card-board-card-tag-area { display: none; }
+.card-board-view .card-board-card-title {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--text-normal);
+}
+.card-board-view .card-board-card-notes-area {
+  margin: 6px 3px 0;
+  font-size: 12px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+  color: var(--text-muted);
+}
+.card-board-view .card-board-card-notes-area p { margin: 0 0 3px; }
+.card-board-view .card-board-card-notes-area a { color: var(--text-accent); }
+.card-board-view .card-board-card-notes-area strong { color: var(--text-normal); font-weight: 600; }
+.card-board-view .card-board-card-footer-area { margin-top: 5px; }
+.card-board-view .card-board-card[data-tags~=view-ready] .card-board-card-highlight-area { background: var(--text-success); }
+.card-board-view .card-board-card[data-tags~=status-active] .card-board-card-highlight-area { background: var(--text-accent); }
+.card-board-view .card-board-card[data-tags~=status-blocked] .card-board-card-highlight-area { background: var(--text-error); }
+.card-board-view .card-board-card[data-tags~=status-review] .card-board-card-highlight-area { background: var(--color-blue); }

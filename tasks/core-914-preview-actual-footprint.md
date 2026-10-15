@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned
+- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#914](https://github.com/mcpdev80/baseharbor/issues/914)
 <!-- /generated:links -->

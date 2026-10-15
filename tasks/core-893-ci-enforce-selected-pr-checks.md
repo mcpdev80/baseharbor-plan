@@ -16,7 +16,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/blocked
+- [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/blocked #view/blocked
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (session 1) · **Priority:** not set  
+    **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936)  
+    **Blocker:** No approved immutable v0.4.26 Connector/Console/Demo candidate set matching the integration exists; the pin resolver returns 404 for the Connector ref, so no qualified Backup/Restore gate evidence can be produced (also waits for core-896).  
+    **Needs:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
@@ -25,6 +31,7 @@ evidence: []
 **Depends on:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Required by:** [core-390](core-390-architecture-service-contracts-provider-catalog.md), [core-750](core-750-inspect-source-neutral-findings.md), [core-751](core-751-inspect-no-false-positives-comments-text.md), [core-752](core-752-inspect-reconcile-default-instances.md), [core-754](core-754-mcp-classify-expected-preconditions.md), [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Owner:** mcpdev80 (session 1)  
+**Priority:** not set  
 **PRs:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936)  
 **Source:** [baseharbor#893](https://github.com/mcpdev80/baseharbor/issues/893)
 <!-- /generated:links -->

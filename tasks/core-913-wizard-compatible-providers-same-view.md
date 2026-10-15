@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/planned
+- [ ] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-912](core-912-wizard-needs-first-selection.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-912](core-912-wizard-needs-first-selection.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#913](https://github.com/mcpdev80/baseharbor/issues/913)
 <!-- /generated:links -->

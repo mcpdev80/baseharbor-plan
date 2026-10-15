@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/planned
+- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Required by:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#912](https://github.com/mcpdev80/baseharbor/issues/912)
 <!-- /generated:links -->

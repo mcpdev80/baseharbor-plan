@@ -17,7 +17,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-882 · macOS: fix Darwin builds and verify build/vet #task #release/v0-4-29 #status/planned
+- [ ] core-882 · macOS: fix Darwin builds and verify build/vet #task #release/v0-4-29 #status/planned #view/ready
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** ready  
@@ -26,6 +30,7 @@ evidence: []
 **Depends on:** none  
 **Required by:** [core-819](core-819-architecture-host-interface-guard.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#882](https://github.com/mcpdev80/baseharbor/issues/882)
 <!-- /generated:links -->

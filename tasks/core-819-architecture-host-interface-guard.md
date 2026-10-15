@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned
+- [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md)  
 **Required by:** [core-820](core-820-linux-host-adapters-regressions.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#819](https://github.com/mcpdev80/baseharbor/issues/819)
 <!-- /generated:links -->

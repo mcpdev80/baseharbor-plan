@@ -16,13 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] demo-24 · Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI #task #release/triage #status/backlog
+- [ ] demo-24 · Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI #task #release/triage #status/backlog #view/backlog
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** backlog  
 **Release:** [triage](../releases/triage.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor-demo#24](https://github.com/mcpdev80/baseharbor-demo/issues/24)
 <!-- /generated:links -->

@@ -4,6 +4,6 @@
 
 Release note: [triage](../../releases/triage.md) · release status: **planned** (maintained in the release note; task states never qualify a release).
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [demo-24](../../tasks/demo-24-managed-exposure-https-default.md) | Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI | backlog | — | — | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [demo-24](../../tasks/demo-24-managed-exposure-https-default.md) | Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI | backlog | not set | — | — | — |

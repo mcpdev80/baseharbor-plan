@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-297 · State: define versioning and migration compatibility #task #release/v0-5-x #status/planned
+- [ ] core-297 · State: define versioning and migration compatibility #task #release/v0-5-x #status/planned #view/queued
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Later release** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** queued  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** none  
 **Required by:** [core-298](core-298-contracts-cross-component-compatibility.md), [core-299](core-299-lifecycle-upgrades-recovery-deprecation.md), [core-300](core-300-acceptance-portability-compatibility.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#297](https://github.com/mcpdev80/baseharbor/issues/297)
 <!-- /generated:links -->

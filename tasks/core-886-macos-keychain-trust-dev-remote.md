@@ -16,7 +16,10 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-886 · macOS: Keychain trust and developer remote access #task #release/backlog #status/backlog
+- [ ] core-886 · macOS: Keychain trust and developer remote access #task #release/backlog #status/backlog #view/backlog
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** backlog  
@@ -24,6 +27,7 @@ evidence: []
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#886](https://github.com/mcpdev80/baseharbor/issues/886)
 <!-- /generated:links -->

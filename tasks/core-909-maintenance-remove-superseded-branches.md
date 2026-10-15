@@ -16,13 +16,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/planned
+- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/planned #view/ready
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** ready  
 **Release:** [maintenance](../releases/maintenance.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#909](https://github.com/mcpdev80/baseharbor/issues/909)
 <!-- /generated:links -->

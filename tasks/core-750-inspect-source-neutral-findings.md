@@ -16,13 +16,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-x #status/planned
+- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-x #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** mcpdev80 · **Priority:** not set  
+    **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#750](https://github.com/mcpdev80/baseharbor/issues/750)
 <!-- /generated:links -->

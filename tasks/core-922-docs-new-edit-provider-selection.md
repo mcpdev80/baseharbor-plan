@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/planned
+- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#922](https://github.com/mcpdev80/baseharbor/issues/922)
 <!-- /generated:links -->

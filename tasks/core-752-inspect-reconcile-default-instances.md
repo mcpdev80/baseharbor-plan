@@ -16,13 +16,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review
+- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review #view/review
+    <!-- generated:card -->
+    **Owner:** mcpdev80 · **Priority:** not set  
+    **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935)  
+    **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
+**Priority:** not set  
 **PRs:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935)  
 **Source:** [baseharbor#752](https://github.com/mcpdev80/baseharbor/issues/752)
 <!-- /generated:links -->

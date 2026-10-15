@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-102 · Kubernetes: establish a namespace-scoped runtime foundation #task #release/v0-7-x #status/planned
+- [ ] core-102 · Kubernetes: establish a namespace-scoped runtime foundation #task #release/v0-7-x #status/planned #view/queued
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Later release** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** queued  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** none  
 **Required by:** [core-304](core-304-kubernetes-security-identity-networking.md), [core-305](core-305-kubernetes-http-access-gateway-api.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md), [core-307](core-307-kubernetes-stateful-workloads.md), [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#102](https://github.com/mcpdev80/baseharbor/issues/102)
 <!-- /generated:links -->

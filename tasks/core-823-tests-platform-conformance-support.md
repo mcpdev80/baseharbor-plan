@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-823 · Tests: verify platform conformance and support #task #release/v0-4-29 #status/planned
+- [ ] core-823 · Tests: verify platform conformance and support #task #release/v0-4-29 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-884](core-884-tests-macos-runtime-real-mac.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-884](core-884-tests-macos-runtime-real-mac.md)  
 **Required by:** [core-817](core-817-audit-host-portability-architecture.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#823](https://github.com/mcpdev80/baseharbor/issues/823)
 <!-- /generated:links -->
