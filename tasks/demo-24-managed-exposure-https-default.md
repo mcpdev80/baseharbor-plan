@@ -57,7 +57,7 @@ evidence: []
 
 ## Dependencies and file ownership
 
-- **Blocked on Core:** BaseHarbor itself must automatically issue and mount the application certificate for the managed exposure (documented as deferred in 2026-09). No Core task exists for this yet; v0.4.30 native TLS ([core-902](../epics/core-902-native-tls-justified-proxies.md)) may be the natural home — Maintainer decision.
+- **Blocked on Core:** BaseHarbor itself must automatically issue and mount the application certificate for the managed exposure (documented as deferred in 2026-09). Verify this historical gap against current BaseHarbor source and current exact-source Demo receipts first. Keep the original secure-default acceptance; do not postpone an existing defect to v0.4.30 merely because [core-902](../epics/core-902-native-tls-justified-proxies.md) optimizes native TLS. Release assignment remains triage until the actual remaining gap is established; this does not block planning migration.
 
 ## Handoff
 

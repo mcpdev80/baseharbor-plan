@@ -54,6 +54,8 @@ New/Edit and the machine adapters consume the same short-lived state from existi
 
 ## Handoff
 
+- Live migration review: PR #934 head `03088e52f0b98b4106f703647ca02dae49f37e0e`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
+
 - 2026-10-15T20:29Z (issue comment): session 2 resumes ownership for **preparatory implementation only**, superseding the read-only restriction; isolated draft PR #934 (head `ba3b3e1ef4` at check time) with two dedicated read-adapter files in `cmd/baha` and tests. Integration and final acceptance stay blocked on the qualified foundation (core-893, core-895, core-896). No TUI, CLI/MCP registration, lifecycle mutation or repositoryinspect changes. Draft PR #936 runs a temporary CI pilot on its source.
 - 2026-10-15 comment: a session took #910 for **read-only preparation only** (inspect authorities, write an implementation proposal). No implementation or PR until the foundation is qualified and the Maintainer gives a new explicit assignment.
 

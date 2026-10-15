@@ -20,7 +20,7 @@
 
 - In scope (all public, all accessible): `mcpdev80/baseharbor`, `mcpdev80/baseharbor-demo`, `mcpdev80/baseharbor-console`, `mcpdev80/baseharbor-node-connector`. These are the ecosystem repositories named in BaseHarbor's `AGENTS.md` and release-readiness rules.
 - Not in scope: the other repositories of the `mcpdev80` account (unrelated projects such as MAILFLOW-AI_MAILING, terraform-aws-eks-blueprints, SafeMarket and older experiments). No inaccessible or private in-scope repository was found.
-- Not inspectable with the current token: GitHub Projects (token lacks `read:project`). Listed as an open cutover item.
+- BaseHarbor Project #4 is known from the Maintainer's authenticated CLI output. Its current settings cannot be inspected or changed through this connector. Only that project is in scope for retirement; unrelated projects remain untouched.
 
 ## How the mapping works
 

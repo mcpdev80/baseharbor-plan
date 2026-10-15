@@ -55,6 +55,12 @@ Agree the concrete planning/execution interface that core-896 (runner isolation)
 
 ## Handoff
 
+- Live migration review: PR #930 head `a239e7a39a64113ebbd52eaf5d991047c92d6ea7`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
+
 - 2026-10-15 (baseharbor#896 comment): session 1 states #896 consumes the exact #930 interface commit `ca2653cbf5d86216d87d4cdddb4e21eb5d6d2e06`. The correction text names `d56737bd147e54733c280383fa86ad2abccc7b33` as the reference. **Open:** no Maintainer record that the interface at `ca2653cb` is agreed; record it here (or the agreed SHA) to accept this entry.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
+
+## Current inspected interface pair
+
+PR #930 at `a239e7a39a64113ebbd52eaf5d991047c92d6ea7` explicitly pins the runner implementation from PR #932 at `174dc6d56b40dea85f2708b95e71b3a7b3638c4c` in `.github/workflows/ci.yml`. This is an observed producer/consumer pair, not Maintainer acceptance or completed runtime qualification. The existing owner records final agreement and later changes here; it is not a migration blocker.

@@ -1,9 +1,9 @@
 ---
 id: nc-3
 type: task
-release: triage
+release: v0.4.27
 version: ""
-parent: ""
+parent: v0.4.27
 owner: ""
 depends_on: []
 repos: [mcpdev80/baseharbor-node-connector]
@@ -16,11 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/triage #status/backlog
+- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned
 
 <!-- generated:links -->
-**State:** backlog  
-**Release:** [triage](../releases/triage.md)  
+**State:** queued  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **PRs:** none  
@@ -29,7 +29,7 @@ evidence: []
 
 ## Goal
 
-The Node Connector integrates with real Core enrollment and sessions, and real remote Docker Compose and rootless Podman Quadlet operations pass through Core. Originally part of the published v0.4.23 umbrella (baseharbor#571, closed); remaining scope has **no current release assignment** (triage; it matches [v0.4.27](../releases/v0.4.27.md) work area 1).
+The Node Connector integrates with real Core enrollment and sessions, and real remote Docker Compose and rootless Podman Quadlet operations pass through Core. Remaining scope is assigned to v0.4.27; published historical slices are not automatically requalified for current source.
 
 ## Scope
 

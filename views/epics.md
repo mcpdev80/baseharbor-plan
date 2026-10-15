@@ -4,11 +4,11 @@
 
 ## [console-1](../epics/console-1-console-product-plan.md) · Console product architecture and implementation plan
 
-Status: open · release: —
+Status: open · release: [v0.4.28](../releases/v0.4.28.md)
 
 | Task | Title | State | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- |
-| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | backlog | — | — | — |
+| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | queued | — | — | — |
 
 ## [core-209](../epics/core-209-future-capabilities-integrations.md) · Track future capabilities and integrations
 

@@ -5,7 +5,7 @@ Not posted. To be posted only after the Maintainer approves the cutover ([checkl
 ## Task, epic, release and roadmap issues
 
 > Planning for this issue has moved to **baseharbor-plan**: <https://github.com/mcpdev80/baseharbor-plan/blob/main/DESTINATION>.
-> Scope, acceptance, dependencies, ownership and status are maintained there from now on; please do not update this issue body. Discussion and history here stay available. Code, PRs, reviews and evidence stay in this repository.
+> Scope, acceptance, dependencies, ownership and status are maintained there from now on; please do not update this issue body. Discussion and history here stay available. Code, PRs, reviews and evidence stay in this repository. Closing this issue records migration only; it does not mean the work was implemented, accepted or cancelled.
 
 Then, per the approved option in the cutover checklist, either close the issue (reason "not planned", label `planning/moved`) or leave it open with that label.
 
@@ -15,7 +15,7 @@ Then, per the approved option in the cutover checklist, either close the issue (
 
 ## Triage items (console#1, console#2, node-connector#3, demo#24)
 
-Post only after the Maintainer has decided their release; link the decided destination.
+Link the migrated destination even when release triage remains open. An unresolved product release assignment is not a migration blocker.
 
 ## External tooling (baseharbor#889)
 

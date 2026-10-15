@@ -1,6 +1,6 @@
 ---
 id: 2026-10-15-capability-footprint-supersedes-fixed-core
-status: proposed
+status: accepted
 sources: []
 ---
 
@@ -16,4 +16,4 @@ Apply the later #872 correction. Keep the still-valid part of the older text: ma
 
 ## Consequences
 
-Status is **proposed**: the Maintainer confirms (or corrects) this reading before the cutover; then set `status: accepted`. If a management installation still has a fixed "Core" definition distinct from application capabilities, record that distinction here.
+Confirmed during the migration review on 2026-10-15: apply the already binding #872 correction. Optional management services retain their actual security and dependency requirements; no unconditional SQL/Secrets/Identity bundle is reintroduced. This decision preserves existing product semantics rather than defining a new contract.

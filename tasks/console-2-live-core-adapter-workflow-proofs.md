@@ -1,7 +1,7 @@
 ---
 id: console-2
 type: task
-release: triage
+release: v0.4.28
 version: ""
 parent: console-1
 owner: ""
@@ -16,11 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/triage #status/backlog
+- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned
 
 <!-- generated:links -->
-**State:** backlog  
-**Release:** [triage](../releases/triage.md)  
+**State:** queued  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
 **Depends on:** none  
 **Owner:** unassigned  
@@ -30,7 +30,7 @@ evidence: []
 
 ## Goal
 
-The Console's live mode reads and mutates only through the protected Core adapter, with live workflow and stream proofs. Originally part of the published v0.4.23 umbrella (baseharbor#571, closed); remaining scope has **no current release assignment** (triage; candidate for [v0.4.28](../releases/v0.4.28.md)).
+The Console's live mode reads and mutates only through the protected Core adapter, with live workflow and stream proofs. Remaining scope is assigned to v0.4.28; published historical slices are not automatically requalified for current source.
 
 ## Scope
 

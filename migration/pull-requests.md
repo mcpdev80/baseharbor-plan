@@ -12,8 +12,8 @@ PRs stay in their code repositories; this list only records how they relate to p
 | [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936) | draft, must not be merged | develop ← `runtime-validation/ci/934-guided-go-exact` | Temporary core-893 CI pilot for PR #934. |
 | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) | draft | develop ← `task/895-review-protection` | core-895: proposal payloads; activation waits for a qualified core-893 status check. |
 | [baseharbor#616](https://github.com/mcpdev80/baseharbor/pull/616) | draft, conflicting | main ← `test/kubernetes-adoption-contract-demo` | Kubernetes pre-freeze architecture proof; must be explicitly resolved in [v0.4.31](../releases/v0.4.31.md). |
-| [baseharbor-console#3](https://github.com/mcpdev80/baseharbor-console/pull/3) | draft, conflicting, last update 2026-10-08 | main ← `feature/v0.4.23-live-integration` | console-2 (triage). Stale against current Core; Maintainer decides continue/close. |
-| [baseharbor-node-connector#4](https://github.com/mcpdev80/baseharbor-node-connector/pull/4) | draft, conflicting, last update 2026-10-08 | main ← `feature/v0.4.23-core-integration` | nc-3 (triage). Stale; Maintainer decides continue/close. |
+| [baseharbor-console#3](https://github.com/mcpdev80/baseharbor-console/pull/3) | draft, conflicting, last update 2026-10-08 | main ← `feature/v0.4.23-live-integration` | console-2 (v0.4.28). Stale against current Core; Maintainer decides continue/close. |
+| [baseharbor-node-connector#4](https://github.com/mcpdev80/baseharbor-node-connector/pull/4) | draft, conflicting, last update 2026-10-08 | main ← `feature/v0.4.23-core-integration` | nc-3 (v0.4.27). Stale; Maintainer decides continue/close. |
 | [baseharbor-demo#61](https://github.com/mcpdev80/baseharbor-demo/pull/61) | open, conflicting, 2026-09-30 | main ← `ci/v0418-pre-release-suites` | No open planning item. v0.4.18 era; superseded by #62? Maintainer decides. |
 | [baseharbor-demo#62](https://github.com/mcpdev80/baseharbor-demo/pull/62) | open, mergeable, **empty diff**, 2026-09-30 | main ← `ci/v0418-pre-release-suites-v2` | No open planning item. Zero changed files: likely obsolete. |
 | [baseharbor-demo#86](https://github.com/mcpdev80/baseharbor-demo/pull/86) | open, conflicting, 2026-10-01 | main ← `fix/v0419-shell-ux-static` | No open planning item (v0.4.19 era). |
@@ -21,3 +21,12 @@ PRs stay in their code repositories; this list only records how they relate to p
 | [baseharbor-demo#106](https://github.com/mcpdev80/baseharbor-demo/pull/106) | open, mergeable, 2026-10-02 | main ← `fix/v0419-recovery-exposure-contract` | No open planning item (v0.4.19 era). |
 
 The five Demo PRs belong to published v0.4.18/v0.4.19 work and are not referenced by any open issue. They are listed in [conflicts.md](conflicts.md) for a Maintainer decision; this migration does not close them.
+
+## Prepared planning entry-point PRs
+
+These documentation-only draft PRs retain current issue authority until the explicit activation decision. They are not product acceptance or permission to merge other work.
+
+- [baseharbor#937](https://github.com/mcpdev80/baseharbor/pull/937) at `92597de69aefa884a96bcdd6db8ed44a5d3ca9d0`.
+- [baseharbor-console#5](https://github.com/mcpdev80/baseharbor-console/pull/5) at `51966e5de4edfb791da0126f9aa88a8077ca61a5`.
+- [baseharbor-demo#114](https://github.com/mcpdev80/baseharbor-demo/pull/114) at `2574c958519a984fa9ddba4872d32d75e1f08c6a`.
+- [baseharbor-node-connector#6](https://github.com/mcpdev80/baseharbor-node-connector/pull/6) at `e0d8e11b2e53e49d41c9c2dda75e8fad788eb538`.

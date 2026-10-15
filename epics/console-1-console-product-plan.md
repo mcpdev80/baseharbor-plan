@@ -2,13 +2,13 @@
 id: console-1
 title: Console product architecture and implementation plan
 status: open
-release: ""
+release: v0.4.28
 parent: ""
 sources: ["mcpdev80/baseharbor-console#1"]
 ---
 # console-1 · Console product architecture and implementation plan
 
-Source: [baseharbor-console#1](https://github.com/mcpdev80/baseharbor-console/issues/1). Release: **none assigned in the source** — listed in [triage](../releases/triage.md). Its remaining live-integration work overlaps [v0.4.28](../releases/v0.4.28.md); the Maintainer decides the assignment. Child task: [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md).
+Source: [baseharbor-console#1](https://github.com/mcpdev80/baseharbor-console/issues/1). Remaining delivery is assigned to [v0.4.28](../releases/v0.4.28.md); future Kubernetes parity remains subject to the later runtime roadmap. Child task: [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md).
 
 The completed checklists of the source (Phase 0 foundation, UI/wizard/UX checkpoints of 2026-10-02/03, contract alignment) are history; see the [snapshot](../migration/source-snapshot/baseharbor-console/1.json). This note keeps the product rules and the open items.
 

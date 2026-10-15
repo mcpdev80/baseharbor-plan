@@ -14,9 +14,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | review | 2 |
 | blocked | 1 |
 | ready | 3 |
-| queued | 3 |
+| queued | 5 |
 | waiting | 47 |
-| backlog | 8 |
+| backlog | 6 |
 | closed | 0 |
 
 ## Active
@@ -52,8 +52,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 22 open, 0 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 0 open, 0 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 0 open, 0 closed ([view](releases/v0.4.28.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
+- [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 0 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 1 open, 0 closed ([view](releases/v0.4.31.md))
@@ -63,4 +63,4 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 8 open, 0 closed ([view](releases/v0.8.x.md))
 - [backlog](../releases/backlog.md): Explicitly unscheduled work — 5 open, 0 closed ([view](releases/backlog.md))
 - [maintenance](../releases/maintenance.md): Repository maintenance outside releases — 1 open, 0 closed ([view](releases/maintenance.md))
-- [triage](../releases/triage.md): Open work without a release decision — 3 open, 0 closed ([view](releases/triage.md))
+- [triage](../releases/triage.md): Open work without a release decision — 1 open, 0 closed ([view](releases/triage.md))

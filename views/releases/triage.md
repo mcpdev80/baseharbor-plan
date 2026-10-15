@@ -6,6 +6,4 @@ Release note: [triage](../../releases/triage.md) · release status: **planned** 
 
 | Task | Title | State | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- |
-| [console-2](../../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | backlog | — | — | — |
-| [nc-3](../../tasks/nc-3-core-enrollment-remote-runtime-acceptance.md) | Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance | backlog | — | — | — |
 | [demo-24](../../tasks/demo-24-managed-exposure-https-default.md) | Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI | backlog | — | — | — |

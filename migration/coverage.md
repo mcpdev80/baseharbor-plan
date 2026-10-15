@@ -115,4 +115,4 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2) | task | [tasks/console-2-live-core-adapter-workflow-proofs.md](../tasks/console-2-live-core-adapter-workflow-proofs.md) |
 | [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3) | task | [tasks/nc-3-core-enrollment-remote-runtime-acceptance.md](../tasks/nc-3-core-enrollment-remote-runtime-acceptance.md) |
 
-Open pull requests at capture (14) are inspected separately in [pull-requests.md](pull-requests.md); they stay in their code repositories.
+Open pull requests at capture (18) are inspected separately in [pull-requests.md](pull-requests.md); they stay in their code repositories.

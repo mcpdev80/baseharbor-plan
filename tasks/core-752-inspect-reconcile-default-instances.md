@@ -60,6 +60,8 @@ A declared canonical `default` instance reconciles with the single detected name
 
 ## Handoff
 
+- Live migration review: PR #935 head `8e00e7e4a2f30c4094094e1f153cb61447f415d3`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
+
 - 2026-10-15 (after snapshot): draft PR #935 (`task/752-reconcile-default-instances`, head `d5bd0d236e` at check time) implements the fix in `internal/repositoryinspect` with focused tests. No claim comment on the issue; owner taken from the assignee. Must not be integrated before the qualified foundation.
 - 2026-10-15 hygiene check: logic still present at develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; no new tests run then. Historical v0.4.20/v0.4.21/v0.4.24 references in the source explain the origin, not the current target. Related: #750, #751; earlier release work #569.
 

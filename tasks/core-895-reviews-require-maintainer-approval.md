@@ -55,6 +55,8 @@ PRs from other contributors need Maintainer approval; the Maintainer's own PRs r
 
 ## Handoff
 
+- Live migration review: PR #933 head `fefcdeeae0bf928b72018b9eb38b8758cdec0657`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
+
 - Assigned to mcpdev80. Draft PR #933 ("propose maintainer review protection payloads"), head `2b6e0fcf14` at snapshot time — a proposal while core-893 is not qualified; activation must wait.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.

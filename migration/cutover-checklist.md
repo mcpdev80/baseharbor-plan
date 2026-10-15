@@ -1,31 +1,33 @@
-# Cutover checklist (requires Maintainer approval)
+# Coordinated planning cutover
 
-Nothing below has been executed. Each step needs explicit approval; steps are ordered. Until step 7, the GitHub issues stay authoritative.
+The Maintainer authorized completion on 2026-10-15. This is one coordinated operation, not a separate approval request per step. Until the activation commit reaches `main`, GitHub issues remain authoritative. Do not assert UI verification or activate while a required verification is unresolved.
 
-## Before approval
+## Preparation
 
-1. **Review this candidate:** the PR in baseharbor-plan, [coverage.md](coverage.md) (all 87 open issues mapped), [conflicts.md](conflicts.md).
-2. **Answer the Maintainer decisions** in [conflicts.md](conflicts.md): C2 (Core definition), C3 (interface SHA), C4 (#862 release), triage items (console-1, console-2, nc-3, demo-24), stale PRs (M3), branch deletion record (M1), Docker Desktop licensing (M7).
-3. **GitHub Projects:** run `gh auth refresh -s read:project` and list Projects of `mcpdev80`; decide whether any must be archived (M4).
-4. **Manual Obsidian acceptance** (see [ui-acceptance.md](ui-acceptance.md)) on a real Obsidian installation.
-5. **Recheck live state immediately before cutover:** `python3 scripts/snapshot.py diff`. Reconcile every NEW / UPDATED / NO LONGER OPEN / PR change in the notes (for example core-900 after PR #931 was merged; core-893/896/895 PR heads), then `snapshot.py capture`, `plan.py render`, `plan.py check`, commit.
+1. Review the candidate, [coverage](coverage.md) and [migration decisions](conflicts.md). Remaining product work stays open in the plan and does not block the migration.
+2. Reconcile live issues/comments and PR heads. Run `snapshot.py diff`; examine each change before refreshing the snapshot. Run unit tests, `plan.py render` and `plan.py check`.
+3. Prepare the [product entry-point updates](entry-point-updates.md) as small dedicated PRs. Their wording must explicitly honor the activation record so a prepared link never silently changes authority.
+4. Complete [real Obsidian UI acceptance](ui-acceptance.md). Record actual OS/versions/results. No fabricated pass.
+5. Preserve active sessions' branches, PRs, ownership and remaining acceptance. Briefly freeze only planning edits while taking the final inventory. No product-code freeze or task reassignment is required.
 
-## Transition for running sessions
+## Switch in one coordinated window
 
-6. Announce a short freeze of planning edits on GitHub issues. Active sessions (at the snapshot: session 1 on core-893/core-896 with PRs #930/#932, session 2 on core-900 with PR #931, core-895 PR #933, core-910 read-only preparation) **keep their branches, PRs and ownership**; nothing is reassigned. Their owners are already recorded in the task notes. From the switch on, they record handoffs in the task note instead of issue comments. No session is interrupted mid-change and no one else's PR is edited or merged.
+6. Reconcile the final live diff. Change the planning-authority decision and short entry-point notices from candidate to active. Merge the qualified planning PR; record the actual activation commit as the cutover SHA. Conditional product entry points must be available at this time; land any remaining links within this window before retiring old sources.
+7. Preserve each original issue body. Add a migration notice and `planning/moved`, then close migrated planning issues as `not_planned` with the explicit explanation **migrated, not implemented or cancelled**. Link every destination of a split. Do not close Renovate #889, PRs or new external reports outside the migration manifest. Re-read each issue just before changing it; reconcile concurrent changes first.
+8. Retire only BaseHarbor Project #4. ai-coding-system #1 stays untouched. If the connector cannot close Project #4, report that exact outstanding UI action; do not claim it was performed. The activation record remains the sole authority even if a stale board still exists.
+9. Validate planning and migration notices. Do not run pre-cutover `snapshot.py diff` as if intentional issue closures were missing work. Preserve the cutover snapshot and per-issue operation record; compare expected closures against the manifest and verify their notice, label, destination and state. New issues follow the documented intake process.
+10. Record activation SHA, entry-point PRs, migrated issue outcomes, UI result and remaining external actions. Only then report cutover complete.
 
-## Switch (one sitting)
+## Current execution status
 
-7. Merge the baseharbor-plan PR to `main`. From this commit on, baseharbor-plan is authoritative ([decision](../decisions/2026-10-15-planning-authority.md) → `status: accepted`).
-8. Post the [notices](notices.md) on every migrated issue (script over `manifest.json`), then apply the chosen option:
-   - **Option A (recommended):** add label `planning/moved` and close as "not planned" — no competing authority remains; discussion stays readable.
-   - **Option B:** add label `planning/moved`, keep open, and stop editing bodies.
-   Do not touch baseharbor#889 (Renovate) or triage items before their decision.
-9. Land the [entry-point updates](entry-point-updates.md) as small PRs in the product repositories (EN/DE parity for public docs).
-10. Retire or archive GitHub Projects if any exist (from step 3).
-11. Re-run `snapshot.py diff` and `plan.py check` and record the final cutover commit SHA in this file.
+- Candidate verified at `df8e31233916ba66ede39212215adb243404c948`: 24 tests passed; validator 0 errors, 4 existing dependency warnings.
+- All 87 open source issues remain present and unchanged at the live recheck. PR heads are refreshed separately; source issue inventory is not silently recaptured after closure.
+- UI acceptance: **not executed**. Product work and original issue authority remain intact until activation.
 
 ## Rollback
 
-- Before step 8: revert the merge in baseharbor-plan; GitHub issues were never changed.
-- After step 8: reopen the closed issues (filter by label `planning/moved`), remove the label, post a short "planning moved back" comment, and revert the entry-point PRs. The source snapshot lets you restore any issue text that was edited afterwards. Changes made in task notes after the cutover must be copied back to the issues manually (list them with `git log` since the cutover commit).
+Stop planning edits, retain the failed cutover SHA and reconcile post-cutover task changes before restoring old authority. Reopen only issues actually closed by the migration operation record, restore entry-point authority notices, and reverse the activation decision. Never blindly reopen every issue carrying a label or discard intervening task changes. Product code, PRs, CI and releases are unaffected.
+
+## Prepared entry points
+
+BaseHarbor #937, Console #5, Demo #114 and Node Connector #6 are separate documentation draft PRs. No active task PR, original issue or product protected branch has been changed. Their conditional authority notices can be reviewed independently; merge and final cleanup follow the coordinated window above.

@@ -1241,12 +1241,16 @@
     "mcpdev80/baseharbor#934",
     "mcpdev80/baseharbor#935",
     "mcpdev80/baseharbor#936",
+    "mcpdev80/baseharbor-console#3",
     "mcpdev80/baseharbor-demo#61",
     "mcpdev80/baseharbor-demo#62",
     "mcpdev80/baseharbor-demo#86",
     "mcpdev80/baseharbor-demo#104",
     "mcpdev80/baseharbor-demo#106",
-    "mcpdev80/baseharbor-console#3",
-    "mcpdev80/baseharbor-node-connector#4"
+    "mcpdev80/baseharbor-node-connector#4",
+    "mcpdev80/baseharbor#937",
+    "mcpdev80/baseharbor-console#5",
+    "mcpdev80/baseharbor-demo#114",
+    "mcpdev80/baseharbor-node-connector#6"
   ]
 }

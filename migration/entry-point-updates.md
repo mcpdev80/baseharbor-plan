@@ -1,6 +1,6 @@
 # Proposed entry-point updates in product repositories
 
-**Not applied.** Minimal edits for the cutover, each as its own small PR in the product repository after approval. No process rules are added to any product README. Line numbers refer to `mcpdev80/baseharbor` develop at `bf69ad0a37fcec12958992d4826e4f8d14c13ba6`.
+**Prepared as draft PRs; not merged or activated.** Existing issue authority remains until the explicit planning-authority decision is accepted on `main`. No process rules are added to any product README. Line numbers refer to `mcpdev80/baseharbor` develop at `bf69ad0a37fcec12958992d4826e4f8d14c13ba6`.
 
 ## mcpdev80/baseharbor
 
@@ -27,3 +27,12 @@
 ## mcpdev80/baseharbor-demo, mcpdev80/baseharbor-node-connector
 
 No contributor/agent entry point exists. Proposal: none (the README stays free of process rules); optionally a one-line `CONTRIBUTING.md` linking BaseHarbor's contribution guide and baseharbor-plan.
+
+## Prepared PRs and validation
+
+- [baseharbor#937](https://github.com/mcpdev80/baseharbor/pull/937) — `92597de69aefa884a96bcdd6db8ed44a5d3ca9d0`.
+- [baseharbor-console#5](https://github.com/mcpdev80/baseharbor-console/pull/5) — `51966e5de4edfb791da0126f9aa88a8077ca61a5`.
+- [baseharbor-demo#114](https://github.com/mcpdev80/baseharbor-demo/pull/114) — `2574c958519a984fa9ddba4872d32d75e1f08c6a`.
+- [baseharbor-node-connector#6](https://github.com/mcpdev80/baseharbor-node-connector/pull/6) — `e0d8e11b2e53e49d41c9c2dda75e8fad788eb538`.
+
+BaseHarbor documentation audit passed locally: 156 EN/DE paired pages, structure, technical integrity, navigation, governance and internal evidence checks. Strict MkDocs EN and DE builds also passed locally at exact Core documentation commit `92597de69aefa884a96bcdd6db8ed44a5d3ca9d0`, using the repository-pinned documentation requirements. No Pages deployment or runtime suite was run. README files are unchanged. Core PR #937 shares development-guideline files with #895 / PR #933: integrate sequentially and retain both edits. Task-template removal is deliberately deferred until activation; removing intake before cutover would be premature.

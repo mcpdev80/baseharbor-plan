@@ -56,6 +56,8 @@ Independent PR lanes share neither mutable runtime state nor permissions.
 
 ## Handoff
 
+- Live migration review: PR #932 head `174dc6d56b40dea85f2708b95e71b3a7b3638c4c`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
+
 - 2026-10-15T20:35Z (issue comment): implementation reviewable in PR #932, head `fa1be26dc4373a288bb130d6ecdf92f2c1a8571f`, marked ready (not draft), not merged. Docker and Podman isolation pilots with success, injected failure and SIGTERM cleanup passed in runs 38800255264 and 38801650732; concurrent capacity, authenticated run/PR/repo identity, peer preservation and cleanup security fixtures passed; workflow-policy/fixture run 38802577817 PASS; costly pilots made manual-only after the evidence. Trusted code only in disposable hosted contexts. PR #932 is one commit behind develop (`bf69ad0a…`, unrelated #900 GC commit). Awaiting Maintainer review; acceptance not yet granted.
 - 2026-10-15: session 1 owns #896 "for the explicitly authorized sequential assignment", confined to runner isolation helpers and focused fixtures, consuming #930 interface commit `ca2653cbf5d86216d87d4cdddb4e21eb5d6d2e06`. Draft PR #932 ("establish isolated PR lane leases"), head `d5f355a66a` at snapshot time.
 
