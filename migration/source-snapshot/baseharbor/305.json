@@ -1,0 +1,19 @@
+{
+  "source": "mcpdev80/baseharbor#305",
+  "number": 305,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/305",
+  "title": "[v0.7.2] Kubernetes: provide HTTP access through Gateway API",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/feature",
+    "area/kubernetes",
+    "area/networking"
+  ],
+  "milestone": "v0.7.x",
+  "assignees": [],
+  "created_at": "2026-09-21T08:18:19Z",
+  "updated_at": "2026-10-15T16:53:38Z",
+  "body": "## Goal\n\nRealize portable BaseHarbor HTTP exposure on Kubernetes while allowing namespace-only BaseHarbor users to consume a platform-owned Gateway.\n\n## Architecture\n\n```text\nPlatform\n  -> GatewayClass\n  -> shared Gateway\n\nApplication namespace\n  -> BaseHarbor-owned HTTPRoute\n  -> Service\n```\n\nGateway/GatewayClass are platform-owned by default.\n\nBaseHarbor in namespace-only mode must not need permission to create or mutate them.\n\n## Route realization\n\nMap `exposure.http/v1` to:\n\n- HTTPRoute;\n- Service backend;\n- portable hostname/path/TLS intent already defined by BaseHarbor.\n\nNo vendor/controller annotations in portable application intent.\n\n## Cross-namespace rules\n\nCross-namespace references are explicit trust relationships.\n\nWhere Gateway API requires target-side authorization such as ReferenceGrant:\n\n- BaseHarbor must not create authorization objects in namespaces it does not own;\n- platform/provider owner supplies the grant;\n- BaseHarbor verifies whether the reference is accepted.\n\n## Verification\n\nDo not treat HTTPRoute creation as success.\n\nVerify relevant status conditions and actual application reachability where feasible.\n\nIf platform Gateway policy rejects the route, produce an actionable BaseHarbor error rather than trying to mutate platform-owned Gateway resources.\n\n## Namespace-only requirements\n\nBaseHarbor must operate with only namespaced rights to its own route/service resources.\n\nCluster-wide GatewayClass listing must not be mandatory if the deployment config identifies the platform Gateway directly.\n\n## Acceptance\n\n- [ ] Namespace-only BaseHarbor can bind to a pre-provisioned shared Gateway.\n- [ ] Gateway/GatewayClass remain platform-owned.\n- [ ] Cross-namespace authorization is explicit and owner-controlled.\n- [ ] HTTPRoute acceptance/resolution is verified.\n- [ ] No vendor-specific exposure details leak into portable intent.\n- [ ] Missing platform permission blocks only exposure.\n- [ ] CLI/JSON/MCP expose the same exposure state.\n- [ ] Validation follows `docs/DEVELOPMENT_GUIDELINES.md`.\n\nDepends on: #102, #304\nParent roadmap: #155\n\n\n## Pre-release gate\n\nBefore creating this release:\n\n- [ ] All acceptance criteria in this issue are complete.\n- [ ] Required local/repository tests pass.\n- [ ] The full relevant CI matrix has passed at least once on the **exact release-candidate commit**.\n- [ ] Docker and Podman acceptance pass where applicable.\n- [ ] Security, isolation and secret-leak checks pass where applicable.\n- [ ] The documentation audit defined by #364 passes.\n- [ ] Human-facing documentation matches the shipped behavior.\n- [ ] Reference and normative specs match every changed public contract.\n- [ ] No unresolved release blocker remains.\n- [ ] Version, changelog, release notes and release metadata are consistent.\n- [ ] Final exact-head acceptance evidence is recorded before tagging/releasing.\n\nAcceptance answers whether the feature/release scope is complete. This gate answers whether the exact commit is safe and documented well enough to release.\n\nDo not weaken or skip a required check merely to complete the release. Checks that are genuinely not applicable should be recorded as such rather than silently omitted.\n",
+  "comments": []
+}

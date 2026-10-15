@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#923",
+  "number": 923,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/923",
+  "title": "[v0.4.26] Acceptance: verify New/Edit journeys and ecosystem consumers",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/evidence"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:43:27Z",
+  "updated_at": "2026-10-15T16:45:40Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Gezielte Produktabnahme\n\n**Ergebnis:** Die fertig integrierte v0.4.26-Produktoberfläche funktioniert für Entwickler und bestehende Verbraucher auf dem echten Kandidaten.\n\n**Abhängigkeiten:** #921, #922; für finale Candidate-/Evidence-Qualifikation zusätzlich #897–#900, für den gemeinsamen Pilot #901 abstimmen.\n\n**Dateigrenze:** Bestehende Demo-/Consumer-Fixtures und release-spezifische Gate-/Evidence-Inventare; Produktquellen nur bei konkretem gefundenem Bug über eigene Fix-PR.\n\n**Akzeptanz**\n\n- [ ] Native Docker/rootless Podman: frische App ohne managed Capabilities, Create mit echten Abhängigkeiten, Edit/Add/Remove/Providerwechsel, No-/Cancel-Sicherheit und Daten-/Shared-Erhalt gezielt abdecken.\n- [ ] Tatsächliche aktuelle immutable BaseHarbor/Demo/Console/Connector-Stände qualifizieren; CLI/JSON/MCP-Semantik über echten Einstieg, kein alter Consumer-PASS als Ersatz.\n- [ ] Vorhandene Gates und #888-Plan/Verifier nutzen; grüne Gates auch aus fehlgeschlagenen Gesamtläufen nur bei nachgewiesen unveränderten Inputs wiederverwenden.\n- [ ] Genau gefundene Bugs klein isolieren; keine Full Journey pro Fix. Finale vollständige notwendige Abdeckung und unabhängiger Doku-Entwicklerpfad; Vorbereitung ist keine Freigabe für kompletten Pre-Release/Promotion.\n\n**Prüfung:** Erst Komponenten-/Contractnachweise der Vorgänger, dann gezielt notwendige echte Consumer-/Runtime-Gates. Source/Docs nicht pauschal seriell vor jeden Diagnoselauf. Abstimmung mit #897–#901 für Candidate/Evidence/Pilot.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop, Owner bei Übernahme setzen. Vorab vorhandene stabile Schnittstellen lesen, finale Abnahme auf tatsächlichem Integrations-/Candidate-SHA. Gemeinsame generierte Referenzen nicht parallel neu generieren; Fehler als eigene kleine Fix-PRs behandeln.\n\n**Quelle/Scope:** Zuschnitt an develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`, aktuelle Stände vor Umsetzung neu lesen. Alle #873-Anforderungen erhalten; nichts als bestanden deklarieren, das fehlt, fehlschlägt oder unqualifiziert ist. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen separat setzen; hier Textverweise.",
+  "comments": []
+}

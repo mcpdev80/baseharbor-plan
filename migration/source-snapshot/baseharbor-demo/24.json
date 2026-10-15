@@ -1,0 +1,30 @@
+{
+  "source": "mcpdev80/baseharbor-demo#24",
+  "number": 24,
+  "url": "https://github.com/mcpdev80/baseharbor-demo/issues/24",
+  "title": "demo app: BaseHarbor-managed exposure must be HTTPS by default using managed PKI certificates",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [],
+  "milestone": null,
+  "assignees": [],
+  "created_at": "2026-09-22T23:29:10Z",
+  "updated_at": "2026-09-22T23:35:17Z",
+  "body": "## Problem\n\nThe demo application currently starts its HTTP server with `ListenAndServe()` and is exposed as plain HTTP.\n\nThat violates the BaseHarbor product rule:\n\n> Anything created, started, exposed or mediated by `baha` is secure by default.\n\nA BaseHarbor-managed application exposure must not require the developer to manually create certificates or opt into TLS.\n\n## Required architecture\n\nFor a BaseHarbor-managed dev exposure:\n\n```text\nBaseHarbor / OpenBao managed PKI\n        ↓\nissue application/server certificate\n        ↓\nmaterialize cert + key into protected runtime state\n        ↓\nmount/inject into workload through BaseHarbor-owned override\n        ↓\ndemo app serves HTTPS\n```\n\nThe repository must not contain committed private keys or developer-generated certificates.\n\nThe repository-owned `compose.yaml` remains unchanged.\n\nThe demo app should consume BaseHarbor-provided TLS bindings, for example conceptually:\n\n```text\nBASEHARBOR_TLS_CERT_FILE\nBASEHARBOR_TLS_KEY_FILE\n```\n\nExact variable names should follow the canonical BaseHarbor contract rather than inventing a demo-only interface.\n\n## Expected behavior\n\nNormal path:\n\n```text\nbaha up\n```\n\nresults in an HTTPS application endpoint automatically.\n\nNo additional TLS command should be required from the user.\n\nFor dev/local use, a BaseHarbor-managed private/self-signed CA is acceptable; the certificate must still be issued and managed through the platform PKI flow rather than embedded in the demo.\n\n## Acceptance criteria\n\n- [ ] BaseHarbor-managed demo exposure is HTTPS by default.\n- [ ] The demo app can start TLS from BaseHarbor-provided certificate/key bindings.\n- [ ] Certificate issuance comes from the managed BaseHarbor/OpenBao PKI flow.\n- [ ] No private key or static certificate is committed to the demo repository.\n- [ ] Repository `compose.yaml` is not modified to adopt BaseHarbor TLS.\n- [ ] BaseHarbor-owned workload overrides provide the required TLS bindings.\n- [ ] Health and metrics remain reachable over the HTTPS application exposure.\n- [ ] Demo UI developer links use HTTPS.\n- [ ] Standalone non-BaseHarbor mode may remain independently usable, but the BaseHarbor path must never silently downgrade to HTTP.\n- [ ] Acceptance tests fail if a `baha`-managed demo exposure is plain HTTP.\n",
+  "comments": [
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-09-22T23:34:43Z",
+      "updated_at": "2026-09-22T23:34:43Z",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/issues/24#issuecomment-5786147243",
+      "body": "Demo-side implementation is now in PR #25.\n\nThe demo consumes the existing canonical BaseHarbor file bindings `TLS_CERT_FILE` and `TLS_KEY_FILE`, serves HTTPS when present, and fails closed when BaseHarbor runtime identity is present but TLS bindings are missing.\n\nImportant platform dependency found while implementing: BaseHarbor currently documents managed OpenBao PKI issuance / automatic certificate renewal as deferred. Therefore #24 should remain open until BaseHarbor itself automatically issues and mounts the application certificate for the managed exposure path. The demo intentionally does not generate, embed, or self-manage certificates as a workaround."
+    },
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-09-22T23:35:17Z",
+      "updated_at": "2026-09-22T23:35:17Z",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/issues/24#issuecomment-5786154644",
+      "body": "Demo-consumer support is implemented in #25: canonical `TLS_CERT_FILE` / `TLS_KEY_FILE`, HTTPS serving, and fail-closed behavior for BaseHarbor-managed execution. This issue should remain open until BaseHarbor itself automatically issues/injects the managed OpenBao PKI certificate and end-to-end acceptance proves the HTTPS exposure."
+    }
+  ]
+}

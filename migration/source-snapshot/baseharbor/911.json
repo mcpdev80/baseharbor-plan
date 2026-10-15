@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#911",
+  "number": 911,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/911",
+  "title": "[v0.4.26] App edit: load existing selections completely",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:41:20Z",
+  "updated_at": "2026-10-15T16:46:59Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Datenadapter\n\n**Ergebnis:** Bestehende App samt ausgewähltem Target lässt sich verlustfrei in den gemeinsamen Bearbeitungszustand laden.\n\n**Abhängigkeiten:** #910.\n\n**Dateigrenze:** Neue dedizierte app_edit_load-/guided hydration-Dateien und Tests; bestehende read-only Besitzer verwenden. Keine TUI-Renderer, Registry oder Runtime-Mutationen.\n\n**Akzeptanz**\n\n- [ ] Capability-Auswahl UND explizite/automatische Provider-Präferenzen hydratisieren; fremde Target-Auswahl nicht überschreiben.\n- [ ] Reiche Manifeste, Instanznamen, unbekannte/erweiterte Felder und nicht im kompakten Formular bearbeitete Inhalte erhalten; keine manuelle UUID verlangen.\n- [ ] Fehlende/mehrdeutige/inkompatible Quellen geben konkrete typed Ergebnisse; Lesen mutiert nichts.\n\n**Prüfung:** Fixture-Roundtrip und zwei Targets mit verschiedenen Präferenzen; fehlende Quelle und Mehrdeutigkeit; reine Pakettests.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop, Owner bei Übernahme setzen. Nach integrierten Dependencies gegen deren tatsächliche Schnittstellen entwickeln. Gemeinsame fremde Dateien nicht nebenbei ändern; nötige Schnittstellendeltas zuerst als kleiner abgestimmter PR. Vor Push/Basisänderung gezielt integrieren und betroffene Prüfungen neu planen. Kein dauerhafter Dateilock.\n\n**Quelle/Scope:** Zuschnitt gegen develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; vor Umsetzung aktuelle Regeln/SHAs und vorhandene Implementierung erneut lesen. #873-Anforderungen vollständig erhalten, #872-Resolver/Lifecycle wiederverwenden, keine neue Domain-/State-Autorität. EN/DE relevante Fachbegriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen sind noch separat zu setzen; diese Angaben sind Textverweise.",
+  "comments": []
+}

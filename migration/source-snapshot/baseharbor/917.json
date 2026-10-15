@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#917",
+  "number": 917,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/917",
+  "title": "[v0.4.26] App new: connect the compact wizard to the existing lifecycle",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:42:11Z",
+  "updated_at": "2026-10-15T16:46:23Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Wiring New\n\n**Ergebnis:** baha app new verwendet den neuen Flow mit bestehenden Source-/ID-/Provider-/Lifecycle-Besitzern.\n\n**Abhängigkeiten:** #916. Gemeinsame PR-/Review-/Runner-Basis aus #890–#893, #895/#896 beachten.\n\n**Dateigrenze:** cmd/baha/app_new.go, app_new_wizard.go und deren dedizierte Tests; Command-Registry/Help/Goldens bleiben beim Registrierungstask. app_init_selection.go nicht nebenbei umarbeiten.\n\n**Akzeptanz**\n\n- [ ] Sparsame Capability-Absicht und Target-Präferenz nur bei gültiger Zustimmung in die richtigen bestehenden Besitzer schreiben; keine neue Konfigurationsdatei oder manuelle ID.\n- [ ] Bestehenden autorisierten plan/preflight/confirm/apply/verify-Pfad konsumieren; User kann Create-only/Run-Absicht eindeutig erkennen, kein stiller Start bei reiner Erstellung.\n- [ ] Bei geänderten Voraussetzungen Plan/Consent aktualisieren statt alten Plan blind ausführen; Teilfehler über gemeinsamen Presenter ausgeben; wiederholte Ausführung respektiert bestehende Identität.\n\n**Prüfung:** Gezielte New-/Lifecycle-Adaptertests; anschließend ein kleiner notwendiger nativer Create-Pfad auf tatsächlich betroffenen Runtimes, keine gesamte Provider-Matrix.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop; Owner bei Übernahme setzen. Abhängige Schnittstellen zuerst integrieren. Gemeinsame Dateien anderer Tasks nicht nebenbei ändern; nötige Vertragsdeltas als kleiner abgestimmter Vorab-PR, kein dauerhafter Dateilock. Nach Basisänderungen den Integrationsstand gezielt prüfen.\n\n**Quelle/Scope:** develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; aktuelle Regeln/SHAs und existierende Implementierung vor Umsetzung lesen. Anforderungen aus #873 erhalten; bestehende #872-Domain-/Lifecycle-Owner verwenden. Keine neue State-Autorität und kein pauschaler Refactor. Relevante EN/DE-Begriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen noch separat setzen; hier nur Textverweise.",
+  "comments": []
+}

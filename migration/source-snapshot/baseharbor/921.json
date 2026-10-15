@@ -1,0 +1,18 @@
+{
+  "source": "mcpdev80/baseharbor#921",
+  "number": 921,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/921",
+  "title": "[v0.4.26] CLI and MCP: register new interfaces consistently",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:42:48Z",
+  "updated_at": "2026-10-15T16:45:53Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Einmalige gemeinsame Integration\n\n**Ergebnis:** Die fertigen getrennten Handler sind im realen CLI-/JSON-/MCP-Einstieg konsistent erreichbar.\n\n**Abhängigkeiten:** #917, #918, #919, #920. Gemeinsame PR-/Review-/Runner-Basis aus #890–#893, #895/#896 beachten.\n\n**Dateigrenze:** Alleiniger Owner für cmd/baha Commandbaum/Registrierung, human_new-Routing, machine_coverage, MCP-Toolregistry, Help-/Discovery-/Coverage-Goldens und generierte CLI-/MCP-Referenzen.\n\n**Akzeptanz**\n\n- [ ] app new/edit/footprint show korrekt entdecken und routen; bestehende Verben/Approval-/Machine-Klassifikation konsistent, keine Legacy-Alias-Neuerfindung.\n- [ ] Nur wirklich verfügbare Operationen in Discovery/Help anzeigen; generierte Referenzen aus echten Registrierungen erstellen.\n- [ ] Gemeinsame Dateien in diesem einen kleinen Integrations-PR ändern; Vorgängertasks liefern kompilierende Konstruktoren/Adapter, keine parallelen Registry-Patches.\n\n**Prüfung:** Commandbaum-/Help-/Discovery-/generierte Driftprüfungen und generischer In-process MCP-Client; kleine CLI-Smokes, keine Full Journey.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop, Owner bei Übernahme setzen. Abhängige Schnittstellen zuerst integrieren. Gemeinsame Dateien anderer Tasks nicht nebenbei ändern; nötige Vertragsdeltas als kleiner abgestimmter Vorab-PR, kein dauerhafter Dateilock. Nach Basisänderungen Integrationsstand gezielt prüfen.\n\n**Quelle/Scope:** develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; aktuelle Regeln/SHAs und vorhandene Implementierung vor Umsetzung lesen. #873-Anforderungen erhalten; bestehende #872-Domain-/Lifecycle-Owner verwenden. Kein zweiter Resolver, State oder Ausführungsmanager. Relevante EN/DE-Begriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen noch separat setzen; hier Textverweise.",
+  "comments": []
+}

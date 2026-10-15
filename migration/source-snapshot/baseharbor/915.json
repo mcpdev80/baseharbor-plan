@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#915",
+  "number": 915,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/915",
+  "title": "[v0.4.26] Preview: explain provider consequences and partial results",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:41:58Z",
+  "updated_at": "2026-10-15T16:46:34Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Read-only Darstellung\n\n**Ergebnis:** Vor Bestätigung und nach Ausführung sind tatsächliche Folgen aller unterstützten Provider verständlich.\n\n**Abhängigkeiten:** #910. Gemeinsame PR-/Review-/Runner-Basis aus #890–#893, #895/#896 beachten.\n\n**Dateigrenze:** Separate app_change_preview-/result_presenter-Dateien und Tests; vorhandene ProviderChange-Plan-/Result-Typen konsumieren.\n\n**Akzeptanz**\n\n- [ ] Hinzufügen, Stop, Entfernen, Ersetzen und Capability-Abwahl unterscheiden; betroffene Apps/Funktionen/Datenorte, PKI/Token-Erneuerung und notwendige Handlungen aus dem echten Plan übernehmen.\n- [ ] Gewollte destruktive Entscheidungen mit vorhandener expliziter/doppelter Bestätigung ermöglichen; kein UI-Sonderblocker und kein Ownership-/Sicherheits-Bypass.\n- [ ] Nach Erfolg oder Teilfehler tatsächliche dispositions/Restzustand und nächsten Schritt zeigen; keine generischen Warnlisten oder erfundenen Ersatzorte.\n\n**Prüfung:** Typisierte Fixtures über alle relevanten vorhandenen Konsequenzklassen, sichere Fortsetzung, destruktive Alternative, partielle Ausführung und Secret-Redaktion; keine Runtime.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop; Owner bei Übernahme setzen. Abhängige Schnittstellen zuerst integrieren. Gemeinsame Dateien anderer Tasks nicht nebenbei ändern; nötige Vertragsdeltas als kleiner abgestimmter Vorab-PR, kein dauerhafter Dateilock. Nach Basisänderungen den Integrationsstand gezielt prüfen.\n\n**Quelle/Scope:** develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; aktuelle Regeln/SHAs und existierende Implementierung vor Umsetzung lesen. Anforderungen aus #873 erhalten; bestehende #872-Domain-/Lifecycle-Owner verwenden. Keine neue State-Autorität und kein pauschaler Refactor. Relevante EN/DE-Begriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen noch separat setzen; hier nur Textverweise.",
+  "comments": []
+}

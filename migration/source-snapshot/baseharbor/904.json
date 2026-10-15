@@ -1,0 +1,19 @@
+{
+  "source": "mcpdev80/baseharbor#904",
+  "number": 904,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/904",
+  "title": "[v0.4.30] Release: simplify TLS and strengthen attack protection",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/evidence",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T11:04:57Z",
+  "updated_at": "2026-10-15T16:47:19Z",
+  "body": "Parent roadmap: #427 · Master: #155 · Milestone: v0.4.x\n\n**Ziel:** Vor der reinen Abschlussabnahme v0.4.31/#174 die begrenzten TLS-/Proxy- und Angriffsschutz-Umbauten implementieren und qualifizieren.\n\n## Umfang\n\n- [ ] #902 — natives TLS/mTLS zuerst; Single-Proxys nur bei begründetem Zusatznutzen, erforderliches Routing/HA/Auth erhalten.\n- [ ] #903 — Angriffsschutz-Baseline und klare Betreiber-/Upstream-DDoS-Grenzen.\n\nBeide Epics vor Implementierung in kleine Tasks mit eigenem Ergebnis, Abnahme und PR gegen develop schneiden, gemäß #888. Kein gemeinsamer monolithischer Implementierungs-PR. Die Umstellung der Release-Zuordnung ist Planung, kein bereits gelieferter Schutz.\n\n## Abnahme\n\n- [ ] Native TLS-/Proxy-Regel in bestehender Provider-/Security-Spezifikation und Conformance verankert; Ausnahmen begründet.\n- [ ] Ausgewählte Bestandsumbauten erhalten Auth, Trust, Rotation, Consumer-Verträge, Isolation, Lifecycle und Recovery; tatsächliche Provider-/Single-/HA-Kombinationen belegt.\n- [ ] Vereinbarte Abuse-/Ressourcenlimits, Trust-Grenzen und interne/Admin-Exposition mit kleinen Negativtests qualifiziert; behaupteter und extern vorausgesetzter Schutz unterscheidbar.\n- [ ] Nötige Docker-/rootless-Podman-/Ökosystem-Nachweise und EN/DE-Dokumentation/Release Notes aktuell; gültige grüne Evidence aus Teil- oder fehlgeschlagenen Gesamtläufen nach Verifier-Prüfung wiederverwenden.\n- [ ] Änderungen bleiben Provider-/Operator-/Runtime-Realisierung, soweit damit ausreichend. Tatsächlich fehlende portable Semantik ausdrücklich reviewen, nicht pauschal neue Contracts oder Security-Profile erfinden.\n\n## Reihenfolge und Grenzen\n\nv0.4.29/#876 qualifizieren/promoten → v0.4.30 (dieses Issue) → **v0.4.31/#174 reine abschließende semantische Abnahme**, danach Stability-Reconciliation und v0.5/#175-Freeze.\n\n#174 prüft die gelieferte Basis; keine zwei zusätzlichen Implementierungs-Epics mehr in dessen Release. Neu entdeckte echte Fehler bleiben korrekturpflichtig, kein Aufschub konkreter Sicherheitslücken allein wegen dieser Planung.\n\nKeine Erweiterung aktiver v0.4.25-/v0.4.26-Abnahme, keine Autorisierung für vollständigen Pre-Release, Merge, Tag oder Veröffentlichung. Native Parent-/Subissue-Verknüpfungen müssen separat gesetzt werden; der Connector kann nur Textverweise schreiben.",
+  "comments": []
+}

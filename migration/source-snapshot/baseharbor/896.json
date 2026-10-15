@@ -1,0 +1,34 @@
+{
+  "source": "mcpdev80/baseharbor#896",
+  "number": 896,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/896",
+  "title": "[v0.4.26] Runners: isolate parallel PR checks safely",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/evidence"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [
+    "mcpdev80"
+  ],
+  "created_at": "2026-10-15T08:43:39Z",
+  "updated_at": "2026-10-15T20:35:26Z",
+  "body": "## Binding dependency correction — 2026-10-15\n\nThe implementation order is: #892 → #893 planning/execution interface → #896 isolated runner implementation → #893 final runtime/evidence integration and acceptance. #896 does not depend on completion or merge of all of #893.\n\nPR #930 at `d56737bd147e54733c280383fa86ad2abccc7b33` is the current interface reference, not a qualified or merged dependency. Inspect its latest head and agree the concrete interface before editing. Do not execute privileged untrusted code or claim missing gates as successful.\n\n- #893 owns `.github/workflows/ci.yml`, PR planning/execution orchestration, authenticated gate-evidence consumption and `PR Selected Checks`.\n- #896 owns dedicated runner-isolation helpers and tests: per-run Target/volume/port/state isolation, trust boundaries, cleanup and capacity. Deliver a separate small PR against develop; do not copy #930 wholesale or edit its owned files in parallel.\n- If an interface change is needed, agree it first and sequence the shared-file integration through the #893 owner. Exact-commit interface inspection does not authorize unreviewed production activation.\n- Qualify #896 with focused isolation fixtures and the necessary two small isolated pilot lanes; then integrate its implementation and let #893 consume it. #893 remains open until authenticated runtime evidence and its Backup/Restore pilot pass.\n- Required review/check protection in #895 follows a qualified #893 status check. Product implementation still requires the qualified #890–#893/#895/#896 foundation.\n- One assigned task per session; stop after its handoff. No full pre-release, merge, tag or publication is authorized by this correction.\n\n---\n\nParent/Epic: #888 · Release: #873 · Paket 4\n\n**Ergebnis:** Unabhängige PR-Lanes teilen weder veränderlichen Runtime-State noch Berechtigungen.\n\n**Dependencies:** #892 and the agreed #893 interface from PR #930; full #893 completion/merge is NOT a start prerequisite.\n\n**Akzeptanz**\n\n- [ ] Docker/Podman innerhalb tatsächlicher Slots parallel; keine fremden PRs/Kandidaten abbrechen.\n- [ ] Eigene Targets/Volumes/Ports und zuverlässiger Cleanup; kein geteilter Provider-/Secret-/Recovery-State.\n- [ ] Forks bekommen weder Secrets noch privilegierte Self-hosted-Runner; notwendige vertrauenswürdige Abnahme bleibt sichtbar offen.\n- [ ] Caches nur für passende unveränderliche Buildinputs; kein Cache als Evidence.\n\n**Prüfung:** Konfiguration und Sicherheits-/Isolation-Fixtures prüfen; zwei nötige kleine isolierte Pilot-Lanes samt Cleanup statt zusätzlicher Vollmatrix.\n\n**Arbeitsweise:** eigener kleiner Branch/PR gegen develop; bei unabhängig reviewbaren Teilergebnissen weiter schneiden. Owner bei Übernahme setzen; aktuelle Regeln/Remote-Stände lesen, fremde Commits erhalten.\n\n**Grenze:** Umsetzung erst ab v0.4.26 nach qualifiziertem v0.4.25-Abschluss/Promotion. Aktive #881-Workflows/Evidence unverändert. Keine Autorisierung für vollständigen Pre-Release, Merge, Tag oder Veröffentlichung. Konservative V1/Freigabegrenzen aus #888 gelten. Parent/Dependencies sind Textverweise; native GitHub-Hierarchie noch zu setzen.",
+  "comments": [
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-10-15T19:53:12Z",
+      "updated_at": "2026-10-15T19:53:12Z",
+      "url": "https://github.com/mcpdev80/baseharbor/issues/896#issuecomment-6200976412",
+      "body": "Session 1 owns #896 for the explicitly authorized sequential assignment. Implementation will be confined to dedicated runner isolation helpers and focused fixtures, consuming exact #930 interface commit ca2653cbf5d86216d87d4cdddb4e21eb5d6d2e06. No #893 orchestration files, privileged untrusted execution, merges, releases, or other sessions' files will be changed."
+    },
+    {
+      "author": "mcpdev80",
+      "created_at": "2026-10-15T20:35:25Z",
+      "updated_at": "2026-10-15T20:35:25Z",
+      "url": "https://github.com/mcpdev80/baseharbor/issues/896#issuecomment-6201738991",
+      "body": "Session 1 #896 handoff: implementation is reviewable in PR #932, head `fa1be26dc4373a288bb130d6ecdf92f2c1a8571f` (not merged). Executed GitHub-hosted Docker and Podman isolation pilots with success, injected failure and SIGTERM cleanup in runs 38800255264 and 38801650732; concurrent capacity, authenticated GitHub run/PR/repo identity, peer-preservation, and verified cleanup security fixtures passed. Latest workflow-policy and fixture run: 38802577817 PASS; costly pilots deliberately made manual-only after evidence was captured. Trusted code is restricted to disposable hosted contexts and review/admission; nothing was authorized on persistent privileged self-hosted workers. #893 depends on this reviewed interface for actual selected gate/evidence integration, but no duplicate #896 commits were placed in PR #930. The current develop advanced by unrelated #900 artifact-GC commit `bf69ad0a37fcec12958992d4826e4f8d14c13ba6`; PR #932 is one commit behind, no #900 files were edited or overwritten. Issue remains OPEN pending Maintainer review/merge boundary."
+    }
+  ]
+}

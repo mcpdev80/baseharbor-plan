@@ -1,0 +1,19 @@
+{
+  "source": "mcpdev80/baseharbor#875",
+  "number": 875,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/875",
+  "title": "[v0.4.28] Release: Console and management workflows",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/identity",
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-10T11:20:33Z",
+  "updated_at": "2026-10-15T16:49:45Z",
+  "body": "## Goal\nDeliver genuinely usable Console journeys, not only a login or a working UI container. Keep the Console an optional client of one selected management Core, never a second authority.\n\n## Session 1 — Console backend & domain integration\n- Authenticated one-Core connection, proper RBAC/ownership and shared Core/Target application API.\n- Expose all permitted visible local/remote Targets; application lifecycle, logs/events, status/doctor, safe mutation and useful evidence via existing Core/domain interfaces.\n- Bridge #777 onboarding/authorization with Console; no duplicate provider or Target state.\n- Own Console backend/API integration and server-side adapters.\n\n## Session 2 — Console frontend & UX acceptance\n- Guided app create/edit with same Capability checklist/compact footprint preview as CLI.\n- Target selection, repository/workspace management where supported, app operations, logs/events, actionable failures and verification.\n- Full independent login -> choose Core/Target -> deploy/edit/inspect -> remove/offboard journey, EN/DE docs.\n- Own Console UI and web UX tests, not backend authority.\n\n## Acceptance\n- [ ] Real Console journey including remote Target and Core boundaries; parity with CLI/MCP on supported semantics.\n- [ ] Secure login/access, safe negative paths, no secret leak, no phantom functionality.\n- [ ] Explicit pre-freeze decision for Console AI assistant: define read-only/tool boundary or defer feature to post-v0.5; do not silently omit.\n- [ ] Two PRs, integrated exact SHA, focused QA and docs.\n\nDepends on v0.4.27; #174 retains final semantic acceptance.\n\n## Verbindlicher PR-Workflow: ein gemeinsamer Release-PR, zwei Sessions (2026-10-10)\n\n- **Genau ein gemeinsamer Entwicklungs-/Integrations-PR pro Release** gegen `release/v0.4.xx`; keine zwei parallelen Session-PRs.\n- Beide Sessions arbeiten **direkt in diesem einen PR** auf demselben Feature-/Integrationsbranch und pushen ihre abgegrenzten Commits dorthin. Keine getrennten Session-PRs als Standard.\n- Vor jeder Änderung aktuellen Branch-HEAD prüfen, eigene Dateigrenzen einhalten, bei gemeinsamen Dateien abstimmen; niemals fremde Commits überschreiben oder Force-Push. Häufig synchronisieren und gezielte Tests nach Änderungen ausführen.\n- Die Sessions können parallel arbeiten, jedoch geteilte Schnittstellen zuerst abstimmen. Gemeinsamer PR zeigt jederzeit den tatsächlich integrierten Stand.\n- Ein gemeinsamer finaler SHA, gezielte Gates vor teuren Runtime-Gates, anschließend Pre-Release und Release nach gesonderter Freigabe.\n- **Diese Regel ersetzt jede ältere Angabe zu „zwei PRs“, „separaten Arbeitsbranches/PRs“ oder Session-3-Integrationsbranches in dieser Issue-Planung.**",
+  "comments": []
+}

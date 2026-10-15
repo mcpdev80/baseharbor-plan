@@ -1,0 +1,20 @@
+{
+  "source": "mcpdev80/baseharbor#307",
+  "number": 307,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/307",
+  "title": "[v0.7.4] Kubernetes: support stateful workloads",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/feature",
+    "area/runtime",
+    "area/kubernetes",
+    "area/storage"
+  ],
+  "milestone": "v0.7.x",
+  "assignees": [],
+  "created_at": "2026-09-21T08:18:24Z",
+  "updated_at": "2026-10-15T16:53:26Z",
+  "body": "## Goal\n\nAdd namespaced Kubernetes stateful workload primitives where a real runtime/capability-provider path requires them, without moving database/product semantics into BaseHarbor Core.\n\n## Scope\n\nSupport, where genuinely needed:\n\n- StatefulSet;\n- stable runtime identity;\n- namespaced PVC association;\n- readiness/recovery observation;\n- safe rollout/update behavior;\n- ownership/drift/repair;\n- lifecycle-safe destroy.\n\n## Namespace-only\n\nStateful support must work with namespaced permissions when required platform resources are pre-provisioned.\n\nNo cluster-admin dependency may be introduced simply because a workload is stateful.\n\n## Capability-provider boundary\n\nRuntime primitives and capability semantics remain separate.\n\nBaseHarbor Runtime must not implement database replication, leader election or product-specific HA.\n\nValid future providers may use:\n\n- plain StatefulSet;\n- external managed service;\n- provider/operator CRD;\n- another implementation.\n\nProvider-specific CRDs remain provider/runtime implementation details, not portable app fields.\n\n## Finalizers / deletion\n\nDeletion success requires observed completion/retention according to policy.\n\nBaseHarbor must not remove foreign finalizers just to force destroy success.\n\n## Acceptance\n\n- [ ] Stateful runtime support remains namespaced where possible.\n- [ ] Capability-provider semantics remain separate from runtime primitives.\n- [ ] Stateful identity/storage survive expected reconcile/update flows.\n- [ ] Foreign finalizers/ownership are respected.\n- [ ] No product-specific HA logic enters BaseHarbor Core.\n- [ ] CLI/JSON/MCP expose the same semantic state.\n- [ ] Validation follows `docs/DEVELOPMENT_GUIDELINES.md`.\n\nDepends on: #102, #306\nParent roadmap: #155\n\n\n## Pre-release gate\n\nBefore creating this release:\n\n- [ ] All acceptance criteria in this issue are complete.\n- [ ] Required local/repository tests pass.\n- [ ] The full relevant CI matrix has passed at least once on the **exact release-candidate commit**.\n- [ ] Docker and Podman acceptance pass where applicable.\n- [ ] Security, isolation and secret-leak checks pass where applicable.\n- [ ] The documentation audit defined by #364 passes.\n- [ ] Human-facing documentation matches the shipped behavior.\n- [ ] Reference and normative specs match every changed public contract.\n- [ ] No unresolved release blocker remains.\n- [ ] Version, changelog, release notes and release metadata are consistent.\n- [ ] Final exact-head acceptance evidence is recorded before tagging/releasing.\n\nAcceptance answers whether the feature/release scope is complete. This gate answers whether the exact commit is safe and documented well enough to release.\n\nDo not weaken or skip a required check merely to complete the release. Checks that are genuinely not applicable should be recorded as such rather than silently omitted.\n",
+  "comments": []
+}
