@@ -1,5 +1,19 @@
 # Migration from GitHub issues
 
+## Executed cutover — 2026-10-15
+
+- Planning PR #1 merged and authority activated at `47474109ea69475e60be4f065ad17476c71665bb`.
+- Entry-point PRs merged: BaseHarbor #937 (`1b2f57e063ae4d1c691af087c697d54df885507b`), Console #5 (`1d014c0b1eb5fd3be79b1ea859abecd59ec3d504`), Demo #114 (`85c0db5a6f078c0331e802765d018939caaf07f4`), Connector #6 (`c33ef10fdebd4833193dee66fb0a4894e0d5b058`).
+- BaseHarbor #938 merged at `242a01bb398e35ad2dc5a803c9831fd3751b6eb1`: remove contradictory old planning statements and update the existing roadmap audit assertion. The independently merged runner #932 was preserved.
+- 86 planning issues relocated and closed as `not_planned`, each with `planning/moved`, all destination links, activation SHA and explicit “migrated, not implemented/accepted/cancelled” notice. Original bodies were verified against the immutable source snapshot; discussions remain available.
+- Final authenticated verification: all 86 closed issues have the expected state/reason/label/notice/destinations; original bodies retained. Only Renovate #889 remains an open source issue. No migration errors or concurrent source changes were encountered.
+- The 87-issue inventory and its source snapshots remain frozen migration evidence. Do not recapture them merely to erase intentional closures. Per-issue outcomes: [cutover-operations.json](cutover-operations.json).
+- Planning unit tests: 24 PASS. Plan validator: 0 errors, 4 retained preparatory-dependency warnings. Core documentation audit and strict EN/DE builds passed for both documentation changes; no runtime matrix or production Pages deployment.
+- Real Obsidian/CardBoard/Git UI acceptance remains **unverified and explicitly deferred**, not PASS.
+- BaseHarbor Project #4 retirement remains **not executed**: the connector has no Projects write capability. This stale view is no longer a planning authority. Leave unrelated ai-coding-system Project #1 untouched.
+- Product task branches, PRs and ownership remain intact; a relocated/closed source issue is never evidence that a task is accepted.
+
+
 **Status: activated when this commit reaches `main`.** The Maintainer authorized merging and switching on 2026-10-15 with the actual Obsidian UI explicitly unverified. This repository is then the sole planning authority. See the [cutover record](cutover-checklist.md) for entry-point merges, issue relocation and outstanding Project retirement. Historical source snapshots are immutable migration evidence, not maintained planning.
 
 ## What is here
