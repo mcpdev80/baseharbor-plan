@@ -11,7 +11,7 @@ prs: ["mcpdev80/baseharbor#930", "mcpdev80/baseharbor#936"]
 sources: ["mcpdev80/baseharbor#893"]
 source_updated: "2026-10-15T20:35:28Z"
 labels: [area/evidence]
-blocker: "No approved immutable v0.4.26 Connector/Console/Demo candidate set matching the integration exists; the pin resolver returns 404 for the Connector ref, so no qualified Backup/Restore gate evidence can be produced (also waits for core-896)."
+blocker: "core-896 is merged and qualified; #893 remains blocked only on complete original-evidence acceptance for all actually selected gates. Targeted Core+Demo Backup/Restore has a separate immutable Demo source input and does not require Connector or Console. Gates genuinely depending on private consumers still require their verified candidate graph."
 resolution: ""
 evidence: []
 ---
@@ -58,6 +58,8 @@ Existing workflows execute the PR test plan and always deliver a reliable requir
 - Consumes integrated and qualified core-896. Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15). core-895 follows a qualified status check from this task.
 
 ## Handoff
+
+- 2026-10-15 (Session 1): core-896 PR #932 merged into develop at `fb229964dd277700e1c7ec815db42fa19c3ba2bd`; isolation dependency is satisfied, not a remaining blocker. Existing #893 PR #930 includes develop. Targeted PR-only Backup/Restore uses a recorded immutable Demo source commit independent of the release-candidate graph, and the original atomic evidence validates the exact executed integration + Demo SHAs. Connector/Console candidates are required only by gates whose authoritative `dependencies` name them. Pilot [38811852362](https://github.com/mcpdev80/baseharbor/actions/runs/38811852362): Docker Backup/Restore completed with success and uploaded original gate evidence; Podman and complete Selected Checks qualification pending final outcome. No full matrix, merge or release.
 
 - 2026-10-15T20:35Z (issue comment): draft PR #930 head `edc524206ebdcafc53b4b2c47bdb5a0f79f16737`, NOT complete. Run [38802476334](https://github.com/mcpdev80/baseharbor/actions/runs/38802476334) passed trusted PR plan, actionlint/workflow policy, focused Python regressions, exact unmerged core-896 runner fixtures, docs/EN-DE/Pages candidate and exact integration binary + Docker image. The authenticated Actions result adapter blocks missing, stale, failed or forged status and synthesizes no PASS. `scripts/ecosystem_release_pins.py --tag v0.4.26 …` from the trusted base fails with HTTP 404 for `baseharbor-node-connector` ref `work/v0.4.26-integrations-docs`; Demo main pins unrelated Core `f325b93c…`. Therefore `PR Selected Checks` is correctly FAILURE and no qualified Backup/Restore evidence exists. **External handoff required:** an approved immutable v0.4.26 Connector/Console/Demo candidate set matching the integration plus authorized cross-repository read access; then run the targeted Backup/Restore gate and recheck acceptance. Preserve develop commit `bf69ad0a…` (#900) when resuming. Draft PR #936 is a temporary CI pilot for PR #934 (must not be merged).
 - 2026-10-15: session 1 took ownership ("preserve the integrated #891/#892 contracts, implement trusted PR planning and fail-closed required check enforcement in the existing CI workflow surface"). Draft PR #930 ("begin fail-closed selected-check enforcement"), head `ca2653cbf5` at snapshot time.
