@@ -11,15 +11,15 @@ prs: ["mcpdev80/baseharbor#930", "mcpdev80/baseharbor#936"]
 sources: ["mcpdev80/baseharbor#893"]
 source_updated: "2026-10-15T20:35:28Z"
 labels: [area/evidence]
-blocker: ""
+blocker: "Outstanding conservative selected-gate coverage and immutable Console/Connector candidates for genuinely private consumer gates; targeted Docker/Podman Backup/Restore original evidence is qualified and merged core-896 is not a blocker."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/review
+- [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/blocked
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
