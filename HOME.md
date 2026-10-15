@@ -8,12 +8,13 @@
 
 The live state is generated from the task notes, so it is never maintained by hand here:
 
+- [views/ready.md](views/ready.md) — tasks whose actual prerequisites are accepted; ready is not assignment.
 - [views/overview.md](views/overview.md) — active, review, blocked and ready tasks; counts per release.
 - [views/releases/v0.4.26.md](views/releases/v0.4.26.md) — the current release's tasks with derived state.
 - [views/epics.md](views/epics.md) — tasks per epic.
 - Command line: `python3 scripts/plan.py list --status active`, `--status blocked`, `--ready`.
 
-In Obsidian: CardBoard boards **Current · v0.4.26** and **Attention**.
+In Obsidian: CardBoard boards **Current · v0.4.26**, **Next** and **Attention**.
 
 ## Navigation
 

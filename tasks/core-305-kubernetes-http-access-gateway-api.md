@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-305 · Kubernetes: provide HTTP access through Gateway API #task #release/v0-7-x #status/planned
+- [ ] core-305 · Kubernetes: provide HTTP access through Gateway API #task #release/v0-7-x #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md)  
 **Required by:** [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#305](https://github.com/mcpdev80/baseharbor/issues/305)
 <!-- /generated:links -->

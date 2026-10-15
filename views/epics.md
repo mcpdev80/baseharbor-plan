@@ -6,18 +6,18 @@
 
 Status: open · release: [v0.4.28](../releases/v0.4.28.md)
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | queued | — | — | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | queued | not set | — | — | — |
 
 ## [core-209](../epics/core-209-future-capabilities-integrations.md) · Track future capabilities and integrations
 
 Status: open · release: [backlog](../releases/backlog.md)
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [core-100](../tasks/core-100-access-operator-rbac-jit.md) | Access: operator RBAC and just-in-time access | backlog | — | — | — |
-| [core-181](../tasks/core-181-distribution-air-gap-private-oci.md) | Distribution: air gap and private OCI registries | backlog | — | — | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-100](../tasks/core-100-access-operator-rbac-jit.md) | Access: operator RBAC and just-in-time access | backlog | not set | — | — | — |
+| [core-181](../tasks/core-181-distribution-air-gap-private-oci.md) | Distribution: air gap and private OCI registries | backlog | not set | — | — | — |
 
 ## [core-777](../epics/core-777-developer-access-and-profiles.md) · Make developer access and profiles portable
 
@@ -29,32 +29,32 @@ No child tasks.
 
 Status: open · release: [v0.4.29](../releases/v0.4.29.md)
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [core-819](../tasks/core-819-architecture-host-interface-guard.md) | Architecture: define the host interface and guard | waiting | — | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) (open) | — |
-| [core-820](../tasks/core-820-linux-host-adapters-regressions.md) | Linux: integrate host adapters and verify regressions | waiting | — | [core-819](../tasks/core-819-architecture-host-interface-guard.md) (open) | — |
-| [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) | WSL2: implement host behavior and Windows boundaries | waiting | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open) | — |
-| [core-822](../tasks/core-822-macos-darwin-adapters.md) | macOS: implement and qualify Darwin adapters | waiting | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open), [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open) | — |
-| [core-823](../tasks/core-823-tests-platform-conformance-support.md) | Tests: verify platform conformance and support | waiting | — | [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) (open), [core-822](../tasks/core-822-macos-darwin-adapters.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open) | — |
-| [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | — | — | — |
-| [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) | macOS: run Quadlet inside Podman Machine | waiting | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open) | — |
-| [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) | Tests: verify the macOS runtime on a real Mac | queued | — | — | — |
-| [core-885](../tasks/core-885-macos-signing-notarization.md) | macOS: signing and notarization | backlog | — | — | — |
-| [core-886](../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | — | — | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-819](../tasks/core-819-architecture-host-interface-guard.md) | Architecture: define the host interface and guard | waiting | not set | — | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) (open) | — |
+| [core-820](../tasks/core-820-linux-host-adapters-regressions.md) | Linux: integrate host adapters and verify regressions | waiting | not set | — | [core-819](../tasks/core-819-architecture-host-interface-guard.md) (open) | — |
+| [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) | WSL2: implement host behavior and Windows boundaries | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open) | — |
+| [core-822](../tasks/core-822-macos-darwin-adapters.md) | macOS: implement and qualify Darwin adapters | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open), [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open) | — |
+| [core-823](../tasks/core-823-tests-platform-conformance-support.md) | Tests: verify platform conformance and support | waiting | not set | — | [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) (open), [core-822](../tasks/core-822-macos-darwin-adapters.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open) | — |
+| [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
+| [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) | macOS: run Quadlet inside Podman Machine | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open) | — |
+| [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) | Tests: verify the macOS runtime on a real Mac | queued | not set | — | — | — |
+| [core-885](../tasks/core-885-macos-signing-notarization.md) | macOS: signing and notarization | backlog | not set | — | — | — |
+| [core-886](../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | not set | — | — | — |
 
 ## [core-888](../epics/core-888-development-and-ci.md) · Streamline development and CI
 
 Status: open · release: [v0.4.26](../releases/v0.4.26.md)
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | CI: enforce selected PR checks | blocked | mcpdev80 (session 1) | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936) |
-| [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) | CI: agree the planning/execution interface for runner isolation | active | mcpdev80 (session 1) | — | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930) |
-| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | waiting | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open) | — |
-| [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | active | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
-| [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | Runners: isolate parallel PR checks safely | review | mcpdev80 (session 1) | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) (open) | [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932) |
-| [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | GC: preserve active PRs, candidates and evidence origins | review | mcpdev80 (session 2) | — | [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931) |
-| [core-901](../tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md) | Pilot: verify parallel task PRs and CI costs | waiting | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open), [core-894](../tasks/core-894-actions-concise-names-clear-results.md) (open), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) (open) | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | CI: enforce selected PR checks | blocked | not set | mcpdev80 (session 1) | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936) |
+| [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) | CI: agree the planning/execution interface for runner isolation | active | not set | mcpdev80 (session 1) | — | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930) |
+| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | waiting | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open) | — |
+| [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | active | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
+| [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | Runners: isolate parallel PR checks safely | review | not set | mcpdev80 (session 1) | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) (open) | [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932) |
+| [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | GC: preserve active PRs, candidates and evidence origins | review | not set | mcpdev80 (session 2) | — | [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931) |
+| [core-901](../tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md) | Pilot: verify parallel task PRs and CI costs | waiting | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open), [core-894](../tasks/core-894-actions-concise-names-clear-results.md) (open), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) (open) | — |
 
 ## [core-902](../epics/core-902-native-tls-justified-proxies.md) · Prefer native TLS and justify proxies
 

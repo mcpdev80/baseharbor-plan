@@ -16,7 +16,12 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/active
+- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/active #view/active
+    <!-- generated:card -->
+    **Owner:** mcpdev80 · **Priority:** not set  
+    **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
+    **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
@@ -25,6 +30,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
 **Required by:** [core-390](core-390-architecture-service-contracts-provider-catalog.md), [core-750](core-750-inspect-source-neutral-findings.md), [core-751](core-751-inspect-no-false-positives-comments-text.md), [core-752](core-752-inspect-reconcile-default-instances.md), [core-754](core-754-mcp-classify-expected-preconditions.md), [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Owner:** mcpdev80  
+**Priority:** not set  
 **PRs:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
 **Source:** [baseharbor#895](https://github.com/mcpdev80/baseharbor/issues/895)
 <!-- /generated:links -->

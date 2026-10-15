@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-820 · Linux: integrate host adapters and verify regressions #task #release/v0-4-29 #status/planned
+- [ ] core-820 · Linux: integrate host adapters and verify regressions #task #release/v0-4-29 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-819](core-819-architecture-host-interface-guard.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** [core-819](core-819-architecture-host-interface-guard.md)  
 **Required by:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#820](https://github.com/mcpdev80/baseharbor/issues/820)
 <!-- /generated:links -->

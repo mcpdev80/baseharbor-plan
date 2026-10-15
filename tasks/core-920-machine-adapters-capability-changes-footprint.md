@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/planned
+- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#920](https://github.com/mcpdev80/baseharbor/issues/920)
 <!-- /generated:links -->

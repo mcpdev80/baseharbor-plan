@@ -16,7 +16,10 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-100 · Access: operator RBAC and just-in-time access #task #release/backlog #status/backlog
+- [ ] core-100 · Access: operator RBAC and just-in-time access #task #release/backlog #status/backlog #view/backlog
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** backlog  
@@ -24,6 +27,7 @@ evidence: []
 **Parent:** [core-209](../epics/core-209-future-capabilities-integrations.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#100](https://github.com/mcpdev80/baseharbor/issues/100)
 <!-- /generated:links -->

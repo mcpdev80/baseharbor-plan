@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-318 · Kubernetes: establish CLI, agent and developer parity #task #release/v0-8-x #status/planned
+- [ ] core-318 · Kubernetes: establish CLI, agent and developer parity #task #release/v0-8-x #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md)  
 **Required by:** [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#318](https://github.com/mcpdev80/baseharbor/issues/318)
 <!-- /generated:links -->

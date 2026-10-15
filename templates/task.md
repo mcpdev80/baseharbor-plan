@@ -5,6 +5,7 @@ release: {{release}}
 version: ""
 parent: ""
 owner: ""
+priority: ""
 depends_on: []
 repos: [{{repo}}]
 prs: []

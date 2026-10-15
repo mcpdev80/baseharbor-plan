@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-299 · Lifecycle: secure upgrades, recovery and deprecation #task #release/v0-5-x #status/planned
+- [ ] core-299 · Lifecycle: secure upgrades, recovery and deprecation #task #release/v0-5-x #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-297](core-297-state-versioning-migration-compatibility.md), [core-298](core-298-contracts-cross-component-compatibility.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-297](core-297-state-versioning-migration-compatibility.md), [core-298](core-298-contracts-cross-component-compatibility.md)  
 **Required by:** [core-300](core-300-acceptance-portability-compatibility.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#299](https://github.com/mcpdev80/baseharbor/issues/299)
 <!-- /generated:links -->

@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-313 · Kubernetes: implement the complete app lifecycle #task #release/v0-8-x #status/planned
+- [ ] core-313 · Kubernetes: implement the complete app lifecycle #task #release/v0-8-x #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md)  
 **Required by:** [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#313](https://github.com/mcpdev80/baseharbor/issues/313)
 <!-- /generated:links -->

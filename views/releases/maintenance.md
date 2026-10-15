@@ -4,6 +4,6 @@
 
 Release note: [maintenance](../../releases/maintenance.md) · release status: **active** (maintained in the release note; task states never qualify a release).
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [core-909](../../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | ready | — | — | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-909](../../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | ready | not set | — | — | — |

@@ -16,13 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-887 · Review: assess technical project evaluations #task #release/backlog #status/backlog
+- [ ] core-887 · Review: assess technical project evaluations #task #release/backlog #status/backlog #view/backlog
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** backlog  
 **Release:** [backlog](../releases/backlog.md)  
 **Depends on:** none  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#887](https://github.com/mcpdev80/baseharbor/issues/887)
 <!-- /generated:links -->
