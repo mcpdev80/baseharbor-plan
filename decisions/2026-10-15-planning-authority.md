@@ -1,6 +1,6 @@
 ---
 id: 2026-10-15-planning-authority
-status: proposed
+status: accepted
 sources: []
 ---
 
@@ -15,7 +15,7 @@ Planning was spread over GitHub issues in four repositories (roadmaps, release u
 - After the Maintainer approves the cutover ([checklist](../migration/cutover-checklist.md)), human-readable Markdown in this repository is the planning authority for roadmaps, releases, epics, tasks, priorities, ownership, dependencies, decisions and handoffs. Obsidian is an optional interface.
 - Code, PRs, reviews, CI, test artifacts, release evidence, tags and published releases stay in their product repositories.
 - Migrated GitHub issue bodies and GitHub Projects stop being competing planning authorities; their discussions stay reachable through the `sources` links in each note.
-- **Until the cutover is approved, the existing GitHub issues remain authoritative** and this repository is a migration candidate.
+- The Maintainer explicitly instructed the merge and switch on 2026-10-15 after being told the Obsidian UI was unverified. Activate this decision when its commit reaches `main`; defer real UI acceptance without representing it as passed. Preserve existing product work and task ownership.
 
 ## Consequences
 

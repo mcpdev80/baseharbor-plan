@@ -2,7 +2,7 @@
 
 Planning for [BaseHarbor](https://github.com/mcpdev80/baseharbor): roadmap, releases, epics, tasks, decisions and handoffs as plain Markdown. Code, PRs, reviews, CI, evidence and releases stay in the product repositories.
 
-> **Status: migration candidate.** Until the Maintainer approves the cutover, the GitHub issues in the product repositories remain authoritative. See [migration/README.md](migration/README.md).
+> **Status: planning authority on `main`.** Maintain scope, dependencies, ownership and handoffs here. Source GitHub issues retain discussion/history. See the [activation record](migration/cutover-checklist.md); actual Obsidian UI behavior remains unverified.
 
 ## Start here
 

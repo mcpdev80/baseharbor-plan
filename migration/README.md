@@ -1,6 +1,6 @@
 # Migration from GitHub issues
 
-**Status: migration candidate, not yet cut over.** The GitHub issues and any GitHub Projects remain the planning authority until the Maintainer approves the concrete [cutover checklist](cutover-checklist.md). Nothing in the product repositories has been closed, edited or re-linked by this migration.
+**Status: activated when this commit reaches `main`.** The Maintainer authorized merging and switching on 2026-10-15 with the actual Obsidian UI explicitly unverified. This repository is then the sole planning authority. See the [cutover record](cutover-checklist.md) for entry-point merges, issue relocation and outstanding Project retirement. Historical source snapshots are immutable migration evidence, not maintained planning.
 
 ## What is here
 

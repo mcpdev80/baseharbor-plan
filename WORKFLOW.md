@@ -2,7 +2,7 @@
 
 How tasks are written, claimed, handed off and closed in this repository. Product engineering rules (branching, review, CI, release gates) stay in the product repository: [DEVELOPMENT_GUIDELINES](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md), [CONTRIBUTING](https://github.com/mcpdev80/baseharbor/blob/develop/CONTRIBUTING.md), [release audit](https://github.com/mcpdev80/baseharbor/blob/develop/docs/internal/pre-release-documentation-audit.md). This file does not repeat them.
 
-> Until the cutover is approved, the GitHub issues remain the planning authority and this vault is a migration candidate ([migration/README.md](migration/README.md)).
+> Planning authority is this repository from the activation commit on `main` ([migration/README.md](migration/README.md)). Source GitHub issues are historical/discussion references, not a second task-status authority.
 
 ## Files
 

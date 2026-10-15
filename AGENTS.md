@@ -2,7 +2,7 @@
 
 Entry point for local and cloud coding agents. This repository holds BaseHarbor **planning** only; product code, engineering rules and specifications live in the product repositories.
 
-> Migration candidate: until the Maintainer approves the cutover, the GitHub issues remain authoritative. Read the linked source issue as well and report differences instead of resolving them silently.
+> Planning authority: task and release notes in this repository are authoritative once this activation commit reaches `main`. GitHub source issues retain discussion/history only. Read [migration/cutover-checklist.md](migration/cutover-checklist.md) for the activation record and outstanding operational cleanup.
 
 ## Load only what your task needs
 

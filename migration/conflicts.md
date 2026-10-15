@@ -23,5 +23,5 @@ Planning migration does not require resolving every product task. The Maintainer
 
 - Reconcile the live source inventory and PR heads immediately before switching; do not reset historical acceptance.
 - Prepare coordinated product-repository entry points and preserve running sessions' ownership.
-- Execute the real Obsidian/CardBoard/Git UI acceptance. This cannot be claimed from Python tests or a JSON schema check.
+- Real Obsidian/CardBoard/Git UI acceptance remains unverified and was explicitly deferred by the Maintainer's follow-up merge instruction. Python tests and JSON schema checks are not UI evidence.
 - Apply one coordinated cutover under the existing Maintainer instruction; do not request separate approval for each routine step.
