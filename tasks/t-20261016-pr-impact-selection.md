@@ -1,5 +1,5 @@
 ---
-id: core-941
+id: t-20261016-pr-impact-selection
 type: task
 release: v0.4.26
 version: ""
@@ -9,13 +9,26 @@ priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["mcpdev80/baseharbor#941"]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-941 · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/active
+- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/active #view/active
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (session 2) · **Priority:** high  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Owner:** mcpdev80 (session 2)  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
@@ -45,4 +58,4 @@ Correct the existing #892 trusted diff-to-check planner without changing the #89
 
 ## Handoff
 
-- Claimed by session 2 for a separate bounded correction PR. Review evidence and remaining consumer work to follow.
+- Claimed by session 2 for [BaseHarbor #941](https://github.com/mcpdev80/baseharbor/issues/941) and a separate bounded correction PR. Review evidence and remaining consumer work to follow.
