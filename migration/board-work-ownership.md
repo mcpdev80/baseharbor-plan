@@ -24,4 +24,6 @@ Visible `area`/`kind` badges are derived from optional `areas` and existing `typ
 
 ## Current-board correction
 
-Assigned by Maintainer 2026-10-16; owner Codex (planning presentation session), active. Restore a visible Planned column covering every canonical planned task, keep readiness as card detail and in Next. Preserve all product task owners, prerequisites, acceptance and other sessions' handoffs.
+Assigned by Maintainer 2026-10-16; owner Codex (planning presentation session), implementation complete. Restore a visible Planned column covering every canonical planned task, keep readiness as card detail and in Next. Preserve all product task owners, prerequisites, acceptance and other sessions' handoffs.
+
+Correction verified: Current has Planned/Active/Review/Blocked/Closed; every canonical planned card remains visible regardless of readiness, with explicit waiting/needs detail. Next still separates readiness. 38 unit tests pass; validator: zero errors, four existing dependency warnings. Canonical task records independently compared unchanged. No task or prerequisite is accepted by this presentation correction.

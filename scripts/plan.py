@@ -665,6 +665,8 @@ def card_preview(vault, task):
     if task["blocker"]:
         lines.append("**Blocker:** " + card_text(task["blocker"], 240))
     if waiting:
+        if task["status"] == "planned":
+            lines.append("**Waiting for prerequisites**")
         lines.append("**Needs:** " + ", ".join(task_link(vault, dep, d) for dep in waiting))
     elif state == "ready":
         lines.append("**Ready to assign** · prerequisites accepted")

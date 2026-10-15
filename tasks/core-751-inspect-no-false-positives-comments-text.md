@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/planned #view/waiting #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
     <!-- /generated:card -->
 

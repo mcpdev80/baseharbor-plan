@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/planned #view/waiting #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-914](core-914-preview-actual-footprint.md)  
     <!-- /generated:card -->
 

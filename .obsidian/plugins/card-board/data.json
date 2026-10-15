@@ -55,8 +55,8 @@
             "tag": "namedTag",
             "data": {
               "collapsed": false,
-              "name": "Ready",
-              "tag": "view/ready"
+              "name": "Planned",
+              "tag": "status/planned"
             }
           },
           {
@@ -84,18 +84,10 @@
             }
           },
           {
-            "tag": "namedTag",
-            "data": {
-              "collapsed": true,
-              "name": "Waiting",
-              "tag": "view/waiting"
-            }
-          },
-          {
             "tag": "completed",
             "data": {
               "collapsed": true,
-              "index": 5,
+              "index": 4,
               "limit": 10,
               "name": "Closed"
             }
