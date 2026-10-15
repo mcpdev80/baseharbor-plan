@@ -15,18 +15,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/review #view/active
+- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/review #view/review
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** high  
+    **PR:** [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Owner:** mcpdev80 (session 2)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942)  
 **Source:** 
 <!-- /generated:links -->
 
