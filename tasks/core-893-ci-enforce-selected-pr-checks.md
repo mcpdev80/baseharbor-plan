@@ -11,15 +11,15 @@ prs: ["mcpdev80/baseharbor#930", "mcpdev80/baseharbor#936"]
 sources: ["mcpdev80/baseharbor#893"]
 source_updated: "2026-10-15T20:35:28Z"
 labels: [area/evidence]
-blocker: "core-896 is merged and qualified; #893 remains blocked only on complete original-evidence acceptance for all actually selected gates. Targeted Core+Demo Backup/Restore has a separate immutable Demo source input and does not require Connector or Console. Gates genuinely depending on private consumers still require their verified candidate graph."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/blocked
+- [ ] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/review
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
@@ -58,6 +58,8 @@ Existing workflows execute the PR test plan and always deliver a reliable requir
 - Consumes integrated and qualified core-896. Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15). core-895 follows a qualified status check from this task.
 
 ## Handoff
+
+- 2026-10-16 (verified core-893 review handoff): **Original authenticated Docker and Podman Backup/Restore evidence QUALIFIED** by GitHub-hosted [Actions 38817134426](https://github.com/mcpdev80/baseharbor/actions/runs/38817134426) using exact current #930 verifier source `60d1368ce485205a4f428a05f529156b78bd4105`, no source reconstruction or rerun of native gates. The job loaded the trusted exact PR plan and original artifacts from [38811852362](https://github.com/mcpdev80/baseharbor/actions/runs/38811852362), verified ZIP digests and canonical manifest candidate `4738671718ed85b8dc539de2dcf3b562ecaea40a`, Demo SHA `85c0db5a6f078c0331e802765d018939caaf07f4`, run/attempt, outcome and cleanup, and printed `QUALIFIED original gate evidence ['atomic/docker/backup-restore', 'atomic/podman/backup-restore']`. Workflow policy and focused negative authenticity/final-verifier tests PASS. **Review only, NOT accepted/mergeable:** Current #930 workflow orchestrator remains conservatively broad under #892; outstanding selected non-Backup/Restore gate coverage and the approved private Console/Connector candidate graph remain unavailable; stable `PR Selected Checks` must remain blocked, not forced green. Latest full #930 Actions [38816826930](https://github.com/mcpdev80/baseharbor/actions/runs/38816826930) was still queued at handoff behind older long-running native checks. #895 required-check ruleset activation remains another session's scope. Implementation branch includes current develop and merged core-896. No merge, release or full pre-release matrix.
 
 - 2026-10-16 (Session 1 current integration handoff): #930 HEAD `60d1368ce485205a4f428a05f529156b78bd4105`, latest develop included, exact PR merge/integration SHA `f90d0ad8533a928080f770c9d145c96b9ebde49c`. GitHub Actions [38816826930](https://github.com/mcpdev80/baseharbor/actions/runs/38816826930) is registered but `pending` with no jobs at handoff; previous native [38814539070](https://github.com/mcpdev80/baseharbor/actions/runs/38814539070) still has Docker and Podman Backup/Restore in progress. The latest code now collects authenticated `required_job_conclusions` (including blocked private consumer checks), verifies them in the final checker, and independently verifies original gate ZIP digest/provenance, run/attempt and canonical executed integration manifest. Focused negative fixtures cover missing/failed/duplicate prerequisites; no unverified gate PASS is possible. Current #930 CI orchestration change still conservatively selects broader required checks; the targeted two-gate pilot must not be reported as full selected coverage or green `PR Selected Checks`. Verified planning automation for this note: [38816599506](https://github.com/mcpdev80/baseharbor-plan/actions/runs/38816599506) PASS; run render/check again after this update. **Remaining:** finish latest exact-source Actions checks, authenticate complete selected coverage, and for genuinely private gates resolve their immutable Console/Connector candidates. #895 protection remains outside this task.
 
