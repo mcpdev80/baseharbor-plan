@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/planned #view/waiting #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
     <!-- /generated:card -->
 

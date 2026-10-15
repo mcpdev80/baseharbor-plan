@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-x #status/planned #view/waiting #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
     <!-- /generated:card -->
 

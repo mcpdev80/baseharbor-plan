@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-325 · Delivery: support delegated deployment and GitOps #task #release/v0-7-x #status/planned #view/waiting #area/delivery #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
     <!-- /generated:card -->
 

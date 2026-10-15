@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting #area/platform #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-823](core-823-tests-platform-conformance-support.md)  
     <!-- /generated:card -->
 

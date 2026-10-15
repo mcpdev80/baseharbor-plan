@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/planned #view/waiting #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
     <!-- /generated:card -->
 

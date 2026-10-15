@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-823 · Tests: verify platform conformance and support #task #release/v0-4-29 #status/planned #view/waiting #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-884](core-884-tests-macos-runtime-real-mac.md)  
     <!-- /generated:card -->
 

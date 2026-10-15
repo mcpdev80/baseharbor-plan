@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-299 · Lifecycle: secure upgrades, recovery and deprecation #task #release/v0-5-x #status/planned #view/waiting #area/lifecycle #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-297](core-297-state-versioning-migration-compatibility.md), [core-298](core-298-contracts-cross-component-compatibility.md)  
     <!-- /generated:card -->
 

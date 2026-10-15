@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-305 · Kubernetes: provide HTTP access through Gateway API #task #release/v0-7-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md)  
     <!-- /generated:card -->
 

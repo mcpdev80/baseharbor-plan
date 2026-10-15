@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
+    **Waiting for prerequisites**  
     **Needs:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md)  
     <!-- /generated:card -->
 
