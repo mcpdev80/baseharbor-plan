@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936)  
-    **Blocker:** Unresolved CI/security execution impact in trusted #942 coverage plan remains blocking for PR #930; no self-exemption. Scoped positive and negative final-check pilots are qualified; further review of #930 coverage is required.  
+    **Blocker:** Unresolved CI/security execution impact in trusted \#942 coverage plan remains blocking for PR \#930; no self-exemption. Scoped positive and negative final-check pilots are qualified; further review of \#930 coverage is required.  
     **Needs:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
     <!-- /generated:card -->
 
