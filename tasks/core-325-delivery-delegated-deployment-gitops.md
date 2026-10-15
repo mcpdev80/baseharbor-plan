@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-325 · Delivery: support delegated deployment and GitOps #task #release/v0-7-x #status/planned
+- [ ] core-325 · Delivery: support delegated deployment and GitOps #task #release/v0-7-x #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
 **Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#325](https://github.com/mcpdev80/baseharbor/issues/325)
 <!-- /generated:links -->

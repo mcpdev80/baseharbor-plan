@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/planned
+- [ ] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -24,6 +28,7 @@ evidence: []
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#915](https://github.com/mcpdev80/baseharbor/issues/915)
 <!-- /generated:links -->

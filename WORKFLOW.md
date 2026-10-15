@@ -24,6 +24,7 @@ type: task            # task | bug | feature | maintenance | acceptance | archit
 release: v0.4.26      # a file in releases/
 version: ""           # optional patch version inside a series release
 parent: v0.4.26       # an epic id or a release id
+priority: ""          # optional: critical | high | normal | low; empty means not set
 owner: ""             # who holds the claim; free text such as "name (session 2)"
 depends_on: [core-910]
 repos: [mcpdev80/baseharbor]
@@ -46,7 +47,9 @@ evidence: []          # https links, required on a checked card
 Rules (enforced by `scripts/plan.py check`):
 
 - Exactly **one checkbox per task note**, not indented: the card line. Write acceptance criteria as plain bullets.
-- The **status tag on the card line is the only lifecycle state**. Do not add a status to the frontmatter.
+- The **status tag on the card line is the only maintained lifecycle state**. Do not add a status to the frontmatter. The generated `#view/…` routing tag derives readiness; edit canonical fields and run `render`, never edit the view tag.
+- The indented `generated:card` block is a read-only CardBoard preview of owner, optional priority, PRs, blocker and unfinished prerequisites. It is generated from the same task fields; it is not a second task record. An unset priority stays **not set**.
+- Refresh derived board content with `render` before assigning work; a checkbox edit in Obsidian does not execute Python automatically. CI rejects stale generated tags/previews.
 - The card's `#release/…` tag equals the `release` field with dots replaced by dashes (CardBoard tags cannot contain dots).
 - The block between `<!-- generated:links -->` markers is rendered from the frontmatter. Run `python3 scripts/plan.py render` after editing metadata.
 - Use relative Markdown links (`[core-910](core-910-….md)`) so navigation works on GitHub too.

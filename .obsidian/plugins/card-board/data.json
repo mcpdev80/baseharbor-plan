@@ -8,8 +8,8 @@
             "tag": "namedTag",
             "data": {
               "collapsed": false,
-              "name": "Planned",
-              "tag": "status/planned"
+              "name": "Ready",
+              "tag": "view/ready"
             }
           },
           {
@@ -17,15 +17,7 @@
             "data": {
               "collapsed": false,
               "name": "Active",
-              "tag": "status/active"
-            }
-          },
-          {
-            "tag": "namedTag",
-            "data": {
-              "collapsed": false,
-              "name": "Blocked",
-              "tag": "status/blocked"
+              "tag": "view/active"
             }
           },
           {
@@ -33,15 +25,23 @@
             "data": {
               "collapsed": false,
               "name": "Review",
-              "tag": "status/review"
+              "tag": "view/review"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Blocked",
+              "tag": "view/blocked"
             }
           },
           {
             "tag": "namedTag",
             "data": {
               "collapsed": true,
-              "name": "Closed but unchecked (fix)",
-              "tag": "status/closed"
+              "name": "Waiting",
+              "tag": "view/waiting"
             }
           },
           {
@@ -72,8 +72,47 @@
             "tag": "namedTag",
             "data": {
               "collapsed": false,
+              "name": "Ready to assign",
+              "tag": "view/ready"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Waiting for prerequisites",
+              "tag": "view/waiting"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": true,
+              "name": "Later releases",
+              "tag": "view/queued"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "task"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "Next",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      },
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
               "name": "Blocked",
-              "tag": "status/blocked"
+              "tag": "view/blocked"
             }
           },
           {
@@ -81,7 +120,7 @@
             "data": {
               "collapsed": false,
               "name": "Review",
-              "tag": "status/review"
+              "tag": "view/review"
             }
           },
           {
@@ -89,7 +128,7 @@
             "data": {
               "collapsed": true,
               "name": "Active",
-              "tag": "status/active"
+              "tag": "view/active"
             }
           }
         ],

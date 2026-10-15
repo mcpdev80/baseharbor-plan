@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-883 · macOS: run Quadlet inside Podman Machine #task #release/v0-4-29 #status/planned
+- [ ] core-883 · macOS: run Quadlet inside Podman Machine #task #release/v0-4-29 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-820](core-820-linux-host-adapters-regressions.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** [core-820](core-820-linux-host-adapters-regressions.md)  
 **Required by:** [core-822](core-822-macos-darwin-adapters.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#883](https://github.com/mcpdev80/baseharbor/issues/883)
 <!-- /generated:links -->

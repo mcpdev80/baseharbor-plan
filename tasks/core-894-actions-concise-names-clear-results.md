@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/planned
+- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/planned #view/waiting
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
 **Required by:** [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#894](https://github.com/mcpdev80/baseharbor/issues/894)
 <!-- /generated:links -->

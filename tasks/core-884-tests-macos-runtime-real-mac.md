@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-884 · Tests: verify the macOS runtime on a real Mac #task #release/v0-4-29 #status/planned
+- [ ] core-884 · Tests: verify the macOS runtime on a real Mac #task #release/v0-4-29 #status/planned #view/queued
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** not set  
+    **Later release** · prerequisites accepted  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** queued  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** none  
 **Required by:** [core-822](core-822-macos-darwin-adapters.md), [core-823](core-823-tests-platform-conformance-support.md)  
 **Owner:** unassigned  
+**Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#884](https://github.com/mcpdev80/baseharbor/issues/884)
 <!-- /generated:links -->

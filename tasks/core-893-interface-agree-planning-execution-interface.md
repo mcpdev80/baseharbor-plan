@@ -16,7 +16,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/active
+- [ ] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/active #view/active
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (session 1) · **Priority:** not set  
+    **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
@@ -25,6 +29,7 @@ evidence: []
 **Depends on:** none  
 **Required by:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80 (session 1)  
+**Priority:** not set  
 **PRs:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)  
 **Source:** [baseharbor#893](https://github.com/mcpdev80/baseharbor/issues/893)
 <!-- /generated:links -->

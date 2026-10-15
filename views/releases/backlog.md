@@ -6,10 +6,10 @@ Release note: [backlog](../../releases/backlog.md) · release status: **planned*
 
 Epics: [core-209](../../epics/core-209-future-capabilities-integrations.md) Track future capabilities and integrations
 
-| Task | Title | State | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- |
-| [core-100](../../tasks/core-100-access-operator-rbac-jit.md) | Access: operator RBAC and just-in-time access | backlog | — | — | — |
-| [core-181](../../tasks/core-181-distribution-air-gap-private-oci.md) | Distribution: air gap and private OCI registries | backlog | — | — | — |
-| [core-885](../../tasks/core-885-macos-signing-notarization.md) | macOS: signing and notarization | backlog | — | — | — |
-| [core-886](../../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | — | — | — |
-| [core-887](../../tasks/core-887-review-assess-technical-evaluations.md) | Review: assess technical project evaluations | backlog | — | — | — |
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-100](../../tasks/core-100-access-operator-rbac-jit.md) | Access: operator RBAC and just-in-time access | backlog | not set | — | — | — |
+| [core-181](../../tasks/core-181-distribution-air-gap-private-oci.md) | Distribution: air gap and private OCI registries | backlog | not set | — | — | — |
+| [core-885](../../tasks/core-885-macos-signing-notarization.md) | macOS: signing and notarization | backlog | not set | — | — | — |
+| [core-886](../../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | not set | — | — | — |
+| [core-887](../../tasks/core-887-review-assess-technical-evaluations.md) | Review: assess technical project evaluations | backlog | not set | — | — | — |
