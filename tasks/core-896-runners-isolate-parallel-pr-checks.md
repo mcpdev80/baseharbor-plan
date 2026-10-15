@@ -1,5 +1,6 @@
 ---
 id: core-896
+areas: [ci]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-896 · Runners: isolate parallel PR checks safely #task #release/v0-4-26 #status/review #view/review
+- [ ] core-896 · Runners: isolate parallel PR checks safely #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932)  

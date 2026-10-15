@@ -1,5 +1,6 @@
 ---
 id: core-886
+areas: [platform]
 type: feature
 release: backlog
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-886 · macOS: Keychain trust and developer remote access #task #release/backlog #status/backlog #view/backlog
+- [ ] core-886 · macOS: Keychain trust and developer remote access #task #release/backlog #status/backlog #view/backlog #area/platform #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     <!-- /generated:card -->

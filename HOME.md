@@ -35,3 +35,9 @@ In Obsidian: CardBoard boards **Current · v0.4.26**, **Next** and **Attention**
 | Triage (no release decision) | [note](releases/triage.md) | [view](views/releases/triage.md) |
 
 Decisions: [decisions/](decisions/). Process: [WORKFLOW.md](WORKFLOW.md). Product rules: [BaseHarbor development guidelines](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md).
+
+## Roadmap and topic badges
+
+CardBoard **Roadmap** shows one generated card per release/series: current, next, later and qualified/published. Cards link to scope and tasks; accepted-task counts never qualify a release. Markdown equivalent: [roadmap/cards.md](roadmap/cards.md). No dates are invented.
+
+Task cards show `#area/…` and `#kind/…` badges with the `baseharbor-board` CSS snippet enabled. Maintain `areas: [ci]` (lowercase slugs) and the existing `type` in task frontmatter, then run `python3 scripts/plan.py render`. Routing tags stay hidden. Pull with CardBoard disabled, then enable it again to reload shared board settings without overwriting them with cached settings.

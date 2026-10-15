@@ -1,5 +1,6 @@
 ---
 id: t-20261016-pr-impact-selection
+areas: [ci]
 type: task
 release: v0.4.26
 version: ""
@@ -15,7 +16,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/review #view/review
+- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** high  
     **PR:** [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942)  

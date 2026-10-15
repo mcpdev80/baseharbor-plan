@@ -1,5 +1,6 @@
 ---
 id: core-893-interface
+areas: [ci]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/active #view/active
+- [ ] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)  

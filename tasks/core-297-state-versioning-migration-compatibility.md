@@ -1,5 +1,6 @@
 ---
 id: core-297
+areas: [contracts]
 type: architecture
 release: v0.5.x
 version: v0.5.1
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-297 · State: define versioning and migration compatibility #task #release/v0-5-x #status/planned #view/queued
+- [ ] core-297 · State: define versioning and migration compatibility #task #release/v0-5-x #status/planned #view/queued #area/contracts #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Later release** · prerequisites accepted  

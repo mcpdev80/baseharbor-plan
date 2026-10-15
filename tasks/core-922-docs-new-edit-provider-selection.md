@@ -1,5 +1,6 @@
 ---
 id: core-922
+areas: [docs]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/planned #view/waiting
+- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/planned #view/waiting #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  

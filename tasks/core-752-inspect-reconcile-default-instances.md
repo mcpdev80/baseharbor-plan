@@ -1,5 +1,6 @@
 ---
 id: core-752
+areas: [inspect]
 type: bug
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review #view/review
+- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review #view/review #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935)  

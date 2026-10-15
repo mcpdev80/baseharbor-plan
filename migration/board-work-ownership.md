@@ -17,3 +17,7 @@ Implementation uses an isolated checkout and a small PR. Derived previews and bo
 ## Follow-up assignment
 
 Maintainer assigned visible area/kind badges and a derived release-roadmap presentation on 2026-10-16. Owner: Codex (planning presentation session), active. Scope extends this presentation task only: renderer, validator, focused tests, board settings, CSS and concise navigation; no changes to product task ownership, acceptance or release scope.
+
+### Follow-up verification
+
+Visible `area`/`kind` badges are derived from optional `areas` and existing `type`; all 69 existing notes received explicit topic metadata only. A generated Roadmap board provides one read-only release/series card with maintained release status, accepted task counts, blockers and scope/task links. No dates, qualification or acceptance are inferred. `plan.py check`: 0 errors, 4 existing prerequisite warnings. 37 unit tests pass, including topic tampering, invalid topics, roadmap edits, acceptance-vs-review and board schema. Rendering is idempotent. Other task fields, status and handoffs are unchanged. Native Obsidian verification remains with the local vault. Follow-up implementation complete, awaiting PR checks.
