@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
-| review | 3 |
+| active | 2 |
+| review | 4 |
 | blocked | 1 |
 | ready | 3 |
 | queued | 5 |
@@ -25,7 +25,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- |
 | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) | CI: agree the planning/execution interface for runner isolation | active | mcpdev80 (session 1) | — | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930) |
 | [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | active | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
-| [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | Wizard: provide shared read-only editing state | active | mcpdev80 (session 2, preparatory implementation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934) |
 
 ## Ready for review
 
@@ -34,6 +33,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935) |
 | [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | Runners: isolate parallel PR checks safely | review | mcpdev80 (session 1) | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) (open) | [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932) |
 | [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | GC: preserve active PRs, candidates and evidence origins | review | mcpdev80 (session 2) | — | [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931) |
+| [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | Wizard: provide shared read-only editing state | review | mcpdev80 (session 2, preparatory implementation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934) |
 
 ## Blocked
 
