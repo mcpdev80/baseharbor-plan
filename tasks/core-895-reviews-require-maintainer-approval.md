@@ -1,0 +1,60 @@
+---
+id: core-895
+type: task
+release: v0.4.26
+version: ""
+parent: core-888
+owner: mcpdev80
+depends_on: [core-893]
+repos: [mcpdev80/baseharbor]
+prs: ["mcpdev80/baseharbor#933"]
+sources: ["mcpdev80/baseharbor#895"]
+source_updated: "2026-10-15T19:46:16Z"
+labels: [area/dx]
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/active
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Parent:** [core-888](../epics/core-888-development-and-ci.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
+**Required by:** [core-390](core-390-architecture-service-contracts-provider-catalog.md), [core-750](core-750-inspect-source-neutral-findings.md), [core-751](core-751-inspect-no-false-positives-comments-text.md), [core-752](core-752-inspect-reconcile-default-instances.md), [core-754](core-754-mcp-classify-expected-preconditions.md), [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-910](core-910-wizard-shared-read-only-editing-state.md)  
+**Owner:** mcpdev80  
+**PRs:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
+**Source:** [baseharbor#895](https://github.com/mcpdev80/baseharbor/issues/895)
+<!-- /generated:links -->
+
+## Goal
+
+PRs from other contributors need Maintainer approval; the Maintainer's own PRs remain possible under the documented solo exception.
+
+## Scope
+
+- In scope: rulesets/CODEOWNERS for develop as far as GitHub actually supports them; short central documentation of the rule and its limits.
+- Out of scope: claiming a bypass restricted to own PRs without proof.
+
+## Acceptance
+
+- Read current rules/permissions; configure required PRs, @mcpdev80 code-owner review and dismissal of stale approvals as far as actually supported.
+- Own PRs may merge without a second review; required green checks stay mandatory; no direct push.
+- Bypass technically narrow and separate from CI protection where possible.
+- The rule is documented briefly and centrally, naming GitHub's limits and the remaining Maintainer compromise.
+
+## Required checks
+
+- Foreign PR without/with approval, new commit, own PR and a red required check; qualify without a production merge. **Required check names must exist before activation.**
+
+## Dependencies and file ownership
+
+- Satisfied: #890 (closed). Requires a qualified #893 status check (core-893). Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
+
+## Handoff
+
+- Assigned to mcpdev80. Draft PR #933 ("propose maintainer review protection payloads"), head `2b6e0fcf14` at snapshot time — a proposal while core-893 is not qualified; activation must wait.
+
+The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
