@@ -15,7 +15,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/active
+- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/active #view/active
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (session 2) · **Priority:** high  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Owner:** mcpdev80 (session 2)  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
