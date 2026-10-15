@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 3 |
 | review | 4 |
 | blocked | 1 |
 | ready | 3 |
@@ -25,6 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) | CI: agree the planning/execution interface for runner isolation | active | not set | mcpdev80 (session 1) | — | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930) |
 | [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | active | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) (open) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
+| [t-20261016-pr-impact-selection](../tasks/t-20261016-pr-impact-selection.md) | CI: correct PR impact selection and unresolved coverage | active | high | mcpdev80 (session 2) | — | — |
 
 ## Ready for review
 
@@ -51,7 +52,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 22 open, 0 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 23 open, 0 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
