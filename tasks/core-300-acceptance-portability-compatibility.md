@@ -1,5 +1,6 @@
 ---
 id: core-300
+areas: [acceptance]
 type: acceptance
 release: v0.5.x
 version: v0.5.4
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-300 · Acceptance: verify portability and compatibility #task #release/v0-5-x #status/planned #view/waiting
+- [ ] core-300 · Acceptance: verify portability and compatibility #task #release/v0-5-x #status/planned #view/waiting #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-297](core-297-state-versioning-migration-compatibility.md), [core-298](core-298-contracts-cross-component-compatibility.md), [core-299](core-299-lifecycle-upgrades-recovery-deprecation.md)  

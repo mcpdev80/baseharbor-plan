@@ -1,5 +1,6 @@
 ---
 id: core-920
+areas: [cli]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/planned #view/waiting
+- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/planned #view/waiting #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  

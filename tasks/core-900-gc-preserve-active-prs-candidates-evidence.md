@@ -1,5 +1,6 @@
 ---
 id: core-900
+areas: [ci]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/review #view/review
+- [ ] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** not set  
     **PR:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  

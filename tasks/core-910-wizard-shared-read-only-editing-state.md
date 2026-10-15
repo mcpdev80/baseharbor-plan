@@ -1,5 +1,6 @@
 ---
 id: core-910
+areas: [wizard]
 type: task
 release: v0.4.26
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/review #view/review
+- [ ] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2, preparatory implementation) · **Priority:** not set  
     **PR:** [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934)  

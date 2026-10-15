@@ -1,5 +1,6 @@
 ---
 id: core-822
+areas: [platform]
 type: feature
 release: v0.4.29
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-822 · macOS: implement and qualify Darwin adapters #task #release/v0-4-29 #status/planned #view/waiting
+- [ ] core-822 · macOS: implement and qualify Darwin adapters #task #release/v0-4-29 #status/planned #view/waiting #area/platform #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md)  

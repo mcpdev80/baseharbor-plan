@@ -1,5 +1,6 @@
 ---
 id: core-316
+areas: [kubernetes]
 type: feature
 release: v0.8.x
 version: v0.8.3
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-316 · Kubernetes: add observability, diagnostics and evidence #task #release/v0-8-x #status/planned #view/waiting
+- [ ] core-316 · Kubernetes: add observability, diagnostics and evidence #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md)  

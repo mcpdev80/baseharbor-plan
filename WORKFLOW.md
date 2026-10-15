@@ -20,6 +20,7 @@ How tasks are written, claimed, handed off and closed in this repository. Produc
 ```markdown
 ---
 id: core-912
+areas: [wizard]       # optional topic slugs, shown as badges
 type: task            # task | bug | feature | maintenance | acceptance | architecture | review
 release: v0.4.26      # a file in releases/
 version: ""           # optional patch version inside a series release
@@ -106,3 +107,7 @@ After the cutover, outside reporters still open GitHub issues in the product rep
 ## Opening the vault
 
 See [README.md](README.md).
+
+## Derived visual planning
+
+`#area/…` and `#kind/…` tags are generated from `areas` and `type`; edit the frontmatter, never a second copy of those tags. `roadmap/cards.md` is a generated read-only CardBoard projection of release scope/status and real task acceptance/blockers. Its presentation checkboxes are not task records and must not be checked; the validator rejects any edits. The Roadmap board uses only `#roadmap`, task boards use task/release tags.

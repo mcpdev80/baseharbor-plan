@@ -1,5 +1,6 @@
 ---
 id: core-100
+areas: [security]
 type: feature
 release: backlog
 version: ""
@@ -16,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-100 · Access: operator RBAC and just-in-time access #task #release/backlog #status/backlog #view/backlog
+- [ ] core-100 · Access: operator RBAC and just-in-time access #task #release/backlog #status/backlog #view/backlog #area/security #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     <!-- /generated:card -->
