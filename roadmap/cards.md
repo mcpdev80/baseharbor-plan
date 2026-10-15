@@ -7,7 +7,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 0/23 · **Blocked:** 1 · **Waiting:** 15  
-    **Blocker:** [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) — No approved immutable v0.4.26 Connector/Console/Demo candidate set matching the integration exists; the pin resolver returns 404 for the Connector ref, so no q…  
+    **Blocker:** [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) — Unresolved CI/security execution impact in trusted \#942 coverage plan remains blocking for PR \#930; no self-exemption. Scoped positive and negative final-check…  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
