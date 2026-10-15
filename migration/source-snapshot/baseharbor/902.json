@@ -1,0 +1,19 @@
+{
+  "source": "mcpdev80/baseharbor#902",
+  "number": 902,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/902",
+  "title": "[v0.4.30] Epic: prefer native TLS and justify proxies",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "kind/meta",
+    "area/evidence",
+    "area/compatibility"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T10:53:20Z",
+  "updated_at": "2026-10-15T16:47:32Z",
+  "body": "Parent/Release: #904 (v0.4.30). Finale semantische Abnahme: #174 (v0.4.31). Koordination: vor Implementierung kleine Provider-/Regel-Tasks mit eigenen PRs gemäß #888 schneiden; kein gemeinsamer Umbau-PR.\n\n**Ziel:** Natives TLS/mTLS zuerst; zusätzliche Proxys nur für nachgewiesen notwendige Funktionen.\n\n**Verbindliche Regel**\n\n- Unterstützt der konkret eingesetzte Provider native TLS-/mTLS- und Auth-Semantik ausreichend, diese verwenden. Zertifikatsprüfung, Serveridentität, sichere Schlüsselprojektion und Rotation gehören dazu.\n- Proxy-TLS erst, wenn der native Weg fehlt oder eine konkret benötigte Semantik nicht sicher abbildet. Ausnahme mit Grund, Owner und erforderlichen Nachweisen dokumentieren.\n- Routing, HA/Primary-Auswahl und ergänzender Zugriffsschutz sind eigenständige zulässige Proxy-Aufgaben. Natives TLS ersetzt diese nicht.\n- Gemeinsamer HTTP-Gateway pro geeigneter Target-/Sicherheitsgrenze; keine pauschale Zusammenlegung aller internen Netzwerke, Adminzugänge und Credentials. Bei HA darf die Gateway-Schicht keine unqualifizierte Single-Point-of-Failure-Garantie verbergen.\n- Kein Proxy-Entfall durch Klartext-/Auth-Downgrade. Angriffsschutz mit dem Sicherheitsauftrag #903 (v0.4.30) abstimmen.\n\n**Bestandsaufnahme als Ausgangspunkt**\n\nQuellprüfung an `ba664d398f65b9aa47882556bd27f9412cc0773d`, vor Umsetzung neu prüfen:\n- Valkey/RabbitMQ: TLS-HAProxy auch bei Single; erste Kandidaten für natives TLS.\n- Management-PostgreSQL/OpenBao: natives TLS, trotzdem HAProxy im Single-Profil; App-lokales PostgreSQL hat andere Realisierung.\n- Keycloak/Prometheus/OTLP: native TLS-Endpunkte plus Caddy; Auth, feste Endpunkte und HA-Funktion vor Entfall vergleichen.\n- Loki/Tempo: Proxy liefert zusätzlichen Zugriffsschutz; nicht ersatzlos entfernen.\n- App-Exposure/Verwaltungs-UIs: mögliche doppelte Gateway-Schichten separat prüfen.\n\nQuellen: [Backend-TLS](https://github.com/mcpdev80/baseharbor/blob/ba664d398f65b9aa47882556bd27f9412cc0773d/internal/application/backend_tls.go), [Single-Profil](https://github.com/mcpdev80/baseharbor/blob/ba664d398f65b9aa47882556bd27f9412cc0773d/internal/runtime/assets/compose-single.yaml), [HTTP-Gateway](https://github.com/mcpdev80/baseharbor/blob/ba664d398f65b9aa47882556bd27f9412cc0773d/internal/serviceaccess/http_gateway.go). Quellbefund ist noch keine native Umbaubestätigung.\n\n**Abnahme**\n\n- [ ] Kurze normative Regel in bestehender Provider-/Security-Spezifikation; Provider-Vorlagen, Guidelines und Conformance verlinken sie. EN/DE konsistent; README ohne Prozessregeln.\n- [ ] Pro realisiertem Provider und Single/HA/Shared/App-Fall nachvollziehbar: natives TLS oder begründete Proxy-Aufgabe. Vorhandene TLS-/Auth-Funktionen und abgesicherte Consumer bleiben erhalten.\n- [ ] Vereinfachung in kleinen PRs: Trust/SAN, Rotation/Reload, Consumer-Endpunkte, Ownership, Lifecycle, Provider-Wechsel und Recovery passend prüfen; CLI/JSON/MCP/Footprint korrekt.\n- [ ] Gezielt betroffene Docker-/rootless-Podman-Gates; gültige unbetroffene Evidence weiterverwenden, keine Vollmatrix pro Provider-PR.\n- [ ] Vor finaler v0.4.30-Abnahme alle ausgewählten Umbauten und verbleibenden begründeten Ausnahmen nachgewiesen.\n\n**Grenze:** Umsetzung v0.4.30, kein zusätzlicher v0.4.26-Blocker und keine Änderung an aktiver v0.4.25-Qualifikation. Keine Autorisierung für Pre-Release, Merge, Tag oder Veröffentlichung. Native GitHub-Unterissue-Verknüpfung ist mit dem Connector nicht setzbar; Parent zunächst Textverweis.",
+  "comments": []
+}

@@ -1,0 +1,19 @@
+{
+  "source": "mcpdev80/baseharbor#895",
+  "number": 895,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/895",
+  "title": "[v0.4.26] Reviews: require maintainer approval for develop",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [
+    "mcpdev80"
+  ],
+  "created_at": "2026-10-15T08:43:32Z",
+  "updated_at": "2026-10-15T19:46:16Z",
+  "body": "Parent/Epic: #888 · Release: #873 · Paket 4\n\n**Ergebnis:** Fremde PRs benötigen Marcels Freigabe; eigene PRs bleiben mit dokumentierter Solo-Ausnahme möglich.\n\n**Abhängigkeiten:** #890, #893.\n\n**Akzeptanz**\n\n- [ ] Aktuelle Regeln/Rechte lesen; PR-Pflicht, @mcpdev80-Codeowner-Review und Entwertung alter Freigaben konfigurieren, soweit tatsächlich unterstützt.\n- [ ] Eigene PRs dürfen ohne Fremdreview gemergt werden, erforderliche grüne Checks bleiben Pflicht; kein direkter Push.\n- [ ] Bypass technisch eng und möglichst getrennt von CI-Schutz; keine angebliche Beschränkung nur auf eigene PRs ohne Nachweis.\n- [ ] Regel zentral kurz dokumentieren; GitHub-Grenzen und verbleibenden Maintainer-Kompromiss benennen.\n\n**Prüfung:** Fremder PR ohne/mit Approval, neuer Commit, eigener PR und roter Pflichtcheck; ohne Produktions-Merge qualifizieren. Vor Aktivierung müssen erforderliche Checknamen existieren.\n\n**Arbeitsweise:** eigener kleiner Branch/PR gegen develop; bei unabhängig reviewbaren Teilergebnissen weiter schneiden. Owner bei Übernahme setzen; aktuelle Regeln/Remote-Stände lesen, fremde Commits erhalten.\n\n**Grenze:** Umsetzung erst ab v0.4.26 nach qualifiziertem v0.4.25-Abschluss/Promotion. Aktive #881-Workflows/Evidence unverändert. Keine Autorisierung für vollständigen Pre-Release, Merge, Tag oder Veröffentlichung. Konservative V1/Freigabegrenzen aus #888 gelten. Parent/Dependencies sind Textverweise; native GitHub-Hierarchie noch zu setzen.",
+  "comments": []
+}

@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#914",
+  "number": 914,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/914",
+  "title": "[v0.4.26] Preview: present the actual footprint concisely",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T16:41:52Z",
+  "updated_at": "2026-10-15T16:46:40Z",
+  "body": "Release/Parent: #873 · Arbeitsweise: #888 · Lane: Read-only Darstellung\n\n**Ergebnis:** New/Edit-Vorschau erklärt erforderliche Dienste und inkrementellen Ressourcenbedarf in wenigen Zeilen.\n\n**Abhängigkeiten:** #910. Gemeinsame PR-/Review-/Runner-Basis aus #890–#893, #895/#896 beachten.\n\n**Dateigrenze:** Separate Footprint-Presenter-Dateien und Tests im vorhandenen Präsentationsbereich; internal/application/footprint.go nur konsumieren, keine Resolver-Änderung.\n\n**Akzeptanz**\n\n- [ ] Neue/wiederverwendete/gestoppte/unverifizierte Realisierungen korrekt zeigen; laufende/zusätzliche Container nicht aus Capability-Namen erraten.\n- [ ] RAM/Containerwerte unterscheiden measured, estimated, unknown; keine erfundenen Nullwerte oder scheinbar exakten Summen.\n- [ ] Zero-Core und echte Abhängigkeiten erklären, Details optional; Ausgabe sekretfrei.\n\n**Prüfung:** Fixtures für leer, reuse/new, unbekannte Kapazität, echte transitive Abhängigkeiten und unvollständige Facts; keine Runtime.\n\n**Parallelität:** Eigener kleiner Branch/PR gegen develop; Owner bei Übernahme setzen. Abhängige Schnittstellen zuerst integrieren. Gemeinsame Dateien anderer Tasks nicht nebenbei ändern; nötige Vertragsdeltas als kleiner abgestimmter Vorab-PR, kein dauerhafter Dateilock. Nach Basisänderungen den Integrationsstand gezielt prüfen.\n\n**Quelle/Scope:** develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231`; aktuelle Regeln/SHAs und existierende Implementierung vor Umsetzung lesen. Anforderungen aus #873 erhalten; bestehende #872-Domain-/Lifecycle-Owner verwenden. Keine neue State-Autorität und kein pauschaler Refactor. Relevante EN/DE-Begriffe konsistent. Kein vollständiger Pre-Release, Merge, Tag oder Veröffentlichung ohne Freigabe. Native Parent-/blocked-by-Verknüpfungen noch separat setzen; hier nur Textverweise.",
+  "comments": []
+}

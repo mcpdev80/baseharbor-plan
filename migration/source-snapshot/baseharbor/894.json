@@ -1,0 +1,17 @@
+{
+  "source": "mcpdev80/baseharbor#894",
+  "number": 894,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/894",
+  "title": "[v0.4.26] Actions: use concise names and clear results",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [
+    "area/dx"
+  ],
+  "milestone": "v0.4.x",
+  "assignees": [],
+  "created_at": "2026-10-15T08:43:26Z",
+  "updated_at": "2026-10-15T16:48:23Z",
+  "body": "Parent/Epic: #888 · Release: #873 · Paket 3\n\n**Ergebnis:** Titel und Summary erklären innerhalb weniger Sekunden Anlass, Ergebnis und nächste Aktion.\n\n**Abhängigkeiten:** #893.\n\n**Akzeptanz**\n\n- [ ] Kurze run-name-/Jobnamen mit Fähigkeit und Runtime; SHA und technische Gate-IDs in Details.\n- [ ] Summary trennt geprüft, wiederverwendet, nicht erforderlich und fehlgeschlagen/blockiert; Dauer und Links anzeigen.\n- [ ] Graph auf Planung, ausgewählte Prüfungen und Abschluss begrenzen; unvermeidbare Plattformanzeigen dokumentieren.\n- [ ] Anzeigenamen mit Required Checks/Verifier abstimmen; interne Evidence-IDs nicht kosmetisch brechen.\n\n**Prüfung:** Vorhandene bzw. ohnehin nötige kleine Pilot-Läufe in Actions kontrollieren, einschließlich Fehlerfall; kein eigener Full-E2E-Lauf.\n\n**Arbeitsweise:** eigener kleiner Branch/PR gegen develop; bei unabhängig reviewbaren Teilergebnissen weiter schneiden. Owner bei Übernahme setzen; aktuelle Regeln/Remote-Stände lesen, fremde Commits erhalten.\n\n**Grenze:** Umsetzung erst ab v0.4.26 nach qualifiziertem v0.4.25-Abschluss/Promotion. Aktive #881-Workflows/Evidence unverändert. Keine Autorisierung für vollständigen Pre-Release, Merge, Tag oder Veröffentlichung. Konservative V1/Freigabegrenzen aus #888 gelten. Parent/Dependencies sind Textverweise; native GitHub-Hierarchie noch zu setzen.",
+  "comments": []
+}

@@ -1,0 +1,890 @@
+{
+  "captured_at": "2026-10-15T20:53:44Z",
+  "repositories": [
+    "mcpdev80/baseharbor",
+    "mcpdev80/baseharbor-demo",
+    "mcpdev80/baseharbor-console",
+    "mcpdev80/baseharbor-node-connector"
+  ],
+  "open_issues": [
+    {
+      "source": "mcpdev80/baseharbor#100",
+      "title": "[Backlog] Access: operator RBAC and just-in-time access",
+      "updated_at": "2026-10-15T16:54:56Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/100.json",
+      "sha256": "8b3037838540439ec13d83e79e431b7f962d0c2aac1973f9111b850776f938b2"
+    },
+    {
+      "source": "mcpdev80/baseharbor#102",
+      "title": "[v0.7.0] Kubernetes: establish a namespace-scoped runtime foundation",
+      "updated_at": "2026-10-15T16:54:50Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/102.json",
+      "sha256": "78875f53f478e53db2b32a108a0a3219f6e393a28af509ccb1a872f02c8e9267"
+    },
+    {
+      "source": "mcpdev80/baseharbor#155",
+      "title": "[Roadmap] Overview: BaseHarbor releases and development",
+      "updated_at": "2026-10-15T16:54:44Z",
+      "comments": 6,
+      "file": "migration/source-snapshot/baseharbor/155.json",
+      "sha256": "aa68fc14990f1a28dad4e8f3ca6b796d8fc8ac5bc0d30a4f47e85d64ee9370b4"
+    },
+    {
+      "source": "mcpdev80/baseharbor#174",
+      "title": "[v0.4.31] Release: final semantic acceptance",
+      "updated_at": "2026-10-15T16:54:37Z",
+      "comments": 5,
+      "file": "migration/source-snapshot/baseharbor/174.json",
+      "sha256": "2e7317fb1d596a237ff70c13362b2e358e7e7f9731edc557c172f569406fbdef"
+    },
+    {
+      "source": "mcpdev80/baseharbor#175",
+      "title": "[v0.5.0] Release: freeze the complete BaseHarbor contract",
+      "updated_at": "2026-10-15T16:54:30Z",
+      "comments": 3,
+      "file": "migration/source-snapshot/baseharbor/175.json",
+      "sha256": "0c68ea50331affe94736aa21ab40e478078dd95c9dc6e13947bc1cacff089f46"
+    },
+    {
+      "source": "mcpdev80/baseharbor#181",
+      "title": "[Backlog] Distribution: air gap and private OCI registries",
+      "updated_at": "2026-10-15T16:54:24Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/181.json",
+      "sha256": "a55a03e45cc7090c8efa5dd403534617fe3d058b982fc6a1e155e3c9bbdaaa92"
+    },
+    {
+      "source": "mcpdev80/baseharbor#209",
+      "title": "[Backlog] Epic: track future capabilities and integrations",
+      "updated_at": "2026-10-15T16:54:17Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/209.json",
+      "sha256": "c4ef79a9d47578937f940d26a4b3b4ac4c320377c79f381c4ba28131f7618d9d"
+    },
+    {
+      "source": "mcpdev80/baseharbor#297",
+      "title": "[v0.5.1] State: define versioning and migration compatibility",
+      "updated_at": "2026-10-15T16:54:11Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/297.json",
+      "sha256": "fa7bbffe810bb474dd85fe08eb74800fc77a00256b021649af05562d242cbc2a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#298",
+      "title": "[v0.5.2] Contracts: define cross-component compatibility",
+      "updated_at": "2026-10-15T16:54:04Z",
+      "comments": 3,
+      "file": "migration/source-snapshot/baseharbor/298.json",
+      "sha256": "485de21d4903438c066c7f92532aaa94643d36b5501b344ef1be234298a0cbc6"
+    },
+    {
+      "source": "mcpdev80/baseharbor#299",
+      "title": "[v0.5.3] Lifecycle: secure upgrades, recovery and deprecation",
+      "updated_at": "2026-10-15T16:53:58Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/299.json",
+      "sha256": "12fa0a82fcaf3ac9c830461232aa3a6d5417c80936607dfc3d4446e64a2b13e9"
+    },
+    {
+      "source": "mcpdev80/baseharbor#300",
+      "title": "[v0.5.4] Acceptance: verify portability and compatibility",
+      "updated_at": "2026-10-15T16:53:51Z",
+      "comments": 3,
+      "file": "migration/source-snapshot/baseharbor/300.json",
+      "sha256": "934431d521060b28382dfa9f245a39bb83eaa6d9e5873d44c82e92881ea6f4bf"
+    },
+    {
+      "source": "mcpdev80/baseharbor#304",
+      "title": "[v0.7.1] Kubernetes: implement security, identity and networking",
+      "updated_at": "2026-10-15T16:53:45Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/304.json",
+      "sha256": "1a3df706a49810119247ef0ab6598297a891ba9825f477f15186bb8a78d5574a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#305",
+      "title": "[v0.7.2] Kubernetes: provide HTTP access through Gateway API",
+      "updated_at": "2026-10-15T16:53:38Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/305.json",
+      "sha256": "fdfc8253b345fde812904f64424d1604a677682819bf418f666f2a820fee6611"
+    },
+    {
+      "source": "mcpdev80/baseharbor#306",
+      "title": "[v0.7.3] Kubernetes: implement namespaced persistent storage",
+      "updated_at": "2026-10-15T16:53:32Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/306.json",
+      "sha256": "bc26ceb1b816890c813405de0dc388dba6e26b1cbb240090cbd1ed08d5b80e43"
+    },
+    {
+      "source": "mcpdev80/baseharbor#307",
+      "title": "[v0.7.4] Kubernetes: support stateful workloads",
+      "updated_at": "2026-10-15T16:53:26Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/307.json",
+      "sha256": "1cca5f3d85950738eb4b9416f14ace06b110bccaa61693babd630e16cfb1ed85"
+    },
+    {
+      "source": "mcpdev80/baseharbor#308",
+      "title": "[v0.7.5] Kubernetes: implement availability guarantees",
+      "updated_at": "2026-10-15T16:53:20Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/308.json",
+      "sha256": "a7aafd6a03e0989a4b8e142cf17620180654a9c31641f055b34cf476462bec44"
+    },
+    {
+      "source": "mcpdev80/baseharbor#309",
+      "title": "[v0.7.6] Tests: verify Kubernetes with restricted permissions",
+      "updated_at": "2026-10-15T16:53:14Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/309.json",
+      "sha256": "645509ca4707e9703036732b55205b68f679e54cd77581937b3a4dea171bf99a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#310",
+      "title": "[v0.7.7] Acceptance: verify Compose-to-Kubernetes portability",
+      "updated_at": "2026-10-15T16:53:08Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/310.json",
+      "sha256": "50dfd557fd69eb73984725fa956c3f04063a5ee4a8d3c54b52dedd8b61cdd3d3"
+    },
+    {
+      "source": "mcpdev80/baseharbor#313",
+      "title": "[v0.8.0] Kubernetes: implement the complete app lifecycle",
+      "updated_at": "2026-10-15T16:53:00Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/313.json",
+      "sha256": "00524e40f8f904e098257a38d6d286e9d9616a3f80baf0b0cac035135ddb1fa6"
+    },
+    {
+      "source": "mcpdev80/baseharbor#314",
+      "title": "[v0.8.1] Kubernetes: add capabilities and provider placement",
+      "updated_at": "2026-10-15T16:52:54Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/314.json",
+      "sha256": "dc3c93a52f950daa77aee3d6ba3f0d2b27066446f6251996829f5023b90dadc5"
+    },
+    {
+      "source": "mcpdev80/baseharbor#315",
+      "title": "[v0.8.2] Kubernetes: verify backup and disaster recovery",
+      "updated_at": "2026-10-15T16:52:48Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/315.json",
+      "sha256": "fef9eaad2863e607c12232dc7ebb411299c79ead20a2894915061418901c4e54"
+    },
+    {
+      "source": "mcpdev80/baseharbor#316",
+      "title": "[v0.8.3] Kubernetes: add observability, diagnostics and evidence",
+      "updated_at": "2026-10-15T16:52:42Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/316.json",
+      "sha256": "7e3c60a0ba30a2af91ec36ea5824a0ae9f7a8f22c16c9c93c08f7a6735aa3c92"
+    },
+    {
+      "source": "mcpdev80/baseharbor#317",
+      "title": "[v0.8.4] Kubernetes: secure updates, migration and recovery",
+      "updated_at": "2026-10-15T16:52:35Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/317.json",
+      "sha256": "7f87eec40db21d6597f3c012a8156b0b769c030439b0a6352fb1153108f07b3a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#318",
+      "title": "[v0.8.5] Kubernetes: establish CLI, agent and developer parity",
+      "updated_at": "2026-10-15T16:52:29Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/318.json",
+      "sha256": "5c67a887ba9c7b86e098ed030bb7327d6dfde80d5fc86b22d0282abc0f08494a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#319",
+      "title": "[v0.8.6] Kubernetes: verify production hardening and conformance",
+      "updated_at": "2026-10-15T16:52:24Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/319.json",
+      "sha256": "9cdd6c083ff5c5d6fa2cff20f066a73939e5cc9f8851c669a60d22a88a0e5dbe"
+    },
+    {
+      "source": "mcpdev80/baseharbor#320",
+      "title": "[v0.8.7] Acceptance: verify complete Kubernetes support",
+      "updated_at": "2026-10-15T16:52:17Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/320.json",
+      "sha256": "bc22aa594a9489e9f1f69b58908144c3d342748625e78327a3a14ead2c652e3d"
+    },
+    {
+      "source": "mcpdev80/baseharbor#325",
+      "title": "[v0.7.8] Delivery: support delegated deployment and GitOps",
+      "updated_at": "2026-10-15T16:52:11Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/325.json",
+      "sha256": "a4ae68a805b91eae24c98d47d97ea0c4a472b6d34302a2b134b0482dfc1c228e"
+    },
+    {
+      "source": "mcpdev80/baseharbor#390",
+      "title": "[v0.4.x] Architecture: align service contracts and provider catalog",
+      "updated_at": "2026-10-15T16:52:05Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/390.json",
+      "sha256": "4fe4afeaa4873d91fb57a7d19f5ad365e041ed5caf4019da055a74ade13ebfd5"
+    },
+    {
+      "source": "mcpdev80/baseharbor#427",
+      "title": "[v0.4.x] Roadmap: product readiness before the contract freeze",
+      "updated_at": "2026-10-15T16:51:59Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/427.json",
+      "sha256": "8260a6aa0956d8f8da7c3ea112cee921287bd9fcf65aabd9088f8c6cc61ad340"
+    },
+    {
+      "source": "mcpdev80/baseharbor#428",
+      "title": "[v0.5.x] Roadmap: contract freeze and compatibility",
+      "updated_at": "2026-10-15T16:51:52Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/428.json",
+      "sha256": "31fbc87cd590577e17a504802f5118e97e0ff160156d08f252fd077af654486a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#430",
+      "title": "[v0.7.x] Roadmap: Kubernetes runtime",
+      "updated_at": "2026-10-15T16:51:46Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/430.json",
+      "sha256": "cdada374319be761768dad46b15394294b5b98a262e26af02f05db0281f5f371"
+    },
+    {
+      "source": "mcpdev80/baseharbor#431",
+      "title": "[v0.8.x] Roadmap: complete Kubernetes support",
+      "updated_at": "2026-10-15T16:51:40Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/431.json",
+      "sha256": "634f5594ed2c479c35c491385efd77d05faba51ab2c3351a66f64086bdf78d7b"
+    },
+    {
+      "source": "mcpdev80/baseharbor#750",
+      "title": "[v0.4.x] Inspect: present complete source-neutral findings",
+      "updated_at": "2026-10-15T16:51:33Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/750.json",
+      "sha256": "4cc7496191ef8e5c694f2719bdb73fb130c218d5412c3ef948da646e62eb7767"
+    },
+    {
+      "source": "mcpdev80/baseharbor#751",
+      "title": "[v0.4.x] Inspect: avoid false positives from comments and text",
+      "updated_at": "2026-10-15T16:51:27Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/751.json",
+      "sha256": "86444e29f17fb5fae613008f2b5ab92c375a0e49da9865e764a1e9a7f08107aa"
+    },
+    {
+      "source": "mcpdev80/baseharbor#752",
+      "title": "[v0.4.26] Inspect: reconcile default instances unambiguously",
+      "updated_at": "2026-10-15T16:51:21Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/752.json",
+      "sha256": "d3188ff620143fc848783abad31a240e160475618e76054f6fb21846da837cab"
+    },
+    {
+      "source": "mcpdev80/baseharbor#754",
+      "title": "[v0.4.x] MCP: classify expected preconditions correctly",
+      "updated_at": "2026-10-15T16:51:15Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/754.json",
+      "sha256": "fd54e455e7f6bdaac004f601bcc5aa165e1a3699e3a5116caaa47ea463244771"
+    },
+    {
+      "source": "mcpdev80/baseharbor#766",
+      "title": "[v0.4.x] Cleanup: remove orphaned owned runtime resources",
+      "updated_at": "2026-10-15T16:51:08Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/766.json",
+      "sha256": "fbe5a1baf8043fc27c1ed185f586fe7968ddc5db4998a73e5793704f127f4b09"
+    },
+    {
+      "source": "mcpdev80/baseharbor#777",
+      "title": "[v0.4.27] Epic: make developer access and profiles portable",
+      "updated_at": "2026-10-15T16:51:01Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/777.json",
+      "sha256": "6b91961141ffea7f5f8a3a1846092dae3a2b2ff6d91c289c444dcf798f984d9f"
+    },
+    {
+      "source": "mcpdev80/baseharbor#815",
+      "title": "[v0.4.x] Tests: start all greenfield stacks on native runtimes",
+      "updated_at": "2026-10-15T16:50:55Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/815.json",
+      "sha256": "66b5559981237ef97f2f725334a35cdc03cc7a6e44baa034e9894c1120ac05fe"
+    },
+    {
+      "source": "mcpdev80/baseharbor#817",
+      "title": "[v0.4.29] Audit: verify host portability and architecture",
+      "updated_at": "2026-10-15T16:50:49Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/817.json",
+      "sha256": "fb489b3be75fc8b2e2d52a7f38a5406f70bf358f5ef7638a4f29e6328df6d24b"
+    },
+    {
+      "source": "mcpdev80/baseharbor#818",
+      "title": "[v0.4.29] Epic: support host platforms",
+      "updated_at": "2026-10-15T16:50:42Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/818.json",
+      "sha256": "f810375bb4bb8ee94fca876250c7f245ef4df7b2737274e849518bf9dd9c0741"
+    },
+    {
+      "source": "mcpdev80/baseharbor#819",
+      "title": "[v0.4.29] Architecture: define the host interface and guard",
+      "updated_at": "2026-10-15T16:50:35Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/819.json",
+      "sha256": "3169b1d02a21cbd7ea7a0b33ac8998a48a38cedda50ce139b92c698b2821b640"
+    },
+    {
+      "source": "mcpdev80/baseharbor#820",
+      "title": "[v0.4.29] Linux: integrate host adapters and verify regressions",
+      "updated_at": "2026-10-15T16:50:29Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/820.json",
+      "sha256": "fc9b3f47a52ce4f8f8a8d323acf3a88d0abc03447ac0f573feb9b4bd5e698d49"
+    },
+    {
+      "source": "mcpdev80/baseharbor#821",
+      "title": "[v0.4.29] WSL2: implement host behavior and Windows boundaries",
+      "updated_at": "2026-10-15T16:50:23Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/821.json",
+      "sha256": "e9bf3d021c338b1f8c192f562743f5e0f474c1a7cfcbdab526addca9b51ff6b1"
+    },
+    {
+      "source": "mcpdev80/baseharbor#822",
+      "title": "[v0.4.29] macOS: implement and qualify Darwin adapters",
+      "updated_at": "2026-10-15T16:50:17Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/822.json",
+      "sha256": "6021ccd5ec4068de4e1665c5c39b630acfe7c9a032e26a5df815c093fbfa0ebb"
+    },
+    {
+      "source": "mcpdev80/baseharbor#823",
+      "title": "[v0.4.29] Tests: verify platform conformance and support",
+      "updated_at": "2026-10-15T16:50:10Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/823.json",
+      "sha256": "91c6062ca443225e2ab143e05f6507c1d1dfa14ba63683ac5d49177840c2e324"
+    },
+    {
+      "source": "mcpdev80/baseharbor#862",
+      "title": "[v0.4.x] Quality: staticcheck, govulncheck and risk-focused tests",
+      "updated_at": "2026-10-15T16:50:04Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/862.json",
+      "sha256": "f7c4d693276cf231f39555d6a5777c813a59f161d59896626d4db976f86e743d"
+    },
+    {
+      "source": "mcpdev80/baseharbor#873",
+      "title": "[v0.4.26] Release: app wizard and capability editing",
+      "updated_at": "2026-10-15T19:36:55Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/873.json",
+      "sha256": "5f393c22d527895e080b83ebfcbdb232f8cf7e3ddde2a44f0a4775f4d0b2cab1"
+    },
+    {
+      "source": "mcpdev80/baseharbor#874",
+      "title": "[v0.4.27] Release: remote development and onboarding",
+      "updated_at": "2026-10-15T16:49:51Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/874.json",
+      "sha256": "8a1fb9672797cf5da89483469e48a896fdb27a53484cd4bd892a0b3ea2ef8f27"
+    },
+    {
+      "source": "mcpdev80/baseharbor#875",
+      "title": "[v0.4.28] Release: Console and management workflows",
+      "updated_at": "2026-10-15T16:49:45Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/875.json",
+      "sha256": "1db21167e43d565ff3c9355891fb8f2d2ccf34541b6fa8a55728b2f1a1961177"
+    },
+    {
+      "source": "mcpdev80/baseharbor#876",
+      "title": "[v0.4.29] Release: Linux, WSL2 and macOS",
+      "updated_at": "2026-10-15T16:49:39Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/876.json",
+      "sha256": "6ef717f160ba97722fedd04707f1510bb9800c164a5eb1af80fb93803e11e9fc"
+    },
+    {
+      "source": "mcpdev80/baseharbor#882",
+      "title": "[v0.4.29] macOS: fix Darwin builds and verify build/vet",
+      "updated_at": "2026-10-15T16:49:30Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/882.json",
+      "sha256": "c7ca7947fe5fde7ab71d3c81aa06eb9bf312c18597f8e62ce7e06005cc69dc15"
+    },
+    {
+      "source": "mcpdev80/baseharbor#883",
+      "title": "[v0.4.29] macOS: run Quadlet inside Podman Machine",
+      "updated_at": "2026-10-15T16:49:24Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/883.json",
+      "sha256": "1c92dc9b64cb4e008112e2e733b04caa212fe727e2d81f182e8590a383ca7949"
+    },
+    {
+      "source": "mcpdev80/baseharbor#884",
+      "title": "[v0.4.29] Tests: verify the macOS runtime on a real Mac",
+      "updated_at": "2026-10-15T16:49:18Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/884.json",
+      "sha256": "86187bcd35d5fc669e10227cfa7e21eeb4ec8e0ad68069ea9e27ee99cd6806d9"
+    },
+    {
+      "source": "mcpdev80/baseharbor#885",
+      "title": "[Backlog] macOS: signing and notarization",
+      "updated_at": "2026-10-15T16:49:12Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/885.json",
+      "sha256": "e2e776248b26cd569b73263c13cded5d5e59ecbba697294757cb32b63458656e"
+    },
+    {
+      "source": "mcpdev80/baseharbor#886",
+      "title": "[Backlog] macOS: Keychain trust and developer remote access",
+      "updated_at": "2026-10-15T16:49:06Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/886.json",
+      "sha256": "27034841ad8bd72e37160594a0a6354cbe50b556d9f6f89959f3758a5af55fe0"
+    },
+    {
+      "source": "mcpdev80/baseharbor#887",
+      "title": "[Backlog] Review: assess technical project evaluations",
+      "updated_at": "2026-10-15T16:49:00Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/887.json",
+      "sha256": "374c1c369c32a2d865d760a71a6b490aa5c33b7666f72f0b3f59b53b0dd0eb9a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#888",
+      "title": "[v0.4.26] Epic: streamline development and CI",
+      "updated_at": "2026-10-15T19:36:50Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/888.json",
+      "sha256": "3e322a9aa52863b4becb69ec3b9a3d0909dd833167c39ef5e186208d4c195df0"
+    },
+    {
+      "source": "mcpdev80/baseharbor#889",
+      "title": "Dependency Dashboard",
+      "updated_at": "2026-10-15T16:21:32Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/889.json",
+      "sha256": "69a63079b6779af9f826e56c0ffee330723eec2b1480d8294b39471b356cfa59"
+    },
+    {
+      "source": "mcpdev80/baseharbor#893",
+      "title": "[v0.4.26] CI: enforce selected PR checks",
+      "updated_at": "2026-10-15T20:35:28Z",
+      "comments": 2,
+      "file": "migration/source-snapshot/baseharbor/893.json",
+      "sha256": "a63c94170c8f16d2dcf6799c10e4e6fedba55784ac9f94adfa1487d30c55958c"
+    },
+    {
+      "source": "mcpdev80/baseharbor#894",
+      "title": "[v0.4.26] Actions: use concise names and clear results",
+      "updated_at": "2026-10-15T16:48:23Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/894.json",
+      "sha256": "6429cfe122f8f621ffc522e6cbe66b94a36b45d38542a88c7d8033ee340fd7c8"
+    },
+    {
+      "source": "mcpdev80/baseharbor#895",
+      "title": "[v0.4.26] Reviews: require maintainer approval for develop",
+      "updated_at": "2026-10-15T19:46:16Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/895.json",
+      "sha256": "cab6b0d2e54640854e93689af128611057ee708f78b9b61ef02c2f9c50c4a856"
+    },
+    {
+      "source": "mcpdev80/baseharbor#896",
+      "title": "[v0.4.26] Runners: isolate parallel PR checks safely",
+      "updated_at": "2026-10-15T20:35:26Z",
+      "comments": 2,
+      "file": "migration/source-snapshot/baseharbor/896.json",
+      "sha256": "4910e4c4d6af693df5a0801ba7e0005e3cafa2007bb03c73cc0cf1af50e36dbc"
+    },
+    {
+      "source": "mcpdev80/baseharbor#900",
+      "title": "[v0.4.26] GC: preserve active PRs, candidates and evidence origins",
+      "updated_at": "2026-10-15T19:49:39Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/900.json",
+      "sha256": "a548e1dfd4a616cde73469899577b2f344ce830dd9823ac27c8e578a0d2a9df2"
+    },
+    {
+      "source": "mcpdev80/baseharbor#901",
+      "title": "[v0.4.26] Pilot: verify parallel task PRs and CI costs",
+      "updated_at": "2026-10-15T16:47:38Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/901.json",
+      "sha256": "535fdc79fc13a622270aaa59ae43a750f1d9f752245502feaabad0dab4520d4e"
+    },
+    {
+      "source": "mcpdev80/baseharbor#902",
+      "title": "[v0.4.30] Epic: prefer native TLS and justify proxies",
+      "updated_at": "2026-10-15T16:47:32Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/902.json",
+      "sha256": "90df1aae18b5249a421daa736d25624a0c162aaef5249b52c6fe377d826c919a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#903",
+      "title": "[v0.4.30] Epic: establish attack protection and DDoS boundaries",
+      "updated_at": "2026-10-15T16:47:26Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/903.json",
+      "sha256": "008abbd28c7d587b3c6f003bc38cfd42debdb25f5d0826651e0eaed3cc59d5c3"
+    },
+    {
+      "source": "mcpdev80/baseharbor#904",
+      "title": "[v0.4.30] Release: simplify TLS and strengthen attack protection",
+      "updated_at": "2026-10-15T16:47:19Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/904.json",
+      "sha256": "37c5b0c06112a9f788f44431510d06139f01d6eb876f09283292519b6accbc0f"
+    },
+    {
+      "source": "mcpdev80/baseharbor#909",
+      "title": "[Maintenance] Branches: safely remove superseded branches",
+      "updated_at": "2026-10-15T16:47:13Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/909.json",
+      "sha256": "fae60f0793137c040c5bd6e683dd93068b1fb1b5a8add69017b307200e07e834"
+    },
+    {
+      "source": "mcpdev80/baseharbor#910",
+      "title": "[v0.4.26] Wizard: provide shared read-only editing state",
+      "updated_at": "2026-10-15T20:29:55Z",
+      "comments": 2,
+      "file": "migration/source-snapshot/baseharbor/910.json",
+      "sha256": "3de7d9b6b071bd7a444b128b282c1af46d397f3384564770bc54ffa557c89433"
+    },
+    {
+      "source": "mcpdev80/baseharbor#911",
+      "title": "[v0.4.26] App edit: load existing selections completely",
+      "updated_at": "2026-10-15T16:46:59Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/911.json",
+      "sha256": "7285aac88fef121aa1c2b103b873ea7d17dc23102de5b493826c349953680dd7"
+    },
+    {
+      "source": "mcpdev80/baseharbor#912",
+      "title": "[v0.4.26] Wizard: present a compact needs-first selection",
+      "updated_at": "2026-10-15T16:46:52Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/912.json",
+      "sha256": "d69de92a0f3547711f9969ae49568cb2243dbf6825d389986a998ebe7e062428"
+    },
+    {
+      "source": "mcpdev80/baseharbor#913",
+      "title": "[v0.4.26] Wizard: offer compatible providers in the same view",
+      "updated_at": "2026-10-15T16:46:46Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/913.json",
+      "sha256": "3a1c26f2768788f5b6c141ad69def331fa0c894f3323862a3f2d1bd5059870cf"
+    },
+    {
+      "source": "mcpdev80/baseharbor#914",
+      "title": "[v0.4.26] Preview: present the actual footprint concisely",
+      "updated_at": "2026-10-15T16:46:40Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/914.json",
+      "sha256": "4014f905cb87de24951bb6a1c12f013c56ded730a44c8fa3b2f251a1c77c1c2a"
+    },
+    {
+      "source": "mcpdev80/baseharbor#915",
+      "title": "[v0.4.26] Preview: explain provider consequences and partial results",
+      "updated_at": "2026-10-15T16:46:34Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/915.json",
+      "sha256": "c8c8cea23dcac74100cd479da42d38304186b1d297d4fe37c4820a3673bd1976"
+    },
+    {
+      "source": "mcpdev80/baseharbor#916",
+      "title": "[v0.4.26] Wizard: handle back, cancel and EOF without side effects",
+      "updated_at": "2026-10-15T16:46:28Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/916.json",
+      "sha256": "7bca084b15f41099442f7a4a24d6cd287575636cc53a7ee9fdda0a7c3820ed25"
+    },
+    {
+      "source": "mcpdev80/baseharbor#917",
+      "title": "[v0.4.26] App new: connect the compact wizard to the existing lifecycle",
+      "updated_at": "2026-10-15T16:46:23Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/917.json",
+      "sha256": "0329fe1c2792b63a1f3fe7b043e1ba3f9bcde24aae7b29c502862b6ab743fa19"
+    },
+    {
+      "source": "mcpdev80/baseharbor#918",
+      "title": "[v0.4.26] App edit: apply confirmed changes safely",
+      "updated_at": "2026-10-15T16:46:17Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/918.json",
+      "sha256": "f42292acdbf99797a9a7a43f728b5ff67f3a2c1c0678a27ac527e26c759a0227"
+    },
+    {
+      "source": "mcpdev80/baseharbor#919",
+      "title": "[v0.4.26] Footprint: serve CLI and JSON from one projection",
+      "updated_at": "2026-10-15T16:46:11Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/919.json",
+      "sha256": "1b4aa3d5cefae5eb0ce594fa327dc87513beeefe62020fcc9c7434848056ffe4"
+    },
+    {
+      "source": "mcpdev80/baseharbor#920",
+      "title": "[v0.4.26] Machine adapters: reuse capability changes and footprint",
+      "updated_at": "2026-10-15T16:46:05Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/920.json",
+      "sha256": "211d110d74d12dde6cc114b4ac600d1e671bacca0d73b73e88ff0cb26717a22e"
+    },
+    {
+      "source": "mcpdev80/baseharbor#921",
+      "title": "[v0.4.26] CLI and MCP: register new interfaces consistently",
+      "updated_at": "2026-10-15T16:45:53Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/921.json",
+      "sha256": "8470fc1c1d9cc15363b20c3838e2bed6e8cab42b0283ef77c7da651a266bd6d4"
+    },
+    {
+      "source": "mcpdev80/baseharbor#922",
+      "title": "[v0.4.26] Docs: explain New/Edit and provider selection concisely",
+      "updated_at": "2026-10-15T16:45:47Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/922.json",
+      "sha256": "63b4adaf8073de4255ece8100bcc5a355528680638fc999e770261da26246f9f"
+    },
+    {
+      "source": "mcpdev80/baseharbor#923",
+      "title": "[v0.4.26] Acceptance: verify New/Edit journeys and ecosystem consumers",
+      "updated_at": "2026-10-15T16:45:40Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/923.json",
+      "sha256": "16c6800265181ce5ec955d254cbf0ff40f032c980781b674c2c432de3350a88c"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#24",
+      "title": "demo app: BaseHarbor-managed exposure must be HTTPS by default using managed PKI certificates",
+      "updated_at": "2026-09-22T23:35:17Z",
+      "comments": 2,
+      "file": "migration/source-snapshot/baseharbor-demo/24.json",
+      "sha256": "cacc363f90bd62fd1cd2840ee572a6a44d6727ffeed62d4bf224bfe67c3a12f9"
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#1",
+      "title": "BaseHarbor Console: product architecture and implementation plan",
+      "updated_at": "2026-10-06T13:50:00Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor-console/1.json",
+      "sha256": "8c8d2a3f03fec2d24c720971c3a5c63c3d96aef6a3d79d3468ebb3761c145d16"
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#2",
+      "title": "v0.4.23 integration: replace Console fixtures with protected Core adapter and live workflow/stream proofs",
+      "updated_at": "2026-10-08T13:49:16Z",
+      "comments": 3,
+      "file": "migration/source-snapshot/baseharbor-console/2.json",
+      "sha256": "9f646e912a77328c56ee61dbce8c89ad60db17fc3417d65b62bdafbb966cea9a"
+    },
+    {
+      "source": "mcpdev80/baseharbor-node-connector#3",
+      "title": "v0.4.23 integration: Core-compatible enrollment/session fixtures and real remote Docker/Podman acceptance",
+      "updated_at": "2026-10-08T13:52:57Z",
+      "comments": 3,
+      "file": "migration/source-snapshot/baseharbor-node-connector/3.json",
+      "sha256": "6b31ccd891aaae3ccad8e81a25068ead633e3b7a4b55232e7673eb2653e751df"
+    }
+  ],
+  "open_pull_requests": [
+    {
+      "source": "mcpdev80/baseharbor#616",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/616",
+      "title": "[v0.4.x] Archtecture: Kubernetes-Contract Freeze check",
+      "draft": true,
+      "base": "main",
+      "head": "test/kubernetes-adoption-contract-demo",
+      "head_sha": "875dc5edd5efd56799fd61ba40a75fe69a513e7b",
+      "updated_at": "2026-10-15T16:34:43Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#930",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/930",
+      "title": "[v0.4.26] CI: enforce trusted selected PR checks (blocked on consumer pins)",
+      "draft": true,
+      "base": "develop",
+      "head": "work/v0.4.26-893-pr-check-enforcement",
+      "head_sha": "a239e7a39a64113ebbd52eaf5d991047c92d6ea7",
+      "updated_at": "2026-10-15T21:14:45Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#932",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/932",
+      "title": "[v0.4.26] Runners: isolate hosted PR lanes and verify cleanup",
+      "draft": false,
+      "base": "develop",
+      "head": "work/v0.4.26-896-isolated-pr-runners",
+      "head_sha": "174dc6d56b40dea85f2708b95e71b3a7b3638c4c",
+      "updated_at": "2026-10-15T21:09:29Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#933",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/933",
+      "title": "[v0.4.26] Reviews: propose maintainer review protection payloads",
+      "draft": true,
+      "base": "develop",
+      "head": "task/895-review-protection",
+      "head_sha": "fefcdeeae0bf928b72018b9eb38b8758cdec0657",
+      "updated_at": "2026-10-15T20:13:02Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#934",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/934",
+      "title": "[v0.4.26] Wizard: share read-only application editing context",
+      "draft": true,
+      "base": "develop",
+      "head": "work/v0.4.26-910-read-context",
+      "head_sha": "03088e52f0b98b4106f703647ca02dae49f37e0e",
+      "updated_at": "2026-10-15T21:03:49Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#935",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/935",
+      "title": "[v0.4.26] Inspect: reconcile canonical default instances unambiguously",
+      "draft": true,
+      "base": "develop",
+      "head": "task/752-reconcile-default-instances",
+      "head_sha": "8e00e7e4a2f30c4094094e1f153cb61447f415d3",
+      "updated_at": "2026-10-15T20:58:44Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#936",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/936",
+      "title": "[CI pilot] Verify exact PR #934 Guided Go source",
+      "draft": true,
+      "base": "develop",
+      "head": "runtime-validation/ci/934-guided-go-exact",
+      "head_sha": "2032ad326c2f931afa7458acded6b53f4bc7cee3",
+      "updated_at": "2026-10-15T21:01:00Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#3",
+      "url": "https://github.com/mcpdev80/baseharbor-console/pull/3",
+      "title": "v0.4.23: protected Core transport and live adapter integration",
+      "draft": true,
+      "base": "main",
+      "head": "feature/v0.4.23-live-integration",
+      "head_sha": "fd2cfe7530c9e8ba62481f31efed2c70ee5dc8df",
+      "updated_at": "2026-10-08T03:18:33Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#61",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/pull/61",
+      "title": "test: add persistent pre-release suites",
+      "draft": false,
+      "base": "main",
+      "head": "ci/v0418-pre-release-suites",
+      "head_sha": "17104fc959bb9857ac54e92f13865609d1bfc715",
+      "updated_at": "2026-09-30T01:32:04Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#62",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/pull/62",
+      "title": "test: add persistent pre-release suites",
+      "draft": false,
+      "base": "main",
+      "head": "ci/v0418-pre-release-suites-v2",
+      "head_sha": "cb3554a2ebefb0cc53435d18388fafa641f8400d",
+      "updated_at": "2026-09-30T01:32:49Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#86",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/pull/86",
+      "title": "test: make shell UX a zero-container static gate",
+      "draft": false,
+      "base": "main",
+      "head": "fix/v0419-shell-ux-static",
+      "head_sha": "2f90fe281119b06ce2f78cc29813833d0068d644",
+      "updated_at": "2026-10-01T20:38:18Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#104",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/pull/104",
+      "title": "test: converge final v0.4.19 acceptance gates",
+      "draft": false,
+      "base": "main",
+      "head": "fix/v0419-final-gate-convergence",
+      "head_sha": "c7fa3fce9535c7749a166a900d09781bd99d42fc",
+      "updated_at": "2026-10-02T07:27:56Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#106",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/pull/106",
+      "title": "test: declare recovery workload exposure contract",
+      "draft": false,
+      "base": "main",
+      "head": "fix/v0419-recovery-exposure-contract",
+      "head_sha": "fb11ab5cd9613dfa6269a134150e5fd4db866ad8",
+      "updated_at": "2026-10-02T07:32:19Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-node-connector#4",
+      "url": "https://github.com/mcpdev80/baseharbor-node-connector/pull/4",
+      "title": "v0.4.23: Core enrollment and remote lifecycle integration",
+      "draft": true,
+      "base": "main",
+      "head": "feature/v0.4.23-core-integration",
+      "head_sha": "365094890c091fbf627c9d71c94e44751018e6e9",
+      "updated_at": "2026-10-08T03:18:41Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor#937",
+      "url": "https://github.com/mcpdev80/baseharbor/pull/937",
+      "title": "[Planning] Docs: prepare the baseharbor-plan cutover",
+      "draft": true,
+      "base": "develop",
+      "head": "docs/planning-cutover-entrypoints",
+      "head_sha": "92597de69aefa884a96bcdd6db8ed44a5d3ca9d0",
+      "updated_at": "2026-10-15T21:19:13Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-console#5",
+      "url": "https://github.com/mcpdev80/baseharbor-console/pull/5",
+      "title": "[Planning] Docs: link the shared planning workspace",
+      "draft": true,
+      "base": "main",
+      "head": "docs/planning-cutover-entrypoints",
+      "head_sha": "51966e5de4edfb791da0126f9aa88a8077ca61a5",
+      "updated_at": "2026-10-15T21:19:58Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-demo#114",
+      "url": "https://github.com/mcpdev80/baseharbor-demo/pull/114",
+      "title": "[Planning] Docs: link the shared planning workspace",
+      "draft": true,
+      "base": "main",
+      "head": "docs/planning-cutover-entrypoints",
+      "head_sha": "2574c958519a984fa9ddba4872d32d75e1f08c6a",
+      "updated_at": "2026-10-15T21:20:24Z"
+    },
+    {
+      "source": "mcpdev80/baseharbor-node-connector#6",
+      "url": "https://github.com/mcpdev80/baseharbor-node-connector/pull/6",
+      "title": "[Planning] Docs: link the shared planning workspace",
+      "draft": true,
+      "base": "main",
+      "head": "docs/planning-cutover-entrypoints",
+      "head_sha": "e0d8e11b2e53e49d41c9c2dda75e8fad788eb538",
+      "updated_at": "2026-10-15T21:20:52Z"
+    }
+  ],
+  "live_rechecked_at": "2026-10-15T21:17:13Z"
+}
