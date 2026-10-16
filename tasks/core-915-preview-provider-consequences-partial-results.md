@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#915"]
 source_updated: "2026-10-15T16:46:34Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/969", "https://github.com/mcpdev80/baseharbor/commit/701d9ac4f6e5b78658a4f429ad406f31087d44d9", "https://github.com/mcpdev80/baseharbor/actions/runs/38911659557"]
 ---
 
-- [ ] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-915) · **Priority:** not set  
     **PR:** [baseharbor#969](https://github.com/mcpdev80/baseharbor/pull/969)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/969), [proof 2](https://github.com/mcpdev80/baseharbor/commit/701d9ac4f6e5b78658a4f429ad406f31087d44d9), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38911659557)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
@@ -67,6 +68,8 @@ Before confirmation and after execution, the actual consequences for every suppo
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer acceptance: **accepted and merged** via [PR #969](https://github.com/mcpdev80/baseharbor/pull/969), squash commit `701d9ac4f6e5b78658a4f429ad406f31087d44d9` on product `develop`. Source `fbcb544ddad22e27e44b0218437a7ec62abb6569` now projects authoritative material meaning/validity, function behavior, prerequisite consequences and safe structural access/security facts; raw endpoints, identifiers and evidence remain excluded. Proposed and executed states stay separate; canonical result/pending owners remain in use. [Run 38911659557](https://github.com/mcpdev80/baseharbor/actions/runs/38911659557), attempt 1, SUCCESS at integration `ff620752a8f8973c2473e3ac13e2c4999eec7f08` over trusted base `1c78c509ffc2846e76ed1b27bc39f478948b1cb0`; logs confirm ten tests across both mandatory families and all source/format/vet/build/Python/policy/final checks green. Current develop is already integrated; only the four owned files changed. No runtime matrix. Planning and concurrent core-920 handoff preserved, generated views rendered and validated with 0 errors/0 warnings and all 38 tests before publication. This closes presentation and makes core-916 ready; controller/wiring/mutation and release acceptance remain separate.
 
 - 2026-10-16 correction for independent review #5548584406, [product PR #969](https://github.com/mcpdev80/baseharbor/pull/969): exact source HEAD `fbcb544ddad22e27e44b0218437a7ec62abb6569`, trusted develop base `1c78c509ffc2846e76ed1b27bc39f478948b1cb0`, PR integration SHA `ff620752a8f8973c2473e3ac13e2c4999eec7f08`. Current develop integrated normally through [PR #971](https://github.com/mcpdev80/baseharbor/pull/971); 0 commits behind and only four owned presenter/test files changed. No force push.
 - The read-only preview now surfaces existing `MaterialConsequence.Meaning`, material validity dates and remaining validity, `FunctionConsequence.Behavior` and remaining function validity, and `ProviderPrerequisite.Consequence`. Before/proposed provider and material accesses expose only structural secure-binding properties (identity present, reference counts, lifecycle renewable/rotatable/revocable); absent access is explicitly unknown. Proposed access is labelled unverified, not claimed actual. The after-execution presenter similarly displays only actual receipt access structure and `ProviderFunctionOutcome.Behavior`, with verified flags; pending/failed operations remain controlled by `RecordProviderChangeResult` and `PendingProviderChanges`.
