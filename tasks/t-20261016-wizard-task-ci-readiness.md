@@ -9,7 +9,7 @@ owner: "mcpdev80 (CI readiness session)"
 priority: ""
 depends_on: [core-893, core-895, core-896, core-910]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#957]
+prs: [mcpdev80/baseharbor#957, mcpdev80/baseharbor#960]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,7 +19,7 @@ evidence: []
 - [ ] t-20261016-wizard-task-ci-readiness · CI: prepare autonomous wizard task verification #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (CI readiness session) · **Priority:** not set  
-    **PR:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957)  
+    **PR:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), [baseharbor#960](https://github.com/mcpdev80/baseharbor/pull/960)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +30,7 @@ evidence: []
 **Required by:** [core-894](core-894-actions-concise-names-clear-results.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Owner:** mcpdev80 (CI readiness session)  
 **Priority:** not set  
-**PRs:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957)  
+**PRs:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), [baseharbor#960](https://github.com/mcpdev80/baseharbor/pull/960)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -64,6 +64,10 @@ Before another product component is assigned, the trusted develop pipeline can e
 - Interface changes needed for another task are integrated here first. Do not publish a speculative promise that a future session will fill in an executor later.
 
 ## Handoff
+
+- 2026-10-16 manager-owned independent bootstrap continuation: corrected source `1a94d171166d0402b95740a5f71b52482fb61d9a` independently inspected after the second review. Mandatory family-by-family execution and missing/SKIP rejection are accepted as corrected; the literal ci.yml shell-route positive/negative Git/Go regression is meaningful pre-integration evidence. Actual wizard validation-job evidence remains to be collected AFTER the implementation has a trusted base; task acceptance is still withheld until then. The second review's statement that the core-921 registration prerequisite is absent is superseded: `t-20261016-registration-ci-readiness` exists and core-921 explicitly depends on it. Do not reimplement that completed planning correction.
+  - Supporting trusted-policy [PR #960](https://github.com/mcpdev80/baseharbor/pull/960), source `bb670cb962e74ad9e419814261a7edcf03fd66b6`, is prepared by the independent manager for the already reviewed seven-file #957 source. It reuses the existing clean trusted-target merge proof, binds an exact reviewed commit and complete file/status inventory, and rejects stale integration or any unreviewed source follow-up. No implementation-author self-exemption or required-check bypass. A real temporary Git test proves target advance/changed merge-base and same-path unreviewed rejection. Local focused planner/final/runner tests: 39 PASS; syntax/whitespace PASS. The local fixture's initial negative integration parent was corrected before publication. Hosted qualification [38890395251](https://github.com/mcpdev80/baseharbor/actions/runs/38890395251) completed SUCCESS including the actual final check; policy #960 was squash-merged as `b5630e45507dbbdb3b9ff43c8852232eed1a1ed9`. #957 implementation/task acceptance remains open pending its own integration and real first-wave jobs.
+  - Next within THIS same task: require normal #960 CI green, integrate its policy, normally merge trusted develop into unchanged reviewed #957 source, require #957 final green and integrate; then a single disposable fixture PR exercises the real first-wave wizard validation jobs against that now-trusted implementation. No fixture merges into develop. Publish final exact evidence and acceptance only after all succeed. No new task, no main/ruleset/AGENTS changes, no full release matrix. Session 1's implementation handoff is preserved; manager owns this bootstrap/integration phase so Marcel need not operate another lane or relay status.
 
 - 2026-10-16 independent technical re-review (exact product head `1a94d171166d0402b95740a5f71b52482fb61d9a`, trusted develop base `394e0398fc56137f6009477cd0f878fb2851ce6b`): **CHANGES REQUIRED; NO ACCEPTANCE**. Published [PR #957 review 5546720646](https://github.com/mcpdev80/baseharbor/pull/957#pullrequestreview-5546720646) as a GitHub COMMENT: the connected mcpdev80 identity is also the PR author, so GitHub rejected formal REQUEST_CHANGES (422). This comment is an explicit independent technical rejection, **not** an authenticated different-reviewer approval. Verified corrections in `scripts/pr-check-runner.py`: each mandatory Preview/ResultPresenter, Edit and registration family is independently discovered, actually run and required to PASS; zero-match/SKIP are rejected with new fixture regressions. Exact path boundaries, unknown/nested/rename/delete and selected contract/format/vet/build checks remain conservative. Remaining blockers: (1) `.github/workflows/ci.yml` wizard matrix branch has no direct hosted execution proof; `scripts/test_pr_wizard_workflow_route.py` builds a synthetic trusted helper commit, while the actual develop helper at the reviewed base has no `execute` implementation; (2) [Actions 38889477389](https://github.com/mcpdev80/baseharbor/actions/runs/38889477389) has green planner/policy/focused-Python/CI validators, but real `PR Selected Checks` **FAILURE**, as does the earlier unqualified [38886891093](https://github.com/mcpdev80/baseharbor/actions/runs/38886891093); (3) `test_wizard_profile_accepts_ordinary_trusted_target_integration` substitutes SHA strings rather than proving an authentic Git target merge / changed merge-base and stale integration rejection through the real resolver; (4) core-921 registration coverage prerequisite is not yet represented by a qualified lane or binding tracked dependency. Keep core-911/912/914/915 waiting; no self-exemption, merge, new matrix, or task acceptance.
 
