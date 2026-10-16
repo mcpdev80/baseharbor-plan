@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 2 |
+| review | 1 |
 | blocked | 0 |
 | ready | 10 |
 | queued | 5 |
 | waiting | 31 |
 | backlog | 6 |
-| closed | 17 |
+| closed | 18 |
 
 ## Active
 
@@ -28,7 +28,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | Wizard: handle back, cancel and EOF without side effects | review | not set | mcpdev80 (core-916 controller) | [core-912](../tasks/core-912-wizard-needs-first-selection.md), [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md), [core-914](../tasks/core-914-preview-actual-footprint.md), [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972) |
-| [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md) | Machine adapters: reuse capability changes and footprint | review | not set | mcpdev80 (core-920) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970) |
 
 ## Blocked
 
@@ -51,7 +50,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 9 open, 16 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 8 open, 17 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
