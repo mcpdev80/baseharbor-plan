@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
-| review | 0 |
+| active | 0 |
+| review | 1 |
 | blocked | 0 |
 | ready | 11 |
 | queued | 5 |
@@ -21,13 +21,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | CI: qualify shared command and MCP registration checks | active | not set | mcpdev80 (registration-ci-readiness) | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
+None.
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | CI: qualify shared command and MCP registration checks | review | not set | mcpdev80 (registration-ci-readiness) | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974) |
 
 ## Blocked
 
