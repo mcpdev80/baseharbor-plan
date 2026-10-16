@@ -11,12 +11,12 @@ depends_on: [t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#974"]
 sources: []
-blocker: "Registration path policy also resolves existing mutation/authorization code; correction and hosted qualification required"
+blocker: "Independent trusted-policy qualification and actual hosted registration matrix remain pending"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (registration-ci-readiness) · **Priority:** not set  
     **PR:** [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974)  
@@ -24,7 +24,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
@@ -57,6 +57,8 @@ on the real trusted PR planner, executor and authenticated final verifier before
 - No registration implementation in this CI prerequisite.
 
 ## Handoff
+
+- 2026-10-16 review-correction handoff for [Review #5550274409](https://github.com/mcpdev80/baseharbor/pull/974#pullrequestreview-5550274409), existing [PR #974](https://github.com/mcpdev80/baseharbor/pull/974), exact product SHA `bb9c713ab0449b0c8243e7535a51b8e43195bf0c`, trusted develop `e514a8b6d47b28f268b779376b1e95cd20674611`. Removed path-only `REGISTRATION_SHARED_FILES` source coverage: existing command and MCP files including `mcp_application_authoring.go` and `mcp_workspace_mutation.go` are **unresolved** regardless of filename and claimed registration-only hunks. No added/modified auth, consent, write handlers, newly introduced nested files, rename/delete/type changes become resolved without independent behavioral review. Only dedicated registration test addition and explicitly reviewed generated EN/DE registration references select the focused registration lane. The six mandatory command/help, command tree, machine JSON coverage, generated coverage and human index, and SDK in-process MCP list/invoke families, plus missing/SKIP enforcement, remain intact. New `test_real_git_diffs_positive_dedicated_registration_and_negative_mutation` constructs actual staged Git diffs proving dedicated test addition resolves while production command registration, application-authoring authorization change and workspace mutation change are unresolved. [Actions 38929047340](https://github.com/mcpdev80/baseharbor/actions/runs/38929047340) at exact SHA: Focused Python, trusted plan, ci-policy, pr-planner-tests, source/contracts, CLI guided/build/vet **SUCCESS**; final **PR Selected Checks FAILURE** by current trusted policy. This is **not** an authenticated positive registration-matrix qualification. The separately proven missing/SKIP negative and extracted shell fixture remain supplementary. **Outstanding independent gate:** review and accept policy through normal protected integration, then actual hosted `wizard-registration-tests` positive and negative workflow qualification and trusted final verifier; core-921 stays blocked. No shared workflow or registration implementation, no release/runtime matrix, no self-merge, no acceptance.
 
 - 2026-10-16 independent review of product #974 source `5259e3415471ac05ca6b701530f9d79946c52bfa`: [review 5550274409](https://github.com/mcpdev80/baseharbor/pull/974#pullrequestreview-5550274409) requires correction before Trusted Policy acceptance. The six required families and real SDK list/app.list smoke are useful, but the entire-file registration allowlist also covers existing handler/auth/write behavior. In particular `mcp_workspace_mutation.go` invokes workspace initialization/mapping and `mcp_application_authoring.go` contains authorization and application creation. Independent local planner probing confirms arbitrary modified versions of those files return resolved, zero gates and only registration/source/CLI checks (unrelated historical merge-qualification helper isolated to False to avoid lazy Git fetch of synthetic fixture SHAs). Restrict resolved coverage to demonstrably registration-only changes; preserve unresolved for existing auth/mutation bodies without independently qualified behavioral coverage. Require real positive registration-only and negative auth/write diff fixtures. Do not preapprove unknown future core-921 code, create a general fingerprint framework, or treat a filename list as semantic coverage. Actual hosted wizard-registration matrix and authenticated positive/negative final qualification remain necessary after corrected policy review. Current hosted run `38924147524` has genuine successful focused checks and failed final, not accepted. Independently re-rendered Planning baseline `8b8ca97`: stale overview/release views corrected, all 39 planning tests and check pass with 0 errors/0 warnings; preserve core-917 in-progress update and CardBoard routing. No product merge or task acceptance.
 
