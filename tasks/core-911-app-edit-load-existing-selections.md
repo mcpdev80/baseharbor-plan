@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (core-911)"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,18 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/planned #view/ready #area/wizard #kind/task
+- [ ] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-911) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-911)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#911](https://github.com/mcpdev80/baseharbor/issues/911)
