@@ -11,7 +11,7 @@ depends_on: [t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#974"]
 sources: []
-blocker: "Independent trusted-policy qualification and actual hosted registration matrix remain pending"
+blocker: ""
 resolution: ""
 evidence: []
 ---
