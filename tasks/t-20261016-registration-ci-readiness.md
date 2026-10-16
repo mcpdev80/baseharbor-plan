@@ -16,14 +16,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (registration-ci-readiness) · **Priority:** not set  
     **PR:** [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974)  
+    **Blocker:** Independent trusted policy and actual hosted registration matrix not qualified  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
