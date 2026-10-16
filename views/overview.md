@@ -49,7 +49,6 @@ None.
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 
-
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 8 open, 17 closed ([view](releases/v0.4.26.md))
