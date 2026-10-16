@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 2 |
+| review | 1 |
 | blocked | 1 |
 | ready | 8 |
 | queued | 5 |
 | waiting | 42 |
 | backlog | 6 |
-| closed | 5 |
+| closed | 6 |
 
 ## Active
 
@@ -27,7 +27,6 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955) |
 | [t-20261016-pr-impact-selection](../tasks/t-20261016-pr-impact-selection.md) | CI: correct PR impact selection and unresolved coverage | review | high | mcpdev80 (session 2) | — | [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942) |
 
 ## Blocked
@@ -51,7 +50,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 18 open, 5 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 17 open, 6 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))

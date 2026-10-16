@@ -12,7 +12,7 @@ prs: ["mcpdev80/baseharbor#933"]
 sources: ["mcpdev80/baseharbor#895"]
 source_updated: "2026-10-15T19:46:16Z"
 labels: [area/dx]
-blocker: "Both develop rulesets are active and independently read back; real positive/negative merge-enforcement pilots (including approval dismissal and bypass-free red-check blocking) remain unqualified."
+blocker: "Foreign contributor/code-owner and stale-approval checks require a second real identity; separate red/missing-check merge-denial evidence remains outstanding. Green Maintainer product-PR admission is proven."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13"]
 ---
@@ -21,7 +21,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.co
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
-    **Blocker:** Both develop rulesets are active and independently read back; real positive/negative merge-enforcement pilots (including approval dismissal and bypass-free red-check blocking) remain unqualified.  
+    **Blocker:** Foreign contributor/code-owner and stale-approval checks require a second real identity; separate red/missing-check merge-denial evidence remains outstanding. Green Maintainer product-PR admission is proven.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13)  
     <!-- /generated:card -->
 
@@ -62,6 +62,8 @@ PRs from other contributors need Maintainer approval; the Maintainer's own PRs r
 - Satisfied: #890 (closed). Requires a qualified #893 status check (core-893). Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
 
 ## Handoff
+
+- 2026-10-16 second actual green Maintainer admission: independently reviewed **core-752**, product PR #935, passed regular final check in [Actions 38882179679](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679) and merged into protected develop as `9766dcb89dbe0551321b1bf070ab3013d3353c49`, after core-910 PR #934. Both useful product merges were authorized by the Maintainer and preserved the active rulesets and bypass-free mandatory CI. Do not conflate these proven green-admission cases with the still-unproven foreign-review, stale-approval or red-check denial cases. core-895 remains open.
 
 - 2026-10-16 actual Maintainer green-PR admission proven: following explicit Maintainer authorization for a scoped prerequisite exception, independently qualified product PR #934 (head `954b9b036f75ee07ac8a00a704feea7c25e854aa`, green original `PR Selected Checks` in run `38869216983`) was marked ready and successfully merged through GitHub into protected develop as `be25a311f8e1367ea3ec800bcceb1c8169858566`. This is a real useful product merge, not a merged disposable pilot. No protection rules or CI bypass were changed. This closes the previously missing green Maintainer admission case only; foreign-review/stale-approval tests and independently observed red-check merge denial remain unqualified, so core-895 remains OPEN.
 
