@@ -12,17 +12,17 @@ prs: ["mcpdev80/baseharbor#933"]
 sources: ["mcpdev80/baseharbor#895"]
 source_updated: "2026-10-15T19:46:16Z"
 labels: [area/dx]
-blocker: "Foreign contributor/code-owner and stale-approval checks require a second real identity; separate red/missing-check merge-denial evidence remains outstanding. Green Maintainer product-PR admission is proven."
+blocker: "Foreign contributor/CODEOWNERS and stale-approval tests require a second authenticated real identity. Actual green Maintainer merges and actual missing-required-check merge rejection are proven; a completed-red-check merge rejection has not been separately exercised."
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13", "https://github.com/mcpdev80/baseharbor/pull/952", "https://github.com/mcpdev80/baseharbor/pull/934", "https://github.com/mcpdev80/baseharbor/pull/935"]
 ---
 
 - [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/blocked #view/blocked #area/workflow #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
-    **Blocker:** Foreign contributor/code-owner and stale-approval checks require a second real identity; separate red/missing-check merge-denial evidence remains outstanding. Green Maintainer product-PR admission is proven.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13)  
+    **Blocker:** Foreign contributor/CODEOWNERS and stale-approval tests require a second authenticated real identity. Actual green Maintainer merges and actual missing-required-check merge rejection are proven; a completed-red-check merge rejection has no…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13), [proof 3](https://github.com/mcpdev80/baseharbor/pull/952), [proof 4](https://github.com/mcpdev80/baseharbor/pull/934), [proof 5](https://github.com/mcpdev80/baseharbor/pull/935)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -62,6 +62,8 @@ PRs from other contributors need Maintainer approval; the Maintainer's own PRs r
 - Satisfied: #890 (closed). Requires a qualified #893 status check (core-893). Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
 
 ## Handoff
+
+- 2026-10-16 manager takeover, actual negative enforcement PROVEN: independently read both active rulesets unchanged. Reused harmless disposable [PR #952](https://github.com/mcpdev80/baseharbor/pull/952), normally merging develop `9766dcb89dbe0551321b1bf070ab3013d3353c49` into its existing head without force, producing `2b45015a6df203dfe3b6281799eff752367b4842`. Its only diff is the original one-line non-executable text fixture. Reopened PR was conflict-free (`mergeable=true`), up to date and `mergeable_state=blocked`. An ACTUAL squash-merge request with this exact expected head was denied by GitHub **HTTP 405**, explicitly: `Repository rule violations found` / `Required status check "PR Selected Checks" is expected.` This is actual merge denial caused by the missing mandatory check, not an inference from check failure or mergeability. PR closed again WITHOUT MERGE; develop independently remained `9766dcb89dbe0551321b1bf070ab3013d3353c49`. Existing completed-red-check CI evidence remains valid, but no completed-red-check merge attempt is claimed. Real green Maintainer admission is already proven by #934/#935. Remaining independent multi-user tests require a second authenticated real identity; the available connector authenticates only `mcpdev80`. No false acceptance, no ruleset weakening and no product-main or release change. The earlier draft idea of limited Solo-Maintainer acceptance was NOT published: the Maintainer asked to perform tests, not waive them.
 
 - 2026-10-16 second actual green Maintainer admission: independently reviewed **core-752**, product PR #935, passed regular final check in [Actions 38882179679](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679) and merged into protected develop as `9766dcb89dbe0551321b1bf070ab3013d3353c49`, after core-910 PR #934. Both useful product merges were authorized by the Maintainer and preserved the active rulesets and bypass-free mandatory CI. Do not conflate these proven green-admission cases with the still-unproven foreign-review, stale-approval or red-check denial cases. core-895 remains open.
 
