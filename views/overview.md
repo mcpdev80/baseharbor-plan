@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
-| review | 0 |
+| active | 1 |
+| review | 1 |
 | blocked | 0 |
 | ready | 9 |
 | queued | 5 |
@@ -23,12 +23,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-901](../tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md) | Pilot: verify parallel task PRs and CI costs | active | not set | mcpdev80 (core-901) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
 | [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | active | not set | mcpdev80 (core-909 local Qwen maintenance) | — | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-901](../tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md) | Pilot: verify parallel task PRs and CI costs | review | not set | mcpdev80 (core-901) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | [baseharbor#958](https://github.com/mcpdev80/baseharbor/pull/958) |
 
 ## Blocked
 
