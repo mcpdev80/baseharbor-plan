@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 0 |
+| active | 1 |
 | review | 1 |
 | blocked | 0 |
-| ready | 11 |
+| ready | 10 |
 | queued | 5 |
 | waiting | 31 |
 | backlog | 6 |
@@ -21,7 +21,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | Wizard: handle back, cancel and EOF without side effects | active | not set | mcpdev80 (core-916 controller) | [core-912](../tasks/core-912-wizard-needs-first-selection.md), [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md), [core-914](../tasks/core-914-preview-actual-footprint.md), [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | — |
 
 ## Ready for review
 
@@ -46,7 +48,7 @@ None.
 | [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
-| [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | Wizard: handle back, cancel and EOF without side effects | ready | not set | — | [core-912](../tasks/core-912-wizard-needs-first-selection.md), [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md), [core-914](../tasks/core-914-preview-actual-footprint.md), [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | — |
+
 | [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | CI: qualify shared command and MCP registration checks | ready | not set | — | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 
 ## By release
