@@ -376,9 +376,11 @@ class PlanTests(unittest.TestCase):
         board = next(b for b in cfg["data"]["boardConfigs"] if b["name"] == "Current · v0.4.26")
         tags = [col["data"].get("tag") for col in board["columns"]]
         self.assertEqual(board["columns"][0]["data"]["name"], "Planned")
-        self.assertEqual(tags.count("status/planned"), 1)
-        self.assertNotIn("view/waiting", tags)
-        self.assertNotIn("view/ready", tags)
+        self.assertNotIn("status/planned", tags)
+        self.assertEqual(tags.count("view/waiting"), 1)
+        self.assertEqual(tags.count("view/ready"), 1)
+        self.assertEqual(board["columns"][1]["data"]["name"], "Ready")
+        self.assertFalse(board["columns"][1]["data"]["collapsed"])
         self.assertNotIn("view/queued", tags)
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "A: ready"))
@@ -392,6 +394,11 @@ class PlanTests(unittest.TestCase):
         self.assertIn("**Needs:** [core-1]", waiting)
         for text in (ready, waiting):
             self.assertIn("#status/planned", text)
+            card = next(line for line in text.splitlines() if line.startswith("- [ ]"))
+            view_tags = [tag[1:] for tag in card.split() if tag.startswith("#view/")]
+            self.assertEqual(sum(tag in tags for tag in view_tags), 1)
+        self.assertIn("#view/ready", ready)
+        self.assertIn("#view/waiting", waiting)
         self.assertEqual(f.run("check")[0], 0)
 
     def test_generated_card_has_actual_owner_priority_and_pr(self):

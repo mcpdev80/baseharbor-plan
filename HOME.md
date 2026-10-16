@@ -14,7 +14,7 @@ The live state is generated from the task notes, so it is never maintained by ha
 - [views/epics.md](views/epics.md) — tasks per epic.
 - Command line: `python3 scripts/plan.py list --status active`, `--status blocked`, `--ready`.
 
-In Obsidian: CardBoard boards **Current · v0.4.26**, **Next** and **Attention**.
+In Obsidian: CardBoard boards **Current · v0.4.26**, **Next** and **Attention**. Current now has separate **Planned** (waiting for prerequisites) and **Ready** (available to assign) columns. Ready is generated from task dependencies and release status on every planning render; it is not a manually maintained list.
 
 ## Navigation
 
