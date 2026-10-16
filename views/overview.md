@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 2 |
+| review | 1 |
 | blocked | 0 |
 | ready | 11 |
 | queued | 5 |
 | waiting | 33 |
 | backlog | 6 |
-| closed | 14 |
+| closed | 15 |
 
 ## Active
 
@@ -28,7 +28,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | review | not set | mcpdev80 (core-911) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967) |
-| [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md) | Wizard: offer compatible providers in the same view | review | not set | mcpdev80 (core-913 implementation) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-912](../tasks/core-912-wizard-needs-first-selection.md) | [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966) |
 
 ## Blocked
 
@@ -52,7 +51,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 12 open, 13 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 11 open, 14 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))

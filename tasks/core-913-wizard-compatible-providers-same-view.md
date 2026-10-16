@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#913"]
 source_updated: "2026-10-15T16:46:46Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/966", "https://github.com/mcpdev80/baseharbor/commit/b3428843bc8f04156339a7b7f6d1e0ed6fa955d6", "https://github.com/mcpdev80/baseharbor/actions/runs/38903170816"]
 ---
 
-- [ ] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-913 implementation) · **Priority:** not set  
     **PR:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/966), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b3428843bc8f04156339a7b7f6d1e0ed6fa955d6), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38903170816)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-912](core-912-wizard-needs-first-selection.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
@@ -67,6 +68,8 @@ For a need, a compatible provider preference can be set in place; Automatic stay
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer acceptance: **accepted and merged** via [PR #966](https://github.com/mcpdev80/baseharbor/pull/966), squash commit `b3428843bc8f04156339a7b7f6d1e0ed6fa955d6` on product `develop`. Reviewed source `6a27ac0c5b1d5fb80a55a755093999dccba4463e` resolves current selected requirements through ephemeral existing manifest constructors and `application.ResolveFootprint` per requirement; newly added SQL, deselected ambiguous source needs and mixed SQL/cache ambiguity now behave correctly without replacing the resolver. Earlier full-identity preference, registry, environment/binding and explicit display fixes retained. [Hosted run 38903170816](https://github.com/mcpdev80/baseharbor/actions/runs/38903170816), attempt 1, SUCCESS at integration `4e3de34e3e355f503551870ed2086bbdcbdb882b` over trusted base `a1e58f1f3600bf95d0318662bbec447c6e8ed74a`; logs confirm ten provider-choice tests, all mandatory source/format/vet/build/Python/policy/final checks green, no runtime matrix. Unsupported or declaration-dependent intent remains explicitly rejected rather than invented. Only the two owned files changed. Planning and concurrent core-911 handoff preserved; render/check passes with 0 errors/0 warnings and all 38 unit tests before publication. Component acceptance does not accept later controller/wiring or release work.
 
 - 2026-10-16 follow-up to independent review #5547880685: [PR #966](https://github.com/mcpdev80/baseharbor/pull/966) updated at exact source HEAD `6a27ac0c5b1d5fb80a55a755093999dccba4463e`, trusted develop base `a1e58f1f3600bf95d0318662bbec447c6e8ed74a`, GitHub PR integration `4e3de34e3e355f503551870ed2086bbdcbdb882b` (0 behind develop, no force-push).
 - Automatic is now resolved **per currently selected Requirement** by an ephemeral single-requirement `application.Manifest` projection built with existing manifest helpers, then the authoritative `application.ResolveFootprint`. Unselected original intent cannot block current selections, and ambiguous SQL cannot hide an independently resolved cache regardless of iteration order. Exact Requirement names, environment, registry ownership and authoritative existing bindings are retained; no additional resolver, runtime writes, persistent preferences or portable provider fields.
