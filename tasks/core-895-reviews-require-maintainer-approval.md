@@ -12,21 +12,20 @@ prs: ["mcpdev80/baseharbor#933"]
 sources: ["mcpdev80/baseharbor#895"]
 source_updated: "2026-10-15T19:46:16Z"
 labels: [area/dx]
-blocker: "Foreign contributor/CODEOWNERS and stale-approval tests require a second authenticated real identity. Actual green Maintainer merges and actual missing-required-check merge rejection are proven; a completed-red-check merge rejection has not been separately exercised."
-resolution: ""
+blocker: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13", "https://github.com/mcpdev80/baseharbor/pull/952", "https://github.com/mcpdev80/baseharbor/pull/934", "https://github.com/mcpdev80/baseharbor/pull/935"]
 ---
 
-- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/blocked #view/blocked #area/workflow #kind/task
+- [x] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/closed #view/closed #area/workflow #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
-    **Blocker:** Foreign contributor/CODEOWNERS and stale-approval tests require a second authenticated real identity. Actual green Maintainer merges and actual missing-required-check merge rejection are proven; a completed-red-check merge rejection has no…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13), [proof 3](https://github.com/mcpdev80/baseharbor/pull/952), [proof 4](https://github.com/mcpdev80/baseharbor/pull/934), [proof 5](https://github.com/mcpdev80/baseharbor/pull/935)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
@@ -61,7 +60,17 @@ PRs from other contributors need Maintainer approval; the Maintainer's own PRs r
 
 - Satisfied: #890 (closed). Requires a qualified #893 status check (core-893). Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
 
+## Maintainer acceptance and deferred verification — 2026-10-16
+
+Marcel explicitly authorized closing this task and performing the outstanding tests later. core-895 is therefore ACCEPTED/CLOSED by Maintainer decision; its previously blocking dependency is satisfied for subsequent development. This supersedes earlier blocked handoffs below. It does not report deferred tests as passed or declare the release qualified.
+
+Verified: active separate review/CI rulesets read back; successful actual green Maintainer merges #934/#935; actual GitHub HTTP 405 rejection of the up-to-date #952 merge request because the mandatory `PR Selected Checks` was missing. No ruleset or required-check policy is weakened by this acceptance.
+
+Deferred verification, still NOT passed: distinct-contributor/CODEOWNERS review and admission, approval dismissal after a new push and last-push reapproval, and a separate merge attempt with a completed red required check. Existing negative CI evidence proves the red check, while the directly observed merge rejection proves the missing-check case. Revisit these recorded cases in a later protection audit using a second authenticated real identity where required. The deferral is authorized, not an assertion of complete multi-user enforcement qualification.
+
 ## Handoff
+
+- 2026-10-16 explicit Maintainer authorization: Marcel instructed the manager to CLOSE core-895 now and run remaining tests later. Accepted the implemented protection with the deferred-verification scope above, removed the task blocker and closed its CardBoard card. Preserved original acceptance requirements and historical evidence; no missing test was converted to PASS. No product changes, protection writes, CI reruns or release were performed for this planning closeout.
 
 - 2026-10-16 manager takeover, actual negative enforcement PROVEN: independently read both active rulesets unchanged. Reused harmless disposable [PR #952](https://github.com/mcpdev80/baseharbor/pull/952), normally merging develop `9766dcb89dbe0551321b1bf070ab3013d3353c49` into its existing head without force, producing `2b45015a6df203dfe3b6281799eff752367b4842`. Its only diff is the original one-line non-executable text fixture. Reopened PR was conflict-free (`mergeable=true`), up to date and `mergeable_state=blocked`. An ACTUAL squash-merge request with this exact expected head was denied by GitHub **HTTP 405**, explicitly: `Repository rule violations found` / `Required status check "PR Selected Checks" is expected.` This is actual merge denial caused by the missing mandatory check, not an inference from check failure or mergeability. PR closed again WITHOUT MERGE; develop independently remained `9766dcb89dbe0551321b1bf070ab3013d3353c49`. Existing completed-red-check CI evidence remains valid, but no completed-red-check merge attempt is claimed. Real green Maintainer admission is already proven by #934/#935. Remaining independent multi-user tests require a second authenticated real identity; the available connector authenticates only `mcpdev80`. No false acceptance, no ruleset weakening and no product-main or release change. The earlier draft idea of limited Solo-Maintainer acceptance was NOT published: the Maintainer asked to perform tests, not waive them.
 

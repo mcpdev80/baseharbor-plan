@@ -12,12 +12,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | ---: |
 | active | 0 |
 | review | 0 |
-| blocked | 1 |
-| ready | 8 |
+| blocked | 0 |
+| ready | 14 |
 | queued | 5 |
-| waiting | 42 |
+| waiting | 36 |
 | backlog | 6 |
-| closed | 7 |
+| closed | 8 |
 
 ## Active
 
@@ -29,14 +29,18 @@ None.
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | blocked | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
+None.
 
 ## Ready to assign
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) | Architecture: align service contracts and provider catalog | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
+| [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
+| [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) | Inspect: avoid false positives from comments and text | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
+| [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
+| [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
+| [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | — |
@@ -48,7 +52,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 16 open, 7 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 15 open, 8 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))

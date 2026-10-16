@@ -6,8 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 7/23 · **Blocked:** 1 · **Waiting:** 10  
-    **Blocker:** [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) — Foreign contributor/CODEOWNERS and stale-approval tests require a second authenticated real identity. Actual green Maintainer merges and actual missing-require…  
+    **Accepted tasks:** 8/23 · **Blocked:** 0 · **Waiting:** 10  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
@@ -38,7 +37,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 0/6 · **Blocked:** 0 · **Waiting:** 6  
+    **Accepted tasks:** 0/6 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
