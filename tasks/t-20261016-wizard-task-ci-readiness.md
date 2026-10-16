@@ -9,28 +9,28 @@ owner: "mcpdev80 (CI readiness session)"
 priority: ""
 depends_on: [core-893, core-895, core-896, core-910]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#957]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-wizard-task-ci-readiness · CI: prepare autonomous wizard task verification #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261016-wizard-task-ci-readiness · CI: prepare autonomous wizard task verification #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (CI readiness session) · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **PR:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Required by:** [core-894](core-894-actions-concise-names-clear-results.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
 **Owner:** mcpdev80 (CI readiness session)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -65,4 +65,13 @@ Before another product component is assigned, the trusted develop pipeline can e
 
 ## Handoff
 
-- 2026-10-16 planning audit: newly scheduled prerequisite, not implemented/claimed/accepted. Product develop currently recognizes only the existing Guided read adapter and reviewed Inspect files; the new wizard files would otherwise be unresolved. This task closes that concrete execution-readiness gap before feature assignment.
+- 2026-10-16 review handoff — product PR [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), branch `ci/wizard-task-readiness-20261016`.
+  - Exact product source HEAD: `eff029a85a75ad6041d83ecc264c4f521ce02795`; trusted target/base: `9766dcb89dbe0551321b1bf070ab3013d3353c49`; Actions integration: `6a32b31d2e91da888606e120df6677def8b63d68`.
+  - Hosted qualification run: [38886891093](https://github.com/mcpdev80/baseharbor/actions/runs/38886891093). SUCCESS: `PR · Trusted Plan`, `Workflow policy`, `PR · Focused Python`, `PR · Validation · pr-planner-tests`, `PR · Validation · ci-executor-verifier-tests`, `PR · Validation · ci-policy`.
+  - `PR · Focused Python` executed real temporary Go fixtures for `TestAppEditLoad*`, `TestAppCapabilitySelection*`, `TestAppFootprintPresenter*` and `TestAppChangePreview*`, plus the explicit zero-matching-tests failure case. This is execution evidence, not discovery-only evidence.
+  - First-wave inventory: core-911 exact `app_edit_load*.go` -> source/contracts + cmd/baha gofmt/vet/build + `wizard-app-edit-load-tests`; core-912 exact `app_capability_selection*.go` -> same base checks + `wizard-capability-selection-tests`; core-914 exact `app_footprint_presenter*.go` -> same base checks + `wizard-footprint-presenter-tests`; core-915 exact change-preview/result-presenter files -> same base checks + `wizard-change-presentation-tests`. These four profiles select no runtime gate.
+  - Later finite profiles are planned for provider choice, controller, footprint command and machine adapters without runtime; New/Edit mutation wiring selects only existing Docker/Podman lifecycle gates. Unknown/nested/helper files and rename/delete/type changes remain fail-closed unresolved.
+  - No Runtime, Demo, Public Contracts, full release matrix or Hugging Face lane ran for this qualification.
+  - Binding final result: `PR Selected Checks` failed as intended because the currently trusted develop planner classifies this PR's own `.github/workflows/ci.yml` / executor / verifier changes as unresolved CI impact. No self-exemption or immutable-HEAD bootstrap was added. Independent Maintainer review/integration is therefore still required; this task is **review**, not accepted, and core-911/912/914/915 are not yet assignable.
+  - Remaining later boundary: shared core-921 command/MCP registration files remain conservative rather than receiving a path-only exemption. A separately scheduled/accepted registration-CI prerequisite is required before core-921 assignment if the eventual shared-file diff cannot be proven by an already trusted executor after this PR is integrated.
+
