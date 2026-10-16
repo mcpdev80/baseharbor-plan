@@ -6,7 +6,7 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: ""
-depends_on: [core-893, core-894, core-895, core-896, core-900]
+depends_on: [core-893, core-895, core-896, core-900]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#901"]
@@ -17,18 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/planned #view/waiting #area/ci #kind/task
+- [ ] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
-    **Waiting for prerequisites**  
-    **Needs:** [core-894](core-894-actions-concise-names-clear-results.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
@@ -62,14 +61,16 @@ Qualify the new workflow with necessary regular work and own the before/after do
 
 ## Autonomous execution contract — 2026-10-16
 
-- **Owned files:** New `docs/internal/v0.4.26-parallel-pr-pilot.md` and dedicated evidence fixtures only; no CI/product implementation edits.
+- **Owned files:** Only new `docs/internal/v0.4.26-parallel-pr-pilot.md`; embed the measurement tables and link original evidence in that Markdown file. No extra unclassified fixture files, CI changes or product implementation edits.
 - **Delivered interface/result:** One evidence-backed comparison and explicit limitations, accepted independently of the remaining feature implementations.
 - **Task-specific proof:** Use existing runs for #934/#935 and their supporting CI PRs first; collect run/job/attempt, duration and concurrency facts. No extra benchmark run.
 - **Boundary:** Do not wait for sessions to send measurements. Fetch logs directly. If history does not establish a criterion, state the gap and use only the next already-required regular run; no synthetic savings.
-- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **Assignment gate:** the accepted core-893/895/896/900 baseline and existing GitHub API evidence suffice. The trusted documentation-only path already selects the four existing documentation validations and zero release gates for the sole Markdown output. This task does NOT depend on the wizard CI-readiness task or core-894 display cosmetics. It reads existing evidence directly and does not own shared execution files.
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 parallel-readiness correction: removed the non-functional dependency on core-894 (display/summary polish). Pilot evidence can be analyzed on the already accepted execution baseline. Direct GitHub reads confirm #934 opened `2026-10-15T20:31:23Z` and merged `2026-10-16T09:32:18Z`, while #935 opened `2026-10-15T20:39:45Z` and merged `2026-10-16T09:43:11Z`; their PR lifetimes overlap. This is NOT yet proof of simultaneous job execution or a savings claim: the task must inspect job timestamps, changed files and interface/integration histories. Preserve all original acceptance criteria and report gaps honestly. Read existing historical cost references from core-888; no new measurement campaign. The sole Markdown output uses the already integrated documentation CI profile, so it can be completed independently of new wizard checks.
 
 - Not started.
 
