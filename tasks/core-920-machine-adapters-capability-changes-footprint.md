@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
+    **Needs:** [core-911](core-911-app-edit-load-existing-selections.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
