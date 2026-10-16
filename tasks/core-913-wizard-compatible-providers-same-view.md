@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-913 implementation)"
 depends_on: [core-910, core-912]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#966]
 sources: ["mcpdev80/baseharbor#913"]
 source_updated: "2026-10-15T16:46:46Z"
 labels: [area/dx]
@@ -17,19 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [ ] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-913 implementation) · **Priority:** not set  
+    **PR:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-912](core-912-wizard-needs-first-selection.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-913 implementation)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  
 **Source:** [baseharbor#913](https://github.com/mcpdev80/baseharbor/issues/913)
 <!-- /generated:links -->
 
@@ -67,6 +68,9 @@ For a need, a compatible provider preference can be set in place; Automatic stay
 
 ## Handoff
 
-- Not started.
+- 2026-10-16 independent review handoff: [baseharbor PR #966](https://github.com/mcpdev80/baseharbor/pull/966); branch `feature/core-913-provider-choice`. Source HEAD `e99bbd79ef81f1eaf2bce992d20f426054fe6f58`, trusted develop base `1d6f1a7982f69622fb1faee6f4b99040c6b6d945`, integration SHA `8cff2c5bb1d88c1cdbda5c171713b1a495250b00`. Current with develop (0 behind); no force push or author merge.
+- Exactly two owned Go files. Portable selections from core-912 are projected onto compatible Target registry instances through each instance's actual `Provider.Supports` contract and application ownership boundary. Automatic defaults to an unambiguous instance, reports why; multiple compatible candidates fail closed until an instance ID is explicitly selected, missing/incompatible instances are rejected, and preferences remain Target-scoped in memory, outside portable manifest and storage. No resolver, registry, wizard wiring or workflow changes.
+- [GitHub Actions run 38896384549](https://github.com/mcpdev80/baseharbor/actions/runs/38896384549): **SUCCESS** for Trusted Plan, Workflow policy, Focused Python, `wizard-provider-choice-tests` (executed `TestAppProviderChoice*`), `cli-gofmt`, `cli-vet`, `cli-build`, `source-contracts`, and binding `PR Selected Checks`. No runtime/container/release matrix.
+- Task remains **review**, not accepted. Independent maintainer acceptance/merge required; stop here.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
