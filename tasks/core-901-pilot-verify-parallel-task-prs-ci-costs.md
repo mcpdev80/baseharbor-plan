@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: core-888
-owner: ""
+owner: "mcpdev80 (core-901)"
 depends_on: [core-893, core-895, core-896, core-900]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,18 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
+- [ ] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-901) · **Priority:** not set  
+    **Active** · claimed  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-901)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#901](https://github.com/mcpdev80/baseharbor/issues/901)
