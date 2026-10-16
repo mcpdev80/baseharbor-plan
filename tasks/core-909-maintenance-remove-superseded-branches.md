@@ -60,6 +60,14 @@ Remove verified-superfluous branches; every remaining branch has a justified own
 
 - No task dependencies. Needs authenticated GitHub access for ref deletion.
 
+## Autonomous local execution
+
+- Preferred assignment: local Qwen with authenticated `gh` and access to the Maintainer's existing mirror backup. Verify the repository path, `gh` identity and mirror availability before execution. A cloud-only connector without ref-deletion/mirror access is not an adequate execution environment for this task.
+- Own only this task's planning handoff, local audit/deletion record and individually qualified obsolete remote refs. No product source, CI/workflow, live ruleset, planning config or active implementation branch edits.
+- Re-read open PRs and current planning claims directly. Protect every new/current task branch, both main lines, #616 and Kubernetes/macOS work. Do not rely on the historical eight-branch inventory as the current state.
+- Complete the inventory, exact-SHA mirror checks, authorized safe removals where still needed and per-ref audit before/after as one task. If cleanup was already executed, recover the real existing deletion log instead of pretending to delete refs again. No new product CI is required. Publish render/check-validated planning closeout through the normal Maintainer acceptance boundary.
+- Independent of wizard CI readiness and the pilot cost report; it may run alongside both. Do not remove their active refs or evidence origins.
+
 ## Handoff
 
 - Observed 2026-10-15T20:35Z during this migration: the remote has 8 branches (`develop`, `main`, `feature/kubernetes-runtime-foundation`, `test/kubernetes-adoption-contract-demo` and active task branches `task/895-review-protection`, `work/v0.4.26-893-pr-check-enforcement`, `work/v0.4.26-896-isolated-pr-runners`, `work/v0.4.26-910-read-context`). The removal therefore appears executed; **the per-ref deletion record (original SHA + reason) is not yet documented** — record it here to accept this task.

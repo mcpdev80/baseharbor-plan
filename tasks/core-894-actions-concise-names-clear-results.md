@@ -29,7 +29,6 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
-**Required by:** [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
