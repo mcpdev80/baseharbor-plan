@@ -11,9 +11,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 1 |
+| review | 2 |
 | blocked | 0 |
-| ready | 12 |
+| ready | 11 |
 | queued | 5 |
 | waiting | 33 |
 | backlog | 6 |
@@ -27,6 +27,7 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | review | not set | mcpdev80 (core-911) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967) |
 | [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md) | Wizard: offer compatible providers in the same view | review | not set | mcpdev80 (core-913 implementation) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-912](../tasks/core-912-wizard-needs-first-selection.md) | [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966) |
 
 ## Blocked
@@ -46,7 +47,7 @@ None.
 | [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
-| [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
+
 | [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 | [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | CI: qualify shared command and MCP registration checks | ready | not set | — | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 
