@@ -35,7 +35,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 None.
 
-
 ## Ready to assign
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
