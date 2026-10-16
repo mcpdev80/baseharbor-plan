@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#912"]
 source_updated: "2026-10-15T16:46:52Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/963", "https://github.com/mcpdev80/baseharbor/commit/1d6f1a7982f69622fb1faee6f4b99040c6b6d945", "https://github.com/mcpdev80/baseharbor/actions/runs/38894953755"]
 ---
 
-- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-912 implementation) · **Priority:** not set  
     **PR:** [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/963), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1d6f1a7982f69622fb1faee6f4b99040c6b6d945), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38894953755)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
@@ -67,6 +68,8 @@ A compact keyboard checklist asks for developer needs instead of product names. 
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer re-review and acceptance: **accepted and merged** via [PR #963](https://github.com/mcpdev80/baseharbor/pull/963), squash commit `1d6f1a7982f69622fb1faee6f4b99040c6b6d945` on product `develop`. Reviewed source `3f2e65e0cdf05e46a940c3e758a98aa459c47008` fixes both findings from review #5547162958: named/multiple same-kind requirements retain exact identity and ordering through off/on cycles and detected/current overlap, and Enter/Space share bounded disclosure transitions. Hosted [run 38894953755](https://github.com/mcpdev80/baseharbor/actions/runs/38894953755) checks integration `537d0f0e169d0c7e8fe2f7e94afeb7b85baed246` over trusted base `30d635b827e86d233030746abc65ce9475516ce0`. Logs independently confirm all 13 selection tests executed; format, CLI vet/build, source/contracts, focused Python, workflow policy and PR Selected Checks are SUCCESS. No runtime matrix. #964 was a normal develop-to-task-branch integration, not an earlier acceptance. Only the two owned files changed. Planning main was independently checked, concurrent core-919 work preserved, generated views rendered and validated with 0 errors/0 warnings and all 38 unit tests passing before publication. This accepts the selection component and unblocks core-913; provider choices, controller/wiring and release acceptance remain separately scoped.
 
 - 2026-10-16 review correction handoff for [PR #963](https://github.com/mcpdev80/baseharbor/pull/963), responding to independent review #5547162958. Exact source HEAD `3f2e65e0cdf05e46a940c3e758a98aa459c47008`; trusted develop base `30d635b827e86d233030746abc65ce9475516ce0`; exact PR integration `537d0f0e169d0c7e8fe2f7e94afeb7b85baed246`. Normal develop integration via [PR #964](https://github.com/mcpdev80/baseharbor/pull/964), branch zero commits behind develop; no force push, no author merge to develop.
 - Corrected only `cmd/baha/app_capability_selection.go` and `cmd/baha/app_capability_selection_test.go`. Existing named `capability.Requirement` identities, ordering and multiple same-kind instances survive unchanged and off/on cycles. Detected/current overlap retains exact original names; `default` is emitted only for genuinely newly selected kinds. Enter/Space share one disclosure toggle and cursor clamp; regressions cover Enter collapse, alternating keys, valid focus and non-confirmation of footer transitions.
