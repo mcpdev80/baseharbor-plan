@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: mcpdev80
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#935", "mcpdev80/baseharbor#953"]
+prs: ["mcpdev80/baseharbor#935", "mcpdev80/baseharbor#953", "mcpdev80/baseharbor#955"]
 sources: ["mcpdev80/baseharbor#752"]
 source_updated: "2026-10-15T16:51:21Z"
 labels: [kind/bug, area/dx, area/compatibility]
@@ -20,7 +20,7 @@ evidence: []
 - [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review #view/review #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
-    **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953)  
+    **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  
     **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
     <!-- /generated:card -->
 
@@ -30,7 +30,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
 **Priority:** not set  
-**PRs:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953)  
+**PRs:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  
 **Source:** [baseharbor#752](https://github.com/mcpdev80/baseharbor/issues/752)
 <!-- /generated:links -->
 
@@ -66,6 +66,8 @@ A declared canonical `default` instance reconciles with the single detected name
 - Prior work to compare, not merge blindly: branch `fix/752-default-instance-reconcile-v0421` at `70292f0cd436fdeb170652e26e6c5e228da23c1d` (diverged from develop; neither integration nor safe deletion is proven by ancestry).
 
 ## Handoff
+
+- 2026-10-16 independent acceptance of CI prerequisites for **core-752** (not acceptance of its product fix): policy PR #955 was independently reviewed at `dc508513b8a0e6b16c833b364c9a512c8ea54f96`, then updated by a normal clean merge of develop after core-910. The merge tree was independently verified with Git; resulting source `514f552104a68c8f98566666bf139895d844145f` passed all required validations and actual `PR Selected Checks` in [Actions 38881495869](https://github.com/mcpdev80/baseharbor/actions/runs/38881495869), then squash-merged as `79b65c61ae3009c2ee2337bdc298bb8ddeb32a73`. Its real Git fixture allows only the reviewed source plus Git-verified clean merges from trusted target history and rejects unreviewed follow-up commits. CI lane PR #953 then normally integrated this accepted policy: exact source `3c7e198800d0ad0e9c6655831ed0daa16c145506`, Git-verified merge tree `05c95339a94c2fa27d646ef47f31560b036ed160`. The actual trusted plan, all CI validations, focused Python and required final check passed in [Actions 38881765634](https://github.com/mcpdev80/baseharbor/actions/runs/38881765634). PR #953 squash-merged as `8820207463221384b1b9951d8ee335ba944554a1` with no ruleset change or CI bypass. The permanent inspect checks are now integrated. **core-752 remains in review:** product PR #935 is not merged, requires current strict CI against this new develop and the outstanding core-895 acceptance boundary. No native runtime or release matrix was run for these CI prerequisites.
 
 - 2026-10-16 — **Session 1 correction, PR #955 ONLY / independent review pending.** Original head-only qualification was NOT strict-update safe: normally merging newer `develop` changes the PR head and merge-base. Corrected trusted-policy [PR #955](https://github.com/mcpdev80/baseharbor/pull/955), exact reviewed policy HEAD `dc508513b8a0e6b16c833b364c9a512c8ea54f96`, while preserving reviewed #953 source `211d19b13a206040f0f32506e5f5f85d4a467287`. The trusted planner now accepts only the original immutable reviewed source **or** a finite first-parent chain of authentic two-parent clean target merges back to that source; each side parent must descend from the trusted target history and each merge tree must equal independently computed Git merge-tree output. The existing trusted diff resolver additionally validates final integration parents and tree. Final changed-file set must still be exactly five independently reviewed modified CI paths. An unreviewed commit (including one editing an already reviewed path), side-branch merge, malformed integration or extra path remains unresolved. No path-only exemption or general fingerprint framework.
 - **Real fixture:** `scripts/test_pr_gate_plan.py::test_core752_real_git_merge_preserves_reviewed_qualification` constructs an actual temporary git history (reviewed source, trusted policy update, normal target merge, exact synthetic PR integration), calls real `pr-diff-base.resolve_pr_diff` and the trusted planner, and verifies positive qualification with a **changed** merge-base. After an unreviewed post-review edit, classification fails closed. The earlier mocked SHA-substitution test was removed. [Regular Actions 38880595322](https://github.com/mcpdev80/baseharbor/actions/runs/38880595322): `pr-planner-tests` SUCCESS (19 tests), focused Python SUCCESS, workflow policy/ci-policy SUCCESS, executor-verifier SUCCESS after a single failed-jobs-only retry. Original executor-verifier attempt had unrelated temporary git-object cleanup race (`OSError [Errno 39] Directory not empty: objects`); no source change or Go retry. Actual `PR Selected Checks` **SUCCESS**. Unrelated runtime/HA/release jobs skipped; no extra pilot or Go tests.
