@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-917 New wiring)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#917](https://github.com/mcpdev80/baseharbor/issues/917)
