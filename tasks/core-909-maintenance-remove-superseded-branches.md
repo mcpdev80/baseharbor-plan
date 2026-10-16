@@ -13,17 +13,18 @@ sources: ["mcpdev80/baseharbor#909"]
 source_updated: "2026-10-15T16:47:13Z"
 labels: [kind/maintenance]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/fc8ffe0/tasks/core-909-maintenance-remove-superseded-branches.md#execution-record-core-909-local-qwen-maintenance-2026-10-16", "https://github.com/mcpdev80/baseharbor-plan/blob/main/migration/source-snapshot/baseharbor/909.json", "https://github.com/mcpdev80/baseharbor/branches", "https://github.com/mcpdev80/baseharbor/issues/909"]
 ---
 
-- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/active #view/active #area/maintenance #kind/maintenance
+- [x] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/closed #view/closed #area/maintenance #kind/maintenance
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-909 local Qwen maintenance) · **Priority:** not set  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/fc8ffe0/tasks/core-909-maintenance-remove-superseded-branches.md#execution-record-core-909-local-qwen-maintenance-2026-10-16), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/migration/source-snapshot/baseharbor/909.json), [proof 3](https://github.com/mcpdev80/baseharbor/branches), [proof 4](https://github.com/mcpdev80/baseharbor/issues/909)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [maintenance](../releases/maintenance.md)  
 **Depends on:** none  
 **Owner:** mcpdev80 (core-909 local Qwen maintenance)  
@@ -67,7 +68,21 @@ Remove verified-superfluous branches; every remaining branch has a justified own
 - Complete the inventory, exact-SHA mirror checks, authorized safe removals where still needed and per-ref audit before/after as one task. If cleanup was already executed, recover the real existing deletion log instead of pretending to delete refs again. No new product CI is required. Publish render/check-validated planning closeout through the normal Maintainer acceptance boundary.
 - Independent of wizard CI readiness and the pilot cost report; it may run alongside both. Do not remove their active refs or evidence origins.
 
+## Accepted review and evidence provenance — 2026-10-16
+
+Maintainer-delegated independent review accepts the reconstructed historical cleanup and closes core-909. No additional branch deletion is authorized or performed by this closeout. All 51 recorded branch/SHA pairs were independently compared against the committed source snapshot: 51 exact matches, no duplicate/mismatched entries; the 55-row audit reconciles as those 51 entries plus main, develop and the two retained Kubernetes refs. Live GitHub reads confirm every one of the 51 historic branch names is absent and all four kept lines still exist. This does NOT imply that every archived historical change was merged into develop.
+
+The exact-SHA bare-mirror/object/deletion-log verification is local Qwen execution evidence supplied by the Maintainer, not an independent cloud inspection of `/home/marcel/...`. Preserve that mirror and its original logs. The 37 second-pass reasons remain explicitly inferred from the documented archive-cleanup decision; empty original reason fields have not been rewritten as measured facts.
+
+Fresh independent inventory at review: 18 remote branches, with open PR #616 (`test/kubernetes-adoption-contract-demo`) and #957 (`ci/wizard-task-readiness-20261016`). #958 has since merged and its task branch is absent. The earlier approximate 17-ref/three-PR snapshot is historical, not the current inventory. In particular `docs/ci-minimum-sufficient-verification` is NOT #957's head. Main/develop/Kubernetes work and all 14 post-decision refs are retained unchanged in this review; being outside the original authorized list is not a perpetual retention exemption. Reassess obsolete documentation/pilot refs individually with current SHA, mirror, active-task/PR and evidence-retention checks in any later cleanup assignment. This task does not claim all surviving pilots are active forever or authorize wildcard deletion.
+
+Independent tag inventory: `git ls-remote --tags --refs origin` returns 30 distinct tag refs; unfiltered `--tags` returns 59 rows including 29 peeled `^{}` entries. Corrected the original 59-tags wording; no tag deletion is inferred or performed.
+
+No product/workflow/ruleset/main/tag changes or runtime tests were made. The no-PR maintenance handoff can legitimately stay active pending review under the current validator, then transition directly to accepted/closed with real evidence; no fake product PR is needed. Historical active/unaccepted statements below are superseded by this acceptance.
+
 ## Handoff
+
+- 2026-10-16 independent acceptance: historical 51-ref cleanup reconciled with original audit; live absence/kept lines checked; local mirror-verification provenance retained honestly; inventory/PR-head misattribution corrected. Closed core-909 with no additional deletions. Planning views regenerated and validated.
 
 - Observed 2026-10-15T20:35Z during this migration: the remote has 8 branches (`develop`, `main`, `feature/kubernetes-runtime-foundation`, `test/kubernetes-adoption-contract-demo` and active task branches `task/895-review-protection`, `work/v0.4.26-893-pr-check-enforcement`, `work/v0.4.26-896-isolated-pr-runners`, `work/v0.4.26-910-read-context`). The removal therefore appears executed; **the per-ref deletion record (original SHA + reason) is not yet documented** — record it here to accept this task.
 
@@ -75,9 +90,9 @@ Remove verified-superfluous branches; every remaining branch has a justified own
 
 - Environment verified before any action: working checkout `/home/marcel/dev/projects/baseharbor` (product repo, remote `mcpdev80/baseharbor`, authenticated `gh` as `mcpdev80`); planning repository edits made only in `mcpdev80/baseharbor-plan`; mirror present at `/home/marcel/baseharbor-branch-backups/20261015-183126/` (`repository.git` bare mirror, 55 `refs/heads` entries, `branches.json` remote snapshot, `deleted.json`, `deleted-second-pass.json`, `pull-requests.json`).
 - **No branch was deleted during this session.** The authorized removal had already been executed on 2026-10-15T18:32Z/18:35Z (two logged passes, 14 + 37 refs). This session recovered and verified that real deletion log instead of re-deleting anything; nothing was simulated.
-- Current remote inventory (2026-10-16T~10:20Z, `git ls-remote --heads origin`, 17 refs): main lines `main` `54acc4b6…`, `develop` `9766dcb8…`; protected kept refs `feature/kubernetes-runtime-foundation` `a7c6371a…`, `test/kubernetes-adoption-contract-demo` `875dc5ed…` (both still at their audit SHAs); new refs created after the 2026-10-15 decision/mirror: `docs/ci-minimum-sufficient-verification` (open PR #957), `pilot/core-752-953-policy-proof` and `runtime-validation/ci/core-752-policy-proof` (core-752 evidence, commit today), `pilot/core-893-trusted-base` `a867f3c9…`, `pilot/core-893-validation-only` `bf887413…` and `pilot/core-893-unresolved-negative` `6eaae0d2…` (exact PR #943/#944 evidence heads recorded in core-893 notes), `pilot/core-893-public-owner-base`/`-contract`, `pilot/core-893-event-refresh-base`, `pilot/core-893-policy-exact-verification`, `pilot/core-895-green-review`, `pilot/core-895-missing-check` (active sessions today; `pilot/core-895-missing-check` updated `860e83f1..2b45015a` during this fetch), `pilot/pr-impact-924`. Open PRs: #616 (draft, Kubernetes pre-freeze, kept), #957 (wizard CI readiness), #958 (pilot cost evidence) — all heads kept per task rules. The four 2026-10-15 active task branches above are now gone because their PRs #930/#932/#933/#934/#935/#953/#955 merged (normal merge-flow pruning, verified via `git fetch --prune`); no unversioned local files were touched.
+- Current remote inventory (2026-10-16T~10:20Z, `git ls-remote --heads origin`, 17 refs): main lines `main` `54acc4b6…`, `develop` `9766dcb8…`; protected kept refs `feature/kubernetes-runtime-foundation` `a7c6371a…`, `test/kubernetes-adoption-contract-demo` `875dc5ed…` (both still at their audit SHAs); new refs created after the 2026-10-15 decision/mirror: `docs/ci-minimum-sufficient-verification` (post-decision documentation/evidence ref; corrected: this is NOT the head of PR #957), `pilot/core-752-953-policy-proof` and `runtime-validation/ci/core-752-policy-proof` (core-752 evidence, commit today), `pilot/core-893-trusted-base` `a867f3c9…`, `pilot/core-893-validation-only` `bf887413…` and `pilot/core-893-unresolved-negative` `6eaae0d2…` (exact PR #943/#944 evidence heads recorded in core-893 notes), `pilot/core-893-public-owner-base`/`-contract`, `pilot/core-893-event-refresh-base`, `pilot/core-893-policy-exact-verification`, `pilot/core-895-green-review`, `pilot/core-895-missing-check` (active sessions today; `pilot/core-895-missing-check` updated `860e83f1..2b45015a` during this fetch), `pilot/pr-impact-924`. Open PRs: #616 (draft, Kubernetes pre-freeze, kept), #957 (wizard CI readiness), #958 (pilot cost evidence) — all heads kept per task rules. The four 2026-10-15 active task branches above are now gone because their PRs #930/#932/#933/#934/#935/#953/#955 merged (normal merge-flow pruning, verified via `git fetch --prune`); no unversioned local files were touched.
 - New-post-decision refs are **not** part of the 2026-10-15 authorized set; under the standing rules (new/changed branches, new open PRs and new Kubernetes/macOS work kept; no wildcard deletion) none qualified for removal today. No macOS/Darwin branch exists on the remote.
-- Evidence verification performed three-way, all 51 logged refs: (1) each original SHA exists as a commit object in the mirror and the mirror's `refs/heads/<branch>` equals that SHA — 51/51 exact, zero mismatches; (2) each SHA matches the remote snapshot `branches.json` taken immediately before deletion — 51/51; (3) each SHA matches the audit table in source issue #909 — 51/51, and the 55-row inventory reconciles completely as 51 deleted + 4 kept, with no inventory branch left undeleted on the remote. Release tags untouched (59 tags on remote).
+- Evidence verification performed three-way, all 51 logged refs: (1) each original SHA exists as a commit object in the mirror and the mirror's `refs/heads/<branch>` equals that SHA — 51/51 exact, zero mismatches; (2) each SHA matches the remote snapshot `branches.json` taken immediately before deletion — 51/51; (3) each SHA matches the audit table in source issue #909 — 51/51, and the 55-row inventory reconciles completely as 51 deleted + 4 kept, with no inventory branch left undeleted on the remote. Release tags untouched by this task (the reported 59 `ls-remote --tags` rows include peeled entries, not 59 distinct tags; independent review counted 30 tag refs plus 29 peeled rows).
 - Per-ref deletion record (original SHA + reason) recovered from the Maintainer's local deletion logs at the mirror path above. First pass (2026-10-15T18:32Z, `deleted.json`, 14 refs, per-ref reasons from the log, translated to English here):
 
 | Branch | Original remote SHA | Reason (deletion log) |

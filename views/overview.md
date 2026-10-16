@@ -10,20 +10,18 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 0 |
 | review | 1 |
 | blocked | 0 |
 | ready | 8 |
 | queued | 5 |
 | waiting | 40 |
 | backlog | 6 |
-| closed | 9 |
+| closed | 10 |
 
 ## Active
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | active | not set | mcpdev80 (core-909 local Qwen maintenance) | — | — |
+None.
 
 ## Ready for review
 
@@ -61,5 +59,5 @@ None.
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 9 open, 0 closed ([view](releases/v0.7.x.md))
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 8 open, 0 closed ([view](releases/v0.8.x.md))
 - [backlog](../releases/backlog.md): Explicitly unscheduled work — 5 open, 0 closed ([view](releases/backlog.md))
-- [maintenance](../releases/maintenance.md): Repository maintenance outside releases — 1 open, 0 closed ([view](releases/maintenance.md))
+- [maintenance](../releases/maintenance.md): Repository maintenance outside releases — 0 open, 1 closed ([view](releases/maintenance.md))
 - [triage](../releases/triage.md): Open work without a release decision — 1 open, 0 closed ([view](releases/triage.md))
