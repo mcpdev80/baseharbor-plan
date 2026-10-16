@@ -12,18 +12,19 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#942"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/942", "https://github.com/mcpdev80/baseharbor/commit/14d864dfd38801a56e54901ea520f3b02db134b2", "https://github.com/mcpdev80/baseharbor/actions/runs/38821273254", "https://github.com/mcpdev80/baseharbor/actions/runs/38828055047", "https://github.com/mcpdev80/baseharbor/actions/runs/38882179679"]
 ---
 
-- [ ] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
+- [x] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** high  
     **PR:** [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/942), [proof 2](https://github.com/mcpdev80/baseharbor/commit/14d864dfd38801a56e54901ea520f3b02db134b2), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38821273254), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/38828055047), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Owner:** mcpdev80 (session 2)  
@@ -59,6 +60,8 @@ Correct the existing #892 trusted diff-to-check planner without changing the #89
 - No edits to core-893-owned CI workflow or final-check files.
 
 ## Handoff
+
+- 2026-10-16 Maintainer-requested independent closeout of **t-20261016-pr-impact-selection — targeted PR impact selection**: rechecked product PR #942 is MERGED at `14d864dfd38801a56e54901ea520f3b02db134b2`, exact reviewed source `4e13aa58a2007fe6c1d847621ced67739f2f0c33`. [Actions 38821273254](https://github.com/mcpdev80/baseharbor/actions/runs/38821273254), job `Exact PR planner tests`, SUCCESS. The former core-893 consumer handoff is complete: PR #930 is integrated and accepted, with real selected-check enforcement qualified in run `38828055047`; current permanent five-check inspection selection was additionally exercised end-to-end in run `38882179679` and product PR #935 is merged. Unknown impact still fails closed and no complete release matrix is selected automatically. ACCEPTED/CLOSED; prior review-only handoffs below are historical, not current blockers.
 
 - 2026-10-16 — **Further bounded review correction:** Draft PR #942 exact source `4e13aa58a2007fe6c1d847621ced67739f2f0c33` limits resolved `internal/capability/` to audited package conformance test files with mandatory `go test ./internal/capability/... -count=1`. All `internal/application/` and non-allowlisted capability implementation, registry/provider and lifecycle paths remain unresolved; all `deploy/docker/**` paths require explicit native qualification rather than merely Docker lifecycle. Negative regression cases cover resolver, registry, lifecycle, backup, security and deployment scripts. Focused immutable-source pilot [Actions 38821273254](https://github.com/mcpdev80/baseharbor/actions/runs/38821273254) verifies the change (**SUCCESS**: 17 planner regressions, actual capability package tests, CLI guided test/vet/build, and 68 evidence/verifier regressions). No core-893-owned source changes, no automatic matrix, no merge.
 
