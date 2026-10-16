@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-305 · Kubernetes: provide HTTP access through Gateway API #task #release/v0-7-x #status/planned #view/waiting #area/kubernetes #kind/feature
+- [ ] core-305 · Kubernetes: provide HTTP access through Gateway API #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

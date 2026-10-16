@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-316 · Kubernetes: add observability, diagnostics and evidence #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
+- [ ] core-316 · Kubernetes: add observability, diagnostics and evidence #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

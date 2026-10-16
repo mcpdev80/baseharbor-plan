@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/fc8ffe0/tasks/core-909-maintenance-remove-superseded-branches.md#execution-record-core-909-local-qwen-maintenance-2026-10-16", "https://github.com/mcpdev80/baseharbor-plan/blob/main/migration/source-snapshot/baseharbor/909.json", "https://github.com/mcpdev80/baseharbor/branches", "https://github.com/mcpdev80/baseharbor/issues/909"]
 ---
 
-- [x] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/closed #view/closed #area/maintenance #kind/maintenance
+- [x] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/closed #view/closed #board/planned #area/maintenance #kind/maintenance
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-909 local Qwen maintenance) · **Priority:** not set  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/fc8ffe0/tasks/core-909-maintenance-remove-superseded-branches.md#execution-record-core-909-local-qwen-maintenance-2026-10-16), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/migration/source-snapshot/baseharbor/909.json), [proof 3](https://github.com/mcpdev80/baseharbor/branches), [proof 4](https://github.com/mcpdev80/baseharbor/issues/909)  

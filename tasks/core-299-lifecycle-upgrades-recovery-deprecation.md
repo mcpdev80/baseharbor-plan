@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-299 · Lifecycle: secure upgrades, recovery and deprecation #task #release/v0-5-x #status/planned #view/waiting #area/lifecycle #kind/feature
+- [ ] core-299 · Lifecycle: secure upgrades, recovery and deprecation #task #release/v0-5-x #status/planned #view/waiting #board/planned #area/lifecycle #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

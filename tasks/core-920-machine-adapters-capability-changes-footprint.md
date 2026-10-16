@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/970", "https://github.com/mcpdev80/baseharbor/actions/runs/38918001486", "https://github.com/mcpdev80/baseharbor/commit/18e4f1d96f4e98e18889075ace0481f6a0404107"]
 ---
 
-- [x] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/closed #view/closed #area/cli #kind/task
+- [x] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-920) · **Priority:** not set  
     **PR:** [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970)  

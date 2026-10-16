@@ -291,7 +291,7 @@ class Vault:
             self.err(path, f"card id {m.group('id')!r} differs from frontmatter id {tid!r}")
         if "#task" not in tags:
             self.err(path, "card must carry #task")
-        unknown = [t for t in tags if t != "#task" and not t.startswith(("#status/", "#release/", "#view/", "#area/", "#kind/"))]
+        unknown = [t for t in tags if t not in ("#task", "#board/planned") and not t.startswith(("#status/", "#release/", "#view/", "#area/", "#kind/"))]
         if unknown:
             self.err(path, f"card carries unsupported tags {unknown}; keep metadata in frontmatter")
         if len(release_tags) != 1:
@@ -605,6 +605,7 @@ def validate_cardboard(cfg, release_tags):
                 ok = (tag in release_tags
                       or tag.startswith("status/") and tag[len("status/"):] in STATUSES + [CLOSED]
                       or tag.startswith("view/") and tag[len("view/"):] in VIEW_STATES
+                      or tag == "board/planned"
                       or tag in ("roadmap-state/current", "roadmap-state/next", "roadmap-state/later", "roadmap-state/delivered"))
                 if not ok:
                     problems.append(f"board {name!r}: column tag {tag!r} is not a known status or release tag")
@@ -637,8 +638,12 @@ def view_state(vault, task):
 def card_line(vault, task):
     """Only the derived view tag changes; preserve the canonical status and completion."""
     match = CARD.match(task["body"].split("\n")[task["card_line"]])
-    tags = [tag for tag in match.group("tags").split() if not tag.startswith(("#view/", "#area/", "#kind/"))]
+    tags = [tag for tag in match.group("tags").split() if not tag.startswith(("#view/", "#area/", "#kind/", "#board/"))]
     tags.append("#view/" + view_state(vault, task))
+    # CardBoard's Completed column only admits tasks matching a non-completed
+    # column. Retain a routing match for closed cards without a second status.
+    if view_state(vault, task) in ("waiting", "closed"):
+        tags.append("#board/planned")
     tags += ["#area/" + a for a in sorted(task.get("areas", []))]
     tags.append("#kind/" + task["type"])
     return (f"- [{match.group('done')}] {task['id']} · {task['title']} "

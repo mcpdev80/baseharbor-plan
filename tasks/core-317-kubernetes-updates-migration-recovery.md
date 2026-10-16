@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-317 · Kubernetes: secure updates, migration and recovery #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
+- [ ] core-317 · Kubernetes: secure updates, migration and recovery #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting #area/architecture #kind/architecture
+- [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

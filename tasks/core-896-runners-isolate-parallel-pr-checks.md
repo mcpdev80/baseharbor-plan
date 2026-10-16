@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/932", "https://github.com/mcpdev80/baseharbor/actions/runs/38809319405", "https://github.com/mcpdev80/baseharbor/actions/runs/38828055047"]
 ---
 
-- [x] core-896 · Runners: isolate parallel PR checks safely #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] core-896 · Runners: isolate parallel PR checks safely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932)  

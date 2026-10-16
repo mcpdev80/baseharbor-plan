@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-823 · Tests: verify platform conformance and support #task #release/v0-4-29 #status/planned #view/waiting #area/testing #kind/acceptance
+- [ ] core-823 · Tests: verify platform conformance and support #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

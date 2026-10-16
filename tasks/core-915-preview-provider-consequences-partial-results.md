@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/969", "https://github.com/mcpdev80/baseharbor/commit/701d9ac4f6e5b78658a4f429ad406f31087d44d9", "https://github.com/mcpdev80/baseharbor/actions/runs/38911659557"]
 ---
 
-- [x] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-915) · **Priority:** not set  
     **PR:** [baseharbor#969](https://github.com/mcpdev80/baseharbor/pull/969)  

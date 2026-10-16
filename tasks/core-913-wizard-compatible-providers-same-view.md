@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/966", "https://github.com/mcpdev80/baseharbor/commit/b3428843bc8f04156339a7b7f6d1e0ed6fa955d6", "https://github.com/mcpdev80/baseharbor/actions/runs/38903170816"]
 ---
 
-- [x] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-913 implementation) · **Priority:** not set  
     **PR:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  

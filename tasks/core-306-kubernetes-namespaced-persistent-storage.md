@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-306 · Kubernetes: implement namespaced persistent storage #task #release/v0-7-x #status/planned #view/waiting #area/kubernetes #kind/feature
+- [ ] core-306 · Kubernetes: implement namespaced persistent storage #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

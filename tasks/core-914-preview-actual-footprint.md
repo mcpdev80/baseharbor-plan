@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/962", "https://github.com/mcpdev80/baseharbor/commit/30d635b827e86d233030746abc65ce9475516ce0", "https://github.com/mcpdev80/baseharbor/actions/runs/38892885506"]
 ---
 
-- [x] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-914) · **Priority:** not set  
     **PR:** [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962)  

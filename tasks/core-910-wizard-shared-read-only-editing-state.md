@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/934", "https://github.com/mcpdev80/baseharbor/commit/be25a311f8e1367ea3ec800bcceb1c8169858566", "https://github.com/mcpdev80/baseharbor/actions/runs/38869216983"]
 ---
 
-- [x] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2, preparatory implementation) · **Priority:** not set  
     **PR:** [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934)  

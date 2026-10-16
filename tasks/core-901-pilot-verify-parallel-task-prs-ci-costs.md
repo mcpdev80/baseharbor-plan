@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/958", "https://github.com/mcpdev80/baseharbor/commit/394e0398fc56137f6009477cd0f878fb2851ce6b", "https://github.com/mcpdev80/baseharbor/actions/runs/38887508335", "https://github.com/mcpdev80/baseharbor/actions/runs/38869216983", "https://github.com/mcpdev80/baseharbor/actions/runs/38882179679"]
 ---
 
-- [x] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-901) · **Priority:** not set  
     **PR:** [baseharbor#958](https://github.com/mcpdev80/baseharbor/pull/958)  

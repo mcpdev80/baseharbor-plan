@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting #area/platform #kind/acceptance
+- [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/platform #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

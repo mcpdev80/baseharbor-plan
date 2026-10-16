@@ -16,7 +16,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/957", "https://github.com/mcpdev80/baseharbor/pull/960", "https://github.com/mcpdev80/baseharbor/commit/c889ba7f5350e978d6c372cd58f50651d4852e72", "https://github.com/mcpdev80/baseharbor/actions/runs/38890395251", "https://github.com/mcpdev80/baseharbor/actions/runs/38890714423", "https://github.com/mcpdev80/baseharbor/actions/runs/38891345247", "https://github.com/mcpdev80/baseharbor/actions/runs/38891065971", "https://github.com/mcpdev80/baseharbor/pull/961"]
 ---
 
-- [x] t-20261016-wizard-task-ci-readiness · CI: prepare autonomous wizard task verification #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] t-20261016-wizard-task-ci-readiness · CI: prepare autonomous wizard task verification #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (CI readiness session) · **Priority:** not set  
     **PR:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), [baseharbor#960](https://github.com/mcpdev80/baseharbor/pull/960)  

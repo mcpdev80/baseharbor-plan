@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/930", "https://github.com/mcpdev80/baseharbor/commit/519bb46765ccaf679fe57d512864befb14db3396", "https://github.com/mcpdev80/baseharbor/actions/runs/38828055047"]
 ---
 
-- [x] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] core-893 · CI: enforce selected PR checks #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936)  
