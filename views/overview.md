@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 2 |
+| review | 1 |
 | blocked | 0 |
 | ready | 8 |
 | queued | 5 |
 | waiting | 40 |
 | backlog | 6 |
-| closed | 8 |
+| closed | 9 |
 
 ## Active
 
@@ -29,7 +29,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-901](../tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md) | Pilot: verify parallel task PRs and CI costs | review | not set | mcpdev80 (core-901) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | [baseharbor#958](https://github.com/mcpdev80/baseharbor/pull/958) |
 | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | review | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957) |
 
 ## Blocked
@@ -51,7 +50,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 16 open, 8 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 15 open, 9 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
