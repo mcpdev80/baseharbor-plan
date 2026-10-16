@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (core-920)"
 depends_on: [core-910, core-911, core-919]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,18 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/planned #view/ready #area/cli #kind/task
+- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-920) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-920)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#920](https://github.com/mcpdev80/baseharbor/issues/920)
