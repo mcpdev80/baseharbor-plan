@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: mcpdev80
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#935"]
+prs: ["mcpdev80/baseharbor#935", "mcpdev80/baseharbor#953"]
 sources: ["mcpdev80/baseharbor#752"]
 source_updated: "2026-10-15T16:51:21Z"
 labels: [kind/bug, area/dx, area/compatibility]
@@ -20,7 +20,7 @@ evidence: []
 - [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review #view/review #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
-    **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935)  
+    **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953)  
     **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
     <!-- /generated:card -->
 
@@ -30,7 +30,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
 **Priority:** not set  
-**PRs:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935)  
+**PRs:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953)  
 **Source:** [baseharbor#752](https://github.com/mcpdev80/baseharbor/issues/752)
 <!-- /generated:links -->
 
@@ -66,6 +66,8 @@ A declared canonical `default` instance reconciles with the single detected name
 - Prior work to compare, not merge blindly: branch `fix/752-default-instance-reconcile-v0421` at `70292f0cd436fdeb170652e26e6c5e228da23c1d` (diverged from develop; neither integration nor safe deletion is proven by ancestry).
 
 ## Handoff
+
+- 2026-10-16 (this session): Integrated current develop `e8b021fe` **normally** into `task/752-reconcile-default-instances`; new head `ed36c5b721696c870eba34db4b3e39804c2a5ba1` (three prior fix commits preserved, no force push). Local prechecks on the integrated SHA all green: `gofmt` of both changed files; `go test ./internal/repositoryinspect/ -count=1`; `go vet ./internal/repositoryinspect/`; `go test ./cmd/baha -run 'Inspect|Reconcile' -count=1`; `go build ./cmd/baha`. Regular develop PR check [Actions 38872599405](https://github.com/mcpdev80/baseharbor/actions/runs/38872599405) on `ed36c5b7`: `PR · Trusted Plan` SUCCESS but `PR Selected Checks` **FAILURE** — honest fail-closed, because develop's Trusted Plan still classifies `internal/repositoryinspect/*.go` as `unresolved` (no focused Go lane). No new exact-SHA pilot was built. Implemented instead the permanent, narrowly-justified Planner/Executor coverage as separate review PR [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953): the planner resolves **only** `reconcile*.go` to five package-scoped `inspect-*` checks (gofmt, package test, package vet, focused `cmd/baha Inspect|Reconcile` tests, CLI build); every other package `.go` (detector/model/findings/manifest) stays fail-closed unresolved, with positive and negative planner and runner regressions. On #953 head `39805a15`, [Actions 38873774859](https://github.com/mcpdev80/baseharbor/actions/runs/38873774859) ran `PR · Trusted Plan`/`Workflow policy`/`PR · Focused Python` and the `pr-planner-tests`/`ci-executor-verifier-tests`/`ci-policy` validations **SUCCESS** (this PR's new tests execute on hosted CI) while `PR Selected Checks` correctly **FAILS** because a CI-executor change is conservatively unresolved — demonstrating both the green focused checks and the real fail-closed path, nothing invented. **Independent review requested via this authoritative task note** for #953 (core-893's standing rule: coverage-policy changes are resolved in the trusted policy authority, independently, with no self-exemption; #953 also moves the check-runner source-of-truth from a detached immutable pin to the trusted base checkout — the reviewer must confirm that trust equivalence or request a durable advanced helper pin). After #953 merges into develop, #935 re-runs the ordinary PR check and its reconcile change resolves to the five inspect checks rather than failing closed. Final #935 merge stays blocked on core-895 (not accepted); core-893 and core-896 are accepted. #935 remains open in review; not self-merged, not accepted. Preserve this task in review; do not check its card as done.
 
 - 2026-10-16 cleanup: temporary diagnostic PR #940 was closed WITHOUT merge after preserving its exact-source Actions evidence in this task and the closed pilot body. The product PR remains open; closing a pilot does not accept the product implementation.
 
