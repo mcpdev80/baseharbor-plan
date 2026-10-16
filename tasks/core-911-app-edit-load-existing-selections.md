@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#911"]
 source_updated: "2026-10-15T16:46:59Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/967", "https://github.com/mcpdev80/baseharbor/commit/1c78c509ffc2846e76ed1b27bc39f478948b1cb0", "https://github.com/mcpdev80/baseharbor/actions/runs/38908377577"]
 ---
 
-- [ ] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-911) · **Priority:** not set  
     **PR:** [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/967), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1c78c509ffc2846e76ed1b27bc39f478948b1cb0), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38908377577)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md)  
@@ -67,6 +68,8 @@ An existing app and its selected Target load losslessly into the shared editing 
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer acceptance: **accepted and merged** via [PR #967](https://github.com/mcpdev80/baseharbor/pull/967), squash commit `1c78c509ffc2846e76ed1b27bc39f478948b1cb0` on product `develop`. Reviewed source `6e6a2972dd37d608d74d42f97c525f29ea60d7e7` retains authored/canonical YAML bytes and typed safe source/app/environment/intent validation, detached named selections and Target-local preferences. Managed secrets are checked against contract/footprint facts and hydrated once as `secrets/default`; mismatch and non-mutation regressions pass. [Hosted run 38908377577](https://github.com/mcpdev80/baseharbor/actions/runs/38908377577), attempt 1, SUCCESS at integration `9e5fda96faf72e2fe05215242029b35bad2e1200` over trusted base `b3428843bc8f04156339a7b7f6d1e0ed6fa955d6`; logs confirm all seven hydration tests, with format, CLI vet/build, source/contracts, focused Python, workflow policy and final PR Selected Checks green. No runtime matrix. Final diff contains only the two owned hydration files; core-913's source blob matches develop exactly after the intermediate merge-tree repair, preserving merged work without force-push. Planning and concurrent core-915 updates preserved; render also repairs one stale generated release-view row. Render/check reports 0 errors/0 warnings and all 38 tests pass before publication. This closes hydration and makes core-920 ready; controller, command registration and release acceptance remain separate tasks.
 
 - 2026-10-16 correction for [Review #5548303528](https://github.com/mcpdev80/baseharbor/pull/967#pullrequestreview-5548303528): existing [PR #967](https://github.com/mcpdev80/baseharbor/pull/967), exact source HEAD `6e6a2972dd37d608d74d42f97c525f29ea60d7e7`, normally integrated develop `b3428843bc8f04156339a7b7f6d1e0ed6fa955d6` (core-913 included). Product diff against develop contains **only** `cmd/baha/app_edit_load.go` and `cmd/baha/app_edit_load_test.go`. The existing `PortableContractFromManifest` authority exposes `Secrets.Managed` separately from `Capabilities`; the existing `Footprint.Requirements` authority exposes selected `capability.Secrets/default`. Hydration adds that requirement exactly once when managed secrets are confirmed, rejects a managed-secrets mismatch between source contract and footprint using safe typed `incompatible`, and retains automatic/explicit Target-specific preferences without modifying input. Existing YAML parsing, name/environment/intent binding and exact source-byte preservation remain unchanged. Added `TestAppEditLoadManagedSecretsHydration` and `TestAppEditLoadRejectsManagedSecretsMismatch`, covering real parsed managed-secrets YAML/contract and Footprint facts, `secrets/default`, two Targets with automatic/explicit preferences, mismatch negatives, immutable original bytes and context slices. Normal develop integration initially produced a malformed two-parent tree that omitted core-913 files, evidenced by [failed run 38908042948](https://github.com/mcpdev80/baseharbor/actions/runs/38908042948) (zero provider-choice test matches); fixed with a **non-force-push** follow-up merge tree retaining all develop files, and verified diff limited to the two owned files. Authoritative [focused PR run 38908377577](https://github.com/mcpdev80/baseharbor/actions/runs/38908377577), attempt 1, **SUCCESS**: Trusted Plan, Workflow policy, Focused Python, `wizard-app-edit-load-tests`, source/contracts, cli-gofmt, cli-vet, cli-build and final `PR Selected Checks`; no container/runtime/release matrix. **Independent review required; no self-merge or task acceptance.**
 
