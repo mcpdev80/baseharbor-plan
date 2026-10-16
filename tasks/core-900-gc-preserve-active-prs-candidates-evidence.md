@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#900"]
 source_updated: "2026-10-15T19:49:39Z"
 labels: [area/evidence]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/931", "https://github.com/mcpdev80/baseharbor/actions/runs/38800898245"]
 ---
 
-- [ ] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
+- [x] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** not set  
     **PR:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/931), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38800898245)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** none  
@@ -60,6 +61,8 @@ Cleanup removes no reference or evidence the new workflow still needs.
 - Satisfied: #899 (closed as completed 2026-10-15).
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized closeout: Accepted integrated GC protection PR #931 (`bf69ad0a37fcec12958992d4826e4f8d14c13ba6`). Rechecked [Actions 38800898245](https://github.com/mcpdev80/baseharbor/actions/runs/38800898245): GC tests SUCCESS; productive deletion jobs SKIPPED. Acceptance covers tested SHA-aware retention, pagination and fail-closed behavior; no productive deletion was performed.
 
 - 2026-10-15T20:32Z: PR #931 merged into develop (merge commit `bf69ad0a37fcec12958992d4826e4f8d14c13ba6`). The issue is still open; a merged PR is not acceptance — awaiting Maintainer acceptance with evidence.
 - 2026-10-15: session 2 owns #900 only, on a dedicated branch against develop. Draft PR #931 ("retain active sources and evidence origins"), head `0459ae9411` at snapshot time.

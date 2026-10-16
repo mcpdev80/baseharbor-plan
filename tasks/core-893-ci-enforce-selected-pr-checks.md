@@ -21,7 +21,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/930", "https://github.co
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930), [baseharbor#936](https://github.com/mcpdev80/baseharbor/pull/936)  
-    **Needs:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/930), [proof 2](https://github.com/mcpdev80/baseharbor/commit/519bb46765ccaf679fe57d512864befb14db3396), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38828055047)  
     <!-- /generated:card -->
 

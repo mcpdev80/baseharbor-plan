@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

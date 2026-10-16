@@ -13,19 +13,19 @@ sources: ["mcpdev80/baseharbor#896"]
 source_updated: "2026-10-15T20:35:26Z"
 labels: [area/evidence]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/932", "https://github.com/mcpdev80/baseharbor/actions/runs/38809319405", "https://github.com/mcpdev80/baseharbor/actions/runs/38828055047"]
 ---
 
-- [ ] core-896 · Runners: isolate parallel PR checks safely #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
+- [x] core-896 · Runners: isolate parallel PR checks safely #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932)  
-    **Needs:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/932), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38809319405), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38828055047)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893-interface](core-893-interface-agree-planning-execution-interface.md)  
@@ -62,6 +62,8 @@ Independent PR lanes share neither mutable runtime state nor permissions.
 - Separate small PR against develop; integrate, then core-893 consumes it.
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized closeout: Independent review accepted the integrated runner-isolation implementation from PR #932 (`fb229964dd277700e1c7ec815db42fa19c3ba2bd`). Rechecked [Actions 38809319405](https://github.com/mcpdev80/baseharbor/actions/runs/38809319405): isolation fixtures, real Docker and Podman lease pilots and workflow policy SUCCESS. Its actual consumption is additionally qualified by the green #930 final run. Historical review-only entries below are superseded.
 
 - Live migration review: PR #932 head `174dc6d56b40dea85f2708b95e71b3a7b3638c4c`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
 

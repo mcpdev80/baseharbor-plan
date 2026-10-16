@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#893"]
 source_updated: "2026-10-15T20:35:28Z"
 labels: [area/evidence]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/930", "https://github.com/mcpdev80/baseharbor/actions/runs/38828055047"]
 ---
 
-- [ ] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
+- [x] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 1) · **Priority:** not set  
     **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/930), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38828055047)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** none  
@@ -60,6 +61,10 @@ Agree the concrete planning/execution interface that core-896 (runner isolation)
 - #893 owns `.github/workflows/ci.yml`; #896 must not edit it in parallel. Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized closeout: Supplemental documentation PR #950 reviewed and squash-merged as `bca497f44a11664d5b3774f498e59bfe09327960`: product AGENTS.md requires the smallest sufficient verification and justification of expensive gates. This is a text-only policy clarification with no runtime changes; no additional runtime tests were started. Product PR #933 is also merged as a proposal, with core-895 still open for live activation.
+
+- 2026-10-16 Maintainer-authorized closeout: Accepted with integrated PR #930, commit `519bb46765ccaf679fe57d512864befb14db3396`. The exact runtime interface and trusted #896 consumption passed in [Actions 38828055047](https://github.com/mcpdev80/baseharbor/actions/runs/38828055047); this phase is complete.
 
 - Live migration review: PR #930 head `a239e7a39a64113ebbd52eaf5d991047c92d6ea7`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
 

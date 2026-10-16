@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935)  
-    **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -66,6 +66,8 @@ A declared canonical `default` instance reconciles with the single detected name
 - Prior work to compare, not merge blindly: branch `fix/752-default-instance-reconcile-v0421` at `70292f0cd436fdeb170652e26e6c5e228da23c1d` (diverged from develop; neither integration nor safe deletion is proven by ancestry).
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized closeout: PR #935 remains unmerged and unaccepted. Exact-source focused GitHub-hosted checks were rechecked in [Actions 38815960883](https://github.com/mcpdev80/baseharbor/actions/runs/38815960883). A local Git merge-tree check found no conflicts against develop after #930. core-893 and core-896 are accepted; the remaining foundation prerequisite is core-895 live protection activation and qualification. Merging the #933 proposal alone does not satisfy it. Preserve this task in review; do not check its card as done.
 
 - 2026-10-15T22:24Z (session 3): **focused GitHub-hosted verification obtained autonomously** on exact tested SHA `4804cb1d53a1caaa44da6f384b0a18c170cae431` via a temporary ref-gated pilot lane modeled on the #936 pattern but narrowed to this task: branch `runtime-validation/ci/935-exact-reconcile` (ci.yml gained one ref-gated job `Core752 · Exact Reconcile Verification` plus one exclusion term so the legacy broad `validate` job would not run; not merged, branch deleted after recording). Run 38815960883 https://github.com/mcpdev80/baseharbor/actions/runs/38815960883: job **SUCCESS** (pinned-SHA assertion, gofmt of both changed files, `go test ./internal/repositoryinspect/ -count=1`, `go test ./cmd/baha -run 'Inspect|Reconcile' -count=1`, `go vet ./internal/repositoryinspect/`, CLI build; all gated by a Require step); Workflow policy PASS; legacy validate and every runtime/HA/preflight job **skipped**. No release matrix, no Hugging Face. Implementation is verified; **integration prerequisites remain**: core-893 selected-check enforcement qualified and core-895 review protection accepted (core-896 merged via #932). Permanent exact-SHA lane placement proposed to Session 1 in PR #935 comments. Evidence recorded in PR #935 body (comments carry run/job links). Earlier note: PR #935 head `4804cb1d` (this entry supersedes the request-only status of the 21:58Z entry below).
 

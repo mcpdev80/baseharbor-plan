@@ -10,35 +10,32 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
-| review | 5 |
-| blocked | 0 |
+| active | 0 |
+| review | 3 |
+| blocked | 1 |
 | ready | 4 |
 | queued | 5 |
 | waiting | 46 |
 | backlog | 6 |
-| closed | 1 |
+| closed | 4 |
 
 ## Active
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) | CI: agree the planning/execution interface for runner isolation | active | not set | mcpdev80 (session 1) | — | [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930) |
-| [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | active | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
+None.
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935) |
-| [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | Runners: isolate parallel PR checks safely | review | not set | mcpdev80 (session 1) | [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) (open) | [baseharbor#932](https://github.com/mcpdev80/baseharbor/pull/932) |
-| [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | GC: preserve active PRs, candidates and evidence origins | review | not set | mcpdev80 (session 2) | — | [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931) |
-| [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | Wizard: provide shared read-only editing state | review | not set | mcpdev80 (session 2, preparatory implementation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) (open) | [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934) |
+| [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935) |
+| [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | Wizard: provide shared read-only editing state | review | not set | mcpdev80 (session 2, preparatory implementation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934) |
 | [t-20261016-pr-impact-selection](../tasks/t-20261016-pr-impact-selection.md) | CI: correct PR impact selection and unresolved coverage | review | high | mcpdev80 (session 2) | — | [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942) |
 
 ## Blocked
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) | Reviews: require maintainer approval for develop | blocked | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933) |
 
 ## Ready to assign
 
@@ -51,7 +48,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 22 open, 1 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 19 open, 4 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
