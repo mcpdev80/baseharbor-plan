@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 2 |
+| review | 1 |
 | blocked | 0 |
-| ready | 12 |
+| ready | 13 |
 | queued | 5 |
-| waiting | 35 |
+| waiting | 34 |
 | backlog | 6 |
-| closed | 11 |
+| closed | 12 |
 
 ## Active
 
@@ -28,7 +28,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-912](../tasks/core-912-wizard-needs-first-selection.md) | Wizard: present a compact needs-first selection | review | not set | mcpdev80 (core-912 implementation) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963) |
-| [core-914](../tasks/core-914-preview-actual-footprint.md) | Preview: present the actual footprint concisely | review | not set | mcpdev80 (core-914) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962) |
 
 ## Blocked
 
@@ -49,11 +48,12 @@ None.
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 | [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 | [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
+| [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | Footprint: serve CLI and JSON from one projection | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-914](../tasks/core-914-preview-actual-footprint.md) | — |
 | [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | CI: qualify shared command and MCP registration checks | ready | not set | — | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 15 open, 10 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 14 open, 11 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
