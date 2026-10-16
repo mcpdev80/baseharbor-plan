@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-916 controller)"
 depends_on: [core-912, core-913, core-914, core-915]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#972]
 sources: ["mcpdev80/baseharbor#916"]
 source_updated: "2026-10-15T16:46:28Z"
 labels: [area/dx]
@@ -17,19 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-916 · Wizard: handle back, cancel and EOF without side effects #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [ ] core-916 · Wizard: handle back, cancel and EOF without side effects #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-916 controller) · **Priority:** not set  
+    **PR:** [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
 **Required by:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md)  
 **Owner:** mcpdev80 (core-916 controller)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972)  
 **Source:** [baseharbor#916](https://github.com/mcpdev80/baseharbor/issues/916)
 <!-- /generated:links -->
 
@@ -67,6 +68,10 @@ No returns to the retained selection as often as needed; cancel writes nothing. 
 
 ## Handoff
 
-- Not started.
+- 2026-10-16 review handoff: [baseharbor PR #972](https://github.com/mcpdev80/baseharbor/pull/972), branch `feature/core-916-wizard-controller`. Exact source HEAD `8870c311ad4a7b7dc923a5475b441dafd7fbf74b`, trusted develop base `701d9ac4f6e5b78658a4f429ad406f31087d44d9`, PR integration `23ada23c330e3e035bbbf714de544d2aeb4a0504`; branch 0 commits behind develop, no force-push and no merge into develop.
+- Changed only `cmd/baha/app_wizard_controller.go` and `cmd/baha/app_wizard_controller_test.go`. The pure state machine composes accepted needs selection (`newAppCapabilitySelection`/`Requirements`), Target registry-based provider decisions (`appProviderChoices`/`Select`), footprint presenter and provider impact presenter. Repeated Back/No preserves original named multi-instance Requirements and Target-specific provider preferences, including off/on selection cycles. The controller returns a defensive-copy intent decision only; it does not contain or invoke execution, consent, lifecycle, file or registry mutation hooks.
+- `TestAppWizardController*` tests exercise repeated No/back sequences, changed capabilities, independent provider preferences, typed initial TTY/no-input refusal, cancel/EOF/context cancellation at each phase, and unchanged on-disk manifest with unchanged input Manifest/Registry/Requirement snapshots. The component accepts an explicit TTY flag supplied by the caller; no real terminal session or lifecycle integration is claimed in this scoped, read-only unit.
+- [Hosted Actions 38915947335](https://github.com/mcpdev80/baseharbor/actions/runs/38915947335) **SUCCESS**: trusted PR planner, workflow policy, `wizard-controller-tests` with real matching `TestAppWizardController*`, `cli-gofmt`, `cli-vet`, `cli-build`, `source-contracts`, and binding `PR Selected Checks`; no container/runtime/full release matrix. Early candidate found gofmt discrepancies, then corrected with exact output; final SHA is the qualified candidate.
+- **Review only**: no author merge or acceptance. Independent Maintainer review required; no further task begun.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
