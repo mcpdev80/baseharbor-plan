@@ -27,7 +27,7 @@ evidence: []
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (registration-ci-readiness)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
