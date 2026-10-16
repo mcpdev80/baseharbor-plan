@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-920)"
 depends_on: [core-910, core-911, core-919]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#970"]
 sources: ["mcpdev80/baseharbor#920"]
 source_updated: "2026-10-15T16:46:05Z"
 labels: [area/dx, area/compatibility]
@@ -17,19 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
+- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-920) · **Priority:** not set  
+    **PR:** [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
 **Owner:** mcpdev80 (core-920)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970)  
 **Source:** [baseharbor#920](https://github.com/mcpdev80/baseharbor/issues/920)
 <!-- /generated:links -->
 
@@ -66,6 +67,8 @@ Agents can use the same useful needs/provider operations without the TUI or a CL
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent review handoff: Product [PR #970](https://github.com/mcpdev80/baseharbor/pull/970), branch `task/core-920-machine-adapters`, exact source HEAD `571f5a4dcf60b7a96cfeaa377ded6b002ff492a7`, trusted develop `1c78c509ffc2846e76ed1b27bc39f478948b1cb0` (identical to current tested PR target; no merge required). Product diff limited to `cmd/baha/app_machine_adapters.go` and `cmd/baha/app_machine_adapters_test.go`. Callable in-process interfaces `appMachineInspect`, `appMachineHydrate`, `appMachineFootprintJSON`, `appMachineChange` reuse accepted `GuidedReadContext`, `appEditLoad`, `appFootprintShowContext`, authoritative `application.ProviderImpactPlan`, `ValidateProviderChangeConsent`, and `RecordProviderChangeResult`. Machine change requires injected existing authorized read, authorization, fresh authoritative impact plan and authorized executor; nil authority is unsupported. Bind Target, application identity, snapshot and plan revisions, immutable consent PlanID, two destructive confirmation stages plus distinct DeleteData consent; never execute stale/denied/cancelled requests. Source requirements including footprint-only `secrets/default`, full kind/name identity and Target preferences preserved. Actual provider outcomes and incomplete/failed receipts are represented without guessing effects; errors are typed denied/unsupported/conflict/cancel/partial and safe. Tests `TestAppMachineAdapters*` verify parity, managed secrets, denied/unsupported, stale plan/consent, double confirmation, partial/failure and immutable inputs. Existing targeted [Actions 38912949020](https://github.com/mcpdev80/baseharbor/actions/runs/38912949020), attempt 1, **SUCCESS**: Trusted Plan, Workflow policy, Focused Python, `wizard-machine-adapter-tests`, source/contracts, cli-gofmt, cli-vet, cli-build and actual final `PR Selected Checks`; native/runtime/release/candidate paths skipped. Earlier gofmt failures are not passing evidence. No registration, discovery/goldens, generated docs, shared CI or runtime changes. Registration inputs for core-921: authorized `appMachineRead`, `appEditLoadReader`, `appMachinePlanReader`, `appMachineAuthorize` and `appMachineApply` implementations supplied from existing owners; do not grant capability where any owner absent. **Await independent review. Do not merge or accept.**
 
 - Not started.
 
