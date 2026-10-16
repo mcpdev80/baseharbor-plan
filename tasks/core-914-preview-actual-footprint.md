@@ -17,15 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned #view/waiting #area/wizard #kind/task
+- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned #view/ready #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [core-919](core-919-footprint-cli-json-one-projection.md)  

@@ -16,15 +16,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/planned #view/waiting #area/ci #kind/task
+- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
