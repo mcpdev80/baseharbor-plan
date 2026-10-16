@@ -17,15 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/planned #view/waiting #area/wizard #kind/task
+- [ ] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/planned #view/ready #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
-    **Waiting for prerequisites**  
-    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  

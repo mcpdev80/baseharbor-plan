@@ -13,19 +13,20 @@ sources: ["mcpdev80/baseharbor#910"]
 source_updated: "2026-10-15T20:29:55Z"
 labels: [area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/934", "https://github.com/mcpdev80/baseharbor/commit/be25a311f8e1367ea3ec800bcceb1c8169858566", "https://github.com/mcpdev80/baseharbor/actions/runs/38869216983"]
 ---
 
-- [ ] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2, preparatory implementation) · **Priority:** not set  
     **PR:** [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934)  
     **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/934), [proof 2](https://github.com/mcpdev80/baseharbor/commit/be25a311f8e1367ea3ec800bcceb1c8169858566), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38869216983)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Required by:** [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md)  
@@ -60,6 +61,8 @@ New/Edit and the machine adapters consume the same short-lived state from existi
 - Owns the new guided-application context files.
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized acceptance: Marcel explicitly authorized the previously proposed scoped core-895 dependency exception ("merge was geht"). Independently reviewed exact PR head `954b9b036f75ee07ac8a00a704feea7c25e854aa`; [Actions 38869216983](https://github.com/mcpdev80/baseharbor/actions/runs/38869216983) completed SUCCESS with all selected Guided/application/contracts/vet/build validations, original public-contracts evidence, focused Python, policy and actual `PR Selected Checks`. PR #934 was marked ready and squash-merged into develop as `be25a311f8e1367ea3ec800bcceb1c8169858566` under the active review/CI rulesets, without changing or bypassing the CI ruleset. core-910 is ACCEPTED/CLOSED. The exception is specific to this task: core-895 remains open for its unproven foreign-review, stale-approval and red-check denial cases. No release matrix, runtime journey, tag or publication. Earlier blocked/review handoffs below are historical and superseded for core-910.
 
 - 2026-10-16 — **Develop integration / strict CI handoff:** Existing Draft PR [#934](https://github.com/mcpdev80/baseharbor/pull/934) was normally integrated with current `develop` `e8b021fe63c61abc0990a560e5f2915bb70c2c13` using a two-parent merge commit `954b9b036f75ee07ac8a00a704feea7c25e854aa` (no force push). Exact PR diff remains only `cmd/baha/guided_application_read_context.go` and its test; behind develop = 0. Existing trusted PR CI triggered automatically: [Actions 38869216983](https://github.com/mcpdev80/baseharbor/actions/runs/38869216983). **Entire strict PR CI run SUCCESS**: Trusted Plan, workflow policy, Guided tests, application/contracts, CLI vet/build, Public Contracts, focused Python and required `PR Selected Checks` all PASS on exact integration SHA. Unrelated native runtime and release gates were correctly skipped. The code files are unchanged from previously exact-source gofmt-qualified `574488ba3ae9b3c07ac78e057f7abc5168d69e5a`. **Integration prerequisite core-895 remains blocked** in the authoritative task because real ruleset enforcement pilots are not qualified, despite activation of both develop rulesets. Therefore no #934 merge or core-910 closure is authorized; leave task in review and preserve historical evidence.
 

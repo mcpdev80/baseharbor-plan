@@ -6,7 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 4/23 · **Blocked:** 1 · **Waiting:** 14  
+    **Accepted tasks:** 5/23 · **Blocked:** 1 · **Waiting:** 10  
     **Blocker:** [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) — Both develop rulesets are active and independently read back; real positive/negative merge-enforcement pilots (including approval dismissal and bypass-free red…  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
