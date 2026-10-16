@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (core-917 New wiring)"
 depends_on: [core-916]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,14 +17,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/planned #view/ready #area/wizard #kind/task
+- [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-917 New wiring) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
