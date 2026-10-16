@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (core-919)"
 depends_on: [core-910, core-914]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,18 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/planned #view/ready #area/cli #kind/task
+- [ ] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-919) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-914](core-914-preview-actual-footprint.md)  
 **Required by:** [core-920](core-920-machine-adapters-capability-changes-footprint.md), [core-921](core-921-cli-mcp-register-new-interfaces.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-919)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#919](https://github.com/mcpdev80/baseharbor/issues/919)
