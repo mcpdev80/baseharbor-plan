@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-910](core-910-wizard-shared-read-only-editing-state.md)  
-**Required by:** [core-894](core-894-actions-concise-names-clear-results.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
+**Required by:** [core-894](core-894-actions-concise-names-clear-results.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Owner:** mcpdev80 (CI readiness session)  
 **Priority:** not set  
 **PRs:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957)  
