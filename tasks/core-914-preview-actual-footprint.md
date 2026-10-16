@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (core-914)"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,18 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/planned #view/ready #area/wizard #kind/task
+- [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-914) · **Priority:** not set  
+    
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-914)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#914](https://github.com/mcpdev80/baseharbor/issues/914)
