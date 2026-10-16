@@ -6,4 +6,4 @@ Release note: [maintenance](../../releases/maintenance.md) · release status: **
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-909](../../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | ready | not set | — | — | — |
+| [core-909](../../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | active | not set | mcpdev80 (core-909 local Qwen maintenance) | — | — |

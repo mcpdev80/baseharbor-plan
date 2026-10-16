@@ -5,7 +5,7 @@ type: maintenance
 release: maintenance
 version: ""
 parent: ""
-owner: ""
+owner: mcpdev80 (core-909 local Qwen maintenance)
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,17 +17,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/planned #view/ready #area/maintenance #kind/maintenance
+- [ ] core-909 · Maintenance: safely remove superseded branches #task #release/maintenance #status/active #view/active #area/maintenance #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-909 local Qwen maintenance) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [maintenance](../releases/maintenance.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-909 local Qwen maintenance)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#909](https://github.com/mcpdev80/baseharbor/issues/909)

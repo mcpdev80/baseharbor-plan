@@ -20,7 +20,6 @@ evidence: []
 - [ ] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-901) · **Priority:** not set  
-    **Active** · claimed  
     <!-- /generated:card -->
 
 <!-- generated:links -->
