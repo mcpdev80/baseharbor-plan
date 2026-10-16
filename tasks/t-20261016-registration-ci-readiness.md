@@ -20,7 +20,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (registration-ci-readiness) · **Priority:** not set  
     **PR:** [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974)  
-    **Blocker:** Registration path policy also resolves existing mutation/authorization code; correction and hosted qualification required  
     <!-- /generated:card -->
 
 <!-- generated:links -->
