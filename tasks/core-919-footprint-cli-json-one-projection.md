@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#919"]
 source_updated: "2026-10-15T16:46:11Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/965", "https://github.com/mcpdev80/baseharbor/commit/a1e58f1f3600bf95d0318662bbec447c6e8ed74a", "https://github.com/mcpdev80/baseharbor/actions/runs/38897612963"]
 ---
 
-- [ ] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
+- [x] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/closed #view/closed #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-919) · **Priority:** not set  
     **PR:** [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/965), [proof 2](https://github.com/mcpdev80/baseharbor/commit/a1e58f1f3600bf95d0318662bbec447c6e8ed74a), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38897612963)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-914](core-914-preview-actual-footprint.md)  
 **Required by:** [core-920](core-920-machine-adapters-capability-changes-footprint.md), [core-921](core-921-cli-mcp-register-new-interfaces.md)  
@@ -67,6 +68,8 @@ evidence: []
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer re-review and acceptance: **accepted and merged** via [PR #965](https://github.com/mcpdev80/baseharbor/pull/965), squash commit `a1e58f1f3600bf95d0318662bbec447c6e8ed74a` on product `develop`. Source `a54388938074ad3c98554108d96494acdde92baf` fixes review #5547455083: both command formats use canonical footprint completeness, independently of the wider lifecycle plan. The accepted renderer and canonical footprint schema are reused unchanged. The regression verifies mismatched completeness flags, full canonical JSON and non-mutation. [Hosted run 38897612963](https://github.com/mcpdev80/baseharbor/actions/runs/38897612963), attempt 1, SUCCESS at integration `79e643ca624e86472da9996cf7f41177e8b5a422` over base `1d6f1a7982f69622fb1faee6f4b99040c6b6d945`; logs independently confirm seven command tests, with source/contracts, format, CLI vet/build, focused Python, workflow policy and final PR Selected Checks green. Unneeded runtime/release jobs skipped. Exactly the two owned handler/test files changed; no domain/authority/registration changes. Planning main was integrated with concurrent core-913 work preserved, generated views rendered and validated with 0 errors/0 warnings and all 38 unit tests before publication. Command registration, machine adapters and release acceptance remain separate tasks.
 
 - 2026-10-16 correction for [review #5547455083](https://github.com/mcpdev80/baseharbor/pull/965#pullrequestreview-5547455083): exact product head `a54388938074ad3c98554108d96494acdde92baf`, existing [PR #965](https://github.com/mcpdev80/baseharbor/pull/965). `appFootprintShowContext` human branch now calls the accepted `renderAppFootprint(view.Footprint, view.Footprint.Complete, ...)`; JSON still serializes the unchanged canonical `view.Footprint`. Wider `GuidedReadContext.Complete` is intentionally not substituted for footprint completeness. `TestAppFootprintShowFootprintCompletenessIndependentOfPlan` exercises Footprint.Complete=true with context Complete=false, asserts human complete and byte-for-byte canonical JSON equality, canonical typed evidence, and unchanged input. Only the two owned show files changed. Targeted [run 38897612963](https://github.com/mcpdev80/baseharbor/actions/runs/38897612963) selected Trusted Plan, Workflow policy, Focused Python, gofmt, contracts, vet/build and `wizard-footprint-command-tests`; all selected checks including `wizard-footprint-command-tests` and final `PR Selected Checks` **SUCCESS** (attempt 1); runtime and release paths skipped. Independent re-review required; no self-merge or acceptance.
 
