@@ -21,7 +21,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/935", "https://github.co
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  
-    **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/935), [proof 2](https://github.com/mcpdev80/baseharbor/commit/9766dcb89dbe0551321b1bf070ab3013d3353c49), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679), [proof 4](https://github.com/mcpdev80/baseharbor/pull/953), [proof 5](https://github.com/mcpdev80/baseharbor/pull/955)  
     <!-- /generated:card -->
 

@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md)  
+    **Needs:** [core-894](core-894-actions-concise-names-clear-results.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
