@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.26
 version: ""
 parent: core-888
-owner: ""
+owner: "mcpdev80 (registration-ci-readiness)"
 priority: ""
 depends_on: [t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
@@ -16,14 +16,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (registration-ci-readiness) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
