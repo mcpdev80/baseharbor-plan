@@ -58,6 +58,15 @@ evidence: []
 
 - Depends on core-910 and core-914. Shared v0.4.26 PR/review/runner foundation (#890–#893, #895, #896) must be qualified first.
 
+## Autonomous execution contract — 2026-10-16
+
+- **Owned files:** `cmd/baha/app_footprint_show.go` and `cmd/baha/app_footprint_show_test.go` only; dedicated testdata beneath `cmd/baha/testdata/app_footprint_show/` if needed.
+- **Delivered interface/result:** Deliver callable human/JSON handlers consuming accepted footprint presentation and the existing authoritative footprint schema; the controller does not become a new calculation owner.
+- **Task-specific proof:** `TestAppFootprintShow*`: same authoritative facts in human/JSON, empty/incomplete/wrong Target, denial and secret-free error/exit behavior.
+- **Boundary:** No footprint-domain/schema changes, presenter edits, machine registry/goldens or command routing. Registration is delivered by core-921.
+- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
+
 ## Handoff
 
 - Not started.

@@ -56,7 +56,16 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Dependencies and file ownership
 
-- Depends on core-921 and core-922; candidate/evidence/GC (#897–#900; core-900 still open) must be complete before.
+- Depends on core-921 and core-922; candidate/evidence/GC (#897–#900, already accepted) must be complete before.
+
+## Autonomous execution contract — 2026-10-16
+
+- **Owned files:** Existing release-specific consumer fixtures and evidence inventories in the affected product/consumer repositories; record exact paths and immutable candidate refs before executing.
+- **Delivered interface/result:** Own candidate-pin resolution, gate execution, evidence validation and independent developer-path report as one acceptance task; no separate operator session is needed to run its checks.
+- **Task-specific proof:** Predecessor component/contract evidence, then only required real New/Edit/runtime/consumer gates. Preserve original evidence and input equality rules; no automatic full release matrix.
+- **Boundary:** Source bugs get their own explicit fix assignment. Do not start against missing consumer candidates or unsupported executors: detect those at assignment readiness, before long runs. Pre-release/promotion still requires separate authorization.
+- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
 

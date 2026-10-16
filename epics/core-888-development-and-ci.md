@@ -39,11 +39,15 @@ Select every necessary check; extra checks are allowed. No claim to the mathemat
 - Compute changes against the real PR merge base, including deletes/renames. A missing or ambiguous base means an explained broader selection.
 - A narrow selection accounts for actually affected packages and known consumers. Build tags, OS/arch, test imports, embedded/generated assets and external consumers count; when their effect is not reliably captured, broaden.
 - Shared runtime/ownership/auth/TLS/schema/toolchain/image/policy changes propagate to every affected area.
-- Unknown impact → check the affected area more broadly; unknown area boundary → full required coverage. No silent exemption via file names, skip labels or commit markers.
+- Current trusted coverage contract (#942, accepted): unknown/unqualified impact remains explicit `unresolved` and blocks the final check; it does not automatically launch the full release catalog. Qualify the actually required targeted checks independently before assignment/integration. No silent exemption via file names, skip labels or commit markers.
 - The plan records base/head/integration SHA, selected gates and the reason. Planning uses trusted rules; a PR cannot switch off its own checks.
 - An always-running required final check verifies the plan and every required result. Failed, missing, improperly skipped or cancelled blocks. "Not required" is not PASS.
 
 **Stop rule:** validate the V1 selection with two representative correction rounds. If a narrow rule stays unstable, fall back to the documented conservative mapping plus broader checks. No further analyzer refinement is a prerequisite for #873; further optimization gets its own later item with a concrete benefit.
+
+## Autonomous task readiness — 2026-10-16
+
+Follow [executable task slices](../WORKFLOW.md#executable-task-slices). The next explicit prerequisite is [wizard-task CI readiness](../tasks/t-20261016-wizard-task-ci-readiness.md), not another product implementation session operating private pilots. It owns the complete trusted planning/execution/final-check delta. Component tasks own disjoint files and their full verification after this baseline is integrated. core-894 follows this shared CI writer. No per-task full release matrix and no message relay through the Maintainer.
 
 ## Work packages
 

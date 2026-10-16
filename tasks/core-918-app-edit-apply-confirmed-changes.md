@@ -58,6 +58,15 @@ evidence: []
 
 - Depends on core-911 and core-916. Shared v0.4.26 PR/review/runner foundation (#890–#893, #895, #896) must be qualified first.
 
+## Autonomous execution contract — 2026-10-16
+
+- **Owned files:** `cmd/baha/app_edit.go`, `app_edit_test.go`, `app_edit_apply.go` and `app_edit_apply_test.go` only.
+- **Delivered interface/result:** Consume accepted hydration and controller APIs; deliver a compiling Edit handler over existing consent/reconcile/apply authorities, with actual execution evidence.
+- **Task-specific proof:** `TestAppEditApply*`/`TestAppEditCommand*`: no change, two Targets, provider transition/removal, stale consent, cancel, data/shared preservation and partial results; then the necessary existing Docker/Podman change gates.
+- **Boundary:** No New files, component internals, domain mutation owners, recovery framework or central command/MCP registration. Required native gates must already be runnable without another CI owner.
+- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
+
 ## Handoff
 
 - Not started.

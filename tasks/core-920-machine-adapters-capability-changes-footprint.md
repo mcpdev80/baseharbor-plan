@@ -58,6 +58,15 @@ Agents can use the same useful needs/provider operations without the TUI or a CL
 
 - Depends on core-910, core-911 and core-919. Shared v0.4.26 PR/review/runner foundation (#890–#893, #895, #896) must be qualified first.
 
+## Autonomous execution contract — 2026-10-16
+
+- **Owned files:** `cmd/baha/app_machine_adapters.go` and `cmd/baha/app_machine_adapters_test.go` only; dedicated adapter fixture files if needed, listed before editing.
+- **Delivered interface/result:** Deliver compiling callable JSON/MCP adapters over existing authoritative operations and accepted read/hydration/footprint APIs; describe registration inputs for core-921.
+- **Task-specific proof:** `TestAppMachineAdapters*`: in-process capability/provider/footprint parity, typed denial/conflict/cancel/partial results, stale plan/consent and destructive confirmation; no TTY, shell or runtime dependency.
+- **Boundary:** No registry/discovery/machine-coverage golden edits and no dependency on unfinished New/Edit CLI wiring. Runtime mutations remain inside existing authorized domain operations.
+- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
+
 ## Handoff
 
 - Not started.
