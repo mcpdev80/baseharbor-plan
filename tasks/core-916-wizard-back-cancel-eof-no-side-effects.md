@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
+    **Needs:** [core-915](core-915-preview-provider-consequences-partial-results.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
