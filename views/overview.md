@@ -27,8 +27,8 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md) | Machine adapters: reuse capability changes and footprint | review | not set | mcpdev80 (core-920) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970) |
 | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | Wizard: handle back, cancel and EOF without side effects | review | not set | mcpdev80 (core-916 controller) | [core-912](../tasks/core-912-wizard-needs-first-selection.md), [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md), [core-914](../tasks/core-914-preview-actual-footprint.md), [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972) |
+| [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md) | Machine adapters: reuse capability changes and footprint | review | not set | mcpdev80 (core-920) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970) |
 
 ## Blocked
 
