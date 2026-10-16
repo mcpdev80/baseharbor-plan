@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
-| review | 1 |
+| active | 0 |
+| review | 2 |
 | blocked | 0 |
 | ready | 10 |
 | queued | 5 |
@@ -21,15 +21,14 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | active | not set | mcpdev80 (core-915) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
+None.
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | review | not set | mcpdev80 (core-911) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967) |
+| [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | review | not set | mcpdev80 (core-915) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#969](https://github.com/mcpdev80/baseharbor/pull/969) |
 
 ## Blocked
 
