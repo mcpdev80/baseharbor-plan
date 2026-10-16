@@ -12,7 +12,7 @@ prs: ["mcpdev80/baseharbor#933"]
 sources: ["mcpdev80/baseharbor#895"]
 source_updated: "2026-10-15T19:46:16Z"
 labels: [area/dx]
-blocker: "Proposal #933 is merged and core-893 is accepted; separate explicit authorization for live review/CI ruleset activation and successful enforcement qualification are still outstanding."
+blocker: "Both develop rulesets are active and independently read back; real positive/negative merge-enforcement pilots (including approval dismissal and bypass-free red-check blocking) remain unqualified."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13"]
 ---
@@ -21,7 +21,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.co
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
-    **Blocker:** Proposal \#933 is merged and core-893 is accepted; separate explicit authorization for live review/CI ruleset activation and successful enforcement qualification are still outstanding.  
+    **Blocker:** Both develop rulesets are active and independently read back; real positive/negative merge-enforcement pilots (including approval dismissal and bypass-free red-check blocking) remain unqualified.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13)  
     <!-- /generated:card -->
 
@@ -62,6 +62,8 @@ PRs from other contributors need Maintainer approval; the Maintainer's own PRs r
 - Satisfied: #890 (closed). Requires a qualified #893 status check (core-893). Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
 
 ## Handoff
+
+- 2026-10-16 live activation, explicitly authorized by Marcel and applied through his authenticated gh CLI: review ruleset `23754541` and separate CI ruleset `25223521` are ACTIVE for `refs/heads/develop`. Independent GitHub API read-back confirmed one required approval, code-owner review, stale-review dismissal, last-push approval and preservation of `require_extra_approval_for_unattributed_changes: true`. Review-only User `22537373` bypass is `pull_request` (`current_user_can_bypass: pull_requests_only`). CI requires `PR Selected Checks` from integration `15368` with strict up-to-date checks, empty bypass actors and `current_user_can_bypass: never`. Sources: [review ruleset](https://github.com/mcpdev80/baseharbor/rules/23754541), [CI ruleset](https://github.com/mcpdev80/baseharbor/rules/25223521). Activation and write compatibility are now proven; real allow/deny enforcement pilots are NOT yet proven. The task remains open until those acceptance checks pass. This supersedes the former authorization blocker. No product merge or release was performed during activation.
 
 - 2026-10-16 Maintainer-authorized closeout: Proposal PR #933 accepted and squash-merged into develop as `e8b021fe63c61abc0990a560e5f2915bb70c2c13`. Independent integration-tree review passed the complete documentation audit (156 EN/DE paired pages), proposal JSON invariants, separate bypass-free CI payload and CODEOWNERS checks. This is proposal acceptance only: no ruleset was written and live enforcement is not qualified. core-893 is now accepted. Keep this task OPEN until the separately authorized activation and all live enforcement checks succeed.
 
