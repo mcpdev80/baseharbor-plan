@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
-| review | 0 |
+| active | 0 |
+| review | 1 |
 | blocked | 0 |
 | ready | 13 |
 | queued | 5 |
@@ -21,13 +21,14 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | Footprint: serve CLI and JSON from one projection | active | not set | mcpdev80 (core-919) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-914](../tasks/core-914-preview-actual-footprint.md) | — |
+None.
+
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | Footprint: serve CLI and JSON from one projection | review | not set | mcpdev80 (core-919) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-914](../tasks/core-914-preview-actual-footprint.md) | [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965) |
 
 ## Blocked
 
