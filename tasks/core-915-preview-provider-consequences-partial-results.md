@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-915)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#915](https://github.com/mcpdev80/baseharbor/issues/915)
