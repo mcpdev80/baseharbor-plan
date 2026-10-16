@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (core-912 implementation)"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,14 +17,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/planned #view/ready #area/wizard #kind/task
+- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-912 implementation) · **Priority:** not set  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
