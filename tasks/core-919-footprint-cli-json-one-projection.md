@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-919)"
 depends_on: [core-910, core-914]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#965"]
 sources: ["mcpdev80/baseharbor#919"]
 source_updated: "2026-10-15T16:46:11Z"
 labels: [area/dx, area/compatibility]
@@ -17,19 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
+- [ ] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-919) · **Priority:** not set  
+    **PR:** [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-914](core-914-preview-actual-footprint.md)  
 **Required by:** [core-920](core-920-machine-adapters-capability-changes-footprint.md), [core-921](core-921-cli-mcp-register-new-interfaces.md)  
 **Owner:** mcpdev80 (core-919)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965)  
 **Source:** [baseharbor#919](https://github.com/mcpdev80/baseharbor/issues/919)
 <!-- /generated:links -->
 
@@ -66,6 +67,8 @@ evidence: []
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 core-919 completed implementation/review handoff. Product [PR #965](https://github.com/mcpdev80/baseharbor/pull/965), branch `task/core-919-footprint-show`, exact source HEAD `45be574dc1c02803cfd2eefbfe27a9b795bd9297`, trusted develop target `1d6f1a7982f69622fb1faee6f4b99040c6b6d945`, exact GitHub PR integration `36508ab669b56f2ac24775a811648d1a4546819e`. A normal two-parent develop merge `cf0ec3743770030f3707033556dafc3d9e3bdba0` preserved independently merged core-912; no force push. **Only** `cmd/baha/app_footprint_show.go` and `cmd/baha/app_footprint_show_test.go` were implemented. Callables `appFootprintShow`/`appFootprintShowContext` consume one `GuidedReadContext.Footprint`; human output calls the accepted `presentAppFootprint`, JSON serializes the canonical `application.Footprint` directly, with strict Target/footprint-version boundary, secret-free failures (including writer failures), no additional resolver or registration. `TestAppFootprintShow*` covers same authoritative provider/core/resource evidence across human/JSON, empty/partial, wrong target without output, denied/source_missing and safe error paths, and read-only non-mutation. Verified normal selected GitHub-hosted PR CI [run 38896287707](https://github.com/mcpdev80/baseharbor/actions/runs/38896287707): **SUCCESS** for Trusted Plan, Workflow policy, Focused Python, `wizard-footprint-command-tests`, `source-contracts`, `cli-gofmt`, `cli-vet`, `cli-build`, and authenticated final `PR Selected Checks`; selected runtime, HA, release, public-contracts, Demo and broad legacy validate were correctly skipped. Prior red format attempts and stale target integration are not acceptance evidence. No containers or runtime/release matrix. **Independent review pending: do not merge, accept or begin core-920/921.**
 
 - Not started.
 
