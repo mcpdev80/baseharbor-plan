@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-912 implementation)"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#963]
 sources: ["mcpdev80/baseharbor#912"]
 source_updated: "2026-10-15T16:46:52Z"
 labels: [area/dx]
@@ -17,19 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [ ] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-912 implementation) · **Priority:** not set  
+    **PR:** [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-912 implementation)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963)  
 **Source:** [baseharbor#912](https://github.com/mcpdev80/baseharbor/issues/912)
 <!-- /generated:links -->
 
@@ -67,6 +68,9 @@ A compact keyboard checklist asks for developer needs instead of product names. 
 
 ## Handoff
 
-- Not started.
+- 2026-10-16 implementation delivered for independent review: [baseharbor PR #963](https://github.com/mcpdev80/baseharbor/pull/963), branch `feature/core-912-needs-first-selection`. Exact source HEAD `7ebde0095ad5a7bd1d32b061a77d78a86acdf508`, trusted develop base `c889ba7f5350e978d6c372cd58f50651d4852e72`, PR integration `f2755262f4c08a9519d4eee413f2b8537f0dfbfd`. Branch is current with develop (0 behind as verified before handoff); no force push.
+- Own files only: `cmd/baha/app_capability_selection.go` and `cmd/baha/app_capability_selection_test.go`. Delivered portable catalog-based checklist with arrow/Space/Enter navigation; SQL/cache/secrets/app-login/TLS first, supported extra needs progressive; detected suggestions optional and deselectable, zero selection permitted, no implicit bundles, explicit distinction of app-user login, operator/team access and service credentials. No new/init wiring or shared command changes.
+- [Hosted Actions run 38893037343](https://github.com/mcpdev80/baseharbor/actions/runs/38893037343) **SUCCESS**: Trusted Plan, Workflow policy, Focused Python, `wizard-capability-selection-tests` (actual executed `TestAppCapabilitySelection*`), `cli-gofmt`, `cli-vet`, `cli-build`, `source-contracts`, and authenticated **PR Selected Checks**. No runtime gate. Earlier candidate errors were diagnosed, fixed and superseded.
+- Status **review**, not accepted; independent Maintainer approval and merge into develop remain outstanding. No further task or self-acceptance.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
