@@ -11,7 +11,7 @@ depends_on: [t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#974"]
 sources: []
-blocker: "Independent trusted policy and actual hosted registration matrix not qualified"
+blocker: "Registration path policy also resolves existing mutation/authorization code; correction and hosted qualification required"
 resolution: ""
 evidence: []
 ---
@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (registration-ci-readiness) · **Priority:** not set  
     **PR:** [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974)  
-    **Blocker:** Independent trusted policy and actual hosted registration matrix not qualified  
+    **Blocker:** Registration path policy also resolves existing mutation/authorization code; correction and hosted qualification required  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -57,6 +57,8 @@ on the real trusted PR planner, executor and authenticated final verifier before
 - No registration implementation in this CI prerequisite.
 
 ## Handoff
+
+- 2026-10-16 independent review of product #974 source `5259e3415471ac05ca6b701530f9d79946c52bfa`: [review 5550274409](https://github.com/mcpdev80/baseharbor/pull/974#pullrequestreview-5550274409) requires correction before Trusted Policy acceptance. The six required families and real SDK list/app.list smoke are useful, but the entire-file registration allowlist also covers existing handler/auth/write behavior. In particular `mcp_workspace_mutation.go` invokes workspace initialization/mapping and `mcp_application_authoring.go` contains authorization and application creation. Independent local planner probing confirms arbitrary modified versions of those files return resolved, zero gates and only registration/source/CLI checks (unrelated historical merge-qualification helper isolated to False to avoid lazy Git fetch of synthetic fixture SHAs). Restrict resolved coverage to demonstrably registration-only changes; preserve unresolved for existing auth/mutation bodies without independently qualified behavioral coverage. Require real positive registration-only and negative auth/write diff fixtures. Do not preapprove unknown future core-921 code, create a general fingerprint framework, or treat a filename list as semantic coverage. Actual hosted wizard-registration matrix and authenticated positive/negative final qualification remain necessary after corrected policy review. Current hosted run `38924147524` has genuine successful focused checks and failed final, not accepted. Independently re-rendered Planning baseline `8b8ca97`: stale overview/release views corrected, all 39 planning tests and check pass with 0 errors/0 warnings; preserve core-917 in-progress update and CardBoard routing. No product merge or task acceptance.
 
 - 2026-10-16 hosted evidence update: exact product PR #974 HEAD `5259e3415471ac05ca6b701530f9d79946c52bfa`, develop/trusted base `e514a8b6d47b28f268b779376b1e95cd20674611`. [GitHub Actions 38924147524](https://github.com/mcpdev80/baseharbor/actions/runs/38924147524): Focused Python SUCCESS including *six actual* Go registration family tests and real temporary-Git execution of workflow shell branch, CLI guided/build/vet, source/contracts, trusted plan and policy SUCCESS. Final PR Selected Checks FAILURE on independently trusted policy; **no authenticated hosted `wizard-registration-tests` job was scheduled and core-921 remains blocked**. Negatives: unknown/nested source, rename/delete/type changes, absent/SKIP tests and absent in-process MCP. PR #974 description updated. Planning generator must pass before reviewer handoff; [planning run 38925676511](https://github.com/mcpdev80/baseharbor-plan/actions/runs/38925676511) reports stale `views/overview.md`, not yet green. Do not treat successful candidate smoke as trusted-policy promotion.
 

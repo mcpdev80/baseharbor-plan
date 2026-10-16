@@ -13,7 +13,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | active | 1 |
 | review | 0 |
 | blocked | 1 |
-| ready | 9 |
+| ready | 10 |
 | queued | 5 |
 | waiting | 29 |
 | backlog | 6 |
