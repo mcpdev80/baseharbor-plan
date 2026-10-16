@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#920"]
 source_updated: "2026-10-15T16:46:05Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/970", "https://github.com/mcpdev80/baseharbor/actions/runs/38918001486", "https://github.com/mcpdev80/baseharbor/commit/18e4f1d96f4e98e18889075ace0481f6a0404107"]
 ---
 
-- [ ] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
+- [x] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/closed #view/closed #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-920) · **Priority:** not set  
     **PR:** [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/970), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38918001486), [proof 3](https://github.com/mcpdev80/baseharbor/commit/18e4f1d96f4e98e18889075ace0481f6a0404107)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
@@ -67,6 +68,8 @@ Agents can use the same useful needs/provider operations without the TUI or a CL
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer acceptance: reviewed source `3a47c162f365a75210d1ac069130891c0e503f3c` and both owned adapter files; [review 5549468039](https://github.com/mcpdev80/baseharbor/pull/970#pullrequestreview-5549468039) accepts the corrected proposal-to-consent-to-apply path. Fresh authoritative replanning compares application identity, snapshot, complete desired plan, requirements and provider preferences; consent binds to the desired change PlanID independently of the prior state plan. Cancellation prevents execution before apply, and existing result recording preserves actual partial receipts after execution. Independently inspected [Actions 38918001486](https://github.com/mcpdev80/baseharbor/actions/runs/38918001486): all 12 machine-adapter tests actually executed at integration `4b5c4c5e1f7aa40c009cc4efb7782b9e377e9112`; formatting, source/contracts, vet, build, policy and authenticated final `PR Selected Checks` succeeded. [PR #970](https://github.com/mcpdev80/baseharbor/pull/970) squash-merged into develop as `18e4f1d96f4e98e18889075ace0481f6a0404107`. Task accepted and Obsidian card closed; registration remains core-921 scope. Planning baseline `59972b4` independently passed unchanged render/check (0 errors, 0 warnings) and all 38 unit tests; post-acceptance render/check and tests rerun before publishing. Concurrent core-916 handoff retained. No runtime/release matrix or live protection changes.
 
 - 2026-10-16 correction for [Review #5549235663](https://github.com/mcpdev80/baseharbor/pull/970#pullrequestreview-5549235663): existing [PR #970](https://github.com/mcpdev80/baseharbor/pull/970), exact product HEAD `3a47c162f365a75210d1ac069130891c0e503f3c`, develop `701d9ac4f6e5b78658a4f429ad406f31087d44d9` including core-915. Only `cmd/baha/app_machine_adapters.go` and `cmd/baha/app_machine_adapters_test.go` changed. New `appMachineDesiredChangeRequest` and `appMachineChangeDesired` connect Propose→Consent→Apply: preserve the full original Target, SnapshotRevision, named Requirements and Provider choices; re-invoke existing compatible-choice and authoritative impact planner against a fresh authorized `GuidedReadContext` at execution time; require identical application identity, snapshot, full plan facts, proposal intent, PlanID, revision and preferences; validate consent against that fresh desired PlanID rather than the unrelated current-state PlanRevision. Current reader PlanRevision is never overwritten. Authorization, Context cancellation before apply, double destructive confirmation, no pre-approval persistence and actual `RecordProviderChangeResult` remain enforced. `TestAppMachineAdaptersProposeConsentApplyEndToEnd` proves current plan `impact-1` versus desired `change-42`, two named SQL providers, exactly one apply and real verified execution receipts; stale snapshot, altered desired intent, wrong consent, cancellation and existing partial/canceled effects reject or preserve evidence appropriately. Hosted [focused CI run 38918001486](https://github.com/mcpdev80/baseharbor/actions/runs/38918001486) is the current candidate; initial formatting and a test receipt validation issue were corrected; **SUCCESS**, including `wizard-machine-adapter-tests`, `cli-gofmt`, `cli-vet`, `cli-build`, source/contracts, Focused Python, Trusted Plan, Workflow policy and final `PR Selected Checks` (attempt 1). Planning validation [run 38918241231](https://github.com/mcpdev80/baseharbor-plan/actions/runs/38918241231) succeeded with render/check and existing 38 tests. No runtime matrix, workflow, registry or domain files changed. Remains in Review, independent acceptance required; no self-merge.
 
