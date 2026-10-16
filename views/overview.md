@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 3 |
+| review | 2 |
 | blocked | 1 |
-| ready | 4 |
+| ready | 8 |
 | queued | 5 |
-| waiting | 46 |
+| waiting | 42 |
 | backlog | 6 |
-| closed | 4 |
+| closed | 5 |
 
 ## Active
 
@@ -28,7 +28,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953) |
-| [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | Wizard: provide shared read-only editing state | review | not set | mcpdev80 (session 2, preparatory implementation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934) |
 | [t-20261016-pr-impact-selection](../tasks/t-20261016-pr-impact-selection.md) | CI: correct PR impact selection and unresolved coverage | review | high | mcpdev80 (session 2) | — | [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942) |
 
 ## Blocked
@@ -45,10 +44,14 @@ None.
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | — |
 | [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | ready | not set | — | — | — |
+| [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
+| [core-912](../tasks/core-912-wizard-needs-first-selection.md) | Wizard: present a compact needs-first selection | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
+| [core-914](../tasks/core-914-preview-actual-footprint.md) | Preview: present the actual footprint concisely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
+| [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 19 open, 4 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 18 open, 5 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))

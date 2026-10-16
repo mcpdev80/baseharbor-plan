@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-914](core-914-preview-actual-footprint.md)  
+    **Needs:** [core-914](core-914-preview-actual-footprint.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
