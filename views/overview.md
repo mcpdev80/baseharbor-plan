@@ -26,11 +26,11 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | active | not set | mcpdev80 (core-909 local Qwen maintenance) | — | — |
 
 ## Ready for review
-| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | review | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957) |
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-901](../tasks/core-901-pilot-verify-parallel-task-prs-ci-costs.md) | Pilot: verify parallel task PRs and CI costs | review | not set | mcpdev80 (core-901) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | [baseharbor#958](https://github.com/mcpdev80/baseharbor/pull/958) |
+| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | review | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957) |
 
 ## Blocked
 
