@@ -15,7 +15,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | blocked | 0 |
 | ready | 8 |
 | queued | 5 |
-| waiting | 40 |
+| waiting | 41 |
 | backlog | 6 |
 | closed | 10 |
 
@@ -48,7 +48,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 15 open, 9 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 16 open, 9 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
