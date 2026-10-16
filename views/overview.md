@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 0 |
+| active | 1 |
 | review | 1 |
 | blocked | 0 |
-| ready | 13 |
+| ready | 12 |
 | queued | 5 |
 | waiting | 34 |
 | backlog | 6 |
@@ -21,7 +21,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | Footprint: serve CLI and JSON from one projection | active | not set | mcpdev80 (core-919) | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-914](../tasks/core-914-preview-actual-footprint.md) | — |
 
 ## Ready for review
 
@@ -48,7 +50,6 @@ None.
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 | [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 | [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
-| [core-919](../tasks/core-919-footprint-cli-json-one-projection.md) | Footprint: serve CLI and JSON from one projection | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md), [core-914](../tasks/core-914-preview-actual-footprint.md) | — |
 | [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | CI: qualify shared command and MCP registration checks | ready | not set | — | [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
 
 ## By release
