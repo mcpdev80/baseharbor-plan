@@ -27,7 +27,7 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | review | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957) |
+| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | review | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), [baseharbor#960](https://github.com/mcpdev80/baseharbor/pull/960) |
 
 ## Blocked
 
