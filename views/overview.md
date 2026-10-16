@@ -11,9 +11,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 1 |
+| review | 2 |
 | blocked | 0 |
-| ready | 9 |
+| ready | 8 |
 | queued | 5 |
 | waiting | 40 |
 | backlog | 6 |
@@ -26,6 +26,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | active | not set | mcpdev80 (core-909 local Qwen maintenance) | — | — |
 
 ## Ready for review
+| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | review | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957) |
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -47,7 +48,6 @@ None.
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
-| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | ready | not set | mcpdev80 (CI readiness session) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
 
 ## By release
 
