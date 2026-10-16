@@ -20,6 +20,10 @@ For product work, follow the binding [BaseHarbor CI execution discipline](https:
 
 ## Rules
 
+- This is a live shared planning repository: publish planning updates directly to `main`, including claims, progress, blockers, handoffs and shared planning changes within the assigned scope. Do not create a planning branch or PR unless the Maintainer explicitly requests one. Product-code branching/review rules remain unchanged.
+- Pull current `main` before editing. Before publishing, integrate concurrent changes, re-read affected notes, render and validate. Use a normal push or an expected-SHA update; on rejection repeat integration. Never overwrite another session or force-push.
+- If a planning branch already exists, bring its still-relevant updates onto current `main` promptly after validation, preserve newer main content, then delete the obsolete remote branch. Publishing a handoff does not accept its product task. Do not leave completed planning branches behind.
+
 - One assigned task per session. Claim before editing anything ([ownership protocol](WORKFLOW.md#ownership-protocol)): `scripts/plan.py claim`, commit, push; on a rejected push, pull and re-check the claim. A local `owner` field is not a lock.
 - Edit only your task's note in this repository; coordinate shared notes (releases, epics, roadmap) separately.
 - Respect file ownership and dependencies stated in the task; a draft or partial PR is not a completed prerequisite.

@@ -89,7 +89,9 @@ Preserve other people's commits. **No force-push** on this repository.
 
 ## Planning repository vs product repositories
 
-Planning edits are small commits directly on `main` here (or a short PR for larger restructurings). Their only required check is the cheap validator ([.github/workflows/validate.yml](.github/workflows/validate.yml)). No product runtime matrix, Docker/Podman journey or release gate applies to planning edits. Product changes keep their own branch/PR/review/CI rules in the product repositories.
+This is a live shared planning repository. All authorized planning updates go directly to `main`; do not create a branch or PR unless the Maintainer explicitly requests one. That includes claims, status, evidence, handoffs and coordinated shared planning changes. Keep commits coherent and small.
+
+Pull current `main`, preserve concurrent updates, render and validate, then push normally (or update with an expected-SHA lease). If publication is rejected, integrate and re-check rather than overwriting or force-pushing. Existing planning branches should have their still-relevant content integrated promptly, without treating publication as task acceptance, and be deleted after integration. No accumulation of completed planning branches. Their only required check is the cheap validator ([.github/workflows/validate.yml](.github/workflows/validate.yml)). No product runtime matrix, Docker/Podman journey or release gate applies to planning edits. Product changes keep their own branch/PR/review/CI rules in the product repositories.
 
 ## Generated files
 
