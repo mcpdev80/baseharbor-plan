@@ -7,7 +7,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 18/25 · **Blocked:** 1 · **Waiting:** 3  
-    **Blocker:** [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) — Independent trusted policy and actual hosted registration matrix not qualified  
+    **Blocker:** [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) — Registration path policy also resolves existing mutation/authorization code; correction and hosted qualification required  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
