@@ -377,7 +377,7 @@ class PlanTests(unittest.TestCase):
         tags = [col["data"].get("tag") for col in board["columns"]]
         self.assertEqual(board["columns"][0]["data"]["name"], "Planned")
         self.assertNotIn("status/planned", tags)
-        self.assertEqual(tags.count("view/waiting"), 1)
+        self.assertEqual(tags.count("board/planned"), 1)
         self.assertEqual(tags.count("view/ready"), 1)
         self.assertEqual(board["columns"][1]["data"]["name"], "Ready")
         self.assertFalse(board["columns"][1]["data"]["collapsed"])
@@ -395,10 +395,34 @@ class PlanTests(unittest.TestCase):
         for text in (ready, waiting):
             self.assertIn("#status/planned", text)
             card = next(line for line in text.splitlines() if line.startswith("- [ ]"))
-            view_tags = [tag[1:] for tag in card.split() if tag.startswith("#view/")]
-            self.assertEqual(sum(tag in tags for tag in view_tags), 1)
+            routing_tags = [tag[1:] for tag in card.split() if tag.startswith(("#view/", "#board/"))]
+            self.assertEqual(sum(tag in tags for tag in routing_tags), 1)
         self.assertIn("#view/ready", ready)
         self.assertIn("#view/waiting", waiting)
+        self.assertEqual(f.run("check")[0], 0)
+
+    def test_closed_cards_match_current_board_completed_routing(self):
+        f = self.fixture()
+        closed = task_note("core-1", "A: accepted")
+        closed = closed.replace("- [ ]", "- [x]").replace("#status/planned", "#status/closed")
+        closed = closed.replace('resolution: ""', 'resolution: accepted')
+        closed = closed.replace("evidence: []", 'evidence: ["https://example.org/proof"]')
+        f.add_task("core-1", closed)
+        f.add_task("core-2", task_note("core-2", "B: ready"))
+        f.finish()
+        f.run("render")
+        text = (f.dir / "tasks/core-1-x.md").read_text()
+        self.assertIn("#status/closed #view/closed #board/planned", text)
+        self.assertNotIn("#status/planned", text)
+        cfg = json.loads((REPO / ".obsidian/plugins/card-board/data.json").read_text())
+        board = next(b for b in cfg["data"]["boardConfigs"] if b["name"] == "Current · v0.4.26")
+        tags = [c["data"]["tag"] for c in board["columns"] if c["tag"] == "namedTag"]
+        # Upstream Completed.addTaskItem rejects cards with no matching named
+        # column, even if their checkbox is checked.
+        self.assertTrue(any("#" + tag in text.split() for tag in tags))
+        self.assertNotIn("#board/planned", (f.dir / "tasks/core-2-x.md").read_text())
+        completed = next(c for c in board["columns"] if c["tag"] == "completed")
+        self.assertGreaterEqual(completed["data"]["limit"], 1000)
         self.assertEqual(f.run("check")[0], 0)
 
     def test_generated_card_has_actual_owner_priority_and_pr(self):

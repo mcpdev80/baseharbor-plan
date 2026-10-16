@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-320 · Acceptance: verify complete Kubernetes support #task #release/v0-8-x #status/planned #view/waiting #area/acceptance #kind/acceptance
+- [ ] core-320 · Acceptance: verify complete Kubernetes support #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

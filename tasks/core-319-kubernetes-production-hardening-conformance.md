@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-319 · Kubernetes: verify production hardening and conformance #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/acceptance
+- [ ] core-319 · Kubernetes: verify production hardening and conformance #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

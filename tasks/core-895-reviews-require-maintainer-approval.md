@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13", "https://github.com/mcpdev80/baseharbor/pull/952", "https://github.com/mcpdev80/baseharbor/pull/934", "https://github.com/mcpdev80/baseharbor/pull/935"]
 ---
 
-- [x] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/closed #view/closed #area/workflow #kind/task
+- [x] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/workflow #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  

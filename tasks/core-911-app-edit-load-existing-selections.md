@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/967", "https://github.com/mcpdev80/baseharbor/commit/1c78c509ffc2846e76ed1b27bc39f478948b1cb0", "https://github.com/mcpdev80/baseharbor/actions/runs/38908377577"]
 ---
 
-- [x] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-911) · **Priority:** not set  
     **PR:** [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967)  

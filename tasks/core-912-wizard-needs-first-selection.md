@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/963", "https://github.com/mcpdev80/baseharbor/commit/1d6f1a7982f69622fb1faee6f4b99040c6b6d945", "https://github.com/mcpdev80/baseharbor/actions/runs/38894953755"]
 ---
 
-- [x] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-912 implementation) · **Priority:** not set  
     **PR:** [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963)  

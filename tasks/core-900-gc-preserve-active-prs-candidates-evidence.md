@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/931", "https://github.com/mcpdev80/baseharbor/actions/runs/38800898245"]
 ---
 
-- [x] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** not set  
     **PR:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  

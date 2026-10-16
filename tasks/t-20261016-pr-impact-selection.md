@@ -16,7 +16,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/942", "https://github.com/mcpdev80/baseharbor/commit/14d864dfd38801a56e54901ea520f3b02db134b2", "https://github.com/mcpdev80/baseharbor/actions/runs/38821273254", "https://github.com/mcpdev80/baseharbor/actions/runs/38828055047", "https://github.com/mcpdev80/baseharbor/actions/runs/38882179679"]
 ---
 
-- [x] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] t-20261016-pr-impact-selection · CI: correct PR impact selection and unresolved coverage #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2) · **Priority:** high  
     **PR:** [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942)  

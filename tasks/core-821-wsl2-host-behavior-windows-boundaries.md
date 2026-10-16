@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-821 · WSL2: implement host behavior and Windows boundaries #task #release/v0-4-29 #status/planned #view/waiting #area/platform #kind/feature
+- [ ] core-821 · WSL2: implement host behavior and Windows boundaries #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/platform #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

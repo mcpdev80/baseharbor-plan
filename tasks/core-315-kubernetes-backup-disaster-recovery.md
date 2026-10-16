@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-315 · Kubernetes: verify backup and disaster recovery #task #release/v0-8-x #status/planned #view/waiting #area/kubernetes #kind/feature
+- [ ] core-315 · Kubernetes: verify backup and disaster recovery #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

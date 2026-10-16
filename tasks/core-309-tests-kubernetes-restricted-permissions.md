@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-309 · Tests: verify Kubernetes with restricted permissions #task #release/v0-7-x #status/planned #view/waiting #area/testing #kind/acceptance
+- [ ] core-309 · Tests: verify Kubernetes with restricted permissions #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

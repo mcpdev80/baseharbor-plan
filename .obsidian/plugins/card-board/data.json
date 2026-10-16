@@ -56,7 +56,7 @@
             "data": {
               "collapsed": false,
               "name": "Planned",
-              "tag": "view/waiting"
+              "tag": "board/planned"
             }
           },
           {
@@ -94,9 +94,9 @@
           {
             "tag": "completed",
             "data": {
-              "collapsed": true,
+              "collapsed": false,
               "index": 5,
-              "limit": 10,
+              "limit": 1000,
               "name": "Closed"
             }
           }

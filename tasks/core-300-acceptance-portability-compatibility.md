@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-300 · Acceptance: verify portability and compatibility #task #release/v0-5-x #status/planned #view/waiting #area/acceptance #kind/acceptance
+- [ ] core-300 · Acceptance: verify portability and compatibility #task #release/v0-5-x #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

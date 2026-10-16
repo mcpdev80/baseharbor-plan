@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-298 · Contracts: define cross-component compatibility #task #release/v0-5-x #status/planned #view/waiting #area/contracts #kind/architecture
+- [ ] core-298 · Contracts: define cross-component compatibility #task #release/v0-5-x #status/planned #view/waiting #board/planned #area/contracts #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

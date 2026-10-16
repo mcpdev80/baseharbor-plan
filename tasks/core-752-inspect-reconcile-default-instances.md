@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/935", "https://github.com/mcpdev80/baseharbor/commit/9766dcb89dbe0551321b1bf070ab3013d3353c49", "https://github.com/mcpdev80/baseharbor/actions/runs/38882179679", "https://github.com/mcpdev80/baseharbor/pull/953", "https://github.com/mcpdev80/baseharbor/pull/955"]
 ---
 
-- [x] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/closed #view/closed #area/inspect #kind/bug
+- [x] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  

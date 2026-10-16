@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-310 · Acceptance: verify Compose-to-Kubernetes portability #task #release/v0-7-x #status/planned #view/waiting #area/acceptance #kind/acceptance
+- [ ] core-310 · Acceptance: verify Compose-to-Kubernetes portability #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

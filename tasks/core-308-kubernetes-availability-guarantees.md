@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-308 · Kubernetes: implement availability guarantees #task #release/v0-7-x #status/planned #view/waiting #area/kubernetes #kind/feature
+- [ ] core-308 · Kubernetes: implement availability guarantees #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  

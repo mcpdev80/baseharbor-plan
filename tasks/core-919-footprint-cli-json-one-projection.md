@@ -17,7 +17,7 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/965", "https://github.com/mcpdev80/baseharbor/commit/a1e58f1f3600bf95d0318662bbec447c6e8ed74a", "https://github.com/mcpdev80/baseharbor/actions/runs/38897612963"]
 ---
 
-- [x] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/closed #view/closed #area/cli #kind/task
+- [x] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-919) · **Priority:** not set  
     **PR:** [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965)  
