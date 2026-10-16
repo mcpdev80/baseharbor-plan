@@ -12,19 +12,21 @@ prs: ["mcpdev80/baseharbor#933"]
 sources: ["mcpdev80/baseharbor#895"]
 source_updated: "2026-10-15T19:46:16Z"
 labels: [area/dx]
-blocker: ""
+blocker: "Proposal #933 is merged and core-893 is accepted; separate explicit authorization for live review/CI ruleset activation and successful enforcement qualification are still outstanding."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13"]
 ---
 
-- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/active #view/active #area/workflow #kind/task
+- [ ] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/blocked #view/blocked #area/workflow #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
+    **Blocker:** Proposal \#933 is merged and core-893 is accepted; separate explicit authorization for live review/CI ruleset activation and successful enforcement qualification are still outstanding.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
@@ -60,6 +62,8 @@ PRs from other contributors need Maintainer approval; the Maintainer's own PRs r
 - Satisfied: #890 (closed). Requires a qualified #893 status check (core-893). Order fixed by the [2026-10-15 dependency correction](../epics/core-888-development-and-ci.md#binding-dependency-correction--2026-10-15).
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized closeout: Proposal PR #933 accepted and squash-merged into develop as `e8b021fe63c61abc0990a560e5f2915bb70c2c13`. Independent integration-tree review passed the complete documentation audit (156 EN/DE paired pages), proposal JSON invariants, separate bypass-free CI payload and CODEOWNERS checks. This is proposal acceptance only: no ruleset was written and live enforcement is not qualified. core-893 is now accepted. Keep this task OPEN until the separately authorized activation and all live enforcement checks succeed.
 
 - Live migration review: PR #933 head `fefcdeeae0bf928b72018b9eb38b8758cdec0657`; draft/preparatory work remains unaccepted. The current PR head supersedes older SHA assertions in its body. Preserve the existing owner, branch and PR.
 

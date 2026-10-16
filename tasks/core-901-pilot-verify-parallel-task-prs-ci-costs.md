@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
+    **Needs:** [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

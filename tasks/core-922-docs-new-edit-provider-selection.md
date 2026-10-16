@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** not set  
     **Waiting for prerequisites**  
-    **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
+    **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
