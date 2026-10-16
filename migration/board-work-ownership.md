@@ -4,7 +4,7 @@ Assigned directly by the Maintainer on 2026-10-16. Owner: Codex (planning presen
 
 Owned scope: CardBoard settings, scoped CSS, the existing plan renderer/validator and focused tests, generated card previews/readiness views, and concise vault usage documentation. Preserve other task owners, source metadata, acceptance and live handoffs. No product code, release qualification or task acceptance is part of this work.
 
-Implementation uses an isolated checkout and a small PR. Derived previews and board grouping must be validated against canonical task notes; no second writable task-status authority.
+Historical implementation used an isolated checkout and a small PR. The Maintainer superseded that convention on 2026-10-16: publish planning updates directly on `main`; branches/PRs require an explicit request. Derived previews and board grouping must be validated against canonical task notes; no second writable task-status authority.
 
 ## Handoff
 
@@ -27,3 +27,7 @@ Visible `area`/`kind` badges are derived from optional `areas` and existing `typ
 Assigned by Maintainer 2026-10-16; owner Codex (planning presentation session), implementation complete. Restore a visible Planned column covering every canonical planned task, keep readiness as card detail and in Next. Preserve all product task owners, prerequisites, acceptance and other sessions' handoffs.
 
 Correction verified: Current has Planned/Active/Review/Blocked/Closed; every canonical planned card remains visible regardless of readiness, with explicit waiting/needs detail. Next still separates readiness. 38 unit tests pass; validator: zero errors, four existing dependency warnings. Canonical task records independently compared unchanged. No task or prerequisite is accepted by this presentation correction.
+
+## Live planning publication correction
+
+Maintainer directed immediate planning publication on `main` on 2026-10-16. AGENTS and WORKFLOW now require direct-main updates with concurrent-change preservation, rendering/validation and no force-push. Existing branch content must be integrated if still relevant, then the branch removed. Product task acceptance and product PR rules are unchanged.
