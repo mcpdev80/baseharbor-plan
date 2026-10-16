@@ -8,4 +8,5 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
+| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | — |
 | [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | ready | not set | — | — | — |

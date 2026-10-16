@@ -21,7 +21,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
-    **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

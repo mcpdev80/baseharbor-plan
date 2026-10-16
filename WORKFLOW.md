@@ -83,7 +83,8 @@ A local `owner` field is not a lock: it only works when published before impleme
 5. Only after the claim is on `main`, start the product work (branch/PR in the product repository per its guidelines).
 6. Keep planning edits to your task's file. Shared files (release notes, epics, roadmap) change in separate small commits after coordination.
 7. Handoff: update the task's **Handoff** section (newest first: branch, PR, evidence, open points), set `#status/review` with the PR in `prs`, commit and push. Then **stop**; do not start another task on your own. Report blockers instead of switching tasks (`#status/blocked` + `blocker`).
-8. The Maintainer accepts: check the box, set the tag to `#status/closed`, set `resolution: accepted` and `evidence`, run `render` and `check`, commit.
+8. The Maintainer accepts: check the box, set the tag to `#status/closed`, set `resolution: accepted` and `evidence`, run `render` and `check`, commit. Product merge completion includes publishing this accepted task state and refreshed generated Obsidian/CardBoard views to planning `main`; do not report the task fully complete while that closeout is missing. If acceptance is still pending, publish the actual review state instead.
+
 
 Preserve other people's commits. **No force-push** on this repository.
 

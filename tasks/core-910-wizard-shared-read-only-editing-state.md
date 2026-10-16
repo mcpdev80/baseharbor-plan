@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (session 2, preparatory implementation) · **Priority:** not set  
     **PR:** [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934)  
-    **Needs:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+    **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
