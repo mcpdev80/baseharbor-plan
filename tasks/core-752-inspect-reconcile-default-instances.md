@@ -13,19 +13,20 @@ sources: ["mcpdev80/baseharbor#752"]
 source_updated: "2026-10-15T16:51:21Z"
 labels: [kind/bug, area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/935", "https://github.com/mcpdev80/baseharbor/commit/9766dcb89dbe0551321b1bf070ab3013d3353c49", "https://github.com/mcpdev80/baseharbor/actions/runs/38882179679", "https://github.com/mcpdev80/baseharbor/pull/953", "https://github.com/mcpdev80/baseharbor/pull/955"]
 ---
 
-- [ ] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/review #view/review #area/inspect #kind/bug
+- [x] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/closed #view/closed #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** not set  
     **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  
     **Needs:** [core-895](core-895-reviews-require-maintainer-approval.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/935), [proof 2](https://github.com/mcpdev80/baseharbor/commit/9766dcb89dbe0551321b1bf070ab3013d3353c49), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679), [proof 4](https://github.com/mcpdev80/baseharbor/pull/953), [proof 5](https://github.com/mcpdev80/baseharbor/pull/955)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
@@ -66,6 +67,8 @@ A declared canonical `default` instance reconciles with the single detected name
 - Prior work to compare, not merge blindly: branch `fix/752-default-instance-reconcile-v0421` at `70292f0cd436fdeb170652e26e6c5e228da23c1d` (diverged from develop; neither integration nor safe deletion is proven by ancestry).
 
 ## Handoff
+
+- 2026-10-16 Maintainer-authorized acceptance of **core-752 — default-instance reconciliation**: after the independently accepted CI prerequisites #955/#953, current develop `8820207463221384b1b9951d8ee335ba944554a1` was normally merged into PR #935 with no product-content changes and a Git-verified clean merge tree. Exact source `ca5bf466ae0e3852a4426e82c18d9915b8674f7c` passed [regular Actions 38882179679](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679): all FIVE named inspect validations (gofmt, repositoryinspect tests, vet, CLI Inspect/Reconcile tests, CLI build), trusted planning, policy, focused Python and actual `PR Selected Checks` SUCCESS. Runtime, candidate and release jobs were correctly skipped. Following Marcel's instruction to proceed with the qualified merges, PR #935 was marked ready and squash-merged into protected develop as `9766dcb89dbe0551321b1bf070ab3013d3353c49`. core-752 is ACCEPTED/CLOSED. This is the same bounded Maintainer-own-PR acceptance context as core-910: the active rulesets and mandatory green CI were preserved; core-895's untested foreign-review/stale-approval and separate red-check denial cases remain open and are not claimed qualified by this merge. Historical review/blocker handoffs below are superseded for this product fix. No full runtime/release matrix or publication.
 
 - 2026-10-16 independent acceptance of CI prerequisites for **core-752** (not acceptance of its product fix): policy PR #955 was independently reviewed at `dc508513b8a0e6b16c833b364c9a512c8ea54f96`, then updated by a normal clean merge of develop after core-910. The merge tree was independently verified with Git; resulting source `514f552104a68c8f98566666bf139895d844145f` passed all required validations and actual `PR Selected Checks` in [Actions 38881495869](https://github.com/mcpdev80/baseharbor/actions/runs/38881495869), then squash-merged as `79b65c61ae3009c2ee2337bdc298bb8ddeb32a73`. Its real Git fixture allows only the reviewed source plus Git-verified clean merges from trusted target history and rejects unreviewed follow-up commits. CI lane PR #953 then normally integrated this accepted policy: exact source `3c7e198800d0ad0e9c6655831ed0daa16c145506`, Git-verified merge tree `05c95339a94c2fa27d646ef47f31560b036ed160`. The actual trusted plan, all CI validations, focused Python and required final check passed in [Actions 38881765634](https://github.com/mcpdev80/baseharbor/actions/runs/38881765634). PR #953 squash-merged as `8820207463221384b1b9951d8ee335ba944554a1` with no ruleset change or CI bypass. The permanent inspect checks are now integrated. **core-752 remains in review:** product PR #935 is not merged, requires current strict CI against this new develop and the outstanding core-895 acceptance boundary. No native runtime or release matrix was run for these CI prerequisites.
 
