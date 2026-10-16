@@ -72,6 +72,18 @@ Rules (enforced by `scripts/plan.py check`):
 - `superseded` needs `superseded_by: <id>`; a superseded task counts as accepted only when its replacement is.
 - CardBoard 0.7.9 cannot drag cards between columns. Change the status by editing the tag (or `scripts/plan.py claim`).
 
+## Executable task slices
+
+A task is assignable only when it can reach its own review handoff without unfinished work from another implementation session. A dependency graph is allowed; a task waiting for a predecessor is not assigned early.
+
+- State the observable result, bounded owned paths, existing input authority, callable output interface and explicit exclusions. Use component-specific identifiers/tests; do not add competing shared state or helper files in parallel lanes.
+- All required predecessor interfaces must already be reviewed, merged and accepted. Do not develop against another task branch or invent a temporary interface that another session must later reconcile.
+- Include the full verification path in readiness: required fixtures, actual test discovery, trusted CI selection, supported executor/native gate, immutable consumer candidates when needed, and the available connector/CLI capabilities. Green generic tests that never execute the component are insufficient.
+- If a trusted CI lane is missing, prepare it as an explicit predecessor before assigning product work. The CI owner delivers the plan, executor and final-check enforcement together. Product sessions must not each create a separate workflow or wait for another session to dispatch tests.
+- Assign one end-to-end owner per task: implement, integrate, run the sufficient checks, diagnose real failures, collect exact-SHA evidence and publish the planning handoff. The owner reads current planning/PR status directly; Marcel does not relay updates among sessions.
+- Parallel tasks must have disjoint write sets and consume the same accepted baseline. Shared registrations/help/goldens are owned by a later integration task. Review/acceptance is independent; an implementation owner may not waive unresolved coverage or approve its own trust policy.
+- Before assignment, check the readiness inventory as well as the generated dependency state. Unknown executor/candidate gaps become explicit prerequisites, not hidden mid-task waits. A later unexpected real defect is reported honestly and repaired through normal review.
+
 ## Ownership protocol
 
 A local `owner` field is not a lock: it only works when published before implementation starts.

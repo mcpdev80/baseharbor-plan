@@ -56,7 +56,16 @@ Developers find a short, accurate New/Edit guide that needs no prior infrastruct
 
 ## Dependencies and file ownership
 
-- Depends on core-921. Final candidate/evidence qualification additionally needs #897–#900 (only core-900 still open); coordinate with pilot core-901.
+- Depends on core-921. Final candidate/evidence qualification additionally needs #897–#900 (already accepted); coordinate with pilot core-901.
+
+## Autonomous execution contract — 2026-10-16
+
+- **Owned files:** Public EN/DE New/Edit/provider/footprint guides, navigation and v0.4.26 changelog/release prose; list matching locale paths from the delivered command tree.
+- **Delivered interface/result:** Document only the accepted registered surface. Existing merged pin/evidence/GC prerequisites are satisfied; query their current records rather than copying old open-status prose.
+- **Task-specific proof:** Existing docs audit, locale integrity/parity, strict EN/DE MkDocs and Pages candidate checks. No deployment or native runtime for text alone.
+- **Boundary:** No generated CLI/MCP references, product code, shared CI or process-rule edits. Do not wait for a session summary: inspect accepted handlers/help and planning directly.
+- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
 

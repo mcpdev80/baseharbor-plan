@@ -43,7 +43,7 @@ Qualify the new workflow with necessary regular work and own the before/after do
 
 - In scope: two independent small PRs in parallel, one shared-interface or conflict case, cost record.
 - Out of scope: extra full matrix for benchmarking; final release evidence (a separately authorized step). This task does not block early independent product work after a qualified PR/review/runner foundation.
-- Selected product pilot: core-752 (default-instance reconciliation, target v0.4.26). Reproduce the current defect first; focused package/consumer checks, no full E2E only for this fix. If it is already fixed, do not fabricate one: pick another independently confirmed small defect after an explicit scope check. The second independent PR and the shared-interface case remain separate pilot requirements. This gives #750/#751/#754/#766 no new release target.
+- The accepted core-752/#935 and core-910/#934 histories are existing pilot evidence. Analyze them rather than implementing/reproducing an already fixed defect. Establish actual overlap and the shared-interface case from timestamps and supporting PRs; do not assume that two completed PRs prove parallel execution. This gives #750/#751/#754/#766 no new release target.
 
 ## Acceptance
 
@@ -59,6 +59,15 @@ Qualify the new workflow with necessary regular work and own the before/after do
 ## Dependencies and file ownership
 
 - Satisfied: #890, #891, #892, #897, #898, #899 (closed). Open: as listed.
+
+## Autonomous execution contract — 2026-10-16
+
+- **Owned files:** New `docs/internal/v0.4.26-parallel-pr-pilot.md` and dedicated evidence fixtures only; no CI/product implementation edits.
+- **Delivered interface/result:** One evidence-backed comparison and explicit limitations, accepted independently of the remaining feature implementations.
+- **Task-specific proof:** Use existing runs for #934/#935 and their supporting CI PRs first; collect run/job/attempt, duration and concurrency facts. No extra benchmark run.
+- **Boundary:** Do not wait for sessions to send measurements. Fetch logs directly. If history does not establish a criterion, state the gap and use only the next already-required regular run; no synthetic savings.
+- **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
+- **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
 

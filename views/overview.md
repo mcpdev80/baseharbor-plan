@@ -13,9 +13,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | active | 0 |
 | review | 0 |
 | blocked | 0 |
-| ready | 14 |
+| ready | 10 |
 | queued | 5 |
-| waiting | 36 |
+| waiting | 41 |
 | backlog | 6 |
 | closed | 8 |
 
@@ -43,16 +43,12 @@ None.
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
 | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
-| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) | — |
 | [core-909](../tasks/core-909-maintenance-remove-superseded-branches.md) | Maintenance: safely remove superseded branches | ready | not set | — | — | — |
-| [core-911](../tasks/core-911-app-edit-load-existing-selections.md) | App edit: load existing selections completely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
-| [core-912](../tasks/core-912-wizard-needs-first-selection.md) | Wizard: present a compact needs-first selection | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
-| [core-914](../tasks/core-914-preview-actual-footprint.md) | Preview: present the actual footprint concisely | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
-| [core-915](../tasks/core-915-preview-provider-consequences-partial-results.md) | Preview: explain provider consequences and partial results | ready | not set | — | [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
+| [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | CI: prepare autonomous wizard task verification | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [core-910](../tasks/core-910-wizard-shared-read-only-editing-state.md) | — |
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 15 open, 8 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 16 open, 8 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
