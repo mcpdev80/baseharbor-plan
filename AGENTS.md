@@ -30,6 +30,7 @@ For product work, follow the binding [BaseHarbor CI execution discipline](https:
 - Hand off and stop: update the task's Handoff section, set `#status/review` with the PR, push. Do not start another task on your own; report blockers.
 - Never mark a task accepted or a release qualified; only the Maintainer does, with evidence. Ticking a checkbox is not acceptance.
 - No force-push; preserve others' commits. All maintained text, metadata and headings in English.
-- After editing metadata run `python3 scripts/plan.py render` and `python3 scripts/plan.py check`; both must pass before you push.
+- After editing metadata run `python3 scripts/plan.py render` and `python3 scripts/plan.py check`; both must pass before you push. This includes every claim, dependency acceptance, blocker update and handoff: publish the refreshed derived Ready cards and views with the task update, preserving concurrent changes.
+- At Maintainer acceptance/assignment reviews, inspect the current release's ready queue and remaining prerequisite gaps. Keep independently executable task slices current so available work is visible in CardBoard Ready; do not invent readiness, weaken prerequisites or let implementation sessions start unassigned work. See [Ready queue maintenance](WORKFLOW.md) and the executable task rules.
 
 Details: [WORKFLOW.md](WORKFLOW.md). Overview: [HOME.md](HOME.md).
