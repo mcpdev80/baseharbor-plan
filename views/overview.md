@@ -27,7 +27,7 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953) |
+| [core-752](../tasks/core-752-inspect-reconcile-default-instances.md) | Inspect: reconcile default instances unambiguously | review | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md) (open), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955) |
 | [t-20261016-pr-impact-selection](../tasks/t-20261016-pr-impact-selection.md) | CI: correct PR impact selection and unresolved coverage | review | high | mcpdev80 (session 2) | — | [baseharbor#942](https://github.com/mcpdev80/baseharbor/pull/942) |
 
 ## Blocked
