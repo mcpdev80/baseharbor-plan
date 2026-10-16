@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#916"]
 source_updated: "2026-10-15T16:46:28Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/972", "https://github.com/mcpdev80/baseharbor/actions/runs/38920360140", "https://github.com/mcpdev80/baseharbor/commit/e514a8b6d47b28f268b779376b1e95cd20674611"]
 ---
 
-- [ ] core-916 · Wizard: handle back, cancel and EOF without side effects #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-916 · Wizard: handle back, cancel and EOF without side effects #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-916 controller) · **Priority:** not set  
     **PR:** [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/972), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38920360140), [proof 3](https://github.com/mcpdev80/baseharbor/commit/e514a8b6d47b28f268b779376b1e95cd20674611)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
 **Required by:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md)  
@@ -67,6 +68,8 @@ No returns to the retained selection as often as needed; cancel writes nothing. 
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-16 independent Maintainer acceptance: [review 5549765513](https://github.com/mcpdev80/baseharbor/pull/972#pullrequestreview-5549765513) accepts source `276802d8fc1a77200b3799691505289d6653226a`. Detached deep JSON snapshots and immutable serialized comparison facts preserve the exact displayed Footprint/Impact projections; reused-pointer PlanID/nested consequence mutations are rejected before decision, and external mutation cannot change the captured display. Real provider-row newlines are regression-tested. Compact checklist/preview/No navigation, named preferences, cancellation/EOF/non-TTY/no-input and no-write boundaries remain intact; the controller returns intent, never execution authority. Independently inspected [Actions 38920360140](https://github.com/mcpdev80/baseharbor/actions/runs/38920360140): all 12 controller tests actually ran on integration `c473792324d970c4792ef14ff6504bc5f03081fb`; source/contracts, formatting, vet, build, policy and final `PR Selected Checks` succeeded. [PR #972](https://github.com/mcpdev80/baseharbor/pull/972) squash-merged into develop as `e514a8b6d47b28f268b779376b1e95cd20674611`. Only the two owned controller files changed. Task accepted and Obsidian card closed; core-917 and core-918 now become Ready through derived dependencies, without automatic assignment. Planning baseline `8402c61` independently passed unchanged render/check (0 errors, 0 warnings) and all 39 tests; post-acceptance views and tests checked before publishing. Preserved Ready/Closed routing and concurrent registration-CI work. No runtime/release matrix or registration edits.
 
 - 2026-10-16 review #5549505379 correction in [PR #972](https://github.com/mcpdev80/baseharbor/pull/972): source HEAD `276802d8fc1a77200b3799691505289d6653226a`, current trusted develop base `18e4f1d96f4e98e18889075ace0481f6a0404107`, exact PR integration `c473792324d970c4792ef14ff6504bc5f03081fb`. Normal develop merge including accepted core-920 via [#973](https://github.com/mcpdev80/baseharbor/pull/973); zero behind develop, no force push, only two controller files in diff.
 - Footprint and Impact authority values are now captured as independent detached, nested JSON round-tripped snapshots with immutable serialized evidence for comparison. The callback can reuse the same pointers: external mutation cannot alter the stored visible preview, and a Yes-time refresh changing PlanID or nested FunctionConsequence outcome fails closed. No new impact computation or execution. Provider rows now use actual newline separators, with regression verifying both named SQL rows and rejecting literal backslash-n text.
