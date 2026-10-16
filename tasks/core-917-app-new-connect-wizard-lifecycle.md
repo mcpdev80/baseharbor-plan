@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-917 New wiring)"
 depends_on: [core-916]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#975]
 sources: ["mcpdev80/baseharbor#917"]
 source_updated: "2026-10-15T16:46:23Z"
 labels: [area/dx]
@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-917 New wiring) · **Priority:** not set  
+    **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -29,7 +30,7 @@ evidence: []
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
 **Owner:** mcpdev80 (core-917 New wiring)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
 **Source:** [baseharbor#917](https://github.com/mcpdev80/baseharbor/issues/917)
 <!-- /generated:links -->
 
@@ -67,6 +68,11 @@ evidence: []
 
 ## Handoff
 
-- Not started.
+- 2026-10-16 implementation checkpoint (not a review handoff): [Draft product PR #975](https://github.com/mcpdev80/baseharbor/pull/975), branch `feature/core-917-new-lifecycle-wiring`. Scope only `cmd/baha/app_new_wizard.go` and matching dedicated tests. The existing create-only wizard now explicitly says no container/deployment start, pins one generated ApplicationID across Bootstrap preview and Create, and revalidates authoritative Bootstrap manifest/plan/files after confirmation before writing; context cancellation and EOF are tested.
+- A separate callable `appNewCreateFromWizardDecision` adapter accepts only an actually confirmed, current `appWizardController` decision and delegates to existing `development.BootstrapApplication/CreateApplication`. It rejects mismatched portable requirements and explicit Target provider preferences that this source-only creation API cannot persist, rather than silently losing them. Dedicated positive/negative unit tests added.
+- **NOT YET QUALIFIED:** The interactive user-facing `runAppNewWizard` still uses its original capability prompts; the accepted controller is not yet fully driven from real Target read-only authorities and the existing provider lifecycle path. There is no complete Target-preference persistence or native partial-result presentation. Do not accept or merge this partial draft. Focused CI and exact selected Docker/Podman lifecycle evidence are still being evaluated on the latest candidate; earlier runs include an actual successful Docker gate but not final exact acceptance.
+- No registry, Edit, shared Domain, workflow or release-matrix changes. Preserve subsequent concurrent planning updates. Continue core-917 only until these remaining acceptance boundaries are implemented and independently reviewed.
+
+
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
