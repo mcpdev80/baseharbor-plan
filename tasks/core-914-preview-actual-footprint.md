@@ -20,7 +20,6 @@ evidence: []
 - [ ] core-914 · Preview: present the actual footprint concisely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-914) · **Priority:** not set  
-    
     **PR:** [baseharbor#962](https://github.com/mcpdev80/baseharbor/pull/962)  
     <!-- /generated:card -->
 
