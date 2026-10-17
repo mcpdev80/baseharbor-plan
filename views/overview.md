@@ -27,7 +27,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 
 ## Blocked
 
@@ -43,7 +45,6 @@ None.
 | [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 
 ## By release
 
