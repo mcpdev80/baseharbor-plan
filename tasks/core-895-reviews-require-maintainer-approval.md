@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.co
 
 - [x] core-895 · Reviews: require maintainer approval for develop #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/workflow #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 · **Priority:** not set  
+    **Owner:** mcpdev80  
     **PR:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/933), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e8b021fe63c61abc0990a560e5f2915bb70c2c13), [proof 3](https://github.com/mcpdev80/baseharbor/pull/952), [proof 4](https://github.com/mcpdev80/baseharbor/pull/934), [proof 5](https://github.com/mcpdev80/baseharbor/pull/935)  
     <!-- /generated:card -->
@@ -29,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/933", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md)  
-**Required by:** [core-390](core-390-architecture-service-contracts-provider-catalog.md), [core-750](core-750-inspect-source-neutral-findings.md), [core-751](core-751-inspect-no-false-positives-comments-text.md), [core-752](core-752-inspect-reconcile-default-instances.md), [core-754](core-754-mcp-classify-expected-preconditions.md), [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
+**Required by:** [core-390](core-390-architecture-service-contracts-provider-catalog.md), [core-750](core-750-inspect-source-neutral-findings.md), [core-751](core-751-inspect-no-false-positives-comments-text.md), [core-752](core-752-inspect-reconcile-default-instances.md), [core-754](core-754-mcp-classify-expected-preconditions.md), [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80  
 **Priority:** not set  
 **PRs:** [baseharbor#933](https://github.com/mcpdev80/baseharbor/pull/933)  

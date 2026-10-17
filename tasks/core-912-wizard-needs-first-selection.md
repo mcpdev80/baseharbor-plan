@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/963", "https://github.co
 
 - [x] core-912 · Wizard: present a compact needs-first selection #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-912 implementation) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-912 implementation)  
     **PR:** [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/963), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1d6f1a7982f69622fb1faee6f4b99040c6b6d945), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38894953755)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/963", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
-**Required by:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
+**Required by:** [core-913](core-913-wizard-compatible-providers-same-view.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-912 implementation)  
 **Priority:** not set  
 **PRs:** [baseharbor#963](https://github.com/mcpdev80/baseharbor/pull/963)  

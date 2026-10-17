@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/972", "https://github.co
 
 - [x] core-916 · Wizard: handle back, cancel and EOF without side effects #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-916 controller) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-916 controller)  
     **PR:** [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/972), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38920360140), [proof 3](https://github.com/mcpdev80/baseharbor/commit/e514a8b6d47b28f268b779376b1e95cd20674611)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/972", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md)  
-**Required by:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md)  
+**Required by:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-916 controller)  
 **Priority:** not set  
 **PRs:** [baseharbor#972](https://github.com/mcpdev80/baseharbor/pull/972)  

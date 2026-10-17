@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/970", "https://github.co
 
 - [x] core-920 · Machine adapters: reuse capability changes and footprint #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-920) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-920)  
     **PR:** [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/970), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38918001486), [proof 3](https://github.com/mcpdev80/baseharbor/commit/18e4f1d96f4e98e18889075ace0481f6a0404107)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/970", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-919](core-919-footprint-cli-json-one-projection.md)  
-**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
+**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-920)  
 **Priority:** not set  
 **PRs:** [baseharbor#970](https://github.com/mcpdev80/baseharbor/pull/970)  

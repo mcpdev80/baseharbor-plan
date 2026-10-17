@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/935", "https://github.co
 
 - [x] core-752 · Inspect: reconcile default instances unambiguously #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/inspect #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 · **Priority:** not set  
+    **Owner:** mcpdev80  
     **PR:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/935), [proof 2](https://github.com/mcpdev80/baseharbor/commit/9766dcb89dbe0551321b1bf070ab3013d3353c49), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679), [proof 4](https://github.com/mcpdev80/baseharbor/pull/953), [proof 5](https://github.com/mcpdev80/baseharbor/pull/955)  
     <!-- /generated:card -->
@@ -28,6 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/935", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80  
 **Priority:** not set  
 **PRs:** [baseharbor#935](https://github.com/mcpdev80/baseharbor/pull/935), [baseharbor#953](https://github.com/mcpdev80/baseharbor/pull/953), [baseharbor#955](https://github.com/mcpdev80/baseharbor/pull/955)  

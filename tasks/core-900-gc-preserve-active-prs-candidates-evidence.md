@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/931", "https://github.co
 
 - [x] core-900 · GC: preserve active PRs, candidates and evidence origins #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (session 2) · **Priority:** not set  
+    **Owner:** mcpdev80 (session 2)  
     **PR:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/931), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38800898245)  
     <!-- /generated:card -->
@@ -29,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/931", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** none  
-**Required by:** [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md)  
+**Required by:** [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (session 2)  
 **Priority:** not set  
 **PRs:** [baseharbor#931](https://github.com/mcpdev80/baseharbor/pull/931)  

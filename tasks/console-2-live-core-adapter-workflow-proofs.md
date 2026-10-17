@@ -6,7 +6,7 @@ release: v0.4.28
 version: ""
 parent: console-1
 owner: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-28-updates]
 repos: [mcpdev80/baseharbor-console]
 prs: []
 sources: ["mcpdev80/baseharbor-console#2"]
@@ -17,17 +17,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/queued #area/console #kind/task
+- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Later release** · prerequisites accepted  
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Required by:** [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

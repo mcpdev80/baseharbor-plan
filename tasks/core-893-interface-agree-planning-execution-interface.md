@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/930", "https://github.co
 
 - [x] core-893-interface · CI: agree the planning/execution interface for runner isolation #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (session 1) · **Priority:** not set  
+    **Owner:** mcpdev80 (session 1)  
     **PR:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/930), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38828055047)  
     <!-- /generated:card -->
@@ -29,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/930", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** none  
-**Required by:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+**Required by:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (session 1)  
 **Priority:** not set  
 **PRs:** [baseharbor#930](https://github.com/mcpdev80/baseharbor/pull/930)  

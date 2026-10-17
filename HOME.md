@@ -43,3 +43,7 @@ CardBoard **Roadmap** shows one generated card per release/series: current, next
 Task cards show `#area/…` and `#kind/…` badges with the `baseharbor-board` CSS snippet enabled. Maintain `areas: [ci]` (lowercase slugs) and the existing `type` in task frontmatter, then run `python3 scripts/plan.py render`. Routing tags stay hidden. Pull with CardBoard disabled, then enable it again to reload shared board settings without overwriting them with cached settings.
 
 Current shows **all Planned tasks**, including tasks waiting for prerequisites. Readiness is a card detail; **Next** remains the filtered assignment view. Planning completeness and execution readiness are distinct.
+
+## Release operations
+
+Every concrete scheduled version has visible [release lifecycle cards](RELEASE_WORKFLOW.md): cleanup → Renovate intake → complete preparation → authorized pre-release → promotion/tagging commands → verified publication. Cards appear in the existing release boards; no second lifecycle board or duplicate state.

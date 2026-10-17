@@ -6,7 +6,7 @@ release: v0.4.29
 version: ""
 parent: v0.4.29
 owner: ""
-depends_on: [core-823]
+depends_on: [core-823, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#817"]
@@ -19,15 +19,16 @@ evidence: []
 
 - [ ] core-817 · Audit: verify host portability and architecture #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/platform #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-823](core-823-tests-platform-conformance-support.md)  
+    **Needs:** [core-823](core-823-tests-platform-conformance-support.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
-**Depends on:** [core-823](core-823-tests-platform-conformance-support.md)  
+**Depends on:** [core-823](core-823-tests-platform-conformance-support.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
+**Required by:** [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

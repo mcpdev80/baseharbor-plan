@@ -518,7 +518,7 @@ class PlanTests(unittest.TestCase):
         f.finish()
         f.run("render")
         path = f.dir / "tasks/core-1-x.md"
-        self.assertIn("**Priority:** not set", path.read_text())
+        self.assertNotIn("**Priority:**", plan.extract_card(plan.parse_frontmatter(path.read_text())[1]))
         path.write_text(path.read_text().replace("blocker:", "priority: imaginary\nblocker:"))
         self.assertCheckFails(f, "priority must be empty")
 

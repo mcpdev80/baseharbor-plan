@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/967", "https://github.co
 
 - [x] core-911 · App edit: load existing selections completely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-911) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-911)  
     **PR:** [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/967), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1c78c509ffc2846e76ed1b27bc39f478948b1cb0), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38908377577)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/967", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
-**Required by:** [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md)  
+**Required by:** [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-911)  
 **Priority:** not set  
 **PRs:** [baseharbor#967](https://github.com/mcpdev80/baseharbor/pull/967)  

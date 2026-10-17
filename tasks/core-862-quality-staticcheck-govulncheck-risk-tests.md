@@ -6,7 +6,7 @@ release: v0.4.31
 version: ""
 parent: v0.4.31
 owner: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#862"]
@@ -18,16 +18,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-862 · Quality: staticcheck, govulncheck and risk-focused tests #task #release/v0-4-31 #status/planned #view/ready #area/quality #kind/maintenance
+- [ ] core-862 · Quality: staticcheck, govulncheck and risk-focused tests #task #release/v0-4-31 #status/planned #view/waiting #board/planned #area/quality #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.31](../releases/v0.4.31.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+**Required by:** [t-20261017-release-0-4-31-prepare](t-20261017-release-0-4-31-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

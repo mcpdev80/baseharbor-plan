@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -28,6 +28,7 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

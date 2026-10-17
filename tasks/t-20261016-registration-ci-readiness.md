@@ -18,7 +18,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/974", "https://github.co
 
 - [x] t-20261016-registration-ci-readiness · CI: qualify shared command and MCP registration checks #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (registration-ci-readiness) · **Priority:** not set  
+    **Owner:** mcpdev80 (registration-ci-readiness)  
     **PR:** [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/974), [proof 2](https://github.com/mcpdev80/baseharbor/pull/976), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38982583187), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/38982799405), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38982990790)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/974", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
-**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
+**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (registration-ci-readiness)  
 **Priority:** not set  
 **PRs:** [baseharbor#974](https://github.com/mcpdev80/baseharbor/pull/974)  

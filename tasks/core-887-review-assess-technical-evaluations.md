@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-887 · Review: assess technical project evaluations #task #release/backlog #status/backlog #view/backlog #area/quality #kind/review
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     <!-- /generated:card -->
 
 <!-- generated:links -->

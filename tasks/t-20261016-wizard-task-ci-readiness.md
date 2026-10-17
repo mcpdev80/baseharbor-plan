@@ -18,7 +18,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/957", "https://github.co
 
 - [x] t-20261016-wizard-task-ci-readiness · CI: prepare autonomous wizard task verification #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (CI readiness session) · **Priority:** not set  
+    **Owner:** mcpdev80 (CI readiness session)  
     **PR:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), [baseharbor#960](https://github.com/mcpdev80/baseharbor/pull/960)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/957), [proof 2](https://github.com/mcpdev80/baseharbor/pull/960), [proof 3](https://github.com/mcpdev80/baseharbor/commit/c889ba7f5350e978d6c372cd58f50651d4852e72), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/38890395251), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38890714423), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/38891345247), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/38891065971), [proof 8](https://github.com/mcpdev80/baseharbor/pull/961)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/957", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-910](core-910-wizard-shared-read-only-editing-state.md)  
-**Required by:** [core-894](core-894-actions-concise-names-clear-results.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
+**Required by:** [core-894](core-894-actions-concise-names-clear-results.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (CI readiness session)  
 **Priority:** not set  
 **PRs:** [baseharbor#957](https://github.com/mcpdev80/baseharbor/pull/957), [baseharbor#960](https://github.com/mcpdev80/baseharbor/pull/960)  

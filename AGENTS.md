@@ -34,3 +34,7 @@ For product work, follow the binding [BaseHarbor CI execution discipline](https:
 - At Maintainer acceptance/assignment reviews, inspect the current release's ready queue and remaining prerequisite gaps. Keep independently executable task slices current so available work is visible in CardBoard Ready; do not invent readiness, weaken prerequisites or let implementation sessions start unassigned work. See [Ready queue maintenance](WORKFLOW.md) and the executable task rules.
 
 Details: [WORKFLOW.md](WORKFLOW.md). Overview: [HOME.md](HOME.md).
+
+## Recurring release cards
+
+Every concrete release needs the six [release lifecycle cards](RELEASE_WORKFLOW.md). On scheduling/changing scope run `python3 scripts/release_cycles.py sync`, then render/check and planning tests. Complete cleanup and applicable Renovate intake before new feature development. Readiness, complete pre-release authorization, promotion/tagging authorization and post-release verification are distinct. Preserve verifier-valid green evidence from partially failed runs; rerun only failed/affected coverage. Planning card creation authorizes none of those operations.

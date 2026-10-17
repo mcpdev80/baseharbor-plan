@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/966", "https://github.co
 
 - [x] core-913 · Wizard: offer compatible providers in the same view #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-913 implementation) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-913 implementation)  
     **PR:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/966), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b3428843bc8f04156339a7b7f6d1e0ed6fa955d6), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38903170816)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/966", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-912](core-912-wizard-needs-first-selection.md)  
-**Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
+**Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-913 implementation)  
 **Priority:** not set  
 **PRs:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  

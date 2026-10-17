@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-917 New wiring) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-917 New wiring)  
     **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
     <!-- /generated:card -->
 
@@ -27,7 +27,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
-**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
+**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-917 New wiring)  
 **Priority:** not set  
 **PRs:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  

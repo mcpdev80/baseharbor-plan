@@ -214,7 +214,8 @@ class Vault:
             self.err(path, "order must be an integer")
         item = {"id": rid, "path": path, "kind": kind, "status": status, "order": meta.get("order", 0),
                 "title": as_str(meta.get("title")), "sources": as_list(meta.get("sources")),
-                "evidence": as_list(meta.get("evidence"))}
+                "evidence": as_list(meta.get("evidence")),
+                "cycle_versions": as_list(meta.get("cycle_versions"))}
         if status in ("qualified", "published") and not item["evidence"]:
             self.err(path, f"release status {status} requires evidence links")
         self.docs[path] = {"path": path, "kind": "release", "sources": item["sources"]}
@@ -389,6 +390,9 @@ class Vault:
                 self.err(e["path"], f"unknown release {e['release']!r}")
             if e["parent"] and e["parent"] not in parents:
                 self.err(e["path"], f"unknown parent {e['parent']!r}")
+        from release_cycles import problems as release_cycle_problems
+        for path, problem in release_cycle_problems(self):
+            self.err(path, problem)
         self.check_cycles()
         self.check_links()
         self.check_stray_checkboxes()
@@ -660,8 +664,9 @@ def card_text(value, limit=None):
 
 def card_preview(vault, task):
     d = task["path"].parent
-    priority = task.get("priority") or "not set"
-    lines = [f"**Owner:** {card_text(task['owner'] or 'unassigned')} · **Priority:** {priority}"]
+    lines = [f"**Owner:** {card_text(task['owner'] or 'unassigned')}"]
+    if task.get("priority"):
+        lines[0] += f" · **Priority:** {task['priority']}"
     if task["prs"]:
         lines.append("**PR:** " + ", ".join(
             f"[{short_ref(ref)}]({gh_url(ref).replace('/issues/', '/pull/')})" for ref in task["prs"]))

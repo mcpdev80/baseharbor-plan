@@ -6,7 +6,7 @@ release: v0.7.x
 version: v0.7.4
 parent: v0.7.x
 owner: ""
-depends_on: [core-102, core-306]
+depends_on: [core-102, core-306, t-20261017-release-0-7-4-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#307"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-307 · Kubernetes: support stateful workloads #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md)  
+    **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md), [t-20261017-release-0-7-4-updates](t-20261017-release-0-7-4-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.4)  
-**Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md)  
-**Required by:** [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
+**Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md), [t-20261017-release-0-7-4-updates](t-20261017-release-0-7-4-updates.md)  
+**Required by:** [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-4-prepare](t-20261017-release-0-7-4-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

@@ -6,7 +6,7 @@ release: v0.5.x
 version: v0.5.2
 parent: v0.5.x
 owner: ""
-depends_on: [core-297]
+depends_on: [core-297, t-20261017-release-0-5-2-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#298"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-298 · Contracts: define cross-component compatibility #task #release/v0-5-x #status/planned #view/waiting #board/planned #area/contracts #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-297](core-297-state-versioning-migration-compatibility.md)  
+    **Needs:** [core-297](core-297-state-versioning-migration-compatibility.md), [t-20261017-release-0-5-2-updates](t-20261017-release-0-5-2-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.5.x](../releases/v0.5.x.md) (v0.5.2)  
-**Depends on:** [core-297](core-297-state-versioning-migration-compatibility.md)  
-**Required by:** [core-299](core-299-lifecycle-upgrades-recovery-deprecation.md), [core-300](core-300-acceptance-portability-compatibility.md)  
+**Depends on:** [core-297](core-297-state-versioning-migration-compatibility.md), [t-20261017-release-0-5-2-updates](t-20261017-release-0-5-2-updates.md)  
+**Required by:** [core-299](core-299-lifecycle-upgrades-recovery-deprecation.md), [core-300](core-300-acceptance-portability-compatibility.md), [t-20261017-release-0-5-2-prepare](t-20261017-release-0-5-2-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

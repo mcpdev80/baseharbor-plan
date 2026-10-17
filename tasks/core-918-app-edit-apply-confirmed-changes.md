@@ -19,15 +19,14 @@ evidence: []
 
 - [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-918 Edit wiring) · **Priority:** not set  
-    **Active**  
+    **Owner:** mcpdev80 (core-918 Edit wiring)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
-**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
+**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-918 Edit wiring)  
 **Priority:** not set  
 **PRs:** none  

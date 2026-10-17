@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-x #status/planned #view/ready #area/inspect #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 · **Priority:** not set  
+    **Owner:** mcpdev80  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
