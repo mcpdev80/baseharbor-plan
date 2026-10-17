@@ -17,7 +17,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799", "https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551", "https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2", "https://github.com/mcpdev80/baseharbor/actions/runs/39028330504", "https://github.com/mcpdev80/baseharbor/commit/4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b", "https://github.com/mcpdev80/baseharbor/actions/runs/39030528320"]
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.co
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -80,6 +80,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 - The extra Apply source paths can exceed current trusted CI coverage. Publish their actual diff and tests for independent policy review if unresolved; never treat the scope grant as CI qualification or suppress the final check. No temporary workflow or full release matrix is authorized by this correction.
 
 ## Handoff
+
+### 2026-10-17 — Implementation checkpoint (not qualified for independent review)
+
+- Role transfer from reviewer to implementer is active on existing PR #978. Current product candidate `c790a0cb1d14b58e7ab66bb39d35e1c32d58c1cf` builds on `4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b`, modifying only `cmd/baha/app_edit_apply_result.go` and `cmd/baha/app_edit_apply_test.go`.
+- Inside the existing Target lifecycle mutate hook, after fresh plan and consent validation, the exact confirmed provider preference is validated and persisted through accepted `application.SaveDesiredProviderPreferencesAt`. Provider-only edits do not rewrite portable source; later ordinary application resolution must pick the selected Target placement. Errors from persistence propagate, and no complete result is inferred from unsuccessful execution.
+- Regression `TestReview918PersistExactTargetPreferenceAndResolveLater` covers the canonical deployment record, actual provider registry, retained source bytes and later normal resolver, but still injects a lifecycle caller to reach the mutation. It does **not** satisfy the additionally requested successful complete `runAppEdit` through real hook-based convergence; do not claim full execution acceptance or source-bound coverage yet.
+- CI [39032722394](https://github.com/mcpdev80/baseharbor/actions/runs/39032722394) selected wizard-app-edit-tests, build/vet/gofmt/source plus Docker/Podman lifecycle. Authenticated results must be rechecked on the exact SHA; final trusted coverage remains unresolved independently. No self-review, merge or policy changes.
+
 
 - 2026-10-17 implementation ownership transfer: assigned session changes role from independent reviewer to implementer for existing PR #978, addressing review #6233799563 only. Preserve prior commits and claim. Scope: connect confirmed Target/requirement/provider-instance preference through accepted core-917 desired owner under the existing Target lifecycle lock, and prove a real successful runAppEdit execution including durable later resolution. No reviewer self-qualification, merge, or policy change.
 
