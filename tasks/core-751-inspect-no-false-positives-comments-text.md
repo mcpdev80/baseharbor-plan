@@ -21,14 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **Blocked:** Trusted PR planner classifies capability_detection_runtime.go and import detection regression files as inspect-implementation-unresolved; required focused coverage is not independently qualified.  
-    
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
-**Owner:** mcpdev80  
+**Owner:** mcpdev80 (core-751 inspect import detection)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#751](https://github.com/mcpdev80/baseharbor/issues/751)
