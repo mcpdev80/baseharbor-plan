@@ -81,6 +81,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Independent review of exact 4f8084eb candidate: changes required
+
+- Independent finding [PR #978 comment #6233799563](https://github.com/mcpdev80/baseharbor/pull/978#issuecomment-6233799563) on exact source `4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b`, CI [39030528320](https://github.com/mcpdev80/baseharbor/actions/runs/39030528320): five-source lifecycle hook coverage remains unresolved at final PR check; selected wizard/CLI/source plus Docker and Podman lifecycle checks succeeded.
+- **P1 persistent provider instance selection missing:** `appEditDesiredFromDecision` and preview preserve explicit Target provider preferences, but `appEditRuntimeExecuteAuthority` passes only `desired.Manifest` to `defaultAppEditSourceWriter`; it never calls the existing authoritative Target-scoped desired-provider-selection owner. The actual lifecycle re-resolves the persisted manifest with no selected provider-instance preference. The switch regression uses injected `authorities.Execute` rather than proving later real selection. A provider-only edit can therefore be approved without durable desired-instance change.
+- **P1 connected success evidence missing:** the only real `runAppEdit` test covers cancel, while successful provider switches and partial effects rely on injected authorities/hooks; no end-to-end successful changed Edit with real default lifecycle/source and later exact provider resolution is proven.
+- Positive source review: space vs Enter, lock-held runtime facts/registry, post-edit retirement reprepare, original error with measured partial effects, and bounded cancellation-independent read-only after-observation are present. These do not cure the missing persistent provider selection. No Policy PR or source qualification is authorized until a corrected product candidate passes re-review. PR #978 stays Draft; no merge or product modifications by reviewer.
+
+
 ### 2026-10-17 — Independent re-review of e0421d97: functional changes required
 
 - Reviewed current source `e0421d97246062abd45a6966fcefb4a1f6049cc4`, not the superseded `5d62816f` report. [Review 5557364551](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551) records four P1 functional findings. Keep the existing claim/PR and return to active implementation; no acceptance, merge or coverage-policy exception.
