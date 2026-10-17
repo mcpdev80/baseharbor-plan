@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
-| review | 0 |
+| active | 1 |
+| review | 1 |
 | blocked | 0 |
 | ready | 7 |
 | queued | 27 |
@@ -24,11 +24,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | active | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978) |
-| [t-20261017-concise-code-comments](../tasks/t-20261017-concise-code-comments.md) | Docs: require clear and concise code comments | active | not set | Codex (comment-guideline session) | — | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261017-concise-code-comments](../tasks/t-20261017-concise-code-comments.md) | Docs: require clear and concise code comments | review | not set | Codex (comment-guideline session) | — | [baseharbor#981](https://github.com/mcpdev80/baseharbor/pull/981) |
 
 ## Blocked
 
