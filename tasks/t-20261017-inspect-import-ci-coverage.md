@@ -51,6 +51,9 @@ Qualify targeted import-detector coverage for core-751 through the existing trus
 
 ## Handoff
 
+- Hosted evidence: policy [run 39027850408](https://github.com/mcpdev80/baseharbor/actions/runs/39027850408) SUCCESS for exact commit `25e5f8e1d71340afff415648374f4dcfa2407aee` (Trusted Plan, Workflow policy, Focused Python, pr-planner-tests, CI executor/verifier and authenticated PR Selected Checks). No native/release jobs selected. Planning [run 39028118807](https://github.com/mcpdev80/baseharbor-plan/actions/runs/39028118807) SUCCESS for rendered task/Ready/roadmap, with planning tests. Independent acceptance remains pending; source content binding cannot be claimed before a reviewed core-751 implementation exists.
+
+
 - Review candidate [PR #983](https://github.com/mcpdev80/baseharbor/pull/983), product SHA `25e5f8e1d71340afff415648374f4dcfa2407aee`, from develop `d54ac358fb6a6b256164ac2689a33e981c013baa`. Changes only `scripts/pr-gate-plan.py` and `scripts/test_pr_gate_plan.py`. The five existing Inspect checks are required for the exact prospective detector path set. The candidate is intentionally fail-closed for unreviewed product content; independently reviewed source binding is a later prerequisite, not something this PR pretends to have done. Real planner and final verifier remain authoritative. No ci.yml or runtime changes.
 
 
