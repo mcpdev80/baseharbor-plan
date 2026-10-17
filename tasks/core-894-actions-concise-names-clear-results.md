@@ -8,7 +8,7 @@ parent: core-888
 owner: "mcpdev80 (core-894 Actions presentation)"
 depends_on: [core-893, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#982]
 sources: ["mcpdev80/baseharbor#894"]
 source_updated: "2026-10-15T16:48:23Z"
 labels: [area/dx]
@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-894 Actions presentation)  
+    **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +31,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-894 Actions presentation)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
 **Source:** [baseharbor#894](https://github.com/mcpdev80/baseharbor/issues/894)
 <!-- /generated:links -->
 
@@ -69,6 +70,6 @@ Titles and summaries explain trigger, result and next action within seconds.
 
 ## Handoff
 
-- Not started.
+- 2026-10-17 candidate: [PR #982](https://github.com/mcpdev80/baseharbor/pull/982), source `46ff7af132a7fe07868f3bf2101771cf2d50b87b`, branch `feature/core-894-actions-presentation`, based on develop `d54ac358fb6a6b256164ac2689a33e981c013baa`. Scope: `.github/workflows/ci.yml` presentation-only. Required context `PR Selected Checks`, authenticated job names, gate IDs and selected execution remain unchanged. PR CI [39026546388](https://github.com/mcpdev80/baseharbor/actions/runs/39026546388) started; not yet asserted green or accepted. Existing positive [38891345247](https://github.com/mcpdev80/baseharbor/actions/runs/38891345247) and negative [38891065971](https://github.com/mcpdev80/baseharbor/actions/runs/38891065971) inspected. Runtime checks not launched for display. Planning render/check and Obsidian verification are pending; do not mark task reviewed or accepted.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
