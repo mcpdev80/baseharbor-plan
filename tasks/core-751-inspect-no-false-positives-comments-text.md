@@ -8,7 +8,7 @@ parent: v0.4.x
 owner: "mcpdev80 (core-751 inspect import detection)"
 depends_on: [core-893, core-895, core-896, t-20261017-inspect-import-ci-coverage]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
@@ -21,7 +21,8 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **Blocker:** Trusted PR planner classifies capability\_detection\_runtime.go and import detection regression files as inspect-implementation-unresolved; required focused coverage is not independently qualified.  
-    **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
+    **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
+    **Needs: [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +31,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
 **Owner:** mcpdev80 (core-751 inspect import detection)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
 **Source:** [baseharbor#751](https://github.com/mcpdev80/baseharbor/issues/751)
 <!-- /generated:links -->
 
@@ -64,6 +65,9 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 implementation candidate: [PR #984](https://github.com/mcpdev80/baseharbor/pull/984), exact SHA `4014057e4b0e1319bf3ea7e5bdee8d66cc7a956b`, base `d54ac358fb6a6b256164ac2689a33e981c013baa`, limited to `internal/repositoryinspect/capability_detection_runtime.go` and `capability_import_detection_test.go`. Python/Go/JS/TS syntax-aware detection plus positive/negative tests. Candidate creation explicitly authorized despite unresolved CI prerequisite; no merge/acceptance until immutable source binding and independently qualified mandatory checks. Existing task remains blocked, #983 remains under independent review. Run 39029266030 is the first targeted candidate CI.
+
 
 - CI prerequisite: [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md) owns trusted import-detector qualification. core-751 remains blocked until its independent acceptance; no product import-detection code may claim resolved coverage before immutable reviewed-source qualification.
 
