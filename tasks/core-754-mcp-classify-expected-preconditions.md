@@ -26,7 +26,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
-**Owner:** mcpdev80  
+**Owner:** mcpdev80 (core-754 MCP preconditions)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#754](https://github.com/mcpdev80/baseharbor/issues/754)
