@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "Review 5558701169 reproduces three failures on df3249a5 from incorrect nested/ASI declaration-body context; functional correction and independent re-review required before qualification."
+blocker: "Review 5558780054: six ASI false-import cases and quadratic interpolation prefix rescanning on 549c0bdc; correct and independently re-review before source qualification."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** Review 5558701169 reproduces three failures on df3249a5 from incorrect nested/ASI declaration-body context; functional correction and independent re-review required before qualification.  
+    **Blocker:** Review 5558780054: six ASI false-import cases and quadratic interpolation prefix rescanning on 549c0bdc; correct and independently re-review before source qualification.  
     **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
@@ -67,6 +67,8 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 **independent re-review: changes required**, source `549c0bdc6e75792b6e720cf077b68bb40a07db54`, [review 5558780054](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5558780054). All 25 previous independent counterexamples and published regression families PASS. Six executable ASI cases still produce false direct import/EvidenceImport after completed identifier, indexed, null, postfix-update and regex expressions (plus nested context), because jsDeclarationBody accepts only a short previous-token whitelist. Also, jsInterpolationEnd retokenizes the entire consumed prefix at every slash, causing quadratic work. Actual Go 1.26.9 measurement: 2,000 divisions/4,017 bytes ~59.8ms; 4,000 divisions/8,017 bytes ~247.6ms. The existing 2 MiB per-file bound does not make this rescanning path practically bounded. Correct expression completion/declaration context and carry interpolation lexical state forward; add work-bound/scaling coverage without brittle timing assertions. No general parser framework requested. Five Inspect gates in CI 39049122687 pass, but #983 source binding remains withheld. No live tests, product/policy changes or merge.
 
 - 2026-10-17 **exact #984 review-5558701169 CI handoff**: candidate `549c0bdc6e75792b6e720cf077b68bb40a07db54`; [Actions 39049122687](https://github.com/mcpdev80/baseharbor/actions/runs/39049122687) five selected Inspect gates **SUCCESS** (`inspect-package-tests`, `inspect-vet`, `inspect-consumer-build`, `inspect-consumer-tests`, `inspect-gofmt`), Workflow policy, Trusted Plan, Focused Python also **SUCCESS**. Required `PR Selected Checks` **FAILURE** solely independent `coverage-unresolved` for both repositoryinspect files; no self-qualification. [HF preflight](https://huggingface.co/jobs/ThunderHawk1080/6ad3a0895ccb47ba0f7bbe88) exact SHA package tests, vet and gofmt PASS. [Planning HF](https://huggingface.co/jobs/ThunderHawk1080/6ad3a0e5c6628814522696d3) on prior handoff commit `ca083847f8690ce7d007f1b3d1913162f47fc22c`: 243 tasks, 0 errors/warnings, 47 tests PASS, `render` stable. No merge, native tests, or edits to #983/#989. Independent review remains required.
 
