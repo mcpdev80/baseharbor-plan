@@ -14,18 +14,18 @@ source_updated: "2026-10-17T01:55:00Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799"]
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf), [proof 4](https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38999275799)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -81,7 +81,22 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Review #5555553577 resolved; candidate e0421d97 qualified for re-review
+
+Continued the same claim on PR #978 (no new branch/PR). All four review findings are fixed in one candidate; published once as `e0421d97` (base develop `beca492d`).
+
+- **Finding 1 (callable handler):** `runAppEdit` in `cmd/baha/app_edit.go` is now the end-to-end Edit command handler: it resolves the application, reads the exact repository/store source, assembles the production authorities via `defaultAppEditAuthorities` (real guided read, accepted choice projection, existing impact planning, read-only footprint preview, ownership-bound authorize) and drives the accepted controller over real input — EOF/No/Cancel remain write-free (core-916 contract). `appEditRuntimeExecuteAuthority` is referenced from this production assembly, no longer only from tests. Core-921 can bind central registration directly to this function.
+- **Finding 2 (in-lock boundary):** fresh read→propose→plan-equality→consent revalidation and the confirmed source persist now execute inside the existing Target lifecycle lock through the authorized minimal `applicationApplyLifecycleHooks.Mutate` slot, immediately before the first deployment-state write; the lifecycle then re-reads the mutated source under the same lock and converges it. Repository writes recheck the exact original bytes immediately before the atomic replace; the store path recompares the internal copy before `Sync`. All six error-only Apply callers keep their signatures and behavior; no nested locking.
+- **Finding 3 (invocation-bound receipts):** retirement requires a measured-present before fact and a measured-zero after fact — map-key presence and measured-zero/measured-zero pairs can no longer mint applied receipts (review reproduction `TestReview918AlreadyAbsentCannotBecomeApplied` covered by `TestAppApplyObservedOutcomesNeverFabricatesApplied`). add/stop/replace emit applied only for genuine measured transitions; impacts whose material/function/effect/access/location evidence the observation cannot attest stay pending/partial per the domain contract, with the exact missing producers documented in the PR body (runtime-inspector material delivery, OpenBao access verification, recovery-registry receipts inside the existing recorder pattern). No proposed `After` values are copied into receipts.
+- **Finding 4 (cancellation):** post-run observation runs on an independent bounded read-only context (`context.WithoutCancel` plus timeout) so partial effects survive cancellation while the original run error is preserved (`TestObserveApplyLifecycleAfterSurvivesCancellation`).
+
+Local qualification (Go 1.26.9, umask 0022): full `go test ./cmd/baha` green, focused Edit/Apply/receipt matrices green, `go vet`/`gofmt -l cmd internal spec contracts`/`source-readability-audit.sh` clean. Environment note: the three `TestExternalProviderRemoval*` failures seen earlier in this workspace reproduce only under a nonstandard `umask 0002` shell (registry ownership checks demand non-group-writable modes); they are pre-existing and pass under the standard CI umask — no product change required.
+
+Hosted PR-CI on `e0421d97` (run 38999275799): `Workflow policy`, `PR · Exact Candidate`, `PR · Trusted Plan`, `cli-build/vet/gofmt/guided-tests/source-contracts`, `wizard-app-edit-tests`, and both native `docker · lifecycle` and `podman · lifecycle` gates pass. Remaining honest boundary (not suppressed, no policy exception): `PR Selected Checks` is FAILURE with `coverage-unresolved` for `cmd/baha/app_apply.go; app_apply_lifecycle.go; app_apply_result.go; app_apply_result_test.go; app_edit_apply_result.go` — the trusted planner has no resolved coverage mapping for these lifecycle-hook paths, so independent review must qualify them (scope grant is not CI qualification). Status moves active→review; Maintainer acceptance and merge remain open.
+
 ### 2026-10-17 — Independent review: functional changes required (PR #978)
+
+
 
 - Reviewed exact source `5d62816f5a90a45836f8fcc49e1add42e12350bf`; independent [review #5555553577](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5555553577). Keep the existing claim and PR, return the task to active implementation. No acceptance, merge, policy exception or additional CI run.
 - The hosted results in run `38993072829` are confirmed: selected lifecycle and focused validations pass, but the final required check fails. The boundary is not merely a missing trusted coverage mapping: functional implementation gaps remain.
