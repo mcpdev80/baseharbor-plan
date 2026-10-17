@@ -82,6 +82,13 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 
 ## Handoff
 
+### 2026-10-17 — Independent owner-coverage review (not accepted)
+
+- Independent review [#5555616115](https://github.com/mcpdev80/baseharbor/pull/975#pullrequestreview-5555616115) inspected the 12-file PR diff at exact head `d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e`, including the nine additional canonical-owner paths. [Run 38995396298](https://github.com/mcpdev80/baseharbor/actions/runs/38995396298) establishes successful selected New/Guided/controller/CLI/source and both native lifecycle checks. Authenticated final job `117287824685` remains **FAILURE** solely because those nine owner paths have unresolved trusted-policy coverage.
+- The current trusted `develop:scripts/pr-gate-plan.py` has no exact reviewed-source qualification for this expanded owner diff; its conservative rules correctly reject runtime-impact CLI files and application/deployment/development owner changes. Successful tests and Planning scope authorization do not independently change this policy. No exception, planner bypass, false green status, PR merge or task acceptance has been issued.
+- An independently trusted, narrowly source- and evidence-bound policy qualification with fail-closed negative regression coverage is still required, followed by an authenticated green `PR Selected Checks` on the resulting exact integration. Preserve the current product commit and all prior green evidence; core-917 stays review, core-918 untouched.
+
+
 ### 2026-10-17 — Final implementation corrections; independent review still required
 
 - Current source is `d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e` in the existing PR #975, superseding `3c8c6e0a`. One coherent, prechecked correction was pushed after inspecting the completed previous run; no force push or CI debugging churn.
