@@ -68,6 +68,9 @@ Capability import evidence comes only from real import/require/reference syntax,
 
 ## Handoff
 
+- 2026-10-18 **latest independent review correction**: existing [PR #984](https://github.com/mcpdev80/baseharbor/pull/984) exact corrected head `9fcc77cd1feb0bf02e7647aa64bc02a2ebb47ae2` from `b4ba76e31f9f58b8875134a980ef44e09830f362`. Review found comparison continuation `>`/`<` incorrectly classified as completed ASI expressions and interpolated `if`/`while` control parentheses not carried into regex lexical context. Bound correction updates incomplete-operator exclusions and tracks `CONTROL_CLOSE` in the incrementally scanned interpolation. Added eight executable matrix cases with direct `sourceImportsCompatibleClient` and actual `detectCapability`/`EvidenceImport`, including review examples and negative controls. All preceding regression matrices, dependency evidence and interpolation allocation work bound preserved. [HF exact candidate tests](https://huggingface.co/jobs/ThunderHawk1080/6ad3fc985ccb47ba0f7beb80): full `go test ./internal/repositoryinspect -count=1`, `go vet ./internal/repositoryinspect` and gofmt PASS. No native/live tests, merge, self-qualification, or modifications to #983/#989. Await five Inspect gates and independent source re-review.
+
+
 ### 2026-10-17 — Independent review of b4ba76e3: changes required
 - Exact product HEAD: `b4ba76e31f9f58b8875134a980ef44e09830f362`. [Independent review 5560482872](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5560482872) supersedes the preceding candidate-specific review diagnosis.
 - Actual [CI 39050280796](https://github.com/mcpdev80/baseharbor/actions/runs/39050280796): all five Inspect checks successful; final check blocked by unresolved source coverage.
