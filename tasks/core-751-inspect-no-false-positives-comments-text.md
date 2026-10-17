@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "Independent review 5558543894 reproduces six failing cases on c9dae941 in the same JS declaration/interpolation and Java import-boundary classes; correct and independently re-review before source qualification."
+blocker: "Review 5558701169 reproduces three failures on df3249a5 from incorrect nested/ASI declaration-body context; functional correction and independent re-review required before qualification."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** Independent review 5558543894 reproduces six failing cases on c9dae941 in the same JS declaration/interpolation and Java import-boundary classes; correct and independently re-review before source qualification.  
+    **Blocker:** Review 5558701169 reproduces three failures on df3249a5 from incorrect nested/ASI declaration-body context; functional correction and independent re-review required before qualification.  
     **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
@@ -67,6 +67,8 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 **independent re-review: changes required**, source `df3249a5b858f872e19047f948163a9d02e21f51`, [review 5558701169](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5558701169). All 22 earlier independent counterexamples and candidate regression families PASS. Three further actual direct/EvidenceImport failures identify one remaining declaration-context defect: jsDeclarationBody scans token history from the last literal semicolon/BLOCK_CLOSE rather than the current nesting/declaration boundary. An object division inside a function loses a real require; a function declaration nested in an if block or following an ASI boundary exposes regex text as false import evidence. All three snippets pass Node v24.19.0 syntax checking; Go 1.26.9 actual repositoryinspect execution reproduced each failure. Correct the current lexical nesting/body classification together with a compact top-level/nested and explicit/omitted-semicolon matrix, retaining all controls. No live tests or product/policy modifications. Five Inspect checks in CI 39046553148 pass, but independent source binding in #983 remains withheld.
 
 - 2026-10-17 **Review 5558543894 CI completion**: [PR #984](https://github.com/mcpdev80/baseharbor/pull/984) exact head `df3249a5b858f872e19047f948163a9d02e21f51`, [Actions 39046553148](https://github.com/mcpdev80/baseharbor/actions/runs/39046553148) five selected Inspect gates all **SUCCESS** (`inspect-gofmt`, `inspect-package-tests`, `inspect-consumer-tests`, `inspect-vet`, `inspect-consumer-build`), Trusted Plan, Workflow policy and Focused Python SUCCESS. Required `PR Selected Checks` remains **FAILURE** solely `coverage-unresolved` for both changed repositoryinspect files; must independently re-review and qualify before acceptance. [HF exact candidate 6ad398285ccb47ba0f7bbb3a](https://huggingface.co/jobs/ThunderHawk1080/6ad398285ccb47ba0f7bbb3a) full package tests, vet, format PASS. [Planning verification HF 6ad398885ccb47ba0f7bbb48](https://huggingface.co/jobs/ThunderHawk1080/6ad398885ccb47ba0f7bbb48): 243 tasks, zero errors/warnings, 47 tests PASS, render stable on prior task update. No live tests, merge, self-qualification, or changes to #983/#989.
 
