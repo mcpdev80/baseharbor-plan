@@ -9,26 +9,27 @@ owner: "Codex (comment-guideline session)"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#981"]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-concise-code-comments · Docs: require clear and concise code comments #task #release/v0-4-26 #status/active #view/active #area/docs #kind/task
+- [ ] t-20261017-concise-code-comments · Docs: require clear and concise code comments #task #release/v0-4-26 #status/review #view/review #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex (comment-guideline session)  
+    **PR:** [baseharbor#981](https://github.com/mcpdev80/baseharbor/pull/981)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex (comment-guideline session)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#981](https://github.com/mcpdev80/baseharbor/pull/981)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -57,4 +58,6 @@ Own only `docs/DEVELOPMENT_GUIDELINES.md`. Read current product and planning AGE
 
 ## Handoff
 
-Claimed per direct Maintainer assignment on 2026-10-17. Existing rules and Go primary-source comment guidance inspected; preparing one documentation-only candidate.
+- PR [#981](https://github.com/mcpdev80/baseharbor/pull/981), source `c5581feb8ba313122f0022a16ad005a056a60804`, based on develop `4bc21c4d7a55c253db70b5329ec4c5326b90e6a3`. Only `docs/DEVELOPMENT_GUIDELINES.md` changes (10 lines).
+- Added a concise code-comment subsection: normally one to three short sentences; clear purpose/contract/reason; no filler, task/PR history, caller counts or implementation narration. Required safety/locking/error/side-effect guarantees remain; Go declaration comments and useful inline rationale stay permitted. No arbitrary hard line limit.
+- Existing documentation audit PASS: 156 paired EN/DE pages; technical integrity, navigation, structure, size, governance, runtime and branding checks. `git diff --check` PASS. Actual trusted PR CI is running; no runtime matrix launched. Maintainer acceptance remains pending.
