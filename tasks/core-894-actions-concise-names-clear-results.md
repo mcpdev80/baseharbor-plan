@@ -17,14 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
+- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-894 Actions presentation)  
     **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
@@ -69,6 +69,8 @@ Titles and summaries explain trigger, result and next action within seconds.
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- 2026-10-17 independent coverage qualification required — **REVIEW / NOT ACCEPTED**. The exact product candidate is [PR #982](https://github.com/mcpdev80/baseharbor/pull/982), head `46ff7af132a7fe07868f3bf2101771cf2d50b87b`, based on develop `d54ac358fb6a6b256164ac2689a33e981c013baa`. Single-file diff `.github/workflows/ci.yml`: one run-name change and an always-run, presentation-only summary step; no touched trusted selectors, executor, verifier or required check name. Hosted [Actions run 39026546388](https://github.com/mcpdev80/baseharbor/actions/runs/39026546388), attempt 1: Workflow policy, PR Trusted Plan, PR Focused Python, ci-actionlint, ci-policy, ci-executor-verifier-tests and pr-planner-tests all **SUCCESS**; final `PR Selected Checks` **FAILURE** on `coverage-unresolved: workflow execution/cleanup/evidence impact requires native qualification: .github/workflows/ci.yml`. The summary step itself ran successfully after that failure. This fail-closed outcome is not an implementation/test pass or a self-exemption. Independent qualification of the exact diff is needed; do not initiate native runtime just for display, waive protection or merge. Existing success [38891345247](https://github.com/mcpdev80/baseharbor/actions/runs/38891345247) and intentional error [38891065971](https://github.com/mcpdev80/baseharbor/actions/runs/38891065971) were inspected. Planning views were updated via GitHub file operations, but repository-local `plan.py render/check`, planning tests and Obsidian GUI were not executed from the connector-only environment. No acceptance or merge.
 
 - 2026-10-17 candidate: [PR #982](https://github.com/mcpdev80/baseharbor/pull/982), source `46ff7af132a7fe07868f3bf2101771cf2d50b87b`, branch `feature/core-894-actions-presentation`, based on develop `d54ac358fb6a6b256164ac2689a33e981c013baa`. Scope: `.github/workflows/ci.yml` presentation-only. Required context `PR Selected Checks`, authenticated job names, gate IDs and selected execution remain unchanged. PR CI [39026546388](https://github.com/mcpdev80/baseharbor/actions/runs/39026546388) started; not yet asserted green or accepted. Existing positive [38891345247](https://github.com/mcpdev80/baseharbor/actions/runs/38891345247) and negative [38891065971](https://github.com/mcpdev80/baseharbor/actions/runs/38891065971) inspected. Runtime checks not launched for display. Planning render/check and Obsidian verification are pending; do not mark task reviewed or accepted.
 
