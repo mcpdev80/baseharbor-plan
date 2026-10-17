@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "mcpdev80 (Podman acceptance consent)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -16,18 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/bug
+- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/active #view/active #area/ci #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (Podman acceptance consent) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (Podman acceptance consent)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -60,6 +59,8 @@ Focused workflow policy/actionlint and helper regressions as selected by the tru
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+- 2026-10-17: Claim acquired for isolated workflow/acceptance-helper correction. No native/live environment execution in this session; Qwen owns native retest after independent review. Scope limited to existing Podman acceptance workflow and direct regressions; no consent bypass or inventory weakening.
 
 - 2026-10-17: Maintainer-authorized intake from Qwen's supplied pre-freeze audit; this session did not independently reproduce the native failure. Fresh-state acceptance currently invokes apply without typed consent and receives `impact-confirmation-required` (`complete:false`, `confirmations_required:2`). The audit reports that fresh consent makes apply and verification succeed. This is a test/integration mismatch. Source: `d54ac358fb6a6b256164ac2689a33e981c013baa`.
 - Discussion/evidence intake: [baseharbor#987](https://github.com/mcpdev80/baseharbor/issues/987). Unassigned, not implemented or accepted. No private machine identifiers, addresses, local paths or credentials included.
