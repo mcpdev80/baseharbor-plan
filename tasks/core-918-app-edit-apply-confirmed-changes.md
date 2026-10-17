@@ -8,29 +8,30 @@ parent: v0.4.26
 owner: "mcpdev80 (core-918 Edit wiring)"
 depends_on: [core-911, core-916]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#978]
 sources: ["mcpdev80/baseharbor#918"]
-source_updated: "2026-10-15T16:46:17Z"
+source_updated: "2026-10-17T01:55:00Z"
 labels: [area/dx, area/compatibility]
-blocker: "Current session cannot obtain an executable GitHub checkout or the required Go toolchain; local receipt draft and concrete Edit/lifecycle integration remain unverified. Resume in a qualified development environment before further implementation claims."
+blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf"]
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/blocked #view/blocked #area/wizard #kind/task
+- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
-    **Blocker:** Current session cannot obtain an executable GitHub checkout or the required Go toolchain; local receipt draft and concrete Edit/lifecycle integration remain unverified. Resume in a qualified development environment before further implement…  
+    **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-918 Edit wiring)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
 **Source:** [baseharbor#918](https://github.com/mcpdev80/baseharbor/issues/918)
 <!-- /generated:links -->
 
@@ -105,3 +106,20 @@ The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v042
 - Concrete execution-environment limitation: container `git ls-remote https://github.com/mcpdev80/baseharbor.git HEAD` returns `Could not resolve host: github.com`; local Go is `go1.23.2`, while project toolchain is newer. GitHub connector provides file-level API only, not an executable checkout. Product PR/CI was deliberately not attempted with unfinished code.
 - Core remaining implementation: source/ownership/consent authority binding before source write, actual `app_apply.go`/`app_apply_lifecycle.go` native outcomes under Target lock, real interactive command and end-to-end tests; no invented receipts or completed review handoff.
 - Obsidian and planning render/check were not executed in this environment; do not interpret this note as acceptance.
+
+### 2026-10-17 — Qualified local continuation on existing PR #978 (review handoff)
+
+Adopted the existing claim `mcpdev80 (core-918 Edit wiring)` on a qualified local workspace (git checkout, GitHub access and the required Go 1.26.9 toolchain from `go.mod` verified). Reused the existing product branch `feature/core-918-app-edit-safe-apply` and PR #978; current `develop` (`beca492d`, incl. #979) was merged in, preserving #917/#975 history. No competing branch was started.
+
+- Verified the prior PR candidate (`b292ef3b`) and reproduced its two red gates locally: `cli-gofmt` (one unformatted test file) and `wizard-app-edit-tests` (`TestAppEditApplyProviderSwitchUsesConfirmedTargetPreference` returned `application machine: unsupported`). Root cause of the test failure was a fixture bug: the confirmed switch targeted a fabricated `provider-sql-primary` id that the accepted `app_provider_choice` candidate projection never produces; corrected to the genuine candidate id (`provider-` + `capability.SQL` + `-` + name). Formatting fixed.
+- Closed the confirmed interface gap with the bounded result integration: `cmd/baha/app_apply_result.go` adds `executeApplicationApplyLifecycleResults`, which drives the existing Apply lifecycle exactly once (all six error-only callers via the unchanged `executeApplicationApplyLifecycle` wrapper; `applicationApplyLifecycleRun`/`resolveApplicationFunc`/`observeApplicationProviderFactsFunc` default to the real functions), brackets the single run with read-only `observeApplicationProviderFacts`, and binds actual native observations to the approved plan. Only a genuinely retired provider runtime (measured zero containers on the correct Target, present before the run, and an impact that the observation can attest without material/function/After evidence) is reported `applied`; every other impact stays pending through `application.RecordProviderChangeResult`. Proposed `After`/material/effect values are never copied and a nil aggregate error never implies complete per-provider effects.
+- `cmd/baha/app_edit_apply_result.go` adds the production Edit executor: confirmed-consent/Target validation, a single source persist (repository path uses an exact-byte compare-and-swap against the hydrated original so a concurrent or foreign edit aborts before any lifecycle run; store path uses the accepted `Store.Sync`), then one lifecycle run returning the bound outcomes; the original execution error is preserved alongside genuine partial effects.
+- New focused tests in `cmd/baha/app_apply_result_test.go` exercise the concrete lifecycle connection (single execution, error preservation with partial effects, no fabrication of applied receipts, no write on target/consent/source mismatch) and the repository CAS, in addition to the accepted injected-fixture Edit suites. Existing app-edit suites stay green.
+
+Executed locally with the required toolchain (`go 1.26.9`): `go build ./...`, `go vet ./cmd/baha`, `gofmt -l cmd internal spec contracts` (clean), `go test ./cmd/baha -run 'TestAppEdit…|TestAppApplyObservedOutcomes|TestExecuteApplicationApplyLifecycleResults|TestAppEditRuntimeExecuteAuthority|TestDefaultAppEdit'` (all pass), and `bash scripts/source-readability-audit.sh` (pass). `go test ./cmd/baha` (full package) shows only three `TestExternalProviderRemoval*` failures (`provider-registry-ownership-unverifiable`) which reproduce identically on a clean `origin/develop` checkout in this sandbox; they are pre-existing, environment-dependent and not introduced by this task.
+
+Candidate published once as `5d62816f` (base `beca492d`, CI integration `57c03064`, run `38993072829`, demo pin `a9234790`). CI outcomes: `cli-gofmt`, `wizard-app-edit-tests`, `cli-vet`, `cli-build`, `source-contracts`, `cli-guided-tests`, `PR · Exact Candidate`, `PR · Trusted Plan`, `PR · Focused Python`, `PR · Demo Pin`, and the native `Selected Runtime · docker · lifecycle` + `podman · lifecycle` gates are all SUCCESS. The prior two failures are resolved.
+
+Boundary for independent qualification (not a policy exception, not suppressed): `PR Selected Checks` remains FAILURE with the honest `coverage-unresolved: CLI runtime impact needs qualified targeted native coverage: cmd/baha/app_apply_result.go; app_apply_result_test.go; app_edit_apply_result.go`. The trusted planner has no resolved→coverage mapping for these three new Apply/receipt source paths, so it blocks even though the docker/podman lifecycle native gates passed. Independent review must qualify these exact paths; scope authorization is not CI qualification.
+
+- Central `baha app edit` command/MCP registration stays with core-921 (this task does not register it). Durable provider-preference persistence stays core-917-owned (PR #975, not yet accepted) and is not assumed or duplicated here; this Edit connection uses only accepted, integrated APIs. No product merge, tag, release or self-acceptance performed.

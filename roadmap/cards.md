@@ -6,8 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 20/30 · **Blocked:** 1 · **Waiting:** 7  
-    **Blocker:** [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) — Current session cannot obtain an executable GitHub checkout or the required Go toolchain; local receipt draft and concrete Edit/lifecycle integration remain un…  
+    **Accepted tasks:** 20/30 · **Blocked:** 0 · **Waiting:** 7  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
