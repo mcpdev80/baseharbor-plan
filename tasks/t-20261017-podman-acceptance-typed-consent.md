@@ -9,7 +9,7 @@ owner: "mcpdev80 (Podman acceptance consent)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#989]
 sources: []
 blocker: ""
 resolution: ""
@@ -59,6 +59,9 @@ Focused workflow policy/actionlint and helper regressions as selected by the tru
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+- 2026-10-17 implementation handoff: [Draft #989](https://github.com/mcpdev80/baseharbor/pull/989) source `d2eda9e681c8d82b01a72601c80b5a06e18d438d`. Podman workflow takes fresh `baha app plan -o json` immediately before apply, emits bounded typed consent for its exact provider impact plan via `scripts/ci-podman-typed-consent.py`, refuses absent/stale-input shape or destructive intent rather than inferring deletion consent; product runtime still validates current plan and inventory. Regression file `scripts/test_ci_podman_typed_consent.py` covers two/one-stage, incomplete, missing, malformed, destructive plan, and workflow binding. [HF check job](https://huggingface.co/jobs/ThunderHawk1080/6ad38ac5c662881452268b75): four helper tests PASS, 19-workflow policy PASS, targeted actionlint invoked (check completion separately). No native or live testing by this session: Qwen retests after independent review. No merge, no self-approval.
+
 
 - 2026-10-17: Claim acquired for isolated workflow/acceptance-helper correction. No native/live environment execution in this session; Qwen owns native retest after independent review. Scope limited to existing Podman acceptance workflow and direct regressions; no consent bypass or inventory weakening.
 
