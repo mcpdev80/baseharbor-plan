@@ -81,6 +81,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Independent correction review of 95eed33e
+- [Review 5560531023](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5560531023) closes the two specific source findings from review 5560483079 at exact HEAD `95eed33e6a3852c21b8dc1a25ccc17e601f38da8`.
+- Production and filesystem tests now share the full material-gate predicate; the unused test-only helper is removed. Both projection and retained-source reads are bounded during reading through a validated handle, with owner/identity revalidation. Oversized/growing input cases are included.
+- Actual [GitHub CI 39076940189](https://github.com/mcpdev80/baseharbor/actions/runs/39076940189) inspected: all selected functional/static and Docker/Podman lifecycle jobs successful; finalcheck explicitly blocks the 15 unresolved source paths.
+- No extra Go execution in this independent round: local executor offline, Hugging Face Jobs unavailable. The implementer's isolated job link remains recorded separately, without a claim that its log was independently retrieved.
+- Scope of this result is acceptance of the correction diff, not final task acceptance or trusted-coverage qualification of the complete PR. Existing active status, owner, generated views and unrelated content remain unchanged. No merge, CI exception or self-approval.
+
+
 ### 2026-10-17 — Independent review of 8105d26d: targeted follow-up required
 - Exact product HEAD: `8105d26d1344ca2876a4e47750d32559fcb5d686`. [Independent review 5560483079](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5560483079).
 - Source review confirms replacement of the path-only projection exception with owner/link/permission/ancestor/content checks. Actual [CI 39050448948](https://github.com/mcpdev80/baseharbor/actions/runs/39050448948) confirms Edit, machine adapter and both selected runtime jobs successful; required final check remains blocked on 15 unresolved paths.
