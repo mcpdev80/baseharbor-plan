@@ -37,7 +37,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 0/7 · **Blocked:** 1 · **Waiting:** 0  
-    **Blocker:** [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) — Independent content review 5558337726 found nine failing syntax/EvidenceImport cases on aabc1347; functional corrections and independent re-review are required…  
+    **Blocker:** [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) — Independent re-review 5558472659 reproduces seven failing lexical-boundary cases on fcf756e8 (Java comment/literal/whitespace and JS brace/interpolation handli…  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
