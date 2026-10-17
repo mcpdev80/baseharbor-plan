@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "Trusted PR planner classifies capability_detection_runtime.go and import detection regression files as inspect-implementation-unresolved; required focused coverage is not independently qualified."
+blocker: "Independent content review 5558337726 found nine failing syntax/EvidenceImport cases on aabc1347; functional corrections and independent re-review are required before source qualification or merge."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** Trusted PR planner classifies capability\_detection\_runtime.go and import detection regression files as inspect-implementation-unresolved; required focused coverage is not independently qualified.  
+    **Blocker:** Independent content review 5558337726 found nine failing syntax/EvidenceImport cases on aabc1347; functional corrections and independent re-review are required before source qualification or merge.  
     **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
@@ -67,6 +67,8 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 **independent content review: changes required**, product HEAD `aabc1347d10b54c10bb156ca9c42937f06f9ed5d`, [review 5558337726](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5558337726). Reconstructed exact candidate from develop base and verified both changed Git blob IDs against GitHub. Go 1.26.9: all five existing added test functions PASS; nine independent cases FAIL in both the direct detector and actual `detectCapability`/`EvidenceImport` projection. Blocking classes: JS regex after statement blocks/newline-separated control headers and leaked import state; missed require calls in numeric division/template interpolation; missed Python semicolon/inline-suite/continued imports; existing .java source support silently loses real MongoDB imports. JS examples syntax-checked with Node v24.19.0 module parser; Python examples parsed by the standard AST parser. Full reproducers and actual outcomes are in the review. Fix related lexical boundaries together and retain positive/negative controls; no general language engine requested. No live tests, product/policy modifications, source approval or merge. #983 source binding remains withheld until a corrected candidate independently passes content review.
 
 - 2026-10-17 **implementation handoff, source approval pending**: existing [PR #984](https://github.com/mcpdev80/baseharbor/pull/984) exact HEAD `aabc1347d10b54c10bb156ca9c42937f06f9ed5d`. Reviewed lexical token loss in previous source: `&&` and `]` were discarded, enabling false import evidence from `const rx = ready && /import 'mongodb'/;` and `obj[require]('mongodb');`. Existing JS/TS lexer now retains operator and closing bracket tokens consistently and considers expression operators as regex-start contexts. Added table regressions for binary/ternary regex, computed/optional member calls, genuine static/dynamic imports and require, multiline declarations, and division; each case executes both direct detector and real `EvidenceImport` projection; prior tests retained. [Actions 39033901985](https://github.com/mcpdev80/baseharbor/actions/runs/39033901985), attempt 1, records **SUCCESS** for all five `inspect-gofmt`, `inspect-package-tests`, `inspect-vet`, `inspect-consumer-tests`, `inspect-consumer-build`. The authoritative `PR Selected Checks` **FAILURE** is solely `coverage-unresolved` for `capability_detection_runtime.go` and `capability_import_detection_test.go`. Independent content review and source binding remain necessary; **no** self-approval, policy #983 edit or merge. No local end-to-end checkout claim; Planning metadata/status unchanged.
 
