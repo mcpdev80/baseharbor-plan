@@ -22,6 +22,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## Active
 
 None.
+
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
