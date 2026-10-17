@@ -17,14 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-917 New wiring)  
     **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -80,6 +80,17 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 - Do not edit `app_apply.go`, `app_apply_lifecycle.go`, `app_apply_result*`, `app_edit*`, shared workflows or registration. Those are outside this repair and overlap the separate Edit lane.
 
 ## Handoff
+
+### 2026-10-17 — Implemented candidate, independent coverage review required
+
+- Existing [PR #975](https://github.com/mcpdev80/baseharbor/pull/975), one coherent source update to `3c8c6e0ae5e880832a8a2fefbaa14514ebd2b2a3`; trusted develop base `beca492d36c0c625e1a68a7ca055f6685fc10fba`, integration `2b3b8fbd74ca7dee8d008e3b7e7cb05e6b122e9c`. Original branch/history preserved, no force-push and no author merge. Product diff is 12 scoped source/test files; no Apply/Edit/receipt, workflow, planner or central registration changes.
+- **Implemented:** real accepted checklist/controller flow, repeated No returns to editable preserved selection, empty needs with an explicit detected workload, optional provider choices, real Bubble Tea TTY navigation and cancellation. Fresh authorized preview/consent is rechecked under the existing Target lock before source/profile writes. The Target is pinned through completion. Create-only registers configured state without executing or marking a runtime verified; explicit run invokes the existing authorized lifecycle exactly once and preserves created-source/failed-runtime reporting.
+- **Implemented exact preference owner:** full requirement kind/name, Target/application/environment and selected provider instance/kind are retained as desired intent in the existing canonical deployment record. A private non-serialized manifest projection carries read-only proposed preferences; no parallel wizard state/config file or portable provider IDs. Existing preview/registry reconciliation and a later normal app entry consume the same intent; native placement projection uses the registered canonical owner. Unsupported native instance owners or conflicting placements are rejected before creation rather than silently collapsed. Missing/foreign/incompatible/stale/duplicate selections fail closed. Existing record reconstruction preserves the separately owned preference field; explicit empty preferences reset automatic behavior.
+- **Local executed verification:** SHA256-verified repository Go 1.26.9; full `go test ./cmd/baha -count=1 -timeout 180s` PASS; full application, deployment, development/all adapter and contracts packages PASS; CLI/domain/development vet PASS; gofmt and whitespace PASS; source-readability audit PASS, including unchanged existing PostgreSQL baseline. Local CLI build PASS using `-buildvcs=false` solely because scratch worktree automatic VCS probing chose `/workspace`; no repository/CI setting was changed. Hosted normal CLI build is independently required.
+- **Specific regressions:** actual input-driven repeated No/edit/re-preview/confirm, empty needs and create-only zero lifecycle calls; exact non-default provider persistence and subsequent normal app identity/native placement resolution; stale explicit selection has no project/deployment/preference writes; real PTY arrow/Space/Enter execution; named requirements through repeated preview/reconciliation/reload, Target/environment isolation, automatic reset, duplicate/foreign/missing/incompatible rejection, and compatibility of older record-save callers. Existing application/contract and controller tests preserved.
+- **Hosted qualification completed:** [regular exact-candidate run 38993367283](https://github.com/mcpdev80/baseharbor/actions/runs/38993367283) executes this source/integration: Trusted Plan, Workflow Policy, Focused Python, exact candidate, runner interface, demo pin, CLI format/vet/build, source/contracts, controller tests, Guided tests and all **13 actual New tests**, including real PTY navigation, PASS. Both selected native lifecycle jobs PASS: Docker job `117280571506`, Podman job `117280571601`; original evidence is handled by the existing authenticated final path. Legacy validate/HA/release matrix jobs are SKIPPED. The overall workflow is **FAILURE**, because [final job 117281469210](https://github.com/mcpdev80/baseharbor/actions/runs/38993367283/job/117281469210) explicitly reports only `coverage-unresolved` for the extra owner paths. No stale-integration or test failure is reported by that final check. The older green run 38987933827 applies only to the previous source and is not reused here.
+- **Exact remaining trusted-impact review:** `cmd/baha/app_core_requirement.go`, `cmd/baha/application_backend_placement_owner.go`, `cmd/baha/application_provider_preferences.go`, `internal/application/manifest.go`, `internal/application/provider_preferences.go`, `internal/application/provider_preferences_test.go`, `internal/application/provider_registry.go`, `internal/deployment/deployment_store.go`, `internal/development/project.go`. These are not declared qualified by the implementation author. Independently review their actual changed risks and the executed package/PTY/native evidence before admitting the specific candidate to the trusted policy. Do not substitute a broad directory allowlist or remove required checks.
+- **Independent boundary:** additional canonical-owner paths exceed the earlier narrow trusted allowlist. No self-qualification, policy exception, full release matrix, maintainer acceptance or merge. Review the concrete extra impact and sufficient executed evidence independently. core-918 must not consume this unmerged interface as if accepted, and core-921 remains waiting.
 
 ### 2026-10-17 — Bounded fixes found by executable New regressions
 
