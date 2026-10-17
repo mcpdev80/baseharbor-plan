@@ -16,6 +16,21 @@ evidence: []
 ---
 
 - [ ] t-20261018-scoped-runtime-reset-xdg-ownership · Scoped runtime reset must retain unrelated XDG state #task #release/v0-4-26 #status/review #view/review #area/ci #kind/bug
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (scoped XDG reset review) · **Priority:** high  
+    **PR:** [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** review  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Owner:** mcpdev80 (scoped XDG reset review)  
+**Priority:** high  
+**PRs:** [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
