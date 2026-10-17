@@ -37,7 +37,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 0/7 · **Blocked:** 1 · **Waiting:** 0  
-    **Blocker:** [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) — Independent re-review 5558472659 reproduces seven failing lexical-boundary cases on fcf756e8 (Java comment/literal/whitespace and JS brace/interpolation handli…  
+    **Blocker:** [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) — Independent review 5558543894 reproduces six failing cases on c9dae941 in the same JS declaration/interpolation and Java import-boundary classes; correct and i…  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later

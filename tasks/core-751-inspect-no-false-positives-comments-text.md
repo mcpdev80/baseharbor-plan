@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "Independent re-review 5558472659 reproduces seven failing lexical-boundary cases on fcf756e8 (Java comment/literal/whitespace and JS brace/interpolation handling); correct and re-review before source qualification."
+blocker: "Independent review 5558543894 reproduces six failing cases on c9dae941 in the same JS declaration/interpolation and Java import-boundary classes; correct and independently re-review before source qualification."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** Independent re-review 5558472659 reproduces seven failing lexical-boundary cases on fcf756e8 (Java comment/literal/whitespace and JS brace/interpolation handling); correct and re-review before source qualification.  
+    **Blocker:** Independent review 5558543894 reproduces six failing cases on c9dae941 in the same JS declaration/interpolation and Java import-boundary classes; correct and independently re-review before source qualification.  
     **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
@@ -67,6 +67,8 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 **independent re-review: changes required**, candidate `c9dae941583cfbfa4bceaa73b37a78f2ffceb79c`, [review 5558543894](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5558543894). Existing package and all 16 prior independent counterexamples PASS. Six executable cases still fail both directly and through EvidenceImport: regex statements after function/class declarations falsely imply imports; interpolation after boolean operators applies a weaker regex-context rule and misses actual require; Java wildcard and comment-adjacent imports are missed because the import matcher excludes on-demand syntax and the surface masker leaves NUL bytes rather than lexical whitespace. Three JS snippets syntax-checked with Node v24.19.0; Go 1.26.9 actual package. These remain incomplete boundaries of the same three prior correction classes. Correct the shared lexical context and Java masking/import forms together, preserving prior regressions; no general parser engine requested. Five Inspect gates in run 39045575706 pass, but content acceptance/source binding in #983 remains withheld. No live tests, product changes, policy exception or merge.
 
 - 2026-10-17 **hosted CI completion on exact review candidate** `c9dae941583cfbfa4bceaa73b37a78f2ffceb79c`: [run 39045575706](https://github.com/mcpdev80/baseharbor/actions/runs/39045575706) all five Inspect gates PASS (`inspect-consumer-build`, `inspect-vet`, `inspect-consumer-tests`, `inspect-gofmt`, `inspect-package-tests`); Workflow policy, Trusted Plan, Focused Python PASS. Required `PR Selected Checks` remains FAILURE exclusively `coverage-unresolved` for the two changed `internal/repositoryinspect` files; independent content review/qualification not yet provided. [HF Planning validation](https://huggingface.co/jobs/ThunderHawk1080/6ad3956b5ccb47ba0f7bba14) on Planning SHA `cc009e6bf8fd3b9097c7de939c6f29524ff57636`: 243 tasks, 0 errors/warnings, 47 tests PASS, render stable. No native tests, self-qualification or merge.
 
