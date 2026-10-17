@@ -11,7 +11,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 1 |
+| review | 2 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 27 |
@@ -31,11 +31,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | active | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 
+| [t-20261017-inspect-import-ci-coverage](../t-20261017-inspect-import-ci-coverage.md) | CI: qualify import detector tests without path exemptions | review | not set | mcpdev80 (core-751 trusted import coverage) | [core-893](../core-893-ci-enforce-selected-pr-checks.md), [core-895](../core-895-reviews-require-maintainer-approval.md), [core-896](../core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983) |
+
 ## Blocked
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) | Inspect: avoid false positives from comments and text | blocked | not set | mcpdev80 (core-751 inspect import detection) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
+| [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) | Inspect: avoid false positives from comments and text | blocked | not set | mcpdev80 (core-751 inspect import detection) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](../tasks/t-20261017-inspect-import-ci-coverage.md) (open) | — |
 
 ## Ready to assign
 
@@ -53,7 +55,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
-- [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
+- [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 7 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
 - [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 6 open, 0 closed ([view](releases/v0.4.x.md))
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
