@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: core-888
-owner: ""
+owner: "mcpdev80 (core-894 Actions presentation)"
 depends_on: [core-893, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,19 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/planned #view/ready #area/ci #kind/task
+- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-894 Actions presentation)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** mcpdev80 (core-894 Actions presentation)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#894](https://github.com/mcpdev80/baseharbor/issues/894)
