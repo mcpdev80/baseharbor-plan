@@ -14,18 +14,18 @@ source_updated: "2026-10-17T01:55:00Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799", "https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551"]
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf), [proof 4](https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38999275799)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf), [proof 4](https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38999275799), [proof 6](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -80,6 +80,17 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 - The extra Apply source paths can exceed current trusted CI coverage. Publish their actual diff and tests for independent policy review if unresolved; never treat the scope grant as CI qualification or suppress the final check. No temporary workflow or full release matrix is authorized by this correction.
 
 ## Handoff
+
+### 2026-10-17 — Independent re-review of e0421d97: functional changes required
+
+- Reviewed current source `e0421d97246062abd45a6966fcefb4a1f6049cc4`, not the superseded `5d62816f` report. [Review 5557364551](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551) records four P1 functional findings. Keep the existing claim/PR and return to active implementation; no acceptance, merge or coverage-policy exception.
+- Progress confirmed: concrete authority assembly and in-lock mutation hooks exist, measured-zero BEFORE no longer means presence for retirement, and cancellation observation uses an independent bounded read-only context. Existing focused checks and generic Docker/Podman lifecycle in run `38999275799` pass; its final required check still fails. Those tests do not prove the complete new Edit path.
+- **Actual input cannot edit selection:** `driveAppEditWizard` handles navigation/confirmation only and never forwards needs/provider changes to the accepted model. Reviewer regression `TestReview918DriverMustEditChecklistFromInput` fails: `space -> next -> yes` confirms unchanged SQL/primary. Wire editing and repeated No/re-preview into the actual entry. Use one buffered reader through navigation and consequence consent to retain prefetched input. Existing test code has no end-to-end `runAppEdit` call.
+- **Post-evidence discarded:** the real `runApplicationApplyLifecycle` has unnamed return values and returns a copy of local `evidence` before a deferred assignment sets `evidence.After`. The caller receives nil After; its projector returns no outcomes. Fix actual Go return/defer semantics and exercise the real lifecycle on success/error/cancel, not a seam with preconstructed evidence.
+- **Retirement plan discarded:** after `hooks.Mutate`, the execution is reconstructed and loses `providerPlan`; the constructor leaves it zero, then the final retirement function rejects its version/Target. Recompute/revalidate the correct post-edit plan and authorization state under the existing lock; do not restore an obsolete pre-edit plan blindly.
+- **Unobserved proposed realization marked verified:** `appAttestedRealizationOutcome` copies `*impact.After`, including Kind/Owner/Scope/Ownership/Supported, then sets Verified. Container/state facts do not attest those fields. Reviewer regression `TestReview918RuntimeCountsCannotVerifyProposedOwner` fails with a complete result whose Owner exists only in the proposal. Use real authoritative identity/ownership evidence; keep unknown facts pending. Unknown BEFORE inventory must not be called proven absence for add/start.
+- Go 1.26.9 / umask 0022: existing focused Edit/receipt/observation/source-write tests PASS; the two independent added regressions FAIL as above. The other two findings follow directly from actual return flow and constructor state. Temporary reviewer tests were removed from the product worktree. No product code, workflow, policy or runtime mutation; no new CI run or repeated native gate.
+- Existing bounded Apply/receipt implementation authority remains sufficient. Continue the same task and deliver a coherent candidate that exercises the actual handler and real hook-bearing lifecycle; no new assignment, inventory-only stop or core-917 policy copy. Preserve earlier handoffs and concurrent core-917 work. Planning/Obsidian views are regenerated and validated with this review state.
 
 ### 2026-10-17 — Review #5555553577 resolved; candidate e0421d97 qualified for re-review
 
