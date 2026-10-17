@@ -26,7 +26,7 @@ evidence: []
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md) (open)  
 **Owner:** mcpdev80 (core-751 inspect import detection)  
 **Priority:** not set  
 **PRs:** none  
