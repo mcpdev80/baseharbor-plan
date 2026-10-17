@@ -14,13 +14,14 @@ source_updated: "2026-10-15T16:46:23Z"
 labels: [area/dx]
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/975", "https://github.com/mcpdev80/baseharbor/commit/d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e", "https://github.com/mcpdev80/baseharbor/actions/runs/38995396298"]
 ---
 
 - [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-917 New wiring)  
     **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/975), [proof 2](https://github.com/mcpdev80/baseharbor/commit/d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38995396298)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -80,6 +81,16 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 - Do not edit `app_apply.go`, `app_apply_lifecycle.go`, `app_apply_result*`, `app_edit*`, shared workflows or registration. Those are outside this repair and overlap the separate Edit lane.
 
 ## Handoff
+
+### 2026-10-17 — Final implementation corrections; independent review still required
+
+- Current source is `d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e` in the existing PR #975, superseding `3c8c6e0a`. One coherent, prechecked correction was pushed after inspecting the completed previous run; no force push or CI debugging churn.
+- Completion inspection found two additional implementation gaps. Creation-lock cleanup is now registered before the confirmation loop so a cancellation immediately after confirmation cannot skip its release. The New lifecycle-error path now uses the existing `RecordProviderChangeResult` / `appChangeResultPresenter`, retaining the original error and reporting unobserved provider operations as pending rather than inventing actual effects. Existing error-only lifecycle compatibility is preserved; no core-918 receipt interface is assumed or duplicated. The end-to-end New failure regression requires the shared presenter, original error identity, and no fabricated applied/verified success.
+- Executed locally on this candidate with Go 1.26.9: full CLI, application, deployment and development package tests PASS; vet for those packages PASS; CLI build PASS with the previously disclosed local `-buildvcs=false` workspace workaround; formatting/whitespace PASS. Previous hosted run `38993367283` remains evidence for its original source only. Hosted correction run [38995396298](https://github.com/mcpdev80/baseharbor/actions/runs/38995396298) has completed on source `d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e`, integration `e1a7f0cbb6ef82d328407c72ac42df2dd1935632`, trusted base `beca492d36c0c625e1a68a7ca055f6685fc10fba`: all 13 actually discovered New tests (including the shared-presenter failure regression), controller/Guided, CLI format/vet/build, source/contracts, planning/policy/Python, exact-candidate/runner/demo validations and both selected native lifecycle jobs PASS (Docker `117286904902`, Podman `117286904859`). The final `PR Selected Checks` job `117287824685` remains FAILURE solely with `coverage-unresolved` for the same nine additional owner paths enumerated in the preceding handoff; no stale-integration error is reported. No successful final check or merge qualification is claimed. Legacy validate/HA/full-release jobs remain skipped. No additional product candidate or native run was started.
+- Source-specific continuation checkpoint [5555594554](https://github.com/mcpdev80/baseharbor/pull/975#pullrequestreview-5555594554) is an implementation-author note, not an independent approval.
+- This candidate was authored by the current implementation agent. Its author cannot supply the required independent coverage acceptance. No broad allowlist, self-qualification, required-check bypass or product merge is authorized by this handoff. Independently review the exact owner diff and adequate focused/native evidence, then qualify only the demonstrated change through the trusted policy and require a green final check before merge/acceptance. A scope grant is not coverage qualification.
+- ChatGPT 5.6 continuation/review sessions must use the connected GitHub MCP for repository, PR, review and Actions operations. Read current source/task/CI state directly rather than asking Marcel to relay another session's status. Local CLI may execute source/toolchain tests where available. Do not substitute Hugging Face, publish one-file debug pushes, or start a full release matrix.
+- Keep the existing claim, core-918 changes and planning history. core-917 remains review, not accepted; core-921 remains waiting. Planning render/check, tests and generated Obsidian views are part of this handoff.
 
 ### 2026-10-17 — Implemented candidate, independent coverage review required
 
