@@ -81,6 +81,11 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+## Explicit native SQL observation authorization — 2026-10-17
+
+Maintainer expressly expands core-918 / PR #978 scope to `cmd/baha/application_native_backend_impact.go` (`observeNativeBackendImpact`), `observeApplicationProviderImpact`, and immediately required existing SQL consumer, credentials, runtime and inventory owners plus their tests. `observeStandaloneProviderImpact` only if required by a demonstrated supported case. This supersedes the earlier minimal Apply-receipt-hook limitation for these named owners. Capture real pre/post material inventories, SQL consumer-identity access and Target/application/instance/lifecycle binding; preserve unknown-data SQL as partial, no synthetic receipts, secrets, migration engine, second executor or weakened assertions. Existing task stays active; no independent coverage self-approval or merge.
+
+
 ### 2026-10-17 — Supported-operation gate after review of 7b13a867
 
 - Exact candidate `7b13a86736137e6a9d222fd8feb22b9b5b854fb9`, CI [39036145980](https://github.com/mcpdev80/baseharbor/actions/runs/39036145980): `cli-gofmt` FAIL, `wizard-app-edit-tests` FAIL (actual connected SQL edit remains `application machine: partial`), and authoritative `PR Selected Checks` FAIL. No complete verified provider Edit can be claimed.
