@@ -5,7 +5,7 @@ type: bug
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: mcpdev80
+owner: "mcpdev80 (core-754 MCP preconditions)"
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,14 +17,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/planned #view/ready #area/mcp #kind/bug
+- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/active #view/active #area/mcp #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-754 MCP preconditions)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
@@ -64,5 +63,7 @@ Expected machine/MCP preconditions get stable typed codes instead of being flatt
 - No open task dependencies. Related: core-750, core-751, core-752.
 
 ## Handoff
+
+- 2026-10-17 claim: assigned core-754 on current develop; first audit existing typed semantics and four real CLI/MCP entries, then only demonstrated gaps. Planned scope bounded to cmd/baha MCP entry/error translation and directly relevant focused tests (exact files pending source inspection); exclude App Edit/Lifecycle, import detector, tool registration and workflow/policy. Candidate permitted even if source coverage qualification unresolved; no self-exemption/acceptance/merge. No v0.4.26 release scope change.
 
 - Assigned to mcpdev80; no recent claim. Partial implementation exists (see scope).
