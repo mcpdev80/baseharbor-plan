@@ -11,9 +11,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 0 |
+| review | 1 |
 | blocked | 0 |
-| ready | 7 |
+| ready | 6 |
 | queued | 27 |
 | waiting | 175 |
 | backlog | 6 |
