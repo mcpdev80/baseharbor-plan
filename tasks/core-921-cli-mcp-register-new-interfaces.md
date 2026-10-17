@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md)  
+    **Needs:** [core-918](core-918-app-edit-apply-confirmed-changes.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 1 |
+| review | 0 |
 | blocked | 0 |
 | ready | 7 |
 | queued | 27 |
 | waiting | 175 |
 | backlog | 6 |
-| closed | 21 |
+| closed | 22 |
 
 ## Active
 
@@ -27,9 +27,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md) | App new: connect the compact wizard to the existing lifecycle | review | not set | mcpdev80 (core-917 New wiring) | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975), [baseharbor#980](https://github.com/mcpdev80/baseharbor/pull/980) |
+None.
 
 ## Blocked
 
@@ -49,7 +47,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 10 open, 20 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 9 open, 21 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
