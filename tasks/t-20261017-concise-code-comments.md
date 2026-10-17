@@ -12,18 +12,19 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#981"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/981","https://github.com/mcpdev80/baseharbor/commit/c5581feb8ba313122f0022a16ad005a056a60804","https://github.com/mcpdev80/baseharbor/actions/runs/39026276819","https://github.com/mcpdev80/baseharbor/commit/d54ac358fb6a6b256164ac2689a33e981c013baa"]
 ---
 
-- [ ] t-20261017-concise-code-comments · Docs: require clear and concise code comments #task #release/v0-4-26 #status/review #view/review #area/docs #kind/task
+- [x] t-20261017-concise-code-comments · Docs: require clear and concise code comments #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex (comment-guideline session)  
     **PR:** [baseharbor#981](https://github.com/mcpdev80/baseharbor/pull/981)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/981), [proof 2](https://github.com/mcpdev80/baseharbor/commit/c5581feb8ba313122f0022a16ad005a056a60804), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39026276819), [proof 4](https://github.com/mcpdev80/baseharbor/commit/d54ac358fb6a6b256164ac2689a33e981c013baa)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -58,6 +59,8 @@ Own only `docs/DEVELOPMENT_GUIDELINES.md`. Read current product and planning AGE
 
 ## Handoff
 
+- Maintainer acceptance (2026-10-17): independently verified the exact ten-line guideline change in PR #981, source `c5581feb8ba313122f0022a16ad005a056a60804`, all required documentation and trusted final checks in run `39026276819` PASS, merge commit `d54ac358fb6a6b256164ac2689a33e981c013baa` on develop. Resolution: accepted. No other task or runtime scope changed.
+
 - PR [#981](https://github.com/mcpdev80/baseharbor/pull/981), source `c5581feb8ba313122f0022a16ad005a056a60804`, based on develop `4bc21c4d7a55c253db70b5329ec4c5326b90e6a3`. Only `docs/DEVELOPMENT_GUIDELINES.md` changes (10 lines).
 - Added a concise code-comment subsection: normally one to three short sentences; clear purpose/contract/reason; no filler, task/PR history, caller counts or implementation narration. Required safety/locking/error/side-effect guarantees remain; Go declaration comments and useful inline rationale stay permitted. No arbitrary hard line limit.
-- Existing documentation audit PASS: 156 paired EN/DE pages; technical integrity, navigation, structure, size, governance, runtime and branding checks. `git diff --check` PASS. Trusted [CI run 39026276819](https://github.com/mcpdev80/baseharbor/actions/runs/39026276819) PASS: documentation audit, EN/DE strict builds, Pages candidate, focused policy checks and executed PR Selected Checks. PR #981 merged into develop at `d54ac358fb6a6b256164ac2689a33e981c013baa`. No runtime matrix launched; planning render/check and 47 planning tests PASS. Implementation complete; retained review state pending Maintainer task acceptance.
+- Existing documentation audit PASS: 156 paired EN/DE pages; technical integrity, navigation, structure, size, governance, runtime and branding checks. `git diff --check` PASS. Trusted [CI run 39026276819](https://github.com/mcpdev80/baseharbor/actions/runs/39026276819) PASS: documentation audit, EN/DE strict builds, Pages candidate, focused policy checks and executed PR Selected Checks. PR #981 merged into develop at `d54ac358fb6a6b256164ac2689a33e981c013baa`. No runtime matrix launched; planning render/check and 47 planning tests PASS. Implementation accepted after independent source review and green required CI; merged into develop.
