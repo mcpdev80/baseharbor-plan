@@ -1,6 +1,6 @@
 # Release lifecycle
 
-Every concrete release has six visible task cards. Planning is live on `main`; product changes retain their own PR/review rules. Creating a card is neither acceptance nor authorization to execute a release.
+Every future concrete release has six visible task cards. The already-running v0.4.26 has only the four completion cards; its startup is not replayed. Planning is live on `main`; product changes retain their own PR/review rules. Creating a card is neither acceptance nor authorization to execute a release.
 
 | Stage | Result | Boundary |
 | --- | --- | --- |
@@ -31,7 +31,7 @@ Process all pending applicable Renovate updates first: dependency dashboard, gro
 
 ## Prepare
 
-Apply audit sections 1–8 and section 9 atomic-first prerequisites. The Prepare card depends on both startup cards and every scoped implementation task, including newly added tasks. Also inspect release/epic requirements that have no leaf task yet, and any explicitly deferred acceptance/test debt. Zero children is not completed scope.
+Apply audit sections 1–8 and section 9 atomic-first prerequisites. The Prepare card depends on both startup cards and every scoped implementation task, including newly added tasks. For the already-running v0.4.26 it depends only on implementation tasks, without retroactive startup cards. Also inspect release/epic requirements that have no leaf task yet, and any explicitly deferred acceptance/test debt. Zero children is not completed scope.
 
 Readiness includes BaseHarbor, Demo, Console, Node Connector, current CLI/JSON/MCP/HTTP semantics, real supported auth/mTLS/lifecycle/cleanup and developer journeys, standards/ownership/security review, EN/DE user/reference/spec docs, navigation/links/staleness, strict Pages candidate builds/workflow, changelog and concise developer-facing release notes. Notes cover what changed, why it matters, usage/upgrade/compatibility, security and deliberate deferrals. The product README stays compact and free of process rules. Do not publish Pages to claim readiness.
 
@@ -73,4 +73,4 @@ The synchronizer creates missing cards from `templates/release-cycle/`, preserve
 
 Concrete versions come from numeric `kind: release` notes, explicit task `version` fields and optional `cycle_versions` lists in series notes (v0.5.0 is explicitly scheduled in v0.5.x). Backlog, triage, maintenance and unspecified `x` versions do not invent releases or tags. The six stages also apply to subsequently scheduled hotfixes.
 
-v0.4.26 was already in development when these cards were added: its startup cards are honest catch-up work, not retroactive acceptance or a rewrite of active/accepted product tasks. Future release implementation depends on accepted startup cleanup/updates. No production run, merge, tag or publication was authorized by this planning change.
+v0.4.26 was already in development when this policy was added. Its two mistakenly introduced startup cards were removed by explicit Maintainer instruction; their IDs remain reserved in Git history and must not be recreated or reused. Its four preparation/qualification/publication/verification cards remain. Future release implementation depends on accepted startup cleanup/updates; no active or accepted v0.4.26 product task is rewritten. No production run, merge, tag or publication was authorized by this planning change.

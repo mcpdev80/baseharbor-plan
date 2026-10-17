@@ -135,4 +135,4 @@ At each Maintainer acceptance/assignment review, inspect `python3 scripts/plan.p
 
 ## Every release has an executable closeout
 
-[Release workflow](RELEASE_WORKFLOW.md) defines the six recurring cards and source checklist. Run `python3 scripts/release_cycles.py sync` when scheduling a concrete release or changing scope. Cleanup and Renovate intake precede future feature work; preparation waits for all scoped work; complete pre-release, promotion/tag commands and verified publication remain separate accepted stages. Current v0.4.26 startup cards are catch-up, not retroactive acceptance.
+[Release workflow](RELEASE_WORKFLOW.md) defines the six recurring cards and source checklist. Run `python3 scripts/release_cycles.py sync` when scheduling a concrete release or changing scope. Cleanup and Renovate intake precede future feature work; preparation waits for all scoped work; complete pre-release, promotion/tag commands and verified publication remain separate accepted stages. The already-running v0.4.26 has only the four completion cards; startup cleanup/intake is not retroactively added.

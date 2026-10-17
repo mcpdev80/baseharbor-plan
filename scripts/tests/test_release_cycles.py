@@ -102,6 +102,18 @@ class ReleaseCycleTests(unittest.TestCase):
         f.finish()
         cycles.sync(f.dir)
         self.assertEqual((f.dir / 'tasks/core-1-x.md').read_text(), note)
+        vault = plan.Vault(f.dir).load()
+        current = [t for t in vault.tasks.values() if t['version'] == 'v0.4.26' and t['meta'].get('release_stage')]
+        self.assertEqual({t['meta']['release_stage'] for t in current}, {'prepare', 'qualify', 'publish', 'verify'})
+        self.assertEqual(vault.tasks[cycles.stage_id('v0.4.26', 'prepare')]['depends_on'], ['core-1'])
+        cycles.sync(f.dir)
+        self.assertFalse((f.dir / 'tasks' / (cycles.stage_id('v0.4.26', 'cleanup') + '.md')).exists())
+        self.assertFalse((f.dir / 'tasks' / (cycles.stage_id('v0.4.26', 'updates') + '.md')).exists())
+        prepare = f.dir / 'tasks' / (cycles.stage_id('v0.4.26', 'prepare') + '.md')
+        cycles.set_dependencies(prepare, ['core-1', cycles.stage_id('v0.4.26', 'updates')])
+        cycles.sync(f.dir)
+        current = plan.Vault(f.dir).load()
+        self.assertEqual(current.tasks[cycles.stage_id('v0.4.26', 'prepare')]['depends_on'], ['core-1'])
         self.assertEqual(f.checked()[0], 0)
 
     def test_accepted_release_stage_cannot_hide_unaccepted_scope(self):
