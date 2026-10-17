@@ -81,6 +81,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Independent review of policy #991: changes required
+- [Review 5560602280](https://github.com/mcpdev80/baseharbor/pull/991#pullrequestreview-5560602280) inspected policy HEAD `15e14fc9e00d76a395bf6e7082bff9b96ba6aff5`, bound to unchanged product `95eed33e6a3852c21b8dc1a25ccc17e601f38da8`.
+- Actual policy [CI 39078339186](https://github.com/mcpdev80/baseharbor/actions/runs/39078339186) is fully successful including planner and finalcheck. Product coverage is not qualified by that result.
+- Required correction: execute the finite material-safety TestNativeSQL regression families through the trusted mandatory executor, with missing/skip/fail blocking. Existing selected Edit/Guided/source-contract/native checks do not run those cmd/baha tests. Preserve #986 runner changes and coordinate file ownership.
+- Required correction: integration regression must derive real merge-base and changed-path/status inputs using the existing diff-base owner from the actual temporary Git graph; current manually supplied base/status map is not that proof. Retain actual merge-tree source binding and real unreviewed-follow-up rejection.
+- Continue on existing #991; product #978 remains unchanged. No native/live tests, source qualification, acceptance, CI bypass or merge. No additional reviewer execution claimed; source and hosted CI logs inspected. Existing task state/owner/generated blocks preserved.
+
+
 ### 2026-10-18 — Independent total review / proposed immutable coverage
 
 - Exact product candidate: `95eed33e6a3852c21b8dc1a25ccc17e601f38da8`, original 21-file PR diff (15 currently unresolved policy paths). The prior two P2 corrections are accepted at source level in [review 5560531023](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5560531023). Targeted [CI 39076940189](https://github.com/mcpdev80/baseharbor/actions/runs/39076940189) confirms green Wizard Edit, Machine, CLI build/vet/gofmt/Guided, source contracts and selected native Docker/Podman lifecycle. Final required selected-check remains blocked for missing independent trusted coverage, not a demonstrated functional red gate.
