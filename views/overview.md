@@ -23,7 +23,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | active | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
+| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 
 ## Ready for review
 
