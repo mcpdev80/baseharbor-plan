@@ -10,18 +10,18 @@ depends_on: [core-911, core-916]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#978]
 sources: ["mcpdev80/baseharbor#918"]
-source_updated: "2026-10-17T11:30:00Z"
+source_updated: "2026-10-17T12:02:00Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799", "https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551", "https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2", "https://github.com/mcpdev80/baseharbor/actions/runs/39028330504"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799", "https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551", "https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2", "https://github.com/mcpdev80/baseharbor/actions/runs/39028330504", "https://github.com/mcpdev80/baseharbor/commit/4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b", "https://github.com/mcpdev80/baseharbor/actions/runs/39030528320"]
 ---
 
 - [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf), [proof 4](https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38999275799), [proof 6](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551), [proof 7](https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39028330504)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf), [proof 4](https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38999275799), [proof 6](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551), [proof 7](https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39028330504), [proof 9](https://github.com/mcpdev80/baseharbor/commit/4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/39030528320)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -174,3 +174,15 @@ Same claim, branch and PR #978; current `develop` (`d54ac358`, incl. #975 New/pr
 Local: Go 1.26.9; `go build ./...`, `go vet ./cmd/baha`, `gofmt -l` clean, `source-readability-audit.sh` and `documentation-audit.sh` PASS, targeted `go test ./cmd/baha` (Edit/receipt/review families) green. Hosted CI run 39028330504 (base `d54ac358`, integration `10986a18`, demo pin `a9234790`): workflow policy, Exact Candidate, Trusted Plan, cli-build/vet/gofmt/guided-tests/source-contracts, wizard-app-edit-tests, Demo Pin and native `docker · lifecycle` + `podman · lifecycle` SUCCESS.
 
 Boundary (not suppressed, no policy exception): `PR Selected Checks` FAILS with `coverage-unresolved` for `app_apply.go; app_apply_lifecycle.go; app_apply_result.go; app_apply_result_test.go; app_edit_apply_result.go` — the trusted planner has no resolved→coverage mapping for these lifecycle-hook paths; independent review must qualify them. #975 (persistent Target preferences) is now merged; the durable preference owner is available but this Edit connection remains source-manifest + registry based. Central `app edit` registration stays core-921. No merge, tag or self-acceptance.
+
+### 2026-10-17 — Review corrections on candidate 4f8084eb (review)
+
+Continued the same claim/branch/PR on `develop` `d54ac358`.
+
+- Space input: the wizard classifier now strips only the line terminator, so a real space byte toggles the focused need while a bare Enter advances; regression feeds actual bytes, not the word "space".
+- Registry capture: provider-registry identity/ownership is now captured with the runtime facts inside the existing Target lock (`evidence.Registry`), and the result projection reads that snapshot instead of re-reading the registry after the lock is released.
+- runAppEdit cancel: replaced the permissive test with a registered existing app that must hydrate, reach the cancel path, return the cancel error and perform zero lifecycle runs and zero writes; an unexpected hydration error fails the test.
+
+Local (Go 1.26.9): build/vet/gofmt clean, source-readability + documentation audits PASS, full `go test ./cmd/baha` green except the 3 pre-existing `TestExternalProviderRemoval*` ownership failures that reproduce identically on clean `develop`. CI run 39030528320 (head `4f8084eb`, base `d54ac358`, integration `a101f54`, PR mergeable): workflow policy, Exact Candidate, Trusted Plan, cli-build/vet/gofmt/guided-tests/source-contracts, wizard-app-edit-tests, Demo Pin, Runner Interface and native docker·/podman lifecycle SUCCESS.
+
+Boundary (not suppressed, no policy exception): `PR Selected Checks` FAILS with `coverage-unresolved` for `app_apply.go; app_apply_lifecycle.go; app_apply_result.go; app_apply_result_test.go; app_edit_apply_result.go` — the trusted planner has no resolved→coverage mapping for these lifecycle-hook paths; independent review must qualify them. Central `app edit` registration stays core-921. No merge, tag or self-acceptance.
