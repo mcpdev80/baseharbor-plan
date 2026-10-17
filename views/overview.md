@@ -11,8 +11,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 0 |
-| blocked | 1 |
+| review | 1 |
+| blocked | 0 |
 | ready | 7 |
 | queued | 27 |
 | waiting | 175 |
@@ -27,13 +27,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | review | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978) |
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | blocked | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | — |
+None.
 
 ## Ready to assign
 
