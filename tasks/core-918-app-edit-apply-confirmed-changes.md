@@ -81,6 +81,16 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Functional completion; independent trusted coverage handoff (2b7bce71)
+
+- Existing branch `feature/core-918-app-edit-safe-apply`, product [PR #978](https://github.com/mcpdev80/baseharbor/pull/978) remains draft; exact source `2b7bce71296be7cbd2841995ff38502d7e018c99`, develop `d54ac358fb6a6b256164ac2689a33e981c013baa`, integration `58f4d5ccb6c45cca198784785201a91dedf116fe`.
+- The old `7b13a867` partial-only diagnosis is superseded. The Wizard persists confirmed SQL and Target preference under the existing Target lock, re-resolves and runs one Apply lifecycle. Post-edit provider authorization consumes the equivalent confirmed Edit consent only after checked consequences. Empty application-scoped SQL add/resume is verified through actual native ownership and consumer-identity SQL probe; unknown existing data, migration or incomplete material effects remain partial.
+- The desired machine adapter preserves typed `partial`, original execution/cancellation and projection causes with `errors.Join`. No/Cancel/EOF/stale cases stay fail-closed.
+- Exact hosted [run 39047709275](https://github.com/mcpdev80/baseharbor/actions/runs/39047709275), attempt 1: `wizard-app-edit-tests`, `wizard-machine-adapter-tests`, `cli-gofmt`, `cli-vet`, `cli-build`, `cli-guided-tests`, `source-contracts`, Exact Candidate, Trusted Plan, focused Python and Docker/Podman lifecycle all **SUCCESS**. Isolated exact-SHA Hugging Face checks used Go 1.26.9, `umask 0022` and private `TMPDIR`.
+- **Independent coverage remains unresolved:** `PR Selected Checks` fails for `cmd/baha/app_apply.go`, `app_apply_lifecycle.go`, `app_apply_result.go`, `app_apply_result_test.go`, `app_edit_apply_result.go`, `application_native_backend_impact.go`, `application_native_backend_impact_test.go`, `application_native_backend_observation.go`, `application_provider_impact.go`, `internal/application/backend_probe_test.go`, `runtime_backend_probe.go`, `runtime_postgres.go`. Successful native gates are not independent qualification of currently unmapped paths. Leave task active pending independent coverage/content review; no self-exemption or merge.
+- Central registration remains core-921. No unrelated PRs, SSH/live-system tests or release actions.
+
+
 ## Explicit native SQL observation authorization — 2026-10-17
 
 Maintainer expressly expands core-918 / PR #978 scope to `cmd/baha/application_native_backend_impact.go` (`observeNativeBackendImpact`), `observeApplicationProviderImpact`, and immediately required existing SQL consumer, credentials, runtime and inventory owners plus their tests. `observeStandaloneProviderImpact` only if required by a demonstrated supported case. This supersedes the earlier minimal Apply-receipt-hook limitation for these named owners. Capture real pre/post material inventories, SQL consumer-identity access and Target/application/instance/lifecycle binding; preserve unknown-data SQL as partial, no synthetic receipts, secrets, migration engine, second executor or weakened assertions. Existing task stays active; no independent coverage self-approval or merge.
