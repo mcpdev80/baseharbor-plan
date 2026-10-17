@@ -81,6 +81,13 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Supported-operation gate after review of 7b13a867
+
+- Exact candidate `7b13a86736137e6a9d222fd8feb22b9b5b854fb9`, CI [39036145980](https://github.com/mcpdev80/baseharbor/actions/runs/39036145980): `cli-gofmt` FAIL, `wizard-app-edit-tests` FAIL (actual connected SQL edit remains `application machine: partial`), and authoritative `PR Selected Checks` FAIL. No complete verified provider Edit can be claimed.
+- Concrete missing output and owner: `cmd/baha/application_native_backend_impact.go:observeNativeBackendImpact` cannot establish `ProviderImpactFact.InventoryComplete` for SQL data/material/consumer continuity; `cmd/baha/application_provider_impact_observation.go:observeApplicationProviderImpact` must only consume verified, bounded provider-native inventory and actual consumer-function evidence. `cmd/baha/app_apply_result.go:appAttestedRealizationOutcome` does not attest an `update` with functions/materials; it must not be extended to treat `pending` as applied or to copy planned effects. A supported complete SQL transfer additionally requires an actual SQL consumer query/access check, ownership/material disposition and verified lifecycle outcome bound to the exact Target/instance. These interfaces extend beyond the currently authorized minimal receipt propagation hooks and must not be introduced through an unreviewed scope expansion.
+- Existing full runAppEdit SQL test currently asserts complete and is red because the operation is only partially observable. It must be retained as a separately honest partial scenario once an independently grounded supported complete scenario is available. No author approval, merge, or additional content qualification was attempted.
+
+
 ### 2026-10-17 — Bounded measured pending-update evidence; not accepted
 
 - Implementer candidate on existing [PR #978](https://github.com/mcpdev80/baseharbor/pull/978): exact source SHA `7b13a86736137e6a9d222fd8feb22b9b5b854fb9` (parent `9708080c315e520adc5194479f5cfa96143455f9`, previous connected Edit candidate `3f6e97afdef4722c9545e61eb2c62aee5cb600ed`). Only `cmd/baha/app_apply_result.go` and `cmd/baha/app_apply_result_test.go` changed. A native `update` with an actual measured before-inventory and a running after-state plus captured authoritative Target registry can now return a **pending** outcome carrying that measured realization. This neither manufactures SQL consumer/data consequences nor marks `applied`; absent or unmeasured after-facts still yield no outcome. The new domain regression asserts `RecordProviderChangeResult` remains `partial`, including with verified runtime observation.
