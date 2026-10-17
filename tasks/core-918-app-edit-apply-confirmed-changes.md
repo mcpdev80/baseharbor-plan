@@ -81,6 +81,13 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-18 — #991 review 5560602280 corrections, independent manager handoff
+
+- Existing policy Draft [#991](https://github.com/mcpdev80/baseharbor/pull/991) updated to exact policy commit `7bca9442dc87fd7a3c4cd89c82921f31e97570ba` (reviewed product #978 remains `95eed33e6a3852c21b8dc1a25ccc17e601f38da8`, unchanged). No qualification or merge was issued.
+- Added finite `wizard-core918-native-sql-safety-tests` profile to existing trusted `scripts/pr-check-runner.py` executor and mandatory core-918 planner requirements. Four explicitly named `TestNativeSQL*` security regression tests are discovered and run separately; missing, skipped or failed execution rejects the check. Preserved existing Edit, machine, CLI/source and Docker/Podman lifecycle requirements. No workflow change. Runner ownership overlaps #986: its source was not changed, and Manager must reconcile this draft with #986's MCP profile rather than discard either.
+- Replaced fabricated positive merge-base/status inputs in `Core918TrustedCoverageTests` with actual `scripts/pr-diff-base.py:resolve_pr_diff` output from a genuine temporary Git repository and computed integration tree/commit. Asserts actual normal develop merge-base, actual changed path/status inventory and positive qualification; an unreviewed real follow-up commit is resolved via the same owner and stays unresolved. Existing injected negative status/missing-gate fixtures remain.
+- [Isolated job 6ad40413c66288145226d2a7](https://huggingface.co/jobs/ThunderHawk1080/6ad40413c66288145226d2a7): 44 planner tests and 13 actual executor regressions PASS, including test-discovery missing/skip/fail cases; Python compilation and diff check completed successfully. Current PR CI must be inspected on the exact policy SHA; no external Go/native system run or self-qualification. Changes to #978, #983, #984, #986 and #989 were not made.
+
 ### 2026-10-17 — Independent review of policy #991: changes required
 - [Review 5560602280](https://github.com/mcpdev80/baseharbor/pull/991#pullrequestreview-5560602280) inspected policy HEAD `15e14fc9e00d76a395bf6e7082bff9b96ba6aff5`, bound to unchanged product `95eed33e6a3852c21b8dc1a25ccc17e601f38da8`.
 - Actual policy [CI 39078339186](https://github.com/mcpdev80/baseharbor/actions/runs/39078339186) is fully successful including planner and finalcheck. Product coverage is not qualified by that result.
