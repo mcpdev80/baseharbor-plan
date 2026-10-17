@@ -13,19 +13,19 @@ sources: ["mcpdev80/baseharbor#917"]
 source_updated: "2026-10-15T16:46:23Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/975", "https://github.com/mcpdev80/baseharbor/commit/d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e", "https://github.com/mcpdev80/baseharbor/actions/runs/38995396298"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/975", "https://github.com/mcpdev80/baseharbor/pull/980", "https://github.com/mcpdev80/baseharbor/actions/runs/39024947250", "https://github.com/mcpdev80/baseharbor/actions/runs/38996500086", "https://github.com/mcpdev80/baseharbor/commit/4bc21c4d7a55c253db70b5329ec4c5326b90e6a3", "https://github.com/mcpdev80/baseharbor/commit/6e503ccb9abdb476245652b80a986379d1fa05ca"]
 ---
 
-- [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [x] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-917 New wiring)  
     **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975), [baseharbor#980](https://github.com/mcpdev80/baseharbor/pull/980)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/975), [proof 2](https://github.com/mcpdev80/baseharbor/commit/d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38995396298)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/975), [proof 2](https://github.com/mcpdev80/baseharbor/pull/980), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39024947250), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/38996500086), [proof 5](https://github.com/mcpdev80/baseharbor/commit/4bc21c4d7a55c253db70b5329ec4c5326b90e6a3), [proof 6](https://github.com/mcpdev80/baseharbor/commit/6e503ccb9abdb476245652b80a986379d1fa05ca)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -81,6 +81,15 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 - Do not edit `app_apply.go`, `app_apply_lifecycle.go`, `app_apply_result*`, `app_edit*`, shared workflows or registration. Those are outside this repair and overlap the separate Edit lane.
 
 ## Handoff
+
+### 2026-10-17 — Maintainer accepted and merged; intended solo-review path confirmed
+
+- **core-917 accepted.** Policy PR [#980](https://github.com/mcpdev80/baseharbor/pull/980) squash-merged into develop as `6e503ccb9abdb476245652b80a986379d1fa05ca`; product PR [#975](https://github.com/mcpdev80/baseharbor/pull/975) squash-merged as `4bc21c4d7a55c253db70b5329ec4c5326b90e6a3`. Both merges used the normal GitHub MCP merge API with exact expected source SHAs and mandatory green CI. Product main, tags, releases, shared AGENTS and live protection were not changed.
+- **Approval misunderstanding resolved:** independent technical inspection of policy source `6960ec42` is positive in [comment 6232696865](https://github.com/mcpdev80/baseharbor/pull/980#issuecomment-6232696865). GitHub's HTTP 422 for author self-APPROVE is expected and does not require another GitHub identity for Marcel's own PRs under the existing solo-maintainer configuration. Marcel expressly authorized continuing through that intended path. Technical review can be documented as COMMENT; no fake APPROVE was created. At execution, review ruleset `23754541` was active with Maintainer user `22537373` / `pull_request` bypass, while separate active CI ruleset `25223521` had **no bypass**, strict up-to-date policy and `PR Selected Checks` bound to GitHub Actions app `15368`. No ruleset was modified or weakened. Future sessions must inspect actual live policy and must not turn this known self-APPROVE limitation into a requirement for a second account when the authorized Maintainer path applies.
+- **Strict integration verified:** the unchanged independently inspected product source `d8caa81f` was normally merged with trusted policy develop `6e503ccb` into source `a4d99c5cd4580a04ded9ebc1ecd4ad30994dadc8`. Parents/order and canonical clean merge-tree were verified; only the two accepted planner/test files differ from d8caa81f. Product diff remains exactly 12 reviewed files. The existing reviewed-merge proof reports resolved coverage; no content exception or force-push.
+- **Final exact qualification:** [run 39024947250](https://github.com/mcpdev80/baseharbor/actions/runs/39024947250), source `a4d99c5c`, trusted base `6e503ccb`, integration `c0573727f982b2f912073796de54268ccd64bc06`. Actual New/controller/Guided, source/contracts, CLI format/vet/build, focused Python, workflow policy, exact candidate, runner and demo checks PASS. Docker lifecycle job `117374168921`, Podman lifecycle job `117374168864` and authenticated final `PR Selected Checks` job `117374892162` PASS. The required check on the exact PR head was read back as SUCCESS from integration app `15368` immediately before merge. Legacy validate/HA/full-release jobs were skipped. One coherent trusted-target update, no debug-push cancellations or unrelated native gates.
+- **Accepted behavior:** actual preserved checklist/No/empty-selection flow, exact Target/application/environment/requirement/provider desired preference persistence and later normal resolution, portable-source separation, create-only without silent runtime execution, fresh confirmation under the existing lock and shared presentation of incomplete lifecycle results without invented effects. Native/contract evidence qualifies this task; it does not authorize or qualify a full release/pre-release.
+- **Cleanup verified:** both merged remote branches (`review/core-917-d8caa81f-coverage`, `feature/core-917-new-lifecycle-wiring`) return NOT_FOUND after automatic deletion. Existing claims/history/core-918 work remain intact. core-918 remains active with its own unresolved functional findings; core-921 must continue waiting for it. Derived Ready/Closed cards and views are regenerated with this acceptance; no prerequisite is fabricated and no next implementation task is started.
 
 ### 2026-10-17 — Concrete trusted-policy proposal supplied (PR #980)
 
