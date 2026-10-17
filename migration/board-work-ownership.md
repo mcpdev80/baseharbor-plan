@@ -34,7 +34,7 @@ Maintainer directed immediate planning publication on `main` on 2026-10-16. AGEN
 
 ## Recurring release lifecycle assignment
 
-Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), implementation prepared. Add explicit release-start cleanup/dependency intake, readiness preparation, authorized pre-release, promotion/tagging and post-release cards for every concrete planned release; templates and cheap validation preserve this for future releases. Hide unset priority in card previews. Product implementation owners, current acceptance and release authorization remain unchanged; publish directly to planning main.
+Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), implementation handed off. Add explicit release-start cleanup/dependency intake, readiness preparation, authorized pre-release, promotion/tagging and post-release cards for every concrete planned release; templates and cheap validation preserve this for future releases. Hide unset priority in card previews. Product implementation owners, current acceptance and release authorization remain unchanged; publish directly to planning main.
 
 ### Release-cycle implementation evidence
 
@@ -43,3 +43,5 @@ Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), 
 - Empty priority is hidden in card previews only; maintained priority and summary unknowns stay unchanged. No product code, acceptance, qualification, dispatch, merge, tag, publication or Pages deployment is part of this change.
 
 - Verification: all 71 pre-existing task records independently compared; ownership, status, acceptance and historical handoffs preserved, with only required future-release intake dependencies added. 47 planning tests pass; render/sync is idempotent; validator reports zero errors and zero warnings. Source-qualified product evidence is not replaced by these planning tests.
+
+- Published directly to main at `d463c2c2f2a107486b29ab13972b576f668ae204`; exact remote commit independently fetched and validated (47 tests PASS; zero validator errors/warnings). GitHub [Plan · validate run 38985792263](https://github.com/mcpdev80/baseharbor-plan/actions/runs/38985792263) SUCCESS at that source. No planning branch or PR created. Planning-only implementation complete; lifecycle task acceptance and production execution remain open.
