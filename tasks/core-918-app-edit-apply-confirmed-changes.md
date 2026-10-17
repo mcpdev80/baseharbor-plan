@@ -87,3 +87,12 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 - Status remains active under the existing owner. No implementation acceptance, product merge or claim of an already implemented receipt bridge. core-921 continues to wait for the complete accepted Edit implementation.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
+
+### 2026-10-17 — Local safety guard, execution limitation (not review-ready)
+
+- Claim remains with mcpdev80 (core-918 Edit wiring); no product commit, PR, acceptance or merge is asserted.
+- Prepared the six-file local draft (`app_edit.go`, `app_edit_test.go`, `app_edit_apply.go`, `app_edit_apply_test.go`, `app_apply_result.go`, `app_apply_result_test.go`), including exact-source comparison, cancellation checks, same-directory source staging and a result projector. This is NOT yet a wired Edit command or native lifecycle receipt bridge.
+- Isolated source persistence test `GO111MODULE=off go test -count=1 -v` passed for `TestAppEditCommandSourcePreservationAndApproval`; not a BaseHarbor package/integration or required Docker/Podman gate. Other drafted tests are unexecuted.
+- Concrete execution-environment limitation: container `git ls-remote https://github.com/mcpdev80/baseharbor.git HEAD` returns `Could not resolve host: github.com`; local Go is `go1.23.2`, while project toolchain is newer. GitHub connector provides file-level API only, not an executable checkout. Product PR/CI was deliberately not attempted with unfinished code.
+- Core remaining implementation: source/ownership/consent authority binding before source write, actual `app_apply.go`/`app_apply_lifecycle.go` native outcomes under Target lock, real interactive command and end-to-end tests; no invented receipts or completed review handoff.
+- Obsidian and planning render/check were not executed in this environment; do not interpret this note as acceptance.
