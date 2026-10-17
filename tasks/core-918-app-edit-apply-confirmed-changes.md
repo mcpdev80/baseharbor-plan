@@ -17,7 +17,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf"]
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
+- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.co
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -80,6 +80,17 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 - The extra Apply source paths can exceed current trusted CI coverage. Publish their actual diff and tests for independent policy review if unresolved; never treat the scope grant as CI qualification or suppress the final check. No temporary workflow or full release matrix is authorized by this correction.
 
 ## Handoff
+
+### 2026-10-17 — Independent review: functional changes required (PR #978)
+
+- Reviewed exact source `5d62816f5a90a45836f8fcc49e1add42e12350bf`; independent [review #5555553577](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5555553577). Keep the existing claim and PR, return the task to active implementation. No acceptance, merge, policy exception or additional CI run.
+- The hosted results in run `38993072829` are confirmed: selected lifecycle and focused validations pass, but the final required check fails. The boundary is not merely a missing trusted coverage mapping: functional implementation gaps remain.
+- The production Edit executor factory has no non-test caller; the current handler requires an already-confirmed controller and injected authorities. Supply a runnable interactive handler assembled with the real source/lifecycle connection (registration still belongs to core-921), and exercise that default connection end-to-end.
+- Source persistence occurs before the existing Apply Target lock; before/after observations bracket a separately resolving, separately locked lifecycle. Move fresh identity/plan/consent validation, first source mutation and actual invocation-bound result capture into the authorized existing lifecycle boundary, preserving error-only callers and avoiding a second executor or nested lock. The read/compare/later-rename sequence is not an atomic source CAS; concurrent external edits and stale store-managed source need explicit protection.
+- An additional reviewer regression demonstrates that measured-zero before and measured-zero after currently fabricate a verified applied retirement receipt: BEFORE map-key existence is not runtime presence or proof of an effect by this invocation. Genuine add/change results must also be supported where authoritative facts exist, rather than omitting all After/material/function/effect outcomes permanently.
+- A second reviewer regression demonstrates canceled-context reuse for the post-execution observation. Preserve the original error and collect bounded read-only partial evidence independently of the canceled mutation context; observation failure never means success.
+- Existing focused Edit/receipt suites were checked locally with Go 1.26.9; both additional reviewer regressions fail as described. Temporary reviewer tests were removed from the product worktree after recording the evidence. No product source change or push was made by this review.
+- Continuation is already authorized within the bounded receipt scope, including minimal `app_apply.go` / `app_apply_lifecycle.go` hooks. Batch implementation, tests and formatting; qualify one coherent candidate, then update this handoff and rendered views. Seek independent trusted coverage qualification only after these functional findings are addressed. The prior handoff below remains historical evidence, not acceptance.
 
 ### 2026-10-17 — Execution-environment blocker; local continuation required
 
