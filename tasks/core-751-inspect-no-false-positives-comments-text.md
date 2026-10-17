@@ -22,7 +22,7 @@ evidence: []
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **Blocker:** Trusted PR planner classifies capability\_detection\_runtime.go and import detection regression files as inspect-implementation-unresolved; required focused coverage is not independently qualified.  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Needs: [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
+    **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -61,10 +61,15 @@ Capability import evidence comes only from real import/require/reference syntax,
 
 ## Dependencies and file ownership
 
+- Candidate implementation and local/focused validation are expressly permitted while the CI prerequisite remains under independent review. The blocker prevents acceptance and merge, not code authoring or test execution. Immutable content qualification and authenticated green mandatory finalcheck are required before either acceptance or merge.
+
 - Product implementation requires the qualified v0.4.26 PR/review/runner foundation (core-893, core-895, core-896; binding 2026-10-15 correction in [core-888](../epics/core-888-development-and-ci.md)).
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 **complete candidate for independent content review**: [PR #984](https://github.com/mcpdev80/baseharbor/pull/984), exact product HEAD `f6538550b026f99d83fdf811ac9243eaeb5195ff`, `develop` base `d54ac358fb6a6b256164ac2689a33e981c013baa`. Actual diff contains exactly `internal/repositoryinspect/capability_detection_runtime.go` (modified) and `internal/repositoryinspect/capability_import_detection_test.go` (added). Source evidence now derives from real Python import/from, Go parsed imports, and JS/TS import/from/require/dynamic-import syntax, excluding prompts, comments, strings and regex literals; package dependency metadata and bounded read-only scanner are unchanged. Isolated local syntax tests and `gofmt` passed, and [focused CI run 39029904829](https://github.com/mcpdev80/baseharbor/actions/runs/39029904829) confirms **SUCCESS** for `inspect-gofmt`, `inspect-vet`, `inspect-package-tests`, `inspect-consumer-tests`, `inspect-consumer-build`. The authoritative `PR Selected Checks` is **FAILURE** with `coverage-unresolved` for exactly these two files (final job `117388281945`), not a functional failure. This is a review candidate only; exact immutable source-content binding and independent coverage acceptance remain prerequisites to merge. No policy/workflow edits, no #983 merge and no core-894/core-918 changes.
+
 
 - 2026-10-17 implementation candidate: [PR #984](https://github.com/mcpdev80/baseharbor/pull/984), exact SHA `4014057e4b0e1319bf3ea7e5bdee8d66cc7a956b`, base `d54ac358fb6a6b256164ac2689a33e981c013baa`, limited to `internal/repositoryinspect/capability_detection_runtime.go` and `capability_import_detection_test.go`. Python/Go/JS/TS syntax-aware detection plus positive/negative tests. Candidate creation explicitly authorized despite unresolved CI prerequisite; no merge/acceptance until immutable source binding and independently qualified mandatory checks. Existing task remains blocked, #983 remains under independent review. Run 39029266030 is the first targeted candidate CI.
 
