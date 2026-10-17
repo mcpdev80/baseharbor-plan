@@ -81,6 +81,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Real successful Edit integration remains unproven
+
+- Current exact product head `3f6e97afdef4722c9545e61eb2c62aee5cb600ed` on existing PR #978. A connected `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` enters the real `runAppEdit` wizard, changes SQL requirement and selects an exact application-scoped PostgreSQL instance, previews, collects two acknowledgements, and invokes the real native Apply lifecycle without `lifecycleSeam` or constructed outcome receipts.
+- CI [39034224265](https://github.com/mcpdev80/baseharbor/actions/runs/39034224265) **fails** `wizard-app-edit-tests`: `app_edit_apply_test.go:696` reports `application machine: partial` after the real consent/lifecycle path. The preview explicitly reports `complete: false`, `unverifiable` provider facts and incomplete material inventory. This is a valid fail-closed non-success, not a green successful convergence. Do not relax success assertions or count a partial result as complete. The preceding HEAD `a3c62afc` failed at a missing application-scoped test provider; the current fixture now supplies an unbound canonical candidate.
+- The accepted core-917 Target deployment preference owner is wired into the existing Edit mutation hook; targeted direct owner / later resolution / stale-consent / Cancel / EOF tests were added. Prior [39033256414](https://github.com/mcpdev80/baseharbor/actions/runs/39033256414) showed 18 discovered Edit regressions and both native gates green, but does not satisfy the fully connected successful path.
+- **Next bounded implementation requirement:** establish a real, fully observable native provider success scenario and prove the entire connected Edit flow, without manufactured callback outcomes. Maintain separate partial/failure receipt checks. Until its CI succeeds, PR #978 is not ready for independent content qualification; existing `coverage-unresolved` remains fail-closed. No merge or author self-approval.
+
+
 ### 2026-10-17 — Implementation checkpoint (not qualified for independent review)
 
 - Role transfer from reviewer to implementer is active on existing PR #978. Current product candidate `c790a0cb1d14b58e7ab66bb39d35e1c32d58c1cf` builds on `4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b`, modifying only `cmd/baha/app_edit_apply_result.go` and `cmd/baha/app_edit_apply_test.go`.
