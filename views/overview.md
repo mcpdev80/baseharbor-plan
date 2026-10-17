@@ -29,7 +29,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md) | App new: connect the compact wizard to the existing lifecycle | review | not set | mcpdev80 (core-917 New wiring) | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975) |
+| [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md) | App new: connect the compact wizard to the existing lifecycle | review | not set | mcpdev80 (core-917 New wiring) | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975), [baseharbor#980](https://github.com/mcpdev80/baseharbor/pull/980) |
 
 ## Blocked
 

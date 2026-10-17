@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "mcpdev80 (core-917 New wiring)"
 depends_on: [core-916]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#975]
+prs: [mcpdev80/baseharbor#975, mcpdev80/baseharbor#980]
 sources: ["mcpdev80/baseharbor#917"]
 source_updated: "2026-10-15T16:46:23Z"
 labels: [area/dx]
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/975", "https://github.co
 - [ ] core-917 · App new: connect the compact wizard to the existing lifecycle #task #release/v0-4-26 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-917 New wiring)  
-    **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
+    **PR:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975), [baseharbor#980](https://github.com/mcpdev80/baseharbor/pull/980)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/975), [proof 2](https://github.com/mcpdev80/baseharbor/commit/d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38995396298)  
     <!-- /generated:card -->
 
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/975", "https://github.co
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-917 New wiring)  
 **Priority:** not set  
-**PRs:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975)  
+**PRs:** [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975), [baseharbor#980](https://github.com/mcpdev80/baseharbor/pull/980)  
 **Source:** [baseharbor#917](https://github.com/mcpdev80/baseharbor/issues/917)
 <!-- /generated:links -->
 
@@ -81,6 +81,17 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 - Do not edit `app_apply.go`, `app_apply_lifecycle.go`, `app_apply_result*`, `app_edit*`, shared workflows or registration. Those are outside this repair and overlap the separate Edit lane.
 
 ## Handoff
+
+### 2026-10-17 — Concrete trusted-policy proposal supplied (PR #980)
+
+- Task mapping: **core-917** product PR [#975](https://github.com/mcpdev80/baseharbor/pull/975), unchanged source `d8caa81f0c85bf4f9f48797408a9bfdb99c15b2e`; proposed policy PR [#980](https://github.com/mcpdev80/baseharbor/pull/980), source `6960ec422c9dd165874eb97f4a783c05c5f1779c`. These are two stages of the same task, not a new implementation assignment or work on core-918.
+- Independent inspection 5555616115 confirmed the source/evidence inventory but did not implement the bounded qualification. The product implementation author has now prepared the concrete two-file policy proposal for independent acceptance, without declaring their own product source accepted. This is not an approved exception or a merged policy.
+- Proposal binds to the exact reviewed product commit and the complete 12-file added/modified inventory; it reuses the existing verified clean trusted-target merge chain so strict normal integration may advance the PR head without allowing unreviewed content. Changed contents at the same paths, forged merge trees, extra/renamed/deleted paths, status mismatches and missing/invalid/stale integrations fail closed. Missing mandatory lifecycle gates also stay unresolved.
+- Existing source/application contracts, Guided/New/controller, CLI format/vet/build and both Docker/Podman lifecycle gates remain required for #975. Historical run 38995396298 documents reviewed evidence; it is never substituted for current authenticated integration results. No workflow/executor/verifier/protection change, new fingerprint engine, directory-wide exemption or release matrix.
+- Local policy proof: 74 planner/diff/executor/final-check tests PASS, including four new real-Git-fixture methods and real 65-gate catalog coverage; Python compile/whitespace PASS. One initial local run was stopped because the partial clone tried to lazy-fetch synthetic SHA fixtures; rerunning with local `GIT_NO_LAZY_FETCH=1` passed. No production configuration or remote CI workaround.
+- Regular policy CI [38996500086](https://github.com/mcpdev80/baseharbor/actions/runs/38996500086) is complete and SUCCESS, including Trusted Plan, Workflow policy, Focused Python, planner tests, executor/verifier tests, CI policy and the actual `PR Selected Checks` job `117290368121`. All native/HA/release jobs are skipped. This qualifies the policy implementation tests, not independent acceptance of the proposal or a green product-PR final check. No temporary pilot or additional native runtime run was created for the policy proposal.
+- Independent reviewer must now inspect **the actual PR #980**, not only repeat that develop lacks qualification. If the concrete risk/check binding is accepted and #980's required checks pass, integrate the policy, normally integrate develop into #975, require the real authenticated final check green and only then merge/accept core-917 with validated Planning/Obsidian/Ready closeout. Use GitHub MCP for all remote GitHub operations. Do not weaken required checks, merge red, or claim a conditional review is already acceptance.
+- Existing independent review, claim, earlier evidence and concurrent core-918 content remain intact. Status stays review; no self-approval, product merge or task acceptance.
 
 ### 2026-10-17 — Independent owner-coverage review (not accepted)
 
