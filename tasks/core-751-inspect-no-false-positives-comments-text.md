@@ -68,6 +68,14 @@ Capability import evidence comes only from real import/require/reference syntax,
 
 ## Handoff
 
+### 2026-10-17 — Independent review of b4ba76e3: changes required
+- Exact product HEAD: `b4ba76e31f9f58b8875134a980ef44e09830f362`. [Independent review 5560482872](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5560482872) supersedes the preceding candidate-specific review diagnosis.
+- Actual [CI 39050280796](https://github.com/mcpdev80/baseharbor/actions/runs/39050280796): all five Inspect checks successful; final check blocked by unresolved source coverage.
+- Current source review identifies two remaining cases: function expressions after continued comparison operators across a newline; interpolation boundary tracking after a control condition followed by a regex containing a closing brace. Valid JavaScript examples and the precise detector paths are recorded in the review.
+- Prior division-prefix rescanning was removed. No new Go execution was possible in this independent round: local executor offline and Hugging Face Jobs tool unavailable, with no job started. JavaScript example syntax was independently accepted by the engine. Do not represent the source-derived findings as executed Go regressions.
+- Next implementation: regress both cases directly and through EvidenceImport, preserve prior regression and work-bound coverage, then request independent re-review. #983 source binding remains withheld. Existing claim, task status, generated blocks and unrelated work are preserved. No qualification or merge.
+
+
 - 2026-10-17 **Review 5558780054 final CI evidence**: exact [#984 candidate](https://github.com/mcpdev80/baseharbor/pull/984) `b4ba76e31f9f58b8875134a980ef44e09830f362`; [hosted run 39050280796](https://github.com/mcpdev80/baseharbor/actions/runs/39050280796): all five Inspect gates **SUCCESS** (`inspect-consumer-build`, `inspect-gofmt`, `inspect-package-tests`, `inspect-vet`, `inspect-consumer-tests`), Trusted Plan, Workflow policy, Focused Python **SUCCESS**. Required `PR Selected Checks` **FAILURE** only `coverage-unresolved` for the two unreviewed repositoryinspect files; independent qualification withheld. [HF exact code check](https://huggingface.co/jobs/ThunderHawk1080/6ad3a435c6628814522698da) full package, vet and formatting PASS; [HF Planning 6ad3a496](https://huggingface.co/jobs/ThunderHawk1080/6ad3a4965ccb47ba0f7bc05c) 47 tests PASS, 0 errors/warnings and render stable on prior handoff. No live test, self-qualification, merge or other PR changes.
 
 
