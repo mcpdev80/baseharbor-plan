@@ -31,3 +31,7 @@ Correction verified: Current has Planned/Active/Review/Blocked/Closed; every can
 ## Live planning publication correction
 
 Maintainer directed immediate planning publication on `main` on 2026-10-16. AGENTS and WORKFLOW now require direct-main updates with concurrent-change preservation, rendering/validation and no force-push. Existing branch content must be integrated if still relevant, then the branch removed. Product task acceptance and product PR rules are unchanged.
+
+## Recurring release lifecycle assignment
+
+Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), active. Add explicit release-start cleanup/dependency intake, readiness preparation, authorized pre-release, promotion/tagging and post-release cards for every concrete planned release; templates and cheap validation preserve this for future releases. Hide unset priority in card previews. Product implementation owners, current acceptance and release authorization remain unchanged; publish directly to planning main.
