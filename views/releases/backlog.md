@@ -13,3 +13,4 @@ Epics: [core-209](../../epics/core-209-future-capabilities-integrations.md) Trac
 | [core-885](../../tasks/core-885-macos-signing-notarization.md) | macOS: signing and notarization | backlog | not set | — | — | — |
 | [core-886](../../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | not set | — | — | — |
 | [core-887](../../tasks/core-887-review-assess-technical-evaluations.md) | Review: assess technical project evaluations | backlog | not set | — | — | — |
+| [t-20261017-cli-package-layout-after-freeze](../../tasks/t-20261017-cli-package-layout-after-freeze.md) | CLI: assess package decomposition after the contract freeze | backlog | low | — | — | — |

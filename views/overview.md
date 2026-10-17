@@ -16,7 +16,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | ready | 5 |
 | queued | 27 |
 | waiting | 175 |
-| backlog | 6 |
+| backlog | 7 |
 | closed | 23 |
 
 ## Active
@@ -59,6 +59,6 @@ None.
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))
-- [backlog](../releases/backlog.md): Explicitly unscheduled work — 5 open, 0 closed ([view](releases/backlog.md))
+- [backlog](../releases/backlog.md): Explicitly unscheduled work — 6 open, 0 closed ([view](releases/backlog.md))
 - [maintenance](../releases/maintenance.md): Repository maintenance outside releases — 0 open, 1 closed ([view](releases/maintenance.md))
 - [triage](../releases/triage.md): Open work without a release decision — 1 open, 0 closed ([view](releases/triage.md))
