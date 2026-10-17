@@ -6,7 +6,7 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: "mcpdev80 (core-751 inspect import detection)"
-depends_on: [core-893, core-895, core-896]
+depends_on: [core-893, core-895, core-896, t-20261017-inspect-import-ci-coverage]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#751"]
@@ -63,6 +63,9 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- CI prerequisite: [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md) owns trusted import-detector qualification. core-751 remains blocked until its independent acceptance; no product import-detection code may claim resolved coverage before immutable reviewed-source qualification.
+
 
 - CI precondition: `scripts/pr-gate-plan.py` recognizes only `reconcile.go` and `reconcile_default_instance_test.go` as trusted Inspect coverage; other `internal/repositoryinspect/*.go`, including the affected detector, resolve to `inspect-implementation-unresolved` despite selecting inspect package/vet/format and consumer checks. A dedicated trusted qualification is required before a normal green PR finalcheck. Source reproduction: `capability_detection_runtime.go::detectCapability` uses whole-file substring detection for imports, which matches the MongoDB demo harness prompt. No product changes or PR were created.
 
