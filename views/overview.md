@@ -10,14 +10,14 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 2 |
 | review | 0 |
 | blocked | 0 |
 | ready | 7 |
 | queued | 27 |
 | waiting | 175 |
 | backlog | 6 |
-| closed | 20 |
+| closed | 21 |
 
 ## Active
 
@@ -25,7 +25,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md) | App new: connect the compact wizard to the existing lifecycle | active | not set | mcpdev80 (core-917 New wiring) | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975) |
 | [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | active | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | — |
-| [t-20261017-provider-projection-workload](../tasks/t-20261017-provider-projection-workload.md) | Provider choice: preserve workload identity in requirement projections | active | high | mcpdev80 (Maintainer dependency repair) | [core-913](../tasks/core-913-wizard-compatible-providers-same-view.md) | — |
 
 ## Ready for review
 
@@ -49,7 +48,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 11 open, 19 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 10 open, 20 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
