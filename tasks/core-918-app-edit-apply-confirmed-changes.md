@@ -81,6 +81,9 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+- 2026-10-17 implementation ownership transfer: assigned session changes role from independent reviewer to implementer for existing PR #978, addressing review #6233799563 only. Preserve prior commits and claim. Scope: connect confirmed Target/requirement/provider-instance preference through accepted core-917 desired owner under the existing Target lifecycle lock, and prove a real successful runAppEdit execution including durable later resolution. No reviewer self-qualification, merge, or policy change.
+
+
 ### 2026-10-17 — Independent review of exact 4f8084eb candidate: changes required
 
 - Independent finding [PR #978 comment #6233799563](https://github.com/mcpdev80/baseharbor/pull/978#issuecomment-6233799563) on exact source `4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b`, CI [39030528320](https://github.com/mcpdev80/baseharbor/actions/runs/39030528320): five-source lifecycle hook coverage remains unresolved at final PR check; selected wizard/CLI/source plus Docker and Podman lifecycle checks succeeded.
