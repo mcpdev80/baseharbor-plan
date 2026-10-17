@@ -45,3 +45,7 @@ Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), 
 - Verification: all 71 pre-existing task records independently compared; ownership, status, acceptance and historical handoffs preserved, with only required future-release intake dependencies added. 47 planning tests pass; render/sync is idempotent; validator reports zero errors and zero warnings. Source-qualified product evidence is not replaced by these planning tests.
 
 - Published directly to main at `d463c2c2f2a107486b29ab13972b576f668ae204`; exact remote commit independently fetched and validated (47 tests PASS; zero validator errors/warnings). GitHub [Plan · validate run 38985792263](https://github.com/mcpdev80/baseharbor-plan/actions/runs/38985792263) SUCCESS at that source. No planning branch or PR created. Planning-only implementation complete; lifecycle task acceptance and production execution remain open.
+
+## v0.4.26 lifecycle correction
+
+Assigned by Maintainer 2026-10-17; owner Codex (planning presentation session), active. Remove only the newly created cleanup/update cards for the already-running v0.4.26 and their prerequisite links; retain its four release completion stages. Future releases retain all six stages. Preserve existing product task state, ownership and acceptance; publish directly on main.
