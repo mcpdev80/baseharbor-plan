@@ -64,6 +64,136 @@ Expected machine/MCP preconditions get stable typed codes instead of being flatt
 
 ## Handoff
 
+- 2026-10-17 #986 follow-up regex portability: candidate `7b666773c948fedef0ea337f6212ee982986c88d` changes the two required runner patterns from Python-only `\\Z` to Go/Python-compatible `^TestExpectedPreconditionsShareTypedCLIMCPErrors---
+id: core-754
+areas: [mcp]
+type: bug
+release: v0.4.x
+version: ""
+parent: v0.4.x
+owner: "mcpdev80 (core-754 MCP preconditions)"
+depends_on: [core-893, core-895, core-896]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: ["mcpdev80/baseharbor#754"]
+source_updated: "2026-10-15T16:51:15Z"
+labels: [kind/bug, area/mcp, area/dx, area/compatibility]
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/active #view/active #area/mcp #kind/bug
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (core-754 MCP preconditions)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.x](../releases/v0.4.x.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+**Owner:** mcpdev80 (core-754 MCP preconditions)  
+**Priority:** not set  
+**PRs:** none  
+**Source:** [baseharbor#754](https://github.com/mcpdev80/baseharbor/issues/754)
+<!-- /generated:links -->
+
+## Goal
+
+Expected machine/MCP preconditions get stable typed codes instead of being flattened to `internal_error`.
+
+## Scope
+
+- Bug: `machine.Classify` only preserves already-typed `*machine.Error` values, so expected preconditions become `internal_error`: organization configuration not configured; unsupported organization source kind; application without registered deployment; repository manifest not found for workspace operations. CLI output stays actionable but automation cannot distinguish expected state from internal failure.
+- Required mapping: missing registered application/deployment → `not_found`; repository manifest/workspace source absent → `source_missing`; organization configuration absent → `validation_failed`; unsupported organization source kind → `unsupported_operation`; real internal/unclassified failures stay `internal_error`.
+- Triage (2026-10-15): some classification is now implemented in `cmd/baha/main.go` at `1b1ae323` (workspace/manifest absence, organization configuration errors). Source inspection alone does not prove every case: verify the listed outcomes, cancellation and unexpected-error behavior with bounded CLI/MCP checks and record the actual remaining failures.
+
+## Acceptance
+
+- `baseharbor.organization.inspect` without org config is not `internal_error`.
+- Unsupported organization source kind is not `internal_error`.
+- `baseharbor.status` / `policy.explain` for an unknown app return `not_found`.
+- `baseharbor.workspace.status` outside an app repository returns `source_missing`.
+- CLI and MCP use the same underlying typed error semantics.
+- Context timeout/cancellation behavior remains unchanged.
+- Unknown unexpected errors still classify as `internal_error`.
+- The source's "lands directly in active v0.4.21" item is historical.
+
+## Required checks
+
+- Focused machine/MCP tests and `go vet`.
+
+## Dependencies and file ownership
+
+- Product implementation requires the qualified v0.4.26 PR/review/runner foundation (core-893, core-895, core-896; binding 2026-10-15 correction in [core-888](../epics/core-888-development-and-ci.md)).
+- No open task dependencies. Related: core-750, core-751, core-752.
+
+ and `^TestMCPReadEntryExpectedPreconditions---
+id: core-754
+areas: [mcp]
+type: bug
+release: v0.4.x
+version: ""
+parent: v0.4.x
+owner: "mcpdev80 (core-754 MCP preconditions)"
+depends_on: [core-893, core-895, core-896]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: ["mcpdev80/baseharbor#754"]
+source_updated: "2026-10-15T16:51:15Z"
+labels: [kind/bug, area/mcp, area/dx, area/compatibility]
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/active #view/active #area/mcp #kind/bug
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (core-754 MCP preconditions)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.x](../releases/v0.4.x.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+**Owner:** mcpdev80 (core-754 MCP preconditions)  
+**Priority:** not set  
+**PRs:** none  
+**Source:** [baseharbor#754](https://github.com/mcpdev80/baseharbor/issues/754)
+<!-- /generated:links -->
+
+## Goal
+
+Expected machine/MCP preconditions get stable typed codes instead of being flattened to `internal_error`.
+
+## Scope
+
+- Bug: `machine.Classify` only preserves already-typed `*machine.Error` values, so expected preconditions become `internal_error`: organization configuration not configured; unsupported organization source kind; application without registered deployment; repository manifest not found for workspace operations. CLI output stays actionable but automation cannot distinguish expected state from internal failure.
+- Required mapping: missing registered application/deployment → `not_found`; repository manifest/workspace source absent → `source_missing`; organization configuration absent → `validation_failed`; unsupported organization source kind → `unsupported_operation`; real internal/unclassified failures stay `internal_error`.
+- Triage (2026-10-15): some classification is now implemented in `cmd/baha/main.go` at `1b1ae323` (workspace/manifest absence, organization configuration errors). Source inspection alone does not prove every case: verify the listed outcomes, cancellation and unexpected-error behavior with bounded CLI/MCP checks and record the actual remaining failures.
+
+## Acceptance
+
+- `baseharbor.organization.inspect` without org config is not `internal_error`.
+- Unsupported organization source kind is not `internal_error`.
+- `baseharbor.status` / `policy.explain` for an unknown app return `not_found`.
+- `baseharbor.workspace.status` outside an app repository returns `source_missing`.
+- CLI and MCP use the same underlying typed error semantics.
+- Context timeout/cancellation behavior remains unchanged.
+- Unknown unexpected errors still classify as `internal_error`.
+- The source's "lands directly in active v0.4.21" item is historical.
+
+## Required checks
+
+- Focused machine/MCP tests and `go vet`.
+
+## Dependencies and file ownership
+
+- Product implementation requires the qualified v0.4.26 PR/review/runner foundation (core-893, core-895, core-896; binding 2026-10-15 correction in [core-888](../epics/core-888-development-and-ci.md)).
+- No open task dependencies. Related: core-750, core-751, core-752.
+
+. Added isolated dependency-free Go package fixture whose two target tests must be exactly discovered and executed with the actual `runner.execute_validation` subprocess Go paths. Two similarly named additional tests fail intentionally if selected; all existing missing/SKIP/FAIL checks remain intact. [CI 39038225852](https://github.com/mcpdev80/baseharbor/actions/runs/39038225852) pending focused Python/planner jobs at publication; no success presumed until actual job results. #985 and #983 untouched; no self-review, merge or Source qualification. Planning-generated views not changed; no render/check execution claimed.
+
 - 2026-10-17 **updated #986 independent CI review handoff**: exact [CI PR #986](https://github.com/mcpdev80/baseharbor/pull/986) HEAD `70ec5d3f864a4f36bc7927e466451dcc226f6c1a`, [Actions 39037450572](https://github.com/mcpdev80/baseharbor/actions/runs/39037450572), attempt 1. Existing workflow invocations `python3 scripts/test_pr_gate_plan.py` and `python3 scripts/test_pr_check_runner.py` now actually run 44 and 16 tests respectively, both **PASS**. New test classes moved before final `unittest.main()`. Tests exercise mandatory discovery and actual output-contract parsing of each of the two core-754 Go tests: both RUN/PASS succeed; either missing, SKIP or FAIL blocks. Actual `.github/workflows/ci.yml` binding test verifies `wizard-*-tests` loads executable `pr-check-runner.py` from trusted `BASE_SHA` (not the untrusted PR head). Real temporary Git fixture creates independently reviewed source, advances trusted develop with CI, normally merges target into source, and confirms exact selection survives the clean merge while `coverage_status` remains **unresolved**; unreviewed post-merge follow-up remains rejected. Hosted CI: Trusted Plan, Focused Python, `pr-planner-tests`, `ci-policy`, `ci-executor-verifier-tests` all **SUCCESS**; `PR Selected Checks` **FAILURE** solely unreviewed CI executor sources `scripts/pr-check-runner.py`, `scripts/test_pr_check_runner.py`. This is correct, not an approval. To execute the *actual #985 Go tests*, #986 must first be independently reviewed and normally integrated into develop; then merge develop normally into #985 (no force), run its regular exact-integration CI, and evaluate each required Go test result. No claim that actual #985 Go tests have run; no self-qualification/merge. #983 paused and unchanged; review and reconcile its `scripts/pr-gate-plan.py` work separately without granting its contents. No release scope change; no generated status/metadata changed. Planning render/check validation remains unproven and must not be represented as green.
 
 - 2026-10-17 #986 continued CI implementation. Corrected regression placement so `python3 scripts/test_pr_gate_plan.py` and `python3 scripts/test_pr_check_runner.py` discover the added classes (previously after `unittest.main()`). The new runner regression drives the existing `execute_validation` with per-family Go `-list` and `-run` protocol fixtures; covers both PASS, each missing, each SKIP, and each FAIL; existing runner's missing/SKIP/non-PASS blockers remain. Added a workflow-source regression requiring `.github/workflows/ci.yml` `wizard-*-tests)` to execute `pr-check-runner.py` loaded via `git show "$BASE_SHA"`, never PR HEAD. Planner permits the exact #985 review commit after normal trusted-develop merge using the existing clean merge-chain proof, but still always emits `coverage_status=unresolved`; no source qualification or final-check relaxation. #985 cannot execute the new profile before #986 is independently accepted and integrated on develop, followed by normal develop integration into #985 and targeted PR CI. Interim CI [39036784285](https://github.com/mcpdev80/baseharbor/actions/runs/39036784285) failed planner test's mock call count; [39036847554](https://github.com/mcpdev80/baseharbor/actions/runs/39036847554) detected the new classes, 43 planner tests but runner fixture required downloading Go 1.25; [39036988980](https://github.com/mcpdev80/baseharbor/actions/runs/39036988980) planner succeeded but isolated Go fixture failed before discovery. Latest candidate `f64bde94459877e8a343c1d4e0755028d9453c49` in [CI 39037172618](https://github.com/mcpdev80/baseharbor/actions/runs/39037172618) awaiting actual jobs at handoff time; **no green final status asserted**. #983 remains paused, untouched; its `scripts/pr-gate-plan.py` additions need later ordinary reviewed reconciliation, not takeover. No merge/self-approval. Planning derived view validation not yet evidenced.
