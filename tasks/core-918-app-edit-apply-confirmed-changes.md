@@ -12,18 +12,19 @@ prs: []
 sources: ["mcpdev80/baseharbor#918"]
 source_updated: "2026-10-15T16:46:17Z"
 labels: [area/dx, area/compatibility]
-blocker: ""
+blocker: "Current session cannot obtain an executable GitHub checkout or the required Go toolchain; local receipt draft and concrete Edit/lifecycle integration remain unverified. Resume in a qualified development environment before further implementation claims."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/blocked #view/blocked #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
+    **Blocker:** Current session cannot obtain an executable GitHub checkout or the required Go toolchain; local receipt draft and concrete Edit/lifecycle integration remain unverified. Resume in a qualified development environment before further implement…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -78,6 +79,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 - The extra Apply source paths can exceed current trusted CI coverage. Publish their actual diff and tests for independent policy review if unresolved; never treat the scope grant as CI qualification or suppress the final check. No temporary workflow or full release matrix is authorized by this correction.
 
 ## Handoff
+
+### 2026-10-17 — Execution-environment blocker; local continuation required
+
+- The current implementation session reports repeated GitHub DNS failure and only Go 1.23.2, without an executable project checkout. The local draft is incomplete and has no qualified product PR or project/native test evidence. Mark blocked honestly; no acceptance or claim that the receipt bridge is implemented.
+- Maintainer's separate environment successfully executed `git ls-remote https://github.com/mcpdev80/baseharbor.git HEAD`; that does not repair this session's environment. Computer-use access is not an established requirement: a working CLI checkout, repository Go toolchain and existing isolated CI/native execution are sufficient. Connector file reads/writes alone do not prove those prerequisites.
+- A local continuation (for example Qwen with the user's local gh/checkout) should validate repository identity, current branch/dirty state, current claim, project toolchain and available targeted tests before adopting the task. Reuse/preserve existing draft files if accessible; do not claim an inaccessible download has been recovered. No ownership transfer or local recovery has been performed by this note.
+- Preserve the existing claim until a continuation is explicitly adopted; no competing implementation. Existing bounded Apply/receipt scope remains authorized. Do not touch core-917's preference-owner paths. Read the current core-917 note before consuming persistent preferences; its new owner implementation is not yet accepted and must not be assumed present.
+- The native receipt connection and full Edit command remain real implementation work even after tooling is restored. Cancellation observation must stay read-only under correct Target identity/locking, with actual partial evidence and original errors. No extra wrapper-only progress report or untested success claim.
 
 ### 2026-10-17 — Confirmed integration gap and corrected task scope
 
