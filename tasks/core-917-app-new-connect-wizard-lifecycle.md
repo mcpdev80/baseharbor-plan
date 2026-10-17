@@ -40,7 +40,7 @@ evidence: []
 
 ## Scope
 
-- In scope: `cmd/baha/app_new.go`, `app_new_wizard.go` and their dedicated tests.
+- In scope: `cmd/baha/app_new.go`, `app_new_wizard.go`, their dedicated tests, and the bounded authoritative preference integration authorized below.
 - Out of scope: command registry/help/goldens (core-921); no side refactor of `app_init_selection.go`.
 
 ## Acceptance
@@ -59,14 +59,32 @@ evidence: []
 
 ## Autonomous execution contract — 2026-10-16
 
-- **Owned files:** Existing `cmd/baha/app_new.go`, `app_new_wizard.go` and their matching dedicated tests only.
+- **Owned files:** Existing `cmd/baha/app_new.go`, `app_new_wizard.go` and their matching dedicated tests; additionally the bounded preference-owner paths below. These additional paths belong exclusively to this session for this repair, not core-918.
 - **Delivered interface/result:** Wire the accepted controller to the existing New authorities; deliver a compiling callable command/handler without editing the central registration owned by core-921.
 - **Task-specific proof:** `TestAppNewWizard*`/existing New adapter tests for create-only, consent, stale plan, no-input and idempotence; execute only the existing targeted native create gates justified by the actual runtime diff.
-- **Boundary:** No `app_init_selection.go`, root routing/registries, edit files, shared presenters or lifecycle implementation. Required native gate selection/execution must be available before assignment; this session owns running and diagnosing it.
+- **Boundary:** No `app_init_selection.go`, root routing/registries, edit files, shared presenters, or Apply execution/receipt files owned by core-918. The bounded existing preference-owner integration below is explicitly authorized. Required native gate selection/execution must be available; unresolved additional policy coverage requires independent qualification, never a self-exemption.
 - **Assignment gate:** use only accepted dependencies and APIs already present on develop. Confirm that the trusted plan/executor runs these exact test families on this task's file set and checks their outcomes. A plan that reports unresolved is not execution-ready. The CI-readiness inventory is maintained by [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md); later gaps become an explicit prerequisite before assignment, never an instruction to wait for another running session.
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
+## Bounded authoritative preference integration — Maintainer scope correction, 2026-10-17
+
+Source inspection confirms that the accepted read-only `ProviderPreference` model is not a complete persistent execution authority. `PreviewReferenceProviderRegistryAt` / `ReconcileReferenceProviderRegistryAt` rebuild deployment bindings through `releaseManagedBindingsPreservingInstances` and provider-kind placements; `applicationLifecycleSnapshot` then derives its preferences from that reconstruction. Directly inserting a binding from the wizard or setting temporary placement environment variables does not preserve the confirmed exact selection. This missing connection is now explicitly part of core-917 rather than an assumed completed dependency.
+
+- Preserve the existing task claim and PR #975. The same owner is authorized to deliver this bounded missing connection and the real checklist/No flow together; no new assignment is required.
+- Additional owned production paths: `internal/application/provider_preferences.go` (if needed), `internal/application/provider_registry.go`, `cmd/baha/application_provider_preferences.go` (if needed), and minimal integration in `cmd/baha/app_core_requirement.go`. Matching focused tests are included. If the existing canonical deployment record needs a narrowly scoped typed preference field or accessor, minimal changes in `internal/deployment/deployment_store.go` and its tests are also authorized; preserve old record compatibility. Do not invent a parallel wizard configuration/state file, transaction framework or second resolver.
+- Retain full Target + application identity + environment + requirement kind/name + provider kind/instance ID as desired deployment preference. Desired selection must be separate from applied/verified execution facts: create-only may retain preference after consent, but may not claim a runtime was created or bind a live consumer as if apply succeeded. Automatic versus explicit semantics and supported named instances must survive restart/reload.
+- Make preview, registry reconciliation, lifecycle snapshot and subsequent normal app up consume the same existing authoritative selection. Validate missing/duplicate/foreign/Target-incompatible/stale choices before mutation; preserve unrelated applications, environments and requirements. Reconciliation must not silently replace the explicit selection with the canonical placement-generated ID. Preserve existing locking/authorization/retention rules and fail closed where a native owner cannot actually realize a selected instance.
+- Required regressions: fresh create-only followed by a fresh read/later apply uses the selected non-default instance; two named requirements retain distinct choices; automatic reset, two Targets/environments, absent/foreign/incompatible instance, unknown/duplicate requirement, reconciliation repeat and existing record compatibility. Verify source remains provider-neutral and No/Cancel/stale consent do not write project/profile/preference state.
+- The review finding about real repeated No remains independently implementable now. Complete the accepted selection/controller loop as part of this same task; do not stop at another inventory of open work.
+- These new source paths are not automatically trusted CI coverage. Run sufficient focused package/contract tests and the necessary selected native cases, disclose any coverage-unresolved result and submit the concrete diff/evidence for independent policy qualification. Do not grant your own exception or claim scope authorization means acceptance.
+- Do not edit `app_apply.go`, `app_apply_lifecycle.go`, `app_apply_result*`, `app_edit*`, shared workflows or registration. Those are outside this repair and overlap the separate Edit lane.
+
 ## Handoff
+
+### 2026-10-17 — Confirmed persistence API gap; scope repaired
+
+- The implementation owner correctly identified the missing persistent exact-preference interface. Independent inspection confirms the registry release/rebuild and lifecycle snapshot derivation; a raw RegistryStore write from New is not a supported substitute. The original assignment assumed a capability the accepted owner did not yet expose. The bounded owner integration above is authorized within the existing task/PR.
+- No new product candidate, tests or merge are claimed by this scope correction. Prior green run 38987933827 remains exact-source evidence only. Keep the current claim and continue both P1 corrections to a complete review handoff.
 
 ### 2026-10-17 — Independent review: changes required, task not accepted
 

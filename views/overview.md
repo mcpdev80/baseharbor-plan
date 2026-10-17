@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 1 |
 | review | 0 |
-| blocked | 0 |
+| blocked | 1 |
 | ready | 7 |
 | queued | 27 |
 | waiting | 175 |
@@ -24,7 +24,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md) | App new: connect the compact wizard to the existing lifecycle | active | not set | mcpdev80 (core-917 New wiring) | [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#975](https://github.com/mcpdev80/baseharbor/pull/975) |
-| [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | active | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | — |
 
 ## Ready for review
 
@@ -32,7 +31,9 @@ None.
 
 ## Blocked
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | blocked | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | — |
 
 ## Ready to assign
 
