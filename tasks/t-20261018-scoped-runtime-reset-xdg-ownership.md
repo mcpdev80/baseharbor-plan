@@ -9,7 +9,7 @@ priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#993]
-sources: ["mcpdev80/baseharbor#992"]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
