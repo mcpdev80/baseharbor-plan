@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/966", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-912](core-912-wizard-needs-first-selection.md)  
-**Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [t-20261017-provider-projection-workload](t-20261017-provider-projection-workload.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-913 implementation)  
 **Priority:** not set  
 **PRs:** [baseharbor#966](https://github.com/mcpdev80/baseharbor/pull/966)  
