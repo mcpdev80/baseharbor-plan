@@ -16,7 +16,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-inspect-import-ci-coverage · CI: qualify import detector tests without path exemptions #task #release/v0-4-x #status/review #view/review #area/ci #kind/task
+- [ ] t-20261017-inspect-import-ci-coverage · CI: qualify import detector tests without path exemptions #task #release/v0-4-x #status/review #view/review #area/ci #area/inspect #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 trusted import coverage)  
     **PR:** [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983)  

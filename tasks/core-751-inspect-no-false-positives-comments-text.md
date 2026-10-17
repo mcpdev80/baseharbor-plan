@@ -21,12 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **Blocker:** Trusted PR planner classifies capability\_detection\_runtime.go and import detection regression files as inspect-implementation-unresolved; required focused coverage is not independently qualified.  
+    **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md) (open)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
 **Owner:** mcpdev80 (core-751 inspect import detection)  
 **Priority:** not set  
 **PRs:** none  
