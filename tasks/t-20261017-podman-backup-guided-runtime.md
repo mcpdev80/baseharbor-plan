@@ -5,7 +5,7 @@ areas: [runtime]
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "ChatGPT (bug-988 implementation session)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -16,7 +16,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/planned #view/ready #area/runtime #kind/bug
+- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/active #view/ready #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Ready to assign** · prerequisites accepted  
@@ -60,6 +60,8 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+- 2026-10-18: Claim published by ChatGPT (bug-988 implementation session) before product changes. Owner scope: the existing backup/restore integration fixture and its guided runtime selection. Production runtime implementation changes require confirmed production defect. No native/SSH retest or #978 changes.
 
 - 2026-10-17: Maintainer-authorized intake from Qwen's supplied pre-freeze audit; this session did not independently reproduce the native failure. The audit reports immediate failure in `runtimeUpGuided`: `runtime up: container runtime orchestration not found` / `ErrRuntimeNotFound`, under isolated state and Podman test selection. Other in-process native Core tests passed. Root cause remains unconfirmed; no successful disaster-recovery evidence exists. Source: `d54ac358fb6a6b256164ac2689a33e981c013baa`.
 - Discussion/evidence intake: [baseharbor#988](https://github.com/mcpdev80/baseharbor/issues/988). Unassigned, not implemented or accepted. No private machine identifiers, addresses, local paths or credentials included.
