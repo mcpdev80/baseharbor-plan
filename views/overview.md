@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
-| review | 2 |
+| active | 0 |
+| review | 3 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 27 |
@@ -23,12 +23,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | mcpdev80 (core-894 Actions presentation) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 | [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | review | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978) |
 | [t-20261017-inspect-import-ci-coverage](../tasks/t-20261017-inspect-import-ci-coverage.md) | CI: qualify import detector tests without path exemptions | review | not set | mcpdev80 (core-751 trusted import coverage) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983) |
 
