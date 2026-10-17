@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "Independent content review 5558337726 found nine failing syntax/EvidenceImport cases on aabc1347; functional corrections and independent re-review are required before source qualification or merge."
+blocker: "Independent re-review 5558472659 reproduces seven failing lexical-boundary cases on fcf756e8 (Java comment/literal/whitespace and JS brace/interpolation handling); correct and re-review before source qualification."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** Independent content review 5558337726 found nine failing syntax/EvidenceImport cases on aabc1347; functional corrections and independent re-review are required before source qualification or merge.  
+    **Blocker:** Independent re-review 5558472659 reproduces seven failing lexical-boundary cases on fcf756e8 (Java comment/literal/whitespace and JS brace/interpolation handling); correct and re-review before source qualification.  
     **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
@@ -67,6 +67,8 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 **independent re-review: changes required**, source `fcf756e8bc33139d48f5195df57de1cc9e1ed987`, [review 5558472659](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5558472659). All nine prior counterexamples now independently PASS, and the existing repositoryinspect package passes. Further executable lexical-boundary matrix reproduces seven failing cases in both the direct detector and actual EvidenceImport: Java block-comment/text-block false positives and tab-separated import false negative; JS object-expression division mistaken for regex; template interpolation terminated by braces inside strings, comments or regex. Java line-comment and template-prose controls pass; four JS examples syntax-checked with Node v24.19.0. Go 1.26.9, no live tests or product changes. Fix these three boundary classes together and preserve the corrected prior matrix; #983 source binding remains withheld. Five Inspect gates in CI 39043521651 pass, finalcheck remains unresolved; generic green tests do not override these functional findings.
 
 - 2026-10-17 **complete CI handoff for independent re-review**: exact #984 HEAD `fcf756e8bc33139d48f5195df57de1cc9e1ed987`, [run 39043521651](https://github.com/mcpdev80/baseharbor/actions/runs/39043521651) five Inspect gates all **SUCCESS** (`inspect-gofmt`, `inspect-package-tests`, `inspect-consumer-tests`, `inspect-vet`, `inspect-consumer-build`), plus Trusted Plan, workflow policy and Focused Python SUCCESS; required `PR Selected Checks` **FAILURE** only for independently unresolved source coverage on the two changed repositoryinspect files. Independent review [5558337726](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5558337726) must re-review/qualify; do not self-approve. [HF validation](https://huggingface.co/jobs/ThunderHawk1080/6ad38ede5ccb47ba0f7bb7b2) on Planning-main `dee3832d2053a3a47b3968b28a718d37f9bbafd6`: render stable, 243 tasks, 0 errors/warnings, 47 planning tests PASS. Task remains blocked for independent content review; no merge, native execution, or unrelated PR changes.
 
