@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create/check the six planning cards for each concrete release. Standard library only."""
+"""Create/check release cards; v0.4.26 retains only its four completion stages. Standard library only."""
 import pathlib
 import re
 import sys
@@ -13,6 +13,11 @@ STAGES = (
     ('verify', 'Release: verify publication, artifacts, Pages and closeout'),
 )
 VERSION = re.compile(r'^v\d+\.\d+\.\d+(?:\.\d+)?$')
+
+
+def stages_for(version):
+    """The startup policy starts after the already-running v0.4.26 release."""
+    return STAGES[2:] if version == 'v0.4.26' else STAGES
 
 
 def targets(vault):
@@ -40,11 +45,9 @@ def scope_tasks(vault, version, release):
 
 
 def expected_dependencies(vault, version, release, stage):
-    names = [s for s, _ in STAGES]
+    names = [s for s, _ in stages_for(version)]
     index = names.index(stage)
-    if not index:
-        return []
-    deps = [stage_id(version, names[index - 1])]
+    deps = [stage_id(version, names[index - 1])] if index else []
     if stage == 'prepare':
         deps += [t['id'] for t in scope_tasks(vault, version, release)]
     return sorted(set(deps))
@@ -62,10 +65,11 @@ def problems(vault):
                 errors.append((release['path'], f'invalid concrete cycle version {version!r}'))
     for task in vault.tasks.values():
         stage = task['meta'].get('release_stage')
-        if stage and (stage not in valid_stages or task['version'] not in planned):
+        if stage and (stage not in valid_stages or task['version'] not in planned or
+                      stage not in {name for name, _ in stages_for(task['version'])}):
             errors.append((task['path'], 'unknown release stage or concrete version'))
     for version, release in planned.items():
-        for stage, _ in STAGES:
+        for stage, _ in stages_for(version):
             matches = [t for t in vault.tasks.values() if t['version'] == version and
                        t['meta'].get('release_stage') == stage]
             if len(matches) != 1:
@@ -81,8 +85,7 @@ def problems(vault):
             if not set(expected).issubset(task['depends_on']):
                 errors.append((task['path'], f'release-cycle prerequisites missing; run scripts/release_cycles.py sync'))
         startup = stage_id(version, 'updates')
-        # v0.4.26 was already active when this policy was introduced. Its catch-up
-        # cards must not retroactively rewrite accepted/active implementation work.
+        # No retroactive startup requirement for the already-running release.
         if version != 'v0.4.26':
             for task in scope_tasks(vault, version, release):
                 if startup not in task['depends_on']:
@@ -105,7 +108,7 @@ def sync(root):
     vault = Vault(root).load()
     planned = targets(vault)
     for version, release in planned.items():
-        for stage, title in STAGES:
+        for stage, title in stages_for(version):
             tid = stage_id(version, stage)
             path = root / 'tasks' / (tid + '.md')
             if path.exists():
@@ -120,9 +123,13 @@ def sync(root):
             path.write_text(template, encoding='utf-8')
     vault = Vault(root).load()
     for version, release in planned.items():
-        for stage, _ in STAGES:
+        for stage, _ in stages_for(version):
             task = vault.tasks[stage_id(version, stage)]
-            set_dependencies(task['path'], task['depends_on'] + expected_dependencies(vault, version, release, stage))
+            deps = task['depends_on']
+            if version == 'v0.4.26':
+                retired = {stage_id(version, 'cleanup'), stage_id(version, 'updates')}
+                deps = [dep for dep in deps if dep not in retired]
+            set_dependencies(task['path'], deps + expected_dependencies(vault, version, release, stage))
         if version != 'v0.4.26':
             for task in scope_tasks(vault, version, release):
                 set_dependencies(task['path'], task['depends_on'] + [stage_id(version, 'updates')])

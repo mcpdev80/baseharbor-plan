@@ -47,3 +47,5 @@ Current shows **all Planned tasks**, including tasks waiting for prerequisites. 
 ## Release operations
 
 Every concrete scheduled version has visible [release lifecycle cards](RELEASE_WORKFLOW.md): cleanup → Renovate intake → complete preparation → authorized pre-release → promotion/tagging commands → verified publication. Cards appear in the existing release boards; no second lifecycle board or duplicate state.
+
+The already-running v0.4.26 has only preparation, pre-release approval, publication/tagging and post-release verification; its startup is not replayed. All six stages apply to subsequent releases.

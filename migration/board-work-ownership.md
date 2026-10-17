@@ -48,4 +48,6 @@ Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), 
 
 ## v0.4.26 lifecycle correction
 
-Assigned by Maintainer 2026-10-17; owner Codex (planning presentation session), active. Remove only the newly created cleanup/update cards for the already-running v0.4.26 and their prerequisite links; retain its four release completion stages. Future releases retain all six stages. Preserve existing product task state, ownership and acceptance; publish directly on main.
+Assigned by Maintainer 2026-10-17; owner Codex (planning presentation session), implementation complete. Remove only the newly created cleanup/update cards for the already-running v0.4.26 and their prerequisite links; retain its four release completion stages. Future releases retain all six stages. Preserve existing product task state, ownership and acceptance; publish directly on main.
+
+Correction supersedes the initial catch-up policy: the two unclaimed/unaccepted v0.4.26 startup cards were removed, their IDs remain reserved in Git history, and synchronization/validation now require only its four completion stages. Preparation retains all actual scoped implementation prerequisites and drops only the retired startup reference. All future versions retain all six stages and their intake prerequisites. 47 tests pass, including no regeneration, stale-reference removal and unchanged active work; validator has zero errors/warnings. No product acceptance or release operation performed.
