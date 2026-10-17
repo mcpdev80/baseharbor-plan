@@ -81,6 +81,13 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 
 ## Handoff
 
+### 2026-10-17 — Bounded fixes found by executable New regressions
+
+- Maintainer implementation now has an executable checkout and SHA256-verified Go 1.26.9 toolchain in its own workspace; the earlier session's environment failures are not asserted for this workspace. All changes are being batched before one candidate update to existing PR #975, without an author merge.
+- The bounded preference integration additionally requires `cmd/baha/application_backend_placement_owner.go` so later normal app resolution actually consumes desired selections instead of reinstating an earlier placement; `internal/application/manifest.go` receives one private, non-serialized preference projection field. Both changes are part of the existing owner integration, not a new portable configuration.
+- Two concrete empty-needs dependency defects were reproduced by the real New-entry test: controller copy converted empty choices to nil and then rejected them as changed; project bootstrap unconditionally rejected zero capability declarations despite an explicit, detected workload. Authorize the one-line empty-slice copy preservation in `cmd/baha/app_wizard_controller.go` and a bounded `internal/development/project.go` check requiring the explicitly declared workload components to be detected. Existing unsupported/missing workload validation remains fail-closed. No selection/resolver rewrite, Apply/Edit/receipt changes or shared CI edits.
+- The candidate includes full-path repeated-No/empty-needs/explicit preference/stale-selection tests, a real PTY arrow/Space/Enter check, canonical native owner admission, exact named preference persistence/reconciliation/reload/Target isolation tests, and unchanged verification flags for create-only. Results and the final SHA follow after the coherent local verification and single candidate publication. These additional paths still require independent trusted impact/coverage review; scope authorization is not a CI exception.
+
 ### 2026-10-17 — Maintainer implementation continuation
 
 - The previous implementation session stopped without a new candidate after confirming the two open P1 findings. The current ChatGPT workspace now continues implementation exclusively on the existing core-917 claim and PR #975. Preserve its source/history; do not start competing New/preference-owner edits. The bounded preference paths remain core-917-owned; core-918 Apply/Edit/receipt files remain excluded.
