@@ -5,7 +5,7 @@ type: bug
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: mcpdev80
+owner: "mcpdev80 (core-751 inspect import detection)"
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,14 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/planned #view/ready #area/inspect #kind/bug
+- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/active #view/active #area/inspect #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** mcpdev80 (core-751 inspect import detection)  
+    
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80  
@@ -63,5 +63,8 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+- 2026-10-17 claim: assigned core-751 exclusively. Trusted `develop` planner `scripts/pr-gate-plan.py` only resolves `internal/repositoryinspect/reconcile.go` and `reconcile_default_instance_test.go`; required import detector file `internal/repositoryinspect/capability_detection_runtime.go` and its regression tests are classified `inspect-implementation-unresolved` even when `inspect-package-tests`, `inspect-vet`, `inspect-gofmt` and the CLI inspect consumer checks are selected. This is a concrete pre-implementation coverage gap, not a permission to self-exempt. No unrelated sources or CI policy changes are authorized.
+
 
 - Earlier fix branch `fix/751-capability-import-noise-v0421` `aabd82ff6cb7f6a55f33001638e51e53dfc7f2a8`. Branch hygiene (2026-10-15): divergent earlier fix branches were inventoried; neither full integration nor safe deletion was proven by ancestry. Compare useful changes against the current contract; no blanket merge/rebase. The remote branches were later removed in the [maintenance cleanup](core-909-maintenance-remove-superseded-branches.md); their original commits are preserved in the Maintainer's local mirror backup.
