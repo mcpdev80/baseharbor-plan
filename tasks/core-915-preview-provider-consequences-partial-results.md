@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/969", "https://github.co
 
 - [x] core-915 · Preview: explain provider consequences and partial results #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-915) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-915)  
     **PR:** [baseharbor#969](https://github.com/mcpdev80/baseharbor/pull/969)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/969), [proof 2](https://github.com/mcpdev80/baseharbor/commit/701d9ac4f6e5b78658a4f429ad406f31087d44d9), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38911659557)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/969", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
-**Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
+**Required by:** [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-915)  
 **Priority:** not set  
 **PRs:** [baseharbor#969](https://github.com/mcpdev80/baseharbor/pull/969)  

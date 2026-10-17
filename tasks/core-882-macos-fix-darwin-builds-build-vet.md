@@ -6,7 +6,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#882"]
@@ -18,18 +18,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-882 · macOS: fix Darwin builds and verify build/vet #task #release/v0-4-29 #status/planned #view/ready #area/platform #kind/bug
+- [ ] core-882 · macOS: fix Darwin builds and verify build/vet #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/platform #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
-**Depends on:** none  
-**Required by:** [core-819](core-819-architecture-host-interface-guard.md)  
+**Depends on:** [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
+**Required by:** [core-819](core-819-architecture-host-interface-guard.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

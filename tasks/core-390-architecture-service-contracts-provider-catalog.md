@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/planned #view/ready #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 

@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: []
 sources: ["mcpdev80/baseharbor-node-connector#3"]
@@ -17,16 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/queued #area/connector #kind/task
+- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Later release** · prerequisites accepted  
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

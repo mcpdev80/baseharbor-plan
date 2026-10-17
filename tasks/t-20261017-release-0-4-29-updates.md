@@ -1,0 +1,60 @@
+---
+id: t-20261017-release-0-4-29-updates
+type: maintenance
+areas: [release]
+release: v0.4.29
+version: v0.4.29
+release_stage: updates
+parent: v0.4.29
+owner: ""
+priority: high
+depends_on: [t-20261017-release-0-4-29-cleanup]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+prs: []
+sources: []
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261017-release-0-4-29-updates · v0.4.29 · Release start: integrate Renovate updates before feature work #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-29-cleanup](t-20261017-release-0-4-29-cleanup.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.29](../releases/v0.4.29.md) (v0.4.29)  
+**Depends on:** [t-20261017-release-0-4-29-cleanup](t-20261017-release-0-4-29-cleanup.md)  
+**Required by:** [core-817](core-817-audit-host-portability-architecture.md), [core-819](core-819-architecture-host-interface-guard.md), [core-820](core-820-linux-host-adapters-regressions.md), [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-823](core-823-tests-platform-conformance-support.md), [core-882](core-882-macos-fix-darwin-builds-build-vet.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Goal
+
+Complete dependency intake before feature development.
+
+## Scope and acceptance
+
+- Immediately inventory all open Renovate PRs, dependency-dashboard entries, grouped updates and lockfile/container/action/toolchain pins in all four product repositories; include this plan repository when applicable.
+- Process and integrate all applicable pending updates first through product PR review and sufficient targeted checks. Resolve stale bases, conflicts, grouped/superseded PRs and actual failures; then freeze the post-update baseline.
+- Never merge unverified or incompatible updates blindly. An update that cannot safely land is an explicit blocker until fixed or the Maintainer explicitly decides its documented exclusion; remaining unresolved updates do not silently count as done.
+- Record PRs, merged SHAs, exact checks and any explicit exclusion. Keep subsequent Renovate arrivals in the normal intake; candidate-time changes go back through affected qualification.
+
+## Required checks
+
+Existing trusted dependency/lockfile/build/security/compatibility checks by impact; native tests only for uniquely uncovered risks. No automatic full matrix.
+
+## Dependencies and file ownership
+
+- Procedure and sources: [release workflow](https://github.com/mcpdev80/baseharbor-plan/blob/main/RELEASE_WORKFLOW.md#updates). Stage dependencies are synchronized by `scripts/release_cycles.py sync`; do not weaken them manually.
+- Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
+
+## Handoff
+
+Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.

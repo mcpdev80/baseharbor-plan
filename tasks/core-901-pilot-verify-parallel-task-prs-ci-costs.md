@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/958", "https://github.co
 
 - [x] core-901 · Pilot: verify parallel task PRs and CI costs #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-901) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-901)  
     **PR:** [baseharbor#958](https://github.com/mcpdev80/baseharbor/pull/958)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/958), [proof 2](https://github.com/mcpdev80/baseharbor/commit/394e0398fc56137f6009477cd0f878fb2851ce6b), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38887508335), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/38869216983), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38882179679)  
     <!-- /generated:card -->
@@ -29,6 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/958", "https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-901)  
 **Priority:** not set  
 **PRs:** [baseharbor#958](https://github.com/mcpdev80/baseharbor/pull/958)  

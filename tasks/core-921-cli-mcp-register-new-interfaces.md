@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
     **Needs:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
-**Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md)  
+**Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

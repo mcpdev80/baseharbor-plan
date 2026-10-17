@@ -6,7 +6,7 @@ release: v0.8.x
 version: v0.8.2
 parent: v0.8.x
 owner: ""
-depends_on: [core-313, core-314]
+depends_on: [core-313, core-314, t-20261017-release-0-8-2-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#315"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-315 · Kubernetes: verify backup and disaster recovery #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md)  
+    **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md), [t-20261017-release-0-8-2-updates](t-20261017-release-0-8-2-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.8.x](../releases/v0.8.x.md) (v0.8.2)  
-**Depends on:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md)  
-**Required by:** [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md)  
+**Depends on:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md), [t-20261017-release-0-8-2-updates](t-20261017-release-0-8-2-updates.md)  
+**Required by:** [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md), [t-20261017-release-0-8-2-prepare](t-20261017-release-0-8-2-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

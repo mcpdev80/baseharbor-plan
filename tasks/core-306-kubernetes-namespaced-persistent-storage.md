@@ -6,7 +6,7 @@ release: v0.7.x
 version: v0.7.3
 parent: v0.7.x
 owner: ""
-depends_on: [core-102, core-304]
+depends_on: [core-102, core-304, t-20261017-release-0-7-3-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#306"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-306 · Kubernetes: implement namespaced persistent storage #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md)  
+    **Needs:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md), [t-20261017-release-0-7-3-updates](t-20261017-release-0-7-3-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.3)  
-**Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md)  
-**Required by:** [core-307](core-307-kubernetes-stateful-workloads.md), [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
+**Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md), [t-20261017-release-0-7-3-updates](t-20261017-release-0-7-3-updates.md)  
+**Required by:** [core-307](core-307-kubernetes-stateful-workloads.md), [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-3-prepare](t-20261017-release-0-7-3-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

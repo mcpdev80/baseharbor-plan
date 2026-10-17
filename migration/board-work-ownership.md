@@ -34,4 +34,12 @@ Maintainer directed immediate planning publication on `main` on 2026-10-16. AGEN
 
 ## Recurring release lifecycle assignment
 
-Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), active. Add explicit release-start cleanup/dependency intake, readiness preparation, authorized pre-release, promotion/tagging and post-release cards for every concrete planned release; templates and cheap validation preserve this for future releases. Hide unset priority in card previews. Product implementation owners, current acceptance and release authorization remain unchanged; publish directly to planning main.
+Assigned by Maintainer 2026-10-17. Owner Codex (planning presentation session), implementation prepared. Add explicit release-start cleanup/dependency intake, readiness preparation, authorized pre-release, promotion/tagging and post-release cards for every concrete planned release; templates and cheap validation preserve this for future releases. Hide unset priority in card previews. Product implementation owners, current acceptance and release authorization remain unchanged; publish directly to planning main.
+
+### Release-cycle implementation evidence
+
+- Inspected current product AGENTS, development guidelines, canonical audit sections 1–13, releases/versioning, readiness and actual pre-release/release workflow source at product develop `b73e27603ee082f2fabb81df1b2789fba3367d23`. Older one-run wording versus authenticated resume support is an explicit reconciliation item for preparation, not a reason to rerun all green gates.
+- Added six real executable cards for all 28 explicitly scheduled concrete versions (168 cards), shared stage templates and RELEASE_WORKFLOW. Future cycle completeness/startup/scope dependencies are checked by the existing planning validator; sync preserves claims/status/evidence and does not invent x-series releases. Current v0.4.26 has honest startup catch-up without retroactive product-state changes.
+- Empty priority is hidden in card previews only; maintained priority and summary unknowns stay unchanged. No product code, acceptance, qualification, dispatch, merge, tag, publication or Pages deployment is part of this change.
+
+- Verification: all 71 pre-existing task records independently compared; ownership, status, acceptance and historical handoffs preserved, with only required future-release intake dependencies added. 47 planning tests pass; render/sync is idempotent; validator reports zero errors and zero warnings. Source-qualified product evidence is not replaced by these planning tests.

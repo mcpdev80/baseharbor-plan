@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-100 · Access: operator RBAC and just-in-time access #task #release/backlog #status/backlog #view/backlog #area/security #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     <!-- /generated:card -->
 
 <!-- generated:links -->

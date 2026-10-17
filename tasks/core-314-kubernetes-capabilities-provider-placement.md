@@ -6,7 +6,7 @@ release: v0.8.x
 version: v0.8.1
 parent: v0.8.x
 owner: ""
-depends_on: [core-313]
+depends_on: [core-313, t-20261017-release-0-8-1-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#314"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-314 · Kubernetes: add capabilities and provider placement #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md)  
+    **Needs:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [t-20261017-release-0-8-1-updates](t-20261017-release-0-8-1-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.8.x](../releases/v0.8.x.md) (v0.8.1)  
-**Depends on:** [core-313](core-313-kubernetes-complete-app-lifecycle.md)  
-**Required by:** [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md)  
+**Depends on:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [t-20261017-release-0-8-1-updates](t-20261017-release-0-8-1-updates.md)  
+**Required by:** [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md), [t-20261017-release-0-8-1-prepare](t-20261017-release-0-8-1-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

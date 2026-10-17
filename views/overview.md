@@ -13,9 +13,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | active | 2 |
 | review | 0 |
 | blocked | 0 |
-| ready | 9 |
-| queued | 5 |
-| waiting | 29 |
+| ready | 8 |
+| queued | 27 |
+| waiting | 176 |
 | backlog | 6 |
 | closed | 20 |
 
@@ -44,22 +44,21 @@ None.
 | [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [core-862](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) | Quality: staticcheck, govulncheck and risk-focused tests | ready | not set | — | — | — |
-| [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | — |
+| [t-20261017-release-0-4-26-cleanup](../tasks/t-20261017-release-0-4-26-cleanup.md) | v0.4.26 · Release start: reconcile old PRs, tasks and branches | ready | high | — | — | — |
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 6 open, 19 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 1 open, 0 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 1 open, 0 closed ([view](releases/v0.4.28.md))
-- [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 9 open, 0 closed ([view](releases/v0.4.29.md))
-- [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 0 open, 0 closed ([view](releases/v0.4.30.md))
-- [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 1 open, 0 closed ([view](releases/v0.4.31.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 12 open, 19 closed ([view](releases/v0.4.26.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 0 closed ([view](releases/v0.4.27.md))
+- [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
+- [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
+- [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
+- [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
 - [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 6 open, 0 closed ([view](releases/v0.4.x.md))
-- [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 4 open, 0 closed ([view](releases/v0.5.x.md))
-- [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 9 open, 0 closed ([view](releases/v0.7.x.md))
-- [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 8 open, 0 closed ([view](releases/v0.8.x.md))
+- [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
+- [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))
+- [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))
 - [backlog](../releases/backlog.md): Explicitly unscheduled work — 5 open, 0 closed ([view](releases/backlog.md))
 - [maintenance](../releases/maintenance.md): Repository maintenance outside releases — 0 open, 1 closed ([view](releases/maintenance.md))
 - [triage](../releases/triage.md): Open work without a release decision — 1 open, 0 closed ([view](releases/triage.md))

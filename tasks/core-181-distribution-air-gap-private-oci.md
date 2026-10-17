@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-181 · Distribution: air gap and private OCI registries #task #release/backlog #status/backlog #view/backlog #area/delivery #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     <!-- /generated:card -->
 
 <!-- generated:links -->

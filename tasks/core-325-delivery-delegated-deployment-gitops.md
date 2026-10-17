@@ -6,7 +6,7 @@ release: v0.7.x
 version: v0.7.8
 parent: v0.7.x
 owner: ""
-depends_on: [core-310]
+depends_on: [core-310, t-20261017-release-0-7-8-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#325"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-325 · Delivery: support delegated deployment and GitOps #task #release/v0-7-x #status/planned #view/waiting #board/planned #area/delivery #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
+    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.8)  
-**Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
-**Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md)  
+**Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md)  
+**Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [t-20261017-release-0-7-8-prepare](t-20261017-release-0-7-8-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/934", "https://github.co
 
 - [x] core-910 · Wizard: provide shared read-only editing state #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (session 2, preparatory implementation) · **Priority:** not set  
+    **Owner:** mcpdev80 (session 2, preparatory implementation)  
     **PR:** [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/934), [proof 2](https://github.com/mcpdev80/baseharbor/commit/be25a311f8e1367ea3ec800bcceb1c8169858566), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38869216983)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/934", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
-**Required by:** [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
+**Required by:** [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (session 2, preparatory implementation)  
 **Priority:** not set  
 **PRs:** [baseharbor#934](https://github.com/mcpdev80/baseharbor/pull/934)  

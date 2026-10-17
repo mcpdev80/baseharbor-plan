@@ -6,33 +6,32 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 19/25 · **Blocked:** 0 · **Waiting:** 3  
+    **Accepted tasks:** 19/31 · **Blocked:** 0 · **Waiting:** 8  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 0/1 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 6  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/1 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 6  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/9 · **Blocked:** 0 · **Waiting:** 7  
+    **Accepted tasks:** 0/15 · **Blocked:** 0 · **Waiting:** 14  
     [Scope](../releases/v0.4.29.md) · [Tasks](../views/releases/v0.4.29.md)
 
 - [ ] v0.4.30 · Simplify TLS and strengthen attack protection #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/0 · **Blocked:** 0 · **Waiting:** 0  
-    **Scope:** no executable tasks cut yet; see release scope.  
+    **Accepted tasks:** 0/6 · **Blocked:** 0 · **Waiting:** 5  
     [Scope](../releases/v0.4.30.md) · [Tasks](../views/releases/v0.4.30.md)
 
 - [ ] v0.4.31 · Final semantic acceptance #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/1 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 6  
     [Scope](../releases/v0.4.31.md) · [Tasks](../views/releases/v0.4.31.md)
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
@@ -42,15 +41,15 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/4 · **Blocked:** 0 · **Waiting:** 3  
+    **Accepted tasks:** 0/34 · **Blocked:** 0 · **Waiting:** 29  
     [Scope](../releases/v0.5.x.md) · [Tasks](../views/releases/v0.5.x.md)
 
 - [ ] v0.7.x · Kubernetes runtime #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/9 · **Blocked:** 0 · **Waiting:** 8  
+    **Accepted tasks:** 0/63 · **Blocked:** 0 · **Waiting:** 54  
     [Scope](../releases/v0.7.x.md) · [Tasks](../views/releases/v0.7.x.md)
 
 - [ ] v0.8.x · Complete Kubernetes support #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/8 · **Blocked:** 0 · **Waiting:** 8  
+    **Accepted tasks:** 0/56 · **Blocked:** 0 · **Waiting:** 48  
     [Scope](../releases/v0.8.x.md) · [Tasks](../views/releases/v0.8.x.md)

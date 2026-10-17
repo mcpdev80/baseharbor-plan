@@ -6,7 +6,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#884"]
@@ -17,18 +17,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-884 · Tests: verify the macOS runtime on a real Mac #task #release/v0-4-29 #status/planned #view/queued #area/testing #kind/acceptance
+- [ ] core-884 · Tests: verify the macOS runtime on a real Mac #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
-    **Later release** · prerequisites accepted  
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
-**Depends on:** none  
-**Required by:** [core-822](core-822-macos-darwin-adapters.md), [core-823](core-823-tests-platform-conformance-support.md)  
+**Depends on:** [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
+**Required by:** [core-822](core-822-macos-darwin-adapters.md), [core-823](core-823-tests-platform-conformance-support.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

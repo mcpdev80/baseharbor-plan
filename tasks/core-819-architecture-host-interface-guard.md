@@ -6,7 +6,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-depends_on: [core-882]
+depends_on: [core-882, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#819"]
@@ -19,17 +19,17 @@ evidence: []
 
 - [ ] core-819 · Architecture: define the host interface and guard #task #release/v0-4-29 #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md)  
+    **Needs:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
-**Depends on:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md)  
-**Required by:** [core-820](core-820-linux-host-adapters-regressions.md)  
+**Depends on:** [core-882](core-882-macos-fix-darwin-builds-build-vet.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
+**Required by:** [core-820](core-820-linux-host-adapters-regressions.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

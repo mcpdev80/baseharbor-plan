@@ -6,7 +6,7 @@ release: v0.8.x
 version: v0.8.0
 parent: v0.8.x
 owner: ""
-depends_on: [core-310, core-325]
+depends_on: [core-310, core-325, t-20261017-release-0-8-0-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#313"]
@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] core-313 · Kubernetes: implement the complete app lifecycle #task #release/v0-8-x #status/planned #view/waiting #board/planned #area/kubernetes #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md)  
+    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-8-0-updates](t-20261017-release-0-8-0-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.8.x](../releases/v0.8.x.md) (v0.8.0)  
-**Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md)  
-**Required by:** [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md)  
+**Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-8-0-updates](t-20261017-release-0-8-0-updates.md)  
+**Required by:** [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [core-320](core-320-acceptance-complete-kubernetes-support.md), [t-20261017-release-0-8-0-prepare](t-20261017-release-0-8-0-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] demo-24 · Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI #task #release/triage #status/backlog #view/backlog #area/demo #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/965", "https://github.co
 
 - [x] core-919 · Footprint: serve CLI and JSON from one projection #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-919) · **Priority:** not set  
+    **Owner:** mcpdev80 (core-919)  
     **PR:** [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/965), [proof 2](https://github.com/mcpdev80/baseharbor/commit/a1e58f1f3600bf95d0318662bbec447c6e8ed74a), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/38897612963)  
     <!-- /generated:card -->
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/965", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-914](core-914-preview-actual-footprint.md)  
-**Required by:** [core-920](core-920-machine-adapters-capability-changes-footprint.md), [core-921](core-921-cli-mcp-register-new-interfaces.md)  
+**Required by:** [core-920](core-920-machine-adapters-capability-changes-footprint.md), [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** mcpdev80 (core-919)  
 **Priority:** not set  
 **PRs:** [baseharbor#965](https://github.com/mcpdev80/baseharbor/pull/965)  

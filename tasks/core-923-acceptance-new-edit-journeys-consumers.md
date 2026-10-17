@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/acceptance #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Waiting for prerequisites**  
     **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md)  
     <!-- /generated:card -->
@@ -28,6 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

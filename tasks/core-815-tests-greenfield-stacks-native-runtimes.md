@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-x #status/planned #view/ready #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 

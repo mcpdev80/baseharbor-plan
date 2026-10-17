@@ -8,7 +8,7 @@ Status: open · release: [v0.4.28](../releases/v0.4.28.md)
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | queued | not set | — | — | — |
+| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | waiting | not set | — | [t-20261017-release-0-4-28-updates](../tasks/t-20261017-release-0-4-28-updates.md) (open) | — |
 
 ## [core-209](../epics/core-209-future-capabilities-integrations.md) · Track future capabilities and integrations
 
@@ -31,14 +31,14 @@ Status: open · release: [v0.4.29](../releases/v0.4.29.md)
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-819](../tasks/core-819-architecture-host-interface-guard.md) | Architecture: define the host interface and guard | waiting | not set | — | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) (open) | — |
-| [core-820](../tasks/core-820-linux-host-adapters-regressions.md) | Linux: integrate host adapters and verify regressions | waiting | not set | — | [core-819](../tasks/core-819-architecture-host-interface-guard.md) (open) | — |
-| [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) | WSL2: implement host behavior and Windows boundaries | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open) | — |
-| [core-822](../tasks/core-822-macos-darwin-adapters.md) | macOS: implement and qualify Darwin adapters | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open), [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open) | — |
-| [core-823](../tasks/core-823-tests-platform-conformance-support.md) | Tests: verify platform conformance and support | waiting | not set | — | [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) (open), [core-822](../tasks/core-822-macos-darwin-adapters.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open) | — |
-| [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | ready | not set | — | — | — |
-| [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) | macOS: run Quadlet inside Podman Machine | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open) | — |
-| [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) | Tests: verify the macOS runtime on a real Mac | queued | not set | — | — | — |
+| [core-819](../tasks/core-819-architecture-host-interface-guard.md) | Architecture: define the host interface and guard | waiting | not set | — | [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) (open), [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-820](../tasks/core-820-linux-host-adapters-regressions.md) | Linux: integrate host adapters and verify regressions | waiting | not set | — | [core-819](../tasks/core-819-architecture-host-interface-guard.md) (open), [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) | WSL2: implement host behavior and Windows boundaries | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open), [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-822](../tasks/core-822-macos-darwin-adapters.md) | macOS: implement and qualify Darwin adapters | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open), [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open), [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-823](../tasks/core-823-tests-platform-conformance-support.md) | Tests: verify platform conformance and support | waiting | not set | — | [core-821](../tasks/core-821-wsl2-host-behavior-windows-boundaries.md) (open), [core-822](../tasks/core-822-macos-darwin-adapters.md) (open), [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) (open), [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-882](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) | macOS: fix Darwin builds and verify build/vet | waiting | not set | — | [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-883](../tasks/core-883-macos-quadlet-inside-podman-machine.md) | macOS: run Quadlet inside Podman Machine | waiting | not set | — | [core-820](../tasks/core-820-linux-host-adapters-regressions.md) (open), [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
+| [core-884](../tasks/core-884-tests-macos-runtime-real-mac.md) | Tests: verify the macOS runtime on a real Mac | waiting | not set | — | [t-20261017-release-0-4-29-updates](../tasks/t-20261017-release-0-4-29-updates.md) (open) | — |
 | [core-885](../tasks/core-885-macos-signing-notarization.md) | macOS: signing and notarization | backlog | not set | — | — | — |
 | [core-886](../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | not set | — | — | — |
 

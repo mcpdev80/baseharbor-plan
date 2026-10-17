@@ -49,7 +49,7 @@ Rules (enforced by `scripts/plan.py check`):
 
 - Exactly **one checkbox per task note**, not indented: the card line. Write acceptance criteria as plain bullets.
 - The **status tag on the card line is the only maintained lifecycle state**. Do not add a status to the frontmatter. The generated `#view/…` routing tag derives readiness; edit canonical fields and run `render`, never edit the view tag.
-- The indented `generated:card` block is a read-only CardBoard preview of owner, optional priority, PRs, blocker and unfinished prerequisites. It is generated from the same task fields; it is not a second task record. An unset priority stays **not set**.
+- The indented `generated:card` block is a read-only CardBoard preview of owner, optional priority, PRs, blocker and unfinished prerequisites. It is generated from the same task fields; it is not a second task record. Unset priority is omitted from cards; summaries retain an explicit unknown value.
 - Refresh derived board content with `render` before assigning work; a checkbox edit in Obsidian does not execute Python automatically. CI rejects stale generated tags/previews.
 - The card's `#release/…` tag equals the `release` field with dots replaced by dashes (CardBoard tags cannot contain dots).
 - The block between `<!-- generated:links -->` markers is rendered from the frontmatter. Run `python3 scripts/plan.py render` after editing metadata.
@@ -132,3 +132,7 @@ The Current board separates scheduled work into **Planned** (unfinished prerequi
 Ready is maintained from the authoritative task records, not by manually moving cards. After every dependency acceptance, task claim, blocker change or handoff, integrate current planning `main`, run `python3 scripts/plan.py render` and `check`, and publish all refreshed views. Accepted dependencies automatically promote eligible planned tasks to Ready; claims remove them from Ready. Do not add a second task list or mark unfinished prerequisites accepted to fill the column.
 
 At each Maintainer acceptance/assignment review, inspect `python3 scripts/plan.py list --ready --release v0.4.26` (using the current release), the remaining waiting tasks and their real implementation/CI prerequisites. Keep genuinely independent slices documented with owned files, existing inputs, callable outputs and required checks before assignment. Record missing prerequisites explicitly. If no executable task is available, report that fact; never manufacture readiness or assign dependency work in progress. Implementation sessions maintain their assigned task and hand off without starting a new one.
+
+## Every release has an executable closeout
+
+[Release workflow](RELEASE_WORKFLOW.md) defines the six recurring cards and source checklist. Run `python3 scripts/release_cycles.py sync` when scheduling a concrete release or changing scope. Cleanup and Renovate intake precede future feature work; preparation waits for all scoped work; complete pre-release, promotion/tag commands and verified publication remain separate accepted stages. Current v0.4.26 startup cards are catch-up, not retroactive acceptance.

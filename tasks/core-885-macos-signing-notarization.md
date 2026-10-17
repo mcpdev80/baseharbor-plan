@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-885 · macOS: signing and notarization #task #release/backlog #status/backlog #view/backlog #area/platform #kind/feature
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** not set  
+    **Owner:** unassigned  
     <!-- /generated:card -->
 
 <!-- generated:links -->
