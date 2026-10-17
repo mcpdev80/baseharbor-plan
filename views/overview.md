@@ -34,7 +34,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## Blocked
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- | 
+| --- | --- | --- | --- | --- | --- | --- |
 | [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) | Inspect: avoid false positives from comments and text | blocked | not set | mcpdev80 (core-751 inspect import detection) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 
 ## Ready to assign
