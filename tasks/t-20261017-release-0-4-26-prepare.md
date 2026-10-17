@@ -59,4 +59,10 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-17 — Additional pre-release cleanup bug #992
+- [Product bug #992](https://github.com/mcpdev80/baseharbor/issues/992) must be corrected and independently retested before v0.4.26 release. Source inspection at `78a72ebad0723eefe760090bc34130b55858d8a3` shows `ci-runtime-reset.sh podman <scope>` still removes entire selected XDG BaseHarbor state directories; only runtime resource selection is scoped.
+- Do not use this scoped helper on shared XDG state as if it were isolated. No live cleanup was executed to establish the finding. Implementation belongs to a development session; executable disposable-sandbox regressions first, then independent review and Qwen native retest as appropriate. Preserve foreign resources and do not publish private machine identifiers.
+- Create/claim the canonical bug task and synchronize release dependencies/views before implementation. This Handoff intake preserves all existing claims/generated metadata; no completed validation or resolution is claimed.
+
+
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
