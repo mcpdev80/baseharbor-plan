@@ -81,6 +81,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Independent review of 8105d26d: targeted follow-up required
+- Exact product HEAD: `8105d26d1344ca2876a4e47750d32559fcb5d686`. [Independent review 5560483079](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5560483079).
+- Source review confirms replacement of the path-only projection exception with owner/link/permission/ancestor/content checks. Actual [CI 39050448948](https://github.com/mcpdev80/baseharbor/actions/runs/39050448948) confirms Edit, machine adapter and both selected runtime jobs successful; required final check remains blocked on 15 unresolved paths.
+- Follow-up: negative link/mode/certificate tests must exercise the real production completeness condition including sqlNativeGeneratedProjectionInventory. The current sqlNativeFilesPermitCompleteInventory helper is used only by tests and does not cover that exception. The Wizard CI log lists 22 TestAppEdit tests and does not itself execute the new TestNativeSQL tests; the implementer's separately linked isolated run remains a distinct evidence source.
+- Follow-up: enforce the new projection file read limit before/during reading. os.ReadFile currently allocates the entire leaf before the 1-MiB length rejection. Use a bounded stable-handle read with identity/ownership checks and a meaningful oversized-input regression.
+- This independent round reviewed source and actual GitHub logs; additional Go execution could not start because the local executor and Hugging Face Jobs tool were unavailable. No new runtime run, source qualification, acceptance or merge. Existing implementation scope and claim remain in force.
+
+
 ### 2026-10-17 — Independent review of 2b7bce71: changes required
 
 - [Review 5558741957](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5558741957), exact source `2b7bce71296be7cbd2841995ff38502d7e018c99`. All 18 changed source blobs verified against GitHub. Actual CI 39047709275 confirms real complete Edit and Machine Adapter families, separate Docker/Podman lifecycle, build/vet/gofmt, Guided and source contracts PASS; earlier connected-success and original-error problems are addressed.
