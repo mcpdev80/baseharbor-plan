@@ -81,6 +81,14 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Exact receipt diagnosis for `3f6e97af`
+
+- [Run 39034224265](https://github.com/mcpdev80/baseharbor/actions/runs/39034224265) exercised real `runAppEdit`: selected SQL/default `postgresql/application/.../default-...`, explicit Target selection, fresh read-only impact preview and both confirmations. The actual plan contained **one `update`** (`provider-changed`, `Functions: database.sql / outcome changed`), `Complete: false`, `Before/After: unverifiable`, and `material inventory incomplete`. The runtime path returns `application machine: partial` after genuine execution, rather than a proven complete result. Both separate native Docker and Podman lifecycle checks succeeded.
+- Receipt code `appApplyObservedOutcomes` intentionally emits no `applied` outcome for a proposed `update` with function consequences: `appAttestedRealizationOutcome` only attests physical add/resume/start/stop/replace transitions with measured pre/post facts and an authoritative registry snapshot, and rejects unobserved consumer function outcomes. `RecordProviderChangeResult` independently requires `plan.Complete` and all matching verified outcomes. This means the current SQL fixture is **both unqualified as a complete input observation** and **not supported by the current receipt attestation contract**. A running Docker container or a registry binding alone is not proof of SQL consumer continuity.
+- Do not weaken `plan.Complete`, copy planned function outcomes, add synthetic success receipts, or change a partial result into success. The successful connected provider-switch regression remains **unsatisfied** until a genuinely complete pre/post inventory and actual consumer-level evidence can be provided through an accepted owner; retain the red real-path test and separate fail-closed partial tests. No product HEAD change was made during this additional diagnosis.
+- Concurrent core-754 claim was preserved; generated Planning links and Ready/release views were synchronized at `0c5be40ced7be547b641698b4ec339675732b469`; [planning validation 39034932604](https://github.com/mcpdev80/baseharbor-plan/actions/runs/39034932604) succeeded.
+
+
 ### 2026-10-17 — Real successful Edit integration remains unproven
 
 - Current exact product head `3f6e97afdef4722c9545e61eb2c62aee5cb600ed` on existing PR #978. A connected `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` enters the real `runAppEdit` wizard, changes SQL requirement and selects an exact application-scoped PostgreSQL instance, previews, collects two acknowledgements, and invokes the real native Apply lifecycle without `lifecycleSeam` or constructed outcome receipts.
