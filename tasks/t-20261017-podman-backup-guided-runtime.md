@@ -9,27 +9,27 @@ owner: "ChatGPT (bug-988 implementation session)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#990]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/active #view/ready #area/runtime #kind/bug
+- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/review #view/review #area/runtime #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** ChatGPT (bug-988 implementation session) · **Priority:** high  
+    **PR:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** ChatGPT (bug-988 implementation session)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -60,6 +60,10 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+- 2026-10-18: Candidate handed off for independent review: product PR [#990](https://github.com/mcpdev80/baseharbor/pull/990), branch `fix/t-20261017-podman-backup-guided-runtime`, exact product source `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f` against `develop` `d54ac358fb6a6b256164ac2689a33e981c013baa`. Root cause is a test fixture error: isolated state had no configured Podman Target, so the product correctly resolved its implicit Docker default. The fixture now creates a local Target with the explicitly selected native runtime before `runtimeUpGuided`, rejects unsupported runtime names, and verifies effective selection. No production runtime resolver, ownership or consent checks were modified. Real backup, restore, restored SQL data/secret and identity assertions are retained unchanged.
+- Focused isolated Go 1.26.9 `TestAppBackupGuidedRuntimeFixture*` Docker/Podman/invalid cases, vet, build, formatting and diff checks PASSED: https://huggingface.co/jobs/ThunderHawk1080/6ad40008c66288145226d095. Trusted exact-SHA PR CI: https://github.com/mcpdev80/baseharbor/actions/runs/39078042399 (results to be evaluated separately). Native `TestAppBackupRestoreCLIRealDisasterRecovery` still requires Qwen's independently reviewed Podman retest; this author's isolated unit tests do NOT establish restored data or consumer access. No SSH/live author test, source qualification, self-acceptance, merge or #978 changes.
+
 
 - 2026-10-18: Claim published by ChatGPT (bug-988 implementation session) before product changes. Owner scope: the existing backup/restore integration fixture and its guided runtime selection. Production runtime implementation changes require confirmed production defect. No native/SSH retest or #978 changes.
 
