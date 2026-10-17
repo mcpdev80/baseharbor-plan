@@ -81,6 +81,11 @@ Source inspection confirms that the accepted read-only `ProviderPreference` mode
 
 ## Handoff
 
+### 2026-10-17 — Maintainer implementation continuation
+
+- The previous implementation session stopped without a new candidate after confirming the two open P1 findings. The current ChatGPT workspace now continues implementation exclusively on the existing core-917 claim and PR #975. Preserve its source/history; do not start competing New/preference-owner edits. The bounded preference paths remain core-917-owned; core-918 Apply/Edit/receipt files remain excluded.
+- No new product qualification or acceptance is claimed by this continuation notice. Implementation, local checks and one coherent hosted candidate will follow; independent review remains required.
+
 ### 2026-10-17 — Confirmed persistence API gap; scope repaired
 
 - The implementation owner correctly identified the missing persistent exact-preference interface. Independent inspection confirms the registry release/rebuild and lifecycle snapshot derivation; a raw RegistryStore write from New is not a supported substitute. The original assignment assumed a capability the accepted owner did not yet expose. The bounded owner integration above is authorized within the existing task/PR.
