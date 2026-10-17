@@ -81,6 +81,13 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-17 — Independent review of 2b7bce71: changes required
+
+- [Review 5558741957](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5558741957), exact source `2b7bce71296be7cbd2841995ff38502d7e018c99`. All 18 changed source blobs verified against GitHub. Actual CI 39047709275 confirms real complete Edit and Machine Adapter families, separate Docker/Podman lifecycle, build/vet/gofmt, Guided and source contracts PASS; earlier connected-success and original-error problems are addressed.
+- **P1 ownership regression:** `sqlNativeMaterialInventoryAllowsPublicProjection` accepts unverified materials based only on five path names, including `runtime/server-key.pem`. Real isolated filesystem regressions through `observeOwnedProviderFiles` reproduce symlink, group-writable and hardlinked key cases: authoritative observer reports incomplete/unknown/unverified, but the new helper returns true. The caller can consequently treat inventory as complete after a separate successful SQL query. Query success does not establish rejected file ownership or safety.
+- Preserve fail-closed ownership/link/type/permission/private-key verification. Distinguish narrowly proven safe generated public projections from actual inspection failures; no path-only exception or fabricated verified material. Add real-observer negatives and complete-inventory decision controls while retaining the genuine successful Edit and honest SQL partial cases. No live tests in the implementing session; Qwen owns native retest after review.
+- Reviewer independently executed Go 1.26.9: Machine Adapter, existing SQL material helper and confirmed-consent regressions PASS; application SQL catalog identity regression PASS; independent unsafe-projection matrix FAILS all three variants as above. No runtime/live systems, product changes, source qualification, acceptance or merge. Task remains active for correction.
+
 ### 2026-10-17 — Functional completion; independent trusted coverage handoff (2b7bce71)
 
 - Existing branch `feature/core-918-app-edit-safe-apply`, product [PR #978](https://github.com/mcpdev80/baseharbor/pull/978) remains draft; exact source `2b7bce71296be7cbd2841995ff38502d7e018c99`, develop `d54ac358fb6a6b256164ac2689a33e981c013baa`, integration `58f4d5ccb6c45cca198784785201a91dedf116fe`.
