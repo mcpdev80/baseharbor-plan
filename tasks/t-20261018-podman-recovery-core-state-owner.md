@@ -9,14 +9,30 @@ owner: "ChatGPT (bug-994 implementation session)"
 priority: high
 depends_on: [t-20261017-podman-backup-guided-runtime]
 repos: [mcpdev80/baseharbor]
-prs: []
-sources: ["mcpdev80/baseharbor#994", "mcpdev80/baseharbor#988", "mcpdev80/baseharbor#990"]
+prs: [mcpdev80/baseharbor#995]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/active #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/review #view/review #area/runtime #kind/bug
+    <!-- generated:card -->
+    **Owner:** ChatGPT (bug-994 implementation session) · **Priority:** high  
+    **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
+    **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** review  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Owner:** ChatGPT (bug-994 implementation session)  
+**Priority:** high  
+**PRs:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
@@ -43,5 +59,8 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 - Bounded ownership: existing backup/restore native test and direct tests; shared Core/OpenBao product code only for proven production issue.
 
 ## Handoff
+
+- 2026-10-18: Complete review handoff, stacked [PR #995](https://github.com/mcpdev80/baseharbor/pull/995), branch `fix/t-20261018-podman-recovery-core-state-owner`, exact product SHA `7b037b41cd6b071a55a231a5f291cc5de3bc7c25`; parent #990 SHA `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f`. Root cause: fixture used global `bhruntime.ExistingFiles("")` rather than existing selected-Target Core/OpenBao owner. Replaced test lookup with production `openBaoRuntime(ctx)` (selected runtime + Core-owned source files). The Podman runtime projects valid Core Compose input into Quadlet; no simulated Compose artifact or production code changes.
+- New focused tests for Docker and Podman use the real Core source owner (`EnsureFilesForProjectAndResources`), confirm global isolated override is not consulted, selected project and resource identity is exact, and missing owned source fails closed. All old recovery SQL, secrets, identity and actual consumer checks unchanged. Go 1.26.9 isolated targeted tests passed: https://huggingface.co/jobs/ThunderHawk1080/6ad4894d5ccb47ba0f7c2ca5. Hosted CI must be evaluated on exact product SHA. No live/SSH author test; independent review and Qwen native Podman recovery retest needed before release.
 
 - 2026-10-18: Assigned and claimed before product changes. Initial source inspection: ExistingFiles("") resolves global Compose state, not selected Target; Core/OpenBao authority resides in openBaoRuntime(ctx) and existingTargetRuntimeFiles(ctx). Determine Podman-specific artifact resolution before coding.

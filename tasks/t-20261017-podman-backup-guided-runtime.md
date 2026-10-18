@@ -26,7 +26,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
-**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
 **Owner:** ChatGPT (bug-988 implementation session)  
 **Priority:** high  
 **PRs:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
