@@ -18,18 +18,17 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
 
 - [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** ChatGPT (PR \#995 bootstrap-cleanup correction) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
-**Owner:** unassigned  
+**Owner:** ChatGPT (PR #995 bootstrap-cleanup correction)  
 **Priority:** high  
 **PRs:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
 **Source:** 
