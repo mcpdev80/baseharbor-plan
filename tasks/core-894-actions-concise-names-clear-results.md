@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: core-888
-owner: "mcpdev80 (core-894 Actions presentation)"
+owner: "ChatGPT (core-894 implementation correction)"
 depends_on: [core-893, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#982]
@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
+- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-894 Actions presentation)  
     **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
@@ -69,6 +69,8 @@ Titles and summaries explain trigger, result and next action within seconds.
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- **2026-10-18 — Role change/claim.** Maintainer assigns this session as core-894 implementer on existing PR #982, addressing independent review [5562367686](https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562367686). Scope: invalid verified reuse URLs/duration data and missing mandatory API jobs in the embedded display-only summary; preserve all nine existing tests and authoritative runner/finalcheck protections. No self-qualification, merge, or edits to #983/#991.
 
 - **2026-10-17 — Review handoff, no acceptance or merge.** Product [PR #982](https://github.com/mcpdev80/baseharbor/pull/982) stays unchanged at HEAD `10550e9dcecffdf539f5bf1393807c42e4506add`. The scoped display change provides concise Actions run naming and a non-authoritative Summary separating checked, reused, not required, failed and blocked work, with job duration and links. Existing required context `PR Selected Checks`, authenticated job names, technical evidence IDs, gate selection, trust and concurrency are preserved. GitHub's skipped/support jobs remain visible in the graph; selected runtime/capability cannot be embedded into a static pre-planning run name.
 - **Product evidence:** [Actions 39027425378](https://github.com/mcpdev80/baseharbor/actions/runs/39027425378), attempt 1: focused Python **SUCCESS** (nine regressions executing the actual embedded Summary: success, failure, blocked, required/non-required skip, verified reuse, missing API/plan data), plus workflow policy, actionlint, planner and executor/verifier validation **SUCCESS**. Required `PR Selected Checks` **FAILURE**, explicitly `coverage-unresolved` for `.github/workflows/ci.yml` and `scripts/test_pr_actions_summary.py`. Independent trusted-coverage qualification of this exact candidate is the remaining product prerequisite. No self-exemption, runtime-for-display test, merge or acceptance.
