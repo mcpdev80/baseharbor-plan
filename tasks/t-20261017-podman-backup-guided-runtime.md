@@ -61,6 +61,12 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 ## Handoff
 
+### 2026-10-18 — Native retest reaches next blocker; recovery not accepted
+- Supplied exact-SHA Qwen run at `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f` confirms actual Podman Core startup after #990. It then fails at test line 52 on the Compose-only ExistingFiles lookup; backup/destroy/restore/verify have not run.
+- [Follow-up bug #994](https://github.com/mcpdev80/baseharbor/issues/994) must be corrected/retested before release. Diagnose the real fixture/native Core state owner before declaring a general production defect or changing runtime/backup APIs. [PR evidence summary](https://github.com/mcpdev80/baseharbor/pull/990#issuecomment-6247879647).
+- #988 remains open at the full recovery acceptance boundary. Target selection alone is not disaster-recovery success. No helper/global reset used; owned resources cleaned by the tester.
+
+
 ### 2026-10-17 — Independent source review; native retest required
 - [Review 5560578165](https://github.com/mcpdev80/baseharbor/pull/990#pullrequestreview-5560578165) inspected exact candidate `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f`: bounded test-fixture Target setup; no production resolver or recovery assertions changed. No source-review blocker found in the correction.
 - Actual [CI 39078042399](https://github.com/mcpdev80/baseharbor/actions/runs/39078042399) selected checks successful; finalcheck reports the two test paths unresolved. Generic jobs do not prove execution of this opt-in native disaster-recovery test.
