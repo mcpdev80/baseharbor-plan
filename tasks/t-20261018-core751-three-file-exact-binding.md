@@ -8,14 +8,14 @@ owner: "mcpdev80 (independent reviewed source binding)"
 priority: high
 depends_on: [t-20261018-reviewed-policy-991-982-binding]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#997]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-core751-three-file-exact-binding · Reviewed #984 three-file immutable Inspect coverage #task #release/v0-4-x #status/active #view/active #area/ci #area/inspect #kind/task
+- [ ] t-20261018-core751-three-file-exact-binding · Reviewed #984 three-file immutable Inspect coverage #task #release/v0-4-x #status/review #view/review #area/ci #area/inspect #kind/task
 
 ## Claim and file ownership
 
@@ -26,3 +26,5 @@ evidence: []
 ## Handoff
 
 - Planning claim published before policy modification; Manager independently reviews exact new SHA after targeted CI.
+
+- 2026-10-18 Manager review handoff: [Draft PR #997](https://github.com/mcpdev80/baseharbor/pull/997) at exact SHA `8ab7f8dc0aca618a6d5e516d91be865f24206f18`; approved source `cf0a19bc4c8f398d7ee3fc07a635833168081ff5` bound to three exact file statuses and five Inspect mandatory checks. [HF 6ad4a76cc6628814522733d6](https://huggingface.co/jobs/ThunderHawk1080/6ad4a76cc6628814522733d6) 45 Planner and 10 Diff-Base regressions PASS, compilation/diff check PASS. CI pending. No merge or self-acceptance.
