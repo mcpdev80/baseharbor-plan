@@ -81,6 +81,12 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-18 — #991 conflict resolution source review positive
+- [Review 5562557553](https://github.com/mcpdev80/baseharbor/pull/991#pullrequestreview-5562557553) inspected exact `eeda633071714a0b43551ab947ad036ffaac1b1b`: only integrated #983 planner/test additions compared with accepted ba577; runner/test blobs unchanged, all MCP/NativeSQL requirements retained. No new source blocker found.
+- Actual CI 39117817159 selected checks successful; old source binding correctly does not authorize the conflict resolution. Prepare a separately reviewed narrow trusted-policy update replacing the old #991 SHA with this exact four-file modified candidate, retaining real merge proof and negative cases. No source approval inferred for future policy content.
+- No product/PR merge, CI bypass, local/native reviewer execution or #985 content acceptance.
+
+
 ### 2026-10-18 — Combined #991 source review positive
 - [Review 5562278686](https://github.com/mcpdev80/baseharbor/pull/991#pullrequestreview-5562278686) inspected exact combined candidate `ba577f0384b291ad01f8e4530ffe80119aa34c06`, retaining independently accepted #986 MCP execution and #991 NativeSQL requirements and regressions. No new source blocker found.
 - Actual CI 39113738227 selected checks successful; required finalcheck still blocks formal CI-runner qualification. The two #985 product tests are not claimed executed through trusted develop.
