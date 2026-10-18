@@ -5,30 +5,29 @@ type: bug
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: "mcpdev80 (core-754 MCP preconditions)"
+owner: Flash (codeman w1-baseharbor)
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#985]
 sources: ["mcpdev80/baseharbor#754"]
 source_updated: "2026-10-15T16:51:15Z"
 labels: [kind/bug, area/mcp, area/dx, area/compatibility]
-blocker: "Trusted develop integration, actual regular mandatory Go CI and formal source qualification remain pending for #985; paused for handover."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/blocked #view/blocked #area/mcp #kind/bug
+- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/active #view/active #area/mcp #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-754 MCP preconditions)  
+    **Owner:** Flash (codeman w1-baseharbor)  
     **PR:** [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985)  
-    **Blocker:** Trusted develop integration, actual regular mandatory Go CI and formal source qualification remain pending for \#985; paused for handover.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
-**Owner:** mcpdev80 (core-754 MCP preconditions)  
+**Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** not set  
 **PRs:** [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985)  
 **Source:** [baseharbor#754](https://github.com/mcpdev80/baseharbor/issues/754)
@@ -65,6 +64,12 @@ Expected machine/MCP preconditions get stable typed codes instead of being flatt
 - No open task dependencies. Related: core-750, core-751, core-752.
 
 ## Handoff
+
+### 2026-10-19 — Resumed; develop integration and actual Go execution next
+
+- Prior owner mcpdev80 (core-754 MCP preconditions) dormant since the ended pause; claim transferred to Flash (codeman w1-baseharbor) under the 2026-10-19 board mandate; prior records preserved.
+- Verified: Draft #985 open at `5a3813385af5392a9be3095bd038424a4f9950b7`; no formal review records. The #986 supersession was verified administratively (see [2026-10-19 decision](../decisions/2026-10-19-pause-lifted-codeman-delegation.md)): the runner/gate scripts exist and evolved on current develop through merged #991; #986 is closed unmerged as administrative supersession.
+- Next: integrate current develop into the branch, execute both exact MCP-precondition Go families plus vet/build, push for actual trusted-base current CI.
 
 ### 2026-10-18 — Handover snapshot; remaining CI not implementation activity
 
