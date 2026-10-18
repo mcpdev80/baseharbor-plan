@@ -89,3 +89,10 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 
 - Existing PR #995, exact baseline `560ae9be9c6093a48d1b4b9375286cf4e33fed28`. Owned files: `cmd/baha/app_backup_restore_integration_test.go`, bounded related fixture regressions only. Reuse production-selected Core/OpenBao credentials; no second bootstrap or permissive initialized fallback.
 - Register cleanup before runtimeUpGuided; bounded fresh context and partial-start cleanup, no global reset or unrelated resource deletion. Preserve all backup, restore, SQL, secrets, consumer and regenerated identity checks. Only isolated tests; native Podman retest remains Qwen-owned. No own qualification or merge.
+
+### 2026-10-18 — #995 bounded candidate; independent review pending
+
+- Existing PR #995 corrected from `560ae9be9c6093a48d1b4b9375286cf4e33fed28` to exact candidate `c77307c9bcd7cbcfd33fafb9e75283d4fe688cc2`. No Core/OpenBao product or CI policy code changed. RuntimeUpGuided remains initialization/credential authority; native acceptance checks live manager readiness through existing `inspectManagedOpenBao` rather than calling second `openbao.Bootstrap`.
+- Existing consent-checked `approvedNativeFixtureCleanup` is registered via `t.Cleanup` **before** startup. Cleanup gets fresh 3-minute background context even after cancelled startup, retains owned Target boundaries and does not touch unrelated resources; cleanup errors are reported rather than ignored.
+- Added direct production-path helper regressions for success, failed partial startup, authenticated-readiness failure, pre-start cleanup registration, bounded fresh cancelled-parent cleanup, and foreign sentinel preservation. All preexisting native full Backup → Destroy → Restore, SQL, secrets, identity regeneration and consent assertions preserved verbatim.
+- Isolated Go job [6ad4b086c662881452273729](https://huggingface.co/jobs/ThunderHawk1080/6ad4b086c662881452273729) and CI [39124266211](https://github.com/mcpdev80/baseharbor/actions/runs/39124266211) must be evaluated on exact SHA. No live test or self-qualification. Qwen Native Podman retest remains mandatory after independent review.
