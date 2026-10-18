@@ -7,16 +7,16 @@ version: ""
 parent: v0.4.26
 owner: "ChatGPT (bug-994 implementation session)"
 priority: high
-depends_on: [t-20261017-podman-backup-guided-runtime]
+depends_on: [t-20261017-podman-backup-guided-runtime, t-20261018-podman-recovery-bootstrap-cleanup]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: ""
+blocker: "Native retest fails before backup: OpenBao already initialized; owned-resource cleanup incomplete. See t-20261018-podman-recovery-bootstrap-cleanup."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/review #view/review #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-994 implementation session) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -59,6 +59,12 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 - Bounded ownership: existing backup/restore native test and direct tests; shared Core/OpenBao product code only for proven production issue.
 
 ## Handoff
+
+### 2026-10-18 — Native retest failed; acceptance blocked
+
+- Qwen reports exact `560ae9be9c6093a48d1b4b9375286cf4e33fed28` fails 2/2 clean native Podman starts before backup: fixture calls openbao.Bootstrap after runtimeUpGuided has already initialized the real Core. Error: OpenBao is already initialized. Own Core/Identity resources leaked on assertion failure; Qwen removed only owned resources and restored baseline.
+- Canonical release-blocking follow-up: [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md). Existing selected-Target state fix remains useful, but neither generic green CI nor that partial source review proves full disaster recovery. SQL data, secrets, consumer and token/certificate regeneration remain untested.
+- No product recovery defect established, no native rerun by manager, no acceptance or merge. Continue correction on existing #995; Qwen retests only after independently reviewed new candidate. Derived views require executable regeneration on current main.
 
 ### 2026-10-18 — Independent #995 source review; ready for native retest
 - [Review 5562279087](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5562279087) inspected exact candidate `560ae9be9c6093a48d1b4b9375286cf4e33fed28`: test now uses existing openBaoRuntime(ctx) for a matched selected-Target runtime/files pair, instead of global ExistingFiles. No production resolver or recovery safety policy changed; no new source blocker found.
