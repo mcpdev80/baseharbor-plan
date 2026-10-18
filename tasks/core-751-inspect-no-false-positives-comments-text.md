@@ -5,7 +5,7 @@ type: bug
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: "mcpdev80 (core-751 inspect import detection)"
+owner: "ChatGPT (PR #984 source split implementation)"
 depends_on: [core-893, core-895, core-896, t-20261017-inspect-import-ci-coverage]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#984]
@@ -66,6 +66,9 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+### 2026-10-18 — Implementer claim: source readability split
+- Assigned solely the source-file split for existing PR #984 at integrated SHA `8c2ce09975fe3ed6722cd06a2b19848969c8f9a1`. Move cohesive JS lexer/context functions into a package-local file without altering bodies or tests. Source-readability audit, focused Inspect regression, hosted CI and Planning required. Existing coverage binding must be independently re-reviewed for changed path set; no self-qualification or merge.
 
 ### 2026-10-18 — Trusted policy integrated; structural source requirement remains
 - #983 accepted and squash-merged at `980e8db8b93c09db61ac8a0ea873bc6f43d1dedf`; strict required CI green, review 5562448322, no self-approval or CI bypass.
