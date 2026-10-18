@@ -8,14 +8,14 @@ owner: "mcpdev80 (independent reviewed policy binding)"
 priority: high
 depends_on: [t-20261017-inspect-import-ci-coverage]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#996]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/active #view/active #area/ci #kind/task
+- [ ] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/review #view/review #area/ci #kind/task
 
 ## Claim and exclusive writing scope
 
@@ -27,3 +27,5 @@ evidence: []
 ## Handoff
 
 - Claim published before product repository writes. Independent manager review required after focused CI and Planning validation.
+
+- 2026-10-18 complete implementation, independent Manager review pending: [Draft PR #996](https://github.com/mcpdev80/baseharbor/pull/996) exact candidate `49fc111052f1334bd57a4b80f841ff22d0ba5709`. Exact four modified #991 file statuses and #982 modified workflow/added actions-summary regression bound to positive independent reviews, trusted merge proof unchanged. Requires CI planner/executor/policy plus actionlint; Focused Python remains mandatory by trusted workflow. [Isolated HF job 6ad4a1c2c6628814522730dc](https://huggingface.co/jobs/ThunderHawk1080/6ad4a1c2c6628814522730dc): 44 planner tests, 10 real diff-base tests, syntax/diff checks PASS. [CI 39120110461](https://github.com/mcpdev80/baseharbor/actions/runs/39120110461) pending final job evaluation. No self-qualification, no product edits or merge.
