@@ -10,7 +10,7 @@ sources: ["mcpdev80/baseharbor#777"]
 
 Source: [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777) (labels kind/feature, area/dx, area/compatibility). Parent: [v0.4.27](../releases/v0.4.27.md) work area 2. Final acceptance: #174 (v0.4.31). Contract freeze: #175. Related: #408, #613, #743, #399, #61, #102.
 
-This note condenses the source's explanatory prose and keeps **every acceptance criterion and normative rule**. The full original text, including examples and rationale, is in the [source snapshot](../migration/source-snapshot/baseharbor/777.json). No executable tasks are cut yet: cut them before implementation.
+This note condenses the source's explanatory prose and keeps **every acceptance criterion and normative rule**. The full original text, including examples and rationale, is in the [source snapshot](../migration/source-snapshot/baseharbor/777.json). Executable slices and criterion coverage are linked from the [v0.4.27 fine plan](../releases/v0.4.27.md#implementation-slices). No implementation is assigned merely by creating a card.
 
 ## Release assignment (2026-10-10)
 
@@ -190,3 +190,7 @@ Freeze one simple, standards-first developer access and credential-portability m
 ## Pre-freeze rule
 
 Blocker for #174 semantic acceptance and #175 contract freeze. The v0.5 baseline must not freeze: login required for local development; BaseHarbor replacing Git/SSH/kubeconfig/cloud auth; profile export equal to application backup; remote secrets copied to developer machines by default; unrecoverable secure local credentials; product-specific repository credential models. Frozen rule: native standards first → work without login when safe → ask only when necessary → developer chooses temporary vs secure → secure means reusable, protected and recoverable → secrets stay at their ownership boundary.
+
+## Fine-plan coverage (2026-10-18)
+
+The [criterion-by-criterion map](../decisions/2026-10-18-v0-4-27-task-coverage.md) assigns every acceptance bullet and normative rule to concrete task IDs. Original criteria above remain authoritative; no requirement is dropped or accepted by this decomposition. Console UI/wizard consumption is explicitly verified in v0.4.28, using the accepted v0.4.27 domain/API.

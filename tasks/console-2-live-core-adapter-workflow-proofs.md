@@ -6,7 +6,7 @@ release: v0.4.28
 version: ""
 parent: console-1
 owner: ""
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]
 repos: [mcpdev80/baseharbor-console]
 prs: []
 sources: ["mcpdev80/baseharbor-console#2"]
@@ -21,14 +21,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
 **Required by:** [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
@@ -70,6 +70,10 @@ The Console's live mode reads and mutates only through the protected Core adapte
 ## Dependencies and file ownership
 
 - Console repository; Core slices for install UX and authorization/target-list fixes are separate linked tasks (to be cut). Coordinate with nc-3 and core-777.
+
+## v0.4.27 consumption prerequisite
+
+The accepted shared management API, two-workstation authority proof and access proof are explicit prerequisites. v0.4.28 owns Console UI and browser consumption of the same state/identity/access/profile/offboarding semantics; no duplicate authority or credential database. No Console implementation scope is pulled into v0.4.27.
 
 ## Handoff
 

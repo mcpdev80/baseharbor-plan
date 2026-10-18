@@ -28,6 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.26](../releases/v0.4.26.md) (v0.4.26)  
 **Depends on:** [t-20261017-release-0-4-26-publish](t-20261017-release-0-4-26-publish.md)  
+**Required by:** [t-20261017-release-0-4-27-cleanup](t-20261017-release-0-4-27-cleanup.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  

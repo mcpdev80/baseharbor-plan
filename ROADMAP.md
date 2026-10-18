@@ -23,7 +23,7 @@ v0.4.23 (#571), v0.4.24 (#603) and v0.4.25 (#872, closed 2026-10-15) are publish
 | Release | Note | Scope and main dependencies |
 | --- | --- | --- |
 | v0.4.26 | [v0.4.26](releases/v0.4.26.md) · epic [core-888](epics/core-888-development-and-ci.md) | Compact needs-first wizard, CLI/JSON/MCP footprint and developer docs; bounded workflow/CI V1 with small PRs and conservative test selection |
-| v0.4.27 | [v0.4.27](releases/v0.4.27.md) | Remote development and onboarding; developer access and profile portability [core-777](epics/core-777-developer-access-and-profiles.md) |
+| v0.4.27 | [v0.4.27](releases/v0.4.27.md) | One local/remote workflow, shared installation-owned state and app binding; durable operations, source/image delivery, remote web and developer access/profile portability [core-777](epics/core-777-developer-access-and-profiles.md) |
 | v0.4.28 | [v0.4.28](releases/v0.4.28.md) | Web Console management and complete developer journeys |
 | v0.4.29 | [v0.4.29](releases/v0.4.29.md) · epic [core-818](epics/core-818-host-platforms.md) | Host portability: core-819…core-823; audit core-817; Darwin prerequisite core-882, Podman Machine core-883, real macOS runtime evidence core-884 |
 | v0.4.30 | [v0.4.30](releases/v0.4.30.md) | Native TLS / justified proxies core-902; attack-protection baseline and DDoS/operator boundaries core-903 |
