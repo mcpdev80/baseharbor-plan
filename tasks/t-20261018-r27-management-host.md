@@ -53,6 +53,10 @@ cmd/baha/serve.go; internal/controlplaneruntime/server.go and server_run.go; bou
 
 Focused server-config/auth/startup/ownership/restart tests; one isolated service persistence smoke if required. CLI clients use discovery and the accepted host API; no new product-specific transport. No automatic full matrix or self-approved trust exemption.
 
+## Standards boundary
+
+[Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
+
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.

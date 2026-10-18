@@ -6,7 +6,7 @@ release: v0.7.x
 version: v0.7.8
 parent: v0.7.x
 owner: ""
-depends_on: [core-310, t-20261017-release-0-7-8-updates]
+depends_on: [core-310, t-20261017-release-0-7-8-updates, t-20261018-r27-delegated-handoff, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#325"]
@@ -21,13 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md)  
+    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.8)  
-**Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md)  
+**Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
 **Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [t-20261017-release-0-7-8-prepare](t-20261017-release-0-7-8-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
@@ -262,6 +262,10 @@ Operator presence must not create a third competing mutation owner, and Operator
 ## Dependencies and file ownership
 
 - Depends on core-310.
+
+## v0.4.27 boundary prerequisite
+
+Consume the accepted native-delivery ownership map and deterministic delegated-handoff guards. v0.4.27 does not deliver live Argo CD/Kubernetes support; this task keeps its existing v0.7.8 implementation/acceptance scope. Git remains external desired-state authority; Baha must not add a competing imperative writer or pipeline engine.
 
 ## Handoff
 

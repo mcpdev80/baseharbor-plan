@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-ingress, t-20261018-r27-ci-lanes, t-20261018-r27-native-auth]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-ingress, t-20261018-r27-ci-lanes, t-20261018-r27-image-transfer, t-20261018-r27-native-auth, t-20261018-r27-registry-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -22,14 +22,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
 **Owner:** unassigned  
 **Priority:** normal  
@@ -39,7 +39,7 @@ evidence: []
 
 ## Outcome and acceptance
 
-Prefer existing digest-qualified images when supplied; otherwise build immutable candidate with explicit local/remote builder capability, native build machinery and scoped secret mounts. Constrain untrusted builds and temporary storage without exposing unrelated provider/management credentials or host sockets to submitted builds. Record inputs/result digest/platform and make image available to selected runtime without mandatory registry or host Docker socket exposure. Reuse only proven identical build inputs, never imply equal source guarantees reproducible digest. Unsupported builder/runtime architecture is actionable.
+Use existing OCI images/releases first when selected; verify artifact availability through image-transfer. For current-checkout mode only, invoke existing Docker/Compose or Podman/native build machinery or explicitly configured existing builder. No custom BuildKit service, build farm, source cache engine or mandatory registry. CI-produced release and promote paths cannot silently build, change platforms, replace artifacts or use a mutable tag as an exact identity. Native build settings, credentials, cancellation and platform limits remain explicit and least-privilege. Observe native results/digests and retain only the needed owner/provenance metadata.
 
 ## Inputs and output
 
@@ -52,6 +52,10 @@ cmd/baha/app_workload_build.go; bounded builder/artifact realization adapter/tes
 ## Required checks
 
 Focused build-selection/digest/secret-reference fixtures; smallest Docker build/pull smoke for actual artifact availability; Podman delivery proven separately. Predecessor CI readiness must identify actual selected test commands, discovery and native fixtures before assignment. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
+
+## Standards boundary
+
+[Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
 
 ## Handoff
 
