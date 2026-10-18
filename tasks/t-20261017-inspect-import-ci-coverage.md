@@ -62,3 +62,5 @@ Qualify targeted import-detector coverage for core-751 through the existing trus
 
 
 - Claim published 2026-10-17. The existing planner resolves only the two reviewed reconciliation files; import-detector source is fail-closed even while all five inspect checks are selected. This predecessor must not declare future unreviewed detector changes resolved.
+
+- 2026-10-18 assigned #983 writer claim: exclusively `scripts/pr-gate-plan.py` and `scripts/test_pr_gate_plan.py`. Add immutable exact-SHA/status qualification for positively reviewed #984 (`9fcc77cd1feb0bf02e7647aa64bc02a2ebb47ae2`, review 5560608936) and integrated #991 (`ba577f0384b291ad01f8e4530ffe80119aa34c06`, review 5562278686). Keep source qualification separate from check execution; no change to #991/product PRs. Before publishing verify genuine `pr-diff-base.py` Git resolution, clean trusted develop merge and rejection of descendants/unavailable checks. No merge or self-acceptance.
