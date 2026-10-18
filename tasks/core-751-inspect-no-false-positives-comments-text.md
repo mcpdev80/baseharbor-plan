@@ -21,11 +21,10 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (PR \#984 source split implementation)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** New three-file \#984 source layout at cf0a19bc requires independent content review and new immutable coverage binding; no self-qualification.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
 **Owner:** ChatGPT (PR #984 source split implementation)  

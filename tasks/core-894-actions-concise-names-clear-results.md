@@ -17,14 +17,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562672005", "https://github.com/mcpdev80/baseharbor/actions/runs/39121621795", "https://github.com/mcpdev80/baseharbor/commit/85dfcfa3f5cbef62042be33542e3ce36eda9e9b5"]
 ---
 
-- [x] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
+- [x] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (core-894 implementation correction)  
     **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562672005), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39121621795), [proof 3](https://github.com/mcpdev80/baseharbor/commit/85dfcfa3f5cbef62042be33542e3ce36eda9e9b5)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
