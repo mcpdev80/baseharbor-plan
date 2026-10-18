@@ -194,3 +194,7 @@ Blocker for #174 semantic acceptance and #175 contract freeze. The v0.5 baseline
 ## Fine-plan coverage (2026-10-18)
 
 The [criterion-by-criterion map](../decisions/2026-10-18-v0-4-27-task-coverage.md) assigns every acceptance bullet and normative rule to concrete task IDs. Original criteria above remain authoritative; no requirement is dropped or accepted by this decomposition. Console UI/wizard consumption is explicitly verified in v0.4.28, using the accepted v0.4.27 domain/API.
+
+## Native artifact and stage clarification (2026-10-18)
+
+[The standards boundary](../decisions/2026-10-18-r27-native-delivery-and-stages.md) prevents a custom CI/registry/rollout platform. Existing native release inputs/OCI metadata and per-deployment stage versions are used; thin app promotion invokes the same lifecycle and does not judge CI approval. GitHub/GitLab CI remain build/test/publish owners; Argo CD remains its delegated desired-state/reconciliation owner. All original acceptance above is retained. The video is optional presentation, not product scope.

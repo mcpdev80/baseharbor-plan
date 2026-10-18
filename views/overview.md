@@ -15,9 +15,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | blocked | 1 |
 | ready | 4 |
 | queued | 26 |
-| waiting | 218 |
+| waiting | 227 |
 | backlog | 7 |
-| closed | 24 |
+| closed | 25 |
 
 ## Active
 
@@ -33,8 +33,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | ChatGPT (core-894 implementation correction) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
 | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | review | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
+| [t-20261018-core751-three-file-exact-binding](../tasks/t-20261018-core751-three-file-exact-binding.md) | Reviewed #984 three-file immutable Inspect coverage | review | high | mcpdev80 (independent reviewed source binding) | [t-20261018-reviewed-policy-991-982-binding](../tasks/t-20261018-reviewed-policy-991-982-binding.md) | [baseharbor#997](https://github.com/mcpdev80/baseharbor/pull/997) |
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | review | high | ChatGPT (bug-994 implementation session) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
-| [t-20261018-reviewed-policy-991-982-binding](../tasks/t-20261018-reviewed-policy-991-982-binding.md) | Bind independent reviewed #991 and #982 candidates | review | high | mcpdev80 (independent reviewed policy binding) | [t-20261017-inspect-import-ci-coverage](../tasks/t-20261017-inspect-import-ci-coverage.md) | [baseharbor#996](https://github.com/mcpdev80/baseharbor/pull/996) |
 | [t-20261018-scoped-runtime-reset-xdg-ownership](../tasks/t-20261018-scoped-runtime-reset-xdg-ownership.md) | Scoped runtime reset must retain unrelated XDG state | review | high | mcpdev80 (scoped XDG reset review) | — | [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993) |
 
 ## Blocked
@@ -55,12 +55,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 13 open, 22 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 49 open, 0 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
-- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 7 open, 1 closed ([view](releases/v0.4.x.md))
+- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 7 open, 2 closed ([view](releases/v0.4.x.md))
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))

@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-depends_on: [nc-3, t-20261017-release-0-4-27-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-lanes, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-team-proof]
+depends_on: [nc-3, t-20261017-release-0-4-27-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-consumption, t-20261018-r27-ci-lanes, t-20261018-r27-delegated-handoff, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-local-registry, t-20261018-r27-promote, t-20261018-r27-team-proof, t-20261018-r27-version-view]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -18,17 +18,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-video-proof · Demo: rehearse one checkout across Docker and Podman targets #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/demo #kind/acceptance
+- [ ] t-20261018-r27-video-proof · Acceptance: prove real stage versions artifacts and promotion #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/demo #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Needs:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+**Depends on:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** normal  
@@ -38,7 +38,7 @@ evidence: []
 
 ## Outcome and acceptance
 
-Select external SQL/cache web repo before recording and pin license/source commit; record every adaptation. One checkout/contract, explicit targets, developer-host reachable browsers only after verified readiness. Per-target distinct SQL/cache markers prove isolation, same artifact digest when architecture/build inputs permit. Second workstation attaches existing deployment. Record actual times/commands/source pins and cleanup; three-column K3s recording is future-only, no K3s support claim.
+Qualify real-world operation, not a filmed demonstration: same app has three independent release/component versions and configurations across environments, including two environments on one Target and multiple Targets; updating/promoting one preserves the others. Exercise enterprise/private registry auth+CA, no-registry native store/transfer and an explicitly optional local registry. Verify readable version/source/component inventory, exact runtime image identities, destination-only SQL/cache bindings/data, provider ownership and actual reachable HTTPS. Use existing direct native delivery; external GitOps is boundary/fixture evidence only until core-325. CI examples consume a produced release without rebuild; schema-migration limits and rollback implications are explicit. Reuse team/local/remote proofs instead of repeating all journeys. The one-checkout multi-terminal video is an optional presentation of qualified operation; recording/browser choreography never blocks product release and grants no K3s/production support claim.
 
 ## Inputs and output
 
@@ -46,11 +46,13 @@ Use only accepted predecessor interfaces and the existing authorities identified
 
 ## Dependencies and file ownership
 
-Demo bounded release-video fixture/runbook and scripts; no product feature switches. These are bounded write reservations, not assertions that proposed files already exist. New interface/type paths are fixed by the contract predecessor before assignment. Never edit another slice's files or use its draft branch. Shared indexes/registrations belong only to `t-20261018-r27-public-surfaces` (documentation navigation belongs to the docs task). If an additional shared write is necessary, update dependencies/ownership before work; do not reconcile competing copies later.
-
+Demo bounded stage/artifact/promotion acceptance fixture/scripts and one optional recording runbook, separate from existing Docker/Podman/team gate scripts. No product feature flags or production rollout policy. Preserve this stable ID despite the former video-only title; source-level requirement is now explicitly real operation.
 ## Required checks
 
-Reuse qualified target consumer receipts; short rehearsal to prove desktop URL/trust/readiness and markers, not another full release matrix. Predecessor CI readiness must identify actual selected test commands, discovery and native fixtures before assignment. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
+Reuse authenticated unchanged team/local/Docker/Podman/registry receipts only through the existing verifier. Add missing three-version/promotion/data-isolation coverage with deterministic integration first, then the smallest native changed-stage check. No extra full matrix, public recording, K3s job or production deployment. Missing/failed/unknown evidence stays open.
+## Standards boundary
+
+[Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
 
 ## Handoff
 

@@ -16,6 +16,20 @@ evidence: []
 ---
 
 - [ ] t-20261018-core751-three-file-exact-binding · Reviewed #984 three-file immutable Inspect coverage #task #release/v0-4-x #status/review #view/review #area/ci #area/inspect #kind/task
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (independent reviewed source binding) · **Priority:** high  
+    **PR:** [baseharbor#997](https://github.com/mcpdev80/baseharbor/pull/997)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** review  
+**Release:** [v0.4.x](../releases/v0.4.x.md)  
+**Depends on:** [t-20261018-reviewed-policy-991-982-binding](t-20261018-reviewed-policy-991-982-binding.md)  
+**Owner:** mcpdev80 (independent reviewed source binding)  
+**Priority:** high  
+**PRs:** [baseharbor#997](https://github.com/mcpdev80/baseharbor/pull/997)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Claim and file ownership
 

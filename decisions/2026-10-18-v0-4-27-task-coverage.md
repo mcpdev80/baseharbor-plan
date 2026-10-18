@@ -307,3 +307,19 @@ Planning cut: 2026-10-18. No product acceptance implied. Original core-777 crite
 - Safe maintenance paths and archive/secret input transfer: [maintenance-client](../tasks/t-20261018-r27-maintenance-client.md).
 
 - Changed remote publication and retained-owner transition: [remote-rollout](../tasks/t-20261018-r27-remote-rollout.md); first deployment/read-only parity alone cannot satisfy the two-developer update acceptance.
+
+## Native delivery and real-world stage additions (2026-10-18)
+
+Original 107 criteria remain unchanged. The following additions refine their operational implementation, not replace them.
+
+- [delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [registry-access](../tasks/t-20261018-r27-registry-access.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [image-transfer](../tasks/t-20261018-r27-image-transfer.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [local-registry](../tasks/t-20261018-r27-local-registry.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [stage-versions](../tasks/t-20261018-r27-stage-versions.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [version-view](../tasks/t-20261018-r27-version-view.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [promote](../tasks/t-20261018-r27-promote.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [ci-consumption](../tasks/t-20261018-r27-ci-consumption.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+- [delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md): bounded standards-first slice with explicit predecessor, owned paths and selected checks.
+
+The existing video-proof ID now owns real multi-stage/artifact/promotion acceptance; filming is optional. No product support or acceptance is implied by these cards.

@@ -53,6 +53,10 @@ bounded remote-maintenance CLI adapters/tests; existing machine maintenance inpu
 
 Actual CLI->TLS API tests with different local/server filesystem roots, archive transfer integrity, safe secret input, denial/cancel/expiry and lost response; use fixtures, not full backup journeys. No automatic full matrix or self-approved trust exemption.
 
+## Standards boundary
+
+[Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
+
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.

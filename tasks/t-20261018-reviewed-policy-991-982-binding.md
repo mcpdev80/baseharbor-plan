@@ -15,16 +15,18 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/996", "https://github.com/mcpdev80/baseharbor/actions/runs/39120110461", "https://github.com/mcpdev80/baseharbor/commit/29cb09207632b0c1993719b4621a64d3ffae905f"]
 ---
 
-- [x] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/closed #view/closed #area/ci #kind/task
+- [x] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (independent reviewed policy binding) · **Priority:** high  
     **PR:** [baseharbor#996](https://github.com/mcpdev80/baseharbor/pull/996)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/996), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39120110461), [proof 3](https://github.com/mcpdev80/baseharbor/commit/29cb09207632b0c1993719b4621a64d3ffae905f)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
+**Required by:** [t-20261018-core751-three-file-exact-binding](t-20261018-core751-three-file-exact-binding.md)  
 **Owner:** mcpdev80 (independent reviewed policy binding)  
 **Priority:** high  
 **PRs:** [baseharbor#996](https://github.com/mcpdev80/baseharbor/pull/996)  

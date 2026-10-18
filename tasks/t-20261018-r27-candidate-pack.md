@@ -39,7 +39,7 @@ evidence: []
 
 ## Outcome and acceptance
 
-One existing checkout stays in place. Package actual selected source/build inputs with deterministic digests, reviewed ignore rules, exclusions and contained symlinks. Never bulk-upload .git, state, credentials or arbitrary host paths. Detect source changes during capture; dirty snapshot gets an honest digest. Existing OCI reference path does not require source upload.
+Adapt existing native build-context/source-acquisition mechanisms for one selected local checkout, including honest dirty-source identity and exact inputs. Reuse workspace/Git ownership and native ignore/context rules; do not write a custom release/archive format or clone engine. Source transfer is required only for an explicitly selected source-build path; a CI-produced OCI/release input skips it. Constrain paths, symlinks, bytes and secret/build credentials; detect changes during capture, keep .git/local state/credential material out by default, and reject unsupported live bind mounts with useful guidance.
 
 ## Inputs and output
 
@@ -52,6 +52,10 @@ bounded source snapshot packer/tests using existing repository/workspace inspect
 ## Required checks
 
 Temporary repository tests for ignore negation, malicious paths/symlinks, monorepo components, dirty/change-during-read, limits and secret exclusions. Predecessor CI readiness must identify actual selected test commands, discovery and native fixtures before assignment. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
+
+## Standards boundary
+
+[Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
 
 ## Handoff
 

@@ -39,7 +39,7 @@ evidence: []
 
 ## Outcome and acceptance
 
-Authorize before accepting bytes; bind candidate to installation/app/target/environment and exact digest. Stage protected source server-side, atomic publish, interrupted upload cleanup and quotas. Recover accepted candidate without laptop checkout; source path never comes from a client host path.
+Accept and retain minimal authorized app/revision/consent metadata and the exact native input/reference for an operation. Reuse native Git/OCI/context transfer where supported; protected source staging is only for the selected source-build path and is not a new artifact store. Validate authorization, digest, limits and cleanup before publication; keep no laptop-path dependency. Image-only/release-reference inputs do not upload a checkout or require Git provenance. Retain previous owned revision for recovery without duplicating complete runtime state.
 
 ## Inputs and output
 
@@ -52,6 +52,10 @@ bounded server candidate ingress/store/handler files; immutable source selection
 ## Required checks
 
 Real HTTP/filesystem digest/tamper/auth/interrupted upload/retention tests; no Docker required. Predecessor CI readiness must identify actual selected test commands, discovery and native fixtures before assignment. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
+
+## Standards boundary
+
+[Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
 
 ## Handoff
 
