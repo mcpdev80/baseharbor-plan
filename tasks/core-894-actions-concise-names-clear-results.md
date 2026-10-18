@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#894"]
 source_updated: "2026-10-15T16:48:23Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562672005", "https://github.com/mcpdev80/baseharbor/actions/runs/39121621795", "https://github.com/mcpdev80/baseharbor/commit/85dfcfa3f5cbef62042be33542e3ce36eda9e9b5"]
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
+- [x] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (core-894 implementation correction)  
     **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
@@ -102,3 +102,10 @@ Titles and summaries explain trigger, result and next action within seconds.
 - **Review boundary:** Hand off the unchanged product candidate for independent coverage qualification; do not accept or merge this task.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
+
+### 2026-10-18 — Maintainer accepted and merged
+
+- Final independent integration review [5562672005](https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562672005) accepts exact `d464ce6d4453fd15d69640a596460bc6aae616de`, retaining independently accepted Summary source after normal trusted develop merge.
+- Actual [CI 39121621795](https://github.com/mcpdev80/baseharbor/actions/runs/39121621795) fully SUCCESS including mandatory authenticated PR Selected Checks; Focused Python logs confirm all 17 actual embedded Summary regressions executed. PR description corrected to final behavior and evidence.
+- Regular Maintainer squash merge completed: `85dfcfa3f5cbef62042be33542e3ce36eda9e9b5`. No GitHub self-approval, CI bypass or native execution.
+- Canonical task now accepted/closed. Derived views need normal executable render/check and Planning tests on concurrent current main; reviewer cannot execute locally (offline) and HF Jobs connector returns UNAVAILABLE. Do not claim that pending regeneration has run. Preserve parallel claims and render all derived changes from current canonical inputs.
