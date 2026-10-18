@@ -5,7 +5,7 @@ areas: [runtime]
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "ChatGPT (PR #995 bootstrap-cleanup correction)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -16,7 +16,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/planned #view/ready #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -84,3 +84,8 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 - Backup, Destroy, Restore, SQL/secret/consumer checks and identity regeneration were never reached and remain unverified.
 - Full local SOP report exists with Qwen; no private host identifiers, SSH aliases, paths, addresses or secrets copied here.
 - Canonical intake recorded by Maintainer; executable generator/check/tests and refreshed release/views must be performed by assigned implementation owner on current Planning main before claiming a validated handoff.
+
+### 2026-10-18 — Implementation claim published before code changes
+
+- Existing PR #995, exact baseline `560ae9be9c6093a48d1b4b9375286cf4e33fed28`. Owned files: `cmd/baha/app_backup_restore_integration_test.go`, bounded related fixture regressions only. Reuse production-selected Core/OpenBao credentials; no second bootstrap or permissive initialized fallback.
+- Register cleanup before runtimeUpGuided; bounded fresh context and partial-start cleanup, no global reset or unrelated resource deletion. Preserve all backup, restore, SQL, secrets, consumer and regenerated identity checks. Only isolated tests; native Podman retest remains Qwen-owned. No own qualification or merge.
