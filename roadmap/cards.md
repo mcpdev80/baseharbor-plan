@@ -6,7 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 23/36 · **Blocked:** 1 · **Waiting:** 7  
+    **Accepted tasks:** 24/36 · **Blocked:** 1 · **Waiting:** 6  
     **Blocker:** [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) — Native retest fails before backup: OpenBao already initialized; owned-resource cleanup incomplete. See t-20261018-podman-recovery-bootstrap-cleanup.  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 

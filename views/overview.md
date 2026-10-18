@@ -15,16 +15,16 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | blocked | 1 |
 | ready | 4 |
 | queued | 26 |
-| waiting | 227 |
+| waiting | 226 |
 | backlog | 7 |
-| closed | 28 |
+| closed | 29 |
 
 ## Active
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | active | not set | mcpdev80 (core-754 MCP preconditions) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | active | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978) |
+| [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) | CLI and MCP: register new interfaces consistently | active | not set | ChatGPT (core-921 registration implementation) | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md), [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md), [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998) |
 | [t-20261017-podman-acceptance-typed-consent](../tasks/t-20261017-podman-acceptance-typed-consent.md) | Podman acceptance: honor fresh typed provider consent | active | high | mcpdev80 (Podman acceptance consent) | — | [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989) |
 | [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | active | high | ChatGPT (PR #995 bootstrap-cleanup correction) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
@@ -52,7 +52,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 13 open, 23 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 12 open, 24 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))

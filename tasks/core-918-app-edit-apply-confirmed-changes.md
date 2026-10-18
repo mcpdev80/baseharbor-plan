@@ -17,15 +17,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5563005368", "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692", "https://github.com/mcpdev80/baseharbor/commit/f2bad5efa27fa2a791e5b357509af92d8861a3f1"]
 ---
 
-- [x] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
+- [x] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/38993072829), [proof 3](https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf), [proof 4](https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/38999275799), [proof 6](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551), [proof 7](https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39028330504), [proof 9](https://github.com/mcpdev80/baseharbor/commit/4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/39030528320)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5563005368), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39124293692), [proof 3](https://github.com/mcpdev80/baseharbor/commit/f2bad5efa27fa2a791e5b357509af92d8861a3f1)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-911](core-911-app-edit-load-existing-selections.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md)  
 **Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  

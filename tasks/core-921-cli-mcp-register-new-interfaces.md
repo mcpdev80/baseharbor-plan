@@ -19,19 +19,18 @@ evidence: []
 
 - [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Waiting for prerequisites**  
-    **Needs:** [core-918](core-918-app-edit-apply-confirmed-changes.md)  
+    **Owner:** ChatGPT (core-921 registration implementation)  
+    **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** ChatGPT (core-921 registration implementation)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
 **Source:** [baseharbor#921](https://github.com/mcpdev80/baseharbor/issues/921)
 <!-- /generated:links -->
 
