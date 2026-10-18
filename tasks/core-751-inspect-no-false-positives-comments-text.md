@@ -12,12 +12,12 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "Review 5558780054: six ASI false-import cases and quadratic interpolation prefix rescanning on 549c0bdc; correct and independently re-review before source qualification."
+blocker: "New three-file #984 source layout at cf0a19bc requires independent content review and new immutable coverage binding; no self-qualification."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/blocked #view/blocked #area/inspect #kind/bug
+- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/review #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
@@ -66,6 +66,11 @@ Capability import evidence comes only from real import/require/reference syntax,
 - No open task dependencies. Related: core-750.
 
 ## Handoff
+
+### 2026-10-18 — Source split completed; independent re-review required
+- Existing PR #984 at exact new candidate `cf0a19bc4c8f398d7ee3fc07a635833168081ff5`, based on integrated/previously inspected `8c2ce09975fe3ed6722cd06a2b19848969c8f9a1`. In a mechanical package-local extraction, `jsInterpolationEnd`, `jsCurrentScopeStart`, `jsDeclarationBody`, `jsCanCompleteExpression` moved unchanged from `internal/repositoryinspect/capability_detection_runtime.go` to new `internal/repositoryinspect/capability_detection_js_context.go`. Original 880-line file is now 666 lines; new helper file is 217 lines; no cosmetic compression and no detector logic or test modifications.
+- Isolated exact-source focused `go test ./internal/repositoryinspect -count=1`, `go vet ./internal/repositoryinspect`, `gofmt` and `scripts/source-readability-audit.sh` PASS: https://huggingface.co/jobs/ThunderHawk1080/6ad4a1bb5ccb47ba0f7c372a . All prior repositoryinspect regressions retained. Targeted GitHub CI https://github.com/mcpdev80/baseharbor/actions/runs/39120167516 ; gate outcomes to be checked independently. No self-coverage, policy modifications, live test or merge.
+- This is a NEW THREE-PATH source set for independent review and exact immutable binding; pre-split positive functional and coverage evidence does not qualify the new path. Handoff to Manager for separate review, new binding and required CI before merge/acceptance.
 
 ### 2026-10-18 — Implementer claim: source readability split
 - Assigned solely the source-file split for existing PR #984 at integrated SHA `8c2ce09975fe3ed6722cd06a2b19848969c8f9a1`. Move cohesive JS lexer/context functions into a package-local file without altering bodies or tests. Source-readability audit, focused Inspect regression, hosted CI and Planning required. Existing coverage binding must be independently re-reviewed for changed path set; no self-qualification or merge.
