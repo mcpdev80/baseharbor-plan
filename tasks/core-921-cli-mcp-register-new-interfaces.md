@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: "ChatGPT (core-921 registration implementation)"
+owner: "Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)"
 depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#998]
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** ChatGPT (core-921 registration implementation)  
+    **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
     <!-- /generated:card -->
 
@@ -28,7 +28,7 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** ChatGPT (core-921 registration implementation)  
+**Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
 **Priority:** not set  
 **PRs:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
 **Source:** [baseharbor#921](https://github.com/mcpdev80/baseharbor/issues/921)
@@ -67,6 +67,12 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-19 — Resumed reconciliation; ownership transferred to Codeman lane
+
+- Prior claim: ChatGPT (core-921 registration implementation); implementation was handed off 2026-10-18 and the claim sat dormant through the ended pause. Operation transfers to Flash (codeman w1-baseharbor) under the 2026-10-19 board mandate; prior records preserved.
+- Verified on resume: Draft #998 open at `756b22dc8967d0daa7393065cd5bc15f262c7050`, MERGEABLE against develop `f2bad5ef`; GitHub review list shows no formal review records — earlier positive notes exist only as planning handoffs. The sole non-green check in run 39130075369 is the fail-closed `Enforce every required check` step; functional/docs/wizard-registration lanes green; runtime jobs skipped on `coverage-unresolved` for the new registration/machine-operation paths.
+- Next boundary: independent Ornith local source review plus immutable coverage binding following the merged #991 pattern, then Codex 6.1 final acceptance; #998 stays draft until then.
 
 ### 2026-10-18 — Published candidate; paused for Horde/Codex handover
 

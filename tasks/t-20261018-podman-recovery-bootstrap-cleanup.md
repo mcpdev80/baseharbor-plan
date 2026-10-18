@@ -5,31 +5,30 @@ areas: [runtime]
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: "ChatGPT (PR #995 bootstrap-cleanup correction)"
+owner: Flash (codeman w1-baseharbor)
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813 remains unqualified."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
     <!-- generated:card -->
-    **Owner:** ChatGPT (PR \#995 bootstrap-cleanup correction) · **Priority:** high  
+    **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813 remains unqualified.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
-**Owner:** ChatGPT (PR #995 bootstrap-cleanup correction)  
+**Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
 **PRs:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
 **Source:** 
@@ -73,6 +72,12 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-19 — Resumed under Codeman lane; implementation boundaries
+
+- Prior owner ChatGPT (PR #995 bootstrap-cleanup correction) dormant since the ended pause; claim transferred to Flash (codeman w1-baseharbor) per the 2026-10-19 board mandate; prior records preserved.
+- Verified: #995 open at `eaf86813f789f62b393ecf9ad287ae04b3ff7561`, MERGEABLE; no formal approving reviews recorded (maintainer comment reviews only); latest CI run 39128733229 fails only at the fail-closed enforcement step.
+- Implementation scope per resume instructions: replace obsolete postgres/redis fixture manifest keys through the real capability parser without parser exceptions; add real fixture-path regression coverage; emit bounded redacted structured cleanup diagnostics through existing ownership/consent authority without weakening guards. Native Podman retest follows an independently reviewed new exact-SHA candidate.
 
 ### 2026-10-18 — Latest Qwen native FAIL; paused, no recovery qualification
 

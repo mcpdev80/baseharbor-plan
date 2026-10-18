@@ -43,5 +43,12 @@ v0.4.26 backlog until verifiable pre-release readiness.
 
 - Ready-queue maintenance, handoffs and acceptance publishing continue per
   [WORKFLOW.md](../WORKFLOW.md). Planning authority is unchanged.
+- Dormant paused-era claims on tasks whose sessions show no activity after the
+  resumption are reassigned to the Codeman operation lane in the affected task
+  notes with the prior ownership preserved in the handoff record.
+- PR mcpdev80/baseharbor#986 supersession verified on 2026-10-19: the runner
+  and gate-plan scripts it introduced are present and evolved on current
+  develop through merged #991 (`9f622e6e`); no task file references #986. The
+  stale PR is closed unmerged as administrative supersession, not acceptance.
 - No release, pre-release, tag or deployment follows from this decision alone;
   those remain separately authorized maintainer actions.

@@ -6,10 +6,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 24/36 · **Blocked:** 3 · **Waiting:** 6  
+    **Accepted tasks:** 24/36 · **Blocked:** 2 · **Waiting:** 6  
     **Blocker:** [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) — Partial fixture fix only; full native recovery remains blocked by current \#995 manifest and cleanup failures.  
-    **Blocker:** [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) — Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813…  
-    Plus 1 further blockers in the task list.  
+    **Blocker:** [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) — Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813…  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
@@ -39,8 +38,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 4/9 · **Blocked:** 1 · **Waiting:** 0  
-    **Blocker:** [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) — Trusted develop integration, actual regular mandatory Go CI and formal source qualification remain pending for \#985; paused for handover.  
+    **Accepted tasks:** 4/9 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
