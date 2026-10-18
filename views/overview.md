@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 2 |
 | blocked | 1 |
-| ready | 5 |
+| ready | 4 |
 | queued | 26 |
 | waiting | 227 |
 | backlog | 7 |
@@ -26,6 +26,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | active | not set | mcpdev80 (core-754 MCP preconditions) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md) | App edit: apply confirmed changes safely | active | not set | mcpdev80 (core-918 Edit wiring) | [core-911](../tasks/core-911-app-edit-load-existing-selections.md), [core-916](../tasks/core-916-wizard-back-cancel-eof-no-side-effects.md) | [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978) |
 | [t-20261017-podman-acceptance-typed-consent](../tasks/t-20261017-podman-acceptance-typed-consent.md) | Podman acceptance: honor fresh typed provider consent | active | high | mcpdev80 (Podman acceptance consent) | — | [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989) |
+| [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | active | high | ChatGPT (PR #995 bootstrap-cleanup correction) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
 ## Ready for review
 
@@ -48,7 +49,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | ready | high | — | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
 ## By release
 
