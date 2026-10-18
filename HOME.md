@@ -14,7 +14,7 @@ The live state is generated from the task notes, so it is never maintained by ha
 - [views/epics.md](views/epics.md) — tasks per epic.
 - Command line: `python3 scripts/plan.py list --status active`, `--status blocked`, `--ready`.
 
-In Obsidian: CardBoard boards **Current · v0.4.26**, **Next** and **Attention**. Current now has separate **Planned** (waiting for prerequisites) and **Ready** (available to assign) columns. Ready is generated from task dependencies and release status on every planning render; it is not a manually maintained list.
+In Obsidian: CardBoard boards **Current · v0.4.26**, **v0.4.27**, **Next** and **Attention**. Current now has separate **Planned** (waiting for prerequisites) and **Ready** (available to assign) columns. Ready is generated from task dependencies and release status on every planning render; it is not a manually maintained list.
 
 ## Navigation
 
@@ -49,3 +49,5 @@ Current shows **all Planned tasks**, including tasks waiting for prerequisites. 
 Every concrete scheduled version has visible [release lifecycle cards](RELEASE_WORKFLOW.md): cleanup → Renovate intake → complete preparation → authorized pre-release → promotion/tagging commands → verified publication. Cards appear in the existing release boards; no second lifecycle board or duplicate state.
 
 The already-running v0.4.26 has only preparation, pre-release approval, publication/tagging and post-release verification; its startup is not replayed. All six stages apply to subsequent releases.
+
+The dedicated **v0.4.27** board includes every release task and recurring release card. Columns separate Planned (unfinished prerequisites), Queued (prerequisites accepted, release not started), Ready, Active, Review, Blocked and Closed. It does not change assignment or release status.
