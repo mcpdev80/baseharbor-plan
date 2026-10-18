@@ -17,9 +17,9 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/review #area/ci #kind/task
+- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-894 Actions presentation)  
+    **Owner:** ChatGPT (core-894 implementation correction)  
     **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
     <!-- /generated:card -->
 
@@ -29,7 +29,7 @@ evidence: []
 **Parent:** [core-888](../epics/core-888-development-and-ci.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** mcpdev80 (core-894 Actions presentation)  
+**Owner:** ChatGPT (core-894 implementation correction)  
 **Priority:** not set  
 **PRs:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
 **Source:** [baseharbor#894](https://github.com/mcpdev80/baseharbor/issues/894)
