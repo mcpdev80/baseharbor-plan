@@ -5,7 +5,7 @@ type: architecture
 release: v0.4.27
 version: ""
 parent: core-777
-priority: high
+priority: critical
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -20,7 +20,7 @@ evidence: []
 
 - [ ] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/access #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md)  
 **Owner:** unassigned  
-**Priority:** high  
+**Priority:** critical  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
@@ -51,7 +51,7 @@ docs/spec/credential-access-v1.md and DE counterpart; bounded versioned connecti
 
 ## Required checks
 
-Schema/golden/negative fixture tests and focused docs/EN-DE checks. Predecessor CI readiness must identify actual selected test commands, discovery and native fixtures before assignment. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
+Schema/golden/negative fixture tests and focused docs/EN-DE checks. Use existing trusted contract/docs/package checks for this prerequisite; acceptance must not wait on downstream ci-lanes. Any genuinely missing contract-check route is resolved explicitly before assignment, without self-exemption. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
 
 ## Standards boundary
 

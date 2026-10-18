@@ -5,7 +5,7 @@ type: task
 release: v0.4.27
 version: ""
 parent: v0.4.27
-priority: normal
+priority: high
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-ci-lanes, t-20261018-r27-delivery-boundary, t-20261018-r27-stage-versions]
 repos: [mcpdev80/baseharbor]
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261018-r27-delegated-handoff · GitOps: preserve external desired state and hand off native changes #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/delivery #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md)  
     <!-- /generated:card -->
@@ -30,7 +30,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** unassigned  
-**Priority:** normal  
+**Priority:** high  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
