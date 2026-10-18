@@ -47,6 +47,9 @@ Fix [baseharbor#992](https://github.com/mcpdev80/baseharbor/issues/992) before v
 
 ## Handoff
 
+- 2026-10-18: Review 5562183275 P1 correction: test-only strict rm fixture now intercepts all deletions, permits removals only in disposable test root, records /tmp global targets without executing them and rejects other external paths. An independent outside-root sentinel is asserted intact after the actual unscoped script executes under fixture PATH; scoped state/resource assertions and dedicated full-reset contract retained. Corrected PR #993 head `b981f3b60bebfaebf6eb7f2f467dfd06142c90fe`; HF sandbox job `6ad488b6c6628814522722dd`: 5/5 tests PASS, bash -n, py_compile, diff check PASS. Independent content review and trusted coverage remain required; no native/live test or merge.
+
+
 - 2026-10-18: Exact implementation candidate `85395ecb5ddabc8034bca67bbc91bd300e1c7970` in [Draft PR #993](https://github.com/mcpdev80/baseharbor/pull/993). Shared/unknown XDG state is retained for any scoped reset; selected runtime resources remain scoped. Dedicated unscoped reset remains unchanged. Isolated [HF job 6ad4055bc66288145226d33b](https://huggingface.co/jobs/ThunderHawk1080/6ad4055bc66288145226d33b) passed five executable sandbox tests, Bash syntax, Python compilation and diff check. Independent review required; no native test, self-approval or merge.
 
 
