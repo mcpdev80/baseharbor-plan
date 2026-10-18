@@ -5,7 +5,7 @@ type: architecture
 release: v0.4.27
 version: ""
 parent: v0.4.27
-priority: normal
+priority: critical
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract]
 repos: [mcpdev80/baseharbor]
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
     <!-- /generated:card -->
@@ -30,7 +30,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
 **Owner:** unassigned  
-**Priority:** normal  
+**Priority:** critical  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
@@ -49,7 +49,7 @@ internal/delivery/contract.go and focused tests; docs/spec/delivery-provider-v1.
 
 ## Required checks
 
-Focused delivery contract and delegated-owner denial fixtures; docs/link/EN-DE; no native runtime. Actual trusted discovery/executor/fixtures must be accepted in ci-lanes before assignment. Smallest sufficient checks; independent native gates may run on isolated suitable runners. Existing verifier alone permits green-evidence reuse; missing/skip/fail is not PASS. No self-approved coverage or full pre-release run.
+Focused delivery contract and delegated-owner denial fixtures; docs/link/EN-DE; no native runtime. Use existing trusted contract/docs/package checks for this prerequisite; acceptance must not wait on downstream ci-lanes. Any genuinely missing contract-check route is resolved explicitly before assignment, without self-exemption. Smallest sufficient checks; independent native gates may run on isolated suitable runners. Existing verifier alone permits green-evidence reuse; missing/skip/fail is not PASS. No self-approved coverage or full pre-release run.
 
 ## Standards boundary
 

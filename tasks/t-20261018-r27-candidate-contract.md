@@ -5,7 +5,7 @@ type: architecture
 release: v0.4.27
 version: ""
 parent: core-777
-priority: high
+priority: critical
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
@@ -20,7 +20,7 @@ evidence: []
 
 - [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md)  
 **Owner:** unassigned  
-**Priority:** high  
+**Priority:** critical  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
@@ -52,7 +52,7 @@ Use only accepted predecessor interfaces and the existing authorities identified
 Existing product specifications for application/artifact/delivery boundaries plus DE counterparts; minimal existing internal/delivery/application input records/fixtures as required after accepted standards mapping. Replace the earlier reservation for a standalone contracts/deploymentcandidate/v1 protocol: it is not an authorization to create a mandatory new package format. Shared indexes remain public-surfaces/docs. No generic format/engine without a separately reviewed demonstrated gap.
 ## Required checks
 
-Record/golden validation; malformed/digest/path/secret-reference fixtures; docs/EN-DE only. Predecessor CI readiness must identify actual selected test commands, discovery and native fixtures before assignment. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
+Record/golden validation; malformed/digest/path/secret-reference fixtures; docs/EN-DE only. Use existing trusted contract/docs/package checks for this prerequisite; acceptance must not wait on downstream ci-lanes. Any genuinely missing contract-check route is resolved explicitly before assignment, without self-exemption. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
 
 ## Standards boundary
 

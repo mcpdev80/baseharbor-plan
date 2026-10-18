@@ -5,7 +5,7 @@ type: task
 release: v0.4.27
 version: ""
 parent: v0.4.27
-priority: normal
+priority: high
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-ci-lanes, t-20261018-r27-registry-access]
 repos: [mcpdev80/baseharbor]
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261018-r27-image-transfer · Images: reuse native registry and local-store transports #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/artifacts #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
     <!-- /generated:card -->
@@ -30,7 +30,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
 **Owner:** unassigned  
-**Priority:** normal  
+**Priority:** high  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
