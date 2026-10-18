@@ -81,6 +81,12 @@ The assignment incorrectly assumed that the accepted machine adapter already had
 
 ## Handoff
 
+### 2026-10-18 — Combined #991 source review positive
+- [Review 5562278686](https://github.com/mcpdev80/baseharbor/pull/991#pullrequestreview-5562278686) inspected exact combined candidate `ba577f0384b291ad01f8e4530ffe80119aa34c06`, retaining independently accepted #986 MCP execution and #991 NativeSQL requirements and regressions. No new source blocker found.
+- Actual CI 39113738227 selected checks successful; required finalcheck still blocks formal CI-runner qualification. The two #985 product tests are not claimed executed through trusted develop.
+- Next technical policy handoff: bind the independently reviewed exact combined CI source and import-detector source in trusted policy, with real Git integration and negative source/status/gate cases; no self-approval or merge. No new local/native reviewer execution.
+
+
 ### 2026-10-17 — Policy #991 correction source review positive
 - [Review 5560621999](https://github.com/mcpdev80/baseharbor/pull/991#pullrequestreview-5560621999) finds both requested corrections addressed at exact policy SHA `7bca9442dc87fd7a3c4cd89c82921f31e97570ba`, product source unchanged at `95eed33e6a3852c21b8dc1a25ccc17e601f38da8`.
 - Finite NativeSQL safety tests are now mandatory through the existing trusted executor; real Go-fixture missing/skip/fail checks included. Git integration now consumes actual diff-base-owner output and real merge-base/status inputs.
