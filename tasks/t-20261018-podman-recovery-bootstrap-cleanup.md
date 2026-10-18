@@ -11,12 +11,12 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: ""
+blocker: "Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813 remains unqualified."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/active #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (PR \#995 bootstrap-cleanup correction) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -72,6 +72,17 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-18 — Latest Qwen native FAIL; paused, no recovery qualification
+
+- Exact source `eaf86813f789f62b393ecf9ad287ae04b3ff7561`, rootless Podman 5.7.0 / Go 1.26.9. User-supplied Qwen run reports FAIL after 166.76s. Manager has not run this native test or read the private local full report.
+- Test reaches app apply (app_backup_restore_integration_test.go:81), then fails with `unsupported service "postgres"`. Legacy postgres/redis manifest keys conflict with the same source's capability-key parser; replace through the actual supported manifest contract, not a parser exception. Qwen reports same mismatch on prior develop; that cross-runtime conclusion is source-based, not an executed Docker run.
+- Registered cleanup runs and reports an error, but existing approvedNativeFixtureCleanup -> destroyInstallation refuses unverified Target/deployment ownership before deleting own resources. Qwen observed own containers, volume, networks and Quadlet units left behind. Structured cleanup details were discarded by io.Discard. The exact authority guard/caller is not yet identified; do not weaken it or classify a product destroy bug without isolating the cause.
+- Qwen removed only owned resources by identity; unrelated resources preserved, no global/helper reset or code mutation. A source checkout remains on the authorized system. Its private location and access identifiers are intentionally not published. Qwen must checkpoint any useful sanitized logs and remove only that owned checkout if no longer needed; no SSH cleanup by other sessions.
+- Backup/Destroy/Restore, restored SQL/secret/consumer checks, identity token/certificate regeneration and successful automatic cleanup remain unverified. Earlier positive source review 5563121341 addresses the bounded prior regression correction only; it is not native acceptance.
+- Resume existing PR #995 only after explicit Maintainer assignment. First parse the exact fixture manifest without a runtime, then diagnose cleanup with bounded redacted structured evidence through existing authority. Preserve real recovery assertions, per-operation consent and foreign-resource guards. Add real fixture-path regressions, then independent exact-SHA review, then Qwen native retest. No new GitHub issue or duplicate recovery task.
+- Both implementation and testing paused for Horde/Codex handover. Existing claim retained; no automatic takeover. Planning generator/check/tests remain required for this canonical update.
+
 
 ### 2026-10-18 — Qwen native retest: failed before backup, reproduced twice
 

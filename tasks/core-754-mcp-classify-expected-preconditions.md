@@ -8,16 +8,16 @@ parent: v0.4.x
 owner: "mcpdev80 (core-754 MCP preconditions)"
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#985]
 sources: ["mcpdev80/baseharbor#754"]
 source_updated: "2026-10-15T16:51:15Z"
 labels: [kind/bug, area/mcp, area/dx, area/compatibility]
-blocker: ""
+blocker: "Trusted develop integration, actual regular mandatory Go CI and formal source qualification remain pending for #985; paused for handover."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/active #view/active #area/mcp #kind/bug
+- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/blocked #view/active #area/mcp #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-754 MCP preconditions)  
     <!-- /generated:card -->
@@ -63,6 +63,13 @@ Expected machine/MCP preconditions get stable typed codes instead of being flatt
 - No open task dependencies. Related: core-750, core-751, core-752.
 
 ## Handoff
+
+### 2026-10-18 — Handover snapshot; remaining CI not implementation activity
+
+- Actual open Draft #985 source `5a3813385af5392a9be3095bd038424a4f9950b7`, only cmd/baha/mcp_preconditions_test.go added. Independent positive content report [6249416075](https://github.com/mcpdev80/baseharbor/pull/985#issuecomment-6249416075) and actual isolated two-test execution exist; later combined-job failure does not prove successful vet/build. No new product defect established.
+- #986 runner work was incorporated through accepted/merged #991 (`9f622e6e`); old #986 remains open pending administrative supersession verification. Its green fixtures are not actual current #985 trusted-base Go execution or source qualification.
+- Existing task owner retained; no current implementation underway. Resume normal current-develop integration, both exact Go families, actual vet/build and independent qualification only after Maintainer assignment. No acceptance, merge or self-exemption during handover.
+
 
 - 2026-10-17 **actual independent local product test execution (Hugging Face hosted isolated checkout)**: [HF Job 6ad38827c662881452268a3f](https://huggingface.co/jobs/ThunderHawk1080/6ad38827c662881452268a3f), Go 1.25.14; cloned `mcpdev80/baseharbor`, checked out exact PR #985 source `5a3813385af5392a9be3095bd038424a4f9950b7`, ran separately `go test ./cmd/baha -run '^TestExpectedPreconditionsShareTypedCLIMCPErrors
 - 2026-10-17 **Verified #986 CI candidate:** `7b666773c948fedef0ea337f6212ee982986c88d`; [run 39038225852](https://github.com/mcpdev80/baseharbor/actions/runs/39038225852). Workflow-executed 44 planner tests and 17 runner tests PASS, including real dependency-free Go fixture proving exact `^Testname$` patterns exclude similarly named failing tests; existing missing/skip/fail regressions preserved. Trusted Plan, Focused Python, ci-policy, executor/verifier SUCCESS. Required PR Selected Checks FAILURE solely coverage-unresolved for runner implementation/test files, pending independent review. Actual #985 Go tests not yet executed.

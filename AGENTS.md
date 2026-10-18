@@ -1,5 +1,9 @@
 # AGENTS.md
 
+## Temporary Maintainer pause — 2026-10-18
+
+Development, merges and native tests are paused for Marcel's Horde/Codex repository test. Read [the handover decision](decisions/2026-10-18-horde-codex-handover-pause.md) before taking or resuming work. Existing claims remain published; they are not available for silent takeover. Only explicit Maintainer test assignments and the bounded Planning render/check closeout are authorized during this pause. The test itself does not grant release, merge, SSH, cleanup or CI-bypass permission.
+
 Entry point for local and cloud coding agents. This repository holds BaseHarbor **planning** only; product code, engineering rules and specifications live in the product repositories.
 
 > Planning authority: task and release notes in this repository are authoritative once this activation commit reaches `main`. GitHub source issues retain discussion/history only. Read [migration/cutover-checklist.md](migration/cutover-checklist.md) for the activation record and outstanding operational cleanup.

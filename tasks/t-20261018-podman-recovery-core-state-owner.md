@@ -11,7 +11,7 @@ depends_on: [t-20261017-podman-backup-guided-runtime, t-20261018-podman-recovery
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Native retest fails before backup: OpenBao already initialized; owned-resource cleanup incomplete. See t-20261018-podman-recovery-bootstrap-cleanup."
+blocker: "Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813 remains unqualified."
 resolution: ""
 evidence: []
 ---
@@ -60,6 +60,12 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 - Bounded ownership: existing backup/restore native test and direct tests; shared Core/OpenBao product code only for proven production issue.
 
 ## Handoff
+
+### 2026-10-18 — Latest native failure supersedes Bootstrap blocker
+
+- Exact #995 eaf86813 now passes the former second-Bootstrap step but fails on obsolete fixture manifest keys before backup. Registered approved cleanup executes yet fails ownership verification and leaves owned runtime resources. See [current canonical correction task](t-20261018-podman-recovery-bootstrap-cleanup.md) for exact evidence and bounded resume instructions.
+- Earlier already-initialized diagnosis is historical, not the current blocker. Full native recovery still unproven; no task acceptance or merge. Maintainer paused further writes/testing for Horde/Codex handover; existing ownership retained.
+
 
 ### 2026-10-18 — Native retest failed; acceptance blocked
 
