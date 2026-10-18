@@ -59,6 +59,12 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-18 — #993 sandbox correction source review
+- Exact correction candidate `b981f3b60bebfaebf6eb7f2f467dfd06142c90fe` addresses review 5562183275: controlled rm fixture contains actual removals to its sandbox and blocks/logs global temporary-path removals; external sentinel asserted retained. No additional source blocker found in this correction.
+- Actual CI 39113140692 selected checks successful; finalcheck remains blocked. Dedicated five-test suite execution remains separate evidence, not inferred from generic CI jobs. Formal source/CI qualification and acceptance remain open; unscoped production reset still only authorized for dedicated runner context.
+- No additional local/native reviewer execution or merge.
+
+
 ### 2026-10-18 — Native retest and cleanup review follow-up
 - #989 exact-candidate native lifecycle/negative-consent/data-retention evidence supplied positive; formal CI/source qualification remains open.
 - #990 only reaches Core startup; full Podman disaster recovery blocked at Compose-only Core lookup. [Bug #994](https://github.com/mcpdev80/baseharbor/issues/994) requires correction and native retest before release. Implementation session must create/claim canonical task, link #988/#990, and sync generated release dependencies/views.
