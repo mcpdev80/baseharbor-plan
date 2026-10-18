@@ -532,11 +532,206 @@
       "title": "[v0.4.27] Epic: make developer access and profiles portable",
       "source_updated": "2026-10-15T16:51:01Z",
       "snapshot": "migration/source-snapshot/baseharbor/777.json",
-      "disposition": "epic",
+      "disposition": "epic+task",
       "destinations": [
         {
           "path": "epics/core-777-developer-access-and-profiles.md",
           "kind": "epic",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-access-profiles.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-access-proof.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-access-wizard.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-app-binding.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-artifact-resolution.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-authority-contract.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-candidate-contract.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-candidate-ingress.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-candidate-pack.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-ci-lanes.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-client-commands.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-connection-client.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-device-enrollment.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-device-lifecycle.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-docs.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-execution-journal.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-journal-wiring.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-local-parity-proof.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-maintenance-client.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-managed-users.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-management-host.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-mutation-lock.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-native-auth.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-node-cli.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-onboarding-wizard.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-profile-codec.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-profile-contract.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-protected-credentials.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-public-surfaces.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-remote-docker-web.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-remote-material.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-remote-podman-web.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-remote-rollout.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-secure-export.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-state-owner.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-state-recovery.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-team-auth.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-team-proof.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-video-proof.md",
+          "kind": "task",
           "role": "primary"
         }
       ]
@@ -1223,10 +1418,25 @@
       "title": "v0.4.23 integration: Core-compatible enrollment/session fixtures and real remote Docker/Podman acceptance",
       "source_updated": "2026-10-08T13:52:57Z",
       "snapshot": "migration/source-snapshot/baseharbor-node-connector/3.json",
-      "disposition": "task",
+      "disposition": "split",
       "destinations": [
         {
           "path": "tasks/nc-3-core-enrollment-remote-runtime-acceptance.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-node-service.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-node-streams.md",
+          "kind": "task",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261018-r27-node-trust.md",
           "kind": "task",
           "role": "primary"
         }
