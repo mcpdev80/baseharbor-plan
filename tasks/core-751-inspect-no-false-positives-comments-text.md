@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/review #area/inspect #kind/bug
+- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/blocked #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
