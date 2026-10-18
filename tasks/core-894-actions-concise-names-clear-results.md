@@ -70,9 +70,9 @@ Titles and summaries explain trigger, result and next action within seconds.
 
 ## Handoff
 
-### 2026-10-18 — Current develop normal integration, awaiting exact CI
+### 2026-10-18 — Current develop integration and green exact CI
 - Existing product PR #982 now has merge commit `d464ce6d4453fd15d69640a596460bc6aae616de`, parents: prior reviewed PR head `0ab44b7edb94618489cb505cf897ff7e6d73da6c` and then-current develop `29cb09207632b0c1993719b4621a64d3ffae905f`. Integration was confirmed conflict-free by an actual local Git merge, tree `aa78fd318e0fc29bbd900cd22df2e43ff447edf6`; the combined tree carries only the new develop changes in `scripts/pr-gate-plan.py` and `scripts/test_pr_gate_plan.py` on top of PR #982. No modification of the reviewed two-file presentation change; 17 embedded Summary regression tests PASS on merge result.
-- Targeted new Actions CI [39121621795](https://github.com/mcpdev80/baseharbor/actions/runs/39121621795) must be evaluated through `PR Selected Checks`. Pass only after all required checks actually succeed; no coverage exceptions, bypass or self-approval. Planning render/check/views and unit suite validated separately. Hand off to Manager **only if actual finalcheck is green**. No merge by implementation owner.
+- Targeted exact Actions CI [39121621795](https://github.com/mcpdev80/baseharbor/actions/runs/39121621795) **COMPLETED SUCCESS**: `PR Selected Checks`, Trusted Plan, Workflow policy, Focused Python, `ci-actionlint`, `ci-policy`, `ci-executor-verifier-tests`, `pr-planner-tests` all SUCCESS. Optional unselected gates SKIPPED as expected. No coverage exception or self-approval. **Manager merge handoff for this exact green SHA; implementer must not merge.** Isolated Planning `render`, `check` and 47 tests PASS, 0 errors/1 existing dependency warning; generated-view drift remains in five unrelated concurrently owned files (`roadmap/cards.md`, two other task files, `views/overview.md`, `views/releases/v0.4.x.md`) and must be resolved by their owners rather than silently overwriting them.
 
 
 ### 2026-10-18 — #982 runtime identity correction accepted at source review
