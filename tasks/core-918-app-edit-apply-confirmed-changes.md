@@ -334,3 +334,9 @@ Boundary (not suppressed, no policy exception): `PR Selected Checks` FAILS with 
 
 - Assigned implementation owner: this #991 policy integration session. Before implementation, verified both immutable inputs: #986 `7b666773c948fedef0ea337f6212ee982986c88d`, #991 `7bca9442dc87fd7a3c4cd89c82921f31e97570ba`.
 - Shared file ownership is limited to `scripts/pr-check-runner.py`, `scripts/pr-gate-plan.py`, `scripts/test_pr_check_runner.py`, `scripts/test_pr_gate_plan.py` on existing #991 branch. Preserve both distinct trusted exact Go families, source SHA checks, Git fixtures and all prior CI fail-closed guards. #986 branch, #983 and product PRs must remain untouched. No develop merge, no policy acceptance.
+
+### 2026-10-18 — Full integrated #991 review candidate
+
+- Claim and four shared-file ownership recorded before implementation in prior handoff. Exact combined #991 head `e0a2f03b63806bd9f71e83cf403facd101ff58e8`, with source parent `7bca9442dc87fd7a3c4cd89c82921f31e97570ba` and reviewed #986 parent `7b666773c948fedef0ea337f6212ee982986c88d` (normal merge commit, no force-push).
+- Preserved the two exact core-754 MCP test profiles with missing/skip/fail enforcement and unresolved source qualification; retained all four mandatory NativeSQL ownership/material safety tests and separate missing/skip/fail real Go fixtures. Preserved strict source-bound 21-file core-918 qualification, actual diff-base integration and unreviewed follow-up rejection. All existing planner/executor regression families retained.
+- [Isolated HF job 6ad48a5cc6628814522723d6](https://huggingface.co/jobs/ThunderHawk1080/6ad48a5cc6628814522723d6): 48 planner tests PASS, 18 executor tests PASS, Python compile and diff check PASS. Exact integrated GitHub PR CI must be evaluated before acceptance. No source qualification, live test or PR merge to develop; #983 and product PRs unchanged. Independent Manager content and integration review required.
