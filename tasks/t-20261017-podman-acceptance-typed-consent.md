@@ -16,14 +16,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/review #view/active #area/ci #kind/bug
+- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/review #view/review #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (Podman acceptance consent) · **Priority:** high  
     **PR:** [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  

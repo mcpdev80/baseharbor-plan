@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-994 implementation session) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Native retest fails before backup: OpenBao already initialized; owned-resource cleanup incomplete. See t-20261018-podman-recovery-bootstrap-cleanup.  
+    **Blocker:** Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813 remains unqualified.  
     **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
     <!-- /generated:card -->
 
