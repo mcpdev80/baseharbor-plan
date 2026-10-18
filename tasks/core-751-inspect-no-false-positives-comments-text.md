@@ -169,3 +169,9 @@ Capability import evidence comes only from real import/require/reference syntax,
 
 
 - Earlier fix branch `fix/751-capability-import-noise-v0421` `aabd82ff6cb7f6a55f33001638e51e53dfc7f2a8`. Branch hygiene (2026-10-15): divergent earlier fix branches were inventoried; neither full integration nor safe deletion was proven by ancestry. Compare useful changes against the current contract; no blanket merge/rebase. The remote branches were later removed in the [maintenance cleanup](core-909-maintenance-remove-superseded-branches.md); their original commits are preserved in the Maintainer's local mirror backup.
+
+### 2026-10-18 — Source split independently accepted; qualification pending
+
+- Independent review [5562635114](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562635114) inspected exact `cf0a19bc4c8f398d7ee3fc07a635833168081ff5`. Direct full-string comparison confirms all four moved functions byte-identical and remaining source unchanged. Production file sizes 666 and 217 lines satisfy the 800-line bound; existing test file untouched.
+- Actual [CI 39120167516](https://github.com/mcpdev80/baseharbor/actions/runs/39120167516) has all five Inspect validations successful. Finalcheck remains unresolved, as old two-file immutable record cannot authorize the new three-file layout.
+- Next policy owner must replace the outdated core-751 SHA and exact file/status record with this independently reviewed three-file source; preserve all five Inspect checks and real Git merge/follow-up/status regressions. No product acceptance, native test or merge. Canonical blocker/view update requires validated Planning render by the executable owner.
