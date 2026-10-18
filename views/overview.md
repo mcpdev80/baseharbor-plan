@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 3 |
-| review | 5 |
+| review | 4 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 27 |
 | waiting | 175 |
 | backlog | 7 |
-| closed | 23 |
+| closed | 24 |
 
 ## Active
 
@@ -32,7 +32,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-894](../tasks/core-894-actions-concise-names-clear-results.md) | Actions: use concise names and clear results | review | not set | ChatGPT (core-894 implementation correction) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [t-20261016-wizard-task-ci-readiness](../tasks/t-20261016-wizard-task-ci-readiness.md) | [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982) |
-| [t-20261017-inspect-import-ci-coverage](../tasks/t-20261017-inspect-import-ci-coverage.md) | CI: qualify import detector tests without path exemptions | review | not set | mcpdev80 (core-751 trusted import coverage) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983) |
 | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | review | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | review | high | ChatGPT (bug-994 implementation session) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 | [t-20261018-scoped-runtime-reset-xdg-ownership](../tasks/t-20261018-scoped-runtime-reset-xdg-ownership.md) | Scoped runtime reset must retain unrelated XDG state | review | high | mcpdev80 (scoped XDG reset review) | — | [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993) |
@@ -41,7 +40,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) | Inspect: avoid false positives from comments and text | blocked | not set | mcpdev80 (core-751 inspect import detection) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](../tasks/t-20261017-inspect-import-ci-coverage.md) (open) | [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984) |
+| [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) | Inspect: avoid false positives from comments and text | blocked | not set | mcpdev80 (core-751 inspect import detection) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](../tasks/t-20261017-inspect-import-ci-coverage.md) | [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984) |
 
 ## Ready to assign
 
@@ -55,7 +54,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 13 open, 22 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 0 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 1 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

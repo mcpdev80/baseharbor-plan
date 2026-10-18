@@ -22,7 +22,6 @@ evidence: []
     **Owner:** mcpdev80 (core-751 inspect import detection)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
     **Blocker:** Review 5558780054: six ASI false-import cases and quadratic interpolation prefix rescanning on 549c0bdc; correct and independently re-review before source qualification.  
-    **Needs:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

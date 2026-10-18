@@ -36,7 +36,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 0/7 · **Blocked:** 1 · **Waiting:** 0  
+    **Accepted tasks:** 1/7 · **Blocked:** 1 · **Waiting:** 0  
     **Blocker:** [core-751](../tasks/core-751-inspect-no-false-positives-comments-text.md) — Review 5558780054: six ASI false-import cases and quadratic interpolation prefix rescanning on 549c0bdc; correct and independently re-review before source qual…  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
