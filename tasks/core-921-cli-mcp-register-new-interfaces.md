@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "ChatGPT (core-921 registration implementation)"
 depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
@@ -68,6 +68,8 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- **2026-10-18 — Implementation claim.** Planning-main baseline `b7a4e8cdc6393da30907e74124025d2e1be41fd5` rendered/checked with 47 tests PASS, 0 errors; core-918 confirmed accepted/closed (review 5563005368, CI 39124293692, merge f2bad5efa27fa2a791e5b357509af92d8861a3f1). Claim core-921 as sole writer for registration and generated references; preserve concurrent unrelated claims. No lifecycle changes, bypass, author merge or live tests.
 
 - 2026-10-16: Explicit registration-CI prerequisite [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md) added as an assignment gate; no prose-only waiting assumption.
 
