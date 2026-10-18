@@ -16,14 +16,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/983", "https://github.com/mcpdev80/baseharbor/commit/980e8db8b93c09db61ac8a0ea873bc6f43d1dedf", "https://github.com/mcpdev80/baseharbor/actions/runs/39115837200"]
 ---
 
-- [x] t-20261017-inspect-import-ci-coverage · CI: qualify import detector tests without path exemptions #task #release/v0-4-x #status/closed #view/closed #area/ci #area/inspect #kind/task
+- [x] t-20261017-inspect-import-ci-coverage · CI: qualify import detector tests without path exemptions #task #release/v0-4-x #status/closed #view/closed #board/planned #area/ci #area/inspect #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 trusted import coverage)  
     **PR:** [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/983), [proof 2](https://github.com/mcpdev80/baseharbor/commit/980e8db8b93c09db61ac8a0ea873bc6f43d1dedf), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39115837200)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Required by:** [core-751](core-751-inspect-no-false-positives-comments-text.md)  
