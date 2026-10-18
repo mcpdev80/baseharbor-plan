@@ -43,3 +43,9 @@ evidence: []
 - Claim published before product repository writes. Independent manager review required after focused CI and Planning validation.
 
 - 2026-10-18 complete implementation, independent Manager review pending: [Draft PR #996](https://github.com/mcpdev80/baseharbor/pull/996) exact candidate `49fc111052f1334bd57a4b80f841ff22d0ba5709`. Exact four modified #991 file statuses and #982 modified workflow/added actions-summary regression bound to positive independent reviews, trusted merge proof unchanged. Requires CI planner/executor/policy plus actionlint; Focused Python remains mandatory by trusted workflow. [Isolated HF job 6ad4a1c2c6628814522730dc](https://huggingface.co/jobs/ThunderHawk1080/6ad4a1c2c6628814522730dc): 44 planner tests, 10 real diff-base tests, syntax/diff checks PASS. [CI 39120110461](https://github.com/mcpdev80/baseharbor/actions/runs/39120110461) pending final job evaluation. No self-qualification, no product edits or merge.
+
+### 2026-10-18 — Independent Maintainer acceptance and regular merge
+
+- Exact policy `49fc111052f1334bd57a4b80f841ff22d0ba5709` independently accepted in review [5562635448](https://github.com/mcpdev80/baseharbor/pull/996#pullrequestreview-5562635448). Actual [CI 39120110461](https://github.com/mcpdev80/baseharbor/actions/runs/39120110461) including authenticated mandatory PR Selected Checks SUCCESS; logs confirm 44 planner and 10 diff-base regressions executed.
+- PR #996 regularly squash-merged into develop at `29cb09207632b0c1993719b4621a64d3ffae905f`. Live strict mandatory-CI rule remains without bypass actors; no GitHub self-approval or CI bypass.
+- Validated canonical accepted/closed transition and derived-view regeneration remain with the executable Planning owner; this review append records the completed merge without claiming new render/tests. Product #991/#982 still require current trusted-develop integration and actual green final CI before their own merges.
