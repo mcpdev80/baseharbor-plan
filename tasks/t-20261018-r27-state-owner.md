@@ -41,6 +41,8 @@ evidence: []
 
 Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are cache/source hints only. Local and server execution resolve the same owner; reject foreign/missing/corrupt installation state and copied caches. Reuse existing state format/owner rather than a second state database.
 
+Preserve the existing deployment identity (application ID + Target + environment), DeploymentSource and applied/observed records. Deliver the accepted owner-scoped read/write seam for later release-selection extensions, including isolation and serialization tests. Environment already exists; do not introduce a second stage identity, new coreinstallation state model or another database. This task owns storage authority, not the downstream version/configuration implementation.
+
 ## Inputs and output
 
 Use only accepted predecessor interfaces and the existing authorities identified in [the release plan](../releases/v0.4.27.md). Output: the callable production path described above plus executable positive/negative regressions; a standalone unused adapter is not complete. Refresh actual remote SHAs before implementation.

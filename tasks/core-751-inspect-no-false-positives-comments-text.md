@@ -17,14 +17,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562723714", "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623", "https://github.com/mcpdev80/baseharbor/commit/8e77b70496df7543d1bd6e9c02c2a31e6a7a256d"]
 ---
 
-- [x] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/closed #view/closed #area/inspect #kind/bug
+- [x] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/closed #view/closed #board/planned #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (PR \#984 source split implementation)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562723714), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39122640623), [proof 3](https://github.com/mcpdev80/baseharbor/commit/8e77b70496df7543d1bd6e9c02c2a31e6a7a256d)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
 **Owner:** ChatGPT (PR #984 source split implementation)  
