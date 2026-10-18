@@ -31,7 +31,7 @@ python3 -m unittest discover -s scripts/tests
    - **CardBoard** (`card-board`, by roovo) — verified with 0.7.9.
    - **Git** (`obsidian-git`, by Vinzent03) — verified with 2.41.1.
 3. The shared settings are already in the repository: CardBoard boards (`.obsidian/plugins/card-board/data.json`) and Obsidian Git with **manual** commit/pull/push only (`.obsidian/plugins/obsidian-git/data.json`). Plugin binaries, workspace layout and personal settings are not committed (see `.gitignore`).
-4. Open CardBoard from the ribbon icon. Boards: **Current · v0.4.26**, **Next** (derived ready/waiting/later), **Attention** (blocked/review/active), **Releases** (one column per release), **Backlog**.
+4. Open CardBoard from the ribbon icon. Boards: **Roadmap**, **Current · v0.4.26**, **v0.4.27** (dedicated release board), **Next** (derived ready/waiting/later), **Attention** (blocked/review/active), **Releases** (one column per release), **Backlog**.
 5. Settings → Appearance → CSS snippets → enable **baseharbor-board** (refresh the snippets list if needed). This is a local preference; your theme and other settings are preserved.
 6. Commit and push deliberately with the Git plugin's commands (or the command line). Pull before you start; never force-push.
 

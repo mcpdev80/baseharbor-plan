@@ -119,6 +119,78 @@
             "tag": "namedTag",
             "data": {
               "collapsed": false,
+              "name": "Planned",
+              "tag": "board/planned"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Queued (release not started)",
+              "tag": "view/queued"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Ready",
+              "tag": "view/ready"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Active",
+              "tag": "view/active"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Review",
+              "tag": "view/review"
+            }
+          },
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
+              "name": "Blocked",
+              "tag": "view/blocked"
+            }
+          },
+          {
+            "tag": "completed",
+            "data": {
+              "collapsed": false,
+              "index": 6,
+              "limit": 1000,
+              "name": "Closed"
+            }
+          }
+        ],
+        "filters": [
+          {
+            "tag": "tagFilter",
+            "data": "release/v0-4-27"
+          }
+        ],
+        "filterPolarity": "Allow",
+        "filterScope": "TopLevelOnly",
+        "name": "v0.4.27",
+        "showColumnTags": false,
+        "showFilteredTags": false
+      },
+      {
+        "columns": [
+          {
+            "tag": "namedTag",
+            "data": {
+              "collapsed": false,
               "name": "Ready to assign",
               "tag": "view/ready"
             }
