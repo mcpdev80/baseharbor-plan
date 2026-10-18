@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/active #area/ci #kind/task
+- [ ] core-894 · Actions: use concise names and clear results #task #release/v0-4-26 #status/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-894 Actions presentation)  
     **PR:** [baseharbor#982](https://github.com/mcpdev80/baseharbor/pull/982)  
@@ -69,6 +69,8 @@ Titles and summaries explain trigger, result and next action within seconds.
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- **2026-10-18 — Implementation correction handoff.** Addressed independent review [5562367686](https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562367686) in the same [PR #982](https://github.com/mcpdev80/baseharbor/pull/982), exact new candidate `0f3fe35ee484ac9e8be4bec43bf1ef2599a7b369`. Display-only Summary now rejects foreign/malformed/unverified reused evidence URLs and renders invalid durations as `duration unknown`; missing required API jobs are explicitly shown in **Blocked** even if response is nonempty. The currently running `PR Selected Checks` is excluded only from missing-job detection, because its conclusion is not yet available. Twelve real embedded-Summary tests (nine original plus three new) PASS on exact SHA: https://huggingface.co/jobs/ThunderHawk1080/6ad497145ccb47ba0f7c332b . Github CI run [39117096551](https://github.com/mcpdev80/baseharbor/actions/runs/39117096551) is the targeted candidate run; required final/coverage outcome must be interpreted separately. No authoritative runner, policy, trust, gates, product or #983/#991 changes; no self-review, coverage exemption, native tests or merge. **Hand off this exact SHA to Manager for independent review.**
 
 - **2026-10-18 — Role change/claim.** Maintainer assigns this session as core-894 implementer on existing PR #982, addressing independent review [5562367686](https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562367686). Scope: invalid verified reuse URLs/duration data and missing mandatory API jobs in the embedded display-only summary; preserve all nine existing tests and authoritative runner/finalcheck protections. No self-qualification, merge, or edits to #983/#991.
 
