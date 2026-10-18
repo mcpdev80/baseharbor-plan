@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#983]
 sources: []
 blocker: ""
-resolution: "Independent policy review accepted, required CI successful, PR #983 merged to develop at 980e8db8b93c09db61ac8a0ea873bc6f43d1dedf."
-evidence: ["mcpdev80/baseharbor#983", "mcpdev80/baseharbor@980e8db8b93c09db61ac8a0ea873bc6f43d1dedf"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/983", "https://github.com/mcpdev80/baseharbor/commit/980e8db8b93c09db61ac8a0ea873bc6f43d1dedf", "https://github.com/mcpdev80/baseharbor/actions/runs/39115837200"]
 ---
 
-- [x] t-20261017-inspect-import-ci-coverage · CI: qualify import detector tests without path exemptions #task #release/v0-4-x #status/accepted #view/accepted #area/ci #area/inspect #kind/task
+- [x] t-20261017-inspect-import-ci-coverage · CI: qualify import detector tests without path exemptions #task #release/v0-4-x #status/closed #view/closed #area/ci #area/inspect #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-751 trusted import coverage)  
     **PR:** [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983)  
