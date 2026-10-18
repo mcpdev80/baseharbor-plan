@@ -11,11 +11,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#996]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/996", "https://github.com/mcpdev80/baseharbor/actions/runs/39120110461", "https://github.com/mcpdev80/baseharbor/commit/29cb09207632b0c1993719b4621a64d3ffae905f"]
 ---
 
-- [ ] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/review #view/review #area/ci #kind/task
+- [x] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (independent reviewed policy binding) · **Priority:** high  
     **PR:** [baseharbor#996](https://github.com/mcpdev80/baseharbor/pull/996)  
@@ -49,3 +49,5 @@ evidence: []
 - Exact policy `49fc111052f1334bd57a4b80f841ff22d0ba5709` independently accepted in review [5562635448](https://github.com/mcpdev80/baseharbor/pull/996#pullrequestreview-5562635448). Actual [CI 39120110461](https://github.com/mcpdev80/baseharbor/actions/runs/39120110461) including authenticated mandatory PR Selected Checks SUCCESS; logs confirm 44 planner and 10 diff-base regressions executed.
 - PR #996 regularly squash-merged into develop at `29cb09207632b0c1993719b4621a64d3ffae905f`. Live strict mandatory-CI rule remains without bypass actors; no GitHub self-approval or CI bypass.
 - Validated canonical accepted/closed transition and derived-view regeneration remain with the executable Planning owner; this review append records the completed merge without claiming new render/tests. Product #991/#982 still require current trusted-develop integration and actual green final CI before their own merges.
+
+- 2026-10-18 accepted/closed: independently approved and merged #996, source `49fc111052f1334bd57a4b80f841ff22d0ba5709`, CI 39120110461 all required checks successful, merge `29cb09207632b0c1993719b4621a64d3ffae905f`.
