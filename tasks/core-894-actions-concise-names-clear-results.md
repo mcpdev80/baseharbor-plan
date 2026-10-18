@@ -70,6 +70,11 @@ Titles and summaries explain trigger, result and next action within seconds.
 
 ## Handoff
 
+### 2026-10-18 — Current develop normal integration, awaiting exact CI
+- Existing product PR #982 now has merge commit `d464ce6d4453fd15d69640a596460bc6aae616de`, parents: prior reviewed PR head `0ab44b7edb94618489cb505cf897ff7e6d73da6c` and then-current develop `29cb09207632b0c1993719b4621a64d3ffae905f`. Integration was confirmed conflict-free by an actual local Git merge, tree `aa78fd318e0fc29bbd900cd22df2e43ff447edf6`; the combined tree carries only the new develop changes in `scripts/pr-gate-plan.py` and `scripts/test_pr_gate_plan.py` on top of PR #982. No modification of the reviewed two-file presentation change; 17 embedded Summary regression tests PASS on merge result.
+- Targeted new Actions CI [39121621795](https://github.com/mcpdev80/baseharbor/actions/runs/39121621795) must be evaluated through `PR Selected Checks`. Pass only after all required checks actually succeed; no coverage exceptions, bypass or self-approval. Planning render/check/views and unit suite validated separately. Hand off to Manager **only if actual finalcheck is green**. No merge by implementation owner.
+
+
 ### 2026-10-18 — #982 runtime identity correction accepted at source review
 - [Review 5562557813](https://github.com/mcpdev80/baseharbor/pull/982#pullrequestreview-5562557813) inspected exact `0ab44b7edb94618489cb505cf897ff7e6d73da6c`: per-selected-gate actual runtime identities used consistently; prior evidence/missing-data corrections retained. No further source blocker found.
 - Actual CI 39117993099 selected checks successful; Focused Python log confirms 17 Summary regressions actually executed successfully. Finalcheck still unresolved for the exact two-file presentation change relative to trusted 980e8db8.
