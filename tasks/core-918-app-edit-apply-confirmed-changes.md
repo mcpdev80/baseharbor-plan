@@ -399,3 +399,10 @@ Boundary (not suppressed, no policy exception): `PR Selected Checks` FAILS with 
 
 - Existing separately reviewed product source `95eed33e6a3852c21b8dc1a25ccc17e601f38da8` was preserved as first parent in a **conflict-free normal merge** of current develop `9f622e6ed87f48436d7f15bfc0d66080ae1130cd` (contains merged trusted-policy #991). New exact product PR #978 head `288c3a98f043671bbd80a6824894c632421f9b4e`, real reproduced Git merge tree `1d759a5349e3b5b289599a119d5b4615e0b52ad6`. No product-source rewrites, manual conflict resolution or policy bypass.
 - Exact new candidate requires full targeted CI, particularly 4 mandatory NativeSQL safety tests, real Edit success/partial and both Docker/Podman selected lifecycle gates, plus authenticated `PR Selected Checks`. Source review applies to original content, not automatic acceptance of this merge. Manager handoff only on complete green CI, no author merge or live testing.
+
+
+### 2026-10-18 — #978 exact targeted CI green; Manager merge handoff
+
+- PR #978 actual current integrated source `288c3a98f043671bbd80a6824894c632421f9b4e` preserves reviewed product implementation `95eed33e6a3852c21b8dc1a25ccc17e601f38da8` unchanged; clean regular integration of `develop` `9f622e6ed87f48436d7f15bfc0d66080ae1130cd` includes merged #991 trusted policy. Exact merge tree `1d759a5349e3b5b289599a119d5b4615e0b52ad6` reproduced from genuine Git merge.
+- [GitHub Actions 39124293692](https://github.com/mcpdev80/baseharbor/actions/runs/39124293692) **COMPLETED SUCCESS**: both selected Docker/Podman lifecycle matrix gates, four required NativeSQL security tests, Edit success/partial, guided/machine, CLI build/vet/gofmt, source contracts, Focused Python, Demo Pin, Exact Candidate, Runner Interface, Trusted Plan, Workflow policy and mandatory authenticated `PR Selected Checks` **all SUCCESS**. No CI bypass, no new source binding or self-qualification.
+- **Manager merge handoff** for exact current SHA, contingent on independent maintainer approval; implementation owner does not merge. No author live testing; all runtime proof is hosted selected CI.
