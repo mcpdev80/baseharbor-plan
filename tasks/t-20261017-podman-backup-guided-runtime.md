@@ -16,14 +16,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/blocked #view/review #area/runtime #kind/bug
+- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-988 implementation session) · **Priority:** high  
     **PR:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
+    **Blocker:** Partial fixture fix only; full native recovery remains blocked by current \#995 manifest and cleanup failures.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  

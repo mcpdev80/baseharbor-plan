@@ -17,18 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/blocked #view/active #area/mcp #kind/bug
+- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/blocked #view/blocked #area/mcp #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-754 MCP preconditions)  
+    **PR:** [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985)  
+    **Blocker:** Trusted develop integration, actual regular mandatory Go CI and formal source qualification remain pending for \#985; paused for handover.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** mcpdev80 (core-754 MCP preconditions)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985)  
 **Source:** [baseharbor#754](https://github.com/mcpdev80/baseharbor/issues/754)
 <!-- /generated:links -->
 
