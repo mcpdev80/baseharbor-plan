@@ -61,6 +61,12 @@ Focused workflow policy/actionlint and helper regressions as selected by the tru
 
 ## Handoff
 
+### 2026-10-18 — Supplied native retest positive
+- Maintainer supplied Qwen exact-SHA native results for `78a72ebad0723eefe760090bc34130b55858d8a3`: isolated rootless Podman/Quadlet clean start and full Apply/Down/Up/Destroy journey passed with distinct current plans, no delete-data authorization, absent/stale/wrong-operation consent rejected and data retained after product Destroy.
+- [Public evidence summary](https://github.com/mcpdev80/baseharbor/pull/989#issuecomment-6247878204) contains no private machine identifiers. Separate owned-resource teardown restored baseline; no global/workflow reset or ci-runtime-reset.sh was used. Evidence is supplied by the authorized tester; no reviewer-native execution claimed.
+- Native retest boundary is satisfied by this supplied result. Trusted source/CI qualification, required finalcheck and final acceptance remain open; no merge or task closure.
+
+
 ### 2026-10-17 — Independent correction review; native retest next
 - [Review 5560555816](https://github.com/mcpdev80/baseharbor/pull/989#pullrequestreview-5560555816) accepts the correction diff at exact HEAD `78a72ebad0723eefe760090bc34130b55858d8a3`: absolute checkout helper path and separate fresh Apply/Down/Up/Destroy consent are implemented; no additional blocker found in this diff.
 - Actual [CI 39077712838](https://github.com/mcpdev80/baseharbor/actions/runs/39077712838) selected static/planner/executor jobs successful. Shell regression is stub-backed wiring evidence; it is not native acceptance.
