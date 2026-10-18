@@ -12,12 +12,12 @@ prs: [mcpdev80/baseharbor#984]
 sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: "New three-file #984 source layout at cf0a19bc requires independent content review and new immutable coverage binding; no self-qualification."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/blocked #view/blocked #area/inspect #kind/bug
+- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/review #view/review #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (PR \#984 source split implementation)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
@@ -175,3 +175,9 @@ Capability import evidence comes only from real import/require/reference syntax,
 - Independent review [5562635114](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562635114) inspected exact `cf0a19bc4c8f398d7ee3fc07a635833168081ff5`. Direct full-string comparison confirms all four moved functions byte-identical and remaining source unchanged. Production file sizes 666 and 217 lines satisfy the 800-line bound; existing test file untouched.
 - Actual [CI 39120167516](https://github.com/mcpdev80/baseharbor/actions/runs/39120167516) has all five Inspect validations successful. Finalcheck remains unresolved, as old two-file immutable record cannot authorize the new three-file layout.
 - Next policy owner must replace the outdated core-751 SHA and exact file/status record with this independently reviewed three-file source; preserve all five Inspect checks and real Git merge/follow-up/status regressions. No product acceptance, native test or merge. Canonical blocker/view update requires validated Planning render by the executable owner.
+
+### 2026-10-18 — develop integration; Manager merge review pending
+
+- Reviewed unchanged product content `cf0a19bc4c8f398d7ee3fc07a635833168081ff5` (independent review 5562635114). Trusted coverage Policy #997 merged to develop at `58efa1a3bc796f93f0ddead7ca0042e37bbd0705`.
+- Regular two-parent develop integration on existing #984 branch: exact merge candidate `5dea62eb21e3d8baf554357a11ddd3cf7e63fff7`, parents reviewed product source and develop. Isolated Git merge tree matches published tree `1b97c32f3326acf6a9e02bb8bb18f5031e142bc6` exactly. All three `internal/repositoryinspect` product file blobs are unchanged.
+- Exact source [CI 39122640623](https://github.com/mcpdev80/baseharbor/actions/runs/39122640623) must show all five Inspect checks and PR Selected Checks SUCCESS before Manager merge. This session performs no source self-qualification, native test or own merge.
