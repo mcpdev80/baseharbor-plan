@@ -59,6 +59,13 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-18 — Native retest and cleanup review follow-up
+- #989 exact-candidate native lifecycle/negative-consent/data-retention evidence supplied positive; formal CI/source qualification remains open.
+- #990 only reaches Core startup; full Podman disaster recovery blocked at Compose-only Core lookup. [Bug #994](https://github.com/mcpdev80/baseharbor/issues/994) requires correction and native retest before release. Implementation session must create/claim canonical task, link #988/#990, and sync generated release dependencies/views.
+- #993 review [5562183275](https://github.com/mcpdev80/baseharbor/pull/993#pullrequestreview-5562183275) found a P1 hazard in its new unscoped-reset regression: HOME/XDG isolation does not isolate the script's absolute /tmp deletions. Contain those destructive commands before any further shared-host execution; #992 is not accepted.
+- No new live execution or release acceptance by this reviewer. Preserve existing claims, metadata and generated views until the implementation owner's validated render.
+
+
 ### 2026-10-17 — Additional pre-release cleanup bug #992
 - [Product bug #992](https://github.com/mcpdev80/baseharbor/issues/992) must be corrected and independently retested before v0.4.26 release. Source inspection at `78a72ebad0723eefe760090bc34130b55858d8a3` shows `ci-runtime-reset.sh podman <scope>` still removes entire selected XDG BaseHarbor state directories; only runtime resource selection is scoped.
 - Do not use this scoped helper on shared XDG state as if it were isolated. No live cleanup was executed to establish the finding. Implementation belongs to a development session; executable disposable-sandbox regressions first, then independent review and Qwen native retest as appropriate. Preserve foreign resources and do not publish private machine identifiers.
