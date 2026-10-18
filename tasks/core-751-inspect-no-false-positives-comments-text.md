@@ -17,18 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/blocked #area/inspect #kind/bug
+- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/blocked #view/blocked #area/inspect #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 (core-751 inspect import detection)  
+    **Owner:** ChatGPT (PR \#984 source split implementation)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
-    **Blocker:** Review 5558780054: six ASI false-import cases and quadratic interpolation prefix rescanning on 549c0bdc; correct and independently re-review before source qualification.  
+    **Blocker:** New three-file \#984 source layout at cf0a19bc requires independent content review and new immutable coverage binding; no self-qualification.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** blocked  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
-**Owner:** mcpdev80 (core-751 inspect import detection)  
+**Owner:** ChatGPT (PR #984 source split implementation)  
 **Priority:** not set  
 **PRs:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
 **Source:** [baseharbor#751](https://github.com/mcpdev80/baseharbor/issues/751)

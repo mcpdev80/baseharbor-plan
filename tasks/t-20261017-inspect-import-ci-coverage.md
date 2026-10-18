@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/983", "https://github.co
 **State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
-**Required by:** [core-751](core-751-inspect-no-false-positives-comments-text.md)  
+**Required by:** [core-751](core-751-inspect-no-false-positives-comments-text.md), [t-20261018-reviewed-policy-991-982-binding](t-20261018-reviewed-policy-991-982-binding.md)  
 **Owner:** mcpdev80 (core-751 trusted import coverage)  
 **Priority:** not set  
 **PRs:** [baseharbor#983](https://github.com/mcpdev80/baseharbor/pull/983)  

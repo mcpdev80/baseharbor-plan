@@ -16,6 +16,20 @@ evidence: []
 ---
 
 - [ ] t-20261018-reviewed-policy-991-982-binding · Bind independent reviewed #991 and #982 candidates #task #release/v0-4-x #status/review #view/review #area/ci #kind/task
+    <!-- generated:card -->
+    **Owner:** mcpdev80 (independent reviewed policy binding) · **Priority:** high  
+    **PR:** [baseharbor#996](https://github.com/mcpdev80/baseharbor/pull/996)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** review  
+**Release:** [v0.4.x](../releases/v0.4.x.md)  
+**Depends on:** [t-20261017-inspect-import-ci-coverage](t-20261017-inspect-import-ci-coverage.md)  
+**Owner:** mcpdev80 (independent reviewed policy binding)  
+**Priority:** high  
+**PRs:** [baseharbor#996](https://github.com/mcpdev80/baseharbor/pull/996)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Claim and exclusive writing scope
 
