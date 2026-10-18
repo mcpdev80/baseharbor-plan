@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#918"]
 source_updated: "2026-10-17T12:02:00Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/978", "https://github.com/mcpdev80/baseharbor/actions/runs/38993072829", "https://github.com/mcpdev80/baseharbor/commit/5d62816f5a90a45836f8fcc49e1add42e12350bf", "https://github.com/mcpdev80/baseharbor/commit/e0421d97246062abd45a6966fcefb4a1f6049cc4", "https://github.com/mcpdev80/baseharbor/actions/runs/38999275799", "https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5557364551", "https://github.com/mcpdev80/baseharbor/commit/dcb744c1ea44a8fc9f918a28e59e07a0a70f5ae2", "https://github.com/mcpdev80/baseharbor/actions/runs/39028330504", "https://github.com/mcpdev80/baseharbor/commit/4f8084eb263ccdf8488ecc2d1d9bbc2458337a9b", "https://github.com/mcpdev80/baseharbor/actions/runs/39030528320"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5563005368", "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692", "https://github.com/mcpdev80/baseharbor/commit/f2bad5efa27fa2a791e5b357509af92d8861a3f1"]
 ---
 
-- [ ] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/active #view/active #area/wizard #kind/task
+- [x] core-918 · App edit: apply confirmed changes safely #task #release/v0-4-26 #status/closed #view/closed #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (core-918 Edit wiring)  
     **PR:** [baseharbor#978](https://github.com/mcpdev80/baseharbor/pull/978)  
@@ -406,3 +406,10 @@ Boundary (not suppressed, no policy exception): `PR Selected Checks` FAILS with 
 - PR #978 actual current integrated source `288c3a98f043671bbd80a6824894c632421f9b4e` preserves reviewed product implementation `95eed33e6a3852c21b8dc1a25ccc17e601f38da8` unchanged; clean regular integration of `develop` `9f622e6ed87f48436d7f15bfc0d66080ae1130cd` includes merged #991 trusted policy. Exact merge tree `1d759a5349e3b5b289599a119d5b4615e0b52ad6` reproduced from genuine Git merge.
 - [GitHub Actions 39124293692](https://github.com/mcpdev80/baseharbor/actions/runs/39124293692) **COMPLETED SUCCESS**: both selected Docker/Podman lifecycle matrix gates, four required NativeSQL security tests, Edit success/partial, guided/machine, CLI build/vet/gofmt, source contracts, Focused Python, Demo Pin, Exact Candidate, Runner Interface, Trusted Plan, Workflow policy and mandatory authenticated `PR Selected Checks` **all SUCCESS**. No CI bypass, no new source binding or self-qualification.
 - **Manager merge handoff** for exact current SHA, contingent on independent maintainer approval; implementation owner does not merge. No author live testing; all runtime proof is hosted selected CI.
+
+### 2026-10-18 — Product core-918 independently accepted and merged
+
+- Final Maintainer integration review [5563005368](https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5563005368) accepts exact `288c3a98f043671bbd80a6824894c632421f9b4e`. Reviewed product source `95eed33e` unchanged; only accepted develop CI/Inspect changes integrated normally. Independent trusted qualification delivered through #991.
+- Actual [CI 39124293692](https://github.com/mcpdev80/baseharbor/actions/runs/39124293692) fully green, including mandatory PR Selected Checks, all four actual NativeSQL safety tests, genuine Edit success/partial, Machine, Guided, CLI/source checks and both selected Docker/Podman lifecycle gates.
+- Regular Maintainer squash merge completed: `f2bad5efa27fa2a791e5b357509af92d8861a3f1`. Product task accepted/closed. No self-approval, mandatory CI bypass or extra manager live tests.
+- Central CLI/MCP registration remains core-921; release acceptance is not granted. Re-render current Planning main to expose newly satisfied dependencies and preserve all parallel work. Executable Planning render/check/tests not claimed by offline manager.
