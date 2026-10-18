@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/review #view/active #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
@@ -67,6 +67,13 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-18 — Published candidate; paused for Horde/Codex handover
+
+- Actual open Draft #998: `756b22dc8967d0daa7393065cd5bc15f262c7050`, branch `work/core-921-central-cli-mcp-registration`; trusted develop `f2bad5efa27fa2a791e5b357509af92d8861a3f1`.
+- Implementation handed off; canonical status corrected from active to review. Reported CI 39130075369 passes selected functional/docs checks; finalcheck unresolved. Independent full source review and formal coverage have not been performed by Manager and must not be inferred from this handover.
+- Existing implementation claim retained but writes paused by Maintainer. No new source edits, tests, policy qualification or merge until explicit resumption/test assignment. See [2026-10-18-horde-codex-handover-pause](../decisions/2026-10-18-horde-codex-handover-pause.md).
+
 
 - **2026-10-18 — Exact PR CI outcome:** [Actions 39130075369](https://github.com/mcpdev80/baseharbor/actions/runs/39130075369) on `756b22dc8967d0daa7393065cd5bc15f262c7050`: `wizard-registration-tests`, `source-contracts`, `documentation-audit`, EN/DE MkDocs, guided tests, CLI build/vet/gofmt and Public Contracts **SUCCESS**. Mandatory `PR Selected Checks` **FAILS CLOSED** with `coverage-unresolved` for new registration/machine-operation source paths (including independently reviewable mixed registration paths); no own qualification or bypass. Remains **active / awaiting independent source review and immutable coverage binding**. Isolated Planning `render/check` 0 errors/0 warnings and 47 tests PASS; generated views may change concurrently and must be committed from the latest main without overwriting others.
 

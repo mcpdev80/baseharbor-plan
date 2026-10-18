@@ -16,7 +16,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/active #view/active #area/ci #kind/bug
+- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/review #view/active #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (Podman acceptance consent) · **Priority:** high  
     **PR:** [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989)  
@@ -60,6 +60,12 @@ Focused workflow policy/actionlint and helper regressions as selected by the tru
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+### 2026-10-18 — Handover snapshot; source/native evidence awaiting formal integration
+
+- Exact open #989 `78a72ebad0723eefe760090bc34130b55858d8a3`: independent positive source review and Qwen's actual isolated native Apply/Down/Up/Destroy plus missing/stale/foreign consent and retained-data proof already recorded. No repeated native run needed for unchanged source.
+- Formal trusted coverage, fresh required CI and regular merge remain open. Corrected canonical lifecycle to review; existing author claim retained but paused. No acceptance or implementation takeover implied by Horde/Codex handover.
+
 
 ### 2026-10-18 — Supplied native retest positive
 - Maintainer supplied Qwen exact-SHA native results for `78a72ebad0723eefe760090bc34130b55858d8a3`: isolated rootless Podman/Quadlet clean start and full Apply/Down/Up/Destroy journey passed with distinct current plans, no delete-data authorization, absent/stale/wrong-operation consent rejected and data retained after product Destroy.

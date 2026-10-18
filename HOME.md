@@ -1,5 +1,7 @@
 # BaseHarbor planning home
 
+> **Temporary development pause:** [Horde/Codex handover pause](decisions/2026-10-18-horde-codex-handover-pause.md). Exact PR snapshots, unresolved native failures, paused ownership and restart requirements are recorded there. No automatic task takeover or implementation during the handover test.
+
 **Current release:** [v0.4.26](releases/v0.4.26.md) — app wizard, capability editing and development/CI V1 (epic [core-888](epics/core-888-development-and-ci.md)). Next: [v0.4.27](releases/v0.4.27.md). Sequence: [ROADMAP.md](ROADMAP.md).
 
 > Planning authority: this repository on `main`. Source GitHub issues retain discussion/history. [Activation and remaining cleanup](migration/cutover-checklist.md).

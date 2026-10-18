@@ -11,12 +11,12 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#990]
 sources: []
-blocker: ""
+blocker: "Partial fixture fix only; full native recovery remains blocked by current #995 manifest and cleanup failures."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/review #view/review #area/runtime #kind/bug
+- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/blocked #view/review #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-988 implementation session) · **Priority:** high  
     **PR:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
@@ -60,6 +60,13 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+### 2026-10-18 — Partial fix retained, full recovery remains blocked
+
+- Open #990 `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f` supplies the selected-runtime fixture input now included in still-unmerged #995. It is not accepted native recovery evidence and is not closed as superseded before its replacement is accepted.
+- Current #995 eaf86813 native run fails before backup on legacy manifest keys; automatic cleanup fails ownership verification. See [canonical correction task](t-20261018-podman-recovery-bootstrap-cleanup.md). Full recovery and release acceptance remain blocked.
+- No ongoing source writes or native tests during Maintainer handover pause; existing ownership retained.
+
 
 ### 2026-10-18 — Native retest reaches next blocker; recovery not accepted
 - Supplied exact-SHA Qwen run at `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f` confirms actual Podman Core startup after #990. It then fails at test line 52 on the Compose-only ExistingFiles lookup; backup/destroy/restore/verify have not run.

@@ -59,6 +59,13 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-18 — Maintainer handover pause and unreleased blockers
+
+- Development/testing/merge work paused for the Horde/Codex test; see [handover decision](../decisions/2026-10-18-horde-codex-handover-pause.md). No release qualification or pre-release dispatch authorized.
+- Accepted product baseline develop `f2bad5efa27fa2a791e5b357509af92d8861a3f1` includes core-918/#978. #998 registration candidate awaits independent source review/formal coverage. #995 recovery remains unqualified after reproducible manifest/cleanup failures; existing correction task owns the work. #989/#993 formal qualification/merges remain open. core-922/core-923 are not released from unfinished registration dependency.
+- Preserve actual canonical states, existing paused claims and concurrent v0.4.27 planning. Run regular render/check/tests on pinned final main before calling the handover synchronized; no manually maintained generated views.
+
+
 ### 2026-10-18 — #993 sandbox correction source review
 - Exact correction candidate `b981f3b60bebfaebf6eb7f2f467dfd06142c90fe` addresses review 5562183275: controlled rm fixture contains actual removals to its sandbox and blocks/logs global temporary-path removals; external sentinel asserted retained. No additional source blocker found in this correction.
 - Actual CI 39113140692 selected checks successful; finalcheck remains blocked. Dedicated five-test suite execution remains separate evidence, not inferred from generic CI jobs. Formal source/CI qualification and acceptance remain open; unscoped production reset still only authorized for dedicated runner context.
