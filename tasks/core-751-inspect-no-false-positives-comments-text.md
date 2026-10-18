@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#751"]
 source_updated: "2026-10-15T16:51:27Z"
 labels: [kind/bug, area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562723714", "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623", "https://github.com/mcpdev80/baseharbor/commit/8e77b70496df7543d1bd6e9c02c2a31e6a7a256d"]
 ---
 
-- [ ] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/review #view/review #area/inspect #kind/bug
+- [x] core-751 · Inspect: avoid false positives from comments and text #task #release/v0-4-x #status/closed #view/closed #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (PR \#984 source split implementation)  
     **PR:** [baseharbor#984](https://github.com/mcpdev80/baseharbor/pull/984)  
@@ -182,3 +182,10 @@ Capability import evidence comes only from real import/require/reference syntax,
 - Exact source [CI 39122640623](https://github.com/mcpdev80/baseharbor/actions/runs/39122640623) must show all five Inspect checks and PR Selected Checks SUCCESS before Manager merge. This session performs no source self-qualification, native test or own merge.
 
 - Final exact [CI 39122640623](https://github.com/mcpdev80/baseharbor/actions/runs/39122640623) fully evaluated: Inspect package tests, gofmt, vet, consumer build, consumer tests **all SUCCESS**, Focused Python and **PR Selected Checks SUCCESS**. The unchanged reviewed three-file implementation at source `cf0a19bc4c8f398d7ee3fc07a635833168081ff5` has merge candidate `5dea62eb21e3d8baf554357a11ddd3cf7e63fff7` ready for independent Manager merge. No author qualification or merge.
+
+### 2026-10-18 — Maintainer accepted and merged
+
+- Independent final integration review [5562723714](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562723714) accepts exact `5dea62eb21e3d8baf554357a11ddd3cf7e63fff7`. Complete delta against accepted `cf0a19bc` contains only trusted target workflow/planner changes; all three inspected source/test files unchanged. Prior source reviews 5560608936 and 5562635114 retained; exact three-file qualification independently integrated in #997.
+- Actual [CI 39122640623](https://github.com/mcpdev80/baseharbor/actions/runs/39122640623) fully green, including all five Inspect validations and authenticated mandatory PR Selected Checks.
+- Regular Maintainer squash merge completed at `8e77b70496df7543d1bd6e9c02c2a31e6a7a256d`. No self-approval, CI bypass or native tests. Canonical task now accepted/closed.
+- Current-main derived views must be regenerated and checked by the executable Planning owner; manager local execution unavailable and HF Jobs connector unavailable, so no new render/test completion claimed here. Preserve parallel task updates.
