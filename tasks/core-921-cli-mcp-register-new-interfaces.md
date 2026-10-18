@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "ChatGPT (core-921 registration implementation)"
 depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
@@ -68,6 +68,9 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+- **2026-10-18 — Registration implementation candidate.** Product [PR #998](https://github.com/mcpdev80/baseharbor/pull/998) opened as a draft against `develop` `f2bad5efa27fa2a791e5b357509af92d8861a3f1` (contains accepted core-918). Current candidate `756b22dc8967d0daa7393065cd5bc15f262c7050`. Existing `app new` CLI/MCP registration retained without duplication; `app edit` interactive CLI and two-phase typed MCP Edit registered through accepted proposal/consent/lifecycle owners; `app footprint show` CLI and read-only MCP registered through GuidedReadContext and canonical Footprint projection. Real CLI help/coverage and in-process MCP registration/negative-consent tests, generated EN/DE CLI/MCP references, Machine Discovery fixture and Go vet checked in isolated targeted tests. No new lifecycle.
+- **Hosted CI:** [run 39130075369](https://github.com/mcpdev80/baseharbor/actions/runs/39130075369) for current SHA; explicit final selected-check status must be evaluated before independent qualification. Prior run [39129814400](https://github.com/mcpdev80/baseharbor/actions/runs/39129814400) caught German technical-literal drift and discovery fixture drift; both were corrected. The new file set requires independent review and normal mandatory gates; no self-acceptance, native live test or merge.
 
 - **2026-10-18 — Implementation claim.** Planning-main baseline `b7a4e8cdc6393da30907e74124025d2e1be41fd5` rendered/checked with 47 tests PASS, 0 errors; core-918 confirmed accepted/closed (review 5563005368, CI 39124293692, merge f2bad5efa27fa2a791e5b357509af92d8861a3f1). Claim core-921 as sole writer for registration and generated references; preserve concurrent unrelated claims. No lifecycle changes, bypass, author merge or live tests.
 
