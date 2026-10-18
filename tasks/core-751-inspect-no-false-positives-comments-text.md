@@ -68,6 +68,13 @@ Capability import evidence comes only from real import/require/reference syntax,
 
 ## Handoff
 
+### 2026-10-18 — Trusted policy integrated; structural source requirement remains
+- #983 accepted and squash-merged at `980e8db8b93c09db61ac8a0ea873bc6f43d1dedf`; strict required CI green, review 5562448322, no self-approval or CI bypass.
+- #984 normal trusted develop integration: `8c2ce09975fe3ed6722cd06a2b19848969c8f9a1`, preserving both reviewed source blobs. New actual CI 39117192201 triggered; no product merge yet.
+- [Review 5562459205](https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562459205) records a previously overlooked merge-readiness requirement: capability_detection_runtime.go is 880 lines versus documented non-test maximum 800. Move cohesive JS lexer/context helpers into a dedicated package-local file with unchanged semantics; retain regressions and run source-readability audit. Do not compress lines merely to satisfy the count.
+- The resulting file-set change requires independent re-review and a new immutable policy binding. Earlier positive functional review remains useful evidence but does not waive source layout requirements. Existing blocked state/claim/generated metadata preserved pending the implementation owner's validated transition.
+
+
 - 2026-10-18 **latest review complete CI** for [PR #984](https://github.com/mcpdev80/baseharbor/pull/984), exact `9fcc77cd1feb0bf02e7647aa64bc02a2ebb47ae2`: [hosted Actions 39076992707](https://github.com/mcpdev80/baseharbor/actions/runs/39076992707) all five Inspect gates **SUCCESS** (`inspect-vet`, `inspect-consumer-build`, `inspect-consumer-tests`, `inspect-gofmt`, `inspect-package-tests`), Trusted Plan, Workflow Policy and Focused Python SUCCESS; final `PR Selected Checks` **FAILURE** solely `coverage-unresolved` for two changed repositoryinspect files pending independent qualification. [Isolated Go verification](https://huggingface.co/jobs/ThunderHawk1080/6ad3fc985ccb47ba0f7beb80) exact source full package tests, vet, format PASS. [Planning validation](https://huggingface.co/jobs/ThunderHawk1080/6ad3fcef5ccb47ba0f7beba9) previous handoff SHA `bb9865988171209d0cd00efc8452fc45cbdbf67c`: render stable, 243 tasks, 0 errors/warnings, 47 tests PASS. No live tests, self-approval, or merge.
 
 
