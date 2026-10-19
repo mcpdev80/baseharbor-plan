@@ -3,6 +3,7 @@ id: t-20261019-core921-coverage-binding
 type: task
 areas: [ci]
 release: v0.4.26
+blocker: "Self-qualification clause cannot fire for a linear PR-open head (chain check requires merge-anchored lineage); design ruling requested from CI reviewer session fe5dff6c - see Handoff."
 version: ""
 parent: ""
 owner: Flash (codeman w1-baseharbor)
