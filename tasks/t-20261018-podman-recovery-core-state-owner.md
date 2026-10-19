@@ -20,8 +20,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-994 implementation session) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Current \#995 requires bounded diagnostic-identity correction (review 5566018799), independent re-review and authorized full native recovery/cleanup proof; product owner Codeman Flash remains paused.  
+    **Blocker:** Current \#995 source correction independently reviewed at 36310f08; full authorized native Recovery/Cleanup proof and matching immutable coverage remain missing.  
     **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 3](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
