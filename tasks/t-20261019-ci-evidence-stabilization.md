@@ -9,7 +9,7 @@ owner: "Codex (Maintainer CI/evidence stabilization coordinator)"
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1001", "mcpdev80/baseharbor#1002"]
+prs: ["mcpdev80/baseharbor#1001", "mcpdev80/baseharbor#1002", "mcpdev80/baseharbor#1003"]
 sources: []
 blocker: ""
 resolution: ""
@@ -81,3 +81,10 @@ Smallest existing Python/contract checks, real Git fixtures, current GitHub requ
 - Additional retention audit #1002 exactly 2e3325e142995aedd3d69a2e5569452127cbc58f: four PR proof uploads 2→30 days; direct Docker/Podman evidence 1→30 days; preserve the two actual native-evidence origin workflows in existing GC. Existing #999/#1000 behavior unchanged. Actual read-only GC run 39183759516 executed all seven tests PASS; mutating jobs skipped. Separate independent review positive.
 - Final #1001 candidate 667e3806ee03140435825c69bc1b7c45f431ffc9 additionally binds exact #1002 five-file status inventory and requires all seven GC regression methods in mandatory planner tests. New exact review/CI in progress; not merged or self-approved.
 - #998 remains blocked on unpublished paused o1 work and regular claim release/resumption; no competing binding created. #990 full-recovery acceptance remains dependent on actual #995 native success, not its narrower fixture checks.
+
+### 2026-10-19 — Real production-path results and fresh review anchors
+
+- #1001 merged 5c5f8a18583d1ade0c71f152bbd56fd2861b28b0 after independent review5565992741 and fully green CI39184026379. #1002 merged57216ba951933dbbc562f0445662b4cf7494584a after independent review5565993909 and green CI39184233759; required planner job117843190047 actually ran all seven GC tests PASS. PyYAML available in actual required execution, no skip exception.
+- Actual #985 CI39184450141 proves both MCP families/build/vet/gofmt, but correctly rejects inherited qualification over older explicit tree-resolution history. New independent exact source review5566030344 approves3dfac93c against57216ba9 (single added117-line file, original blob unchanged). #993 freshreview5566047336 approves e6616b45 (two unchanged blobs), actual five sandbox/sevenGC PASS39184711511. #989 freshreview5566047870 approves c3809b12 (same helper/tests, workflow only inherited accepted retention30d); original Qwen native evidence remains78a72eba only.
+- Separate #1003 d2e81b4f1c183622b21139931291e0f72f85d0e3 re-anchors only these independently reviewed resolved candidates. New real Git fixture proves copied target contents do not establish history; explicit resolution needs fresh exact review, and later genuine clean trusted merges remain acceptable. No Git verification weakening. CI/review in progress.
+- Complete current #995 independent review found concrete diagnostic identity disclosure; review5566018799 CHANGES REQUIRED. Paused Flash product claim owns bounded correction; actual native full Recovery/Cleanup remains missing and belongs to authorized Qwen/native lane. #990 retains dependency. #998 protected unpublished o1 work unchanged. Current Codeman hold persisted in AGENTS/current decision83a425ec; no automatic resumption.
