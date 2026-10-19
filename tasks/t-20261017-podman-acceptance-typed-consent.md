@@ -16,14 +16,15 @@ resolution: "accepted"
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/989#pullrequestreview-5566047870", "https://github.com/mcpdev80/baseharbor/actions/runs/39185646028", "https://github.com/mcpdev80/baseharbor/pull/989#issuecomment-6247878204", "https://github.com/mcpdev80/baseharbor/commit/7827e6491a7715e0ffffb1e7938764f6788cc30b"]
 ---
 
-- [x] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/bug
+- [x] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (Podman acceptance consent) · **Priority:** high  
     **PR:** [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/989#pullrequestreview-5566047870), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39185646028), [proof 3](https://github.com/mcpdev80/baseharbor/pull/989#issuecomment-6247878204), [proof 4](https://github.com/mcpdev80/baseharbor/commit/7827e6491a7715e0ffffb1e7938764f6788cc30b)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  

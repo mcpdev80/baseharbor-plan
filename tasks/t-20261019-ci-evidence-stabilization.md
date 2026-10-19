@@ -16,14 +16,15 @@ resolution: "accepted"
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1001", "https://github.com/mcpdev80/baseharbor/pull/1002", "https://github.com/mcpdev80/baseharbor/pull/1003", "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474", "https://github.com/mcpdev80/baseharbor/actions/runs/39185400529", "https://github.com/mcpdev80/baseharbor/actions/runs/39185646028"]
 ---
 
-- [x] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/maintenance
+- [x] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/maintenance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer CI/evidence stabilization coordinator) · **Priority:** critical  
     **PR:** [baseharbor#1001](https://github.com/mcpdev80/baseharbor/pull/1001), [baseharbor#1002](https://github.com/mcpdev80/baseharbor/pull/1002), [baseharbor#1003](https://github.com/mcpdev80/baseharbor/pull/1003)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1001), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1002), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1003), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39185230474), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/39185400529), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/39185646028)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
