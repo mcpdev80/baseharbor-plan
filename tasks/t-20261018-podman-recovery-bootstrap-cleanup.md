@@ -11,12 +11,12 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Diagnostic P2 corrected and full source/Guided CI positive at 36310f08; exact authorized native Recovery/Cleanup evidence and independent five-file coverage remain required."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28","https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -73,6 +73,12 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-19 — Full-scope audit finds additional fixture blockers; correction authorized
+
+- Marcel explicitly ordered inspection and repair of all v0.4.26 errors. This supersedes the earlier diagnostics-only implementation limit for these demonstrated #995 fixture defects; existing Codex claim/branch and prior Flash history remain intact.
+- Independent full-path audit confirms native restore has no fresh destructive scope consent, while apply/retirement also lack operations-bound acknowledgements when required. SQL seed/readback assume an unqualified application project and bootstrap role despite default shared placement. Correct these in this existing PR through actual typed consent and protected service-binding owners; do not weaken product guards or fabricate native PASS.
+- Preserve all SQL/secret/identity-regeneration and cleanup assertions. Add executable non-native regressions selected by actual Guided CI. New exact candidate requires independent review and Qwen native retest; prior positive bounded review is not approval for new source.
 
 ### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
 
