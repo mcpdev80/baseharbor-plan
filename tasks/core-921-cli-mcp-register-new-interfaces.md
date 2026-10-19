@@ -12,12 +12,12 @@ prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
-blocker: ""
+blocker: "Protected paused o1 binding remains unpublished/uncommitted; regular claim release or separately authorized owner resumption, publication and independent policy review are required before #998 current Required CI."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/blocked #view/blocked #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
@@ -104,3 +104,9 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - Not started.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
+
+### 2026-10-19 — Verified external ownership boundary during CI stabilization
+
+- Remote #998 remains756b22dc8967d0daa7393065cd5bc15f262c7050 unchanged. No competing CORE_921 binding was created in #1001/#1002/#1003.
+- Existing binding task documents o1's exactly two unpublished/uncommitted files at paused basef2bad5ef, no PR. The local APPROVE report and ecosystem coordinator status are not in reachable published trees; their contents have not been independently read here. Published task confirms pause and ownership, not source publication.
+- Owner/claim preserved. Maintainer coordination marks this prerequisite genuinely blocked while Codeman remains paused; this does not release or transfer the claim. Required continuation: explicit resumption/release, preserve and integrate o1's original work on current trusted develop, finish negative tests, publish, independent policy review, then normal current #998 integration and real Required CI. No automatic worker restart after infrastructure success.
