@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1006]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1006","https://github.com/mcpdev80/baseharbor/actions/runs/39236044976","https://github.com/mcpdev80/baseharbor/commit/bb91fbc327414952b36a88271153db43970280cc"]
 ---
 
-- [ ] t-20261019-owner-delegated-maintainer-authority · Document Owner-delegated Maintainer merge authority #task #release/v0-4-26 #status/active
+- [x] t-20261019-owner-delegated-maintainer-authority · Document Owner-delegated Maintainer merge authority #task #release/v0-4-26 #status/closed
 
 ## Goal
 
@@ -39,6 +39,13 @@ Existing documentation/workflow checks selected by trusted CI; regular Planning 
 Owned docs: product docs/DEVELOPMENT_GUIDELINES.md, docs/de/DEVELOPMENT_GUIDELINES.md, docs/internal/review-protection.md; Planning AGENTS.md, WORKFLOW.md and the delegation decision. Preserve Flash/o1's existing source/binding work.
 
 ## Handoff
+
+### 2026-10-19 — Owner-authorized acceptance and actual regular merge completed
+
+- PR1006 final source7ff6972651733820286b5205f840058f55d6271d: actual CI39236044976 SUCCESS, including app15368 PR Selected Checks118005658109, Trusted Plan, workflow policy, Focused Python, EN/DE strict builds, documentation audit and Pages candidate.
+- Owner-authorized acceptance executed without another repository reviewer or fabricated self/independent approval. Regular Maintainer squash merge succeeded asbb91fbc327414952b36a88271153db43970280cc using the existing User22537373 PR-only review exception. Separate technical Required Checks were green; no ruleset or required-check bypass changed.
+- Product guidelines EN/DE and current/historical review-protection note are published on develop. Existing product AGENTS central-process link adopts that authority; Planning AGENTS/WORKFLOW and accepted delegation decision are already published. No runtime/CI code, native tests, protected o1 files or unrelated source claims changed.
+- This task is accepted/closed by the explicitly delegated Maintainer; remaining release/native work is not accepted by implication. Publish regular generated Planning/Obsidian closeout and validate the final pushed SHA.
 
 ### 2026-10-19 — Existing-linked central policy published in PR1006
 
