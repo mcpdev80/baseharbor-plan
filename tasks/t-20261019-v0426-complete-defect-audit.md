@@ -16,7 +16,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261019-v0426-complete-defect-audit · Audit and repair the complete v0.4.26 release scope #task #release/v0-4-26 #status/active #view/active #area/release #area/ci #kind/review
+- [ ] t-20261019-v0426-complete-defect-audit · Audit and repair the complete v0.4.26 release scope #task #release/v0-4-26 #status/active #view/active #area/ci #area/release #kind/review
+    <!-- generated:card -->
+    **Owner:** Codex (Maintainer complete v0.4.26 defect audit) · **Priority:** critical  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Owner:** Codex (Maintainer complete v0.4.26 defect audit)  
+**Priority:** critical  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
