@@ -16,7 +16,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/active
+- [ ] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/active #view/active #area/ci #kind/maintenance
+    <!-- generated:card -->
+    **Owner:** Codex (Maintainer CI/evidence stabilization coordinator) · **Priority:** critical  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Owner:** Codex (Maintainer CI/evidence stabilization coordinator)  
+**Priority:** critical  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
