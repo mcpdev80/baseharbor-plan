@@ -11,12 +11,12 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: ""
+blocker: "Current #995 requires bounded diagnostic-identity correction (review 5566018799), independent re-review and authorized full native recovery/cleanup proof; product owner Codeman Flash remains paused."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -145,3 +145,10 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 - Current remote #995 HEAD 2ff6846c3b4d246d1291ae2c90d09d231c4214bc is a genuine develop integration of worker source d359af833649a16f6b2b121704d5c2a6613f8e36. All four candidate source blobs are unchanged. Actual run 39183081916 accepts integration; build/vet/guided/source validations pass. The previous integration_sha_mismatch is resolved, not hidden by a verifier exception.
 - This does not upgrade the prior PARTIAL source review or establish native recovery. The obsolete manifest keys were corrected in worker source, but actual successful Backup→Destroy→Restore with SQL/secrets/consumer access and identity regeneration, plus owned cleanup on failure, is still absent. The last supplied native failure belongs to eaf86813 and is not proof of failure or success of the new candidate.
 - Owner remains paused Codeman Flash; no product claim takeover or file change by stabilization coordinator. Before resumption: independent complete four-file re-review (including newly added non-_test cleanup diagnostic source), then Qwen/authorized native lane executes the exact reviewed candidate and proves recovery plus scoped cleanup. No native credentials/executor are available to this coordinator; no unauthorized test or fabricated coverage is provided. Existing ownership/consent guards stay mandatory.
+
+### 2026-10-19 — Complete independent current-source review
+
+- Full four-file exact-source review of 2ff6846c3b4d246d1291ae2c90d09d231c4214bc is now complete, not deferred: CHANGES REQUIRED, review https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5566018799.
+- Confirmed P2: ownershipSubject returns applicationDestructionPlan.Scope.Owner.Subject, which the actual destruction owner fills with DeploymentID; approvedNativeFixtureCleanup logs it. This violates the new coarse-only/no-ID diagnostic contract. Emit fixed categories by actual plan type, never raw Subject/Owner, and add sentinel identity/project/target/path regressions with real machine.Error and plan types. No actual private identifiers are published.
+- Manifest/parser, authenticated readiness, early cleanup registration, fresh bounded context, recovery assertions and consent/ownership guards are retained. No further confirmed source blocker. Diagnostic wrapper does not prove successful cleanup; full authorized native recovery and fail-path ownership evidence remain absent.
+- Flash/Codeman retains product claim while paused; Qwen/authorized native lane owns retest only after corrected independent source review. Infrastructure coordinator neither overwrites paused source nor grants source/native coverage.

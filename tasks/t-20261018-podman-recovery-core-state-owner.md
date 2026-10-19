@@ -11,7 +11,7 @@ depends_on: [t-20261017-podman-backup-guided-runtime, t-20261018-podman-recovery
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813 remains unqualified."
+blocker: "Current #995 requires bounded diagnostic-identity correction (review 5566018799), independent re-review and authorized full native recovery/cleanup proof; product owner Codeman Flash remains paused."
 resolution: ""
 evidence: []
 ---
@@ -89,3 +89,10 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 
 - Superseding #995 now 2ff6846c3b4d246d1291ae2c90d09d231c4214bc preserves worker d359af83 source in a genuine develop integration. Run 39183081916 confirms integration mismatch repaired and focused validations green; four-file full source qualification and actual native recovery remain missing.
 - Historic eaf86813 manifest/cleanup failures are retained as history, not asserted against untested current source. Completion requires independent source re-review and Qwen's authorized exact-SHA full recovery/cleanup result. Paused Codeman owner remains unchanged; no coordinator product implementation or native run.
+
+### 2026-10-19 — Complete independent current-source review
+
+- Full four-file exact-source review of 2ff6846c3b4d246d1291ae2c90d09d231c4214bc is now complete, not deferred: CHANGES REQUIRED, review https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5566018799.
+- Confirmed P2: ownershipSubject returns applicationDestructionPlan.Scope.Owner.Subject, which the actual destruction owner fills with DeploymentID; approvedNativeFixtureCleanup logs it. This violates the new coarse-only/no-ID diagnostic contract. Emit fixed categories by actual plan type, never raw Subject/Owner, and add sentinel identity/project/target/path regressions with real machine.Error and plan types. No actual private identifiers are published.
+- Manifest/parser, authenticated readiness, early cleanup registration, fresh bounded context, recovery assertions and consent/ownership guards are retained. No further confirmed source blocker. Diagnostic wrapper does not prove successful cleanup; full authorized native recovery and fail-path ownership evidence remain absent.
+- Flash/Codeman retains product claim while paused; Qwen/authorized native lane owns retest only after corrected independent source review. Infrastructure coordinator neither overwrites paused source nor grants source/native coverage.

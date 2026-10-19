@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#990]
 sources: []
-blocker: "Partial fixture fix only; full native recovery remains blocked by current #995 manifest and cleanup failures."
+blocker: "Narrow #990 fixture fix is included in #995; full recovery awaits #995 source correction (5566018799), independent re-review and authorized native recovery/cleanup proof."
 resolution: ""
 evidence: []
 ---
