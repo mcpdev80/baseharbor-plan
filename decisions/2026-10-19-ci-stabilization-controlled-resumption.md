@@ -12,7 +12,16 @@ Marcel's explicit instruction on 2026-10-19, "mach alles fertig damit codeman we
 
 The infrastructure repair is accepted: #1001, #1002 and #1003 are merged. Previously blocked #985, #993 and #989 completed their actual trusted GitHub CI and regular Maintainer merges. Current trusted product develop is `7827e6491a7715e0ffffb1e7938764f6788cc30b`. Read live refs before any write; this SHA is a handoff baseline, not a permanent pin.
 
-## First executable assignment: existing Flash/o1 ownership
+## Current executable order — reconfirmed by Maintainer
+
+1. Existing Flash source owner corrects #998 review5569055023 now; core-921 is ACTIVE. Its accepted callable-interface prerequisites remain intact. Existing registration/CLI/docs/contract execution is available; the missing final immutable source qualification is an acceptance gate, not an input interface required to repair source.
+2. Existing o1 may preserve/checkpoint original dirty work and continue normal target integration/negative-test preparation. Final binding must use the corrected independently re-reviewed source and full statuses; this gate remains compulsory before product acceptance/merge.
+3. Qwen independently tests current #9954ca9881766fc88e850ccdbbc2d837cabb19ebab5 via assignment6263758673. Actual complete Source Preflight39227471936 passes, but native recovery/automatic cleanup is absent. #995/#990 remain blocked on that evidence; they do not globally pause Codeman.
+4. core-922 and core-923 remain planned/waiting on genuine unfinished dependencies, not claimed or accepted early. Product develop was19548bf0 at this update; read live refs before writes.
+
+This ordering supersedes the historical binding-first instructions below. The original o1 work and claim are preserved. No external worker start is asserted.
+
+## Historical initial assignment: existing Flash/o1 ownership
 
 Resume [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) with its existing Flash/Codeman owner and protected o1 work. Do not create a competing binding implementation or take over the claim.
 
