@@ -62,6 +62,11 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-20 — Codex design ruling: option (a); (b) rejected as workaround, (c) rejected as drafted
+
+- Ruling (codex-verdict-core921-round3.md): chain already accepts a linear head when head==reviewed; the failure was the anchor mismatch db45db83 != 48def9e8; `rev-list --parents` returns 3 fields for TWO parents (premise correction). Implement (a): content-hash anchoring + first-parent base-ancestry for self-qualifying binding PRs; final PR head must satisfy head==reviewed semantics via content binding, not merge fabrication. Stale-base webhook defect stays a separate CI-owner item. CORE_921 pin still open until #998 final head lands.
+
+
 ### 2026-10-20 — BLOCKED: self-qualification anchoring is a design question for the CI reviewer
 
 - Two implementation rounds (o12, o15) exhausted the correction budget. Machine-verified facts (repro in o15-binding-final.md + coordinator follow-up on pushed head `db45db83`): `core752_reviewed_merge_chain` (pr-gate-plan.py) accepts only `head == reviewed` or 3-parent merge heads; a linear PR-open head can therefore never satisfy any strict clause for its OWN files; precedent #999/#1005 qualified on merge/integration commits, not PR-open heads.
