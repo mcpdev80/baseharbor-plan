@@ -6,6 +6,12 @@ Marcel explicitly authorized making Codeman operational again after CI stabiliza
 
 Qwen's exact-SHA #995 native recovery/automatic-cleanup proof remains an independent external blocker, not a global Codeman pause. No release, native success, Required Check bypass or merge without fulfilled prerequisites is authorized. The bounded Codex #995 correction has been published and independently source-reviewed; do not repeat it. Historical hold and exception records remain in [the earlier decision](decisions/2026-10-19-ci-stabilization-codeman-hold.md).
 
+## Current full-release repair assignment — 2026-10-19
+
+Marcel subsequently explicitly ordered inspection and repair of all v0.4.26 defects. Follow [the complete-release audit](tasks/t-20261019-v0426-complete-defect-audit.md), not an assumption that infrastructure completion means release completion. The existing Flash/core-921 owner must first correct the independently found MCP schema and typed-error defects in #998, then obtain fresh full-source review. Preserve o1's original binding work and re-anchor it only to that corrected reviewed source/status set; do not qualify the now-rejected old source. Codex's disjoint exact SQL-layout qualification changes are published separately; normally integrate accepted target changes without overwriting original o1 work.
+
+Qwen's current #995 assignment is the exact source and native command in its latest canonical task/PR handoff; earlier SHA assignments are historical. No key, Owner role or general work authorization replaces actual native evidence or green Required Checks.
+
 ## Earlier handover pause ended — historical decision
 
 The 2026-10-18 handover pause ([decision](decisions/2026-10-18-horde-codex-handover-pause.md)) was explicitly lifted by Marcel on 2026-10-19 ([resumption decision](decisions/2026-10-19-pause-lifted-codeman-delegation.md)). Development, merges and native tests are resumed under the standing rules of the affected repositories. Existing claims, PRs, reviews and handoffs from the paused period remain published and protected; they are not available for silent takeover, and an existing PR is continued only with an explicit ownership release. Operational delegation runs through the Codeman/Ornith/Codex coordinator model of the ecosystem-root `AGENTS.md`; releases still require separate authorization.

@@ -34,11 +34,11 @@ evidence: []
 
 ## Goal
 
-Trusted PR gate planning resolves coverage for the independently reviewed core-921 registration candidate `756b22dc8967d0daa7393065cd5bc15f262c7050` by an exact reviewed-bundle binding, so PR #998 can reach a green mandatory final check without any prefix or directory exemption.
+Trusted PR gate planning resolves coverage for the corrected, independently re-reviewed core-921 registration candidate by an exact complete source/file-status binding, so PR #998 can reach a green mandatory final check without any prefix or directory exemption. The initial source756b22dc8967d0daa7393065cd5bc15f262c7050 now has confirmed MCP source defects and must not be finally qualified as-is.
 
 ## Scope
 
-- In scope: one exact-match clause in `scripts/pr-gate-plan.py` binding the complete 13-file changed-status set of `origin/develop...756b22dc8967d0daa7393065cd5bc15f262c7050` to reviewed head `756b22dc8967d0daa7393065cd5bc15f262c7050` with the same `core752_reviewed_merge_chain` guard used by the merged #974/#991 clauses, requiring `CI_CHECKS` plus `DOC_CHECKS` for the six reference docs; matching test additions in `scripts/test_pr_gate_plan.py`.
+- In scope: preserve the original exact-match implementation and negative tests, then bind the complete corrected independently reviewed source/file-status inventory using the existing trusted Git ancestry/integration proof. Select the actual registration/MCP/consent/CLI/docs/Public Contracts requirements. The original 13-file inventory at756b22dc is historical and must not authorize the source rejected in review5569055023.
 - Out of scope: any change to #998's product code, parser behavior, enforcement pin handling, or other reviewed bundles.
 
 ## Acceptance
@@ -59,6 +59,12 @@ Trusted PR gate planning resolves coverage for the independently reviewed core-9
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-19 — Preserve original work; final binding waits for corrected MCP source
+
+- The complete-release audit found source-blocking #998 defects in review5569055023. Existing Flash/core-921 owner must correct the MCP schema and typed-error boundary on its existing source branch and obtain a fresh independent full-source review.
+- o1 may preserve/checkpoint its original two-file work and finish generic negative-test preparation, but must update the final exact source/status inventory to that corrected reviewed candidate; the old13-file/SHA scope below is historical, not permission to qualify the rejected source.
+- Preserve the actual registration/MCP/consent/CLI/docs/Public Contracts requirements, not only CI_CHECKS+DOC_CHECKS. Integrate accepted #1001/#1002/#1003 and the disjoint #1005 SQL-layout qualification normally before publication; no competing CORE_921 implementation or local worktree mutation was made by the coordinator.
 
 ### 2026-10-19 — Controlled owner continuation authorized
 

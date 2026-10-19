@@ -9,11 +9,11 @@ owner: Codex (Maintainer complete v0.4.26 defect audit)
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: [mcpdev80/baseharbor#1004]
+prs: [mcpdev80/baseharbor#1004, mcpdev80/baseharbor#1005]
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/39225066336","https://github.com/mcpdev80/baseharbor/actions/runs/39226175528","https://github.com/mcpdev80/baseharbor/actions/runs/39226182313","https://github.com/mcpdev80/baseharbor/actions/runs/39225531904","https://github.com/mcpdev80/baseharbor/pull/998#pullrequestreview-5569055023"]
 ---
 
 - [ ] t-20261019-v0426-complete-defect-audit · Audit and repair the complete v0.4.26 release scope #task #release/v0-4-26 #status/active #view/active #area/ci #area/release #kind/review
@@ -82,3 +82,11 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 - Product develop baseline: 7827e6491a7715e0ffffb1e7938764f6788cc30b. Open PRs: #998 at756b22dc, #995 at36310f08, #990 atbc6bb47a.
 - Existing local executor is disconnected; Hugging Face Jobs currently returns UNAVAILABLE. Use real GitHub CI where available; no claim that local/HF/native tests ran.
 - First confirmed readiness gaps: core-921 binding/registration incomplete; core-922 EN/DE guides/changelog/release notes not started; core-923 final integrated developer/consumer acceptance not started; #995 full native recovery/automatic cleanup and exact coverage pending, with #990 dependent. Current README still describes the preparing release as v0.4.25; root changelog Unreleased is empty and no v0.4.26 release-note tree exists. These docs belong to core-922 after its accepted registration prerequisite.
+
+### 2026-10-19 — Real source repairs merged; complete release remains in progress
+
+- #1005 exact SQL-layout qualification mergedb4a5334da5bfebd9748304a68d221724ff327889 after independent policy review5569033250 and green actualCI39225531904 (60 planner tests, existing negative Git fixtures and utility suites).
+- #1004 source formatting/responsibility-preserving extraction merged19548bf0f06757bc8d7acc9f3f4001417ddd34ed after independent source/integration reviews5568994921/5569139915, actual complete Source Preflight39225066336 and39226175528 SUCCESS, and final Required CI39226182313 SUCCESS. No behavioral change or required-check bypass.
+- [Complete release audit dossier](../evidence/v0.4.26/2026-10-19-complete-audit.md) records immutable inputs, actual test scope, confirmed defects and remaining owners across the full canonical checklist.
+- #995 current integrated source4ca9881766fc88e850ccdbbc2d837cabb19ebab5 has green focusedCI39226862989, only native coverage unresolved. Full hosted source preflight39227471936 is running; native recovery and real automatic cleanup remain Qwen's responsibility.
+- #998 source review5569055023 requires actual MCP-schema and typed-error correction by existing Flash owner before fresh independent review/o1 binding. Protected original o1 work remains untouched. core-922/core-923 retain their real registration/documentation/consumer prerequisites; no fake accepted cards or release readiness.
