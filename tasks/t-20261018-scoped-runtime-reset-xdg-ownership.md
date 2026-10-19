@@ -15,14 +15,15 @@ resolution: "accepted"
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/993#pullrequestreview-5566047336", "https://github.com/mcpdev80/baseharbor/actions/runs/39185400529", "https://github.com/mcpdev80/baseharbor/commit/cf63ccfc822796b2c9e8fe0214026bfe06ebb3f3"]
 ---
 
-- [x] t-20261018-scoped-runtime-reset-xdg-ownership · Scoped runtime reset must retain unrelated XDG state #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/bug
+- [x] t-20261018-scoped-runtime-reset-xdg-ownership · Scoped runtime reset must retain unrelated XDG state #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (scoped XDG reset review) · **Priority:** high  
     **PR:** [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/993#pullrequestreview-5566047336), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39185400529), [proof 3](https://github.com/mcpdev80/baseharbor/commit/cf63ccfc822796b2c9e8fe0214026bfe06ebb3f3)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  

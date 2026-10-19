@@ -21,11 +21,12 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
+    **Blocker:** Protected paused o1 binding remains unpublished/uncommitted; regular claim release or separately authorized owner resumption, publication and independent policy review are required before \#998 current Required CI.  
     **Needs:** [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md), [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
