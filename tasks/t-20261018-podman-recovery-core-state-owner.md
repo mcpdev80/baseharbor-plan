@@ -13,7 +13,7 @@ prs: [mcpdev80/baseharbor#995]
 sources: []
 blocker: "Current #995 source correction independently reviewed at 36310f08; full authorized native Recovery/Cleanup proof and matching immutable coverage remain missing."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610"]
 ---
 
 - [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
