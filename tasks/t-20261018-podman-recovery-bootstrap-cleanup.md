@@ -202,5 +202,10 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 
 - Existing #995 branch now 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, a normal integration of independently reviewed be972ff source with trusted develop19548bf0. All five reviewed fixture/diagnostic source blobs remain unchanged.
 - Actual PR CI39226862989: Trusted Plan, workflow policy, Focused Python, Guided, build, vet and Source Contracts PASS. Final117975666636 blocks only native coverage of the five paths; integration_sha_mismatch is absent.
-- Full hosted Source Preflight39227471936 is running at that exact head. It is source validation, not the opt-in native recovery test. Earlier Qwen source assignments are historical; use only the latest exact-SHA PR handoff after its source precheck.
+- Full hosted Source Preflight39227471936 completed SUCCESS at that exact head. It is source validation, not the opt-in native recovery test. Earlier Qwen source assignments are historical; use only the latest exact-SHA PR handoff after its source precheck.
 - Qwen's authorized isolated Podman lane must still prove the full SQL/Secrets/consumer/identity recovery assertions and actual automatic owned cleanup. No native success, immutable qualification or merge is asserted.
+
+### 2026-10-19 — Exact integration full hosted source validation completed
+
+- Current #9954ca9881766fc88e850ccdbbc2d837cabb19ebab5: actual complete Source Preflight39227471936 SUCCESS, job117977164941; full cmd/baha tests149.350s, formatting/readability, specified races, integration evidence, docs and snapshot/binary steps passed. Protected private-source access was skipped as configured. No native opt-in result or v0.4.26 release readiness is inferred.
+- Independent integration review5569225959 positive. Superseding Qwen exact-SHA native assignment6263758673 published; native full recovery/automatic cleanup remains unexecuted here. Final Required PR check still correctly blocks native coverage; no merge or fake qualification.
