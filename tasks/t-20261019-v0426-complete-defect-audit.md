@@ -57,6 +57,13 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-19 — Full source preflight exposes formatting blocker; bounded correction claimed
+
+- Actual baseline Source Preflight run39223971364 at develop7827e649 fails its real gofmt check for internal/application/backend_probe_test.go and internal/application/runtime_postgres.go. Later package/race/docs/snapshot steps were skipped, not passed.
+- This audit owns only the exact machine-generated gofmt correction for these two already-published SQL consumer files, on the existing temporary source-preflight branch. No behavioral rewrite, protected planner edit or o1 claim takeover. Preserve actual formatter output; independently review and execute the full source preflight again after this diagnosed cause change.
+- Independent source/SDK audit found #998's PascalCase/required MCP input-schema defect; existing source owner notified in PR comment6263134991. The old exact-source binding must not bypass that new source blocker. Existing Flash/o1 files remain intact.
+- #995 new exact candidatebe972ff39006037a9f06b904c156fe73f7f24ba8 fixes operation-consent/consumer-SQL fixture defects. Actual Guided/build/vet/source checks in CI39223771804 pass; source review5568897605 positive. Native recovery and five-file coverage remain open.
+
 ### 2026-10-19 — Explicit full-scope assignment and claim
 
 - Assigned directly by Marcel: inspect all v0.4.26 and fix all errors. Prior limited infrastructure completion does not close this audit.
