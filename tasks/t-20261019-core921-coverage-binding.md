@@ -16,14 +16,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -60,6 +60,13 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-20 — BLOCKED: self-qualification anchoring is a design question for the CI reviewer
+
+- Two implementation rounds (o12, o15) exhausted the correction budget. Machine-verified facts (repro in o15-binding-final.md + coordinator follow-up on pushed head `db45db83`): `core752_reviewed_merge_chain` (pr-gate-plan.py) accepts only `head == reviewed` or 3-parent merge heads; a linear PR-open head can therefore never satisfy any strict clause for its OWN files; precedent #999/#1005 qualified on merge/integration commits, not PR-open heads.
+- The pushed head `db45db83` contains clause code that still cannot fire for its own PR (verified locally: tests OK, but clause condition `head_sha == 48def9e8` != real head `db45db83`). No further correction rounds will be run by the coordinator.
+- Question escalated to Codex reviewer session fe5dff6c (design ruling requested; candidates: (a) qualify binding PRs on the integration/merge commit semantics with a content-hash clause that tolerates 1-parent heads, (b) accept merge-queue-style integration for #1007, (c) CI-owner-side diff-base change per q2 proposal). #998 review can proceed in parallel - it is complete and independently re-verified.
+
 
 ### 2026-10-19 — Structural blocker found (r4): binding clause unreachable for linear heads; fix + re-pin to a66e5de6 delegated
 
