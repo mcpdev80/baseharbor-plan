@@ -4,6 +4,10 @@
 
 **Codeman remains PAUSED — BaseHarbor CI stabilization.** This later Maintainer instruction supersedes the earlier general resumption for Codeman/workers. Do not start its workers, take over paused claims, or duplicate o1's unpublished core-921 binding. Only the explicitly assigned CI coordinator continues infrastructure stabilization and properly qualified Maintainer merges. Successful stabilization does not resume Codeman: a separate explicit authorization is required. See the [current hold decision](decisions/2026-10-19-ci-stabilization-codeman-hold.md).
 
+## Narrow authorized exception — PR #995
+
+On 2026-10-19 Marcel explicitly authorized Codex to apply and finish the prepared bounded #995 diagnostic correction on its existing branch. This exception covers that published claim and its tests/review/handoff only. Codeman workers and protected o1/core-921 ownership remain paused; no native success, release or policy waiver follows from this authorization. See [the #995 claim](tasks/t-20261018-podman-recovery-bootstrap-cleanup.md).
+
 ## Earlier handover pause ended — historical decision
 
 The 2026-10-18 handover pause ([decision](decisions/2026-10-18-horde-codex-handover-pause.md)) was explicitly lifted by Marcel on 2026-10-19 ([resumption decision](decisions/2026-10-19-pause-lifted-codeman-delegation.md)). Development, merges and native tests are resumed under the standing rules of the affected repositories. Existing claims, PRs, reviews and handoffs from the paused period remain published and protected; they are not available for silent takeover, and an existing PR is continued only with an explicit ownership release. Operational delegation runs through the Codeman/Ornith/Codex coordinator model of the ecosystem-root `AGENTS.md`; releases still require separate authorization.
