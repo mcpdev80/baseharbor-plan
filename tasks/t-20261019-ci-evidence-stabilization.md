@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "Codex (Maintainer CI/evidence stabilization coordinator)"
 priority: critical
 depends_on: []
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-plan]
+repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
