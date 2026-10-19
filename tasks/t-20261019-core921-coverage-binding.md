@@ -61,6 +61,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-19 — Structural blocker found (r4): binding clause unreachable for linear heads; fix + re-pin to a66e5de6 delegated
+
+- r4-planner-mode-analysis.md: pre-merge green was impossible for THIS PR because `core752_reviewed_merge_chain` requires a merge-anchored chain and #1007's head is linear (independent second bug: stale `base.sha` payload belongs to the CI owner, see ci-finding-integration-sha-mismatch.md).
+- o12 implements #999-style fix (develop-merge into branch) or r4's option-B chain relaxation (with negative test), re-pins CORE_921 to a66e5de6, reproduces planner resolution locally BEFORE push.
+
+
 ### 2026-10-19 — Self-qualification independently APPROVED; awaiting #998 native SHA for final re-pin
 
 - Independent read-only review of delta `706b5244..48def9e8` by a qwen3.6-laptop session (t20, verified model footer): **APPROVE** - BINDING_PR_1007 clause mirrors #999/#1005, CORE_921 block byte-identical, 84 planner tests pass, planner's pre-merge `unresolved` behavior correctly identified as merge-chain semantics (resolves for later runs once the clause is on develop), not a defect. Evidence: ecosystem `evidence/board-2026-10-19/o17-selfq-review.md`.

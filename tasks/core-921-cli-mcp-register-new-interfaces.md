@@ -70,6 +70,12 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-19 — Native MCP gate PROVEN on baha-docker; #998 head now a66e5de6 (delta review running)
+
+- o10 ran the real native lifecycle on baha-docker (202 s, exit 0): valid propose->apply converges a supported SQL add with verified complete receipt (State:running Verified:true); stale proposal -> structured `conflict` with unchanged binding; missing second stage -> `approval-required` with unchanged binding. Closes Codex round-2 native gap. Evidence: ecosystem `evidence/board-2026-10-19/o10-native-mcp-proof.md`; new commit `a66e5de6` (parent 6931ba9c, +1 test file) pushed to `work/core-921-central-cli-mcp-registration`.
+- Independent delta review (6931ba9c..a66e5de6) in progress (r3); binding re-pin to a66e5de6 delegated to o12 together with the r4 merge-chain reachability fix on #1007.
+
+
 ### 2026-10-19 — Local pre-review of candidate 6931ba9c: F1-F4 PASS, only native proof open
 
 - Independent read-only pre-review (qwen3.6 session r1): snake_case schemas, typed classifyAppMachineError paths, structured handler negatives with zero-write proof, repo conventions - all PASS with file:line evidence; build/vet/tests/gofmt green at 6931ba9c. Single CHANGES_REQUESTED item is the known native propose->apply gate (o10 lane, in progress), no new findings. Evidence: ecosystem `evidence/board-2026-10-19/r1-998-prereview.md`.
