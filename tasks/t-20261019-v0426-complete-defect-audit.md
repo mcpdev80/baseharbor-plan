@@ -19,6 +19,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/39225066336","ht
 - [ ] t-20261019-v0426-complete-defect-audit · Audit and repair the complete v0.4.26 release scope #task #release/v0-4-26 #status/active #view/active #area/ci #area/release #kind/review
     <!-- generated:card -->
     **Owner:** Codex (Maintainer complete v0.4.26 defect audit) · **Priority:** critical  
+    **PR:** [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/39225066336), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39226175528), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39226182313), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39225531904), [proof 5](https://github.com/mcpdev80/baseharbor/pull/998#pullrequestreview-5569055023)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -28,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/39225066336","ht
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex (Maintainer complete v0.4.26 defect audit)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005)  
 **Source:** 
 <!-- /generated:links -->
 

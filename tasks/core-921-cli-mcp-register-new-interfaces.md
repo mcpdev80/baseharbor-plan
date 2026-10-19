@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
-    **Blocker:** Existing Flash/o1 owner is authorized to resume and publish the protected exact-source binding; independent policy acceptance and current \#998 Required CI remain outstanding.  
+    **Blocker:** Independent review5569055023 requires correcting the actual MCP input schema and typed-error boundary on existing \#998; fresh source review, exact coverage and current Required CI remain outstanding.  
     **Needs:** [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
     <!-- /generated:card -->
 
