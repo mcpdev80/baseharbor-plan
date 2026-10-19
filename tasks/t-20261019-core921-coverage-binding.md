@@ -61,6 +61,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-19 — Self-qualification independently APPROVED; awaiting #998 native SHA for final re-pin
+
+- Independent read-only review of delta `706b5244..48def9e8` by a qwen3.6-laptop session (t20, verified model footer): **APPROVE** - BINDING_PR_1007 clause mirrors #999/#1005, CORE_921 block byte-identical, 84 planner tests pass, planner's pre-merge `unresolved` behavior correctly identified as merge-chain semantics (resolves for later runs once the clause is on develop), not a defect. Evidence: ecosystem `evidence/board-2026-10-19/o17-selfq-review.md`.
+- Next: single consolidated Maintainer handoff for #1007 AFTER #998's native proof lands its final SHA (final CORE_921 re-pin included in that same head), avoiding duplicate CI cycles.
+
+
 ### 2026-10-19 — Self-qualification pushed: head `48def9e8`
 
 - Worker o9 added the BINDING_PR_1007 self-qualification clause mirroring the merged #1005/#999 pattern (`core752_reviewed_merge_chain` ancestry, exact path/status pairs, emitted-check subTest); CORE_921 binding head `6931ba9c` and the 16-file #998 set untouched. Planner suite passes locally; pushed to `work/ci-core921-coverage-binding` (PR #1007 head `48def9e85e35db90025b4e354350bac22c9fe806`). Evidence: ecosystem `evidence/board-2026-10-19/o9-binding-repin.md` (## self-qualification).
