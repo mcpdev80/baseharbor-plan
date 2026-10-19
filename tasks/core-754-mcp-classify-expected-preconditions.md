@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#754"]
 source_updated: "2026-10-15T16:51:15Z"
 labels: [kind/bug, area/mcp, area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/985#pullrequestreview-5566030344", "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474", "https://github.com/mcpdev80/baseharbor/commit/6c3c936028e1e12c0f198518253cc9f1f42387a8"]
 ---
 
-- [ ] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/active #view/active #area/mcp #kind/bug
+- [x] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/closed #view/closed #area/mcp #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor)  
     **PR:** [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985)  
@@ -145,3 +145,10 @@ Expected machine/MCP preconditions get stable typed codes instead of being flatt
 - 2026-10-17 claim: assigned core-754 on current develop; first audit existing typed semantics and four real CLI/MCP entries, then only demonstrated gaps. Planned scope bounded to cmd/baha MCP entry/error translation and directly relevant focused tests (exact files pending source inspection); exclude App Edit/Lifecycle, import detector, tool registration and workflow/policy. Candidate permitted even if source coverage qualification unresolved; no self-exemption/acceptance/merge. No v0.4.26 release scope change.
 
 - Assigned to mcpdev80; no recent claim. Partial implementation exists (see scope).
+
+### 2026-10-19 — Maintainer acceptance; actual trusted production path completed
+
+- Accepted exact final #985 head4954f0b1f1f7fdb922dbb1a3566d58c7507d2808 after fresh independent full-diff review5566030344 of unchanged one-file source3dfac93c, reviewed finite qualification#1003, and normal trusted-target integration. No product source takeover or rewritten history.
+- Actual GitHub CI39185230474 SUCCESS: Trusted Plan, exact two MCP families (job117846187636 reports both matched RUN/PASS), CLI build/vet/gofmt, Focused Python and required PR Selected Checks117846412392. Required runner loaded from trusted BASE_SHA. No missing/skip inference, no native claim.
+- Real trusted-pr-plan artifact exists unexpired through2026-11-18 (30-day retention); authenticated current check outcomes consumed by actual final verifier. Original stale integration input repaired, copied/resolved old history not silently trusted; fresh exact-source review anchor required.
+- Regular protected squash merge6c3c936028e1e12c0f198518253cc9f1f42387a8. Maintainer resolution accepted/closed; historical owner/claim and releasev0.4.x retained, no release-scope expansion. No required-check bypass or fabricated self-approval. Codeman remains paused separately.
