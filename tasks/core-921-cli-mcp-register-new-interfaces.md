@@ -17,14 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -69,6 +69,14 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-19 — Corrected candidate reviewed; handed to Maintainer with binding PR #1007
+
+- FINAL source `08d8f498fd82992e762d764967ac892721d9adeb` (branch head; merge of develop plus F1 typed-error closure). Independent full-source review at `24119eb9` and delta review to `08d8f498` both **APPROVE** (worker o4, session 19d72a4b): snake_case public/nested schemas with phase-conditional proposal/consent, typed `machine.NewError(machine.ErrorConflict,...)` classifications, structured-code handler negatives with proven zero writes, valid real MCP propose→apply, guards byte-unchanged; `evidence/board-2026-10-19/o4-998-rereview.md`.
+- Coverage predecessor PR **#1007** open (non-draft, MERGEABLE): exact binding of reviewed head `08d8f498` plus the complete fifteen path/status pairs, all develop-side clauses preserved, `evidence/board-2026-10-19/o1-binding-final.md`.
+- Open infrastructure finding handed to the CI owner: stale webhook `base.sha` vs regenerated merge ref causes `integration_sha_mismatch` on otherwise healthy runs; `evidence/board-2026-10-19/ci-finding-integration-sha-mismatch.md`. #998 selected checks are expected to resolve after #1007 lands and CI re-plans on a current base.
+- Maintenance boundary: independent review/acceptance/merge of #1007 and #998 belong to the Maintainer (Codex 6.1 lane). Flash sets this task to review; no self-acceptance.
+
 
 ### 2026-10-19 — Resumed: review 5569055023 defects corrected on the existing branch
 
