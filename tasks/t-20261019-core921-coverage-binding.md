@@ -11,20 +11,19 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1007]
 sources: []
-blocker: "Self-qualification clause cannot fire for a linear PR-open head (chain check requires merge-anchored lineage); design ruling requested from CI reviewer session fe5dff6c - see Handoff."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
-    **Blocker:** Self-qualification clause cannot fire for a linear PR-open head (chain check requires merge-anchored lineage); design ruling requested from CI reviewer session fe5dff6c - see Handoff.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -61,6 +60,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-20 — ruling (a) implemented (head 36e4f991) but self-reference paradox found by coordinator verification
+
+- Independent verification of the pushed head: (1) line 654 still compares CI head_sha against 48def9e8 (always false for head 36e4f991); (2) without it the content pins sit INSIDE pr-gate-plan.py and would need to hash the file containing them - no fixed point. Worker repro used head_sha=48def9e8, which CI never supplies.
+- Resolution proposal (external JSON pin file + lineage anchor 48def9e8) sent to Codex fe5dff6c as DESIGN-QUESTION-1027-PARADOX pending; exactly one further implementation round will follow the ruling. Board stays active (correction round of ruling (a)), not review.
+
 
 ### 2026-10-20 — Codex design ruling: option (a); (b) rejected as workaround, (c) rejected as drafted
 
