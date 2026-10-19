@@ -5,18 +5,18 @@ areas: [runtime]
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: Flash (codeman w1-baseharbor)
+owner: "Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Current #995 requires bounded diagnostic-identity correction (review 5566018799), independent re-review and authorized full native recovery/cleanup proof; product owner Codeman Flash remains paused."
+blocker: "Bounded diagnostic correction authorized; executable current CI/re-review and full authorized native recovery/cleanup proof remain required."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -168,3 +168,9 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 - Local executor unavailable; HF Jobs ps endpoint again returns UNAVAILABLE (tool not returned by tools/list). No invented test/format success or additional failed-job rerun. Once explicitly authorized on the existing owned branch, run the two exact unit tests, gofmt/vet/build and current Guided CI before new source qualification; authorized native recovery remains necessary afterward.
 - Corrected stale PR descriptions: #995 now distinguishes its actual production diagnostic source and current review failure from older fixture-only claims; #998 identifies the actual published756b22dc and protected unpublished binding. Source heads remain02b4cd5f/756b22dc.
 - Required next authorization is narrowly applying the concrete #995 proposal despite the existing product-claim hold. It does not resume Codeman or release/change core-921/o1. Original CI stabilization acceptance and published closures remain valid.
+
+### 2026-10-19 — Explicit bounded continuation authorized and claimed
+
+- Marcel explicitly approved applying and finishing the prepared #995 correction while Codeman and o1 remain paused. Codex claims only this bounded continuation on existing #995, preserving prior Flash/source history; no general worker restart or core-921 ownership change.
+- Owned change: cmd/baha/native_fixture_cleanup_diagnostics.go and existing cmd/baha/native_fixture_cleanup_diagnostics_test.go. Prepared candidate36310f08467f6e963f080b22936ffbaf5d763b74 has separate positive static review; no executed test is claimed yet. Existing branch HEAD02b4cd5f, develop7827e649 verified unchanged immediately before application.
+- Apply via normal expected-SHA fast-forward, then inspect actual focused Guided/build/vet/source CI before any further candidate. Preserve ownership/consent/destroy behavior. Full recovery, private-data retention and owned cleanup remain real native acceptance requirements; do not turn source-unit success into native success.

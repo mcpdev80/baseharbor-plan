@@ -22,3 +22,7 @@ The assigned CI/release infrastructure coordinator may repair integration/eviden
 ## Exit boundary
 
 Keep Codeman paused after the stabilization handoff. Missing native recovery evidence and unpublished source ownership remain explicit blockers. Separate authorization, never inference from a green infrastructure PR, is needed to restart its workers.
+
+## Explicit bounded continuation — #995 only
+
+On 2026-10-19 Marcel answered yes to applying and finishing the prepared #995 correction while Codeman and o1 stay paused. Codex may continue the existing #995 branch/PR for fixed-category diagnostic output and its actual-helper regressions, execute focused CI, obtain independent review and publish the handoff. Preserve historical ownership and all existing source; no force push or competing PR. Full native recovery still needs actual authorized Qwen/lane evidence before acceptance. No general Codeman resumption or core-921 claim release is granted.
