@@ -71,6 +71,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-20 — TODO queued: PR metadata rewrite after final heads (per q12 audit)
+
+- Coordinator action after o20/o21 final SHAs: rewrite #998 body (current head lineage + native gate evidence), `gh pr ready` #998, rewrite #1007 title/body (three stale SHAs: title 6931ba9c / body 08d8f498 / real head). Labels/milestones deliberately unchanged (repo convention: merged #999/#1005/#1006 also lack them). Evidence: q12-pr-state-audit.md.
+
+
 ### 2026-10-20 — Codex round 3: CHANGES_REQUESTED on candidate a66e5de6 (new cause: app.edit wiring)
 
 - Reviewer findings (verbatim: evidence/board-2026-10-19/codex-verdict-core921-round3.md): the native test drives baseharbor.plan/apply, never baseharbor.app.edit; it pre-writes the manifest instead of obtaining an app.edit propose and round-tripping the proposal JSON into the apply phase; negative assertions check presence instead of before/after persisted-state and the inventory helper returns success on inspection failure. Coordinator reproduced finding 1 statically (CallTool names in a66e5de6 test file).
