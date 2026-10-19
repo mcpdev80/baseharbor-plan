@@ -18,14 +18,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/review #view/review #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation) · **Priority:** critical  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -70,6 +70,13 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-20 — Codex round 3: CHANGES_REQUESTED on candidate a66e5de6 (new cause: app.edit wiring)
+
+- Reviewer findings (verbatim: evidence/board-2026-10-19/codex-verdict-core921-round3.md): the native test drives baseharbor.plan/apply, never baseharbor.app.edit; it pre-writes the manifest instead of obtaining an app.edit propose and round-tripping the proposal JSON into the apply phase; negative assertions check presence instead of before/after persisted-state and the inventory helper returns success on inspection failure. Coordinator reproduced finding 1 statically (CallTool names in a66e5de6 test file).
+- Fresh error cause, new correction budget. Smallest sufficient gate per reviewer: one isolated Docker test: app.edit propose -> JSON round-trip -> app.edit apply with matching consent and verified execution; stale proposal + wrong consent -> structured errors with unchanged relevant persisted state.
+- Consequence for #1007: CORE_921 constants must re-pin to the final #998 head after this round; binding lane implements Codex design ruling (a) (content-hash anchoring for self-qualifying binding PRs) in parallel (disjoint write set).
+
 
 ### 2026-10-19 — Native MCP gate PROVEN on baha-docker; #998 head now a66e5de6 (delta review running)
 
