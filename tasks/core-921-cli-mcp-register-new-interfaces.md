@@ -70,6 +70,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-19 — Codex round 2: typed errors accepted, native happy-path open
+
+- Codex 6.1 round-2 verdict (session fe5dff6c, evidence/board-2026-10-19/codex-verdict-core921-round2.md): #998 at `6931ba9c` CHANGES_REQUESTED with exactly one blocking gap - fully successful real MCP propose->apply requires one focused native proof on the docker VM (Codex named the smallest sufficient gate). All round-1 P1/P2 items (schema root assertion, typed adapter classifications, structured negatives, zero-write by snapshot equality) verified closed; guards unchanged.
+- Independent delta review of `6931ba9c` by worker o8: APPROVE (evidence/board-2026-10-19/o8-998-delta.md). Worker o10 now implementing the native MCP proof on baha-docker (isolated state, disposable app; podman/#995 untouched). Binding must re-pin to o10's resulting SHA.
+
 ### 2026-10-19 — Corrected candidate reviewed; handed to Maintainer with binding PR #1007
 
 - FINAL source `08d8f498fd82992e762d764967ac892721d9adeb` (branch head; merge of develop plus F1 typed-error closure). Independent full-source review at `24119eb9` and delta review to `08d8f498` both **APPROVE** (worker o4, session 19d72a4b): snake_case public/nested schemas with phase-conditional proposal/consent, typed `machine.NewError(machine.ErrorConflict,...)` classifications, structured-code handler negatives with proven zero writes, valid real MCP propose→apply, guards byte-unchanged; `evidence/board-2026-10-19/o4-998-rereview.md`.
