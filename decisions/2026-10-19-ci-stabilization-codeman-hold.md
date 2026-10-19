@@ -26,3 +26,7 @@ Keep Codeman paused after the stabilization handoff. Missing native recovery evi
 ## Explicit bounded continuation — #995 only
 
 On 2026-10-19 Marcel answered yes to applying and finishing the prepared #995 correction while Codeman and o1 stay paused. Codex may continue the existing #995 branch/PR for fixed-category diagnostic output and its actual-helper regressions, execute focused CI, obtain independent review and publish the handoff. Preserve historical ownership and all existing source; no force push or competing PR. Full native recovery still needs actual authorized Qwen/lane evidence before acceptance. No general Codeman resumption or core-921 claim release is granted.
+
+## Superseded by explicit controlled resumption
+
+Marcel subsequently instructed the coordinator to finish the handover so Codeman can work again. The [controlled resumption decision](2026-10-19-ci-stabilization-controlled-resumption.md) now governs existing-owner core-921 continuation and independent Qwen testing. The pause text above is historical; it is not a current prohibition on that authorized continuation. No native or release acceptance follows.

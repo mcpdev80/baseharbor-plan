@@ -60,6 +60,13 @@ Trusted PR gate planning resolves coverage for the independently reviewed core-9
 
 ## Handoff
 
+### 2026-10-19 — Controlled owner continuation authorized
+
+- The [controlled resumption decision](../decisions/2026-10-19-ci-stabilization-controlled-resumption.md) supersedes the historical pause below. Flash/o1 retains the existing claim and two unpublished files; no competing CORE_921 binding was created.
+- First action: inspect and checkpoint the protected dirty diff, then normally integrate current trusted develop (handoff baseline 7827e6491a7715e0ffffb1e7938764f6788cc30b), preserving accepted #1001/#1002/#1003 changes. No reset, force push or copied-tree ancestry shortcut. The old rebase instruction below is historical; use normal integration without rewriting published history.
+- Finish exact source/status and genuine Git negatives, focused planner/runner/diff-base checks, publish on the existing branch and obtain separate independent review plus actual Required CI. Then continue existing #998 after policy acceptance. #995 native testing does not block this disjoint task.
+- No worker restart or local coordinator-file edit has been performed by this remote coordinator; the local owner must consume the published handoff and resume its own preserved work.
+
 ### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
 
 - Controlled development pause ordered by Marcel; infrastructure prerequisite (GC evidence preservation) fixed via merged #999/#1000, but trusted gates still block: `integration_sha_mismatch` (#995/#985 lane) and `coverage-unresolved` needing exact reviewed-bundle qualification (#998/#993/#990/#989). No CI reruns, no correction loops, no merges during the pause.
