@@ -6,7 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 24/37 · **Blocked:** 2 · **Waiting:** 6  
+    **Accepted tasks:** 24/38 · **Blocked:** 2 · **Waiting:** 6  
     **Blocker:** [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) — Partial fixture fix only; full native recovery remains blocked by current \#995 manifest and cleanup failures.  
     **Blocker:** [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) — Native recovery stops before backup: obsolete postgres/redis fixture keys; authorized cleanup fails ownership verification and hides its report. Exact eaf86813…  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)

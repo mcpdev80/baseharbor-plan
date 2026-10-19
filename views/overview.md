@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 3 |
 | blocked | 2 |
 | ready | 4 |
@@ -25,6 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | active | not set | Flash (codeman w1-baseharbor) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985) |
 | [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | active | high | Flash (codeman w1-baseharbor) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
+| [t-20261019-ci-evidence-stabilization](../tasks/t-20261019-ci-evidence-stabilization.md) | Restore exact integration, retained evidence and reviewed-candidate completion | active | critical | Codex (Maintainer CI/evidence stabilization coordinator) | — | — |
 | [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) | CI: bind reviewed core-921 registration coverage | active | high | Flash (codeman w1-baseharbor) | — | — |
 
 ## Ready for review
@@ -53,7 +54,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 13 open, 24 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 14 open, 24 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
