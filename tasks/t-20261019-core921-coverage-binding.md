@@ -61,6 +61,11 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-19 — Codex round 2 gate/negative fixes pushed; self-qualification running
+
+- Head `706b5244`: cli-gofmt + four coverage families required in the emitted checks (reproduced), stubbed ancestry test deleted, real wrong-status-only negative added (84+18 planner/runner tests pass). Codex round-2 findings on these two causes were closed by this commit; independent review of this head running with worker o13.
+- New independent cause found via CI: run 39267109503 fails with 'CI execution/evidence impact requires specific qualification: scripts/pr-check-runner.py' - #1007's own runner change needs the established self-qualification clause pattern (mirroring merged #1005/#999, not a new mechanism). Worker o9 implementing (fresh budget round 1). CORE_921_PRODUCTION_REVIEWED_HEAD remains 6931ba9c pending #998 native proof re-pin.
+
 ### 2026-10-19 — Binding finalized; PR #1007 open for develop
 
 - Worker o1 (session b70198fc) delivered: develop integrated (bb91fbc3), clause `CORE_921_PRODUCTION_REVIEWED_HEAD = 08d8f498fd82992e762d764967ac892721d9adeb` with complete fifteen path/status pairs from the exact two-dot diff; #991/#1005/#974 and all accepted clauses preserved; positive/negative regressions pin the exact match. Branch head `417b8cbb03d585a2607663f44eb38c1c9e13250d`, PR #1007 non-draft.
