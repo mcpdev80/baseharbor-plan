@@ -70,6 +70,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-19 — Local pre-review of candidate 6931ba9c: F1-F4 PASS, only native proof open
+
+- Independent read-only pre-review (qwen3.6 session r1): snake_case schemas, typed classifyAppMachineError paths, structured handler negatives with zero-write proof, repo conventions - all PASS with file:line evidence; build/vet/tests/gofmt green at 6931ba9c. Single CHANGES_REQUESTED item is the known native propose->apply gate (o10 lane, in progress), no new findings. Evidence: ecosystem `evidence/board-2026-10-19/r1-998-prereview.md`.
+
+
 ### 2026-10-19 — Codex round 2: typed errors accepted, native happy-path open
 
 - Codex 6.1 round-2 verdict (session fe5dff6c, evidence/board-2026-10-19/codex-verdict-core921-round2.md): #998 at `6931ba9c` CHANGES_REQUESTED with exactly one blocking gap - fully successful real MCP propose->apply requires one focused native proof on the docker VM (Codex named the smallest sufficient gate). All round-1 P1/P2 items (schema root assertion, typed adapter classifications, structured negatives, zero-write by snapshot equality) verified closed; guards unchanged.
