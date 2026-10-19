@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 2 |
 | review | 0 |
-| blocked | 3 |
+| blocked | 4 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 226 |
@@ -23,9 +23,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | active | high | Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 | [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) | CI: bind reviewed core-921 registration coverage | active | high | Flash (codeman w1-baseharbor) | — | — |
-| [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | active | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | — |
+| [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | active | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005) |
 
 ## Ready for review
 
@@ -37,6 +36,7 @@ None.
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) | CLI and MCP: register new interfaces consistently | blocked | not set | Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation) | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md), [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md), [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md), [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) (open) | [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998) |
 | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | blocked | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
+| [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | blocked | high | Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | blocked | high | ChatGPT (bug-994 implementation session) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open), [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
 ## Ready to assign

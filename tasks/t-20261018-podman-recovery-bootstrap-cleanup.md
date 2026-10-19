@@ -20,11 +20,12 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
+    **Blocker:** Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are still missing.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28), [proof 2](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 5](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
