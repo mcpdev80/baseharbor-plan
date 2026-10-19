@@ -6,7 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 25/38 · **Blocked:** 4 · **Waiting:** 6  
+    **Accepted tasks:** 27/38 · **Blocked:** 4 · **Waiting:** 6  
     **Blocker:** [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) — Protected paused o1 binding remains unpublished/uncommitted; regular claim release or separately authorized owner resumption, publication and independent polic…  
     **Blocker:** [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) — Narrow \#990 fixture fix is included in \#995; full recovery awaits \#995 source correction (5566018799), independent re-review and authorized native recovery/cle…  
     Plus 2 further blockers in the task list.  
