@@ -6,10 +6,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 27/39 · **Blocked:** 4 · **Waiting:** 6  
-    **Blocker:** [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) — Independent review5569055023 requires correcting the actual MCP input schema and typed-error boundary on existing \#998; fresh source review, exact coverage and…  
-    **Blocker:** [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) — Narrow \#990 fixture fix is included in \#995; full acceptance awaits authorized exact-SHA native Recovery/Cleanup proof of corrected 36310f08 and independent qu…  
-    Plus 2 further blockers in the task list.  
+    **Accepted tasks:** 27/39 · **Blocked:** 3 · **Waiting:** 6  
+    **Blocker:** [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) — Narrow \#990 fixture fix is included in \#995; acceptance awaits Qwen native Recovery/Cleanup at current reviewed integration4ca9881766fc88e850ccdbbc2d837cabb19e…  
+    **Blocker:** [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) — Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are sti…  
+    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
