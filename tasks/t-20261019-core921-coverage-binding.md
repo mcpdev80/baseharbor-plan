@@ -60,6 +60,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-19 — Existing preparation active; final binding follows corrected source review
+
+- Marcel reconfirmed controlled Codeman continuation. Existing Flash/o1 ownership remains ACTIVE for preserving/checkpointing original work, normal trusted-target integration and generic negative/executor tests. No external worker start is claimed by this remote status update.
+- Final exact SHA/status publication waits for corrected independently reviewed #998 source. The source correction is now active and no longer lists this unfinished final binding as a hard implementation predecessor; no task/interface or required final qualification is falsely accepted.
+- Preserve all current trusted bindings, including accepted #1005, and actual registration/MCP/CLI/docs/Public Contracts families. No rejected756b22dc source qualification, copied-tree ancestry shortcut or claim takeover.
+
 ### 2026-10-19 — Preserve original work; final binding waits for corrected MCP source
 
 - The complete-release audit found source-blocking #998 defects in review5569055023. Existing Flash/core-921 owner must correct the MCP schema and typed-error boundary on its existing source branch and obtain a fresh independent full-source review.

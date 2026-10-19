@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#990]
 sources: []
-blocker: "Narrow #990 fixture fix is included in #995; full acceptance awaits authorized exact-SHA native Recovery/Cleanup proof of corrected 36310f08 and independent qualification."
+blocker: "Narrow #990 fixture fix is included in #995; acceptance awaits Qwen native Recovery/Cleanup at current reviewed integration4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then independent immutable qualification and green Required CI."
 resolution: ""
 evidence: []
 ---
@@ -61,6 +61,11 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 - Must be fixed and independently retested before v0.4.26 release (Maintainer instruction, 2026-10-17). Release preparation must depend on this task.
 
 ## Handoff
+
+### 2026-10-19 — Current external acceptance dependency
+
+- BLOCKED remains intentional: #9954ca9881766fc88e850ccdbbc2d837cabb19ebab5 includes the narrow fixture correction. Independent source/integration review and full hosted Source Preflight39227471936 PASS do not prove native recovery or actual owned automatic cleanup.
+- Qwen exact-SHA native assignment6263758673 is current; older36310f/eaf868 source assignments are historical. Await that real result and matching independent qualification before accepting/superseding #990. Codeman source work may proceed independently.
 
 ### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
 
