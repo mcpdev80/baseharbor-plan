@@ -11,11 +11,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#993]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/993#pullrequestreview-5566047336", "https://github.com/mcpdev80/baseharbor/actions/runs/39185400529", "https://github.com/mcpdev80/baseharbor/commit/cf63ccfc822796b2c9e8fe0214026bfe06ebb3f3"]
 ---
 
-- [ ] t-20261018-scoped-runtime-reset-xdg-ownership · Scoped runtime reset must retain unrelated XDG state #task #release/v0-4-26 #status/review #view/review #area/ci #kind/bug
+- [x] t-20261018-scoped-runtime-reset-xdg-ownership · Scoped runtime reset must retain unrelated XDG state #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (scoped XDG reset review) · **Priority:** high  
     **PR:** [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993)  
@@ -58,3 +58,9 @@ Fix [baseharbor#992](https://github.com/mcpdev80/baseharbor/issues/992) before v
 
 
 - 2026-10-18: Claim published before product implementation. Review issue #992 and product repository rules; state cleanup must fail closed for shared XDG roots. Release prepare depends on this task.
+
+### 2026-10-19 — Maintainer acceptance after actual required sandbox execution
+
+- Final #993 headdbf3ef7a92f795606e88545d883bb222253ce872 normally integrates current develop; both product/test blobs unchanged from fresh independently reviewed e6616b45. Review5566047336 and finite source/status qualification#1003, strict ancestry/tree proof retained.
+- Actual CI39185400529 SUCCESS, including mandatory planner117846706353 executing all five named safe sandbox tests and all seven GC tests; Actionlint, policy, verifier, focused Python and PR Selected Checks117847006885 PASS. The unrelated absent consent-suite skip is not claimed as executed evidence.
+- Regular protected squash mergecf63ccfc822796b2c9e8fe0214026bfe06ebb3f3. Maintainer accepted/closed, prior source history and ownership retained. No real runtime reset/native execution or global cleanup was performed by coordinator; all reset testing was sandboxed.
