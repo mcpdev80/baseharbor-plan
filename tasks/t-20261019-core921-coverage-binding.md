@@ -25,7 +25,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
-**Required by:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
 **PRs:** none  
@@ -59,6 +59,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-19 — Existing preparation active; final binding follows corrected source review
+
+- Marcel reconfirmed controlled Codeman continuation. Existing Flash/o1 ownership remains ACTIVE for preserving/checkpointing original work, normal trusted-target integration and generic negative/executor tests. No external worker start is claimed by this remote status update.
+- Final exact SHA/status publication waits for corrected independently reviewed #998 source. The source correction is now active and no longer lists this unfinished final binding as a hard implementation predecessor; no task/interface or required final qualification is falsely accepted.
+- Preserve all current trusted bindings, including accepted #1005, and actual registration/MCP/CLI/docs/Public Contracts families. No rejected756b22dc source qualification, copied-tree ancestry shortcut or claim takeover.
 
 ### 2026-10-19 — Preserve original work; final binding waits for corrected MCP source
 

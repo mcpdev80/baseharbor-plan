@@ -84,6 +84,10 @@ A task is assignable only when it can reach its own review handoff without unfin
 - Parallel tasks must have disjoint write sets and consume the same accepted baseline. Shared registrations/help/goldens are owned by a later integration task. Review/acceptance is independent; an implementation owner may not waive unresolved coverage or approve its own trust policy.
 - Before assignment, check the readiness inventory as well as the generated dependency state. Unknown executor/candidate gaps become explicit prerequisites, not hidden mid-task waits. A later unexpected real defect is reported honestly and repaired through normal review.
 
+## Owner-authorized Maintainer execution
+
+Marcel's explicit grant also applies to Codex/other designated agents acting through @mcpdev80 within their assigned work. An Owner-authorized implementation, acceptance or merge does not need another repository review or a second Maintainer handoff. This exception supersedes review-only stop instructions in this workflow; ordinary implementation workers without that delegation retain the normal handoff. Document Owner-authorized acceptance rather than claiming independent/self approval. Required technical checks, real evidence, existing claims and exact-source qualification enforced by CI remain binding; no release or unrelated destructive action is implied. [Current decision](decisions/2026-10-19-owner-delegated-maintainer-authority.md).
+
 ## Ownership protocol
 
 A local `owner` field is not a lock: it only works when published before implementation starts.

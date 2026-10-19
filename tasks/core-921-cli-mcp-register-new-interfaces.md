@@ -6,29 +6,27 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)"
-depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness, t-20261019-core921-coverage-binding]
+depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
-blocker: "Independent review5569055023 requires correcting the actual MCP input schema and typed-error boundary on existing #998; fresh source review, exact coverage and current Required CI remain outstanding."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/blocked #view/blocked #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
-    **Blocker:** Independent review5569055023 requires correcting the actual MCP input schema and typed-error boundary on existing \#998; fresh source review, exact coverage and current Required CI remain outstanding.  
-    **Needs:** [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
-**Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md), [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
+**Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
 **Priority:** not set  
@@ -46,6 +44,8 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - Out of scope: reinventing legacy aliases.
 
 ## Acceptance
+
+- Before final acceptance/merge, the [existing exact-source coverage task](t-20261019-core921-coverage-binding.md) must be independently accepted for the corrected reviewed source; current mandatory registration/MCP/CLI/docs/Public Contracts checks must actually pass. This is an acceptance prerequisite, not a prohibition on fixing the rejected source first.
 
 - `app new`, `app edit` and `app footprint show` are discovered and routed correctly; existing verbs/approval/machine classification stay consistent.
 - Discovery/help show only actually available operations; generated references come from real registrations.
@@ -70,11 +70,21 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+<<<<<<< HEAD
 ### 2026-10-19 — Resumed: review 5569055023 defects corrected on the existing branch
 
 - Worker o5 (74144db2) corrected all three confirmed defects on branch `work/core-921-central-cli-mcp-registration`; new head `24119eb936520e56b6f23b16773d30770532a386` = normal merge of develop `19548bf0` plus fixes; pushed, PR #998 stays draft. Snake_case public/nested schemas with phase-conditional proposal/consent, typed machineMCPFailure classifications, real tools/list + valid propose→apply + precise handler-level zero-write negatives. Handoff evidence: ecosystem `evidence/board-2026-10-19/o5-998-correction.md`.
 - Fresh independent full-source review running with worker o4 (session 19d72a4b); the final core-921 coverage binding will qualify only this re-reviewed head plus the complete path/status set from that review. The old `756b22dc` candidate stays unqualified.
 
+=======
+### 2026-10-19 — Maintainer resumption: source correction active
+
+- Marcel explicitly reconfirmed Codeman's continuation and required current board status. Existing Flash claim/branch and protected o1 work are retained; this update is an assignment, not evidence that an external worker was started.
+- This task is ACTIVE for correction of review5569055023: actual MCP schema, phase-specific inputs and typed public errors with real SDK/handler regressions. These are work to perform, not a reason to leave the source task globally blocked.
+- Removed only the unfinished exact-source binding from implementation depends_on: no missing callable input or test executor prevents correcting #998. The existing registration/CLI/docs/contract test profile already executes; the binding can only be finalized after corrected source review. Keeping it as a hard implementation predecessor inverted that order. All accepted interface dependencies remain unchanged.
+- Final immutable binding remains a mandatory ACCEPTANCE gate: [existing o1 binding task](t-20261019-core921-coverage-binding.md), fresh independent full-source review, complete file/status inventory and current green Required Checks are required before merge/accepted. No coverage, review or test requirement is waived.
+- Current product develop19548bf0; current published source756b22dc remains Changes required. Preserve o1's two uncommitted files; no competing implementation, force push or task acceptance.
+>>>>>>> 6343f33e2e16aba6aae7938d496c9a7be04a16e4
 
 ### 2026-10-19 — Complete-release review: source changes required, existing owner to correct
 
