@@ -70,13 +70,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
-<<<<<<< HEAD
 ### 2026-10-19 — Resumed: review 5569055023 defects corrected on the existing branch
 
 - Worker o5 (74144db2) corrected all three confirmed defects on branch `work/core-921-central-cli-mcp-registration`; new head `24119eb936520e56b6f23b16773d30770532a386` = normal merge of develop `19548bf0` plus fixes; pushed, PR #998 stays draft. Snake_case public/nested schemas with phase-conditional proposal/consent, typed machineMCPFailure classifications, real tools/list + valid propose→apply + precise handler-level zero-write negatives. Handoff evidence: ecosystem `evidence/board-2026-10-19/o5-998-correction.md`.
 - Fresh independent full-source review running with worker o4 (session 19d72a4b); the final core-921 coverage binding will qualify only this re-reviewed head plus the complete path/status set from that review. The old `756b22dc` candidate stays unqualified.
 
-=======
 ### 2026-10-19 — Maintainer resumption: source correction active
 
 - Marcel explicitly reconfirmed Codeman's continuation and required current board status. Existing Flash claim/branch and protected o1 work are retained; this update is an assignment, not evidence that an external worker was started.
@@ -84,7 +82,6 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - Removed only the unfinished exact-source binding from implementation depends_on: no missing callable input or test executor prevents correcting #998. The existing registration/CLI/docs/contract test profile already executes; the binding can only be finalized after corrected source review. Keeping it as a hard implementation predecessor inverted that order. All accepted interface dependencies remain unchanged.
 - Final immutable binding remains a mandatory ACCEPTANCE gate: [existing o1 binding task](t-20261019-core921-coverage-binding.md), fresh independent full-source review, complete file/status inventory and current green Required Checks are required before merge/accepted. No coverage, review or test requirement is waived.
 - Current product develop19548bf0; current published source756b22dc remains Changes required. Preserve o1's two uncommitted files; no competing implementation, force push or task acceptance.
->>>>>>> 6343f33e2e16aba6aae7938d496c9a7be04a16e4
 
 ### 2026-10-19 — Complete-release review: source changes required, existing owner to correct
 
