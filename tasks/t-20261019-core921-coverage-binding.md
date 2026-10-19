@@ -3,7 +3,6 @@ id: t-20261019-core921-coverage-binding
 type: task
 areas: [ci]
 release: v0.4.26
-blocker: "Self-qualification clause cannot fire for a linear PR-open head (chain check requires merge-anchored lineage); design ruling requested from CI reviewer session fe5dff6c - see Handoff."
 version: ""
 parent: ""
 owner: Flash (codeman w1-baseharbor)
@@ -12,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1007]
 sources: []
-blocker: ""
+blocker: "Self-qualification clause cannot fire for a linear PR-open head (chain check requires merge-anchored lineage); design ruling requested from CI reviewer session fe5dff6c - see Handoff."
 resolution: ""
 evidence: []
 ---
@@ -21,6 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
+    **Blocker:** Self-qualification clause cannot fire for a linear PR-open head (chain check requires merge-anchored lineage); design ruling requested from CI reviewer session fe5dff6c - see Handoff.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
