@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#989]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/989#pullrequestreview-5566047870", "https://github.com/mcpdev80/baseharbor/actions/runs/39185646028", "https://github.com/mcpdev80/baseharbor/pull/989#issuecomment-6247878204", "https://github.com/mcpdev80/baseharbor/commit/7827e6491a7715e0ffffb1e7938764f6788cc30b"]
 ---
 
-- [ ] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/review #view/review #area/ci #kind/bug
+- [x] t-20261017-podman-acceptance-typed-consent · Podman acceptance: honor fresh typed provider consent #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 (Podman acceptance consent) · **Priority:** high  
     **PR:** [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989)  
@@ -98,3 +98,10 @@ Focused workflow policy/actionlint and helper regressions as selected by the tru
 
 - 2026-10-17: Maintainer-authorized intake from Qwen's supplied pre-freeze audit; this session did not independently reproduce the native failure. Fresh-state acceptance currently invokes apply without typed consent and receives `impact-confirmation-required` (`complete:false`, `confirmations_required:2`). The audit reports that fresh consent makes apply and verification succeed. This is a test/integration mismatch. Source: `d54ac358fb6a6b256164ac2689a33e981c013baa`.
 - Discussion/evidence intake: [baseharbor#987](https://github.com/mcpdev80/baseharbor/issues/987). Unassigned, not implemented or accepted. No private machine identifiers, addresses, local paths or credentials included.
+
+### 2026-10-19 — Maintainer acceptance; bounded consent correction merged
+
+- Accepted #989 finalhead07d556191a78491a69b510bedda6867762e2735f, genuine clean current-target integration of independently reviewed c3809b12. Exact three changed statuses, helper/tests byte-identical to78a72eba, workflow preserves accepted retention30d. Source review5566047870; finite qualification#1003; no general workflow exception.
+- Actual GitHub CI39185646028 SUCCESS: required planner117847451398 ran59tests with no skips, all eight actual shell/helper regressions, all seven GC and all five reset sandbox regressions PASS. Actionlint, policy, verifier, Focused Python and required PR Selected Checks117847747894 PASS. Current immutable plan retained30days.
+- Supplied independent Qwen native lifecycle evidence6247878204 remains explicitly tied to78a72eba. It establishes that original bounded consent change's Apply/Down/Up/Destroy and negative-consent/data-retention behavior; it is not a newly executed native test or blanket release/runtime certification for later trusted target changes. No new native/live test was run by coordinator. Full recovery is separately blocked under#995.
+- Regular protected squash merge7827e6491a7715e0ffffb1e7938764f6788cc30b. Maintainer accepted/closed; historical owner/claims preserved. Codeman remains paused; no automatic worker resumption or release authorization.
