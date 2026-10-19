@@ -18,10 +18,10 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
 
 - [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
     <!-- generated:card -->
-    **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
+    **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Current \#995 requires bounded diagnostic-identity correction (review 5566018799), independent re-review and authorized full native recovery/cleanup proof; product owner Codeman Flash remains paused.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28)  
+    **Blocker:** Diagnostic P2 corrected and full source/Guided CI positive at 36310f08; exact authorized native Recovery/Cleanup evidence and independent five-file coverage remain required.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28), [proof 2](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 5](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -29,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
-**Owner:** Flash (codeman w1-baseharbor)  
+**Owner:** Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved)  
 **Priority:** high  
 **PRs:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
 **Source:** 
