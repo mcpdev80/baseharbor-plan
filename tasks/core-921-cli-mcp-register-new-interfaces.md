@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
-    **Blocker:** Protected paused o1 binding remains unpublished/uncommitted; regular claim release or separately authorized owner resumption, publication and independent policy review are required before \#998 current Required CI.  
+    **Blocker:** Existing Flash/o1 owner is authorized to resume and publish the protected exact-source binding; independent policy acceptance and current \#998 Required CI remain outstanding.  
     **Needs:** [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
     <!-- /generated:card -->
 
