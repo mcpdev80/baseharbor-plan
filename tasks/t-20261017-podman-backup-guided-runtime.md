@@ -96,3 +96,8 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 - 2026-10-17: Maintainer-authorized intake from Qwen's supplied pre-freeze audit; this session did not independently reproduce the native failure. The audit reports immediate failure in `runtimeUpGuided`: `runtime up: container runtime orchestration not found` / `ErrRuntimeNotFound`, under isolated state and Podman test selection. Other in-process native Core tests passed. Root cause remains unconfirmed; no successful disaster-recovery evidence exists. Source: `d54ac358fb6a6b256164ac2689a33e981c013baa`.
 - Discussion/evidence intake: [baseharbor#988](https://github.com/mcpdev80/baseharbor/issues/988). Unassigned, not implemented or accepted. No private machine identifiers, addresses, local paths or credentials included.
+
+### 2026-10-19 — Narrow fix versus full recovery acceptance
+
+- #990 remains unchanged at bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f. Its target-selection fixture correction is already included in pending #995; accepting it alone would not prove native backup/restore. Do not close this release dependency as successful or duplicate its implementation.
+- Current #995 candidate 2ff6846c3b4d246d1291ae2c90d09d231c4214bc has valid integration (39183081916), but full four-file re-review, real native recovery and fail-path owned cleanup evidence remain outstanding. Owner: paused Codeman Flash for source; Qwen/authorized native lane for actual run, after separate source qualification. This coordinator does not have authorized native execution access. Claim retained.
