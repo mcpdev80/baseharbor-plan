@@ -12,7 +12,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | ---: |
 | active | 1 |
 | review | 1 |
-| blocked | 3 |
+| blocked | 4 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 226 |
@@ -38,6 +38,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | blocked | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
 | [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | blocked | high | Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | blocked | high | ChatGPT (bug-994 implementation session) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open), [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
+| [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) | CI: bind reviewed core-921 registration coverage | blocked | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007) |
 
 ## Ready to assign
 
@@ -50,7 +51,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 11 open, 28 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 12 open, 28 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
