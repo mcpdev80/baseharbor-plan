@@ -16,7 +16,23 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1006","https://github.com/mcpdev80/baseharbor/actions/runs/39236044976","https://github.com/mcpdev80/baseharbor/commit/bb91fbc327414952b36a88271153db43970280cc"]
 ---
 
-- [x] t-20261019-owner-delegated-maintainer-authority · Document Owner-delegated Maintainer merge authority #task #release/v0-4-26 #status/closed
+- [x] t-20261019-owner-delegated-maintainer-authority · Document Owner-delegated Maintainer merge authority #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #area/docs #kind/maintenance
+    <!-- generated:card -->
+    **Owner:** Codex (Owner-authorized Maintainer policy) · **Priority:** high  
+    **PR:** [baseharbor#1006](https://github.com/mcpdev80/baseharbor/pull/1006)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1006), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39236044976), [proof 3](https://github.com/mcpdev80/baseharbor/commit/bb91fbc327414952b36a88271153db43970280cc)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** accepted  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Owner:** Codex (Owner-authorized Maintainer policy)  
+**Priority:** high  
+**PRs:** [baseharbor#1006](https://github.com/mcpdev80/baseharbor/pull/1006)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
