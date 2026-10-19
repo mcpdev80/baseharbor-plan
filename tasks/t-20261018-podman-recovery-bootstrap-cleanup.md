@@ -11,12 +11,12 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: ""
+blocker: "Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are still missing."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28","https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -72,6 +72,13 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-19 — Actual full-path correction published; native assignment updated
+
+- Exact #995 candidate: be972ff39006037a9f06b904c156fe73f7f24ba8. Operations now obtain one current typed acknowledgement from their actual fail-closed authority; restore has separate destructive scope consent. Stale/unknown errors do not cause approval loops. SQL seeding/readback uses the protected current consumer binding with verified TLS, no guessed runtime project/provider role.
+- Actual [CI39223771804](https://github.com/mcpdev80/baseharbor/actions/runs/39223771804) Guided/build/vet/source checks pass. The Guided wrapper selects all8 existing fixture/manifest regressions plus new consent/SQL tests; nonverbose logs are not individually enumerated receipts. Full five-file source review [5568897605](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568897605) is positive; final remains unresolved on5paths, with valid integration.
+- Latest [Qwen exact-SHA native assignment](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263247019) supersedes36310f for final acceptance. The real opt-in native Backup/Destroy/Restore, actual consumer data/secrets, non-replayed identities and owned automatic cleanup have not been executed here. gofmt of these changed fixture files remains an explicit native precheck; no unsupported success claim.
+- Keep #990 and the recovery chain unaccepted until that actual result, fresh qualification and green mandatory CI exist. No reset/SSH/native execution by this coordinator.
 
 ### 2026-10-19 — Full-scope audit finds additional fixture blockers; correction authorized
 
@@ -189,3 +196,10 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 - Authorized native Qwen/lane handoff published https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610. Exact candidate36310f; first focused diagnostic unit tests plus gofmt precheck, then actual `BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./cmd/baha -run '^TestAppBackupRestoreCLIRealDisasterRecovery$' -count=1 -v`, umask0022, exclusive verified isolation. Preserve full SQL recovery_probe/secret/consumer/backup-recovery metadata/fresh-token-certificate assertions. Prove successful automatic owned cleanup separately from any manual fallback; never touch unrelated resources or use global/helper reset.
 - Native Recovery/Cleanup is NOT executed or qualified here. No authorized native executor is connected to this session; Qwen retains native test responsibility. Publish sanitized exact-SHA outcomes without private host/access/path/secret/material data. A related lifecycle/control-plane gate does not prove this exact backup fixture; current Podman acceptance/reusable integration command does not select this exact opt-in test. Do not invent that coverage. After real proof, independently bind the complete five-file/status inventory and matching mandatory checks before any merge.
 - #990 narrow fixture input remains blocked on this full native result; #998/o1 unchanged and protected. Codeman remains PAUSED; only the explicitly authorized #995 correction proceeded. No source policy exemption, artificially green finalcheck, native execution or merge.
+
+### 2026-10-19 — Current trusted-target integration
+
+- Existing #995 branch now 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, a normal integration of independently reviewed be972ff source with trusted develop19548bf0. All five reviewed fixture/diagnostic source blobs remain unchanged.
+- Actual PR CI39226862989: Trusted Plan, workflow policy, Focused Python, Guided, build, vet and Source Contracts PASS. Final117975666636 blocks only native coverage of the five paths; integration_sha_mismatch is absent.
+- Full hosted Source Preflight39227471936 is running at that exact head. It is source validation, not the opt-in native recovery test. Earlier Qwen source assignments are historical; use only the latest exact-SHA PR handoff after its source precheck.
+- Qwen's authorized isolated Podman lane must still prove the full SQL/Secrets/consumer/identity recovery assertions and actual automatic owned cleanup. No native success, immutable qualification or merge is asserted.

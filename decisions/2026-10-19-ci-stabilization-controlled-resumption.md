@@ -46,3 +46,9 @@ The local ecosystem `evidence/COORDINATOR-STATUS.md` and board reports are not a
 Use GitHub MCP for live remote state and CI. Hugging Face may provide focused isolated tests when available; its Jobs endpoint is currently unavailable in this session. It is not a native-runtime substitute. Preserve real GitHub CI evidence; no fabricated HF result or new full matrix.
 
 Planning main and generated views must be rendered and validated after every handoff/acceptance; retain concurrent canonical task changes.
+
+## Subsequent complete-release audit — 2026-10-19
+
+The infrastructure resumption is not whole-release acceptance. Review5569055023 now requires the existing Flash/core-921 source owner to correct actual MCP schema and typed-error defects before final coverage qualification. o1 must preserve its original two uncommitted files and re-anchor the final binding only after fresh independent source review; the old rejected candidate must not be qualified. Normally integrate the separately accepted SQL-layout policy #1005 without losing either owner's work. No competing CORE_921 implementation, worker restart or local-worktree mutation was performed by the remote coordinator.
+
+The [complete-release audit](../evidence/v0.4.26/2026-10-19-complete-audit.md) records remaining native recovery and documentation/consumer dependencies. Qwen remains the authorized native test owner. No Owner credential or resumption decision replaces missing native evidence or mandatory checks.

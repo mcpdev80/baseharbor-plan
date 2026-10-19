@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
-blocker: "Existing Flash/o1 owner is authorized to resume and publish the protected exact-source binding; independent policy acceptance and current #998 Required CI remain outstanding."
+blocker: "Independent review5569055023 requires correcting the actual MCP input schema and typed-error boundary on existing #998; fresh source review, exact coverage and current Required CI remain outstanding."
 resolution: ""
 evidence: []
 ---
@@ -69,6 +69,13 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-19 — Complete-release review: source changes required, existing owner to correct
+
+- Exact current #998 source remains756b22dc8967d0daa7393065cd5bc15f262c7050. Independent full-release review [5569055023](https://github.com/mcpdev80/baseharbor/pull/998#pullrequestreview-5569055023) overrides the earlier positive source assumption: missing JSON tags infer PascalCase and require proposal/consent for propose; the reject-any-error SDK test does not reach the actual consent handler.
+- Correct public/nested snake_case schema and optional phase-specific fields through this existing owner/branch. Assert tools/list schema; execute valid real MCP propose and consented apply plus specific missing/stale/wrong-target denial with no writes. Ordinary errors and private appMachineError currently map through machineMCPFailure/main.go to internal_error; reuse existing typed error owners and assert public error codes/remediation.
+- Flash retains ownership. No source mutation or claim transfer by this audit. Existing selected registration/adapter/docs/CLI tests must actually execute on the corrected source before a fresh independent full-source review; no old coverage binding may qualify the rejected source in advance.
+- Preserve/checkpoint o1's two original uncommitted planner files. Finish the existing binding only after the corrected reviewed source/status set is known, preserving accepted infrastructure and disjoint coordinator SQL-layout qualification. The new source correction precedes final policy acceptance; do not wait idly for an approval of the defective old source.
 
 ### 2026-10-19 — Controlled existing-owner resumption
 
