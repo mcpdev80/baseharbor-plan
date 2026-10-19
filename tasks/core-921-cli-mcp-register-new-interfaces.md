@@ -6,7 +6,7 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)"
-depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
+depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness, t-20261019-core921-coverage-binding]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
@@ -21,12 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
+    **Needs:** [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
-**Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
+**Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md), [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
 **Priority:** not set  
@@ -67,6 +68,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-19 — Independent local review complete; CI predecessor added
+
+- Ornith review worker o1 (session b70198fc) reviewed exact candidate `756b22dc8967d0daa7393065cd5bc15f262c7050` read-only with before/after sha256 equality; verdict **APPROVE**, no candidate-blocking findings (report: ecosystem `evidence/board-2026-10-19/o1-core921-review.md`).
+- Root cause of the persistent `coverage-unresolved` finalcheck is a missing develop-side reviewed-bundle binding for the 13-file registration set; created predecessor [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md). After that lands on develop, rerun #998 selected checks, then submit for Codex 6.1 final acceptance.
 
 ### 2026-10-19 — Resumed reconciliation; ownership transferred to Codeman lane
 
