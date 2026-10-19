@@ -70,6 +70,12 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-19 — Resumed: review 5569055023 defects corrected on the existing branch
+
+- Worker o5 (74144db2) corrected all three confirmed defects on branch `work/core-921-central-cli-mcp-registration`; new head `24119eb936520e56b6f23b16773d30770532a386` = normal merge of develop `19548bf0` plus fixes; pushed, PR #998 stays draft. Snake_case public/nested schemas with phase-conditional proposal/consent, typed machineMCPFailure classifications, real tools/list + valid propose→apply + precise handler-level zero-write negatives. Handoff evidence: ecosystem `evidence/board-2026-10-19/o5-998-correction.md`.
+- Fresh independent full-source review running with worker o4 (session 19d72a4b); the final core-921 coverage binding will qualify only this re-reviewed head plus the complete path/status set from that review. The old `756b22dc` candidate stays unqualified.
+
+
 ### 2026-10-19 — Complete-release review: source changes required, existing owner to correct
 
 - Exact current #998 source remains756b22dc8967d0daa7393065cd5bc15f262c7050. Independent full-release review [5569055023](https://github.com/mcpdev80/baseharbor/pull/998#pullrequestreview-5569055023) overrides the earlier positive source assumption: missing JSON tags infer PascalCase and require proposal/consent for propose; the reject-any-error SDK test does not reach the actual consent handler.
