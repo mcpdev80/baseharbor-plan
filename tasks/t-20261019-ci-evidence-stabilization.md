@@ -9,7 +9,7 @@ owner: "Codex (Maintainer CI/evidence stabilization coordinator)"
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1001", "mcpdev80/baseharbor#1002"]
 sources: []
 blocker: ""
 resolution: ""
@@ -72,3 +72,12 @@ Smallest existing Python/contract checks, real Git fixtures, current GitHub requ
 - Both trusted-pr-plan artifacts actually exist, unexpired, expiring 2026-10-21. #985 e1c797bb message describes a merge but its sole parent is 5a381338; copied trusted changes do not establish normal integration ancestry. Source test delta itself is gofmt alignment only.
 - ci.yml retains trusted-pr-plan and several exact-candidate/runner/consumer proof artifacts for only 2 days despite 30-day ci-evidence. GC ci.yml-run protection exists; do not repeat its implementation.
 - HF identity authenticated but hf_jobs endpoint returns UNAVAILABLE; local execution unavailable. Use real existing GitHub execution when necessary, no invented local/HF successes.
+
+### 2026-10-19 — Production integration repaired; independent infrastructure review
+
+- #995 now 2ff6846c3b4d246d1291ae2c90d09d231c4214bc: genuine two-parent develop integration, original four source blobs unchanged. Run 39183081916 accepts integration; focused build/vet/guided/source gates pass. Four source paths remain unresolved: no full native recovery/re-review evidence has been fabricated. Paused product owner remains responsible for missing native success and source issues.
+- #985 now e2cfc95ff400b56a980c7d95903bcd393cc9a375: genuine two-parent integration, original exact test blob retained. Run 39183103814 executes both required MCP families successfully plus build/vet/gofmt; final blocks only source qualification. Independent source review 5565951329 anchors e1c797bb.
+- Infrastructure #1001 initially 1baa4beaa7fb0a8497be2e423a7feb311ffebf85: real stale-base/reversed-parent/extra-parent Git regressions; finite reviewed source/status records for #993/#989/#985; actual five/eight utility tests are required when those candidates are integrated. CI 39183452084 entirely green. Separate read-only Codex reviewer positive; no Codeman worker or claim takeover. Utility suites absent on this infrastructure branch were honestly skipped, not claimed executed there.
+- Additional retention audit #1002 exactly 2e3325e142995aedd3d69a2e5569452127cbc58f: four PR proof uploads 2→30 days; direct Docker/Podman evidence 1→30 days; preserve the two actual native-evidence origin workflows in existing GC. Existing #999/#1000 behavior unchanged. Actual read-only GC run 39183759516 executed all seven tests PASS; mutating jobs skipped. Separate independent review positive.
+- Final #1001 candidate 667e3806ee03140435825c69bc1b7c45f431ffc9 additionally binds exact #1002 five-file status inventory and requires all seven GC regression methods in mandatory planner tests. New exact review/CI in progress; not merged or self-approved.
+- #998 remains blocked on unpublished paused o1 work and regular claim release/resumption; no competing binding created. #990 full-recovery acceptance remains dependent on actual #995 native success, not its narrower fixture checks.
