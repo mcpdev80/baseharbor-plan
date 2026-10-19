@@ -69,6 +69,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
+
+- Controlled development pause ordered by Marcel; infrastructure prerequisite (GC evidence preservation) fixed via merged #999/#1000, but trusted gates still block: `integration_sha_mismatch` (#995/#985 lane) and `coverage-unresolved` needing exact reviewed-bundle qualification (#998/#993/#990/#989). No CI reruns, no correction loops, no merges during the pause.
+- Independent local Ornith review COMPLETED at `756b22dc8967d0daa7393065cd5bc15f262c7050`: verdict APPROVE, read-only proven by before/after sha256 equality (evidence/board-2026-10-19/o1-core921-review.md). Coverage gate root cause diagnosed and CI predecessor t-20261019-core921-coverage-binding created; its implementation is paused UNCOMMITTED. #998 stays draft; no CI rerun during pause.
+
 ### 2026-10-19 — Independent local review complete; CI predecessor added
 
 - Ornith review worker o1 (session b70198fc) reviewed exact candidate `756b22dc8967d0daa7393065cd5bc15f262c7050` read-only with before/after sha256 equality; verdict **APPROVE**, no candidate-blocking findings (report: ecosystem `evidence/board-2026-10-19/o1-core921-review.md`).

@@ -62,6 +62,10 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 ## Handoff
 
+### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
+
+- Existing ownership unchanged; no takeover. Candidate SHAs and prior handoffs preserved. Trusted gate reports `coverage-unresolved` (missing independent exact-bundle qualification); CI reruns, correction loops and merges are halted by Maintainer order. Independent local review state recorded in ecosystem `evidence/board-2026-10-19/` where a worker ran one.
+- No new activity; partial fixture content remains inside #995 (`d359af83`), supersession logic of the pause decision unchanged.
 ### 2026-10-18 — Partial fix retained, full recovery remains blocked
 
 - Open #990 `bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f` supplies the selected-runtime fixture input now included in still-unmerged #995. It is not accepted native recovery evidence and is not closed as superseded before its replacement is accepted.

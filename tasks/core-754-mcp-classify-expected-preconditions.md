@@ -65,6 +65,11 @@ Expected machine/MCP preconditions get stable typed codes instead of being flatt
 
 ## Handoff
 
+### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
+
+- Controlled development pause ordered by Marcel; infrastructure prerequisite (GC evidence preservation) fixed via merged #999/#1000, but trusted gates still block: `integration_sha_mismatch` (#995/#985 lane) and `coverage-unresolved` needing exact reviewed-bundle qualification (#998/#993/#990/#989). No CI reruns, no correction loops, no merges during the pause.
+- State at halt: develop integrated into branch; head `e1c797bb5f45dfac598b5795556c733962b6d621` pushed to #985; both MCP precondition families PASS, vet/build clean; 4 unrelated failures proven environment-gated on clean develop (evidence/board-2026-10-19/o3-985-integration.md). PR gate now reports `integration_sha_mismatch`; no reruns during pause.
+
 ### 2026-10-19 — Resumed; develop integration and actual Go execution next
 
 - Prior owner mcpdev80 (core-754 MCP preconditions) dormant since the ended pause; claim transferred to Flash (codeman w1-baseharbor) under the 2026-10-19 board mandate; prior records preserved.
