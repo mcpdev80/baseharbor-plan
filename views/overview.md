@@ -10,37 +10,35 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
-| review | 3 |
-| blocked | 2 |
+| active | 2 |
+| review | 1 |
+| blocked | 4 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 226 |
 | backlog | 7 |
-| closed | 29 |
+| closed | 31 |
 
 ## Active
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-754](../tasks/core-754-mcp-classify-expected-preconditions.md) | MCP: classify expected preconditions correctly | active | not set | Flash (codeman w1-baseharbor) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985) |
-| [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | active | high | Flash (codeman w1-baseharbor) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
-| [t-20261019-ci-evidence-stabilization](../tasks/t-20261019-ci-evidence-stabilization.md) | Restore exact integration, retained evidence and reviewed-candidate completion | active | critical | Codex (Maintainer CI/evidence stabilization coordinator) | — | — |
+| [t-20261019-ci-evidence-stabilization](../tasks/t-20261019-ci-evidence-stabilization.md) | Restore exact integration, retained evidence and reviewed-candidate completion | active | critical | Codex (Maintainer CI/evidence stabilization coordinator) | — | [baseharbor#1001](https://github.com/mcpdev80/baseharbor/pull/1001), [baseharbor#1002](https://github.com/mcpdev80/baseharbor/pull/1002), [baseharbor#1003](https://github.com/mcpdev80/baseharbor/pull/1003) |
 | [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) | CI: bind reviewed core-921 registration coverage | active | high | Flash (codeman w1-baseharbor) | — | — |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) | CLI and MCP: register new interfaces consistently | review | not set | Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation) | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md), [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md), [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md), [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) (open) | [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998) |
 | [t-20261017-podman-acceptance-typed-consent](../tasks/t-20261017-podman-acceptance-typed-consent.md) | Podman acceptance: honor fresh typed provider consent | review | high | mcpdev80 (Podman acceptance consent) | — | [baseharbor#989](https://github.com/mcpdev80/baseharbor/pull/989) |
-| [t-20261018-scoped-runtime-reset-xdg-ownership](../tasks/t-20261018-scoped-runtime-reset-xdg-ownership.md) | Scoped runtime reset must retain unrelated XDG state | review | high | mcpdev80 (scoped XDG reset review) | — | [baseharbor#993](https://github.com/mcpdev80/baseharbor/pull/993) |
 
 ## Blocked
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) | CLI and MCP: register new interfaces consistently | blocked | not set | Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation) | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md), [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md), [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md), [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) (open) | [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998) |
 | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | blocked | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
+| [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | blocked | high | Flash (codeman w1-baseharbor) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | blocked | high | ChatGPT (bug-994 implementation session) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open), [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
 ## Ready to assign
@@ -54,13 +52,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 14 open, 24 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 13 open, 25 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
-- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 5 open, 4 closed ([view](releases/v0.4.x.md))
+- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 4 open, 5 closed ([view](releases/v0.4.x.md))
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))

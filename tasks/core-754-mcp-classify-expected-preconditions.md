@@ -17,14 +17,15 @@ resolution: "accepted"
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/985#pullrequestreview-5566030344", "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474", "https://github.com/mcpdev80/baseharbor/commit/6c3c936028e1e12c0f198518253cc9f1f42387a8"]
 ---
 
-- [x] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/closed #view/closed #area/mcp #kind/bug
+- [x] core-754 · MCP: classify expected preconditions correctly #task #release/v0-4-x #status/closed #view/closed #board/planned #area/mcp #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor)  
     **PR:** [baseharbor#985](https://github.com/mcpdev80/baseharbor/pull/985)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/985#pullrequestreview-5566030344), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39185230474), [proof 3](https://github.com/mcpdev80/baseharbor/commit/6c3c936028e1e12c0f198518253cc9f1f42387a8)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** Flash (codeman w1-baseharbor)  

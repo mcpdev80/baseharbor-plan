@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-988 implementation session) · **Priority:** high  
     **PR:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
-    **Blocker:** Partial fixture fix only; full native recovery remains blocked by current \#995 manifest and cleanup failures.  
+    **Blocker:** Narrow \#990 fixture fix is included in \#995; full recovery awaits \#995 source correction (5566018799), independent re-review and authorized native recovery/cleanup proof.  
     <!-- /generated:card -->
 
 <!-- generated:links -->

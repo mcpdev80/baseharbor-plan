@@ -20,11 +20,12 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
+    **Blocker:** Current \#995 requires bounded diagnostic-identity correction (review 5566018799), independent re-review and authorized full native recovery/cleanup proof; product owner Codeman Flash remains paused.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  

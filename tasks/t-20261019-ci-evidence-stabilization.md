@@ -19,6 +19,7 @@ evidence: []
 - [ ] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/active #view/active #area/ci #kind/maintenance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer CI/evidence stabilization coordinator) · **Priority:** critical  
+    **PR:** [baseharbor#1001](https://github.com/mcpdev80/baseharbor/pull/1001), [baseharbor#1002](https://github.com/mcpdev80/baseharbor/pull/1002), [baseharbor#1003](https://github.com/mcpdev80/baseharbor/pull/1003)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -28,7 +29,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex (Maintainer CI/evidence stabilization coordinator)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1001](https://github.com/mcpdev80/baseharbor/pull/1001), [baseharbor#1002](https://github.com/mcpdev80/baseharbor/pull/1002), [baseharbor#1003](https://github.com/mcpdev80/baseharbor/pull/1003)  
 **Source:** 
 <!-- /generated:links -->
 
