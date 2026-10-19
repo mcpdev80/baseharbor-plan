@@ -9,7 +9,7 @@ owner: Codex (Maintainer complete v0.4.26 defect audit)
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: []
+prs: [mcpdev80/baseharbor#1004]
 sources: []
 blocker: ""
 resolution: ""
@@ -56,6 +56,12 @@ Execute Marcel's 2026-10-19 instruction to inspect all of v0.4.26 and repair con
 Smallest existing source/contract/docs/consumer gates appropriate to confirmed changes, plus the required exact-SHA native evidence in authorized isolated environments. Preserve valid existing green evidence; no repeated unchanged failing jobs or automatic full matrix.
 
 ## Handoff
+
+### 2026-10-19 — #1004 real preflight reaches the next standards failure
+
+- PR#1004 ataf84cabaaedd6c3a6383e6f503dd4ff6aa911a46 passed actual gofmt, source-contracts and Focused Python; independent formatter review5568942430 positive. Required final remains unresolved, with no bypass.
+- Corrected-source preflight39224495675 now fails source readability: runtime_postgres.go is989lines, over both800limit and953legacyratchet. Subsequent package/race/docs steps again did not execute. The formatter fixed the first real blocker; this is a distinct confirmed baseline source-layout defect.
+- Extend this existing audit/PR only with a responsibility-preserving extraction of the existing runtime-environment/credential-generation functions into internal/application/runtime_environment.go. Keep all function bodies, exported APIs and behavior unchanged, and retain all tests. No compressed lines, new framework or increased baseline allowance. Existing core-921 binding implementation remains untouched.
 
 ### 2026-10-19 — Full source preflight exposes formatting blocker; bounded correction claimed
 
