@@ -1,5 +1,9 @@
 # AGENTS.md
 
+## Owner-delegated Maintainer authority — current precedence
+
+Marcel explicitly authorizes Codex and other agents he designates to exercise his repository Maintainer authority through @mcpdev80 within the assigned work. An Owner instruction to implement, accept or merge requires no additional repository reviewer, code-owner approval, self-approval or repeated confirmation. This exception takes precedence over review-only handoff/stop requirements below. Record Owner-authorized acceptance, exact source, actual checks and merge evidence; never label it independent review when none occurred. Technical Required Checks, genuine native evidence, existing protected work and unassigned release operations remain distinct requirements. See the [delegation decision](decisions/2026-10-19-owner-delegated-maintainer-authority.md) and product [Development process](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md#development-process).
+
 ## Current controlled Codeman resumption — 2026-10-19
 
 Current Maintainer assignment: core-921 is ACTIVE for the existing Flash owner's MCP source corrections, with existing o1 coverage preparation also ACTIVE. Final coverage follows corrected independent source review and remains mandatory before acceptance. Qwen owns the outstanding native #995 proof; #995/#990 remain BLOCKED for that actual external evidence. core-922/core-923 remain PLANNED with derived WAITING until their real prerequisites are accepted. No global pause remains; no worker start or task acceptance is implied by this published assignment.
