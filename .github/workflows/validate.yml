@@ -24,3 +24,20 @@ jobs:
         run: python3 -m unittest discover -s scripts/tests -v
       - name: Validate vault and generated files
         run: python3 scripts/plan.py check
+
+      - name: Diagnose generated drift using the actual planning generator
+        if: failure()
+        run: |
+          python3 scripts/release_cycles.py sync
+          python3 scripts/plan.py render
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          import subprocess
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", "--diff-filter=M"], text=True).splitlines()
+          for name in changed:
+              if name.endswith(".md") or name in {"migration/manifest.json"}:
+                  print("PLANNING_GENERATED_FILE " + json.dumps(
+                      {"path": name, "content": Path(name).read_text()}, ensure_ascii=True))
+          PY
