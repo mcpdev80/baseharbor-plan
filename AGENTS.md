@@ -1,12 +1,10 @@
 # AGENTS.md
 
-## Current Codeman hold — 2026-10-19
+## Current controlled Codeman resumption — 2026-10-19
 
-**Codeman remains PAUSED — BaseHarbor CI stabilization.** This later Maintainer instruction supersedes the earlier general resumption for Codeman/workers. Do not start its workers, take over paused claims, or duplicate o1's unpublished core-921 binding. Only the explicitly assigned CI coordinator continues infrastructure stabilization and properly qualified Maintainer merges. Successful stabilization does not resume Codeman: a separate explicit authorization is required. See the [current hold decision](decisions/2026-10-19-ci-stabilization-codeman-hold.md).
+Marcel explicitly authorized making Codeman operational again after CI stabilization. The [controlled resumption decision](decisions/2026-10-19-ci-stabilization-controlled-resumption.md) supersedes the earlier infrastructure hold for the existing Flash/o1 core-921 binding assignment. Preserve and checkpoint o1's unpublished two-file work before normal integration; do not duplicate its implementation or take over its claim. The coordinator may continue that existing owner and assign subsequent genuinely ready work through the normal ownership protocol. Separate independent review and final Maintainer acceptance remain required.
 
-## Narrow authorized exception — PR #995
-
-On 2026-10-19 Marcel explicitly authorized Codex to apply and finish the prepared bounded #995 diagnostic correction on its existing branch. This exception covers that published claim and its tests/review/handoff only. Codeman workers and protected o1/core-921 ownership remain paused; no native success, release or policy waiver follows from this authorization. See [the #995 claim](tasks/t-20261018-podman-recovery-bootstrap-cleanup.md).
+Qwen's exact-SHA #995 native recovery/automatic-cleanup proof remains an independent external blocker, not a global Codeman pause. No release, native success, Required Check bypass or merge without fulfilled prerequisites is authorized. The bounded Codex #995 correction has been published and independently source-reviewed; do not repeat it. Historical hold and exception records remain in [the earlier decision](decisions/2026-10-19-ci-stabilization-codeman-hold.md).
 
 ## Earlier handover pause ended — historical decision
 

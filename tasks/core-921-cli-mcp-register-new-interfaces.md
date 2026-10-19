@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
-blocker: "Protected paused o1 binding remains unpublished/uncommitted; regular claim release or separately authorized owner resumption, publication and independent policy review are required before #998 current Required CI."
+blocker: "Existing Flash/o1 owner is authorized to resume and publish the protected exact-source binding; independent policy acceptance and current #998 Required CI remain outstanding."
 resolution: ""
 evidence: []
 ---
@@ -69,6 +69,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-19 — Controlled existing-owner resumption
+
+- Infrastructure hold superseded by the [controlled resumption decision](../decisions/2026-10-19-ci-stabilization-controlled-resumption.md). Flash/o1 claim preserved; complete its existing binding predecessor first, with dirty work checkpointed and current accepted infrastructure normally integrated.
+- #998 remains at 756b22dc8967d0daa7393065cd5bc15f262c7050; no product source or branch changed here. After independent binding acceptance, integrate current develop normally, confirm reviewed source equivalence, execute actual selected registration/docs/contract gates and obtain final Maintainer acceptance. This task remains blocked on its unfinished predecessor, not on a global Codeman pause or unrelated #995 native recovery.
 
 ### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
 
