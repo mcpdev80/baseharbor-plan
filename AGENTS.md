@@ -2,6 +2,8 @@
 
 ## Current controlled Codeman resumption — 2026-10-19
 
+Current Maintainer assignment: core-921 is ACTIVE for the existing Flash owner's MCP source corrections, with existing o1 coverage preparation also ACTIVE. Final coverage follows corrected independent source review and remains mandatory before acceptance. Qwen owns the outstanding native #995 proof; #995/#990 remain BLOCKED for that actual external evidence. core-922/core-923 remain PLANNED with derived WAITING until their real prerequisites are accepted. No global pause remains; no worker start or task acceptance is implied by this published assignment.
+
 Marcel explicitly authorized making Codeman operational again after CI stabilization. The [controlled resumption decision](decisions/2026-10-19-ci-stabilization-controlled-resumption.md) supersedes the earlier infrastructure hold for the existing Flash/o1 core-921 binding assignment. Preserve and checkpoint o1's unpublished two-file work before normal integration; do not duplicate its implementation or take over its claim. The coordinator may continue that existing owner and assign subsequent genuinely ready work through the normal ownership protocol. Separate independent review and final Maintainer acceptance remain required.
 
 Qwen's exact-SHA #995 native recovery/automatic-cleanup proof remains an independent external blocker, not a global Codeman pause. No release, native success, Required Check bypass or merge without fulfilled prerequisites is authorized. The bounded Codex #995 correction has been published and independently source-reviewed; do not repeat it. Historical hold and exception records remain in [the earlier decision](decisions/2026-10-19-ci-stabilization-codeman-hold.md).

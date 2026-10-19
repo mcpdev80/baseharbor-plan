@@ -6,18 +6,18 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)"
-depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness, t-20261019-core921-coverage-binding]
+depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#998]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
-blocker: "Independent review5569055023 requires correcting the actual MCP input schema and typed-error boundary on existing #998; fresh source review, exact coverage and current Required CI remain outstanding."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/blocked #view/blocked #area/cli #kind/task
+- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/blocked #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
     **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
@@ -47,6 +47,8 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Acceptance
 
+- Before final acceptance/merge, the [existing exact-source coverage task](t-20261019-core921-coverage-binding.md) must be independently accepted for the corrected reviewed source; current mandatory registration/MCP/CLI/docs/Public Contracts checks must actually pass. This is an acceptance prerequisite, not a prohibition on fixing the rejected source first.
+
 - `app new`, `app edit` and `app footprint show` are discovered and routed correctly; existing verbs/approval/machine classification stay consistent.
 - Discovery/help show only actually available operations; generated references come from real registrations.
 - Shared files change in this one small integration PR; predecessor tasks deliver compiling constructors/adapters, no parallel registry patches.
@@ -69,6 +71,14 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-19 — Maintainer resumption: source correction active
+
+- Marcel explicitly reconfirmed Codeman's continuation and required current board status. Existing Flash claim/branch and protected o1 work are retained; this update is an assignment, not evidence that an external worker was started.
+- This task is ACTIVE for correction of review5569055023: actual MCP schema, phase-specific inputs and typed public errors with real SDK/handler regressions. These are work to perform, not a reason to leave the source task globally blocked.
+- Removed only the unfinished exact-source binding from implementation depends_on: no missing callable input or test executor prevents correcting #998. The existing registration/CLI/docs/contract test profile already executes; the binding can only be finalized after corrected source review. Keeping it as a hard implementation predecessor inverted that order. All accepted interface dependencies remain unchanged.
+- Final immutable binding remains a mandatory ACCEPTANCE gate: [existing o1 binding task](t-20261019-core921-coverage-binding.md), fresh independent full-source review, complete file/status inventory and current green Required Checks are required before merge/accepted. No coverage, review or test requirement is waived.
+- Current product develop19548bf0; current published source756b22dc remains Changes required. Preserve o1's two uncommitted files; no competing implementation, force push or task acceptance.
 
 ### 2026-10-19 — Complete-release review: source changes required, existing owner to correct
 
