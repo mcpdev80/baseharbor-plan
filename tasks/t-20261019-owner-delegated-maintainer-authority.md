@@ -9,7 +9,7 @@ owner: "Codex (Owner-authorized Maintainer policy)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1006]
 sources: []
 blocker: ""
 resolution: ""
@@ -24,7 +24,7 @@ Marcel explicitly directed that agents acting on his instructions through @mcpde
 
 ## Scope
 
-Update the central product development guidelines, product/Planning agent entry points, Planning workflow and review-enforcement snapshot. Use the existing account's live PR-only review exception; do not change technical CI enforcement, product code, protected worktrees, claims or native resources.
+Update the central EN/DE product development guidelines, Planning agent entry point/workflow and review-enforcement snapshot. The existing product agent entry point already links the central development process and needs no duplicate rule. Use the existing account's live PR-only review exception; do not change technical CI enforcement, product code, protected worktrees, claims or native resources.
 
 ## Acceptance
 
@@ -36,9 +36,15 @@ Existing documentation/workflow checks selected by trusted CI; regular Planning 
 
 ## Dependencies and file ownership
 
-Owned docs: product AGENTS.md, docs/DEVELOPMENT_GUIDELINES.md, docs/internal/review-protection.md; Planning AGENTS.md, WORKFLOW.md and the delegation decision. Preserve Flash/o1's existing source/binding work.
+Owned docs: product docs/DEVELOPMENT_GUIDELINES.md, docs/de/DEVELOPMENT_GUIDELINES.md, docs/internal/review-protection.md; Planning AGENTS.md, WORKFLOW.md and the delegation decision. Preserve Flash/o1's existing source/binding work.
 
 ## Handoff
+
+### 2026-10-19 — Existing-linked central policy published in PR1006
+
+- Current candidate7ff6972651733820286b5205f840058f55d6271d changes exactly three documentation files. Product agent entry point uses its existing central process link; Planning AGENTS/WORKFLOW already publish the Owner mandate.
+- Earlier CI39235529033 found EN/DE literal mismatch, corrected in German guidelines. CI39235714798 then passed all selected docs checks but blocked unknown AGENTS.md impact. Removed only the redundant agent entry-point addition; no planner/CI exception, false qualification or o1 change. New exact candidate CI must pass before Owner-authorized regular merge.
+- No additional repository review requested, no GitHub self-approval submitted. Existing account-level PR-only review exception is the authorized merge path; separate Required Checks remain enforced.
 
 ### 2026-10-19 — Explicit Owner assignment and claim before product changes
 
