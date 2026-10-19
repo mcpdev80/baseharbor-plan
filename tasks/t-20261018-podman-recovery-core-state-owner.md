@@ -22,7 +22,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
     **Blocker:** Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are still missing.  
     **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 3](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 3](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 5](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 7](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
