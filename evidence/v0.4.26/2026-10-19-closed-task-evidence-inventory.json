@@ -1,0 +1,1670 @@
+{
+  "schema": "baseharbor.historical-evidence-inventory/v1",
+  "observed_on": "2026-10-19",
+  "scope": "Three closed-task samples, not all closed tasks",
+  "source": "Live GitHub REST run/review/commit/job/artifact metadata; this is a durable observation, not fabricated CI or archived artifact payload",
+  "limitations": [
+    "Artifact payloads and complete logs are not copied into this manifest.",
+    "Expired or deleted artifacts cannot be reconstructed from metadata.",
+    "Historical acceptance is not fresh current-candidate runtime qualification."
+  ],
+  "records": [
+    {
+      "task": "core-751",
+      "repository": "mcpdev80/baseharbor",
+      "pr": 984,
+      "review": {
+        "id": 5562723714,
+        "url": "https://github.com/mcpdev80/baseharbor/pull/984#pullrequestreview-5562723714",
+        "commit_id": "5dea62eb21e3d8baf554357a11ddd3cf7e63fff7",
+        "state": "COMMENTED",
+        "submitted_at": "2026-10-18T11:24:59Z",
+        "body": "Maintainer final integration review: accepted exact 5dea62eb21e3d8baf554357a11ddd3cf7e63fff7. Compared complete integration delta against independently reviewed cf0a19bc: no Repositoryinspect source/test changes; only previously accepted trusted-target #996/#982/#997 workflow/planner changes. Normal two-parent merge preserves reviewed source first parent and trusted develop 58efa1a3 second parent. Source split review 5562635114 and prior functional review 5560608936 remain applicable. Actual CI 39122640623 has all five Inspect validations, Focused Python, workflow/trusted plan and authenticated mandatory PR Selected Checks SUCCESS. Exact three-file coverage established independently in accepted #997. Proceeding through regular Maintainer squash merge, no GitHub self-approval, mandatory CI bypass or native tests. Canonical core-751 accepted/closed transition will record actual merge evidence; derived Planning views require executable render/check/tests on current main."
+      },
+      "merge": {
+        "sha": "8e77b70496df7543d1bd6e9c02c2a31e6a7a256d",
+        "url": "https://github.com/mcpdev80/baseharbor/commit/8e77b70496df7543d1bd6e9c02c2a31e6a7a256d",
+        "parents": [
+          "58efa1a3bc796f93f0ddead7ca0042e37bbd0705"
+        ]
+      },
+      "run": {
+        "id": 39122640623,
+        "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623",
+        "head_sha": "5dea62eb21e3d8baf554357a11ddd3cf7e63fff7",
+        "event": "pull_request",
+        "conclusion": "success",
+        "created_at": "2026-10-18T11:17:32Z",
+        "updated_at": "2026-10-18T11:18:52Z"
+      },
+      "jobs": [
+        {
+          "id": 117661176844,
+          "name": "PR · Trusted Plan",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661176844",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Resolve exact immutable PR inputs using trusted base policy",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661177080,
+          "name": "Workflow policy",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661177080",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Set up Go",
+              "conclusion": "success"
+            },
+            {
+              "name": "Enforce fixed workflow surface",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate workflow syntax",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Set up Go",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661177724,
+          "name": "Targeted HA · podman",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661177724",
+          "steps": []
+        },
+        {
+          "id": 117661177881,
+          "name": "Release Source Preflight",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661177881",
+          "steps": []
+        },
+        {
+          "id": 117661177905,
+          "name": "validate",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661177905",
+          "steps": []
+        },
+        {
+          "id": 117661201493,
+          "name": "Targeted HA · docker",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201493",
+          "steps": []
+        },
+        {
+          "id": 117661201825,
+          "name": "PR · Focused Python",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201825",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Focused diff/planner/verifier/pins regressions",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661201845,
+          "name": "PR · Validation · inspect-package-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201845",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661201846,
+          "name": "PR · Validation · inspect-gofmt",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201846",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661201860,
+          "name": "PR · Validation · inspect-vet",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201860",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661201882,
+          "name": "PR · Validation · inspect-consumer-build",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201882",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661201929,
+          "name": "PR · Validation · inspect-consumer-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661201929",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117661202955,
+          "name": "PR · Public Contracts",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661202955",
+          "steps": []
+        },
+        {
+          "id": 117661203165,
+          "name": "PR · Exact Candidate",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661203165",
+          "steps": []
+        },
+        {
+          "id": 117661203254,
+          "name": "PR · Demo Pin",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661203254",
+          "steps": []
+        },
+        {
+          "id": 117661203322,
+          "name": "PR · Consumer Pins",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661203322",
+          "steps": []
+        },
+        {
+          "id": 117661203440,
+          "name": "PR · Runner Interface",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661203440",
+          "steps": []
+        },
+        {
+          "id": 117661203486,
+          "name": "PR · Selected Runtime",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661203486",
+          "steps": []
+        },
+        {
+          "id": 117661393918,
+          "name": "PR Selected Checks",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39122640623/job/117661393918",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+              "conclusion": "success"
+            },
+            {
+              "name": "Enforce every required check (unqualified runtime remains blocked)",
+              "conclusion": "success"
+            },
+            {
+              "name": "Summarize checked, reused, unnecessary and blocked work",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "artifact_inventory": [
+        {
+          "id": 12134872640,
+          "name": "trusted-pr-plan",
+          "expired": false,
+          "created_at": "2026-10-18T11:17:39Z",
+          "expires_at": "2026-10-20T11:17:38Z",
+          "digest": "sha256:78b1ab54d76c0d879945015fccb3673002afff8d93a9e3a47f53d494e7dfaf39"
+        }
+      ]
+    },
+    {
+      "task": "core-754",
+      "repository": "mcpdev80/baseharbor",
+      "pr": 985,
+      "review": {
+        "id": 5566030344,
+        "url": "https://github.com/mcpdev80/baseharbor/pull/985#pullrequestreview-5566030344",
+        "commit_id": "3dfac93c0775f0d6739e9d696033307250a81093",
+        "state": "COMMENTED",
+        "submitted_at": "2026-10-19T01:18:14Z",
+        "body": "Fresh independent read-only source review: POSITIVE at 3dfac93c0775f0d6739e9d696033307250a81093 against trusted develop57216ba9. Complete actual diff is exactly one added117-line test file, blobf3915bb5f595c9bd44b452fd9ecb90b8853236b1, byte-identical to reviewed e1c797bb. Real in-memory MCP entries and direct typed CLI/MCP parity assertions checked; no blocking source findings.\n\nActual CI39184450141 executes both exact test families via trusted BASE_SHA runner, plus build/vet/gofmt, allPASS. Final source coverage correctly remains unresolved: old copied-tree history required explicit resolution and is not a clean merge from old review anchor. Re-anchor only this newly independently reviewed immutable source and complete added-file inventory; do not relax Git proof. New policy follow-up will add a real Git copied-tree/conflict-resolution regression. No native test or Required Check bypass."
+      },
+      "merge": {
+        "sha": "6c3c936028e1e12c0f198518253cc9f1f42387a8",
+        "url": "https://github.com/mcpdev80/baseharbor/commit/6c3c936028e1e12c0f198518253cc9f1f42387a8",
+        "parents": [
+          "f08a55a67f5d0a462c7b2c5a345f029bbe6161a6"
+        ]
+      },
+      "run": {
+        "id": 39185230474,
+        "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474",
+        "head_sha": "4954f0b1f1f7fdb922dbb1a3566d58c7507d2808",
+        "event": "pull_request",
+        "conclusion": "success",
+        "created_at": "2026-10-19T01:24:46Z",
+        "updated_at": "2026-10-19T01:26:02Z"
+      },
+      "jobs": [
+        {
+          "id": 117846150039,
+          "name": "PR · Trusted Plan",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846150039",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Resolve exact immutable PR inputs using trusted base policy",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846150211,
+          "name": "Workflow policy",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846150211",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Set up Go",
+              "conclusion": "success"
+            },
+            {
+              "name": "Enforce fixed workflow surface",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate workflow syntax",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Set up Go",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846150898,
+          "name": "Release Source Preflight",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846150898",
+          "steps": []
+        },
+        {
+          "id": 117846150969,
+          "name": "Targeted HA · docker",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846150969",
+          "steps": []
+        },
+        {
+          "id": 117846151004,
+          "name": "validate",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846151004",
+          "steps": []
+        },
+        {
+          "id": 117846151068,
+          "name": "Targeted HA · podman",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846151068",
+          "steps": []
+        },
+        {
+          "id": 117846187623,
+          "name": "PR · Focused Python",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846187623",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Focused diff/planner/verifier/pins regressions",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846187628,
+          "name": "PR · Validation · cli-vet",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846187628",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846187636,
+          "name": "PR · Validation · wizard-core754-mcp-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846187636",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846187686,
+          "name": "PR · Validation · cli-build",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846187686",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846187697,
+          "name": "PR · Validation · cli-gofmt",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846187697",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117846188564,
+          "name": "PR · Exact Candidate",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846188564",
+          "steps": []
+        },
+        {
+          "id": 117846188851,
+          "name": "PR · Demo Pin",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846188851",
+          "steps": []
+        },
+        {
+          "id": 117846188873,
+          "name": "PR · Consumer Pins",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846188873",
+          "steps": []
+        },
+        {
+          "id": 117846189138,
+          "name": "PR · Public Contracts",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846189138",
+          "steps": []
+        },
+        {
+          "id": 117846189190,
+          "name": "PR · Runner Interface",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846189190",
+          "steps": []
+        },
+        {
+          "id": 117846189209,
+          "name": "PR · Selected Runtime",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846189209",
+          "steps": []
+        },
+        {
+          "id": 117846412392,
+          "name": "PR Selected Checks",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474/job/117846412392",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+              "conclusion": "success"
+            },
+            {
+              "name": "Enforce every required check (unqualified runtime remains blocked)",
+              "conclusion": "success"
+            },
+            {
+              "name": "Summarize checked, reused, unnecessary and blocked work",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "artifact_inventory": [
+        {
+          "id": 12157742595,
+          "name": "trusted-pr-plan",
+          "expired": false,
+          "created_at": "2026-10-19T01:24:55Z",
+          "expires_at": "2026-11-18T01:24:54Z",
+          "digest": "sha256:ed6db7dc7477c7897c1219bbad5e6b057c3f8a17d91057bbc25149b7022c06c4"
+        }
+      ]
+    },
+    {
+      "task": "core-918",
+      "repository": "mcpdev80/baseharbor",
+      "pr": 978,
+      "review": {
+        "id": 5563005368,
+        "url": "https://github.com/mcpdev80/baseharbor/pull/978#pullrequestreview-5563005368",
+        "commit_id": "288c3a98f043671bbd80a6824894c632421f9b4e",
+        "state": "COMMENTED",
+        "submitted_at": "2026-10-18T12:33:58Z",
+        "body": "Independent Maintainer final integration acceptance: exact 288c3a98f043671bbd80a6824894c632421f9b4e. Full delta against independently accepted implementation 95eed33e contains only previously accepted trusted develop CI/Inspect changes; all product Edit/SQL observation files unchanged. Normal conflict-free two-parent merge, trusted target 9f622e6e. Actual CI 39124293692 entirely successful including genuine Edit complete/partial tests, Machine adapter, all four mandatory NativeSQL safety tests, CLI build/vet/gofmt/Guided/contracts and both selected native Docker/Podman lifecycle jobs; authenticated mandatory PR Selected Checks SUCCESS. Source qualification was independently integrated via #991; no inherited approval of new implementation. Product core-918 meets reviewed task contract. Proceeding regular squash Maintainer merge without GitHub self-approval or mandatory CI bypass. Central command registration remains separately owned by core-921; this acceptance is not release qualification."
+      },
+      "merge": {
+        "sha": "f2bad5efa27fa2a791e5b357509af92d8861a3f1",
+        "url": "https://github.com/mcpdev80/baseharbor/commit/f2bad5efa27fa2a791e5b357509af92d8861a3f1",
+        "parents": [
+          "9f622e6ed87f48436d7f15bfc0d66080ae1130cd"
+        ]
+      },
+      "run": {
+        "id": 39124293692,
+        "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692",
+        "head_sha": "288c3a98f043671bbd80a6824894c632421f9b4e",
+        "event": "pull_request",
+        "conclusion": "success",
+        "created_at": "2026-10-18T11:42:01Z",
+        "updated_at": "2026-10-18T11:47:55Z"
+      },
+      "jobs": [
+        {
+          "id": 117666063201,
+          "name": "Workflow policy",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666063201",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Set up Go",
+              "conclusion": "success"
+            },
+            {
+              "name": "Enforce fixed workflow surface",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate workflow syntax",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Set up Go",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Checkout",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666063446,
+          "name": "PR · Trusted Plan",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666063446",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Resolve exact immutable PR inputs using trusted base policy",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666063948,
+          "name": "validate",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666063948",
+          "steps": []
+        },
+        {
+          "id": 117666064213,
+          "name": "Release Source Preflight",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666064213",
+          "steps": []
+        },
+        {
+          "id": 117666064237,
+          "name": "Targeted HA · podman",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666064237",
+          "steps": []
+        },
+        {
+          "id": 117666064319,
+          "name": "Targeted HA · docker",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666064319",
+          "steps": []
+        },
+        {
+          "id": 117666099387,
+          "name": "PR · Exact Candidate",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099387",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prepare candidate binary and image independently of Docs",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099409,
+          "name": "PR · Runner Interface",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099409",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify integrated",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099430,
+          "name": "PR · Demo Pin",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099430",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify exact Demo dependency against integration source",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099431,
+          "name": "PR · Focused Python",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099431",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Focused diff/planner/verifier/pins regressions",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099507,
+          "name": "PR · Validation · cli-gofmt",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099507",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099535,
+          "name": "PR · Validation · source-contracts",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099535",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099538,
+          "name": "PR · Validation · cli-build",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099538",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099541,
+          "name": "PR · Validation · wizard-core918-native-sql-safety-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099541",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099545,
+          "name": "PR · Validation · wizard-app-edit-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099545",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099553,
+          "name": "PR · Validation · cli-guided-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099553",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099559,
+          "name": "PR · Validation · cli-vet",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099559",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666099591,
+          "name": "PR · Validation · wizard-machine-adapter-tests",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666099591",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Execute existing validation owner without publication",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666100709,
+          "name": "PR · Consumer Pins",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666100709",
+          "steps": []
+        },
+        {
+          "id": 117666129341,
+          "name": "PR · Public Contracts",
+          "conclusion": "skipped",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666129341",
+          "steps": []
+        },
+        {
+          "id": 117666248503,
+          "name": "PR · Selected Runtime (atomic/podman/lifecycle, podman, lifecycle) / podman · lifecycle",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666248503",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout BaseHarbor candidate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prepare verified rootless runtime",
+              "conclusion": "success"
+            },
+            {
+              "name": "Resolve candidate SHA",
+              "conclusion": "success"
+            },
+            {
+              "name": "Set up Go",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Reset runtime state",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify Podman Quadlet runtime",
+              "conclusion": "success"
+            },
+            {
+              "name": "Download prebuilt candidate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Load prebuilt runtime image",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout exact demo revision",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate gate resource declaration",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run static gate",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Run runtime gate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Preserve demo runtime diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload demo runtime diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Run provider integration gate",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Collect failure diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload atomic failure diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Show original assertion before cleanup",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Cleanup runtime state",
+              "conclusion": "success"
+            },
+            {
+              "name": "Generate atomic gate evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Upload atomic gate evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Checkout BaseHarbor candidate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117666248511,
+          "name": "PR · Selected Runtime (atomic/docker/lifecycle, docker, lifecycle) / docker · lifecycle",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117666248511",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout BaseHarbor candidate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Prepare verified rootless runtime",
+              "conclusion": "success"
+            },
+            {
+              "name": "Resolve candidate SHA",
+              "conclusion": "success"
+            },
+            {
+              "name": "Set up Go",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Reset runtime state",
+              "conclusion": "success"
+            },
+            {
+              "name": "Verify Podman Quadlet runtime",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Download prebuilt candidate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Load prebuilt runtime image",
+              "conclusion": "success"
+            },
+            {
+              "name": "Checkout exact demo revision",
+              "conclusion": "success"
+            },
+            {
+              "name": "Validate gate resource declaration",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run static gate",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Run runtime gate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Preserve demo runtime diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload demo runtime diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Run provider integration gate",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Collect failure diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Upload atomic failure diagnostics",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Show original assertion before cleanup",
+              "conclusion": "skipped"
+            },
+            {
+              "name": "Cleanup runtime state",
+              "conclusion": "success"
+            },
+            {
+              "name": "Generate atomic gate evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Upload atomic gate evidence",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Checkout BaseHarbor candidate",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        },
+        {
+          "id": 117667150126,
+          "name": "PR Selected Checks",
+          "conclusion": "success",
+          "url": "https://github.com/mcpdev80/baseharbor/actions/runs/39124293692/job/117667150126",
+          "steps": [
+            {
+              "name": "Set up job",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+              "conclusion": "success"
+            },
+            {
+              "name": "Enforce every required check (unqualified runtime remains blocked)",
+              "conclusion": "success"
+            },
+            {
+              "name": "Summarize checked, reused, unnecessary and blocked work",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "conclusion": "success"
+            }
+          ]
+        }
+      ],
+      "artifact_inventory": [
+        {
+          "id": 12135885583,
+          "name": "pre-release-gate-podman-lifecycle-evidence-39124293692-1",
+          "expired": false,
+          "created_at": "2026-10-18T11:47:35Z",
+          "expires_at": "2026-11-17T11:47:34Z",
+          "digest": "sha256:03558312e67bca1c7fbc485f769ec225a4166b5f86c9de43cf225a0d574cc20b"
+        },
+        {
+          "id": 12135865706,
+          "name": "verified-pr-demo-pin",
+          "expired": false,
+          "created_at": "2026-10-18T11:42:19Z",
+          "expires_at": "2026-10-20T11:42:18Z",
+          "digest": "sha256:4a503a36a8b827e3a90b11e8547d72fa024c99d34245f201d880fc459cf24315"
+        },
+        {
+          "id": 12135771470,
+          "name": "pre-release-gate-docker-lifecycle-evidence-39124293692-1",
+          "expired": false,
+          "created_at": "2026-10-18T11:46:48Z",
+          "expires_at": "2026-11-17T11:46:47Z",
+          "digest": "sha256:f2b6067db5dad60947aae22005d725fe5dbceeb7906620cfddbc335e19715728"
+        },
+        {
+          "id": 12135511014,
+          "name": "trusted-pr-plan",
+          "expired": false,
+          "created_at": "2026-10-18T11:42:10Z",
+          "expires_at": "2026-10-20T11:42:09Z",
+          "digest": "sha256:4236c86e95330122ab4c4364aed6c54a8309ecc6f11cd9faefc719a095b0e564"
+        },
+        {
+          "id": 12134654162,
+          "name": "pr-exact-candidate-288c3a98f043671bbd80a6824894c632421f9b4e",
+          "expired": false,
+          "created_at": "2026-10-18T11:42:57Z",
+          "expires_at": "2026-10-20T11:42:54Z",
+          "digest": "sha256:444fbda0200ad3b9f54d91447a971c50fc5d2bed3805178c0cd775e975fd9f66"
+        }
+      ]
+    }
+  ]
+}
