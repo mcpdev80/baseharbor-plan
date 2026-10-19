@@ -73,6 +73,12 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 
 ## Handoff
 
+### 2026-10-19 — PAUSED: BaseHarbor CI stabilization (coordinator hold)
+
+- Controlled development pause ordered by Marcel; infrastructure prerequisite (GC evidence preservation) fixed via merged #999/#1000, but trusted gates still block: `integration_sha_mismatch` (#995/#985 lane) and `coverage-unresolved` needing exact reviewed-bundle qualification (#998/#993/#990/#989). No CI reruns, no correction loops, no merges during the pause.
+- New candidate pushed before halt: `d359af833649a16f6b2b121704d5c2a6613f8e36` on the #995 branch (capability-aligned fixture manifest + non-native parser regression + bounded redacted cleanup diagnostics; implementation evidence evidence/board-2026-10-19/o2-995-fix.md). Independent re-review (worker o4) stopped PARTIAL: targeted checks done, one long go-test batch and two source checks open (evidence/board-2026-10-19/o4-995-rereview.md).
+- PR gate status: `integration_sha_mismatch` — invalid/unaccepted PR integration; no reruns during pause. Native Qwen retest must not start before a complete independent exact-SHA review.
+
 ### 2026-10-19 — Resumed under Codeman lane; implementation boundaries
 
 - Prior owner ChatGPT (PR #995 bootstrap-cleanup correction) dormant since the ended pause; claim transferred to Flash (codeman w1-baseharbor) per the 2026-10-19 board mandate; prior records preserved.
