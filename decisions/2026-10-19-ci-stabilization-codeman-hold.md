@@ -1,3 +1,9 @@
+---
+id: 2026-10-19-ci-stabilization-codeman-hold
+status: accepted
+sources: []
+---
+
 # Codeman hold during BaseHarbor CI stabilization — 2026-10-19
 
 ## Decision
