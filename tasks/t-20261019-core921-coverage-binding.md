@@ -61,6 +61,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-19 — Self-qualification pushed: head `48def9e8`
+
+- Worker o9 added the BINDING_PR_1007 self-qualification clause mirroring the merged #1005/#999 pattern (`core752_reviewed_merge_chain` ancestry, exact path/status pairs, emitted-check subTest); CORE_921 binding head `6931ba9c` and the 16-file #998 set untouched. Planner suite passes locally; pushed to `work/ci-core921-coverage-binding` (PR #1007 head `48def9e85e35db90025b4e354350bac22c9fe806`). Evidence: ecosystem `evidence/board-2026-10-19/o9-binding-repin.md` (## self-qualification).
+- Independent local review of the self-qualification delta starts now; CI observation and Maintainer handoff follow per AGENTS.md step 7.
+
+
 ### 2026-10-19 — Independent review of 706b5244: APPROVE
 
 - Worker o13 (session b7ed0ce6, read-only, sha256 before/after equal) independently approved the round-2 head `706b5244`: cli-gofmt plus all four coverage families present in the emitted required list; ancestry negatives run against the temporary repo; stubbed variant deleted; wrong-status-only negative real; all other clauses intact (84+18 tests). Evidence: ecosystem `evidence/board-2026-10-19/o13-1007-review.md`.
