@@ -57,6 +57,12 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-19 — Bounded CI coordinator qualification for the independently reviewed SQL layout
+
+- Current #1004 source887eece62ffdfe2ba694ceb1f332dc5a74ce7872 has independent complete-source review5568994921; actual source-preflight39225066336 passed gofmt and readability and is executing the broad source checks.
+- Under the existing explicit CI/Trusted-Coverage coordinator mandate and full-release repair instruction, prepare only an exact three-file/status/source binding for #1004 in the existing planner and its real Git regression matrix. Use the existing source-contracts/Guided/vet/build families; no native behavior changed. Separate independent policy review and real Required CI precede integration.
+- This is a distinct SQL-layout qualification, not implementation or takeover of CORE_921. Preserve every accepted binding and Flash/o1's original local uncommitted two-file work; do not introduce any core-921 rule or alter its claim. The original owner must integrate accepted coordinator changes normally before publishing its own existing branch. No force push or mutation of the protected worktree.
+
 ### 2026-10-19 — #1004 real preflight reaches the next standards failure
 
 - PR#1004 ataf84cabaaedd6c3a6383e6f503dd4ff6aa911a46 passed actual gofmt, source-contracts and Focused Python; independent formatter review5568942430 positive. Required final remains unresolved, with no bypass.
