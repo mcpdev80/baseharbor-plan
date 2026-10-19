@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1001", "mcpdev80/baseharbor#1002", "mcpdev80/baseharbor#1003"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1001", "https://github.com/mcpdev80/baseharbor/pull/1002", "https://github.com/mcpdev80/baseharbor/pull/1003", "https://github.com/mcpdev80/baseharbor/actions/runs/39185230474", "https://github.com/mcpdev80/baseharbor/actions/runs/39185400529", "https://github.com/mcpdev80/baseharbor/actions/runs/39185646028"]
 ---
 
-- [ ] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/active #view/active #area/ci #kind/maintenance
+- [x] t-20261019-ci-evidence-stabilization · Restore exact integration, retained evidence and reviewed-candidate completion #task #release/v0-4-26 #status/closed #view/closed #area/ci #kind/maintenance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer CI/evidence stabilization coordinator) · **Priority:** critical  
     **PR:** [baseharbor#1001](https://github.com/mcpdev80/baseharbor/pull/1001), [baseharbor#1002](https://github.com/mcpdev80/baseharbor/pull/1002), [baseharbor#1003](https://github.com/mcpdev80/baseharbor/pull/1003)  
@@ -89,3 +89,24 @@ Smallest existing Python/contract checks, real Git fixtures, current GitHub requ
 - Actual #985 CI39184450141 proves both MCP families/build/vet/gofmt, but correctly rejects inherited qualification over older explicit tree-resolution history. New independent exact source review5566030344 approves3dfac93c against57216ba9 (single added117-line file, original blob unchanged). #993 freshreview5566047336 approves e6616b45 (two unchanged blobs), actual five sandbox/sevenGC PASS39184711511. #989 freshreview5566047870 approves c3809b12 (same helper/tests, workflow only inherited accepted retention30d); original Qwen native evidence remains78a72eba only.
 - Separate #1003 d2e81b4f1c183622b21139931291e0f72f85d0e3 re-anchors only these independently reviewed resolved candidates. New real Git fixture proves copied target contents do not establish history; explicit resolution needs fresh exact review, and later genuine clean trusted merges remain acceptable. No Git verification weakening. CI/review in progress.
 - Complete current #995 independent review found concrete diagnostic identity disclosure; review5566018799 CHANGES REQUIRED. Paused Flash product claim owns bounded correction; actual native full Recovery/Cleanup remains missing and belongs to authorized Qwen/native lane. #990 retains dependency. #998 protected unpublished o1 work unchanged. Current Codeman hold persisted in AGENTS/current decision83a425ec; no automatic resumption.
+
+### 2026-10-19 — Maintainer stabilization acceptance; real production completion
+
+The bounded infrastructure assignment is accepted: the representative blocked candidates traversed actual trusted production CI and regular protected merges, and all remaining candidates have verified specific external/source blockers with preserved owners. This is not release authorization or Codeman resumption.
+
+| PR | Final head / merge | Actual CI and result |
+| --- | --- | --- |
+| #1001 | 667e3806 → 5c5f8a18583d1ade0c71f152bbd56fd2861b28b0 | 39184026379 SUCCESS; independent review5565992741 |
+| #1002 | ee751691 → 57216ba951933dbbc562f0445662b4cf7494584a | 39184233759 SUCCESS; independent review5565993909; required seven GC tests actually PASS |
+| #1003 | d2e81b4f → f08a55a67f5d0a462c7b2c5a345f029bbe6161a6 | 39185004898 SUCCESS; independent review5566058332; strict copied-tree/conflict-resolution real Git regression |
+| #985 | 4954f0b1 → 6c3c936028e1e12c0f198518253cc9f1f42387a8 | 39185230474 SUCCESS; fresh source review5566030344; both actual MCP families/build/vet/gofmt |
+| #993 | dbf3ef7a → cf63ccfc822796b2c9e8fe0214026bfe06ebb3f3 | 39185400529 SUCCESS; fresh review5566047336; actual five sandbox/seven GC tests |
+| #989 | 07d55619 → 7827e6491a7715e0ffffb1e7938764f6788cc30b | 39185646028 SUCCESS; fresh review5566047870; 59 planner tests without skips, eight consent/seven GC/five reset tests |
+
+- All merges used existing protected squash PR flow and exact expected heads. Required PR Selected Checks were green; no required-check bypass, forged approval or source author pretending independent review. Separate read-only Codex technical reviewer performed all infrastructure/fresh-source reviews; no Codeman worker started.
+- Root causes: stale consumed BASE versus actual correctly ordered GitHub integration parents; separately copied trusted trees without ancestry/resolved transitions cannot inherit old review. Genuine current-target integrations repaired inputs; fresh independent exact source/status anchors repaired historical qualification. Existing Git parent/tree/ancestry verification remained strict. Real tests reject stale bases, reversed/extra parents, malformed trees and unseen modifications; clean later target merges preserve qualified source.
+- Accepted #999/#1000 were audited, not reimplemented. Additional four PR provenance uploads now30days; native Docker/Podman proof30days and both origin workflows protected from aggressive run deletion. Actual new trusted plans are unexpired until2026-11-18, including #985 and #995. Existing older uploads retain their original expiry (retention is prospective); expired old proof is never inferred valid. #990/#998 need fresh current CI when their real blockers are released. Ephemeral build inputs remain bounded; authoritative archived/atomic proof already30days or longer. Actual final verifiers retrieve current plan and authenticated job evidence; existing executor/verifier/API transport regressions pass.
+- #995 now02b4cd5f48e449085bc58df625ef6af8fa7bbd73 against develop7827e649. All four worker blobs preserved. CI39185883757 passes Trusted Plan, policy, Focused Python, guided, build/vet/source; final117848399067 only coverage-unresolved4paths, no integration mismatch. Review5566018799 CHANGES REQUIRED for raw diagnostic owner/deployment identity. Final handoff5566105009. Owner paused Flash/Codeman must correct bounded source then obtain independent re-review; Qwen/authorized native lane must prove full recovery and owned cleanup. No native proof or coverage fabricated.
+- #990 unchangedbc6bb47a is the narrower fixture input already in #995; full acceptance/supersession waits for corrected native recovery, so it remains blocked. #998 unchanged756b22dc remains blocked by protected unpublished o1 binding and explicit owner continuation/release. Binding task published blob2d035878b17ba191fc15a6ad7faf720ea4d99b1c unchanged. No competing CORE_921 implementation. Original worker files/worktrees could not be inspected in disconnected local environment; none was accessed or mutated.
+- Current product develop7827e6491a7715e0ffffb1e7938764f6788cc30b. Product main unchanged. HF Jobs was unavailable at intake and local executor disconnected; all new executable success claims above come from real GitHub CI. No full matrix, native/SSH run, global reset or unrelated resources touched.
+- Final Planning canonical acceptance and external blockers published; regular generator output and exact-main47tests/check must be validated below before reporting final synchronization. Codeman remains PAUSED under the current AGENTS/decision until separate explicit Maintainer authorization. Its eventual o1 integration must preserve accepted finite profiles/test wrappers from#1001/#1003.

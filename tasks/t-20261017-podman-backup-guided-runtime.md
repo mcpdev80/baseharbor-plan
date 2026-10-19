@@ -101,3 +101,9 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 - #990 remains unchanged at bc6bb47a238e4fcd3d18c9ee4a51d7052f98616f. Its target-selection fixture correction is already included in pending #995; accepting it alone would not prove native backup/restore. Do not close this release dependency as successful or duplicate its implementation.
 - Current #995 candidate 2ff6846c3b4d246d1291ae2c90d09d231c4214bc has valid integration (39183081916), but full four-file re-review, real native recovery and fail-path owned cleanup evidence remain outstanding. Owner: paused Codeman Flash for source; Qwen/authorized native lane for actual run, after separate source qualification. This coordinator does not have authorized native execution access. Claim retained.
+
+### 2026-10-19 — Final stabilized integration handoff
+
+- Current #995 HEAD02b4cd5f48e449085bc58df625ef6af8fa7bbd73, trusted develop7827e6491a7715e0ffffb1e7938764f6788cc30b. Four worker source blobs unchanged; no product correction or claim transfer by CI coordinator.
+- Actual CI39185883757: Trusted Plan, policy, Focused Python, Guided, build, vet and Source Contracts SUCCESS; final117848399067 blocks only qualified native coverage of the four source files, not integration_sha_mismatch. Current trusted plan artifact retained30days. Final PR handoff5566105009.
+- Source CHANGES REQUIRED review5566018799 remains applicable: bound diagnostic output to fixed owner categories, exclude raw identities and prove sentinels. Paused Flash/Codeman owns correction after explicit continuation; then independent re-review and authorized Qwen full recovery/owned-cleanup proof. #990 narrow fix remains dependent and unaccepted; existing claims preserved. No source policy waiver, native run or merge of #995/#990. Infrastructure acceptance never resumes Codeman automatically.
