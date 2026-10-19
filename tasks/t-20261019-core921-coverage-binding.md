@@ -9,26 +9,27 @@ owner: Flash (codeman w1-baseharbor)
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1007]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
+    **PR:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,6 +60,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-19 — Binding finalized; PR #1007 open for develop
+
+- Worker o1 (session b70198fc) delivered: develop integrated (bb91fbc3), clause `CORE_921_PRODUCTION_REVIEWED_HEAD = 08d8f498fd82992e762d764967ac892721d9adeb` with complete fifteen path/status pairs from the exact two-dot diff; #991/#1005/#974 and all accepted clauses preserved; positive/negative regressions pin the exact match. Branch head `417b8cbb03d585a2607663f44eb38c1c9e13250d`, PR #1007 non-draft.
+- Full planner suites green (see `evidence/board-2026-10-19/o1-binding-final.md`). Independent review and merge are Maintainer actions.
+
 
 ### 2026-10-19 — Existing preparation active; final binding follows corrected source review
 
