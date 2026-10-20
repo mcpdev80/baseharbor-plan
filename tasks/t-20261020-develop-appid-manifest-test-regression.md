@@ -11,18 +11,19 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "pr-gate-plan.py has no test-only lane: test fixture fix landed (#1008) but CI coverage gate fails closed (coverage_status=unresolved, empty selected_gates); needs a policy lane mapping audited _test.go fixture changes to static package validations."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261020-develop-appid-manifest-test-regression · CI/Contract: develop integration tests still author app.id in developer manifests #task #release/v0-4-26 #status/active #view/active #area/ci #area/contract #kind/bug
+- [ ] t-20261020-develop-appid-manifest-test-regression · CI/Contract: develop integration tests author app.id in developer manifests; product fix landed (#1008) but CI coverage gate (pr-gate-plan.py) has no test-only lane and fails closed — blocked on policy lane #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
+    **Blocker:** pr-gate-plan.py has no test-only lane: test fixture fix landed (\#1008) but CI coverage gate fails closed (coverage\_status=unresolved, empty selected\_gates); needs a policy lane mapping audited \_test.go fixture changes to static package val…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -47,6 +48,41 @@ evidence: []
 1. `TestRepositoryWorkflowRealLifecycle` PASS in GitHub Actions on develop head.
 2. No contract semantics change; parser behavior stays fail-closed for non-canonical app.id.
 3. Independent local review + evidence links on this card.
+
+## Handoff / status — 2026-10-20 (BLOCKED)
+
+Product fix landed and pushed: branch `fix/t-20261020-develop-appid-manifest`
+(HEAD `0e213d42`), draft PR #1008 (base `develop`):
+https://github.com/mcpdev80/baseharbor/pull/1008
+
+- Fixture diff: removed authored `app.id` from the 3 workload test fixtures in
+  `cmd/baha/app_workload_integration_test.go` (lines 40/178/311); parser
+  unchanged, stays fail-closed. `app apply`/`app init` generate the canonical
+  identity.
+- Added manifest regression tests (`internal/application/manifest_test.go`)
+  proving both contract directions.
+- Local: `go vet` + full `cmd/baha` (all pass except the pre-existing
+  `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` compose/consent
+  timeout, reproduced on clean develop) + `internal/application` pass. The
+  compose/build workload integration tests need rootless docker (local socket is
+  rootful; `DOCKER_MODE` override was removed in `d2bca4ea`); the underlying
+  `app.id` error is proven by the parser unit check.
+
+CI blocked (run `39430265422`, trusted plan `pr-plan.json`):
+`coverage_status: unresolved`, `selected_gates: []`. All 4 static validations
+(cli-build, cli-guided-tests, cli-vet, source-contracts) pass; `PR Selected
+Checks` fails closed. Root cause is a pre-existing policy gap, not the product
+fix: `scripts/pr-gate-plan.py` classifies every `cmd/baha/*.go` and
+`internal/application/*.go` change (including test files) as needing a qualified
+native runtime gate but emits an empty gate list, so `runtime_required` stays
+false and the docker-runtime acceptance job never runs. `scripts/pr-required-final.py:24`
+fails closed on `coverage_status != 'resolved'`.
+
+Action for Marcel / Codex 6.1: add a lane in `pr-gate-plan.py` for audited
+test-only fixture changes mapped to the static package validations already
+emitted (`go test ./cmd/baha`, `go test ./internal/application/... ./contracts/...`,
+`go vet`, `go build`), so the coverage gate resolves without an atomic runtime
+matrix. Evidence: `evidence/board-2026-10-20/o1-appid-develop-fix.md`.
 
 ## Notes
 
