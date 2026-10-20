@@ -11,20 +11,19 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#990]
 sources: []
-blocker: "Narrow #990 fixture fix is included in #995; acceptance awaits Qwen native Recovery/Cleanup at current reviewed integration4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then independent immutable qualification and green Required CI."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
+- [ ] t-20261017-podman-backup-guided-runtime · Podman backup/restore: resolve isolated guided runtime and prove recovery #task #release/v0-4-26 #status/review #view/review #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (bug-988 implementation session) · **Priority:** high  
     **PR:** [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990)  
-    **Blocker:** Narrow \#990 fixture fix is included in \#995; acceptance awaits Qwen native Recovery/Cleanup at current reviewed integration4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then independent immutable qualification and green Required CI.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
@@ -128,3 +127,8 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 - Authorized native Qwen/lane handoff published https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610. Exact candidate36310f; first focused diagnostic unit tests plus gofmt precheck, then actual `BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./cmd/baha -run '^TestAppBackupRestoreCLIRealDisasterRecovery$' -count=1 -v`, umask0022, exclusive verified isolation. Preserve full SQL recovery_probe/secret/consumer/backup-recovery metadata/fresh-token-certificate assertions. Prove successful automatic owned cleanup separately from any manual fallback; never touch unrelated resources or use global/helper reset.
 - Native Recovery/Cleanup is NOT executed or qualified here. No authorized native executor is connected to this session; Qwen retains native test responsibility. Publish sanitized exact-SHA outcomes without private host/access/path/secret/material data. A related lifecycle/control-plane gate does not prove this exact backup fixture; current Podman acceptance/reusable integration command does not select this exact opt-in test. Do not invent that coverage. After real proof, independently bind the complete five-file/status inventory and matching mandatory checks before any merge.
 - #990 narrow fixture input remains blocked on this full native result; #998/o1 unchanged and protected. Codeman remains PAUSED; only the explicitly authorized #995 correction proceeded. No source policy exemption, artificially green finalcheck, native execution or merge.
+
+### 2026-10-20 - q19 stacked resolution (review)
+
+- PR #990 head 50ad8d72: #995 branch merged in (ancestor 0af3982b confirmed) so the durable native job app_backup_restore_podman executes against this PR too; all 17 mandatory checks pass, MERGEABLE.
+- Minimal honest option per q19: reuse #995 gate instead of duplicating a job. Merge order note: merging #990 first makes #995 auto-merge-closable (empty diff). Independent local review record: evidence/board-2026-10-20/q18-995-990-review.md + q19-990-native-job.md. Awaits Codex round 5 bundle.

@@ -11,8 +11,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 3 |
-| review | 1 |
-| blocked | 2 |
+| review | 2 |
+| blocked | 1 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 226 |
@@ -31,13 +31,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | review | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | review | high | Flash (codeman w1-baseharbor) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open), [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
 ## Blocked
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) | Podman backup/restore: resolve isolated guided runtime and prove recovery | blocked | high | ChatGPT (bug-988 implementation session) | — | [baseharbor#990](https://github.com/mcpdev80/baseharbor/pull/990) |
 | [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | blocked | high | Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 
 ## Ready to assign

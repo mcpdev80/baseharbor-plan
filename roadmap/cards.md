@@ -6,8 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 28/40 · **Blocked:** 2 · **Waiting:** 6  
-    **Blocker:** [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) — Narrow \#990 fixture fix is included in \#995; acceptance awaits Qwen native Recovery/Cleanup at current reviewed integration4ca9881766fc88e850ccdbbc2d837cabb19e…  
+    **Accepted tasks:** 28/40 · **Blocked:** 1 · **Waiting:** 6  
     **Blocker:** [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) — Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are sti…  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
