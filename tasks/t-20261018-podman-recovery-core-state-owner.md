@@ -62,6 +62,11 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 
 ## Handoff
 
+### 2026-10-20 coordinator observation (read-only, no takeover)
+
+- PR #995 head advanced (4ca98817) by its owning session; still OPEN, BEHIND develop, PR Selected Checks failing at last observed run. Native recovery evidence remains with the owner session per 2026-10-19 decision; this lane stays untouched by the coordinator pool.
+
+
 ### 2026-10-19 — Actual full-path correction published; native assignment updated
 
 - Exact #995 candidate: be972ff39006037a9f06b904c156fe73f7f24ba8. Operations now obtain one current typed acknowledgement from their actual fail-closed authority; restore has separate destructive scope consent. Stale/unknown errors do not cause approval loops. SQL seeding/readback uses the protected current consumer binding with verified TLS, no guessed runtime project/provider role.

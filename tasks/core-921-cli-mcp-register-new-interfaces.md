@@ -71,6 +71,13 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-20 (post-reboot) — Codex round 3 delivered CHANGES_REQUESTED; app.edit wiring fix in progress
+
+- Codex verdict (round2 + round3): the native proof must run through baseharbor.app.edit (propose -> JSON round-trip -> apply with consent, verified execution; stale/wrong-consent negatives must compare relevant persisted state byte-wise). All four findings reproduced statically against a66e5de6 (tests called plan/apply only).
+- Correction lane p20 (Ornith, post-reboot resume of interrupted o20) is reworking cmd/baha/app_mcp_provider_edit_native_test.go in the branch worktree, native re-run on baha-docker, push, evidence o20-appedit-fix.md. CORE_921 pins in the binding must re-pin to the resulting final head.
+- Binding #1007: trusted-base clause implementation verified (q15 guard-set review APPROVE, all six guards); pending items are #998 final head, H freeze, separate record PR (draft prepared + under audit r8), then Codex round 4. Reviewer session fe5dff6c was lost in the VM reboot; replacement restart pending Maintainer go.
+
+
 ### 2026-10-20 — TODO queued: PR metadata rewrite after final heads (per q12 audit)
 
 - Coordinator action after o20/o21 final SHAs: rewrite #998 body (current head lineage + native gate evidence), `gh pr ready` #998, rewrite #1007 title/body (three stale SHAs: title 6931ba9c / body 08d8f498 / real head). Labels/milestones deliberately unchanged (repo convention: merged #999/#1005/#1006 also lack them). Evidence: q12-pr-state-audit.md.
