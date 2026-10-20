@@ -142,3 +142,7 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 ### 2026-10-20 - coordinator correction
 
 - Worker commit 241ac78 set accepted/closed prematurely. Acceptance is a maintainer decision (AGENTS.md). PR #995 is CI-green (run 39397436026, incl. durable native job app_backup_restore_podman on Docker+Podman) and independently review-APPROVED locally (evidence/board-2026-10-20/q18-995-990-review.md pane-confirmed); card is at review pending Codex round 5 and merge.
+
+### 2026-10-20 - Codex podman-pair review round
+
+- codex-verdict-podman-pair.md: CHANGES_REQUESTED 5x P1; correction lane q20 running (P1-1..5); prior q17/q18 acceptance claims corrected.

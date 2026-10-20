@@ -132,3 +132,7 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 - PR #990 head 50ad8d72: #995 branch merged in (ancestor 0af3982b confirmed) so the durable native job app_backup_restore_podman executes against this PR too; all 17 mandatory checks pass, MERGEABLE.
 - Minimal honest option per q19: reuse #995 gate instead of duplicating a job. Merge order note: merging #990 first makes #995 auto-merge-closable (empty diff). Independent local review record: evidence/board-2026-10-20/q18-995-990-review.md + q19-990-native-job.md. Awaits Codex round 5 bundle.
+
+### 2026-10-20 - Codex podman-pair review round
+
+- Codex stack ruling: no squash auto-close assumption; re-stacking happens AFTER #995 P1 fixes (q20).
