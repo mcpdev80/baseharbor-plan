@@ -62,6 +62,12 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 ## Handoff
 
+### 2026-10-20 - q18 review (CHANGES_REQUESTED)
+
+- Local independent review: PR #990 head bc6bb47a - no workflow changes; native backup/restore NEVER executed in CI for this PR; coverage-unresolved. The durable native-Podman evidence was created by #995's focused job app_backup_restore_podman instead (run 39397436026, job 118544037959, PASS on Docker+Podman).
+- Consequence: this task's remaining need is to bind that durable CI evidence to its acceptance (via #995 merge + evidence links) or extend #990 with the opt-in job; decision at Codex round 5 bundle. Evidence: evidence/board-2026-10-20/q18-995-990-review.md.
+
+
 ### 2026-10-19 — Current external acceptance dependency
 
 - BLOCKED remains intentional: #9954ca9881766fc88e850ccdbbc2d837cabb19ebab5 includes the narrow fixture correction. Independent source/integration review and full hosted Source Preflight39227471936 PASS do not prove native recovery or actual owned automatic cleanup.
