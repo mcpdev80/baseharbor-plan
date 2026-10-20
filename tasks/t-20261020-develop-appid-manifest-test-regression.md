@@ -13,19 +13,19 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["evidence/board-2026-10-19/p22-nativejob.md"]
+evidence: []
 ---
 
 - [ ] t-20261020-develop-appid-manifest-test-regression · CI/Contract: develop integration tests still author app.id in developer manifests #task #release/v0-4-26 #status/active #view/active #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **Evidence:** [proof 1](evidence/board-2026-10-19/p22-nativejob.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
 **PRs:** none  
@@ -50,4 +50,4 @@ evidence: ["evidence/board-2026-10-19/p22-nativejob.md"]
 
 ## Notes
 
-- Found by p22 split triage on 2026-10-20; pre-existing on develop, surfaced via #998's mandatory CI.
+Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split triage on 2026-10-20; pre-existing on develop, surfaced via #998's mandatory CI.

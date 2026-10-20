@@ -11,7 +11,7 @@ depends_on: [t-20261017-podman-backup-guided-runtime, t-20261018-podman-recovery
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Pre-existing product defect: broker readiness 60s window too short for OpenBao PKI bootstrap (fails VM and hosted alike; earlier demo-binary PASS claims did not execute this fixture). Fix attempt 1 (q20, fixture-side knob preferred) running."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
@@ -20,7 +20,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Pre-existing product defect: broker readiness 60s window too short for OpenBao PKI bootstrap (fails VM and hosted alike; earlier demo-binary PASS claims did not execute this fixture). Fix attempt 1 (q20, fixture-side knob preferred) runnin…  
     **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 3](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 5](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 7](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
@@ -147,3 +146,7 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 ### 2026-10-20 - Codex podman-pair review round
 
 - codex-verdict-podman-pair.md: CHANGES_REQUESTED 5x P1; correction lane q20 running (P1-1..5); prior q17/q18 acceptance claims corrected.
+
+### 2026-10-20 - carried finding (blocker text moved out of field; card active with fix running)
+
+- Pre-existing product defect: broker readiness 60s window too short for OpenBao PKI bootstrap (fails VM and hosted alike; earlier demo-binary PASS claims did not execute this fixture). Fix attempt 1 (q20, fixture-side knob preferred) running.
