@@ -9,7 +9,7 @@ owner: "Flash (codeman w1-baseharbor)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1008"]
 sources: []
 blocker: "pr-gate-plan.py has no test-only lane: test fixture fix landed (#1008) but CI coverage gate fails closed (coverage_status=unresolved, empty selected_gates); needs a policy lane mapping audited _test.go fixture changes to static package validations."
 resolution: ""
@@ -19,6 +19,7 @@ evidence: []
 - [ ] t-20261020-develop-appid-manifest-test-regression · CI/Contract: develop integration tests author app.id in developer manifests; product fix landed (#1008) but CI coverage gate (pr-gate-plan.py) has no test-only lane and fails closed — blocked on policy lane #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
+    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
     **Blocker:** pr-gate-plan.py has no test-only lane: test fixture fix landed (\#1008) but CI coverage gate fails closed (coverage\_status=unresolved, empty selected\_gates); needs a policy lane mapping audited \_test.go fixture changes to static package val…  
     <!-- /generated:card -->
 
@@ -29,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -87,3 +88,7 @@ matrix. Evidence: `evidence/board-2026-10-20/o1-appid-develop-fix.md`.
 ## Notes
 
 Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split triage on 2026-10-20; pre-existing on develop, surfaced via #998's mandatory CI.
+
+### 2026-10-20 - lane status
+
+- Fix delivered as draft PR #1008 (test-only, parser untouched). CI shows the coverage-unresolved bootstrap contradiction this card surfaced; o1 investigating legitimate green path vs documented wait-on-#1007.

@@ -39,7 +39,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | blocked | high | Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
-| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | CI/Contract: develop integration tests author app.id in developer manifests; product fix landed (#1008) but CI coverage gate (pr-gate-plan.py) has no test-only lane and fails closed — blocked on policy lane | blocked | high | Flash (codeman w1-baseharbor) | — | — |
+| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | CI/Contract: develop integration tests author app.id in developer manifests; product fix landed (#1008) but CI coverage gate (pr-gate-plan.py) has no test-only lane and fails closed — blocked on policy lane | blocked | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008) |
 
 ## Ready to assign
 
