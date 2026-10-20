@@ -61,6 +61,11 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-20 - r10 audit note for the future record PR
+
+- docs/internal/*.md classifies as generic documentation (DOC_CHECKS: documentation-audit, mkdocs-en/de-strict, pages-candidate-build), NOT documentation-workflow. Record PR must keep those checks green (docs/internal files are already in the tree; nav exposure for the new file must be verified at authoring time). Skeleton path/fence expectations are handled by the loader lane p24; checklist item 8 corrected accordingly.
+
+
 ### 2026-10-20 late — Codex round-4: bootstrap path = docs/internal markdown record; e2060ea0 enforcement gaps named; loader adjustment is the next narrow scope
 
 - Q2 ruling: record moves to docs/internal/ci-binding-qualifications.md (single fenced JSON) - Markdown documentation classification bootstraps the prerequisite PR without path exemptions; loader must read that path from the authenticated base and fail closed on missing/ambiguous/malformed.
