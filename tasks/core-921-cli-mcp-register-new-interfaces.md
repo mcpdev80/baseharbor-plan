@@ -74,6 +74,10 @@ The finished separate handlers are reachable consistently through the real CLI/J
 ### 2026-10-20 - docker-runtime CI forensics (not a product defect)
 
 - Hosted `mcp-edit-native` job works as designed: happy path PASSED on ubuntu-24.04; negative re-propose hit `application machine: conflict` (test-side triage in p22 lane).
+### Runner repair (2026-10-20, coordinator, infra)
+
+- Rootless docker for github-runner installed as enabled user service, Linger=yes, socket ownership fixed via ExecStartPost override (github-runner:github-runner 0660) - reboot-proof. Verification dispatch on 61d6ab56 running.
+
 - `docker-runtime` failure root cause: self-hosted endpoint autodetection used `unix:///run/user/1001/docker.sock`; after the VM reboot that rootless session dir is gone. System docker is active and `github-runner` is in group docker. Fix: explicit `DOCKER_HOST=unix:///var/run/docker.sock` in the docker-runtime job env (p22 addendum). Principle: CI evidence must not depend on hidden host session state.
 
 
