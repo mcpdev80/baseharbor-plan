@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
 blocker: ""
-resolution: ""
+resolution: "accepted"
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
 
-- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
+- [x] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
