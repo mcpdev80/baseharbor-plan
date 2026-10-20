@@ -61,6 +61,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-20 late — Codex round-4: bootstrap path = docs/internal markdown record; e2060ea0 enforcement gaps named; loader adjustment is the next narrow scope
+
+- Q2 ruling: record moves to docs/internal/ci-binding-qualifications.md (single fenced JSON) - Markdown documentation classification bootstraps the prerequisite PR without path exemptions; loader must read that path from the authenticated base and fail closed on missing/ambiguous/malformed.
+- Q3: q15 blanket APPROVE REJECTED - four enforcement gaps in e2060ea0 (files/file_hashes key-set equality; repository+target_branch compared to context; plan() passing repository to loader; evidence-dir repro is not the trusted base). Loader adjustment + independent review BEFORE freezing new H; p21 lands CORE_921 re-pin to 89d3ddef meanwhile.
+
+
 ### 2026-10-20 — ruling 3a guard set implemented: trusted-base policy anchor (head 99d0749c, pushed)
 
 - Codex ruling 3a forbids loading the reviewed head/content from the candidate PR branch. The previous inline `BINDING_PR_1007_REVIEWED_CONTENT_SHA256` dict + `core752_binding_content_sha256` helper read the reviewed content onto the candidate — exactly 3a rejects. Rewritten: the binding clause loads its qualification record exclusively from the authenticated target base via `load_binding_qualification_record(target_base_sha)` (reads `git show <target_base>:scripts/ci-binding-qualifications.json`; fails closed on unreadable/bad/unparsable/missing-fields via `_valid_binding_record`). Anchor is head_sha == H (linear #1007 verified) + clean integration parents `core752_clean_integration_parents(target_base, head, integration)` (parents exactly `[target_base, head]`). Full diff inventory `_binding_inventory_matches` and content hashes `_binding_content_hashes_verified` re-hash each reviewed blob at head_sha and compare to the base pin.

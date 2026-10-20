@@ -71,6 +71,11 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-20 late — Codex round-4 answers in; #998 native proof moves to hosted runner job
+
+- Codex ruled (codex-round4-answers.md): native app.edit lifecycle executes on a fresh GitHub-hosted ubuntu-24.04 docker runner (pattern: docker-runtime-acceptance.yml provider-ha); shared-VM containers insufficient; assertCorelessHost stays. Correction accepted: the baha-docker o10 run tested the OLD apply path - the app.edit proof is only delivered by the new job. Lane p22 adds the focused workflow job to 89d3ddef, pushes, and reports the CI result; #998 head advances once more, final re-pin of #1007 follows.
+
+
 ### 2026-10-20 (post-reboot) — Codex round 3 delivered CHANGES_REQUESTED; app.edit wiring fix in progress
 
 - Codex verdict (round2 + round3): the native proof must run through baseharbor.app.edit (propose -> JSON round-trip -> apply with consent, verified execution; stale/wrong-consent negatives must compare relevant persisted state byte-wise). All four findings reproduced statically against a66e5de6 (tests called plan/apply only).
