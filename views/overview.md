@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 3 |
 | review | 2 |
-| blocked | 1 |
+| blocked | 2 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 226 |
@@ -26,7 +26,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md) | CLI and MCP: register new interfaces consistently | active | critical | Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation) | [core-917](../tasks/core-917-app-new-connect-wizard-lifecycle.md), [core-918](../tasks/core-918-app-edit-apply-confirmed-changes.md), [core-919](../tasks/core-919-footprint-cli-json-one-projection.md), [core-920](../tasks/core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](../tasks/t-20261016-registration-ci-readiness.md) | [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998) |
 | [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) | CI: bind reviewed core-921 registration coverage | active | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007) |
 | [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | active | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005) |
-| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | CI/Contract: develop integration tests still author app.id in developer manifests | active | high | Flash (codeman w1-baseharbor) | — | — |
 
 ## Ready for review
 
@@ -40,6 +39,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) | Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure | blocked | high | Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved) | — | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
+| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | CI/Contract: develop integration tests author app.id in developer manifests; product fix landed (#1008) but CI coverage gate (pr-gate-plan.py) has no test-only lane and fails closed — blocked on policy lane | blocked | high | Flash (codeman w1-baseharbor) | — | — |
 
 ## Ready to assign
 
