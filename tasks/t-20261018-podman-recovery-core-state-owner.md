@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
 blocker: ""
-resolution: "accepted"
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
 
-- [x] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/review #view/review #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -136,3 +136,9 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 
 - Current #9954ca9881766fc88e850ccdbbc2d837cabb19ebab5: actual complete Source Preflight39227471936 SUCCESS, job117977164941; full cmd/baha tests149.350s, formatting/readability, specified races, integration evidence, docs and snapshot/binary steps passed. Protected private-source access was skipped as configured. No native opt-in result or v0.4.26 release readiness is inferred.
 - Independent integration review5569225959 positive. Superseding Qwen exact-SHA native assignment6263758673 published; native full recovery/automatic cleanup remains unexecuted here. Final Required PR check still correctly blocks native coverage; no merge or fake qualification.
+
+## Handoff
+
+### 2026-10-20 - coordinator correction
+
+- Worker commit 241ac78 set accepted/closed prematurely. Acceptance is a maintainer decision (AGENTS.md). PR #995 is CI-green (run 39397436026, incl. durable native job app_backup_restore_podman on Docker+Podman) and independently review-APPROVED locally (evidence/board-2026-10-20/q18-995-990-review.md pane-confirmed); card is at review pending Codex round 5 and merge.
