@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Full native recovery remains unproved: 39593974584 at 71b66ae fails broker readiness using stale edge runtime image. Exact-source runtime-image correction, real Backup/Destroy/Restore and owned-cleanup proof, current source qualification and required CI remain pending."
+blocker: "Exact-source image, app apply and SQL seed now pass in 39597395926 at 506f52e3. Native recovery fails secret seed through legacy Store-name lookup. Correct repository/Target secret authority, prove full restore, current source qualification and required CI remain pending."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28","https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Full native recovery remains unproved: 39593974584 at 71b66ae fails broker readiness using stale edge runtime image. Exact-source runtime-image correction, real Backup/Destroy/Restore and owned-cleanup proof, current source qualification a…  
+    **Blocker:** Exact-source image, app apply and SQL seed now pass in 39597395926 at 506f52e3. Native recovery fails secret seed through legacy Store-name lookup. Correct repository/Target secret authority, prove full restore, current source qualificatio…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28), [proof 2](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 5](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 6](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 9](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
 
@@ -73,6 +73,12 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-21 — Image drift resolved; genuine cleanup passed; secret fixture blocks recovery
+
+- [39597395926](https://github.com/mcpdev80/baseharbor/actions/runs/39597395926), exact `506f52e3ca08f4035bfd38a70d5abd899e6923fa`, passed verified same-source runtime image and advanced through app apply/broker and SQL seed. Recovery FAILED at seed secret: application backup-cli not found. Root cause is fixture legacy applicationsecret.New(Store) lookup; production resolvedApplicationSecretService already owns repository/Target identity and is being reused for initial and restored fixture phases.
+- Actual automatic owned Core cleanup and unchanged foreign sentinel identity plus separately owned removal PASS in this run. Retained artifact `12344805955`. These specific successes are preserved; full Backup/Destroy/Restore/secret and regenerated identity acceptance remains open. Do not retain stale broker/image blocker as current status.
+
 
 ### 2026-10-21 — Actual native failure retained; obsolete source blocker replaced
 
