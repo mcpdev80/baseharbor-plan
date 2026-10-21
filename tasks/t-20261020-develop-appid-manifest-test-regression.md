@@ -11,20 +11,19 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1008"]
 sources: []
-blocker: "Native Docker 39600001437 passes apply/image/setup and three lifecycle tests but fails stale repository-state assertion and real stale-impact-consent on the backend retry. Diagnose actual plan drift without auto-approving stale plans; full eight-test acceptance remains missing."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #area/contract #kind/bug
+- [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/active #view/active #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
-    **Blocker:** Native Docker 39600001437 passes apply/image/setup and three lifecycle tests but fails stale repository-state assertion and real stale-impact-consent on the backend retry. Diagnose actual plan drift without auto-approving stale plans; full…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -51,6 +50,12 @@ evidence: []
 3. Independent local review + evidence links on this card.
 
 ## Handoff / status — 2026-10-20 (BLOCKED)
+
+### 2026-10-21 — Native repository lifecycle now PASS; integration and remaining Docker fixtures active
+
+- Earlier app.id/parser, canonical-state and stale-plan blockers are resolved. Actual [39615461749](https://github.com/mcpdev80/baseharbor/actions/runs/39615461749), exact b83a53876bcf6f8649519b545e3cbaa7cc47cf74, proves TestRepositoryWorkflowRealLifecycle PASS103.57s and real backend lifecycle PASS65.14s. Parser contract remains unchanged; bounded consent never refreshes stale plans automatically.
+- Whole Docker gate remains FAIL because two other workload fixtures still invoke final app destroy --yes without typed retirement consent; recovery/logs/traces skip correctly. Reviewed two-file correction at ba92973ce1a94de7a983eaabef98655781e22dda reuses the existing actual plan-bound retirement helper and verifies zero owned workload containers including unhealthy/stopped residuals. Local Guided/destruction regressions and vet PASS; next coherent native run follows complete current-run evaluation.
+- Task is ACTIVE, clearing the obsolete blocked explanation; not accepted until the corrected fixture/source is qualified and integrated into actual develop with current required checks and relevant native evidence. Preserve prior owner/history. This partial native success does not qualify the complete release.
 
 ### 2026-10-21 — Apply advanced; precise current fixture and plan-drift failures
 
