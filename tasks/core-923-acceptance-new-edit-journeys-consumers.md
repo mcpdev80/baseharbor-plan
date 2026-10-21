@@ -70,6 +70,11 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
-- Not started.
+### 2026-10-21 — Concrete acceptance gaps under the authorized complete-release audit
+
+- core-921 is accepted, while core-922 final documentation integration remains open; this card stays PLANNED/WAITING until that real prerequisite is accepted. Bounded fixture preparation is proceeding under the existing complete-release audit, not an accepted native journey.
+- Existing 65 gates do not yet prove real CLI New/Edit/remove/provider-switch/No/Cancel across Docker and rootless Podman. The successful Core MCP native proof covers a real coreless SQL add and conflict safety, not all these journeys.
+- Assigned disjoint preparation: Demo guided PTY/no-capability safety plus heavy data-capabilities real SQL/provider-edit journey; strict MCP tool-list/Edit/Footprint parity; ownership-bounded cleanup and redacted diagnostics with independently owned foreign-resource sentinel. Reuse existing gates and production authorities; no fake registry, relaxed guards, or historical consumer PASS.
+- Current consumer SHA freeze, actual targeted native executions and complete candidate evidence are still outstanding. No release acceptance is implied.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.

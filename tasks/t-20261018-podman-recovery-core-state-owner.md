@@ -9,30 +9,28 @@ owner: Flash (codeman w1-baseharbor)
 priority: high
 depends_on: [t-20261017-podman-backup-guided-runtime, t-20261018-podman-recovery-bootstrap-cleanup]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#995]
+prs: [mcpdev80/baseharbor#995, mcpdev80/baseharbor#1027]
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1027", "https://github.com/mcpdev80/baseharbor/commit/213c15e43ac9f3c333ad5eabed202475eefb501f", "https://github.com/mcpdev80/baseharbor/actions/runs/39623691937", "https://github.com/mcpdev80/baseharbor/actions/runs/39605258769"]
 ---
 
-- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/runtime #kind/bug
+- [x] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 3](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 5](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 7](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
+    **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995), [baseharbor#1027](https://github.com/mcpdev80/baseharbor/pull/1027)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1027), [proof 2](https://github.com/mcpdev80/baseharbor/commit/213c15e43ac9f3c333ad5eabed202475eefb501f), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39623691937), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39605258769)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
+**PRs:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995), [baseharbor#1027](https://github.com/mcpdev80/baseharbor/pull/1027)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -61,6 +59,15 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 - Bounded ownership: existing backup/restore native test and direct tests; shared Core/OpenBao product code only for proven production issue.
 
 ## Handoff
+
+### 2026-10-21 — ACCEPTED: complete rootless recovery integrated
+
+- Owner-authorized Maintainer acceptance: [#1027](https://github.com/mcpdev80/baseharbor/pull/1027) merged as `213c15e43ac9f3c333ad5eabed202475eefb501f`. All nine required validations, Focused Python, Workflow policy and authenticated final verification PASS in [39623691937](https://github.com/mcpdev80/baseharbor/actions/runs/39623691937).
+- Independently reviewed exact native source `77eb9a120f46b42281198fcee1de788c9779be18`, seventeen unchanged paths, integrated through a Git-proven clean merge with accepted Core921. Actual rootless Podman [39605258769](https://github.com/mcpdev80/baseharbor/actions/runs/39605258769), job119239688725, proves full Backup/Destroy/Restore in 230.76s, real SQL marker and secret restoration, READY consumer access, regenerated token/client certificate and no secret leakage. No missing runtime or skipped native test is accepted.
+- Owned cleanup and foreign-volume ID/CreatedAt/label preservation PASS; the independent sentinel is removed only through its own owner. Artifact12348242787, SHA256 `98db0dd357326383ddf88855748114330e4a5674d21e51d9cb0552db4c763a77`, retains these receipts.
+- Canonical Core/OpenBao state and protected service bindings replace fixture guesses; workload stop selects only canonical workload services and preserves backend/sibling/other Target resources. Bounded fresh-context failure recovery retains original and recovery errors. Focused positive/negative source/runtime/cleanup regressions and independent complete source review PASS.
+- #995 and #990 are closed as superseded, preserving original descriptions, source ancestry, claims and historical failures. All three shared recovery slices are accepted together; final integrated release/consumer qualification remains open.
+
 
 ### 2026-10-21 — Waiting for the shared recovery integration; no independent active implementation
 
