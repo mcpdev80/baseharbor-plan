@@ -11,21 +11,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Native 39599551503 passes exact image, app apply, SQL and secret seed; backup fails after workload-stop incorrectly stops consolidated SQL/broker containers. Workload-only stop and SQL credential/TLS-owner corrections, full Restore proof and current required CI remain pending."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28","https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
 
-- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/blocked #view/blocked #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-bootstrap-cleanup · Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Native 39599551503 passes exact image, app apply, SQL and secret seed; backup fails after workload-stop incorrectly stops consolidated SQL/broker containers. Workload-only stop and SQL credential/TLS-owner corrections, full Restore proof a…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28), [proof 2](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 5](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 6](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 9](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md)  
@@ -73,6 +72,13 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-21 — Full native Podman recovery PASS; qualified integration active
+
+- Exact source `77eb9a120f46b42281198fcee1de788c9779be18`, tree `0f8bb7993d556d32024f7d89c0250ea6405be13c`, passed the entire [native run 39605258769](https://github.com/mcpdev80/baseharbor/actions/runs/39605258769) / job `119239688725`. TestAppBackupRestoreCLIRealDisasterRecovery and package both PASS, 230.76 seconds, no skip/fail. Source, rootless runtime, exact binary/image, cleanup and artifact steps all PASS.
+- Real Backup → Destroy → Restore proves SQL marker and managed secret recovery, READY metadata without secret leakage, regenerated token/client certificate, owned Core cleanup and unchanged foreign-volume ID/CreatedAt/labels before its separately owned removal. The former broad workload-stop and SQL credential/TLS defects are fixed and regression-tested; their obsolete blocker is cleared.
+- Retained artifact `12348242787`, SHA-256 `98db0dd357326383ddf88855748114330e4a5674d21e51d9cb0552db4c763a77`, expires 2026-11-20. Runtime evidence is complete; task remains ACTIVE for independent exact-source qualification and green required CI/integration. Separate retirement correction must integrate first, leaving exactly 17 Podman source paths. #995 continues; #990 closes as superseded only after acceptance.
+
 
 ### 2026-10-21 — Secret owner fixed; actual backup exposes consolidated-project stop defect
 

@@ -61,6 +61,13 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-21 — Full real MCP edit lifecycle PASS; exact-source activation underway
+
+- [Native run 39605072620](https://github.com/mcpdev80/baseharbor/actions/runs/39605072620), exact `b31fe8918e319e3ad1505ffaaa1209c1343a5d13`, tree `3335ad5f2c0ebbfc96bb4f837182b14037fecbd3`, passed every step. TestAppEditMCPAppEditRunsRealProviderEditLifecycle and package PASS (72.86 seconds), no skips/failures, with verified same-source runtime image and successful native cleanup.
+- Proves actual coreless SQL add through MCP, real binding/inventory and persisted intent/preferences; wrong consent and stale replay are rejected with unchanged full snapshots. Core remains absent and native cleanup ends at zero owned/total resources.
+- Artifact `12348272162`, SHA-256 `3e43af6375873cdd553baf0cbe380045808033a1e9b04489d6e101c59848ffd3`, expires 2026-11-20. Exact-source policy is being prepared independently on accepted develop `2b8095b9ff8f88996f7375d046ebfa9a28d8ac6c`: retirement exact two paths first, then Core921 exact twenty paths. Existing five mandatory families, strict merge verification and workflow syntax remain required. Neither source nor product task is accepted before actual green required CI and integration.
+
+
 ### 2026-10-21 — Binding infrastructure integrated; product requalification remains
 
 - Owner-authorized acceptance: [#1013](https://github.com/mcpdev80/baseharbor/pull/1013) merged the independent trusted record as `7a4153077cabc4284988cd3736a3bd874469be55`; [CI 39591764739](https://github.com/mcpdev80/baseharbor/actions/runs/39591764739) passed. [#1015](https://github.com/mcpdev80/baseharbor/pull/1015), merge `11da03e4f7d7e7f8fc357151e01960d97d216b2a`, passed [39594051966](https://github.com/mcpdev80/baseharbor/actions/runs/39594051966) and permits only Git-proven clean first-parent merges of authenticated target history after the frozen source. Frozen raw SHA-256, exact repository/branch/inventory and actual integration checks remain mandatory; dirty trees, extra parents and follow-up edits fail closed.

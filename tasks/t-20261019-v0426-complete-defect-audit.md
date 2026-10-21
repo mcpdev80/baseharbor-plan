@@ -59,6 +59,14 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Two complete native successes; Docker readiness fixture repair remains
+
+- Accepted develop remains `2b8095b9ff8f88996f7375d046ebfa9a28d8ac6c`. Full real MCP edit [39605072620](https://github.com/mcpdev80/baseharbor/actions/runs/39605072620) at `b31fe8918e319e3ad1505ffaaa1209c1343a5d13` and full Podman backup/recovery [39605258769](https://github.com/mcpdev80/baseharbor/actions/runs/39605258769) at `77eb9a120f46b42281198fcee1de788c9779be18` PASS, including exact source/image, test/package, owned cleanup and artifacts. Exact source qualification and required product CI/integration are the next prerequisites; native success alone is not release acceptance.
+- General Docker [39605549765](https://github.com/mcpdev80/baseharbor/actions/runs/39605549765), source `91df908f1a06eea712f359b012e4af21e0742fb7`, proves repository retirement/lifecycle PASS (106.04 seconds), but backend fixture lacks healthchecks and truthfully records running-unverified. Later fixtures require concrete provider consent; recovery/logs/traces remain skipped. Artifact `12347919457`, SHA-256 `fe57e172f00b0ac0fae1daeae9cefaa58ec1df8112bc60cd246621c6394f432c`. Complete Docker acceptance remains open.
+- Coherent two-file Docker fixture correction is locally tested at `7b74ddc93a40ba782e7e24937b02e7f92a11259b`: actual authenticated SQL/TLS-Valkey probes and existing bounded typed-consent helper. Guided positive/negative regressions and vet PASS; source review precedes one new native run. No readiness/consent/foreign-resource protection is relaxed.
+- EN/DE docs and consumer drafts remain preserved; final immutable Core → Demo → Console → Connector pins, candidate Pages audit and final required release gates follow accepted Core. PRE-RELEASE READY remains NO; no release or Pages publication performed.
+
+
 ### 2026-10-21 — Complete ecosystem routing accepted; native defects remain under repair
 
 - Current accepted develop `2b8095b9ff8f88996f7375d046ebfa9a28d8ac6c`. Independent complete-source policy [#1019](https://github.com/mcpdev80/baseharbor/pull/1019) passed [39599406359](https://github.com/mcpdev80/baseharbor/actions/runs/39599406359), merge `384d34ed2efe2d1042f6a44172e4805d88aed0d8`. Coherent release/consumer routing [#1020](https://github.com/mcpdev80/baseharbor/pull/1020) then passed every required check, including real actionlint, in [39600137538](https://github.com/mcpdev80/baseharbor/actions/runs/39600137538), merge current develop. This integrates all six reviewed files, exact v0.4.26 consumer origin and required Coreless final-job dependencies. It does not publish or qualify the release.
