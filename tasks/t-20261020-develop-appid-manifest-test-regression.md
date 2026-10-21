@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1008"]
 sources: []
-blocker: "Native hosted rootless Docker now executes with verified exact-source image; run 39597320139 fails RepositoryWorkflow/ComposeUsesBackends on missing fixture consequence consent. Three other lifecycle tests pass. Full native fixture repair and acceptance remain pending."
+blocker: "Native Docker 39600001437 passes apply/image/setup and three lifecycle tests but fails stale repository-state assertion and real stale-impact-consent on the backend retry. Diagnose actual plan drift without auto-approving stale plans; full eight-test acceptance remains missing."
 resolution: ""
 evidence: []
 ---
@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
-    **Blocker:** Native hosted rootless Docker now executes with verified exact-source image; run 39597320139 fails RepositoryWorkflow/ComposeUsesBackends on missing fixture consequence consent. Three other lifecycle tests pass. Full native fixture repair…  
+    **Blocker:** Native Docker 39600001437 passes apply/image/setup and three lifecycle tests but fails stale repository-state assertion and real stale-impact-consent on the backend retry. Diagnose actual plan drift without auto-approving stale plans; full…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -51,6 +51,12 @@ evidence: []
 3. Independent local review + evidence links on this card.
 
 ## Handoff / status — 2026-10-20 (BLOCKED)
+
+### 2026-10-21 — Apply advanced; precise current fixture and plan-drift failures
+
+- [39600001437](https://github.com/mcpdev80/baseharbor/actions/runs/39600001437) at `772a76730ce5929d76d960949c02688ad38a1a87`: Repository apply succeeds; blanket .baseharbor absence expectation is obsolete because the accepted repository owner maintains its canonical identity copy. Strong Target/deployment/material isolation assertions are being aligned with that actual contract.
+- Backend workload retry rejects stale-impact-consent; the bounded helper correctly refuses automatic stale refresh. The actual first/second plan difference must be diagnosed, not waived. Workload-only/build/multi-instance pass again; recovery/logs/traces skipped; artifact `12346072529`. This task remains blocked for its real native acceptance.
+
 
 ### 2026-10-21 — Hosted runtime established; current blocker is real fixture consent
 
