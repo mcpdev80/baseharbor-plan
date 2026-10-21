@@ -59,6 +59,18 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Trusted planner activation merged; disjoint repairs verified locally
+
+- [#1012](https://github.com/mcpdev80/baseharbor/pull/1012) merged as `6ece3d50cf71cd8df7e7d33790f332fe060db8ba`. Actual [CI 39589323835](https://github.com/mcpdev80/baseharbor/actions/runs/39589323835) is SUCCESS, including Trusted Plan, Focused Python, planner, policy, executor/verifier and authenticated PR Selected Checks. Local Go 1.26.9 validation: 164 main tests plus embedded consent 8, GC 7 and scoped reset 5 passed.
+- The corrected #1007 source is frozen at `480060640e825c81b9e70e4a74df339cebcec36e` on `work/core921-binding-corrected-frozen`, preserving the original branch/history and normally integrating trusted develop. Only strict trusted record authority remains; accepted app.id regressions are restored. Integrated local validation passed 187 main tests plus embedded utility suites. A new separate trusted record must precede moving #1007 to this candidate; no unchanged failing CI was rerun.
+- Prepared #998 native-proof correction is checkpointed as commit `103de2c4fa44907211d336084e9366a3b63bf058`; its PR ref is not yet changed. Real wrong-consent/stale Apply calls, complete receipt, authoritative SQL and full relevant persisted-state comparisons replace the earlier inadequate fixture. Six targeted tests and vet passed with Go 1.26.9; native execution remains required.
+- Independently reproduced and locally fixed an Edit provider-input bug: `automatic` did not clear a prior explicit preference. The real Input/Next/No regression fails before and passes after the minimal normalization; other named preferences and invalid-ID denial remain intact. This fix is not merged or runtime-qualified.
+- A separate source review of current #995 `335477ea96c5992c0ec5e64fc4ce16295cf853e7` found a blocking cleanup defect: broad missing-resource error text skipped residual verification for the whole project. The unsafe shortcut is removed locally; five actual cleanup negative scenarios fail before and pass after. Vet and targeted cleanup tests pass. Native proof and a real foreign-runtime sentinel remain pending.
+- Native Podman workflow route and exact PASS/no-SKIP parser/artifact retention are prepared locally, reusing the existing test and isolated rootless runner; nine route/parser regressions pass. Docker workflow correction adds JSON Doctor checks and read-only service/socket diagnosis before any cleanup. No successful native run is claimed.
+- core-922 public documentation is prepared in an isolated worktree: 13 files, EN/DE strict MkDocs, full docs audit, 158 locale pairs and 17,748 rendered links/assets PASS. It remains unmerged and cannot qualify core-923 until registration is accepted. The one-line v0.4.26 ecosystem-resolver correction has a real workflow-shell regression (seven tests PASS), checkpoint commit `d31d4394aeab276245938f6808b998485c70fb56`; no consumer matrix is invented.
+- Tool constraint: the connected GitHub API lacks workflow-dispatch and branch-delete actions. The available browser is signed out, so it provides no authenticated dispatch path. Narrow existing runtime-validation push routes can provide genuine runtime execution where supported. Release remains active and PRE-RELEASE READY: NO.
+
+
 ### 2026-10-21 — Owner-authorized complete readiness recovery resumed
 
 - Marcel explicitly assigned complete v0.4.26 recovery through proven pre-release readiness, including qualified merges and parallel disjoint implementation. Publication remains excluded. This session continues the existing complete-audit Maintainer claim; existing owners' published and local work is preserved.

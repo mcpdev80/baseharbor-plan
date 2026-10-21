@@ -6,9 +6,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 28/41 · **Blocked:** 2 · **Waiting:** 6  
+    **Accepted tasks:** 28/41 · **Blocked:** 2 · **Waiting:** 5  
     **Blocker:** [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) — Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are sti…  
-    **Blocker:** [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) — pr-gate-plan.py has no test-only lane: test fixture fix landed (\#1008) but CI coverage gate fails closed (coverage\_status=unresolved, empty selected\_gates); ne…  
+    **Blocker:** [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) — Fixture \#1008 and exact CI policy \#1009 are merged and green. Required native develop Docker lifecycle remains unproved: run 39584767281 fails on unavailable s…  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next

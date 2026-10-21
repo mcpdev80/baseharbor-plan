@@ -61,6 +61,13 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+### 2026-10-21 — Trusted activation accepted; corrected binding frozen separately
+
+- Owner-authorized recovery continues the original work, preserving #1007/#1011 and their history. Trusted activation [#1012](https://github.com/mcpdev80/baseharbor/pull/1012), merge `6ece3d50cf71cd8df7e7d33790f332fe060db8ba`, passed all required checks in [39589323835](https://github.com/mcpdev80/baseharbor/actions/runs/39589323835).
+- Original `85e05c1c` is not ready to merge: its earlier record path allowed weaker check inventories and removed accepted app.id regressions. Corrected frozen candidate `480060640e825c81b9e70e4a74df339cebcec36e` retains only the strict consumer and restores those tests; 187 integrated local main tests plus utility suites PASS with Go 1.26.9. Dedicated preservation branch `work/core921-binding-corrected-frozen`; existing PR refs deliberately remain unchanged until a fresh trusted record is accepted.
+- The record must be re-pinned to the actual corrected head and raw bytes in a separate prerequisite, not copied from the candidate as self-qualification. The old core-921 16-file anchor still does not cover current #998 plus native-proof correction. Product-source and genuine native evidence must precede its final binding. No acceptance or native success is claimed.
+
+
 ### 2026-10-20 - r10 audit note for the future record PR
 
 - docs/internal/*.md classifies as generic documentation (DOC_CHECKS: documentation-audit, mkdocs-en/de-strict, pages-candidate-build), NOT documentation-workflow. Record PR must keep those checks green (docs/internal files are already in the tree; nav exposure for the new file must be verified at authoring time). Skeleton path/fence expectations are handled by the loader lane p24; checklist item 8 corrected accordingly.
