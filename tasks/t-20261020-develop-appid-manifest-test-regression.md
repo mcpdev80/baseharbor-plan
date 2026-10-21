@@ -105,3 +105,9 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 
 - [#1009](https://github.com/mcpdev80/baseharbor/pull/1009) merged into `develop` as `b7f920ab6b7890a1a9ca7fdf5b0631c172b13d34` after successful GitHub Actions [39582522944](https://github.com/mcpdev80/baseharbor/actions/runs/39582522944): Trusted Plan, workflow policy, planner tests, CI policy, focused Python, executor/verifier tests and PR Selected Checks all successful.
 - #1008 product fixture remains open and needs fresh CI against updated trusted `develop`; native Docker acceptance and final release proof remain pending. Do not mark this task done based only on the policy merge.
+
+### 2026-10-21 — develop integration refreshed
+
+- CI policy fix #1009 is merged into `develop` at `b7f920ab6b7890a1a9ca7fdf5b0631c172b13d34`.
+- #1008 branch `fix/t-20261020-develop-appid-manifest` was advanced from `0e213d42c74cfdb91964592c17e3914a848207b9` to merge commit `652891a3f2b98c1f4a242ce3d569c0ed8559d912` (parents: previous PR head and current develop); two test files preserved, all other paths inherited from develop, no force push.
+- GitHub reports PR #1008 mergeable; new head CI evidence not yet available at handoff. Keep task blocked until required hosted checks and docker-runtime acceptance prove the stated acceptance criteria. Previous run `39430265422` is stale and must not be counted as current evidence.
