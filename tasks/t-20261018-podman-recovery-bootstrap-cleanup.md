@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Exact-source image, app apply and SQL seed now pass in 39597395926 at 506f52e3. Native recovery fails secret seed through legacy Store-name lookup. Correct repository/Target secret authority, prove full restore, current source qualification and required CI remain pending."
+blocker: "Native 39599551503 passes exact image, app apply, SQL and secret seed; backup fails after workload-stop incorrectly stops consolidated SQL/broker containers. Workload-only stop and SQL credential/TLS-owner corrections, full Restore proof and current required CI remain pending."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28","https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Exact-source image, app apply and SQL seed now pass in 39597395926 at 506f52e3. Native recovery fails secret seed through legacy Store-name lookup. Correct repository/Target secret authority, prove full restore, current source qualificatio…  
+    **Blocker:** Native 39599551503 passes exact image, app apply, SQL and secret seed; backup fails after workload-stop incorrectly stops consolidated SQL/broker containers. Workload-only stop and SQL credential/TLS-owner corrections, full Restore proof a…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28), [proof 2](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 5](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 6](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 9](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
 
@@ -73,6 +73,13 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-21 — Secret owner fixed; actual backup exposes consolidated-project stop defect
+
+- [39599551503](https://github.com/mcpdev80/baseharbor/actions/runs/39599551503), exact `1dfb9185a09acac4078fdc3d41d3ae7590db8db7`, passes actual secret seed after the two fixture calls reuse resolvedApplicationSecretService. Backup then fails because its PostgreSQL container has been removed.
+- Source diagnosis isolates stopRepositoryWorkload's broad StopOwnedProjectContainers call against a consolidated project. Limit it to the canonical repository workload's actual services and do nothing when no workload exists; preserve SQL/broker/shared services. Audit local dump/restore credential and TLS selection through existing owners before another coherent native candidate. No guessed project rename or consent bypass.
+- Owned cleanup and foreign-volume identity/removal explicitly passed; artifact `12345109156` retained. Full Backup/Destroy/Restore, regenerated identities and final qualification remain open. #990 is an actual ancestor of this candidate and should close as superseded only after corrected #995 is accepted.
+
 
 ### 2026-10-21 — Image drift resolved; genuine cleanup passed; secret fixture blocks recovery
 
