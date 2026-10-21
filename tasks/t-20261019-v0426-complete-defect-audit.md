@@ -59,6 +59,18 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Trusted binding accepted; native source-image drift diagnosed
+
+- Owner raised evidence complexity during recovery. Proposed follow-up: one immutable integrated-candidate manifest plus a complete durable evidence bundle, verified by protected target policy without querying historical Actions runs. Final release gates execute on the fixed candidate; earlier PR checks support development only. This is a recorded design proposal, not an implemented gate change or weaker v0.4.26 acceptance.
+
+- Current verified develop: `1624a43cb44dfabbad4626e7d8c7f8aa05ef4077` after [#1016](https://github.com/mcpdev80/baseharbor/pull/1016), all required checks [39594986570](https://github.com/mcpdev80/baseharbor/actions/runs/39594986570) PASS. Independent record #1013 and strict clean-target merge proof #1015 also merged with green required CI. Superseded #1007/#1011/#1014 are closed; #998/#995/#990 remain unaccepted.
+- Actual Podman source `71b66ae019b4a1dc3af3b158bbb17b085fca25d8`, [39593974584](https://github.com/mcpdev80/baseharbor/actions/runs/39593974584), FAILED in app apply at broker readiness before Backup/Destroy/Restore. Rootless setup and Go 1.26.9 passed; artifact `12344271179` retained real JSON/log evidence. The selected default edge image was revision `11a1e76a9a68cf3da7476f2ea811907faef8a233`, built 2026-09-20, not this candidate. Foreign-volume identity preservation succeeded, but full recovery and owned automatic cleanup are not thereby proven.
+- Actual persistent Docker validation [39594370883](https://github.com/mcpdev80/baseharbor/actions/runs/39594370883) stopped safely before any service start/reset: the guarded private user runtime-directory prerequisite is not met. No unchanged rerun is justified. A disposable hosted rootless lane using the existing rootless setup authority is prepared separately.
+- Docker, MCP and Podman candidates now require one exact Go 1.26.9 static binary for host and existing Dockerfile.binary image, local SHA tags, actual OCI revision/Image-ID, in-container version commit and matching binary hashes before native tests. No registry publication or runtime PASS is claimed before real execution.
+- Additional staged fixes remain unmerged: Automatic-input reset `673bdcdaed9b81fa7f810b018961c02943c89ca7`; v0.4.26 ecosystem resolver `d31d4394aeab276245938f6808b998485c70fb56`; bounded separate trusted policy; 16-file EN/DE New/Edit documentation candidate `e1206a6a0c3787bfe33a9dcd1c56503e35e857d4`. Documentation candidate strict EN/DE build, 158 locale pairs and 17,749 rendered links/assets passed. These checks do not constitute final integrated ecosystem acceptance.
+- PRE-RELEASE READY: NO. Genuine Docker/Podman/MCP acceptance, current product-source qualification/integration, immutable consumer pins, required final release gates, Pages candidate and final integrated source/audit evidence remain open. No release has been published.
+
+
 ### 2026-10-21 — Trusted planner activation merged; disjoint repairs verified locally
 
 - [#1012](https://github.com/mcpdev80/baseharbor/pull/1012) merged as `6ece3d50cf71cd8df7e7d33790f332fe060db8ba`. Actual [CI 39589323835](https://github.com/mcpdev80/baseharbor/actions/runs/39589323835) is SUCCESS, including Trusted Plan, Focused Python, planner, policy, executor/verifier and authenticated PR Selected Checks. Local Go 1.26.9 validation: 164 main tests plus embedded consent 8, GC 7 and scoped reset 5 passed.

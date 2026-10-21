@@ -9,7 +9,7 @@ owner: Flash (codeman w1-baseharbor)
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1007]
+prs: [mcpdev80/baseharbor#1016, mcpdev80/baseharbor#998]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,7 +19,7 @@ evidence: []
 - [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
+    **PR:** [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -29,7 +29,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#1007](https://github.com/mcpdev80/baseharbor/pull/1007)  
+**PRs:** [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -60,6 +60,13 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-21 — Binding infrastructure integrated; product requalification remains
+
+- Owner-authorized acceptance: [#1013](https://github.com/mcpdev80/baseharbor/pull/1013) merged the independent trusted record as `7a4153077cabc4284988cd3736a3bd874469be55`; [CI 39591764739](https://github.com/mcpdev80/baseharbor/actions/runs/39591764739) passed. [#1015](https://github.com/mcpdev80/baseharbor/pull/1015), merge `11da03e4f7d7e7f8fc357151e01960d97d216b2a`, passed [39594051966](https://github.com/mcpdev80/baseharbor/actions/runs/39594051966) and permits only Git-proven clean first-parent merges of authenticated target history after the frozen source. Frozen raw SHA-256, exact repository/branch/inventory and actual integration checks remain mandatory; dirty trees, extra parents and follow-up edits fail closed.
+- [#1016](https://github.com/mcpdev80/baseharbor/pull/1016) integrated corrected binding as develop `1624a43cb44dfabbad4626e7d8c7f8aa05ef4077`. Exact head `e871a154849c5da74adb1f51a3b54804a1679daa` passed every required check in [39594986570](https://github.com/mcpdev80/baseharbor/actions/runs/39594986570). Local integrated planner/policy/executor/verifier suite: 189 main tests plus consent 8, GC 7 and scoped-reset 5 PASS. Original #1007, duplicate #1011 and superseded frozen-only #1014 are closed with links to accepted #1016; their histories are preserved.
+- Bootstrap is resolved. This task remains active because the accepted 16-file core-921 anchor does not qualify the current expanded #998 source. Corrected actual MCP consent/stale/complete-receipt proof and same-source native runtime evidence must precede the next exact product binding. No product acceptance or release readiness is inferred from infrastructure CI.
+
 
 ### 2026-10-21 — Trusted activation accepted; corrected binding frozen separately
 
