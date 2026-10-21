@@ -59,6 +59,14 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Retirement accepted; delayed Actions visibility diagnosed; Docker progresses
+
+- Retirement [#1022](https://github.com/mcpdev80/baseharbor/pull/1022) is accepted after authenticated [39613488660 attempt 2](https://github.com/mcpdev80/baseharbor/actions/runs/39613488660/attempts/2) passes every required check. Current develop `f2006e709f875ab929297a2bfed279c4fd03b5c5`. The initial final-check failure is retained; actual policy terminal success was confirmed via the fresh attempt-specific API before targeted retry. No nonterminal/step-only substitution.
+- Independent DAG qualification [#1024](https://github.com/mcpdev80/baseharbor/pull/1024), exact `e313646451a8a54aeca4a29673ffd8f771570de8`, is running before integration of frozen source74ef0b11. Strict source/merge binding and mandatory CI remain required. Core b31 normally integrates accepted retirement with exact twenty-path inventory and seventeen checks; no source changes.
+- Correction to prior trigger diagnosis: fresh URL/attempt-specific queries exposed actual delayed push runs; this is NOT an established missing connector capability. Same-URL queries had retained an obsolete zero-run view. Docker60f8 run39613446769 was cancelled by later same-branch updates; those extra trigger attempts were unnecessary. All further trigger churn stopped. Alternate validation-only [#1023](https://github.com/mcpdev80/baseharbor/pull/1023) closed UNMERGED to avoid duplication.
+- Actual Docker [39613945016](https://github.com/mcpdev80/baseharbor/actions/runs/39613945016), exact a698fb17, proves repository lifecycle PASS102.67s and authenticated SQL/TLS-Valkey backend lifecycle PASS66.14s including restart/retirement/shared preservation. Workload-only and source-build fixtures advance through apply/up/probes but fail their final direct destroy --yes calls with impact-confirmation-required. Existing typed destruction-consent authority is being reused for those final calls; no production guard change. Latest comment-only b83 source run39615461749 is already executing and is evaluated before another candidate push. No complete Docker acceptance yet.
+
+
 ### 2026-10-21 — Native-proven policy accepted; final dependency defect isolated
 
 - Exact-source qualification [#1021](https://github.com/mcpdev80/baseharbor/pull/1021) passed every required check in [39612685995](https://github.com/mcpdev80/baseharbor/actions/runs/39612685995) and merged as current develop `9f2c67b2b03eeae2ba7f9cae151a9d37d2b0eeb1`. Retirement two-path prerequisite, Core921 twenty-path bundle and Podman seventeen-path bundle are independently bound; generic strict clean-merge verification remains unchanged.
