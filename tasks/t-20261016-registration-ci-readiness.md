@@ -76,3 +76,9 @@ on the real trusted PR planner, executor and authenticated final verifier before
 - Scheduled from the independent review of PR #957. This is a **future concrete
   prerequisite for core-921 only**, not a replacement for completing the
   trusted-policy bootstrap within t-20261016-wizard-task-ci-readiness.
+
+### 2026-10-21 — #1007 trusted-base binding prerequisite
+
+- #1007 candidate `85e05c1c45f77da2d1d7227d298182bd867ceba9` integrates current develop, retains #1009 exact app.id policy, and is mergeable but CI [39585459895](https://github.com/mcpdev80/baseharbor/actions/runs/39585459895) fails closed on `scripts/pr-check-runner.py` until the independent trusted-base binding exists. All selected Python/CI validations passed.
+- Prerequisite [#1010](https://github.com/mcpdev80/baseharbor/pull/1010) publishes `docs/internal/ci-binding-qualifications.md` with exact three-file statuses, SHA-256 content pins, reviewed head, target/repository and required check IDs. Candidate `#1007` cannot self-authorize. Policy source `d5e73000a137fd2d7f367fbe61477e59d56b66f7`; Actions run [39586018421](https://github.com/mcpdev80/baseharbor/actions/runs/39586018421) queued at handoff.
+- Next: verify #1010 policy CI and trusted-base semantics, merge only if checks pass; requalify #1007 against new develop and verify its required checks. Do not infer acceptance from this note or bypass fail-closed protection.
