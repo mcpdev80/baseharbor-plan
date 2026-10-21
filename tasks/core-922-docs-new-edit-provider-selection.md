@@ -12,18 +12,19 @@ prs: []
 sources: ["mcpdev80/baseharbor#922"]
 source_updated: "2026-10-15T16:45:47Z"
 labels: [area/dx]
-blocker: ""
+blocker: "Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/active #view/active #area/docs #kind/task
+- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/blocked #view/blocked #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-authorized readiness documentation preparation)  
+    **Blocker:** Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -66,6 +67,12 @@ Developers find a short, accurate New/Edit guide that needs no prior infrastruct
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-21 — OWNER STOP; Codeman handoff, not acceptance
+
+- Owner explicitly requested stopping work and preparing a Codeman handoff. No new product changes, merges or CI starts after that instruction. This card is BLOCKED by that explicit Owner stop; unfinished release scope is not accepted. No implementation PR is invented for the documentation checkpoint. Preserve existing claims/history and coordinate resumption with the Owner.
+- Canonical [Codeman handoff and portable patch inventory](../evidence/codeman-2026-10-21/HANDOFF.md) records accepted develop30e11243, green but unmerged #1030/head446e, real native scopes, unpublished docs/Demo/consumer work, dirty SQL classification and missing final candidate evidence. No release or Pages publication occurred.
+
 
 ### 2026-10-21 — Current 16-file EN/DE draft validated; final Core dependency retained
 

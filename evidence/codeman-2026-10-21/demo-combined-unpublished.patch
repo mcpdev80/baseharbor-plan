@@ -1,0 +1,2014 @@
+diff --git a/.github/workflows/v0424-targeted.yml b/.github/workflows/v0424-targeted.yml
+index 6f217e8..a24c855 100644
+--- a/.github/workflows/v0424-targeted.yml
++++ b/.github/workflows/v0424-targeted.yml
+@@ -1,7 +1,7 @@
+ name: Targeted Demo compatibility
+ on:
+   push:
+-    branches: [work/v0.4.24-ecosystem-release, work/v0.4.25-ecosystem-release]
++    branches: [work/v0.4.24-ecosystem-release, work/v0.4.25-ecosystem-release, work/v0.4.26-ecosystem-release]
+ permissions:
+   contents: read
+ concurrency:
+diff --git a/README.md b/README.md
+index 7d5c0b5..9b7bea2 100644
+--- a/README.md
++++ b/README.md
+@@ -7,11 +7,11 @@
+ 
+ This repository starts as an ordinary application repository: no committed `baseharbor.yaml`, no prepared BaseHarbor state and no provider-specific application contract.
+ 
+-## BaseHarbor v0.4.25 candidate compatibility
++## BaseHarbor v0.4.26 candidate compatibility
+ 
+-This branch prepares the demo for the v0.4.25 candidate; it is not a published
++This branch prepares the demo for the v0.4.26 candidate; it is not a published
+ release or a completed native acceptance claim. `baseharbor-core.ref` pins the
+-exact Core source. Candidate evidence is recorded in [Core PR #881](https://github.com/mcpdev80/baseharbor/pull/881).
++exact Core source. The [candidate release notes](https://github.com/mcpdev80/baseharbor/blob/develop/docs/releases/v0.4.26.md) describe the intended interface; native evidence must match the final immutable source matrix.
+ 
+ This demo explicitly requests managed SQL and other capabilities; it therefore
+ resolves providers from those selected capabilities and their genuine dependencies.
+@@ -360,6 +360,6 @@ https://localhost:8080
+ 
+ The certificate is intentionally local/self-signed in standalone mode. Under BaseHarbor, certificate issuance, projection and trust are managed by BaseHarbor instead.
+ 
+-The candidate Core source is pinned in `baseharbor-core.ref`. The installer uses that immutable source by default; explicit `BASEHARBOR_SOURCE_REF` or `BASEHARBOR_VERSION` selections take precedence. Candidate compatibility and runtime acceptance are recorded against their actual Core/Demo sources in [Core PR #881](https://github.com/mcpdev80/baseharbor/pull/881); historical acceptance does not qualify a changed candidate.
++The candidate Core source is pinned in `baseharbor-core.ref`. The installer uses that immutable source by default; explicit `BASEHARBOR_SOURCE_REF` or `BASEHARBOR_VERSION` selections take precedence. Historical v0.4.25 compatibility and runtime acceptance are recorded in [Core PR #881](https://github.com/mcpdev80/baseharbor/pull/881). The v0.4.26 candidate needs its own qualification against the final immutable source matrix.
+ 
+ Shared cache bindings supply `REDIS_KEY_PREFIX` / `VALKEY_KEY_PREFIX`; the demo prefixes its keys so separate applications can safely consume one Core-owned Valkey provider. Native qualification rejects additional Shared SQL deployments, including a separate Keycloak database server. AppScoped remains an explicit independent deployment.
+diff --git a/scripts/acceptance.sh b/scripts/acceptance.sh
+index 925b869..626aac6 100755
+--- a/scripts/acceptance.sh
++++ b/scripts/acceptance.sh
+@@ -67,28 +67,19 @@ runtime_cmd() {
+ 
+ cleanup() {
+   status=$?
++  # A cancellation enters the same bounded cleanup once. Further signals must
++  # not interrupt the fresh owner/teardown context halfway through recovery.
++  trap - EXIT
++  trap '' INT TERM
+   set +e
+   cd "$DEMO_ROOT"
+   printf '[acceptance] cleanup: begin (exit=%s)\n' "$status" >&2
+-  for id in $(runtime_cmd ps -q 2>/dev/null); do
+-    runtime_cmd unpause "$id" >/dev/null 2>&1 || true
+-  done
+-
++  # Resume only exact native resources in Core's current read-only owner
++  # inventory. A foreign paused sentinel is neither an error nor permission.
++  cleanup_preparation=0
++  bash "$DEMO_ROOT/scripts/failure-runtime-diagnostics.sh" cleanup-preparation --unpause-owned || cleanup_preparation=$?
+   if [ "$status" -ne 0 ]; then
+-    diagnostics="$ARTIFACT_DIR/runtime-diagnostics"
+-    mkdir -p "$diagnostics"
+-    runtime_cmd ps -a --format '{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}' >"$diagnostics/containers.tsv" 2>&1 || true
+-    for id in $(runtime_cmd ps -aq 2>/dev/null); do
+-      name=$(runtime_cmd inspect --format '{{.Name}}' "$id" 2>/dev/null | sed 's#^/##')
+-      [ -n "$name" ] || name="$id"
+-      safe_name=$(printf '%s' "$name" | tr '/: ' '___')
+-      runtime_cmd inspect --format '{{json .State}}' "$id" >"$diagnostics/$safe_name.state.json" 2>&1 || true
+-      runtime_cmd inspect --format 'image={{.Config.Image}} name={{.Name}}' "$id" >"$diagnostics/$safe_name.identity.txt" 2>&1 || true
+-      runtime_cmd logs --tail 300 "$id" 2>&1 \
+-        | sed -E 's/([Pp]assword|[Ss]ecret|[Tt]oken|[Aa]ccess[_-]?[Kk]ey)([=: ]+)[^[:space:]]+/\1\2<redacted>/g' \
+-        >"$diagnostics/$safe_name.log" || true
+-    done
+-    printf '[acceptance] cleanup: captured runtime diagnostics\n' >&2
++    bash "$DEMO_ROOT/scripts/failure-runtime-diagnostics.sh" cleanup || true
+   fi
+ 
+   printf '[acceptance] cleanup: destroy registered BaseHarbor state\n' >&2
+@@ -97,15 +88,27 @@ cleanup() {
+   # Match the fixture command budget; a 90-second outer timeout truncates valid cleanup.
+   timeout --signal=TERM --kill-after=5s 900s python3 "$DEMO_ROOT/tests/fixture-consent.py" "$BAHA" destroy --all --yes >"$ARTIFACT_DIR/cleanup.json" 2>"$ARTIFACT_DIR/cleanup.stderr.txt"
+   cleanup_exit=$?
+-  if [ "$cleanup_exit" -ne 0 ]; then
++  foreign_check=0
++  foreign_remove=0
++  # The heavy New/Edit gate hands off its own private sentinel receipt. Verify
++  # preservation after the actual acceptance teardown, before its separate
++  # exact-owner cleanup. A failed check must still attempt that bounded cleanup.
++  if [ -e "$BASEHARBOR_DEMO_FIXTURE/new-edit-foreign.json" ] || [ -L "$BASEHARBOR_DEMO_FIXTURE/new-edit-foreign.json" ]; then
++    timeout --signal=TERM --kill-after=5s 180s python3 "$DEMO_ROOT/tests/data-capabilities/new_edit.py" --foreign-check >"$ARTIFACT_DIR/foreign-check.txt" 2>&1 || foreign_check=$?
++    timeout --signal=TERM --kill-after=5s 180s python3 "$DEMO_ROOT/tests/data-capabilities/new_edit.py" --foreign-remove >"$ARTIFACT_DIR/foreign-remove.txt" 2>&1 || foreign_remove=$?
++  elif [ -e "$ARTIFACT_DIR/new-edit-sql.json" ] || [ -L "$ARTIFACT_DIR/new-edit-sql.json" ]; then
++    foreign_check=1
++    printf 'native New/Edit evidence lacks its private foreign sentinel owner receipt\n' >"$ARTIFACT_DIR/foreign-check.txt"
++  fi
++  if [ "$cleanup_exit" -ne 0 ] || [ "$cleanup_preparation" -ne 0 ] || [ "$foreign_check" -ne 0 ] || [ "$foreign_remove" -ne 0 ]; then
+     cleanup_result=incomplete
+     cat "$ARTIFACT_DIR/cleanup.stderr.txt" >&2
+-    printf '[acceptance] cleanup: incomplete (exit=%s); retained owner and diagnostics remain available\n' "$cleanup_exit" >&2
++    printf '[acceptance] cleanup: incomplete (destroy=%s preparation=%s foreign-check=%s foreign-remove=%s); retained owner and diagnostics remain available\n' "$cleanup_exit" "$cleanup_preparation" "$foreign_check" "$foreign_remove" >&2
+     [ "$status" -ne 0 ] || status=1
+   else
+     printf '[acceptance] cleanup: complete\n' >&2
+   fi
+-  python3 - "$ARTIFACT_DIR/recovery-qualified.json" "$cleanup_result" "$status" <<'PY' || status=1
++  python3 - "$ARTIFACT_DIR/recovery-qualified.json" "$cleanup_result" "$status" <<'PY' || { [ "$status" -ne 0 ] || status=1; }
+ import json, pathlib, sys
+ path = pathlib.Path(sys.argv[1])
+ if path.is_file() and not path.is_symlink():
+@@ -118,6 +121,8 @@ PY
+   exit "$status"
+ }
+ trap cleanup EXIT
++trap 'exit 130' INT
++trap 'exit 143' TERM
+ 
+ 
+ declare -A selected=()
+diff --git a/scripts/failure-runtime-diagnostics.sh b/scripts/failure-runtime-diagnostics.sh
+index eda5c15..e2ff04f 100644
+--- a/scripts/failure-runtime-diagnostics.sh
++++ b/scripts/failure-runtime-diagnostics.sh
+@@ -1,43 +1,178 @@
+ #!/usr/bin/env bash
+-set -uo pipefail
++set -euo pipefail
+ 
+ : "${DEMO_ROOT:?DEMO_ROOT is required}"
+ : "${ARTIFACT_DIR:?ARTIFACT_DIR is required}"
++: "${BASEHARBOR_TARGET:?fixture target is required}"
+ gate="${1:?failed gate is required}"
++mode="${2:-diagnostics}"
+ [[ "$gate" =~ ^[a-z0-9-]+$ ]] || exit 2
+-runtime="${BASEHARBOR_TEST_RUNTIME:?runtime is required}"
+-case "$runtime" in docker|podman) ;; *) exit 2 ;; esac
+-output="$ARTIFACT_DIR/failure-runtime/$gate"
+-mkdir -p "$output"
+-
+-runtime_cmd() {
+-  if [ "$runtime" = podman ]; then
+-    env -u XDG_CONFIG_HOME -u XDG_DATA_HOME podman "$@"
+-  else
+-    docker "$@"
+-  fi
+-}
+-redact() {
+-  python3 "$DEMO_ROOT/scripts/redact-runtime-diagnostics.py"
+-}
+-
+-# These standard read-only results expose references and consequences, not env
+-# values. Retain the actual pending union before later cleanup removes its owner.
+-for command in plan status; do
+-  (
+-    cd "$DEMO_ROOT"
+-    timeout --signal=TERM --kill-after=3s 25s "$BAHA" app "$command" --json 2>&1
+-  ) | head -c 1048576 | redact >"$output/application-$command.json" || true
+-done
+-
+-runtime_cmd ps -a --format '{{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Image}}' | redact >"$output/containers.tsv"
+-for id in $(runtime_cmd ps -aq 2>/dev/null); do
+-  name="$(runtime_cmd inspect --format '{{.Name}}' "$id" 2>/dev/null)"
+-  name="${name#/}"
+-  case "$name" in bh-*|baseharbor-*) ;; *) continue ;; esac
+-  safe="$(printf '%s' "$name" | tr -c 'a-zA-Z0-9_.-' '_')"
+-  # Inspect only readiness/network facts, never Config.Env or private mounts.
+-  runtime_cmd inspect --format 'state={{json .State}} networks={{json .NetworkSettings.Networks}}' "$id" 2>&1 | redact >"$output/$safe.state.txt"
+-  runtime_cmd logs --tail 300 "$id" 2>&1 | redact >"$output/$safe.log"
+-done
+-printf '[acceptance] preserved failure-time native diagnostics for %s\n' "$gate" >&2
++case "$mode" in diagnostics|--unpause-owned) ;; *) exit 2 ;; esac
++
++# The public, non-mutating Core preview owns the exact Target/project/resource
++# inventory. Native name prefixes or an isolated daemon never grant ownership.
++python3 - "$gate" "$mode" <<'PY'
++import json
++import os
++from pathlib import Path
++import re
++import signal
++import subprocess
++import sys
++import time
++
++gate, mode = sys.argv[1:]
++root = Path(os.environ['DEMO_ROOT']).resolve(strict=True)
++fixture = Path(os.environ['BASEHARBOR_DEMO_FIXTURE']).resolve(strict=True)
++target = os.environ['BASEHARBOR_TARGET']
++engine = os.environ['BASEHARBOR_TEST_RUNTIME']
++if engine not in {'docker', 'podman'} or not re.fullmatch(r'[a-zA-Z0-9_.-]+', target):
++    raise SystemExit('invalid fixture runtime or Target')
++for key in ('XDG_DATA_HOME', 'XDG_CONFIG_HOME'):
++    if fixture not in Path(os.environ[key]).resolve().parents:
++        raise SystemExit('runtime owner outside isolated fixture')
++output = Path(os.environ['ARTIFACT_DIR']) / 'failure-runtime' / gate
++output.mkdir(parents=True, exist_ok=True)
++redactor = root / 'scripts/redact-runtime-diagnostics.py'
++native_env = dict(os.environ)
++if engine == 'podman':
++    native_env.pop('XDG_CONFIG_HOME', None)
++    native_env.pop('XDG_DATA_HOME', None)
++deadline = time.monotonic() + 60
++
++def run(args, *, native=False, limit=20, inputdata=None):
++    remaining = deadline - time.monotonic()
++    if remaining <= 0:
++        raise TimeoutError('owned runtime diagnostic budget exhausted')
++    process = subprocess.Popen(args, cwd=root, env=native_env if native else os.environ,
++                               stdin=subprocess.PIPE if inputdata is not None else subprocess.DEVNULL,
++                               stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
++    try:
++        stdout, stderr = process.communicate(inputdata, timeout=min(limit, remaining))
++    except subprocess.TimeoutExpired:
++        # A timed-out preview may have native descendants holding the pipes.
++        # Kill its fresh process group, rather than waiting on those descendants.
++        os.killpg(process.pid, signal.SIGKILL)
++        process.communicate(timeout=5)
++        raise
++    result = subprocess.CompletedProcess(args, process.returncode, stdout, stderr)
++    if len(result.stdout) > 1048576 or len(result.stderr) > 1048576:
++        raise ValueError('owned runtime diagnostic output exceeds limit')
++    return result
++
++def retain(name, data):
++    result = run([sys.executable, str(redactor)], inputdata=data, limit=5)
++    if result.returncode:
++        raise ValueError('diagnostic redaction failed')
++    (output / name).write_bytes(result.stdout)
++
++def token(value):
++    return isinstance(value, str) and re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9_.-]*', value)
++
++def owned_resources():
++    preview = run([os.environ['BAHA'], 'destroy', '--all', '--json'])
++    if preview.returncode:
++        retain('owner-preview-error.txt', preview.stderr)
++        raise ValueError('canonical read-only runtime owner preview failed')
++    report = json.loads(preview.stdout)
++    if (not isinstance(report, dict) or report.get('preview') is not True or report.get('all') is not True or
++            report.get('destroyed') is not False or not isinstance(report.get('resources'), list)):
++        raise ValueError('invalid canonical read-only runtime owner preview')
++    resources = set()
++    if len(report['resources']) > 4096:
++        raise ValueError('unbounded runtime owner inventory')
++    for row in report['resources']:
++        if not isinstance(row, dict):
++            raise ValueError('invalid runtime owner resource')
++        if row.get('target') != target or row.get('kind') != 'container':
++            continue
++        project, name = row.get('project'), row.get('name')
++        if not token(project) or not token(name):
++            raise ValueError('invalid selected runtime owner identity')
++        resources.add((project, name))
++    return resources
++
++def owned_containers(resources):
++    # Label-filtered metadata is deliberately insufficient by itself: recheck
++    # both native label families and Core's exact observed native resource name.
++    fields = ['.ID', '.Names'] + ['.Label "' + key + '"' for key in (
++        'com.docker.compose.project', 'io.podman.compose.project',
++        'com.docker.compose.service', 'io.podman.compose.service')]
++    template = '\t'.join('{{' + field + '}}' for field in fields)
++    selected = {}
++    for project in sorted({project for project, _ in resources}):
++        for label in ('com.docker.compose.project', 'io.podman.compose.project'):
++            listed = run([engine, 'ps', '-a', '--no-trunc', '--filter', 'label=' + label + '=' + project,
++                          '--format', template], native=True)
++            if listed.returncode:
++                raise ValueError('selected runtime label inventory failed')
++            for line in listed.stdout.decode().splitlines():
++                parts = line.split('\t')
++                if len(parts) != 6:
++                    raise ValueError('malformed selected runtime label inventory')
++                identity, name, dp, pp, ds, ps = parts
++                labels = ['' if value in ('<no value>', '<nil>') else value for value in (dp, pp, ds, ps)]
++                dp, pp, ds, ps = labels
++                projects, services = {v for v in (dp, pp) if v}, {v for v in (ds, ps) if v}
++                if projects != {project} or len(services) > 1:
++                    continue
++                service = next(iter(services)) if services else ''
++                # Core's public inventory already names the exact native
++                # resource, including first-party Quadlet's non-ordinal name.
++                if (project, name) not in resources or (service and not token(service)):
++                    continue
++                if not re.fullmatch(r'[0-9a-f]{12,64}', identity):
++                    raise ValueError('invalid owned native container ID')
++                row = (name, project, service)
++                if identity in selected and selected[identity] != row:
++                    raise ValueError('ambiguous owned native container identity')
++                selected[identity] = row
++    if resources != {(project, name) for name, project, _ in selected.values()}:
++        raise ValueError('canonical runtime resources lack verified native ownership')
++    return selected
++
++errors = []
++try:
++    resources = owned_resources()
++    selected = owned_containers(resources)
++    (output / 'containers.tsv').write_text(''.join(
++        '\t'.join((identity, *row)) + '\n' for identity, row in sorted(selected.items())))
++    if mode == 'diagnostics':
++        for command in ('plan', 'status'):
++            result = run([os.environ['BAHA'], 'app', command, '--json'])
++            retain('application-' + command + '.json', result.stdout + result.stderr)
++    for identity in sorted(selected):
++        result = run([engine, 'inspect', '--format', '{{json .State}}', identity], native=True)
++        if result.returncode:
++            errors.append('owned container state unavailable: ' + identity)
++            continue
++        try:
++            state = json.loads(result.stdout)
++            if not isinstance(state, dict) or type(state.get('Paused')) is not bool:
++                raise ValueError('untyped pause state')
++        except (ValueError, TypeError):
++            errors.append('invalid owned container state: ' + identity)
++            continue
++        if mode == '--unpause-owned':
++            if state['Paused']:
++                resumed = run([engine, 'unpause', identity], native=True)
++                if resumed.returncode:
++                    errors.append('owned paused container could not resume: ' + identity)
++        else:
++            retain(identity + '.state.json', result.stdout)
++            logs = run([engine, 'logs', '--tail', '300', identity], native=True)
++            retain(identity + '.log', logs.stdout + logs.stderr)
++            if logs.returncode:
++                errors.append('owned container logs unavailable: ' + identity)
++except (ValueError, KeyError, OSError, subprocess.SubprocessError) as error:
++    # Exceptions retain their safe class; raw preview/native messages are never
++    # printed and no global inspection, unpause or removal fallback exists.
++    errors.append('owned runtime evidence unavailable: ' + type(error).__name__)
++(output / 'scope-result.json').write_text(json.dumps({
++    'target': target, 'runtime': engine, 'mode': mode,
++    'outcome': 'failure' if errors else 'success', 'errors': errors}, indent=2) + '\n')
++if errors:
++    print('fixture-owned runtime diagnostics/cleanup preparation incomplete; inspect scope-result.json', file=sys.stderr)
++    raise SystemExit(1)
++print('[acceptance] fixture-owned runtime ' + mode + ' complete', file=sys.stderr)
++PY
+diff --git a/scripts/test_owned_runtime_diagnostics.py b/scripts/test_owned_runtime_diagnostics.py
+new file mode 100644
+index 0000000..4251119
+--- /dev/null
++++ b/scripts/test_owned_runtime_diagnostics.py
+@@ -0,0 +1,323 @@
++"""Execute the actual scoped shell helper against a hostile native inventory."""
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++import unittest
++
++ROOT = Path(__file__).resolve().parents[1]
++OWN = 'a' * 64
++FOREIGN = 'b' * 64
++CONFLICT = 'c' * 64
++UNLISTED = 'd' * 64
++
++FAKE = r'''#!/usr/bin/env python3
++import json, os, pathlib, subprocess, sys, time
++args=sys.argv[1:]
++path=pathlib.Path(os.environ['FAKE_STATE'])
++s=json.loads(path.read_text())
++with open(os.environ['FAKE_CALLS'],'a') as f:
++ f.write(json.dumps({'program':pathlib.Path(sys.argv[0]).name,'args':args,
++                     'xdg_present':'XDG_DATA_HOME' in os.environ})+'\n')
++if pathlib.Path(sys.argv[0]).name=='baha':
++ if '--yes' in args:
++  print('cleanup original failure',file=sys.stderr) if s.get('destroy_error') else None
++  sys.exit(s.get('destroy_error',0))
++ if args[:1]==['destroy']:
++  if s.get('preview_hang'):
++   child=subprocess.Popen([sys.executable,'-c','import time; time.sleep(120)'])
++   pathlib.Path(os.environ['FAKE_STATE']+'.child').write_text(str(child.pid))
++   time.sleep(120)
++  if s.get('preview_error'):
++   print('x509 unavailable token=private-token',file=sys.stderr)
++   sys.exit(3)
++  print(json.dumps(s['preview']))
++ else: print(json.dumps({'status':'unavailable','error':'original diagnostic'}))
++ sys.exit(0)
++if args[:1]==['ps']:
++ if s.get('list_error'): sys.exit(4)
++ # Deliberately ignore --filter. The caller must authenticate every row.
++ for row in s['rows']:
++  print('\t'.join(row))
++ sys.exit(0)
++identity=args[-1]
++if identity not in s['containers']: sys.exit(5)
++if args[:1]==['inspect']:
++ if s.get('inspect_error'): sys.exit(6)
++ print(json.dumps(s['containers'][identity]))
++elif args[:1]==['logs']:
++ print('database readiness failed; token=private-token')
++ print('Authorization: Bearer private-auth',file=sys.stderr)
++elif args[:1]==['unpause']:
++ if s.get('unpause_error'): sys.exit(7)
++ s['containers'][identity]['Paused']=False
++ path.write_text(json.dumps(s))
++else: sys.exit(8)
++'''
++
++
++class OwnedRuntimeTests(unittest.TestCase):
++    def setUp(self):
++        self.temporary = tempfile.TemporaryDirectory()
++        self.addCleanup(self.temporary.cleanup)
++        self.base = Path(self.temporary.name)
++        self.fixture = self.base / 'fixture'
++        self.fixture.mkdir()
++        (self.fixture / 'config').mkdir()
++        (self.fixture / 'data').mkdir()
++        self.artifacts = self.base / 'artifacts'
++        self.artifacts.mkdir()
++        self.calls = self.base / 'calls.jsonl'
++        self.state_file = self.base / 'state.json'
++        self.bin = self.base / 'bin'
++        self.bin.mkdir()
++        for name in ('baha', 'docker', 'podman'):
++            path = self.bin / name
++            path.write_text(FAKE)
++            path.chmod(0o700)
++        self.target = 'demo-docker'
++        self.project = 'bh-demo-docker-shared'
++        self.state = {
++            'preview': {'all': True, 'preview': True, 'destroyed': False, 'resources': [
++                {'target': self.target, 'project': self.project, 'kind': 'container',
++                 'name': self.project + '-postgres-1'},
++                {'target': 'foreign-target', 'project': 'foreign-project', 'kind': 'container',
++                 'name': 'bh-demo-docker-foreign-1'}]},
++            'rows': [
++                [OWN, self.project + '-postgres-1', self.project, '', 'postgres', ''],
++                [FOREIGN, 'bh-demo-docker-foreign-1', 'foreign-project', '', 'postgres', ''],
++                [CONFLICT, self.project + '-postgres-1', self.project, 'foreign-project', 'postgres', ''],
++                [UNLISTED, self.project + '-unknown-1', self.project, '', 'unknown', '']],
++            'containers': {identity: {'Paused': True, 'Running': True}
++                           for identity in (OWN, FOREIGN, CONFLICT, UNLISTED)}}
++        self.env = dict(os.environ, DEMO_ROOT=str(ROOT), BASEHARBOR_DEMO_FIXTURE=str(self.fixture),
++                        ARTIFACT_DIR=str(self.artifacts), XDG_CONFIG_HOME=str(self.fixture / 'config'),
++                        XDG_DATA_HOME=str(self.fixture / 'data'), BASEHARBOR_TARGET=self.target,
++                        BASEHARBOR_TEST_RUNTIME='docker', BAHA=str(self.bin / 'baha'),
++                        FAKE_STATE=str(self.state_file), FAKE_CALLS=str(self.calls),
++                        PATH=str(self.bin) + ':' + os.environ['PATH'])
++
++    def save(self):
++        self.state_file.write_text(json.dumps(self.state))
++
++    def invoke(self, mode='diagnostics', timeout=10):
++        self.save()
++        return subprocess.run(['bash', str(ROOT / 'scripts/failure-runtime-diagnostics.sh'), 'test', mode],
++                              env=self.env, capture_output=True, text=True, timeout=timeout)
++
++    def recorded(self):
++        return [json.loads(line) for line in self.calls.read_text().splitlines()]
++
++    def native_actions(self):
++        return [row['args'] for row in self.recorded() if row['program'] in ('docker', 'podman')]
++
++    def handoff_foreign(self, check_error=0, remove_error=0):
++        (self.fixture / 'new-edit-foreign.json').write_text('private fake owner receipt')
++        self.env['FAKE_FOREIGN_CHECK_ERROR'] = str(check_error)
++        self.env['FAKE_FOREIGN_REMOVE_ERROR'] = str(remove_error)
++        shim = self.bin / 'python3'
++        shim.write_text('#!' + sys.executable + '\n' + r'''
++import json, os, pathlib, sys
++args=sys.argv[1:]
++if args[0].endswith('/tests/data-capabilities/new_edit.py'):
++ with open(os.environ['FAKE_CALLS'],'a') as f:
++  f.write(json.dumps({'program':'foreign-helper','args':args[1:]})+'\n')
++ action=args[1]
++ print('foreign sentinel '+action)
++ code=os.environ['FAKE_FOREIGN_CHECK_ERROR' if action=='--foreign-check' else 'FAKE_FOREIGN_REMOVE_ERROR']
++ sys.exit(int(code))
++os.execv(sys.executable,[sys.executable,*args])
++''')
++        shim.chmod(0o700)
++
++    def test_diagnostics_never_inspect_or_log_foreign_conflicting_or_unlisted_ids(self):
++        result = self.invoke()
++        self.assertEqual(0, result.returncode, result.stderr)
++        actions = self.native_actions()
++        self.assertTrue(all('--filter' in args for args in actions if args[0] == 'ps'))
++        sensitive = [args for args in actions if args[0] in ('inspect', 'logs', 'unpause')]
++        self.assertEqual({'inspect', 'logs'}, {args[0] for args in sensitive})
++        self.assertTrue(all(args[-1] == OWN for args in sensitive), sensitive)
++        retained = '\n'.join(path.read_text() for path in self.artifacts.rglob('*') if path.is_file())
++        self.assertIn('database readiness failed', retained)
++        self.assertNotIn('private-token', retained)
++        self.assertNotIn('private-auth', retained)
++        self.assertNotIn(FOREIGN, retained)
++
++    def test_cleanup_unpauses_only_proven_owned_paused_id_once(self):
++        result = self.invoke('--unpause-owned')
++        self.assertEqual(0, result.returncode, result.stderr)
++        actions = self.native_actions()
++        self.assertEqual([['unpause', OWN]], [args for args in actions if args[0] == 'unpause'])
++        state = json.loads(self.state_file.read_text())
++        self.assertFalse(state['containers'][OWN]['Paused'])
++        self.assertTrue(all(state['containers'][identity]['Paused'] for identity in (FOREIGN, CONFLICT, UNLISTED)))
++        self.assertFalse(any(args[0] in ('rm', 'logs') for args in actions))
++
++    def test_native_quadlet_exact_names_and_host_runtime_context(self):
++        self.env['BASEHARBOR_TEST_RUNTIME'] = 'podman'
++        native_name = self.project + '-postgres'
++        self.state['preview']['resources'][0]['name'] = native_name
++        self.state['rows'][0] = [OWN, native_name, self.project, self.project, 'postgres', 'postgres']
++        result = self.invoke('--unpause-owned')
++        self.assertEqual(0, result.returncode, result.stderr)
++        self.assertTrue(all(not row['xdg_present'] for row in self.recorded() if row['program'] == 'podman'))
++        self.assertTrue(all(row['xdg_present'] for row in self.recorded() if row['program'] == 'baha'))
++        self.assertEqual([['unpause', OWN]], [args for args in self.native_actions() if args[0] == 'unpause'])
++
++    def test_missing_unknown_or_failed_owner_never_uses_global_fallback(self):
++        mutations = [lambda: self.state.update(preview_error=True),
++                     lambda: self.state.update(preview=[]),
++                     lambda: self.state['preview'].update(preview=False),
++                     lambda: self.state['preview'].pop('resources'),
++                     lambda: self.state['preview']['resources'][0].update(project='unsafe/project')]
++        for change in mutations:
++            with self.subTest(change=change):
++                original = json.loads(json.dumps(self.state))
++                change()
++                self.calls.unlink(missing_ok=True)
++                result = self.invoke('--unpause-owned')
++                self.assertNotEqual(0, result.returncode)
++                self.assertEqual([], self.native_actions())
++                self.state = original
++
++    def test_unresolved_or_conflicting_native_ownership_blocks_before_inspection(self):
++        for rows in ([], [self.state['rows'][2]], [self.state['rows'][3]]):
++            with self.subTest(rows=rows):
++                self.state['rows'] = rows
++                self.calls.unlink(missing_ok=True)
++                result = self.invoke('--unpause-owned')
++                self.assertNotEqual(0, result.returncode)
++                self.assertFalse(any(args[0] in ('inspect', 'logs', 'unpause', 'rm')
++                                     for args in self.native_actions()))
++                receipt = json.loads((self.artifacts / 'failure-runtime/test/scope-result.json').read_text())
++                self.assertEqual('failure', receipt['outcome'])
++
++    def test_empty_owner_inventory_never_enumerates_native_daemon(self):
++        self.state['preview']['resources'] = []
++        result = self.invoke('--unpause-owned')
++        self.assertEqual(0, result.returncode, result.stderr)
++        self.assertEqual([], self.native_actions())
++
++    def test_owner_timeout_kills_native_descendants_and_retains_incomplete_result(self):
++        self.state['preview_hang'] = True
++        result = self.invoke('--unpause-owned', timeout=27)
++        self.assertNotEqual(0, result.returncode)
++        self.assertEqual([], self.native_actions())
++        child = int(Path(str(self.state_file) + '.child').read_text())
++        status = Path('/proc') / str(child) / 'stat'
++        self.assertTrue(not status.exists() or status.read_text().split()[2] == 'Z')
++        receipt = json.loads((self.artifacts / 'failure-runtime/test/scope-result.json').read_text())
++        self.assertEqual('failure', receipt['outcome'])
++
++    def test_owned_query_inspection_and_unpause_errors_remain_incomplete(self):
++        for error in ('list_error', 'inspect_error', 'unpause_error'):
++            with self.subTest(error=error):
++                self.state[error] = True
++                self.calls.unlink(missing_ok=True)
++                result = self.invoke('--unpause-owned')
++                self.assertNotEqual(0, result.returncode)
++                actions = self.native_actions()
++                self.assertTrue(all(args[-1] == OWN for args in actions if args[0] in ('inspect', 'unpause')))
++                receipt = json.loads((self.artifacts / 'failure-runtime/test/scope-result.json').read_text())
++                self.assertEqual('failure', receipt['outcome'])
++                self.state.pop(error)
++
++    def cleanup(self, initial_status, signal=None):
++        self.save()
++        source = (ROOT / 'scripts/acceptance.sh').read_text()
++        function_and_traps = source.split('cleanup() {\n', 1)[1].split('\ndeclare -A selected=', 1)[0]
++        action = 'kill -' + signal + ' $$' if signal else 'exit ' + str(initial_status)
++        script = 'cleanup() {\n' + function_and_traps + '\n' + action
++        return subprocess.run(['bash', '-c', script], cwd=ROOT, env=self.env,
++                              capture_output=True, text=True, timeout=15)
++
++    def test_real_cleanup_trap_preserves_original_error_and_foreign_pause(self):
++        result = self.cleanup(19)
++        self.assertEqual(19, result.returncode, result.stderr)
++        self.assertTrue(json.loads(self.state_file.read_text())['containers'][FOREIGN]['Paused'])
++        self.assertTrue(any(row['program'] == 'baha' and '--yes' in row['args'] for row in self.recorded()))
++        self.assertTrue(all(args[-1] == OWN for args in self.native_actions() if args[0] in ('inspect', 'logs', 'unpause')))
++
++    def test_real_cancellation_traps_cleanup_owned_pause_and_preserve_foreign(self):
++        for signal, status in (('INT', 130), ('TERM', 143)):
++            with self.subTest(signal=signal):
++                self.calls.unlink(missing_ok=True)
++                result = self.cleanup(0, signal=signal)
++                self.assertEqual(status, result.returncode, result.stderr)
++                state = json.loads(self.state_file.read_text())
++                self.assertFalse(state['containers'][OWN]['Paused'])
++                self.assertTrue(state['containers'][FOREIGN]['Paused'])
++                self.assertEqual([['unpause', OWN]], [args for args in self.native_actions() if args[0] == 'unpause'])
++
++    def test_receipt_failure_cannot_replace_original_gate_exit(self):
++        (self.artifacts / 'recovery-qualified.json').write_text('malformed receipt')
++        result = self.cleanup(19)
++        self.assertEqual(19, result.returncode, result.stderr)
++        self.assertTrue(json.loads(self.state_file.read_text())['containers'][FOREIGN]['Paused'])
++
++    def test_foreign_handoff_checks_after_core_destroy_before_separate_removal(self):
++        self.handoff_foreign()
++        result = self.cleanup(0)
++        self.assertEqual(0, result.returncode, result.stderr)
++        sequence = [(row['program'], row['args']) for row in self.recorded()
++                    if row['program'] == 'foreign-helper' or '--yes' in row['args']]
++        self.assertEqual('baha', sequence[0][0])
++        self.assertEqual([('foreign-helper', ['--foreign-check']),
++                          ('foreign-helper', ['--foreign-remove'])], sequence[1:])
++        self.assertTrue((self.artifacts / 'foreign-check.txt').is_file())
++        self.assertTrue((self.artifacts / 'foreign-remove.txt').is_file())
++
++    def test_foreign_check_or_removal_failure_blocks_success_and_preserves_original_exit(self):
++        for check_error, remove_error in ((8, 0), (0, 9)):
++            for initial in (0, 19):
++                with self.subTest(check_error=check_error, remove_error=remove_error, initial=initial):
++                    self.handoff_foreign(check_error, remove_error)
++                    self.calls.unlink(missing_ok=True)
++                    result = self.cleanup(initial)
++                    self.assertEqual(initial or 1, result.returncode, result.stderr)
++                    actions = [row['args'] for row in self.recorded() if row['program'] == 'foreign-helper']
++                    self.assertEqual([['--foreign-check'], ['--foreign-remove']], actions)
++                    self.assertIn('cleanup: incomplete', result.stderr)
++
++    def test_symlink_handoff_is_checked_and_cannot_silently_skip_cleanup_failure(self):
++        self.handoff_foreign(check_error=8, remove_error=9)
++        receipt = self.fixture / 'new-edit-foreign.json'
++        receipt.unlink()
++        receipt.symlink_to(self.fixture / 'missing-owner')
++        result = self.cleanup(0)
++        self.assertEqual(1, result.returncode, result.stderr)
++        self.assertEqual([['--foreign-check'], ['--foreign-remove']],
++                         [row['args'] for row in self.recorded() if row['program'] == 'foreign-helper'])
++
++    def test_core_destroy_failure_still_checks_and_removes_the_gate_owned_sentinel(self):
++        self.handoff_foreign()
++        self.state['destroy_error'] = 7
++        result = self.cleanup(0)
++        self.assertEqual(1, result.returncode, result.stderr)
++        self.assertEqual([['--foreign-check'], ['--foreign-remove']],
++                         [row['args'] for row in self.recorded() if row['program'] == 'foreign-helper'])
++
++    def test_successful_native_journey_cannot_skip_missing_foreign_owner_evidence(self):
++        (self.artifacts / 'new-edit-sql.json').write_text('{"native_runtime_qualified":true}')
++        result = self.cleanup(0)
++        self.assertEqual(1, result.returncode, result.stderr)
++        self.assertIn('private foreign sentinel owner receipt', (self.artifacts / 'foreign-check.txt').read_text())
++        self.assertFalse(any(row['program'] == 'foreign-helper' for row in self.recorded()))
++
++    def test_real_cleanup_trap_never_claims_success_after_incomplete_preparation_or_destroy(self):
++        for error in ('preview_error', 'destroy_error'):
++            with self.subTest(error=error):
++                self.state[error] = 9
++                self.calls.unlink(missing_ok=True)
++                result = self.cleanup(0)
++                self.assertNotEqual(0, result.returncode)
++                self.assertIn('incomplete', result.stderr)
++                self.assertTrue(json.loads(self.state_file.read_text())['containers'][FOREIGN]['Paused'])
++                self.state.pop(error)
++
++
++if __name__ == '__main__':
++    unittest.main()
+diff --git a/tests/data-capabilities/new_edit.py b/tests/data-capabilities/new_edit.py
+new file mode 100644
+index 0000000..0f99f9a
+--- /dev/null
++++ b/tests/data-capabilities/new_edit.py
+@@ -0,0 +1,332 @@
++#!/usr/bin/env python3
++"""Native SQL New/Edit journeys inside the existing heavy data gate.
++
++Provider IDs come from public Footprint and the actual Edit candidate view.
++Native probes operate only on containers in Core's read-only destroy inventory
++whose exact project labels agree. SQL probe values are fixture-owned UUIDs;
++credentials remain inside their containers and never enter receipts.
++"""
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import uuid
++import re
++import stat
++import signal
++
++sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "guided"))
++from new_edit import (ARTIFACT_DIR, ROOT, cli, edit_application, footprint,
++                      footprint_parity, new_application, native_environment)
++
++RUNTIME = os.environ["BASEHARBOR_TEST_RUNTIME"]
++OWNER_LABEL = "org.baseharbor.demo.new-edit-owner"
++
++
++def receipt_path():
++    fixture = Path(os.environ["BASEHARBOR_DEMO_FIXTURE"])
++    if (fixture.is_symlink() or not fixture.is_dir() or fixture.stat().st_uid != os.getuid()
++            or stat.S_IMODE(fixture.stat().st_mode) & 0o077):
++        raise RuntimeError("foreign sentinel fixture directory is not owned and private")
++    return fixture / "new-edit-foreign.json"
++
++
++def read_receipt():
++    path = receipt_path()
++    if not path.exists() and not path.is_symlink():
++        return None
++    if path.is_symlink():
++        raise RuntimeError("foreign sentinel receipt must not be a symlink")
++    # O_NOFOLLOW keeps a concurrent symlink replacement from changing which
++    # private receipt is read after the presence check.
++    with os.fdopen(os.open(path, os.O_RDONLY | os.O_NOFOLLOW), "r") as source:
++        info = os.fstat(source.fileno())
++        if (not stat.S_ISREG(info.st_mode) or info.st_uid != os.getuid()
++                or stat.S_IMODE(info.st_mode) != 0o600 or info.st_size > 65536):
++            raise RuntimeError("foreign sentinel receipt has unsafe type, owner, permissions or size")
++        result = json.loads(source.read(65537))
++    if (result.get("version") != "demo-new-edit-foreign/v1" or result.get("runtime") != RUNTIME
++            or result.get("target") != os.environ["BASEHARBOR_TARGET"]
++            or not re.fullmatch(r"[0-9a-f]{32}", result.get("nonce", ""))
++            or not re.fullmatch(r"[0-9a-f]{64}", result.get("container_id", ""))):
++        raise RuntimeError("foreign sentinel receipt has an invalid identity")
++    return result
++
++
++def verify_foreign(receipt, *, require_unchanged):
++    token = receipt["nonce"][:12]
++    project = "foreign-new-edit-" + token
++    item = inspect(receipt["container_id"])
++    labels = item.get("Config", {}).get("Labels") or {}
++    if (item["Id"] != receipt["container_id"] or not receipt.get("created")
++            or item.get("Created") != receipt["created"]
++            or item.get("Name", "").lstrip("/") != "bh-new-edit-foreign-" + token
++            or labels.get(OWNER_LABEL) != receipt["nonce"]
++            or labels.get("com.docker.compose.project") != project
++            or labels.get("io.podman.compose.project") != project
++            or receipt.get("volume_name") != project):
++        raise RuntimeError("foreign sentinel native immutable identity changed")
++    volume = json.loads(native("volume", "inspect", project))[0]
++    if (volume.get("Name") != project or (volume.get("Labels") or {}).get(OWNER_LABEL) != receipt["nonce"]
++            or not receipt["volume"].get("CreatedAt") or volume.get("CreatedAt") != receipt["volume"]["CreatedAt"]):
++        raise RuntimeError("foreign sentinel volume immutable identity changed")
++    if require_unchanged and (item["State"].get("Paused") is not True
++            or labels != receipt["labels"] or volume != receipt["volume"]):
++        raise RuntimeError("Core teardown changed a foreign paused container or its volume")
++    return item
++
++
++def foreign_finalize(remove=False):
++    receipt = read_receipt()
++    if receipt is None:
++        if not remove and (ARTIFACT_DIR / "new-edit-sql.json").exists():
++            raise RuntimeError("SQL journey claimed preservation without its private sentinel identity")
++        return
++    item = verify_foreign(receipt, require_unchanged=not remove)
++    if remove:
++        if item["State"].get("Paused"):
++            native("unpause", receipt["container_id"])
++        native("rm", "-f", receipt["container_id"])
++        # Recheck the volume's immutable identity immediately before removal.
++        current = json.loads(native("volume", "inspect", receipt["volume_name"]))[0]
++        if (current.get("CreatedAt") != receipt["volume"].get("CreatedAt")
++                or (current.get("Labels") or {}).get(OWNER_LABEL) != receipt["nonce"]):
++            raise RuntimeError("foreign sentinel volume identity changed before owner removal")
++        native("volume", "rm", receipt["volume_name"])
++        receipt_path().unlink()
++
++
++def native(*arguments, input=None, timeout=20):
++    process = subprocess.Popen([RUNTIME, *arguments], stdin=subprocess.PIPE if input is not None else subprocess.DEVNULL,
++                               stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True,
++                               env=native_environment(RUNTIME))
++    try:
++        output, _ = process.communicate(input=input, timeout=timeout)
++    except subprocess.TimeoutExpired:
++        if process.poll() is None:
++            os.killpg(process.pid, signal.SIGKILL)
++        process.wait(timeout=5)
++        raise RuntimeError("native fixture operation exceeded its deadline") from None
++    except BaseException:
++        if process.poll() is None:
++            os.killpg(process.pid, signal.SIGKILL)
++        process.wait(timeout=5)
++        raise
++    if process.returncode:
++        raise RuntimeError(f"native fixture {arguments[0]} failed (exit {process.returncode}); private ownership arguments are withheld")
++    return output
++
++
++def inspect(identifier):
++    values = json.loads(native("inspect", identifier))
++    if len(values) != 1:
++        raise RuntimeError("native resource identity is ambiguous")
++    return values[0]
++
++
++def owned_postgres():
++    preview = json.loads(cli(ROOT, "destroy", "--all", "--json"))
++    if preview.get("preview") is not True or preview.get("destroyed") is not False:
++        raise RuntimeError("ownership query did not return a read-only destroy preview")
++    result = {}
++    for resource in preview.get("resources", []):
++        if resource.get("target") != os.environ["BASEHARBOR_TARGET"] or resource.get("kind") != "container":
++            continue
++        item = inspect(resource["name"])
++        labels = item.get("Config", {}).get("Labels") or {}
++        projects = [labels[key] for key in ("com.docker.compose.project", "io.podman.compose.project") if key in labels]
++        if not projects or any(project != resource["project"] for project in projects):
++            raise RuntimeError("observed container ownership differs from Core's exact project inventory")
++        if item.get("Name", "").lstrip("/") != resource["name"].lstrip("/"):
++            raise RuntimeError("native name differs from Core's observed inventory")
++        image = item.get("Config", {}).get("Image", "")
++        if image.split(":")[0].split("/")[-1] == "postgres":
++            result[item["Id"]] = item
++    return result
++
++
++def sql_container(container, sql):
++    # The production image's PostgreSQL administrator environment stays inside
++    # the container. Never inspect or print its values on the runner.
++    command = 'export PGPASSWORD="$POSTGRES_PASSWORD"; exec psql --no-psqlrc -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d "$POSTGRES_DB" -At'
++    return native("exec", "-i", container, "sh", "-ec", command, input=sql.encode()).decode().strip()
++
++
++def volumes(item):
++    names = sorted(mount["Name"] for mount in item.get("Mounts", []) if mount.get("Type") == "volume")
++    if not names:
++        raise RuntimeError("SQL provider has no observed persistent native volume")
++    return {name: json.loads(native("volume", "inspect", name))[0] for name in names}
++
++
++def retained_sql(expected_volumes):
++    matches = []
++    for identifier, item in owned_postgres().items():
++        mounted = {mount["Name"] for mount in item.get("Mounts", []) if mount.get("Type") == "volume"}
++        if mounted == set(expected_volumes):
++            if volumes(item) != expected_volumes:
++                raise RuntimeError("retained SQL volume metadata changed")
++            matches.append(identifier)
++    if len(matches) != 1:
++        raise RuntimeError("retained SQL provider has no unique observed native realization")
++    return matches[0]
++
++
++def selected_sql(result):
++    rows = [row for row in result.get("requirements") or [] if row["requirement"]["kind"] == "database.sql"]
++    if len(rows) != 1 or rows[0].get("binding") != "bound" or rows[0].get("state") != "running" or not rows[0].get("instance_id"):
++        raise RuntimeError("Footprint does not prove exactly one running SQL binding")
++    return rows[0]["instance_id"]
++
++
++def marker(container, value, create=False):
++    if create:
++        sql_container(container, "CREATE TABLE IF NOT EXISTS demo_new_edit_retention (value TEXT PRIMARY KEY);\n"
++                      + "INSERT INTO demo_new_edit_retention VALUES ('" + value + "');\n")
++    if sql_container(container, "SELECT value FROM demo_new_edit_retention WHERE value='" + value + "';\n") != value:
++        raise RuntimeError("native SQL marker was not preserved")
++
++
++def sibling_sql():
++    base, ca, resolve = sys.argv[1:]
++    result = json.loads(subprocess.check_output(["curl", "-fsS", "--cacert", ca, "--resolve", resolve,
++                                                "-X", "POST", base + "/api/sql"], timeout=30))
++    if not isinstance(result.get("id"), int) or not isinstance(result.get("records"), int):
++        raise RuntimeError("sibling SQL HTTP oracle did not return its real persisted record")
++    return result
++
++
++def main():
++    sibling_before = sibling_sql()
++    sibling_footprint = footprint_parity(ROOT)
++    shared_id = selected_sql(sibling_footprint)
++    shared_facts = [row for row in sibling_footprint.get("existing", []) if row["instance_id"] == shared_id]
++    if len(shared_facts) != 1 or shared_facts[0].get("shared") is not True:
++        raise RuntimeError("existing data gate did not establish an actual compatible shared SQL provider")
++    previous = owned_postgres()
++    if len(previous) != 1:
++        raise RuntimeError("bounded single-provider SQL fixture requires exactly one existing native PostgreSQL provider")
++    shared_container = next(iter(previous))
++    shared_volumes = volumes(previous[shared_container])
++    shared_marker = uuid.uuid4().hex
++    marker(shared_container, shared_marker, create=True)
++
++    # The sentinel has intentionally foreign ownership and an otherwise
++    # plausible name. Core operations must preserve its actual identity/state.
++    nonce = uuid.uuid4().hex
++    token = nonce[:12]
++    foreign_project = "foreign-new-edit-" + token
++    private_receipt = receipt_path()
++    if private_receipt.exists() or private_receipt.is_symlink():
++        raise RuntimeError("foreign sentinel receipt already exists; refusing replacement")
++    foreign_volume = native("volume", "create", "--label", OWNER_LABEL + "=" + nonce,
++                            foreign_project).decode().strip()
++    foreign = None
++    handed_off = False
++    try:
++        foreign = native("run", "-d", "--name", "bh-new-edit-foreign-" + token,
++            "--label", "com.docker.compose.project=" + foreign_project,
++            "--label", "io.podman.compose.project=" + foreign_project,
++            "--label", OWNER_LABEL + "=" + nonce,
++            "--volume", foreign_volume + ":/fixture", "alpine:3.22", "sleep", "infinity",
++            timeout=90).decode().strip()
++        native("pause", foreign)
++        foreign_before = inspect(foreign)
++        foreign_volume_before = json.loads(native("volume", "inspect", foreign_volume))
++        if foreign_before["State"].get("Paused") is not True:
++            raise RuntimeError("foreign sentinel did not enter the required paused state")
++        receipt = {"version": "demo-new-edit-foreign/v1", "runtime": RUNTIME,
++            "target": os.environ["BASEHARBOR_TARGET"], "nonce": nonce,
++            "container_id": foreign_before["Id"], "created": foreign_before.get("Created"),
++            "labels": foreign_before["Config"]["Labels"], "volume_name": foreign_volume,
++            "volume": foreign_volume_before[0]}
++        with os.fdopen(os.open(private_receipt, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600), "w") as output:
++            json.dump(receipt, output)
++            output.write("\n")
++        handed_off = True  # acceptance EXIT verifies then separately removes it
++        verify_foreign(receipt, require_unchanged=True)
++
++        parent = ROOT / ".new-edit-fixtures"
++        parent.mkdir(exist_ok=True)
++        project = new_application(parent, "new-sql", sql=True,
++            environment={"BASEHARBOR_PROVIDER_POSTGRESQL_SCOPE": "application"})
++        dedicated_id = selected_sql(footprint_parity(project))
++        if dedicated_id == shared_id:
++            raise RuntimeError("New did not create the requested separate application SQL provider")
++        created = owned_postgres()
++        candidates = set(created) - set(previous)
++        if len(candidates) != 1:
++            raise RuntimeError("New SQL provider has no unique real native PostgreSQL realization")
++        dedicated_container = candidates.pop()
++        dedicated_volumes = volumes(created[dedicated_container])
++        own_marker = uuid.uuid4().hex
++        marker(dedicated_container, own_marker, create=True)
++        edit_application(project, "cancel")
++        edit_application(project, "no")
++
++        removed = edit_application(project, "remove")
++        if removed.get("requirements"):
++            raise RuntimeError("Edit remove did not persist zero managed needs")
++        added = edit_application(project, "add", environment={"BASEHARBOR_PROVIDER_POSTGRESQL_SCOPE": "application"})
++        if selected_sql(added) != dedicated_id:
++            raise RuntimeError("Edit re-add failed to reuse the retained actual SQL provider")
++        dedicated_container = retained_sql(dedicated_volumes)
++        marker(dedicated_container, own_marker)
++
++        switched = edit_application(project, "switch", instance=shared_id)
++        if selected_sql(switched) != shared_id:
++            raise RuntimeError("Edit did not bind the genuine selected shared SQL provider")
++        marker(shared_container, shared_marker)
++        returned = edit_application(project, "switch", instance=dedicated_id)
++        if selected_sql(returned) != dedicated_id:
++            raise RuntimeError("Edit did not return to its retained application SQL provider")
++        dedicated_container = retained_sql(dedicated_volumes)
++        marker(dedicated_container, own_marker)
++        footprint_parity(project)
++
++        if volumes(inspect(shared_container)) != shared_volumes:
++            raise RuntimeError("shared sibling SQL volume identity changed")
++        marker(shared_container, shared_marker)
++        if selected_sql(footprint_parity(ROOT)) != shared_id:
++            raise RuntimeError("Edit changed the sibling application's provider binding")
++        sibling_after = sibling_sql()
++        if sibling_after["id"] <= sibling_before["id"] or sibling_after["records"] <= sibling_before["records"]:
++            raise RuntimeError("sibling application SQL data was not retained across New/Edit")
++        foreign_after = inspect(foreign)
++        if (foreign_after["Id"] != foreign_before["Id"] or foreign_after["State"].get("Paused") is not True
++                or foreign_after["Config"].get("Labels") != foreign_before["Config"].get("Labels")
++                or json.loads(native("volume", "inspect", foreign_volume)) != foreign_volume_before):
++            raise RuntimeError("New/Edit changed a foreign paused resource or its volume")
++        (ARTIFACT_DIR / "new-edit-sql.json").write_text(json.dumps({
++            "journey": "real-cli-native-sql-new-edit", "target": os.environ["BASEHARBOR_TARGET"],
++            "application_id": returned["application_id"], "application_provider": dedicated_id,
++            "shared_provider": shared_id, "add_remove_switch": True, "no_cancel_unchanged": True,
++            "own_sql_marker_preserved": True, "shared_sql_marker_preserved": True,
++            "sibling_sql_preserved": True, "foreign_paused_container_and_volume_preserved": True,
++            "cli_json_mcp_footprint_parity": True, "native_runtime_qualified": True,
++        }, indent=2) + "\n")
++    finally:
++        # A completed receipt belongs to the acceptance EXIT proof. If creation
++        # failed before handoff, remove only our exact newly created resources.
++        if not handed_off:
++            if foreign:
++                if inspect(foreign)["State"].get("Paused"):
++                    native("unpause", foreign)
++                native("rm", "-f", foreign)
++            native("volume", "rm", foreign_volume)
++
++
++if __name__ == "__main__":
++    def interrupted(signum, frame):
++        # Let native() reap its separate process group before an outer
++        # acceptance deadline or cancellation exits this bounded helper.
++        raise SystemExit(128 + signum)
++
++    signal.signal(signal.SIGTERM, interrupted)
++    if sys.argv[1:] == ["--foreign-check"]:
++        foreign_finalize()
++    elif sys.argv[1:] == ["--foreign-remove"]:
++        foreign_finalize(remove=True)
++    else:
++        main()
+diff --git a/tests/data-capabilities/new_edit_helpers_test.py b/tests/data-capabilities/new_edit_helpers_test.py
+new file mode 100644
+index 0000000..e04ad90
+--- /dev/null
++++ b/tests/data-capabilities/new_edit_helpers_test.py
+@@ -0,0 +1,136 @@
++#!/usr/bin/env python3
++"""Identity/permission regressions only; these mocks are not native evidence."""
++import importlib.util
++import json
++import os
++from pathlib import Path
++import tempfile
++import unittest
++from unittest.mock import patch
++import sys
++
++os.environ.setdefault("BASEHARBOR_TEST_RUNTIME", "docker")
++spec = importlib.util.spec_from_file_location("demo_native_new_edit", Path(__file__).with_name("new_edit.py"))
++fixture = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(fixture)
++import new_edit as guided
++
++
++class SentinelIdentityTest(unittest.TestCase):
++    def setUp(self):
++        self.directory = tempfile.TemporaryDirectory()
++        self.addCleanup(self.directory.cleanup)
++        self.env = patch.dict(os.environ, {"BASEHARBOR_DEMO_FIXTURE": self.directory.name, "BASEHARBOR_TARGET": "fixture"})
++        self.env.start()
++        self.addCleanup(self.env.stop)
++        self.nonce = "a" * 32
++        self.identifier = "b" * 64
++        project = "foreign-new-edit-" + self.nonce[:12]
++        labels = {fixture.OWNER_LABEL: self.nonce, "com.docker.compose.project": project, "io.podman.compose.project": project}
++        self.item = {"Id": self.identifier, "Created": "2026-10-21T00:00:00Z",
++            "Name": "/bh-new-edit-foreign-" + self.nonce[:12], "State": {"Paused": True}, "Config": {"Labels": labels}}
++        self.volume = {"Name": project, "CreatedAt": "2026-10-21T00:00:00Z", "Labels": {fixture.OWNER_LABEL: self.nonce}}
++        self.receipt = {"version": "demo-new-edit-foreign/v1", "runtime": fixture.RUNTIME, "target": "fixture",
++            "nonce": self.nonce, "container_id": self.identifier, "created": self.item["Created"],
++            "labels": labels, "volume_name": project, "volume": self.volume}
++        self.path = Path(self.directory.name) / "new-edit-foreign.json"
++        self.calls = []
++
++    def write_receipt(self):
++        self.path.write_text(json.dumps(self.receipt))
++        self.path.chmod(0o600)
++
++    def native(self, *arguments, **kwargs):
++        self.calls.append(arguments)
++        if arguments[0] == "inspect":
++            self.assertEqual(arguments[1], self.identifier)
++            return json.dumps([self.item]).encode()
++        if arguments[:2] == ("volume", "inspect"):
++            self.assertEqual(arguments[2], self.volume["Name"])
++            return json.dumps([self.volume]).encode()
++        return b""
++
++    def test_missing_receipt_does_not_invoke_runtime(self):
++        with patch.object(fixture, "native", side_effect=self.native):
++            fixture.foreign_finalize()
++            fixture.foreign_finalize(remove=True)
++        self.assertEqual(self.calls, [])
++
++    def test_public_success_without_private_identity_blocks_proof(self):
++        (Path(self.directory.name) / "new-edit-sql.json").write_text("{}")
++        with patch.object(fixture, "ARTIFACT_DIR", Path(self.directory.name)), patch.object(fixture, "native", side_effect=self.native):
++            with self.assertRaises(RuntimeError):
++                fixture.foreign_finalize()
++            fixture.foreign_finalize(remove=True)
++        self.assertEqual(self.calls, [])
++
++    def test_pause_failure_blocks_proof_but_exact_owner_can_remove(self):
++        self.write_receipt()
++        self.item["State"]["Paused"] = False
++        with patch.object(fixture, "native", side_effect=self.native):
++            with self.assertRaises(RuntimeError):
++                fixture.foreign_finalize()
++            fixture.foreign_finalize(remove=True)
++        self.assertIn(("rm", "-f", self.identifier), self.calls)
++        self.assertIn(("volume", "rm", self.volume["Name"]), self.calls)
++        self.assertFalse(self.path.exists())
++
++    def test_replaced_native_identity_never_removes_resources(self):
++        self.write_receipt()
++        self.item["Created"] = "replaced"
++        with patch.object(fixture, "native", side_effect=self.native):
++            with self.assertRaises(RuntimeError):
++                fixture.foreign_finalize(remove=True)
++        self.assertEqual(self.calls, [("inspect", self.identifier)])
++
++    def test_world_readable_or_symlink_receipt_is_rejected(self):
++        self.write_receipt()
++        self.path.chmod(0o644)
++        with self.assertRaises(RuntimeError):
++            fixture.read_receipt()
++        self.path.unlink()
++        self.path.symlink_to(Path(self.directory.name) / "missing")
++        with self.assertRaises(RuntimeError):
++            fixture.read_receipt()
++
++    def test_actual_child_engine_context_and_metadata_only_snapshot(self):
++        root = Path(self.directory.name)
++        audit = root / "engine-calls.jsonl"
++        program = "#!" + sys.executable + "\n" + '''import json, os, sys
++data = {key: os.environ.get(key) for key in ["XDG_CONFIG_HOME", "XDG_DATA_HOME", "XDG_RUNTIME_DIR"]}
++with open(os.environ["DEMO_ENV_AUDIT"], "a") as output:
++    output.write(json.dumps({"arguments": sys.argv[1:], "environment": data}) + "\\n")
++if sys.argv[1:] == ["env"]:
++    print(json.dumps(data))
++'''
++        with patch.dict(os.environ, {"XDG_CONFIG_HOME": str(root / "config"),
++                "XDG_DATA_HOME": str(root / "data"), "XDG_RUNTIME_DIR": "/run/user/fixture",
++                "DEMO_ENV_AUDIT": str(audit)}):
++            for runtime in ["podman", "docker"]:
++                executable = root / runtime
++                executable.write_text(program)
++                executable.chmod(0o700)
++                with patch.object(fixture, "RUNTIME", str(executable)):
++                    actual = json.loads(fixture.native("env"))
++                expected_config = None if runtime == "podman" else str(root / "config")
++                expected_data = None if runtime == "podman" else str(root / "data")
++                self.assertEqual(actual, {"XDG_CONFIG_HOME": expected_config,
++                    "XDG_DATA_HOME": expected_data, "XDG_RUNTIME_DIR": "/run/user/fixture"})
++                audit.unlink()
++                with patch.dict(os.environ, {"BASEHARBOR_TEST_RUNTIME": str(executable)}), patch.object(guided, "ROOT", root):
++                    guided.state_snapshot(root)
++                calls = [json.loads(line) for line in audit.read_text().splitlines()]
++                self.assertEqual([call["arguments"] for call in calls], [
++                    ["ps", "-a", "--no-trunc", "--format", "{{.ID}}\t{{.Names}}\t{{.State}}"],
++                    ["volume", "ls", "-q"], ["network", "ls", "-q"]])
++                self.assertTrue(all(call["environment"] == actual for call in calls))
++                # Public baha commands must still use the isolated fixture state.
++                with patch.object(guided, "BAHA", str(executable)):
++                    baha_environment = json.loads(guided.cli(root, "env"))
++                self.assertEqual(baha_environment["XDG_CONFIG_HOME"], str(root / "config"))
++                self.assertEqual(baha_environment["XDG_DATA_HOME"], str(root / "data"))
++                self.assertEqual(os.environ["XDG_CONFIG_HOME"], str(root / "config"))
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/data-capabilities/run.sh b/tests/data-capabilities/run.sh
+index 33d4e05..552d75b 100755
+--- a/tests/data-capabilities/run.sh
++++ b/tests/data-capabilities/run.sh
+@@ -38,3 +38,7 @@ pass "Secrets" "dedicated binding verification without value exposure"
+ pass "Runtime Resources" "application-time resource request accepted through mTLS broker"
+ 
+ assert_no_secret_leak "$ARTIFACT_DIR/data-status.json"
++
++section "Actual New/Edit SQL lifecycle and preservation"
++python3 "$DEMO_ROOT/tests/data-capabilities/new_edit.py" "$base" "$gateway_ca" "$api_host:$gateway_port:127.0.0.1"
++pass "New/Edit SQL Lifecycle" "actual SQL New, add/remove, compatible provider switch; own/shared data and foreign paused resources preserved"
+diff --git a/tests/guided/drive.py b/tests/guided/drive.py
+index cf8f0a6..1cb5547 100755
+--- a/tests/guided/drive.py
++++ b/tests/guided/drive.py
+@@ -1,17 +1,19 @@
+ #!/usr/bin/env python3
+ import os
++import fcntl
+ import pty
+ import re
+ import select
+ import subprocess
+ import sys
++import struct
++import termios
+ import time
+ from pathlib import Path
+ 
+-ROOT = Path(os.environ["DEMO_ROOT"])
+-BAHA = os.environ["BAHA"]
+-ARTIFACT_DIR = Path(os.environ["ARTIFACT_DIR"])
+-ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
++ROOT = Path(os.environ.get("DEMO_ROOT", Path(__file__).resolve().parents[2]))
++BAHA = os.environ.get("BAHA", "baha")
++ARTIFACT_DIR = Path(os.environ.get("ARTIFACT_DIR", ROOT / "artifacts"))
+ 
+ class Rule:
+     def __init__(self, pattern, response=None, callback=None, repeat=False, optional=False):
+@@ -85,16 +87,21 @@ def capability_selection_response(match, text):
+     keys.append("\n")
+     return keys
+ 
+-def run_tty(name, argv, rules, env=None, timeout=900, no_output_timeout=None):
++def run_tty(name, argv, rules, env=None, timeout=900, no_output_timeout=None,
++            cwd=None, expected_returncodes=(0,)):
++    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+     log_path = ARTIFACT_DIR / f"{name}.txt"
+     merged_env = os.environ.copy()
+     if env:
+         merged_env.update(env)
+ 
+     master, slave = pty.openpty()
++    # Bubble Tea requires an actual terminal size; an uninitialized PTY can
++    # otherwise render no needs rows at all.
++    fcntl.ioctl(slave, termios.TIOCSWINSZ, struct.pack("HHHH", 60, 140, 0, 0))
+     proc = subprocess.Popen(
+         argv,
+-        cwd=ROOT,
++        cwd=cwd or ROOT,
+         stdin=slave,
+         stdout=slave,
+         stderr=slave,
+@@ -108,86 +115,92 @@ def run_tty(name, argv, rules, env=None, timeout=900, no_output_timeout=None):
+     last_heartbeat = started
+     buffer = ""
+     cursor = 0
+-    with log_path.open("wb") as log:
+-        while True:
+-            if time.monotonic() - started > timeout:
+-                proc.kill()
+-                raise RuntimeError(f"{name} timed out")
++    try:
++        with log_path.open("wb") as log:
++            while True:
++                if time.monotonic() - started > timeout:
++                    proc.kill()
++                    raise RuntimeError(f"{name} timed out")
+ 
+-            ready, _, _ = select.select([master], [], [], 0.2)
+-            if ready:
+-                try:
+-                    chunk = os.read(master, 4096)
+-                except OSError:
+-                    chunk = b""
+-                if chunk:
+-                    last_output = time.monotonic()
+-                    log.write(chunk)
+-                    log.flush()
+-                    sys.stdout.buffer.write(chunk)
+-                    sys.stdout.buffer.flush()
+-                    buffer += chunk.decode("utf-8", errors="replace").replace("\r", "")
+-                    if len(buffer) > 65536:
+-                        buffer = buffer[-65536:]
+-                        cursor = min(cursor, len(buffer))
+-
+-                    search_text = buffer[cursor:]
+-                    responded = True
+-                    while responded:
+-                        responded = False
+-                        for rule in rules:
+-                            if rule.used and not rule.repeat:
+-                                continue
+-                            match = rule.match(search_text)
+-                            if not match:
+-                                continue
+-                            value = rule.value(match, buffer)
+-                            if value is not None:
+-                                if isinstance(value, (list, tuple)):
+-                                    for key in value:
+-                                        os.write(master, key.encode())
+-                                        time.sleep(0.05)
+-                                else:
+-                                    os.write(master, value.encode())
+-                            rule.used += 1
+-                            cursor += match.end()
+-                            search_text = buffer[cursor:]
+-                            responded = True
+-                            break
+-
+-            now = time.monotonic()
+-            if no_output_timeout is not None and now - last_output > no_output_timeout:
+-                proc.kill()
+-                elapsed = int(now - started)
+-                silent = int(now - last_output)
+-                raise RuntimeError(
+-                    f"{name} exceeded no-output timeout: elapsed={elapsed}s no-output={silent}s "
+-                    f"limit={no_output_timeout}s"
+-                )
+-            if now - last_heartbeat >= 15:
+-                elapsed = int(now - started)
+-                silent = int(now - last_output)
+-                print(f"\n[progress] {name}: still running · elapsed={elapsed}s · no-output={silent}s", flush=True)
+-                last_heartbeat = now
+-
+-            rc = proc.poll()
+-            if rc is not None:
+-                try:
+-                    while True:
++                ready, _, _ = select.select([master], [], [], 0.2)
++                if ready:
++                    try:
+                         chunk = os.read(master, 4096)
+-                        if not chunk:
+-                            break
++                    except OSError:
++                        chunk = b""
++                    if chunk:
++                        last_output = time.monotonic()
+                         log.write(chunk)
++                        log.flush()
+                         sys.stdout.buffer.write(chunk)
+-                except OSError:
+-                    pass
+-                os.close(master)
+-                if rc != 0:
+-                    raise RuntimeError(f"{name} failed with exit code {rc}")
+-                missing = [r.pattern.pattern for r in rules if not r.optional and not r.used]
+-                if missing:
+-                    raise RuntimeError(f"{name} completed without expected prompts: {missing}")
+-                return
++                        sys.stdout.buffer.flush()
++                        buffer += chunk.decode("utf-8", errors="replace").replace("\r", "")
++                        if len(buffer) > 65536:
++                            removed = len(buffer) - 65536
++                            buffer = buffer[removed:]
++                            cursor = max(0, cursor - removed)
++
++                        search_text = buffer[cursor:]
++                        responded = True
++                        while responded:
++                            responded = False
++                            for rule in rules:
++                                if rule.used and not rule.repeat:
++                                    continue
++                                match = rule.match(search_text)
++                                if not match:
++                                    continue
++                                value = rule.value(match, buffer)
++                                if value is not None:
++                                    if isinstance(value, (list, tuple)):
++                                        for key in value:
++                                            os.write(master, key.encode())
++                                            time.sleep(0.05)
++                                    else:
++                                        os.write(master, value.encode())
++                                rule.used += 1
++                                cursor += match.end()
++                                search_text = buffer[cursor:]
++                                responded = True
++                                break
++
++                now = time.monotonic()
++                if no_output_timeout is not None and now - last_output > no_output_timeout:
++                    proc.kill()
++                    elapsed = int(now - started)
++                    silent = int(now - last_output)
++                    raise RuntimeError(
++                        f"{name} exceeded no-output timeout: elapsed={elapsed}s no-output={silent}s "
++                        f"limit={no_output_timeout}s"
++                    )
++                if now - last_heartbeat >= 15:
++                    elapsed = int(now - started)
++                    silent = int(now - last_output)
++                    print(f"\n[progress] {name}: still running · elapsed={elapsed}s · no-output={silent}s", flush=True)
++                    last_heartbeat = now
++
++                rc = proc.poll()
++                if rc is not None:
++                    try:
++                        while True:
++                            chunk = os.read(master, 4096)
++                            if not chunk:
++                                break
++                            log.write(chunk)
++                            sys.stdout.buffer.write(chunk)
++                    except OSError:
++                        pass
++                    if rc not in expected_returncodes:
++                        raise RuntimeError(f"{name} failed with exit code {rc}")
++                    missing = [r.pattern.pattern for r in rules if not r.optional and not r.used]
++                    if missing:
++                        raise RuntimeError(f"{name} completed without expected prompts: {missing}")
++                    return rc
++    finally:
++        if proc.poll() is None:
++            proc.kill()
++        proc.wait(timeout=5)
++        os.close(master)
+ 
+ init_rules = [
+     Rule(r"Set them up now\? \[Y/n\]\s*$", "y\n", optional=True),
+@@ -248,15 +261,15 @@ up_rules = [
+     Rule(r"Install the BaseHarbor CA into the host trust store\? \[y/N\]:\s*$", "n\n", optional=True),
+ ]
+ 
+-print("[phase] guided init: interactive capability selection", flush=True)
+-run_tty("guided-init", [BAHA, "init"], init_rules, no_output_timeout=120)
+-print("[phase] guided up: provision providers, bindings and workload", flush=True)
+-run_tty(
+-    "guided-up",
+-    [BAHA, "--verbose", "up"],
+-    up_rules,
+-    timeout=600,
+-    no_output_timeout=120,
+-)
+-
+-print("[phase] guided up: READY reached; returning to acceptance gate", flush=True)
++if __name__ == "__main__":
++    print("[phase] guided init: interactive capability selection", flush=True)
++    run_tty("guided-init", [BAHA, "init"], init_rules, no_output_timeout=120)
++    print("[phase] guided up: provision providers, bindings and workload", flush=True)
++    run_tty(
++        "guided-up",
++        [BAHA, "--verbose", "up"],
++        up_rules,
++        timeout=600,
++        no_output_timeout=120,
++    )
++    print("[phase] guided up: READY reached; returning to acceptance gate", flush=True)
+diff --git a/tests/guided/new_edit.py b/tests/guided/new_edit.py
+new file mode 100644
+index 0000000..09d48e9
+--- /dev/null
++++ b/tests/guided/new_edit.py
+@@ -0,0 +1,284 @@
++#!/usr/bin/env python3
++"""Real public CLI journeys, bounded to the existing Demo fixture Target.
++
++The light gate exercises zero needs. SQL journeys import these same PTY/state
++helpers from the existing heavy data-capabilities gate. No private controller,
++registry writes, approval flags or synthesized provider IDs are used.
++"""
++import hashlib
++import importlib.util
++import json
++import os
++from pathlib import Path
++import re
++import stat
++import subprocess
++
++from drive import ANSI_ESCAPE, ARTIFACT_DIR, BAHA, ROOT, Rule, run_tty
++
++NEEDS_END = r"No SQL, identity service, secrets service or management stack is mandatory\."
++PICKER_END = r"P: optional provider preference · Esc/Ctrl\+C: cancel"
++
++
++def native_environment(runtime):
++    """Use the host engine context, preserving BaseHarbor's separate XDG state."""
++    environment = os.environ.copy()
++    if Path(runtime).name == "podman":
++        environment.pop("XDG_CONFIG_HOME", None)
++        environment.pop("XDG_DATA_HOME", None)
++    return environment
++
++
++def cli(project, *arguments):
++    return subprocess.check_output([BAHA, *arguments], cwd=project, timeout=120,
++                                   env={**os.environ, "BASEHARBOR_LOGS_ENABLED": "false"})
++
++
++def footprint(project):
++    result = json.loads(cli(project, "app", "footprint", "show", "-o", "json"))
++    if (result.get("version") != "baseharbor.footprint/v1"
++            or result.get("target") != os.environ["BASEHARBOR_TARGET"]
++            or not result.get("application_id")):
++        raise RuntimeError("Footprint lost its version, application or fixture Target identity")
++    return result
++
++
++def footprint_parity(project):
++    # Reuse the existing MCP gate's bounded real stdio client.
++    module_path = Path(__file__).resolve().parents[1] / "mcp" / "new-edit-static.py"
++    spec = importlib.util.spec_from_file_location("demo_mcp_new_edit", module_path)
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    expected = footprint(project)
++    with module.mcp_session(BAHA, project, {**os.environ, "BASEHARBOR_LOGS_ENABLED": "false"}) as call:
++        result = call("tools/call", {"name": "baseharbor.app.footprint.show", "arguments": {
++            "target": expected["target"]}})
++    if result.get("isError") or result.get("structuredContent") != expected:
++        raise RuntimeError("actual native CLI JSON/MCP Footprint contracts differ")
++    return expected
++
++
++def filesystem_snapshot(roots):
++    """Compare bytes, types, modes and inventories; never disclose state contents."""
++    result = {}
++    excluded = [ARTIFACT_DIR.resolve()]
++    for root in roots:
++        root = Path(root)
++        if not root.exists():
++            result[str(root)] = None
++            continue
++        for path in [root, *sorted(root.rglob("*"))]:
++            if ".git" in path.relative_to(root).parts:
++                continue
++            if any(path == ignored or ignored in path.parents for ignored in excluded):
++                continue
++            info = path.lstat()
++            item = [stat.S_IFMT(info.st_mode), stat.S_IMODE(info.st_mode)]
++            if path.is_symlink():
++                item.append(os.readlink(path))
++            elif path.is_file():
++                item.append(hashlib.sha256(path.read_bytes()).hexdigest())
++            result[str(path)] = item
++    return result
++
++
++def state_snapshot(project, native=True):
++    roots = [ROOT, project, Path(os.environ["XDG_CONFIG_HOME"]), Path(os.environ["XDG_DATA_HOME"])]
++    if os.environ.get("BASEHARBOR_STATE_DIR"):
++        roots.append(Path(os.environ["BASEHARBOR_STATE_DIR"]))
++    result = {"files": filesystem_snapshot(roots)}
++    if native:
++        runtime = os.environ["BASEHARBOR_TEST_RUNTIME"]
++        environment = native_environment(runtime)
++        # Ambient preservation needs only stable public metadata, never a full
++        # inspect of unrelated containers and their environment/configuration.
++        result["containers"] = sorted(subprocess.check_output([runtime, "ps", "-a", "--no-trunc",
++            "--format", "{{.ID}}\t{{.Names}}\t{{.State}}"], timeout=30,
++            env=environment).decode().splitlines())
++        for kind in ["volume", "network"]:
++            result[kind] = sorted(subprocess.check_output([runtime, kind, "ls", "-q"], timeout=30,
++                env=environment).decode().split())
++    return result
++
++
++def assert_unchanged(before, project, native=True):
++    if state_snapshot(project, native) != before:
++        raise RuntimeError("No/Cancel changed source, Target state or native resource inventory")
++
++
++def stack_go(match, text):
++    choices = re.findall(r"(?m)^\s*(\d+)\. go \([^\r\n]+\)", ANSI_ESCAPE.sub("", text))
++    if len(choices) != 1:
++        raise RuntimeError("actual stack catalog did not offer exactly one Go stack")
++    return choices[0] + "\n"
++
++
++def picker_keys(text, sql=False):
++    clean = ANSI_ESCAPE.sub("", text)
++    # Use the most recent frame; the renderer can repaint while earlier frames
++    # remain in the transcript. Refuse an unknown/missing row instead of choosing
++    # a guessed capability index.
++    frame = clean.rsplit("What does your application need?", 1)[-1]
++    rows = re.findall(r"(?m)^\s*([>]?)\s*\[([ x])\]\s+([^\r\n]+?) —", frame)
++    if len(rows) != 5 or sum(pointer == ">" for pointer, _, _ in rows) != 1:
++        raise RuntimeError("actual needs picker did not render its five everyday choices")
++    desired = {"SQL database"} if sql else set()
++    labels = {label for _, _, label in rows}
++    if not desired <= labels:
++        raise RuntimeError("actual needs picker did not offer the requested SQL capability")
++    cursor = next(i for i, row in enumerate(rows) if row[0] == ">")
++    keys = []
++    for index, (_, mark, label) in enumerate(rows):
++        if (mark == "x") == (label in desired):
++            continue
++        keys.extend(["\x1b[B" if index > cursor else "\x1b[A"] * abs(index - cursor))
++        keys.append(" ")
++        cursor = index
++    return keys + ["\r"]
++
++
++class CurrentConsent:
++    """Only the displayed operation's exact ordered non-destructive plan."""
++    def __init__(self):
++        self.plan = None
++        self.stage = 0
++        self.total = None
++
++    def respond(self, match, text):
++        stage, total, plan = int(match[1]), int(match[2]), match[3]
++        if self.plan is None:
++            self.plan, self.total = plan, total
++        if plan != self.plan or total != self.total or stage != self.stage + 1 or stage > total:
++            raise RuntimeError("provider consequence plan changed or confirmation was replayed")
++        self.stage = stage
++        return "yes\n"
++
++    def rule(self):
++        return Rule(r"(?:Confirm the displayed provider changes|Achtung: confirm the displayed outcome without a working alternative) \(([12])/([12]), plan ([0-9a-f]{64})\)\? \[y/N\]:\s*$",
++                    callback=self.respond, repeat=True, optional=True)
++
++
++def new_application(parent, name, *, sql=False, decision="run", native=True, environment=None):
++    project = parent / name
++    if project.exists():
++        raise RuntimeError("New fixture refuses to reuse an existing application directory")
++    before = state_snapshot(parent, native)
++    picker_count = 0
++
++    def picker(match, text):
++        nonlocal picker_count
++        picker_count += 1
++        if decision == "cancel" or picker_count > 1:
++            assert_unchanged(before, parent, native)
++            return "\x1b"  # actual New terminal Cancel, never controller injection
++        return picker_keys(text, sql)
++
++    rules = [Rule(r"Application name:\s*$", name + "\n"),
++             Rule(r"Project location(?::[^\r\n]*\$ | \[[^\]]+\]:\s*)$", str(parent) + "\n"),
++             Rule(r"Choose a stack.*?Selection \[1\]:\s*$", callback=stack_go),
++             Rule(r"After creation \(create-only or run\) \[create-only\]:\s*$", "run\n"),
++             Rule(PICKER_END, callback=picker)]
++    if decision != "cancel":
++        returned_picker = Rule(PICKER_END, callback=picker, optional=True)
++        returned_picker.used = 1  # only arm after the real No decision
++
++        def confirm(match, text):
++            if decision == "eof":
++                return "\x04"
++            if decision == "no":
++                assert_unchanged(before, parent, native)
++                returned_picker.used = 0
++                returned_picker.optional = False
++                return "n\n"
++            return "y\n"
++
++        rules.append(Rule(r"Create project files and continue into the separately authorized lifecycle\? \[Y/n\]\s*$",
++                          callback=confirm))
++        rules.append(returned_picker)
++    consent = CurrentConsent()
++    rules.extend([consent.rule(),
++        Rule(r"Is this installation running on a machine where you write code\?.*?Choice \[1\]:\s*$", "1\n", optional=True),
++        Rule(r"PostgreSQL host port \[\d+\]:\s*$", "\n", optional=True)])
++    run_tty("new-edit-" + name, [BAHA, "app", "new"], rules, cwd=ROOT,
++            env={"BASEHARBOR_LOGS_ENABLED": "false", **(environment or {})},
++            timeout=600, no_output_timeout=90)
++    if decision in ("no", "cancel", "eof"):
++        assert_unchanged(before, parent, native)
++        if project.exists():
++            raise RuntimeError("New No/Cancel wrote a project")
++        if decision == "no" and picker_count != 2:
++            raise RuntimeError("New No did not return to the needs picker before Cancel")
++        return None
++    actual = footprint(project)
++    if "Lifecycle: VERIFIED" not in (ARTIFACT_DIR / ("new-edit-" + name + ".txt")).read_text():
++        raise RuntimeError("New returned without its completed lifecycle receipt")
++    requirements = actual.get("requirements") or []
++    kinds = {row["requirement"]["kind"] for row in requirements}
++    if kinds != ({"database.sql"} if sql else set()):
++        raise RuntimeError("New did not persist exactly the selected needs")
++    if not actual.get("complete"):
++        raise RuntimeError("New did not establish a complete native Footprint")
++    return project
++
++
++def edit_application(project, operation, *, instance=None, native=True, environment=None):
++    """Drive the actual public Edit needs/preview/consequence prompts."""
++    before = state_snapshot(project, native)
++    consent = CurrentConsent()
++    if operation in ("no", "cancel"):
++        def cancel(match, text):
++            assert_unchanged(before, project, native)
++            return "cancel\n"
++        rules = [Rule(NEEDS_END, callback=cancel)] if operation == "cancel" else [
++            Rule(NEEDS_END, "enter\n"),
++            Rule(r"Read-only decision preview \(not execution\)", "no\n"),
++            Rule(NEEDS_END, callback=cancel),
++        ]
++    elif operation in ("add", "remove"):
++        rules = [Rule(NEEDS_END, "space\n"), Rule(NEEDS_END, "enter\n"),
++                 Rule(r"Read-only decision preview \(not execution\)", "yes\n")]
++    elif operation == "switch" and instance:
++        requirements = [row["requirement"] for row in footprint(project).get("requirements") or []
++                        if row["requirement"]["kind"] == "database.sql"]
++        if len(requirements) != 1:
++            raise RuntimeError("provider switch requires exactly one actual SQL requirement")
++        reference = requirements[0]["kind"] + "/" + requirements[0]["name"]
++        rules = [Rule(r"\[[ x]\] " + re.escape(instance) + r" \(postgresql\):[^\r\n]+",
++                      "provider " + reference + " " + instance + "\n"),
++                 Rule(NEEDS_END, "enter\n"),
++                 Rule(r"Read-only decision preview \(not execution\)", "yes\n")]
++    else:
++        raise ValueError("unknown Edit fixture operation")
++    rules.append(consent.rule())
++    run_tty("new-edit-" + project.name + "-" + operation, [BAHA, "app", "edit"], rules,
++            cwd=project, env={"BASEHARBOR_LOGS_ENABLED": "false", **(environment or {})},
++            timeout=600, no_output_timeout=90, expected_returncodes=(0, 1) if operation in ("no", "cancel") else (0,))
++    if operation in ("no", "cancel"):
++        assert_unchanged(before, project, native)
++        transcript = (ARTIFACT_DIR / ("new-edit-" + project.name + "-" + operation + ".txt")).read_text()
++        if not any(message in transcript for message in (
++                "Cancelled; no application changes.", "Error: wizard cancelled without changes")):
++            raise RuntimeError("Edit did not report the actual Cancel outcome")
++    elif consent.plan is not None and consent.stage != consent.total:
++        raise RuntimeError("Edit did not consume every required consequence confirmation")
++    return footprint(project)
++
++
++def main():
++    parent = ROOT / ".new-edit-fixtures"
++    parent.mkdir(exist_ok=True)
++    new_application(parent, "new-cancel", decision="cancel")
++    new_application(parent, "new-no", decision="no")
++    project = new_application(parent, "new-zero")
++    edit_application(project, "cancel")
++    edit_application(project, "no")
++    result = footprint_parity(project)
++    (ARTIFACT_DIR / "new-edit-zero.json").write_text(json.dumps({
++        "journey": "real-cli-new-zero-needs", "target": result["target"],
++        "application_id": result["application_id"], "requirements": result["requirements"],
++        "new_no_cancel_unchanged": True, "native_runtime_qualified": True,
++    }, indent=2) + "\n")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/tests/guided/new_edit_helpers_test.py b/tests/guided/new_edit_helpers_test.py
+new file mode 100644
+index 0000000..6fe094a
+--- /dev/null
++++ b/tests/guided/new_edit_helpers_test.py
+@@ -0,0 +1,79 @@
++#!/usr/bin/env python3
++"""Small regressions for fail-closed PTY choices, consent and byte inventory."""
++import os
++from contextlib import redirect_stdout
++from pathlib import Path
++import sys
++import tempfile
++import unittest
++
++from new_edit import CurrentConsent, filesystem_snapshot, picker_keys
++import drive
++
++
++class FixtureHelpersTest(unittest.TestCase):
++    def test_real_pty_prompts_survive_bounded_transcript_rollover(self):
++        # A build can print more than the driver's bounded 64KiB transcript
++        # before a later consequence prompt. This is a process/transport test,
++        # not a replacement for a native BaseHarbor journey.
++        child = "import sys; print('a'*70000+'first:',flush=True); assert input()=='one'; print('b'*1000+'second:',flush=True); assert input()=='two'"
++        with tempfile.TemporaryDirectory() as directory:
++            old_artifacts = drive.ARTIFACT_DIR
++            try:
++                drive.ARTIFACT_DIR = Path(directory)
++                with open(os.devnull, "w") as output, redirect_stdout(output):
++                    drive.run_tty("rollover", [sys.executable, "-c", child], [
++                        drive.Rule(r"first:\s*$", "one\n"), drive.Rule(r"second:\s*$", "two\n")],
++                        cwd=directory, timeout=5, no_output_timeout=2)
++            finally:
++                drive.ARTIFACT_DIR = old_artifacts
++
++    def test_actual_picker_inventory_and_missing_rows(self):
++        frame = "What does your application need?\n" + "\n".join([
++            "> [ ] SQL database — data", "  [ ] Cache — cache",
++            "  [ ] Protected application secrets — secrets", "  [ ] Application login — login",
++            "  [x] TLS / HTTPS — exposure"])
++        self.assertEqual(picker_keys(frame), ["\x1b[B"] * 4 + [" ", "\r"])
++        self.assertEqual(picker_keys(frame, sql=True), [" "] + ["\x1b[B"] * 4 + [" ", "\r"])
++        with self.assertRaises(RuntimeError):
++            picker_keys(frame.replace("  [ ] Cache — cache\n", ""))
++
++    def test_consent_rejects_replayed_stale_and_impossible_stages(self):
++        consent = CurrentConsent()
++        rule = consent.rule()
++        def approve(stage, total, plan):
++            text = f"Confirm the displayed provider changes ({stage}/{total}, plan {plan})? [y/N]: "
++            return consent.respond(rule.match(text), text)
++        self.assertEqual(approve(1, 2, "a" * 64), "yes\n")
++        with self.assertRaises(RuntimeError):
++            approve(1, 2, "a" * 64)
++        with self.assertRaises(RuntimeError):
++            approve(2, 2, "b" * 64)
++        self.assertEqual(approve(2, 2, "a" * 64), "yes\n")
++        with self.assertRaises(RuntimeError):
++            approve(2, 1, "a" * 64)
++        self.assertIsNone(rule.match("Achtung: separately authorize permanent deletion of the displayed owned data (plan " + "a" * 64 + ")? [y/N]: "))
++
++    def test_snapshot_detects_bytes_modes_links_and_empty_directories(self):
++        with tempfile.TemporaryDirectory() as directory:
++            root = Path(directory)
++            source = root / "source"
++            source.write_text("old")
++            original_mode = source.stat().st_mode & 0o777
++            before = filesystem_snapshot([root])
++            source.write_text("new")
++            self.assertNotEqual(filesystem_snapshot([root]), before)
++            source.write_text("old")
++            self.assertEqual(filesystem_snapshot([root]), before)
++            source.chmod(original_mode ^ 0o100)
++            self.assertNotEqual(filesystem_snapshot([root]), before)
++            source.chmod(original_mode)
++            (root / "empty").mkdir()
++            self.assertNotEqual(filesystem_snapshot([root]), before)
++            (root / "empty").rmdir()
++            os.symlink("source", root / "link")
++            self.assertNotEqual(filesystem_snapshot([root]), before)
++
++
++if __name__ == "__main__":
++    unittest.main()
+diff --git a/tests/guided/new_edit_process_test.py b/tests/guided/new_edit_process_test.py
+new file mode 100644
+index 0000000..5f74816
+--- /dev/null
++++ b/tests/guided/new_edit_process_test.py
+@@ -0,0 +1,46 @@
++#!/usr/bin/env python3
++"""Real CLI PTY regressions without a daemon; not native runtime evidence.
++
++Usage: python3 tests/guided/new_edit_process_test.py /absolute/path/to/baha
++The binary is supplied explicitly so a successful run is bound to the actual
++candidate under review. No runtime command is invoked in this regression.
++"""
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++import tempfile
++
++
++def main():
++    binary = str(Path(sys.argv[1]).resolve(strict=True))
++    with tempfile.TemporaryDirectory(prefix="baseharbor-new-edit-process-") as directory:
++        root = Path(directory)
++        project = root / "project"
++        project.mkdir()
++        (project / "compose.yaml").write_text("services:\n  api:\n    image: alpine:3.22\n    command: [sleep, '300']\n")
++        os.environ.update({"DEMO_ROOT": str(project), "BAHA": binary,
++            "ARTIFACT_DIR": str(root / "artifacts"), "BASEHARBOR_TARGET": "new-edit-process",
++            "XDG_CONFIG_HOME": str(root / "config"), "XDG_DATA_HOME": str(root / "data"),
++            "BASEHARBOR_STATE_DIR": str(root / "state"), "BASEHARBOR_LOGS_ENABLED": "false",
++            "TERM": "xterm-256color"})
++        subprocess.run([binary, "target", "create", "new-edit-process", "--provider", "docker",
++            "--access", "local-docker", "--reference", "local", "--scope", "default", "--default"],
++            cwd=project, check=True, timeout=30, stdout=subprocess.DEVNULL)
++        subprocess.run([binary, "init", "--quick", "--json"], cwd=project, check=True,
++                       timeout=30, stdout=subprocess.DEVNULL)
++        import new_edit
++        parent = project / "children"
++        parent.mkdir()
++        new_edit.new_application(parent, "new-cancel", decision="cancel", native=False)
++        new_edit.new_application(parent, "new-no", decision="no", native=False)
++        new_edit.new_application(parent, "new-eof", decision="eof", native=False)
++        new_edit.edit_application(project, "cancel", native=False)
++        new_edit.footprint_parity(project)
++        print(json.dumps({"journey": "real-cli-pty-new-no-cancel-eof-edit-cancel", "result": "success",
++                          "source_and_state_unchanged": True, "native_runtime_qualified": False}))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/tests/guided/run.sh b/tests/guided/run.sh
+index d0c306e..2298b2d 100755
+--- a/tests/guided/run.sh
++++ b/tests/guided/run.sh
+@@ -150,3 +150,7 @@ if [ "${DEMO_ATOMIC_GATE:-0}" = "1" ]; then
+ else
+   pass "Guided Adoption Happy Path" "pristine repository -> source-neutral components + full capability selection -> canonical HTTPS routes -> READY"
+ fi
++
++section "Actual New/Edit zero-needs application journey"
++python3 "$DEMO_ROOT/tests/guided/new_edit.py"
++pass "New/Edit Zero Needs" "actual New run + No/Cancel unchanged + native CLI/JSON/MCP Footprint parity"
+diff --git a/tests/mcp/new-edit-static.py b/tests/mcp/new-edit-static.py
+new file mode 100644
+index 0000000..112704d
+--- /dev/null
++++ b/tests/mcp/new-edit-static.py
+@@ -0,0 +1,128 @@
++#!/usr/bin/env python3
++"""Exercise registered New/Edit/Footprint contracts without starting a runtime."""
++from contextlib import contextmanager
++import hashlib
++import json
++import os
++from pathlib import Path
++import select
++import subprocess
++import sys
++import tempfile
++import time
++
++
++def snapshot(root):
++    result = {}
++    for path in sorted(root.rglob("*")):
++        if path.is_symlink():
++            raise RuntimeError("unexpected symlink in isolated static fixture")
++        if path.is_file():
++            result[str(path.relative_to(root))] = hashlib.sha256(path.read_bytes()).hexdigest()
++    return result
++
++
++@contextmanager
++def mcp_session(baha, project, env=None):
++    """Use the actual bounded stdio transport for static and native Footprint reads."""
++    process = subprocess.Popen([baha, "mcp", "serve"], cwd=project, env=env,
++                               stdin=subprocess.PIPE, stdout=subprocess.PIPE,
++                               stderr=subprocess.DEVNULL, text=True, bufsize=1)
++    request_id = 0
++
++    def call(method, params):
++        nonlocal request_id
++        request_id += 1
++        process.stdin.write(json.dumps({"jsonrpc": "2.0", "id": request_id,
++                                        "method": method, "params": params}) + "\n")
++        process.stdin.flush()
++        deadline = time.monotonic() + 30
++        while time.monotonic() < deadline:
++            ready, _, _ = select.select([process.stdout], [], [], max(0, deadline - time.monotonic()))
++            if not ready:
++                break
++            line = process.stdout.readline()
++            if not line:
++                raise RuntimeError("MCP process ended before its response")
++            response = json.loads(line)
++            if response.get("id") == request_id:
++                if "error" in response:
++                    raise RuntimeError("MCP request rejected at the protocol boundary")
++                return response["result"]
++        raise RuntimeError("MCP response timeout")
++    try:
++        call("initialize", {"protocolVersion": "2026-07-28", "capabilities": {},
++                            "clientInfo": {"name": "baseharbor-demo-static", "version": "1"}})
++        process.stdin.write(json.dumps({"jsonrpc": "2.0", "method": "notifications/initialized", "params": {}}) + "\n")
++        process.stdin.flush()
++        yield call
++    finally:
++        process.terminate()
++        try:
++            process.wait(timeout=3)
++        except subprocess.TimeoutExpired:
++            process.kill()
++            process.wait(timeout=3)
++
++
++def main():
++    baha, output = sys.argv[1:]
++    with tempfile.TemporaryDirectory(prefix="baseharbor-mcp-static-") as directory:
++        root = Path(directory)
++        project = root / "project"
++        project.mkdir()
++        (project / "compose.yaml").write_text("services:\n  api:\n    image: alpine:3.22\n    command: [sleep, '300']\n")
++        env = {**os.environ, "BASEHARBOR_STATE_DIR": str(root / "state"),
++               "XDG_CONFIG_HOME": str(root / "config"), "XDG_DATA_HOME": str(root / "data"),
++               "BASEHARBOR_TARGET": "mcp-static", "BASEHARBOR_LOGS_ENABLED": "false"}
++
++        def cli(*arguments):
++            return json.loads(subprocess.check_output([baha, *arguments], cwd=project,
++                                                     env=env, timeout=30))
++
++        subprocess.run([baha, "target", "create", "mcp-static", "--provider", "docker",
++                        "--access", "local-docker", "--reference", "local", "--scope",
++                        "default", "--default"], cwd=project, env=env, check=True,
++                       stdout=subprocess.DEVNULL, timeout=30)
++        initialized = cli("init", "--quick", "--json")
++        if not initialized.get("application_id"):
++            raise RuntimeError("source-only init did not establish application identity")
++        before = snapshot(root)
++        with mcp_session(baha, project, env) as call:
++            tools = {tool["name"]: tool for tool in call("tools/list", {})["tools"]}
++            for name in ["baseharbor.app.new", "baseharbor.app.edit", "baseharbor.app.footprint.show"]:
++                if name not in tools:
++                    raise RuntimeError("registered application operation is missing")
++            footprint = call("tools/call", {"name": "baseharbor.app.footprint.show",
++                                            "arguments": {"target": "mcp-static"}})
++            if footprint.get("isError"):
++                raise RuntimeError("source-only Footprint call failed")
++            actual = footprint.get("structuredContent")
++            expected = cli("app", "footprint", "show", "-o", "json")
++            if (not isinstance(actual, dict) or actual.get("version") != "baseharbor.footprint/v1"
++                    or actual.get("target") != "mcp-static" or actual != expected):
++                raise RuntimeError("CLI/JSON and MCP Footprint contracts differ")
++            proposed = call("tools/call", {"name": "baseharbor.app.edit", "arguments": {
++                "target": "mcp-static", "phase": "propose", "desired": {
++                    "target": "mcp-static", "snapshot_revision": "deliberately-stale-static-snapshot"}}})
++            refusal = proposed.get("structuredContent", {})
++            if (proposed.get("isError") is not True or refusal.get("contract_version") != "v1"
++                    or refusal.get("error", {}).get("code") != "conflict"):
++                raise RuntimeError("stale Edit proposal did not return a typed conflict")
++            unconsented = call("tools/call", {"name": "baseharbor.app.edit", "arguments": {
++                "target": "mcp-static", "phase": "apply", "desired": {
++                    "target": "mcp-static", "snapshot_revision": "deliberately-stale-static-snapshot"}}})
++            rejected = unconsented.get("structuredContent", {})
++            if (unconsented.get("isError") is not True or rejected.get("contract_version") != "v1"
++                    or rejected.get("error", {}).get("code") != "validation_failed"):
++                raise RuntimeError("Edit apply without proposal/consent was not rejected")
++        if snapshot(root) != before:
++            raise RuntimeError("Footprint or rejected Edit proposal changed source/state")
++        Path(output).write_text(json.dumps({"scope": "source-only-static-mcp", "result": "success",
++            "footprint_cli_json_parity": True, "stale_edit_proposal": "conflict",
++            "unconsented_edit_apply": "validation_failed",
++            "source_and_state_unchanged": True, "native_runtime_qualified": False}, indent=2) + "\n")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/tests/mcp/run.sh b/tests/mcp/run.sh
+index 42d7b34..d6898db 100755
+--- a/tests/mcp/run.sh
++++ b/tests/mcp/run.sh
+@@ -97,6 +97,8 @@ try:
+         "baseharbor.workspace.status",
+         "baseharbor.workspace.update",
+         "baseharbor.app.new",
++        "baseharbor.app.edit",
++        "baseharbor.app.footprint.show",
+         "baseharbor.plan",
+         "baseharbor.apply",
+         "baseharbor.status",
+@@ -123,6 +125,7 @@ try:
+     if names != expected:
+         raise RuntimeError(f"MCP contract mismatch: missing={sorted(expected - names)} unexpected={sorted(names - expected)}")
+     read_only = {
++        "baseharbor.app.footprint.show",
+         "baseharbor.release.check",
+         "baseharbor.control-plane.status",
+         "baseharbor.control-plane.doctor",
+@@ -187,5 +190,7 @@ finally:
+     try: p.wait(timeout=2)
+     except subprocess.TimeoutExpired: p.kill()
+ PY
++python3 "$DEMO_ROOT/tests/mcp/new-edit-static.py" "$BAHA" "$ARTIFACT_DIR/mcp-new-edit-static.json"
++assert_no_secret_leak "$ARTIFACT_DIR/mcp-new-edit-static.json"
+ assert_no_secret_leak "$ARTIFACT_DIR/mcp.json"
+ pass "MCP" "bounded semantic lifecycle stdio surface"
