@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1008"]
 sources: []
-blocker: "Fixture #1008 and policy #1009 are accepted. Native develop Docker lifecycle remains unproved: persistent runner prerequisite fails in 39594370883; exact-source disposable hosted rootless validation is prepared, not yet executed."
+blocker: "Native hosted rootless Docker now executes with verified exact-source image; run 39597320139 fails RepositoryWorkflow/ComposeUsesBackends on missing fixture consequence consent. Three other lifecycle tests pass. Full native fixture repair and acceptance remain pending."
 resolution: ""
 evidence: []
 ---
@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
-    **Blocker:** Fixture \#1008 and policy \#1009 are accepted. Native develop Docker lifecycle remains unproved: persistent runner prerequisite fails in 39594370883; exact-source disposable hosted rootless validation is prepared, not yet executed.  
+    **Blocker:** Native hosted rootless Docker now executes with verified exact-source image; run 39597320139 fails RepositoryWorkflow/ComposeUsesBackends on missing fixture consequence consent. Three other lifecycle tests pass. Full native fixture repair…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -51,6 +51,12 @@ evidence: []
 3. Independent local review + evidence links on this card.
 
 ## Handoff / status — 2026-10-20 (BLOCKED)
+
+### 2026-10-21 — Hosted runtime established; current blocker is real fixture consent
+
+- Actual [39597320139](https://github.com/mcpdev80/baseharbor/actions/runs/39597320139), exact source `e21d69549444c3cb6c724d1663ce1f28bfa03a4f`: verified hosted rootless Docker, Go 1.26.9, candidate image/binary identity, reset and Doctor PASS. Workload-only, build/rebuild and multi-instance native tests PASS.
+- Required TestRepositoryWorkflowRealLifecycle and ComposeUsesBackends FAIL with impact-confirmation-required. Recovery/logs/traces did not execute. Artifact `12345350446`. The earlier persistent-host prerequisite is a separate operational issue, not this current hosted acceptance blocker. Bounded fixture consent/retained-owner correction is in progress; no broad guard bypass or inferred complete PASS.
+
 
 ### 2026-10-21 — Persistent-runner prerequisite isolated; hosted native candidate prepared
 
