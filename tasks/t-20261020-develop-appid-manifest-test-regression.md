@@ -117,3 +117,8 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 - Current #1008 source `652891a3f2b98c1f4a242ce3d569c0ed8559d912` passed GitHub Actions [39583753055](https://github.com/mcpdev80/baseharbor/actions/runs/39583753055): Trusted Plan, workflow policy, planner tests, CLI guided/build/vet, source contracts, focused Python, CI executor/verifier and PR Selected Checks all green.
 - #1008 merged into develop via squash commit `8a40e60a84ebbe2c7eb3ceb80e2788c5f05903b8`.
 - The PR's targeted Docker runtime job was **skipped**. The task's explicit `TestRepositoryWorkflowRealLifecycle` on develop-head Docker Actions criterion remains unproven. Do not mark full release acceptance complete until separate docker-runtime-acceptance workflow evidence exists.
+
+### 2026-10-21 — Docker runtime acceptance trigger
+
+- Created `runtime-validation/docker/appid-20261021` from accepted develop `8a40e60a84ebbe2c7eb3ceb80e2788c5f05903b8`, then pushed no-content-change commit `f6b50f8757e97b126ca380ee9402a68fd5150d2b` to trigger `.github/workflows/docker-runtime-acceptance.yml` through its explicit `runtime-validation/docker/**` push filter.
+- Runtime evidence pending; never treat branch creation or the trigger commit as test success. This runs the workflow's real Docker workload, recovery, logs and traces checks. Do not merge a runtime-validation branch into develop.
