@@ -59,6 +59,17 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Owner-authorized complete readiness recovery resumed
+
+- Marcel explicitly assigned complete v0.4.26 recovery through proven pre-release readiness, including qualified merges and parallel disjoint implementation. Publication remains excluded. This session continues the existing complete-audit Maintainer claim; existing owners' published and local work is preserved.
+- Revalidated remote product `develop` at `ec35a4e30e2bce78e8255eec30de831db41e3f6d` and Planning `main` at `fbc323f2f3f3bf2e183ccf9f28d74e61038c7336`. The #1010 record is present; the trusted planner still cannot consume it. No unchanged failing run was restarted.
+- Independently inspected #1007 frozen candidate `85e05c1c45f77da2d1d7227d298182bd867ceba9`: its older consumer permits incomplete required-check sets and lacks strict inventory validation, and it removes the accepted app.id regression class. Correct these before integration; preserving an immutable candidate is not permission to merge demonstrated defects. Its core-921 anchor `89d3ddef6e77cad9b8035dce0b2a4dbe403c2951` does not qualify current #998 `61d6ab5620eb078aa00b63db72c3ed70e13b1fae` (18 files and subsequent non-merge commits).
+- Preparing a separately reviewable planner activation restricted to the existing three CI files, full CI-check set, authenticated repository/branch, exact head, raw SHA-256 bytes and the real diff resolver's integration proof. Four new real-Git regression methods pass; complete validation and protected publication remain pending.
+- Product/runtime audit confirmed current #998 native MCP fixture does not actually invoke its advertised wrong-consent/stale Apply negatives and permits a partial receipt. A disjoint correction is being prepared in a new isolated worktree, preserving the existing candidate.
+- Docker validation [39584767281](https://github.com/mcpdev80/baseharbor/actions/runs/39584767281) failed on inaccessible rootless socket before lifecycle/recovery execution. It also exposes obsolete doctor text matching. A bounded workflow correction is being prepared; it will not repair or silently fall back from the failed daemon.
+- Current #995 head `335477ea` and #990 `2ebab051` remain unqualified. #995 CI [39431592234](https://github.com/mcpdev80/baseharbor/actions/runs/39431592234) reports eight unresolved paths; the alleged native run `39397436026` is unavailable via live GitHub lookup and is not accepted as proof.
+- Ecosystem audit confirms core-922/core-923 are not started, current consumer metadata still targets earlier releases, and no complete immutable v0.4.26 consumer matrix exists. The pre-release workflow omits v0.4.26 from its existing ecosystem-resolver branch; a disjoint regression-tested fix is prepared. No release-ready claim, native success or complete-matrix execution is inferred.
+
 ### 2026-10-19 — Bounded CI coordinator qualification for the independently reviewed SQL layout
 
 - Current #1004 source887eece62ffdfe2ba694ceb1f332dc5a74ce7872 has independent complete-source review5568994921; actual source-preflight39225066336 passed gofmt and readability and is executing the broad source checks.
