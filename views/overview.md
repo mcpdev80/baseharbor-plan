@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
-| review | 0 |
+| active | 2 |
+| review | 1 |
 | blocked | 0 |
 | ready | 4 |
 | queued | 26 |
@@ -25,11 +25,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) | Docs: explain New/Edit and provider selection concisely | active | not set | Codex (Owner-authorized readiness documentation preparation) | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
 | [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | active | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005) |
-| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | Docker: prove the accepted app.id fixture on the native develop lifecycle | active | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008) |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | Docker: prove the accepted app.id fixture on the native develop lifecycle | review | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029) |
 
 ## Blocked
 
