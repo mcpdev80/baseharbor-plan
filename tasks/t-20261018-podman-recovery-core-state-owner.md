@@ -16,16 +16,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
 
-- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/active #view/active #area/runtime #kind/bug
+- [ ] t-20261018-podman-recovery-core-state-owner · Podman recovery: resolve existing Core/OpenBao state without Compose assumptions #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/runtime #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 3](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 5](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 6](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 7](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** waiting  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -60,6 +61,13 @@ Focused Go fixture and state-resolution tests, targeted hosted PR CI, planning r
 - Bounded ownership: existing backup/restore native test and direct tests; shared Core/OpenBao product code only for proven production issue.
 
 ## Handoff
+
+### 2026-10-21 — Waiting for the shared recovery integration; no independent active implementation
+
+- The actual Core/OpenBao state-owner correction is included in native-proven source77eb9a12. Full rootless Podman [39605258769](https://github.com/mcpdev80/baseharbor/actions/runs/39605258769) and an independent complete PG17 source re-review PASS. No missing native execution or Qwen-only hold remains.
+- Backup/guided and bootstrap/cleanup slices are being integrated together through the same qualified product candidate. This dependent card is PLANNED/WAITING until those actual prerequisites are accepted, rather than a second ACTIVE worker. Existing Flash ownership/history is preserved; there is no separate implementation session or independent additional fix outstanding here.
+- Accept this slice with the final merged recovery source/current required CI and its genuine owner/cleanup evidence, not with local tests or the old #995 head alone.
+
 
 ### 2026-10-21 — Current-source cleanup defect requires correction
 

@@ -20,7 +20,6 @@ evidence: []
 - [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/active #view/active #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-authorized readiness documentation preparation)  
-    **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
