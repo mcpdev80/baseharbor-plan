@@ -1,0 +1,80 @@
+diff --git a/README.md b/README.md
+index 5582e40..fca0abb 100644
+--- a/README.md
++++ b/README.md
+@@ -1,12 +1,13 @@
+ # BaseHarbor Console
+ 
+-## v0.4.25 candidate compatibility
++## v0.4.26 candidate compatibility
+ 
+-This branch adapts existing operations to the v0.4.25 Core contract.
++This branch prepares existing operations for the v0.4.26 Core contract.
+ `integration-candidate.json` records Core and Demo inputs; reviewed integration
+ branches can select a newer exact Core commit. The final candidate freeze is pending.
+ Source checks are separate from the real OIDC/browser/operator/Connector native
+-acceptance recorded in [Core PR #881](https://github.com/mcpdev80/baseharbor/pull/881).
++acceptance required for the final immutable source matrix. The CLI needs wizard
++does not introduce a new Console wizard or a second provider resolver.
+ An explicit management Core retains TLS/OIDC and SQL/Secrets/Identity.
+ 
+ Application operations display Core's redacted consequences in `error.details`
+@@ -29,7 +30,7 @@ BaseHarbor Console is the complete visual operations surface for BaseHarbor.
+ 
+ ## BaseHarbor v0.4.24 compatibility
+ 
+-The v0.4.24 code candidate completed joint native Docker and rootless Podman acceptance and the full Core pre-release evidence check. These historical source bindings are recorded in the release integration records; they do not qualify the current v0.4.25 candidate.
++The v0.4.24 code candidate completed joint native Docker and rootless Podman acceptance and the full Core pre-release evidence check. These historical source bindings are recorded in the release integration records; they do not qualify the current v0.4.26 candidate.
+ 
+ The accepted workflows include Core setup, managed Node enrollment, outbound mTLS, renewal/revocation and reconnect, remote application plan/apply/status/doctor/destroy, real Console OIDC/RBAC, events, logs, terminal and credential/CA rotation. Core remains authoritative for state, policy, provider placement and reconciliation. Kubernetes/OpenShift use their native APIs and do not require a Node Connector.
+ 
+diff --git a/scripts/release-integration-candidate.mjs b/scripts/release-integration-candidate.mjs
+index 1fbaf52..4677dea 100644
+--- a/scripts/release-integration-candidate.mjs
++++ b/scripts/release-integration-candidate.mjs
+@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
+ import { fileURLToPath } from "node:url";
+ 
+ const exactCommit = /^[0-9a-f]{40}$/;
+-const candidatePrefix = /^release-integration\/v0\.4\.(?:23|24|25)\/core\//;
++const candidatePrefix = /^release-integration\/v0\.4\.(?:23|24|25|26)\/core\//;
+ 
+ // The immutable consumer source remains pinned by Core. Only the explicit
+ // trusted push branch supplies the exact Core to qualify, avoiding mutually
+@@ -12,7 +12,7 @@ const candidatePrefix = /^release-integration\/v0\.4\.(?:23|24|25)\/core\//;
+ export function releaseCoreCandidate(ref, sourceLock) {
+   assert.equal(sourceLock.schema, "baseharbor.public-consumer-source-lock/v1");
+   assert.match(sourceLock.core_commit, exactCommit);
+-  assert.ok(/^work\/v0\.4\.(?:24|25)-integrations-docs$/.test(ref) || /^release-integration\//.test(ref));
++  assert.ok(/^work\/v0\.4\.(?:24|25|26)-integrations-docs$/.test(ref) || /^release-integration\//.test(ref));
+   const prefix = ref.match(candidatePrefix);
+   if (!prefix) return sourceLock.core_commit;
+   const candidate = ref.slice(prefix[0].length);
+diff --git a/tests/release-integration-candidate.test.mts b/tests/release-integration-candidate.test.mts
+index af7ba6a..4d16727 100644
+--- a/tests/release-integration-candidate.test.mts
++++ b/tests/release-integration-candidate.test.mts
+@@ -8,6 +8,7 @@ const lock = { schema: "baseharbor.public-consumer-source-lock/v1", core_commit:
+ test("trusted exact-candidate push keeps immutable consumer source independent of Core pin", () => {
+   assert.equal(releaseCoreCandidate("release-integration/v0.4.23/core/" + candidate, lock), candidate);
+   assert.equal(releaseCoreCandidate("release-integration/v0.4.25/core/" + candidate, lock), candidate);
++  assert.equal(releaseCoreCandidate("release-integration/v0.4.26/core/" + candidate, lock), candidate);
+   assert.equal(releaseCoreCandidate("release-integration/v0.4.23-current-core-bootstrap", lock), original);
+   assert.equal(releaseDemoCandidate(candidate + "\n"), candidate);
+ });
+@@ -15,6 +16,8 @@ test("trusted exact-candidate push keeps immutable consumer source independent o
+ test("candidate selection refuses mutable refs, malformed hashes and output injection", () => {
+   for (const ref of ["main", "feature/v0.4.23", "release-integration/v0.4.23/core/develop",
+     "release-integration/v0.4.25/core/main",
++    "release-integration/v0.4.26/core/main",
++    "release-integration/v0.4.26/core/" + candidate + "\ndemo=" + original,
+     "release-integration/v0.4.25/core/" + candidate + "\ndemo=" + original,
+     "release-integration/v0.4.23/core/" + candidate.toUpperCase(),
+     "release-integration/v0.4.23/core/" + candidate + "/extra",
+@@ -31,5 +34,6 @@ test("candidate selection refuses mutable refs, malformed hashes and output inje
+ test("reviewed work branches use their immutable source lock", () => {
+   assert.equal(releaseCoreCandidate("work/v0.4.24-integrations-docs", lock), original);
+   assert.equal(releaseCoreCandidate("work/v0.4.25-integrations-docs", lock), original);
++  assert.equal(releaseCoreCandidate("work/v0.4.26-integrations-docs", lock), original);
+   assert.throws(() => releaseCoreCandidate("work/untrusted", lock));
+ });

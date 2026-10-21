@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 0 |
 | review | 1 |
-| blocked | 0 |
+| blocked | 2 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 225 |
@@ -21,10 +21,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) | Docs: explain New/Edit and provider selection concisely | active | not set | Codex (Owner-authorized readiness documentation preparation) | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
-| [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | active | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005) |
+None.
 
 ## Ready for review
 
@@ -34,7 +31,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Blocked
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) | Docs: explain New/Edit and provider selection concisely | blocked | not set | Codex (Owner-authorized readiness documentation preparation) | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
+| [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | blocked | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005) |
 
 ## Ready to assign
 

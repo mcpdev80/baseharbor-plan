@@ -1,0 +1,635 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 6f757dc1..fd0f27c2 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -6,6 +6,36 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+ 
+ ## [Unreleased]
+ 
++## [0.4.26] - 2026-10-21
++
++### Added
++
++- Interactive application needs wizard with optional Target-specific provider selection, dependency/footprint preview and explicit create-only or run choice.
++- Registered application Edit and read-only Footprint commands across CLI and MCP, including a two-phase MCP Edit proposal/apply boundary and matching generated references.
++- English/German New/Edit/provider-selection guidance and candidate release notes.
++
++### Changed
++
++- New/Edit share the existing provider resolver and confirmed lifecycle. Repeated No retains choices; cancellation and EOF before consent write nothing; stale plans require a fresh preview.
++- Development uses task-scoped pull requests, trusted selected-check planning, isolated runners and authenticated execution/evidence verification; unknown or unqualified changes remain blocked.
++
++### Fixed
++
++- The workload-stop phase of application backup stops only selected repository services, without stopping SQL as part of the workload stop. Partial writer-stop failures receive bounded lifecycle recovery without losing the original or recovery error.
++- PostgreSQL backup/restore uses retained database identity and protected TLS credentials instead of a fixed role assumption.
++- Runtime withdrawal resolves without provider preferences while preserving the deployment’s persisted preferences for recovery, its retained runtime owner and other Targets.
++- MCP Edit retains typed refusals and actual partial-result details after failed apply.
++
++### Security
++
++- Edit retains Target-bound authorization, fresh provider-consequence consent and actual post-apply verification. Generic confirmation does not replace required impact acknowledgements or separate data-deletion consent.
++- Explicit provider preferences stay in protected Target/deployment state; portable application intent remains provider-neutral and application identity remains system-generated.
++
++### Compatibility
++
++- Existing runtime and Console/Connector support boundaries remain unchanged. Interactive New/Edit require a terminal; deterministic creation arguments remain available.
++- Candidate notes do not claim completed native or ecosystem acceptance. Final qualification, immutable consumer pins and publication remain separate release steps.
++
+ ## [0.4.25] - 2026-10-15
+ 
+ ### Added
+diff --git a/README.md b/README.md
+index 12005f66..5e2ce081 100644
+--- a/README.md
++++ b/README.md
+@@ -91,7 +91,8 @@ baha version
+ 
+ ## Project status
+ 
+-BaseHarbor is pre-v1. This branch prepares v0.4.25; it is not yet release-ready.
++BaseHarbor is pre-v1. This branch prepares v0.4.26; it is not yet release-ready.
++The published baseline is [v0.4.25](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.25).
+ Docker and Podman runtimes are implemented; Kubernetes and OpenShift runtimes
+ are planned. See the documentation for supported paths and current limits.
+ 
+diff --git a/docs/cli/applications.md b/docs/cli/applications.md
+index b4606a3e..09bce00b 100644
+--- a/docs/cli/applications.md
++++ b/docs/cli/applications.md
+@@ -2,11 +2,16 @@
+ 
+ Application commands operate on the portable Application Contract and its deployment state.
+ 
++Use [Create and edit application needs](../how-to/application-needs.md) for the interactive checklist, Target provider preferences and footprint preview.
++
+ ## Authoring and adoption
+ 
+ | Command | Purpose |
+ | --- | --- |
+ | `baha new application` | Create a new ecosystem-native application |
++| `baha app new` | Open the interactive needs wizard |
++| `baha app edit` | Edit existing needs with preview and consent |
++| `baha app footprint show` | Read the Target-bound footprint |
+ | `baha init` | Create/adopt a repository-owned `baseharbor.yaml` |
+ | `baha inspect` | Inspect repository/application evidence |
+ | `baha app show` | Show the resolved application contract |
+@@ -152,5 +157,5 @@ unknown consequences display **Achtung** and require two explicit acknowledgemen
+ of the current plan. Ordinary `--yes` supplies neither these acknowledgements nor
+ data-deletion consent. Actual authority, ownership and post-mutation verification
+ remain required. Failed or interrupted execution stays partial and retryable.
+-The v0.4.25 candidate still requires complete all-provider, mutation-path and
+-native ecosystem acceptance; individual green fixtures do not establish readiness.
++Release readiness requires the applicable provider, mutation-path and native
++ecosystem acceptance; individual green fixtures do not establish readiness.
+diff --git a/docs/de/cli/applications.md b/docs/de/cli/applications.md
+index 0f1256fd..40d50991 100644
+--- a/docs/de/cli/applications.md
++++ b/docs/de/cli/applications.md
+@@ -2,9 +2,14 @@
+ 
+ Application-Befehle arbeiten mit dem portablen Contract und seinem Deployment-Zustand.
+ 
++[Anwendungsbedarf erstellen und ändern](../how-to/application-needs.md) erklärt die interaktive Checkliste, Target-Provider-Präferenzen und Footprint-Vorschau.
++
+ | Befehl | Aufgabe |
+ | --- | --- |
+ | `baha new application` | Neue ecosystem-native Application erzeugen |
++| `baha app new` | Interaktiven Bedarfswizard öffnen |
++| `baha app edit` | Bestehenden Bedarf mit Vorschau und Zustimmung ändern |
++| `baha app footprint show` | Target-bezogenen Footprint lesen |
+ | `baha init` | Bestehendes Repository übernehmen |
+ | `baha inspect` | Repository-/Application-Evidenz lesen |
+ | `baha app show` | Aufgelösten Vertrag anzeigen |
+@@ -126,6 +131,6 @@ zwei ausdrückliche Bestätigungen des aktuellen Plans. Gewöhnliches `--yes`
+ ersetzt weder diese Bestätigungen noch die Zustimmung zur Datenlöschung.
+ Tatsächliche Berechtigung, Ownership und Prüfung nach der Änderung bleiben
+ Voraussetzung. Fehlgeschlagene oder unterbrochene Ausführung bleibt teilweise
+-erledigt und wiederaufnehmbar. Der v0.4.25-Kandidat benötigt weiterhin die vollständige
+-Abnahme aller Provider, Mutationspfade und des nativen Ecosystems. Einzelne grüne
+-Fixtures belegen keine Pre-Release-Bereitschaft.
++erledigt und wiederaufnehmbar. Release-Bereitschaft benötigt die jeweils erforderliche
++Provider-, Mutationspfad- und native Ökosystem-Abnahme. Einzelne grüne Fixtures
++belegen keine Pre-Release-Bereitschaft.
+diff --git a/docs/de/how-to/application-needs.md b/docs/de/how-to/application-needs.md
+new file mode 100644
+index 00000000..efbcfbc5
+--- /dev/null
++++ b/docs/de/how-to/application-needs.md
+@@ -0,0 +1,132 @@
++# Anwendungsbedarf erstellen und ändern
++
++Wähle, was deine Anwendung benötigt. BaseHarbor ermittelt kompatible Provider
++auf dem ausgewählten Target. Du kannst die automatische Auswahl behalten oder
++eine verfügbare Instanz wählen, ohne Provider-Produkte in den portablen
++Anwendungsvertrag aufzunehmen.
++
++## Anwendung erstellen
++
++Prüfe das effektive Target in einem übergeordneten Verzeichnis mit Platz für
++ein neues Projekt:
++
++```bash
++baha target show
++baha app new
++```
++
++Gib Anwendungsname, Projektpfad und Entwicklungs-Stack an. Mit `create-only`
++erzeugst du Projektdateien, ohne Container zu starten oder Provider
++bereitzustellen. Wähle `run`, wenn anschließend auch der separat autorisierte
++Application-Lifecycle folgen soll.
++
++Die Checkliste bietet SQL, Cache, geschützte Anwendungsgeheimnisse,
++Anwendungsanmeldung und TLS/HTTPS. Weitere Anforderungen öffnest du über die
++Erweiterungszeile der Checkliste. Prüfe die Vorauswahl und entferne alles,
++was du nicht benötigst. Keine Auswahl ist gültig; eine nutzbare Anwendung
++braucht weiterhin eine unterstützte Workload. Anwendungsanmeldung bedeutet
++Endbenutzer-OIDC, nicht Betreiberzugang oder Service-Zugangsdaten.
++TLS und Secrets wählen nicht implizit eine Anwendungsanmeldung aus.
++
++Bewege dich mit den Pfeiltasten und schalte einen Bedarf mit der Leertaste um.
++Enter öffnet die Vorschau. Wähle beispielsweise SQL für eine Bestell-API und
++Cache nur bei tatsächlicher Nutzung. Für automatische Provider-Auswahl musst
++du kein Datenbankprodukt kennen.
++
++## Optional einen Provider wählen
++
++Die Auswahl zeigt kompatible Instanzen, die gewählte Instanz und ihre Begründung
++für jeden Bedarf auf dem aktuellen Target. Behalte **Automatic**, wenn keine
++bestimmte verfügbare Instanz nötig ist. Drücke P in der New-Checkliste und gib
++die angezeigte Anforderungs- und Instanz-ID ein. Beispiel, falls genau diese
++IDs aufgelistet sind:
++
++```text
++database.sql/default postgresql/shared/team
++```
++
++In New setzt `database.sql/default automatic` diese Präferenz zurück.
++Eine Instanz eines anderen Targets, eine fehlende oder inkompatible Instanz
++ist kein gültiger Ersatz. Behebe den angezeigten Provider- oder Policy-Blocker,
++bevor du fortfährst. Zustimmung macht einen nicht unterstützten Provider nicht
++ausführbar.
++
++Anwendungsbedarf gehört in `baseharbor.yaml`. Explizite Provider-Präferenzen
++gehören in geschützten Target-/Deployment-Zustand. Verschiedene Targets können
++denselben portablen Bedarf unterschiedlich binden. BaseHarbor vergibt die
++Anwendungs-ID; füge kein `app.id` in selbst geschriebenes YAML ein.
++
++## Vor dem Schreiben prüfen
++
++Die Vorschau erklärt gewählte Provider, wiederverwendete oder neue Abhängigkeiten,
++Container und Speicherbedarf, soweit zuordenbar. Gemessene, geschätzte und
++unbekannte Werte bleiben unterscheidbar. Provider-Folgen beschreiben betroffene
++Anwendungen, Zugriff und erhaltenes oder gelöschtes Material. Eine erhaltene
++Datei beweist keinen fortgesetzten Zugriff.
++
++**No** führt mit erhaltener Bedarfs- und Provider-Auswahl zur Checkliste zurück.
++Du kannst die Schleife wiederholen. Abbruch oder EOF vor Zustimmung schreibt
++nichts. Ein geänderter Target-Plan benötigt eine neue Vorschau und Zustimmung.
++
++Die Bestätigung von `create-only` schreibt das Projekt und seine gewählten
++Target-Präferenzen; sie beweist keine Runtime-Bereitschaft. Wechsle in das
++erzeugte Projektverzeichnis und starte bei Bedarf:
++
++```bash
++baha up
++baha status
++baha doctor
++```
++
++## Bestehende Anwendung ändern
++
++Starte im Repository mit dem gewünschten Target:
++
++```bash
++baha app edit
++```
++
++Bestehende benannte Anforderungen und Provider-Präferenzen werden zuerst geladen.
++Edit verwendet derzeit zeilenweise Eingabe: Tippe `up`, `down` oder `space` und
++bestätige jede Aktion mit Enter. Eine Leerzeile öffnet die Vorschau.
++Für eine tatsächlich angezeigte Instanz gib Folgendes ein:
++
++```text
++provider database.sql/default postgresql/shared/team
++```
++
++Zum Zurücksetzen einer expliziten Edit-Präferenz gib für die angezeigte
++Anforderung `provider database.sql/default automatic` ein. Die nächste Vorschau
++verwendet automatische Auflösung.
++
++Tippe in der Edit-Vorschau `yes` zum Fortfahren oder `no` zur Rückkehr in die
++Auswahl. Eine Leerzeile führt ebenfalls zurück; `cancel` beendet ohne Anwenden.
++Edit prüft aktuellen Bedarf, Ownership und Folgenplan erneut und nutzt dann
++den bestehenden Apply-/Verify-Lifecycle. Bedarf entfernen, Provider wechseln
++und Daten löschen sind getrennte Entscheidungen. Erforderliche Folgenbestätigungen
++und separate Zustimmung zur Datenlöschung werden nicht durch `--yes` ersetzt.
++Fehlgeschlagene oder unterbrochene Ausführung meldet Teilergebnisse statt
++eines ungeprüften Erfolgs.
++
++Interaktives New und Edit benötigen ein Terminal. Für deterministische Erstellung
++verwende explizite New-Argumente aus dem [Befehlsindex](../cli/command-index.md).
++MCP bietet `baseharbor.app.edit` mit `propose` und anschließendem `apply` samt
++passendem Vorschlag und frischer Zustimmung. Das aktuelle Schema steht in der
++[MCP-Referenz](../reference/mcp.md). Bestehende Console- und Connector-Verbraucher
++behalten ihre unterstützten Operationen. Diese CLI-Befehle ergänzen keinen
++neuen Console-Wizard und keinen Remote-Adapter.
++
++## Footprint prüfen
++
++Diese Befehle lesen denselben Target-bezogenen Footprint, ohne Ressourcen zu ändern:
++
++```bash
++baha app footprint show
++baha app footprint show --details
++baha app footprint show -o json
++```
++
++Angeforderte oder geplante Ressourcen sind keine Live-Beobachtungen. Prüfe
++nach Ausführung die tatsächliche Bereitschaft mit Status und Doctor.
++Grenzen stehen unter [Application-Befehle](../cli/applications.md) und
++[Plattformunterstützung](../reference/platform-support.md).
+diff --git a/docs/de/index.md b/docs/de/index.md
+index e85d76e5..666c2e90 100644
+--- a/docs/de/index.md
++++ b/docs/de/index.md
+@@ -12,7 +12,7 @@ BaseHarbor verbindet Anwendungen und ihre Backends auf verifizierten Linux-Targe
+ [Jetzt starten](tutorials/getting-started.md){ .md-button .md-button--primary }
+ [GitHub](https://github.com/mcpdev80/baseharbor){ .md-button }
+ 
+-Dokumentation für den **BaseHarbor-v0.4.25-Kandidaten**; veröffentlichte Basis ist v0.4.24. Veröffentlichte Versionen und Installationsdateien findest du in den [GitHub-Releases](https://github.com/mcpdev80/baseharbor/releases).
++Dokumentation für den **BaseHarbor-v0.4.26-Kandidaten**; veröffentlichte Basis ist v0.4.25. Veröffentlichte Versionen und Installationsdateien findest du in den [GitHub-Releases](https://github.com/mcpdev80/baseharbor/releases).
+ 
+ ## Vom Repository zur laufenden Anwendung
+ 
+diff --git a/docs/de/releases/index.md b/docs/de/releases/index.md
+index 1de9abd0..ac53bdaf 100644
+--- a/docs/de/releases/index.md
++++ b/docs/de/releases/index.md
+@@ -1,15 +1,18 @@
+ # Release Notes
+ 
+-[v0.4.25-Kandidat](v0.4.25.md) — Core-loser App-Pfad und minimales Manifest; noch nicht veröffentlicht.
++[v0.4.26-Kandidat](v0.4.26.md) — Bedarfswizard, Edit, Footprint und gezielte Entwicklungsprüfungen; noch nicht veröffentlicht.
++
++[v0.4.25](v0.4.25.md) — veröffentlichte Basis: Core-loser App-Pfad und minimales Manifest.
+ 
+ 
+ ## Aktuelle Version
+ 
+-[BaseHarbor v0.4.24](v0.4.24.md): Entwickler-Highlights und Kompatibilitätshinweise.
++[BaseHarbor v0.4.25](v0.4.25.md): Core-loser App-Pfad und minimales Manifest.
+ 
+ Die Nachweise beziehen sich auf den geprüften gemeinsamen Code-Kandidaten. Dokumentationskorrekturen ändern dessen Runtime-Abnahme nicht.
+ 
+ ## Ältere Release Notes
+ 
++- [v0.4.24](v0.4.24.md)
+ - [v0.4.23](v0.4.23.md)
+ - [Release-Archiv (EN)](https://mcpdev80.github.io/baseharbor/releases/)
+diff --git a/docs/de/releases/v0.4.26.md b/docs/de/releases/v0.4.26.md
+new file mode 100644
+index 00000000..dc3905e4
+--- /dev/null
++++ b/docs/de/releases/v0.4.26.md
+@@ -0,0 +1,65 @@
++# BaseHarbor v0.4.26
++
++Notizen zum Release-Kandidaten; noch nicht veröffentlicht.
++
++## Erstellen und ändern, was die Anwendung braucht
++
++Interaktives `baha app new` bietet eine bearbeitbare Bedarfscheckliste, optionale
++Target-bezogene Provider-Auswahl und eine Vorschau auf Abhängigkeiten und Footprint.
++SQL, Cache, geschützte Secrets, Anwendungsanmeldung oder TLS/HTTPS stehen zuerst
++bereit; weitere Anforderungen bleiben verfügbar. Keine verwalteten Capabilities
++zu wählen ist gültig. Mit `create-only` entstehen Projektdateien ohne Runtime-Start.
++
++`baha app edit` lädt vorhandene benannte Anforderungen und Provider-Präferenzen.
++Prüfe Änderung und Folgen vor dem Anwenden durch den bestehenden Lifecycle.
++No führt zur erhaltenen Auswahl zurück. Cancel und EOF vor Zustimmung lassen
++die Änderung unangewendet. Geänderte Pläne brauchen neue Vorschau und Zustimmung.
++
++`baha app footprint show` liefert denselben Target-bezogenen Footprint für
++menschenlesbare und JSON-Ausgabe. Schätzungen und unbekannte Werte bleiben
++kenntlich; ein Plan ist kein Nachweis tatsächlicher Bereitschaft.
++
++## Automation mit denselben Entscheidungen
++
++MCP entdeckt die registrierten Edit- und Footprint-Operationen. Edit verwendet
++einen Vorschlag und eine separat bestätigte Apply-Phase mit denselben Ownership-,
++Autorisierungs- und Folgenprüfungen. Provider-Präferenzen bleiben Target-eigen.
++Portabler Anwendungsbedarf enthält weder Provider-Produkte noch selbst vergebene IDs.
++
++## Korrekturen an Backup und Recovery
++
++Die Workload-Stop-Phase eines Anwendungs-Backups stoppt nur die ausgewählten
++Repository-Services. SQL wird dabei nicht als Teil der Workload gestoppt. Unterbrochene
++Stop-Vorgänge lösen eine zeitlich begrenzte Wiederherstellung durch den bestehenden
++Lifecycle aus. Der ursprüngliche Fehler und mögliche Recovery-Fehler bleiben
++sichtbar. PostgreSQL-Backup und Restore verwenden die erhaltene Datenbankidentität
++und geschützte TLS-Zugangsdaten.
++
++Runtime-Rücknahme löst ohne Provider-Präferenzen auf. Die gespeicherten
++Präferenzen des Deployments bleiben für die Wiederherstellung erhalten; andere
++Targets und der erhaltene Runtime-Owner bleiben unverändert. MCP Edit bewahrt typisierte Ablehnungen und
++Details zu Teilergebnissen, wenn Apply fehlschlägt.
++
++## Gezieltere Entwicklungsprüfungen
++
++Entwicklung verwendet kleine Task-Pull-Requests, vertrauenswürdige Wirkungsplanung,
++ausgewählte Checks, isolierte Ausführung und authentifizierte Abschlussprüfung.
++Unbekannte Auswirkungen und fehlende Nachweise blockieren die Qualifikation.
++Kompatible Nachweise werden nur bei vom Verifier bestätigten Eingaben wiederverwendet;
++Änderungen können sich nicht selbst autorisieren.
++
++## Kompatibilität und Sicherheit
++
++- Docker/Compose und natives rootless Podman/Quadlet behalten ihre Support-Grenzen.
++- Interaktives New und Edit benötigen ein Terminal. Explizite Erstellungsargumente
++  bleiben für Automation verfügbar. Gewöhnliches `--yes` ersetzt weder
++  Folgenbestätigungen noch separate Zustimmung zur Datenlöschung.
++- Geteilte Ressourcen, geschützte Zugangsdaten und erhaltene Daten unterliegen
++  weiterhin dem bestehenden Lifecycle. Nicht unterstützte Providerwechsel bleiben blockiert.
++- Bestehende Console- und Connector-Operationen behalten ihren bisherigen Umfang.
++  Dieses Release ergänzt keinen künftigen Console-Wizard, Onboarding oder Plattform-Support.
++- Eine Migration selbst vergebener Anwendungs-IDs ist nicht vorgesehen.
++
++[Anwendungsbedarf erstellen und ändern](../how-to/application-needs.md) beschreibt
++den Ablauf. Diese Notizen beschreiben die Oberfläche des Kandidaten; native
++Runtime- und vollständige Ökosystem-Qualifikation bleiben separate Release-Anforderungen.
+diff --git a/docs/de/tutorials/getting-started.md b/docs/de/tutorials/getting-started.md
+index 6c01a067..91cdf176 100644
+--- a/docs/de/tutorials/getting-started.md
++++ b/docs/de/tutorials/getting-started.md
+@@ -2,6 +2,8 @@
+ 
+ Dieser Einstieg bringt eine bestehende Anwendung unter BaseHarbor zum Laufen, ohne dass du Provider-Interna verstehen oder das Manifest manuell bearbeiten musst.
+ 
++Mit dem [Bedarfswizard](../how-to/application-needs.md) erstellst du ein Projekt interaktiv, änderst seine Anforderungen und prüfst seinen Target-Footprint.
++
+ ## Mit den Anforderungen der Anwendung beginnen
+ 
+ Eine unterstützte lokale Workload ohne verwaltete Capabilities läuft ohne
+diff --git a/docs/how-to/application-needs.md b/docs/how-to/application-needs.md
+new file mode 100644
+index 00000000..bf059afd
+--- /dev/null
++++ b/docs/how-to/application-needs.md
+@@ -0,0 +1,124 @@
++# Create and edit application needs
++
++Choose what your application needs; BaseHarbor resolves compatible providers on
++the selected Target. You can keep the automatic choice or select an available
++instance without putting provider products into the portable application contract.
++
++## Create an application
++
++Check the effective Target from a parent directory with room for a new project:
++
++```bash
++baha target show
++baha app new
++```
++
++Enter an application name, project location and development stack. Keep
++`create-only` to generate project files without starting containers or deploying
++providers. Choose `run` only when you also want to continue into the separately
++authorized application lifecycle.
++
++The checklist offers SQL, cache, protected application secrets, application login
++and TLS/HTTPS. Additional needs are available through the checklist's disclosure
++row. Review preselected needs and deselect anything you do not need. Selecting
++nothing is valid; a usable application still needs a supported workload.
++Application login means end-user OIDC, not operator access or service credentials.
++TLS and secrets do not implicitly select application login.
++
++Use the arrow keys to move and Space to toggle a need. Enter opens the preview.
++For example, select SQL for an order API; select cache only if the application
++uses one. You do not need to choose a database product to keep the automatic
++provider selection.
++
++## Choose an optional provider
++
++The selection view shows compatible instances, the selected instance and its
++reason for each requirement on the current Target. Keep **Automatic** unless a
++specific available instance is required. Press P in the New checklist to enter
++the displayed requirement and instance IDs. For example, if these exact IDs are
++listed:
++
++```text
++database.sql/default postgresql/shared/team
++```
++
++In New, entering `database.sql/default automatic` resets that preference.
++An instance from another Target, a missing instance or an incompatible instance
++is not a valid substitute. Resolve the displayed provider or policy blocker
++before continuing; confirmation does not make an unsupported provider executable.
++
++Application needs belong to `baseharbor.yaml`. Explicit provider preferences
++belong to protected Target/deployment state. Different Targets can bind the same
++portable intent differently. BaseHarbor assigns the application ID; do not add
++`app.id` to authored YAML.
++
++## Review before writing
++
++The preview explains selected providers, reused or new dependencies, containers
++and memory where attribution is available. Measured, estimated and unknown values
++remain distinct. Provider consequences describe affected applications, access and
++retained or deleted material; a retained file is not proof of continued access.
++
++**No** returns to the checklist with need and provider selections preserved.
++You can repeat this loop. Cancel or EOF before confirmation writes nothing.
++A changed Target plan requires a refreshed preview and new consent.
++
++Confirming `create-only` writes the project and its selected Target preferences;
++it does not prove runtime readiness. Enter the generated project directory and
++start it when ready:
++
++```bash
++baha up
++baha status
++baha doctor
++```
++
++## Edit an existing application
++
++Run inside its repository, with the intended Target selected:
++
++```bash
++baha app edit
++```
++
++Existing named needs and provider preferences are loaded first. Edit currently
++uses line-oriented input: type `up`, `down` or `space`, then Enter to submit each
++action. A blank line opens the preview. To select an instance actually shown in
++the view, enter:
++
++```text
++provider database.sql/default postgresql/shared/team
++```
++
++To reset an explicit Edit preference, enter `provider database.sql/default automatic`
++for the requirement shown in the view. The next preview uses automatic resolution.
++
++At the Edit preview, type `yes` to continue or `no` to return to selection.
++A blank line also returns; `cancel` exits without applying. Edit rechecks the
++current intent, ownership and consequence plan before using the existing
++apply/verify lifecycle. Removing a need, changing a provider and deleting data
++are separate decisions. Required consequence acknowledgements and separate data
++deletion consent are not replaced by `--yes`. Failed or interrupted execution
++reports partial results rather than an unverified success.
++
++Interactive New and Edit require a terminal. For deterministic creation, use
++explicit New arguments from the [command index](../cli/command-index.md).
++MCP exposes `baseharbor.app.edit` as `propose` followed by `apply` with the matching
++proposal and fresh consent; use the [MCP reference](../reference/mcp.md) for the
++current schema. Existing Console and Connector consumers retain their supported
++operations; these CLI commands do not add a new Console wizard or remote adapter.
++
++## Inspect the footprint
++
++These commands read the same Target-bound footprint without changing resources:
++
++```bash
++baha app footprint show
++baha app footprint show --details
++baha app footprint show -o json
++```
++
++Requested or planned resources are not live observations. Use status and doctor
++after execution to verify actual readiness. For limits, see
++[application commands](../cli/applications.md) and
++[platform support](../reference/platform-support.md).
+diff --git a/docs/index.md b/docs/index.md
+index b73c54f2..5f218373 100644
+--- a/docs/index.md
++++ b/docs/index.md
+@@ -12,7 +12,7 @@ BaseHarbor brings applications and their backends together on verified Linux Tar
+ [Get started](tutorials/getting-started.md){ .md-button .md-button--primary }
+ [GitHub](https://github.com/mcpdev80/baseharbor){ .md-button }
+ 
+-Documentation for the **BaseHarbor v0.4.25 candidate**; the published baseline is v0.4.24. Published versions and installation binaries are available in the [GitHub releases](https://github.com/mcpdev80/baseharbor/releases).
++Documentation for the **BaseHarbor v0.4.26 candidate**; the published baseline is v0.4.25. Published versions and installation binaries are available in the [GitHub releases](https://github.com/mcpdev80/baseharbor/releases).
+ 
+ ## From repository to running application
+ 
+diff --git a/docs/releases/index.md b/docs/releases/index.md
+index c83045b8..ebb8ffb4 100644
+--- a/docs/releases/index.md
++++ b/docs/releases/index.md
+@@ -1,6 +1,8 @@
+ # Release notes
+ 
+-[v0.4.25 candidate](v0.4.25.md) — Core-less application path and minimal authoring; not yet published.
++[v0.4.26 candidate](v0.4.26.md) — application needs wizard, Edit, Footprint and targeted development checks; not yet published.
++
++[v0.4.25](v0.4.25.md) — published baseline: Core-less application path and minimal authoring.
+ 
+ 
+ Release notes record delivered behavior. Future planning belongs in GitHub Issues.
+diff --git a/docs/releases/v0.4.26.md b/docs/releases/v0.4.26.md
+new file mode 100644
+index 00000000..ac7eb686
+--- /dev/null
++++ b/docs/releases/v0.4.26.md
+@@ -0,0 +1,62 @@
++# BaseHarbor v0.4.26
++
++Release candidate notes; not yet published.
++
++## Create and change what your app needs
++
++Interactive `baha app new` offers an editable needs checklist, optional
++Target-specific provider selection and a preview of dependencies and footprint.
++Start with SQL, cache, protected secrets, application login or TLS/HTTPS;
++additional needs remain available. Selecting no managed capabilities is valid.
++Keep `create-only` to generate a project without starting its runtime.
++
++`baha app edit` loads the existing named requirements and provider preferences.
++Review the change and its effects before applying it through the existing
++lifecycle. No returns to the preserved selection; Cancel and EOF before consent
++leave it unapplied. Changed plans need a fresh preview and confirmation.
++
++`baha app footprint show` exposes the same Target-bound footprint in human
++and JSON output. Estimates and unknown values remain explicit; plans do not
++masquerade as live readiness evidence.
++
++## Automation with the same decisions
++
++MCP discovers the registered Edit and Footprint operations. Edit uses a proposal
++and a separately consented apply phase, with the same ownership, authorization
++and consequence checks. Provider preferences remain Target-owned; portable
++application intent contains no provider product choice or developer-authored ID.
++
++## Backup and recovery corrections
++
++The workload-stop phase of application backup stops only the selected repository
++services, without stopping SQL as part of the workload stop. Interrupted writer
++stops trigger bounded recovery through the existing lifecycle and retain the
++original failure together with any recovery failure. PostgreSQL backup and
++restore use the retained database identity and protected TLS credentials.
++
++Runtime withdrawal resolves without provider preferences while preserving the
++deployment’s persisted preferences for recovery, its retained owner and other Targets.
++MCP Edit preserves typed refusal and partial-result details when apply fails.
++
++## More focused development checks
++
++Development uses small task pull requests, trusted impact planning, selected
++checks, isolated execution and authenticated final verification. Unknown impact
++or missing evidence blocks qualification. Compatible evidence is reused only
++when the verifier proves its inputs; changes do not authorize themselves.
++
++## Compatibility and security
++
++- Docker/Compose and native rootless Podman/Quadlet retain their support limits.
++- Interactive New and Edit need a terminal; explicit creation arguments remain
++  available for automation. Ordinary `--yes` does not replace consequence
++  acknowledgements or separate consent to delete data.
++- Shared resources, protected credentials and retained data remain governed by
++  the existing lifecycle. Unsupported provider transitions stay blocked.
++- Existing Console and Connector operations retain their current scope; this
++  release does not add the future Console wizard, onboarding or platform support.
++- No migration for developer-authored application IDs is provided.
++
++See [Create and edit application needs](../how-to/application-needs.md) for the
++workflow. These notes describe the candidate surface; native runtime and complete
++ecosystem qualification remain separate release requirements.
+diff --git a/docs/tutorials/getting-started.md b/docs/tutorials/getting-started.md
+index 5fdc1f06..4bb0ce6f 100644
+--- a/docs/tutorials/getting-started.md
++++ b/docs/tutorials/getting-started.md
+@@ -2,6 +2,8 @@
+ 
+ This tutorial gets an existing application running under BaseHarbor without requiring provider knowledge or manual manifest editing.
+ 
++Use the [needs wizard](../how-to/application-needs.md) to create a project interactively, change its requirements and inspect its Target footprint.
++
+ ## Start with what your application needs
+ 
+ A supported local workload with no managed capabilities runs without installing
+diff --git a/mkdocs.de.yml b/mkdocs.de.yml
+index ae3844d9..acefe0bd 100644
+--- a/mkdocs.de.yml
++++ b/mkdocs.de.yml
+@@ -61,6 +61,7 @@ nav:
+ - Applications:
+   - Application Contract: explanation/application-contract.md
+   - Application-Befehle: cli/applications.md
++  - Bedarf erstellen und ändern: how-to/application-needs.md
+   - Core-Workflow: cli/core.md
+   - Umgebungen: how-to/environments.md
+   - Backup und Restore: how-to/backup-restore.md
+diff --git a/mkdocs.yml b/mkdocs.yml
+index 6bc25986..317a15e1 100644
+--- a/mkdocs.yml
++++ b/mkdocs.yml
+@@ -72,6 +72,7 @@ nav:
+   - Applications:
+       - Application contract: explanation/application-contract.md
+       - Application commands: cli/applications.md
++      - Create and edit needs: how-to/application-needs.md
+       - Core workflow: cli/core.md
+       - Environments: how-to/environments.md
+       - Backup & restore: how-to/backup-restore.md

@@ -1,0 +1,51 @@
+diff --git a/.github/workflows/release-integration.yml b/.github/workflows/release-integration.yml
+index 605ac84..3029002 100644
+--- a/.github/workflows/release-integration.yml
++++ b/.github/workflows/release-integration.yml
+@@ -4,6 +4,7 @@ name: Release Integration · Connector
+     branches:
+     - work/v0.4.24-integrations-docs
+     - work/v0.4.25-integrations-docs
++    - work/v0.4.26-integrations-docs
+ permissions:
+   contents: read
+   actions: read
+@@ -26,7 +27,7 @@ jobs:
+       id: core
+       shell: bash
+       run: "set -euo pipefail\npython3 - <<'PYTHON' >> \"$GITHUB_OUTPUT\"\nimport json, os, re\nallowed = {'work/v0.4.24-integrations-docs':\
+-        \ '0.4.24', 'work/v0.4.25-integrations-docs': '0.4.25'}\nrelease = allowed[os.environ['GITHUB_REF_NAME']]\nwith open('integration-candidate.json')\
++        \ '0.4.24', 'work/v0.4.25-integrations-docs': '0.4.25', 'work/v0.4.26-integrations-docs': '0.4.26'}\nrelease = allowed[os.environ['GITHUB_REF_NAME']]\nwith open('integration-candidate.json')\
+         \ as f: candidate = json.load(f)\nassert candidate['schema'] == 'baseharbor.ecosystem-candidate/v1' and candidate['release']\
+         \ == release\nfor name in ['core', 'console']:\n    assert re.fullmatch('[0-9a-f]{40}', candidate[name])\n    print(name\
+         \ + '=' + candidate[name])\nPYTHON\n"
+diff --git a/README.md b/README.md
+index 79bf3a8..4fe8041 100644
+--- a/README.md
++++ b/README.md
+@@ -1,12 +1,13 @@
+ # BaseHarbor Node Connector
+ 
+-## v0.4.25 candidate compatibility
++## v0.4.26 candidate compatibility
+ 
+-This branch pins the exact Core, Demo and Console candidate in
++The final v0.4.26 freeze must pin the exact Core, Demo and Console candidate in
+ `integration-candidate.json`. Native enrollment/mTLS, renewal/revocation,
+ remote Application lifecycle and the real Console browser journey must pass
+ against this matrix before pre-release readiness is claimed. Source tests
+-alone are not that acceptance. See [Core PR #881](https://github.com/mcpdev80/baseharbor/pull/881).
++alone are not that acceptance. The current draft retains historical source pins
++until the v0.4.26 Core candidate is fixed.
+ Product architecture and supported operations remain unchanged.
+ 
+ 
+@@ -18,7 +19,7 @@ The Node Connector is **not** a BaseHarbor control plane, not a Runtime Provider
+ 
+ ## BaseHarbor v0.4.24 compatibility
+ 
+-The v0.4.24 code candidate has completed joint native Docker and rootless Podman acceptance and the full Core pre-release evidence check. Publication remains pending. `integration-candidate.json` records the immutable tested code dependencies; documentation changes do not replace these source bindings.
++The published v0.4.24 baseline completed joint native Docker and rootless Podman acceptance and the full Core pre-release evidence check. Its historical source bindings are recorded in the release integration records; they do not qualify the current v0.4.26 candidate.
+ 
+ The accepted workflows include Core setup, managed Node enrollment, outbound mTLS, renewal/revocation and reconnect, remote application plan/apply/status/doctor/destroy, real Console OIDC/RBAC, events, logs, terminal and credential/CA rotation. Core remains authoritative for state, policy, provider placement and reconciliation. Kubernetes/OpenShift use their native APIs and do not require a Node Connector.
+ 

@@ -1,0 +1,42 @@
+[
+  {
+    "file": "demo-combined-unpublished.patch",
+    "bytes": 102379,
+    "sha256": "fcb6f853217822af3c8383dea2ceb35f27b12e5cda80b23c18e8d2ba8a0aa6c6",
+    "source_worktree": "baseharbor-demo-integrated",
+    "source_head": "2adc744d9a5f6e568bce6dde8c44e9381080f8c2",
+    "state": "handoff evidence only; not product integration or acceptance"
+  },
+  {
+    "file": "demo-sql-classification-uncommitted.patch",
+    "bytes": 6272,
+    "sha256": "e793bf3ca641eba8845c6ca24224327a75126905dd1b8b37ad264745d66d15c5",
+    "source_worktree": "baseharbor-demo-new-edit",
+    "source_head": "e28acf20842a1393588793637ed40c856fad8869",
+    "state": "handoff evidence only; not product integration or acceptance"
+  },
+  {
+    "file": "docs-16-paths-unpublished.patch",
+    "bytes": 31224,
+    "sha256": "63ac7494aafc661b74455e96ff5282376825122b7d5a6e6e6aac8897c10be227",
+    "source_worktree": "baseharbor-docs-213c",
+    "source_head": "0c8a26c8e9c9be6952f3d5864a99d2dfed9d8e2b",
+    "state": "handoff evidence only; not product integration or acceptance"
+  },
+  {
+    "file": "console-pending-unpublished.patch",
+    "bytes": 5542,
+    "sha256": "f3dc1b1143cd962682f8cf58dd50c5472f6192c7c46ef429c00130d873214eda",
+    "source_worktree": "baseharbor-console-candidate",
+    "source_head": "9c33773169c50913172cc81bda455c73df197d55",
+    "state": "handoff evidence only; not product integration or acceptance"
+  },
+  {
+    "file": "connector-pending-unpublished.patch",
+    "bytes": 3348,
+    "sha256": "f088c1a57605e3f15e775deb483777da6f0a3d74d04eb22bbb746ea97e8137a7",
+    "source_worktree": "baseharbor-connector-candidate",
+    "source_head": "1116c00919dec18cde187759dbf59b9c3488b853",
+    "state": "handoff evidence only; not product integration or acceptance"
+  }
+]
