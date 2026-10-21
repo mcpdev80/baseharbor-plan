@@ -9,29 +9,30 @@ parent: v0.4.26
 owner: "Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)"
 depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#998]
+prs: [mcpdev80/baseharbor#998, mcpdev80/baseharbor#1026]
 sources: ["mcpdev80/baseharbor#921"]
 source_updated: "2026-10-15T16:45:53Z"
 labels: [area/dx, area/compatibility]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1026", "https://github.com/mcpdev80/baseharbor/commit/fe2d0c4a8c1df2d15058e338abb78adeb4cc9b83", "https://github.com/mcpdev80/baseharbor/actions/runs/39621449266", "https://github.com/mcpdev80/baseharbor/actions/runs/39605072620"]
 ---
 
-- [ ] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/active #view/active #area/cli #kind/task
+- [x] core-921 · CLI and MCP: register new interfaces consistently #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation) · **Priority:** critical  
-    **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
+    **PR:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998), [baseharbor#1026](https://github.com/mcpdev80/baseharbor/pull/1026)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1026), [proof 2](https://github.com/mcpdev80/baseharbor/commit/fe2d0c4a8c1df2d15058e338abb78adeb4cc9b83), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39621449266), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39605072620)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md)  
 **Required by:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)  
 **Priority:** critical  
-**PRs:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
+**PRs:** [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998), [baseharbor#1026](https://github.com/mcpdev80/baseharbor/pull/1026)  
 **Source:** [baseharbor#921](https://github.com/mcpdev80/baseharbor/issues/921)
 <!-- /generated:links -->
 
@@ -70,6 +71,14 @@ The finished separate handlers are reachable consistently through the real CLI/J
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-21 — ACCEPTED: real registration, SDK and native proof integrated
+
+- Owner-authorized Maintainer acceptance: [#1026](https://github.com/mcpdev80/baseharbor/pull/1026) merged as `fe2d0c4a8c1df2d15058e338abb78adeb4cc9b83` after every one of seventeen required validations plus authenticated final verification succeeded in [39621449266](https://github.com/mcpdev80/baseharbor/actions/runs/39621449266). Command discovery/help, registration, machine adapters, provider choices, five Core921 families, strict EN/DE references/Pages candidate, build/vet/gofmt and source contracts all PASS.
+- Reviewed native source `b31fe8918e319e3ad1505ffaaa1209c1343a5d13` remains byte-identical on its complete twenty-path inventory; accepted target changes were integrated only by a Git-proven clean merge. Full [native MCP 39605072620](https://github.com/mcpdev80/baseharbor/actions/runs/39605072620) proves actual complete coreless SQL edit, wrong-consent/stale Apply refusal, persisted-state invariance and cleanup. Fourteen SDK cases and coreless prerequisites also pass without skipped tests.
+- Coverage predecessor is accepted with this exact source and actual check inventory. Original #998 is closed as superseded, preserving its branch/source and historical description. No rejected historical head is retroactively accepted.
+- This component acceptance is registration/handler/contract acceptance. Native New/Edit consumer journeys and final candidate coverage remain separate core-923 prerequisites; no complete release qualification is implied.
+
 
 ### 2026-10-21 — Owner-authorized recovery corrects the current native proof
 

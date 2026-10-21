@@ -9,27 +9,28 @@ owner: Flash (codeman w1-baseharbor)
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1016, mcpdev80/baseharbor#998]
+prs: [mcpdev80/baseharbor#1016, mcpdev80/baseharbor#1021, mcpdev80/baseharbor#1026]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1016", "https://github.com/mcpdev80/baseharbor/actions/runs/39594986570", "https://github.com/mcpdev80/baseharbor/pull/1021", "https://github.com/mcpdev80/baseharbor/actions/runs/39612685995", "https://github.com/mcpdev80/baseharbor/actions/runs/39621449266"]
 ---
 
-- [ ] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
+- [x] t-20261019-core921-coverage-binding · CI: bind reviewed core-921 registration coverage #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
+    **PR:** [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#1021](https://github.com/mcpdev80/baseharbor/pull/1021), [baseharbor#1026](https://github.com/mcpdev80/baseharbor/pull/1026)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1016), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39594986570), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1021), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39612685995), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/39621449266)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998)  
+**PRs:** [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#1021](https://github.com/mcpdev80/baseharbor/pull/1021), [baseharbor#1026](https://github.com/mcpdev80/baseharbor/pull/1026)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -60,6 +61,13 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+### 2026-10-21 — ACCEPTED: exact twenty-path binding exercised successfully
+
+- Owner-authorized acceptance: independently reviewed binding infrastructure #1016 is integrated; exact native-proven Core921 source b31fe891 is separately bound by accepted [#1021](https://github.com/mcpdev80/baseharbor/pull/1021), merge9f2c67b2, [CI39612685995](https://github.com/mcpdev80/baseharbor/actions/runs/39612685995). SHA/content/status/inventory and clean target/integration constraints remain mandatory; real Git mutation negatives pass.
+- Final product [#1026](https://github.com/mcpdev80/baseharbor/pull/1026) normally integrated accepted trusted base, matched exactly twenty unchanged reviewed paths, selected all seventeen mandatory checks and passed every check plus final authenticated verification in [39621449266](https://github.com/mcpdev80/baseharbor/actions/runs/39621449266). Merge `fe2d0c4a8c1df2d15058e338abb78adeb4cc9b83` completes the actual downstream requalification required by this task.
+- Binding bootstrap and current product qualification are complete; prior #1007/#1011/#1014 and original #998 are closed as superseded, with histories preserved. This card must no longer remain active solely because historical handoffs below describe the former blocker. Consumer/runtime release acceptance remains separate.
+
 
 ### 2026-10-21 — Full real MCP edit lifecycle PASS; exact-source activation underway
 

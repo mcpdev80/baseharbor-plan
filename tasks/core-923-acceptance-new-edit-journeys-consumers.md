@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md)  
+    **Needs:** [core-922](core-922-docs-new-edit-provider-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
