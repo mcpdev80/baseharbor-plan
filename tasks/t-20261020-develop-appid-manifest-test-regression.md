@@ -51,6 +51,12 @@ evidence: []
 
 ## Handoff / status — 2026-10-20 (BLOCKED)
 
+### 2026-10-21 — All eight native Docker families PASS; exact-source integration outstanding
+
+- Actual current [39619782116](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), job119290584209, exact source `c1337192e06e63f8210ace9e5687d8dc8f70f6d2`, proves Repository109.43s, Backend73.78s, WorkloadOnly60.02s, Build90.45s, Multi4.88s, ControlPlaneRecoveryHA255.63s, Loki49.25s and Tempo20.39s. All eight tests and five packages PASS without skips in this one run; no historical composition.
+- Verified rootless UID1001, Go1.26.9, exact source/image/binary equality, Doctor, reset, owned cleanup and mandatory JSON verifier PASS. Artifact12355416509, SHA256 `dbec35c8fcc0101e3b9cfae79030061bb8346ffe77832cf93764887e5015d5a4`, was independently downloaded and verified.
+- The five-file Docker correction still needs independent trusted qualification and normal integration with current required CI. Task remains ACTIVE for this actual integration and final develop candidate check; the previous failed whole-Docker run is historical, not its current blocker.
+
 ### 2026-10-21 — Native repository lifecycle now PASS; integration and remaining Docker fixtures active
 
 - Earlier app.id/parser, canonical-state and stale-plan blockers are resolved. Actual [39615461749](https://github.com/mcpdev80/baseharbor/actions/runs/39615461749), exact b83a53876bcf6f8649519b545e3cbaa7cc47cf74, proves TestRepositoryWorkflowRealLifecycle PASS103.57s and real backend lifecycle PASS65.14s. Parser contract remains unchanged; bounded consent never refreshes stale plans automatically.

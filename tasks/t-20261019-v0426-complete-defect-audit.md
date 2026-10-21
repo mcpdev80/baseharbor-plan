@@ -59,6 +59,14 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Current integration and remaining proof gaps
+
+- Core921 accepted via #1026 / fe2d0c4a, CI39621449266; Podman complete recovery accepted via #1027 / 213c15e4, CI39623691937 and real native39605258769. Original #998/#995/#990 closed as superseded with history retained. Component acceptance does not imply final release readiness.
+- Docker native8 complete current-source PASS39619782116 and independently verified artifact12355416509 now exist. Exact five-file trusted qualification/integration remains active; no additional native run is triggered before complete source preparation.
+- Demo strict MCP tool-list is stale, native CLI New/Edit journeys are absent from existing gate fixtures, and cleanup/diagnostics inspect/unpause ambient containers. Disjoint bounded fixes and real-process regressions are assigned under this audit. Final Core/docs and four-consumer freeze follows those demonstrated defects; final gate coverage, Pages candidate and source preflight remain outstanding.
+- Planning ACTIVE counts now reflect actual work: accepted registration/binding and three accepted Podman slices are closed. Waiting dependencies remain waiting; original claims and failed evidence are preserved.
+
+
 ### 2026-10-21 — Coherent trusted-base API readiness repair qualified locally; real new native run registered
 
 - Final-check race has two demonstrated causes: missing workflow_policy dependency and delayed authenticated API lifecycle results even after scheduler dependencies finish. Coherent frozen source `013d7e4d491afc58a31c7934b371ab0dc35f3346`, tree `2ac88a4859b135cbd27027ed722d227503d5e8a0`, contains exactly ci.yml, pr-authenticated-results.py and its tests. The earlier 74ef two-file source is deliberately no longer qualified.
