@@ -111,3 +111,9 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 - CI policy fix #1009 is merged into `develop` at `b7f920ab6b7890a1a9ca7fdf5b0631c172b13d34`.
 - #1008 branch `fix/t-20261020-develop-appid-manifest` was advanced from `0e213d42c74cfdb91964592c17e3914a848207b9` to merge commit `652891a3f2b98c1f4a242ce3d569c0ed8559d912` (parents: previous PR head and current develop); two test files preserved, all other paths inherited from develop, no force push.
 - GitHub reports PR #1008 mergeable; new head CI evidence not yet available at handoff. Keep task blocked until required hosted checks and docker-runtime acceptance prove the stated acceptance criteria. Previous run `39430265422` is stale and must not be counted as current evidence.
+
+### 2026-10-21 — #1008 merged, release runtime acceptance outstanding
+
+- Current #1008 source `652891a3f2b98c1f4a242ce3d569c0ed8559d912` passed GitHub Actions [39583753055](https://github.com/mcpdev80/baseharbor/actions/runs/39583753055): Trusted Plan, workflow policy, planner tests, CLI guided/build/vet, source contracts, focused Python, CI executor/verifier and PR Selected Checks all green.
+- #1008 merged into develop via squash commit `8a40e60a84ebbe2c7eb3ceb80e2788c5f05903b8`.
+- The PR's targeted Docker runtime job was **skipped**. The task's explicit `TestRepositoryWorkflowRealLifecycle` on develop-head Docker Actions criterion remains unproven. Do not mark full release acceptance complete until separate docker-runtime-acceptance workflow evidence exists.
