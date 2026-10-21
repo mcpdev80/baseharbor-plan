@@ -92,3 +92,11 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 ### 2026-10-20 - lane status
 
 - Fix delivered as draft PR #1008 (test-only, parser untouched). CI shows the coverage-unresolved bootstrap contradiction this card surfaced; o1 investigating legitimate green path vs documented wait-on-#1007.
+
+### 2026-10-21 — CI policy correction in review
+
+- Product fixture remains in draft PR [#1008](https://github.com/mcpdev80/baseharbor/pull/1008), source `0e213d42c74cfdb91964592c17e3914a848207b9`.
+- Narrow CI policy correction is now published as draft [#1009](https://github.com/mcpdev80/baseharbor/pull/1009), source `a0dcacf93c9a6922163f2718f374f05e1e5e9e3e`.
+- Exact two-file/status match, reviewed-source merge-chain proof and hosted validations; no generic `_test.go` exemption or native runtime bypass. Regression tests added for missing/extra/deleted/unreviewed/stale inputs.
+- GitHub Actions run [39582522944](https://github.com/mcpdev80/baseharbor/actions/runs/39582522944) started; result pending when this handoff was written. Do not mark accepted or unblock core-921 until valid current CI and final Docker lifecycle evidence exist.
+- Release v0.4.26 remains **active, not pre-release-ready**; next: qualify #1009, integrate policy, requalify #1008, run native Docker proof, then finish core-921, Podman recovery, core-922 and core-923.
