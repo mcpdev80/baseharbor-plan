@@ -82,3 +82,11 @@ on the real trusted PR planner, executor and authenticated final verifier before
 - #1007 candidate `85e05c1c45f77da2d1d7227d298182bd867ceba9` integrates current develop, retains #1009 exact app.id policy, and is mergeable but CI [39585459895](https://github.com/mcpdev80/baseharbor/actions/runs/39585459895) fails closed on `scripts/pr-check-runner.py` until the independent trusted-base binding exists. All selected Python/CI validations passed.
 - Prerequisite [#1010](https://github.com/mcpdev80/baseharbor/pull/1010) publishes `docs/internal/ci-binding-qualifications.md` with exact three-file statuses, SHA-256 content pins, reviewed head, target/repository and required check IDs. Candidate `#1007` cannot self-authorize. Policy source `d5e73000a137fd2d7f367fbe61477e59d56b66f7`; Actions run [39586018421](https://github.com/mcpdev80/baseharbor/actions/runs/39586018421) queued at handoff.
 - Next: verify #1010 policy CI and trusted-base semantics, merge only if checks pass; requalify #1007 against new develop and verify its required checks. Do not infer acceptance from this note or bypass fail-closed protection.
+
+### 2026-10-21 — final blocker diagnosis after trusted-base replan
+
+- #1010 merged as `ec35a4e30e2bce78e8255eec30de831db41e3f6d`; exact qualification record exists on develop.
+- #1011 CI [39587027723](https://github.com/mcpdev80/baseharbor/actions/runs/39587027723) authenticated the correct `develop` base `ec35a4e3` and unchanged reviewed head `85e05c1c`, but Selected Checks still failed `coverage-unresolved`.
+- Verified root cause: the trusted-base `scripts/pr-gate-plan.py` has no `load_binding_qualification_record` or binding-PR clause; these exist only on #1007 candidate. Thus #1010's record cannot be consumed by the current trusted planner. Re-running #1007/#1011 unchanged is futile.
+- An attempt to publish a planner activation change was rejected by tool safety checks. No planner source change was committed. Independent policy qualification and regression testing are still required before any release qualification or merge.
+- Open release-related PRs at this checkpoint: #1007, #1011, #998, #995, #990. Docker/Podman release runtime evidence and pre-release ecosystem audit remain unverified. Release-ready is false.
