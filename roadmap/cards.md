@@ -6,8 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 28/41 · **Blocked:** 1 · **Waiting:** 5  
-    **Blocker:** [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) — Native Docker 39600001437 passes apply/image/setup and three lifecycle tests but fails stale repository-state assertion and real stale-impact-consent on the ba…  
+    **Accepted tasks:** 28/41 · **Blocked:** 0 · **Waiting:** 5  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next

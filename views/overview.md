@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 7 |
 | review | 1 |
-| blocked | 1 |
+| blocked | 0 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 225 |
@@ -29,6 +29,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-podman-recovery-core-state-owner](../tasks/t-20261018-podman-recovery-core-state-owner.md) | Podman recovery: resolve existing Core/OpenBao state without Compose assumptions | active | high | Flash (codeman w1-baseharbor) | [t-20261017-podman-backup-guided-runtime](../tasks/t-20261017-podman-backup-guided-runtime.md) (open), [t-20261018-podman-recovery-bootstrap-cleanup](../tasks/t-20261018-podman-recovery-bootstrap-cleanup.md) (open) | [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995) |
 | [t-20261019-core921-coverage-binding](../tasks/t-20261019-core921-coverage-binding.md) | CI: bind reviewed core-921 registration coverage | active | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1016](https://github.com/mcpdev80/baseharbor/pull/1016), [baseharbor#998](https://github.com/mcpdev80/baseharbor/pull/998) |
 | [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) | Audit and repair the complete v0.4.26 release scope | active | critical | Codex (Maintainer complete v0.4.26 defect audit) | — | [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005) |
+| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | Docker: prove the accepted app.id fixture on the native develop lifecycle | active | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008) |
 
 ## Ready for review
 
@@ -38,9 +39,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | Docker: prove the accepted app.id fixture on the native develop lifecycle | blocked | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008) |
+None.
 
 ## Ready to assign
 
