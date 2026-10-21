@@ -11,16 +11,16 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1008"]
 sources: []
-blocker: "pr-gate-plan.py has no test-only lane: test fixture fix landed (#1008) but CI coverage gate fails closed (coverage_status=unresolved, empty selected_gates); needs a policy lane mapping audited _test.go fixture changes to static package validations."
+blocker: "Fixture #1008 and exact CI policy #1009 are merged and green. Required native develop Docker lifecycle remains unproved: run 39584767281 fails on unavailable selected rootless socket before runtime tests."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261020-develop-appid-manifest-test-regression · CI/Contract: develop integration tests author app.id in developer manifests; product fix landed (#1008) but CI coverage gate (pr-gate-plan.py) has no test-only lane and fails closed — blocked on policy lane #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #area/contract #kind/bug
+- [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
-    **Blocker:** pr-gate-plan.py has no test-only lane: test fixture fix landed (\#1008) but CI coverage gate fails closed (coverage\_status=unresolved, empty selected\_gates); needs a policy lane mapping audited \_test.go fixture changes to static package val…  
+    **Blocker:** Fixture \#1008 and exact CI policy \#1009 are merged and green. Required native develop Docker lifecycle remains unproved: run 39584767281 fails on unavailable selected rootless socket before runtime tests.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -51,6 +51,13 @@ evidence: []
 3. Independent local review + evidence links on this card.
 
 ## Handoff / status — 2026-10-20 (BLOCKED)
+
+### 2026-10-21 — Corrected current blocker after live runtime lookup
+
+- #1008 and #1009 are merged; their former policy-lane blocker is resolved and must not remain the current board explanation.
+- Triggered [Docker runtime 39584767281](https://github.com/mcpdev80/baseharbor/actions/runs/39584767281) at `f6b50f8757e97b126ca380ee9402a68fd5150d2b` actually FAILED: selected rootless `unix:///run/user/1001/docker.sock` unavailable. Runtime integration, recovery/log/trace steps were skipped. Explicit native `TestRepositoryWorkflowRealLifecycle` acceptance is therefore still missing.
+- A separate JSON-Doctor/preflight correction is prepared; no implicit system-daemon fallback or global cleanup on failed preflight. Task stays blocked for genuine native evidence, not for the already fixed planner policy.
+
 
 Product fix landed and pushed: branch `fix/t-20261020-develop-appid-manifest`
 (HEAD `0e213d42`), draft PR #1008 (base `develop`):

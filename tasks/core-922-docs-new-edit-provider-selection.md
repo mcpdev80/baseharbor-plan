@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: ""
+owner: "Codex (Owner-authorized readiness documentation preparation)"
 depends_on: [core-921, core-900]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,19 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/docs #kind/task
+- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/active #view/active #area/docs #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Waiting for prerequisites**  
+    **Owner:** Codex (Owner-authorized readiness documentation preparation)  
     **Needs:** [core-921](core-921-cli-mcp-register-new-interfaces.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** Codex (Owner-authorized readiness documentation preparation)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#922](https://github.com/mcpdev80/baseharbor/issues/922)
@@ -69,6 +68,13 @@ Developers find a short, accurate New/Edit guide that needs no prior infrastruct
 
 ## Handoff
 
-- Not started.
+### 2026-10-21 — Complete draft and local documentation validation
+
+- Thirteen files are prepared on isolated `docs/v0426-new-edit`: paired New/Edit/provider/footprint guides, paired unpublished v0.4.26 notes, changelog and navigation/entry-point links. Generated CLI/MCP references and consumer pins are untouched.
+- Actual documentation audit, strict EN/DE MkDocs, 158 locale-pair technical-integrity checks and 17,748 rendered links/assets PASS. No Pages deployment, release publication, native success or consumer qualification is claimed.
+- Registration remains unaccepted; preserve this draft and integrate the accepted source before PR qualification/acceptance. The discovered Edit Automatic-reset defect is being corrected separately rather than documented as supported before its implementation passes.
+
+
+- Draft implementation prepared under the explicit complete-readiness mandate; final integration still requires accepted core-921.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.

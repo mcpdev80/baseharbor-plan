@@ -71,6 +71,13 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+### 2026-10-21 — Owner-authorized recovery corrects the current native proof
+
+- Published #998 remains `61d6ab5620eb078aa00b63db72c3ed70e13b1fae` while coherent corrections are batched; historical PR description and older positive source anchors are not current native evidence.
+- Current native fixture pre-wrote desired SQL intent, accepted partial success, and never actually applied wrong consent or a stale proposal. A disjoint correction is checkpointed at `103de2c4fa44907211d336084e9366a3b63bf058`, not yet on the PR ref: real MCP Propose/Apply JSON roundtrips, actual wrong-consent/stale Apply denials, complete verified SQL result and full relevant persisted-state invariance. Six focused tests and Go 1.26.9 vet PASS; actual isolated native execution remains open.
+- Trusted planner activation #1012 is merged with green mandatory CI; corrected #1007 and the final source/native binding are separate pending acceptance gates. Existing Flash history is retained; Codex coordinates the explicit Owner recovery corrections without claiming an independent approval that did not occur.
+
+
 ### 2026-10-20 - docker-runtime CI forensics (not a product defect)
 
 - Hosted `mcp-edit-native` job works as designed: happy path PASSED on ubuntu-24.04; negative re-propose hit `application machine: conflict` (test-side triage in p22 lane).
