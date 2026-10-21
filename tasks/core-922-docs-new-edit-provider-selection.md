@@ -68,6 +68,13 @@ Developers find a short, accurate New/Edit guide that needs no prior infrastruct
 
 ## Handoff
 
+### 2026-10-21 — Current 16-file EN/DE draft validated; final Core dependency retained
+
+- Preserved exactly sixteen owned documentation paths; portable patch `docs-v0426-owned.patch` is ready to apply onto accepted final Core without importing the old unaccepted registration ancestry. Published draft e1206a6a remains an older snapshot; current corrections are locally reviewed and not yet published.
+- Fresh EN/DE strict builds, complete documentation audit, 158 locale pairs and 17,749 rendered references PASS. Notes/changelog now cover actual workload-only backup stop, bounded recovery after partial stop, canonical SQL identity/TLS, detached retirement preferences and typed MCP partial/refusal outcomes. Automatic reset implementation is accepted through #1018; it is no longer an implementation blocker.
+- Consumer draft checks PASS: Console 64 contracts plus architecture, Demo six consent/diagnostic tests, Connector four HTTP-evidence tests and actionlint on affected workflows. No native consumer acceptance or immutable final matrix is claimed. Final accepted Core, docs PR qualification, changelog date, Core → Demo → Console → Connector pins and actual joint runtime gates remain prerequisites. No Pages deployment or release publication.
+
+
 ### 2026-10-21 — Complete draft and local documentation validation
 
 - Thirteen files are prepared on isolated `docs/v0426-new-edit`: paired New/Edit/provider/footprint guides, paired unpublished v0.4.26 notes, changelog and navigation/entry-point links. Generated CLI/MCP references and consumer pins are untouched.
