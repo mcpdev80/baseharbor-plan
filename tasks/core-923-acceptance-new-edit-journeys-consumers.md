@@ -70,6 +70,14 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+### 2026-10-21 — Public MCP proof and concrete New/Edit fixture preparation
+
+- Fresh public client bootstrap defect is corrected in candidate `f762f4480a2eb6b29ceebb35ae4032cb2ce7288c`, not yet accepted. Actual [39626844187](https://github.com/mcpdev80/baseharbor/actions/runs/39626844187), job119314164799, PASS71.07s proves omitted revision through public propose, exact returned desired intent through Apply, real SQL add, coreless execution, wrong/stale consent refusal and zero owned residuals. Test/package PASS with zero skip/fail; downloaded artifact12357012289 SHA256 `a1c4270ffa109484a94064614cf4f62cffe493497c33db261fd7082f58c9ed12` independently verified.
+- Two further bounded corrections remain unaccepted: terminal reader Name delegation restores single No/Cancel/EOF without source/state changes (reviewed source99901ff2); Edit pre-execution refusals retain truthful unchanged state and original error (sourcec6dfb988, including its directly executed existing Guided regression wrapper). No runtime guard or lifecycle engine is relaxed.
+- Demo preparation checkpoint `56661ac9372ce0c5aa296f247e5ebb2f48ce54e2` is local-only and reuses existing guided/data-capabilities/MCP gates, adding actual New/Edit SQL/provider/data/shared journeys and a foreign paused sentinel. Nine helper cases and real daemon-free New/Edit No/Cancel/EOF + MCP/CLI Footprint parity PASS; Docker/Podman executions remain unproven. Cleanup source checkpoints bb9eb892/e6ba5b45 are local-only preparation; fourteen ownership/privacy regressions plus actual trap/error-path checks pass, but final native cleanup acceptance is still open. Sentinel verification must run after actual acceptance teardown and before its separate exact-owner removal.
+- No claimed max11 resource limit is established by current catalogs; do not carry that unverified figure as a blocker. Additional workload/SQL/sentinel resources must fit the real selected runner. Immutable four-consumer pins, actual Docker/rootless Podman journeys and final candidate evidence remain outstanding.
+
+
 ### 2026-10-21 — Concrete acceptance gaps under the authorized complete-release audit
 
 - core-921 is accepted, while core-922 final documentation integration remains open; this card stays PLANNED/WAITING until that real prerequisite is accepted. Bounded fixture preparation is proceeding under the existing complete-release audit, not an accepted native journey.

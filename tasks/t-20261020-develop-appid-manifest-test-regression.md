@@ -9,27 +9,28 @@ owner: "Flash (codeman w1-baseharbor)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1008"]
+prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116"]
 ---
 
-- [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/active #view/active #area/ci #area/contract #kind/bug
+- [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/review #view/review #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
+    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
+**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -49,7 +50,14 @@ evidence: []
 2. No contract semantics change; parser behavior stays fail-closed for non-canonical app.id.
 3. Independent local review + evidence links on this card.
 
-## Handoff / status — 2026-10-20 (BLOCKED)
+## Handoff
+
+### 2026-10-21 — Integrated and REVIEW; final develop-head native qualification pending
+
+- [#1029](https://github.com/mcpdev80/baseharbor/pull/1029) merged as `30e112431b04a7e24e7e7e9ea76a3600e439a988` after all nine selected validations and final verification PASS in [39627285799 attempt2](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2). Independent trusted qualification #1028 is accepted. Exact five source paths are integrated by a proven clean merge; no parser semantics changed.
+- Complete native eight-family source c1337192 passed [39619782116](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116) with no skips; independently verified artifact12355416509 digest remains recorded below. Implementation and integration are finished, so this is REVIEW rather than an active source worker.
+- The task explicitly requires the named repository lifecycle on the final develop head. Final integrated Core includes additional bounded New/Edit fixes before freeze; execute the necessary final native qualification once on that actual candidate. Do not accept this card or imply complete release readiness from the earlier source anchor alone.
+- Original CI attempt1 correctly blocked a persistently nonterminal API cli-vet receipt despite completed steps/logs. The affected job was legitimately rerun; attempt2 has actual authenticated completed/success receipts. No steps/logs inference or final-verifier weakening was used.
 
 ### 2026-10-21 — All eight native Docker families PASS; exact-source integration outstanding
 

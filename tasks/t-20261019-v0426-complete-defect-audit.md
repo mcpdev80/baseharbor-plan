@@ -59,6 +59,15 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+### 2026-10-21 — Docker integrated; remaining bounded product and consumer work
+
+- Current develop `30e112431b04a7e24e7e7e9ea76a3600e439a988`: #1028 trusted Docker qualification and #1029 exact five-path Docker integration accepted, CI39627285799 attempt2 all nine checks/final PASS. Docker card moves REVIEW pending its explicit final develop-head native acceptance, rather than retaining finished implementation as ACTIVE.
+- Public MCP bootstrap candidate f762f448 has fresh complete native proof39626844187 (71.07s, zero skips/fails, independently verified artifact12357012289 digest); independent source qualification/integration remains open. Separate terminal single-No input loss and pre-execution Edit-result accuracy fixes have meaningful red/green regressions; no current acceptance is inferred.
+- Demo-owned cleanup preparation bb9eb892/e6ba5b45 is local-only, with exact Core preview/native-label ownership, bounded redaction, original EXIT/INT/TERM preservation and a fixed post-teardown foreign-sentinel check/remove contract. Actual final native fixture runs remain mandatory.
+- Actions attempt1 metadata twice remained persistently nonterminal despite completed steps/logs. Those are not accepted receipts. Targeted affected-job reruns produced genuine successful authenticated attempt2; no final-verifier change or fabricated PASS. Cache cause is unproven; no speculative transport rewrite is introduced.
+- Planning now has two ACTIVE cards (docs and this release audit), one Docker REVIEW card, and truthful waiting/accepted dependencies. This counts task states, not parallel worker processes. No complete release qualification, immutable final matrix or publication has occurred.
+
+
 ### 2026-10-21 — Current integration and remaining proof gaps
 
 - Core921 accepted via #1026 / fe2d0c4a, CI39621449266; Podman complete recovery accepted via #1027 / 213c15e4, CI39623691937 and real native39605258769. Original #998/#995/#990 closed as superseded with history retained. Component acceptance does not imply final release readiness.
