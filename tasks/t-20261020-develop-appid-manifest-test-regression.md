@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1008"]
 sources: []
-blocker: "Fixture #1008 and exact CI policy #1009 are merged and green. Required native develop Docker lifecycle remains unproved: run 39584767281 fails on unavailable selected rootless socket before runtime tests."
+blocker: "Fixture #1008 and policy #1009 are accepted. Native develop Docker lifecycle remains unproved: persistent runner prerequisite fails in 39594370883; exact-source disposable hosted rootless validation is prepared, not yet executed."
 resolution: ""
 evidence: []
 ---
@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008)  
-    **Blocker:** Fixture \#1008 and exact CI policy \#1009 are merged and green. Required native develop Docker lifecycle remains unproved: run 39584767281 fails on unavailable selected rootless socket before runtime tests.  
+    **Blocker:** Fixture \#1008 and policy \#1009 are accepted. Native develop Docker lifecycle remains unproved: persistent runner prerequisite fails in 39594370883; exact-source disposable hosted rootless validation is prepared, not yet executed.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -51,6 +51,12 @@ evidence: []
 3. Independent local review + evidence links on this card.
 
 ## Handoff / status — 2026-10-20 (BLOCKED)
+
+### 2026-10-21 — Persistent-runner prerequisite isolated; hosted native candidate prepared
+
+- [39591903347](https://github.com/mcpdev80/baseharbor/actions/runs/39591903347) confirmed UID 1001 has no selected rootless socket; runtime tests and reset skipped. Bounded user-session recovery was then tested in [39594370883](https://github.com/mcpdev80/baseharbor/actions/runs/39594370883) at `173a69575cbfc673f6c3a0dd505c99247269e780`; private runtime-directory guard failed before daemon start or reset. No fallback or inferred native success.
+- Prepared disposable hosted rootless Docker validation reuses the existing setup helper, preserves exact Go 1.26.9 candidate binary through resets and verifies the same binary inside a local SHA-bound runtime image. Eight native Test+Package PASS receipts with no skips are mandatory. Local executable regressions passed; actual hosted execution remains pending.
+
 
 ### 2026-10-21 — Corrected current blocker after live runtime lookup
 

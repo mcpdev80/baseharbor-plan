@@ -11,7 +11,7 @@ depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#995]
 sources: []
-blocker: "Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are still missing."
+blocker: "Full native recovery remains unproved: 39593974584 at 71b66ae fails broker readiness using stale edge runtime image. Exact-source runtime-image correction, real Backup/Destroy/Restore and owned-cleanup proof, current source qualification and required CI remain pending."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28","https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74","https://github.com/mcpdev80/baseharbor/actions/runs/39219870611","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610","https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5","https://github.com/mcpdev80/baseharbor/actions/runs/39227471936","https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959","https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673"]
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b
     <!-- generated:card -->
     **Owner:** Codex (Maintainer-authorized bounded \#995 correction; prior Flash claim preserved) · **Priority:** high  
     **PR:** [baseharbor#995](https://github.com/mcpdev80/baseharbor/pull/995)  
-    **Blocker:** Native recovery and owned automatic-cleanup proof at 4ca9881766fc88e850ccdbbc2d837cabb19ebab5, then exact five-file qualification and green Required CI are still missing.  
+    **Blocker:** Full native recovery remains unproved: 39593974584 at 71b66ae fails broker readiness using stale edge runtime image. Exact-source runtime-image correction, real Backup/Destroy/Restore and owned-cleanup proof, current source qualification a…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/560ae9be9c6093a48d1b4b9375286cf4e33fed28), [proof 2](https://github.com/mcpdev80/baseharbor/commit/36310f08467f6e963f080b22936ffbaf5d763b74), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39219870611), [proof 4](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5568575016), [proof 5](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6262605610), [proof 6](https://github.com/mcpdev80/baseharbor/commit/4ca9881766fc88e850ccdbbc2d837cabb19ebab5), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/39227471936), [proof 8](https://github.com/mcpdev80/baseharbor/pull/995#pullrequestreview-5569225959), [proof 9](https://github.com/mcpdev80/baseharbor/pull/995#issuecomment-6263758673)  
     <!-- /generated:card -->
 
@@ -73,6 +73,13 @@ BASEHARBOR_APP_BACKUP_ACCEPTANCE=true BASEHARBOR_TEST_RUNTIME=podman go test ./c
 ```
 
 ## Handoff
+
+### 2026-10-21 — Actual native failure retained; obsolete source blocker replaced
+
+- Current validation source `71b66ae019b4a1dc3af3b158bbb17b085fca25d8` contains fail-closed cleanup correction, five error-path negatives, real independently owned foreign-volume sentinel and narrow nonduplicated Podman workflow route with Go 1.26.9. Existing #995 published head remains `335477ea96c5992c0ec5e64fc4ce16295cf853e7` until this coherent correction is qualified.
+- Actual [39593974584](https://github.com/mcpdev80/baseharbor/actions/runs/39593974584) failed broker readiness before the recovery chain. Rootless setup, exact source/toolchain recording and artifact upload passed; artifact `12344271179` contains real failure receipts. Broker used default edge revision `11a1e76a9a68cf3da7476f2ea811907faef8a233`, not candidate CLI source. Same-source static binary/runtime image verification is now being added before another native attempt.
+- Foreign sentinel identity survived cleanup and was separately removed through its own owner. This does not prove whole owned cleanup or Backup/Restore success. Full native recovery, current exact-source qualification, mandatory CI and Owner-authorized acceptance remain open. Earlier Qwen-only restrictions are superseded by the explicit complete-recovery Owner authorization; ownership/resource protections remain binding.
+
 
 ### 2026-10-19 — Actual full-path correction published; native assignment updated
 
