@@ -100,3 +100,8 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 - Exact two-file/status match, reviewed-source merge-chain proof and hosted validations; no generic `_test.go` exemption or native runtime bypass. Regression tests added for missing/extra/deleted/unreviewed/stale inputs.
 - GitHub Actions run [39582522944](https://github.com/mcpdev80/baseharbor/actions/runs/39582522944) started; result pending when this handoff was written. Do not mark accepted or unblock core-921 until valid current CI and final Docker lifecycle evidence exist.
 - Release v0.4.26 remains **active, not pre-release-ready**; next: qualify #1009, integrate policy, requalify #1008, run native Docker proof, then finish core-921, Podman recovery, core-922 and core-923.
+
+### 2026-10-21 — CI policy accepted and merged
+
+- [#1009](https://github.com/mcpdev80/baseharbor/pull/1009) merged into `develop` as `b7f920ab6b7890a1a9ca7fdf5b0631c172b13d34` after successful GitHub Actions [39582522944](https://github.com/mcpdev80/baseharbor/actions/runs/39582522944): Trusted Plan, workflow policy, planner tests, CI policy, focused Python, executor/verifier tests and PR Selected Checks all successful.
+- #1008 product fixture remains open and needs fresh CI against updated trusted `develop`; native Docker acceptance and final release proof remain pending. Do not mark this task done based only on the policy merge.
