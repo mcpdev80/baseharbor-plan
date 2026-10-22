@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-ci-lanes, t-20261018-r27-registry-access]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-ci-delivery, t-20261018-r27-registry-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
