@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: ""
-depends_on: [t-20261017-release-0-4-27-updates]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-acceptance]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
