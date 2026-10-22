@@ -22,8 +22,9 @@ All claims below verified live by the coordinator (gh/git reads at ~18:10 UTC) u
   (`p23-*.md` successors in board-2026-10-19/-20 folders; three-point-check rule now in RUNBOOK §10).
 
 ## In flight (coordinator-managed lanes)
-- `chore/v0426-core-pin` PR in baseharbor-demo: `baseharbor-core.ref = 2adae47a…` (worker q18; merges via
-  CODEX MERGE when checks are green → produces frozen input D).
+- **DONE 18:5xZ: Demo pin PR #117 MERGED → D = `896dc3cb68a8c9b9585940c4696410de5a338c52`** (core.ref blob == C
+  verified; `codex-merge-1030.md` MERGE-DEMO-PIN). Native dispatch on C+D started (q18); consumer final pins U/N
+  by o16 in flight.
 - Consumer pins (console PR #7, connector PR #8, drafts): **o16 critical finding** — old locks pinned
   `d5417bde`; A/B/C changed contract files, six artifact hashes mismatch at `2adae47a`; refreeze of both
   consumers onto C in progress (`evidence/board-2026-10-22/o16-consumer-pins.md`), demo-dependent fields
