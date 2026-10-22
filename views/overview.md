@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 0 |
+| active | 1 |
 | review | 3 |
 | blocked | 1 |
 | ready | 4 |
@@ -21,7 +21,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261022-cleanup-provenance-order-fix](../tasks/t-20261022-cleanup-provenance-order-fix.md) | Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown | active | not set | Codeman (o23 demo cleanup fix) | — | — |
 
 ## Ready for review
 
@@ -48,7 +50,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 9 open, 33 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 10 open, 33 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 67 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
