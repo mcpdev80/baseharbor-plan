@@ -52,5 +52,6 @@ Lane/evidence index: `evidence/board-2026-10-22/` (38 files). Planning remote be
 
 ## CMD-A matrix triage (q24, run 39853157648)
 26 jobs, 4 failed = 1 REAL-DEFECT + 3 cascade. NOT preview-line related: `ecosystem_release_pins.py:124`
-fetches `release/v0.4.26` in a consumer repo which does not exist yet (freeze-sheet gap -> q24 follow-up
-"step 7b: create refs" recipe). Runtime rows in this run were not exercised (gate never reached).
+fetches `release/v0.4.26` in a consumer repo which does not exist yet. q24 follow-up: NOT a repo gap - the matrix
+dispatch passed a non-existent `consumer_ref` branch; correct usage is empty consumer_ref (auto-resolves
+`work/v0.4.26-integrations-docs`) or its real 40-hex tip. Rerun wave must use those inputs; no branches to create.
