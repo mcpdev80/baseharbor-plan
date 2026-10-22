@@ -8,7 +8,7 @@ parent: v0.4.27
 priority: critical
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates]
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-plan]
+repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
