@@ -70,5 +70,12 @@ owned-container preview/verification in `failure-runtime-diagnostics.sh` `owned_
 
 ## Handoff
 
-- Owner dispatch 2026-10-22 (T3-FIX). Branch `fix/v0426-cleanup-provenance-order`, PR to `main`,
-  kept OPEN. Full evidence in `evidence/board-2026-10-22/o23-demo-cleanup-fix.md`.
+- Owner dispatch 2026-10-22 (T3-FIX). Branch `fix/v0426-cleanup-provenance-order` @ `d9c78b5`,
+  PR #118 to `main` (OPEN). Fix implemented and locally verified (diagnostics compile, fixture
+  all-pass, regression fails on un-fixed D). CI dispatch blocked by a GitHub Actions runner-side
+  `git fetch` exit-13 outage affecting the whole core targeted/Pre-Release fleet (runs
+  39854022100 / 39854057519 / 39854990885 / 39856259550 all abort at checkout, before any gate).
+  Re-dispatch `targeted-demo-acceptance.yml` (workflow 364538116, inputs
+  ref=2adae47a, demo_ref=d9c78b5, runtime=podman, gate=backup-restore) once infra recovers,
+  poll to terminal, record receipt. Full evidence in
+  `evidence/board-2026-10-22/o23-demo-cleanup-fix.md`.
