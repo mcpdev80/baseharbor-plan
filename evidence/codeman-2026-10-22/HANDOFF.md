@@ -24,8 +24,10 @@ All claims below verified live by the coordinator (gh/git reads at ~18:10 UTC) u
 ## In flight (coordinator-managed lanes)
 - `chore/v0426-core-pin` PR in baseharbor-demo: `baseharbor-core.ref = 2adae47a…` (worker q18; merges via
   CODEX MERGE when checks are green → produces frozen input D).
-- Consumer pins (console PR #7, connector PR #8, drafts): Core-side parts applied; demo-dependent values
-  held at PENDING-FREEZE-DEMO until D exists (worker o16).
+- Consumer pins (console PR #7, connector PR #8, drafts): **o16 critical finding** — old locks pinned
+  `d5417bde`; A/B/C changed contract files, six artifact hashes mismatch at `2adae47a`; refreeze of both
+  consumers onto C in progress (`evidence/board-2026-10-22/o16-consumer-pins.md`), demo-dependent fields
+  held at PENDING-FREEZE-DEMO until D exists.
 - Demo native dispatch with the **expanded** set from `codex-review-demo-plan.md` starts only after D.
 
 ## Known-good native evidence (pre-freeze, still applicable per review caveats)
