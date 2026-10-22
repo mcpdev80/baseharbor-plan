@@ -17,6 +17,22 @@ evidence: []
 ---
 
 - [ ] t-20261022-r27-evidence-publisher · evidence publisher #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** critical  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
+**Owner:** unassigned  
+**Priority:** critical  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 
 # Evidence publisher: archive actual proof in baseharbor-plan
