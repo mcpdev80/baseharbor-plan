@@ -27,3 +27,8 @@ Independently demonstrate durable, trusted CI proof with Codeman workers, mainta
 - Changed candidate, missing check, bad signature/hash and unauthorized publication fail closed.
 - Document practical recovery/backup and repository-size limits, release handoff and smallest CI gates.
 - Independent reviewer accepts evidence; do not automatically merge, promote or publish a release.
+
+## Human parity acceptance
+- Demonstrate an ordinary external contributor PR with no custom evidence commands: CI creates, archives, verifies and links the proof automatically.
+- Demonstrate an ordinary maintainer PR and Codeman worker PR following the identical process, including concurrent planning writes.
+- No manual JSON manifest, artifact download, evidence URL copy/paste or special role-specific tooling required.
