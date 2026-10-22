@@ -49,3 +49,8 @@ All claims below verified live by the coordinator (gh/git reads at ~18:10 UTC) u
 5. Prepare acceptance (CODEX REVIEW verdict + owner) — only after 1–3. Publish/tag stay owner-gated.
 
 Lane/evidence index: `evidence/board-2026-10-22/` (38 files). Planning remote before this commit: `e4894fa`.
+
+## CMD-A matrix triage (q24, run 39853157648)
+26 jobs, 4 failed = 1 REAL-DEFECT + 3 cascade. NOT preview-line related: `ecosystem_release_pins.py:124`
+fetches `release/v0.4.26` in a consumer repo which does not exist yet (freeze-sheet gap -> q24 follow-up
+"step 7b: create refs" recipe). Runtime rows in this run were not exercised (gate never reached).
