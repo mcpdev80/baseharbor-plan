@@ -26,6 +26,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-922](core-922-docs-new-edit-provider-selection.md)  
+**Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex (reviewer)  
 **Priority:** not set  
 **PRs:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
