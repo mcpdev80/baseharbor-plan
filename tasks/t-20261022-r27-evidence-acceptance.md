@@ -16,6 +16,9 @@ resolution: ""
 evidence: []
 ---
 
+- [ ] t-20261022-r27-evidence-acceptance · evidence acceptance #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+
+
 # Evidence acceptance: parallel contributors and recovery
 
 ## Goal
