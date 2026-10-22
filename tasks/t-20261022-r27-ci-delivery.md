@@ -16,6 +16,9 @@ resolution: ""
 evidence: []
 ---
 
+- [ ] t-20261022-r27-ci-delivery · ci delivery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+
+
 # Trusted CI readiness: delivery
 
 ## Goal
