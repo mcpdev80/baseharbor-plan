@@ -1,6 +1,6 @@
 # baseharbor-plan
 
-Planning for [BaseHarbor](https://github.com/mcpdev80/baseharbor): roadmap, releases, epics, tasks, decisions and handoffs as plain Markdown. Code, PRs, reviews, CI, evidence and releases stay in the product repositories.
+Planning for [BaseHarbor](https://github.com/mcpdev80/baseharbor): roadmap, releases, epics, tasks, decisions and handoffs as plain Markdown. Code, PRs, reviews, CI execution and releases stay in the product repositories. Starting with v0.4.27, bounded sanitized CI evidence is also automatically archived under this planning repository's `evidence/` tree; source artifacts and trusted CI authorities remain in the product repositories.
 
 > **Status: planning authority on `main`.** Maintain scope, dependencies, ownership and handoffs here. Source GitHub issues retain discussion/history. See the [activation record](migration/cutover-checklist.md); actual Obsidian UI behavior remains unverified.
 
