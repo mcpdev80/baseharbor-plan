@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: "Codex (Owner-authorized readiness documentation preparation)"
 depends_on: [core-921, core-900]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1031]
 sources: ["mcpdev80/baseharbor#922"]
 source_updated: "2026-10-15T16:45:47Z"
 labels: [area/dx]
@@ -17,20 +17,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/blocked #view/blocked #area/docs #kind/task
+- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/review #view/review #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-authorized readiness documentation preparation)  
+    **PR:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
     **Blocker:** Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex (Owner-authorized readiness documentation preparation)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
 **Source:** [baseharbor#922](https://github.com/mcpdev80/baseharbor/issues/922)
 <!-- /generated:links -->
 
