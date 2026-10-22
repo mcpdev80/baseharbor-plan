@@ -10,12 +10,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 3 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 26 |
-| waiting | 234 |
+| waiting | 233 |
 | backlog | 7 |
 | closed | 39 |
 
@@ -23,6 +23,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-923](../tasks/core-923-acceptance-new-edit-journeys-consumers.md) | Acceptance: verify New/Edit journeys and ecosystem consumers | active | not set | Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) (open), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
 | [t-20261022-cleanup-provenance-order-fix](../tasks/t-20261022-cleanup-provenance-order-fix.md) | Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown | active | not set | Codeman (o23 demo cleanup fix) | — | — |
 
 ## Ready for review
