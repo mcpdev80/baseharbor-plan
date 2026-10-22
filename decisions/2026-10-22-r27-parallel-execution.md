@@ -1,3 +1,10 @@
+---
+id: 2026-10-22-r27-parallel-execution
+status: accepted
+date: 2026-10-22
+title: v0.4.27 parallel execution and evidence-first launch
+---
+
 # v0.4.27 parallel execution and evidence-first launch
 
 ## Hard start sequence
