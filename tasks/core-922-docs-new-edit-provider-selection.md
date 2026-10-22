@@ -12,7 +12,7 @@ prs: [mcpdev80/baseharbor#1031]
 sources: ["mcpdev80/baseharbor#922"]
 source_updated: "2026-10-15T16:45:47Z"
 labels: [area/dx]
-blocker: "Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment."
+blocker: ""
 resolution: ""
 evidence: []
 ---
