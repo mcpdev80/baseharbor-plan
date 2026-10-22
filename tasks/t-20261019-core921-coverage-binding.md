@@ -62,6 +62,9 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 ## Handoff
 
+> CURRENT (2026-10-22): binding functions on develop (trusted-base activation #1030 merged 7fbc1ec5); #1007 CLOSED-superseded. Entries below are historical. See evidence/codeman-2026-10-21/HANDOFF.md.
+
+
 ### 2026-10-21 — ACCEPTED: exact twenty-path binding exercised successfully
 
 - Owner-authorized acceptance: independently reviewed binding infrastructure #1016 is integrated; exact native-proven Core921 source b31fe891 is separately bound by accepted [#1021](https://github.com/mcpdev80/baseharbor/pull/1021), merge9f2c67b2, [CI39612685995](https://github.com/mcpdev80/baseharbor/actions/runs/39612685995). SHA/content/status/inventory and clean target/integration constraints remain mandatory; real Git mutation negatives pass.
