@@ -29,7 +29,12 @@ All claims below verified live by the coordinator (gh/git reads at ~18:10 UTC) u
   refroze both consumers: console PR #7 head `0ea88f5` CI SUCCESS incl. source-lock verification;
   connector PR #8 head `570864c` all checks SUCCESS (`o16-consumer-pins.md`). Both DRAFT, merge after native
   dispatch evidence per recipe order.
-- Demo native dispatch with the **expanded** set from `codex-review-demo-plan.md` starts only after D.
+- **Native dispatch executed (f7) on C+D: 1 PASS / 7 FAIL-gates.** Dominant NEW class: guided
+  `new-edit-new-zero-no` missing `Read-only decision preview (not execution)` assertion (suspect Source C
+  surface text; fix mission T1 running, flash lane). Secondary: journey-podman F5-hang-class (likely same
+  root), data-podman 8-min step cap (T4 recipe running), backup-restore-podman cleanup-provenance
+  incomplete (T3 diagnosis running). Static/mcp + backup-restore-docker PASS. Full table:
+  `evidence/board-2026-10-22/f7-native-dispatch.md`. Prepare remains NOT ready until reruns on fixed C2.
 
 ## Known-good native evidence (pre-freeze, still applicable per review caveats)
 - Docker backup-restore `29886110551` success; MCP static parity on earlier candidates;

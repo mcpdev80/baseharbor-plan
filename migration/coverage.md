@@ -19,7 +19,8 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | epic | 6 |
 | epic+task | 1 |
 | external-tooling | 1 |
-| release | 11 |
+| release | 10 |
+| release+task | 1 |
 | roadmap | 1 |
 | split | 2 |
 | task | 65 |
@@ -75,7 +76,7 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | [baseharbor#822](https://github.com/mcpdev80/baseharbor/issues/822) | task | [tasks/core-822-macos-darwin-adapters.md](../tasks/core-822-macos-darwin-adapters.md) |
 | [baseharbor#823](https://github.com/mcpdev80/baseharbor/issues/823) | task | [tasks/core-823-tests-platform-conformance-support.md](../tasks/core-823-tests-platform-conformance-support.md) |
 | [baseharbor#862](https://github.com/mcpdev80/baseharbor/issues/862) | task | [tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) |
-| [baseharbor#873](https://github.com/mcpdev80/baseharbor/issues/873) | release | [releases/v0.4.26.md](../releases/v0.4.26.md) |
+| [baseharbor#873](https://github.com/mcpdev80/baseharbor/issues/873) | release+task | [releases/v0.4.26.md](../releases/v0.4.26.md), [tasks/t-20261022-q20-docs-pages.md](../tasks/t-20261022-q20-docs-pages.md) |
 | [baseharbor#874](https://github.com/mcpdev80/baseharbor/issues/874) | release | [releases/v0.4.27.md](../releases/v0.4.27.md) |
 | [baseharbor#875](https://github.com/mcpdev80/baseharbor/issues/875) | release | [releases/v0.4.28.md](../releases/v0.4.28.md) |
 | [baseharbor#876](https://github.com/mcpdev80/baseharbor/issues/876) | release | [releases/v0.4.29.md](../releases/v0.4.29.md) |

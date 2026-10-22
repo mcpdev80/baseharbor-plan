@@ -11,7 +11,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 0 |
-| review | 2 |
+| review | 3 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 26 |
@@ -29,6 +29,7 @@ None.
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) | Docs: explain New/Edit and provider selection concisely | review | not set | Codex (Owner-authorized readiness documentation preparation) | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031) |
 | [t-20261020-develop-appid-manifest-test-regression](../tasks/t-20261020-develop-appid-manifest-test-regression.md) | Docker: prove the accepted app.id fixture on the native develop lifecycle | review | high | Flash (codeman w1-baseharbor) | — | [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029) |
+| [t-20261022-q20-docs-pages](../tasks/t-20261022-q20-docs-pages.md) | Docs: verify release-note surface for v0.4.26 prepare card | review | not set | Codex (reviewer) | [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) (open) | [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031) |
 
 ## Blocked
 
@@ -47,7 +48,7 @@ None.
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 8 open, 33 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 9 open, 33 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 67 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
