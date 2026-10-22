@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-ingress, t-20261018-r27-ci-lanes, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-ingress, t-20261022-r27-ci-runtime, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
