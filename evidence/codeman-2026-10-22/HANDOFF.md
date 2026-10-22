@@ -62,3 +62,8 @@ fresh CI 10 success/10 conditional-skip). #1039 pending check-generation fix (q2
 reviewed d9c78b57 by fetch-fix c1285a8 -> head-delta review q29 before merge. Codex verdicts: all four review
 cards CHANGES-REQUIRED with concrete recipes (codex-verdicts-2026-10-23.md) - being executed by o31/q27 lanes.
 Next: #1039 green -> D2 = demo(main + #118 + core.ref=C2) -> W1 dispatch per f9 sheet.
+
+## W1 preflight findings (o32/o33)
+Defect ledger fully IN-C2. Atomic acceptance gate is STILL-BROKEN for bare-SHA dispatch (checkout refspec limit);
+correct mode = ref: develop + internal resolve step. Fix PR in flight (f12); f9 sheet must dispatch W1 with
+ref=develop + SHA via resolve inputs, consumer_ref="" (q24). o31 made #1041 green (c3697113).
