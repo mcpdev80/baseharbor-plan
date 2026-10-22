@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-ci-lanes, t-20261018-r27-journal-wiring, t-20261018-r27-mutation-lock, t-20261018-r27-remote-podman-web, t-20261018-r27-stage-versions]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261022-r27-ci-runtime, t-20261018-r27-journal-wiring, t-20261018-r27-mutation-lock, t-20261018-r27-remote-podman-web, t-20261018-r27-stage-versions]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
