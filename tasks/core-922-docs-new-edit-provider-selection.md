@@ -21,7 +21,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Codex (Owner-authorized readiness documentation preparation)  
     **PR:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
-    **Blocker:** Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
