@@ -16,6 +16,9 @@ resolution: ""
 evidence: []
 ---
 
+- [ ] t-20261022-r27-evidence-verifier · evidence verifier #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+
+
 # Evidence verifier: retained does not mean qualified
 
 ## Goal
