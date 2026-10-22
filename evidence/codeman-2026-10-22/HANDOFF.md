@@ -25,10 +25,10 @@ All claims below verified live by the coordinator (gh/git reads at ~18:10 UTC) u
 - **DONE 18:5xZ: Demo pin PR #117 MERGED → D = `896dc3cb68a8c9b9585940c4696410de5a338c52`** (core.ref blob == C
   verified; `codex-merge-1030.md` MERGE-DEMO-PIN). Native dispatch on C+D started (q18); consumer final pins U/N
   by o16 in flight.
-- Consumer pins (console PR #7, connector PR #8, drafts): **o16 critical finding** — old locks pinned
-  `d5417bde`; A/B/C changed contract files, six artifact hashes mismatch at `2adae47a`; refreeze of both
-  consumers onto C in progress (`evidence/board-2026-10-22/o16-consumer-pins.md`), demo-dependent fields
-  held at PENDING-FREEZE-DEMO until D exists.
+- **DONE: Consumer refreeze+pins green.** o16 found old locks pinned `d5417bde` (hash mismatch after A/B/C) and
+  refroze both consumers: console PR #7 head `0ea88f5` CI SUCCESS incl. source-lock verification;
+  connector PR #8 head `570864c` all checks SUCCESS (`o16-consumer-pins.md`). Both DRAFT, merge after native
+  dispatch evidence per recipe order.
 - Demo native dispatch with the **expanded** set from `codex-review-demo-plan.md` starts only after D.
 
 ## Known-good native evidence (pre-freeze, still applicable per review caveats)
