@@ -55,3 +55,10 @@ Lane/evidence index: `evidence/board-2026-10-22/` (38 files). Planning remote be
 fetches `release/v0.4.26` in a consumer repo which does not exist yet. q24 follow-up: NOT a repo gap - the matrix
 dispatch passed a non-existent `consumer_ref` branch; correct usage is empty consumer_ref (auto-resolves
 `work/v0.4.26-integrations-docs`) or its real 40-hex tip. Rerun wave must use those inputs; no branches to create.
+
+## C2 minted (2026-10-23 ~01:20)
+Core develop = C2 `2f005813dc6d7fa94de164388b2531d025af31bc` (#1040 selector fix + #1038 preview-line fix merged;
+fresh CI 10 success/10 conditional-skip). #1039 pending check-generation fix (q28). Demo #118 head moved past
+reviewed d9c78b57 by fetch-fix c1285a8 -> head-delta review q29 before merge. Codex verdicts: all four review
+cards CHANGES-REQUIRED with concrete recipes (codex-verdicts-2026-10-23.md) - being executed by o31/q27 lanes.
+Next: #1039 green -> D2 = demo(main + #118 + core.ref=C2) -> W1 dispatch per f9 sheet.
