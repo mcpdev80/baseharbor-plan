@@ -1,0 +1,29 @@
+---
+id: t-20261022-r27-evidence-acceptance
+type: task
+areas: [ci]
+release: v0.4.27
+version: ""
+parent: v0.4.27
+priority: critical
+owner: ""
+depends_on: [t-20261022-r27-evidence-verifier]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-plan]
+prs: []
+sources: []
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+# Evidence acceptance: parallel contributors and recovery
+
+## Goal
+Independently demonstrate durable, trusted CI proof with Codeman workers, maintainer sessions and external contributors sharing the same claim/review protocol.
+
+## Acceptance
+- Two independent authors publish nonconflicting evidence while unrelated planning updates land; neither overwrites the other.
+- Delete or expire source CI artifacts and delete a feature branch in a controlled fixture; archived proof remains resolvable and validates for the original exact candidate.
+- Changed candidate, missing check, bad signature/hash and unauthorized publication fail closed.
+- Document practical recovery/backup and repository-size limits, release handoff and smallest CI gates.
+- Independent reviewer accepts evidence; do not automatically merge, promote or publish a release.
