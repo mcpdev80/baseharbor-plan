@@ -62,6 +62,9 @@ Focused Go fixture/runtime-selection tests and existing trusted CI; targeted nat
 
 ## Handoff
 
+> CURRENT (2026-10-22): accepted via #1027; #990 CLOSED-superseded. Entries below are historical. See evidence/codeman-2026-10-21/HANDOFF.md.
+
+
 ### 2026-10-21 — ACCEPTED: complete rootless recovery integrated
 
 - Owner-authorized Maintainer acceptance: [#1027](https://github.com/mcpdev80/baseharbor/pull/1027) merged as `213c15e43ac9f3c333ad5eabed202475eefb501f`. All nine required validations, Focused Python, Workflow policy and authenticated final verification PASS in [39623691937](https://github.com/mcpdev80/baseharbor/actions/runs/39623691937).

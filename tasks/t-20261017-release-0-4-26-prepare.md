@@ -62,7 +62,7 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 ### 2026-10-18 — Maintainer handover pause and unreleased blockers
 
 - Development/testing/merge work paused for the Horde/Codex test; see [handover decision](../decisions/2026-10-18-horde-codex-handover-pause.md). No release qualification or pre-release dispatch authorized.
-- Accepted product baseline develop `f2bad5efa27fa2a791e5b357509af92d8861a3f1` includes core-918/#978. #998 registration candidate awaits independent source review/formal coverage. #995 recovery remains unqualified after reproducible manifest/cleanup failures; existing correction task owns the work. #989/#993 formal qualification/merges remain open. core-922/core-923 are not released from unfinished registration dependency.
+- 2026-10-22 current state: core-921 registration ACCEPTED (superseding PRs #1026/#1027-#1029 merged, trusted-base activation #1030 merged; develop 7fbc1ec5). Historical #998/#1007/#995/#990 are CLOSED as superseded per evidence/codeman-2026-10-21/HANDOFF.md. Outstanding for this card: three frozen-source integrations, Demo/Docs integration, consumer freezes, then the complete candidate matrix.
 - Preserve actual canonical states, existing paused claims and concurrent v0.4.27 planning. Run regular render/check/tests on pinned final main before calling the handover synchronized; no manually maintained generated views.
 
 

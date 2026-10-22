@@ -72,6 +72,9 @@ The finished separate handlers are reachable consistently through the real CLI/J
 
 ## Handoff
 
+> CURRENT (2026-10-22): task accepted via #1026; #998 CLOSED-superseded. All handoff entries below this line are historical. See evidence/codeman-2026-10-21/HANDOFF.md.
+
+
 ### 2026-10-21 — ACCEPTED: real registration, SDK and native proof integrated
 
 - Owner-authorized Maintainer acceptance: [#1026](https://github.com/mcpdev80/baseharbor/pull/1026) merged as `fe2d0c4a8c1df2d15058e338abb78adeb4cc9b83` after every one of seventeen required validations plus authenticated final verification succeeded in [39621449266](https://github.com/mcpdev80/baseharbor/actions/runs/39621449266). Command discovery/help, registration, machine adapters, provider choices, five Core921 families, strict EN/DE references/Pages candidate, build/vet/gofmt and source contracts all PASS.
