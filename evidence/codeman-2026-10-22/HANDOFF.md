@@ -67,3 +67,8 @@ Next: #1039 green -> D2 = demo(main + #118 + core.ref=C2) -> W1 dispatch per f9 
 Defect ledger fully IN-C2. Atomic acceptance gate is STILL-BROKEN for bare-SHA dispatch (checkout refspec limit);
 correct mode = ref: develop + internal resolve step. Fix PR in flight (f12); f9 sheet must dispatch W1 with
 ref=develop + SHA via resolve inputs, consumer_ref="" (q24). o31 made #1041 green (c3697113).
+
+## Freeze trigger rules (o34, full table in o34-integration-triggers.md)
+Branch names are workflow-specific: core+connector key off `work/v0.4.26-integrations-docs` (exact-list triggers),
+console keys off `release-integration/**` wildcards, demo per its own filters. Step 7 must create the per-repo
+named branch; commit messages must satisfy the guard at resolve (L29 style) - check table before pushing.
