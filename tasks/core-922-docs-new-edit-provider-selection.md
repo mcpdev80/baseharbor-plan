@@ -27,7 +27,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
-**Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
+**Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md)  
 **Owner:** Codex (Owner-authorized readiness documentation preparation)  
 **Priority:** not set  
 **PRs:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  

@@ -867,11 +867,16 @@
       "title": "[v0.4.26] Release: app wizard and capability editing",
       "source_updated": "2026-10-15T19:36:55Z",
       "snapshot": "migration/source-snapshot/baseharbor/873.json",
-      "disposition": "release",
+      "disposition": "release+task",
       "destinations": [
         {
           "path": "releases/v0.4.26.md",
           "kind": "release",
+          "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261022-q20-docs-pages.md",
+          "kind": "task",
           "role": "primary"
         }
       ]
