@@ -6,8 +6,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 36/44 · **Blocked:** 1 · **Waiting:** 3  
-    **Blocker:** [t-20261019-v0426-complete-defect-audit](../tasks/t-20261019-v0426-complete-defect-audit.md) — Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment.  
+    **Accepted tasks:** 36/44 · **Blocked:** 0 · **Waiting:** 3  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next

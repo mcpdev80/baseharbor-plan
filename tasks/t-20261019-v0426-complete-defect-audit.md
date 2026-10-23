@@ -11,21 +11,20 @@ depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor#1004, mcpdev80/baseharbor#1005]
 sources: []
-blocker: "Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/39225066336","https://github.com/mcpdev80/baseharbor/actions/runs/39226175528","https://github.com/mcpdev80/baseharbor/actions/runs/39226182313","https://github.com/mcpdev80/baseharbor/actions/runs/39225531904","https://github.com/mcpdev80/baseharbor/pull/998#pullrequestreview-5569055023"]
 ---
 
-- [ ] t-20261019-v0426-complete-defect-audit · Audit and repair the complete v0.4.26 release scope #task #release/v0-4-26 #status/blocked #view/blocked #area/ci #area/release #kind/review
+- [ ] t-20261019-v0426-complete-defect-audit · Audit and repair the complete v0.4.26 release scope #task #release/v0-4-26 #status/review #view/review #area/ci #area/release #kind/review
     <!-- generated:card -->
     **Owner:** Codex (Maintainer complete v0.4.26 defect audit) · **Priority:** critical  
     **PR:** [baseharbor#1004](https://github.com/mcpdev80/baseharbor/pull/1004), [baseharbor#1005](https://github.com/mcpdev80/baseharbor/pull/1005)  
-    **Blocker:** Owner explicitly requested stop; Codeman handoff prepared; await Owner-directed resumption or reassignment.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/39225066336), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/39226175528), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39226182313), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39225531904), [proof 5](https://github.com/mcpdev80/baseharbor/pull/998#pullrequestreview-5569055023)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
