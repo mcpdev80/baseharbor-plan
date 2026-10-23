@@ -88,3 +88,4 @@ head e29faa04 (7 pass/1 pending), codex-review R2 running. D2 after S-freeze + Q
 ## W1 input correction (o44)
 q24's "consumer_ref empty = auto-resolve" is WRONG for the Source job: ecosystem_release_pins demands an immutable
 40-hex commit. W1 must pass live branch tips (o46 refix); CMD-B failure 5x traced to this single root, 21 skips cascade.
+- lockcheck-recheck (q41): 2adae47a..9f4916be touched NO contract/lock files -> console #7 (0ea88f5) + connector #8 (570864c) green checks REMAIN VALID; no sync-merge/requalify needed. Evidence ../board-2026-10-22/q41-lockcheck.md
