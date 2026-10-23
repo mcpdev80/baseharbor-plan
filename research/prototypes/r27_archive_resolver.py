@@ -6,6 +6,8 @@ import argparse
 import hashlib
 import json
 import pathlib
+import os
+import stat
 import re
 
 HEX64 = re.compile(r"[0-9a-f]{64}\Z")
@@ -19,15 +21,22 @@ class ArchiveError(ValueError):
 
 
 def _read(path, maximum):
-    if path.is_symlink() or not path.is_file():
-        raise ArchiveError("missing or unsafe archive file")
-    if path.stat().st_size > maximum:
-        raise ArchiveError("archive file exceeds size bound")
-    with path.open("rb") as stream:
-        data = stream.read(maximum + 1)
-    if len(data) > maximum:
-        raise ArchiveError("archive file exceeds size bound")
-    return data
+    """Read only regular files, refusing symlinks and oversized inputs."""
+    try:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    except OSError as exc:
+        raise ArchiveError("missing or unsafe archive file") from exc
+    try:
+        info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode) or info.st_size > maximum:
+            raise ArchiveError("unsafe or oversized archive file")
+        with os.fdopen(fd, "rb", closefd=False) as stream:
+            data = stream.read(maximum + 1)
+        if len(data) > maximum:
+            raise ArchiveError("archive file exceeds size bound")
+        return data
+    finally:
+        os.close(fd)
 
 
 def resolve(root, release, candidate_id, run_id, expected_digest):
@@ -44,6 +53,7 @@ def resolve(root, release, candidate_id, run_id, expected_digest):
     raw = _read(directory / "manifest.json", MAX_MANIFEST)
     if hashlib.sha256(raw).hexdigest() != expected_digest:
         raise ArchiveError("manifest digest mismatch")
+
     def reject_duplicate_keys(pairs):
         value = {}
         for key, item in pairs:
@@ -70,10 +80,15 @@ def resolve(root, release, candidate_id, run_id, expected_digest):
     if len(manifest["checks"]) > 128:
         raise ArchiveError("too many evidence checks")
     seen = set()
+    check_ids = set()
     total_bytes = 0
     for check in manifest["checks"]:
-        if not isinstance(check, dict) or not isinstance(check.get("payload"), str):
+        if (not isinstance(check, dict) or not isinstance(check.get("payload"), str) or
+                not isinstance(check.get("id"), str) or not SAFE.fullmatch(check["id"])):
             raise ArchiveError("invalid evidence entry")
+        if check["id"] in check_ids:
+            raise ArchiveError("duplicate check identity")
+        check_ids.add(check["id"])
         name = check["payload"]
         if (not name.startswith("payloads/") or name.count("/") != 1 or
                 not SAFE.fullmatch(name.split("/")[1]) or name in seen):
