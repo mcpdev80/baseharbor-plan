@@ -172,3 +172,9 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 - Runtime evidence pending; never treat branch creation or the trigger commit as test success. This runs the workflow's real Docker workload, recovery, logs and traces checks. Do not merge a runtime-validation branch into develop.
 
 > Coordinator verification 2026-10-23: TestExternalProviderRegistrationAndRemoval FAILs LOCALLY on develop 1861ed07, 9f4916be, 2adae47a AND origin/main (ownership-unverifiable) while CI is green -> environment-dependent test, not a C2 regression. READY accepted WITH this caveat; defect card created.
+
+### 2026-10-23 — appid self-approve-block: owner decision skipped, card stays as-is
+
+- PR #1046 `test(application): env-robust protected-owner test dirs (no skip-if, deterministic 0700)` and PR #1047 `ci(gate-plan): qualify exact appid env-robust test-only source (#1046)` are both OPEN on base develop with `mergeStateStatus=BLOCKED` by the self-approve rule (live `gh pr view` 2026-10-23). #1047 head is `79e0aa2b`.
+- Owner-decision (assign / re-touch / escalate) is EXPLICITLY SKIPPED here because the merge path is self-approve-blocked and no Maintainer has lifted it. This note exists so no subsequent session re-opens the ownership question for #1046/#1047; it records a state, it does not accept the release or the card.
+- The still-required final `TestRepositoryWorkflowRealLifecycle` native lifecycle on develop head remains the card's real outstanding criterion (see Goal/Acceptance). This does not close it.

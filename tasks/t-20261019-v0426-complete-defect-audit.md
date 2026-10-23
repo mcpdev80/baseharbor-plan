@@ -198,6 +198,12 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 - Existing local executor is disconnected; Hugging Face Jobs currently returns UNAVAILABLE. Use real GitHub CI where available; no claim that local/HF/native tests ran.
 - First confirmed readiness gaps: core-921 binding/registration incomplete; core-922 EN/DE guides/changelog/release notes not started; core-923 final integrated developer/consumer acceptance not started; #995 full native recovery/automatic cleanup and exact coverage pending, with #990 dependent. Current README still describes the preparing release as v0.4.25; root changelog Unreleased is empty and no v0.4.26 release-note tree exists. These docs belong to core-922 after its accepted registration prerequisite.
 
+### 2026-10-23 — Defect ledger is findings 1–32, not 19; code-defect findings SHA-verified in develop 1861ed07, residue in core-923
+
+- Canonical closure memo `evidence/v0.4.27-2026-10-23/f21-defectclose.md` records the audit as **32 findings** (q8 numbering, q19 live mapping), SHA-exact-verified against develop `1861ed07`. There is no 19-finding set; "18/19 done" is not a real ledger state and is not recorded here.
+- Findings 1–12, 21, 26–28, 32 carry SHA-exact develop `1861ed07` references (fixed / fixed-via-supersede / source-in-C2). Findings 18 (Console candidate freeze — console #7 OPEN) and 19 (immutable consumer pin chain — connector #8 OPEN) plus acceptance-gaps 13/17/20/22/23/24/25/30 live in core-923.
+- Card state remains `blocked` by the explicit Owner stop (2026-10-21 handoff). Only the Maintainer/Owner moves `blocked -> review/accepted`; this planning note records the verified ledger and does not change the status.
+
 ### 2026-10-19 — Real source repairs merged; complete release remains in progress
 
 - #1005 exact SQL-layout qualification mergedb4a5334da5bfebd9748304a68d221724ff327889 after independent policy review5569033250 and green actualCI39225531904 (60 planner tests, existing negative Git fixtures and utility suites).
