@@ -55,3 +55,5 @@ The v0.4.27 release-start updates remain unaccepted; this active status document
 - 2026-10-24: isolated preparation in [PR #1055](https://github.com/mcpdev80/baseharbor/pull/1055); current status active, not qualified or mergeable by this card.
 - Draft-label event security fix: all twelve candidate guards in `ci.yml` now require a non-draft PR for `labeled` events; the separate artifact-GC test guard also rejects draft label events. Static regression checks cover both workflow surfaces. Candidate source head: `a77371a20e6a1959c7fc0e9e0adc4ce3689c7c1b`.
 - Missing: executable workflow-policy/Actionlint/selected checks on exact head; authenticated GitHub App/PAT event E2E and base-SHA/stale-head verification. Keep on draft feature branch; v0.4.26 release freeze is binding.
+
+- 2026-10-24: label-delete HTTP 404 is no longer ignored by the candidate submitter: it now fails closed before POST rather than reporting a spurious dispatch. Regression added for GET/DELETE-only on failure. Draft PR #1055 current head `1089a169061fec0fdc49ecb2140dc0b1001cdd3c` (unqualified until targeted checks run).
