@@ -9,7 +9,7 @@ priority: critical
 owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-resolver]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1048]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,6 +19,7 @@ evidence: []
 - [ ] t-20261022-r27-evidence-verifier · evidence verifier #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
+    **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md)  
     <!-- /generated:card -->
@@ -30,7 +31,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
 **Owner:** unassigned  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
 **Source:** 
 <!-- /generated:links -->
 
