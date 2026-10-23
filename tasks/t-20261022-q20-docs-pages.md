@@ -19,7 +19,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** Codex (reviewer)  
     **PR:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
-    **Needs:** [core-922](core-922-docs-new-edit-provider-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

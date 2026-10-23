@@ -20,7 +20,7 @@ evidence: []
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** o49 · **Priority:** normal  
-    **Needs:** [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md)  
+    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
