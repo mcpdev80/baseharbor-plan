@@ -5,7 +5,7 @@ areas: []
 release: v0.4.26
 version: ""
 parent: ""
-owner: ""
+owner: f19
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -16,18 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261023-ops-session-matcher · Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) #task #release/v0-4-26 #status/planned #view/ready #kind/task
+- [ ] t-20261023-ops-session-matcher · Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) #task #release/v0-4-26 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** f19  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** f19  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

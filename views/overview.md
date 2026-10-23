@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 3 |
 | review | 3 |
 | blocked | 1 |
-| ready | 9 |
+| ready | 8 |
 | queued | 26 |
 | waiting | 233 |
 | backlog | 7 |
@@ -25,6 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-923](../tasks/core-923-acceptance-new-edit-journeys-consumers.md) | Acceptance: verify New/Edit journeys and ecosystem consumers | active | not set | Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) (open), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
 | [t-20261022-cleanup-provenance-order-fix](../tasks/t-20261022-cleanup-provenance-order-fix.md) | Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown | active | not set | Codeman (o23 demo cleanup fix) | — | — |
+| [t-20261023-ops-session-matcher](../tasks/t-20261023-ops-session-matcher.md) | Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) | active | not set | f19 | — | — |
 
 ## Ready for review
 
@@ -51,7 +52,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261023-ops-codex-dialog-chrome](../tasks/t-20261023-ops-codex-dialog-chrome.md) | Ops: dialog scanner must ignore codex UI chrome | ready | not set | — | — | — |
 | [t-20261023-ops-ghost-file-naming](../tasks/t-20261023-ops-ghost-file-naming.md) | Ops: ghost detector must accept task-named evidence files, dedupe gone-events | ready | not set | — | — | — |
 | [t-20261023-ops-reminder-visibility](../tasks/t-20261023-ops-reminder-visibility.md) | Ops: basics-check surfaces unread reminders.log entries | ready | not set | — | — | — |
-| [t-20261023-ops-session-matcher](../tasks/t-20261023-ops-session-matcher.md) | Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) | ready | not set | — | — | — |
 | [t-20261023-ops-wip-rotation](../tasks/t-20261023-ops-wip-rotation.md) | Ops: log rotation + cursor-safe events/reminders | ready | not set | — | — | — |
 
 ## By release
