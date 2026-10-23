@@ -12,18 +12,19 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1043]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1043"]
 ---
 
 - [x] t-20261023-selector-q-predecessor · Release v0.4.26: selector Q-predecessor PR (qualification entries on trusted base) #task #release/v0-4-26 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** o47  
     **PR:** [baseharbor#1043](https://github.com/mcpdev80/baseharbor/pull/1043)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1043)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** checked  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
