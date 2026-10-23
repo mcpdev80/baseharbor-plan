@@ -8,7 +8,7 @@ parent: console-1
 owner: f25
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]
 repos: [mcpdev80/baseharbor-console]
-prs: []
+prs: ["mcpdev80/baseharbor-console#8"]
 sources: ["mcpdev80/baseharbor-console#2"]
 source_updated: "2026-10-08T13:49:16Z"
 labels: []
@@ -20,6 +20,7 @@ evidence: []
 - [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/active #view/active #area/console #kind/task
     <!-- generated:card -->
     **Owner:** f25  
+    **PR:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
     <!-- /generated:card -->
 
@@ -31,7 +32,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md)  
 **Owner:** f25  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
 **Source:** [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2)
 <!-- /generated:links -->
 

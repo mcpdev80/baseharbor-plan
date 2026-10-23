@@ -8,7 +8,7 @@ Status: open · release: [v0.4.28](../releases/v0.4.28.md)
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | active | not set | f25 | [t-20261017-release-0-4-28-updates](../tasks/t-20261017-release-0-4-28-updates.md) (open), [t-20261018-r27-access-proof](../tasks/t-20261018-r27-access-proof.md) (open), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md) (open), [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) (open) | — |
+| [console-2](../tasks/console-2-live-core-adapter-workflow-proofs.md) | Console: replace fixtures with the protected Core adapter and live workflow proofs | active | not set | f25 | [t-20261017-release-0-4-28-updates](../tasks/t-20261017-release-0-4-28-updates.md) (open), [t-20261018-r27-access-proof](../tasks/t-20261018-r27-access-proof.md) (open), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md) (open), [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) (open) | [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8) |
 
 ## [core-209](../epics/core-209-future-capabilities-integrations.md) · Track future capabilities and integrations
 
