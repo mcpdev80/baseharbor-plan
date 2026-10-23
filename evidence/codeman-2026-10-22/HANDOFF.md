@@ -78,3 +78,8 @@ named branch; commit messages must satisfy the guard at resolve (L29 style) - ch
 -> 08f36ba (exact set equality, BOTH executable repros gate exit 0, o40) -> **MERGED, demo main = `82d042b`**.
 Repro scripts now permanent under evidence/board-2026-10-22/scripts/. Pending for D2: core #1039/#1042
 selector qualification (f14) + #1041 merge, then pin core.ref=C2 on main 82d042b.
+
+## Selector policy chain (codex-verdict-selector.md, executing)
+Steps 2+3: q33 (#1039 -> freeze S39) / q34 (#1042 -> remove DISPATCH_GATE_REF block, freeze S42) in flight.
+Then: ONE tiny two-file qualification predecessor PR (step 4-5, after Q lands step-6 sync merges) -> #1041 round2
+head e29faa04 (7 pass/1 pending), codex-review R2 running. D2 after S-freeze + Q merge + pin on demo main 82d042b.
