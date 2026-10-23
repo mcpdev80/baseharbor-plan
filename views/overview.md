@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 3 |
 | blocked | 1 |
 | ready | 8 |
@@ -26,6 +26,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-923](../tasks/core-923-acceptance-new-edit-journeys-consumers.md) | Acceptance: verify New/Edit journeys and ecosystem consumers | active | not set | Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) (open), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
 | [t-20261022-cleanup-provenance-order-fix](../tasks/t-20261022-cleanup-provenance-order-fix.md) | Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown | active | not set | Codeman (o23 demo cleanup fix) | — | — |
 | [t-20261023-ops-session-matcher](../tasks/t-20261023-ops-session-matcher.md) | Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) | active | not set | f19 | — | — |
+| [t-20261023-selector-q-predecessor](../tasks/t-20261023-selector-q-predecessor.md) | Release v0.4.26: selector Q-predecessor PR (qualification entries on trusted base) | active | not set | o47 | — | — |
 
 ## Ready for review
 
@@ -56,7 +57,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## By release
 
-- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 15 open, 33 closed ([view](releases/v0.4.26.md))
+- [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 16 open, 33 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 67 open, 0 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
