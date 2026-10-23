@@ -84,3 +84,9 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - Current consumer SHA freeze, actual targeted native executions and complete candidate evidence are still outstanding. No release acceptance is implied.
 
 The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.\n\n> 2026-10-23 progress (coordinator): develop now 49d396c4 (Q+stepcap merged, C2-final pending #1042); consumer PRs #7/#8 validated against C2 line (q41); W1 matrix sheet ready with live consumer_ref tips (o49).\n
+
+### 2026-10-23 — Owner-assigned preparatory consumer merges (ROLLE: MERGE)
+
+Console [#7](https://github.com/mcpdev80/baseharbor-console/pull/7) and Connector [#8](https://github.com/mcpdev80/baseharbor-node-connector/pull/8) were independently reviewed as preparatory source diffs and merged under the bounded cmx2 Owner assignment. Exact source/merge SHAs, live gates, reused source CI and post-merge verification are recorded in the [merge receipt](../evidence/board-2026-10-23/codex-merge-c7n8-post-review.md). Console main is `e7d1e4a1d603158dece19bbc25a8e267d07cde5e`; Connector main is `7c7093d9671dfaa1aafeb92d62bbe9d074f9f47e`. Connector post-merge Test/Vet/Build run 39996344778 passed.
+
+This is source preparation only. The immutable final four-consumer matrix, pending Console pin in Connector, actual native/browser receipts and independent developer path remain unaccepted. core-923 stays ACTIVE under its existing Flash-Coordinator owner; no claim, dependency acceptance, card completion, release qualification or production activation changes.
