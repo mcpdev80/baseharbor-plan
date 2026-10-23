@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 6  
+    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 5  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/later
