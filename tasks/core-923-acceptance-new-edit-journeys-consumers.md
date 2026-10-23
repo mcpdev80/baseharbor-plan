@@ -84,4 +84,4 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - Assigned disjoint preparation: Demo guided PTY/no-capability safety plus heavy data-capabilities real SQL/provider-edit journey; strict MCP tool-list/Edit/Footprint parity; ownership-bounded cleanup and redacted diagnostics with independently owned foreign-resource sentinel. Reuse existing gates and production authorities; no fake registry, relaxed guards, or historical consumer PASS.
 - Current consumer SHA freeze, actual targeted native executions and complete candidate evidence are still outstanding. No release acceptance is implied.
 
-The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.
+The [standard v0.4.26 task rules](../releases/v0.4.26.md#standard-rules-for-v0426-tasks) apply.\n\n> 2026-10-23 progress (coordinator): develop now 49d396c4 (Q+stepcap merged, C2-final pending #1042); consumer PRs #7/#8 validated against C2 line (q41); W1 matrix sheet ready with live consumer_ref tips (o49).\n
