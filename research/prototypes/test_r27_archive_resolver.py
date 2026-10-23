@@ -17,7 +17,7 @@ class ResolverTests(unittest.TestCase):
         self.manifest = {'schema': 'baseharbor.ci-evidence-archive/v1', 'release': 'v0.4.27',
                          'candidate': {'id': 'candidate'},
                          'run': {'archive_id': 'run-1', 'id': 12345, 'attempt': 1},
-                         'checks': [{'payload': 'payloads/check.json', 'bytes': len(self.payload),
+                         'checks': [{'id': 'source-contracts', 'payload': 'payloads/check.json', 'bytes': len(self.payload),
                                      'sha256': hashlib.sha256(self.payload).hexdigest()}]}
         self.save()
 
@@ -93,6 +93,31 @@ class ResolverTests(unittest.TestCase):
         raw = raw.replace('"release": "v0.4.27"', '"release": "v0.4.27", "release": "v0.4.27"')
         p.write_text(raw)
         self.digest = hashlib.sha256(raw.encode()).hexdigest()
+        with self.assertRaises(ArchiveError): self.resolve()
+
+    def test_duplicate_check_identity(self):
+        other = dict(self.manifest['checks'][0])
+        other['payload'] = 'payloads/other.json'
+        (self.directory / 'payloads' / 'other.json').write_bytes(self.payload)
+        self.manifest['checks'].append(other)
+        self.save()
+        with self.assertRaises(ArchiveError): self.resolve()
+
+    def test_missing_check_identity(self):
+        del self.manifest['checks'][0]['id']
+        self.save()
+        with self.assertRaises(ArchiveError): self.resolve()
+
+    def test_manifest_directory_instead_of_file(self):
+        p = self.directory / 'manifest.json'
+        p.unlink()
+        p.mkdir()
+        with self.assertRaises(ArchiveError): self.resolve()
+
+    def test_payload_directory_instead_of_file(self):
+        p = self.directory / 'payloads' / 'check.json'
+        p.unlink()
+        p.mkdir()
         with self.assertRaises(ArchiveError): self.resolve()
 
     def test_wrong_release(self):
