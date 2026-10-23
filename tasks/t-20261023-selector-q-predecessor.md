@@ -9,26 +9,27 @@ owner: o47
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1043]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261023-selector-q-predecessor · Release v0.4.26: selector Q-predecessor PR (qualification entries on trusted base) #task #release/v0-4-26 #status/active #view/active #kind/task
+- [x] t-20261023-selector-q-predecessor · Release v0.4.26: selector Q-predecessor PR (qualification entries on trusted base) #task #release/v0-4-26 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** o47  
+    **PR:** [baseharbor#1043](https://github.com/mcpdev80/baseharbor/pull/1043)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** checked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** o47  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1043](https://github.com/mcpdev80/baseharbor/pull/1043)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -57,3 +58,5 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+Resolution: Q merged (#1043); C2-final via #1039+#1044, develop 1861ed07.
