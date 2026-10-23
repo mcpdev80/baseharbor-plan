@@ -13,18 +13,19 @@ sources: ["mcpdev80/baseharbor#922"]
 source_updated: "2026-10-15T16:45:47Z"
 labels: [area/dx]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q46-accept922.md"]
 ---
 
-- [ ] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/review #view/review #area/docs #kind/task
+- [x] core-922 · Docs: explain New/Edit and provider selection concisely #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Owner-authorized readiness documentation preparation)  
     **PR:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q46-accept922.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md)  

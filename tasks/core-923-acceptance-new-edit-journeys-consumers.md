@@ -20,7 +20,6 @@ evidence: []
 - [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain  
-    **Needs:** [core-922](core-922-docs-new-edit-provider-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
