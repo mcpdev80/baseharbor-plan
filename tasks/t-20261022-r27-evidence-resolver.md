@@ -50,3 +50,11 @@ Resolve retained evidence by candidate, run and manifest digest from baseharbor-
 - Negative tests cover missing files, mismatched digest, ambiguous IDs and untrusted references.
 - No new registry/database/service.
 > Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
+
+## Handoff – isolated preparation, 2026-10-24
+
+- Product prototype: [BaseHarbor PR #1048](https://github.com/mcpdev80/baseharbor/pull/1048). The resolver, staging publisher, and regression fixtures are preparatory work only; they are not trusted CI evidence or accepted dependencies.
+- Current security hardening: the archive verifier rejects unbound artifact digests and the resolver/publisher reject Boolean byte lengths. Focused changes are on the draft PR branch, not on `develop`.
+- This task remains **planned / waiting** until the v0.4.26 closeout, v0.4.27 release-start updates, and evidence contract are accepted. No owner is claimed, no production rollout or merge is authorized.
+- Remaining acceptance: independent runtime regression and negative security tests; source/manifest and run provenance validation by the existing trusted owners; hostile concurrent-writer directory confinement; recovery after source artifact expiry; exact digest verification; independent review.
+- CardBoard: keep the canonical `#status/planned`, derived `#view/waiting`, and `#board/planned`. Do not mark complete or set `early: true`; generated card previews and views belong to `scripts/plan.py render`.
