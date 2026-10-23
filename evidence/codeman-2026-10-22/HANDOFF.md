@@ -83,3 +83,4 @@ selector qualification (f14) + #1041 merge, then pin core.ref=C2 on main 82d042b
 Steps 2+3: q33 (#1039 -> freeze S39) / q34 (#1042 -> remove DISPATCH_GATE_REF block, freeze S42) in flight.
 Then: ONE tiny two-file qualification predecessor PR (step 4-5, after Q lands step-6 sync merges) -> #1041 round2
 head e29faa04 (7 pass/1 pending), codex-review R2 running. D2 after S-freeze + Q merge + pin on demo main 82d042b.
+**#1041 MERGED (REVIEW-2 ACCEPT, e29faa04): develop = `9f4916be` = current C2-final candidate.**
