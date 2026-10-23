@@ -60,3 +60,5 @@ Existing trusted dependency/lockfile/build/security/compatibility checks by impa
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
 
 > Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege.
+
+> 2026-10-23 (q43-o52 verified): NO open renovate PRs in any of the 4 repos; apply-slice empty; remaining decision = owner scope for majors (mongo 7->9 etc.).
