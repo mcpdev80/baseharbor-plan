@@ -1,0 +1,68 @@
+---
+id: t-20261023-ops-ghost-file-naming
+type: task
+areas: []
+release: v0.4.26
+version: ""
+parent: ""
+owner: ""
+priority: ""
+depends_on: []
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261023-ops-ghost-file-naming · Ops: ghost detector must accept task-named evidence files, dedupe gone-events #task #release/v0-4-26 #status/planned #view/ready #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.26](../releases/v0.4.26.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Goal
+
+One or two sentences: the observable outcome.
+
+## Scope
+
+- In scope:
+- Out of scope:
+
+## Acceptance
+
+- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+
+## Required checks
+
+- Targeted checks for the changed area; broaden when impact is unknown.
+
+## Dependencies and file ownership
+
+- Owned files or areas:
+- Shared files: coordinate through the owning task.
+
+## Handoff
+
+- Current state, branch, PR and evidence links. Newest first.
+
+## Task note
+
+Ops-Härtung; Write-Set evidence/board-2026-10-19/scripts/.
+
+## Acceptance
+
+- basics-check.py --json enthält reminder-summary-Feld
+- Fixture grün
