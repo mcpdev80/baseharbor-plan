@@ -58,3 +58,5 @@ Existing trusted dependency/lockfile/build/security/compatibility checks by impa
 ## Handoff
 
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
+
+> Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege.

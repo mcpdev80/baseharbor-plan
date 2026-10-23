@@ -16,13 +16,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-cleanup-provenance-order-fix · Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown #task #release/v0-4-26 #status/active #view/active #kind/task
+- [x] t-20261022-cleanup-provenance-order-fix · Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown #task #release/v0-4-26 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codeman (o23 demo cleanup fix)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** checked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -80,3 +80,5 @@ owned-container preview/verification in `failure-runtime-diagnostics.sh` `owned_
   ref=2adae47a, demo_ref=d9c78b5, runtime=podman, gate=backup-restore) once infra recovers,
   poll to terminal, record receipt. Full evidence in
   `evidence/board-2026-10-22/o23-demo-cleanup-fix.md`.
+
+Resolution: merged via demo #118, main 82d042b.
