@@ -57,3 +57,5 @@ The v0.4.27 release-start updates remain unaccepted; this active status document
 - Missing: executable workflow-policy/Actionlint/selected checks on exact head; authenticated GitHub App/PAT event E2E and base-SHA/stale-head verification. Keep on draft feature branch; v0.4.26 release freeze is binding.
 
 - 2026-10-24: label-delete HTTP 404 is no longer ignored by the candidate submitter: it now fails closed before POST rather than reporting a spurious dispatch. Regression added for GET/DELETE-only on failure. Draft PR #1055 current head `1089a169061fec0fdc49ecb2140dc0b1001cdd3c` (unqualified until targeted checks run).
+
+- 2026-10-24: tightened re-label race guard: after DELETE, the second GET must show `ci:validate` absent; otherwise fail with an actionable error and perform no POST. Added a mocked GET/DELETE/GET negative regression. Candidate head `24934756677fd261580f2f37b11ad61197f4444d`, draft/unqualified. This protects against silently claiming CI dispatch when GitHub has not actually removed the label.
