@@ -166,3 +166,5 @@ Local evidence: `evidence/board-2026-10-19/p22-nativejob.md`. Found by p22 split
 
 - Created `runtime-validation/docker/appid-20261021` from accepted develop `8a40e60a84ebbe2c7eb3ceb80e2788c5f05903b8`, then pushed no-content-change commit `f6b50f8757e97b126ca380ee9402a68fd5150d2b` to trigger `.github/workflows/docker-runtime-acceptance.yml` through its explicit `runtime-validation/docker/**` push filter.
 - Runtime evidence pending; never treat branch creation or the trigger commit as test success. This runs the workflow's real Docker workload, recovery, logs and traces checks. Do not merge a runtime-validation branch into develop.
+
+> Coordinator verification 2026-10-23: TestExternalProviderRegistrationAndRemoval FAILs LOCALLY on develop 1861ed07, 9f4916be, 2adae47a AND origin/main (ownership-unverifiable) while CI is green -> environment-dependent test, not a C2 regression. READY accepted WITH this caveat; defect card created.
