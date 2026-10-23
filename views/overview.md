@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 8 |
 | review | 3 |
 | blocked | 1 |
-| ready | 8 |
+| ready | 4 |
 | queued | 26 |
 | waiting | 233 |
 | backlog | 7 |
@@ -25,7 +25,11 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-923](../tasks/core-923-acceptance-new-edit-journeys-consumers.md) | Acceptance: verify New/Edit journeys and ecosystem consumers | active | not set | Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain | [core-921](../tasks/core-921-cli-mcp-register-new-interfaces.md), [core-922](../tasks/core-922-docs-new-edit-provider-selection.md) (open), [core-900](../tasks/core-900-gc-preserve-active-prs-candidates-evidence.md) | — |
 | [t-20261022-cleanup-provenance-order-fix](../tasks/t-20261022-cleanup-provenance-order-fix.md) | Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown | active | not set | Codeman (o23 demo cleanup fix) | — | — |
-| [t-20261023-ops-session-matcher](../tasks/t-20261023-ops-session-matcher.md) | Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) | active | not set | f19 | — | — |
+| [t-20261023-ops-codex-dialog-chrome](../tasks/t-20261023-ops-codex-dialog-chrome.md) | Ops: dialog scanner must ignore codex UI chrome | active | not set | codex-opsfix2 (Owner-assigned) | — | — |
+| [t-20261023-ops-ghost-file-naming](../tasks/t-20261023-ops-ghost-file-naming.md) | Ops: ghost detector must accept task-named evidence files, dedupe gone-events | active | not set | codex-opsfix2 (Owner-assigned) | — | — |
+| [t-20261023-ops-reminder-visibility](../tasks/t-20261023-ops-reminder-visibility.md) | Ops: basics-check surfaces unread reminders.log entries | active | not set | codex-opsfix2 (Owner-assigned) | — | — |
+| [t-20261023-ops-session-matcher](../tasks/t-20261023-ops-session-matcher.md) | Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) | active | not set | codex-opsfix2 (Owner-assigned) | — | — |
+| [t-20261023-ops-wip-rotation](../tasks/t-20261023-ops-wip-rotation.md) | Ops: log rotation + cursor-safe events/reminders | active | not set | codex-opsfix2 (Owner-assigned) | — | — |
 | [t-20261023-selector-q-predecessor](../tasks/t-20261023-selector-q-predecessor.md) | Release v0.4.26: selector Q-predecessor PR (qualification entries on trusted base) | active | not set | o47 | — | — |
 
 ## Ready for review
@@ -50,10 +54,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [t-20261023-ops-codex-dialog-chrome](../tasks/t-20261023-ops-codex-dialog-chrome.md) | Ops: dialog scanner must ignore codex UI chrome | ready | not set | — | — | — |
-| [t-20261023-ops-ghost-file-naming](../tasks/t-20261023-ops-ghost-file-naming.md) | Ops: ghost detector must accept task-named evidence files, dedupe gone-events | ready | not set | — | — | — |
-| [t-20261023-ops-reminder-visibility](../tasks/t-20261023-ops-reminder-visibility.md) | Ops: basics-check surfaces unread reminders.log entries | ready | not set | — | — | — |
-| [t-20261023-ops-wip-rotation](../tasks/t-20261023-ops-wip-rotation.md) | Ops: log rotation + cursor-safe events/reminders | ready | not set | — | — | — |
 
 ## By release
 

@@ -5,7 +5,7 @@ areas: []
 release: v0.4.26
 version: ""
 parent: ""
-owner: ""
+owner: codex-opsfix2 (Owner-assigned)
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -16,18 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261023-ops-wip-rotation · Ops: log rotation + cursor-safe events/reminders #task #release/v0-4-26 #status/planned #view/ready #kind/task
+- [ ] t-20261023-ops-wip-rotation · Ops: log rotation + cursor-safe events/reminders #task #release/v0-4-26 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** codex-opsfix2 (Owner-assigned)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** unassigned  
+**Owner:** codex-opsfix2 (Owner-assigned)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -56,5 +55,7 @@ One or two sentences: the observable outcome.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
+
+- Temporary Owner assignment: ecosystem `evidence/board-2026-10-22/prompts/codex-opsfix.txt`; implementation evidence: ecosystem `evidence/board-2026-10-22/codex-opsfix.md`. Live session list contains no f19; explicit five-card assignment transfers its bounded work. Active-card claim command refused the existing state, so the authorized transfer updates owner directly.
 
 - Current state, branch, PR and evidence links. Newest first.
