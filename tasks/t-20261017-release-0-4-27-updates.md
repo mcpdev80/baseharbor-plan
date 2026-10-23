@@ -14,13 +14,14 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["../board-2026-10-22/q43-renovate.md"]
 ---
 
 - [ ] t-20261017-release-0-4-27-updates · v0.4.27 · Release start: integrate Renovate updates before feature work #task #release/v0-4-27 #status/active #view/active #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** q43 · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-27-cleanup](t-20261017-release-0-4-27-cleanup.md)  
+    **Evidence:** [proof 1](../board-2026-10-22/q43-renovate.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
