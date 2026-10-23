@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: o68
+owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -16,19 +16,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md"]
 ---
 
-- [ ] t-20261022-r27-evidence-publisher · evidence publisher #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261022-r27-evidence-publisher · evidence publisher #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** o68 · **Priority:** critical  
+    **Owner:** unassigned · **Priority:** critical  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
-**Owner:** o68  
+**Owner:** unassigned  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
@@ -56,3 +57,4 @@ Publish required, sanitized evidence payloads and a checksummed manifest to evid
 - Trusted post-run publisher handles fork PRs without exposing planning write tokens to untrusted code.
 - On successful archival, automatically associate the immutable evidence reference with its task and PR via conflict-safe planning updates. Retrying after concurrent edits must preserve other authors' changes.
 - Missing archive or linking reports an actionable status and fails closed for gates requiring retained evidence.
+> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
