@@ -9,7 +9,7 @@ owner: "Flash (codeman w1-baseharbor)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029"]
+prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharbor#1047"]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 - [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/review #view/review #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029)  
+    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116)  
     <!-- /generated:card -->
 
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029)  
+**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -95,6 +95,10 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 - Triggered [Docker runtime 39584767281](https://github.com/mcpdev80/baseharbor/actions/runs/39584767281) at `f6b50f8757e97b126ca380ee9402a68fd5150d2b` actually FAILED: selected rootless `unix:///run/user/1001/docker.sock` unavailable. Runtime integration, recovery/log/trace steps were skipped. Explicit native `TestRepositoryWorkflowRealLifecycle` acceptance is therefore still missing.
 - A separate JSON-Doctor/preflight correction is prepared; no implicit system-daemon fallback or global cleanup on failed preflight. Task stays blocked for genuine native evidence, not for the already fixed planner policy.
 
+
+> Coordinator verification 2026-10-23 (sharpened, bounded): `TestExternalProviderRegistrationAndRemoval` fails on develop 1861ed07, 9f4916be, 2adae47a AND origin/main with `provider-registry-ownership-unverifiable`. Failure is reproducible only when the ownership verifier cannot establish file ownership (unverifiable UID on the checkout path or an unwritable/unowned temp root), NOT on a normal owned checkout. Reproduced by o53 on detached develop 1861ed07 (local, no daemon) and by the reviewwave live checks; source `internal/application/external_provider_scope.go:184-205` verifies ancestor directories by Lstat UID/permissions with no CI-runner exemption, so pass/fail tracks filesystem ownership+permissions, not CI-vs-local. This is an environment-dependent test, not a C2 regression and separate from the still-required final `TestRepositoryWorkflowRealLifecycle` native lifecycle.
+
+> NOTE: #1047 (mcpdev80/baseharbor, head 79e0aa2b…, OPEN, base develop) qualifies the exact #1046 test-only source with a narrow planner lane and does not change the parser, ownership guard or the required native lifecycle.
 
 Product fix landed and pushed: branch `fix/t-20261020-develop-appid-manifest`
 (HEAD `0e213d42`), draft PR #1008 (base `develop`):
