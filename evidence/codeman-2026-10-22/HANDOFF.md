@@ -72,3 +72,9 @@ ref=develop + SHA via resolve inputs, consumer_ref="" (q24). o31 made #1041 gree
 Branch names are workflow-specific: core+connector key off `work/v0.4.26-integrations-docs` (exact-list triggers),
 console keys off `release-integration/**` wildcards, demo per its own filters. Step 7 must create the per-repo
 named branch; commit messages must satisfy the guard at resolve (L29 style) - check table before pushing.
+
+## Demo cleanup chain CLOSED (T3)
+#118 rounds: c1285a8 (last-row bug, o35/o38 proven FAIL) -> 8d27e3c (rowfix, accounting invariant gap, codex G)
+-> 08f36ba (exact set equality, BOTH executable repros gate exit 0, o40) -> **MERGED, demo main = `82d042b`**.
+Repro scripts now permanent under evidence/board-2026-10-22/scripts/. Pending for D2: core #1039/#1042
+selector qualification (f14) + #1041 merge, then pin core.ref=C2 on main 82d042b.
