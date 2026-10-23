@@ -13,5 +13,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261023-ops-codex-dialog-chrome](../tasks/t-20261023-ops-codex-dialog-chrome.md) | Ops: dialog scanner must ignore codex UI chrome | ready | not set | — | — | — |
 | [t-20261023-ops-ghost-file-naming](../tasks/t-20261023-ops-ghost-file-naming.md) | Ops: ghost detector must accept task-named evidence files, dedupe gone-events | ready | not set | — | — | — |
 | [t-20261023-ops-reminder-visibility](../tasks/t-20261023-ops-reminder-visibility.md) | Ops: basics-check surfaces unread reminders.log entries | ready | not set | — | — | — |
-| [t-20261023-ops-session-matcher](../tasks/t-20261023-ops-session-matcher.md) | Ops: lane-stalled/dispatch delivery-proof via session.id (time-window bug) | ready | not set | — | — | — |
 | [t-20261023-ops-wip-rotation](../tasks/t-20261023-ops-wip-rotation.md) | Ops: log rotation + cursor-safe events/reminders | ready | not set | — | — | — |
