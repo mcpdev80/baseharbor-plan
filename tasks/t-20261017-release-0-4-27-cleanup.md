@@ -14,14 +14,14 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["../board-2026-10-22/q42-v27cleanup.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md"]
 ---
 
 - [ ] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/active #view/active #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** q42 · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
-    **Evidence:** [proof 1](../board-2026-10-22/q42-v27cleanup.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
