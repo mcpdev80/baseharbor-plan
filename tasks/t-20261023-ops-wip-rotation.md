@@ -56,6 +56,8 @@ One or two sentences: the observable outcome.
 
 ## Handoff
 
+- 2026-10-23 CODEX FIX-IMPLEMENTATION: bounded implementation complete and self-tested. Ecosystem evidence: `evidence/board-2026-10-22/codex-opsfix.md` (PLAN, individual fix sections, exact file hashes, limitations). Final `test_f17_fixtures.py` passed twice: 73 tests, rc=0 each; 7 new focused fixtures passed; all 10 Python and 5 shell scripts passed syntax checks. Live Basics JSON includes unread reminder summary and board currency `ok`. Exact OpenCode IDs preferred; unavailable live ID mapping remains explicitly `approx`. Watcher requires coordinator reload. No independent review/acceptance claimed; active state retained since this non-Git ecosystem scope has no PR for schema-valid review status. No product files, merges or releases.
+
 - Temporary Owner assignment: ecosystem `evidence/board-2026-10-22/prompts/codex-opsfix.txt`; implementation evidence: ecosystem `evidence/board-2026-10-22/codex-opsfix.md`. Live session list contains no f19; explicit five-card assignment transfers its bounded work. Active-card claim command refused the existing state, so the authorized transfer updates owner directly.
 
 - Current state, branch, PR and evidence links. Newest first.
