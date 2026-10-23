@@ -90,3 +90,4 @@ q24's "consumer_ref empty = auto-resolve" is WRONG for the Source job: ecosystem
 40-hex commit. W1 must pass live branch tips (o46 refix); CMD-B failure 5x traced to this single root, 21 skips cascade.
 - lockcheck-recheck (q41): 2adae47a..9f4916be touched NO contract/lock files -> console #7 (0ea88f5) + connector #8 (570864c) green checks REMAIN VALID; no sync-merge/requalify needed. Evidence ../board-2026-10-22/q41-lockcheck.md
  26: develop=1861ed07 C2-FINAL
+- 2026-10-23 17:4x: W1 dispatched (runs 39997296272/39997310442, docker+podman parallel, ref develop 1861ed07, demo pin 25c3196). console #7 + connector #8 MERGED (audit remnants 18/19 resolved). D2 final: demo release branch @ 25c3196, PR #119 obsolete.
