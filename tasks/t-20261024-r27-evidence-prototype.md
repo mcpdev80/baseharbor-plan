@@ -55,3 +55,5 @@ Formal release-start update and evidence-contract dependencies remain unaccepted
 
 ## Handoff
 - 2026-10-24: draft PR #1048, isolated preparation underway, not independently qualified.
+- GitHub Actions run [40040221997](https://github.com/mcpdev80/baseharbor/actions/runs/40040221997) has completed: Workflow policy, Trusted Plan, Focused Python and selected validations succeeded, but required **PR Selected Checks failed** at `Enforce every required check (unqualified runtime remains blocked)`. Treat as a genuine unresolved trusted coverage blocker; do not override it or count the prototype as accepted.
+- Recent head after further changes is different from this run SHA, so the run is **not evidence for the current head**.
