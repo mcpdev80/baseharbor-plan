@@ -78,3 +78,4 @@ The Node Connector integrates with real Core enrollment and sessions, and real r
 
 - 2026-10-06: draft PR [baseharbor-node-connector#4](https://github.com/mcpdev80/baseharbor-node-connector/pull/4) includes `46e9d269a59716c99a0379d553a399864f479c61` (strict enrollment identity installation and negative tests); source checks only, no remote runtime evidence. 2026-10-07: public-repo hygiene (LICENSE, SECURITY.md, public CI) done. Current README documents manual startup; the seamless guided lifecycle is not proven. The draft PR was last updated 2026-10-08; Maintainer to decide continue/close.
 > Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
+> 27-PAUSE (Owner 2026-10-23): Arbeit ruht bis 26 geschlossen; laufende Research-Ergebnisse/PRs bleiben als Artefakte dokumentiert, keine weiteren Runden.
