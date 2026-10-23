@@ -58,6 +58,25 @@ class PublisherTests(unittest.TestCase):
             publish(self.temp.name, "v0.4.27", "candidate", "run-1",
                     self.manifest, {"payloads/../check.json": self.payload})
 
+    def test_duplicate_check_id(self):
+        self.manifest["checks"].append(dict(self.manifest["checks"][0]))
+        with self.assertRaises(ArchiveError):
+            self.publish()
+
+    def test_missing_check_id(self):
+        del self.manifest["checks"][0]["id"]
+        with self.assertRaises(ArchiveError):
+            self.publish()
+
+    def test_existing_manifest_symlink(self):
+        self.publish()
+        from pathlib import Path
+        path = Path(self.temp.name) / "evidence" / "v0.4.27" / "candidate" / "run-1" / "manifest.json"
+        path.unlink()
+        path.symlink_to(Path(self.temp.name) / "external.json")
+        with self.assertRaises(ArchiveError):
+            self.publish()
+
     def test_extra_payload(self):
         with self.assertRaises(ArchiveError):
             publish(self.temp.name, "v0.4.27", "candidate", "run-1",
