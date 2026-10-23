@@ -58,6 +58,13 @@ class ResolverTests(unittest.TestCase):
         p.symlink_to(self.directory / 'manifest.json')
         with self.assertRaises(ArchiveError): self.resolve()
 
+    def test_symlink_payload_directory(self):
+        payload_dir = self.directory / 'payloads'
+        (payload_dir / 'check.json').unlink()
+        payload_dir.rmdir()
+        payload_dir.symlink_to(self.directory, target_is_directory=True)
+        with self.assertRaises(ArchiveError): self.resolve()
+
     def test_wrong_release(self):
         self.manifest['release'] = 'v0.4.26'
         self.save()
