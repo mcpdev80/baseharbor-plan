@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import stat
 from r27_archive_resolver import ArchiveError, SAFE, resolve
 
 MAX_PAYLOAD = 8 * 1024 * 1024
@@ -26,10 +27,15 @@ def publish(root, release, candidate_id, run_id, manifest, payloads):
     if not isinstance(checks, list) or not checks or len(checks) != len(payloads) or len(checks) > 128:
         raise ArchiveError("invalid payload inventory")
     names = set()
+    check_ids = set()
     total = 0
     for check in checks:
         if not isinstance(check, dict):
             raise ArchiveError("invalid check")
+        identity = check.get("id")
+        if not isinstance(identity, str) or not SAFE.fullmatch(identity) or identity in check_ids:
+            raise ArchiveError("missing or duplicate check identity")
+        check_ids.add(identity)
         name = check.get("payload")
         if (not isinstance(name, str) or not name.startswith("payloads/") or
                 name.count("/") != 1 or not SAFE.fullmatch(name.split("/")[1]) or name in names):
@@ -53,7 +59,7 @@ def publish(root, release, candidate_id, run_id, manifest, payloads):
                    root / "evidence" / release / candidate_id, directory, directory / "payloads"):
         if parent.is_symlink():
             raise ArchiveError("unsafe archive directory")
-        parent.mkdir(exist_ok=True)
+        parent.mkdir(parents=True, exist_ok=True)
         if not parent.is_dir():
             raise ArchiveError("non-directory archive component")
 
@@ -61,7 +67,10 @@ def publish(root, release, candidate_id, run_id, manifest, payloads):
         try:
             fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
         except FileExistsError:
-            if path.is_symlink() or not path.is_file() or path.read_bytes() != data:
+            if path.is_symlink() or not path.is_file():
+                raise ArchiveError("archive identity collision")
+            from r27_archive_resolver import _read
+            if _read(path, max(len(data), 1)) != data:
                 raise ArchiveError("archive identity collision")
             return
         try:
