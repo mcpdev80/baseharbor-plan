@@ -44,17 +44,33 @@ def resolve(root, release, candidate_id, run_id, expected_digest):
     raw = _read(directory / "manifest.json", MAX_MANIFEST)
     if hashlib.sha256(raw).hexdigest() != expected_digest:
         raise ArchiveError("manifest digest mismatch")
+    def reject_duplicate_keys(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value:
+                raise ArchiveError("duplicate manifest key")
+            value[key] = item
+        return value
     try:
-        manifest = json.loads(raw)
+        manifest = json.loads(raw, object_pairs_hook=reject_duplicate_keys)
     except (ValueError, UnicodeError) as exc:
         raise ArchiveError("invalid manifest JSON") from exc
     if not isinstance(manifest, dict) or manifest.get("schema") != "baseharbor.ci-evidence-archive/v1":
         raise ArchiveError("invalid manifest schema")
-    if manifest.get("release") != release or not isinstance(manifest.get("checks"), list):
-        raise ArchiveError("manifest identity or checks missing")
+    candidate = manifest.get("candidate")
+    run = manifest.get("run")
+    if (manifest.get("release") != release or
+            not isinstance(candidate, dict) or not isinstance(run, dict) or
+            candidate.get("id") != candidate_id or run.get("archive_id") != run_id or
+            not isinstance(run.get("id"), int) or isinstance(run.get("id"), bool) or
+            run["id"] <= 0 or not isinstance(run.get("attempt"), int) or
+            isinstance(run.get("attempt"), bool) or run["attempt"] <= 0 or
+            not isinstance(manifest.get("checks"), list) or not manifest["checks"]):
+        raise ArchiveError("manifest candidate/run identity or checks missing")
     if len(manifest["checks"]) > 128:
         raise ArchiveError("too many evidence checks")
     seen = set()
+    total_bytes = 0
     for check in manifest["checks"]:
         if not isinstance(check, dict) or not isinstance(check.get("payload"), str):
             raise ArchiveError("invalid evidence entry")
@@ -69,6 +85,9 @@ def resolve(root, release, candidate_id, run_id, expected_digest):
         if (directory / "payloads").is_symlink():
             raise ArchiveError("unsafe payload directory")
         content = _read(directory / name, MAX_PAYLOAD)
+        total_bytes += len(content)
+        if total_bytes > 32 * 1024 * 1024:
+            raise ArchiveError("archive total payload size exceeded")
         if check.get("bytes") != len(content) or hashlib.sha256(content).hexdigest() != digest:
             raise ArchiveError("payload length or digest mismatch")
     return manifest
