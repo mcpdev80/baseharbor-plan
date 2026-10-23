@@ -12,17 +12,18 @@ repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-demo/pull/118"]
 ---
 
 - [x] t-20261022-cleanup-provenance-order-fix · Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown #task #release/v0-4-26 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codeman (o23 demo cleanup fix)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-demo/pull/118)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** checked  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
