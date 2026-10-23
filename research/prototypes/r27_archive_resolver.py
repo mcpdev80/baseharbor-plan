@@ -66,6 +66,8 @@ def resolve(root, release, candidate_id, run_id, expected_digest):
         digest = check.get("sha256")
         if not isinstance(digest, str) or not HEX64.fullmatch(digest):
             raise ArchiveError("invalid payload digest")
+        if (directory / "payloads").is_symlink():
+            raise ArchiveError("unsafe payload directory")
         content = _read(directory / name, MAX_PAYLOAD)
         if check.get("bytes") != len(content) or hashlib.sha256(content).hexdigest() != digest:
             raise ArchiveError("payload length or digest mismatch")
