@@ -5,7 +5,7 @@ type: task
 release: v0.4.28
 version: ""
 parent: console-1
-owner: f25
+owner: ""
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]
 repos: [mcpdev80/baseharbor-console]
 prs: ["mcpdev80/baseharbor-console#8"]
@@ -17,20 +17,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/review #view/review #area/console #kind/task
+- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
     <!-- generated:card -->
-    **Owner:** f25  
+    **Owner:** unassigned  
     **PR:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
 **Required by:** [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md)  
-**Owner:** f25  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
 **Source:** [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2)
@@ -80,3 +81,4 @@ The accepted shared management API, two-workstation authority proof and access p
 - Qualified slices recorded in the source (2026-10-06): read/inspection/admission (run 37502764895), native terminal (run 37522006929, artifact 11440218968), live logs (run 37526991138, artifact 11442304902); receipts keep `production_rotation_evidence: false`, `release_eligible: false`. Original failed runs 37516538050, 37519019518, 37525663970 remain failures. 2026-10-07: public readiness docs aligned; `npm test` is the architecture-boundary entry point. Still open: Console-driven bootstrap, complete application mutation/setup/rotation journeys, production rotation, final repinning to the completed Core candidate and private release-origin verification.
 - Open draft PR [baseharbor-console#3](https://github.com/mcpdev80/baseharbor-console/pull/3) (v0.4.23 live integration, last updated 2026-10-08) — stale relative to current Core; Maintainer to decide continue/close.
 - 2026-10-23 (f25): f24 recipe implemented as preparatory PR [mcpdev80/baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8) against `main`; head `502cdadae3dff0b285868aae85bab618f4c1dede`; PR run 39986030426: "Architecture · TypeScript · Lint · Build" pass, browser proof job skipped-by-design on pull_request (runs on main/schedule/runtime-validation after merge). Files: ci.yml (permanent live workflow proof, source-lock Core resolution, remote docker journey + Connector pin 0a02e6d9, receipt rename), CONTRACT-READINESS.md rows/slices, README stale #767-#770 removal, 1-line artifact-name consistency in release-integration.yml. No merge (codex REVIEW/MERGE lane). Evidence: ecosystem `evidence/board-2026-10-22/f25-console2.md`. Preconditions remain NOT accepted; card in review as prepared candidate.
+> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.

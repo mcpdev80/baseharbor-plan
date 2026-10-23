@@ -6,7 +6,7 @@ release: v0.4.27
 version: v0.4.27
 release_stage: cleanup
 parent: v0.4.27
-owner: q42
+owner: ""
 priority: high
 depends_on: [t-20261017-release-0-4-26-verify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
@@ -17,19 +17,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md"]
 ---
 
-- [ ] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/active #view/active #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
-    **Owner:** q42 · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
 **Required by:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** q42  
+**Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -60,3 +61,4 @@ Inspect actual remote state; verify required changes are incorporated before del
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
 
 > Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege.
+> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.

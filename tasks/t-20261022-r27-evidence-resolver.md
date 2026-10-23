@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: o70
+owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -16,18 +16,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-evidence-resolver · evidence resolver #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261022-r27-evidence-resolver · evidence resolver #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** o70 · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
-**Owner:** o70  
+**Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -48,3 +49,4 @@ Resolve retained evidence by candidate, run and manifest digest from baseharbor-
 - Tests resolve archived fixtures after source branch and Actions artifacts are unavailable.
 - Negative tests cover missing files, mismatched digest, ambiguous IDs and untrusted references.
 - No new registry/database/service.
+> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.

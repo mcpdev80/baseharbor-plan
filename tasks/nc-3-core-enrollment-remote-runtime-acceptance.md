@@ -5,7 +5,7 @@ type: task
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: f26
+owner: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-cli, t-20261018-r27-node-service, t-20261018-r27-node-streams, t-20261018-r27-node-trust, t-20261018-r27-remote-podman-web, t-20261018-r27-remote-rollout]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: []
@@ -17,18 +17,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** f26  
+    **Owner:** unassigned  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** f26  
+**Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -76,3 +77,4 @@ The Node Connector integrates with real Core enrollment and sessions, and real r
 ## Handoff
 
 - 2026-10-06: draft PR [baseharbor-node-connector#4](https://github.com/mcpdev80/baseharbor-node-connector/pull/4) includes `46e9d269a59716c99a0379d553a399864f479c61` (strict enrollment identity installation and negative tests); source checks only, no remote runtime evidence. 2026-10-07: public-repo hygiene (LICENSE, SECURITY.md, public CI) done. Current README documents manual startup; the seamless guided lifecycle is not proven. The draft PR was last updated 2026-10-08; Maintainer to decide continue/close.
+> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
