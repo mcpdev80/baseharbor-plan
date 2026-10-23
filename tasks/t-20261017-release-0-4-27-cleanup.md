@@ -6,7 +6,7 @@ release: v0.4.27
 version: v0.4.27
 release_stage: cleanup
 parent: v0.4.27
-owner: ""
+owner: q42
 priority: high
 depends_on: [t-20261017-release-0-4-26-verify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
@@ -17,19 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/active #view/active #area/release #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** q42 · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
 **Required by:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** q42  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
