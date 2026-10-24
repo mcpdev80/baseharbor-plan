@@ -9,7 +9,7 @@
   },
   "observed_utc": "2026-10-24T22:13:15.694658+00:00",
   "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "PENDING",
+  "native_joint_verdict": "FAILURE",
   "pins_file": "v0.4.26.consumer-pins.json",
   "pins_sha256": "33cd462d0f159821a6f16c1d2c1e85d311fd92724b3bf61f63806d42f52011bb",
   "roles": {
@@ -60,7 +60,7 @@
         "docker": 121002381187,
         "podman": 121002381169
       },
-      "native_result": "pending",
+      "native_result": "failure",
       "integrated_pin_source": "f1cc3ae33139a6d35c8a7e05d8baf522beeb72be",
       "integrated_pin_merge": "6bd86048dd38fa390e4f2019e9921cbdaf5f48e2",
       "operational_successor": {
@@ -95,5 +95,6 @@
       "pins_snapshot": "v0.4.26.consumer-pins.failed-c4363a28.json",
       "diagnosis": "JOINT-NATIVE-THIRD-FAILURE.md"
     }
-  ]
+  ],
+  "native_failure_diagnosis": "Both hosts reach actual CoreREADY, apply/repair/CArotation, then ordinary local destroy leaf is hidden by Console outer-scope-only check; both cleanups succeed. Bounded consumer correction requires successor native proof."
 }

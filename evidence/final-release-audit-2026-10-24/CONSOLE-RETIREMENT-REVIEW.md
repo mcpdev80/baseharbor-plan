@@ -1,0 +1,17 @@
+# Ordinary runtime retirement consent review
+
+Independent source verdict: APPROVE exact unpublished six-file tree `c6b00e116b6a00688dd39bf1779ec03e6a72ac42`, parent actual Console U `52993ac5623cdfa2a3b91001ed078dfd27f31b5e`, subject to final source checks and normal integration. This source verdict is not native acceptance.
+
+The actual R local destroy implementation distinguishes ordinary runtime retirement from full reset. cmd/baha/app_lifecycle.go routes !fullReset to retireRuntimePreservingData. cmd/baha/app_runtime_retirement.go acknowledges the leaf *plan.Impact, revalidates provider intent and rebuilds the exact PlanID before mutation. The current Console decoder incorrectly requires an outer scope for every destroy, hiding the legitimate leaf after a real no-write approval_required refusal.
+
+The bounded correction permits a valid target leaf for ordinary destroy, while preserving failed typed operation, exact context, machine/session/selection and request binding. The current product action explicitly sends full_reset=false and includes that request intent in its approval/impact binding. Full-reset input requires an outer scope. Any present malformed scope fails closed rather than falling back to a leaf. Valid outer scopes retain application-deployment owner validation and selected deployment subject binding. Every submission still clears generic approval and plan acknowledgements, requiring fresh review after stale/failure outcomes.
+
+Current typed MachineContext and DeploymentRow do not expose locality. The client therefore does not infer remote/local from names or runtime kind. Core remains the consequence and authorization owner. The real remote fixture now explicitly asserts the returned outer-scope version and actual deployment record identity.deployment_id before consent; full-reset fixture/CLI paths reject leaves. Existing no-write snapshots, native lifecycle and owned cleanup assertions remain required.
+
+Exactly six files change: provider-consent decoder, ApplicationActions, their decoder tests, fixture-consent helper/tests and the remote application fixture. No Core, workflow, canonical pin, producer qualification, owner cleanup or automatic consent policy changes. Independent exact staged-tree review and 10 focused decoder/fixture tests PASS with zero skips. Owner reports a red-before/green-after ordinary-retirement regression; full source checks were still running at this checkpoint.
+
+Current run40137607614 on Kacc6 remains unqualified pending terminal receipt authentication. Previous source graph and failures remain preserved; no future U/K successor is inferred before actual integration.
+
+Final owner source checkpoint: unchanged exact c6b00e11 tree now reports all68 contract tests with zero skips, TypeScript, ESLint, architecture and production build33routes PASS. Independent publication verdict remains APPROVE; source CI and actual successor integrations are pending. Fourth attempt40137607614 is terminal FAILURE on both native jobs, independently authenticated in JOINT-NATIVE-FOURTH-FAILURE.md.
+
+Published Console PR #13 source `eeff249be3b9ff8ea9a46ed3ba682a95f4990d69` independently authenticated: sole parent actual U52993ac5 and complete tree exact `c6b00e116b6a00688dd39bf1779ec03e6a72ac42`. Remote identity matches the reviewed six-file batch. Hosted source CI and actual successor U/K remain pending; no native execution is implied.

@@ -10,7 +10,7 @@ owner: Codex (Maintainer release completion)
 priority: normal
 depends_on: [core-752, core-893, core-893-interface, core-894, core-895, core-896, core-900, core-901, core-910, core-911, core-912, core-913, core-914, core-915, core-916, core-917, core-918, core-919, core-920, core-921, core-922, core-923, t-20261016-pr-impact-selection, t-20261016-registration-ci-readiness, t-20261016-wizard-task-ci-readiness, t-20261017-concise-code-comments, t-20261017-podman-acceptance-typed-consent, t-20261017-podman-backup-guided-runtime, t-20261017-provider-projection-workload, t-20261018-podman-recovery-bootstrap-cleanup, t-20261018-podman-recovery-core-state-owner, t-20261018-scoped-runtime-reset-xdg-ownership, t-20261019-ci-evidence-stabilization, t-20261019-core921-coverage-binding, t-20261019-owner-delegated-maintainer-authority, t-20261019-v0426-complete-defect-audit, t-20261020-develop-appid-manifest-test-regression, t-20261022-cleanup-provenance-order-fix, t-20261022-q20-docs-pages, t-20261023-selector-q-predecessor, t-20261024-v0426-ci-integration-closeout]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: ["mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13"]
+prs: ["mcpdev80/baseharbor-console#13", "mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13"]
 sources: []
 blocker: ""
 resolution: ""
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer release completion) · **Priority:** normal  
-    **PR:** [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
+    **PR:** [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
     **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 10](https://github.com/mcpdev80/baseharbor/pull/1060), [proof 11](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 **Required by:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
 **Owner:** Codex (Maintainer release completion)  
 **Priority:** normal  
-**PRs:** [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
+**PRs:** [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,6 +59,15 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+## Current native failure narrowed to ordinary-retirement consent presentation
+
+Joint [40137607614](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40137607614) finished FAILURE on exact Kacc6 / U529. Both Docker121002381187 and Podman121002381169 pass actual Core Setup READY (SQL/Secrets/Identity ready), consented application apply, plan/status/doctor/repair, real CA rotation and postrotation checks. Both then correctly refuse unconsented ordinary destroy with approval_required/impact-confirmation-required and no writes, but the Console fails to display its valid consequence review; both final owned cleanups succeed. These successful subpaths do not qualify the complete consumer journey.
+
+Independent exact-R source review establishes the mismatch: ordinary local destroy without full_reset calls retireRuntimePreservingData and returns a leaf ProviderImpactPlan; remote/full-reset destruction returns an outer application scope. Console incorrectly requires outer scope for every destroy. A bounded six-file consumer correction supports the actual ordinary leaf under current execution/context/session/selection binding, makes false full-reset intent explicit, retains strict outer subject checks, rejects malformed present scopes without fallback and strengthens actual remote outer-plan assertions. No locality is guessed from absent fields and no Core protection changes. Exact reviewed treec6b00e116b6a00688dd39bf1779ec03e6a72ac42 passes the regression before/after proof, ten independent focused tests and all68 owner-run contracts (zero skips), compiler/lint/architecture/33-route build. Published successor source CI, actual U/K integration and new native acceptance remain pending.
+
+Core R3e27497b and Demo D09595781 remain unchanged. Preserve this failed acc6 graph, both diagnostic ZIP origins and cleanup outcomes. Selected63, full65, promotion and tag remain pending; no release acceptance is granted.
+
 
 ## Protected fixture corrected; exact final native qualification running
 
