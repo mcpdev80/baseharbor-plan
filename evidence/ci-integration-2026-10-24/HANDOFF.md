@@ -1,3 +1,13 @@
+## Native consumer failure and bounded correction
+
+Joint run [40130842592](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40130842592), attempt 1 on actual K543e155d, failed both Docker and Podman Console Chromium journeys. Production managed enrollment/outbound Connector and owned fixture/key cleanup passed in both jobs. No integration acceptance manifest was produced; no consumer native PASS or release readiness is claimed.
+
+The real first apply returned `approval_required`, cause `impact-confirmation-required`, while the legacy journey expected `capability_missing/core_required`. Independent Core R inspection confirms capability-first SQL provisioning deliberately no longer requires management Core bootstrap; concrete provider impact consent is mandatory. Console currently sends empty apply input and cannot present/acknowledge that plan. This is a real consumer UI gap, not authority to change an assertion or inject consent through a browser route.
+
+Marcel's full-release completion assignment delegates a bounded Console consent UI correction and the necessary genuine browser/remote fixtures plus Connector receipt mapping to consumer_final. final_audit independently reviews the actual contract, stale-plan safety, no-write refusal, explicit Core setup coverage and unchanged native acceptance strength. Root alone integrates reviewed green source. Core R and Demo D stay frozen; U/K and the external graph must be regenerated after actual successor merges. The graph below is the failed prior candidate, preserved as history.
+
+The exact63 preproof and complete65 approval remain unstarted until the corrected actual U/K joint native proof passes. Tagging remains Marcel's final action after genuine approval and main promotion.
+
 ## Actual complete source freeze
 
 All four immutable sources are integrated and independently checked:
