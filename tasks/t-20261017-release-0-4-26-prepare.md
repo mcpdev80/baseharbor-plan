@@ -59,6 +59,24 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-24 — Open-chain state at develop `65aa063e`, board sync round 5 (live gh sweep, mission f60)
+
+Develop remains `65aa063e90767c85af976081c100be1817370e67` (Q/#1063 merged). Open-chain table, all heads/states re-read live via gh 2026-10-24 (~15:4x UTC, mission f60 round 5; verdicts/evidence are the cited ops-lane records; this is a Planning/CardBoard state sync, not an acceptance or readiness signal):
+
+| PR | Live state | Confirmed verdict / next action |
+|---|---|---|
+| [#1046](https://github.com/mcpdev80/baseharbor/pull/1046) | OPEN, BEHIND, head `1ec67f8d`, reviewDecision=REVIEW_REQUIRED | source tests pass (q118, verdict cmf10 `codex-verdict-1046-runtime.md`); qualifier PR serialized after C/D |
+| [#1050](https://github.com/mcpdev80/baseharbor/pull/1050) | OPEN, BEHIND, head `38896762`, reviewDecision=REVIEW_REQUIRED | order dependency unchanged: needs #1056 and the freeze-chain reconciliation first |
+| [#1052](https://github.com/mcpdev80/baseharbor/pull/1052) | OPEN, BEHIND, head `9f715184`, reviewDecision=REVIEW_REQUIRED | r6 correction pushed; independent review running (q123 `q123-review1052r6.md`); merge maturity gated by #1060 landing in develop |
+| [#1056](https://github.com/mcpdev80/baseharbor/pull/1056) | OPEN, BLOCKED, head `b0abe105`, reviewDecision=REVIEW_REQUIRED | CI green, but Codex-REVIEW cmf12 REQUEST_CHANGES (F1 strict-planner bootstrap fallback, F2 pins-data validator; `codex-verdict-1056-H.md`); correction chain R'/Q'/H' not yet started (serialized behind #1060) |
+| [#1060](https://github.com/mcpdev80/baseharbor/pull/1060) | OPEN, BLOCKED, head `0f3bd169`, reviewDecision=REVIEW_REQUIRED | source independently ACCEPT (o139 `o139-review1060.md`); cmf18 confirms record-only qualification insufficient; prerequisite Policy-PR in work (o140 `o140-policypr.md`, branch `work/v0.4.26-ci-qualifier-1060`; no PR opened yet, live-checked) |
+
+Freeze chain (dependency order Demo → Console → Connector → #1050 reconcile), live heads: Demo [#120](https://github.com/mcpdev80/baseharbor-demo/pull/120) OPEN head `bd86c7c3` REQUEST_CHANGES (`codex-verdict-demo120-repin.md`); pin-only successor Demo [#121](https://github.com/mcpdev80/baseharbor-demo/pull/121) OPEN head `f57c8b6e` held at the OWNER/HOST Podman receipt (CX-DEMO121R4 `codex-verdict-demo121-r4.md` = OWNER action, no worker edit). Console [#9](https://github.com/mcpdev80/baseharbor-console/pull/9) ACCEPT_WITH_NONBLOCKING (`codex-verdict-freeze-prs.md`), repin after the Demo merge. Connector [#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10) OPEN head `e832d565` ACCEPT_WITH_NONBLOCKING (`codex-verdict-connector10.md`) with final pin steps D/U after the Demo+Console merges; superseded Connector [#9](https://github.com/mcpdev80/baseharbor-node-connector/pull/9) (still OPEN) to be closed coordinated by the Maintainer lane — do not merge both.
+
+W1 (H-Kette) is provisionally blocked until the pins stand on develop (q116 dispatch sheet `q116-w1dispatchsheet.md`, f54 Tafel).
+
+Card stays ACTIVE. No acceptance, no readiness claim, no merges or PR closures performed by this sync.
+
 ### 2026-10-24 — Open-chain state at develop f3929568 (live gh sweep, mission o127, round 3)
 
 Develop at `f39295680d41290fc505c0a8cc1769da51699293` (unchanged from round 2; o116 = `a2abc17a` → f50 = `f3929568`, the #1047 merge touches only scripts/pr-gate-plan.py + scripts/test_pr_gate_plan.py, so the docs surface is byte-identical). Open-chain table, all values read live via gh at ~11:15 UTC 2026-10-24 (approvals/merges belong to the Codex-Maintainer lane under the recorded Owner decision `--squash --admin` for baseharbor and the Demo/Console/Connector freeze PRs):

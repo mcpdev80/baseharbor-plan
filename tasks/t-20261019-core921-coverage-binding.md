@@ -64,6 +64,11 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 > CURRENT (2026-10-22): binding functions on develop (trusted-base activation #1030 merged 7fbc1ec5); #1007 CLOSED-superseded. Entries below are historical. See evidence/codeman-2026-10-21/HANDOFF.md.
 
+### 2026-10-24 — P state #1056: REQUEST_CHANGES at `b0abe105`, correction chain R'/Q'/H' pending (board sync round 5, mission f60)
+
+- Live gh re-check: #1056 (`o90-planner-pr`) OPEN/BLOCKED at head `b0abe105`; CI green, but the independent Codex-REVIEW verdict cmf12 is REQUEST_CHANGES with findings F1 strict-planner bootstrap fallback and F2 pins-data validator (`evidence/board-2026-10-24/codex-verdict-1056-H.md`). The correction chain R'/Q'/H' has not started yet; it is serialized behind #1060.
+- No new acceptance is inferred from this Planning/CardBoard state sync; the card remains accepted with its recorded 2026-10-21 acceptance untouched.
+
 ### 2026-10-24 — Chain Q landed (o124-Q-record #1063 → develop `65aa063e`); P state #1056 awaiting review
 
 - Q landed: #1063 (o124-Q-record) MERGED 2026-10-24, develop anchor `65aa063e90767c85af976081c100be1817370e67`. The core-921 exact-source binding remains accepted; the record/qualification layer now sits on develop.
