@@ -68,6 +68,11 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+### Final Core and exact Demo candidate
+
+Final R=`3e27497b4ef7b567858ba646bc3071bee37d19bd`. Demo121 candidatea1051ec5f5c366cdfafe527298ac60e5db4f951c changes only baseharbor-core.ref and is independently reviewed. Existing Podman native run40128218519 is active; no PASS claimed. Freeze D/U/K in actual predecessor order, then run final W1 and joint consumer gates on the actual immutable graph. Source integration and native acceptance remain separate.
+
+
 ### Current native route and final source boundary
 
 The dispatch-route blocker is resolved through the existing reviewed Demo release-branch workflow. Run40117924670 genuinely passed backup/restore and acceptance cleanup for Core64dbf1df / Demo f90d0623; artifact12569249775 SHA2562d47ee6961d7c55df19630fbce837ecee2a4190cd4e4f6dc3d5328ff496892cc is authenticated. This is intermediate evidence only: final publication prose and user-requested concise release notes must land before final R. Consumer freeze and final W1 remain active, not accepted. New consumer-final lane coordinates successor pins without overriding previous session-2 evidence.
