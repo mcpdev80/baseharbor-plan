@@ -5,7 +5,7 @@ type: task
 release: v0.4.26
 version: ""
 parent: v0.4.26
-owner: Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain
+owner: Codex session 2 native acceptance (d48643e22049)
 depends_on: [core-921, core-922, core-900]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
     <!-- generated:card -->
-    **Owner:** Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain  
+    **Owner:** Codex session 2 native acceptance (d48643e22049)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
-**Owner:** Flash-Coordinator (74e10b98) via lanes f7/f9/q24-o28 - C2/D2/W1 evidence chain  
+**Owner:** Codex session 2 native acceptance (d48643e22049)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#923](https://github.com/mcpdev80/baseharbor/issues/923)
@@ -67,6 +67,14 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-24 — Owner-assigned native acceptance and consumer freeze (session 2)
+
+- Marcel explicitly lifted the previous stop for this bounded assignment. Owner: Codex session 2 (`d48643e22049`); dedicated local worktree `native-plan`, branch `work/native-acceptance-d48643e`. No old worker/daemon resumed.
+- Session 1 owns all product merges, develop integration and shared CI implementation. Session 3 owns independent review and evidence checks. Session 2 publishes only its task and separate `evidence/native-acceptance-2026-10-24/` dossier. Generated-view changes are limited to this claim; subsequent shared projections must be coordinated with session 3, preserving current main.
+- Native proof remains pending. W1 Core anchor stays `1861ed07888a1ec22c218ca491d23ee54f48e261`. Final consumer pins follow actual Demo, Console, Connector merges in that order. No acceptance, merge, release, tag, deploy or complete pre-release is authorized here.
+- Fresh remote snapshot: Core develop `65aa063e90767c85af976081c100be1817370e67`; Demo #121 `f57c8b6e5ff39d0873df62b26272962765e88d6e`; Console #9 `6017de2845fa3e4e408c69038a0a5bdd7e82cad9`; Connector #10 `e832d5651752121dea9484e18422d3e6459f9a72`.
+
 
 ### 2026-10-24 — W1/journeys prerequisite sync, round 5 (live gh, mission f60; develop `65aa063e`)
 
