@@ -1,0 +1,56 @@
+{
+  "run": 40128173805,
+  "job": 120973982875,
+  "artifact": 12574701602,
+  "artifact_sha256": "d0599384b87d6533da3394e909838f2f04338e668a8d8f048f1467e0ab7954a8",
+  "source": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+  "tree": "8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3",
+  "go": "go version go1.26.9 linux/amd64",
+  "binary_sha256": "caa45ed0b7f5b5359008b327c78d07bc43f82be0e7ffc1f08bcf6b76b3201daf",
+  "runtime_binary": {
+    "built": "unknown",
+    "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+    "version": "dev"
+  },
+  "families": {
+    "TestManagedLokiIngestsRealComposeWorkloadLogs": {
+      "elapsed": 48.21,
+      "package": "github.com/mcpdev80/baseharbor/internal/logs"
+    },
+    "TestRepositoryWorkflowRealLifecycle": {
+      "elapsed": 102.82,
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha"
+    },
+    "TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI": {
+      "elapsed": 62.53,
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha"
+    },
+    "TestRepositoryComposeWorkloadOnlyLifecycleInCI": {
+      "elapsed": 54.23,
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha"
+    },
+    "TestRepositoryBuildWorkloadRebuildsSourceChangesInCI": {
+      "elapsed": 77.06,
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha"
+    },
+    "TestMultiInstanceComposeLifecycleInCI": {
+      "elapsed": 4.54,
+      "package": "github.com/mcpdev80/baseharbor/internal/application"
+    },
+    "TestExistingControlPlaneRestartRequiresAndUsesRecoveryFile": {
+      "elapsed": 255.93,
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha"
+    },
+    "TestManagedTempoReceivesVerificationTraceThroughCollector": {
+      "elapsed": 18.08,
+      "package": "github.com/mcpdev80/baseharbor/internal/traces"
+    }
+  },
+  "fail_skip_actions": 0,
+  "workflow_run_attempt": 1,
+  "workflow_path": ".github/workflows/docker-runtime-acceptance.yml",
+  "cleanup_completed_at": "2026-10-24T20:17:51Z",
+  "strict_eight_family_verifier": "PASS",
+  "independent_verdict": "APPROVE",
+  "verdict_scope": "final exact-source native Go Docker proof; not full release approval"
+}

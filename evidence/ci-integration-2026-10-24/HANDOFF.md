@@ -1,3 +1,9 @@
+## Final Docker native contract accepted
+
+Final R Docker run40128173805/job120973982875 PASS is independently authenticated: artifact12574701602 digestd0599384b87d6533da3394e909838f2f04338e668a8d8f048f1467e0ab7954a8, exact tree8dce77b3, all eight named families and packages PASS, zero skip/fail, binary/image equality and actual cleanup PASS. The appid card is accepted. Demo Podman40128218519 remains active; final D/U/K and atomic/full approval remain open.
+
+Obsolete alternative CI PRs1054/1061/1062 were independently compared against the integrated canonical validator/register/executor and closed without merge as superseded preparation. Their original bodies, heads, branches and history are preserved; no old test or stale pin snapshot is labelled merged. See PROMOTION-AND-NATIVE.md. v0.4.27 remains untouched.
+
 ## Final immutable Core selected
 
 Final Core R is `3e27497b4ef7b567858ba646bc3071bee37d19bd`, the actual #1070 squash after mandatory CI40127989289 PASS. The concise EN/DE release notes were independently reviewed; no further Core edits are planned. #1069 neutral publication prose is also integrated.

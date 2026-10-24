@@ -1,3 +1,7 @@
+## Current final-input run
+
+Root fixed final CoreR3e27497b4ef7b567858ba646bc3071bee37d19bd after green required release-notes CI. Demo121 is now a1051ec5f5c366cdfafe527298ac60e5db4f951c, treea372d0f5c473de417006ff6924632f11589073c9, direct parentf90d0623. Exact remote comparison proves sole changed file baseharbor-core.ref, ahead1/behind0. Both PR branch and existing release branch were non-force fast-forwarded with expected-SHA leases. Existing Podman-only native run40128218519 is in progress. Independent final-audit source review APPROVE at this exact head: complete helper/tests/workflow bytes preserved and only Core pin differs. Native receipt remains in progress; no PASS yet. Actual D/U pins remain pending predecessor merges.
+
 # Final consumer qualification — 2026-10-24
 
 ## Assigned scope and current hold
@@ -23,3 +27,19 @@ After actual Demo merge D and Console merge U, repin Connector manifest to final
 ## Remaining gates
 
 Final Core R from root; exact Demo pin and fresh native acceptance if required for new input; actual D; Console R/D source checks and actual U; Connector R/D/U source checks/history integration and joint native receipts; exact merged K and canonical graph qualification. No readiness or consumer acceptance is claimed.
+
+## Source integration and native acceptance boundary
+
+The current core-923 contract requires real final immutable consumer qualification before acceptance/readiness, but does not require a native run before each pin-only source integration. The existing Native-HANDOFF expressly sequences actual D, Console repin/review/integration to U, Connector repin/review/integration to K, then final graph/W1 execution. Its source-only warning forbids claiming skipped native jobs as PASS; native acceptance remains open after source-only integration. Demo121's concrete recovery/cleanup defect retains its distinct explicit native receipt-before-merge requirement.
+
+Existing consumer source workflows intentionally gate native browser/transport/enrollment jobs to runtime-validation pushes; ordinary pull requests run source quality. Therefore a Maintainer may integrate exact reviewed pin-only Console/Connector candidates after their current mandatory source CI while retaining consumer native acceptance open, then execute the joint native workflow at actual merged K once. This is source integration, not task acceptance or release readiness.
+
+All three consumer repositories currently allow genuine merge commits. For Connector, preserve old trigger ancestry in the candidate, then use a real merge rather than squash; include `[ecosystem-runtime]` in the actual merge commit message. The merged K remains descendant of the old trigger branch, permitting a non-force fast-forward directly to exact K. Squashing would discard that ancestry and prevent this exact-K route.
+
+## Cheap unchanged-source preflight before final D/U
+
+At Console6017de28, the existing52 contract tests passed with0skips on Node24.22.1; the architecture guard and candidate manifest schema passed. This is bounded source preparation, not the hosted full npm/browser proof.
+
+At Connector e832d565, the complete existing Go race suite passed (11tested packages,2packages without tests), module checksums verified, vet and CLI build passed, canonical wire schema/golden hashes match exact workflow locks, and gofmt is clean. Local toolchain Go1.26.9 was reused; the existing hosted source workflow uses1.26.2 and will run on the actual new pin candidate. Final manifest value equality waits actual D/U; no future squash SHAs were guessed. No tests or source implementations were added or changed.
+
+Actual final-Core contract comparison also passed: all6 Console control/read-model/terminal canonical artifacts equal the Git blobs at finalR3e27497b and match the Console source-lock SHA256 values. Connector wire.schema.json and wire.golden.json also equal finalR's canonical source exactly and retain their known locks. These are actual final-source compatibility checks, not an assertion based only on the historical harness Core pin.
