@@ -8,13 +8,21 @@ title: v0.4.27 parallel execution and evidence-first launch
 # v0.4.27 parallel execution and evidence-first launch
 
 ## Hard start sequence
-1. Complete v0.4.26 and release cleanup. Do not touch Codeman's active product branches.
+1. Complete v0.4.26 and release cleanup before v0.4.27 integration or activation. Do not touch Codeman's active product branches. An explicit owner-authorized exception permits isolated, non-mutating v0.4.27 planning/contract preparation on separate branches while v0.4.26 is in flight; it does not make waiting implementation tasks ready, alter v0.4.26 candidate SHAs, or authorize merge into the active release line.
 2. Integrate release-start dependency updates and freeze actual baseline SHAs.
 3. Evidence contract accepted; publisher and resolver developed in parallel by different owners.
 4. Trusted verifier and independent human/agent/fork acceptance; ordinary PR generates and archives evidence automatically, including planning linkage. Archive errors fail closed where required.
 5. Authority, access, delivery and runtime CI gates each require evidence acceptance and their relevant contract. The four gates may proceed concurrently with disjoint files; central trusted CI writer integration is serialized.
 6. Dispatch product tasks when their own contracts, accepted CI lane and exact interfaces are available. Never wait for an unrelated domain gate. Integration surfaces have one writer.
 7. End-to-end proof, docs, cross-domain CI integration, pre-release preparation and separately authorized release qualification.
+
+## Isolated early preparation and simplicity acceptance
+
+- The same ordinary task -> branch -> PR -> selected CI -> review -> merge path applies to humans, Codeman, Codex and external contributors. No agent-specific commands, hand-authored manifests, copied evidence URLs or special handoff documents are prerequisites for qualification.
+- Early work may inspect the current CI/planning baseline, specify minimal contracts and prototype read-only preflight or evidence tooling on separate branches. Keep v0.4.26 workflow files, release candidate, runners, consumer pins and active write sets untouched. Do not merge or activate v0.4.27 product/CI changes into v0.4.26 `develop` before Verify.
+- Do not remove startup dependencies or mark implementation cards ready merely to allow preparatory research. A future dependency change must identify the precise isolated work and be rendered/checked before publication.
+- CI should generate and archive bounded proof, bind exact source/integration SHAs, and link task/PR automatically; use valid exact-input green checks rather than rerunning. A cheap read-only release preflight should detect missing or inconsistent consumer pins, source candidates, notes and dependencies before expensive matrix dispatch. Any future pin freeze automation must produce reviewed immutable candidates rather than inventing or silently mutating pins.
+- Failure feedback must name the broken prerequisite, affected repository/task and a concrete repair action. Fail closed on invalid provenance or mandatory checks; avoid administrative holds unrelated to actual prerequisites.
 
 ## Open work pool
 The work pool is shared by Codeman (coordinator + four workers), independent ChatGPT/Codex sessions, humans and external contributors. It is not four fixed slots. The coordinator selects the highest-value ready tasks on the critical path, not a fixed model-specific owner; assign work by capability, file conflicts and actual runner access.
