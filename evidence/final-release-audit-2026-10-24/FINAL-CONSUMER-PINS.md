@@ -1,3 +1,19 @@
+# Auth-corrected actual source graph
+
+## Auth correction integrated; bounded actual-R diagnosis running
+
+Console [PR11](https://github.com/mcpdev80/baseharbor-console/pull/11) is integrated as actual U `51181967abfd3170b81857d51e9a4572c84b318b`, exact reviewed tree `79d861526dd21606db182df6216d6eec594ad896`, parent prior U7aed plus reviewed source4238e2e. All66 contract tests (zero skips), compiler/lint/architecture/production build and independent final source review pass; hosted source CI40135195710/job120995134808 succeeds. The seven-file correction preserves the accepted consent UI and exact auth checks, removes the concrete callback self-close race, and adds strictly bounded public error/status observations before teardown. It does not claim to fix the unexposed prior Secrets cause.
+
+Connector [PR12](https://github.com/mcpdev80/baseharbor-node-connector/pull/12) is actual K `c4363a28f5fd3d929a430bc6da630ee036bba104`, tree `740a82389c59c3fed8597590515f07be40ee14d4`, parent prior Ka956 plus reviewed source19615e4f. Sole manifest Consolepin changes to actual U5118; R3e27497b/D09595781, producer, sentinel, Go source and workflows stay exact. Source CI40135417539/job120995796421 and independent complete-tree review pass.
+
+Fresh actual K/U/D manifests generate the canonical complete matrix with unchanged R resolver and source-origin checks. Root and independent reviewer obtain identical SHA256 `dfd87ceb0191702e7b37a287b45ee8f792d00b926cc189a5ec9927f20d5570df`. The full JSON/current freeze are published externally; both earlier failed graph snapshots and original artifacts remain preserved.
+
+Exactly one expected-head non-force FF moved the existing trigger branch from Ka956 to actual Kc436. Joint [40135623881](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40135623881), push/attempt1, has real Docker120996434480 and Podman120996434447 jobs; actual callback/Secrets/lifecycle/cleanup results remain PENDING. This is the existing actual-R route: standalone Console browser workflow hardcodes older Core2ada and cannot diagnose R without an unnecessary workflow change. Actual provider bootstrap cannot be diagnosed by source tests alone. No duplicate dispatch, speculative deadline/Core edit or acceptance waiver is introduced.
+
+See independent `CONSOLE-AUTH-DIAGNOSTICS-REVIEW.md`, `READINESS-DOSSIER.md` and the explicitly pending `INDEPENDENT-DEVELOPER-PATH.md`. The latter distinguishes scripted real W1 execution from independent assessment; no manual session or unexecuted result is invented. Selected63/full65 and main/tag handoff remain held until actual required native evidence succeeds.
+
+The earlier sections below retain superseded source/failure history.
+
 # Corrected final source graph
 
 ## Corrected actual immutable ecosystem; native acceptance pending

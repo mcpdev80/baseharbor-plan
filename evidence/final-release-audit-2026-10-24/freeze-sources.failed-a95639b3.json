@@ -1,0 +1,74 @@
+{
+  "schema": "baseharbor.independent-freeze-review/v1",
+  "release": "v0.4.26",
+  "requirements_digest": "c8961a0a7eb995ec8a6473f711ae9bc48e77bf469e6840ae1c263e1ec4e59aa5",
+  "requirements_count": 65,
+  "resolver_blobs_at_R": {
+    "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
+    "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
+  },
+  "observed_utc": "2026-10-24T21:37:12.089380+00:00",
+  "source_graph_verdict": "APPROVE",
+  "native_joint_verdict": "FAILED",
+  "pins_file": "v0.4.26.consumer-pins.json",
+  "pins_sha256": "5f01828a247fce1a6fc552bb5b65504cf3c7ec7aa35c83c3bccf5626a4648615",
+  "previous_failed_candidate": {
+    "connector": "543e155dacf6adcd98655333b0d2612fef6814ad",
+    "native_run": 40130842592,
+    "result": "failure",
+    "snapshot": "freeze-sources.failed-543e155d.json"
+  },
+  "roles": {
+    "core": {
+      "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+      "tree": "8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3",
+      "native_go_run": 40128173805
+    },
+    "demo": {
+      "commit": "09595781b68e1f41caaba9aec1402eb8009d700f",
+      "tree": "9219f48d5abd04b8a062edf2d22b265e025ed82a",
+      "qualified_source": "9611629bf053b4ff08f29a8459b4e69f4248ed12",
+      "qualified_source_tree_identical": true,
+      "pr": 122,
+      "core_pin_blob": "42fe65908c5bcaa8edb22e2ed60ede126c818e06",
+      "historical_backup_native": {
+        "source": "a1051ec5f5c366cdfafe527298ac60e5db4f951c",
+        "run": 40128218519,
+        "result": "success",
+        "backup_execution_inputs_unchanged": true,
+        "new_execution_on_successor": false
+      },
+      "reconciliation_native_verdict": "PENDING"
+    },
+    "console": {
+      "commit": "7aed4d58f7ac89d019b1d31fa2d5bc6e557aa2b5",
+      "tree": "7ca78c77680cb5714787259c8da85b002d0f3888",
+      "qualified_source": "c89d2aaa007d7c5ed5f0f49fd3f8a177280a9026",
+      "qualified_source_tree_identical": true,
+      "pr": 10,
+      "source_ci_run": 40133151937,
+      "source_ci_job": 120989000002,
+      "manifest_blob": "28fc527c6d3207097be657230e16b535e8a0c645"
+    },
+    "connector": {
+      "commit": "a95639b3448fe869fca439d2db071fe75b82d7d2",
+      "tree": "3a37523db3cb3e93602612f7999fea34390dbcd9",
+      "qualified_source": "8daaf545f2b60bfb4af8d492ebcdd43bd51cda2c",
+      "qualified_source_tree_identical": true,
+      "pr": 11,
+      "source_ci_run": 40133358644,
+      "source_ci_job": 120989617504,
+      "manifest_blob": "d379ac605bfb7ac67c907369a25d774aa1d2fbb6",
+      "retained_old_trigger": "df1f4378d8c7fdc3e174a1e9dc8ad0155a955571",
+      "retained_sentinel_blob": "ba86891cd387201ce0e9aa38763e795b8b81781b",
+      "actual_native_run": 40133582447,
+      "native_jobs": {
+        "docker": 120990316354,
+        "podman": 120990316278
+      },
+      "native_result": "failure"
+    }
+  },
+  "release_eligible": false,
+  "native_failure_evidence": "JOINT-NATIVE-SECOND-FAILURE.md"
+}
