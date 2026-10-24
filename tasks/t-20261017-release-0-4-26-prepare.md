@@ -58,6 +58,12 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-24 — PR-Welle #1050-1058 als Owner-Plan (zusaetzlicher Hinweis, Pausevermerk unangetastet)
+
+- PR-Welle #1050-1058 ist als Owner-Plan dokumentiert (o105 plan-pub): #1053 (timeout guard, head 8eef2b8e) MERGED als 79e64084; #1058 (Core-921 CI binding fuer #1056, head 4046bc93) MERGED als 24c33afd; #1050 (v0.4.26.consumer-pins.json, head e551bc8b) bleibt OPEN und nicht merge-reif (PR Selected Checks FAILURE, Coverage-impact).
+- Verdicts: #1053 APPROVE (f34 + o93, nicht-blockende Befunde B1-B4); #1058 Codex-REVIEW CHANGES-REQUIRED (integration_sha_mismatch auf historischem Run 39946290135, Base 2f005813, Integration ead3cda6). Keine dieser MAßnahmen veraendert den Prep-Stand oder die Release-Readiness.
+- Der bestehende Pausevermerk (2026-10-18 Maintainer-Handover-Pause) bleibt unveraendert und unangetastet; dieser Hinweis dokumentiert nur die PR-Welle, er ist kein Freigabe- oder Readiness-Signal.
+
 ### 2026-10-18 — Maintainer handover pause and unreleased blockers
 
 - Development/testing/merge work paused for the Horde/Codex test; see [handover decision](../decisions/2026-10-18-horde-codex-handover-pause.md). No release qualification or pre-release dispatch authorized.
