@@ -9,7 +9,7 @@
   },
   "observed_utc": "2026-10-24T23:15:08.849Z",
   "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "PENDING",
+  "native_joint_verdict": "FAILURE",
   "pins_file": "v0.4.26.consumer-pins.json",
   "pins_sha256": "220b62d5690c910e215d9127648f9131aa6115be3487b8cdfe9cf21adca64afd",
   "roles": {
@@ -59,10 +59,18 @@
         "docker": 121015244697,
         "podman": 121015244679
       },
-      "native_result": "pending",
+      "native_result": "failure",
       "integrated_pin_source": "2615ad6d14a1c57d2b743afc0d12966a29a88e48",
       "integrated_pin_merge": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
-      "source_ci_job": 121014679902
+      "source_ci_job": 121014679902,
+      "native_job_results": {
+        "docker": "failure",
+        "podman": "success"
+      },
+      "native_cleanup_results": {
+        "docker": "success",
+        "podman": "success"
+      }
     }
   },
   "release_eligible": false,
@@ -103,5 +111,6 @@
       "pins_snapshot": "v0.4.26.consumer-pins.failed-5658d19a.json",
       "diagnosis": "NATIVE-QUALIFICATION-RUN-40140091435.md"
     }
-  ]
+  ],
+  "native_failure_diagnosis": "Actual primary generated HTTP-only Next.js retirement rejects previously unbound logical Core SQL. Local real-resolver regression reproduces failure and passes after bounded verifier correction at source938adee7; product and mandatory CI integration remain pending."
 }
