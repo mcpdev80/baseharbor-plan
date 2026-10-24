@@ -60,6 +60,11 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### Current public integration checkpoint — 2026-10-25
+
+Connector #14 is merged as `5658d19aa2e5b70c84e38ded30196e07c651bc2e`; the corrected actual-source native Docker/Podman run is `40140091435` and remains pending. See the [current public run receipt](../evidence/final-release-audit-2026-10-24/NATIVE-QUALIFICATION-RUN-40140091435.md). Current public canonical pins have been updated; no readiness or task acceptance is claimed.
+
+
 ## Current native failure narrowed to ordinary-retirement consent presentation
 
 Joint [40137607614](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40137607614) finished FAILURE on exact Kacc6 / U529. Both Docker121002381187 and Podman121002381169 pass actual Core Setup READY (SQL/Secrets/Identity ready), consented application apply, plan/status/doctor/repair, real CA rotation and postrotation checks. Both then correctly refuse unconsented ordinary destroy with approval_required/impact-confirmation-required and no writes, but the Console fails to display its valid consequence review; both final owned cleanups succeed. These successful subpaths do not qualify the complete consumer journey.
