@@ -1,3 +1,25 @@
+## Actual frozen Connector K and single joint-native trigger
+
+Root merged Connector10 with a genuine merge as K543e155dacf6adcd98655333b0d2612fef6814ad after source CI40130644287 passed and independent exact-source/DAG review approved. Actual K treee424c6bf equals the reviewed candidate; its manifest matches finalR/D/U, c66 remains parent, and its message contains [ecosystem-runtime]. Remote comparison proves old triggerdf1f4378 is an ancestor (ahead5/behind0). Only manifest plus the already-main-owned zz-o16-test differ from that historical trigger.
+
+After a fresh expected-head check, the existing work/v0.4.26-integrations-docs branch was non-force fast-forwarded once directly df1f4378→actual K. No additional source commit was created; K remains frozen. Existing joint Docker/Podman native run40130842592 is in progress; source integration does not confer native acceptance. Root waits for genuine matching receipts before selected63.
+
+## Actual Console integration and Connector final source candidate
+
+Root merged Console9 as U645dda54c0382b897e1cb709413f88b5827c38ce after source CI40130422367 and independent exact-source review passed; browser acceptance remains pending joint native proof. Actual U manifest still matches finalR/D.
+
+Connector10 final candidatec66ff66656fe706be5e118686e2432f82695f5b3, treee424c6bf4e812b87b4261c6b53732d367a35c624, parents[e832d565,df1f4378], combines the verified clean trigger-history integration with exactly three final R/D/U manifest pin changes. Complete diff contains only integration-candidate.json; source/workflow/test bytes and zz-o16-test.txt remain unchanged. Canonical resolve_pins validates the complete DAG/origins using actual predecessor commits. Independent source/ancestry review and new normal hosted source CI are requested. Old trigger remains df1f4378; no native run starts until root merges actual K with a genuine merge and [ecosystem-runtime] message, then authorizes its non-force trigger FF.
+
+## Actual Demo integration and Console final candidate
+
+Root merged Demo121 with a genuine merge as D03396c805369e61d2e0745d00f78c8add809e2e0. Independent audit confirms its tree exactly equals qualifieda105 and the Core pin staysR3e27497b. No main-push native workflow exists.
+
+Console9 final candidate045ba6d5234c689ad02600f374e278232e66e08f, tree11f9d1189e67f36b0be013856a249d062479f2f5, direct parent6017de28, changes only the two manifest pins to actualR/D. Remote comparison confirms ahead1/behind0, one modified manifest. Actual D Core pin verified; independent exact-source review requested and normal hosted PR source CI starts. No separate Console native run; actual U awaits source checks/review/root integration.
+
+## Final Demo native receipt — PASS on actual inputs
+
+Final native run40128218519 attempt1/job120974107281 succeeded for Core3e27497b4ef7b567858ba646bc3071bee37d19bd and Demoa1051ec5f5c366cdfafe527298ac60e5db4f951c. Actual log: backup/restore PASS20:29:39Z, acceptance cleanup complete20:32:42Z. Artifact12574207477 was downloaded and its ZIP SHA25671a6fa9efcb096673276550fa9d72c1916aaf2a0bad96f449bbd3ec47ccaf31a equals GitHub digest. Exact Core/Demo/run/attempt/runtime bindings verified; all15recovery verification fields true; result+cleanup success. Scope receipt --unpause-owned outcome success with accounted[]/errors[]. pre_release_ready=false remains correct; W1/consumer/full65 evidence remains open. Independent final-audit receipt review requested; root owns actual Demo mergeD.
+
 ## Current final-input run
 
 Root fixed final CoreR3e27497b4ef7b567858ba646bc3071bee37d19bd after green required release-notes CI. Demo121 is now a1051ec5f5c366cdfafe527298ac60e5db4f951c, treea372d0f5c473de417006ff6924632f11589073c9, direct parentf90d0623. Exact remote comparison proves sole changed file baseharbor-core.ref, ahead1/behind0. Both PR branch and existing release branch were non-force fast-forwarded with expected-SHA leases. Existing Podman-only native run40128218519 is in progress. Independent final-audit source review APPROVE at this exact head: complete helper/tests/workflow bytes preserved and only Core pin differs. Native receipt remains in progress; no PASS yet. Actual D/U pins remain pending predecessor merges.

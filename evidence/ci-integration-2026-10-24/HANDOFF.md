@@ -1,3 +1,20 @@
+## Actual complete source freeze
+
+All four immutable sources are integrated and independently checked:
+
+| Role | Actual merged commit | Git tree |
+| --- | --- | --- |
+| Core R | `3e27497b4ef7b567858ba646bc3071bee37d19bd` | `8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3` |
+| Demo D | `03396c805369e61d2e0745d00f78c8add809e2e0` | `a372d0f5c473de417006ff6924632f11589073c9` |
+| Console U | `645dda54c0382b897e1cb709413f88b5827c38ce` | `11f9d1189e67f36b0be013856a249d062479f2f5` |
+| Connector K | `543e155dacf6adcd98655333b0d2612fef6814ad` | `e424c6bf4e812b87b4261c6b53732d367a35c624` |
+
+Demo121 merged after final-R native run40128218519, exact qualified head a1051ec5, all15 required recovery fields and complete acceptance cleanup PASS; artifact12574207477 digest71a6fa9efcb096673276550fa9d72c1916aaf2a0bad96f449bbd3ec47ccaf31a independently authenticated. Actual merged D has the identical reviewed/tested tree; no new execution on D is invented. Console9 source CI40130422367 and Connector10 source CI40130644287 passed before their source integrations. Independent exact manifest/DAG/origin and resulting merge-tree reviews passed.
+
+The actual-R canonical resolver generated the complete external matrix at `evidence/final-release-audit-2026-10-24/v0.4.26.consumer-pins.json`; SHA2568730d614e3750820cead439dbbe6a50096fe6ddb9f49640c71f17efafb0f3a27. Root independently re-fetched actual K/U/D manifests and validated exact canonical bytes, DAG and joint origins with the unchanged R resolver blobed3adb2164d8cbe6ebc309d1b60a44b88899939c. No reverse Core commit was made.
+
+Existing Connector trigger branch was fast-forwarded non-force to actual K once. Joint native run40130842592 is active, Docker and Podman parallel; its real Console browser and remote/enrollment/cleanup receipts remain PENDING. A skipped browser or opt-in PR job is not native PASS. After joint receipts pass, execute existing exact63 atomic-first preflight; only after genuine green required preproof run complete65 approval. No tag, publication or complete release approval is claimed.
+
 ## Final Docker native contract accepted
 
 Final R Docker run40128173805/job120973982875 PASS is independently authenticated: artifact12574701602 digestd0599384b87d6533da3394e909838f2f04338e668a8d8f048f1467e0ab7954a8, exact tree8dce77b3, all eight named families and packages PASS, zero skip/fail, binary/image equality and actual cleanup PASS. The appid card is accepted. Demo Podman40128218519 remains active; final D/U/K and atomic/full approval remain open.

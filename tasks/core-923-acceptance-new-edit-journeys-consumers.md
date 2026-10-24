@@ -7,19 +7,21 @@ version: ""
 parent: v0.4.26
 owner: Codex session 2 native acceptance (d48643e22049)
 depends_on: [core-921, core-922, core-900]
-repos: [mcpdev80/baseharbor]
-prs: []
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+prs: ["mcpdev80/baseharbor-demo#121", "mcpdev80/baseharbor-console#9", "mcpdev80/baseharbor-node-connector#10"]
 sources: ["mcpdev80/baseharbor#923"]
 source_updated: "2026-10-15T16:45:40Z"
 labels: [area/evidence]
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/40128173805", "https://github.com/mcpdev80/baseharbor-demo/actions/runs/40128218519", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/final-release-audit-2026-10-24/v0.4.26.consumer-pins.json"]
 ---
 
 - [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** Codex session 2 native acceptance (d48643e22049)  
+    **PR:** [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/40128173805), [proof 2](https://github.com/mcpdev80/baseharbor-demo/actions/runs/40128218519), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/final-release-audit-2026-10-24/v0.4.26.consumer-pins.json)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -29,7 +31,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex session 2 native acceptance (d48643e22049)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10)  
 **Source:** [baseharbor#923](https://github.com/mcpdev80/baseharbor/issues/923)
 <!-- /generated:links -->
 
@@ -67,6 +69,11 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### Actual final graph integrated; joint native active
+
+R3e27497b / D03396c805 / U645dda54 / K543e155d are the actual immutable merged sources. Demo native receipt is independently qualified on exact final R and reviewed head a1051ec5 with identical resulting D tree; source integrations and canonical full graph/origins are independently qualified. The full exact JSON is saved externally in final-release-audit evidence; no Core mutation after freeze. Joint actual-K native run40130842592 runs Docker/Podman in parallel and supplies the real Console browser proof. It remains pending, followed by the four W1 cases within the mandatory63 preproof. This card remains ACTIVE; source CI and skipped PR browser jobs do not accept native scope.
+
 
 ### Final Core and exact Demo candidate
 
