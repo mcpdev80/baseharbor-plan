@@ -9,7 +9,7 @@
   },
   "observed_utc": "2026-10-24T22:50:00.213466+00:00",
   "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "PENDING",
+  "native_joint_verdict": "FAILURE",
   "pins_file": "v0.4.26.consumer-pins.json",
   "pins_sha256": "8421e3c8e6d33ad3e442537f95e75891531a4da03a37b78f1c018cfb2af4f0a2",
   "roles": {
@@ -58,9 +58,17 @@
         "docker": 121009844363,
         "podman": 121009844377
       },
-      "native_result": "pending",
+      "native_result": "failure",
       "integrated_pin_source": "2ecea22c259bdb42c70d9e3e510faeb367fd17c9",
-      "integrated_pin_merge": "5658d19aa2e5b70c84e38ded30196e07c651bc2e"
+      "integrated_pin_merge": "5658d19aa2e5b70c84e38ded30196e07c651bc2e",
+      "native_job_results": {
+        "docker": "failure",
+        "podman": "success"
+      },
+      "native_cleanup_results": {
+        "docker": "success",
+        "podman": "success"
+      }
     }
   },
   "release_eligible": false,
@@ -93,5 +101,6 @@
       "snapshot": "freeze-sources.failed-acc6fba5.json",
       "diagnosis": "JOINT-NATIVE-FOURTH-FAILURE.md"
     }
-  ]
+  ],
+  "native_failure_diagnosis": "Ordinary-retirement consent UI succeeds on both. Docker later fails in generated Next.js CLI journey; finally cleanup reports runtime_retirement_unverified and can mask the first failure. Console PR14 preserves original diagnostics. Podman actual qualification succeeded; complete release acceptance remains false."
 }
