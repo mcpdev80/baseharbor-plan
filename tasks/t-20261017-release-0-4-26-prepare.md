@@ -60,6 +60,11 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### Corrected Core integrated; genuine final-source native work — 2026-10-25
+
+Core1073 is accepted as actual R `212ae90e22e6ea2eeeaa84f35189b307b1ce32bc`, identical checked treec58fcb32, after genuine mandatory CI40144286041/final121022547294 SUCCESS and actual six-family regression execution. The earlier pending1073 checkpoint is superseded. Core eight-family native Docker run40144462122 and Demo123 exact-pin Podman recovery run40144508443 are running in parallel. Actual successor Demo/Console/Connector integration, matching native consumer acceptance, selected63/W1, full65, promotion and tag remain pending. See the [current corrected-Core receipt](../evidence/final-release-audit-2026-10-24/CORE-RETIREMENT-FIX-212ae90e.md). No readiness or release approval is claimed.
+
+
 ## SQL retirement correction and mandatory source CI — 2026-10-25
 
 Diagnostic run [40141900700](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40141900700) is terminal Docker FAILURE / Podman SUCCESS, with both owned cleanups successful. It proves the primary generated HTTP-only app destroy itself rejects an already-unbound logical SQL scope; the cleanup error was secondary. The unchanged actual resolver reproduces the complete Target plan with no new SQL binding release, logical stop selections and physical Core reuse. Product source938adee7 corrects that read-only verification while preserving canonical ownership, measured absence, empty remaining SQL references, protected active physical Core and foreign/invalid-release checks. The real regression fails before and passes after; the existing safety negatives, vet, build, source readability and application/capability tests pass. The broad local CLI suite is not claimed green because its native Edit case requires unavailable Docker.
