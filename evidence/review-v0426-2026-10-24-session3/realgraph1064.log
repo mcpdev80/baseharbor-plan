@@ -1,0 +1,35 @@
+{
+  "base_simulation": "54dfa458528e958be0ea3d8157a46bd501e76eb1",
+  "reviewed": "0f3bd169d4a02c5f019da822b4f45f66b972423e",
+  "forward_head": "6526fdd6752e3c476d0e51c7e7068d8d0b5940e4",
+  "integration": "6ccb218b312f64bdd78aa49ac46a292e7359050c",
+  "tree": "ee549de2715adc8bb4f82d83879e7fd28f0b600d",
+  "checks": [
+    "pr-planner-tests",
+    "ci-policy",
+    "ci-executor-verifier-tests",
+    "ci-actionlint"
+  ],
+  "changes": [
+    {
+      "status": "modified",
+      "path": ".github/workflows/ci.yml"
+    },
+    {
+      "status": "modified",
+      "path": "scripts/pr-check-runner.py"
+    },
+    {
+      "status": "modified",
+      "path": "scripts/pr-gate-plan.py"
+    },
+    {
+      "status": "modified",
+      "path": "scripts/test_pr_gate_plan.py"
+    }
+  ]
+}
+wrong-repo: rejected
+missing-integration: rejected
+wrong-status: rejected
+changed-merge-base: rejected

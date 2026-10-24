@@ -1,0 +1,44 @@
+test_altered_integration_sha_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_altered_integration_sha_stays_unresolved) ... FAIL
+test_candidate_only_qualification_without_trusted_base_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_candidate_only_qualification_without_trusted_base_stays_unresolved) ... ok
+test_changed_blob_hash_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_changed_blob_hash_stays_unresolved) ... ok
+test_deleted_path_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_deleted_path_stays_unresolved) ... ok
+test_exact_reviewed_head_resolves_with_four_expected_checks (test_pr_gate_plan.Exact1060BindingTests.test_exact_reviewed_head_resolves_with_four_expected_checks) ... ok
+test_extra_path_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_extra_path_stays_unresolved) ... ok
+test_manually_altered_merge_tree_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_manually_altered_merge_tree_stays_unresolved) ... ok
+test_missing_integration_sha_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_missing_integration_sha_stays_unresolved) ... ok
+test_non_merge_followup_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_non_merge_followup_stays_unresolved) ... ok
+test_renamed_path_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_renamed_path_stays_unresolved) ... ok
+test_reviewed_head_on_trusted_target_chain_resolves (test_pr_gate_plan.Exact1060BindingTests.test_reviewed_head_on_trusted_target_chain_resolves) ... ok
+test_untrusted_second_parent_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_untrusted_second_parent_stays_unresolved) ... FAIL
+test_wrong_repository_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_wrong_repository_stays_unresolved) ... ok
+test_wrong_status_set_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_wrong_status_set_stays_unresolved) ... ok
+test_wrong_target_branch_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_wrong_target_branch_stays_unresolved) ... ok
+
+======================================================================
+FAIL: test_altered_integration_sha_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_altered_integration_sha_stays_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4fa7a7d10e9b/review-core/scripts/test_pr_gate_plan.py", line 2986, in test_altered_integration_sha_stays_unresolved
+    self.assertEqual('unresolved', self._plan(actual)['coverage_status'])
+AssertionError: 'unresolved' != 'resolved'
+- unresolved
+? --
++ resolved
+
+
+======================================================================
+FAIL: test_untrusted_second_parent_stays_unresolved (test_pr_gate_plan.Exact1060BindingTests.test_untrusted_second_parent_stays_unresolved)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/4fa7a7d10e9b/review-core/scripts/test_pr_gate_plan.py", line 3029, in test_untrusted_second_parent_stays_unresolved
+    self.assertEqual('unresolved', result['coverage_status'])
+AssertionError: 'unresolved' != 'resolved'
+- unresolved
+? --
++ resolved
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 3.371s
+
+FAILED (failures=2)
