@@ -56,3 +56,5 @@ The v0.4.27 release-start updates remain unaccepted; this active status document
 - 2026-10-24: isolated preparation in [PR #1051](https://github.com/mcpdev80/baseharbor/pull/1051); current status active, not qualified or mergeable by this card.
 
 - Hugging Face independent execution on draft PR #1051 commit `c7352556e39d3c09a70609985382d00c4b7e4304`: [R27 exact-path planner 4/4 PASS](https://huggingface.co/jobs/ThunderHawk1080/6adbf710046eb82b1ecd8a4b). Other acceptance gates pending.
+
+- 2026-10-24: full independent planner suite executed with git, Go and pinned PyYAML on isolated PR #1051 head `c7352556e39d3c09a70609985382d00c4b7e4304`: [99/99 tests PASS on Hugging Face](https://huggingface.co/jobs/ThunderHawk1080/6adc5167046eb82b1ecdaf58). Includes the exact-path prototype impact tests. No promotion or GitHub required-check qualification inferred from this offline run.
