@@ -6,7 +6,7 @@ release: v0.4.26
 version: v0.4.26
 release_stage: prepare
 parent: v0.4.26
-owner: o49
+owner: Codex (Maintainer release completion)
 priority: normal
 depends_on: [core-752, core-893, core-893-interface, core-894, core-895, core-896, core-900, core-901, core-910, core-911, core-912, core-913, core-914, core-915, core-916, core-917, core-918, core-919, core-920, core-921, core-922, core-923, t-20261016-pr-impact-selection, t-20261016-registration-ci-readiness, t-20261016-wizard-task-ci-readiness, t-20261017-concise-code-comments, t-20261017-podman-acceptance-typed-consent, t-20261017-podman-backup-guided-runtime, t-20261017-provider-projection-workload, t-20261018-podman-recovery-bootstrap-cleanup, t-20261018-podman-recovery-core-state-owner, t-20261018-scoped-runtime-reset-xdg-ownership, t-20261019-ci-evidence-stabilization, t-20261019-core921-coverage-binding, t-20261019-owner-delegated-maintainer-authority, t-20261019-v0426-complete-defect-audit, t-20261020-develop-appid-manifest-test-regression, t-20261022-cleanup-provenance-order-fix, t-20261022-q20-docs-pages, t-20261023-selector-q-predecessor, t-20261024-v0426-ci-integration-closeout]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
@@ -19,8 +19,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** o49 · **Priority:** normal  
-    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md), [t-20261024-v0426-ci-integration-closeout](t-20261024-v0426-ci-integration-closeout.md)  
+    **Owner:** Codex (Maintainer release completion) · **Priority:** normal  
+    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 10](https://github.com/mcpdev80/baseharbor/pull/1060), [proof 11](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
 
@@ -29,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 **Release:** [v0.4.26](../releases/v0.4.26.md) (v0.4.26)  
 **Depends on:** [core-752](core-752-inspect-reconcile-default-instances.md), [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-893-interface](core-893-interface-agree-planning-execution-interface.md), [core-894](core-894-actions-concise-names-clear-results.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md), [core-901](core-901-pilot-verify-parallel-task-prs-ci-costs.md), [core-910](core-910-wizard-shared-read-only-editing-state.md), [core-911](core-911-app-edit-load-existing-selections.md), [core-912](core-912-wizard-needs-first-selection.md), [core-913](core-913-wizard-compatible-providers-same-view.md), [core-914](core-914-preview-actual-footprint.md), [core-915](core-915-preview-provider-consequences-partial-results.md), [core-916](core-916-wizard-back-cancel-eof-no-side-effects.md), [core-917](core-917-app-new-connect-wizard-lifecycle.md), [core-918](core-918-app-edit-apply-confirmed-changes.md), [core-919](core-919-footprint-cli-json-one-projection.md), [core-920](core-920-machine-adapters-capability-changes-footprint.md), [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261016-pr-impact-selection](t-20261016-pr-impact-selection.md), [t-20261016-registration-ci-readiness](t-20261016-registration-ci-readiness.md), [t-20261016-wizard-task-ci-readiness](t-20261016-wizard-task-ci-readiness.md), [t-20261017-concise-code-comments](t-20261017-concise-code-comments.md), [t-20261017-podman-acceptance-typed-consent](t-20261017-podman-acceptance-typed-consent.md), [t-20261017-podman-backup-guided-runtime](t-20261017-podman-backup-guided-runtime.md), [t-20261017-provider-projection-workload](t-20261017-provider-projection-workload.md), [t-20261018-podman-recovery-bootstrap-cleanup](t-20261018-podman-recovery-bootstrap-cleanup.md), [t-20261018-podman-recovery-core-state-owner](t-20261018-podman-recovery-core-state-owner.md), [t-20261018-scoped-runtime-reset-xdg-ownership](t-20261018-scoped-runtime-reset-xdg-ownership.md), [t-20261019-ci-evidence-stabilization](t-20261019-ci-evidence-stabilization.md), [t-20261019-core921-coverage-binding](t-20261019-core921-coverage-binding.md), [t-20261019-owner-delegated-maintainer-authority](t-20261019-owner-delegated-maintainer-authority.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md), [t-20261022-cleanup-provenance-order-fix](t-20261022-cleanup-provenance-order-fix.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md), [t-20261023-selector-q-predecessor](t-20261023-selector-q-predecessor.md), [t-20261024-v0426-ci-integration-closeout](t-20261024-v0426-ci-integration-closeout.md)  
 **Required by:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
-**Owner:** o49  
+**Owner:** Codex (Maintainer release completion)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -58,6 +58,11 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+### Current coordinator checkpoint
+
+Marcel requested complete preparation/qualification/promotion until only his tag command remains. The CI-integration card is accepted, including final #1046 integration; do not keep historical CI-chain blockers active. Core67c30e8e includes neutral publication wording; concise EN/DE release notes PR1070 is in required CI. Final R/D/U/K and native/consumer/65-gate evidence remain mandatory and open. No release-readiness claim or tag is made.
+
 
 ### 2026-10-24 — Current accepted CI integration and remaining final freeze
 
