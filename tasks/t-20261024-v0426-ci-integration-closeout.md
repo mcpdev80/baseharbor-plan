@@ -12,18 +12,19 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1064", "mcpdev80/baseharbor#1060", "mcpdev80/baseharbor#1056", "mcpdev80/baseharbor#1052", "mcpdev80/baseharbor#1046"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/40117429229", "https://github.com/mcpdev80/baseharbor/commit/64dbf1dfcb3397a14bdfc4f1e1d1f8203a936f5c", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/ci-integration-2026-10-24/HANDOFF.md"]
 ---
 
-- [ ] t-20261024-v0426-ci-integration-closeout · CI: finish serialized v0.4.26 qualification and integration #task #release/v0-4-26 #status/active #view/active #area/ci #kind/task
+- [x] t-20261024-v0426-ci-integration-closeout · CI: finish serialized v0.4.26 qualification and integration #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Codex (session 1 CI implementation and integration) · **Priority:** critical  
     **PR:** [baseharbor#1064](https://github.com/mcpdev80/baseharbor/pull/1064), [baseharbor#1060](https://github.com/mcpdev80/baseharbor/pull/1060), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056), [baseharbor#1052](https://github.com/mcpdev80/baseharbor/pull/1052), [baseharbor#1046](https://github.com/mcpdev80/baseharbor/pull/1046)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/40117429229), [proof 2](https://github.com/mcpdev80/baseharbor/commit/64dbf1dfcb3397a14bdfc4f1e1d1f8203a936f5c), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/ci-integration-2026-10-24/HANDOFF.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -63,6 +64,14 @@ Marcel explicitly requested parallel completion of v0.4.26. The coordinator dele
 
 - Owned implementation: scripts/pr-gate-plan.py, scripts/test_pr_gate_plan.py, scripts/pr-check-runner.py and directly affected CI tests/bindings within the named chain; no concurrent writer.
 - Shared Planning views are rendered from current main and published with concurrent work preserved. Native and independent-review evidence remain with their separate sessions.
+
+## Completion and continuing release assignment
+
+Marcel requested all remaining v0.4.26 preparation and qualification through an exact tag command, and explicitly requested current CardBoard. Tag creation remains his own action. Root is authorized to complete verified native/consumer acceptance, atomic-first gates, complete pre-release approval and protected promotion only after genuine requirements pass. v0.4.27 remains untouched.
+
+The bounded CI contract is accepted: #1064/#1065/#1060/#1066/#1056/#1052/#1067/#1068/#1046 are integrated with actual green required CI and reviewed source. #1046 final CI40117429229 passed; squash64dbf1df. #1069 neutral publication wording is merged67c30e8e with strict EN/DE and Pages candidate CI40118199284 PASS. User-facing shortened EN/DE notes are PR#1070, independently reviewed and locally strict-built; its own mandatory CI remains pending.
+
+`/root/consumer_final` owns actual Demo121→Console9→Connector10 preparation in dependency order, with root as sole merger. `/root/final_audit` independently checks source/evidence/promotion in a separate lane. No workflow/verifier exception is authorized. Their new evidence directories are separate from prior session-2/session-3 records.
 
 ## Handoff
 

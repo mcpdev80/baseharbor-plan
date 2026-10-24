@@ -12,19 +12,18 @@ prs: []
 sources: ["mcpdev80/baseharbor#923"]
 source_updated: "2026-10-15T16:45:40Z"
 labels: [area/evidence]
-blocker: "Exact Demo #121 Podman receipt requires an authenticated Actions dispatch route absent from current GitHub MCP; final D/U/K merges and integrated CI/pins must precede W1."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/blocked #view/blocked #area/acceptance #kind/task
+- [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** Codex session 2 native acceptance (d48643e22049)  
-    **Blocker:** Exact Demo \#121 Podman receipt requires an authenticated Actions dispatch route absent from current GitHub MCP; final D/U/K merges and integrated CI/pins must precede W1.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -68,6 +67,11 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### Current native route and final source boundary
+
+The dispatch-route blocker is resolved through the existing reviewed Demo release-branch workflow. Run40117924670 genuinely passed backup/restore and acceptance cleanup for Core64dbf1df / Demo f90d0623; artifact12569249775 SHA2562d47ee6961d7c55df19630fbce837ecee2a4190cd4e4f6dc3d5328ff496892cc is authenticated. This is intermediate evidence only: final publication prose and user-requested concise release notes must land before final R. Consumer freeze and final W1 remain active, not accepted. New consumer-final lane coordinates successor pins without overriding previous session-2 evidence.
+
 
 ### 2026-10-24 — Current accepted CI integration and remaining final freeze
 

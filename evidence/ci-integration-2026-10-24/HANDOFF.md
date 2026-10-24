@@ -1,3 +1,9 @@
+## Current completion checkpoint
+
+The assigned CI chain is accepted and integrated; #1068 merged1390e99f, #1046 merged64dbf1df after full required CI40117429229 PASS. Native Docker40117855934 and Demo Podman40117924670 both completed SUCCESS on64dbf1df (Demo f90d0623). The Podman acceptance cleanup genuinely passed, not merely subsequent workflow cleanup.
+
+#1069 neutral EN/DE publication prose merged67c30e8e after green strict docs/Pages CI40118199284. Marcel then requested concise human-facing release notes; independently reviewed two-file PR1070 is in required CI. True final R follows that merge; no old SHA is relabelled final native proof. Consumer-final lane holds speculative pins until exact R. Final D/U/K, atomic63 preproof and complete65 approval remain pending. Tag belongs to Marcel; v0.4.27 untouched.
+
 # v0.4.26 CI integration — current parallel closeout
 
 ## Verified current checkpoint

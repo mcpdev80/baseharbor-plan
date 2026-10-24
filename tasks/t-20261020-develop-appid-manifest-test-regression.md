@@ -52,6 +52,11 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 
 ## Handoff
 
+### Current integrated fix and native checkpoint
+
+#1046 is merged as64dbf1df after exact source67f41d8c passed mandatory CI40117429229. The existing eight-family native Docker workflow40117855934 completed SUCCESS on64dbf1df. Publication-doc successors are now being finalized; keep this card REVIEW until exact final-develop proof is authenticated. Historical BEHIND/qualifier blockers below are superseded, not current.
+
+
 ### 2026-10-24 — #1046 source tests pass (q118/cmf10), qualifier PR serialized after C/D (board sync round 5, mission f60)
 
 - Live gh re-check: #1046 (`fix/f27-appid-env-robust`) OPEN/BEHIND at head `1ec67f8d`, reviewDecision=REVIEW_REQUIRED; develop anchor `65aa063e`. Source tests pass per q118 with Codex verdict cmf10 (`evidence/board-2026-10-24/q118-1046runtime.md`, `codex-verdict-1046-runtime.md`).
