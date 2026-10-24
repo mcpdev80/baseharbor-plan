@@ -59,6 +59,12 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-24 — Owner-authorized parallel closeout, current checkpoint
+
+Marcel explicitly requested parallel completion; earlier session stop/handoff notes are historical for this authorized scope. #1064, separate #1065 record, #1060, separate #1066 record and corrected #1056 have now been integrated with genuine green mandatory CI. develop is 51a38e2b25eb43e2a657f87d0886bd19fe44bfdc. #1052 selected source/OpenBao test jobs are genuinely completed/success, but its final PR Selected Checks failed on GitHub HTTP502. Only that failed final job was rerun; required final success remains missing and no acceptance is inferred. #1046 final policy/qualification follows this chain. Demo cleanup fix 52dde419 has independent source review and 21 helper tests PASS, with native acceptance still pending.
+
+The historical #1050 persisted C-graph snapshot is explicitly superseded by complete canonical final R/D/U/K JSON plus immutable external Planning evidence; this does not waive that dossier. Core must be finalized before the final consumer freezes. The complete 65-ID release inventory and genuine authenticated approval remain mandatory. See [current coordinator evidence](../evidence/ci-integration-2026-10-24/HANDOFF.md) and [canonical final-candidate audit](../evidence/ci-integration-2026-10-24/FINAL-CANDIDATE-AUDIT.md). No v0.4.27 change, tag, release, deployment or full pre-release has occurred.
+
 ### 2026-10-24 — Session 3 corrected-head review (round 2)
 
 [Independent round2 evidence](../evidence/review-v0426-2026-10-24-session3/ROUND2.md): #1064 e7fe45ccb3c2103bb3b57ad3300892b932818934 APPROVE at base65aa063e; actual full planner115 PASS and mandatory CI40110621660 green. #1060 db79f24a39ccc1a6f8f38a13d20dd18ab151abc2 corrected source delta APPROVE; six focused regressions and actual21 unit tests on #1052 source9f715184 PASS, but final CI40110759871 still correctly blocks qualification. #1052 source/unit contract is now independently APPROVE, with current-base CI/native/integration prerequisites preserved.
