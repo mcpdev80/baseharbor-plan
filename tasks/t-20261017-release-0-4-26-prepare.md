@@ -59,6 +59,11 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### Complete immutable source graph; native qualification continues
+
+Actual merged graph is R3e27497b / D03396c805 / U645dda54 / K543e155d, with complete canonical JSON externally retained and independently validated against actual source manifests. Final Core8-family native and Demo recovery/acceptance cleanup are independently PASS. Console/Connector source CI and exact pin/ancestry reviews PASS; actual-K joint Docker/Podman/browser run40130842592 is active, not yet native PASS. Next boundary is63 atomic-first preproof, then complete65 approval. No tag or premature readiness claim.
+
+
 ### Final Docker native acceptance complete
 
 The appid native card is accepted on exact final R after independent artifact authentication: all eight named Go Docker families, source/image identity and real cleanup PASS in40128173805. Demo Podman40128218519 remains active; actual D/U/K and final W1/consumer/atomic63/full65 acceptance remain open. No old intermediate receipt is substituted.
