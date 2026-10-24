@@ -1,0 +1,83 @@
+{
+  "schema": "baseharbor.independent-freeze-review/v1",
+  "release": "v0.4.26",
+  "requirements_digest": "c8961a0a7eb995ec8a6473f711ae9bc48e77bf469e6840ae1c263e1ec4e59aa5",
+  "requirements_count": 65,
+  "resolver_blobs_at_R": {
+    "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
+    "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
+  },
+  "observed_utc": "2026-10-24T21:47:50.498868+00:00",
+  "source_graph_verdict": "APPROVE",
+  "native_joint_verdict": "FAILURE",
+  "pins_file": "v0.4.26.consumer-pins.json",
+  "pins_sha256": "dfd87ceb0191702e7b37a287b45ee8f792d00b926cc189a5ec9927f20d5570df",
+  "roles": {
+    "core": {
+      "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+      "tree": "8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3",
+      "native_go_run": 40128173805
+    },
+    "demo": {
+      "commit": "09595781b68e1f41caaba9aec1402eb8009d700f",
+      "tree": "9219f48d5abd04b8a062edf2d22b265e025ed82a",
+      "qualified_source": "9611629bf053b4ff08f29a8459b4e69f4248ed12",
+      "qualified_source_tree_identical": true,
+      "pr": 122,
+      "core_pin_blob": "42fe65908c5bcaa8edb22e2ed60ede126c818e06",
+      "historical_backup_native": {
+        "source": "a1051ec5f5c366cdfafe527298ac60e5db4f951c",
+        "run": 40128218519,
+        "result": "success",
+        "backup_execution_inputs_unchanged": true,
+        "new_execution_on_successor": false
+      },
+      "reconciliation_native_verdict": "PENDING"
+    },
+    "console": {
+      "commit": "51181967abfd3170b81857d51e9a4572c84b318b",
+      "tree": "79d861526dd21606db182df6216d6eec594ad896",
+      "qualified_source": "4238e2e2525b5c5a4af0b7573010e4e4dc49ba35",
+      "qualified_source_tree_identical": true,
+      "pr": 11,
+      "source_ci_run": 40135195710,
+      "source_ci_job": 120995134808,
+      "manifest_blob": "28fc527c6d3207097be657230e16b535e8a0c645"
+    },
+    "connector": {
+      "commit": "c4363a28f5fd3d929a430bc6da630ee036bba104",
+      "tree": "740a82389c59c3fed8597590515f07be40ee14d4",
+      "qualified_source": "19615e4f71dbebe8781a9c1f33138dff2ca61e94",
+      "qualified_source_tree_identical": true,
+      "pr": 12,
+      "source_ci_run": 40135417539,
+      "source_ci_job": 120995796421,
+      "manifest_blob": "be40b7599173a2df89f81cc3301c47ab64785260",
+      "retained_old_trigger": "df1f4378d8c7fdc3e174a1e9dc8ad0155a955571",
+      "retained_sentinel_blob": "ba86891cd387201ce0e9aa38763e795b8b81781b",
+      "actual_native_run": 40135623881,
+      "native_jobs": {
+        "docker": 120996434480,
+        "podman": 120996434447
+      },
+      "native_result": "failure"
+    }
+  },
+  "release_eligible": false,
+  "previous_failed_candidates": [
+    {
+      "connector": "543e155dacf6adcd98655333b0d2612fef6814ad",
+      "native_run": 40130842592,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-543e155d.json"
+    },
+    {
+      "connector": "a95639b3448fe869fca439d2db071fe75b82d7d2",
+      "native_run": 40133582447,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-a95639b3.json",
+      "diagnosis": "JOINT-NATIVE-SECOND-FAILURE.md"
+    }
+  ],
+  "native_failure_diagnosis": "Both hosts reject fixture-owned config directory0755 at recovery-file reference persistence; exactR requires owner-only0700. Both owned cleanups succeed; editor login succeeds. Successor fixture correction requires new native proof."
+}
