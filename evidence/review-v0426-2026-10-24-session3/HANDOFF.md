@@ -1,5 +1,7 @@
 # Independent v0.4.26 review and evidence handoff — session 3
 
+Latest corrected-candidate decisions: [independent round2 review](ROUND2.md). Round1 details below remain historical and exact-head scoped.
+
 Authority: Marcel's explicit 2026-10-24 assignment to independent review, evidence verification and coordinated planning. Session 1 owns all implementation/integration/merges; session 2 owns native acceptance and consumer freeze. This report changes neither product/CI code nor their ownership. No daemon, worker, native run, merge, tag, release or deployment was started. v0.4.27 is outside scope.
 
 ## Review decisions and immutable inputs

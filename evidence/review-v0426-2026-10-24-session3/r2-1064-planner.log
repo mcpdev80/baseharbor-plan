@@ -1,0 +1,44 @@
+.............................................................Switched to branch 'target'
+Switched to branch 'source'
+Automatic merge went well; stopped before committing as requested
+Switched to branch 'source'
+......................................................
+----------------------------------------------------------------------
+Ran 115 tests in 178.164s
+
+OK
+test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation (reviewed_utility_tests.PodmanTypedConsentTests.test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation) ... ok
+test_fresh_two_stage_consent_preserves_incomplete_inventory (reviewed_utility_tests.PodmanTypedConsentTests.test_fresh_two_stage_consent_preserves_incomplete_inventory) ... ok
+test_helper_runs_from_application_workdir_using_checkout_root (reviewed_utility_tests.PodmanTypedConsentTests.test_helper_runs_from_application_workdir_using_checkout_root) ... ok
+test_missing_invalid_or_destructive_impact_blocks (reviewed_utility_tests.PodmanTypedConsentTests.test_missing_invalid_or_destructive_impact_blocks) ... ok
+test_operation_sources_bind_to_their_own_plan_shape (reviewed_utility_tests.PodmanTypedConsentTests.test_operation_sources_bind_to_their_own_plan_shape) ... ok
+test_scope_output_parser_accepts_only_one_emitted_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_scope_output_parser_accepts_only_one_emitted_plan) ... ok
+test_single_stage_only_if_required_by_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_single_stage_only_if_required_by_plan) ... ok
+test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle (reviewed_utility_tests.PodmanTypedConsentTests.test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.234s
+
+OK
+test_artifact_gc_retains_active_refs_and_deletes_inactive (reviewed_utility_tests.ArtifactGC.test_artifact_gc_retains_active_refs_and_deletes_inactive) ... ok
+test_candidate_sha_and_second_page_fail_closed (reviewed_utility_tests.ArtifactGC.test_candidate_sha_and_second_page_fail_closed) ... ok
+test_gc_discovery_failure_never_deletes (reviewed_utility_tests.ArtifactGC.test_gc_discovery_failure_never_deletes) ... ok
+test_pr_event_is_read_only_and_never_enters_cleanup (reviewed_utility_tests.ArtifactGC.test_pr_event_is_read_only_and_never_enters_cleanup) ... ok
+test_pr_evidence_artifacts_are_not_ephemeral (reviewed_utility_tests.ArtifactGC.test_pr_evidence_artifacts_are_not_ephemeral) ... ok
+test_pr_provenance_and_native_evidence_keep_review_window (reviewed_utility_tests.ArtifactGC.test_pr_provenance_and_native_evidence_keep_review_window) ... ok
+test_qualification_outcomes_and_branches_survive_gc (reviewed_utility_tests.ArtifactGC.test_qualification_outcomes_and_branches_survive_gc) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.212s
+
+OK
+test_even_isolated_scoped_root_has_no_implicit_delete_authority (reviewed_utility_tests.RuntimeResetOwnershipTests.test_even_isolated_scoped_root_has_no_implicit_delete_authority) ... ok
+test_scoped_podman_quadlet_only_selected_and_retains_xdg (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_podman_quadlet_only_selected_and_retains_xdg) ... ok
+test_scoped_shared_state_preserved_resources_filtered (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_shared_state_preserved_resources_filtered) ... ok
+test_unknown_scope_preserves_all_state_and_resources (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unknown_scope_preserves_all_state_and_resources) ... ok
+test_unscoped_dedicated_runner_full_reset_unchanged (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unscoped_dedicated_runner_full_reset_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.903s
+
+OK
