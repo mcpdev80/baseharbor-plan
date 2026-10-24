@@ -69,6 +69,16 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+### 2026-10-24 — Session 3 independent review and evidence reconciliation
+
+Marcel assigned this session to independent review/evidence and coordinated planning only. Session 1 retains implementation/integration/all merges; session 2 owns native acceptance/freeze. Original owners and task states remain. The [exact-candidate dossier and executed probes](../evidence/review-v0426-2026-10-24-session3/HANDOFF.md) supersede reported ACCEPTs only for the explicitly reviewed heads.
+
+Technical REQUEST_CHANGES: #1064 H54dfa458 (false-negative rejection fixtures, binding to rejected R); #1060 H0f3bd169 (missing actual OpenBao qualification, unreachable strict executor, removed exact SQL-safety test anchors); #1056 Hb0abe105 (bootstrap fallback and DAG/origin validator defects independently reproduced). #1046 H1ec67f8d source-only APPROVE, with current-base CI/native prerequisites still open; #1052 H9f715184 awaits complete qualification after corrected #1060. Findings are published as linked PR issue comments; no formal GitHub review or merge was submitted.
+
+Demo#121 Hf57c8b6e evidence acceptance REQUEST_CHANGES: genuine successful Docker/Podman run39990941852 tests Demo25c31969/Core1861ed07, but cleanup/evidence inputs differ. Identical core.ref alone does not prove reusable receipt compatibility. Final D→U→K pins, #1050 reconciliation, native/ownership/cleanup origins and independent developer path remain open. W1 Core anchor stays1861ed07888a1ec22c218ca491d23ee54f48e261; v0.4.27 is fenced.
+
+Clean product65aa063e docs audit PASS (158 EN/DE pairs). Strict MkDocs unavailable locally. Final pins/gate inventory/origin bundle remain missing. Unavailable Ops originals are explicitly inventoried in the dossier. #1047/#1063 and older stop/failed-head notes are historical; no new global hold, worker start, task acceptance or release readiness is asserted.
+
 ### 2026-10-24 — Session 2 checked handoff; native execution blocked
 
 - Separate dossier: [native acceptance / freeze handoff](../evidence/native-acceptance-2026-10-24/HANDOFF.md), [immutable input comparison](../evidence/native-acceptance-2026-10-24/input-comparison.json), [exact single-gate dispatch payload](../evidence/native-acceptance-2026-10-24/demo121-podman-dispatch.json).

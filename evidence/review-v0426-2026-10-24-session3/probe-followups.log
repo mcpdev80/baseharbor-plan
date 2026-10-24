@@ -1,0 +1,7 @@
+1060 bootstrap pair: unresolved ['source-contracts'] ['OpenBao production impact requires source/status binding or independent diff review: internal/openbao/bootstrap.go', 'OpenBao production impact requires source/status binding or independent diff review: internal/openbao/bootstrap_test.go']
+1060 openbao execute: ValueError unsupported executable validation
+1060 exact SQL safety names replaced: ['TestNativeSQLInventoryRejectsUnverifiedMaterialRegardlessOfKnownPathReplacement', 'TestNativeSQLInventoryKnownFilesRequireActualInspectionReplacement', 'TestNativeSQLGeneratedProjectionRequiresProtectedAncestorAndSourceReplacement', 'TestNativeSQLProductionMaterialGateRejectsOversizedAndBrokenPublicSourcesReplacement']
+1056 cycle: ['v0.4.26.consumer-pins.json']
+1056 wrong-origin: ['v0.4.26.consumer-pins.json']
+1056 wrong-console-repo: ['v0.4.26.consumer-pins.json']
+1056 arbitrary source with bootstrap title: resolved [] ['ci-executor-verifier-tests', 'ci-policy', 'pr-planner-tests']
