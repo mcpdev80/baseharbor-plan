@@ -59,6 +59,11 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### Final source and active runtime qualification
+
+#1070 is merged after mandatory CI40127989289 PASS. Final Core R=`3e27497b4ef7b567858ba646bc3071bee37d19bd`. Existing Docker eight-family run40128173805 and Demo Podman run40128218519 are active in parallel. Demo121 exact pin-only candidatea1051ec5 is independently source-approved; actual D/U/K freeze and complete65-gate approval remain open. No release/tag is published.
+
+
 ### Current coordinator checkpoint
 
 Marcel requested complete preparation/qualification/promotion until only his tag command remains. The CI-integration card is accepted, including final #1046 integration; do not keep historical CI-chain blockers active. Core67c30e8e includes neutral publication wording; concise EN/DE release notes PR1070 is in required CI. Final R/D/U/K and native/consumer/65-gate evidence remain mandatory and open. No release-readiness claim or tag is made.

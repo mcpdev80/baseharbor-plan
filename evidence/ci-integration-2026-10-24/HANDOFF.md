@@ -1,3 +1,11 @@
+## Final immutable Core selected
+
+Final Core R is `3e27497b4ef7b567858ba646bc3071bee37d19bd`, the actual #1070 squash after mandatory CI40127989289 PASS. The concise EN/DE release notes were independently reviewed; no further Core edits are planned. #1069 neutral publication prose is also integrated.
+
+The existing eight-family Docker native route is running as40128173805 on exact R. Demo #121 pin-only candidate `a1051ec5f5c366cdfafe527298ac60e5db4f951c` binds exactly R and passed independent complete-tree-delta review (only baseharbor-core.ref changed). Its existing Podman-only native route40128218519 is running. Neither running result is PASS. D/U/K pins still follow actual predecessor merges; no guessed squash identity or old receipt is substituted.
+
+CardBoard checkpoint1aef4af was remotely revalidated:0errors,47testsPASS,5existingwarnings. The CI-closeout contract is accepted; final native/consumer/complete-release acceptance remains open. Promotion audit proves actual main54acc4b6 has exactly the tree of develop ancestor33b7ca94; historical33main-only commits contain no unique tree content to lose. A reviewed promotion handoff will preserve main ancestry and the approved product tree without moving R. Tag remains Marcel's action.
+
 ## Current completion checkpoint
 
 The assigned CI chain is accepted and integrated; #1068 merged1390e99f, #1046 merged64dbf1df after full required CI40117429229 PASS. Native Docker40117855934 and Demo Podman40117924670 both completed SUCCESS on64dbf1df (Demo f90d0623). The Podman acceptance cleanup genuinely passed, not merely subsequent workflow cleanup.
