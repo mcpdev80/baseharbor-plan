@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: Codex session 2 native acceptance (d48643e22049)
 depends_on: [core-921, core-922, core-900]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: ["mcpdev80/baseharbor-demo#121", "mcpdev80/baseharbor-console#9", "mcpdev80/baseharbor-node-connector#10"]
+prs: ["mcpdev80/baseharbor-demo#121", "mcpdev80/baseharbor-demo#122", "mcpdev80/baseharbor-console#9", "mcpdev80/baseharbor-node-connector#10"]
 sources: ["mcpdev80/baseharbor#923"]
 source_updated: "2026-10-15T16:45:40Z"
 labels: [area/evidence]
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/40128173805", "h
 - [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** Codex session 2 native acceptance (d48643e22049)  
-    **PR:** [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10)  
+    **PR:** [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-demo#122](https://github.com/mcpdev80/baseharbor-demo/pull/122), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/40128173805), [proof 2](https://github.com/mcpdev80/baseharbor-demo/actions/runs/40128218519), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/final-release-audit-2026-10-24/v0.4.26.consumer-pins.json)  
     <!-- /generated:card -->
 
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/40128173805", "h
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex session 2 native acceptance (d48643e22049)  
 **Priority:** not set  
-**PRs:** [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10)  
+**PRs:** [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-demo#122](https://github.com/mcpdev80/baseharbor-demo/pull/122), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10)  
 **Source:** [baseharbor#923](https://github.com/mcpdev80/baseharbor/issues/923)
 <!-- /generated:links -->
 
@@ -69,6 +69,15 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+## Reviewed Demo reconciliation correction integrated
+
+Static preflight found one additional executable consent mismatch: after stopping shared PostgreSQL, the reconciliation fixture invoked bare apply even though Core R requires the current concrete resume-impact acknowledgement. Demo [PR122](https://github.com/mcpdev80/baseharbor-demo/pull/122) changes only that call to the existing strict `run_consented` helper. Independent review approved exact blob `2c128dbc455647088d2259d08d2fc9208617dadf`; four helper tests, shell syntax and diff checks pass. No hosted PR check is configured for this ordinary branch.
+
+Actual successor Demo D is `09595781b68e1f41caaba9aec1402eb8009d700f`, tree `9219f48d5abd04b8a062edf2d22b265e025ed82a`, matching reviewed source `9611629bf053b4ff08f29a8459b4e69f4248ed12`. Core R remains `3e27497b4ef7b567858ba646bc3071bee37d19bd`. The previous graph below is historical; Console and Connector successors must bind this actual D. Console implementation, disjoint browser/receipt fixtures and independent review continue in parallel.
+
+The earlier standalone Demo backup execution retains its original source/run attribution. Its install, backup, consent-helper, cleanup and workflow bytes are unchanged; it is not relabelled as a new D execution. Canonical v0.4.26 gate fingerprints conservatively change with this Demo fixture, so the actual final63/full65 runs must use new D. Static review found no further concrete consent mismatch in remaining W1/gate callers; that inspection is not native PASS. See [independent Demo review](../evidence/final-release-audit-2026-10-24/DEMO-RECONCILIATION-REVIEW.md) and [joint failure diagnosis](../evidence/final-release-audit-2026-10-24/JOINT-NATIVE-BLOCKER.md).
+
 
 ## Native consumer failure and bounded correction
 

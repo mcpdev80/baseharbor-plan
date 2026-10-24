@@ -59,6 +59,15 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+## Reviewed Demo reconciliation correction integrated
+
+Static preflight found one additional executable consent mismatch: after stopping shared PostgreSQL, the reconciliation fixture invoked bare apply even though Core R requires the current concrete resume-impact acknowledgement. Demo [PR122](https://github.com/mcpdev80/baseharbor-demo/pull/122) changes only that call to the existing strict `run_consented` helper. Independent review approved exact blob `2c128dbc455647088d2259d08d2fc9208617dadf`; four helper tests, shell syntax and diff checks pass. No hosted PR check is configured for this ordinary branch.
+
+Actual successor Demo D is `09595781b68e1f41caaba9aec1402eb8009d700f`, tree `9219f48d5abd04b8a062edf2d22b265e025ed82a`, matching reviewed source `9611629bf053b4ff08f29a8459b4e69f4248ed12`. Core R remains `3e27497b4ef7b567858ba646bc3071bee37d19bd`. The previous graph below is historical; Console and Connector successors must bind this actual D. Console implementation, disjoint browser/receipt fixtures and independent review continue in parallel.
+
+The earlier standalone Demo backup execution retains its original source/run attribution. Its install, backup, consent-helper, cleanup and workflow bytes are unchanged; it is not relabelled as a new D execution. Canonical v0.4.26 gate fingerprints conservatively change with this Demo fixture, so the actual final63/full65 runs must use new D. Static review found no further concrete consent mismatch in remaining W1/gate callers; that inspection is not native PASS. See [independent Demo review](../evidence/final-release-audit-2026-10-24/DEMO-RECONCILIATION-REVIEW.md) and [joint failure diagnosis](../evidence/final-release-audit-2026-10-24/JOINT-NATIVE-BLOCKER.md).
+
+
 ## Native consumer failure and bounded correction
 
 Joint run [40130842592](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40130842592), attempt 1 on actual K543e155d, failed both Docker and Podman Console Chromium journeys. Production managed enrollment/outbound Connector and owned fixture/key cleanup passed in both jobs. No integration acceptance manifest was produced; no consumer native PASS or release readiness is claimed.
