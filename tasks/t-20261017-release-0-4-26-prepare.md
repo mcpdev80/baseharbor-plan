@@ -59,6 +59,13 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+### 2026-10-24 — Session 3 corrected-head review (round 2)
+
+[Independent round2 evidence](../evidence/review-v0426-2026-10-24-session3/ROUND2.md): #1064 e7fe45ccb3c2103bb3b57ad3300892b932818934 APPROVE at base65aa063e; actual full planner115 PASS and mandatory CI40110621660 green. #1060 db79f24a39ccc1a6f8f38a13d20dd18ab151abc2 corrected source delta APPROVE; six focused regressions and actual21 unit tests on #1052 source9f715184 PASS, but final CI40110759871 still correctly blocks qualification. #1052 source/unit contract is now independently APPROVE, with current-base CI/native/integration prerequisites preserved.
+
+Actual merge-tree confirms the #1064/#1060 test-file conflict. Session1 must preserve both matrices, obtain fresh exact-anchor review after manual resolution, then separately accepted target record, clean record-forward merge and mandatory CI. No later head or inherited bootstrap fallback is waived. #1056 remote b0abe105 remains rejected; local correction preparation is not accepted. All verdicts are technical PR issue comments, not formal GitHub reviews. No card acceptance, product/CI edit, merge, native run or release-readiness claim from session3; other session owners/states and v0.4.27 remain unchanged.
+
+
 ### 2026-10-24 — Session 3 independent review and evidence reconciliation
 
 Marcel assigned this session to independent review/evidence and coordinated planning only. Session 1 retains implementation/integration/all merges; session 2 owns native acceptance/freeze. Original owners and task states remain. The [exact-candidate dossier and executed probes](../evidence/review-v0426-2026-10-24-session3/HANDOFF.md) supersede reported ACCEPTs only for the explicitly reviewed heads.

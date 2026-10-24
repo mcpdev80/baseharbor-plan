@@ -1,0 +1,29 @@
+{
+  "reviewed_source": "9f715184af7b89ca3011aa4a0636c45138fe2c6b",
+  "base": "65aa063e90767c85af976081c100be1817370e67",
+  "head_simulation": "0167aa1018e11df148a9d0ff1b4035cb6b52ffcc",
+  "integration_simulation": "24f81ccdadcf590dbf3e414aba4589232c211446",
+  "tree": "caaaaac104f33e7e710ac517d3a1d16111f8c837",
+  "changes": [
+    {
+      "status": "modified",
+      "path": "internal/openbao/bootstrap.go"
+    },
+    {
+      "status": "modified",
+      "path": "internal/openbao/bootstrap_test.go"
+    }
+  ],
+  "checks": [
+    "source-contracts",
+    "openbao-package-tests"
+  ]
+}
+missing-integration: REJECT
+fake-integration: REJECT
+wrong-merge-base: REJECT
+extra-path: REJECT
+wrong-status: REJECT
+other/repo/develop: REJECT
+mcpdev80/baseharbor/main: REJECT
+same-tree unreviewed linear followup: REJECT
