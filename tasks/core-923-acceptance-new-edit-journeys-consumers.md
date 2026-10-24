@@ -8,7 +8,7 @@ parent: v0.4.26
 owner: Codex session 2 native acceptance (d48643e22049)
 depends_on: [core-921, core-922, core-900]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: ["mcpdev80/baseharbor-console#11", "mcpdev80/baseharbor-node-connector#12", "mcpdev80/baseharbor-demo#121", "mcpdev80/baseharbor-demo#122", "mcpdev80/baseharbor-console#9", "mcpdev80/baseharbor-console#10", "mcpdev80/baseharbor-node-connector#10", "mcpdev80/baseharbor-node-connector#11"]
+prs: ["mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13", "mcpdev80/baseharbor-console#11", "mcpdev80/baseharbor-node-connector#12", "mcpdev80/baseharbor-demo#121", "mcpdev80/baseharbor-demo#122", "mcpdev80/baseharbor-console#9", "mcpdev80/baseharbor-console#10", "mcpdev80/baseharbor-node-connector#10", "mcpdev80/baseharbor-node-connector#11"]
 sources: ["mcpdev80/baseharbor#923"]
 source_updated: "2026-10-15T16:45:40Z"
 labels: [area/evidence]
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/40128173805", "h
 - [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** Codex session 2 native acceptance (d48643e22049)  
-    **PR:** [baseharbor-console#11](https://github.com/mcpdev80/baseharbor-console/pull/11), [baseharbor-node-connector#12](https://github.com/mcpdev80/baseharbor-node-connector/pull/12), [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-demo#122](https://github.com/mcpdev80/baseharbor-demo/pull/122), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-console#10](https://github.com/mcpdev80/baseharbor-console/pull/10), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10), [baseharbor-node-connector#11](https://github.com/mcpdev80/baseharbor-node-connector/pull/11)  
+    **PR:** [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13), [baseharbor-console#11](https://github.com/mcpdev80/baseharbor-console/pull/11), [baseharbor-node-connector#12](https://github.com/mcpdev80/baseharbor-node-connector/pull/12), [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-demo#122](https://github.com/mcpdev80/baseharbor-demo/pull/122), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-console#10](https://github.com/mcpdev80/baseharbor-console/pull/10), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10), [baseharbor-node-connector#11](https://github.com/mcpdev80/baseharbor-node-connector/pull/11)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/40128173805), [proof 2](https://github.com/mcpdev80/baseharbor-demo/actions/runs/40128218519), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/final-release-audit-2026-10-24/v0.4.26.consumer-pins.json)  
     <!-- /generated:card -->
 
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/40128173805", "h
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex session 2 native acceptance (d48643e22049)  
 **Priority:** not set  
-**PRs:** [baseharbor-console#11](https://github.com/mcpdev80/baseharbor-console/pull/11), [baseharbor-node-connector#12](https://github.com/mcpdev80/baseharbor-node-connector/pull/12), [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-demo#122](https://github.com/mcpdev80/baseharbor-demo/pull/122), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-console#10](https://github.com/mcpdev80/baseharbor-console/pull/10), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10), [baseharbor-node-connector#11](https://github.com/mcpdev80/baseharbor-node-connector/pull/11)  
+**PRs:** [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13), [baseharbor-console#11](https://github.com/mcpdev80/baseharbor-console/pull/11), [baseharbor-node-connector#12](https://github.com/mcpdev80/baseharbor-node-connector/pull/12), [baseharbor-demo#121](https://github.com/mcpdev80/baseharbor-demo/pull/121), [baseharbor-demo#122](https://github.com/mcpdev80/baseharbor-demo/pull/122), [baseharbor-console#9](https://github.com/mcpdev80/baseharbor-console/pull/9), [baseharbor-console#10](https://github.com/mcpdev80/baseharbor-console/pull/10), [baseharbor-node-connector#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10), [baseharbor-node-connector#11](https://github.com/mcpdev80/baseharbor-node-connector/pull/11)  
 **Source:** [baseharbor#923](https://github.com/mcpdev80/baseharbor/issues/923)
 <!-- /generated:links -->
 
@@ -69,6 +69,19 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+## Protected fixture corrected; exact final native qualification running
+
+Console [PR12](https://github.com/mcpdev80/baseharbor-console/pull/12) is integrated as actual U `52993ac5623cdfa2a3b91001ed078dfd27f31b5e`, tree `b7e4821ce87b6483f3cebfc935ee8e4419d06691`, identical to reviewed sourcefe3fab5c. The two-file correction explicitly protects only the isolated fixture config owner directory and tests the actual preparation block under umask022 for fresh/existing0755 directories. The test fails before and passes after the correction; all67 contracts (zero skips), compiler/lint/architecture/33-route production build and independent source review pass. Hosted sourceCI40136867115/job121000115187 passes. Core ownership checks, accepted consent/callback changes and R/D pins remain unchanged.
+
+Connector [PR13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13), sourcef1cc3ae3/tree510b7934, solely repins actual U529; sourceCI40137062718/job121000708063 passes and merge6bd86048 preserves exact reviewed bytes. Root omitted the workflow marker from the merge message and caught this before moving the native trigger. The correction is one same-tree operational successor, actual K `acc6fba541a47e73781d8ebb7b7f910e2e2e5d42`, with sole parent6bd and existing [ecosystem-runtime] marker. Its full source tree is unchanged; the existing source-only route independently qualifies exact K in40137388108/job121001700088 SUCCESS. Root then performs an expected-head non-force main6bd-to-K fast-forward; no product/workflow change, history rewrite or skipped native run is concealed.
+
+Fresh actual K/U/D manifests and unchanged R resolver/source-origin validation independently generate canonical matrix SHA256 `33cd462d0f159821a6f16c1d2c1e85d311fd92724b3bf61f63806d42f52011bb`. Previous failed Kc436 graph/terminal freeze and diagnostic ZIP origins remain preserved separately. Core R3e27497b and Demo D09595781 are unchanged.
+
+Exactly one expected-head non-force fast-forward moves the existing native trigger from Kc436 to actual Kacc6. New joint [40137607614](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40137607614), push/attempt1, resolves successfully and runs Docker121002381187 and Podman121002381169. Actual complete Core persistence/PKI/Identity, browser/application/remote lifecycle and owned cleanup remain PENDING. No source-only success or previous partial successful subpath substitutes for this required native result. Selected63, full65, promotion and tag remain pending; no release acceptance is claimed.
+
+See CONSOLE-PERMISSIONS-REVIEW.md, JOINT-NATIVE-THIRD-FAILURE.md and the current canonical JSON. Historical checkpoints below retain their original outcomes.
+
 
 ## Actual native failure diagnosed: fixture configuration protection
 

@@ -6,7 +6,7 @@ Verdict: **NOT YET QUALIFIED**. This report structure is prepared from inspected
 
 The existing fixtures drive the real public CLI through a PTY against native Docker/rootless Podman and actual SQL. This is scripted real developer-path execution, independently reviewed by this audit lane; it is not a claimed separate manual/operator session. core-923 delegates execution and the documented independent developer-path report to the acceptance owner; it requires no additional operator session or duplicate full journey.
 
-Frozen inputs: Core R `3e27497b4ef7b567858ba646bc3071bee37d19bd`; Demo D `09595781b68e1f41caaba9aec1402eb8009d700f`; Console U `51181967abfd3170b81857d51e9a4572c84b318b`; Connector K `c4363a28f5fd3d929a430bc6da630ee036bba104`. Any changed input must be explicitly reconciled before acceptance.
+Frozen inputs: Core R `3e27497b4ef7b567858ba646bc3071bee37d19bd`; Demo D `09595781b68e1f41caaba9aec1402eb8009d700f`; Console U `52993ac5623cdfa2a3b91001ed078dfd27f31b5e`; Connector K `acc6fba541a47e73781d8ebb7b7f910e2e2e5d42`. Any changed input must be explicitly reconciled before acceptance.
 
 ## Required actual origins
 
