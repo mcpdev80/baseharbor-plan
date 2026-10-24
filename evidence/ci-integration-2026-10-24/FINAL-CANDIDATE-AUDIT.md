@@ -61,3 +61,24 @@ CHANGELOG's undated v0.4.26 candidate section and candidate release-note wording
 ## Coordinator disposition
 
 The delegated Maintainer chose option 2 and closed #1050 as superseded preparation, not fulfilled/merged implementation. Independent /root/independent_review checked the disposition. The original source JSON is preserved as historical-consumer-pins-1050.json in this directory. Its old C/D/U/K are not final. The complete final canonical JSON and exact R/D/U/K, run/attempt and origins remain mandatory Planning evidence; the workflow approval upload does not automatically contain that JSON.
+
+## Exact native Go Docker task coverage (follow-up)
+
+The open Planning task `t-20261020-develop-appid-manifest-test-regression` specifically requires final-develop `TestRepositoryWorkflowRealLifecycle` proof. Demo lifecycle success does not prove this named Go test ran.
+
+Of the eight historical native Go families, the final 65-gate graph executes these three exact families through existing integration atomic cases:
+- `atomic/docker/control-plane-recovery`: `TestExistingControlPlaneRestartRequiresAndUsesRecoveryFile`.
+- `atomic/docker/loki-runtime`: `TestManagedLokiIngestsRealComposeWorkloadLogs`.
+- `atomic/docker/tempo-runtime`: `TestManagedTempoReceivesVerificationTraceThroughCollector`.
+
+Source: [pre-release-runtime-suite.yml lines 306–316](https://github.com/mcpdev80/baseharbor/blob/133e27f6b3ea9fd7b74dc2b7e5878c7091d9228f/.github/workflows/pre-release-runtime-suite.yml#L306). The matching Podman gates also execute these names on that engine.
+
+The other five are **not** executed natively by the 65-gate jobs: `TestRepositoryWorkflowRealLifecycle`, `TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI`, `TestRepositoryComposeWorkloadOnlyLifecycleInCI`, `TestRepositoryBuildWorkloadRebuildsSourceChangesInCI` and `TestMultiInstanceComposeLifecycleInCI`. They require `BASEHARBOR_CI_RUNTIME_INTEGRATION=1`. Ordinary pre-release package tests and `ci.yml:release_source_preflight` omit that flag and therefore do not satisfy this proof. Core-bootstrap/coreless gates select different named tests.
+
+The existing complete native Go route is [docker-runtime-acceptance.yml](https://github.com/mcpdev80/baseharbor/blob/133e27f6b3ea9fd7b74dc2b7e5878c7091d9228f/.github/workflows/docker-runtime-acceptance.yml#L180), job `docker-runtime`. It enables the exact native flag, runs the five families serially, then recovery/Loki/Tempo, records Go JSON and [requires each of all eight test/package PASS receipts with no fail/skip](https://github.com/mcpdev80/baseharbor/blob/133e27f6b3ea9fd7b74dc2b7e5878c7091d9228f/.github/workflows/docker-runtime-acceptance.yml#L234). Hosted rootless runtime, source/toolchain receipts, exact binary/image equality and cleanup are already built in.
+
+Existing triggers, for use only once final R exists:
+- `workflow_dispatch` with input `ref=R`, using the existing workflow on develop.
+- Existing push route `runtime-validation/docker/**`: a new unique validation branch pointing exactly at R triggers it without creating a new candidate commit. Avoid `runtime-validation/docker/provider-ha/**` and `runtime-validation/docker/mcp-edit-native/**`, which intentionally skip the eight-family job.
+
+No workflow modification, source-preflight branch or new native harness is needed. This route can execute independently in parallel with final consumer preparation once R is immutable. Its three overlapping Go families do not authorize manufacturing 65-gate manifests or weakening the existing eight-test verifier.

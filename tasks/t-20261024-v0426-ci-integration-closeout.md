@@ -66,6 +66,12 @@ Marcel explicitly requested parallel completion of v0.4.26. The coordinator dele
 
 ## Handoff
 
+### 2026-10-24 — Current accepted CI integration and remaining final freeze
+
+#1052 is now accepted and merged as 2ee295c3 after complete green actual CI 40116648056; earlier GitHub HTTP502 attempts are historical, and Owner cancellation is no longer needed. #1067 final qualifier is merged as ccb78a65 after fresh green CI 40116917521. Separate canonical 63-ID data PR #1068 is independently approved and in required CI 40117165154. Then #1046 receives its final trusted-target merge and checks, before final Core R is fixed.
+
+Demo history/receipt preparation is independently approved at 5c814cd4, preserving the reviewed helper and tests and adding its cleanup scope upload. Final R pin/native proof remains pending. The existing native Go Docker workflow must also execute the exact eight families on R; five of those are absent from the 65-gate graph. This can run in parallel with final Demo proof. See [coordinator evidence](../evidence/ci-integration-2026-10-24/HANDOFF.md). No release readiness, promotion, tag or v0.4.27 change is claimed.
+
 - Additional bounded consumer assignment: /root/consumer_freeze owns preparation of the existing Demo release-branch history integration, preserving the reviewed cleanup helper and tests, plus the existing workflow artifact path needed to retain scope-result.json alongside image-cache logs. Local conflict resolution is permitted; no remote publication, workflow run or product PR merge before root review/coordination. Final Core pin still waits for actual R. This explicitly extends the earlier read-only preparation slice without taking over session-2 evidence files.
 
 - Latest: #1066 and corrected #1056 are integrated with green mandatory CI; develop51a38e2b. #1052 test jobs are now genuinely completed/success; the sole failed final-check job hit GitHub HTTP502 and was rerun without repeating successful tests. No Owner cancel remains needed and no bypass was used. Final #1046/63-gate preflight qualifier independently source-reviewed locally, 125 full planner tests PASS; published policy PR #1067 at23ba90d5 is in required CI. Historical #1050 closed as superseded preparation with original JSON retained; complete final canonical graph dossier remains required. See current evidence.

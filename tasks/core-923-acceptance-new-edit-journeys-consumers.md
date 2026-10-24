@@ -69,6 +69,12 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+### 2026-10-24 — Current accepted CI integration and remaining final freeze
+
+#1052 is now accepted and merged as 2ee295c3 after complete green actual CI 40116648056; earlier GitHub HTTP502 attempts are historical, and Owner cancellation is no longer needed. #1067 final qualifier is merged as ccb78a65 after fresh green CI 40116917521. Separate canonical 63-ID data PR #1068 is independently approved and in required CI 40117165154. Then #1046 receives its final trusted-target merge and checks, before final Core R is fixed.
+
+Demo history/receipt preparation is independently approved at 5c814cd4, preserving the reviewed helper and tests and adding its cleanup scope upload. Final R pin/native proof remains pending. The existing native Go Docker workflow must also execute the exact eight families on R; five of those are absent from the 65-gate graph. This can run in parallel with final Demo proof. See [coordinator evidence](../evidence/ci-integration-2026-10-24/HANDOFF.md). No release readiness, promotion, tag or v0.4.27 change is claimed.
+
 ### 2026-10-24 — Owner-authorized parallel closeout, current checkpoint
 
 Marcel explicitly requested parallel completion; earlier session stop/handoff notes are historical for this authorized scope. #1064, separate #1065 record, #1060, separate #1066 record and corrected #1056 have now been integrated with genuine green mandatory CI. develop is 51a38e2b25eb43e2a657f87d0886bd19fe44bfdc. #1052 selected source/OpenBao test jobs are genuinely completed/success, but its final PR Selected Checks failed on GitHub HTTP502. Only that failed final job was rerun; required final success remains missing and no acceptance is inferred. #1046 final policy/qualification follows this chain. Demo cleanup fix 52dde419 has independent source review and 21 helper tests PASS, with native acceptance still pending.
@@ -77,7 +83,7 @@ The historical #1050 persisted C-graph snapshot is explicitly superseded by comp
 
 ### 2026-10-24 — Session 3 corrected-head review (round 2)
 
-[Independent round2 evidence](../evidence/review-v0426-2026-10-24-session3/ROUND2.md): #1064 e7fe45ccb3c2103bb3b57ad3300892b932818934 APPROVE at base65aa063e; actual full planner115 PASS and mandatory CI40110621660 green. #1060 db79f24a39ccc1a6f8f38a13d20dd18ab151abc2 corrected source delta APPROVE; six focused regressions and actual21 unit tests on #1052 source9f715184 PASS, but final CI40110759871 still correctly blocks qualification. #1052 source/unit contract is now independently APPROVE, with current-base CI/native/integration prerequisites preserved.
+[Independent round2 evidence](../evidence/review-v0426-2026-10-24-session3/ROUND2.md): #1064 e7fe45ccb3c2103bb3b57ad3300892b932818934 APPROVE at base65aa063e; actual full planner115 PASS and mandatory CI 40110621660 green. #1060 db79f24a39ccc1a6f8f38a13d20dd18ab151abc2 corrected source delta APPROVE; six focused regressions and actual 21 unit tests on #1052 source 9f715184 PASS, but final CI 40110759871 still correctly blocks qualification. #1052 source/unit contract is now independently APPROVE, with current-base CI/native/integration prerequisites preserved.
 
 Actual merge-tree confirms the #1064/#1060 test-file conflict. Session1 must preserve both matrices, obtain fresh exact-anchor review after manual resolution, then separately accepted target record, clean record-forward merge and mandatory CI. No later head or inherited bootstrap fallback is waived. #1056 remote b0abe105 remains rejected; local correction preparation is not accepted. All verdicts are technical PR issue comments, not formal GitHub reviews. No card acceptance, product/CI edit, merge, native run or release-readiness claim from session3; other session owners/states and v0.4.27 remain unchanged.
 
