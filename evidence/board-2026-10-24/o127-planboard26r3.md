@@ -20,8 +20,8 @@ Only schema states (planned/claimed/active/review/accepted/blocked). Reasons for
 ## Evidence: o127 (PLANBOARD26R3)
 
 - Comparison base: o116 = board `61ecae1`, f50 = board `4aa61bf`.
-- Live gh sweep run: [INSERT TIMESTAMP UTC]
-- develop HEAD after sweep: [INSERT]
+- Live gh sweep run: 2026-10-24T11:15Z (develop HEAD f3929568, unchanged from round 2)
+- develop HEAD after sweep: `f39295680d41290fc505c0a8cc1769da51699293`
 
 ### Card states (live-checked)
 
@@ -62,7 +62,9 @@ Only schema states (planned/claimed/active/review/accepted/blocked). Reasons for
 | Doku | o120-Folgearbeiten | | vier Follow-Ups, alle freeze/pin-pending |
 
 ### Board SHA
-- START board sha (f50 baseline): [INSERT]
-- FINAL board sha after bundle commit: [INSERT]
+- START board sha (f50 baseline): `4aa61bf`
+- FINAL board sha after bundle commit (pushed origin main, fast-forward `0c20cdf..0aad8aa`): `0aad8aaddd6ba449a706f7d5bbe544310aa64e07`
+
+- Live gh sweep: 2026-10-24 ~11:15 UTC, develop f3929568. Heads moved (#1046→1ec67f8d, #1056→32b85d95, #1060→6a0d36da) but all blockers unchanged (still FAIL PR Selected Checks / BLOCKED mergeState).
 
 END O127-PLANBOARD26R3-DONE
