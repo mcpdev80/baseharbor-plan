@@ -14,14 +14,14 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.com/mcpdev80/baseharbor/pull/1058","https://github.com/mcpdev80/baseharbor/pull/1059","https://github.com/mcpdev80/baseharbor/pull/1050","https://github.com/mcpdev80/baseharbor/pull/1055","https://github.com/mcpdev80/baseharbor/pull/1056","https://github.com/mcpdev80/baseharbor/pull/1052"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.com/mcpdev80/baseharbor/pull/1058","https://github.com/mcpdev80/baseharbor/pull/1059","https://github.com/mcpdev80/baseharbor/pull/1050","https://github.com/mcpdev80/baseharbor/pull/1055","https://github.com/mcpdev80/baseharbor/pull/1056","https://github.com/mcpdev80/baseharbor/pull/1052","https://github.com/mcpdev80/baseharbor/pull/1046","https://github.com/mcpdev80/baseharbor/pull/1047"]
 ---
 
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** o49 · **Priority:** normal  
-    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052)  
+    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -58,6 +58,21 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+### 2026-10-24 — Open PR-chain blockers for v0.4.26 (live gh sweep, mission o116)
+
+Open gates and pending PRs on develop a2abc17a (all mergeStateStatus values read live at ~08:15 UTC; GitHub approvals/merges belong to the Codex-Maintainer lane):
+
+| PR | Live state | Blocking reason / next action |
+|---|---|---|
+| [#1046](https://github.com/mcpdev80/baseharbor/pull/1046) | OPEN, BEHIND, Selected Checks FAIL [39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290) | needs develop-fresh requalification of the six appid test sources |
+| [#1047](https://github.com/mcpdev80/baseharbor/pull/1047) | OPEN, BLOCKED, checks GREEN [40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268) head 40351fd3 | awaiting GitHub approving review (ruleset); lands via Codex-Maintainer lane |
+| [#1050](https://github.com/mcpdev80/baseharbor/pull/1050) | OPEN, BLOCKED, Selected Checks FAIL [40073196114](https://github.com/mcpdev80/baseharbor/actions/runs/40073196114) coverage-unresolved consumer-pins.json | order dependency: requires #1056 in develop first |
+| [#1052](https://github.com/mcpdev80/baseharbor/pull/1052) | OPEN, BLOCKED, Selected Checks FAIL [40073221965](https://github.com/mcpdev80/baseharbor/actions/runs/40073221965) unknown impact openbao paths | needs a gate-plan qualification PR for openbao paths |
+| [#1055](https://github.com/mcpdev80/baseharbor/pull/1055) | OPEN, BLOCKED (v0.4.27 scope fence for this lane) | handled outside v0.4.26 board sync |
+| [#1056](https://github.com/mcpdev80/baseharbor/pull/1056) | OPEN, BLOCKED, new head 7a220d26 Selected Checks FAIL [40076663163](https://github.com/mcpdev80/baseharbor/actions/runs/40076663163) | its own scripts/pr-check-runner.py needs specific CI-execution qualification in gate-plan |
+
+Reused green evidence (no reruns): develop lineage #1053=79e64084, #1058=24c33afd, #1059=a2abc17a; docs strict builds run [40064756153](https://github.com/mcpdev80/baseharbor/actions/runs/40064756153) (q20 card accepted on this proof); #1047 full green run 40076426268. Nothing in this table is an acceptance or readiness claim.
 
 ### 2026-10-24 — PR-Welle #1050-1058 als Owner-Plan (zusaetzlicher Hinweis, Pausevermerk unangetastet)
 

@@ -9,18 +9,18 @@ owner: "Flash (codeman w1-baseharbor)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharbor#1047", "mcpdev80/baseharbor#1050", "mcpdev80/baseharbor#1056"]
+prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharbor#1046", "mcpdev80/baseharbor#1047", "mcpdev80/baseharbor#1050", "mcpdev80/baseharbor#1056"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1050", "https://github.com/mcpdev80/baseharbor/pull/1056"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1046", "https://github.com/mcpdev80/baseharbor/pull/1047", "https://github.com/mcpdev80/baseharbor/actions/runs/40076426268", "https://github.com/mcpdev80/baseharbor/actions/runs/39995102290"]
 ---
 
 - [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/review #view/review #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056)  
+    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1046](https://github.com/mcpdev80/baseharbor/pull/1046), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
+**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1046](https://github.com/mcpdev80/baseharbor/pull/1046), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -51,6 +51,12 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 3. Independent local review + evidence links on this card.
 
 ## Handoff
+
+### 2026-10-24 — Live gh state of the appid chain: #1047 green and develop-fresh, #1046 still behind
+
+- [#1047](https://github.com/mcpdev80/baseharbor/pull/1047) head `40351fd30af9d1b12a3ea5b4b450056ea714f475` (branch merge of develop a2abc17a into 79e0aa2b, mission f47, fast-forward push, no force): every required check green including PR Selected Checks in [run 40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268); mergeable=MERGEABLE, mergeStateStatus=BLOCKED solely for the develop ruleset GitHub-approval requirement — merges/approvals belong to the Codex-Maintainer lane, not this board update.
+- [#1046](https://github.com/mcpdev80/baseharbor/pull/1046) head `35582508` remains OPEN with mergeStateStatus=BEHIND; its latest PR Selected Checks is FAIL in [run 39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290). #1047's gate-plan clause binds exactly this reviewed source via the merge-chain check, so #1046 needs its own develop-fresh qualification before either lands.
+- Card state remains REVIEW (candidates exist with PRs; nothing here claims acceptance). Chain status synchronized live per mission o116.
 
 ### 2026-10-21 — Integrated and REVIEW; final develop-head native qualification pending
 

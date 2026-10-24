@@ -8,27 +8,28 @@ parent: v0.4.26
 owner: "Codex (reviewer)"
 depends_on: [core-922]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1031]
+prs: ["mcpdev80/baseharbor#1031", "mcpdev80/baseharbor#1041"]
 sources: ["mcpdev80/baseharbor#873"]
 blocker: ""
-resolution: ""
-evidence: []
+resolution: "accepted"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1031", "https://github.com/mcpdev80/baseharbor/pull/1041", "https://github.com/mcpdev80/baseharbor/actions/runs/40064756153"]
 ---
 
-- [ ] t-20261022-q20-docs-pages · Docs: verify release-note surface for v0.4.26 prepare card #task #release/v0-4-26 #status/review #view/review #area/docs #area/release #kind/task
+- [x] t-20261022-q20-docs-pages · Docs: verify release-note surface for v0.4.26 prepare card #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/docs #area/release #kind/task
     <!-- generated:card -->
     **Owner:** Codex (reviewer)  
-    **PR:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
+    **PR:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031), [baseharbor#1041](https://github.com/mcpdev80/baseharbor/pull/1041)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1031), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1041), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/40064756153)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-922](core-922-docs-new-edit-provider-selection.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Codex (reviewer)  
 **Priority:** not set  
-**PRs:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031)  
+**PRs:** [baseharbor#1031](https://github.com/mcpdev80/baseharbor/pull/1031), [baseharbor#1041](https://github.com/mcpdev80/baseharbor/pull/1041)  
 **Source:** [baseharbor#873](https://github.com/mcpdev80/baseharbor/issues/873)
 <!-- /generated:links -->
 
@@ -117,3 +118,11 @@ READ-FIRST evidence lane complete. No pushes executed. All evidence collected in
 3. **v0.4.26 release notes**: Both EN and DE exist on develop as release-candidate notes ("not yet published").
 4. **Pages workflow**: Candidate build exists in pages.yml. Live deployment pending on the Verify card (requires Maintainer auth).
 5. **Pending items**: PR #1031 full CI not yet passing; documentation-audit.sh not independently verified on v0.4.26 candidate; candidate Pages build on exact SHA not yet performed.
+
+## Resolution — accepted 2026-10-24 (owner-delegated Maintainer authority, mission o116)
+
+Accepted per Marcel's explicit instruction in ops/missions/o116.txt exercising the [owner-delegated Maintainer authority](../decisions/2026-10-19-owner-delegated-maintainer-authority.md); this is not claimed as an independent GitHub review. Develop absorption is live-verified, not historical:
+
+- [#1031](https://github.com/mcpdev80/baseharbor/pull/1031) MERGED 2026-10-22T16:48:07Z as squash `103f58b1`; corrected by [#1041](https://github.com/mcpdev80/baseharbor/pull/1041) MERGED 2026-10-23 as squash `9f4916be`. Live `gh api compare` at develop `a2abc17a` reports both commits status=behind, i.e. they are ancestors of current develop.
+- Release-note surface verified present on develop: EN `docs/releases/v0.4.26.md`, DE `docs/de/releases/v0.4.26.md`, both release indices linked, CHANGELOG candidate section. Strict builds green: [run 40064756153](https://github.com/mcpdev80/baseharbor/actions/runs/40064756153) PR · Validation · mkdocs-en-strict, mkdocs-de-strict, documentation-audit and pages-candidate-build all PASS on the lineage now contained in develop a2abc17a.
+- Remaining Verify-stage item (live Pages deployment after promotion) stays on the release Verify card and is not part of this acceptance.
