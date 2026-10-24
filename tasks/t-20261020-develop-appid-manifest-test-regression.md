@@ -13,14 +13,14 @@ prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharb
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1046", "https://github.com/mcpdev80/baseharbor/pull/1047", "https://github.com/mcpdev80/baseharbor/actions/runs/40076426268", "https://github.com/mcpdev80/baseharbor/actions/runs/39995102290"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1046", "https://github.com/mcpdev80/baseharbor/pull/1047", "https://github.com/mcpdev80/baseharbor/actions/runs/40076426268", "https://github.com/mcpdev80/baseharbor/actions/runs/39995102290", "https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293"]
 ---
 
 - [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/review #view/review #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1046](https://github.com/mcpdev80/baseharbor/pull/1046), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290), [proof 9](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -51,6 +51,12 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 3. Independent local review + evidence links on this card.
 
 ## Handoff
+
+### 2026-10-24 — #1047 merged into develop; #1046 awaits its rebase (live gh, mission f50 round 2)
+
+- [#1047](https://github.com/mcpdev80/baseharbor/pull/1047) MERGED 2026-10-24T08:28:06Z as develop squash [`f3929568`](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293) after full-green run [40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268) on head `40351fd3`. The gate-plan qualification lane for the exact appid env-robust test-only source is now on develop.
+- [#1046](https://github.com/mcpdev80/baseharbor/pull/1046) remains OPEN with mergeStateStatus=BEHIND at head `35582508`; its latest PR Selected Checks is still the failing [39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290), which predates the merge. Next action: rebase onto `f3929568` and rerun the develop-fresh qualification of the six appid test sources.
+- Card state remains REVIEW: the explicit final `TestRepositoryWorkflowRealLifecycle` native develop-head acceptance is still unproven and no accepting instance has acted on this card.
 
 ### 2026-10-24 — Live gh state of the appid chain: #1047 green and develop-fresh, #1046 still behind
 

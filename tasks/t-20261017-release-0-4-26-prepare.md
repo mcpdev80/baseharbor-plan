@@ -14,14 +14,14 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.com/mcpdev80/baseharbor/pull/1058","https://github.com/mcpdev80/baseharbor/pull/1059","https://github.com/mcpdev80/baseharbor/pull/1050","https://github.com/mcpdev80/baseharbor/pull/1055","https://github.com/mcpdev80/baseharbor/pull/1056","https://github.com/mcpdev80/baseharbor/pull/1052","https://github.com/mcpdev80/baseharbor/pull/1046","https://github.com/mcpdev80/baseharbor/pull/1047"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.com/mcpdev80/baseharbor/pull/1058","https://github.com/mcpdev80/baseharbor/pull/1059","https://github.com/mcpdev80/baseharbor/pull/1050","https://github.com/mcpdev80/baseharbor/pull/1055","https://github.com/mcpdev80/baseharbor/pull/1056","https://github.com/mcpdev80/baseharbor/pull/1052","https://github.com/mcpdev80/baseharbor/pull/1046","https://github.com/mcpdev80/baseharbor/pull/1047","https://github.com/mcpdev80/baseharbor/pull/1060","https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293"]
 ---
 
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** o49 · **Priority:** normal  
     **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 10](https://github.com/mcpdev80/baseharbor/pull/1060), [proof 11](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -58,6 +58,24 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+### 2026-10-24 — Open-chain state at develop f3929568 (live gh sweep, mission f50, round 2)
+
+Develop moved from `a2abc17a` to `f39295680d41290fc505c0a8cc1769da51699293`: [#1047](https://github.com/mcpdev80/baseharbor/pull/1047) MERGED 2026-10-24T08:28:06Z as squash `f3929568` (full-green run [40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268) on head 40351fd3; live compare shows the delta touches only scripts/pr-gate-plan.py and scripts/test_pr_gate_plan.py, so the docs surface is unchanged). Open-chain table, all values read live via gh at ~10:10 UTC 2026-10-24 (approvals/merges belong to the Codex-Maintainer lane under the recorded Owner decision `--squash --admin` for baseharbor and the Demo/Console/Connector freeze PRs):
+
+| PR | Live state | Blocking reason / next action |
+|---|---|---|
+| [#1046](https://github.com/mcpdev80/baseharbor/pull/1046) | OPEN, BEHIND, head 35582508, PR Selected Checks FAIL [39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290) | rebase onto f3929568 and requalify the six appid test sources; the gate-plan qualification is now on develop via merged #1047 |
+| [#1047](https://github.com/mcpdev80/baseharbor/pull/1047) | MERGED as develop `f3929568` | — |
+| [#1050](https://github.com/mcpdev80/baseharbor/pull/1050) | OPEN, BEHIND, head 38896762, FAIL [40073196114](https://github.com/mcpdev80/baseharbor/actions/runs/40073196114) coverage-unresolved consumer-pins.json | order: needs #1056 and the freeze-chain C/D/U/K reconciliation first |
+| [#1052](https://github.com/mcpdev80/baseharbor/pull/1052) | OPEN, BEHIND, head 789299a9 (test side complete, q113), FAIL [40084607362](https://github.com/mcpdev80/baseharbor/actions/runs/40084607362) unknown-impact openbao paths | waits for a corrected #1060 landing in develop, then rebase onto the resulting SHA |
+| [#1055](https://github.com/mcpdev80/baseharbor/pull/1055) | OPEN, BEHIND (v0.4.27 scope fence for this lane) | handled outside v0.4.26 board sync |
+| [#1056](https://github.com/mcpdev80/baseharbor/pull/1056) | OPEN, BLOCKED, head 425eaa96; run [40084724478](https://github.com/mcpdev80/baseharbor/actions/runs/40084724478): pr-planner-tests PASS, PR Selected Checks FAIL coverage-unresolved scripts/pr-check-runner.py | pins-data restoration pushed (o118); structural owner decision pending: branch o90-planner-pr is linear while core752_reviewed_merge_chain requires 3-parent merge commits; develop Akte reviewed_head 4e737e26 is stale |
+| [#1060](https://github.com/mcpdev80/baseharbor/pull/1060) | OPEN, BLOCKED, head 9ec25282 with green run [40083762150](https://github.com/mcpdev80/baseharbor/actions/runs/40083762150) | Codex-REVIEW verdict REQUEST_CHANGES (4 findings, 2×P1/2×P2, evidence codex-verdict-1060.md; no GitHub review submitted); repair round running; gates the #1052 openbao path |
+
+Freeze chain (dependency order Demo → Console → Connector → #1050 reconcile): Demo [#121](https://github.com/mcpdev80/baseharbor-demo/pull/121) OPEN, head f57c8b6e, mergeState CLEAN, created 10:02 UTC, no check runs observed on head yet, Codex-REVIEW REQUEST_CHANGES on missing identical-content qualification evidence; superseded Demo [#120](https://github.com/mcpdev80/baseharbor-demo/pull/120) still OPEN (head bd86c7c3) awaiting Maintainer closure. Console [#9](https://github.com/mcpdev80/baseharbor-console/pull/9) OPEN, head 6017de28, CLEAN, run [40078839364](https://github.com/mcpdev80/baseharbor-console/actions/runs/40078839364) (lint/build pass, browser lane skipping). Connector [#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10) OPEN, head e832d565, CLEAN, run [40081652928](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40081652928) (source pass, native lanes skipping); held at CX-CONNECTOR10-MERGE-BLOCKED because final Demo/Console pins do not exist yet.
+
+Docs dossier (o120) is complete: four follow-up deliverables (v0.4.26.evidence-runs, v0.4.26.selected-gates.json, v0.4.26.consumer-pins.json via #1050, v0.4.26.demo-ref), all freeze/pin-pending; the green docs evidence (run [40064756153](https://github.com/mcpdev80/baseharbor/actions/runs/40064756153)) remains valid for develop f3929568. Nothing in this section is an acceptance or readiness claim; the card stays ACTIVE.
 
 ### 2026-10-24 — Open PR-chain blockers for v0.4.26 (live gh sweep, mission o116)
 
