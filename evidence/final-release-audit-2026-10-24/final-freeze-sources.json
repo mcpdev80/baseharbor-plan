@@ -7,11 +7,11 @@
     "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
     "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
   },
-  "observed_utc": "2026-10-24T22:13:15.694658+00:00",
+  "observed_utc": "2026-10-24T22:50:00.213466+00:00",
   "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "FAILURE",
+  "native_joint_verdict": "PENDING",
   "pins_file": "v0.4.26.consumer-pins.json",
-  "pins_sha256": "33cd462d0f159821a6f16c1d2c1e85d311fd92724b3bf61f63806d42f52011bb",
+  "pins_sha256": "8421e3c8e6d33ad3e442537f95e75891531a4da03a37b78f1c018cfb2af4f0a2",
   "roles": {
     "core": {
       "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
@@ -35,41 +35,32 @@
       "reconciliation_native_verdict": "PENDING"
     },
     "console": {
-      "commit": "52993ac5623cdfa2a3b91001ed078dfd27f31b5e",
-      "tree": "b7e4821ce87b6483f3cebfc935ee8e4419d06691",
-      "qualified_source": "fe3fab5ca1d038c2720c944d4643d2f7e63a804b",
+      "commit": "0941e184226c035d3d309ab1074eeaf99153b2a3",
+      "tree": "c6b00e116b6a00688dd39bf1779ec03e6a72ac42",
+      "qualified_source": "eeff249be3b9ff8ea9a46ed3ba682a95f4990d69",
       "qualified_source_tree_identical": true,
-      "pr": 12,
-      "source_ci_run": 40136867115,
-      "source_ci_job": 121000115187,
+      "pr": 13,
+      "source_ci_run": 40139030774,
       "manifest_blob": "28fc527c6d3207097be657230e16b535e8a0c645"
     },
     "connector": {
-      "commit": "acc6fba541a47e73781d8ebb7b7f910e2e2e5d42",
-      "tree": "510b79340fdc5d23d5bc7d6a82dd3a1bf70d56fb",
-      "qualified_source": "acc6fba541a47e73781d8ebb7b7f910e2e2e5d42",
+      "commit": "5658d19aa2e5b70c84e38ded30196e07c651bc2e",
+      "tree": "72110bffc38551c4da75a3295b5142bacad79edc",
+      "qualified_source": "2ecea22c259bdb42c70d9e3e510faeb367fd17c9",
       "qualified_source_tree_identical": true,
-      "pr": 13,
-      "source_ci_run": 40137388108,
-      "source_ci_job": 121001700088,
-      "manifest_blob": "724dd6ae03f73e4fae5c1e69dea27a4f311705d3",
+      "pr": 14,
+      "source_ci_run": 40139359070,
+      "manifest_blob": "86d952092312faf7116660a11dedfd6359a15b01",
       "retained_old_trigger": "df1f4378d8c7fdc3e174a1e9dc8ad0155a955571",
       "retained_sentinel_blob": "ba86891cd387201ce0e9aa38763e795b8b81781b",
-      "actual_native_run": 40137607614,
+      "actual_native_run": 40140091435,
       "native_jobs": {
-        "docker": 121002381187,
-        "podman": 121002381169
+        "docker": 121009844363,
+        "podman": 121009844377
       },
-      "native_result": "failure",
-      "integrated_pin_source": "f1cc3ae33139a6d35c8a7e05d8baf522beeb72be",
-      "integrated_pin_merge": "6bd86048dd38fa390e4f2019e9921cbdaf5f48e2",
-      "operational_successor": {
-        "parent": "6bd86048dd38fa390e4f2019e9921cbdaf5f48e2",
-        "same_tree": true,
-        "marker": "[ecosystem-runtime]",
-        "source_branch": "runtime-validation/source/v0.4.26-native-trigger",
-        "main_fast_forward_verified": true
-      }
+      "native_result": "pending",
+      "integrated_pin_source": "2ecea22c259bdb42c70d9e3e510faeb367fd17c9",
+      "integrated_pin_merge": "5658d19aa2e5b70c84e38ded30196e07c651bc2e"
     }
   },
   "release_eligible": false,
@@ -94,7 +85,13 @@
       "snapshot": "freeze-sources.failed-c4363a28.json",
       "pins_snapshot": "v0.4.26.consumer-pins.failed-c4363a28.json",
       "diagnosis": "JOINT-NATIVE-THIRD-FAILURE.md"
+    },
+    {
+      "connector": "acc6fba541a47e73781d8ebb7b7f910e2e2e5d42",
+      "native_run": 40137607614,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-acc6fba5.json",
+      "diagnosis": "JOINT-NATIVE-FOURTH-FAILURE.md"
     }
-  ],
-  "native_failure_diagnosis": "Both hosts reach actual CoreREADY, apply/repair/CArotation, then ordinary local destroy leaf is hidden by Console outer-scope-only check; both cleanups succeed. Bounded consumer correction requires successor native proof."
+  ]
 }
