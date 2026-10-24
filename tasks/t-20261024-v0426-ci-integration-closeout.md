@@ -58,4 +58,6 @@ Complete the serialized v0.4.26 CI qualification chain and integrate verified ca
 
 ## Handoff
 
+- 2026-10-24: [Current session-1 evidence](../evidence/ci-integration-2026-10-24/HANDOFF.md). Published replacement #1064 `e7fe45ccb3c2103bb3b57ad3300892b932818934` has green required CI 40110621660; fresh independent review is pending. Corrected #1060 `db79f24a39ccc1a6f8f38a13d20dd18ab151abc2` has green selected component checks in 40110759871 but final coverage remains blocked until reviewed target-side qualification. All 21 actual #1052 bootstrap/retry unit tests passed through the corrected strict helper; no native success is inferred. #1056 preparation is preserved locally at `ad3e4d2f` and is not yet published. Owner started exact Podman receipt run 40110974339; session 2 owns its acceptance. No merges/tags/releases/deployments or v0.4.27 changes.
+
 - 2026-10-24: takeover from HANDOFF at planning 78dc7b5. #1064 head 54dfa458528e958be0ea3d8157a46bd501e76eb1 has green mandatory CI run 40108385755; independent review pending in session 3. develop is 65aa063e90767c85af976081c100be1817370e67. #1056 green CI does not resolve its reported bootstrap/DAG-origin review findings. Local checkout: /workspace/scratch/754a78dce362/baseharbor-ci. No merge or runtime execution yet.
