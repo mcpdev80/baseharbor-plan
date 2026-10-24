@@ -51,12 +51,22 @@ Complete the serialized v0.4.26 CI qualification chain and integrate verified ca
 
 - Focused planner/runner/resolver and existing executor/verifier regressions, workflow policy/syntax where affected, followed by the actual candidate's mandatory CI.
 
+## Owner-authorized parallel closeout — 2026-10-24
+
+Marcel explicitly requested parallel completion of v0.4.26. The coordinator delegates disjoint slices within this closeout assignment; existing session-2/session-3 claims and commits remain preserved. Root remains the sole Core CI writer and product merger.
+
+- Native cleanup implementation: Codex /root/native_cleanup, existing Demo #121 only, owns scripts/failure-runtime-diagnostics.sh and its focused tests. Repair the observed Podman cleanup timeout from run 40110974339; no ownership bypass or speculative pins. Coordinate publication through root before changing the remote. This is an explicit bounded assignment alongside the existing native acceptance session, not takeover of its evidence claim.
+- Consumer preparation: Codex /root/consumer_freeze, read-only inventory and independently executable preparation; actual D/U/K pins wait for predecessor merges. No concurrent writes to session-2 files.
+- Independent source/evidence review: Codex /root/independent_review, read-only product review in separate trees; no implementation changes. Existing session-3 evidence stays authoritative for its exact reviewed sources.
+
 ## Dependencies and file ownership
 
 - Owned implementation: scripts/pr-gate-plan.py, scripts/test_pr_gate_plan.py, scripts/pr-check-runner.py and directly affected CI tests/bindings within the named chain; no concurrent writer.
 - Shared Planning views are rendered from current main and published with concurrent work preserved. Native and independent-review evidence remain with their separate sessions.
 
 ## Handoff
+
+- 2026-10-24 current checkpoint: #1064 source e7fe45cc was independently approved in ROUND2 and merged as develop 133e27f6b3ea9fd7b74dc2b7e5878c7091d9228f with green required CI. #1060 integrated that target in manually resolved review anchor 7e08fe920d3f62219a3923669896c601eb43ae96 (tree 3146cab0be56997e527758aa00f038a21b454c59); both full planner matrices preserved, 121 planner tests passed. Fresh independent review and separate trusted-target record precede required CI. Native run 40110974339 completed FAILURE: backup/restore passed, acceptance cleanup preparation timed out (artifact 12567701307 scope-result.json: TimeoutExpired); later workflow cleanup succeeded. No valid fresh Podman receipt or release readiness is claimed.
 
 - 2026-10-24: [Current session-1 evidence](../evidence/ci-integration-2026-10-24/HANDOFF.md). Published replacement #1064 `e7fe45ccb3c2103bb3b57ad3300892b932818934` has green required CI 40110621660; fresh independent review is pending. Corrected #1060 `db79f24a39ccc1a6f8f38a13d20dd18ab151abc2` has green selected component checks in 40110759871 but final coverage remains blocked until reviewed target-side qualification. All 21 actual #1052 bootstrap/retry unit tests passed through the corrected strict helper; no native success is inferred. #1056 preparation is preserved locally at `ad3e4d2f` and is not yet published. Owner started exact Podman receipt run 40110974339; session 2 owns its acceptance. No merges/tags/releases/deployments or v0.4.27 changes.
 
