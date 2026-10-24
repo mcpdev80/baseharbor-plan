@@ -204,6 +204,13 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 - Findings 1–12, 21, 26–28, 32 carry SHA-exact develop `1861ed07` references (fixed / fixed-via-supersede / source-in-C2). Findings 18 (Console candidate freeze — console #7 OPEN) and 19 (immutable consumer pin chain — connector #8 OPEN) plus acceptance-gaps 13/17/20/22/23/24/25/30 live in core-923.
 - Card state remains `blocked` by the explicit Owner stop (2026-10-21 handoff). Only the Maintainer/Owner moves `blocked -> review/accepted`; this planning note records the verified ledger and does not change the status.
 
+### 2026-10-24 — PR-Welle #1050-1058 Verdicts dokumentiert (o105 plan-pub)
+
+- PR #1053 `fix(cli): add timeout guard to freshFacts refresh callback` (head `8eef2b8e25fa92dd7e7cf6ece4c7c5ff50b69d3c`) ist MERGED in develop als `79e64084d1b090d2bcd8e610f05178871ee4e716` (2026-10-24T04:35Z). Review-Verdict: REVIEW_REQUIRED; unabhaengiges APPROVE in f34-rev1053.md (F34) und o93-rev1053b.md (O93), Befunde B1-B4 nicht-blockierend (30s-Wert auf überladenen Podman-Runnern zu aggressiv, Commit-Querverweis #1045 statt #1053, Test-Liveness-only, "internal/cli" ungenau). Merge per Owner-Direktive ausgefuehrt (1053 -> 79e64084).
+- PR #1058 `docs(ci): add Core-921 CI binding qualification for #1056` (head `4046bc93ebc7ce346d50d776551fba5ec60b6abf`) ist MERGED als `24c33afdc89f166bf4ed747445078fa47489b562` (2026-10-24T05:23Z). Codex-REVIEW-Basis (codex-verdict-1042-red.md): CHANGES-REQUIRED wegen integration_sha_mismatch auf historischem Run 39946290135 (Base `2f005813`, Integration `ead3cda6`, erster Parent `9f4916be`). Review-Verdict REVIEW_REQUIRED; Merge per Owner-Direktive ausgefuehrt (1058 -> 24c33afd).
+- PR #1050 `docs: add v0.4.26.consumer-pins.json (q86/q87)` (head `e551bc8bf2be88d2720deaca1317160256d49760`, BEHIND) bleibt OPEN, reviewDecision=REVIEW_REQUIRED. CI-Run 40028406804: PR Selected Checks FAILURE (Coverage-impact unresolved), nicht merge-reif.
+- Verdicts/Referenzen f34/o93/f37/q9x (q101-Basis) und codex-verdict-1042 (o105-Basis) in dieser Karte erfasst; keine neuen Karten-Erzeugnisse. Zustand bleibt `blocked` durch den Owner-Stop 2026-10-21; diese Dokumentation veraendert den Status nicht.
+
 ### 2026-10-19 — Real source repairs merged; complete release remains in progress
 
 - #1005 exact SQL-layout qualification mergedb4a5334da5bfebd9748304a68d221724ff327889 after independent policy review5569033250 and green actualCI39225531904 (60 planner tests, existing negative Git fixtures and utility suites).
