@@ -1,5 +1,7 @@
 # Independently reviewed release readiness dossier
 
+Current terminal update: actual Kacc6 run40137607614 failed both ordinary-destroy consent UI checks after CoreREADY/apply/repair/CArotation success; both owned cleanups succeed. Exact-R leaf/outer contract mismatch and reviewed six-file successor correction are documented in current root handoff. Current native acceptance, selected63 and full65 remain pending. Historical checkpoint wording below is retained.
+
 Planning baseline: published `39c8edd54865565bfcdec8b299896f7b46601204`, retaining current Owner resumption741c0fad and all failed snapshots. This is an acceptance checklist, not a green release verdict. Source review is complete for Core R3e27497b / Demo D09595781 / Console U52993ac5 / Connector Kacc6fba5. Historical joint runs40130842592,40133582447 and40135623881 remain failed, with their authenticated diagnostics and cleanup outcomes preserved. The last run proved protected configuration-parent persistence refusal; reviewed fixture700 preparation is now integrated as actual U5299. Connector operational successor acc6 has identical reviewed tree510b, fresh exact source CI success and independently verified main promotion; it corrects only the missing existing native-trigger marker. Fresh genuine current-K joint native qualification remains pending. Selected63 and complete65 remain unstarted. See JOINT-NATIVE-THIRD-FAILURE.md and CONSOLE-PERMISSIONS-REVIEW.md.
 
 ## Scope and planning truth

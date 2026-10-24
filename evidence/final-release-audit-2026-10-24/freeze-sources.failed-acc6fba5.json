@@ -1,0 +1,100 @@
+{
+  "schema": "baseharbor.independent-freeze-review/v1",
+  "release": "v0.4.26",
+  "requirements_digest": "c8961a0a7eb995ec8a6473f711ae9bc48e77bf469e6840ae1c263e1ec4e59aa5",
+  "requirements_count": 65,
+  "resolver_blobs_at_R": {
+    "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
+    "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
+  },
+  "observed_utc": "2026-10-24T22:32:41.815967+00:00",
+  "source_graph_verdict": "APPROVE",
+  "native_joint_verdict": "FAILURE",
+  "pins_file": "v0.4.26.consumer-pins.json",
+  "pins_sha256": "33cd462d0f159821a6f16c1d2c1e85d311fd92724b3bf61f63806d42f52011bb",
+  "roles": {
+    "core": {
+      "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+      "tree": "8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3",
+      "native_go_run": 40128173805
+    },
+    "demo": {
+      "commit": "09595781b68e1f41caaba9aec1402eb8009d700f",
+      "tree": "9219f48d5abd04b8a062edf2d22b265e025ed82a",
+      "qualified_source": "9611629bf053b4ff08f29a8459b4e69f4248ed12",
+      "qualified_source_tree_identical": true,
+      "pr": 122,
+      "core_pin_blob": "42fe65908c5bcaa8edb22e2ed60ede126c818e06",
+      "historical_backup_native": {
+        "source": "a1051ec5f5c366cdfafe527298ac60e5db4f951c",
+        "run": 40128218519,
+        "result": "success",
+        "backup_execution_inputs_unchanged": true,
+        "new_execution_on_successor": false
+      },
+      "reconciliation_native_verdict": "PENDING"
+    },
+    "console": {
+      "commit": "52993ac5623cdfa2a3b91001ed078dfd27f31b5e",
+      "tree": "b7e4821ce87b6483f3cebfc935ee8e4419d06691",
+      "qualified_source": "fe3fab5ca1d038c2720c944d4643d2f7e63a804b",
+      "qualified_source_tree_identical": true,
+      "pr": 12,
+      "source_ci_run": 40136867115,
+      "source_ci_job": 121000115187,
+      "manifest_blob": "28fc527c6d3207097be657230e16b535e8a0c645"
+    },
+    "connector": {
+      "commit": "acc6fba541a47e73781d8ebb7b7f910e2e2e5d42",
+      "tree": "510b79340fdc5d23d5bc7d6a82dd3a1bf70d56fb",
+      "qualified_source": "acc6fba541a47e73781d8ebb7b7f910e2e2e5d42",
+      "qualified_source_tree_identical": true,
+      "pr": 13,
+      "source_ci_run": 40137388108,
+      "source_ci_job": 121001700088,
+      "manifest_blob": "724dd6ae03f73e4fae5c1e69dea27a4f311705d3",
+      "retained_old_trigger": "df1f4378d8c7fdc3e174a1e9dc8ad0155a955571",
+      "retained_sentinel_blob": "ba86891cd387201ce0e9aa38763e795b8b81781b",
+      "actual_native_run": 40137607614,
+      "native_jobs": {
+        "docker": 121002381187,
+        "podman": 121002381169
+      },
+      "native_result": "failure",
+      "integrated_pin_source": "f1cc3ae33139a6d35c8a7e05d8baf522beeb72be",
+      "integrated_pin_merge": "6bd86048dd38fa390e4f2019e9921cbdaf5f48e2",
+      "operational_successor": {
+        "parent": "6bd86048dd38fa390e4f2019e9921cbdaf5f48e2",
+        "same_tree": true,
+        "marker": "[ecosystem-runtime]",
+        "source_branch": "runtime-validation/source/v0.4.26-native-trigger",
+        "main_fast_forward_verified": true
+      }
+    }
+  },
+  "release_eligible": false,
+  "previous_failed_candidates": [
+    {
+      "connector": "543e155dacf6adcd98655333b0d2612fef6814ad",
+      "native_run": 40130842592,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-543e155d.json"
+    },
+    {
+      "connector": "a95639b3448fe869fca439d2db071fe75b82d7d2",
+      "native_run": 40133582447,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-a95639b3.json",
+      "diagnosis": "JOINT-NATIVE-SECOND-FAILURE.md"
+    },
+    {
+      "connector": "c4363a28f5fd3d929a430bc6da630ee036bba104",
+      "native_run": 40135623881,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-c4363a28.json",
+      "pins_snapshot": "v0.4.26.consumer-pins.failed-c4363a28.json",
+      "diagnosis": "JOINT-NATIVE-THIRD-FAILURE.md"
+    }
+  ],
+  "native_failure_diagnosis": "Both native browser jobs time out waiting for Provider consequences after a valid ordinary destroy leaf refusal; actual Core Setup READY and SQL/Secrets/Identity true, consented apply/repair/rotation succeed, both owned cleanups succeed. Existing Console outer-only destroy decoder rejects the legitimate local runtime-retirement leaf. Successor requires new native proof."
+}
