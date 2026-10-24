@@ -1,0 +1,106 @@
+{
+  "schema": "baseharbor.independent-freeze-review/v1",
+  "release": "v0.4.26",
+  "requirements_digest": "c8961a0a7eb995ec8a6473f711ae9bc48e77bf469e6840ae1c263e1ec4e59aa5",
+  "requirements_count": 65,
+  "resolver_blobs_at_R": {
+    "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
+    "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
+  },
+  "observed_utc": "2026-10-24T22:50:00.213466+00:00",
+  "source_graph_verdict": "APPROVE",
+  "native_joint_verdict": "FAILURE",
+  "pins_file": "v0.4.26.consumer-pins.json",
+  "pins_sha256": "8421e3c8e6d33ad3e442537f95e75891531a4da03a37b78f1c018cfb2af4f0a2",
+  "roles": {
+    "core": {
+      "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+      "tree": "8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3",
+      "native_go_run": 40128173805
+    },
+    "demo": {
+      "commit": "09595781b68e1f41caaba9aec1402eb8009d700f",
+      "tree": "9219f48d5abd04b8a062edf2d22b265e025ed82a",
+      "qualified_source": "9611629bf053b4ff08f29a8459b4e69f4248ed12",
+      "qualified_source_tree_identical": true,
+      "pr": 122,
+      "core_pin_blob": "42fe65908c5bcaa8edb22e2ed60ede126c818e06",
+      "historical_backup_native": {
+        "source": "a1051ec5f5c366cdfafe527298ac60e5db4f951c",
+        "run": 40128218519,
+        "result": "success",
+        "backup_execution_inputs_unchanged": true,
+        "new_execution_on_successor": false
+      },
+      "reconciliation_native_verdict": "PENDING"
+    },
+    "console": {
+      "commit": "0941e184226c035d3d309ab1074eeaf99153b2a3",
+      "tree": "c6b00e116b6a00688dd39bf1779ec03e6a72ac42",
+      "qualified_source": "eeff249be3b9ff8ea9a46ed3ba682a95f4990d69",
+      "qualified_source_tree_identical": true,
+      "pr": 13,
+      "source_ci_run": 40139030774,
+      "manifest_blob": "28fc527c6d3207097be657230e16b535e8a0c645"
+    },
+    "connector": {
+      "commit": "5658d19aa2e5b70c84e38ded30196e07c651bc2e",
+      "tree": "72110bffc38551c4da75a3295b5142bacad79edc",
+      "qualified_source": "2ecea22c259bdb42c70d9e3e510faeb367fd17c9",
+      "qualified_source_tree_identical": true,
+      "pr": 14,
+      "source_ci_run": 40139359070,
+      "manifest_blob": "86d952092312faf7116660a11dedfd6359a15b01",
+      "retained_old_trigger": "df1f4378d8c7fdc3e174a1e9dc8ad0155a955571",
+      "retained_sentinel_blob": "ba86891cd387201ce0e9aa38763e795b8b81781b",
+      "actual_native_run": 40140091435,
+      "native_jobs": {
+        "docker": 121009844363,
+        "podman": 121009844377
+      },
+      "native_result": "failure",
+      "integrated_pin_source": "2ecea22c259bdb42c70d9e3e510faeb367fd17c9",
+      "integrated_pin_merge": "5658d19aa2e5b70c84e38ded30196e07c651bc2e",
+      "native_job_results": {
+        "docker": "failure",
+        "podman": "success"
+      },
+      "native_cleanup_results": {
+        "docker": "success",
+        "podman": "success"
+      }
+    }
+  },
+  "release_eligible": false,
+  "previous_failed_candidates": [
+    {
+      "connector": "543e155dacf6adcd98655333b0d2612fef6814ad",
+      "native_run": 40130842592,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-543e155d.json"
+    },
+    {
+      "connector": "a95639b3448fe869fca439d2db071fe75b82d7d2",
+      "native_run": 40133582447,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-a95639b3.json",
+      "diagnosis": "JOINT-NATIVE-SECOND-FAILURE.md"
+    },
+    {
+      "connector": "c4363a28f5fd3d929a430bc6da630ee036bba104",
+      "native_run": 40135623881,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-c4363a28.json",
+      "pins_snapshot": "v0.4.26.consumer-pins.failed-c4363a28.json",
+      "diagnosis": "JOINT-NATIVE-THIRD-FAILURE.md"
+    },
+    {
+      "connector": "acc6fba541a47e73781d8ebb7b7f910e2e2e5d42",
+      "native_run": 40137607614,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-acc6fba5.json",
+      "diagnosis": "JOINT-NATIVE-FOURTH-FAILURE.md"
+    }
+  ],
+  "native_failure_diagnosis": "Ordinary-retirement consent UI succeeds on both. Docker later fails in generated Next.js CLI journey; finally cleanup reports runtime_retirement_unverified and can mask the first failure. Console PR14 preserves original diagnostics. Podman actual qualification succeeded; complete release acceptance remains false."
+}
