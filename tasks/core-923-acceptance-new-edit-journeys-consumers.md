@@ -68,6 +68,11 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+### 2026-10-24 — W1/journeys prerequisite sync (live gh, mission f50 round 2)
+
+- W1 journey execution still cannot start, for current chain reasons rather than missing preparation. Appid test-source chain: #1047's gate-plan qualification is now MERGED on develop `f3929568`, while #1046 (head `35582508`, BEHIND, failing [39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290)) still needs its develop-fresh rebase/requalification. Pins-data documentation chain: #1056 (head `425eaa96`) is structurally blocked — run [40084724478](https://github.com/mcpdev80/baseharbor/actions/runs/40084724478) shows pr-planner-tests PASS but PR Selected Checks FAIL `coverage-unresolved: scripts/pr-check-runner.py` (o118: linear branch vs core752_reviewed_merge_chain; owner decision pending), and #1050 is ordered behind it. OpenBao gate chain: #1060 (head `9ec25282`) carries a Codex-REVIEW REQUEST_CHANGES (4 findings) with its repair running; #1052 waits for that corrected landing.
+- Consumer freeze chain is mid-lane in dependency order Demo → Console → Connector → #1050 reconcile: demo#121 (head `f57c8b6e`) in review, console#9 (head `6017de28`) and connector#10 (head `e832d565`) follow; the immutable four-consumer pin matrix (C/D/U/K) is therefore not cut. Final candidate/native receipts for this card remain gated by these merges. No new journey execution is implied or started by this sync; card stays ACTIVE.
+
 ### 2026-10-24 — W1 prerequisite sync from live gh (mission o116)
 
 - The W1/journeys CI path still waits on the open PR chain: #1046 (BEHIND, failing [39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290)) and #1047 (green [40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), awaiting Maintainer-lane approval/merge) gate the appid test sources; #1056/#1050 gate the pins-data documentation path consumed by journey validation. No new native journey execution is implied or started by this sync; card stays ACTIVE.
