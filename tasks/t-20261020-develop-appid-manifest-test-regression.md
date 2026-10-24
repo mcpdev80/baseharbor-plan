@@ -52,6 +52,12 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 
 ## Handoff
 
+### 2026-10-24 — #1046 live head `1ec67f8d` BEHIND, runtime diagnosis ACCEPTED as serialized later (mission o134)
+
+- Live gh 2026-10-24: #1046 (`fix/f27-appid-env-robust`) OPEN/BEHIND, head `1ec67f8d4b259d62bd108ee678f25c288b8b0564`, reviewDecision=REVIEW_REQUIRED (unchanged from o127 round 3). Develop advanced to `65aa063e` via merged #1063.
+- Runtime diagnosis/review state accepted as serialized later: the gate-plan qualification lane for the six appid test-only sources landed on develop via merged #1047 (`f3929568`); #1046 still needs a develop-fresh rebase onto `65aa063e` + fresh requalification before it is merge-ready.
+- Card state remains REVIEW: the explicit final `TestRepositoryWorkflowRealLifecycle` native develop-head acceptance is still unproven and no accepting instance has acted on this card. No acceptance inferred from this Planning/CardBoard state sync.
+
 ### 2026-10-24 — #1047 merged into develop; #1046 awaits its rebase (live gh, mission f50 round 2)
 
 - [#1047](https://github.com/mcpdev80/baseharbor/pull/1047) MERGED 2026-10-24T08:28:06Z as develop squash [`f3929568`](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293) after full-green run [40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268) on head `40351fd3`. The gate-plan qualification lane for the exact appid env-robust test-only source is now on develop.

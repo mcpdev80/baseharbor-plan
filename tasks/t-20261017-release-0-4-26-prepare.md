@@ -73,6 +73,20 @@ Develop at `f39295680d41290fc505c0a8cc1769da51699293` (unchanged from round 2; o
 | [#1056](https://github.com/mcpdev80/baseharbor/pull/1056) | OPEN, BLOCKED, head 32b85d95; run [40088680501](https://github.com/mcpdev80/baseharbor/actions/runs/40088680501): pr-planner-tests PASS, PR Selected Checks FAIL coverage-unresolved scripts/pr-check-runner.py (PR · Selected Runtime FAILURE) | pins-data restoration pushed (o118); structural owner decision pending: branch o90-planner-pr is linear while core752_reviewed_merge_chain requires 3-parent merge commits |
 | [#1060](https://github.com/mcpdev80/baseharbor/pull/1060) | OPEN, BLOCKED, head 6a0d36da with green run [40086442202](https://github.com/mcpdev80/baseharbor/actions/runs/40086442202) (all validation lanes PASS) but PR Selected Checks FAILURE; Codex-REVIEW REQUEST_CHANGES (4 findings, 2×P1/2×P2, evidence codex-verdict-1060.md) | repair round running; gates the #1052 openbao path |
 
+### 2026-10-24 — Open-chain state at develop `65aa063e` (live gh sweep, mission o134)
+
+Develop advanced to `65aa063e90767c85af976081c100be1817370e67` via #1063 (o124-Q-record) MERGED 2026-10-24. Open-chain table, all values read live via gh 2026-10-24 (approvals/merges belong to the Codex-Maintainer lane under the recorded Owner decision `--squash --admin` for baseharbor; this note is a Planning/CardBoard state sync, not an acceptance or readiness signal):
+
+| PR | Live state | Blocking reason / next action |
+|---|---|---|
+| [#1046](https://github.com/mcpdev80/baseharbor/pull/1046) | OPEN, BEHIND, head `1ec67f8d`, reviewDecision=REVIEW_REQUIRED | runtime diagnosis/review ACCEPTED as serialized later; needs develop-fresh rebase+requalification of the six appid test sources (gate-plan qualification on develop via merged #1047) |
+| [#1050](https://github.com/mcpdev80/baseharbor/pull/1050) | OPEN, BEHIND, head `38896762`, reviewDecision=REVIEW_REQUIRED | order dependency: needs #1056 and the freeze-chain reconciliation first |
+| [#1052](https://github.com/mcpdev80/baseharbor/pull/1052) | OPEN, BEHIND, head `7c7cda7c`, reviewDecision=REVIEW_REQUIRED; independent worker ACCEPT | blocked behind #1060; rebase onto the resulting develop SHA once #1060 lands |
+| [#1056](https://github.com/mcpdev80/baseharbor/pull/1056) | OPEN, BLOCKED, head `b0abe105`, reviewDecision=REVIEW_REQUIRED (was `32b85d95`) | awaiting review/merge; branch o90-planner-pr structural owner decision pending (core752_reviewed_merge_chain) |
+| [#1060](https://github.com/mcpdev80/baseharbor/pull/1060) | OPEN, DIRTY, head `6a0d36da`, reviewDecision=REVIEW_REQUIRED | active, conflicts with new develop; repair round running; gates the #1052 openbao path |
+
+Card stays ACTIVE. This table is a Planning/CardBoard state sync only; no acceptance, no readiness claim, no merges performed.
+
 Freeze chain (dependency order Demo → Console → Connector → #1050 reconcile): Demo [#121](https://github.com/mcpdev80/baseharbor-demo/pull/121) OPEN, head f57c8b6e, mergeState CLEAN, Codex-REVIEW REQUEST_CHANGES on missing identical-content qualification evidence; superseded Demo [#120](https://github.com/mcpdev80/baseharbor-demo/pull/120) still OPEN (head bd86c7c3) awaiting Maintainer closure. Console [#9](https://github.com/mcpdev80/baseharbor-console/pull/9) OPEN, head 6017de28, mergeState CLEAN. Connector [#10](https://github.com/mcpdev80/baseharbor-node-connector/pull/10) OPEN, head e832d565, mergeState CLEAN; held at CX-CONNECTOR10-MERGE-BLOCKED because final Demo/Console pins do not exist yet.
 
 Docs dossier (o120) is complete: four follow-up deliverables (v0.4.26.evidence-runs, v0.4.26.selected-gates.json, v0.4.26.consumer-pins.json via #1050, v0.4.26.demo-ref), all freeze/pin-pending; the green docs evidence (run [40064756153](https://github.com/mcpdev80/baseharbor/actions/runs/40064756153)) remains valid for develop f3929568. Nothing in this section is an acceptance or readiness claim; the card stays ACTIVE.

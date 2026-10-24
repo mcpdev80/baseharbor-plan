@@ -64,6 +64,12 @@ Trusted PR gate planning resolves coverage for the corrected, independently re-r
 
 > CURRENT (2026-10-22): binding functions on develop (trusted-base activation #1030 merged 7fbc1ec5); #1007 CLOSED-superseded. Entries below are historical. See evidence/codeman-2026-10-21/HANDOFF.md.
 
+### 2026-10-24 — Chain Q landed (o124-Q-record #1063 → develop `65aa063e`); P state #1056 awaiting review
+
+- Q landed: #1063 (o124-Q-record) MERGED 2026-10-24, develop anchor `65aa063e90767c85af976081c100be1817370e67`. The core-921 exact-source binding remains accepted; the record/qualification layer now sits on develop.
+- P state: #1056 (`o90-planner-pr`) still OPEN/BLOCKED at head `b0abe105`, reviewDecision=REVIEW_REQUIRED awaiting review/merge. The gate-plan qualification lane for #1056 is on develop via merged #1058 (`24c33afd`); the exact-source binding itself still awaits the Maintainer/Owner merge action.
+- No new acceptance inferred from this Planning/CardBoard state sync (mission o134). Card state unchanged.
+
 
 ### 2026-10-21 — ACCEPTED: exact twenty-path binding exercised successfully
 
