@@ -12,18 +12,19 @@ prs: []
 sources: ["mcpdev80/baseharbor#923"]
 source_updated: "2026-10-15T16:45:40Z"
 labels: [area/evidence]
-blocker: ""
+blocker: "Exact Demo #121 Podman receipt requires an authenticated Actions dispatch route absent from current GitHub MCP; final D/U/K merges and integrated CI/pins must precede W1."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/active #view/active #area/acceptance #kind/task
+- [ ] core-923 · Acceptance: verify New/Edit journeys and ecosystem consumers #task #release/v0-4-26 #status/blocked #view/blocked #area/acceptance #kind/task
     <!-- generated:card -->
     **Owner:** Codex session 2 native acceptance (d48643e22049)  
+    **Blocker:** Exact Demo \#121 Podman receipt requires an authenticated Actions dispatch route absent from current GitHub MCP; final D/U/K merges and integrated CI/pins must precede W1.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** [core-921](core-921-cli-mcp-register-new-interfaces.md), [core-922](core-922-docs-new-edit-provider-selection.md), [core-900](core-900-gc-preserve-active-prs-candidates-evidence.md)  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -67,6 +68,16 @@ The integrated v0.4.26 product surface works for developers and existing consume
 - **End-to-end owner:** the assigned session handles integration, implementation, focused tests, hosted CI observation, demonstrated fixes and its planning handoff. It reads other task states itself from planning main and preserves concurrent updates. No shared CI edits, dependency work-in-progress or manual message relay through Marcel. Normal independent review/Maintainer acceptance remains a boundary, not an implementation dependency.
 
 ## Handoff
+
+### 2026-10-24 — Session 2 checked handoff; native execution blocked
+
+- Separate dossier: [native acceptance / freeze handoff](../evidence/native-acceptance-2026-10-24/HANDOFF.md), [immutable input comparison](../evidence/native-acceptance-2026-10-24/input-comparison.json), [exact single-gate dispatch payload](../evidence/native-acceptance-2026-10-24/demo121-podman-dispatch.json).
+- Actual checks: 31 existing Demo helper/cleanup regressions PASS at `f57c8b6e`; 47 existing planning tests PASS. No native PASS is claimed for the current candidate. Historical Podman artifact 12518384969 was downloaded and its SHA256 matches GitHub; it binds Demo `25c31969`, whose longer cleanup budget is incompatible with current #121. Exactly two differing blobs proven by direct 87-vs-87 blob inventory.
+- Existing hosted rootless route is available in source and byte-identical at Core C / current develop, but current GitHub MCP lacks workflow dispatch. No configured host/runtime access is available. Marcel requested GitHub MCP; no browser continuation. Concrete authenticated-dispatch request published in [core-923](https://github.com/mcpdev80/baseharbor/issues/923#issuecomment-6386350458) and [Demo #121](https://github.com/mcpdev80/baseharbor-demo/pull/121#issuecomment-6386427876).
+- Freeze remains Demo D → Console U → Connector K → Core #1050. Fresh Console #9 / Connector #10 are each ahead 1 / behind 0 main and change only their pin manifest. No current reason requires replacement of Console #9. Repin only after actual predecessor merges. [Coordinator/session 3 handoff](https://github.com/mcpdev80/baseharbor/pull/1050#issuecomment-6386436562) distinguishes source-success jobs from skipped native/browser jobs and requests independent receipt review.
+- W1 waits for actual final graph and CI integration, then existing `guided` + `data-capabilities` gates on Docker/rootless Podman cover the required New/Edit/SQL/provider/No/Cancel/data/shared/cleanup journeys. Core C remains `1861ed07888a1ec22c218ca491d23ee54f48e261`. Session 1 retains every merge. No speculative pins, product changes, v0.4.27 changes, worker starts or complete pre-release.
+- Shared projections: session 2 renders only the consequences of its own task status/owner, preserves concurrent main, and leaves the preparation card/release/epics to session 3. This is a blocked handoff, not release or native acceptance.
+
 
 ### 2026-10-24 — Owner-assigned native acceptance and consumer freeze (session 2)
 
