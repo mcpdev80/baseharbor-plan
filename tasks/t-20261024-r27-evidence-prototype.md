@@ -28,6 +28,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** ChatGPT (isolated v0.4.27 prototype)  
 **Priority:** high  
 **PRs:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
