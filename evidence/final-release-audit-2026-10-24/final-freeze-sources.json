@@ -7,9 +7,9 @@
     "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
     "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
   },
-  "observed_utc": "2026-10-24T21:19:04.732012+00:00",
+  "observed_utc": "2026-10-24T21:37:12.089380+00:00",
   "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "PENDING",
+  "native_joint_verdict": "FAILED",
   "pins_file": "v0.4.26.consumer-pins.json",
   "pins_sha256": "5f01828a247fce1a6fc552bb5b65504cf3c7ec7aa35c83c3bccf5626a4648615",
   "previous_failed_candidate": {
@@ -66,7 +66,9 @@
         "docker": 120990316354,
         "podman": 120990316278
       },
-      "native_result": "PENDING"
+      "native_result": "failure"
     }
-  }
+  },
+  "release_eligible": false,
+  "native_failure_evidence": "JOINT-NATIVE-SECOND-FAILURE.md"
 }

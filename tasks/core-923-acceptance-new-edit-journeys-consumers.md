@@ -70,6 +70,15 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+## Corrected candidate native failure; targeted investigation active
+
+Joint run40133582447 completed FAILURE on actual Ka95639b3. Docker120990316354 timed out after editor login before the application journey. Podman120990316278 passed the actual unconsented apply negative, then real Settings control-plane.up failed with internal_error; installation phase secrets_failed, SQL true, Secrets/Identity false. Both production enrollment scopes, exact fixture cleanup and final owned-services/private-key cleanup passed. The two authenticated diagnostic ZIPs explicitly report result failure, cleanup success and release_eligible false; no qualified private manifest exists. See the independent `JOINT-NATIVE-SECOND-FAILURE.md` evidence for exact artifacts/digests and diagnostic limits.
+
+A concrete independent Console callback race is being corrected: callback postMessage is asynchronous, but its redundant self-close can make the opener's close observer reject before the validated queued message arrives. Exact origin/source/state/PKCE checks remain mandatory; this source race is not asserted as the experimentally proven cause of Docker's particular timeout. The bounded correction also adds allowlisted, secret-safe editor and public Core error/status observations. Podman's actual underlying Secrets failure is not exposed in old artifacts; no speculative Core fix, deadline increase, waiver or blind retry is authorized by that missing detail.
+
+Core R and Demo D095 are unchanged. A reviewed successor Console/Connector graph and genuine affected native evidence are required. core-923 and the defect audit remain ACTIVE; selected63/full65, promotion and tag handoff stay pending. The historical active-run checkpoint below is superseded by this actual failure.
+
+
 ## Corrected actual immutable ecosystem; native acceptance pending
 
 The integrated graph is Core R `3e27497b4ef7b567858ba646bc3071bee37d19bd`, Demo D `09595781b68e1f41caaba9aec1402eb8009d700f`, Console U `7aed4d58f7ac89d019b1d31fa2d5bc6e557aa2b5`, Connector K `a95639b3448fe869fca439d2db071fe75b82d7d2`. Exact source/merge trees and CI are independently approved; Connector source run40133358644/job120989617504 passed before PR11 merge. Core source remains unchanged.
