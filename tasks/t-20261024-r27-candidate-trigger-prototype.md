@@ -63,3 +63,5 @@ The v0.4.27 release-start updates remain unaccepted; this active status document
 - Current draft PR #1055 head: `4a89d8115ee146675599ca31bd8a1ac8486a91a9`. Submission text distinguishes a label request from proven CI completion. Independent checks remain outstanding.
 
 - Latest prototype head `13e6a649200b70330e1179cd882bcdcb4e355522`: candidate submitter now rechecks exact target base SHA after label preparation and fails closed on a changed base before POST; mocked regression and all relevant fixture shapes updated. Static source review only; independent tests and actual event delivery not yet qualified.
+
+- 2026-10-24: candidate dispatch now re-fetches the PR after the label POST and verifies exact source/base SHAs, open/non-draft status, target branch, and the label's presence; regression matrix covers missing label, changed head, changed base and re-draft. Draft PR #1055 candidate `685ec3ab1a1f037f17f1d513fa41fd54cb017a59`. This confirms repository label state only, not a successful Actions run; independent exact-head tests pending.
