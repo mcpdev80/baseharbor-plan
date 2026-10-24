@@ -62,7 +62,7 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ### Current public integration checkpoint — 2026-10-25
 
-Connector #14 is merged as `5658d19aa2e5b70c84e38ded30196e07c651bc2e`; the corrected actual-source native Docker/Podman run is `40140091435` and remains pending. See the [current public run receipt](../evidence/final-release-audit-2026-10-24/NATIVE-QUALIFICATION-RUN-40140091435.md). Current public canonical pins have been updated; no readiness or task acceptance is claimed.
+Run `40140091435` finished Docker FAILURE / Podman SUCCESS with both owned cleanups successful. The later generated Next.js failure can be masked by its cleanup; the qualified Console diagnostic correction is integrated as U `b3426c59f69e4098184fe15a45a6a907d8abebd0`, and Connector #15 is actual K `ff71e384e71d92f94dbf212ff394bce53ae9707e`. Fresh actual-source native run `40141900700` is pending. See the [current public run receipt](../evidence/final-release-audit-2026-10-24/NATIVE-QUALIFICATION-RUN-40141900700.md) and preserved prior failure. Current canonical pins have been updated; no readiness or task acceptance is claimed.
 
 
 ## Current native failure narrowed to ordinary-retirement consent presentation
