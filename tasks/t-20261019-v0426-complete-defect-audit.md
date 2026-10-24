@@ -59,6 +59,15 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+## Corrected candidate native failure; targeted investigation active
+
+Joint run40133582447 completed FAILURE on actual Ka95639b3. Docker120990316354 timed out after editor login before the application journey. Podman120990316278 passed the actual unconsented apply negative, then real Settings control-plane.up failed with internal_error; installation phase secrets_failed, SQL true, Secrets/Identity false. Both production enrollment scopes, exact fixture cleanup and final owned-services/private-key cleanup passed. The two authenticated diagnostic ZIPs explicitly report result failure, cleanup success and release_eligible false; no qualified private manifest exists. See the independent `JOINT-NATIVE-SECOND-FAILURE.md` evidence for exact artifacts/digests and diagnostic limits.
+
+A concrete independent Console callback race is being corrected: callback postMessage is asynchronous, but its redundant self-close can make the opener's close observer reject before the validated queued message arrives. Exact origin/source/state/PKCE checks remain mandatory; this source race is not asserted as the experimentally proven cause of Docker's particular timeout. The bounded correction also adds allowlisted, secret-safe editor and public Core error/status observations. Podman's actual underlying Secrets failure is not exposed in old artifacts; no speculative Core fix, deadline increase, waiver or blind retry is authorized by that missing detail.
+
+Core R and Demo D095 are unchanged. A reviewed successor Console/Connector graph and genuine affected native evidence are required. core-923 and the defect audit remain ACTIVE; selected63/full65, promotion and tag handoff stay pending. The historical active-run checkpoint below is superseded by this actual failure.
+
+
 ### Current Owner-authorized completion resumed — 2026-10-24
 
 Marcel explicitly renewed the assignment to finish v0.4.26, work in parallel where possible, keep the release message concise and human-readable, update CardBoard and deliver the complete exact final tag command. This current instruction supersedes the older stopped-session handoffs below for the assigned v0.4.26 completion. Root retains sole integration authority; independent source/evidence review continues. Historical stops, claims, failures and prior-source receipts are preserved. The tag itself remains Marcel's action.
