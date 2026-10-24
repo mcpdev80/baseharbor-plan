@@ -70,6 +70,17 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+## Native consumer failure and bounded correction
+
+Joint run [40130842592](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40130842592), attempt 1 on actual K543e155d, failed both Docker and Podman Console Chromium journeys. Production managed enrollment/outbound Connector and owned fixture/key cleanup passed in both jobs. No integration acceptance manifest was produced; no consumer native PASS or release readiness is claimed.
+
+The real first apply returned `approval_required`, cause `impact-confirmation-required`, while the legacy journey expected `capability_missing/core_required`. Independent Core R inspection confirms capability-first SQL provisioning deliberately no longer requires management Core bootstrap; concrete provider impact consent is mandatory. Console currently sends empty apply input and cannot present/acknowledge that plan. This is a real consumer UI gap, not authority to change an assertion or inject consent through a browser route.
+
+Marcel's full-release completion assignment delegates a bounded Console consent UI correction and the necessary genuine browser/remote fixtures plus Connector receipt mapping to consumer_final. final_audit independently reviews the actual contract, stale-plan safety, no-write refusal, explicit Core setup coverage and unchanged native acceptance strength. Root alone integrates reviewed green source. Core R and Demo D stay frozen; U/K and the external graph must be regenerated after actual successor merges. The graph below is the failed prior candidate, preserved as history.
+
+The exact63 preproof and complete65 approval remain unstarted until the corrected actual U/K joint native proof passes. Tagging remains Marcel's final action after genuine approval and main promotion.
+
+
 ### Actual final graph integrated; joint native active
 
 R3e27497b / D03396c805 / U645dda54 / K543e155d are the actual immutable merged sources. Demo native receipt is independently qualified on exact final R and reviewed head a1051ec5 with identical resulting D tree; source integrations and canonical full graph/origins are independently qualified. The full exact JSON is saved externally in final-release-audit evidence; no Core mutation after freeze. Joint actual-K native run40130842592 runs Docker/Podman in parallel and supplies the real Console browser proof. It remains pending, followed by the four W1 cases within the mandatory63 preproof. This card remains ACTIVE; source CI and skipped PR browser jobs do not accept native scope.
