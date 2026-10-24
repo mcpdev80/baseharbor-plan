@@ -68,6 +68,10 @@ The integrated v0.4.26 product surface works for developers and existing consume
 
 ## Handoff
 
+### 2026-10-24 — W1 prerequisite sync from live gh (mission o116)
+
+- The W1/journeys CI path still waits on the open PR chain: #1046 (BEHIND, failing [39995102290](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290)) and #1047 (green [40076426268](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), awaiting Maintainer-lane approval/merge) gate the appid test sources; #1056/#1050 gate the pins-data documentation path consumed by journey validation. No new native journey execution is implied or started by this sync; card stays ACTIVE.
+
 ### 2026-10-21 — Public MCP proof and concrete New/Edit fixture preparation
 
 - Fresh public client bootstrap defect is corrected in candidate `f762f4480a2eb6b29ceebb35ae4032cb2ce7288c`, not yet accepted. Actual [39626844187](https://github.com/mcpdev80/baseharbor/actions/runs/39626844187), job119314164799, PASS71.07s proves omitted revision through public propose, exact returned desired intent through Apply, real SQL add, coreless execution, wrong/stale consent refusal and zero owned residuals. Test/package PASS with zero skip/fail; downloaded artifact12357012289 SHA256 `a1c4270ffa109484a94064614cf4f62cffe493497c33db261fd7082f58c9ed12` independently verified.
