@@ -10,7 +10,7 @@ owner: Codex (Maintainer release completion)
 priority: normal
 depends_on: [core-752, core-893, core-893-interface, core-894, core-895, core-896, core-900, core-901, core-910, core-911, core-912, core-913, core-914, core-915, core-916, core-917, core-918, core-919, core-920, core-921, core-922, core-923, t-20261016-pr-impact-selection, t-20261016-registration-ci-readiness, t-20261016-wizard-task-ci-readiness, t-20261017-concise-code-comments, t-20261017-podman-acceptance-typed-consent, t-20261017-podman-backup-guided-runtime, t-20261017-provider-projection-workload, t-20261018-podman-recovery-bootstrap-cleanup, t-20261018-podman-recovery-core-state-owner, t-20261018-scoped-runtime-reset-xdg-ownership, t-20261019-ci-evidence-stabilization, t-20261019-core921-coverage-binding, t-20261019-owner-delegated-maintainer-authority, t-20261019-v0426-complete-defect-audit, t-20261020-develop-appid-manifest-test-regression, t-20261022-cleanup-provenance-order-fix, t-20261022-q20-docs-pages, t-20261023-selector-q-predecessor, t-20261024-v0426-ci-integration-closeout]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: ["mcpdev80/baseharbor-console#13", "mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13"]
+prs: ["mcpdev80/baseharbor#1073", "mcpdev80/baseharbor#1072", "mcpdev80/baseharbor#1071", "mcpdev80/baseharbor-console#13", "mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13"]
 sources: []
 blocker: ""
 resolution: ""
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer release completion) · **Priority:** normal  
-    **PR:** [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
+    **PR:** [baseharbor#1073](https://github.com/mcpdev80/baseharbor/pull/1073), [baseharbor#1072](https://github.com/mcpdev80/baseharbor/pull/1072), [baseharbor#1071](https://github.com/mcpdev80/baseharbor/pull/1071), [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
     **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 10](https://github.com/mcpdev80/baseharbor/pull/1060), [proof 11](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 **Required by:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
 **Owner:** Codex (Maintainer release completion)  
 **Priority:** normal  
-**PRs:** [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
+**PRs:** [baseharbor#1073](https://github.com/mcpdev80/baseharbor/pull/1073), [baseharbor#1072](https://github.com/mcpdev80/baseharbor/pull/1072), [baseharbor#1071](https://github.com/mcpdev80/baseharbor/pull/1071), [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -60,9 +60,16 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
+## SQL retirement correction and mandatory source CI — 2026-10-25
+
+Diagnostic run [40141900700](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40141900700) is terminal Docker FAILURE / Podman SUCCESS, with both owned cleanups successful. It proves the primary generated HTTP-only app destroy itself rejects an already-unbound logical SQL scope; the cleanup error was secondary. The unchanged actual resolver reproduces the complete Target plan with no new SQL binding release, logical stop selections and physical Core reuse. Product source938adee7 corrects that read-only verification while preserving canonical ownership, measured absence, empty remaining SQL references, protected active physical Core and foreign/invalid-release checks. The real regression fails before and passes after; the existing safety negatives, vet, build, source readability and application/capability tests pass. The broad local CLI suite is not claimed green because its native Edit case requires unavailable Docker.
+
+CI prerequisite [PR1071](https://github.com/mcpdev80/baseharbor/pull/1071) is accepted at c21c69b3 after run40143895573/final121021399329 SUCCESS. Exact trusted executor/planner [PR1072](https://github.com/mcpdev80/baseharbor/pull/1072) is accepted at6bc4124a after run40144095707/final121021985125 SUCCESS. All144 local planner/runner checks and the actual six Go regression/safety families pass; no independent review is claimed. Product [PR1073](https://github.com/mcpdev80/baseharbor/pull/1073), exact head6ba9ea66 and treec58fcb32, remains pending actual CI40144286041, including its mandatory wizard-runtime-retirement-tests job121022243323. No product merge, new native PASS or release readiness is inferred. Existing failed R/D/U/K graphs and artifacts remain preserved; new final Core/consumer freeze follows actual accepted product integration. Selected63/full65, promotion and tag remain pending.
+
+
 ### Current public integration checkpoint — 2026-10-25
 
-Run `40140091435` finished Docker FAILURE / Podman SUCCESS with both owned cleanups successful. The later generated Next.js failure can be masked by its cleanup; the qualified Console diagnostic correction is integrated as U `b3426c59f69e4098184fe15a45a6a907d8abebd0`, and Connector #15 is actual K `ff71e384e71d92f94dbf212ff394bce53ae9707e`. Fresh actual-source native run `40141900700` is pending. See the [current public run receipt](../evidence/final-release-audit-2026-10-24/NATIVE-QUALIFICATION-RUN-40141900700.md) and preserved prior failure. Current canonical pins have been updated; no readiness or task acceptance is claimed.
+Run `40140091435` finished Docker FAILURE / Podman SUCCESS with both owned cleanups successful. The later generated Next.js failure can be masked by its cleanup; the qualified Console diagnostic correction is integrated as U `b3426c59f69e4098184fe15a45a6a907d8abebd0`, and Connector #15 is actual K `ff71e384e71d92f94dbf212ff394bce53ae9707e`. Run `40141900700` finished Docker FAILURE / Podman SUCCESS; product correction #1073 is in mandatory CI. See the [current public run receipt](../evidence/final-release-audit-2026-10-24/NATIVE-QUALIFICATION-RUN-40141900700.md) and preserved prior failure. Current canonical pins have been updated; no readiness or task acceptance is claimed.
 
 
 ## Current native failure narrowed to ordinary-retirement consent presentation
