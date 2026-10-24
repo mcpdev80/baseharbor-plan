@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer release completion) · **Priority:** normal  
-    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md)  
+    **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 10](https://github.com/mcpdev80/baseharbor/pull/1060), [proof 11](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
 
@@ -58,6 +58,11 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+### Final Docker native acceptance complete
+
+The appid native card is accepted on exact final R after independent artifact authentication: all eight named Go Docker families, source/image identity and real cleanup PASS in40128173805. Demo Podman40128218519 remains active; actual D/U/K and final W1/consumer/atomic63/full65 acceptance remain open. No old intermediate receipt is substituted.
+
 
 ### Final source and active runtime qualification
 

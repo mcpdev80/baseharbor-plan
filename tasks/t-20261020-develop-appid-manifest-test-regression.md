@@ -12,19 +12,19 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharbor#1046", "mcpdev80/baseharbor#1047", "mcpdev80/baseharbor#1050", "mcpdev80/baseharbor#1056"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1046", "https://github.com/mcpdev80/baseharbor/pull/1047", "https://github.com/mcpdev80/baseharbor/actions/runs/40076426268", "https://github.com/mcpdev80/baseharbor/actions/runs/39995102290", "https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1046", "https://github.com/mcpdev80/baseharbor/pull/1047", "https://github.com/mcpdev80/baseharbor/actions/runs/40076426268", "https://github.com/mcpdev80/baseharbor/actions/runs/39995102290", "https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293", "https://github.com/mcpdev80/baseharbor/actions/runs/40128173805", "https://github.com/mcpdev80/baseharbor/actions/runs/40128173805/job/120973982875", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/final-release-audit-2026-10-24/FINAL-NATIVE.md"]
 ---
 
-- [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/review #view/review #area/ci #area/contract #kind/bug
+- [x] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/closed #view/closed #board/planned #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
     **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1046](https://github.com/mcpdev80/baseharbor/pull/1046), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290), [proof 9](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 7](https://github.com/mcpdev80/baseharbor/actions/runs/40076426268), [proof 8](https://github.com/mcpdev80/baseharbor/actions/runs/39995102290), [proof 9](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293), [proof 10](https://github.com/mcpdev80/baseharbor/actions/runs/40128173805), [proof 11](https://github.com/mcpdev80/baseharbor/actions/runs/40128173805/job/120973982875), [proof 12](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/final-release-audit-2026-10-24/FINAL-NATIVE.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.26](../releases/v0.4.26.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
@@ -51,6 +51,11 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 3. Independent local review + evidence links on this card.
 
 ## Handoff
+
+### Accepted exact final-develop native proof
+
+Delegated Maintainer accepts this contract on final Core `3e27497b4ef7b567858ba646bc3071bee37d19bd`. Existing Docker native run40128173805 attempt1 and actual job120973982875 completed SUCCESS. Independent reviewer authenticated artifact12574701602 ZIP SHA256d0599384b87d6533da3394e909838f2f04338e668a8d8f048f1467e0ab7954a8, exact Git tree8dce77b3, all eight named test/package PASS receipts and zero fail/skip actions. `TestRepositoryWorkflowRealLifecycle` passed in102.82seconds; actual bounded cleanup completed20:17:51UTC. Source/image binary SHA256 equality also holds. This closes the named native develop lifecycle requirement without changing parser or ownership semantics. Full ecosystem/release approval remains separate. See FINAL-NATIVE.md and machine-readable verified summary in the final-release-audit evidence directory.
+
 
 ### Current integrated fix and native checkpoint
 
