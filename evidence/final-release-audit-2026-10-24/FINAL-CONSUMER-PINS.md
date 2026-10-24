@@ -1,3 +1,15 @@
+# Corrected final source graph
+
+## Corrected actual immutable ecosystem; native acceptance pending
+
+The integrated graph is Core R `3e27497b4ef7b567858ba646bc3071bee37d19bd`, Demo D `09595781b68e1f41caaba9aec1402eb8009d700f`, Console U `7aed4d58f7ac89d019b1d31fa2d5bc6e557aa2b5`, Connector K `a95639b3448fe869fca439d2db071fe75b82d7d2`. Exact source/merge trees and CI are independently approved; Connector source run40133358644/job120989617504 passed before PR11 merge. Core source remains unchanged.
+
+The complete canonical matrix was regenerated from fresh actual K/U/D manifests using unchanged R resolver/source-origin validation. Root and independent reviewer obtained identical SHA256 `5f01828a247fce1a6fc552bb5b65504cf3c7ec7aa35c83c3bccf5626a4648615`; full JSON is `evidence/final-release-audit-2026-10-24/v0.4.26.consumer-pins.json`. Old failed K543 graph/observation are preserved separately as `v0.4.26.consumer-pins.failed-543e155d.json` and `freeze-sources.failed-543e155d.json`, with the genuine failed run40130842592 retained.
+
+Exactly one expected-head non-force fast-forward moved the existing Connector trigger branch from old K543 to actual Ka956. New joint run [40133582447](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40133582447), push/attempt1, resolves exact actual K and runs Docker job120990316354 / Podman job120990316278 in parallel. The production browser, actual remote lifecycle and owned cleanup remain PENDING. No source CI or skipped opt-in job is native acceptance. core-923 stays ACTIVE; exact63 preproof and complete65 approval remain unstarted until authentic joint native success.
+
+See [independent correction review](CONSOLE-CONSENT-REVIEW.md) and `final-freeze-sources.json`. The following original review records the prior failed candidate and remains historical.
+
 # Independent final consumer pin review
 
 Reviewer: `/root/final_audit`. Source verdicts below are exact-head technical reviews, not formal GitHub reviews or native/browser approval. Root owns all merges and integration acceptance.
