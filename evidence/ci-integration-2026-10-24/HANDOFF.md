@@ -1,3 +1,29 @@
+# v0.4.26 CI integration — current parallel closeout
+
+## Verified current checkpoint
+
+Marcel explicitly requested parallel completion. Root remains sole product merger/Core CI writer; disjoint cleanup implementation, consumer preparation and independent review were delegated and published in planning claim 3acef76.
+
+- #1064: independently approved exact source e7fe45cc, mandatory CI 40110621660 PASS; merged develop 133e27f6b3ea9fd7b74dc2b7e5878c7091d9228f.
+- #1065: separate exact #1060 trusted-target record, independent review PASS, mandatory CI 40114672696 PASS; merged 9f1e88e8455110d21c4f918852308b9f5f89f13e.
+- #1060: manually resolved source anchor 7e08fe920d3f62219a3923669896c601eb43ae96 independently approved; both test matrices preserved, 121 coordinator planner tests PASS. Clean record-forward head 9d5219572ec61e0349253e4046299c16f63aa587 passed all required CI in 40114904823; merged develop 79c6b13a17de08a3e13b6df6224239cf70b59542.
+- #1052: exact reviewed product source 9f715184 was cleanly forwarded to accepted target as 82834555772f3f62ac135dfe09e1e01c7340e4df (tree bcc66d878abb8567851feb27a39172ef2fa37b28). Both product blobs remain identical. Fresh selected actual OpenBao/package CI is running in 40115119921; no acceptance before its result.
+- #1056: corrected reviewed source ae3f3ae20a56f406e9c461f405bb60d463658aa2, tree 20df1e2724cad1becb0ad70059ff5c3000746599, integrates actual accepted #1060 target. Canonical graph/origin validation, trusted dependency extraction and removed bootstrap are independently approved; coordinator 150 tests PASS, reviewer 8 focused tests PASS. Separate independently reviewed target record is PR #1066 at f3555e2a2ecf0d832700b4b33599bc88ff6ba452; required CI pending. No final qualification or merge yet.
+- Demo #121: failed native run 40110974339 passed recovery but failed acceptance cleanup preparation after approximately 20 seconds. Artifact 12567701307 scope-result.json records TimeoutExpired. Subsequent workflow cleanup success does not make acceptance PASS. Corrected remote source 52dde41900f6d1e3456717e2a3b6d29adb1db8cd/tree d566bd7e730f148fb86fb8f3531fc979eee07470 restores historical Podman 90/60-second budgets (Docker unchanged), preserves ownership/fail-closed cancellation and adds safe phase diagnostics. Complete 21-test suite PASS; independent source review plus 3 focused tests PASS. Native qualification is still pending.
+- #1046 remains behind the serialized CI/product qualification chain. No v0.4.27 content was changed, and no tag, release, deployment or full pre-release was started.
+
+## Final candidate and runtime ordering
+
+The existing pre-release workflow generates final consumer pins from the actual immutable Core/Demo/Console/Connector graph. The canonical v0.4.25 audit documents Core R first, then D/U/K, with no reverse pin commit into Core. Core C=1861ed07 remains the historical W1/diagnostic anchor; it is not silently treated as the final post-CI Core R.
+
+Read-only canonical fingerprint comparison by the release-audit agent found all 65 v0.4.26 required gate fingerprints change between C and develop133e, even with the same Demo. Therefore C-based receipts are not claimed as final R coverage. Finish Core changes first, freeze final R/D/U/K, then execute the sufficient final gates once. No verifier weakening was proposed. Exact required inventory and genuine compatible reuse remain mandatory.
+
+Consumer source inspection confirms a single existing joint Connector Docker run also produces the Console browser evidence; the Connector Podman run supplies the other native origin. Four W1 gates remain guided/data-capabilities across Docker/rootless Podman. These six consumer/W1 gates do not replace the complete 65-gate release inventory.
+
+GitHub MCP still has no workflow_dispatch mutation. No new workflow, unsafe trigger workaround, duplicate native run, fabricated PASS or Required Check bypass was introduced. A concrete final exact-input dispatch remains dependent on an existing authenticated route after final R is fixed.
+
+## Historical checkpoint (superseded where the current checkpoint differs)
+
 # v0.4.26 CI integration — session 1
 
 Marcel assigned this session CI implementation, integration and coordination. Session 2 owns native acceptance and consumer freezes; session 3 owns independent review. Their published handoffs at `67bb9ad81fb65a49e495fc2b3e1cd34dbcd22f30` and `33b7e29852a50198ae71b18a40a82185e4b17252` were read and preserved. No product merge, tag, release, deployment, full pre-release or cleanup was performed. v0.4.27 is untouched.
