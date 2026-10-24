@@ -1,3 +1,9 @@
+## Actual native failure diagnosed: fixture configuration protection
+
+Joint run [40135623881](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40135623881) failed on actual Kc4363a28 / U51181967. Both Docker120996434480 and Podman120996434447 now complete editor login (callback/token/discovery HTTP200 and verified token lifetime), then actual Settings Core Setup fails with `persist OpenBao recovery-file reference: Target configuration mutation requires its protected owner directory`. Both owned cleanup steps pass. OpenBao initialized/unsealed/manager_ready are true, which does not turn the failed persistence or incomplete Core setup into success.
+
+Independent exact-R source review confirms the fixture precreates `$XDG_CONFIG_HOME/baseharbor` with `mkdir -p` under normal umask, leaving0755, while Core correctly requires an owner-only directory. The fixture protects only config.yaml0600. A minimal fixture-owned0700 correction and focused regression are in preparation; no Core security weakening, timeout increase or Core R change is justified. Subsequent persistence/TLS/Identity/lifecycle still require real native qualification on the reviewed successor graph. Selected63, full65, promotion and tag remain pending; release_eligible stays false.
+
 # Auth-corrected actual source graph
 
 ## Auth correction integrated; bounded actual-R diagnosis running

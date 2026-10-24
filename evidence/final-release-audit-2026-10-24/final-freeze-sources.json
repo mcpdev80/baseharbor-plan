@@ -9,7 +9,7 @@
   },
   "observed_utc": "2026-10-24T21:47:50.498868+00:00",
   "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "PENDING",
+  "native_joint_verdict": "FAILURE",
   "pins_file": "v0.4.26.consumer-pins.json",
   "pins_sha256": "dfd87ceb0191702e7b37a287b45ee8f792d00b926cc189a5ec9927f20d5570df",
   "roles": {
@@ -60,7 +60,7 @@
         "docker": 120996434480,
         "podman": 120996434447
       },
-      "native_result": "PENDING"
+      "native_result": "failure"
     }
   },
   "release_eligible": false,
@@ -78,5 +78,6 @@
       "snapshot": "freeze-sources.failed-a95639b3.json",
       "diagnosis": "JOINT-NATIVE-SECOND-FAILURE.md"
     }
-  ]
+  ],
+  "native_failure_diagnosis": "Both hosts reject fixture-owned config directory0755 at recovery-file reference persistence; exactR requires owner-only0700. Both owned cleanups succeed; editor login succeeds. Successor fixture correction requires new native proof."
 }

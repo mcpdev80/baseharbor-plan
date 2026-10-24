@@ -59,6 +59,13 @@ Smallest existing source/contract/docs/consumer gates appropriate to confirmed c
 
 ## Handoff
 
+## Actual native failure diagnosed: fixture configuration protection
+
+Joint run [40135623881](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/40135623881) failed on actual Kc4363a28 / U51181967. Both Docker120996434480 and Podman120996434447 now complete editor login (callback/token/discovery HTTP200 and verified token lifetime), then actual Settings Core Setup fails with `persist OpenBao recovery-file reference: Target configuration mutation requires its protected owner directory`. Both owned cleanup steps pass. OpenBao initialized/unsealed/manager_ready are true, which does not turn the failed persistence or incomplete Core setup into success.
+
+Independent exact-R source review confirms the fixture precreates `$XDG_CONFIG_HOME/baseharbor` with `mkdir -p` under normal umask, leaving0755, while Core correctly requires an owner-only directory. The fixture protects only config.yaml0600. A minimal fixture-owned0700 correction and focused regression are in preparation; no Core security weakening, timeout increase or Core R change is justified. Subsequent persistence/TLS/Identity/lifecycle still require real native qualification on the reviewed successor graph. Selected63, full65, promotion and tag remain pending; release_eligible stays false.
+
+
 ## Auth correction integrated; bounded actual-R diagnosis running
 
 Console [PR11](https://github.com/mcpdev80/baseharbor-console/pull/11) is integrated as actual U `51181967abfd3170b81857d51e9a4572c84b318b`, exact reviewed tree `79d861526dd21606db182df6216d6eec594ad896`, parent prior U7aed plus reviewed source4238e2e. All66 contract tests (zero skips), compiler/lint/architecture/production build and independent final source review pass; hosted source CI40135195710/job120995134808 succeeds. The seven-file correction preserves the accepted consent UI and exact auth checks, removes the concrete callback self-close race, and adds strictly bounded public error/status observations before teardown. It does not claim to fix the unexposed prior Secrets cause.
