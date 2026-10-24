@@ -59,3 +59,4 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- 2026-10-24 (o113): resolution documented here only; the schema forbids a free-text resolution on a non-checked card. State remains waiting — external provider-registry test is unverifiable outside CI runners, depends on unaccepted v0.4.27 release-start updates.
