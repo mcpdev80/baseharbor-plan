@@ -18,16 +18,14 @@ soweit nicht als worker-reported gekennzeichnet.
    (Reader akzeptiert nur 3-Script-Inventare, `codex-recipe-1060-qualification.md`).
    **In Arbeit beim Stop:** Lane o140 (ornith) baute den prerequisite Policy-PR
    (`work/v0.4.26-ci-qualifier-1060`, Worktree `/home/marcel/dev/baseharbor-ecosystem/worktrees/o140-policy`,
-   nur pr-gate-plan.py + test_pr_gate_plan.py, Exakt-Bindung an R=0f3bd169).    Sicherungs-Instrukt DELIVERED
-   (`ops/missions/o140-stop-preserve.txt`); Letztstand bei Stop (15:5xZ UTC): Sicherung läuft in o140 (Fokus-Suiten
-   werden gefahren), 2 Dateien modifiziert, NICHT committet, Branch NICHT gepusht. o140 ist die einzige laufende
-   Lane — der Daemon meldet ihr Ende in `evidence/board-2026-10-19/scripts/events.log` und als END-Marker in
-   `o140-policypr.md`. Falls die Lane ohne Push stehen bleibt: Stand im Worktree unverändert lassen, ordinary
-   commit + ordinary push via eine neue Lane nachholen (kein force/amend).
-   **ERSTER SCHRITT FÜR ÜBERNEHMER:** o140-Pane/Evidence `evidence/board-2026-10-24/o140-policypr.md` (im OPS-Root)
-   prüfen, Arbeit committen/pushen lassen bzw. selbst sichern (ordinary, kein force), dann Rezept-Punkt 2→4:
-   Review + CI + autorisierter Merge des Policy-PRs, danach ordinary forward merge develop in R → frische PR-CI →
-   #1060-Merge (`--squash --admin` pro Owner-Freigabe, Zitat+API-Nachweis in Merge-Evidence).
+   nur pr-gate-plan.py + test_pr_gate_plan.py, Exakt-Bindung an R=0f3bd169).    Sicherungs-Instrukt AUSGEFUEHRT und verifiziert: `END O140-POLICYPR-STOPPRESERVED`, ordinary commit `54dfa458`
+   ("wip(o140)") auf develop 65aa063e, Branch gepusht, PR **#1064** offen ("exact-#1060 CI-qualifier prerequisite
+   policy PR"), Worktree clean. Tests nach Fixture-Fix laut Lane grün (worker-reported; PR-CI liefert den
+   gate-seitigen Nachweis). Lane o140 nach Persistierung freigegeben.
+   **ERSTER SCHRITT FÜR ÜBERNEHMER:** Rezept-Punkt 2→4 aus `codex-recipe-1060-qualification.md`: unabhängiges
+   Review + CI von PR #1064, autorisierter Merge des Policy-PRs, danach ordinary forward merge develop in
+   R=0f3bd169 → frische PR-CI → #1060-Merge (`--squash --admin` pro Owner-Freigabe, Zitat+API-Nachweis in
+   Merge-Evidence).
 2. **#1052**: Head `9f715184` (r6-Korrektur), quellenseitig **ACCEPT** (q123, r5 F1–F3 umgesetzt). Merge-Reife
    ausschließlich abhängig von #1060 in develop + frischen Gates. Kein neuer Source-Auftrag nötig.
 3. **#1056 / C2**: H `b0abe105` CI grün, Codex cmf12 **REQUEST_CHANGES** F1 (strict-planner bootstrap fallback) +
