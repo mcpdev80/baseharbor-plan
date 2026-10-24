@@ -14,13 +14,14 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.com/mcpdev80/baseharbor/pull/1058","https://github.com/mcpdev80/baseharbor/pull/1059","https://github.com/mcpdev80/baseharbor/pull/1050","https://github.com/mcpdev80/baseharbor/pull/1055","https://github.com/mcpdev80/baseharbor/pull/1056","https://github.com/mcpdev80/baseharbor/pull/1052"]
 ---
 
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** o49 · **Priority:** normal  
     **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md), [t-20261020-develop-appid-manifest-test-regression](t-20261020-develop-appid-manifest-test-regression.md), [t-20261022-q20-docs-pages](t-20261022-q20-docs-pages.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -9,18 +9,18 @@ owner: "Flash (codeman w1-baseharbor)"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharbor#1047"]
+prs: ["mcpdev80/baseharbor#1008", "mcpdev80/baseharbor#1029", "mcpdev80/baseharbor#1047", "mcpdev80/baseharbor#1050", "mcpdev80/baseharbor#1056"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988", "https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2", "https://github.com/mcpdev80/baseharbor/actions/runs/39619782116", "https://github.com/mcpdev80/baseharbor/pull/1050", "https://github.com/mcpdev80/baseharbor/pull/1056"]
 ---
 
 - [ ] t-20261020-develop-appid-manifest-test-regression · Docker: prove the accepted app.id fixture on the native develop lifecycle #task #release/v0-4-26 #status/review #view/review #area/ci #area/contract #kind/bug
     <!-- generated:card -->
     **Owner:** Flash (codeman w1-baseharbor) · **Priority:** high  
-    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116)  
+    **PR:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1029), [proof 2](https://github.com/mcpdev80/baseharbor/commit/30e112431b04a7e24e7e7e9ea76a3600e439a988), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/39627285799/attempts/2), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/39619782116), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1029", "https://github.c
 **Required by:** [t-20261017-release-0-4-26-prepare](t-20261017-release-0-4-26-prepare.md)  
 **Owner:** Flash (codeman w1-baseharbor)  
 **Priority:** high  
-**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047)  
+**PRs:** [baseharbor#1008](https://github.com/mcpdev80/baseharbor/pull/1008), [baseharbor#1029](https://github.com/mcpdev80/baseharbor/pull/1029), [baseharbor#1047](https://github.com/mcpdev80/baseharbor/pull/1047), [baseharbor#1050](https://github.com/mcpdev80/baseharbor/pull/1050), [baseharbor#1056](https://github.com/mcpdev80/baseharbor/pull/1056)  
 **Source:** 
 <!-- /generated:links -->
 
