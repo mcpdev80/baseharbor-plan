@@ -1,0 +1,21 @@
+{
+  "historical_demo": "25c319697fd3d89d894943e0f44cd3d5dde8b198",
+  "candidate_demo": "f57c8b6e5ff39d0873df62b26272962765e88d6e",
+  "historical_blob_count": 87,
+  "candidate_blob_count": 87,
+  "changed": [
+    {
+      "path": ".github/workflows/v0424-targeted.yml",
+      "old_blob": "0693ee4db7cd6964f81fd978b4dd0b40c2817697",
+      "new_blob": "bc0b72570cbbd79f780c5e2d77658d56a7e9e887"
+    },
+    {
+      "path": "scripts/failure-runtime-diagnostics.sh",
+      "old_blob": "1558a2435f9cc34dc068430598cdfc143b331429",
+      "new_blob": "ea897dfb184dc7f043869174f1e5753b7144f91c"
+    }
+  ],
+  "removed": [],
+  "input_equivalence": false,
+  "native_candidate_qualified": false
+}
