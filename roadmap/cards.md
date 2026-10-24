@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 0/72 · **Blocked:** 0 · **Waiting:** 68  
+    **Accepted tasks:** 0/72 · **Blocked:** 1 · **Waiting:** 68  
+    **Blocker:** [t-20261024-r27-evidence-prototype](../tasks/t-20261024-r27-evidence-prototype.md) — Post-freeze rollout remains unqualified; recover and verify reported candidate 4d87a055 before installation.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
