@@ -18,7 +18,7 @@ Actual native run40141900700 preserved Docker FAILURE / Podman SUCCESS with succ
 
 ## Genuine final-source native work
 
-Core eight-family Docker [40144462122](https://github.com/mcpdev80/baseharbor/actions/runs/40144462122), actual R212ae90e, job121022733022: RUNNING. This retains the existing required repository/workload families beyond the65-gate inventory; old R results are not relabelled.
+Core eight-family Docker [40144462122](https://github.com/mcpdev80/baseharbor/actions/runs/40144462122), actual R212ae90e, job121022733022: SUCCESS. Original artifact12579829807 ZIP SHA256 `85866be59d402902f5d7f741c5f4e2788fe9b052a0e6cc5a0c1c274a6f1ab697` was hashed locally; exact source/tree/image revision and binary equality match actual R. All eight required test/package RUN/PASS receipts are present, with zero fail/skip actions and successful owned cleanup. See core-native-212ae90e-verified.json. This remains scoped native proof, not full release approval. This retains the existing required repository/workload families beyond the65-gate inventory; old R results are not relabelled.
 
 Demo [PR123](https://github.com/mcpdev80/baseharbor-demo/pull/123), exact source `114ed4617c2f586ff3bf76ef574f18ca59097f9e`, changes only its Core pin to actual R. One expected-head non-force fast-forward of the existing Demo trigger started targeted Podman backup/recovery [40144508443](https://github.com/mcpdev80/baseharbor-demo/actions/runs/40144508443). This uniquely verifies the required recovery/cleanup receipt on the corrected Core. Its native result and actual Demo integration remain PENDING; no future merge SHA is guessed.
 
