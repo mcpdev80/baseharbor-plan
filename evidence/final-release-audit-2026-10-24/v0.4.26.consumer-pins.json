@@ -4,35 +4,35 @@
     "integration/docker/remote-target": {
       "connector": {
         "repository": "mcpdev80/baseharbor-node-connector",
-        "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+        "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
         "workflow": ".github/workflows/release-integration.yml"
       }
     },
     "integration/podman/remote-target": {
       "connector": {
         "repository": "mcpdev80/baseharbor-node-connector",
-        "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+        "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
         "workflow": ".github/workflows/release-integration.yml"
       }
     },
     "integration/static/live-console": {
       "connector": {
         "repository": "mcpdev80/baseharbor-node-connector",
-        "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+        "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
         "workflow": ".github/workflows/release-integration.yml",
         "origin": {
           "repository": "mcpdev80/baseharbor-node-connector",
-          "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+          "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
           "gate": "integration/docker/remote-target"
         }
       },
       "console": {
         "repository": "mcpdev80/baseharbor-console",
-        "commit": "b3426c59f69e4098184fe15a45a6a907d8abebd0",
+        "commit": "d4c7724f8f1045cb8915ae573ed85c14b39911c2",
         "workflow": ".github/workflows/release-integration.yml",
         "origin": {
           "repository": "mcpdev80/baseharbor-node-connector",
-          "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+          "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
           "gate": "integration/docker/remote-target"
         }
       }
@@ -41,31 +41,31 @@
   "ecosystem": {
     "core": {
       "repository": "mcpdev80/baseharbor",
-      "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
+      "commit": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
       "consumes": {}
     },
     "demo": {
       "repository": "mcpdev80/baseharbor-demo",
-      "commit": "09595781b68e1f41caaba9aec1402eb8009d700f",
+      "commit": "b4fa7cb08eb5ed73f93d11f6adcf88d677449300",
       "consumes": {
-        "core": "3e27497b4ef7b567858ba646bc3071bee37d19bd"
+        "core": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc"
       }
     },
     "console": {
       "repository": "mcpdev80/baseharbor-console",
-      "commit": "b3426c59f69e4098184fe15a45a6a907d8abebd0",
+      "commit": "d4c7724f8f1045cb8915ae573ed85c14b39911c2",
       "consumes": {
-        "core": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
-        "demo": "09595781b68e1f41caaba9aec1402eb8009d700f"
+        "core": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+        "demo": "b4fa7cb08eb5ed73f93d11f6adcf88d677449300"
       }
     },
     "connector": {
       "repository": "mcpdev80/baseharbor-node-connector",
-      "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+      "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
       "consumes": {
-        "core": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
-        "demo": "09595781b68e1f41caaba9aec1402eb8009d700f",
-        "console": "b3426c59f69e4098184fe15a45a6a907d8abebd0"
+        "core": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+        "demo": "b4fa7cb08eb5ed73f93d11f6adcf88d677449300",
+        "console": "d4c7724f8f1045cb8915ae573ed85c14b39911c2"
       }
     }
   }

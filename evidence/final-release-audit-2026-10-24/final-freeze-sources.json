@@ -7,70 +7,72 @@
     "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
     "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
   },
-  "observed_utc": "2026-10-24T23:15:08.849Z",
-  "source_graph_verdict": "APPROVE",
-  "native_joint_verdict": "FAILURE",
+  "observed_utc": "2026-10-25T00:39:26.001Z",
+  "qualification_authority": "Owner-authorized Maintainer; canonical immutable source/DAG checks. No new independent implementation review is claimed.",
+  "source_graph_verdict": "PASS",
+  "native_joint_verdict": "PENDING",
   "pins_file": "v0.4.26.consumer-pins.json",
-  "pins_sha256": "220b62d5690c910e215d9127648f9131aa6115be3487b8cdfe9cf21adca64afd",
+  "pins_sha256": "8c9dae49ab1ea389544ea00aa36e7dc2403ae75c5c0ca365c94c50d88dc8456c",
   "roles": {
     "core": {
-      "commit": "3e27497b4ef7b567858ba646bc3071bee37d19bd",
-      "tree": "8dce77b34ad51f8762c6bd6f6c809e54e73fdfd3",
-      "native_go_run": 40128173805
+      "commit": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+      "tree": "c58fcb32414424b73832d597e3c826df3a32bf98",
+      "qualified_source": "6ba9ea66e3f774a42ae849743a098ee93faaac49",
+      "qualified_source_tree_identical": true,
+      "source_ci_run": 40144286041,
+      "source_ci_final_job": 121022547294,
+      "native_go_run": 40144462122,
+      "native_go_job": 121022733022,
+      "native_go_result": "success",
+      "native_artifact": 12579829807,
+      "native_zip_sha256": "85866be59d402902f5d7f741c5f4e2788fe9b052a0e6cc5a0c1c274a6f1ab697"
     },
     "demo": {
-      "commit": "09595781b68e1f41caaba9aec1402eb8009d700f",
-      "tree": "9219f48d5abd04b8a062edf2d22b265e025ed82a",
-      "qualified_source": "9611629bf053b4ff08f29a8459b4e69f4248ed12",
+      "commit": "b4fa7cb08eb5ed73f93d11f6adcf88d677449300",
+      "tree": "1437197496fd6108cb759aeb85cbb86c46a1c492",
+      "qualified_source": "114ed4617c2f586ff3bf76ef574f18ca59097f9e",
       "qualified_source_tree_identical": true,
-      "pr": 122,
-      "core_pin_blob": "42fe65908c5bcaa8edb22e2ed60ede126c818e06",
-      "historical_backup_native": {
-        "source": "a1051ec5f5c366cdfafe527298ac60e5db4f951c",
-        "run": 40128218519,
+      "pr": 123,
+      "core_pin_blob": "77d70e020b1f18a027c0fa398992fef34696cbe9",
+      "native_recovery": {
+        "source": "114ed4617c2f586ff3bf76ef574f18ca59097f9e",
+        "run": 40144508443,
+        "job": 121022870331,
+        "artifact": 12580727826,
+        "zip_sha256": "4e53ebbd5d90536c4315c229d4d2507c17eddc3ed798f73686639a4e21dc7198",
         "result": "success",
-        "backup_execution_inputs_unchanged": true,
-        "new_execution_on_successor": false
+        "required_fields": 15,
+        "cleanup": "success",
+        "new_execution_on_merge": false
       },
       "reconciliation_native_verdict": "PENDING"
     },
     "console": {
-      "commit": "b3426c59f69e4098184fe15a45a6a907d8abebd0",
-      "tree": "f3aff9dcec06f655f83b9d5a5ac66978c11b8580",
-      "qualified_source": "e9db98f55df5523b564378fbb8f389473635d493",
-      "qualified_source_tree_identical": true,
-      "pr": 14,
-      "source_ci_run": 40141591495,
-      "manifest_blob": "28fc527c6d3207097be657230e16b535e8a0c645",
-      "source_ci_job": 121014291888
-    },
-    "connector": {
-      "commit": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
-      "tree": "d7cd2304d979bbdc151ea924b5543bb37c75fd59",
-      "qualified_source": "2615ad6d14a1c57d2b743afc0d12966a29a88e48",
+      "commit": "d4c7724f8f1045cb8915ae573ed85c14b39911c2",
+      "tree": "59cee010615d7b7e3137a98fb2173a2e4eb506bb",
+      "qualified_source": "8e3e5546d43841ec17d390473929668e27aea97e",
       "qualified_source_tree_identical": true,
       "pr": 15,
-      "source_ci_run": 40141723194,
-      "manifest_blob": "3f935ca4661c0bc0fa32073cae805030b89eb262",
-      "retained_old_trigger": "df1f4378d8c7fdc3e174a1e9dc8ad0155a955571",
+      "source_ci_run": 40146784315,
+      "source_ci_job": 121029727926,
+      "manifest_blob": "dbfac13fdfe2052f685159173f5f14a3d928f89f"
+    },
+    "connector": {
+      "commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
+      "tree": "5dd597ed99f6ed28a8d6223ed74e8c0d6e765c86",
+      "qualified_source": "32740e92a86b567cd338bd2677dd81e2f801ca1f",
+      "qualified_source_tree_identical": true,
+      "pr": 16,
+      "source_ci_run": 40146967582,
+      "source_ci_job": 121030263619,
+      "manifest_blob": "9d031effad1cd35475010668acb441debdeecaa4",
       "retained_sentinel_blob": "ba86891cd387201ce0e9aa38763e795b8b81781b",
-      "actual_native_run": 40141900700,
+      "actual_native_run": 40147158099,
       "native_jobs": {
-        "docker": 121015244697,
-        "podman": 121015244679
+        "docker": 121030869496,
+        "podman": 121030869476
       },
-      "native_result": "failure",
-      "integrated_pin_source": "2615ad6d14a1c57d2b743afc0d12966a29a88e48",
-      "integrated_pin_merge": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
-      "source_ci_job": 121014679902,
-      "native_job_results": {
-        "docker": "failure",
-        "podman": "success"
-      },
-      "native_cleanup_results": {
-        "docker": "success",
-        "podman": "success"
-      }
+      "native_result": "pending"
     }
   },
   "release_eligible": false,
@@ -110,7 +112,14 @@
       "snapshot": "freeze-sources.failed-5658d19a.json",
       "pins_snapshot": "v0.4.26.consumer-pins.failed-5658d19a.json",
       "diagnosis": "NATIVE-QUALIFICATION-RUN-40140091435.md"
+    },
+    {
+      "connector": "ff71e384e71d92f94dbf212ff394bce53ae9707e",
+      "native_run": 40141900700,
+      "result": "failure",
+      "snapshot": "freeze-sources.failed-ff71e38.json",
+      "pins_snapshot": "v0.4.26.consumer-pins.failed-ff71e38.json",
+      "diagnosis": "NATIVE-QUALIFICATION-RUN-40141900700.md"
     }
-  ],
-  "native_failure_diagnosis": "Actual primary generated HTTP-only Next.js retirement rejects previously unbound logical Core SQL. Local real-resolver regression reproduces failure and passes after bounded verifier correction at source938adee7; product and mandatory CI integration remain pending."
+  ]
 }
