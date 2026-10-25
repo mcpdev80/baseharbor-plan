@@ -10,7 +10,7 @@ owner: Codex (Maintainer release completion)
 priority: normal
 depends_on: [core-752, core-893, core-893-interface, core-894, core-895, core-896, core-900, core-901, core-910, core-911, core-912, core-913, core-914, core-915, core-916, core-917, core-918, core-919, core-920, core-921, core-922, core-923, t-20261016-pr-impact-selection, t-20261016-registration-ci-readiness, t-20261016-wizard-task-ci-readiness, t-20261017-concise-code-comments, t-20261017-podman-acceptance-typed-consent, t-20261017-podman-backup-guided-runtime, t-20261017-provider-projection-workload, t-20261018-podman-recovery-bootstrap-cleanup, t-20261018-podman-recovery-core-state-owner, t-20261018-scoped-runtime-reset-xdg-ownership, t-20261019-ci-evidence-stabilization, t-20261019-core921-coverage-binding, t-20261019-owner-delegated-maintainer-authority, t-20261019-v0426-complete-defect-audit, t-20261020-develop-appid-manifest-test-regression, t-20261022-cleanup-provenance-order-fix, t-20261022-q20-docs-pages, t-20261023-selector-q-predecessor, t-20261024-v0426-ci-integration-closeout]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: ["mcpdev80/baseharbor#1073", "mcpdev80/baseharbor#1072", "mcpdev80/baseharbor#1071", "mcpdev80/baseharbor-console#13", "mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13"]
+prs: ["mcpdev80/baseharbor-node-connector#16", "mcpdev80/baseharbor-console#15", "mcpdev80/baseharbor-demo#123", "mcpdev80/baseharbor#1073", "mcpdev80/baseharbor#1072", "mcpdev80/baseharbor#1071", "mcpdev80/baseharbor-console#13", "mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13"]
 sources: []
 blocker: ""
 resolution: ""
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 - [ ] t-20261017-release-0-4-26-prepare · v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** Codex (Maintainer release completion) · **Priority:** normal  
-    **PR:** [baseharbor#1073](https://github.com/mcpdev80/baseharbor/pull/1073), [baseharbor#1072](https://github.com/mcpdev80/baseharbor/pull/1072), [baseharbor#1071](https://github.com/mcpdev80/baseharbor/pull/1071), [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
+    **PR:** [baseharbor-node-connector#16](https://github.com/mcpdev80/baseharbor-node-connector/pull/16), [baseharbor-console#15](https://github.com/mcpdev80/baseharbor-console/pull/15), [baseharbor-demo#123](https://github.com/mcpdev80/baseharbor-demo/pull/123), [baseharbor#1073](https://github.com/mcpdev80/baseharbor/pull/1073), [baseharbor#1072](https://github.com/mcpdev80/baseharbor/pull/1072), [baseharbor#1071](https://github.com/mcpdev80/baseharbor/pull/1071), [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
     **Needs:** [core-923](core-923-acceptance-new-edit-journeys-consumers.md), [t-20261019-v0426-complete-defect-audit](t-20261019-v0426-complete-defect-audit.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1053), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1058), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1059), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1050), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1055), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1056), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1052), [proof 8](https://github.com/mcpdev80/baseharbor/pull/1046), [proof 9](https://github.com/mcpdev80/baseharbor/pull/1047), [proof 10](https://github.com/mcpdev80/baseharbor/pull/1060), [proof 11](https://github.com/mcpdev80/baseharbor/commit/f39295680d41290fc505c0a8cc1769da51699293)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1053","https://github.co
 **Required by:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
 **Owner:** Codex (Maintainer release completion)  
 **Priority:** normal  
-**PRs:** [baseharbor#1073](https://github.com/mcpdev80/baseharbor/pull/1073), [baseharbor#1072](https://github.com/mcpdev80/baseharbor/pull/1072), [baseharbor#1071](https://github.com/mcpdev80/baseharbor/pull/1071), [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
+**PRs:** [baseharbor-node-connector#16](https://github.com/mcpdev80/baseharbor-node-connector/pull/16), [baseharbor-console#15](https://github.com/mcpdev80/baseharbor-console/pull/15), [baseharbor-demo#123](https://github.com/mcpdev80/baseharbor-demo/pull/123), [baseharbor#1073](https://github.com/mcpdev80/baseharbor/pull/1073), [baseharbor#1072](https://github.com/mcpdev80/baseharbor/pull/1072), [baseharbor#1071](https://github.com/mcpdev80/baseharbor/pull/1071), [baseharbor-console#13](https://github.com/mcpdev80/baseharbor-console/pull/13), [baseharbor-console#12](https://github.com/mcpdev80/baseharbor-console/pull/12), [baseharbor-node-connector#13](https://github.com/mcpdev80/baseharbor-node-connector/pull/13)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,6 +59,13 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
+
+## Corrected complete source matrix frozen; joint native acceptance running — 2026-10-25
+
+Actual immutable sources are Core R212ae90e, Demo Db4fa7cb0, Console Ud4c7724f and Connector Kb39f890a. All actual merge trees equal checked source trees. Core eight-family Docker40144462122 and Demo retained Podman recovery40144508443 pass, with original ZIP digests, exact source/run/attempt, all8/all15 assertions and owned cleanup authenticated. Console15/source40146784315 and Connector16/source40146967582 passed before integration. Fresh actual manifests pass unchanged R's four-role DAG and all four origin bindings; complete canonical pins SHA256 is8c9dae49ab1ea389544ea00aa36e7dc2403ae75c5c0ca365c94c50d88dc8456c.
+
+One expected-head non-force trigger fast-forward starts genuine joint run40147158099 on actual Kb39; Docker121030869496 and Podman121030869476 are active. No native success is inferred yet. All six earlier failed graphs and original artifacts remain preserved, including the old ff71 snapshot. Source/CLI/fixture/workflow protections and the65-gate inventory are unchanged. Selected63/W1, complete65, promotion/Pages and the user's guarded tag command remain pending. See [current native freeze](../evidence/final-release-audit-2026-10-24/NATIVE-QUALIFICATION-RUN-40147158099.md) and [corrected Core/Demo receipts](../evidence/final-release-audit-2026-10-24/CORE-RETIREMENT-FIX-212ae90e.md). Owner-authorized source acceptance is recorded; no new independent implementation review is claimed.
+
 
 ### Corrected Core integrated; genuine final-source native work — 2026-10-25
 
