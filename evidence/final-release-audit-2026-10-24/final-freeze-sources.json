@@ -7,10 +7,10 @@
     "scripts/ecosystem_release_pins.py": "ed3adb2164d8cbe6ebc309d1b60a44b88899939c",
     "scripts/private_consumer_evidence.py": "8bf1b6e8abe7f9988cc7bc944ef209f48e560e51"
   },
-  "observed_utc": "2026-10-25T00:39:26.001Z",
+  "observed_utc": "2026-10-25T00:51:19.099697+00:00",
   "qualification_authority": "Owner-authorized Maintainer; canonical immutable source/DAG checks. No new independent implementation review is claimed.",
   "source_graph_verdict": "PASS",
-  "native_joint_verdict": "PENDING",
+  "native_joint_verdict": "PASS",
   "pins_file": "v0.4.26.consumer-pins.json",
   "pins_sha256": "8c9dae49ab1ea389544ea00aa36e7dc2403ae75c5c0ca365c94c50d88dc8456c",
   "roles": {
@@ -72,7 +72,19 @@
         "docker": 121030869496,
         "podman": 121030869476
       },
-      "native_result": "pending"
+      "native_result": "success",
+      "native_artifacts": [
+        {
+          "id": 12581024995,
+          "runtime": "docker",
+          "zip_sha256": "c1e3fbef19dfc5fb0b642e06a1b3698c9799bd03609dc17af87505270b71ea2c"
+        },
+        {
+          "id": 12580499834,
+          "runtime": "podman",
+          "zip_sha256": "fc4e0abef29765cffe6728200b715fba2f1ece655f4dd20a6e055846400cbf7d"
+        }
+      ]
     }
   },
   "release_eligible": false,
@@ -121,5 +133,14 @@
       "pins_snapshot": "v0.4.26.consumer-pins.failed-ff71e38.json",
       "diagnosis": "NATIVE-QUALIFICATION-RUN-40141900700.md"
     }
-  ]
+  ],
+  "native_verification": "joint-40147158099-verified.json",
+  "selected_qualification": {
+    "run": 40148260199,
+    "candidate": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+    "branch": "validation/pre-release/selected/v0426-212ae90e-20261025",
+    "gates": 63,
+    "result": "running",
+    "grants_release_approval": false
+  }
 }
