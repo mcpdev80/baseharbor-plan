@@ -1,0 +1,53 @@
+{
+  "verification_verdict": "PASS",
+  "scope": "exact-source native retained Podman recovery and owned cleanup; not full release approval",
+  "run": 40144508443,
+  "job": 121022870331,
+  "artifact": 12580727826,
+  "zip_sha256": "4e53ebbd5d90536c4315c229d4d2507c17eddc3ed798f73686639a4e21dc7198",
+  "receipt": {
+    "schema": "baseharbor.demo-recovery-result/v1",
+    "core": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+    "demo": "114ed4617c2f586ff3bf76ef574f18ca59097f9e",
+    "runtime": "podman",
+    "result": "success",
+    "run_id": "40144508443",
+    "recovery_mode": "retained",
+    "run_attempt": "1",
+    "verified": {
+      "encrypted_backup": true,
+      "restore_doctor_ready": true,
+      "sql_original_rows_at_least_two": true,
+      "sql_row_count_matches_archive": true,
+      "s3_original_content": true,
+      "workload_original_file": true,
+      "newer_sql_and_file_writes_replaced_from_archive": true,
+      "original_application_identity": true,
+      "deployment_identity_matches_recovery_mode": true,
+      "unchanged_authored_source": true,
+      "original_managed_secret_delivery": true,
+      "log_history": true,
+      "recovery_contributors": true,
+      "shared_sql_isolation": true,
+      "native_topology": true
+    },
+    "cleanup": "success",
+    "pre_release_ready": false
+  },
+  "owned_cleanup_scope": {
+    "target": "demo-podman",
+    "runtime": "podman",
+    "mode": "--unpause-owned",
+    "outcome": "success",
+    "accounted": [],
+    "errors": []
+  },
+  "merged_demo": {
+    "commit": "b4fa7cb08eb5ed73f93d11f6adcf88d677449300",
+    "tree": "1437197496fd6108cb759aeb85cbb86c46a1c492",
+    "qualified_head": "114ed4617c2f586ff3bf76ef574f18ca59097f9e",
+    "same_tree": true,
+    "core_pin_blob": "77d70e020b1f18a027c0fa398992fef34696cbe9",
+    "new_native_execution_claimed": false
+  }
+}
