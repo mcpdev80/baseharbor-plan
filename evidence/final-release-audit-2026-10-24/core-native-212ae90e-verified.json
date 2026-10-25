@@ -1,0 +1,53 @@
+{
+  "run": 40144462122,
+  "job": 121022733022,
+  "artifact": 12579829807,
+  "artifact_sha256": "85866be59d402902f5d7f741c5f4e2788fe9b052a0e6cc5a0c1c274a6f1ab697",
+  "source": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+  "tree": "c58fcb32414424b73832d597e3c826df3a32bf98",
+  "go": "go version go1.26.9 linux/amd64",
+  "binary_sha256": "86d0bdc40fc3881513c34b1ad52fc3dc7e63c25b3bdf0de6301ff66109c66f30",
+  "runtime_binary": {
+    "built": "unknown",
+    "commit": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+    "version": "dev"
+  },
+  "families": {
+    "TestManagedLokiIngestsRealComposeWorkloadLogs": {
+      "package": "github.com/mcpdev80/baseharbor/internal/logs",
+      "elapsed": 49.48
+    },
+    "TestRepositoryWorkflowRealLifecycle": {
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha",
+      "elapsed": 97.95
+    },
+    "TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI": {
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha",
+      "elapsed": 56.25
+    },
+    "TestRepositoryComposeWorkloadOnlyLifecycleInCI": {
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha",
+      "elapsed": 48.2
+    },
+    "TestRepositoryBuildWorkloadRebuildsSourceChangesInCI": {
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha",
+      "elapsed": 69.75
+    },
+    "TestMultiInstanceComposeLifecycleInCI": {
+      "package": "github.com/mcpdev80/baseharbor/internal/application",
+      "elapsed": 5.8
+    },
+    "TestExistingControlPlaneRestartRequiresAndUsesRecoveryFile": {
+      "package": "github.com/mcpdev80/baseharbor/cmd/baha",
+      "elapsed": 260.1
+    },
+    "TestManagedTempoReceivesVerificationTraceThroughCollector": {
+      "package": "github.com/mcpdev80/baseharbor/internal/traces",
+      "elapsed": 19.34
+    }
+  },
+  "fail_skip_actions": 0,
+  "workflow_run_attempt": 1,
+  "verification_verdict": "PASS",
+  "verdict_scope": "exact-source eight-family native proof; no complete release approval"
+}
