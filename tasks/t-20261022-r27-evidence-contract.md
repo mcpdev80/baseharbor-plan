@@ -47,6 +47,13 @@ Define the smallest durable evidence contract using the existing baseharbor-plan
 - Define independent publisher, resolver and verifier contracts with negative-case behavior. Existing evidence and concurrent planning writers must be preserved.
 - Assign source ownership and independent CI/trust review; no product/runtime mutation.
 
+## Contributor simplicity and preflight contract
+- One human/agent/fork PR workflow; trusted CI produces bounded sanitized evidence and automatically links it to task and PR. No hand-written manifests, manual artifact uploads, evidence URL copying, or role-specific scripts.
+- Reuse accepted exact-input checks only when source, integration SHAs, check policy, attempt and provenance still qualify; changed inputs must not inherit green.
+- Define a cheap read-only preflight diagnostic for missing or inconsistent Core/Demo/Console/Connector pins, release-note prerequisites and release candidate inputs before costly matrices. Report the responsible component and corrective action; do not auto-create a purportedly reviewed immutable SHA.
+- Treat consumer-freeze automation as a separately scoped follow-up reusing the existing resolver; do not modify v0.4.26 release paths or CI trust authorities in this contract task.
+- While v0.4.26 is active, isolated contract preparation may be published on its own branch for review; the implementation task stays waiting until startup dependencies are satisfied. No early integration into v0.4.26 `develop`.
+
 ## Acceptance
 - Schema fixtures and validation cover wrong SHA, tampered payload, missing blob, stale attempt, wrong check identity and absent provenance.
 - Reviewer accepts threat model and repository-size/secret-exposure bounds before publisher work.
