@@ -1,0 +1,29 @@
+{
+  "schema": "baseharbor.joint-native-verification/v1",
+  "core_commit": "212ae90e22e6ea2eeeaa84f35189b307b1ce32bc",
+  "demo_commit": "b4fa7cb08eb5ed73f93d11f6adcf88d677449300",
+  "console_commit": "d4c7724f8f1045cb8915ae573ed85c14b39911c2",
+  "connector_commit": "b39f890ae541134c27f186c966cd232a3ec13d58",
+  "run_id": 40147158099,
+  "run_attempt": 1,
+  "verification": "unchanged candidate PrivateEvidenceVerifier against authenticated GitHub API snapshots and original digest-checked ZIP bytes",
+  "gates": [
+    "integration/docker/remote-target",
+    "integration/podman/remote-target",
+    "integration/static/live-console"
+  ],
+  "result": "success",
+  "release_approved": false,
+  "artifacts": [
+    {
+      "id": 12581024995,
+      "name": "private-integration-integration-docker-remote-target-40147158099-1",
+      "digest": "sha256:c1e3fbef19dfc5fb0b642e06a1b3698c9799bd03609dc17af87505270b71ea2c"
+    },
+    {
+      "id": 12580499834,
+      "name": "private-integration-integration-podman-remote-target-40147158099-1",
+      "digest": "sha256:fc4e0abef29765cffe6728200b715fba2f1ece655f4dd20a6e055846400cbf7d"
+    }
+  ]
+}
