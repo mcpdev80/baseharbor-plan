@@ -62,7 +62,7 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ### Corrected Core integrated; genuine final-source native work — 2026-10-25
 
-Core1073 is accepted as actual R `212ae90e22e6ea2eeeaa84f35189b307b1ce32bc`, identical checked treec58fcb32, after genuine mandatory CI40144286041/final121022547294 SUCCESS and actual six-family regression execution. The earlier pending1073 checkpoint is superseded. Core eight-family native Docker run40144462122 and Demo123 exact-pin Podman recovery run40144508443 are running in parallel. Actual successor Demo/Console/Connector integration, matching native consumer acceptance, selected63/W1, full65, promotion and tag remain pending. See the [current corrected-Core receipt](../evidence/final-release-audit-2026-10-24/CORE-RETIREMENT-FIX-212ae90e.md). No readiness or release approval is claimed.
+Core1073 is accepted as actual R `212ae90e22e6ea2eeeaa84f35189b307b1ce32bc`, identical checked treec58fcb32, after genuine mandatory CI40144286041/final121022547294 SUCCESS and actual six-family regression execution. The earlier pending1073 checkpoint is superseded. Core eight-family native Docker run40144462122 finished SUCCESS; original ZIP digest, exact source/tree/image/binary and all eight actual test/package PASS receipts were authenticated. Demo123 exact-pin Podman recovery run40144508443 is still running. Actual successor Demo/Console/Connector integration, matching native consumer acceptance, selected63/W1, full65, promotion and tag remain pending. See the [current corrected-Core receipt](../evidence/final-release-audit-2026-10-24/CORE-RETIREMENT-FIX-212ae90e.md). No readiness or release approval is claimed.
 
 
 ## SQL retirement correction and mandatory source CI — 2026-10-25
