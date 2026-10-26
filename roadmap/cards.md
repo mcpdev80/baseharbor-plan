@@ -4,9 +4,9 @@
 
 Read-only release cards, not executable tasks. Edit releases/ and tasks/, then render. Accepted task counts are not release qualification; zero tasks means work is not cut yet. No target dates are inferred.
 
-- [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/current
-    **Release:** active  
-    **Accepted tasks:** 39/45 · **Blocked:** 0 · **Waiting:** 2  
+- [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/delivered
+    **Release:** published  
+    **Accepted tasks:** 39/45 · **Blocked:** 0 · **Waiting:** 1  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
