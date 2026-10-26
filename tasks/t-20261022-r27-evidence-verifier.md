@@ -34,6 +34,19 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
+## Binding three-worker execution — Owner instruction, 2026-10-26
+
+Routing: **W3**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
+
+W3: receipt_verifier.py, verifier-specific tests, test_receipt_chain.py and receipt-approval.yml. W2: writer and post-run interface. W1: trusted selection/test discovery and shadow consumption. Do not wait for publisher/resolver acceptance to prepare and test the existing frozen PR1 interface.
+
+Exactly three concurrent worker slots for all v0.4.27 CI work, plus the coordinator; never three additional workers on top of active claims. Existing owners/claims and completed commits are preserved. Coordinator hands over reservations explicitly and balances remaining effort, moving a bounded unfinished subtask or cross-review to a free worker rather than inventing work. No worker edits another worker's scripts, test file or workflow; common-branch pushes, Planning metadata and final integration have one coordinator writer.
+
+Dependencies in frontmatter remain acceptance/readiness requirements, not blanket locks on the explicitly authorized isolated receipt preparation against frozen #1090 interfaces. Parallel preparation does not accept an unmerged dependency, change a shared interface unilaterally, or qualify a new domain. The first one-gate receipt skeleton must be accepted before live domain-gate expansion. Later domain implementation still requires its accepted product contracts, fixtures and release-start inputs; choose another actually ready task or report the concrete blocker if three safe work slices do not exist.
+
+Do not alter active producer behavior or required-check enforcement before the accepted cutover. Preserve the legacy qualification route, use the smallest sufficient checks and batch candidates; no full matrix or duplicate green runs. Cross-review must be by another worker/coordinator and applies to the final integrated SHA.
+
+
 
 # Receipt verifier: live approval, retained Git verification
 
@@ -51,3 +64,6 @@ Implement scripts/receipt_verifier.py with live, approve and retained modes. No 
 PR 1 is qualified by existing v0.4.26 legacy checks. Later changes may use only already accepted new components, never their own unaccepted successor. Keep the active legacy pipeline unchanged until the real skeleton is accepted.
 
 Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).
+
+## Salvage references, not a predecessor implementation
+The superseded archive prototype is not an implementation dependency. Read only applicable [run/attempt/job negatives](https://github.com/mcpdev80/baseharbor/blob/cdc905c93005fa2f8edc442e499e98bbea71b611/scripts/tests/test_r27_github_origin.py), [API/strict JSON cases](https://github.com/mcpdev80/baseharbor/blob/cdc905c93005fa2f8edc442e499e98bbea71b611/scripts/tests/test_r27_github_transport.py) and parser-only duplicate-key/NaN/Infinity cases in the historical receipt tests. No HMAC/Ed25519 code or claimed old test totals carry over. Port only cases needed by the small receipt risk surface.

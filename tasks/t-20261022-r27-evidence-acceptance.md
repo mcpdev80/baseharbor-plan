@@ -34,6 +34,19 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
+## Binding three-worker execution — Owner instruction, 2026-10-26
+
+Routing: **Coordinator; reviews rotate across W1/W2/W3**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
+
+W1 reviews W3 changes; W3 reviews W2; W2 reviews W1. Coordinator integrates and accepts the final exact candidate. W3 owns executable chain negatives; their author cannot label them independent acceptance. Preserve completed o145 review evidence and hand over its outstanding scope into the three-slot pool; do not spawn a permanent fourth/fifth worker.
+
+Exactly three concurrent worker slots for all v0.4.27 CI work, plus the coordinator; never three additional workers on top of active claims. Existing owners/claims and completed commits are preserved. Coordinator hands over reservations explicitly and balances remaining effort, moving a bounded unfinished subtask or cross-review to a free worker rather than inventing work. No worker edits another worker's scripts, test file or workflow; common-branch pushes, Planning metadata and final integration have one coordinator writer.
+
+Dependencies in frontmatter remain acceptance/readiness requirements, not blanket locks on the explicitly authorized isolated receipt preparation against frozen #1090 interfaces. Parallel preparation does not accept an unmerged dependency, change a shared interface unilaterally, or qualify a new domain. The first one-gate receipt skeleton must be accepted before live domain-gate expansion. Later domain implementation still requires its accepted product contracts, fixtures and release-start inputs; choose another actually ready task or report the concrete blocker if three safe work slices do not exist.
+
+Do not alter active producer behavior or required-check enforcement before the accepted cutover. Preserve the legacy qualification route, use the smallest sufficient checks and batch candidates; no full matrix or duplicate green runs. Cross-review must be by another worker/coordinator and applies to the final integrated SHA.
+
+
 
 # Receipt acceptance: one ordinary contributor PR end to end
 
@@ -54,3 +67,6 @@ If the one-gate pilot is blocked by missing administrative configuration, publis
 Earlier signature, artifact-archive, expiry simulation and recovery-system requirements are superseded by Marcel's explicit 2026-10-26 receipt decision. No existing implementation is marked accepted by this rewrite.
 
 Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).
+
+## Fixed timebox
+T0 is actual PR1 acceptance, never W1/contract acceptance. In the same acceptance record, write T0 and absolute UTC deadline T0 + 72 hours and link it from the contract card. At expiry without accepted skeleton, stop infrastructure expansion and route eligible product work through adequate trusted legacy checks; publish the concrete blocker. No silent extension, fake PASS or waived product coverage.

@@ -35,6 +35,19 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
+## Binding three-worker execution — Owner instruction, 2026-10-26
+
+Routing: **W2**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
+
+W2: explicit candidate dispatch and trusted post-run wiring. W1: exact candidate/plan mapping and discovery. W3: stale/pending/skipped-as-success negative checks. Preserve draft #1055 and diagnose its known skip-as-success risk; no blind merge, broad flags or active trigger rewrite.
+
+Exactly three concurrent worker slots for all v0.4.27 CI work, plus the coordinator; never three additional workers on top of active claims. Existing owners/claims and completed commits are preserved. Coordinator hands over reservations explicitly and balances remaining effort, moving a bounded unfinished subtask or cross-review to a free worker rather than inventing work. No worker edits another worker's scripts, test file or workflow; common-branch pushes, Planning metadata and final integration have one coordinator writer.
+
+Dependencies in frontmatter remain acceptance/readiness requirements, not blanket locks on the explicitly authorized isolated receipt preparation against frozen #1090 interfaces. Parallel preparation does not accept an unmerged dependency, change a shared interface unilaterally, or qualify a new domain. The first one-gate receipt skeleton must be accepted before live domain-gate expansion. Later domain implementation still requires its accepted product contracts, fixtures and release-start inputs; choose another actually ready task or report the concrete blocker if three safe work slices do not exist.
+
+Do not alter active producer behavior or required-check enforcement before the accepted cutover. Preserve the legacy qualification route, use the smallest sufficient checks and batch candidates; no full matrix or duplicate green runs. Cross-review must be by another worker/coordinator and applies to the final integrated SHA.
+
+
 # CI: explicit candidate trigger prototype
 
 ## Goal

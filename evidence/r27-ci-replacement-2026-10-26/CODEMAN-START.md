@@ -47,3 +47,23 @@ Reconcile the existing five evidence cards into these three ownership packages; 
 The timer starts at PR1 acceptance, not W1/contract acceptance: record T0 and an absolute UTC deadline T0 + 72 hours in the acceptance record, linked from the contract card. If the one-gate chain is not accepted by then, stop infrastructure expansion, state the concrete blocker, and continue eligible product work through adequate existing trusted legacy checks. No silent extensions, fake passes or waived product prerequisites.
 
 Use GitHub MCP. Keep Planning truthful and render/check changed metadata. If automatic approval blocks publication, report it and request the necessary explicit approval; do not bypass it. This handoff authorizes neither a release nor live cutover before acceptance.
+
+## Applies to all v0.4.27 CI cards
+The Owner clarified that this is a release-wide CI scheduling rule, not just the initial receipt handoff. All live CI/CI-consumption cards contain a binding three-worker section with split ownership; their existing claims and acceptance dependencies remain intact. Domain expansion still waits for the accepted one-gate foundation. Slots are shared across all cards, not multiplied per card. Rebalance by actual remaining effort; never force meaningless work to claim full utilization.
+
+| Task | Routing |
+| --- | --- |
+| [t-20261018-r27-ci-consumption](../../tasks/t-20261018-r27-ci-consumption.md) | W1/W2/W3 after accepted product inputs |
+| [t-20261018-r27-ci-lanes](../../tasks/t-20261018-r27-ci-lanes.md) | Coordinator integrates; W1/W2/W3 implement disjoint slices |
+| [t-20261022-r27-ci-access](../../tasks/t-20261022-r27-ci-access.md) | W1/W2/W3 within the single shared pool |
+| [t-20261022-r27-ci-authority](../../tasks/t-20261022-r27-ci-authority.md) | W1/W2/W3 within the single shared pool |
+| [t-20261022-r27-ci-delivery](../../tasks/t-20261022-r27-ci-delivery.md) | W1/W2/W3 within the single shared pool |
+| [t-20261022-r27-ci-runtime](../../tasks/t-20261022-r27-ci-runtime.md) | W1/W2/W3 within the single shared pool |
+| [t-20261022-r27-evidence-acceptance](../../tasks/t-20261022-r27-evidence-acceptance.md) | Coordinator; reviews rotate across W1/W2/W3 |
+| [t-20261022-r27-evidence-contract](../../tasks/t-20261022-r27-evidence-contract.md) | W1 |
+| [t-20261022-r27-evidence-publisher](../../tasks/t-20261022-r27-evidence-publisher.md) | W2 |
+| [t-20261022-r27-evidence-resolver](../../tasks/t-20261022-r27-evidence-resolver.md) | W2 |
+| [t-20261022-r27-evidence-verifier](../../tasks/t-20261022-r27-evidence-verifier.md) | W3 |
+| [t-20261024-r27-candidate-trigger-prototype](../../tasks/t-20261024-r27-candidate-trigger-prototype.md) | W2 |
+| [t-20261024-r27-ci-impact-prototype](../../tasks/t-20261024-r27-ci-impact-prototype.md) | W1 |
+| [t-20261024-r27-evidence-prototype](../../tasks/t-20261024-r27-evidence-prototype.md) | Retired; no worker |
