@@ -9,8 +9,8 @@ priority: high
 owner: "w2-lane (post-run + task link, dormant PR2)"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1048]
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md"],
+prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1048]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
@@ -19,7 +19,7 @@ evidence: []
 - [ ] t-20261022-r27-evidence-resolver · evidence resolver #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w2-lane (post-run + task link, dormant PR2) · **Priority:** high  
-    **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+    **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
     <!-- /generated:card -->
 
@@ -30,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
 **Owner:** w2-lane (post-run + task link, dormant PR2)  
 **Priority:** high  
-**PRs:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+**PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -49,3 +49,5 @@ Resolve evidence/receipts/<gate>/<run>-<attempt>.json from an explicit Planning 
 
 ## Historical preparation
 Earlier PR #1048 archive resolver work remains historical and unaccepted. Its signed-manifest/retention requirements are superseded by the Owner's 2026-10-26 receipt decision.
+
+Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).

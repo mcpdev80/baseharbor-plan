@@ -9,8 +9,8 @@ priority: critical
 owner: flash-f71 (worker-1 contract+legacy-bootstrap)
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md"],
+prs: [mcpdev80/baseharbor#1090]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
@@ -19,6 +19,7 @@ evidence: []
 - [ ] t-20261022-r27-evidence-contract · evidence contract #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** flash-f71 (worker-1 contract+legacy-bootstrap) · **Priority:** critical  
+    **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
@@ -29,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md)  
 **Owner:** flash-f71 (worker-1 contract+legacy-bootstrap)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -49,3 +50,5 @@ One canonical JSON receipt per successful gate/run/attempt, strictly below 500 b
 
 ## Owner decision — 2026-10-26
 Marcel explicitly replaced the earlier signed archive design with minimal receipts and authorized task reconciliation and implementation. This supersedes earlier signature/archive requirements for the five evidence stories; it does not accept any implementation or prerequisite.
+
+Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).
