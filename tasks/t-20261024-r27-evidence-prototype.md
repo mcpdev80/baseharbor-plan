@@ -12,7 +12,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1048]
 sources: []
 early: false
-blocker: "Post-freeze rollout remains unqualified; recover and verify reported candidate 4d87a055 before installation."
+blocker: "Published kit needs durable reuse, partial-outcome ordering and enforcing status; fix skip-as-success trigger risk before rollout."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
-    **Blocker:** Post-freeze rollout remains unqualified; recover and verify reported candidate 4d87a055 before installation.  
+    **Blocker:** Published kit needs durable reuse, partial-outcome ordering and enforcing status; fix skip-as-success trigger risk before rollout.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
@@ -210,3 +210,34 @@ Marcel explicitly authorized publication and complete isolated v0.4.27 CI implem
 - Public destination identity and Owner rights were verified via GitHub connector: `mcpdev80/baseharbor` (ID 1360667669) and `mcpdev80/baseharbor-plan` (ID 1421169501), both public with admin/push permission. Even with the continued mandate and these checks, the same GitHub tree-upload action was rejected again: automatic review requires explicit authorization of this specific public source/test disclosure. No alternate upload route or push was attempted. Existing product remote and published Planning main remain unchanged by this session; local Planning commits retain the handoff.
 - **Completion boundary remains real:** v0.4.27 authority/access/delivery/runtime contract/test predecessors are not accepted or implemented; the inspected release requirements end at v0.4.26; the proposed Demo pin is empty; no exact-artifact smoke executor/artifact-resolution owner is available. Similar older packages cannot substitute for new feature coverage. Complete release qualification and live key/event/Required Check installation cannot be claimed while these inputs are absent and the templates remain dormant.
 - Next continuation must resolve the explicit public-upload review requirement and the actual contract/catalog/fixture/artifact prerequisites. Preserve all checked local commits, existing #1051/#1055 draft ownership and active v0.4.26 work. Do not relabel this checkpoint as complete CI or independently accepted evidence.
+
+## Current replacement assessment — 2026-10-26
+
+Marcel requested the smallest practical replacement of the old CI after the actual v0.4.26 publication, avoiding repeated full matrices and repeated green gates. This is a source/configuration assessment, not rollout qualification or authorization to report missing tests as successful.
+
+### Verified baseline and reusable components
+
+- Main `640981588d8b9255fbe7db8ca26796db1da09eb2` and develop `433a5702c9735ffbf1e9fffe7a7ae513b1c5c396` have the identical tree `d7c63770a31b082ab7fc1c9fd254e4918efafc59`. Base the replacement on this current source, preserving the latest fingerprint/current-snapshot corrections rather than restoring old draft-owned copies of canonical tooling.
+- Audited all 19 active workflow files without executing their jobs. Keep existing Atomic Docker/Podman/static producers, runtime isolation/cleanup, actual product tests, builds, Pages and publication. Replace orchestration, scheduling and authorization, not those implementations.
+- Current `ci.yml` still subscribes to default PR events, including synchronize; its concurrency cancels in-flight runs. `pre-release.yml` and `targeted-demo-acceptance.yml` share the single repository-wide `baseharbor-release-qualification` concurrency group even though current gate execution uses fresh hosted runners. This can queue independent work. Replace that global scheduling bottleneck with bounded scheduling scoped to actual isolation/resource needs; do not relax isolation or cancel healthy unrelated work.
+- Existing requirements contain 65 baseline gates through v0.4.26. Preserve their declared coverage and verifier-valid successes. They are not an instruction to execute all 65 for each new PR or release. The Owner publication exception for v0.4.26 is not a green qualification receipt.
+
+### Gaps in published drafts
+
+- #1048 remains draft at `cdc905c93005fa2f8edc442e499e98bbea71b611`. Its receipt scheduler exists as a function but is not called by planning/workflow scheduling. The issuer requires the overall run to succeed, so it cannot durably preserve individual green gates from a failed run. Its CLI publishes a receipt but has no authoritative pending/failure/success status path for the new Required Check.
+- #1055 remains draft at `cf0fedd0e8863d73cb5715fcb4f7f3544f688c73`. Its `labeled` trigger accepts all label events while every PR job, including `PR Selected Checks`, can be skipped by the event guard. After a new head, an unrelated label could therefore create a skipped required job which GitHub counts as success. This is a static source finding, not a claim that a live bypass was executed. Do not merge this draft as-is.
+- Official behavior: https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions states that a skipped job reports success even when required. A lightweight router may skip its own non-required dispatch job; the actual merge-authorizing status must never be synthesized from that skip.
+- #1051 remains draft at `c7352556e39d3c09a70609985382d00c4b7e4304`. It adds an exact-path lane for only ten early prototype paths, not the complete later executor/policy/source set. Integrate useful mapping into the current trusted planner; do not install a second competing planner or treat old test counts as qualification of newer code.
+- Reported later local candidates remain unavailable. Continue from published source and reconstruct only missing behavior; do not wait indefinitely for an unavailable SHA or claim its reported tests as reproducible evidence.
+
+### Bounded replacement sequence
+
+1. Assemble one authoritative replacement candidate on the current source, continuing the assigned implementation and incorporating useful draft changes. Keep the old active route until the replacement is complete enough to qualify; do not run two automatic normal PR matrices.
+2. Finish protected planning/execution/issuance: explicit ready/open/ci:validate submission, no executor on an ordinary PR push or unrelated label; durable signed outcomes per gate, original run/attempt order, negative-result precedence and fresh plan/final verification. A repeated unchanged request reuses valid coverage; a partial failure reruns only failed/missing/affected work. Newer pending/negative outcomes must not inherit an older overall green status.
+3. Keep the corrected canonical input fingerprints. Bind actual relevant source/toolchain/runtime/fixture inputs and consumer pins, not merely the newest overall commit SHA. A genuinely changed verifier/policy/executor pin can require bounded requalification; do not promise arbitrary cross-policy reuse or blindly bless older outcomes.
+4. Install the pinned protected source, public anchor, issuer-only key and scoped publisher, plus required default-branch workflow registration and the workflow allowlist. Qualify one bounded static pilot covering explicit submission, no-run events, partial success/retry and unchanged-input reuse; exercise stale/negative/status/publication cases with focused existing regression checks. Do not launch a complete native release matrix for this control-plane change. Real native execution is needed only where an uncovered change to a native executor/isolation boundary requires it.
+5. Switch Required Checks to the demonstrated authoritative result and retire the old automatic route in one controlled cutover, preserving expected-app binding and protection throughout. Before a new release, reconcile valid PR/integration outcomes, execute only remaining required coverage and a bounded smoke on exact publishable artifacts. Keep release-only build/publication separate from acceptance execution.
+
+The baseline CI replacement does not need to wait for every future v0.4.27 product feature. New feature contracts/tests join the exact impact map when implemented; uncovered new behavior remains explicitly blocked. Full v0.4.27 release qualification still needs its actual complete declared coverage and exact-artifact smoke.
+
+No production workflow, ruleset, environment, signing key or protected source was changed by this assessment, and no native CI matrix was started. The next implementation outcome must be reviewable as one coherent candidate, with only the smallest checks needed to prove the changed boundaries.
