@@ -27,7 +27,7 @@ evidence: []
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md), [t-20261026-r27-receipt-pilot](t-20261026-r27-receipt-pilot.md)  
 **Owner:** flash-f71 (worker-1 contract+legacy-bootstrap)  
 **Priority:** critical  
 **PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
