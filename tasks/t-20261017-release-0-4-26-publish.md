@@ -6,32 +6,32 @@ release: v0.4.26
 version: v0.4.26
 release_stage: publish
 parent: v0.4.26
-owner: ""
+owner: Codex (Owner-authorized v0.4.26 publication)
 priority: normal
 depends_on: [t-20261017-release-0-4-26-qualify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: []
+prs: [mcpdev80/baseharbor#1089]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-26-publish · v0.4.26 · Release: promote the approved candidate and deliver exact tagging commands #task #release/v0-4-26 #status/planned #view/waiting #board/planned #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-26-publish · v0.4.26 · Release: promote the approved candidate and deliver exact tagging commands #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** Codex (Owner-authorized v0.4.26 publication) · **Priority:** normal  
+    **PR:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
     **Needs:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.26](../releases/v0.4.26.md) (v0.4.26)  
 **Depends on:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
 **Required by:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
-**Owner:** unassigned  
+**Owner:** Codex (Owner-authorized v0.4.26 publication)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -59,4 +59,13 @@ Existing candidate/published-tree and approval verifiers, PR protection, actual 
 
 ## Handoff
 
-Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
+### Explicit Owner-directed publication — 2026-10-26
+
+Marcel explicitly instructed publication of all implemented v0.4.26 source now, despite failing or incomplete CI. For this release, that instruction supersedes the normal wait for complete pre-release approval. It does not turn missing or negative evidence into success, qualify the ecosystem, or authorize a false all-green statement. CI redesign remains v0.4.27 work.
+
+- Promoted exact develop source `433a5702c9735ffbf1e9fffe7a7ae513b1c5c396`, tree `d7c63770a31b082ab7fc1c9fd254e4918efafc59`, through [PR #1089](https://github.com/mcpdev80/baseharbor/pull/1089) using the permitted squash merge. Released main is `640981588d8b9255fbe7db8ca26796db1da09eb2`; the Git tree is byte-identical to the selected develop tree. No product source was changed for publication.
+- Created and independently re-fetched annotated tag `v0.4.26`, tag object `d09e1b024d1b161836b477ec37a95d017402fddc`, targeting that exact main commit. No existing version tag was moved.
+- Started isolated one-time [publication run 40355992335](https://github.com/mcpdev80/baseharbor/actions/runs/40355992335) from `release-publish/v0.4.26-owner-20261026` at `a71b0b4a35e52fa80d1828845e3b8c1256e8b21b`. This branch changes only its own release workflow; neither main/develop CI nor repository rulesets were modified. The workflow binds Owner actor ID, exact source/tree and version; it creates no fabricated pre-release approval.
+- Authorization/tagging job succeeded. Runtime image publication is in progress; real architecture-specific binary builds, checksum verification, provenance and GitHub Release publication follow. No product test matrix or native qualification was launched.
+- A machine-readable `owner-release-decision.json` records the actual exception and explicitly sets complete pre-release approval to false. It is retained as an Actions artifact and is to be attached to the Release. Human release notes disclose the same decision briefly.
+- Publication remains active until actual image/binary/release results are verified. Full pre-release qualification tasks and unresolved defects remain open; their state must not be rewritten as accepted merely because this release is Owner-directed. Existing `release/v0.4.26` and concurrent development branches were preserved.
