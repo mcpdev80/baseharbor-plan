@@ -6,12 +6,12 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.26 · App wizard, capability editing and development/CI V1 #roadmap #roadmap-state/delivered
     **Release:** published  
-    **Accepted tasks:** 39/45 · **Blocked:** 0 · **Waiting:** 1  
+    **Accepted tasks:** 42/46 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.26.md) · [Tasks](../views/releases/v0.4.26.md)
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 0/72 · **Blocked:** 0 · **Waiting:** 63  
+    **Accepted tasks:** 0/73 · **Blocked:** 0 · **Waiting:** 63  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
