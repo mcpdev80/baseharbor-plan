@@ -10,7 +10,7 @@ owner: flash-f71 (worker-1 contract+legacy-bootstrap)
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: []
+sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md"],
 blocker: ""
 resolution: ""
 evidence: []
