@@ -37,25 +37,18 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 <!-- /generated:links -->
 
 
-# Evidence publisher: archive actual proof in baseharbor-plan
+# Receipt writer: one bounded result, one Planning commit
 
 ## Goal
-Publish required, sanitized evidence payloads and a checksummed manifest to evidence/<release>/<candidate-id>/<run-id>/ in baseharbor-plan. GitHub Actions links alone are not evidence retention.
+Implement scripts/receipt_writer.py, approximately 100 lines excluding shared validation, invoked only by a trusted post-run workflow. PR jobs, including forks, never receive Planning write credentials.
 
-## Scope
-- Reuse existing trusted CI inputs and artifact producers; upload only bounded required proof after completion, not every verbose log.
-- Never overwrite an existing evidence ID; reject collisions and conflicting hashes. Publish manifest only when all payloads are present; use a dedicated branch/PR or collision-safe integration rather than force pushes.
-- Preserve concurrent plan edits, avoid direct worker writes to protected main, use least-privilege short-lived credentials and scrub secrets before any commit.
-- Keep run failures and upload failures distinguishable; failure to archive cannot masquerade as a qualified retained proof.
+## Scope and acceptance
+- Read authenticated GitHub run/attempt/job facts through the live verifier and a protected, immutable gate plan. Persist references/IDs only, below 500 bytes.
+- Create evidence/receipts/<gate>/<run>-<attempt>.json with approved:null. Identical retry is idempotent; conflicting content blocks.
+- Publish ordinary fast-forward commits, preserve concurrent Planning edits and report failed publication. No force pushes or secret/log payloads.
+- Publish an automatic task reference as part of the walking skeleton, with no manually copied run numbers or evidence URLs.
+- Start workflow integration only after PR 1 contract/scripts acceptance. Exactly one gate first; no parallel gate expansion.
+- No signature key, issuer service, payload archive, redaction pipeline or retention/recovery subsystem.
 
-## Acceptance
-- Real production-path tests for parallel writers, retry/idempotency, partial upload, duplicate ID, secret redaction and branch/run deletion simulation.
-- Exact SHA, digest and trusted-run provenance preserved. Cheap targeted CI before independent review.
-- No unrelated CI trust policy changes, no full release matrix.
-
-## Mandatory zero-touch integration
-- CI generates the manifest and sanitized required artifacts automatically on the ordinary human/agent/contributor PR path; no manual preparation or copying is allowed.
-- Trusted post-run publisher handles fork PRs without exposing planning write tokens to untrusted code.
-- On successful archival, automatically associate the immutable evidence reference with its task and PR via conflict-safe planning updates. Retrying after concurrent edits must preserve other authors' changes.
-- Missing archive or linking reports an actionable status and fails closed for gates requiring retained evidence.
-> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
+## Historical preparation
+PR #1048 is retained as historical isolated archive work, not an implementation dependency or current qualification. The Owner's 2026-10-26 receipt decision supersedes its archive/signature requirements.

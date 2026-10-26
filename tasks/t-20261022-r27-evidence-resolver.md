@@ -36,26 +36,17 @@ evidence: []
 <!-- /generated:links -->
 
 
-# Evidence resolver: stable lookup without workflow artifacts
+# Receipt lookup: read the approved Planning history
 
 ## Goal
-Resolve retained evidence by candidate, run and manifest digest from baseharbor-plan independently of an existing PR branch or GitHub Actions artifact.
+Resolve evidence/receipts/<gate>/<run>-<attempt>.json from an explicit Planning revision. Lookup is a small part of scripts/receipt_verifier.py, not a separate service or archive framework.
 
-## Scope
-- Read-only lookup and bounded payload retrieval. Never infer trust from a task status, a mutable link or a successful lookup.
-- Explicit not-found, incomplete, corrupt, stale and unauthorized outcomes; retain existing evidence references and older planning data.
-- Avoid coupling to CI producer or reviewer write sets.
+## Scope and acceptance
+- Bounded strict JSON read and exact full-SHA plan binding.
+- Validate receipt introduction and the sole allowed approval transition through Git objects. Later edits, including edit-and-revert histories, block.
+- Missing, ambiguous, unapproved or plan-incompatible receipts block. A successful lookup is not qualification.
+- Never query GitHub for already approved evidence. No artifact expiry, recovery or retention subsystem.
+- Ship together with the first writer/verifier PR rather than an independently built horizontal platform.
 
-## Acceptance
-- Tests resolve archived fixtures after source branch and Actions artifacts are unavailable.
-- Negative tests cover missing files, mismatched digest, ambiguous IDs and untrusted references.
-- No new registry/database/service.
-> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
-
-## Handoff – isolated preparation, 2026-10-24
-
-- Product prototype: [BaseHarbor PR #1048](https://github.com/mcpdev80/baseharbor/pull/1048). The resolver, staging publisher, and regression fixtures are preparatory work only; they are not trusted CI evidence or accepted dependencies.
-- Current security hardening: the archive verifier rejects unbound artifact digests and the resolver/publisher reject Boolean byte lengths. Focused changes are on the draft PR branch, not on `develop`.
-- The isolated prototype work is tracked separately in [t-20261024-r27-evidence-prototype](t-20261024-r27-evidence-prototype.md). This formal acceptance task remains **planned / waiting**. Its dependencies are still unaccepted: no production rollout, merge, or acceptance until v0.4.26 closeout, v0.4.27 release-start updates, and the evidence contract are accepted.
-- Remaining acceptance: independent runtime regression and negative security tests; source/manifest and run provenance validation by the existing trusted owners; hostile concurrent-writer directory confinement; recovery after source artifact expiry; exact digest verification; independent review.
-- CardBoard: show canonical `#status/planned` and derived `#view/waiting` until its prerequisites are accepted; this does not imply prerequisites accepted, early release activation or permission to merge. Generated previews and views belong to `scripts/plan.py render`.
+## Historical preparation
+Earlier PR #1048 archive resolver work remains historical and unaccepted. Its signed-manifest/retention requirements are superseded by the Owner's 2026-10-26 receipt decision.

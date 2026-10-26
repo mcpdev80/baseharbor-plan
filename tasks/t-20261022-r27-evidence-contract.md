@@ -35,22 +35,18 @@ evidence: []
 <!-- /generated:links -->
 
 
-# Evidence contract: retained, source-bound, independent of CI runs
+# Receipt contract: GitHub live witness, approved Git history
 
 ## Goal
-Define the smallest durable evidence contract using the existing baseharbor-plan evidence/ tree. No new evidence server, CI platform, database or mandatory S3 service. A deleted feature branch, workflow run or expired artifact must not erase an already archived proof.
+One canonical JSON receipt per successful gate/run/attempt, strictly below 500 bytes. Six top-level fields: gate, run (id and attempt), sha (full tested candidate SHA), status (pass), plan (full Planning commit), approved (null or by/at/receipt_commit). No signatures, logs, artifact archive, retention service or second evidence authority.
 
-## Scope
-- Specify unique run/candidate IDs, source and integration SHA, workflow identity, required check identity, attempt, timestamp, status, payload paths, SHA-256 checksums, trust/provenance and manifest schema.
-- Distinguish archived existence from current candidate qualification. Preserve trusted planner/executor/finalcheck authorities; no green carryover on changed source or policy.
-- Set append-only publication conventions, bounded sizes, redaction, access policy, retention, protected planning branch and independent backup limits. Ordinary Git history is not immutable WORM; no absolute deletion guarantee.
-- Define independent publisher, resolver and verifier contracts with negative-case behavior. Existing evidence and concurrent planning writers must be preserved.
-- Assign source ownership and independent CI/trust review; no product/runtime mutation.
+## Scope and acceptance
+- Pin gate details and source/integration inputs in the referenced Planning revision; never infer tested integration SHA from API head_sha alone.
+- Receipt path: evidence/receipts/<gate>/<run>-<attempt>.json. Only one transition from approved:null to an authenticated Owner approval is allowed; all other bytes remain fixed.
+- The live verifier authenticates repository, workflow, event, attempt, successful run AND named gate job, tested source binding and exact receipt bytes before approval.
+- After approval, retained verification uses protected Git history and the applicable plan only; no GitHub API/run/artifact dependency.
+- Existing legacy CI qualifies this bootstrap. A real positive receipt plus wrong-SHA, dead-run and edited-receipt rejection defines skeleton acceptance before cutover.
+- Product source, tests and paired EN/DE docs ship together in PR 1. No production workflow changes in PR 1.
 
-## Acceptance
-- Schema fixtures and validation cover wrong SHA, tampered payload, missing blob, stale attempt, wrong check identity and absent provenance.
-- Reviewer accepts threat model and repository-size/secret-exposure bounds before publisher work.
-- Planning generator/render/check passes; exact revision handoff recorded.
-
-## Parallel ownership
-Any qualified Codeman worker, ChatGPT/Codex session or external contributor may claim this task. Claims are per task/write set, not exclusive to Codeman. Separate reviewer for trust-sensitive changes.
+## Owner decision — 2026-10-26
+Marcel explicitly replaced the earlier signed archive design with minimal receipts and authorized task reconciliation and implementation. This supersedes earlier signature/archive requirements for the five evidence stories; it does not accept any implementation or prerequisite.
