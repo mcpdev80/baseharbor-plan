@@ -9,8 +9,8 @@ priority: critical
 owner: flash-coordinator + o145 (W5 independent)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-verifier]
 repos: [mcpdev80/baseharbor]
-prs: []
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md"],
+prs: [mcpdev80/baseharbor#1090]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
@@ -19,6 +19,7 @@ evidence: []
 - [ ] t-20261022-r27-evidence-acceptance · evidence acceptance #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
+    **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
     <!-- /generated:card -->
 
@@ -29,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Owner:** flash-coordinator + o145 (W5 independent)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -51,3 +52,5 @@ If the one-gate pilot is blocked by missing administrative configuration, publis
 
 ## Superseded scope
 Earlier signature, artifact-archive, expiry simulation and recovery-system requirements are superseded by Marcel's explicit 2026-10-26 receipt decision. No existing implementation is marked accepted by this rewrite.
+
+Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).

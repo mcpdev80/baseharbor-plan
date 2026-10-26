@@ -9,8 +9,8 @@ priority: critical
 owner: w3-lane (W3 verifier package)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-resolver]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1048]
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md"],
+prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1048]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
@@ -19,7 +19,7 @@ evidence: []
 - [ ] t-20261022-r27-evidence-verifier · evidence verifier #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w3-lane (W3 verifier package) · **Priority:** critical  
-    **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+    **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md)  
     <!-- /generated:card -->
 
@@ -30,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
 **Owner:** w3-lane (W3 verifier package)  
 **Priority:** critical  
-**PRs:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+**PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -49,3 +49,5 @@ Implement scripts/receipt_verifier.py with live, approve and retained modes. No 
 
 ## Bootstrap
 PR 1 is qualified by existing v0.4.26 legacy checks. Later changes may use only already accepted new components, never their own unaccepted successor. Keep the active legacy pipeline unchanged until the real skeleton is accepted.
+
+Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).

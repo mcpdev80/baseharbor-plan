@@ -9,8 +9,8 @@ priority: critical
 owner: w2-lane (W2 writer package)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1048]
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md"],
+prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1048]
+sources: []
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md"]
@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 - [ ] t-20261022-r27-evidence-publisher · evidence publisher #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w2-lane (W2 writer package) · **Priority:** critical  
-    **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+    **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md)  
     <!-- /generated:card -->
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
 **Owner:** w2-lane (W2 writer package)  
 **Priority:** critical  
-**PRs:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+**PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -51,3 +51,5 @@ Implement scripts/receipt_writer.py, approximately 100 lines excluding shared va
 
 ## Historical preparation
 PR #1048 is retained as historical isolated archive work, not an implementation dependency or current qualification. The Owner's 2026-10-26 receipt decision supersedes its archive/signature requirements.
+
+Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).
