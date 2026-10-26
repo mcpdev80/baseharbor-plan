@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

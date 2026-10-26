@@ -12,19 +12,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1090]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/ACCEPTANCE-PR1.md"]
 ---
 
-- [ ] t-20261022-r27-evidence-contract · evidence contract #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [x] t-20261022-r27-evidence-contract · evidence contract #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** flash-f71 (worker-1 contract+legacy-bootstrap) · **Priority:** critical  
     **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/ACCEPTANCE-PR1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md), [t-20261026-r27-receipt-pilot](t-20261026-r27-receipt-pilot.md)  
@@ -65,3 +66,5 @@ One canonical JSON receipt per successful gate/run/attempt, strictly below 500 b
 Marcel explicitly replaced the earlier signed archive design with minimal receipts and authorized task reconciliation and implementation. This supersedes earlier signature/archive requirements for the five evidence stories; it does not accept any implementation or prerequisite.
 
 Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).
+
+T0: 2026-10-26T23:35:50Z · Deadline (T0+72h): 2026-10-29T23:35:50Z · Record: evidence/r27-ci-replacement-2026-10-26/ACCEPTANCE-PR1.md
