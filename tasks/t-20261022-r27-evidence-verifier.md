@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: ""
+owner: w3-lane (W3 verifier package)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-resolver]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1048]
@@ -16,20 +16,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-evidence-verifier · evidence verifier #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+- [ ] t-20261022-r27-evidence-verifier · evidence verifier #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
+    **Owner:** w3-lane (W3 verifier package) · **Priority:** critical  
     **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
-**Owner:** unassigned  
+**Owner:** w3-lane (W3 verifier package)  
 **Priority:** critical  
 **PRs:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
 **Source:** 
