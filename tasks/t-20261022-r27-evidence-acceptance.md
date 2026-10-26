@@ -35,19 +35,20 @@ evidence: []
 <!-- /generated:links -->
 
 
-# Evidence acceptance: parallel contributors and recovery
+# Receipt acceptance: one ordinary contributor PR end to end
 
-## Goal
-Independently demonstrate durable, trusted CI proof with Codeman workers, maintainer sessions and external contributors sharing the same claim/review protocol.
+## Acceptance fixed before implementation
+- Exactly one gate: runner -> trusted post-run writer -> Receipt commit -> live verifier -> authenticated Owner approval commit -> final-check consumption.
+- One genuine successful GitHub path plus three rejected cases: wrong candidate SHA, nonexistent run ID, edited receipt. Unit fixtures alone do not accept the skeleton.
+- An ordinary contributor PR generates, verifies and links its receipt without anyone writing a run number, manifest or evidence URL by hand. The explicit Owner approval remains a decision, not evidence bookkeeping.
+- After approval, retained verification succeeds with GitHub API access disabled; edited receipts still fail.
+- Developer summary is at most three lines: checked / validly reused / not required with reason. Not-required belongs to the plan, never a PASS receipt.
+- Existing required legacy checks remain authoritative during the pilot. Only a subsequent cutover PR may replace the relevant check.
+- No additional gates, cross-domain matrix or reuse machinery before this acceptance. No release or product-task acceptance is implied.
 
-## Acceptance
-- Two independent authors publish nonconflicting evidence while unrelated planning updates land; neither overwrites the other.
-- Delete or expire source CI artifacts and delete a feature branch in a controlled fixture; archived proof remains resolvable and validates for the original exact candidate.
-- Changed candidate, missing check, bad signature/hash and unauthorized publication fail closed.
-- Document practical recovery/backup and repository-size limits, release handoff and smallest CI gates.
-- Independent reviewer accepts evidence; do not automatically merge, promote or publish a release.
+## Sequence and fallback
+PR 1: contract + two scripts + three negatives + EN/DE docs. PR 2: one real shadow skeleton and automatic task link. PR 3: accepted final-check cutover. Each PR qualifies through the existing accepted path.
+If the one-gate pilot is blocked by missing administrative configuration, publish that concrete blocker and continue eligible product work using already adequate trusted legacy checks; do not add infrastructure scope while waiting. Product interfaces and necessary coverage remain required.
 
-## Human parity acceptance
-- Demonstrate an ordinary external contributor PR with no custom evidence commands: CI creates, archives, verifies and links the proof automatically.
-- Demonstrate an ordinary maintainer PR and Codeman worker PR following the identical process, including concurrent planning writes.
-- No manual JSON manifest, artifact download, evidence URL copy/paste or special role-specific tooling required.
+## Superseded scope
+Earlier signature, artifact-archive, expiry simulation and recovery-system requirements are superseded by Marcel's explicit 2026-10-26 receipt decision. No existing implementation is marked accepted by this rewrite.

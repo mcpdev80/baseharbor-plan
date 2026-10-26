@@ -36,17 +36,17 @@ evidence: []
 <!-- /generated:links -->
 
 
-# Evidence verifier: retained does not mean qualified
+# Receipt verifier: live approval, retained Git verification
 
 ## Goal
-Bind archived evidence to the exact current trusted plan, source/integration SHA, check requirements and accepted run identity without weakening existing finalcheck.
+Implement scripts/receipt_verifier.py with live, approve and retained modes. No signatures and no API calls after approval.
 
-## Scope
-- Verify checksums, authenticated provenance, run outcome, policy version and candidate binding against existing trusted authorities.
-- Fail closed on absent evidence, changed source, missing mandatory checks, mismatched integration SHA, stale/invalid trust inputs or tampering.
-- Independently review trust-affecting changes. Publisher author cannot self-qualify evidence.
+## Scope and acceptance
+- Live: authenticate successful exact run/attempt, repository, workflow/event, successful named gate job, plan and candidate/integration binding; compare exact committed receipt bytes.
+- Approve: only an authenticated Owner workflow action, immediately after a new live verification, may add by/at/receipt_commit. Approval refers to the exact original receipt commit; user-controlled names are not authorization.
+- Retained: verify protected Git ancestry and the unique permitted approval edit, reject subsequent edits and compare applicable plan/candidate without contacting GitHub.
+- Wrong SHA, nonexistent run and edited receipt each fail closed. API unavailability is unverified, never PASS.
+- Existing final-check logic consumes receipts only after skeleton acceptance and a separate cutover PR. No circular dependency on the producer workflow completing itself.
 
-## Acceptance
-- Production-path negative regression matrix plus genuine accepted-path check.
-- Final verifier accepts archived proof even when the source workflow artifact has expired, only if every current qualification predicate holds.
-- No broad CI path exemptions, self-review or silent green reuse.
+## Bootstrap
+PR 1 is qualified by existing v0.4.26 legacy checks. Later changes may use only already accepted new components, never their own unaccepted successor. Keep the active legacy pipeline unchanged until the real skeleton is accepted.
