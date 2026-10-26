@@ -12,21 +12,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1048]
 sources: []
 early: false
-blocker: "Published kit needs durable reuse, partial-outcome ordering and enforcing status; fix skip-as-success trigger risk before rollout."
-resolution: ""
-evidence: []
+blocker: ""
+resolution: superseded
+superseded_by: t-20261022-r27-evidence-contract
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-10-26-minimal-receipts.md", "https://github.com/mcpdev80/baseharbor/pull/1090", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/RECEIPT-PR1.md"]
 ---
 
-- [ ] t-20261024-r27-evidence-prototype · CI: isolated evidence archive security prototype #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
+- [x] t-20261024-r27-evidence-prototype · CI: isolated evidence archive security prototype #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
-    **Blocker:** Published kit needs durable reuse, partial-outcome ordering and enforcing status; fix skip-as-success trigger risk before rollout.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-10-26-minimal-receipts.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1090), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/RECEIPT-PR1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  

@@ -12,12 +12,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | ---: |
 | active | 6 |
 | review | 2 |
-| blocked | 1 |
+| blocked | 0 |
 | ready | 4 |
 | queued | 26 |
 | waiting | 231 |
 | backlog | 7 |
-| closed | 45 |
+| closed | 46 |
 
 ## Active
 
@@ -39,9 +39,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261024-r27-evidence-prototype](../tasks/t-20261024-r27-evidence-prototype.md) | CI: isolated evidence archive security prototype | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048) |
+None.
 
 ## Ready to assign
 
@@ -55,7 +53,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 6 open, 39 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 72 open, 0 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 71 open, 1 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
