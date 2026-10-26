@@ -14,18 +14,19 @@ prs: [mcpdev80/baseharbor#1089]
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.26", "https://github.com/mcpdev80/baseharbor/actions/runs/40355992335", "https://github.com/mcpdev80/baseharbor/pull/1089"]
 ---
 
-- [ ] t-20261017-release-0-4-26-publish · v0.4.26 · Release: promote the approved candidate and deliver exact tagging commands #task #release/v0-4-26 #status/active #view/active #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-26-publish · v0.4.26 · Release: promote the approved candidate and deliver exact tagging commands #task #release/v0-4-26 #status/review #view/review #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** Codex (Owner-authorized v0.4.26 publication) · **Priority:** normal  
     **PR:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
     **Needs:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.26), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/40355992335), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1089)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.26](../releases/v0.4.26.md) (v0.4.26)  
 **Depends on:** [t-20261017-release-0-4-26-qualify](t-20261017-release-0-4-26-qualify.md)  
 **Required by:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
@@ -69,3 +70,9 @@ Marcel explicitly instructed publication of all implemented v0.4.26 source now, 
 - Authorization/tagging job succeeded. Runtime image publication is in progress; real architecture-specific binary builds, checksum verification, provenance and GitHub Release publication follow. No product test matrix or native qualification was launched.
 - A machine-readable `owner-release-decision.json` records the actual exception and explicitly sets complete pre-release approval to false. It is retained as an Actions artifact and is to be attached to the Release. Human release notes disclose the same decision briefly.
 - Publication remains active until actual image/binary/release results are verified. Full pre-release qualification tasks and unresolved defects remain open; their state must not be rewritten as accepted merely because this release is Owner-directed. Existing `release/v0.4.26` and concurrent development branches were preserved.
+
+### Publication completed — 2026-10-26
+
+- Publication run `40355992335`, attempt 1, completed successfully at `2026-10-26T16:17:23Z`. Authorization/tagging, multiarch runtime build and archive publication jobs all succeeded.
+- Stable GitHub Release v0.4.26 is public with both Linux archives, checksums and the Owner-decision attachment. Annotated tag still resolves to exact main `640981588d8b9255fbe7db8ca26796db1da09eb2`.
+- Owner-authorized publication completed under the explicit exception above. The normal gated-stage acceptance remains unclaimed because complete pre-release qualification is outstanding. No failing source/native evidence was changed into success.
