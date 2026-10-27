@@ -12,19 +12,20 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1077"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1096"]
 ---
 
-- [ ] t-20261027-r27-credential-retention · Implement native credential retention + provenance (supersedes #1077 debt) #task #release/v0-4-27 #status/active #view/active #area/application #kind/task
+- [x] t-20261027-r27-credential-retention · Implement native credential retention + provenance (supersedes #1077 debt) #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/application #kind/task
     <!-- generated:card -->
     **Owner:** z3-lane  
     **PR:** [baseharbor#1077](https://github.com/mcpdev80/baseharbor/pull/1077)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1096)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -68,4 +69,13 @@ Source: Codex review verdict cmf23 on `baseharbor#1077` (reviewed head `a39e6bf5
 
 ## Handoff
 
+- 2026-10-27 (z19 planning lane, Owner mission z19): ACCEPTED + CLOSED. PR #1096 was
+  MERGED into develop as squash `3431b22c94b068f15f9bd7b31b9f87e846200f0f`
+  (mergedAt 2026-10-27T03:10:34Z), so the earlier review state resolves to
+  accepted/closed. Evidence: root repo `evidence/board-2026-10-26/z3-credential-retention.md`
+  (implementation + green local checks), `z5-reviews-1096.md` (independent CODEX-REVIEW
+  of head `b7b21dad`), `z7-covmap.md` (coverage mapping landed on the PR branch) and
+  `z18-pr3-plan.md` (planning note). Resolution string "merged squash 3431b22c" is
+  recorded here because the schema resolution field is the enum
+  accepted|superseded|dropped; `resolution: accepted` is the machine-readable state.
 - 2026-10-27 (planning lane y8): card created from the cmf23 triage chain. Verified current state: develop contains no `ensureNativeBackendCredentialValues` and no `SwitchBack` test, while both exist only on the retired `#1077` branch (`internal/application/runtime_native_binding_projection.go`, `runtime_environment.go` and `runtime_placement_retention_test.go`). Diagnosis is documented in `evidence/board-2026-10-26/y4.md` with the y3 triage note in the same directory. No owner claimed, status planned.
