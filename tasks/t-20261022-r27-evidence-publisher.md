@@ -48,12 +48,45 @@ Existing six-field schema, attempt 1 and live verifier; corrected controller pin
 
 ## Ordered subtasks
 1. Replace the echo-only post-run template with actual bounded trusted-code execution and Planning checkout. Never check out PR head for privileged Python. Gate on eligible run/producer identity and success.
-2. Obtain workflow_id from authenticated run.workflow_id and head/base/integration from authenticated producer data; never run.id or a branch-name fallback. Validate the real primary task association. Caller-supplied refs alone are not authenticated facts.
+2. Obtain the plan's workflow_id from authenticated run.workflow_id and the receipt's run.id from authenticated run.id; these are distinct IDs. Obtain head/base/integration from authenticated producer data, never a branch-name fallback. Validate the real primary task association. Caller-supplied refs alone are not authenticated facts.
 3. Produce the plan and receipt, then publish by ordinary fast-forward/expected-head update with bounded re-read/reapply on unrelated concurrent edits. Require clean worktree; propagate Git/API failures, preserve other writers, make identical retry idempotent and conflicting receipt fail closed. Define exact return values for introduction/path/published commits so W3/W1 do not guess HEAD.
 4. Publish a task-to-receipt evidence reference and summary automatically; plan.task alone is not task evidence publication. Keep receipt bytes immutable except W3's single approval edit. Test actual implementation calls, not fixture arithmetic.
 
 ## Acceptance
 Temporary Git tests prove successful durable publication, rejected push is not success, unrelated-writer preservation, idempotency, introduction-commit return and conflict failure. Workflow has no manual run/SHA/patch step and no candidate-code credential exposure. Actual cross-repository permission is separately proven before hosted pilot. Coordinator reviews combined candidate; hosted chain proof belongs to shadow-run.
+
+## Required correction: post-run ID and Planning revision wiring (Owner request, 2026-10-27)
+
+This is an executable correction within W2, not a new architecture or a separate worker lane. Owner has lifted the pause. Coordinator must first read the current shared candidate and existing reservations, preserve concurrent work, and assign this file set to its current owner. The inspected newer candidate is #1125, `839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7`; the three defects below still exist there. Re-read the latest head before editing: retain any already-correct fix and prove it instead of restoring this snapshot. These are the concrete ID/revision/extraction portion of [existing review F1](../evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md#f1--open-post-run-publication-still-cannot-execute), not a replacement for its other open findings.
+
+### 1. Keep run identity separate from workflow definition identity
+
+- Set the writer's `RUN_ID` from `${{ github.event.workflow_run.id }}` and pass that value to `receipt_writer.py --run`. Never use the controller's `github.run_id` or the producer's `workflow_id` for this argument.
+- Keep `workflow_id` separately in the plan, sourced from `${{ github.event.workflow_run.workflow_id }}` and checked against the authenticated producer run. Do not require the plan artifact to invent this API field.
+- Preserve the attempt-1 pilot restriction: reject a source attempt other than 1 explicitly; do not relabel an Actions rerun as attempt 1.
+- Remove the backwards comment claiming that a receipt run ID is a workflow definition ID. `live()` checks both `run.id == receipt.run.id` and `run.workflow_id == plan.workflow_id`; neither check may be weakened to accommodate the wiring.
+
+### 2. Pass the actual Planning plan commit to the writer
+
+- Give the tasklink step an `id`. Export the exact commit returned by successful plan-fixture production as `plan_revision` via `GITHUB_OUTPUT`; do not parse arbitrary progress text as a SHA. If the current CLI mixes diagnostic output and its result, expose the result unambiguously through the existing helper/CLI.
+- Set the publish step's `PLAN_REVISION` to that tasklink output, e.g. `${{ steps.tasklink.outputs.plan_revision }}`. It must identify a commit in the Planning checkout containing `evidence/receipt-plans/public-contracts.json` and the real task association.
+- Keep `candidate_sha` separately as the tested product integration SHA. Never substitute product candidate/head SHA, run ID, or a later unrelated Planning HEAD for `plan_revision`.
+- Publish the plan commit and receipt together through the existing ordinary fast-forward publication path. Before reporting success, prove the referenced plan commit is reachable in the durable Planning history; no local-only commit counts. Preserve correct plan binding if publication must reapply over concurrent edits.
+
+### 3. Reject invalid extraction at its source
+
+- Remove `${value:-unknown}`, literal `unknown`, candidate-to-head fallbacks, and success/warning continuations after missing or invalid required artifact data.
+- Before exporting any output, validate head/base/integration as exactly 40 lowercase hexadecimal characters; validate run ID, workflow ID and attempt as positive integers and check their authenticated bindings. A nonempty-string test alone is insufficient.
+- Require the real `integration_sha`; missing, null, malformed, duplicate-key or otherwise invalid required data must stop extraction with an actionable error. Missing artifact/download/parse errors must stop the job before tasklink, receipt creation or publication.
+- Use artifact values only as data, never `source`/`eval`. Keep the heredoc executable: redirect on the Python invocation, not on its closing delimiter. Do not expand undefined shell variables under `set -u`; writing `GITHUB_OUTPUT` does not assign a shell variable.
+
+### Focused proof and completion
+
+1. Exercise the actual resolved workflow step commands in a bounded local fixture, not just text assertions. Use different positive run/workflow IDs and different product/Planning SHAs; assert the writer receives exactly the producer run ID and returned Planning commit, while the plan retains the workflow ID and tested integration SHA.
+2. Use a temporary Planning repo and bare remote to prove that the output commit contains the plan and remains reachable with the published receipt; the receipt's `plan` field equals that commit. No GitHub write token or hosted run is needed for this local proof.
+3. Cover absent/malformed required artifact fields and missing artifact with nonzero extraction result and no writer/publish invocation. Reuse existing tests where they already prove these boundaries; no duplicated evidence suite or full runtime matrix.
+4. Run actionlint plus shell syntax/execution checks for the changed blocks and affected focused receipt tests. Check the current candidate's hosted CI results before a single coherent correction push. No per-field push/debug loop.
+5. Coordinator integrates into the existing current candidate and records the exact SHA, actual commands/outcomes and which F1 items are closed. These three corrections do not close the other F1-F8 findings or accept the hosted automatic skeleton. No merge, activation, release operation or manual evidence workaround follows merely from this task update.
 
 ## Exclusions
 No secrets/log payloads in receipts or summaries, force push, archive/retention mechanism, new service or live dispatch during pause.
