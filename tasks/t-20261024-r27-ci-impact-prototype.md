@@ -9,7 +9,7 @@ priority: high
 owner: "ChatGPT (isolated v0.4.27 prototype)"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1109, mcpdev80/baseharbor#1115, mcpdev80/baseharbor#1125]
+prs: [mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1109, mcpdev80/baseharbor#1115, mcpdev80/baseharbor#1125, mcpdev80/baseharbor#1129]
 sources: []
 early: false
 blocker: ""
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1108", "https://github.c
 - [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
-    **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125)  
+    **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1108), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1109), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1110), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1121), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1122), [proof 6](https://github.com/mcpdev80/baseharbor/commit/839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md), [proof 8](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/b2-board.md)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1108", "https://github.c
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** ChatGPT (isolated v0.4.27 prototype)  
 **Priority:** high  
-**PRs:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125)  
+**PRs:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -67,5 +67,5 @@ The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-20
 Slot W1 executes via fresh lane `w1` (ornith), branch `work/r27-w1-discovery` from frozen develop `3431b22c`; historical owner string preserved per governing order. Lane WIP checkpoint `worktrees/pr3a` (ci.yml change = reusable input; scripts/pr-required-final.py + scripts/test_pr_required_final_receipt.py are outside the reserved write set and enter only by owner-of-file review).
 
 ## Candidate status 2026-10-27 (b2 board sync)
-Integrated candidate: baseharbor#1125 (branch `work/r27-correction-v34`, head `839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7`). Package PRs: #1108, #1109, #1110, #1121, #1122. Codex REVIEW verdicts [CODEX-REVIEW-c7936e8bd838.md](../evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md) and [CODEX-REVIEW-804383ed3364.md](../evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md): both BLOCKED; F7 closed at source/test level, F1-F6 partially open and F8 open; no green required hosted CI on either reviewed candidate. Status stays review. Resolution text is not set here because the validator only allows `resolution` on a checked card.
+Integrated candidate: baseharbor#1125 (branch `work/r27-correction-v34`, head `839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7`). v3.5 integration chain #1129 (branch `work/r27-correction-v35`, head `f57b30ed`) merges #1128/#1126/#1127, Owner-Corrective D1/D2/D3, PR [1129](https://github.com/mcpdev80/baseharbor/pull/1129). Package PRs: #1108, #1109, #1110, #1121, #1122. Codex REVIEW verdicts [CODEX-REVIEW-c7936e8bd838.md](../evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md) and [CODEX-REVIEW-804383ed3364.md](../evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md): both BLOCKED; F7 closed at source/test level, F1-F6 partially open and F8 open; no green required hosted CI on either reviewed candidate. Status stays review. Resolution text is not set here because the validator only allows `resolution` on a checked card.
 
