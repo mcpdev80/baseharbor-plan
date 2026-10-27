@@ -3,8 +3,8 @@ Source lane: w1 (ornith, PR #1109 head 46a1c18d6f70). Published by coordinator a
 # W1 evidence draft — trusted receipt execution, discovery and shadow consumption
 
 **Lane:** `w1` (ornith) · **Branch:** `work/r27-w1-discovery` · **Base:** develop `3431b22c`
-**Task:** [t-20261024-r27-ci-impact-prototype](../../baseharbor-plan/tasks/t-20261024-r27-ci-impact-prototype.md)
-**Order:** [CODEMAN-START.md](../../baseharbor-plan/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md)
+**Task:** [t-20261024-r27-ci-impact-prototype](../../tasks/t-20261024-r27-ci-impact-prototype.md)
+**Order:** [CODEMAN-START.md](../../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md)
 **State of this draft:** draft for independent review and coordinator merge. Not accepted. W1 cannot self-qualify the automatic chain.
 
 ## 1. Findings (from the audit, verified against frozen develop `3431b22c`)
