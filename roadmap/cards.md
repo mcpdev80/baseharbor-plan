@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 4/74 · **Blocked:** 0 · **Waiting:** 64  
+    **Accepted tasks:** 2/76 · **Blocked:** 1 · **Waiting:** 65  
+    **Blocker:** [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) — t-20261027-r27-shadow-run  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later

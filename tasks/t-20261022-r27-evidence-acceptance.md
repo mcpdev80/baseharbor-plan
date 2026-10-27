@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
     **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
