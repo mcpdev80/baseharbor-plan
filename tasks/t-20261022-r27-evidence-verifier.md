@@ -9,7 +9,7 @@ priority: critical
 owner: w3-lane (W3 verifier package)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1107]
+prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1107, mcpdev80/baseharbor#1110]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
 - [ ] t-20261022-r27-evidence-verifier · W3: genuine Owner approval and live/offline verification #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w3-lane (W3 verifier package) · **Priority:** critical  
-    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
+    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1110](https://github.com/mcpdev80/baseharbor/pull/1110)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/ACCEPTANCE-PR1.md)  
     <!-- /generated:card -->
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** w3-lane (W3 verifier package)  
 **Priority:** critical  
-**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
+**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1110](https://github.com/mcpdev80/baseharbor/pull/1110)  
 **Source:** 
 <!-- /generated:links -->
 
