@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/"]
 ---
 
-- [ ] t-20261027-r27-shadow-run · shadow-run pilot #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261027-r27-shadow-run · shadow-run pilot #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coordinator-lane · **Priority:** critical  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -77,6 +77,15 @@ Alle 5 Kettenglieder in GitHub/Planning verifizierbar:
 - Activation merged via baseharbor#1095 (c11f0531); repair runs as the z2 PR.
 - Proof paths: `evidence/board-2026-10-26/*` (y1, y2, y8, y9, z1).
 - **Deadline:** 2026-10-29T23:35:50Z.
+
+## Resolution 2026-10-27 (z19 planning lane, Owner mission z19)
+
+Shadow chain complete, see `evidence/board-2026-10-26/SHADOW-RUN-RECORD.md` (root repo):
+all five links proven in one genuine run — producer run 40428162731 SUCCESS, fixture
+5ecabc1, receipt 06f25dcf, hosted Owner approval dispatch 40440882700 SUCCESS
+(planning 8411672), retained verify rc=0. Deadline met on day 1. Accepted per
+explicit Owner instruction (z19.txt); root-repo record is the authoritative
+chain proof.
 
 ---
 
