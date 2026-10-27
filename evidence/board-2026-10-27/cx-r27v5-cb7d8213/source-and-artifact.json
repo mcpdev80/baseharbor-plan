@@ -1,0 +1,182 @@
+[
+  {
+    "sha": "3431b22c94b068f15f9bd7b31b9f87e846200f0f",
+    "ancestor": true
+  },
+  {
+    "sha": "839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7",
+    "ancestor": true
+  },
+  {
+    "sha": "f57b30ed48f19e62452ab793801a02ccd2658414",
+    "ancestor": true
+  },
+  {
+    "sha": "27507addc4efc2e41ba2f7bcba891b153a815a9c",
+    "ancestor": true
+  },
+  {
+    "sha": "cdddf21d0b6a3626e9180d51db809a57ebd0ac2d",
+    "ancestor": true
+  },
+  {
+    "sha": "8d12fbb40e4885d9e5b80cde949dd46ac9c60a05",
+    "ancestor": true
+  },
+  {
+    "sha": "cb7d821302b239bb04172527b2716f361afd79e5",
+    "ancestor": true
+  },
+  {
+    "path": "scripts/receipt_writer.py",
+    "v36_equal": true,
+    "sha256": "2eb24dbc953086d9449513d9997da96753808c6799e2cb74ce129fbacd71080c"
+  },
+  {
+    "path": "scripts/receipt_tasklink.py",
+    "v36_equal": true,
+    "sha256": "c4a7e58e2e896179da521a0b21fc891c7d89d591aa112f7123fa94629df4e040"
+  },
+  {
+    "path": "scripts/receipt_verifier.py",
+    "v36_equal": true,
+    "sha256": "fc18d6fbfee7370e0d7db97d127198a78c4300737c411bff07e82143aef4ae41"
+  },
+  {
+    "path": ".github/workflows/receipt-post-run.yml",
+    "v36_equal": true,
+    "sha256": "9ac9e88e9f125802a9e8210eedc4be878e78c7b4b397999ec637e853b57227b7"
+  },
+  {
+    "path": ".github/workflows/receipt-approval.yml",
+    "v36_equal": true,
+    "sha256": "ff0c0f1ee7d6b20cf496c89141cee9d84a868f87483ea1a947a61a2601146fcd"
+  },
+  {
+    "path": ".github/workflows/receipt-shadow.yml",
+    "v36_equal": true,
+    "sha256": "5cbfff9ad4498588348979eec382e924edea5eae86f7aea19501cfb5293d4902"
+  },
+  {
+    "artifact_files": [
+      "pr-plan.json"
+    ],
+    "artifact_plan": {
+      "broad_required": true,
+      "coverage_status": "unresolved",
+      "head_sha": "cb7d821302b239bb04172527b2716f361afd79e5",
+      "integration_sha": "fe14632b93be827b0a5011b5e0c6f68a32191190",
+      "mapping_schema": "baseharbor.pr-gate-map/v1",
+      "merge_base_sha": "3431b22c94b068f15f9bd7b31b9f87e846200f0f",
+      "reasons": [
+        ".github/workflows/ci.yml: runtime-workflow-unresolved",
+        ".github/workflows/receipt-approval.yml: receipt-control-plane-workflow",
+        ".github/workflows/receipt-post-run.yml: receipt-control-plane-workflow",
+        ".github/workflows/receipt-shadow.yml: receipt-control-plane-workflow",
+        "docs/de/development/minimal-ci-receipts.md: documentation",
+        "docs/development/minimal-ci-receipts.md: documentation",
+        "evidence-r27/ci1-repair.md: ci-executor-unresolved",
+        "evidence-r27/cy1.md: ci-executor-unresolved",
+        "evidence-r27/cy3.md: ci-executor-unresolved",
+        "evidence-r27/f1-fix.md: ci-executor-unresolved",
+        "evidence-r27/f3b-fix.md: ci-executor-unresolved",
+        "evidence-r27/g1x.md: ci-executor-unresolved",
+        "evidence-r27/g1y.md: ci-executor-unresolved",
+        "evidence-r27/g2x.md: ci-executor-unresolved",
+        "evidence-r27/r5i.md: ci-executor-unresolved",
+        "evidence-r27/s2-v3staging.md: ci-executor-unresolved",
+        "evidence-r27/w1.md: ci-executor-unresolved",
+        "evidence-r27/w3.md: ci-executor-unresolved",
+        "evidence-r27/w4b3.md: ci-executor-unresolved",
+        "evidence-r27/w4c.md: ci-executor-unresolved",
+        "evidence-r27/w5.md: ci-executor-unresolved",
+        "evidence-r27/x1-fix.md: ci-executor-unresolved",
+        "evidence/g1/evidence-r27/g1.md: ci-executor-unresolved",
+        "scripts/pr-check-runner.py: ci-executor-unresolved",
+        "scripts/pr-gate-plan.py: ci-planner",
+        "scripts/receipt_tasklink.py: receipt-control-plane-script",
+        "scripts/receipt_verifier.py: receipt-control-plane-script",
+        "scripts/receipt_writer.py: receipt-control-plane-script",
+        "scripts/test_ci_workflow_policy_receipts.py: receipt-control-plane-test",
+        "scripts/test_pr_check_runner.py: ci-executor-unresolved",
+        "scripts/test_pr_gate_plan.py: ci-planner",
+        "scripts/test_receipt_chain.py: receipt-control-plane-test",
+        "scripts/test_receipt_postrun.py: unresolved",
+        "scripts/test_receipt_tasklink.py: receipt-control-plane-test",
+        "scripts/test_receipt_verifier.py: receipt-control-plane-test",
+        "scripts/test_receipt_writer.py: receipt-control-plane-test"
+      ],
+      "release": "v0.4.26",
+      "required_validation_checks": [
+        {
+          "command": "go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 -shellcheck=",
+          "id": "ci-actionlint",
+          "owner": ".github/workflows workflow syntax"
+        },
+        {
+          "command": "PYTHONPATH=scripts python3 -m unittest scripts/test_pre_release_resume.py scripts/test_evidence_api_transport.py scripts/test_select_evidence_attempts.py",
+          "id": "ci-executor-verifier-tests",
+          "owner": "core-893 CI executor/verifier"
+        },
+        {
+          "command": "bash scripts/ci-workflow-policy.sh",
+          "id": "ci-policy",
+          "owner": "scripts/ci-workflow-policy.sh"
+        },
+        {
+          "command": "bash scripts/documentation-audit.sh",
+          "id": "documentation-audit",
+          "owner": "scripts/documentation-audit.sh"
+        },
+        {
+          "command": "mkdocs build --strict --config-file mkdocs.de.yml",
+          "id": "mkdocs-de-strict",
+          "owner": ".github/workflows/pages.yml:build"
+        },
+        {
+          "command": "mkdocs build --strict --config-file mkdocs.yml",
+          "id": "mkdocs-en-strict",
+          "owner": ".github/workflows/pages.yml:build"
+        },
+        {
+          "command": "build candidate documentation without deploying Pages",
+          "id": "pages-candidate-build",
+          "owner": ".github/workflows/pages.yml:build"
+        },
+        {
+          "command": "python3 -m unittest scripts/test_pr_gate_plan.py",
+          "id": "pr-planner-tests",
+          "owner": "scripts/test_pr_gate_plan.py"
+        }
+      ],
+      "schema": "baseharbor.pr-gate-plan/v1",
+      "selected_gates": [],
+      "target_base_sha": "3431b22c94b068f15f9bd7b31b9f87e846200f0f",
+      "unresolved_coverage": [
+        "workflow execution/cleanup/evidence impact requires native qualification: .github/workflows/ci.yml",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/ci1-repair.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/cy1.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/cy3.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/f1-fix.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/f3b-fix.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/g1x.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/g1y.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/g2x.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/r5i.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/s2-v3staging.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/w1.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/w3.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/w4b3.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/w4c.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/w5.md",
+        "CI execution/evidence impact requires specific qualification: evidence-r27/x1-fix.md",
+        "CI execution/evidence impact requires specific qualification: evidence/g1/evidence-r27/g1.md",
+        "CI execution/evidence impact requires specific qualification: scripts/pr-check-runner.py",
+        "CI execution/evidence impact requires specific qualification: scripts/test_pr_check_runner.py",
+        "unknown impact for scripts/test_receipt_postrun.py"
+      ],
+      "validation_contract": "Enforce all required_validation_checks independently of selected_gates; zero selected_gates is valid only when coverage_status is resolved. If unresolved, final check MUST fail closed; never treat as no checks or automatically run the complete release catalog.",
+      "required_consumer_dependencies": []
+    }
+  }
+]

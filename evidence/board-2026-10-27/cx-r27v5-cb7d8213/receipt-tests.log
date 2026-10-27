@@ -1,0 +1,326 @@
+test_missing_token_fails_closed_for_real_remote_before_pushing (test_receipt_writer.PublishRemoteTest.test_missing_token_fails_closed_for_real_remote_before_pushing)
+Owner finding: a missing PLANNING_RECEIPT_WRITE_TOKEN must fail ... ok
+test_no_force_push_created_on_remote (test_receipt_writer.PublishRemoteTest.test_no_force_push_created_on_remote)
+G3a: publication never force-creates/overwrites the protected main. ... ok
+test_publish_conflicting_durable_receipt_blocks (test_receipt_writer.PublishRemoteTest.test_publish_conflicting_durable_receipt_blocks)
+G3d: an unrelated concurrent edit that adds a DIFFERENT receipt blocks. ... ok
+test_publish_during_concurrent_unrelated_edit_reapplies (test_receipt_writer.PublishRemoteTest.test_publish_during_concurrent_unrelated_edit_reapplies)
+G3c: unrelated concurrent edit + absent receipt -> publish() re-applies. ... ok
+test_publish_first_receipt_pushes_successfully (test_receipt_writer.PublishRemoteTest.test_publish_first_receipt_pushes_successfully)
+publish() pushes the first receipt to a bare remote. ... ok
+test_publish_idempotent_same_content_returns_existing (test_receipt_writer.PublishRemoteTest.test_publish_idempotent_same_content_returns_existing)
+publish() is idempotent: identical receipt content -> same commit. ... ok
+test_publish_lost_push_acknowledgement_reapplies (test_receipt_writer.PublishRemoteTest.test_publish_lost_push_acknowledgement_reapplies)
+G3e: a lost push acknowledgement (transient non-fast-forward) recovers. ... ok
+test_publish_parallel_edit_identical_reapplies_idempotent (test_receipt_writer.PublishRemoteTest.test_publish_parallel_edit_identical_reapplies_idempotent)
+G3b: parallel independent edit that leaves identical receipt bytes -> ... ok
+test_publish_receipt_preserves_plan_ancestry_and_unrelated_edit (test_receipt_writer.PublishRemoteTest.test_publish_receipt_preserves_plan_ancestry_and_unrelated_edit)
+F3: a fresh unpublished plan fixture on main plus a receipt racing an ... ok
+test_publish_remote_head_check (test_receipt_writer.PublishRemoteTest.test_publish_remote_head_check)
+publish() verifies remote head before push. ... ok
+test_publish_reports_push_failure (test_receipt_writer.PublishRemoteTest.test_publish_reports_push_failure)
+BF-W2-1 fix: publish() MUST propagate git push errors, never return success. ... ok
+/usr/lib/python3.14/tempfile.py:961: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/home/marcel/tmp-ops/tmpt5jlws00'>
+  _warnings.warn(warn_message, ResourceWarning)
+test_push_auth_injected_for_real_remote_not_persisted (test_receipt_writer.PublishRemoteTest.test_push_auth_injected_for_real_remote_not_persisted)
+Owner finding: the push authenticates in-process only (extraheader), ... ok
+test_write_and_publish_returns_introduction_and_publication (test_receipt_writer.PublishRemoteTest.test_write_and_publish_returns_introduction_and_publication)
+write_and_publish() returns correct introduction and publication commits. ... ok
+test_commit_file_clean_checkout_required (test_receipt_writer.ReceiptWriterTest.test_commit_file_clean_checkout_required)
+commit_file rejects dirty working tree. ... ok
+test_commit_file_existing_rejects_conflict (test_receipt_writer.ReceiptWriterTest.test_commit_file_existing_rejects_conflict)
+commit_file rejects a file whose content conflicts with raw. ... ok
+test_commit_file_expected_rejects_changed_before_approval (test_receipt_writer.ReceiptWriterTest.test_commit_file_expected_rejects_changed_before_approval)
+commit_file(expected=...) rejects when file content differs from expected. ... ok
+test_commit_file_fast_forward_divergence_detected (test_receipt_writer.ReceiptWriterTest.test_commit_file_fast_forward_divergence_detected)
+commit_file detects planned divergence from HEAD before writing. ... ok
+test_commit_file_matches_head_no_divergence (test_receipt_writer.ReceiptWriterTest.test_commit_file_matches_head_no_divergence)
+commit_file succeeds when raw matches what's already in HEAD. ... ok
+test_commit_file_no_symlink (test_receipt_writer.ReceiptWriterTest.test_commit_file_no_symlink)
+commit_file rejects symlinks for receipt paths. ... ok
+test_commit_file_path_escapes_planning (test_receipt_writer.ReceiptWriterTest.test_commit_file_path_escapes_planning)
+commit_file rejects paths that escape the Planning root. ... ok
+test_commit_file_single_history (test_receipt_writer.ReceiptWriterTest.test_commit_file_single_history)
+commit_file rejects existing receipts with more than one history entry. ... ok
+test_write_happy_path_creates_receipt_and_commits (test_receipt_writer.ReceiptWriterTest.test_write_happy_path_creates_receipt_and_commits)
+write() creates a canonical receipt and commits it to Planning. ... ok
+test_write_path_for_value (test_receipt_writer.ReceiptWriterTest.test_write_path_for_value)
+path_for produces the expected receipt path structure. ... ok
+test_write_rejects_dead_run_id_and_creates_no_artifacts (test_receipt_writer.ReceiptWriterTest.test_write_rejects_dead_run_id_and_creates_no_artifacts)
+A dead run ID blocks write() without creating any files. ... ok
+test_approve_rejects_caller_spoofed_identity_via_env_only (test_receipt_verifier.ApproveIdentityTest.test_approve_rejects_caller_spoofed_identity_via_env_only) ... ok
+test_approve_rejects_missing_env_var (test_receipt_verifier.ApproveIdentityTest.test_approve_rejects_missing_env_var) ... ok
+test_approve_rejects_wrong_EVENT_NAME (test_receipt_verifier.ApproveIdentityTest.test_approve_rejects_wrong_EVENT_NAME) ... ok
+test_approve_rejects_wrong_GITHUB_REF (test_receipt_verifier.ApproveIdentityTest.test_approve_rejects_wrong_GITHUB_REF) ... ok
+test_approve_rejects_wrong_REPOSITORY (test_receipt_verifier.ApproveIdentityTest.test_approve_rejects_wrong_REPOSITORY) ... ok
+test_approve_rejects_wrong_TRIGGERING_ACTOR (test_receipt_verifier.ApproveIdentityTest.test_approve_rejects_wrong_TRIGGERING_ACTOR) ... ok
+test_approve_requires_authenticated_owner_on_main (test_receipt_verifier.ApproveIdentityTest.test_approve_requires_authenticated_owner_on_main) ... ok
+test_approve_reverifies_live_before_edit (test_receipt_verifier.ApproveIdentityTest.test_approve_reverifies_live_before_edit) ... ok
+test_approve_writes_canonical_approved_receipt (test_receipt_verifier.ApproveIdentityTest.test_approve_writes_canonical_approved_receipt) ... ok
+test_approve_rejects_untrusted_ref_dispatch (test_receipt_verifier.AuthenticatedProofTest.test_approve_rejects_untrusted_ref_dispatch) ... ok
+test_proof_rejects_actor_mismatch (test_receipt_verifier.AuthenticatedProofTest.test_proof_rejects_actor_mismatch) ... ok
+test_proof_rejects_event_mismatch (test_receipt_verifier.AuthenticatedProofTest.test_proof_rejects_event_mismatch) ... ok
+test_proof_rejects_head_sha_claim_mismatch (test_receipt_verifier.AuthenticatedProofTest.test_proof_rejects_head_sha_claim_mismatch) ... ok
+test_proof_rejects_repository_mismatch (test_receipt_verifier.AuthenticatedProofTest.test_proof_rejects_repository_mismatch) ... ok
+test_proof_rejects_untrusted_branch (test_receipt_verifier.AuthenticatedProofTest.test_proof_rejects_untrusted_branch) ... ok
+test_proof_rejects_wrong_workflow_path (test_receipt_verifier.AuthenticatedProofTest.test_proof_rejects_wrong_workflow_path) ... ok
+test_approve_emits_exact_field_tuple (test_receipt_verifier.CliOutputContractTest.test_approve_emits_exact_field_tuple) ... ok
+test_malformed_plan_field_is_explicit_failure (test_receipt_verifier.CliOutputContractTest.test_malformed_plan_field_is_explicit_failure) ... ok
+test_missing_result_field_is_explicit_failure (test_receipt_verifier.CliOutputContractTest.test_missing_result_field_is_explicit_failure) ... ok
+test_bounded_artifact_rejects_oversized (test_receipt_verifier.D3ExtractionNegativesTest.test_bounded_artifact_rejects_oversized) ... ok
+test_duplicate_sha_keys_rejected_at_json_decode (test_receipt_verifier.D3ExtractionNegativesTest.test_duplicate_sha_keys_rejected_at_json_decode) ... ok
+test_extraction_accepts_well_typed_object (test_receipt_verifier.D3ExtractionNegativesTest.test_extraction_accepts_well_typed_object) ... ok
+test_extraction_does_not_invoke_writer (test_receipt_verifier.D3ExtractionNegativesTest.test_extraction_does_not_invoke_writer) ... ok
+test_missing_head_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_missing_head_sha_blocks) ... ok
+test_missing_integration_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_missing_integration_sha_blocks) ... ok
+test_missing_target_base_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_missing_target_base_sha_blocks) ... ok
+test_non_hex_base_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_hex_base_sha_blocks) ... ok
+test_non_hex_head_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_hex_head_sha_blocks) ... ok
+test_non_hex_integration_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_hex_integration_sha_blocks) ... ok
+test_non_integer_artifact_size_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_integer_artifact_size_blocks) ... ok
+test_non_integer_attempt_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_integer_attempt_blocks) ... ok
+test_non_integer_run_id_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_integer_run_id_blocks) ... ok
+test_non_positive_attempt_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_positive_attempt_blocks) ... ok
+test_non_positive_run_id_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_positive_run_id_blocks) ... ok
+test_non_positive_workflow_id_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_non_positive_workflow_id_blocks) ... ok
+test_null_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_null_sha_blocks) ... ok
+test_short_sha_blocks (test_receipt_verifier.D3ExtractionNegativesTest.test_short_sha_blocks) ... ok
+test_negative_dead_run_id (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_dead_run_id) ... ok
+test_negative_dead_run_id_blocks_live_before_commit (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_dead_run_id_blocks_live_before_commit) ... ok
+test_negative_missing_selected_gate (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_missing_selected_gate) ... ok
+test_negative_non_resolved_coverage (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_non_resolved_coverage) ... ok
+test_negative_second_attempt_rejected (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_second_attempt_rejected) ... ok
+test_negative_wrong_candidate_sha (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_wrong_candidate_sha) ... ok
+test_negative_wrong_integration_sha (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_wrong_integration_sha) ... ok
+test_negative_wrong_run_provenance (test_receipt_verifier.LiveNegativeNegativesTest.test_negative_wrong_run_provenance) ... ok
+test_approval_missing_rejected (test_receipt_verifier.OfflineRetainedTest.test_approval_missing_rejected) ... ok
+test_edited_receipt_tamper_rejected (test_receipt_verifier.OfflineRetainedTest.test_edited_receipt_tamper_rejected) ... ok
+test_later_edit_after_approval_rejected (test_receipt_verifier.OfflineRetainedTest.test_later_edit_after_approval_rejected) ... ok
+test_offline_retained_never_calls_github (test_receipt_verifier.OfflineRetainedTest.test_offline_retained_never_calls_github) ... ok
+test_wrong_receipt_path_rejected (test_receipt_verifier.OfflineRetainedTest.test_wrong_receipt_path_rejected) ... ok
+test_blob_regular_file_required (test_receipt_verifier.PathAndBlobNegativesTest.test_blob_regular_file_required) ... ok
+test_blob_requires_full_revision (test_receipt_verifier.PathAndBlobNegativesTest.test_blob_requires_full_revision) ... ok
+test_already_approved_is_idempotent_and_never_edits_twice (test_receipt_verifier.PrApprovalResolutionTest.test_already_approved_is_idempotent_and_never_edits_twice) ... ok
+test_approval_blocks_before_push_without_write_credential (test_receipt_verifier.PrApprovalResolutionTest.test_approval_blocks_before_push_without_write_credential) ... ok
+test_approval_pushes_only_through_writer_mechanism (test_receipt_verifier.PrApprovalResolutionTest.test_approval_pushes_only_through_writer_mechanism) ... ok
+test_approve_pr_happy_path (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_happy_path) ... ok
+test_approve_pr_rejects_ambiguous_task_claim (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_rejects_ambiguous_task_claim) ... ok
+test_approve_pr_rejects_ambiguous_two_receipts (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_rejects_ambiguous_two_receipts) ... ok
+test_approve_pr_rejects_foreign_base (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_rejects_foreign_base) ... ok
+test_approve_pr_rejects_stale_pr (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_rejects_stale_pr) ... ok
+test_approve_pr_rejects_unbound_pr (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_rejects_unbound_pr) ... ok
+test_approve_pr_requires_existing_task_note (test_receipt_verifier.PrApprovalResolutionTest.test_approve_pr_requires_existing_task_note) ... ok
+test_binding_accepts_block_list_and_quoted_entries (test_receipt_verifier.PrApprovalResolutionTest.test_binding_accepts_block_list_and_quoted_entries) ... ok
+test_binding_rejects_malformed_front_matter (test_receipt_verifier.PrApprovalResolutionTest.test_binding_rejects_malformed_front_matter) ... ok
+test_approval_end_to_end_rejects_workflow_changing_pr (test_receipt_verifier.ProducerIdentityTest.test_approval_end_to_end_rejects_workflow_changing_pr) ... ok
+test_fork_edited_producer_workflow_rejected (test_receipt_verifier.ProducerIdentityTest.test_fork_edited_producer_workflow_rejected) ... ok
+test_missing_producer_workflow_fails_closed (test_receipt_verifier.ProducerIdentityTest.test_missing_producer_workflow_fails_closed) ... ok
+test_producer_change_outside_workflow_bytes_accepted (test_receipt_verifier.ProducerIdentityTest.test_producer_change_outside_workflow_bytes_accepted) ... ok
+test_approve_cli_full_chain_publishes_card_durably (test_receipt_verifier.ProductionPathCliTest.test_approve_cli_full_chain_publishes_card_durably) ... /tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1210: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/run.json' mode='w' encoding='UTF-8'>
+  json.dump(producer, open(fix + '/run.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1211: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/producer_id.json' mode='w' encoding='UTF-8'>
+  json.dump(producer['id'], open(fix + '/producer_id.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1212: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/approval_run.json' mode='w' encoding='UTF-8'>
+  json.dump(self.approval_run, open(fix + '/approval_run.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1213: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/approval_id.json' mode='w' encoding='UTF-8'>
+  json.dump(self.approval_run['id'], open(fix + '/approval_id.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1220: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/pull.json' mode='w' encoding='UTF-8'>
+  json.dump(self.pull, open(fix + '/pull.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1221: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/issue.json' mode='w' encoding='UTF-8'>
+  json.dump({"number": PR_NUMBER + 1,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1226: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/jobs.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(total_count=2, jobs=[producer_job, dict(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1229: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmpudbtonnd/gh-fixture/artifacts.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(total_count=1, artifacts=[dict(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_approve_cli_never_accepts_manual_evidence_fields (test_receipt_verifier.ProductionPathCliTest.test_approve_cli_never_accepts_manual_evidence_fields) ... ok
+test_negative_genuinely_missing_run_id_via_404 (test_receipt_verifier.ProductionPathCliTest.test_negative_genuinely_missing_run_id_via_404) ... /tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1210: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/run.json' mode='w' encoding='UTF-8'>
+  json.dump(producer, open(fix + '/run.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1211: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/producer_id.json' mode='w' encoding='UTF-8'>
+  json.dump(producer['id'], open(fix + '/producer_id.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1212: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/approval_run.json' mode='w' encoding='UTF-8'>
+  json.dump(self.approval_run, open(fix + '/approval_run.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1213: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/approval_id.json' mode='w' encoding='UTF-8'>
+  json.dump(self.approval_run['id'], open(fix + '/approval_id.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1220: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/pull.json' mode='w' encoding='UTF-8'>
+  json.dump(self.pull, open(fix + '/pull.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1221: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/issue.json' mode='w' encoding='UTF-8'>
+  json.dump({"number": PR_NUMBER + 1,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1226: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/jobs.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(total_count=2, jobs=[producer_job, dict(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1229: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp89689apo/gh-fixture/artifacts.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(total_count=1, artifacts=[dict(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_negative_wrong_candidate_sha_on_production_path (test_receipt_verifier.ProductionPathCliTest.test_negative_wrong_candidate_sha_on_production_path) ... ok
+test_network_outage_is_never_reported_as_missing_run (test_receipt_verifier.ProductionPathCliTest.test_network_outage_is_never_reported_as_missing_run) ... /tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1210: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/run.json' mode='w' encoding='UTF-8'>
+  json.dump(producer, open(fix + '/run.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1211: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/producer_id.json' mode='w' encoding='UTF-8'>
+  json.dump(producer['id'], open(fix + '/producer_id.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1212: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/approval_run.json' mode='w' encoding='UTF-8'>
+  json.dump(self.approval_run, open(fix + '/approval_run.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1213: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/approval_id.json' mode='w' encoding='UTF-8'>
+  json.dump(self.approval_run['id'], open(fix + '/approval_id.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1220: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/pull.json' mode='w' encoding='UTF-8'>
+  json.dump(self.pull, open(fix + '/pull.json', 'w'))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1221: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/issue.json' mode='w' encoding='UTF-8'>
+  json.dump({"number": PR_NUMBER + 1,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1226: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/jobs.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(total_count=2, jobs=[producer_job, dict(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/tmp/cx-r27v5-cb7d8213/scripts/test_receipt_verifier.py:1229: ResourceWarning: unclosed file <_io.TextIOWrapper name='/home/marcel/tmp-ops/tmp80aa8j0u/gh-fixture/artifacts.json' mode='w' encoding='UTF-8'>
+  json.dump(dict(total_count=1, artifacts=[dict(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_publish_evidence_no_second_approval_on_identical_retry (test_receipt_verifier.ProductionPathCliTest.test_publish_evidence_no_second_approval_on_identical_retry)
+F5: an identical evidence update returns idempotently without a ... ok
+test_publish_evidence_schema_valid_and_preserves_existing (test_receipt_verifier.ProductionPathCliTest.test_publish_evidence_schema_valid_and_preserves_existing)
+F5: the card evidence reference is a schema-valid immutable line via ... ok
+test_retained_positive_without_any_api_access (test_receipt_verifier.ProductionPathCliTest.test_retained_positive_without_any_api_access) ... ok
+test_publish_interface_exists_and_is_used (test_receipt_verifier.PublishInterfaceTest.test_publish_interface_exists_and_is_used) ... ok
+test_retry_after_publish_failure_creates_no_second_edit (test_receipt_verifier.PublishInterfaceTest.test_retry_after_publish_failure_creates_no_second_edit) ... ok
+test_unexpected_field_rejected (test_receipt_verifier.ReceiptSchemaNegativesTest.test_unexpected_field_rejected) ... ok
+test_wrong_gate_status_rejected (test_receipt_verifier.ReceiptSchemaNegativesTest.test_wrong_gate_status_rejected) ... ok
+test_wrong_run_provenance_rejected (test_receipt_verifier.ReceiptSchemaNegativesTest.test_wrong_run_provenance_rejected) ... ok
+test_consumes_exact_publication_after_head_moved (test_receipt_verifier.ShadowConsumptionExecutionTest.test_consumes_exact_publication_after_head_moved) ... ok
+test_missing_publication_output_fails_explicitly (test_receipt_verifier.ShadowConsumptionExecutionTest.test_missing_publication_output_fails_explicitly) ... ok
+test_missing_receipt_output_fails_explicitly (test_receipt_verifier.ShadowConsumptionExecutionTest.test_missing_receipt_output_fails_explicitly) ... ok
+test_publication_not_in_planning_history_fails (test_receipt_verifier.ShadowConsumptionExecutionTest.test_publication_not_in_planning_history_fails) ... ok
+test_consumes_publication_not_head (test_receipt_verifier.ShadowWorkflowContractTest.test_consumes_publication_not_head) ... ok
+test_guard_never_skips_on_missing_inputs (test_receipt_verifier.ShadowWorkflowContractTest.test_guard_never_skips_on_missing_inputs) ... ok
+test_only_workflow_call_trigger (test_receipt_verifier.ShadowWorkflowContractTest.test_only_workflow_call_trigger) ... ok
+test_publication_is_required_input (test_receipt_verifier.ShadowWorkflowContractTest.test_publication_is_required_input) ... ok
+test_approval_workflow_diverging_from_pin_rejected (test_receipt_verifier.TrustedSourceTest.test_approval_workflow_diverging_from_pin_rejected) ... ok
+test_helper_bytes_diverging_from_pin_rejected (test_receipt_verifier.TrustedSourceTest.test_helper_bytes_diverging_from_pin_rejected) ... ok
+test_missing_product_checkout_fails_closed (test_receipt_verifier.TrustedSourceTest.test_missing_product_checkout_fails_closed) ... ok
+test_non_hex_pin_revision_rejected (test_receipt_verifier.TrustedSourceTest.test_non_hex_pin_revision_rejected) ... ok
+test_unknown_pin_revision_fails_closed (test_receipt_verifier.TrustedSourceTest.test_unknown_pin_revision_fails_closed) ... ok
+test_approval_carries_publication_and_pins_immutable_source (test_receipt_verifier.WorkflowContextRegressionTest.test_approval_carries_publication_and_pins_immutable_source) ... ok
+test_approval_step_fails_explicitly_on_missing_outputs (test_receipt_verifier.WorkflowContextRegressionTest.test_approval_step_fails_explicitly_on_missing_outputs) ... ok
+test_human_input_is_pr_selection_only (test_receipt_verifier.WorkflowContextRegressionTest.test_human_input_is_pr_selection_only) ... ok
+test_no_automatic_trigger_armed (test_receipt_verifier.WorkflowContextRegressionTest.test_no_automatic_trigger_armed) ... ok
+test_no_github_env_overrides (test_receipt_verifier.WorkflowContextRegressionTest.test_no_github_env_overrides) ... ok
+test_no_in_shell_identity_assignment (test_receipt_verifier.WorkflowContextRegressionTest.test_no_in_shell_identity_assignment) ... ok
+test_no_patch_export_or_artifact_upload (test_receipt_verifier.WorkflowContextRegressionTest.test_no_patch_export_or_artifact_upload) ... ok
+test_owner_gate_uses_non_spoofable_context (test_receipt_verifier.WorkflowContextRegressionTest.test_owner_gate_uses_non_spoofable_context) ... ok
+test_product_checkout_follows_authenticated_head (test_receipt_verifier.WorkflowContextRegressionTest.test_product_checkout_follows_authenticated_head) ... ok
+test_verifier_module_has_no_hardcoded_ref_spoof (test_receipt_verifier.WorkflowContextRegressionTest.test_verifier_module_has_no_hardcoded_ref_spoof) ... ok
+test_approval_identity_and_strict_json (test_receipt_chain.ReceiptChainTest.test_approval_identity_and_strict_json) ... ok
+test_failed_skipped_stale_or_foreign_live_evidence_blocks (test_receipt_chain.ReceiptChainTest.test_failed_skipped_stale_or_foreign_live_evidence_blocks) ... ok
+test_negative_dead_run_id (test_receipt_chain.ReceiptChainTest.test_negative_dead_run_id) ... ok
+test_negative_edited_receipt_including_edit_and_revert (test_receipt_chain.ReceiptChainTest.test_negative_edited_receipt_including_edit_and_revert) ... ok
+test_negative_wrong_candidate_sha (test_receipt_chain.ReceiptChainTest.test_negative_wrong_candidate_sha) ... ok
+test_real_git_roundtrip_and_offline_approval_binding (test_receipt_chain.ReceiptChainTest.test_real_git_roundtrip_and_offline_approval_binding) ... ok
+test_cli_fails_on_invalid_task (test_receipt_tasklink.TaskLinkTest.test_cli_fails_on_invalid_task)
+receipt_tasklink.py CLI exits nonzero on invalid task. ... ok
+test_cli_produces_plan (test_receipt_tasklink.TaskLinkTest.test_cli_produces_plan)
+receipt_tasklink.py CLI writes the fixture and prints commit. ... ok
+test_dry_run_emits_to_stdout (test_receipt_tasklink.TaskLinkTest.test_dry_run_emits_to_stdout)
+produce_plan_fixture with dry_run writes to stdout, not filesystem. ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_fail_closed_different_receipt (test_receipt_tasklink.TaskLinkTest.test_fail_closed_different_receipt)
+produce_plan_fixture detects mismatched existing fixture and would overwrite it. ... ok
+test_fail_closed_missing_task_reference (test_receipt_tasklink.TaskLinkTest.test_fail_closed_missing_task_reference)
+produce_plan_fixture rejects an invalid task reference. ... ok
+test_fail_closed_wrong_sha_format (test_receipt_tasklink.TaskLinkTest.test_fail_closed_wrong_sha_format)
+produce_plan_fixture rejects non-40-char SHAs. ... ok
+test_fail_closed_wrong_workflow_id (test_receipt_tasklink.TaskLinkTest.test_fail_closed_wrong_workflow_id)
+produce_plan_fixture rejects invalid workflow_id. ... ok
+test_idempotent_same_fixture_returns_existing_commit (test_receipt_tasklink.TaskLinkTest.test_idempotent_same_fixture_returns_existing_commit)
+produce_plan_fixture is idempotent: same inputs → same commit. ... {"base_sha":"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","candidate_sha":"cccccccccccccccccccccccccccccccccccccccc","gate":"public-contracts","head_sha":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","repository":"mcpdev80/baseharbor","task":"tasks/receipt-pilot.md","workflow_id":17}
+tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_load_plan_consumes_fixture (test_receipt_tasklink.TaskLinkTest.test_load_plan_consumes_fixture)
+load_plan can read the fixture written by produce_plan_fixture. ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_produce_plan_fixture_writes_correct_fixture (test_receipt_tasklink.TaskLinkTest.test_produce_plan_fixture_writes_correct_fixture)
+produce_plan_fixture writes the correct PlanFixture to PLAN_PATH. ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_cli_accepts_real_base_sha (test_receipt_tasklink.TestBaseShaResolution.test_cli_accepts_real_base_sha)
+receipt_tasklink.py CLI accepts a real 40-char base SHA. ... ok
+test_fail_closed_rejects_non_hex_base_sha (test_receipt_tasklink.TestBaseShaResolution.test_fail_closed_rejects_non_hex_base_sha)
+produce_plan_fixture rejects non-hex base SHA (would catch 'main' fallback). ... ok
+test_fail_closed_rejects_short_base_sha (test_receipt_tasklink.TestBaseShaResolution.test_fail_closed_rejects_short_base_sha)
+produce_plan_fixture rejects short/invalid base SHA. ... ok
+test_produce_plan_accepts_real_base_sha (test_receipt_tasklink.TestBaseShaResolution.test_produce_plan_accepts_real_base_sha)
+produce_plan_fixture accepts a real 40-char base SHA from workflow_run.base.sha. ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_produce_plan_with_mixed_valid_inputs (test_receipt_tasklink.TestBaseShaResolution.test_produce_plan_with_mixed_valid_inputs)
+produce_plan_fixture correctly handles mixed valid inputs. ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_sha40_validates_all_sha_fields (test_receipt_tasklink.TestBaseShaResolution.test_sha40_validates_all_sha_fields)
+sha40 validates head, candidate and base SHAs are 40-char hex. ... ok
+test_cli_requires_task_or_pr_number (test_receipt_tasklink.TestPrNumberAutoResolution.test_cli_requires_task_or_pr_number)
+CLI errors when neither --task nor --pr-number is provided. ... ok
+test_cli_with_pr_number (test_receipt_tasklink.TestPrNumberAutoResolution.test_cli_with_pr_number)
+CLI accepts --pr-number and validates input without a real backend. ... ok
+test_produce_with_pr_number_auto_resolves (test_receipt_tasklink.TestPrNumberAutoResolution.test_produce_with_pr_number_auto_resolves)
+pr_number without --task auto-resolves from Closes #NNN in PR body. ... tasklink: auto-resolved task from PR 1092: tasks/t-20261026-r27-pilot.md
+ok
+test_produce_without_pr_number_no_auto_resolve (test_receipt_tasklink.TestPrNumberAutoResolution.test_produce_without_pr_number_no_auto_resolve)
+Without pr_number the caller-supplied task is used unchanged. ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_resolve_from_pr_ambiguous_closers_blocks (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_ambiguous_closers_blocks)
+Multiple closers block (ambiguous PR->task binding). ... ok
+test_resolve_from_pr_api_failure_blocks (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_api_failure_blocks)
+A transport/API failure is surfaced as a block, never a silent miss. ... ok
+test_resolve_from_pr_empty_pr_body_blocks (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_empty_pr_body_blocks)
+A PR with an empty body blocks. ... ok
+test_resolve_from_pr_issue_title_as_task (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_issue_title_as_task)
+resolve_task_from_pr accepts an issue title 't-...' as task file. ... ok
+test_resolve_from_pr_missing_closer_blocks (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_missing_closer_blocks)
+A closer referencing an unresolvable issue blocks. ... ok
+test_resolve_from_pr_no_issue_reference_blocks (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_no_issue_reference_blocks)
+A PR body with no closer blocks (no task link possible). ... ok
+test_resolve_from_pr_referenced_issue_not_found (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_referenced_issue_not_found)
+Referenced issue that cannot be fetched blocks (fail-closed). ... ok
+test_resolve_from_pr_with_closes_reference (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_with_closes_reference)
+resolve_task_from_pr extracts a 'Closes #NNN' reference. ... ok
+test_resolve_from_pr_with_fixes_reference (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_with_fixes_reference)
+resolve_task_from_pr also matches a 'Fixes #NNN' reference. ... ok
+test_resolve_from_pr_with_resolves_reference (test_receipt_tasklink.TestPrNumberAutoResolution.test_resolve_from_pr_with_resolves_reference)
+resolve_task_from_pr also matches a 'Resolves #NNN' reference. ... ok
+test_all_receipt_workflows_have_dormancy_guards (test_ci_workflow_policy_receipts.TestCiWorkflowPolicyReceipts.test_all_receipt_workflows_have_dormancy_guards)
+All receipt-*.yml workflows must have a dormancy guard to ensure ... ok
+test_receipt_approval_in_allowlist_with_job_level_guard (test_ci_workflow_policy_receipts.TestCiWorkflowPolicyReceipts.test_receipt_approval_in_allowlist_with_job_level_guard)
+receipt-approval.yml IS in the workflow-policy allowlist (L4) and uses ... ok
+test_receipt_post_run_in_allowlist_with_workflow_level_guard (test_ci_workflow_policy_receipts.TestCiWorkflowPolicyReceipts.test_receipt_post_run_in_allowlist_with_workflow_level_guard)
+receipt-post-run.yml IS in the workflow-policy allowlist (L4) and uses ... ok
+test_receipt_shadow_in_allowlist_with_job_level_guard (test_ci_workflow_policy_receipts.TestCiWorkflowPolicyReceipts.test_receipt_shadow_in_allowlist_with_job_level_guard)
+receipt-shadow.yml IS in the workflow-policy allowlist AND uses ... ok
+test_workflow_policy_allowlist_consistency (test_ci_workflow_policy_receipts.TestCiWorkflowPolicyReceipts.test_workflow_policy_allowlist_consistency)
+Verify the expected allowlist matches the fixed list in ... ok
+test_all_run_blocks_exist (test_receipt_postrun.ExtractBlocksTest.test_all_run_blocks_exist) ... ok
+test_decoder_block_is_bash_clean (test_receipt_postrun.ExtractBlocksTest.test_decoder_block_is_bash_clean) ... ok
+test_writer_fails_closed_on_foreign_context (test_receipt_postrun.F1NegativeForeignRepo.test_writer_fails_closed_on_foreign_context) ... ok
+test_decode_fails_without_artifact (test_receipt_postrun.F1NegativeMissingArtifact.test_decode_fails_without_artifact) ... ok
+test_full_run_publishes_plan_and_receipt (test_receipt_postrun.F1PositiveRun.test_full_run_publishes_plan_and_receipt) ... tasklink: no PR number; task is caller-supplied without auto-resolution — plan.task alone is NOT evidence publication
+ok
+test_real_tasklink_block_writes_plan_fixture (test_receipt_postrun.F1WorkflowShellEndToEnd.test_real_tasklink_block_writes_plan_fixture) ... ok
+
+----------------------------------------------------------------------
+Ran 175 tests in 29.533s
+
+OK
