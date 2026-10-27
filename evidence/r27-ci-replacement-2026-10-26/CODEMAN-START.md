@@ -1,5 +1,7 @@
 # Codeman start: three parallel receipt workers
 
+Current corrective handoff: [CODEMAN-CORRECTION.md](CODEMAN-CORRECTION.md). Read it before resuming; it takes precedence over older manual shadow-replay/publication guidance.
+
 ## Owner instruction and baseline
 
 Marcel explicitly requests THREE concurrently productive workers with comparable remaining work, not five sequential slots. This scheduling instruction supersedes the earlier five-worker/contract-first implementation schedule. Acceptance dependencies remain; they are not implementation waiting barriers for the isolated preparation authorized here.

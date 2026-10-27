@@ -34,6 +34,13 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
+## Current corrective direction — Owner instruction, 2026-10-27
+
+Follow [CODEMAN-CORRECTION.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-CORRECTION.md). Three workers prepare the existing one-gate chain concurrently with disjoint ownership; coordinator integrates one coherent candidate. Replace manual patch publication and manufactured protected-ref assertions with automatic publication and genuine workflow identity checks. Approval success alone, manual chain replay and skipped post-run/shadow jobs are not acceptance. Preserve current claims and actual evidence; this changes direction, not acceptance state.
+
+One ordinary contributor path, automatic receipt/approval/task-link publication and retained shadow consumption, plus wrong-SHA/dead-run/edited-receipt negatives, must pass before PR3 cutover. Original T0 and deadline remain unchanged: 2026-10-26T23:35:50Z and 2026-10-29T23:35:50Z.
+
+
 ## Binding three-worker execution — Owner instruction, 2026-10-26
 
 Routing: **Coordinator; reviews rotate across W1/W2/W3**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
