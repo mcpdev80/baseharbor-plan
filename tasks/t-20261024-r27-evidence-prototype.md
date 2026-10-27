@@ -18,7 +18,7 @@ superseded_by: t-20261022-r27-evidence-contract
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-10-26-minimal-receipts.md", "https://github.com/mcpdev80/baseharbor/pull/1090", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/RECEIPT-PR1.md"]
 ---
 
-- [x] t-20261024-r27-evidence-prototype · CI: isolated evidence archive security prototype #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
+- [x] t-20261024-r27-evidence-prototype · Retired signed archive prototype; never resume #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
@@ -37,8 +37,11 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026
 **Source:** 
 <!-- /generated:links -->
 
-# Retired archive prototype — no active worker assignment
+# Retired signed archive prototype; never resume
 
-Superseded by the minimal receipt decision and receipt contract. This is not a fourth work lane: do not resume HMAC/Ed25519, signing keys, an issuer service, payload archives or retention/recovery work. Only API run/attempt/job validation grammar and applicable strict-parser negative cases are reference material for W3. Historical handoffs remain in [Git before retirement](https://github.com/mcpdev80/baseharbor-plan/blob/6ea0e8dc08a9a8e335721fcd6982d36da8832ecb/tasks/t-20261024-r27-evidence-prototype.md), not current instructions. Historical test totals confer no receipt acceptance.
+## Disposition
+Existing superseded resolution remains. Only applicable API run/attempt/job validation and strict-parser regression ideas are salvageable for W3. No worker recovers or finishes the old HMAC/Ed25519 issuer, archive, retention/recovery or trust-key setup. Historical test totals are not current proof. PR #1048 is preserved as source history, not a successor baseline or active assignment.
 
-Use the [three-worker coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md) and current receipt tasks. Existing superseded resolution and successor remain unchanged.
+## Governing order and preserved history
+
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-evidence-prototype.md) remain immutable history, not competing operational instructions.

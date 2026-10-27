@@ -7,67 +7,58 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: "ChatGPT (isolated v0.4.27 prototype)"
-depends_on: [t-20261017-release-0-4-27-updates]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1051]
+prs: [mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092]
 sources: []
 early: false
-blocker: ""
+blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F4/F6/F7: real execution, default-branch registration and receipt test discovery are incomplete."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261024-r27-ci-impact-prototype · CI: trusted impact qualification prototype #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
-    **PR:** [baseharbor#1051](https://github.com/mcpdev80/baseharbor/pull/1051)  
+    **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092)  
+    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F4/F6/F7: real execution, default-branch registration and receipt test discovery are incomplete.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** ChatGPT (isolated v0.4.27 prototype)  
 **Priority:** high  
-**PRs:** [baseharbor#1051](https://github.com/mcpdev80/baseharbor/pull/1051)  
+**PRs:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092)  
 **Source:** 
 <!-- /generated:links -->
 
-## Binding three-worker execution — Owner instruction, 2026-10-26
+# W1: trusted receipt execution, discovery and shadow consumption
 
-Routing: **W1**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
+## Observable result
+Existing selected CI actually executes the receipt/policy suites. The trusted shadow consumer accepts only a published approved receipt after approval; a reviewed default-main workflow registration can use a fixed corrected helper SHA without pretending develop is main.
 
-W1: exact impact mapping and trusted discovery. W2: compatibility of selected producer inputs and bounded fixtures. W3: changed-input/missing-coverage/false-green negatives. Preserve draft #1051 as historical preparation; do not silently accept or expand its old mapping.
+## Owned files
+.github/workflows/ci.yml; .github/workflows/receipt-shadow.yml; scripts/pr-gate-plan.py, scripts/pr-check-runner.py, scripts/ci-workflow-policy.sh; their existing test files including test_ci_workflow_policy_receipts.py; paired docs/development/minimal-ci-receipts.md and docs/de/development/minimal-ci-receipts.md. No writer/verifier/post-run/approval source edits. Coordinator alone updates final literal pins and publishes main registration.
 
-Exactly three concurrent worker slots for all v0.4.27 CI work, plus the coordinator; never three additional workers on top of active claims. Existing owners/claims and completed commits are preserved. Coordinator hands over reservations explicitly and balances remaining effort, moving a bounded unfinished subtask or cross-review to a free worker rather than inventing work. No worker edits another worker's scripts, test file or workflow; common-branch pushes, Planning metadata and final integration have one coordinator writer.
+## Inputs and parallel boundary
+Consume frozen merged develop 3431b22c and existing writer/verifier interfaces; prepare concurrently with W2/W3 after Owner resume, not after their acceptance. Use explicit publication outputs agreed with W2. Give changes to another package's files to its owner.
 
-Dependencies in frontmatter remain acceptance/readiness requirements, not blanket locks on the explicitly authorized isolated receipt preparation against frozen #1090 interfaces. Parallel preparation does not accept an unmerged dependency, change a shared interface unilaterally, or qualify a new domain. The first one-gate receipt skeleton must be accepted before live domain-gate expansion. Later domain implementation still requires its accepted product contracts, fixtures and release-start inputs; choose another actually ready task or report the concrete blocker if three safe work slices do not exist.
+## Ordered subtasks
+1. Repair actual receipt-suite discovery/required-result wiring in the existing selected lane; keep exact path mapping fail-closed. Current CI_CHECKS alone runs unrelated legacy suites. Prove real execution and failure propagation, not only that a path resolves.
+2. Define the actual controller context as main, using reviewed workflow files on default main and immutable corrected develop helper pin. Remove diagnostic/stale policy assumptions, not protections. Prepare the smallest CI-only main registration diff through normal gates; no product promotion, tag or default-branch change.
+3. Replace PR-open/live-fallback shadow logic with retained-only full-history verification after W3 reports durable approval publication. Pass the exact published receipt/plan/candidate; do not globally scan for any apparently green candidate. No final-check/producer cycle.
+4. Fix EN/DE statements that falsely claim receipt discovery or automatic flow already exists. Cross-review W3 once own package is ready.
 
-Do not alter active producer behavior or required-check enforcement before the accepted cutover. Preserve the legacy qualification route, use the smallest sufficient checks and batch candidates; no full matrix or duplicate green runs. Cross-review must be by another worker/coordinator and applies to the final integrated SHA.
+## Acceptance and handoff
+Actual selected command runs receipt and policy tests, rejects a relevant injected fixture failure, and reports zero skips as qualification. Policy/actionlint/local binding tests pass. A wrong producer ref cannot receive trusted privileges; an unapproved receipt cannot pass shadow. Handoff exact source, commands/results and prepared main-registration diff to coordinator. Real automatic skeleton is accepted only on the shadow-run card; W1 cannot self-qualify the complete chain.
 
+## Exclusions
+No native/full matrix, blanket map, disabled required check, invented source flag or added production framework.
 
-# CI: trusted impact qualification prototype
+## Governing order and preserved history
 
-## Goal
-Review and test exact-path CI impact mapping without changing active v0.4.26 trusted CI.
-
-## Scope
-- Isolated design, review and regression preparation only on the existing draft PR.
-- No merge to develop, no Ruleset or production workflow changes, no v0.4.26 interference.
-- Do not treat prototype output as accepted trusted evidence.
-
-## Acceptance
-- Review rename/delete and out-of-scope path regressions; verify that no prototype test self-qualifies or bypasses conservative coverage.
-- Final independent check and Owner-authorized rollout must follow v0.4.26 completion.
-
-## Dependencies and file ownership
-The v0.4.27 release-start updates remain unaccepted; this active status documents isolated work only, not production readiness. Existing PR #1051 remains draft. No ownership of other tasks or PRs is implied.
-
-## Handoff
-- 2026-10-24: isolated preparation in [PR #1051](https://github.com/mcpdev80/baseharbor/pull/1051); current status active, not qualified or mergeable by this card.
-
-- Hugging Face independent execution on draft PR #1051 commit `c7352556e39d3c09a70609985382d00c4b7e4304`: [R27 exact-path planner 4/4 PASS](https://huggingface.co/jobs/ThunderHawk1080/6adbf710046eb82b1ecd8a4b). Other acceptance gates pending.
-
-- 2026-10-24: full independent planner suite executed with git, Go and pinned PyYAML on isolated PR #1051 head `c7352556e39d3c09a70609985382d00c4b7e4304`: [99/99 tests PASS on Hugging Face](https://huggingface.co/jobs/ThunderHawk1080/6adc5167046eb82b1ecdaf58). Includes the exact-path prototype impact tests. No promotion or GitHub required-check qualification inferred from this offline run.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-ci-impact-prototype.md) remain immutable history, not competing operational instructions.

@@ -9,61 +9,56 @@ priority: critical
 owner: w2-lane (W2 writer package)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1048]
+prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105]
 sources: []
-blocker: ""
-superseded_by: t-20261027-r27-shadow-run
-resolution: superseded
+blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F2/F3/F5/F9: automatic publication/task linking and verified Planning write access are missing."
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md"]
 ---
 
-- [x] t-20261022-r27-evidence-publisher · evidence publisher #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
+- [ ] t-20261022-r27-evidence-publisher · W2: automatic receipt, plan and task publication #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w2-lane (W2 writer package) · **Priority:** critical  
-    **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105)  
+    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F2/F3/F5/F9: automatic publication/task linking and verified Planning write access are missing.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** superseded  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** w2-lane (W2 writer package)  
 **Priority:** critical  
-**PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
+**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105)  
 **Source:** 
 <!-- /generated:links -->
 
-## Binding three-worker execution — Owner instruction, 2026-10-26
+# W2: automatic receipt, plan and task publication
 
-Routing: **W2**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
+## Observable result
+An ordinary eligible completed PR run automatically produces and publishes a bounded plan, unapproved receipt and visible task evidence reference. W3 can reuse the same small publication helper for the sole approval edit; no patch export or human evidence push.
 
-W2: receipt_writer.py, writer-specific tests and receipt-post-run.yml, including bounded publication/task linking. W1: exact mapping/discovery and shared docs only. W3: receipt_verifier.py and verifier-specific tests; review producer binding without writing W2 files.
+## Owned files
+scripts/receipt_writer.py, scripts/receipt_tasklink.py; scripts/test_receipt_writer.py, scripts/test_receipt_tasklink.py; .github/workflows/receipt-post-run.yml. Reuse these helpers, no third production publisher. W1 owns policy/discovery/docs; W3 owns verifier and approval workflow. Coordinator owns shared Planning source/metadata.
 
-Exactly three concurrent worker slots for all v0.4.27 CI work, plus the coordinator; never three additional workers on top of active claims. Existing owners/claims and completed commits are preserved. Coordinator hands over reservations explicitly and balances remaining effort, moving a bounded unfinished subtask or cross-review to a free worker rather than inventing work. No worker edits another worker's scripts, test file or workflow; common-branch pushes, Planning metadata and final integration have one coordinator writer.
+## Inputs and interfaces
+Existing six-field schema, attempt 1 and live verifier; corrected controller pin from the common integrated candidate; PLANNING_RECEIPT_WRITE_TOKEN availability is unverified. Prepare/test with temporary bare-Git remotes while coordinator resolves the real credential. Do not label configuration ready or substitute the Core GITHUB_TOKEN.
 
-Dependencies in frontmatter remain acceptance/readiness requirements, not blanket locks on the explicitly authorized isolated receipt preparation against frozen #1090 interfaces. Parallel preparation does not accept an unmerged dependency, change a shared interface unilaterally, or qualify a new domain. The first one-gate receipt skeleton must be accepted before live domain-gate expansion. Later domain implementation still requires its accepted product contracts, fixtures and release-start inputs; choose another actually ready task or report the concrete blocker if three safe work slices do not exist.
+## Ordered subtasks
+1. Replace the echo-only post-run template with actual bounded trusted-code execution and Planning checkout. Never check out PR head for privileged Python. Gate on eligible run/producer identity and success.
+2. Obtain workflow_id from authenticated run.workflow_id and head/base/integration from authenticated producer data; never run.id or a branch-name fallback. Validate the real primary task association. Caller-supplied refs alone are not authenticated facts.
+3. Produce the plan and receipt, then publish by ordinary fast-forward/expected-head update with bounded re-read/reapply on unrelated concurrent edits. Require clean worktree; propagate Git/API failures, preserve other writers, make identical retry idempotent and conflicting receipt fail closed. Define exact return values for introduction/path/published commits so W3/W1 do not guess HEAD.
+4. Publish a task-to-receipt evidence reference and summary automatically; plan.task alone is not task evidence publication. Keep receipt bytes immutable except W3's single approval edit. Test actual implementation calls, not fixture arithmetic.
 
-Do not alter active producer behavior or required-check enforcement before the accepted cutover. Preserve the legacy qualification route, use the smallest sufficient checks and batch candidates; no full matrix or duplicate green runs. Cross-review must be by another worker/coordinator and applies to the final integrated SHA.
+## Acceptance
+Temporary Git tests prove successful durable publication, rejected push is not success, unrelated-writer preservation, idempotency, introduction-commit return and conflict failure. Workflow has no manual run/SHA/patch step and no candidate-code credential exposure. Actual cross-repository permission is separately proven before hosted pilot. Coordinator reviews combined candidate; hosted chain proof belongs to shadow-run.
 
+## Exclusions
+No secrets/log payloads in receipts or summaries, force push, archive/retention mechanism, new service or live dispatch during pause.
 
+## Governing order and preserved history
 
-# Receipt writer: one bounded result, one Planning commit
-
-## Goal
-Implement scripts/receipt_writer.py, approximately 100 lines excluding shared validation, invoked only by a trusted post-run workflow. PR jobs, including forks, never receive Planning write credentials.
-
-## Scope and acceptance
-- Read authenticated GitHub run/attempt/job facts through the live verifier and a protected, immutable gate plan. Persist references/IDs only, below 500 bytes.
-- Create evidence/receipts/<gate>/<run>-<attempt>.json with approved:null. Identical retry is idempotent; conflicting content blocks.
-- Publish ordinary fast-forward commits, preserve concurrent Planning edits and report failed publication. No force pushes or secret/log payloads.
-- Publish an automatic task reference as part of the walking skeleton, with no manually copied run numbers or evidence URLs.
-- Start workflow integration only after PR 1 contract/scripts acceptance. Exactly one gate first; no parallel gate expansion.
-- No signature key, issuer service, payload archive, redaction pipeline or retention/recovery subsystem.
-
-## Historical preparation
-PR #1048 is retained as historical isolated archive work, not an implementation dependency or current qualification. The Owner's 2026-10-26 receipt decision supersedes its archive/signature requirements.
-
-Source assignment: <https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md> (three concurrent worker packages; coordinator owns integration).
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-evidence-publisher.md) remain immutable history, not competing operational instructions.

@@ -16,7 +16,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-ci-delivery · ci delivery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+- [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
@@ -34,24 +34,10 @@ evidence: []
 **Source:** 
 <!-- /generated:links -->
 
-## Binding three-worker execution — Owner instruction, 2026-10-26
+# Deferred trusted CI readiness: delivery
 
-Routing: **W1/W2/W3 within the single shared pool**. Use the [coordinator handoff](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md); it supersedes earlier five-worker or serialized implementation scheduling.
-
-For delivery: W1 owns trusted selection/discovery changes; W2 owns the domain producer/executor fixture; W3 owns bounded result/receipt verification and negative cases. Coordinator reserves exact disjoint files against the accepted domain interface before dispatch. Use three total workers across ready domains, never three workers per domain or simultaneous writers to shared central files.
-
-Exactly three concurrent worker slots for all v0.4.27 CI work, plus the coordinator; never three additional workers on top of active claims. Existing owners/claims and completed commits are preserved. Coordinator hands over reservations explicitly and balances remaining effort, moving a bounded unfinished subtask or cross-review to a free worker rather than inventing work. No worker edits another worker's scripts, test file or workflow; common-branch pushes, Planning metadata and final integration have one coordinator writer.
-
-Dependencies in frontmatter remain acceptance/readiness requirements, not blanket locks on the explicitly authorized isolated receipt preparation against frozen #1090 interfaces. Parallel preparation does not accept an unmerged dependency, change a shared interface unilaterally, or qualify a new domain. The first one-gate receipt skeleton must be accepted before live domain-gate expansion. Later domain implementation still requires its accepted product contracts, fixtures and release-start inputs; choose another actually ready task or report the concrete blocker if three safe work slices do not exist.
-
-Do not alter active producer behavior or required-check enforcement before the accepted cutover. Preserve the legacy qualification route, use the smallest sufficient checks and batch candidates; no full matrix or duplicate green runs. Cross-review must be by another worker/coordinator and applies to the final integrated SHA.
-
-
-
-# Trusted CI readiness: delivery
-
-## Goal
-Independently qualify the smallest trusted planner/executor/finalcheck checks for the delivery domain before its new implementation files are exercised. This is a bounded CI prerequisite, not blanket approval for unrelated domains.
+## Observable outcome and preconditions
+Qualify only missing domain-specific trusted selection, execution and verification for accepted product interfaces. Wait for the accepted automatic receipt skeleton and this card's product/startup dependencies; do not expand gates to keep workers busy during the current repair.
 
 ## Covered slices
 - delivery-boundary
@@ -66,10 +52,12 @@ Independently qualify the smallest trusted planner/executor/finalcheck checks fo
 - delegated-handoff
 - promote
 
-## Acceptance
-- Inventory existing production paths and check mapping, required check names, runner capabilities, test entrypoints and exact trust inputs; avoid speculative new checks.
-- Add only missing coverage with executable positive and negative regressions, including changed-file detection and failure propagation.
-- Independently review any trusted policy/coverage changes; preserve source/integration SHA and runner isolation.
-- No self-qualification, full matrix, blanket bypass or merge without normal gates.
-- Different domains may be worked in parallel by Codeman, maintainer sessions or contributors, but central CI workflow/policy files require explicit single-writer integration sequencing.
-- Record exact accepted SHA and available check identity for dependent product slices.
+## Three-worker work split when assignable
+W1: existing trusted domain mapping and actual test discovery; W2: bounded producer/executor and domain-local fixture; W3: result/receipt verification and relevant negatives. Coordinator reserves exact files from the actual accepted product interface before assigning writes. Shared central files have one writer; use three total slots across domains, not three per card. Independent ready domains may be prepared in disjoint files without a blanket ci-lanes lock.
+
+## Acceptance and exclusions
+Actual selected checks execute and fail on missing/invalid required coverage; source/integration/ref and runner isolation stay authenticated. Record available accepted check identity for dependent product slices. Reuse valid compatible evidence; no full matrix, wildcard allowlist, self-reported green, unqualified new lane or duplicate authority. This deferred card does not authorize native runs during pause.
+
+## Governing order and preserved history
+
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-ci-delivery.md) remain immutable history, not competing operational instructions.

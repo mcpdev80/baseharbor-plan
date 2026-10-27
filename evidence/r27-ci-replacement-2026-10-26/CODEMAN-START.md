@@ -1,71 +1,57 @@
-# Codeman start: three parallel receipt workers
+# Codeman: single current CI work order
 
-Current corrective handoff: [CODEMAN-CORRECTION.md](CODEMAN-CORRECTION.md). Read it before resuming; it takes precedence over older manual shadow-replay/publication guidance.
+**State: PAUSED by Owner, 2026-10-27.** Read this file, the [audit](CODE-AUDIT-2026-10-27.md) and your assigned task. This rewrite does not resume workers. Wait for an explicit Owner restart. Earlier CODEMAN-CORRECTION, paper shadow runbooks, five-worker schedules and archive-prototype instructions are historical; do not combine them with this order.
 
-## Owner instruction and baseline
+## 1. Fixed goal and existing work
+One gate, public-contracts: normal contributor CI -> trusted post-run plan/receipt publication -> fresh live verification -> explicit Owner decision -> automatic approval publication -> automatic task evidence reference -> retained shadow consumption. Owner makes a decision only: no run/SHA entry, JSON authoring, patch download/git am or manual evidence push. Receipt stays six fields/<500 bytes. No own PKI, artifact archive, retention service, generic flags or new evidence authority.
 
-Marcel explicitly requests THREE concurrently productive workers with comparable remaining work, not five sequential slots. This scheduling instruction supersedes the earlier five-worker/contract-first implementation schedule. Acceptance dependencies remain; they are not implementation waiting barriers for the isolated preparation authorized here.
+Preserve frozen develop `3431b22c94b068f15f9bd7b31b9f87e846200f0f`, accepted schema and actual offline proof. #1092 already incorporated #1090. #1107 is a test-only contribution at b83e4faa; preserve its five useful cases and integrate them with W3's correction, not as a standalone fix proving the chain. Never resurrect #1048/#1051 source wholesale. Before resumption, coordinator inventories any unpublished local work from all paused lanes and merges useful changes without overwriting them.
 
-v0.4.26 is published: https://github.com/mcpdev80/baseharbor/releases/tag/v0.4.26 . Do not reopen its qualification cycle. Refresh repository heads, AGENTS.md and current claims before mutation.
+## 2. Prerequisites: declare facts, not simulated readiness
+Coordinator owns these checks; all three workers can prepare/test disjoint code while configuration is unresolved.
 
-Continue draft https://github.com/mcpdev80/baseharbor/pull/1090 ; observed head on 2026-10-26: ec82d476126291d372df2c13bd36273767574869. Preserve its two scripts, six focused tests and EN/DE docs. Recheck current source; do not reimplement completed work. The existing legacy coverage mapping/test-discovery gap is not a product-test failure or accepted evidence.
+- **Credential:** verify or have Owner provision exactly one `PLANNING_RECEIPT_WRITE_TOKEN` secret accessible only to trusted publication jobs; fine-grained access only to baseharbor-plan Contents read/write. Verify ordinary fast-forward publication is allowed and protected-main/no-force semantics hold. Do not read/log tokens or bypass protection. Missing configuration is a concrete external blocker; prepare code first, then request the exact setting/action once.
+- **Real source:** actual default branch is main. The existing approval/writer contract requires real main context. Keep that policy; remove GITHUB_* overrides. Prepare a CI-only default-main registration PR for the three reviewed workflow definitions and necessary workflow-policy allowlist only, with helper checkout pinned to the immutable corrected develop commit. No default-branch change, product promotion, version/tag or released-source rewrite. A workflow_run file living only on develop cannot be the automatic post-run path.
+- **Code qualification:** fix receipt-test discovery in the existing selected CI path, prove those tests actually execute, and finish local checks before the single candidate push. No wildcard exemption or self-reported green flag.
 
-## Start all three now
+## 3. Three parallel executable packages
+Use exactly three TOTAL worker slots plus coordinator, not three extra workers. Same frozen interface/source, separate worktrees and writes. Start all packages together after explicit resume; dependencies below govern acceptance, not waiting for other workers to implement against the existing interface. Shared changes are handed to their owner, never edited concurrently.
 
-Coordinator freezes the callable interfaces already in #1090 once, assigns disjoint paths, and dispatches all three together. No worker waits for W1 acceptance to inspect, implement or locally test its assigned slice. Interface changes require a coordinated revision; no worker invents a second contract.
-
-| Worker | Implement concurrently | Exclusive writes |
+| Slot / task | Exclusive product writes | Required callable output |
 | --- | --- | --- |
-| W1 | Contract/legacy bootstrap, exact path mapping and test discovery; paired documentation; shadow final-check consumption prepared for PR2 | Existing pr-gate-plan.py, pr-check-runner.py, test_pr_gate_plan.py; necessary exact qualification register; docs/development/minimal-ci-receipts.md and DE pair; .github/workflows/receipt-shadow.yml |
-| W2 | Writer corrections, safe fast-forward publication, post-run invocation, automatic gate-plan/task reference; focused writer tests | scripts/receipt_writer.py; scripts/test_receipt_writer.py; .github/workflows/receipt-post-run.yml |
-| W3 | Verifier corrections, live provenance/integration binding, authenticated approval action, offline history checks and required negatives | scripts/receipt_verifier.py; scripts/test_receipt_verifier.py; scripts/test_receipt_chain.py; .github/workflows/receipt-approval.yml |
+| W1 — [integration/discovery](../../tasks/t-20261024-r27-ci-impact-prototype.md) | .github/workflows/ci.yml, receipt-shadow.yml; scripts/pr-gate-plan.py, pr-check-runner.py, ci-workflow-policy.sh; their existing regression files; paired minimal-ci-receipts.md docs | Selected CI executes all relevant receipt suites; trusted controller/ref contract; retained-only consumer after approval publication; CI-only main registration patch prepared by coordinator |
+| W2 — [publication](../../tasks/t-20261022-r27-evidence-publisher.md) | scripts/receipt_writer.py, receipt_tasklink.py; test_receipt_writer.py, test_receipt_tasklink.py; receipt-post-run.yml | Live-witness-derived plan, unapproved receipt, real task evidence link and reusable idempotent fast-forward publication callable by W3 |
+| W3 — [verification/approval](../../tasks/t-20261022-r27-evidence-verifier.md) | scripts/receipt_verifier.py; test_receipt_verifier.py, test_receipt_chain.py; receipt-approval.yml; useful #1107 tests | Real Owner/ref validation; producer workflow trust; fresh live approval; automatic approval publication via W2 helper; hermetic three negatives and offline verification |
 
-W1: legacy registration changes must be exact and independently qualified, never broad exemptions or disabled checks. Do not change producer triggers, runner behavior or replace the active required final-check during preparation.
+Coordinator alone owns Planning/claims, common branch, literal helper-pin updates at final integration, candidate pushes/PRs and acceptance. W1 owns shared CI policy, W2 publication, W3 verification. No third production script; reuse current helpers. If a worker finishes early, transfer one concrete remaining subtask/file reservation or cross-review: W1 reviews W3, W3 reviews W2, W2 reviews W1. Rebalance remaining effort; do not invent extra gates/tests to fill slots.
 
-W2: the existing verifier functions are the shared interface. Keep task linking bounded within the workflow; no extra production script/service, generic flags or archive. Credentials stay in the trusted post-run context, never in fork/PR execution. Check publication before reporting success.
+## 4. Frozen shared contracts to reconcile before coding
+- Keep existing receipt fields/path and verifier modes live/approve/retained. Live pilot stays attempt 1; a rerun is not a new authenticated attempt unless explicitly supported later.
+- Plan still has gate, repository, workflow_id, head_sha, candidate_sha, base_sha, task. Obtain workflow_id from authenticated run.workflow_id, tested tuple from the authenticated trusted-pr-plan, never run.id/head_sha/branch-name substitutes. Associate an existing real Planning task from a deterministic trusted PR-to-task mapping, not a human-entered evidence ID; missing/ambiguous association blocks actionably.
+- W3 verifies producer workflow identity: for this narrow pilot the producer ci.yml must match the reviewed protected-base definition, with authenticated source tuple binding. An untrusted PR that changes CI/workflow bytes is not eligible for auto-issuance merely because job names match. No PR code runs in the credential-bearing controller.
+- W2 owns the existing-helper publication function used by both workflows: clean current Planning checkout, bounded exact edits, ordinary fast-forward/expected-head push, bounded conflict re-read/reapply, identical retry succeeds, conflicting receipt blocks. Return exact introduction/approval/publication commits and receipt path. Do not swallow Git errors or mark a local commit as published. After a timeout/rejected push, inspect durable bytes before retrying; never create a second approval edit.
+- W2 writes an automatic task-to-receipt evidence reference and public summary; plan.task alone is not that update. W3 approves the original receipt introduction commit, not the latest task-link/Planning HEAD. W1 consumes only the published approved path and exact plan/candidate with full protected Git history, no live fallback and no origin API call after approval.
+- Approval must automatically resolve evidence from the contributor PR/task reference. The human selects/approves the PR; they do not fill receipt_path/candidate_sha/plan_revision. Reject stale/ambiguous PR bindings before writing. Actor/triggering actor/event/repository/real ref come from the actual trusted workflow context, not caller overrides. No credential is granted to candidate or fork code.
 
-W3: preserve the current live trusted-pr-plan read, needed because Actions head_sha alone does not identify the tested merge. Read only during the live window; retain no artifact. Required negatives: wrong SHA, dead run ID, edited receipt. Reuse existing tests; do not duplicate the old suite or claim self-authored acceptance is independent.
+## 5. Integration and executable proof
+One local reviewable correction candidate combines W1/W2/W3 on the actual merged baseline. Do not merge/push each small fix or rerun hosted jobs to discover missing permissions/variables. Existing #1107 CI is green but does not yet prove receipt-test execution. First inspect it and preserve the source; no duplicate qualification for unchanged code.
 
-Coordinator owns Planning task metadata, claims, shared views, common branch, PR operations and final integration. Workers use separate worktrees/branches from the frozen baseline and hand off exact commits. They do not concurrently push the shared branch. W1's and W2's workflow definitions and W3's approval definition must agree on the same receipt path and script arguments before combined execution.
+Local checks: actual receipt suite runs without network-dependent mocks; workflow policy and actionlint; exact-path planner/runner/discovery regressions; EN/DE docs; temporary bare-Git remote tests for idempotent publication and concurrent unrelated edits. Add only tests for missing boundaries, not a duplicated historical suite. Confirm the invocation/required result, not merely a matching filename. Existing test_approve_reverifies_live_before_edit must inject the failing API so it does not call real gh.
 
-## Balance work rather than create waiting workers
+Then qualify the corrected develop candidate through legacy CI. After source review and green selected checks, coordinator prepares the necessary CI-only main registration with immutable helper pin and verified credential availability. Do not launch a live pilot while source/rights are unresolved. Main registration is a distinct unavoidable default-branch deployment step, not product release promotion or a generic bypass.
 
-Estimate remaining effort against existing code, not historical task size. The packages above distribute bootstrap/docs/shadow, writing/publication/linking, and verification/approval/negatives. Equal completion time is a target, not a claim.
+Run one ordinary contributor positive chain. The post-run step must be an actual successful job/publication, not a skipped job, echoed command or manual replay. Owner performs only the decision; publication/task link/retained shadow happen automatically afterwards. The shadow consumer runs after approval publication (e.g. reusable workflow from the trusted approval job), not as a PR-open job waiting for evidence created after producer completion. No final-check deadlock.
 
-As soon as a worker finishes its primary slice, assign bounded cross-review or one concrete unfinished subtask after explicitly transferring its file reservation. W1 reviews W3, W3 reviews W2, W2 reviews W1. Never generate more gates, speculative features or redundant tests to keep workers busy. Reuse completed f71/o145 work and preserve their commits/results; hand over active assignments cleanly instead of restarting them. Three is the target pool, not three additional workers on top of existing writers.
+Exercise the same verifier path with three controlled negatives: wrong candidate SHA, a genuinely missing run ID, and an edited fixture/history. Do not edit the real approved receipt. A network outage is not proof of a missing-run rejection. The positive retained test runs with origin API access forbidden. Wrong ref/actor/producer definition and fork isolation are covered by bounded local workflow/verification regressions. Evidence links/results are produced automatically; another worker/coordinator reviews the final integrated SHA.
 
-## Integrate without activating early
+## 6. Completion and cutover
+[Shadow-run](../../tasks/t-20261027-r27-shadow-run.md) and [acceptance](../../tasks/t-20261022-r27-evidence-acceptance.md) remain open until every positive link, task visibility, no-manual-evidence criterion and three negatives are demonstrated on the corrected candidate. A previously approved single receipt stays real historical evidence, not acceptance of automatic operation. Summary is at most checked / validly reused / not required with reason; not-required is never PASS.
 
-Implement all slices concurrently, but keep workflow additions in separate dormant PR2 commits until PR1 is accepted. PR1 remains contract + writer/verifier + focused tests/docs qualified by the legacy path; the exact legacy-mapping prerequisite may need a separately bounded commit/PR. PR2 proves exactly ONE real end-to-end shadow chain: runner -> writer -> receipt commit -> fresh live verification -> Owner approval commit -> automatic task link -> final-check consumption. PR3 alone cuts over the accepted required check.
+[PR3 cutover](../../tasks/t-20261027-r27-cutover-pr3.md) stays blocked. Before implementation, coordinator supplies the exact asynchronous completion-check/event/expected GitHub App and any required-context/ruleset change for review. It must publish only for the exact current PR candidate, not overwrite a newer request, and cannot wait for a receipt inside the producer run whose success triggers publication. Do not assert that no branch-policy change is needed without checking. No generic status framework or additional evidence authority. Preserve legacy enforcement until accepted replacement and explicit cutover authorization.
 
-Preserve genuine technical checks and exact candidate binding. No signatures/PKI, attestation bundles, payload archives, retention/recovery subsystem or second evidence authority. Owner approval remains explicit. Not-required gates have plan reasons, never PASS receipts. No manual run-ID/evidence bookkeeping. Developer summary: at most checked / validly reused / not required with reason.
+No new domain gates before accepted skeleton. The four later domain cards keep their real product-interface dependencies and share the same three slots; they are not three workers each. Product CI-consumption docs are a separate later feature, not a new CI platform. Old archive and duplicate paper/resolver cards are superseded, not runnable work.
 
-Batch related changes, run only risk-matched local checks, inspect the current CI result before publishing a replacement candidate. Do not use one-file pushes or repeat green runs as a debugging loop; no full runtime matrix for receipt control-plane work.
+## 7. Deadline and restart
+T0 remains 2026-10-26T23:35:50Z; fallback deadline remains 2026-10-29T23:35:50Z. Pause/new PRs do not silently reset it. Without accepted automatic skeleton by then, stop infrastructure expansion and use adequate existing legacy checks for eligible product work; report the concrete blocker. No false full qualification or weakened coverage.
 
-## Planning and deadline
-
-Reconcile the existing five evidence cards into these three ownership packages; keep the formal cards as acceptance units, not serialized implementation locks. Do not assume the earlier unpublished five-worker epic is on main. Retire t-20261024-r27-evidence-prototype with resolution superseded and a receipt-task successor; only API verification/parser regression ideas are salvageable. Never resume its HMAC/Ed25519/issuer architecture.
-
-The timer starts at PR1 acceptance, not W1/contract acceptance: record T0 and an absolute UTC deadline T0 + 72 hours in the acceptance record, linked from the contract card. If the one-gate chain is not accepted by then, stop infrastructure expansion, state the concrete blocker, and continue eligible product work through adequate existing trusted legacy checks. No silent extensions, fake passes or waived product prerequisites.
-
-Use GitHub MCP. Keep Planning truthful and render/check changed metadata. If automatic approval blocks publication, report it and request the necessary explicit approval; do not bypass it. This handoff authorizes neither a release nor live cutover before acceptance.
-
-## Applies to all v0.4.27 CI cards
-The Owner clarified that this is a release-wide CI scheduling rule, not just the initial receipt handoff. All live CI/CI-consumption cards contain a binding three-worker section with split ownership; their existing claims and acceptance dependencies remain intact. Domain expansion still waits for the accepted one-gate foundation. Slots are shared across all cards, not multiplied per card. Rebalance by actual remaining effort; never force meaningless work to claim full utilization.
-
-| Task | Routing |
-| --- | --- |
-| [t-20261018-r27-ci-consumption](../../tasks/t-20261018-r27-ci-consumption.md) | W1/W2/W3 after accepted product inputs |
-| [t-20261018-r27-ci-lanes](../../tasks/t-20261018-r27-ci-lanes.md) | Coordinator integrates; W1/W2/W3 implement disjoint slices |
-| [t-20261022-r27-ci-access](../../tasks/t-20261022-r27-ci-access.md) | W1/W2/W3 within the single shared pool |
-| [t-20261022-r27-ci-authority](../../tasks/t-20261022-r27-ci-authority.md) | W1/W2/W3 within the single shared pool |
-| [t-20261022-r27-ci-delivery](../../tasks/t-20261022-r27-ci-delivery.md) | W1/W2/W3 within the single shared pool |
-| [t-20261022-r27-ci-runtime](../../tasks/t-20261022-r27-ci-runtime.md) | W1/W2/W3 within the single shared pool |
-| [t-20261022-r27-evidence-acceptance](../../tasks/t-20261022-r27-evidence-acceptance.md) | Coordinator; reviews rotate across W1/W2/W3 |
-| [t-20261022-r27-evidence-contract](../../tasks/t-20261022-r27-evidence-contract.md) | W1 |
-| [t-20261022-r27-evidence-publisher](../../tasks/t-20261022-r27-evidence-publisher.md) | W2 |
-| [t-20261022-r27-evidence-resolver](../../tasks/t-20261022-r27-evidence-resolver.md) | W2 |
-| [t-20261022-r27-evidence-verifier](../../tasks/t-20261022-r27-evidence-verifier.md) | W3 |
-| [t-20261024-r27-candidate-trigger-prototype](../../tasks/t-20261024-r27-candidate-trigger-prototype.md) | W2 |
-| [t-20261024-r27-ci-impact-prototype](../../tasks/t-20261024-r27-ci-impact-prototype.md) | W1 |
-| [t-20261024-r27-evidence-prototype](../../tasks/t-20261024-r27-evidence-prototype.md) | Retired; no worker |
+This planning reset changes no product source or release and resumes nobody. After Owner restart, coordinator records the three exact worktree/commit inventories and reservations, resolves external configuration once, and follows this one order. Other historical runbooks are evidence, not competing instructions.

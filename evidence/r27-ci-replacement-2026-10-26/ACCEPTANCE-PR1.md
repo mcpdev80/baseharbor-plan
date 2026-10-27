@@ -1,3 +1,5 @@
+> Historical PR1 source/schema acceptance and original T0. The 2026-10-27 [code audit](CODE-AUDIT-2026-10-27.md) found that the trusted CI invocation does not execute receipt suites and that the automatic chain remains incomplete. Preserve this record, but do not treat it as proof of automatic publication or complete test discovery. Requalification requirements are in [the sole current work order](CODEMAN-START.md).
+
 # PR1 acceptance — minimal receipts contract/writer/verifier
 
 Date (UTC): 2026-10-26T23:35:50Z
