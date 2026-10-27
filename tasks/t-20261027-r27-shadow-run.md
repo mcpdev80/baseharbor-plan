@@ -11,7 +11,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1107, mcpdev80/baseharbor#1111, mcpdev80/baseharbor#1129]
 sources: []
-blocker: "v3.5 integration chain #1129 (work/r27-correction-v35) published + merged #1128/#1126/#1127; PLANNING_RECEIPT_WRITE_TOKEN still missing + hosted CI + CODEX-R3."
+blocker: "Wave-4 Pakete #1128/#1131/#1132 warten auf v3.6-Staging+CI+CODEX-R4; PLANNING_RECEIPT_WRITE_TOKEN + workflow_dispatch-Freigabe = Owner-Punkte (p1 GAP-2/GAP-5)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/", "https://github.com/mcpdev80/baseharbor/pull/1129"]
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- generated:card -->
     **Owner:** coordinator-lane · **Priority:** critical  
     **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1111](https://github.com/mcpdev80/baseharbor/pull/1111), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129)  
-    **Blocker:** v3.5 integration chain \#1129 (work/r27-correction-v35) published + merged \#1128/\#1126/\#1127; PLANNING\_RECEIPT\_WRITE\_TOKEN still missing + hosted CI + CODEX-R3.  
+    **Blocker:** Wave-4 Pakete \#1128/\#1131/\#1132 warten auf v3.6-Staging+CI+CODEX-R4; PLANNING\_RECEIPT\_WRITE\_TOKEN + workflow\_dispatch-Freigabe = Owner-Punkte (p1 GAP-2/GAP-5).  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1129)  
     <!-- /generated:card -->
