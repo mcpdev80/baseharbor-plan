@@ -12,21 +12,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092]
 sources: []
 early: false
-blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F4/F6/F7: real execution, default-branch registration and receipt test discovery are incomplete."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/claimed #view/claimed #area/ci #kind/task
+- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092)  
-    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F4/F6/F7: real execution, default-branch registration and receipt test discovery are incomplete.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** claimed  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
