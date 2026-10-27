@@ -11,7 +11,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1107]
 sources: []
-blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending."
+blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending. Next trigger: accepted skeleton (CODEX ACCEPT)."
 resolution: ""
 evidence: []
 ---
@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
     **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
-    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending.  
+    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending. Next trigger: accepted skeleton (CODEX ACCEPT).  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
     <!-- /generated:card -->
 

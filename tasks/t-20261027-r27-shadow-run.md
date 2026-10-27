@@ -11,7 +11,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1107, mcpdev80/baseharbor#1111]
 sources: []
-blocker: "Owner gaps G1-G6 (OWNER-REVIEW-2026-10-27.md); closure lanes ci1/f3/f4 dispatched on v2 base 38771771; re-qualification through legacy CI required before merge/activation."
+blocker: "Waiting for wave-3 (g1x F1 post-run, g2x F5 tasklink to v3.4) + v3.5 + CI + CODEX-R3; PLANNING_RECEIPT_WRITE_TOKEN missing."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/"]
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- generated:card -->
     **Owner:** coordinator-lane · **Priority:** critical  
     **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1111](https://github.com/mcpdev80/baseharbor/pull/1111)  
-    **Blocker:** Owner gaps G1-G6 (OWNER-REVIEW-2026-10-27.md); closure lanes ci1/f3/f4 dispatched on v2 base 38771771; re-qualification through legacy CI required before merge/activation.  
+    **Blocker:** Waiting for wave-3 (g1x F1 post-run, g2x F5 tasklink to v3.4) + v3.5 + CI + CODEX-R3; PLANNING\_RECEIPT\_WRITE\_TOKEN missing.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/)  
     <!-- /generated:card -->
