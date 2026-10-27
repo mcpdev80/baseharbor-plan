@@ -5,7 +5,7 @@ areas: [application]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
+owner: z3-lane
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -16,20 +16,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261027-r27-credential-retention · Implement native credential retention + provenance (supersedes #1077 debt) #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/application #kind/task
+- [ ] t-20261027-r27-credential-retention · Implement native credential retention + provenance (supersedes #1077 debt) #task #release/v0-4-27 #status/active #view/active #area/application #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** z3-lane  
     **PR:** [baseharbor#1077](https://github.com/mcpdev80/baseharbor/pull/1077)  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** unassigned  
+**Owner:** z3-lane  
 **Priority:** not set  
 **PRs:** [baseharbor#1077](https://github.com/mcpdev80/baseharbor/pull/1077)  
 **Source:** 
