@@ -1,0 +1,274 @@
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	﻿2026-10-27T22:18:21.0262571Z ##[group]Run set -euo pipefail
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0263290Z [36;1mset -euo pipefail[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0263893Z [36;1mpython3 scripts/test_pr_diff_base.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0264887Z [36;1mpython3 scripts/test_pr_gate_plan.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0265580Z [36;1mpython3 scripts/test_pr_required_final.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0266259Z [36;1mpython3 scripts/test_pr_check_runner.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0266948Z [36;1mpython3 scripts/test_pr_wizard_workflow_route.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0267786Z [36;1mgo run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 -shellcheck=[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0268636Z [36;1mpython3 scripts/test_pr_runtime_request.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0269335Z [36;1mpython3 scripts/test_pr_authenticated_results.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0270037Z [36;1mpython3 scripts/test_pr_actions_summary.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0270739Z [36;1mpython3 scripts/test_pr_gate_dependencies.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0271525Z [36;1mgit fetch --no-tags origin 45500525aa65957a22e6076ac28fe5cb6c6f9610[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0272382Z [36;1mpython3 scripts/test_pr_selected_runtime_matrix.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0273128Z [36;1mpython3 scripts/test_pr_verified_atomic_evidence.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0273853Z [36;1mpython3 scripts/test_ecosystem_release_pins.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0274829Z [36;1mpython3 scripts/test_pre_release_resume.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0275513Z [36;1mpython3 scripts/test_targeted_gate_ref.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0276287Z [36;1m# R27-F2: execute the receipt control-plane suites with the TRUSTED[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0277177Z [36;1m# base-runner selecting the exact registered modules; candidate code[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0277961Z [36;1m# must not define its own receipt discovery.[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0278750Z [36;1mgit fetch --no-tags origin "3431b22c94b068f15f9bd7b31b9f87e846200f0f"[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0279904Z [36;1mgit show "3431b22c94b068f15f9bd7b31b9f87e846200f0f:scripts/pr-check-runner.py" > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0281289Z [36;1mpython3 "$RUNNER_TEMP/pr-check-runner.py" execute --check receipt-execution-tests --repository "$GITHUB_WORKSPACE"[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0531840Z shell: /usr/bin/bash -e {0}
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.0532443Z ##[endgroup]
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.7247203Z .............
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.7248138Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.7249029Z Ran 13 tests in 0.591s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.7249393Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:21.7249559Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:26.8878043Z .............................................................Switched to branch 'target'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:26.8989392Z Switched to branch 'source'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:26.9158798Z Automatic merge went well; stopped before committing as requested
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:18:26.9428678Z Switched to branch 'source'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2880117Z ..................................F..........................................
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2880930Z ======================================================================
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2882396Z FAIL: test_receipt_execution_check_actually_runs_receipt_suites (__main__.ReceiptControlPlaneExecutionTests.test_receipt_execution_check_actually_runs_receipt_suites)
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2883740Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2884609Z Traceback (most recent call last):
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2885710Z   File "/home/runner/work/baseharbor/baseharbor/scripts/test_pr_gate_plan.py", line 3584, in test_receipt_execution_check_actually_runs_receipt_suites
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2887029Z     self.assertEqual(
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2888524Z AssertionError: Lists differ: ['tes[76 chars]test_ci_workflow_policy_receipts.py', 'test_re[41 chars].py'] != ['tes[76 chars]test_receipt_tasklink.py', 'test_ci_workflow_p[41 chars].py']
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2889986Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2890217Z First differing element 3:
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2890700Z 'test_ci_workflow_policy_receipts.py'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2891261Z 'test_receipt_tasklink.py'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2891902Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2892084Z   ['test_receipt_writer.py',
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2892570Z    'test_receipt_verifier.py',
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2893018Z    'test_receipt_chain.py',
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2893458Z +  'test_receipt_tasklink.py',
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2893956Z    'test_ci_workflow_policy_receipts.py',
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2894833Z -  'test_receipt_tasklink.py',
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2895336Z    'test_receipt_postrun.py']
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2895697Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2895981Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2896643Z Ran 138 tests in 40.415s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2896927Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2897134Z FAILED (failures=1)
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2898896Z test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation (reviewed_utility_tests.PodmanTypedConsentTests.test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2901728Z test_fresh_two_stage_consent_preserves_incomplete_inventory (reviewed_utility_tests.PodmanTypedConsentTests.test_fresh_two_stage_consent_preserves_incomplete_inventory) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2907077Z test_helper_runs_from_application_workdir_using_checkout_root (reviewed_utility_tests.PodmanTypedConsentTests.test_helper_runs_from_application_workdir_using_checkout_root) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2909362Z test_missing_invalid_or_destructive_impact_blocks (reviewed_utility_tests.PodmanTypedConsentTests.test_missing_invalid_or_destructive_impact_blocks) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2911544Z test_operation_sources_bind_to_their_own_plan_shape (reviewed_utility_tests.PodmanTypedConsentTests.test_operation_sources_bind_to_their_own_plan_shape) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2913792Z test_scope_output_parser_accepts_only_one_emitted_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_scope_output_parser_accepts_only_one_emitted_plan) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2916279Z test_single_stage_only_if_required_by_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_single_stage_only_if_required_by_plan) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2918605Z test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle (reviewed_utility_tests.PodmanTypedConsentTests.test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2920054Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2920337Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2920935Z Ran 8 tests in 0.472s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2921177Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2921303Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2922672Z test_artifact_gc_retains_active_refs_and_deletes_inactive (reviewed_utility_tests.ArtifactGC.test_artifact_gc_retains_active_refs_and_deletes_inactive) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2924843Z test_candidate_sha_and_second_page_fail_closed (reviewed_utility_tests.ArtifactGC.test_candidate_sha_and_second_page_fail_closed) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2926543Z test_gc_discovery_failure_never_deletes (reviewed_utility_tests.ArtifactGC.test_gc_discovery_failure_never_deletes) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2928307Z test_pr_event_is_read_only_and_never_enters_cleanup (reviewed_utility_tests.ArtifactGC.test_pr_event_is_read_only_and_never_enters_cleanup) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2930070Z test_pr_evidence_artifacts_are_not_ephemeral (reviewed_utility_tests.ArtifactGC.test_pr_evidence_artifacts_are_not_ephemeral) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2931964Z test_pr_provenance_and_native_evidence_keep_review_window (reviewed_utility_tests.ArtifactGC.test_pr_provenance_and_native_evidence_keep_review_window) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2933979Z test_qualification_outcomes_and_branches_survive_gc (reviewed_utility_tests.ArtifactGC.test_qualification_outcomes_and_branches_survive_gc) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2935367Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2935639Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2936285Z Ran 7 tests in 0.179s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2936536Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2936669Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2938003Z test_even_isolated_scoped_root_has_no_implicit_delete_authority (reviewed_utility_tests.RuntimeResetOwnershipTests.test_even_isolated_scoped_root_has_no_implicit_delete_authority) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2940778Z test_scoped_podman_quadlet_only_selected_and_retains_xdg (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_podman_quadlet_only_selected_and_retains_xdg) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2943155Z test_scoped_shared_state_preserved_resources_filtered (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_shared_state_preserved_resources_filtered) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2945735Z test_unknown_scope_preserves_all_state_and_resources (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unknown_scope_preserves_all_state_and_resources) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2947993Z test_unscoped_dedicated_runner_full_reset_unchanged (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unscoped_dedicated_runner_full_reset_unchanged) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2949220Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2949494Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2950116Z Ran 5 tests in 0.266s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2950353Z 
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.2950488Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T22:19:02.3059264Z ##[error]Process completed with exit code 1.
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	﻿2026-10-27T22:18:22.6515252Z ##[group]Run set -euo pipefail
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6515699Z [36;1mset -euo pipefail[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6515969Z [36;1mcase "$VALIDATION" in[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6516301Z [36;1m  not-required) echo 'NOT REQUIRED (not PASS)' ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6516764Z [36;1m  documentation-audit) bash scripts/documentation-audit.sh ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6517244Z [36;1m  mkdocs-en-strict|mkdocs-de-strict|pages-candidate-build)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6517766Z [36;1m    python -m pip install --disable-pip-version-check -r requirements-docs.txt[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6518210Z [36;1m    case "$VALIDATION" in[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6518599Z [36;1m      mkdocs-en-strict) mkdocs build --strict --config-file mkdocs.yml ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6519168Z [36;1m      mkdocs-de-strict) mkdocs build --strict --config-file mkdocs.de.yml ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6519598Z [36;1m      pages-candidate-build)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6519928Z [36;1m        mkdocs build --strict --config-file mkdocs.yml[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6520697Z [36;1m        mkdocs build --strict --config-file mkdocs.de.yml[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6521055Z [36;1m        test -f site/index.html[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6521330Z [36;1m        ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6521542Z [36;1m    esac ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6521763Z [36;1m  source-contracts)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6522109Z [36;1m    go test ./internal/application/... ./contracts/... -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6522624Z [36;1m  cli-guided-tests) go test ./cmd/baha -run '^TestGuided' -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6523116Z [36;1m  cli-gofmt) test -z "$(gofmt -l cmd/baha)" ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6523449Z [36;1m  pins-data-validation)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6523754Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6524160Z [36;1m    trusted_pins=$(mktemp -d "$RUNNER_TEMP/pins-validator.XXXXXX")[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6524785Z [36;1m    for helper in pr-check-runner.py ecosystem_release_pins.py private_consumer_evidence.py; do[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6525371Z [36;1m      git show "$BASE_SHA:scripts/$helper" > "$trusted_pins/$helper"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6525732Z [36;1m    done[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6526194Z [36;1m    python3 "$trusted_pins/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6526713Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6526918Z [36;1m  wizard-*-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6527186Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6527651Z [36;1m    git show "$BASE_SHA":scripts/pr-check-runner.py > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6528330Z [36;1m    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6528840Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6529074Z [36;1m  cli-vet) go vet ./cmd/baha ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6529456Z [36;1m  cli-build) go build -o "$RUNNER_TEMP/baha-validation" ./cmd/baha ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6529981Z [36;1m  capability-package-tests) go test ./internal/capability/... -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6530774Z [36;1m  inspect-gofmt) test -z "$(gofmt -l internal/repositoryinspect)" ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6531529Z [36;1m  inspect-package-tests) go test ./internal/repositoryinspect/ -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6532019Z [36;1m  inspect-vet) go vet ./internal/repositoryinspect/ ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6532518Z [36;1m  inspect-consumer-tests) go test ./cmd/baha -run 'Inspect|Reconcile' -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6533111Z [36;1m  inspect-consumer-build) go build -o "$RUNNER_TEMP/baha-inspect" ./cmd/baha ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6533543Z [36;1m  pr-planner-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6533862Z [36;1m    python3 -m unittest scripts/test_pr_gate_plan.py ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6534263Z [36;1m  ci-policy) bash scripts/ci-workflow-policy.sh ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6534780Z [36;1m  ci-actionlint) go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 -shellcheck= ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6535437Z [36;1m  ci-executor-verifier-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6536152Z [36;1m    PYTHONPATH=scripts python3 -m unittest scripts/test_pre_release_resume.py scripts/test_evidence_api_transport.py scripts/test_select_evidence_attempts.py ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6536904Z [36;1m  receipt-execution-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6537279Z [36;1m    # R27-F2: the planner registers this check in every receipt-class[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6537757Z [36;1m    # plan; without an exact case it fell through to the fail-closed[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6538223Z [36;1m    # exit-2 default. Run the trusted base-owner selection exactly.[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6538626Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6539098Z [36;1m    git show "$BASE_SHA":scripts/pr-check-runner.py > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6539791Z [36;1m    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6540544Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6540769Z [36;1m  openbao-package-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6541061Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6541531Z [36;1m    git show "$BASE_SHA":scripts/pr-check-runner.py > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6542217Z [36;1m    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6542723Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6542926Z [36;1m  *) exit 2 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6543143Z [36;1mesac[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6840524Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6841004Z env:
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6841261Z   GOTOOLCHAIN: local
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6841572Z   VALIDATION: pr-planner-tests
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6841951Z   BASE_SHA: 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:22.6842345Z ##[endgroup]
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:28.6566592Z .............................................................Switched to branch 'target'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:28.6681893Z Switched to branch 'source'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:28.6857962Z Automatic merge went well; stopped before committing as requested
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:18:28.7136925Z Switched to branch 'source'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4449884Z ..................................F............................................
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4450816Z ======================================================================
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4452245Z FAIL: test_receipt_execution_check_actually_runs_receipt_suites (scripts.test_pr_gate_plan.ReceiptControlPlaneExecutionTests.test_receipt_execution_check_actually_runs_receipt_suites)
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4453641Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4454224Z Traceback (most recent call last):
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4455380Z   File "/home/runner/work/baseharbor/baseharbor/scripts/test_pr_gate_plan.py", line 3584, in test_receipt_execution_check_actually_runs_receipt_suites
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4456458Z     self.assertEqual(
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4457560Z AssertionError: Lists differ: ['tes[76 chars]test_ci_workflow_policy_receipts.py', 'test_re[41 chars].py'] != ['tes[76 chars]test_receipt_tasklink.py', 'test_ci_workflow_p[41 chars].py']
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4460120Z test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation (reviewed_utility_tests.PodmanTypedConsentTests.test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4462437Z test_fresh_two_stage_consent_preserves_incomplete_inventory (reviewed_utility_tests.PodmanTypedConsentTests.test_fresh_two_stage_consent_preserves_incomplete_inventory) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4464437Z test_helper_runs_from_application_workdir_using_checkout_root (reviewed_utility_tests.PodmanTypedConsentTests.test_helper_runs_from_application_workdir_using_checkout_root) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4466348Z test_missing_invalid_or_destructive_impact_blocks (reviewed_utility_tests.PodmanTypedConsentTests.test_missing_invalid_or_destructive_impact_blocks) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4468400Z test_operation_sources_bind_to_their_own_plan_shape (reviewed_utility_tests.PodmanTypedConsentTests.test_operation_sources_bind_to_their_own_plan_shape) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4475028Z test_scope_output_parser_accepts_only_one_emitted_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_scope_output_parser_accepts_only_one_emitted_plan) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4476797Z test_single_stage_only_if_required_by_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_single_stage_only_if_required_by_plan) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4478653Z test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle (reviewed_utility_tests.PodmanTypedConsentTests.test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4479734Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4479988Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4480803Z Ran 8 tests in 0.474s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4481011Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4481131Z OK
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4482063Z test_artifact_gc_retains_active_refs_and_deletes_inactive (reviewed_utility_tests.ArtifactGC.test_artifact_gc_retains_active_refs_and_deletes_inactive) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4483780Z test_candidate_sha_and_second_page_fail_closed (reviewed_utility_tests.ArtifactGC.test_candidate_sha_and_second_page_fail_closed) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4485264Z test_gc_discovery_failure_never_deletes (reviewed_utility_tests.ArtifactGC.test_gc_discovery_failure_never_deletes) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4486797Z test_pr_event_is_read_only_and_never_enters_cleanup (reviewed_utility_tests.ArtifactGC.test_pr_event_is_read_only_and_never_enters_cleanup) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4488402Z test_pr_evidence_artifacts_are_not_ephemeral (reviewed_utility_tests.ArtifactGC.test_pr_evidence_artifacts_are_not_ephemeral) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4490090Z test_pr_provenance_and_native_evidence_keep_review_window (reviewed_utility_tests.ArtifactGC.test_pr_provenance_and_native_evidence_keep_review_window) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4492195Z test_qualification_outcomes_and_branches_survive_gc (reviewed_utility_tests.ArtifactGC.test_qualification_outcomes_and_branches_survive_gc) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4493155Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4493430Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4493974Z Ran 7 tests in 0.180s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4494246Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4494362Z OK
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4495605Z test_even_isolated_scoped_root_has_no_implicit_delete_authority (reviewed_utility_tests.RuntimeResetOwnershipTests.test_even_isolated_scoped_root_has_no_implicit_delete_authority) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4497737Z test_scoped_podman_quadlet_only_selected_and_retains_xdg (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_podman_quadlet_only_selected_and_retains_xdg) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4499828Z test_scoped_shared_state_preserved_resources_filtered (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_shared_state_preserved_resources_filtered) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4501940Z test_unknown_scope_preserves_all_state_and_resources (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unknown_scope_preserves_all_state_and_resources) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4504221Z test_unscoped_dedicated_runner_full_reset_unchanged (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unscoped_dedicated_runner_full_reset_unchanged) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4505266Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4505539Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4506071Z Ran 5 tests in 0.269s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4506277Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4506402Z OK
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4506582Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4506755Z First differing element 3:
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4507197Z 'test_ci_workflow_policy_receipts.py'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4507651Z 'test_receipt_tasklink.py'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4507899Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4508083Z   ['test_receipt_writer.py',
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4508673Z    'test_receipt_verifier.py',
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4509102Z    'test_receipt_chain.py',
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4509497Z +  'test_receipt_tasklink.py',
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4510013Z    'test_ci_workflow_policy_receipts.py',
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4510739Z -  'test_receipt_tasklink.py',
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4511198Z    'test_receipt_postrun.py']
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4511455Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4511720Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4512263Z Ran 140 tests in 104.504s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4512510Z 
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4512660Z FAILED (failures=1)
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T22:20:07.4636723Z ##[error]Process completed with exit code 1.
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	﻿2026-10-27T22:20:15.7296387Z ##[group]Run set -euo pipefail
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7296850Z [36;1mset -euo pipefail[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7297138Z [36;1mtest "$PLAN_JOB" = success[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7297446Z [36;1mtest -s pr-plan.json[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7298723Z [36;1mpython3 -c 'import json,os; p=json.load(open("pr-plan.json")); pairs=(("target_base_sha","EXPECTED_BASE"),("head_sha","EXPECTED_HEAD"),("integration_sha","EXPECTED_INTEGRATION")); assert all(p.get(k)==os.environ[v] for k,v in pairs), "stale PR integration inputs: replan required"'[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7300452Z [36;1mgit fetch --no-tags origin c6db56c4ac077dbc496134cb0871c8e996a593fe c6db56c4ac077dbc496134cb0871c8e996a593fe[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7301299Z [36;1mgit show "${EXPECTED_BASE}:scripts/pr-authenticated-results.py" > "$RUNNER_TEMP/pr-authenticated-results.py"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7302163Z [36;1mgit show c6db56c4ac077dbc496134cb0871c8e996a593fe:scripts/pr-required-final.py > "$RUNNER_TEMP/pr-required-final.py"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7303447Z [36;1mpython3 "$RUNNER_TEMP/pr-authenticated-results.py" --plan pr-plan.json --repository mcpdev80/baseharbor --run-id "$ACTIONS_RUN_ID" --attempt "$ACTIONS_RUN_ATTEMPT" --head-sha "$EXPECTED_HEAD" > "$RUNNER_TEMP/pr-results.json"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7304945Z [36;1mif { [ "$SELECTED_RUNTIME_REQUIRED" = true ] && [ "$SELECTED_RUNTIME_JOB" = success ]; } || { [ "$PUBLIC_CONTRACTS_REQUIRED" = true ] && [ "$PUBLIC_CONTRACTS_JOB" = success ]; }; then[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7305738Z [36;1m  [[ "$VERIFIED_DEMO_SHA" =~ ^[0-9a-f]{40}$ ]][0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7306193Z [36;1m  git fetch --no-tags origin c6db56c4ac077dbc496134cb0871c8e996a593fe[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7307025Z [36;1m  git show c6db56c4ac077dbc496134cb0871c8e996a593fe:scripts/pr-verified-atomic-evidence.py > "$RUNNER_TEMP/pr-verified-atomic-evidence.py"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7307823Z [36;1m  python3 "$RUNNER_TEMP/pr-verified-atomic-evidence.py" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7308336Z [36;1m    --plan pr-plan.json --results "$RUNNER_TEMP/pr-results.json" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7308845Z [36;1m    --requirements scripts/release-requirements.json \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7309345Z [36;1m    --run-id "$ACTIONS_RUN_ID" --attempt "$ACTIONS_RUN_ATTEMPT" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7310171Z [36;1m    --head-sha "$EXPECTED_HEAD" --integration-sha "$EXPECTED_INTEGRATION" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7310644Z [36;1m    --demo-sha "$VERIFIED_DEMO_SHA"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7311055Z [36;1mfi[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7311845Z [36;1mpython3 "$RUNNER_TEMP/pr-required-final.py" --plan pr-plan.json --results "$RUNNER_TEMP/pr-results.json" --requirements scripts/release-requirements.json[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7601852Z shell: /usr/bin/bash -e {0}
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7602231Z env:
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7602474Z   PLAN_JOB: success
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7602813Z   EXPECTED_BASE: 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7603284Z   EXPECTED_HEAD: 27507addc4efc2e41ba2f7bcba891b153a815a9c
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7603807Z   EXPECTED_INTEGRATION: b9a893ea452a044f7082f5053aa123809eae8b7d
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7604271Z   FOCUSED_JOB: failure
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7604555Z   VALIDATION_JOB: failure
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7608079Z   GH_TOKEN: ***
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7608369Z   ACTIONS_RUN_ID: 40593744319
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7608708Z   ACTIONS_RUN_ATTEMPT: 1
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7609022Z   SELECTED_RUNTIME_REQUIRED: false
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7609365Z   SELECTED_RUNTIME_JOB: skipped
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7609878Z   PUBLIC_CONTRACTS_REQUIRED: false
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7610241Z   PUBLIC_CONTRACTS_JOB: skipped
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7610551Z   VERIFIED_DEMO_SHA: 
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:15.7610823Z ##[endgroup]
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:16.7289973Z From https://github.com/mcpdev80/baseharbor
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:16.7290900Z  * branch              c6db56c4ac077dbc496134cb0871c8e996a593fe -> FETCH_HEAD
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:16.7291834Z  * branch              c6db56c4ac077dbc496134cb0871c8e996a593fe -> FETCH_HEAD
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:17.7983380Z BLOCKED: coverage-unresolved: workflow execution/cleanup/evidence impact requires native qualification: .github/workflows/ci.yml; CI execution/evidence impact requires specific qualification: evidence-r27/ci1-repair.md; CI execution/evidence impact requires specific qualification: evidence-r27/cy1.md; CI execution/evidence impact requires specific qualification: evidence-r27/cy3.md; CI execution/evidence impact requires specific qualification: evidence-r27/f1-fix.md; CI execution/evidence impact requires specific qualification: evidence-r27/f3b-fix.md; CI execution/evidence impact requires specific qualification: evidence-r27/g1x.md; CI execution/evidence impact requires specific qualification: evidence-r27/g1y.md; CI execution/evidence impact requires specific qualification: evidence-r27/g2x.md; CI execution/evidence impact requires specific qualification: evidence-r27/s2-v3staging.md; CI execution/evidence impact requires specific qualification: evidence-r27/w1.md; CI execution/evidence impact requires specific qualification: evidence-r27/w3.md; CI execution/evidence impact requires specific qualification: evidence-r27/w4b3.md; CI execution/evidence impact requires specific qualification: evidence-r27/w4c.md; CI execution/evidence impact requires specific qualification: evidence-r27/x1-fix.md; CI execution/evidence impact requires specific qualification: evidence/g1/evidence-r27/g1.md; CI execution/evidence impact requires specific qualification: scripts/pr-check-runner.py; CI execution/evidence impact requires specific qualification: scripts/test_pr_check_runner.py; unknown impact for scripts/test_receipt_postrun.py
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:17.7991335Z BLOCKED: required authenticated job not successful: PR · Focused Python
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:17.7991944Z BLOCKED: required validation not successful: pr-planner-tests (blocked)
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T22:20:17.8033822Z ##[error]Process completed with exit code 1.
