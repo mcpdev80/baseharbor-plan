@@ -80,6 +80,12 @@ This is an executable correction within W2, not a new architecture or a separate
 - Require the real `integration_sha`; missing, null, malformed, duplicate-key or otherwise invalid required data must stop extraction with an actionable error. Missing artifact/download/parse errors must stop the job before tasklink, receipt creation or publication.
 - Use artifact values only as data, never `source`/`eval`. Keep the heredoc executable: redirect on the Python invocation, not on its closing delimiter. Do not expand undefined shell variables under `set -u`; writing `GITHUB_OUTPUT` does not assign a shell variable.
 
+### Addendum: push credentials and job hygiene (Owner findings, 2026-10-27, verified at `f57b30ed`)
+
+1. **Publication push authentication (acceptance-critical).** `publish()` currently calls a plain `git push origin` while the Planning checkout uses `persist-credentials: false` (`receipt-post-run.yml` ~:226-228; the checkout token is fetched-only). Every real publication run would fail with HTTP 401. Fix inside the existing publication path: authenticate only the push subprocess in-process (x-access-token URL or `-c http.extraheader`), never persist the credential, never print it, and read back durable state via the anonymous fetch path afterwards. Add a test that a missing token fails closed before pushing.
+2. **`BASE_REF` block indentation.** The extracted block carries 11 spaces instead of 10 (post-run facts step, ~:60). Cosmetic but take it while the file is open.
+3. **Job name truthfulness.** `verify_producer` no longer verifies anything (context extraction only, and `workflow_run.base_ref` does not exist on run objects). Rename to `producer_context` and update every `needs.*`/`outputs.*` reference (`:73`, `:195`, `:206`, `:318`) in the same change; real verification remains in writer/`live()` and the verifier.
+
 ### Focused proof and completion
 
 1. Exercise the actual resolved workflow step commands in a bounded local fixture, not just text assertions. Use different positive run/workflow IDs and different product/Planning SHAs; assert the writer receives exactly the producer run ID and returned Planning commit, while the plan retains the workflow ID and tested integration SHA.
