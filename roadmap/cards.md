@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 3/77 · **Blocked:** 7 · **Waiting:** 63  
+    **Accepted tasks:** 3/77 · **Blocked:** 4 · **Waiting:** 63  
     **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending.  
-    **Blocker:** [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) — Owner pause during code/planning audit; resume only on explicit Owner instruction. F1/F2/F3/F5/F9: automatic publication/task linking and verified Planning wri…  
-    Plus 5 further blockers in the task list.  
+    **Blocker:** [t-20261024-r27-candidate-trigger-prototype](../tasks/t-20261024-r27-candidate-trigger-prototype.md) — Owner pause; deferred until accepted one-gate skeleton. Do not run old trigger prototype.  
+    Plus 2 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
