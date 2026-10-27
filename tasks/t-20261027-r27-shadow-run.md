@@ -11,7 +11,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1107, mcpdev80/baseharbor#1111]
 sources: []
-blocker: "Integrated candidate #1111 (SHA ad4d0f28) under independent review (rv1); hosted positive chain additionally blocked on PLANNING_RECEIPT_WRITE_TOKEN provisioning."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/"]
 ---
@@ -20,7 +20,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- generated:card -->
     **Owner:** coordinator-lane · **Priority:** critical  
     **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1111](https://github.com/mcpdev80/baseharbor/pull/1111)  
-    **Blocker:** Integrated candidate \#1111 (SHA ad4d0f28) under independent review (rv1); hosted positive chain additionally blocked on PLANNING\_RECEIPT\_WRITE\_TOKEN provisioning.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/)  
     <!-- /generated:card -->
@@ -37,6 +36,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
 <!-- /generated:links -->
 
 # Prove one automatic contributor receipt chain
+
+**Concrete blockers (2026-10-27):** integrated candidate baseharbor#1111 (SHA `ad4d0f28`) under independent review lane rv1; hosted positive chain additionally requires Owner provisioning of `PLANNING_RECEIPT_WRITE_TOKEN`.
 
 ## Reopened acceptance boundary
 The earlier z19 record demonstrated a successful producer, actual Owner action and offline-valid receipt with manual assistance. Those events remain real historical evidence. The automatic/no-manual-evidence skeleton is reopened by the current Owner audit: post-run/shadow are dormant and approval publication was manual. No receipt file or old run is erased or relabelled.
