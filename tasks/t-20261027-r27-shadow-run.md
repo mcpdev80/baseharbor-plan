@@ -16,16 +16,15 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/"]
 ---
 
-- [ ] t-20261027-r27-shadow-run · shadow-run pilot #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+- [ ] t-20261027-r27-shadow-run · shadow-run pilot #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coordinator-lane · **Priority:** critical  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -69,6 +68,15 @@ Alle 5 Kettenglieder in GitHub/Planning verifizierbar:
 - receipt JSON: `evidence/receipts/<gate>/<run>-<attempt>.json`
 - CI run logs: GitHub Actions run history
 - Tasklink: Planning commit diff
+
+## Status 2026-10-27
+
+- Producer run 40428162731 SUCCESS, gate `PR · Public Contracts` (PR #1094 head bd342b91, base 9a630665).
+- Fixture 5ecabc1, receipt 06f25dcf, verifier live rc=0.
+- Approval-dispatch run 40431294924 FAILED (dead pin + cross-repo gap).
+- Activation merged via baseharbor#1095 (c11f0531); repair runs as the z2 PR.
+- Proof paths: `evidence/board-2026-10-26/*` (y1, y2, y8, y9, z1).
+- **Deadline:** 2026-10-29T23:35:50Z.
 
 ---
 

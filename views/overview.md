@@ -10,12 +10,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 7 |
 | review | 0 |
 | blocked | 1 |
 | ready | 4 |
 | queued | 27 |
-| waiting | 227 |
+| waiting | 226 |
 | backlog | 7 |
 | closed | 56 |
 
@@ -29,6 +29,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261024-r27-candidate-trigger-prototype](../tasks/t-20261024-r27-candidate-trigger-prototype.md) | CI: explicit candidate trigger prototype | active | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055) |
 | [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) | CI: trusted impact qualification prototype | active | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1051](https://github.com/mcpdev80/baseharbor/pull/1051) |
 | [t-20261027-r27-credential-retention](../tasks/t-20261027-r27-credential-retention.md) | Implement native credential retention + provenance (supersedes #1077 debt) | active | not set | z3-lane | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1077](https://github.com/mcpdev80/baseharbor/pull/1077) |
+| [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) | shadow-run pilot | active | critical | coordinator-lane | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | — |
 
 ## Ready for review
 
