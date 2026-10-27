@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/claimed #view/claimed #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092)  
@@ -26,7 +26,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** claimed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
@@ -62,3 +62,7 @@ No native/full matrix, blanket map, disabled required check, invented source fla
 ## Governing order and preserved history
 
 The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-ci-impact-prototype.md) remain immutable history, not competing operational instructions.
+
+## Coordinator reservation 2026-10-27 (restart)
+Slot W1 executes via fresh lane `w1` (ornith), branch `work/r27-w1-discovery` from frozen develop `3431b22c`; historical owner string preserved per governing order. Lane WIP checkpoint `worktrees/pr3a` (ci.yml change = reusable input; scripts/pr-required-final.py + scripts/test_pr_required_final_receipt.py are outside the reserved write set and enter only by owner-of-file review).
+
