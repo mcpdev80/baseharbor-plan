@@ -1,7 +1,5 @@
-# CI replacement assignment — 2026-10-26
+# Historical receipt handoff — superseded operational instructions
 
-Task: t-20261024-r27-evidence-prototype; existing product PR #1048.
+Do not execute this older runbook. The only current work order is [CODEMAN-START.md](CODEMAN-START.md); Codeman remains paused pending Owner restart. See [the code audit](CODE-AUDIT-2026-10-27.md) for actual gaps and preserved positive evidence.
 
-Marcel assigns Codex completion of the post-v0.4.26 CI replacement and explicitly permits parallel assistants. Codex coordinates receipt scheduling, workflow integration and bounded qualification. Product source starts from current develop 433a5702c9735ffbf1e9fffe7a7ae513b1c5c396; the released v0.4.26 tag stays unchanged.
-
-This public coordination note contains only the assignment and public source references. It does not publish source payloads, private credentials, qualification success or administration changes. Existing historical task evidence remains intact. Activation requires actual configured protection and demonstrated checks.
+[Immutable pre-reset content](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/evidence/r27-ci-replacement-2026-10-26/CLAIM.md) is retained for provenance only. No receipt or historical result is deleted or relabelled.

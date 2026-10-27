@@ -7,86 +7,55 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: coordinator-lane
-depends_on: [t-20261017-release-0-4-27-updates]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-verifier, t-20261024-r27-ci-impact-prototype]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1107]
 sources: []
-blocker: ""
-resolution: accepted
+blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic source/publication/consumption and real no-manual-evidence proof are not complete."
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/"]
 ---
 
-- [x] t-20261027-r27-shadow-run · shadow-run pilot #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
+- [ ] t-20261027-r27-shadow-run · Prove one automatic contributor receipt chain #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coordinator-lane · **Priority:** critical  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
+    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic source/publication/consumption and real no-manual-evidence proof are not complete.  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** coordinator-lane  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
 **Source:** 
 <!-- /generated:links -->
 
-## Schattenlauf: Producer CI run + writer + Owner-approve + tasklink + retained verify
+# Prove one automatic contributor receipt chain
 
-### Ziel
-EIN vollständiger Schattenlauf des v0.4.27 Receipt-Pipelines durchspielen:
-1. **Producer CI run** — Auslösen des receipt-producer Workflows gegen develop
-2. **Writer** — receipt_writer.py persistiert ein receipt JSON
-3. **Owner-approve** — receipt-approval.yml authentifiziert und approved
-4. **Tasklink** — automatische task reference im Planning-commit
-5. **Retained verify** — receipt_verifier.py verifiziert Git-Ancestry und approval-Edit
+## Reopened acceptance boundary
+The earlier z19 record demonstrated a successful producer, actual Owner action and offline-valid receipt with manual assistance. Those events remain real historical evidence. The automatic/no-manual-evidence skeleton is reopened by the current Owner audit: post-run/shadow are dormant and approval publication was manual. No receipt file or old run is erased or relabelled.
 
-### Write-Set
-- `evidence/receipts/**` — receipt JSON Artefakte
-- Handoff-Dokumentation
+## Entry conditions
+W1/W2/W3 corrections integrated, existing legacy CI actually runs the relevant suites, trusted workflow registration exists on default main with fixed helper source, Planning credential/publication permissions verified, and pause explicitly lifted. Missing rights/source registration is a blocker, not a patch workaround.
 
-### Abhängigkeiten
-- PR1 (#1090) merged: TRUE (content via PR2 squash auf develop)
-- PR2 (#1091) merged: TRUE
-- Merged-Commit-Referenz: 9a630665
+## One sufficient proof
+One ordinary contributor PR produces a genuine successful public-contracts run. Actual trusted post-run automatically derives/publishes plan, receipt and task evidence reference. Owner makes only the decision; the approval commit publishes automatically; retained-only shadow consumption succeeds afterwards on exact published inputs with full history. Neither skipped/echoed jobs, manual replay, a local commit nor patch download/git am counts.
 
-### Deadline-Referenz
-`2026-10-29T23:35:50Z`
+## Negative proof and review
+Run the production verifier with wrong SHA, genuinely dead run ID and edited controlled receipt/history; require the intended rejection, not an unrelated network/tool failure. Do not alter real approved evidence. The positive retained case succeeds with origin API forbidden. Another worker/coordinator reviews the final integrated SHA and automatic result/link publication.
 
-### Akzeptanzkriterien
-Alle 5 Kettenglieder in GitHub/Planning verifizierbar:
-1. Producer CI run completed with SUCCESS
-2. Writer persisted receipt JSON to evidence/receipts/
-3. Owner-approve authenticated and approved
-4. Tasklink auto-generated in Planning commit
-5. Retained verify passed Git ancestry check
+## Completion
+Attach automatically produced exact source/run/commit/task links and actual outcomes. Only then may coordinator mark this card accepted. Keep summary at most checked / validly reused / not required with reason. PR3 remains blocked until the separate final acceptance card is accepted.
 
-### Evidence-Pfade
-- receipt JSON: `evidence/receipts/<gate>/<run>-<attempt>.json`
-- CI run logs: GitHub Actions run history
-- Tasklink: Planning commit diff
+## Fixed deadline
+T0 remains 2026-10-26T23:35:50Z; deadline 2026-10-29T23:35:50Z. Prior manual success does not satisfy this deadline's automatic criterion. No silent extension.
 
-## Status 2026-10-27
+## Governing order and preserved history
 
-- Producer run 40428162731 SUCCESS, gate `PR · Public Contracts` (PR #1094 head bd342b91, base 9a630665).
-- Fixture 5ecabc1, receipt 06f25dcf, verifier live rc=0.
-- Approval-dispatch run 40431294924 FAILED (dead pin + cross-repo gap).
-- Activation merged via baseharbor#1095 (c11f0531); repair runs as the z2 PR.
-- Proof paths: `evidence/board-2026-10-26/*` (y1, y2, y8, y9, z1).
-- **Deadline:** 2026-10-29T23:35:50Z.
-
-## Resolution 2026-10-27 (z19 planning lane, Owner mission z19)
-
-Shadow chain complete, see `evidence/board-2026-10-26/SHADOW-RUN-RECORD.md` (root repo):
-all five links proven in one genuine run — producer run 40428162731 SUCCESS, fixture
-5ecabc1, receipt 06f25dcf, hosted Owner approval dispatch 40440882700 SUCCESS
-(planning 8411672), retained verify rc=0. Deadline met on day 1. Accepted per
-explicit Owner instruction (z19.txt); root-repo record is the authoritative
-chain proof.
-
----
-
-END Y2-SHADOW-RUN-PLANNED
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261027-r27-shadow-run.md) remain immutable history, not competing operational instructions.
