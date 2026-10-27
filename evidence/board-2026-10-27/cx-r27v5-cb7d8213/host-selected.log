@@ -1,0 +1,366 @@
+PR Selected Checks	Set up job	﻿2026-10-27T23:15:41.5128885Z Current runner version: '2.338.0'
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5169572Z ##[group]Runner Image Provisioner
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5170332Z Hosted Compute Agent
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5170841Z Version: 20261021.618
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5171429Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5172110Z Build Date: 2026-10-21T00:45:21Z
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5172740Z Worker ID: {aa74878d-0cf1-480e-abe4-ff2a61017384}
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5173342Z Region: westus3
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5173814Z Cloud: Azure
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5174450Z ##[endgroup]
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5175831Z ##[group]Operating System
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5176353Z Ubuntu
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5176875Z 24.04.5
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5177319Z LTS
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5177786Z ##[endgroup]
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5178305Z ##[group]Runner Image
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5178851Z Image: ubuntu-24.04
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5179384Z Version: 20261025.353.1
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5180269Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5181762Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5182589Z ##[endgroup]
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5183601Z ##[group]GITHUB_TOKEN Permissions
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5185555Z Actions: read
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5186191Z Contents: read
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5186671Z Metadata: read
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5187166Z ##[endgroup]
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5188821Z Secret source: Actions
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5189678Z Cache mode: write
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5190605Z Prepare workflow directory
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5453235Z Prepare all required actions
+PR Selected Checks	Set up job	2026-10-27T23:15:41.5492981Z Getting action download info
+PR Selected Checks	Set up job	2026-10-27T23:15:41.8428388Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+PR Selected Checks	Set up job	2026-10-27T23:15:41.9371245Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+PR Selected Checks	Set up job	2026-10-27T23:15:42.6472288Z Complete job name: PR Selected Checks
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-10-27T23:15:42.7165906Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7166830Z with:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7167248Z   ref: 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7167779Z   persist-credentials: false
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7168238Z   repository: mcpdev80/baseharbor
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7171690Z   token: ***
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7172069Z   ssh-strict: true
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7172465Z   ssh-user: git
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7172834Z   clean: true
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7173220Z   sparse-checkout-cone-mode: true
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7173668Z   fetch-depth: 1
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7174198Z   fetch-tags: false
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7174589Z   show-progress: true
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7174973Z   lfs: false
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7175333Z   submodules: false
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7175724Z   set-safe-directory: true
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7176152Z   allow-unsafe-pr-checkout: false
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.7176781Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9666245Z Syncing repository: mcpdev80/baseharbor
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9667913Z ##[group]Getting Git version info
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9668539Z Working directory is '/home/runner/work/baseharbor/baseharbor'
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9669434Z [command]/usr/bin/git version
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9747878Z git version 2.56.0
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9763366Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9771928Z Temporarily overriding HOME='/home/runner/work/_temp/27a39a03-454c-4e53-adbc-444dd5620885' before making global git config changes
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9776957Z Adding repository directory to the temporary git global config as a safe directory
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9778086Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/baseharbor/baseharbor
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9817846Z Deleting the contents of '/home/runner/work/baseharbor/baseharbor'
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9820573Z ##[group]Determining repository object format
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9821816Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9822728Z ##[group]Initializing the repository
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9824848Z [command]/usr/bin/git init /home/runner/work/baseharbor/baseharbor
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9982934Z hint: Using 'master' as the name for the initial branch. This default branch name
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9983933Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9984963Z hint: to use in all of your new repositories, which will suppress this warning,
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9985606Z hint: call:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9985956Z hint:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9986402Z hint: 	git config --global init.defaultBranch <name>
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9986932Z hint:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9987447Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9988230Z hint: 'development'. The just-created branch can be renamed via this command:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9988859Z hint:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9989221Z hint: 	git branch -m <name>
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9989623Z hint:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9990185Z hint: Disable this message with "git config set advice.defaultBranchName false"
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:42.9996574Z Initialized empty Git repository in /home/runner/work/baseharbor/baseharbor/.git/
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0003908Z [command]/usr/bin/git remote add origin https://github.com/mcpdev80/baseharbor
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0045646Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0046366Z ##[group]Disabling automatic garbage collection
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0048383Z [command]/usr/bin/git config --local gc.auto 0
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0075716Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0076666Z ##[group]Setting up auth
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0079210Z Removing SSH command configuration
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0080299Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0110645Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0475672Z Removing HTTP extra header
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0479827Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0514404Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0699430Z Removing includeIf entries pointing to credentials config files
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0704329Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0733251Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0926090Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0957816Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path /home/runner/work/_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.0986313Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.1013853Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.1042632Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.1068503Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.1069602Z ##[group]Fetching the repository
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:43.1074464Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2147541Z From https://github.com/mcpdev80/baseharbor
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2150610Z  * branch            3431b22c94b068f15f9bd7b31b9f87e846200f0f -> FETCH_HEAD
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2156222Z [command]/usr/bin/git rev-parse --verify --quiet 3431b22c94b068f15f9bd7b31b9f87e846200f0f^{object}
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2180819Z 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2187167Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2189040Z ##[group]Determining the checkout info
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2191137Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2192464Z [command]/usr/bin/git sparse-checkout disable
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2248348Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2277847Z ##[group]Checking out the ref
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.2280528Z [command]/usr/bin/git checkout --progress --force 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3653428Z Note: switching to '3431b22c94b068f15f9bd7b31b9f87e846200f0f'.
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3654951Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3655723Z You are in 'detached HEAD' state. You can look around, make experimental
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3657679Z changes and commit them, and you can discard any commits you make in this
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3659556Z state without impacting any branches by switching back to a branch.
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3660692Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3661410Z If you want to create a new branch to retain commits you create, you may
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3663505Z do so (now or later) by using -c with the switch command. Example:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3664938Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3665520Z   git switch -c <new-branch-name>
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3666364Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3666881Z Or undo this operation with:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3667701Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3668214Z   git switch -
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3668831Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3669892Z Turn off this advice by setting config variable advice.detachedHead to false
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3671342Z
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3672721Z HEAD is now at 3431b22 fix(credentials): port switch-back retention with provenance gate (#1096)
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3678090Z ##[endgroup]
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3711775Z [command]/usr/bin/git log -1 --format=%H
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3734552Z 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3742845Z ##[group]Removing auth
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3743855Z Removing SSH command configuration
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3746036Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3776421Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3969993Z Removing HTTP extra header
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.3972205Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4000660Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4190103Z Removing includeIf entries pointing to credentials config files
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4192109Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4216991Z includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4219737Z includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4222142Z includeif.gitdir:/github/workspace/.git.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4224233Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4228687Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4248641Z /home/runner/work/_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4264223Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-e14a4db8\-0b3d\-4f41\-a00c\-2569f1a7b25e\.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4295000Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4315133Z /home/runner/work/_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4322991Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-e14a4db8\-0b3d\-4f41\-a00c\-2569f1a7b25e\.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4351527Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4375720Z /github/runner_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4387237Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-e14a4db8\-0b3d\-4f41\-a00c\-2569f1a7b25e\.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4416300Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4435680Z /github/runner_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4441940Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-e14a4db8\-0b3d\-4f41\-a00c\-2569f1a7b25e\.config
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4471899Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4660964Z Removing credentials config '/home/runner/work/_temp/git-credentials-e14a4db8-0b3d-4f41-a00c-2569f1a7b25e.config'
+PR Selected Checks	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:44.4668143Z ##[endgroup]
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	﻿2026-10-27T23:15:44.5032934Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.5034456Z with:
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.5035132Z   name: trusted-pr-plan
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.5035910Z   merge-multiple: false
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.5036716Z   repository: mcpdev80/baseharbor
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.5037557Z   run-id: 40600616015
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.5038270Z ##[endgroup]
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.6241765Z Downloading single artifact
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.6379139Z (node:2172) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.6381349Z (Use `node --trace-deprecation ...` to show where the warning was created)
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.8765589Z Preparing to download the following artifacts:
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:44.8766671Z - trusted-pr-plan (ID: 12778097022, Size: 1414, Expected Digest: sha256:a83af973ada510fee8a977cc1a1edf77959a3f6c0c88b4316cef7cbf99bec19e)
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.0758639Z Redirecting to blob download url: https://productionresultssa17.blob.core.windows.net/actions-results/c559a386-9435-86b8-8c63-1d0b3ab0f17f/workflow-job-run-7e7f775e-634d-57c0-9f38-4629c768787d/artifacts/fe188bea4129ea835c48f057d3e524d8b03f7fd4f6b3f2ccdb8ec4dd059a9a74.zip
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.0760383Z Starting download of artifact to: /home/runner/work/baseharbor/baseharbor
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.2765835Z (node:2172) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.2797293Z SHA256 digest of downloaded artifact is a83af973ada510fee8a977cc1a1edf77959a3f6c0c88b4316cef7cbf99bec19e
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.2798058Z Artifact download completed successfully.
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.2798466Z Total of 1 artifact(s) downloaded
+PR Selected Checks	Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093	2026-10-27T23:15:45.2802627Z Download artifact has finished successfully
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	﻿2026-10-27T23:15:45.2962829Z ##[group]Run set -euo pipefail
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2963192Z [36;1mset -euo pipefail[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2963426Z [36;1mtest "$PLAN_JOB" = success[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2963673Z [36;1mtest -s pr-plan.json[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2964948Z [36;1mpython3 -c 'import json,os; p=json.load(open("pr-plan.json")); pairs=(("target_base_sha","EXPECTED_BASE"),("head_sha","EXPECTED_HEAD"),("integration_sha","EXPECTED_INTEGRATION")); assert all(p.get(k)==os.environ[v] for k,v in pairs), "stale PR integration inputs: replan required"'[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2966003Z [36;1mgit fetch --no-tags origin c6db56c4ac077dbc496134cb0871c8e996a593fe c6db56c4ac077dbc496134cb0871c8e996a593fe[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2966689Z [36;1mgit show "${EXPECTED_BASE}:scripts/pr-authenticated-results.py" > "$RUNNER_TEMP/pr-authenticated-results.py"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2967356Z [36;1mgit show c6db56c4ac077dbc496134cb0871c8e996a593fe:scripts/pr-required-final.py > "$RUNNER_TEMP/pr-required-final.py"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2968368Z [36;1mpython3 "$RUNNER_TEMP/pr-authenticated-results.py" --plan pr-plan.json --repository mcpdev80/baseharbor --run-id "$ACTIONS_RUN_ID" --attempt "$ACTIONS_RUN_ATTEMPT" --head-sha "$EXPECTED_HEAD" > "$RUNNER_TEMP/pr-results.json"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2969461Z [36;1mif { [ "$SELECTED_RUNTIME_REQUIRED" = true ] && [ "$SELECTED_RUNTIME_JOB" = success ]; } || { [ "$PUBLIC_CONTRACTS_REQUIRED" = true ] && [ "$PUBLIC_CONTRACTS_JOB" = success ]; }; then[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2970042Z [36;1m  [[ "$VERIFIED_DEMO_SHA" =~ ^[0-9a-f]{40}$ ]][0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2970403Z [36;1m  git fetch --no-tags origin c6db56c4ac077dbc496134cb0871c8e996a593fe[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2971019Z [36;1m  git show c6db56c4ac077dbc496134cb0871c8e996a593fe:scripts/pr-verified-atomic-evidence.py > "$RUNNER_TEMP/pr-verified-atomic-evidence.py"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2971614Z [36;1m  python3 "$RUNNER_TEMP/pr-verified-atomic-evidence.py" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2972005Z [36;1m    --plan pr-plan.json --results "$RUNNER_TEMP/pr-results.json" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2972380Z [36;1m    --requirements scripts/release-requirements.json \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2972737Z [36;1m    --run-id "$ACTIONS_RUN_ID" --attempt "$ACTIONS_RUN_ATTEMPT" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2973153Z [36;1m    --head-sha "$EXPECTED_HEAD" --integration-sha "$EXPECTED_INTEGRATION" \[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2973512Z [36;1m    --demo-sha "$VERIFIED_DEMO_SHA"[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2973744Z [36;1mfi[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2974465Z [36;1mpython3 "$RUNNER_TEMP/pr-required-final.py" --plan pr-plan.json --results "$RUNNER_TEMP/pr-results.json" --requirements scripts/release-requirements.json[0m
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2995388Z shell: /usr/bin/bash -e {0}
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2995640Z env:
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2995819Z   PLAN_JOB: success
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2996060Z   EXPECTED_BASE: 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2996390Z   EXPECTED_HEAD: cb7d821302b239bb04172527b2716f361afd79e5
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2996717Z   EXPECTED_INTEGRATION: fe14632b93be827b0a5011b5e0c6f68a32191190
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2997020Z   FOCUSED_JOB: failure
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2997217Z   VALIDATION_JOB: success
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2999484Z   GH_TOKEN: ***
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2999686Z   ACTIONS_RUN_ID: 40600616015
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.2999917Z   ACTIONS_RUN_ATTEMPT: 1
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.3000142Z   SELECTED_RUNTIME_REQUIRED: false
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.3000376Z   SELECTED_RUNTIME_JOB: skipped
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.3000599Z   PUBLIC_CONTRACTS_REQUIRED: false
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.3000828Z   PUBLIC_CONTRACTS_JOB: skipped
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.3001049Z   VERIFIED_DEMO_SHA:
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:45.3001247Z ##[endgroup]
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:46.5727591Z From https://github.com/mcpdev80/baseharbor
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:46.5728226Z  * branch              c6db56c4ac077dbc496134cb0871c8e996a593fe -> FETCH_HEAD
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:46.5728817Z  * branch              c6db56c4ac077dbc496134cb0871c8e996a593fe -> FETCH_HEAD
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:47.6843618Z BLOCKED: coverage-unresolved: workflow execution/cleanup/evidence impact requires native qualification: .github/workflows/ci.yml; CI execution/evidence impact requires specific qualification: evidence-r27/ci1-repair.md; CI execution/evidence impact requires specific qualification: evidence-r27/cy1.md; CI execution/evidence impact requires specific qualification: evidence-r27/cy3.md; CI execution/evidence impact requires specific qualification: evidence-r27/f1-fix.md; CI execution/evidence impact requires specific qualification: evidence-r27/f3b-fix.md; CI execution/evidence impact requires specific qualification: evidence-r27/g1x.md; CI execution/evidence impact requires specific qualification: evidence-r27/g1y.md; CI execution/evidence impact requires specific qualification: evidence-r27/g2x.md; CI execution/evidence impact requires specific qualification: evidence-r27/r5i.md; CI execution/evidence impact requires specific qualification: evidence-r27/s2-v3staging.md; CI execution/evidence impact requires specific qualification: evidence-r27/w1.md; CI execution/evidence impact requires specific qualification: evidence-r27/w3.md; CI execution/evidence impact requires specific qualification: evidence-r27/w4b3.md; CI execution/evidence impact requires specific qualification: evidence-r27/w4c.md; CI execution/evidence impact requires specific qualification: evidence-r27/w5.md; CI execution/evidence impact requires specific qualification: evidence-r27/x1-fix.md; CI execution/evidence impact requires specific qualification: evidence/g1/evidence-r27/g1.md; CI execution/evidence impact requires specific qualification: scripts/pr-check-runner.py; CI execution/evidence impact requires specific qualification: scripts/test_pr_check_runner.py; unknown impact for scripts/test_receipt_postrun.py
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:47.6850739Z BLOCKED: required authenticated job not successful: PR · Focused Python
+PR Selected Checks	Enforce every required check (unqualified runtime remains blocked)	2026-10-27T23:15:47.6883784Z ##[error]Process completed with exit code 1.
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	﻿2026-10-27T23:15:47.6929102Z ##[group]Run python3 - <<'PY'
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6929433Z [36;1mpython3 - <<'PY'[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6929643Z [36;1mimport datetime as dt[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6929844Z [36;1mimport json[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6930019Z [36;1mimport os[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6930207Z [36;1mfrom pathlib import Path[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6930462Z [36;1mfrom urllib.parse import urlsplit[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6930720Z [36;1mfrom urllib.request import Request, urlopen[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6930957Z [36;1m[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6931151Z [36;1mrepository = os.environ["GITHUB_REPOSITORY"][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6931419Z [36;1mrun_id = os.environ["GITHUB_RUN_ID"][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6931672Z [36;1mattempt = os.environ["GITHUB_RUN_ATTEMPT"][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6932016Z [36;1mbase = f"https://api.github.com/repos/{repository}/actions/runs/{run_id}"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6932456Z [36;1mlink = f"https://github.com/{repository}/actions/runs/{run_id}/attempts/{attempt}"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6932883Z [36;1mgroups = {"Checked": [], "Reused": [], "Not required": [],[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6933167Z [36;1m          "Failed": [], "Blocked": []}[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6933392Z [36;1mtry:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6933614Z [36;1m    plan = json.loads(Path("pr-plan.json").read_text())[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6934351Z [36;1m    if not isinstance(plan, dict) or not isinstance(plan.get("required_validation_checks"), list) or not isinstance(plan.get("selected_gates"), list):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6934881Z [36;1m        raise ValueError("incomplete PR plan")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6935215Z [36;1m    if plan.get("coverage_status") not in {"resolved", "unresolved"}:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6935544Z [36;1m        raise ValueError("missing coverage status")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6935831Z [36;1m    if plan["coverage_status"] == "unresolved":[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6936230Z [36;1m        groups["Blocked"].append(f"[Trusted plan coverage unresolved]({link}) · duration unknown")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6936693Z [36;1m    required = {f"PR · Validation · {item['id']}" for item in[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6937037Z [36;1m                plan.get("required_validation_checks", [])}[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6937388Z [36;1m    required.update({"PR · Trusted Plan", "PR · Focused Python",[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6937739Z [36;1m                     "Workflow policy", "PR Selected Checks"})[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6938219Z [36;1m    selected = set(plan.get("selected_gates", []))[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6938481Z [36;1m    for gate in selected:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6938703Z [36;1m        parts = gate.split("/")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6939033Z [36;1m        if len(parts) == 3 and parts[0] == "atomic" and parts[1] in {"docker", "podman"}:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6939384Z [36;1m            runtime, suite = parts[1], parts[2][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6939620Z [36;1m            required.add([0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6939917Z [36;1m                f"PR · Selected Runtime ({gate}, {runtime}, {suite}) / "[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6940227Z [36;1m                f"{runtime} · {suite}")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6940513Z [36;1m    if "integration/static/public-contracts" in selected:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6940809Z [36;1m        required.add("PR · Public Contracts")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6941047Z [36;1m    jobs = [][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6941250Z [36;1m    token = os.environ["GH_TOKEN"][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6941481Z [36;1m    for page in range(1, 11):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6941780Z [36;1m        url = (f"https://api.github.com/repos/{repository}/actions/runs/"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6942162Z [36;1m               f"{run_id}/attempts/{attempt}/jobs?per_page=100&page={page}")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6942483Z [36;1m        request = Request(url, headers={[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6942864Z [36;1m            "Authorization": f"***",[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6943158Z [36;1m            "Accept": "application/vnd.github+json",[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6943408Z [36;1m        })[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6943724Z [36;1m        with urlopen(request, timeout=15) as response:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6944295Z [36;1m            batch = json.load(response)["jobs"][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6944549Z [36;1m        jobs.extend(batch)[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6944763Z [36;1m        if len(batch) < 100:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6944968Z [36;1m            break[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6945166Z [36;1m    if not jobs:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6945408Z [36;1m        raise ValueError("empty Actions jobs response")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6945670Z [36;1m    def duration(job):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6945925Z [36;1m        a, b = job.get("started_at"), job.get("completed_at")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6946189Z [36;1m        if not a or not b:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6946416Z [36;1m            return "duration unknown"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6946636Z [36;1m        try:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6946886Z [36;1m            start = dt.datetime.fromisoformat(a.replace("Z", "+00:00"))[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6947233Z [36;1m            end = dt.datetime.fromisoformat(b.replace("Z", "+00:00"))[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6947584Z [36;1m            return f"{max(0, int((end - start).total_seconds()))}s"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6947881Z [36;1m        except ValueError:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6948146Z [36;1m            return "duration unknown"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6948375Z [36;1m    seen = set()[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6948573Z [36;1m    for job in jobs:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6948797Z [36;1m        name = job.get("name") or "Unnamed job"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6949072Z [36;1m        seen.add(name)[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6949309Z [36;1m        if name == "PR Selected Checks":[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6949586Z [36;1m            continue  # This very job is still in progress.[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6949858Z [36;1m        state = job.get("conclusion")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6950156Z [36;1m        item = f"[{name}]({job.get('html_url') or link}) · {duration(job)}"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6950450Z [36;1m        if state == "success":[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6950675Z [36;1m            category = "Checked"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6950953Z [36;1m        elif state in {"failure", "timed_out", "action_required"}:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6951240Z [36;1m            category = "Failed"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6951499Z [36;1m        elif state == "skipped" and name not in required:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6951900Z [36;1m            category = "Not required"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6952117Z [36;1m        else:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6952313Z [36;1m            category = "Blocked"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6952538Z [36;1m        groups[category].append(item)[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6952843Z [36;1m    # This running final check cannot yet have a terminal conclusion.[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6953221Z [36;1m    # Every other mandatory name absent from an API response is blocked.[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6953602Z [36;1m    for name in sorted(required - seen - {"PR Selected Checks"}):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6953904Z [36;1m        groups["Blocked"].append([0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6954355Z [36;1m            f"[Missing required job: {name}]({link}) · duration unknown")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6954740Z [36;1m    # Reuse is display-only metadata from the trusted plan. Never infer[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6955101Z [36;1m    # reuse merely from a skipped job or a green previous run.[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6955448Z [36;1m    for evidence in plan.get("verified_reused_evidence", []):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6955834Z [36;1m        if not isinstance(evidence, dict) or evidence.get("verified") is not True:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6956158Z [36;1m            continue[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6956366Z [36;1m        url = evidence.get("url")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6956601Z [36;1m        if not isinstance(url, str):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6956827Z [36;1m            continue[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6957034Z [36;1m        parsed = urlsplit(url)[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6957284Z [36;1m        prefix = f"/{repository}/actions/runs/"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6957636Z [36;1m        suffix = parsed.path[len(prefix):] if parsed.path.startswith(prefix) else ""[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6958181Z [36;1m        if (parsed.scheme != "https" or parsed.netloc != "github.com"[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6958525Z [36;1m                or not suffix or not suffix.split("/")[0].isdigit()[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6958828Z [36;1m                or parsed.query or parsed.fragment):[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6959067Z [36;1m            continue[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6959304Z [36;1m        seconds = evidence.get("duration_seconds")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6959625Z [36;1m        elapsed = (f"{seconds}s" if type(seconds) is int and seconds >= 0[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6959931Z [36;1m                   else "duration unknown")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6960269Z [36;1m        groups["Reused"].append(f"[Plan-marked verified evidence]({url}) · {elapsed}")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6960667Z [36;1mexcept (OSError, ValueError, KeyError, TypeError) as error:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6961102Z [36;1m    groups["Blocked"].append("Result overview unavailable; inspect the required check and run logs.")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6961559Z [36;1mlines = [f"## PR checks · [Run {run_id} (attempt {attempt})]({link})",[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6961984Z [36;1m         "", "Presentation only; the independent required verifier remains authoritative.",[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6962332Z [36;1m         ""][0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6962536Z [36;1mfor group, entries in groups.items():[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6962813Z [36;1m    lines.extend([f"### {group} ({len(entries)})", ""])[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6963122Z [36;1m    lines.extend(f"- {entry}" for entry in entries)[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6963376Z [36;1m    if not entries:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6963598Z [36;1m        lines.append("- None confirmed")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6963837Z [36;1m    lines.append("")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6964272Z [36;1mwith open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as output:[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6964624Z [36;1m    output.write("\n".join(lines) + "\n")[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6964858Z [36;1mPY[0m
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6983016Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6983308Z env:
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6985541Z   GH_TOKEN: ***
+PR Selected Checks	Summarize checked, reused, unnecessary and blocked work	2026-10-27T23:15:47.6985717Z ##[endgroup]
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-10-27T23:15:48.4590019Z Post job cleanup.
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5269102Z [command]/usr/bin/git version
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5301534Z git version 2.56.0
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5328870Z Temporarily overriding HOME='/home/runner/work/_temp/04730ac1-a60f-4fe5-ac53-230488f0e1b0' before making global git config changes
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5330258Z Adding repository directory to the temporary git global config as a safe directory
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5333160Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/baseharbor/baseharbor
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5359375Z Removing SSH command configuration
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5364238Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5393963Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5591485Z Removing HTTP extra header
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5595678Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5621712Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5808704Z Removing includeIf entries pointing to credentials config files
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5813237Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR Selected Checks	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:48.5870851Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR Selected Checks	Complete job	﻿2026-10-27T23:15:48.6183164Z Cleaning up orphan processes
+PR Selected Checks	Complete job	2026-10-27T23:15:48.6515004Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

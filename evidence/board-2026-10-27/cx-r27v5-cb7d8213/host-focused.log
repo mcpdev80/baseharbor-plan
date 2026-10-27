@@ -1,0 +1,351 @@
+PR · Focused Python	Set up job	﻿2026-10-27T23:13:40.3941267Z Current runner version: '2.338.0'
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3968881Z ##[group]Runner Image Provisioner
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3969804Z Hosted Compute Agent
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3970517Z Version: 20261021.618
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3971174Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3971885Z Build Date: 2026-10-21T00:45:21Z
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3972630Z Worker ID: {ac486cb3-e5fd-4077-acba-95b3ee1a2924}
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3973347Z Region: westcentralus
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3973980Z Cloud: Azure
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3974537Z ##[endgroup]
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3976307Z ##[group]Operating System
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3977305Z Ubuntu
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3977860Z 24.04.5
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3978509Z LTS
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3979042Z ##[endgroup]
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3979591Z ##[group]Runner Image
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3980254Z Image: ubuntu-24.04
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3980817Z Version: 20261012.334.1
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3981910Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3983753Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3984779Z ##[endgroup]
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3985928Z ##[group]GITHUB_TOKEN Permissions
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3988300Z Contents: read
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3988942Z Metadata: read
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3989543Z ##[endgroup]
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3991834Z Secret source: Actions
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3992839Z Cache mode: write
+PR · Focused Python	Set up job	2026-10-27T23:13:40.3993652Z Prepare workflow directory
+PR · Focused Python	Set up job	2026-10-27T23:13:40.4396118Z Prepare all required actions
+PR · Focused Python	Set up job	2026-10-27T23:13:40.4446257Z Getting action download info
+PR · Focused Python	Set up job	2026-10-27T23:13:40.7548234Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+PR · Focused Python	Set up job	2026-10-27T23:13:41.3519434Z Complete job name: PR · Focused Python
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-10-27T23:13:41.4594048Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4595323Z with:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4595918Z   persist-credentials: false
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4596532Z   repository: mcpdev80/baseharbor
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4601445Z   token: ***
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4601970Z   ssh-strict: true
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4602476Z   ssh-user: git
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4602966Z   clean: true
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4603482Z   sparse-checkout-cone-mode: true
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4604095Z   fetch-depth: 1
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4604610Z   fetch-tags: false
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4606171Z   show-progress: true
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4607119Z   lfs: false
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4607860Z   submodules: false
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4608473Z   set-safe-directory: true
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4609078Z   allow-unsafe-pr-checkout: false
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.4610080Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0697902Z Syncing repository: mcpdev80/baseharbor
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0700529Z ##[group]Getting Git version info
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0701872Z Working directory is '/home/runner/work/baseharbor/baseharbor'
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0703769Z [command]/usr/bin/git version
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0786749Z git version 2.55.0
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0811444Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0824164Z Temporarily overriding HOME='/home/runner/work/_temp/f501647e-8b22-458a-bfd0-0735ffa1e22e' before making global git config changes
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0827717Z Adding repository directory to the temporary git global config as a safe directory
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0830824Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/baseharbor/baseharbor
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0888316Z Deleting the contents of '/home/runner/work/baseharbor/baseharbor'
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0892586Z ##[group]Determining repository object format
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0895290Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0897672Z ##[group]Initializing the repository
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.0899946Z [command]/usr/bin/git init /home/runner/work/baseharbor/baseharbor
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1047813Z hint: Using 'master' as the name for the initial branch. This default branch name
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1051641Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1054788Z hint: to use in all of your new repositories, which will suppress this warning,
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1057864Z hint: call:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1059060Z hint:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1060377Z hint: 	git config --global init.defaultBranch <name>
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1061989Z hint:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1064081Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1067457Z hint: 'development'. The just-created branch can be renamed via this command:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1069667Z hint:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1070976Z hint: 	git branch -m <name>
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1072260Z hint:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1073981Z hint: Disable this message with "git config set advice.defaultBranchName false"
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1076777Z Initialized empty Git repository in /home/runner/work/baseharbor/baseharbor/.git/
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1081610Z [command]/usr/bin/git remote add origin https://github.com/mcpdev80/baseharbor
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1122714Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1125127Z ##[group]Disabling automatic garbage collection
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1127398Z [command]/usr/bin/git config --local gc.auto 0
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1162249Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1164280Z ##[group]Setting up auth
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1167642Z Removing SSH command configuration
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1174982Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1205134Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1608337Z Removing HTTP extra header
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1614839Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1655885Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1901356Z Removing includeIf entries pointing to credentials config files
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1908095Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1950087Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2191543Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2234251Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path /home/runner/work/_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2269849Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2309556Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2345355Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2377576Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2379826Z ##[group]Fetching the repository
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2384971Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fe14632b93be827b0a5011b5e0c6f68a32191190:refs/remotes/pull/1138/merge
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.2954002Z From https://github.com/mcpdev80/baseharbor
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.2959144Z  * [new ref]         fe14632b93be827b0a5011b5e0c6f68a32191190 -> pull/1138/merge
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.2967826Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.2970966Z ##[group]Determining the checkout info
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.2974191Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.2976375Z [command]/usr/bin/git sparse-checkout disable
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.3034252Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.3068050Z ##[group]Checking out the ref
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.3070560Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1138/merge
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4881271Z Note: switching to 'refs/remotes/pull/1138/merge'.
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4883000Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4884019Z You are in 'detached HEAD' state. You can look around, make experimental
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4886354Z changes and commit them, and you can discard any commits you make in this
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4889040Z state without impacting any branches by switching back to a branch.
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4890450Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4891462Z If you want to create a new branch to retain commits you create, you may
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4893590Z do so (now or later) by using -c with the switch command. Example:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4894876Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4895380Z   git switch -c <new-branch-name>
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4896222Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4896708Z Or undo this operation with:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4897653Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4898079Z   git switch -
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4898690Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4899678Z Turn off this advice by setting config variable advice.detachedHead to false
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4901677Z
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4903535Z HEAD is now at fe14632 Merge cb7d821302b239bb04172527b2716f361afd79e5 into 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4908952Z ##[endgroup]
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4951273Z [command]/usr/bin/git log -1 --format=%H
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4978669Z fe14632b93be827b0a5011b5e0c6f68a32191190
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4988423Z ##[group]Removing auth
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4989559Z Removing SSH command configuration
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.4992447Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5026125Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5262924Z Removing HTTP extra header
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5267554Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5300798Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5529494Z Removing includeIf entries pointing to credentials config files
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5532494Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5564368Z includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5568421Z includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5571589Z includeif.gitdir:/github/workspace/.git.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5574066Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5580570Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5605826Z /home/runner/work/_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5622439Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-704f8fc0\-03b8\-4f5f\-af21\-6e40b5f203b6\.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5664485Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5688369Z /home/runner/work/_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5700433Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-704f8fc0\-03b8\-4f5f\-af21\-6e40b5f203b6\.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5734342Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5757753Z /github/runner_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5768795Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-704f8fc0\-03b8\-4f5f\-af21\-6e40b5f203b6\.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5803188Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5826846Z /github/runner_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5847553Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-704f8fc0\-03b8\-4f5f\-af21\-6e40b5f203b6\.config
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.5874697Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.6104587Z Removing credentials config '/home/runner/work/_temp/git-credentials-704f8fc0-03b8-4f5f-af21-6e40b5f203b6.config'
+PR · Focused Python	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:43.6113192Z ##[endgroup]
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	﻿2026-10-27T23:13:43.6419678Z ##[group]Run set -euo pipefail
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6421004Z [36;1mset -euo pipefail[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6422188Z [36;1mpython3 scripts/test_pr_diff_base.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6423559Z [36;1mpython3 scripts/test_pr_gate_plan.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6424973Z [36;1mpython3 scripts/test_pr_required_final.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6426397Z [36;1mpython3 scripts/test_pr_check_runner.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6428110Z [36;1mpython3 scripts/test_pr_wizard_workflow_route.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6429978Z [36;1mgo run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 -shellcheck=[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6431839Z [36;1mpython3 scripts/test_pr_runtime_request.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6433357Z [36;1mpython3 scripts/test_pr_authenticated_results.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6434886Z [36;1mpython3 scripts/test_pr_actions_summary.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6436346Z [36;1mpython3 scripts/test_pr_gate_dependencies.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6438358Z [36;1mgit fetch --no-tags origin 45500525aa65957a22e6076ac28fe5cb6c6f9610[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6440268Z [36;1mpython3 scripts/test_pr_selected_runtime_matrix.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6441933Z [36;1mpython3 scripts/test_pr_verified_atomic_evidence.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6443553Z [36;1mpython3 scripts/test_ecosystem_release_pins.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6445036Z [36;1mpython3 scripts/test_pre_release_resume.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6446463Z [36;1mpython3 scripts/test_targeted_gate_ref.py[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6448495Z [36;1m# R27-F2: execute the receipt control-plane suites with the TRUSTED[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6450555Z [36;1m# base-runner selecting the exact registered modules; candidate code[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6452326Z [36;1m# must not define its own receipt discovery.[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6454057Z [36;1mgit fetch --no-tags origin "3431b22c94b068f15f9bd7b31b9f87e846200f0f"[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6456819Z [36;1mgit show "3431b22c94b068f15f9bd7b31b9f87e846200f0f:scripts/pr-check-runner.py" > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6460664Z [36;1mpython3 "$RUNNER_TEMP/pr-check-runner.py" execute --check receipt-execution-tests --repository "$GITHUB_WORKSPACE"[0m
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6763177Z shell: /usr/bin/bash -e {0}
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:43.6764391Z ##[endgroup]
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:44.4299376Z .............
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:44.4300573Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:44.4301611Z Ran 13 tests in 0.680s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:44.4302099Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:44.4302703Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:50.3251283Z .............................................................Switched to branch 'target'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:50.3381367Z Switched to branch 'source'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:50.3576038Z Automatic merge went well; stopped before committing as requested
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:13:50.3879012Z Switched to branch 'source'
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0890619Z .............................................................................
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0891152Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0891555Z Ran 138 tests in 46.477s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0971067Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0971349Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0973030Z test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation (reviewed_utility_tests.PodmanTypedConsentTests.test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0975469Z test_fresh_two_stage_consent_preserves_incomplete_inventory (reviewed_utility_tests.PodmanTypedConsentTests.test_fresh_two_stage_consent_preserves_incomplete_inventory) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0977289Z test_helper_runs_from_application_workdir_using_checkout_root (reviewed_utility_tests.PodmanTypedConsentTests.test_helper_runs_from_application_workdir_using_checkout_root) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0978584Z test_missing_invalid_or_destructive_impact_blocks (reviewed_utility_tests.PodmanTypedConsentTests.test_missing_invalid_or_destructive_impact_blocks) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0979697Z test_operation_sources_bind_to_their_own_plan_shape (reviewed_utility_tests.PodmanTypedConsentTests.test_operation_sources_bind_to_their_own_plan_shape) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0981291Z test_scope_output_parser_accepts_only_one_emitted_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_scope_output_parser_accepts_only_one_emitted_plan) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0982423Z test_single_stage_only_if_required_by_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_single_stage_only_if_required_by_plan) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0983574Z test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle (reviewed_utility_tests.PodmanTypedConsentTests.test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0984300Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0984453Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0984809Z Ran 8 tests in 0.518s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0984954Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0985036Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0985626Z test_artifact_gc_retains_active_refs_and_deletes_inactive (reviewed_utility_tests.ArtifactGC.test_artifact_gc_retains_active_refs_and_deletes_inactive) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0986634Z test_candidate_sha_and_second_page_fail_closed (reviewed_utility_tests.ArtifactGC.test_candidate_sha_and_second_page_fail_closed) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0987761Z test_gc_discovery_failure_never_deletes (reviewed_utility_tests.ArtifactGC.test_gc_discovery_failure_never_deletes) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0988666Z test_pr_event_is_read_only_and_never_enters_cleanup (reviewed_utility_tests.ArtifactGC.test_pr_event_is_read_only_and_never_enters_cleanup) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0989610Z test_pr_evidence_artifacts_are_not_ephemeral (reviewed_utility_tests.ArtifactGC.test_pr_evidence_artifacts_are_not_ephemeral) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0990608Z test_pr_provenance_and_native_evidence_keep_review_window (reviewed_utility_tests.ArtifactGC.test_pr_provenance_and_native_evidence_keep_review_window) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0991664Z test_qualification_outcomes_and_branches_survive_gc (reviewed_utility_tests.ArtifactGC.test_qualification_outcomes_and_branches_survive_gc) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0992249Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0992403Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0992741Z Ran 7 tests in 0.183s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0992884Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0992959Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0993665Z test_even_isolated_scoped_root_has_no_implicit_delete_authority (reviewed_utility_tests.RuntimeResetOwnershipTests.test_even_isolated_scoped_root_has_no_implicit_delete_authority) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0995174Z test_scoped_podman_quadlet_only_selected_and_retains_xdg (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_podman_quadlet_only_selected_and_retains_xdg) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0996443Z test_scoped_shared_state_preserved_resources_filtered (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_shared_state_preserved_resources_filtered) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0997743Z test_unknown_scope_preserves_all_state_and_resources (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unknown_scope_preserves_all_state_and_resources) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0998893Z test_unscoped_dedicated_runner_full_reset_unchanged (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unscoped_dedicated_runner_full_reset_unchanged) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0999518Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0999663Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.0999993Z Ran 5 tests in 0.295s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1000141Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1000216Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1684741Z ..........
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1685280Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1685661Z Ran 10 tests in 0.003s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1685963Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:31.1686112Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:59.8186149Z ......................
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:59.8188430Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:59.8189293Z Ran 22 tests in 28.584s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:59.8190115Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:14:59.8192561Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.2587188Z .
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.2587604Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.2587999Z Ran 1 test in 1.370s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.2588147Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.2588234Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.3394586Z go: downloading github.com/rhysd/actionlint v1.7.12
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.8192437Z go: github.com/rhysd/actionlint@v1.7.12 requires go >= 1.25.0; switching to go1.26.10
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:01.8193541Z go: downloading go1.26.10 (linux/amd64)
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.0643992Z go: downloading github.com/bmatcuk/doublestar/v4 v4.10.0
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.0659625Z go: downloading github.com/fatih/color v1.19.0
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.0663574Z go: downloading github.com/mattn/go-colorable v0.1.14
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.0679050Z go: downloading github.com/mattn/go-runewidth v0.0.21
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.1975940Z go: downloading github.com/mattn/go-shellwords v1.0.12
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.2015006Z go: downloading github.com/robfig/cron/v3 v3.0.1
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.2044270Z go: downloading go.yaml.in/yaml/v4 v4.0.0-rc.3
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.2080778Z go: downloading golang.org/x/sync v0.20.0
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.2859472Z go: downloading golang.org/x/sys v0.42.0
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.3105318Z go: downloading github.com/clipperhouse/uax29/v2 v2.7.0
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:06.3584079Z go: downloading github.com/mattn/go-isatty v0.0.20
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.7711753Z .....
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.7714488Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.7715226Z Ran 5 tests in 0.001s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.7715381Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.7715476Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.8855808Z .................
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.8856487Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.8857315Z Ran 17 tests in 0.010s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.8857516Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:15.8857623Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.0419015Z .................
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.0420102Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.0420880Z Ran 17 tests in 0.066s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.0421142Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.0421267Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.1094625Z .....
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.1095169Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.1095727Z Ran 5 tests in 0.001s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.1095942Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:16.1096057Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:17.7733684Z From https://github.com/mcpdev80/baseharbor
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:17.7734481Z  * branch              45500525aa65957a22e6076ac28fe5cb6c6f9610 -> FETCH_HEAD
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.6536202Z ............
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.6537242Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.6537851Z Ran 12 tests in 3.825s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.6538073Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.6538192Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.7367163Z ......
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.7368061Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.7368503Z Ran 6 tests in 0.003s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.7368659Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:21.7368740Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:27.8903917Z ........
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:27.8904598Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:27.8905295Z Ran 8 tests in 6.071s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:27.8905495Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:27.8905602Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.4324441Z .................................................................
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.4324917Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.4325435Z Ran 65 tests in 3.433s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.4325583Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.4325662Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7735372Z test_resolver_uses_expected_api_endpoints (__main__.GhEndpointWiring.test_resolver_uses_expected_api_endpoints) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7736550Z test_bare_short_sha_expands_to_full_commit (__main__.ResolverClassification.test_bare_short_sha_expands_to_full_commit) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7737594Z test_branch_and_tag_names_are_qualified (__main__.ResolverClassification.test_branch_and_tag_names_are_qualified) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7743337Z test_cli_fail_fast_exit_code_and_stderr (__main__.ResolverClassification.test_cli_fail_fast_exit_code_and_stderr) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7744671Z test_empty_ref_fails_fast (__main__.ResolverClassification.test_empty_ref_fails_fast) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7746094Z test_existing_full_sha_passes_through (__main__.ResolverClassification.test_existing_full_sha_passes_through) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7747990Z test_explicit_ref_path_passes_through_without_api (__main__.ResolverClassification.test_explicit_ref_path_passes_through_without_api) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7749592Z test_nonexistent_full_sha_fails_fast (__main__.ResolverClassification.test_nonexistent_full_sha_fails_fast) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7751084Z test_short_hex_matching_branch_name_stays_a_branch (__main__.ResolverClassification.test_short_hex_matching_branch_name_stays_a_branch) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7752531Z test_unknown_name_fails_fast (__main__.ResolverClassification.test_unknown_name_fails_fast) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.7754209Z test_unresolvable_short_sha_fails_fast_with_recipe_message (__main__.ResolverClassification.test_unresolvable_short_sha_fails_fast_with_recipe_message) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:31.8097629Z test_resolve_job_normalizes_dispatch_ref_and_has_tooling_on_all_events (__main__.WorkflowWiring.test_resolve_job_normalizes_dispatch_ref_and_has_tooling_on_all_events) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0550882Z test_suite_inline_guard_fails_fast_on_bare_short_sha (__main__.WorkflowWiring.test_suite_inline_guard_fails_fast_on_bare_short_sha) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0552843Z test_suite_validates_ref_before_checkout_and_hardens_uploads (__main__.WorkflowWiring.test_suite_validates_ref_before_checkout_and_hardens_uploads) ... ok
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0553842Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0554087Z ----------------------------------------------------------------------
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0554608Z Ran 14 tests in 0.513s
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0554837Z
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:32.0554955Z OK
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.7031847Z From https://github.com/mcpdev80/baseharbor
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.7032638Z  * branch              3431b22c94b068f15f9bd7b31b9f87e846200f0f -> FETCH_HEAD
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8143505Z Traceback (most recent call last):
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8144393Z   File "/home/runner/work/_temp/pr-check-runner.py", line 308, in <module>
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8144893Z     main()
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8145431Z   File "/home/runner/work/_temp/pr-check-runner.py", line 296, in main
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8147147Z     matches = execute_validation(args.check, args.repository)
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8147627Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8148073Z   File "/home/runner/work/_temp/pr-check-runner.py", line 107, in execute_validation
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8148579Z     raise ValueError('unsupported executable validation')
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8148938Z ValueError: unsupported executable validation
+PR · Focused Python	Focused diff/planner/verifier/pins regressions	2026-10-27T23:15:33.8372401Z ##[error]Process completed with exit code 1.
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-10-27T23:15:33.8515724Z Post job cleanup.
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9395228Z [command]/usr/bin/git version
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9437678Z git version 2.55.0
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9478427Z Temporarily overriding HOME='/home/runner/work/_temp/0f71e11a-a8a5-4b53-9db5-9bc29b657933' before making global git config changes
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9479862Z Adding repository directory to the temporary git global config as a safe directory
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9485528Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/baseharbor/baseharbor
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9521685Z Removing SSH command configuration
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9528604Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9564844Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9808495Z Removing HTTP extra header
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9814355Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:33.9852939Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:34.0090283Z Removing includeIf entries pointing to credentials config files
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:34.0096794Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR · Focused Python	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:34.0132753Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR · Focused Python	Complete job	﻿2026-10-27T23:15:34.0561845Z Cleaning up orphan processes

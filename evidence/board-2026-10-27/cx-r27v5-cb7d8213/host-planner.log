@@ -1,0 +1,357 @@
+PR · Validation · pr-planner-tests	Set up job	﻿2026-10-27T23:13:40.0408780Z Current runner version: '2.338.0'
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0445319Z ##[group]Runner Image Provisioner
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0446675Z Hosted Compute Agent
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0448002Z Version: 20261021.618
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0449141Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0450501Z Build Date: 2026-10-21T00:45:21Z
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0452155Z Worker ID: {bfa64f8c-4e3a-4bbd-bf3e-2ca07cfbf95b}
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0453487Z Region: eastus2
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0454775Z Cloud: Azure
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0455708Z ##[endgroup]
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0458591Z ##[group]Operating System
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0460117Z Ubuntu
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0461092Z 24.04.5
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0462485Z LTS
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0463454Z ##[endgroup]
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0464488Z ##[group]Runner Image
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0465555Z Image: ubuntu-24.04
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0466574Z Version: 20261025.353.1
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0468689Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261025.353/images/ubuntu/Ubuntu2404-Readme.md
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0472196Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261025.353
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0474061Z ##[endgroup]
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0476146Z ##[group]GITHUB_TOKEN Permissions
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0479187Z Contents: read
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0480236Z Metadata: read
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0481706Z ##[endgroup]
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0484554Z Secret source: Actions
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0486300Z Cache mode: write
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0487740Z Prepare workflow directory
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.0965641Z Prepare all required actions
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.1038019Z Getting action download info
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.3124044Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.4246424Z Download action repository 'actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e' (SHA:b7ad1dad31e06c5925ef5d2fc7ad053ef454303e)
+PR · Validation · pr-planner-tests	Set up job	2026-10-27T23:13:40.7337179Z Complete job name: PR · Validation · pr-planner-tests
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-10-27T23:13:40.8212319Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8213462Z with:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8213920Z   persist-credentials: false
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8214468Z   repository: mcpdev80/baseharbor
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8218557Z   token: ***
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8219004Z   ssh-strict: true
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8219444Z   ssh-user: git
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8219873Z   clean: true
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8220319Z   sparse-checkout-cone-mode: true
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8220854Z   fetch-depth: 1
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8221294Z   fetch-tags: false
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8221974Z   show-progress: true
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8222456Z   lfs: false
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8222877Z   submodules: false
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8223328Z   set-safe-directory: true
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8223859Z   allow-unsafe-pr-checkout: false
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:40.8224989Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1571794Z Syncing repository: mcpdev80/baseharbor
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1573873Z ##[group]Getting Git version info
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1574799Z Working directory is '/home/runner/work/baseharbor/baseharbor'
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1575971Z [command]/usr/bin/git version
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1676216Z git version 2.56.0
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1698480Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1709730Z Temporarily overriding HOME='/home/runner/work/_temp/63a68726-13fe-4f70-a7e6-820a7eed4d10' before making global git config changes
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1712354Z Adding repository directory to the temporary git global config as a safe directory
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1715030Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/baseharbor/baseharbor
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1768074Z Deleting the contents of '/home/runner/work/baseharbor/baseharbor'
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1772027Z ##[group]Determining repository object format
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1773723Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1774875Z ##[group]Initializing the repository
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1778069Z [command]/usr/bin/git init /home/runner/work/baseharbor/baseharbor
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1905968Z hint: Using 'master' as the name for the initial branch. This default branch name
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1907984Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1909777Z hint: to use in all of your new repositories, which will suppress this warning,
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1910786Z hint: call:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1911630Z hint:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1912391Z hint: 	git config --global init.defaultBranch <name>
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1913230Z hint:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1914005Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1915268Z hint: 'development'. The just-created branch can be renamed via this command:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1916279Z hint:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1916826Z hint: 	git branch -m <name>
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1917461Z hint:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1918205Z hint: Disable this message with "git config set advice.defaultBranchName false"
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1920930Z Initialized empty Git repository in /home/runner/work/baseharbor/baseharbor/.git/
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1931038Z [command]/usr/bin/git remote add origin https://github.com/mcpdev80/baseharbor
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1979796Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1981263Z ##[group]Disabling automatic garbage collection
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.1982818Z [command]/usr/bin/git config --local gc.auto 0
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2015602Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2017201Z ##[group]Setting up auth
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2017954Z Removing SSH command configuration
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2021115Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2058954Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2466302Z Removing HTTP extra header
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2472172Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2514819Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2743030Z Removing includeIf entries pointing to credentials config files
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2748908Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.2783710Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3016754Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3057467Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path /home/runner/work/_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3091117Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3127785Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3162163Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3192271Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3193528Z ##[group]Fetching the repository
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.3200889Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +fe14632b93be827b0a5011b5e0c6f68a32191190:refs/remotes/pull/1138/merge
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9272517Z From https://github.com/mcpdev80/baseharbor
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9275554Z  * [new ref]         fe14632b93be827b0a5011b5e0c6f68a32191190 -> pull/1138/merge
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9279728Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9281244Z ##[group]Determining the checkout info
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9283180Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9285937Z [command]/usr/bin/git sparse-checkout disable
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9345129Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9377360Z ##[group]Checking out the ref
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:41.9381053Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/1138/merge
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1144864Z Note: switching to 'refs/remotes/pull/1138/merge'.
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1146207Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1146966Z You are in 'detached HEAD' state. You can look around, make experimental
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1148234Z changes and commit them, and you can discard any commits you make in this
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1149449Z state without impacting any branches by switching back to a branch.
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1150222Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1150826Z If you want to create a new branch to retain commits you create, you may
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1152427Z do so (now or later) by using -c with the switch command. Example:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1153080Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1153537Z   git switch -c <new-branch-name>
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1154177Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1154692Z Or undo this operation with:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1155496Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1156165Z   git switch -
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1157002Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1158032Z Turn off this advice by setting config variable advice.detachedHead to false
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1159324Z
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1160511Z HEAD is now at fe14632 Merge cb7d821302b239bb04172527b2716f361afd79e5 into 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1165733Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1212728Z [command]/usr/bin/git log -1 --format=%H
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1240365Z fe14632b93be827b0a5011b5e0c6f68a32191190
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1251045Z ##[group]Removing auth
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1252979Z Removing SSH command configuration
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1255714Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1289954Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1530661Z Removing HTTP extra header
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1533878Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1571174Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1805067Z Removing includeIf entries pointing to credentials config files
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1807576Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1839593Z includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1841087Z includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1842646Z includeif.gitdir:/github/workspace/.git.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1843785Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1848958Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1873053Z /home/runner/work/_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1886477Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-d13e2851\-c1e6\-4549\-ad27\-c7f4301202f1\.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1928369Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1952553Z /home/runner/work/_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1963707Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/baseharbor/baseharbor/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-d13e2851\-c1e6\-4549\-ad27\-c7f4301202f1\.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.1997271Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2021933Z /github/runner_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2032265Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-d13e2851\-c1e6\-4549\-ad27\-c7f4301202f1\.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2069951Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2095108Z /github/runner_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2103294Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-d13e2851\-c1e6\-4549\-ad27\-c7f4301202f1\.config
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2137718Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2367327Z Removing credentials config '/home/runner/work/_temp/git-credentials-d13e2851-c1e6-4549-ad27-c7f4301202f1.config'
+PR · Validation · pr-planner-tests	Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:13:42.2376958Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	﻿2026-10-27T23:13:42.2779202Z ##[group]Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.2780330Z with:
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.2781121Z   go-version-file: go.mod
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.2782269Z   cache: false
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.2783077Z   check-latest: false
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.2786969Z   token: ***
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.2787762Z ##[endgroup]
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.4007095Z Setup go version spec 1.26.9
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.4029596Z Attempting to download 1.26.9...
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.9213920Z matching 1.26.9...
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:42.9233841Z Acquiring 1.26.9 from https://github.com/actions/go-versions/releases/download/1.26.9-37875104533/go-1.26.9-linux-x64.tar.gz
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:43.4059230Z Extracting Go...
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:43.4194136Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/d93180c6-f2be-4667-b21a-2144663f70a4 -f /home/runner/work/_temp/552d4d2b-90d3-428b-aaa6-617ba68fe356
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:45.0342878Z Successfully extracted go to /home/runner/work/_temp/d93180c6-f2be-4667-b21a-2144663f70a4
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:45.0343830Z Adding to the cache ...
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:49.9305232Z Successfully cached go to /opt/hostedtoolcache/go/1.26.9/x64
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:49.9306978Z Added go to the path
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:49.9309279Z Successfully set up Go version 1.26.9
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:49.9542917Z go version go1.26.9 linux/amd64
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:49.9543204Z
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:49.9543533Z ##[group]go env
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1103432Z AR='ar'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1103910Z CC='gcc'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1104313Z CGO_CFLAGS='-O2 -g'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1104678Z CGO_CPPFLAGS=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1104968Z CGO_CXXFLAGS='-O2 -g'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1105259Z CGO_ENABLED='1'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1105528Z CGO_FFLAGS='-O2 -g'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1105813Z CGO_LDFLAGS='-O2 -g'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1106091Z CXX='g++'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1106341Z GCCGO='gccgo'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1106600Z GO111MODULE=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1106857Z GOAMD64='v1'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1107108Z GOARCH='amd64'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1107480Z GOAUTH='netrc'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1107766Z GOBIN=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1108045Z GOCACHE='/home/runner/.cache/go-build'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1108401Z GOCACHEPROG=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1108675Z GODEBUG=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1108947Z GOENV='/home/runner/.config/go/env'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1109290Z GOEXE=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1109545Z GOEXPERIMENT=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1110086Z GOFIPS140='off'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1110378Z GOFLAGS=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1111618Z GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build1695099582=/tmp/go-build -gno-record-gcc-switches'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1112591Z GOHOSTARCH='amd64'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1112871Z GOHOSTOS='linux'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1113134Z GOINSECURE=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1113540Z GOMOD='/home/runner/work/baseharbor/baseharbor/go.mod'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1114042Z GOMODCACHE='/home/runner/go/pkg/mod'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1114384Z GONOPROXY=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1114638Z GONOSUMDB=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1114883Z GOOS='linux'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1115133Z GOPATH='/home/runner/go'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1115364Z GOPRIVATE=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1115638Z GOPROXY='https://proxy.golang.org,direct'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1115999Z GOROOT='/opt/hostedtoolcache/go/1.26.9/x64'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1116309Z GOSUMDB='sum.golang.org'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1116552Z GOTELEMETRY='local'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1116833Z GOTELEMETRYDIR='/home/runner/.config/go/telemetry'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1117152Z GOTMPDIR=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1117352Z GOTOOLCHAIN='local'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1117683Z GOTOOLDIR='/opt/hostedtoolcache/go/1.26.9/x64/pkg/tool/linux_amd64'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1118052Z GOVCS=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1118247Z GOVERSION='go1.26.9'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1118460Z GOWORK=''
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1118667Z PKG_CONFIG='pkg-config'
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1118811Z
+PR · Validation · pr-planner-tests	Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	2026-10-27T23:13:50.1119225Z ##[endgroup]
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	﻿2026-10-27T23:13:50.1320697Z ##[group]Run set -euo pipefail
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1321126Z [36;1mset -euo pipefail[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1321724Z [36;1mcase "$VALIDATION" in[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1322050Z [36;1m  not-required) echo 'NOT REQUIRED (not PASS)' ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1322489Z [36;1m  documentation-audit) bash scripts/documentation-audit.sh ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1322970Z [36;1m  mkdocs-en-strict|mkdocs-de-strict|pages-candidate-build)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1323496Z [36;1m    python -m pip install --disable-pip-version-check -r requirements-docs.txt[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1323949Z [36;1m    case "$VALIDATION" in[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1324326Z [36;1m      mkdocs-en-strict) mkdocs build --strict --config-file mkdocs.yml ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1324857Z [36;1m      mkdocs-de-strict) mkdocs build --strict --config-file mkdocs.de.yml ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1325272Z [36;1m      pages-candidate-build)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1325590Z [36;1m        mkdocs build --strict --config-file mkdocs.yml[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1326007Z [36;1m        mkdocs build --strict --config-file mkdocs.de.yml[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1326348Z [36;1m        test -f site/index.html[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1326607Z [36;1m        ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1326805Z [36;1m    esac ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1327019Z [36;1m  source-contracts)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1327357Z [36;1m    go test ./internal/application/... ./contracts/... -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1327867Z [36;1m  cli-guided-tests) go test ./cmd/baha -run '^TestGuided' -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1328340Z [36;1m  cli-gofmt) test -z "$(gofmt -l cmd/baha)" ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1328657Z [36;1m  pins-data-validation)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1328940Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1329332Z [36;1m    trusted_pins=$(mktemp -d "$RUNNER_TEMP/pins-validator.XXXXXX")[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1329898Z [36;1m    for helper in pr-check-runner.py ecosystem_release_pins.py private_consumer_evidence.py; do[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1330469Z [36;1m      git show "$BASE_SHA:scripts/$helper" > "$trusted_pins/$helper"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1330819Z [36;1m    done[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1331273Z [36;1m    python3 "$trusted_pins/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1332076Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1332277Z [36;1m  wizard-*-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1332542Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1333199Z [36;1m    git show "$BASE_SHA":scripts/pr-check-runner.py > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1333873Z [36;1m    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1334383Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1334603Z [36;1m  cli-vet) go vet ./cmd/baha ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1334986Z [36;1m  cli-build) go build -o "$RUNNER_TEMP/baha-validation" ./cmd/baha ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1335534Z [36;1m  capability-package-tests) go test ./internal/capability/... -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1336056Z [36;1m  inspect-gofmt) test -z "$(gofmt -l internal/repositoryinspect)" ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1336569Z [36;1m  inspect-package-tests) go test ./internal/repositoryinspect/ -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1337042Z [36;1m  inspect-vet) go vet ./internal/repositoryinspect/ ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1337537Z [36;1m  inspect-consumer-tests) go test ./cmd/baha -run 'Inspect|Reconcile' -count=1 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1338120Z [36;1m  inspect-consumer-build) go build -o "$RUNNER_TEMP/baha-inspect" ./cmd/baha ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1338542Z [36;1m  pr-planner-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1338853Z [36;1m    python3 -m unittest scripts/test_pr_gate_plan.py ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1339248Z [36;1m  ci-policy) bash scripts/ci-workflow-policy.sh ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1339766Z [36;1m  ci-actionlint) go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 -shellcheck= ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1340421Z [36;1m  ci-executor-verifier-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1341128Z [36;1m    PYTHONPATH=scripts python3 -m unittest scripts/test_pre_release_resume.py scripts/test_evidence_api_transport.py scripts/test_select_evidence_attempts.py ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1342142Z [36;1m  receipt-execution-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1342515Z [36;1m    # R27-F2: the planner registers this check in every receipt-class[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1342986Z [36;1m    # plan; without an exact case it fell through to the fail-closed[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1343455Z [36;1m    # exit-2 default. Run the trusted base-owner selection exactly.[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1343848Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1344307Z [36;1m    git show "$BASE_SHA":scripts/pr-check-runner.py > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1344990Z [36;1m    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1345508Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1345723Z [36;1m  openbao-package-tests)[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1346011Z [36;1m    git fetch --no-tags origin "$BASE_SHA"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1346462Z [36;1m    git show "$BASE_SHA":scripts/pr-check-runner.py > "$RUNNER_TEMP/pr-check-runner.py"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1347124Z [36;1m    python3 "$RUNNER_TEMP/pr-check-runner.py" execute --check "$VALIDATION" --repository "$GITHUB_WORKSPACE"[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1347624Z [36;1m    ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1347816Z [36;1m  *) exit 2 ;;[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1348037Z [36;1mesac[0m
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1374452Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1374813Z env:
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1375009Z   GOTOOLCHAIN: local
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1375251Z   VALIDATION: pr-planner-tests
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1375537Z   BASE_SHA: 3431b22c94b068f15f9bd7b31b9f87e846200f0f
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:50.1375834Z ##[endgroup]
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:55.8111915Z .............................................................Switched to branch 'target'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:55.8235629Z Switched to branch 'source'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:55.8416590Z Automatic merge went well; stopped before committing as requested
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:13:55.8702131Z Switched to branch 'source'
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8809271Z ...............................................................................
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8810401Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8812564Z test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation (reviewed_utility_tests.PodmanTypedConsentTests.test_actual_lifecycle_shell_fragment_uses_fresh_consent_per_operation) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8814201Z Ran 140 tests in 105.412s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8814472Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8814615Z OK
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8815928Z test_fresh_two_stage_consent_preserves_incomplete_inventory (reviewed_utility_tests.PodmanTypedConsentTests.test_fresh_two_stage_consent_preserves_incomplete_inventory) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8818366Z test_helper_runs_from_application_workdir_using_checkout_root (reviewed_utility_tests.PodmanTypedConsentTests.test_helper_runs_from_application_workdir_using_checkout_root) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8820627Z test_missing_invalid_or_destructive_impact_blocks (reviewed_utility_tests.PodmanTypedConsentTests.test_missing_invalid_or_destructive_impact_blocks) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8822348Z test_operation_sources_bind_to_their_own_plan_shape (reviewed_utility_tests.PodmanTypedConsentTests.test_operation_sources_bind_to_their_own_plan_shape) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8823756Z test_scope_output_parser_accepts_only_one_emitted_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_scope_output_parser_accepts_only_one_emitted_plan) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8825051Z test_single_stage_only_if_required_by_plan (reviewed_utility_tests.PodmanTypedConsentTests.test_single_stage_only_if_required_by_plan) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8826489Z test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle (reviewed_utility_tests.PodmanTypedConsentTests.test_workflow_uses_fresh_operation_bound_consent_for_full_lifecycle) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8827580Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8827778Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8828167Z Ran 8 tests in 0.490s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8828308Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8828390Z OK
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8829033Z test_artifact_gc_retains_active_refs_and_deletes_inactive (reviewed_utility_tests.ArtifactGC.test_artifact_gc_retains_active_refs_and_deletes_inactive) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8830076Z test_candidate_sha_and_second_page_fail_closed (reviewed_utility_tests.ArtifactGC.test_candidate_sha_and_second_page_fail_closed) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8831031Z test_gc_discovery_failure_never_deletes (reviewed_utility_tests.ArtifactGC.test_gc_discovery_failure_never_deletes) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8832232Z test_pr_event_is_read_only_and_never_enters_cleanup (reviewed_utility_tests.ArtifactGC.test_pr_event_is_read_only_and_never_enters_cleanup) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8833217Z test_pr_evidence_artifacts_are_not_ephemeral (reviewed_utility_tests.ArtifactGC.test_pr_evidence_artifacts_are_not_ephemeral) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8834245Z test_pr_provenance_and_native_evidence_keep_review_window (reviewed_utility_tests.ArtifactGC.test_pr_provenance_and_native_evidence_keep_review_window) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8835310Z test_qualification_outcomes_and_branches_survive_gc (reviewed_utility_tests.ArtifactGC.test_qualification_outcomes_and_branches_survive_gc) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8835867Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8836033Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8836365Z Ran 7 tests in 0.183s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8836499Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8836569Z OK
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8837307Z test_even_isolated_scoped_root_has_no_implicit_delete_authority (reviewed_utility_tests.RuntimeResetOwnershipTests.test_even_isolated_scoped_root_has_no_implicit_delete_authority) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8838602Z test_scoped_podman_quadlet_only_selected_and_retains_xdg (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_podman_quadlet_only_selected_and_retains_xdg) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8839821Z test_scoped_shared_state_preserved_resources_filtered (reviewed_utility_tests.RuntimeResetOwnershipTests.test_scoped_shared_state_preserved_resources_filtered) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8841010Z test_unknown_scope_preserves_all_state_and_resources (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unknown_scope_preserves_all_state_and_resources) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8842957Z test_unscoped_dedicated_runner_full_reset_unchanged (reviewed_utility_tests.RuntimeResetOwnershipTests.test_unscoped_dedicated_runner_full_reset_unchanged) ... ok
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8843583Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8843745Z ----------------------------------------------------------------------
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8844080Z Ran 5 tests in 0.281s
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8844220Z
+PR · Validation · pr-planner-tests	Execute existing validation owner without publication	2026-10-27T23:15:35.8844305Z OK
+PR · Validation · pr-planner-tests	Post Run actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e	﻿2026-10-27T23:15:35.9068099Z Post job cleanup.
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	﻿2026-10-27T23:15:36.0414634Z Post job cleanup.
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1286805Z [command]/usr/bin/git version
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1329541Z git version 2.56.0
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1366723Z Temporarily overriding HOME='/home/runner/work/_temp/85dd5933-ba31-4375-8e60-b964a2e81378' before making global git config changes
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1367919Z Adding repository directory to the temporary git global config as a safe directory
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1371586Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/baseharbor/baseharbor
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1405299Z Removing SSH command configuration
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1411774Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1448239Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1683703Z Removing HTTP extra header
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1688419Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1725438Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1956359Z Removing includeIf entries pointing to credentials config files
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.1962867Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+PR · Validation · pr-planner-tests	Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1	2026-10-27T23:15:36.2004333Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+PR · Validation · pr-planner-tests	Complete job	﻿2026-10-27T23:15:36.2424266Z Cleaning up orphan processes
