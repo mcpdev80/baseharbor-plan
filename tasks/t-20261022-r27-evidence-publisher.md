@@ -9,7 +9,7 @@ priority: critical
 owner: w2-lane (W2 writer package)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1108, mcpdev80/baseharbor#1116, mcpdev80/baseharbor#1125, mcpdev80/baseharbor#1129, mcpdev80/baseharbor#1128, mcpdev80/baseharbor#1131, mcpdev80/baseharbor#1132]
+prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1108, mcpdev80/baseharbor#1116, mcpdev80/baseharbor#1125, mcpdev80/baseharbor#1129, mcpdev80/baseharbor#1128, mcpdev80/baseharbor#1131, mcpdev80/baseharbor#1132, mcpdev80/baseharbor#1133]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,7 +19,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 - [ ] t-20261022-r27-evidence-publisher · W2: automatic receipt, plan and task publication #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** w2-lane (W2 writer package) · **Priority:** critical  
-    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1108](https://github.com/mcpdev80/baseharbor/pull/1108), [baseharbor#1116](https://github.com/mcpdev80/baseharbor/pull/1116), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132)  
+    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1108](https://github.com/mcpdev80/baseharbor/pull/1108), [baseharbor#1116](https://github.com/mcpdev80/baseharbor/pull/1116), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1108), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1109), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1110), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1121), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1122), [proof 7](https://github.com/mcpdev80/baseharbor/commit/839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7), [proof 8](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md), [proof 10](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/b2-board.md), [proof 11](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-f57b30ed48f1.md), [proof 12](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/rv3-review-f57b30ed.md), [proof 13](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/p1-pilot-prereq.md), [proof 14](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/d3-mergecheck-v36.md)  
     <!-- /generated:card -->
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** w2-lane (W2 writer package)  
 **Priority:** critical  
-**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1108](https://github.com/mcpdev80/baseharbor/pull/1108), [baseharbor#1116](https://github.com/mcpdev80/baseharbor/pull/1116), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132)  
+**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1108](https://github.com/mcpdev80/baseharbor/pull/1108), [baseharbor#1116](https://github.com/mcpdev80/baseharbor/pull/1116), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -57,7 +57,11 @@ Temporary Git tests prove successful durable publication, rejected push is not s
 
 ## Required correction: post-run ID and Planning revision wiring (Owner request, 2026-10-27)
 
-Addendum 1/2/3 zugewiesen an: w4a (work/r27-fix-f1b-recovery, PR #1128)
+Addendum 1/2/3 zugewiesen an: w4a (work/r27-fix-f1b-recovery, PR #1133)
+
+### Addendum assignment (w4a recovery push-credentials, BASE_REF indent, producer rename)
+
+Zuweisung der Addendum-Korrekturen (Publication push auth 401, `BASE_REF` Block-Indent, `verify_producer` → `producer_context` Rename) an w4a (work/r27-fix-f1b-recovery, PR #1133), verified at f57b30ed.
 
 This is an executable correction within W2, not a new architecture or a separate worker lane. Owner has lifted the pause. Coordinator must first read the current shared candidate and existing reservations, preserve concurrent work, and assign this file set to its current owner. The inspected newer candidate is #1125, `839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7`; the three defects below still exist there. Re-read the latest head before editing: retain any already-correct fix and prove it instead of restoring this snapshot. These are the concrete ID/revision/extraction portion of [existing review F1](../evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md#f1--open-post-run-publication-still-cannot-execute), not a replacement for its other open findings.
 
