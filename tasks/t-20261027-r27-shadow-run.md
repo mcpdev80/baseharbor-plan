@@ -6,33 +6,32 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: coordinator-lane
+owner: coordinator-lane (r27 board-up)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-verifier, t-20261024-r27-ci-impact-prototype]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1105, mcpdev80/baseharbor#1107, mcpdev80/baseharbor#1111, mcpdev80/baseharbor#1129]
+prs: ["mcpdev80/baseharbor#1151"]
 sources: []
-blocker: "v3.7-Staging (stg4) + r5i Sammel-Integration laufen; CODEX-R5 danach; Owner-Punkte Token/dispatch offen (p1 GAP-2/5)."
+blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/", "https://github.com/mcpdev80/baseharbor/pull/1129"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md", "https://github.com/mcpdev80/baseharbor/pull/1129"]
 ---
 
-- [ ] t-20261027-r27-shadow-run · Prove one automatic contributor receipt chain #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
+- [ ] t-20261027-r27-shadow-run · Prove one automatic contributor receipt chain #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** coordinator-lane · **Priority:** critical  
-    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1111](https://github.com/mcpdev80/baseharbor/pull/1111), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129)  
-    **Blocker:** v3.7-Staging (stg4) + r5i Sammel-Integration laufen; CODEX-R5 danach; Owner-Punkte Token/dispatch offen (p1 GAP-2/5).  
+    **Owner:** coordinator-lane (r27 board-up) · **Priority:** critical  
+    **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1129)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1129)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
-**Owner:** coordinator-lane  
+**Owner:** coordinator-lane (r27 board-up)  
 **Priority:** critical  
-**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1105](https://github.com/mcpdev80/baseharbor/pull/1105), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107), [baseharbor#1111](https://github.com/mcpdev80/baseharbor/pull/1111), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129)  
+**PRs:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
 **Source:** 
 <!-- /generated:links -->
 
