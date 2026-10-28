@@ -61,3 +61,9 @@ Not started. Record actual source SHAs, outcomes, authorization where required, 
 
 > Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege.
 > Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
+
+## Stand 2026-10-28
+- baseharbor: 0 offene PRs, 0 offene Branches mit Payload (Inventur clna).
+- console#8 + demo#120: NOCH AKTUELL (iv2a).
+- Branch-Saeuberung: 70 geprueft, 2 LOESCH-OK (ancestor), 68 PRUEFEN (content-only, dossier iv3a).
+- Promotion: PR #1159 (merge-Ansatz, 15/15 Checks gruen, CLEAN) wartet Owner-Merge; danach receipt-post-run auf main registriert -> Shadow-Run Runbook A.
