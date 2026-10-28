@@ -3,11 +3,11 @@
 LANE bz3 (ornith) — R6-BELEGSETZ. Belegset aus den Dossiers ci38b-kandidat.md, fx1-f1-wiring.md, tb1-trusted-base.md, d5-ci37.md, cmx3-merge-attempt.txt, CODEX-REVIEW-cb7d8213.md. Read-only; kein gh/PR/Produkt-Write, kein force/main-push. Arbeit nur im bz3-Worktree.
 
 ## PLAN
-- [x] SCHRITT-NULL: skeleton, commit c9b46b6, push origin HEAD:work/r27-belegsetz3 (ls-remote: c9b46b66…)
-- [x] (1) Zeitleiste SHAs
-- [x] (2) F1-F8 je 1 Beweiszile
-- [x] (3) BeweisLuecken-bis-Shadow-Run
-- [x] (4) PR-Statistabelle
+1. [☑] SCHRITT-NULL: skeleton, commit c9b46b6, push origin HEAD:work/r27-belegsetz3 (ls-remote: c9b46b66…)
+2. [☑] (1) Zeitleiste SHAs
+3. [☑] (2) F1-F8 je 1 Beweiszile
+4. [☑] (3) BeweisLuecken-bis-Shadow-Run
+5. [☑] (4) PR-Statistabelle
 
 ## (1) Zeitleiste SHAs
 | Stufe | SHA | Rolle / Fund |
