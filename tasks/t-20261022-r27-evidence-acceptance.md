@@ -9,19 +9,20 @@ priority: critical
 owner: flash-coordinator + o145 (W5 independent)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-verifier, t-20261024-r27-ci-impact-prototype, t-20261027-r27-shadow-run]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1107]
+prs: [mcpdev80/baseharbor#1138, mcpdev80/baseharbor#1140, mcpdev80/baseharbor#1141, mcpdev80/baseharbor#1142]
 sources: []
-blocker: "Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending. Next trigger: accepted skeleton (CODEX ACCEPT)."
+blocker: "CODEX-R5 verdict on candidate cb7d8213 (PR #1138, branch work/r27-correction-v38): BLOCKED, documented in evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md (planning 7835719d). Owner directives 2026-10-28: single integrated candidate #1138 (branch tip after stg6 = v3.8 + pcx #1141 credentials fix + f1x #1140 smoke fix as commits); separate bootstrap PR #1142 against develop (bx3) running; superseded chain PRs and #1139 closed. Strategy: bootstrap merge + one hosted proof run + 3 negative tests. Next trigger: #1142 merge and hosted proof-run result."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md"]
 ---
 
 - [ ] t-20261022-r27-evidence-acceptance · Accept the automatic receipt chain, not partial jobs #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
-    **PR:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
-    **Blocker:** Owner pause during code/planning audit; resume only on explicit Owner instruction. Automatic shadow proof and correction qualification are pending. Next trigger: accepted skeleton (CODEX ACCEPT).  
+    **PR:** [baseharbor#1138](https://github.com/mcpdev80/baseharbor/pull/1138), [baseharbor#1140](https://github.com/mcpdev80/baseharbor/pull/1140), [baseharbor#1141](https://github.com/mcpdev80/baseharbor/pull/1141), [baseharbor#1142](https://github.com/mcpdev80/baseharbor/pull/1142)  
+    **Blocker:** CODEX-R5 verdict on candidate cb7d8213 (PR \#1138, branch work/r27-correction-v38): BLOCKED, documented in evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md (planning 7835719d). Owner directives 2026-10-28: single integrated candidate \#113…  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -31,7 +32,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261024-r27-candidate-trigger-prototype](t-20261024-r27-candidate-trigger-prototype.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** flash-coordinator + o145 (W5 independent)  
 **Priority:** critical  
-**PRs:** [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107)  
+**PRs:** [baseharbor#1138](https://github.com/mcpdev80/baseharbor/pull/1138), [baseharbor#1140](https://github.com/mcpdev80/baseharbor/pull/1140), [baseharbor#1141](https://github.com/mcpdev80/baseharbor/pull/1141), [baseharbor#1142](https://github.com/mcpdev80/baseharbor/pull/1142)  
 **Source:** 
 <!-- /generated:links -->
 
