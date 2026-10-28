@@ -9,29 +9,31 @@ priority: critical
 owner: flash-coordinator + o145 (W5 independent)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract, t-20261022-r27-evidence-publisher, t-20261022-r27-evidence-verifier, t-20261024-r27-ci-impact-prototype, t-20261027-r27-shadow-run]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1138, mcpdev80/baseharbor#1142]
+prs: [mcpdev80/baseharbor#1151]
+sha: 4f0ce579
 sources: []
-blocker: ""
+blocker: "awaiting owner approve #1154 (native qualification)"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md"]
 ---
 
-- [ ] t-20261022-r27-evidence-acceptance · Accept the automatic receipt chain, not partial jobs #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261022-r27-evidence-acceptance · Accept the automatic receipt chain, not partial jobs #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
-    **PR:** [baseharbor#1138](https://github.com/mcpdev80/baseharbor/pull/1138), [baseharbor#1142](https://github.com/mcpdev80/baseharbor/pull/1142)  
+    **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
+    **Blocker:** awaiting owner approve \#1154 (native qualification)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261024-r27-candidate-trigger-prototype](t-20261024-r27-candidate-trigger-prototype.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** flash-coordinator + o145 (W5 independent)  
 **Priority:** critical  
-**PRs:** [baseharbor#1138](https://github.com/mcpdev80/baseharbor/pull/1138), [baseharbor#1142](https://github.com/mcpdev80/baseharbor/pull/1142)  
+**PRs:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
 **Source:** 
 <!-- /generated:links -->
 
