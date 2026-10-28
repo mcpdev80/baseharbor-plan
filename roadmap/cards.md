@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 3/77 · **Blocked:** 3 · **Waiting:** 63  
-    **Blocker:** [t-20261024-r27-candidate-trigger-prototype](../tasks/t-20261024-r27-candidate-trigger-prototype.md) — Owner pause; deferred until accepted one-gate skeleton. Do not run old trigger prototype.  
-    **Blocker:** [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) — Owner pause; accepted automatic skeleton and reviewed asynchronous required-check/policy mapping are missing. Next trigger: accepted skeleton (CODEX ACCEPT).  
-    Plus 1 further blockers in the task list.  
+    **Accepted tasks:** 3/77 · **Blocked:** 6 · **Waiting:** 63  
+    **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — awaiting owner approve \#1154 (native qualification)  
+    **Blocker:** [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) — awaiting owner approve \#1154 (native qualification)  
+    Plus 4 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
