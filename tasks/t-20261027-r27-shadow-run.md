@@ -3,7 +3,7 @@ id: t-20261027-r27-shadow-run
 type: task
 areas: [ci]
 release: v0.4.27
-version: ""
+status: active
 parent: v0.4.27
 priority: critical
 owner: coordinator-lane (r27 board-up)
@@ -11,7 +11,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1151"]
 sources: []
-blocker: "Verify current workflow registration, pins, publication permissions and actual automatic chain; prior registration note may be stale."
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md", "https://github.com/mcpdev80/baseharbor/pull/1129"]
 ---
@@ -20,7 +20,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- generated:card -->
     **Owner:** coordinator-lane (r27 board-up) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Blocker:** Verify current workflow registration, pins, publication permissions and actual automatic chain; prior registration note may be stale.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1129)  
     <!-- /generated:card -->
