@@ -21,13 +21,13 @@ Referenced policy/merge evidence: `evidence/board-2026-10-29/codex-merge-1206.md
 
 ## RESULT
 
-- [x] 1. worktree added at `1f94951d2dc014ff924f35777b08a96e75781c06` (tree `da634e74`). New branch `work/r27-promote-ci-registration-new` created; `-s ours` merge of `origin/main` (`7a417d378292724e1820c976b110fe3c107eba45`) produced HEAD `eb2ea56c3f93b22ca308babdb00625f56c957cf9` (parents `1f94951d` + `7a417d37`, tree `da634e74`).
-- [x] 2. VERIFY paste:
+- ✔ 1. worktree added at `1f94951d2dc014ff924f35777b08a96e75781c06` (tree `da634e74`). New branch `work/r27-promote-ci-registration-new` created; `-s ours` merge of `origin/main` (`7a417d378292724e1820c976b110fe3c107eba45`) produced HEAD `eb2ea56c3f93b22ca308babdb00625f56c957cf9` (parents `1f94951d` + `7a417d37`, tree `da634e74`).
+- ✔ 2. VERIFY paste:
     - `git diff origin/main HEAD | grep -a '^-' | grep -aEc 'GH_WORKFLOW_TOKEN|--product|run_attempt|pull_requests'` = **1** (NOT 0). Root cause: the single match is main's pre-existing `run_attempt` line in `receipt-approval.yml` being **replaced** by the R27 hardening (net 1→6 added lines, +5). No defense line is deleted. Confirmed via `git show --diff-filter=d HEAD` (0 removed lines referencing any protected token) and per-pattern counts: `GH_WORKFLOW_TOKEN` removed 0 / added 2; `run_attempt` removed 1 / added 6; `pull_requests` removed 0 / added 1; `--product` removed 0 / added ≥1.
     - `git diff 1f94951d2dc014ff924f35777b08a96e75781c06 HEAD --stat` = **empty** (identical tree, as required).
     - `git merge-base --is-ancestor origin/main HEAD` = **exit 0** (main is an ancestor of the promotion head, as required).
-- [x] 3. Push: `git push origin work/r27-promote-ci-registration-new` → exit 0; SSH `git ls-remote` confirms `eb2ea56c` live on `origin`/`upstream`.
-- [ ] 4. **HEAD SWITCH — BLOCKED.** `gh api -X PATCH repos/mcpdev80/baseharbor/pulls/1205 -f head=work/r27-promote-ci-registration-new` returns HTTP 200 with the new head echoed, but the persisted PR head is unchanged at `work/r27-promote-ci-registration` / `f95b3446ed9a007a31fcc692396d6dfaf3b38c36`. Raw `curl -F`/`--data` PATCH → HTTP 400 "Problems parsing JSON". Diagnosis: the `gh` bearer token scopes are `gist, read:org, repo` — it lacks the `pull` scope, so HEAD mutations are silently ignored (200 no-op). `gh api .../refs/heads/work/r27-promote-ci-registration-new` → 404 (token can't enumerate the new branch). `gh api .../compare/f95b.../eb2e...` → ahead 53 / behind 0 (valid new head).
+- ✔ 3. Push: `git push origin work/r27-promote-ci-registration-new` → exit 0; SSH `git ls-remote` confirms `eb2ea56c` live on `origin`/`upstream`.
+- 4. **HEAD SWITCH — BLOCKED.** `gh api -X PATCH repos/mcpdev80/baseharbor/pulls/1205 -f head=work/r27-promote-ci-registration-new` returns HTTP 200 with the new head echoed, but the persisted PR head is unchanged at `work/r27-promote-ci-registration` / `f95b3446ed9a007a31fcc692396d6dfaf3b38c36`. Raw `curl -F`/`--data` PATCH → HTTP 400 "Problems parsing JSON". Diagnosis: the `gh` bearer token scopes are `gist, read:org, repo` — it lacks the `pull` scope, so HEAD mutations are silently ignored (200 no-op). `gh api .../refs/heads/work/r27-promote-ci-registration-new` → 404 (token can't enumerate the new branch). `gh api .../compare/f95b.../eb2e...` → ahead 53 / behind 0 (valid new head).
 
 ## BLOCKED — head switch to `work/r27-promote-ci-registration-new` cannot be published from this turn
 
