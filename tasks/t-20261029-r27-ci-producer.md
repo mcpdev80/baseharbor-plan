@@ -10,7 +10,7 @@ early: true
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1199", "mcpdev80/baseharbor#1203"]
+prs: ["mcpdev80/baseharbor#1199", "mcpdev80/baseharbor#1203", "mcpdev80/baseharbor#1207"]
 sources: []
 blocker: ""
 resolution: ""
@@ -20,7 +20,7 @@ evidence: []
 - [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** q202 (a71d5cd0, qwen) · **Priority:** high  
-    **PR:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203)  
+    **PR:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** q202 (a71d5cd0, qwen)  
 **Priority:** high  
-**PRs:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203)  
+**PRs:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207)  
 **Source:** 
 <!-- /generated:links -->
 
