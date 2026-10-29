@@ -6,10 +6,10 @@ areas: [ops]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-priority: medium
+priority: normal
 owner: coordinator
-depends_on: []
-repos: []
+depends_on: [t-20261017-release-0-4-27-updates]
+repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
@@ -19,15 +19,17 @@ evidence: []
 
 - [ ] t-20261029-workspace-hygiene-rotine · Betrieb: Workspace-Hygiene-Routine (Dauerkarte) #task #release/v0-4-27 #status/active #view/active #area/ops #kind/task
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** medium  
+    **Owner:** coordinator · **Priority:** normal  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** coordinator  
-**Priority:** medium  
+**Priority:** normal  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
