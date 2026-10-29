@@ -13,7 +13,7 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1200"]
 sources: []
 blocker: ""
-resolution: "Owner-delegated acceptance of static pin/interface criteria at merged develop a3750a8f (schema has no accepted state; acceptance evidence in Handoff). Executed-shadow criterion explicitly assigned to t-20261027-r27-shadow-run per contract clarification 2eff5d66; that chain proof is still pending."
+resolution: ""
 evidence: []
 ---
 
