@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "q207 (ae27e0da, qwen)"
+owner: "o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C)"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
