@@ -14,12 +14,13 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/82f82260006715da98669b7094fcb4b054594438/evidence/r27-ci-replacement-2026-10-29/coverage-inventory.md"]
 ---
 
 - [ ] t-20261029-r27-ci-coverage-inventory · CI: map current required checks and replacement coverage #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** o202 (1138dbc9, ornith) · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/82f82260006715da98669b7094fcb4b054594438/evidence/r27-ci-replacement-2026-10-29/coverage-inventory.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -55,5 +56,5 @@ Planning handoff under evidence/r27-ci-replacement-2026-10-29/coverage-inventory
 
 ## Handoff
 
-Lane o202 session 1138dbc9; read-only product; planning evidence baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/coverage-inventory.md.
+Schema note: review status requires a PR; this is a read-only planning deliverable, so the card stays active until the integrated candidate PR carries it. Lane o202 delivered coverage-inventory.md (END o202-DONE, planning commit verified on origin/main, disk-checked by coordinator). Coordinator verification: substantive inventory correct; ONE misdiagnosis — section 1 "rulesets are empty shells" is wrong: GET /rulesets/{id} shows rule 'required_status_checks' (context PR Selected Checks, integration_id 15368) on id 25223521; the lane used a nonexistent /rules sub-endpoint (404). PLANNING_RECEIPT_WRITE_TOKEN exists (names-only check). Awaiting independent review at content level; acceptance per CODEMAN-START proof section.
 
