@@ -23,10 +23,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
-| [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
-| [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
-| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
+| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | active | high | o201 (350b6e73, ornith) | — | — |
+| [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
+| [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
+| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | active | high | q202 (a71d5cd0, qwen) | — | — |
 
 ## Ready for review
 
