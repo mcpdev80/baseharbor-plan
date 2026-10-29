@@ -15,6 +15,8 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+evidence:
+  - evidence: https://github.com/mcpdev80/baseharbor-plan/blob/aa41ea5bebb4e69a7ba7ec6c54b7996e61215953/evidence/receipts/public-contracts/40921493079-1.json (candidate 57a9c4a78b7652fc26025b3e448581222ebb815e, plan eef674d0b7d9214724417b215495d500cc1c24b2)
 ---
 
 - [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
@@ -55,4 +57,3 @@ Run focused validation for the changed surface; record exact revision and result
 Reserve only the concrete profile files and tests agreed by coordinator; no shared CI workflow edits.
 
 Lane q202 delivered producer-diagnostics.md (END q202-DONE, disk-verified, sanitized). Verified: #1199 (head 96a96362, merge 7a4debcc, run 40833893562) executed integration/static/public-contracts on integration_sha 8515e627 with trusted-pr-plan artifact and tree parity; post-run writer fired automatically but failed closed at publication because the token was absent in that run context (repo secret now verified present via gh api — requalification of a NEW producer run required to prove automatic publication). Evidence: https://github.com/mcpdev80/baseharbor-plan/blob/HEAD/evidence/r27-ci-replacement-2026-10-29/producer-diagnostics.md
-
