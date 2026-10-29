@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "Flash-Coordinator (2713f9f2) via worker lane"
+owner: "o203 (3fba91dd, ornith)"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -17,19 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-postrun-token-mapping · CI: pass Planning write token to receipt writer publish step #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
+- [ ] t-20261029-r27-postrun-token-mapping · CI: pass Planning write token to receipt writer publish step #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Flash-Coordinator (2713f9f2) via worker lane · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** o203 (3fba91dd, ornith) · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** Flash-Coordinator (2713f9f2) via worker lane  
+**Owner:** o203 (3fba91dd, ornith)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
