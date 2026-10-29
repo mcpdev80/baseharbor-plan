@@ -2,10 +2,10 @@ ROLLE: MERGE
 UTC: 2026-10-29T09:45:55Z
 
 ## PLAN
-- [x] 0. Read dispatch and binding policies; establish plan. Native TodoWrite is unavailable in this session (tool discovery found no todo tool); no native update is claimed.
-- [x] 1. Refresh candidate, checks, review threads and available live rules; inspect independent verdict.
-- [x] 2. Evaluate mandatory merge gates and record result.
-- [ ] 3. Merge and verify integrated tree only after every mandatory gate is demonstrated.
+- ✔ 0. Read dispatch and binding policies; establish plan. Native TodoWrite is unavailable in this session (tool discovery found no todo tool); no native update is claimed.
+- ✔ 1. Refresh candidate, checks, review threads and available live rules; inspect independent verdict.
+- ✔ 2. Evaluate mandatory merge gates and record result.
+- ☐ 3. Merge and verify integrated tree only after every mandatory gate is demonstrated.
 
 ## BLOCKED
 PR #1200 is OPEN, CLEAN, head 114d6e48e0396d4a92a97f4fe4dca9badc4b0a63; fetched develop before is 80d0312276aab8829deb80188aa9902ff0183b73, tree 116aba60a9bfafb459b2d481edef82a206901925. Candidate tree 99d862806ce881000d535696d9a209561a6666fd. No merge performed; after SHA and merge tree are not applicable.
@@ -19,9 +19,9 @@ Next: integration owner supplies individually mapped acceptance and current inde
 END MERGE1200
 
 ## MERGE1200B PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite is not available in this session; no native update is claimed.
-- [ ] 1. Independently verify current candidate, rules, checks, threads, Planning criteria and review evidence.
-- [ ] 2. Merge only if all binding gates pass; verify resulting tree and record evidence.
+- ✔ 0. Read dispatch and binding policies; record plan. Native TodoWrite is not available in this session; no native update is claimed.
+- ☐ 1. Independently verify current candidate, rules, checks, threads, Planning criteria and review evidence.
+- ☐ 2. Merge only if all binding gates pass; verify resulting tree and record evidence.
 
 ## MERGE1200B result — BLOCKED
 ROLLE: MERGE
@@ -36,9 +36,9 @@ No merge attempted; no after SHA or merge tree exists. Integration owner should 
 END MERGE1200B
 
 ## MERGE1200C PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite is unavailable; no native update is claimed.
-- [ ] 1. Verify remote task contract and independent complete-diff verdict.
-- [ ] 2. If all mandatory gates pass, recheck live candidate and merge; verify tree and record outcome. Otherwise stop and record blocker.
+- ✔ 0. Read dispatch and binding policies; record plan. Native TodoWrite is unavailable; no native update is claimed.
+- ☐ 1. Verify remote task contract and independent complete-diff verdict.
+- ☐ 2. If all mandatory gates pass, recheck live candidate and merge; verify tree and record outcome. Otherwise stop and record blocker.
 
 ## MERGE1200C result
 ROLLE: MERGE
@@ -53,9 +53,9 @@ Turn-start events and reminders inspected; session observation remains unknown, 
 END MERGE1200C-BLOCKED: needs=fresh-complete-diff-review
 
 ## MERGE1200D PLAN
-- [x] 0. Read dispatch and policies; record plan. Native TodoWrite is unavailable in this session; no native update is claimed.
-- [ ] 1. Verify independent complete-candidate verdict, task criteria and live merge gates.
-- [ ] 2. If all gates pass, squash merge with expected head and verify remote tree; record result.
+- ✔ 0. Read dispatch and policies; record plan. Native TodoWrite is unavailable in this session; no native update is claimed.
+- ☐ 1. Verify independent complete-candidate verdict, task criteria and live merge gates.
+- ☐ 2. If all gates pass, squash merge with expected head and verify remote tree; record result.
 
 ## MERGE1200D result — TREE GUARD FAILED
 ROLLE: MERGE
@@ -74,9 +74,9 @@ At observation Actions API reports zero runs and zero check-runs for the merged 
 END MERGE1200D
 
 ## MERGE1200E PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite is unavailable; no native update is claimed.
-- [ ] 1. Independently calculate reviewed and merged diff hashes and stat.
-- [ ] 2. Record the actual result and any limits on integration or CI evidence.
+- ✔ 0. Read dispatch and binding policies; record plan. Native TodoWrite is unavailable; no native update is claimed.
+- ☐ 1. Independently calculate reviewed and merged diff hashes and stat.
+- ☐ 2. Record the actual result and any limits on integration or CI evidence.
 
 ## MERGE1200E correction
 ROLLE: MERGE
