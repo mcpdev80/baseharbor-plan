@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: Flash-Coordinator (41e61806) via worker lanes
+owner: "o201 (350b6e73, ornith)"
 early: true
 priority: high
 depends_on: []
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Flash-Coordinator (41e61806) via worker lanes · **Priority:** high  
+    **Owner:** o201 (350b6e73, ornith) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** Flash-Coordinator (41e61806) via worker lanes  
+**Owner:** o201 (350b6e73, ornith)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -55,5 +55,5 @@ Exclusive .github/workflows/receipt-approval.yml and its focused tests after coo
 
 ## Handoff
 
-Unassigned. Coordinator checks current claims and source heads before assignment.
+Lane o201 session 350b6e73; product writes: .github/workflows/receipt-approval.yml + focused tests only, own new worktree/branch work/r27-pin-o201.
 

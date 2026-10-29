@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: Flash-Coordinator (41e61806) via worker lanes
+owner: "o202 (1138dbc9, ornith)"
 early: true
 priority: high
 depends_on: []
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261029-r27-ci-coverage-inventory · CI: map current required checks and replacement coverage #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Flash-Coordinator (41e61806) via worker lanes · **Priority:** high  
+    **Owner:** o202 (1138dbc9, ornith) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** Flash-Coordinator (41e61806) via worker lanes  
+**Owner:** o202 (1138dbc9, ornith)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -55,5 +55,5 @@ Planning handoff under evidence/r27-ci-replacement-2026-10-29/coverage-inventory
 
 ## Handoff
 
-Unassigned. Coordinator checks current claims and source heads before assignment.
+Lane o202 session 1138dbc9; read-only product; planning evidence baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/coverage-inventory.md.
 
