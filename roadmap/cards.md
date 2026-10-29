@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 4/85 · **Blocked:** 7 · **Waiting:** 66  
+    **Accepted tasks:** 4/85 · **Blocked:** 6 · **Waiting:** 66  
     **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — Automatic producer, approval source pin, retained shadow and negative proofs require end-to-end verification; see the current work order. No acceptance is impl…  
     **Blocker:** [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) — Release-start updates are not accepted; automatic plan, receipt and task-link publication still require a successful genuine producer and durable end-to-end pr…  
-    Plus 5 further blockers in the task list.  
+    Plus 4 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later

@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 5 |
 | review | 1 |
-| blocked | 7 |
+| blocked | 6 |
 | ready | 0 |
 | queued | 27 |
 | waiting | 232 |
@@ -23,6 +23,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) | Prove one automatic contributor receipt chain | active | critical | coordinator-lane (r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) (open), [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) (open), [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) (open) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
 | [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
 | [t-20261029-r27-develop-main-reconcile](../tasks/t-20261029-r27-develop-main-reconcile.md) | CI: forward-port main-only hardening back to develop | active | high | o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1206](https://github.com/mcpdev80/baseharbor/pull/1206) |
@@ -44,7 +45,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261024-r27-candidate-trigger-prototype](../tasks/t-20261024-r27-candidate-trigger-prototype.md) | Deferred explicit candidate-trigger policy (after skeleton) | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) (open) | [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055) |
 | [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) | W1: trusted receipt execution, discovery and shadow consumption | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md) | [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133), [baseharbor#1134](https://github.com/mcpdev80/baseharbor/pull/1134), [baseharbor#1135](https://github.com/mcpdev80/baseharbor/pull/1135) |
 | [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | PR3: review and switch only the accepted completion path | blocked | critical | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) (open), [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) (open) | [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107) |
-| [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) | Prove one automatic contributor receipt chain | blocked | critical | coordinator-lane (r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) (open), [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) (open), [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) (open) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 
 ## Ready to assign
 
