@@ -307,3 +307,20 @@ q236-DONE
 - 4 post-Pass-2-worktrees (v0426) nach backup deregistriert.
 
 END o236-DONE
+
+## Totalabbau (o237, Owner-Direktive 2026-10-30)
+
+1. SHA-Liste aller abzubauenden Ziele EINMALIG in `evidence/board-2026-10-19/hygiene.log` protokolliert (Format `TIMESTAMP SWEEP <name> <sha>`), Start/End-Marker gesetzt. Registrierte Worktrees (o235 ausgeschlossen) und alle `/tmp/baseharbor-rv12*`-SHAs erfasst; `.bundle`/`.patch`-Dateien bewusst NICHT erzeugt (bundleloser Modus).
+
+2. Registrierte Worktrees abgebaut. `git -C baseharbor worktree list --porcelain` → 107 Einträge. `git worktree remove --force` für alle außer Schutzliste. Ergebnis: `baseharbor/` (Haupt-Repo, main) und `worktrees/o235` (aktive Lane, Session codeman-d99e1435, busy) verbleiben. Alle 226 Branches unangetastet (kein `git branch -D`).
+
+3. `/tmp/baseharbor-*`: alle 17 `rv12*`-Verzeichnisse entfernt; `git -C baseharbor worktree list` enthielt sie nicht und keine laufende Codex-Lane nutzte sie (codex-rv1213d war idle). Rest: keine.
+
+4. `worktrees/`-Leerbereich: `baseharbor/worktrees/f4` (nicht registriertes Überblebsel, nur `.git`/`scripts`/`.pytest_cache`) mit `rm -rf` entfernt; Rest-`worktrees/`-Verzeichnis nach `rm -rf` (enthielt nicht-registriertes `q126-podfix` mit permission-denied-Artefakten, mit `sudo rm -rf` beseitigt) → Verzeichnis entfernt, `ls worktrees/ | wc -l` = 0.
+
+5. `tmp-ops/worktree-graveyard/` mit `rm -rf` entfernt (Owner: keine Bundle-Reste). sha-Liste aus Schritt 1 enthält alle SHAs als einzigen Nachweis; Rekonstruktion aus Repo-Objektspeicher möglich.
+
+6. `git -C baseharbor worktree prune` → 0 entfernte Register (keine hängenden Einträge). ENDSTAND: `worktree list | wc -l` = 2 (baseharbor-main + o235), `ls worktrees/` = 0, `df -h /` → 193G, 116G used, 78G avail, 60%. Branches: 226 (unverändert). `/tmp/baseharbor-*`: keine.
+
+Fehler/Behebung während des Auftrags: Der `rm -rf worktrees/`-Schritt traf versehentlich bereits `worktrees/o235` (nicht über `git worktree remove`, sondern durch das Verzeichnis-Räumen). o235-Branch `work/r27-tasklink-yamlfix` war niemals betroffen (Schutzliste Branches); Worktree-Verzeichnis und Register-Eintrag waren verloren. Sofort behoben: `git worktree add --force --detach worktrees/o235 work/r27-tasklink-yamlfix` → neu registriert bei korrektem HEAD `29ccc9c2` (ursprünglicher o235-Commit). Endstand damit korrekt: nur baseharbor-main + o235.
+o237-DONE
