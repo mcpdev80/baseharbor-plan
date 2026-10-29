@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: Flash-Coordinator (41e61806) via worker lanes
+owner: "q202 (a71d5cd0, qwen)"
 early: true
 priority: high
 depends_on: []
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Flash-Coordinator (41e61806) via worker lanes · **Priority:** high  
+    **Owner:** q202 (a71d5cd0, qwen) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** Flash-Coordinator (41e61806) via worker lanes  
+**Owner:** q202 (a71d5cd0, qwen)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -55,5 +55,5 @@ Reserve only the concrete profile files and tests agreed by coordinator; no shar
 
 ## Handoff
 
-Unassigned. Coordinator checks current claims and source heads before assignment.
+Lane q202 session a71d5cd0; no product writes; receipt-chain diagnostics vs merged #1199 run 40833893562; evidence baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/producer-diagnostics.md.
 

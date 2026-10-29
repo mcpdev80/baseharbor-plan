@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: Flash-Coordinator (41e61806) via worker lanes
+owner: "q201 (38460858, qwen)"
 early: true
 priority: high
 depends_on: []
@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261029-r27-ci-cutover-design · CI: specify candidate-bound completion and ruleset #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** Flash-Coordinator (41e61806) via worker lanes · **Priority:** high  
+    **Owner:** q201 (38460858, qwen) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -27,7 +27,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** Flash-Coordinator (41e61806) via worker lanes  
+**Owner:** q201 (38460858, qwen)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -55,5 +55,5 @@ Planning handoff under evidence/r27-ci-replacement-2026-10-29/cutover-design.md;
 
 ## Handoff
 
-Unassigned. Coordinator checks current claims and source heads before assignment.
+Lane q201 session 38460858; read-only product; planning evidence baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/cutover-design.md.
 
