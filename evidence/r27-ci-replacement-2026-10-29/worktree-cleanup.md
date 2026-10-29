@@ -277,3 +277,33 @@ Alle 85 Worktrees durchgegangen. Ergebnis:
 - Kein Bundle-Fail → keep, keine worktree remove für die 6 bad-object-Fälle (Bundle konnte nicht erstellt werden).
 
 q236-DONE
+
+## Pass 3 (o236, stash-gesicherter Abbau) — Endzahlen
+
+### Scan auf restliche Stashes (vor Publish)
+- Main-Repo (`git worktree list`): nur noch `master` (1 entry). `.git/worktrees/` leer.
+- baseharbor (`git -C baseharbor worktree list`): 106 worktrees — **0 mit stash**.
+- Breiter Scan (`/home/marcel/dev/baseharbor-ecosystem/worktrees`, `/home/marcel/worktrees`, `/tmp/opencode`, `/home/marcel/.local/share/kilo/worktree-pool/*`, `/home/marcel/dev/worktrees`): **KEINE stashes mehr irgendwo**.
+- Zusätzlicher Fund Pass 3: 4 neue worktrees mit gemeinsamem stash@{0} (298108b8, base 7bfb157, branch integrated/v0426-new-edit-native):
+  demo-integrated-1022, f49-demorepin, f66-testfix, q126-podfix. Backup: 1x patch (stash-shared-v0426-298108b8.patch) + 4x HEAD-tar. worktree-DIRs bereits weg -> registrations über `git worktree prune` bereinigt.
+
+### worktree list | wc -l
+- main ecosystem: 1 (nur master)
+- baseharbor: 106
+
+### df -h (vor/nach)
+- /dev/sda1 193G, 118G used, 76G avail, 62% (unverändert; graveyard ~103MB belegbar)
+
+### Bundle-/Patch-Zahlen (graveyard /home/marcel/tmp-ops/worktree-graveyard)
+- bundles: 5
+- patches: 17
+- tars: 7
+- gesamt backup files: 29
+
+### Endbilanz Pass 3 (o236)
+- Alle worktrees des main-ecosystems abgebaut (nur master übrig).
+- Alle shared + lokalen stashes gesichert (patches vs. parent) oder als BLOCKED vermerkt (f4c).
+- baseharbor-106 hat keine stashes -> kein abbau nötig.
+- 4 post-Pass-2-worktrees (v0426) nach backup deregistriert.
+
+END o236-DONE
