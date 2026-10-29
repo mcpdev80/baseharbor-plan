@@ -56,6 +56,8 @@ Run focused validation for the changed surface; record exact revision and result
 
 Exclusive: .github/workflows/receipt-post-run.yml + its focused test files. No overlap with receipt-approval.yml (#1200 owner) or verifier scripts.
 
+Dependency semantics: t-20261017-release-0-4-27-updates is the release-start intake card and is intentionally NOT accepted yet; this slice runs under the r27 CI-replacement order (early: true, CODEMAN-START 2026-10-29), which authorizes CI-infrastructure slices ahead of release intake. This is prerequisite documentation, not an acceptance claim about the intake card.
+
 ## Handoff
 
 Unassigned. Coordinator checks current claims and source heads before assignment.
