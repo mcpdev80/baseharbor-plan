@@ -14,15 +14,16 @@ prs: ["mcpdev80/baseharbor#1199", "mcpdev80/baseharbor#1203", "mcpdev80/baseharb
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
 evidence:
-  - evidence: https://github.com/mcpdev80/baseharbor-plan/blob/aa41ea5bebb4e69a7ba7ec6c54b7996e61215953/evidence/receipts/public-contracts/40921493079-1.json (candidate 57a9c4a78b7652fc26025b3e448581222ebb815e, plan eef674d0b7d9214724417b215495d500cc1c24b2)
+  - evidence:
+  - https://github.com/mcpdev80/baseharbor-plan/blob/aa41ea5bebb4e69a7ba7ec6c54b7996e61215953/evidence/receipts/public-contracts/40921493079-1.json
 ---
 
 - [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** q202 (a71d5cd0, qwen) · **Priority:** high  
     **PR:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207)  
+    **Evidence:** [proof 1](evidence:), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/aa41ea5bebb4e69a7ba7ec6c54b7996e61215953/evidence/receipts/public-contracts/40921493079-1.json)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
