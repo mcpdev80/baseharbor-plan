@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 5 |
+| active | 6 |
 | review | 1 |
 | blocked | 6 |
 | ready | 0 |
@@ -28,6 +28,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
 | [t-20261029-r27-develop-main-reconcile](../tasks/t-20261029-r27-develop-main-reconcile.md) | CI: forward-port main-only hardening back to develop | active | high | o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1206](https://github.com/mcpdev80/baseharbor/pull/1206) |
 | [t-20261029-r27-postrun-token-mapping](../tasks/t-20261029-r27-postrun-token-mapping.md) | CI: pass Planning write token to receipt writer publish step | active | high | o203 (3fba91dd, ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201), [baseharbor#1202](https://github.com/mcpdev80/baseharbor/pull/1202), [baseharbor#1205](https://github.com/mcpdev80/baseharbor/pull/1205) |
+| [t-20261029-workspace-hygiene-rotine](../tasks/t-20261029-workspace-hygiene-rotine.md) | Betrieb: Workspace-Hygiene-Routine (Dauerkarte) | active | normal | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | — |
 
 ## Ready for review
 
@@ -53,7 +54,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 79 open, 6 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 80 open, 6 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
