@@ -137,9 +137,65 @@ o230-DONE
    OK; yaml-parse aller `.github/workflows/*.yml` OK.
 5. FIX (Commit/Push): Forward-Commit `ba24541e` auf `work/r27-tasklink-yamlfix`,
    Fast-Forward-Push nach origin (`5f0504d0..ba24541e`), PR #1213 Kopf =
-   `ba24541e2d0a2a07a1eef982fce5bac51ea4a3a1`.
-6. CI Check-Run-ID: `40949715746` (PR Selected Checks; Focused Python +
-   Validation-Jobs liefen, restliche nicht-ausgewaehlte Jobs skipped).
-7. Kein Merge, kein git in baseharbor-plan (Task-Vertrag).
+    `ba24541e2d0a2a07a1eef982fce5bac51ea4a3a1`.
+ 6. CI Check-Run-ID: `40949715746` (PR Selected Checks; Focused Python +
+    Validation-Jops liefen, restliche nicht-ausgewaehlte Jobs skipped).
+ 7. Kein Merge, kein git in baseharbor-plan (Task-Vertrag).
 
-END o232-DONE
+ END o232-DONE
+
+## Runde D (o233)
+
+ 1. SETUP: worktree `worktrees/o233` zu `ba24541e` (PR #1213-HEAD Runde C)
+    angelegt; Branch `work/r27-tasklink-yamlfix` war exakt auf `ba24541e`.
+    Task-Vertrag o233 + CODEX-REVIEW `codex-rv1213c-merge.md` vollstaendig
+    gelesen: BEIDE Blocking findings sind zu korrigieren, o233 fuehrt aus und
+    merkt NICHT.
+ 2. REPRODUKTION FINDING 1: `publish_evidence()` in `scripts/receipt_tasklink.py`
+    recognierte per Zeilenraterai (`re.fullmatch`) nur `evidence: []` und block
+    `evidence:`, NICHT die inline-flow Form `evidence: ["https://..."]`
+    (echtes Beispiel: `tasks/core-896-runners-isolate-parallel-pr-checks.md:17`).
+    Ein einzelnes `evidence`-Schluessel wurde doppelt angehaengt.
+ 3. FIX FINDING 1: echtes YAML-Python (`yaml.safe_load` auf Frontmatter).
+     - `publish_evidence` parst die Front-matter durch `yaml.safe_load`,
+     recogniert damit ALLE Formen (leeres `[]`, Block `  - ...`, Inline-Flow
+     `["https://..."]`); kein Prior-Evidence-Verlust.
+     - `existing_items` speichert RAW-Werte; Idempotenz vergleicht raw gegen
+     `receipt_path`, Re-Emission als `  - <url>` (schema-valider Block). Der
+     vorherige Bug (`item.strip() == evidence_entry.strip()` lieferte
+     `evidence/...` vs `- evidence/...`, Idempotenz gebrochen) ist behoben.
+     - alle anderen Front-matter-Schluessel + Body byte-weise erhalten.
+ 4. FIX FINDING 2: `_render_check()` ist jetzt fail-closed — `None` =>
+    TaskLinkError (kein stilles "ok"); render/check laufen VOR jedem
+    Write/Commit/Push. `receipt_verifier.py` ruft `publish_evidence` in
+    `publish_approval` MIT `render_fn=plan_render_check, check_fn=plan_render_check`
+    auf; `plan_render_check` fuehrt `plan.py render` + `plan.py check` aus
+    (beide muessen exit 0 haben, sonst fail closed).
+ 5. TESTS (neu, `PublishEvidenceYamlFormat` in `test_receipt_tasklink.py`):
+     (a) `test_flow_list_card_preserves_old_and_new_scalar` — echte core-896
+     Flow-Karte, alter+neuer Skalar nach Publikation auf origin/main belegt,
+     Metadata erhalten; (b) `test_invalid_card_fails_closed_before_remote` —
+     malformed YAML => TaskLinkError, origin/main unveraendert (bare remote);
+     (c) `test_idempotent_retry_no_second_card_commit` — Retry liefert dieselbe
+     SHA (kein zweiter Card-Commit); (d) `test_metadata_preserved_byte_wise` —
+     alle non-evidence Keys + Body byte-weise belegt.
+     ZUSAMMEN: `test_receipt_tasklink.py` 36 Tests OK.
+ 6. QUALITAET (5-Suiten, exit 0):
+     `python3 -m unittest test_receipt_verifier test_receipt_postrun
+     test_receipt_chain test_receipt_writer test_receipt_tasklink`
+     => `Ran 196 tests ... OK`. py-compile aller 3 Produkt-/Testdateien OK.
+ 7. COMMIT/PUSH: Forward-Commit `db8b2b05` auf `work/r27-tasklink-yamlfix`
+     (kein Force; Forward moeglich, Branch war auf `ba24541e`).
+     Fast-Forward-Push nach origin (`ba24541e..db8b2b05`). PR #1213 Kopf =
+     `db8b2b05e51b01599c5050a75ffca2dc24328d52`.
+ 8. HOSTED CI (Eigenes-Run-Pflicht, bis terminal beobachtet):
+     `gh run watch 40957017276` => `conclusion: success, status: completed`.
+     Alle Required Checks success (PR · Focused Python,
+     PR · Validation · ci-executor-verifier-tests,
+     PR · Validation · receipt-execution-tests, PR · Validation · ci-policy,
+     PR · Trusted Plan, Workflow policy); HA/Docker/Podman/Validate/Jobs
+     skipped (nicht betroffen). Run-ID 40957017276.
+ 9. KEIN MERGE, KEIN git in baseharbor-plan. Abnahme + Merge obliegen
+     Maintainer/Owner (CODEX-MERGE-Aktion bei full pass).
+
+ END o233-DONE
