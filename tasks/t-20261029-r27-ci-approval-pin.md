@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "f60 (correction round, flash H3)"
+owner: "f60 (29879f0e, flash)"
 early: true
 priority: high
 depends_on: []
@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** f60 (correction round, flash H3) · **Priority:** high  
     **PR:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
