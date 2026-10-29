@@ -10,17 +10,19 @@ early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1201"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/HEAD/evidence/r27-ci-replacement-2026-10-29/postrun-token-mapping.md"]
 ---
 
 - [ ] t-20261029-r27-postrun-token-mapping · CI: pass Planning write token to receipt writer publish step #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** o203 (3fba91dd, ornith) · **Priority:** high  
+    **PR:** [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/HEAD/evidence/r27-ci-replacement-2026-10-29/postrun-token-mapping.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +32,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o203 (3fba91dd, ornith)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201)  
 **Source:** 
 <!-- /generated:links -->
 
