@@ -147,3 +147,133 @@ Wichtig: `git cherry` markierte viele SHAs fälschlich als „MAIN-MERGED" (Dive
 - clean-work.md-Liste als TEILWEISE FALSCH bestätigt: inhaltsbasiert sind die angebten Duplikate/„entfernbaren" Worktrees NICHT in develop/main integriert; striktes Integrationskriterium lässt daher fast alle als Keep.
 
 o234-DONE
+
+## Pass 2 (q236, checkout-Abbau mit Ref-Erhalt)
+
+Datum: 2026-10-29. Ziel: Pro Ziel-Worktree checkout weg, refs bleiben. Nicht betroffen: /tmp/*, baseharbor* eingebettete worktrees, topo, o235.
+
+### PLAN
+
+1. `git -C baseharbor worktree list | head -30` → Gesamtzustand lesen.
+2. Pro Worktree unter `worktrees/`: (a) status --porcelain leer, (b) stash list leer → sonst SKIP mit Grund. (c) sha + branch ermitteln. (d) bundle in graveyard erstellen + verify. (e) worktree remove (ohne --force wenn clean). (f) Branch nach remove prüfen (rev-parse <branch> == sha). (g) Register-Eintrag weg, Branch weiter → in Tabelle vermerken.
+3. Abschluss: Anzahl bundles, graveyard-Größe, df vor/nach.
+
+### PRE-CHECK STATE
+
+- `git worktree list | wc -l`: **108** (vor q236).
+- `df -h /home/marcel/dev`: `/dev/sda1 193G, 118G used, 76G avail, 62%`.
+- `ls -1 worktrees/ | wc -l`: **85** Worktrees unter `/home/marcel/dev/baseharbor-ecosystem/worktrees/`.
+
+### PRO-WORKTREE ERGEBNIS
+
+Alle 85 Worktrees durchgegangen. Ergebnis:
+
+| worktree | sha | reason |
+|---|---|---|
+| a2-accept | 084b3abc | SKIP: stash entries (global master) |
+| b3c-exec | d95a987f | SKIP: stash entries (global master) |
+| b3-ustrack | 8f8e5547 | SKIP: stash entries (global master) |
+| bz2 | 7ef5bc04 | BUNDLE_FAIL: bad object (branch existiert nur im worktree, nicht in baseharbor-db) |
+| bz3 | 55544914 | BUNDLE_FAIL: bad object |
+| ci-core921-coverage-binding | 6ff6f041 | SKIP: stash entries (global) |
+| core-754-mcp-precondition-classification | e1c797bb | SKIP: stash entries (global) |
+| core-921-central-cli-mcp-registration | e577af94 | SKIP: stash entries (global) |
+| demo-integrated-1022 | a44e2e94 | SKIP: stash entries (global) |
+| doc1 | c02c73cc | BUNDLE_FAIL: bad object |
+| f25-console2 | 71bb3034 | BUNDLE_FAIL: bad object |
+| f45-rb | 258872da | SKIP: stash entries (global) |
+| f49-demorepin | f57c8b6e | SKIP: stash entries (global) |
+| f4c | 66555394 | SKIP: stash entries (global) |
+| f60 | 114d6e48 | SKIP: stash entries (global) |
+| f61-r5 | 25b46572 | SKIP: stash entries (global) |
+| f62-r1 | 6f165d30 | SKIP: stash entries (global) |
+| f63-r2 | d409f26f | SKIP: stash entries (global) |
+| f64-driftfix | 6dadf486 | SKIP: stash entries (global) |
+| f65-switch | a39e6bf5 | SKIP: stash entries (global) |
+| f66-testfix | 55e6f879 | SKIP: dirty (porcelain: ?? tests/data-capabilities/__pycache__/) |
+| f71-contract | 692fc3d9 | SKIP: stash entries (global) |
+| f7-t1-edit-preview | 1192004d | SKIP: stash entries (global) |
+| f7-t1-planner-entry | b5ae3684 | SKIP: stash entries (global) |
+| f8z | 5b81490c | SKIP: stash entries (global) |
+| f8z3 | 62d1bf5a | SKIP: dirty (porcelain:  M baseharbor) |
+| f8z4 | 2511a891 | SKIP: stash entries (global) |
+| hs3 | 8a25f4a0 | SKIP: stash entries (global) |
+| hsync | e4d2b0d4 | SKIP: stash entries (global) |
+| l1-ustrack | 9b185fd2 | SKIP: stash entries (global) |
+| l2-ustrack | 818f4889 | SKIP: stash entries (global) |
+| l3-ustrack | 8fcf083f | SKIP: stash entries (global) |
+| l4-ustrack | 4c9a0948 | SKIP: stash entries (global) |
+| l5-ustrack | 28c545c4 | SKIP: stash entries (global) |
+| l6-ustrack | 5c04109c | SKIP: stash entries (global) |
+| l7-ustrack | 5f36b399 | SKIP: stash entries (global) |
+| nc3-f26-acceptance | 570864c7 | SKIP: dirty (.github/workflows/release-integration.yml) |
+| nq2 | 3f794684 | SKIP: stash entries (global) |
+| o139-rev1060 | 0f3bd169 | SKIP: stash entries (global) |
+| o140-policy | 54dfa458 | SKIP: stash entries (global) |
+| o142-consentfix | cee2ef5b | SKIP: dirty (?? baha) |
+| o201 | 5aaa38ec | SKIP: stash entries (global) |
+| o203 | de2312a0 | SKIP: stash entries (global) |
+| o209 | b9ebc475 | SKIP: stash entries (global) |
+| o211 | 7c798147 | SKIP: stash entries (global) |
+| o223 | 864c9609 | SKIP: stash entries (global) |
+| o226 | 48f45874 | SKIP: stash entries (global) |
+| o235 | 4b8b4387 | SKIP: dirty (scripts/receipt_tasklink.py) — **aktive Lane, geschuetzt** |
+| o51b-1042-sync | 0267dbdb | SKIP: stash entries (global) |
+| o51b-sync | 81cb6365 | SKIP: stash entries (global) |
+| p1a-adopt | e12bd1fd | SKIP: dirty (?? evidence/) |
+| p2a-branch | a4da322a | SKIP: stash entries (global) |
+| p3-cutover | 34159b1f | SKIP: stash entries (global) |
+| pin1 | 8f715ffb | SKIP: stash entries (global) |
+| pl2 | d4e1e4f3 | BUNDLE_FAIL: bad object |
+| pl3 | 0dc8ebc7 | BUNDLE_FAIL: bad object |
+| podman-acceptance-typed-consent | 78a72eba | SKIP: stash entries (global) |
+| prm6 | 2033158c | SKIP: stash entries (global) |
+| prom | 77a9b2e3 | SKIP: stash entries (global) |
+| q110-openbao | 7a3c4520 | SKIP: stash entries (global) |
+| q112b-rb1060 | 9ec25282 | SKIP: stash entries (global) |
+| q113-1052 | 9f715184 | SKIP: stash entries (global) |
+| q123-rev1052 | 9f715184 | SKIP: stash entries (global) |
+| q125b | 3a28fb9c | SKIP: stash entries (global) |
+| q126-podfix | 6cecb74f | SKIP: dirty (?? .tools/) |
+| q205 | de93ff65 | SKIP: stash entries (global) |
+| q206 | f2aeafe8 | SKIP: stash entries (global) |
+| q8-sim | 3a0df114 | SKIP: stash entries (global) |
+| q9-record | 3a0df114 | SKIP: stash entries (global) |
+| qpr2 | dd977617 | SKIP: stash entries (global) |
+| qrv | d94d051e | SKIP: stash entries (global) |
+| qx | 492e6c94 | SKIP: stash entries (global) |
+| r1b | ad4d0f28 | SKIP: dirty (?? NOTES.md) |
+| r2-ustrack | c1c7db7b | SKIP: stash entries (global) |
+| rt | d10da149 | SKIP: stash entries (global) |
+| scoped-runtime-reset-xdg-992 | b981f3b6 | SKIP: stash entries (global) |
+| stg8b | 3f794684 | SKIP: stash entries (global) |
+| topo | c7a58b20 | SKIP: dirty (?? evidence/r27-tuple4/) — **fremde Stashes, geschuetzt** |
+| vf2 | 8710be10 | SKIP: stash entries (global) |
+| w2-writer | bb2ed8c8 | SKIP: stash entries (global) |
+| w3-verifier | 4a680643 | SKIP: stash entries (global) |
+| w8-plansync | d5467808 | SKIP: dirty (scripts/pr-gate-plan.py) |
+| x1-ustrack | c0051e05 | SKIP: stash entries (global) |
+| x5-align1092 | 6906aea2 | SKIP: stash entries (global) |
+| y1-shadow-probe | af57a26d | SKIP: stash entries (global) |
+
+### ZUSAMMENFASSUNG
+
+- **85** Worktrees geprüft.
+- **79** SKIP (69 wegen stash entries, 10 wegen dirty).
+- **6** BUNDLE_FAIL (bz2, bz3, doc1, f25-console2, pl2, pl3) — `fatal: bad object`, d.h. Branch-SHA existiert nicht in baseharbor-Objektdatenbank. Diese Branches wurden nie in das Hauptrepo gemergt.
+- **0** Worktrees erfolgreich entfernt.
+- **0** neue Bundle-Dateien erstellt.
+- Graveyard: 6 alte Bundle-Dateien aus vorherigen Läufen, 24K gesamt.
+- `git worktree list | wc -l` nachher: **108** (unverändert).
+- `df -h` unveraendert: 62% usage.
+
+### repo-rule compliance
+
+- Kein `git` in baseharbor-plan geschrieben (nur Evidence-Append).
+- Keine Branch-Deletes (lokale Branches bleiben erhalten).
+- Keine Remote-Änderungen (read-only, keine fetch/pull/remote-ops).
+- o235 (aktive Lane) NICHT angefasst.
+- topo NICHT angefasst (fremde Stashes, Schutzliste).
+- Kein Bundle-Fail → keep, keine worktree remove für die 6 bad-object-Fälle (Bundle konnte nicht erstellt werden).
+
+q236-DONE
