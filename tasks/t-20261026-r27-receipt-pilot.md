@@ -12,12 +12,12 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1151"]
 sources: []
 blocker: ""
-resolution: ""
+resolution: superseded
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODE-AUDIT-2026-10-27.md]
 superseded_by: t-20261027-r27-shadow-run
 ---
 
-- [ ] t-20261026-r27-receipt-pilot · Retired paper-only pilot; real proof is shadow-run #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [x] t-20261026-r27-receipt-pilot · Retired paper-only pilot; real proof is shadow-run #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coordinator-lane (r27 board-up) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
@@ -26,7 +26,7 @@ superseded_by: t-20261027-r27-shadow-run
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -43,4 +43,4 @@ This card only reconstructed a paper/manual chain and duplicates the real shadow
 
 ## Governing order and preserved history
 
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261026-r27-receipt-pilot.md) remain immutable history, not competing operational instructions.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261026-r27-receipt-pilot.md) remain immutable history, not competing operational instructions.

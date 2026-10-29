@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 3/79 · **Blocked:** 6 · **Waiting:** 65  
-    **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — receipt chain blocked only on final producer choice: writer gate requires job 'PR · Public Contracts' success (receipt\_verifier live()), which a docs producer…  
-    **Blocker:** [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) — native-qualification gate \#1154 merged 2026-10-28T15:31Z; still blocked on t-20261017-release-0-4-27-updates (NOT accepted). Stale \#1154 blocker text refreshed…  
-    Plus 4 further blockers in the task list.  
+    **Accepted tasks:** 3/83 · **Blocked:** 7 · **Waiting:** 66  
+    **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — Automatic producer, approval source pin, retained shadow and negative proofs require end-to-end verification; see the current work order. No acceptance is impl…  
+    **Blocker:** [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) — Release-start updates are not accepted; automatic plan, receipt and task-link publication still require a successful genuine producer and durable end-to-end pr…  
+    Plus 5 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
