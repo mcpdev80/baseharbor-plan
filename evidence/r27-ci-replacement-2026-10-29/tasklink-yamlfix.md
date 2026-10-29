@@ -77,3 +77,33 @@ Neue Tests in `test_receipt_tasklink.py`
 - Kein Merge, kein git in baseharbor-plan (Task-Vertrag).
 
 o229-DONE
+
+## Korrekturrunde B (o230)
+
+1. Befund: o229s Fix `c845caf6` (bare `- <url>`) war bereits als PR #1213-HEAD
+   gepusht, aber die VERIFIKER-Suite `test_receipt_verifier` schlug an:
+   `test_approve_pr_happy_path` und `test_approval_pushes_only_through_writer_mechanism`
+   sowie 4 weitere (insg. 5 FAIL + 1 ERROR) warteten auf das in `develop`
+   committede, unter `evidence:` geschachtelte Format
+   `- evidence: <url> (candidate <sha>, plan <sha>)`.
+2. Diagnose (o231): `c845caf6` hatte neben dem Format auch die F5-Guard-Routine
+   (`git fetch origin/main`, `require(remote_head == local_commit)`,
+   `sha40(candidate/plan)`, `git push origin main`) entfernte und damit eine
+   local-only read-back eingefuhrt.
+3. BEHEBEN: sauberes forward-Revert `63a7824d` auf `c845caf6` in
+   `worktrees/o230` (Branch `work/r27-tasklink-yamlfix`), das develop's
+   geschachteltes YAML + alle F5-Guards wiederherstellt.
+4. ZUSATZ (Rezept o231, Punkt 3): Regressionstest `PublishEvidenceYamlFormat`
+   in `test_receipt_tasklink.py` — (a) valides YAML-Listenelement auf origin/main,
+   (b) `test_rejected_push_fails_closed` fail-closed mit `TaskLinkError`, wenn
+   der Push origin/main nicht erreicht.
+5. TEST (vollstaendige 5-Suiten):
+   `python3 -m unittest test_receipt_verifier test_receipt_postrun test_receipt_chain test_receipt_writer test_receipt_tasklink`
+   => `Ran 191 tests ... OK`.
+6. COMMITS: `63a7824d` (Revert) + `5f0504d0` (F5 YAML-list regression +
+   fail-closed readback).
+7. PUSH (fast-forward, kein Force): `c845caf6..5f0504d0 -> work/r27-tasklink-yamlfix`.
+   Neue exakte HEAD-SHA: `5f0504d0fb79d1941f8f7867960b56236fc42803`.
+8. PR #1213: OPEN, HEAD = `5f0504d0`. Kein Merge, kein git in baseharbor-plan.
+
+o230-DONE
