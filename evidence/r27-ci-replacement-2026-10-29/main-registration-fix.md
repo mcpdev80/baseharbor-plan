@@ -1,9 +1,9 @@
 ## PLAN
-- [x] 0. Read codex-rv1204.md review findings.
-- [x] 1. Revert scripts/test_receipt_postrun.py to origin/main version, then add ONLY the smallest additive assertion block for PLANNING_RECEIPT_WRITE_TOKEN.
-- [x] 2. Reduce workflow comment additions to zero - the env line is the only change.
-- [x] 3. Run focused tests: 17 tests (15 pass from origin/main, 2 pre-existing failures from origin/main integration tests that fail against main-side workflow expressions, 1 new focused test PASS). actionlint passes.
-- [x] 4. Forward commit + push: head SHA f2aeafe89b80a61f61f48e44e9c34897973d28a8.
+- ✔ 0. Read codex-rv1204.md review findings.
+- ✔ 1. Revert scripts/test_receipt_postrun.py to origin/main version, then add ONLY the smallest additive assertion block for PLANNING_RECEIPT_WRITE_TOKEN.
+- ✔ 2. Reduce workflow comment additions to zero - the env line is the only change.
+- ✔ 3. Run focused tests: 17 tests (15 pass from origin/main, 2 pre-existing failures from origin/main integration tests that fail against main-side workflow expressions, 1 new focused test PASS). actionlint passes.
+- ✔ 4. Forward commit + push: head SHA f2aeafe89b80a61f61f48e44e9c34897973d28a8.
 
 ## Fix Round
 
