@@ -15,6 +15,12 @@ def task_note(*args, **kwargs):
 
 
 class ReleaseCycleTests(unittest.TestCase):
+    def test_ci_bootstrap_exception_is_limited_to_authorized_tasks(self):
+        allowed = {'id': 't-20261029-r27-ci-approval-pin', 'release': 'v0.4.27'}
+        self.assertTrue(cycles.ci_bootstrap_exception(allowed))
+        self.assertFalse(cycles.ci_bootstrap_exception({**allowed, 'release': 'v0.4.28'}))
+        self.assertFalse(cycles.ci_bootstrap_exception({**allowed, 'id': 't-20261018-r27-profile-contract'}))
+
     def fixture(self):
         fixture = Fixture()
         self.addCleanup(shutil.rmtree, fixture.dir)

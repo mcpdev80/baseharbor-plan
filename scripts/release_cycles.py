@@ -88,7 +88,7 @@ def problems(vault):
         # No retroactive startup requirement for the already-running release.
         if version != 'v0.4.26':
             for task in scope_tasks(vault, version, release):
-                if startup not in task['depends_on']:
+                if startup not in task['depends_on'] and not ci_bootstrap_exception(task):
                     errors.append((task['path'], f'release-start intake prerequisite missing: {startup}'))
     return errors
 
@@ -101,6 +101,16 @@ def set_dependencies(path, dependencies):
         raise ValueError(f'{path}: expected one depends_on field')
     if new != text:
         path.write_text(new, encoding='utf-8')
+
+
+def ci_bootstrap_exception(task):
+    """Owner-authorized v0.4.27 CI bootstrapping before feature intake."""
+    return task['release'] == 'v0.4.27' and task['id'] in {
+        't-20261029-r27-ci-approval-pin',
+        't-20261029-r27-ci-coverage-inventory',
+        't-20261029-r27-ci-cutover-design',
+        't-20261029-r27-ci-producer',
+    }
 
 
 def sync(root):
@@ -132,7 +142,8 @@ def sync(root):
             set_dependencies(task['path'], deps + expected_dependencies(vault, version, release, stage))
         if version != 'v0.4.26':
             for task in scope_tasks(vault, version, release):
-                set_dependencies(task['path'], task['depends_on'] + [stage_id(version, 'updates')])
+                if not ci_bootstrap_exception(task):
+                    set_dependencies(task['path'], task['depends_on'] + [stage_id(version, 'updates')])
     return len(planned)
 
 

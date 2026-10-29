@@ -12,7 +12,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151]
 sha: 4f0ce579
 sources: []
-blocker: "receipt chain blocked only on final producer choice: writer gate requires job 'PR · Public Contracts' success (receipt_verifier live()), which a docs producer skips; planner analysis 2026-10-29 shows contracts/**.{go,json} selects the public-contracts gate. Next: owner picks a genuine contracts update as producer run. Prior gate #1154 merged 2026-10-28."
+blocker: "Automatic producer, approval source pin, retained shadow and negative proofs require end-to-end verification; see the current work order. No acceptance is implied by merged partial fixes."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md"]
 ---
@@ -21,7 +21,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Blocker:** receipt chain blocked only on final producer choice: writer gate requires job 'PR · Public Contracts' success (receipt\_verifier live()), which a docs producer skips; planner analysis 2026-10-29 shows contracts/\*\*.{go,json} selects the publ…  
+    **Blocker:** Automatic producer, approval source pin, retained shadow and negative proofs require end-to-end verification; see the current work order. No acceptance is implied by merged partial fixes.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md)  
     <!-- /generated:card -->
@@ -51,9 +51,6 @@ One ordinary contributor path with no manually copied run/hash/receipt inputs, g
 ## Boundary
 Do not change product interfaces, invent another archive, start a full matrix or silently close this card from the planning rewrite. Existing Owner delegation remains valid; call the real review/acceptance what it is. Independent review is not claimed unless actually performed.
 
-## Timebox
-Original T0 2026-10-26T23:35:50Z and deadline 2026-10-29T23:35:50Z stay fixed. On expiry without accepted automatic skeleton, coordinator stops expansion and routes eligible product work through adequate legacy checks, reporting the concrete remaining blocker. No deadline reset for the pause or new PR.
-
 ## Governing order and preserved history
 
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-evidence-acceptance.md) remain immutable history, not competing operational instructions.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-evidence-acceptance.md) remain immutable history, not competing operational instructions.

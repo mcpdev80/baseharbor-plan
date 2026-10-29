@@ -1,8 +1,8 @@
 # AGENTS.md
 
-## Current v0.4.27 CI pause and single work order — 2026-10-27
+## Current v0.4.27 CI execution — 2026-10-29
 
-Marcel paused Codeman for code/task reconciliation. No new CI worker dispatch, product push/merge or workflow activation until explicit Owner restart; preserve running-job results and all unpublished worker changes. The current CI order is [CODEMAN-START.md](evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md), with three parallel packages and one integration owner. Earlier resumption/worker/archive sections are historical for this CI assignment and do not override this pause. The planning audit/rewrite itself is authorized; it is not automatic resumption or release qualification.
+Marcel explicitly resumes Codeman. The binding work order is [CODEMAN-START.md](evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Work autonomously in small parallel iterations, preserve existing claims and unpublished work, and coordinate non-overlapping file ownership. There is no CI timebox or legacy-check fallback for product development. Complete and enforce the new CI before regular feature work; existing test implementations may be reused within the new path. Owner delegation below applies. No release or tag is authorized by this planning change.
 
 ## Owner-delegated Maintainer authority — current precedence
 

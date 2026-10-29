@@ -11,7 +11,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-evidence-contract
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1151"]
 sources: []
-blocker: "receipt-post-run.yml unregistered until main promotion; see SHADOW-RUN-STATUS.md"
+blocker: "Verify current workflow registration, pins, publication permissions and actual automatic chain; prior registration note may be stale."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md", "https://github.com/mcpdev80/baseharbor/pull/1129"]
 ---
@@ -20,7 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- generated:card -->
     **Owner:** coordinator-lane (r27 board-up) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Blocker:** receipt-post-run.yml unregistered until main promotion; see SHADOW-RUN-STATUS.md  
+    **Blocker:** Verify current workflow registration, pins, publication permissions and actual automatic chain; prior registration note may be stale.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1129)  
     <!-- /generated:card -->
@@ -46,7 +46,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
 The earlier z19 record demonstrated a successful producer, actual Owner action and offline-valid receipt with manual assistance. Those events remain real historical evidence. The automatic/no-manual-evidence skeleton is reopened by the current Owner audit: post-run/shadow are dormant and approval publication was manual. No receipt file or old run is erased or relabelled.
 
 ## Entry conditions
-W1/W2/W3 corrections integrated, existing legacy CI actually runs the relevant suites, trusted workflow registration exists on default main with fixed helper source, Planning credential/publication permissions verified, and pause explicitly lifted. Missing rights/source registration is a blocker, not a patch workaround.
+W1/W2/W3 corrections integrated, existing legacy CI actually runs the relevant suites, trusted workflow registration exists on default main with fixed helper source, Planning credential/publication permissions verified, and owner restart recorded. Missing rights/source registration is a blocker, not a patch workaround.
 
 ## One sufficient proof
 One ordinary contributor PR produces a genuine successful public-contracts run. Actual trusted post-run automatically derives/publishes plan, receipt and task evidence reference. Owner makes only the decision; the approval commit publishes automatically; retained-only shadow consumption succeeds afterwards on exact published inputs with full history. Neither skipped/echoed jobs, manual replay, a local commit nor patch download/git am counts.
@@ -57,9 +57,6 @@ Run the production verifier with wrong SHA, genuinely dead run ID and edited con
 ## Completion
 Attach automatically produced exact source/run/commit/task links and actual outcomes. Only then may coordinator mark this card accepted. Keep summary at most checked / validly reused / not required with reason. PR3 remains blocked until the separate final acceptance card is accepted.
 
-## Fixed deadline
-T0 remains 2026-10-26T23:35:50Z; deadline 2026-10-29T23:35:50Z. Prior manual success does not satisfy this deadline's automatic criterion. No silent extension.
-
 ## Governing order and preserved history
 
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261027-r27-shadow-run.md) remain immutable history, not competing operational instructions.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261027-r27-shadow-run.md) remain immutable history, not competing operational instructions.
