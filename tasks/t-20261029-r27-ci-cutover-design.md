@@ -53,5 +53,5 @@ Run focused validation for the changed surface; record exact revision and result
 
 Planning handoff under evidence/r27-ci-replacement-2026-10-29/cutover-design.md; no shared product writes.
 
-Lane q201 delivered cutover-design.md (END q201-DONE, disk-verified). Read-only deliverable: card stays active per schema (review needs PR); coordinator integrates design findings with coverage-inventory when cutting over. Evidence: https://github.com/mcpdev80/baseharbor-plan/blob/{sha}/evidence/r27-ci-replacement-2026-10-29/cutover-design.md
+Lane q201 delivered cutover-design.md (END q201-DONE, disk-verified). Read-only deliverable: card stays active per schema (review needs PR); coordinator integrates design findings with coverage-inventory when cutting over. Evidence: https://github.com/mcpdev80/baseharbor-plan/blob/HEAD/evidence/r27-ci-replacement-2026-10-29/cutover-design.md
 
