@@ -195,7 +195,71 @@ o230-DONE
      PR · Validation · receipt-execution-tests, PR · Validation · ci-policy,
      PR · Trusted Plan, Workflow policy); HA/Docker/Podman/Validate/Jobs
      skipped (nicht betroffen). Run-ID 40957017276.
- 9. KEIN MERGE, KEIN git in baseharbor-plan. Abnahme + Merge obliegen
-     Maintainer/Owner (CODEX-MERGE-Aktion bei full pass).
+  9. KEIN MERGE, KEIN git in baseharbor-plan. Abnahme + Merge obliegen
+      Maintainer/Owner (CODEX-MERGE-Aktion bei full pass).
 
- END o233-DONE
+  END o233-DONE
+
+## Runde E (o235)
+
+1. SETUP: worktree `worktrees/o235` zu `db8b2b05` (PR #1213-HEAD Runde D)
+   angelegt; Branch `work/r27-tasklink-yamlfix` war auf `ba24541e` (Divergenz:
+   lokale Branch-Historie enthielt einen Revert `63a7824d`, remote war auf
+   `db8b2b05`). Forward-Kette korrektgestellt: Branch neu auf `5446ac7b`
+   (committet aus `db8b2b05`) gesetzt, Force-Push nach origin.
+2. REZEPT (CODEX-REVIEW `codex-rv1213d`, ROLLE: REVIEW, voll gelesen): BEIDE
+   Blocking findings korrigieren — (1) flow/block evidence key replacement
+   sicher, (2) Validierung vor Publikation, (3) rejected-push Test.
+3. FIX FINDING 1 (receipt_tasklink.py `publish_evidence`, cleaned_front-Logik):
+   Das komplette evidence-Node wird in einem Schritt ersetzt — alle
+   Vorformen (`evidence: []`-Skalar, Block `  - ...`, Inline-Flow `["https://…"]`)
+   werden gestripped und ein EINZIGER `evidence:`-Block neu emittiert. Damit
+   existiert exakt ein evidence-Schluessel, keine verwaisten `  - …`-Zeilen,
+   keine doppelte Quelle. Ergaenzt: idempotenter Rewrite- Pfad emittierte
+   fruher den `evidence:`-Key nicht neu (Evidence-Verlust) und schrieb
+   new_bytes VOR den Idempotenz-Check (Immer-Gleich → falscher Return).
+   BEHEBT: Idempotenz-Check VOR Write; idempotener Fall emitiert key + jedes
+   Item genau einmal; trailing-newline des Originals erhalten (sonst
+   Idempotenz durch verlorenes `\n` gebochen).
+4. FIX FINDING 2 (receipt_tasklink.py `publish_evidence`): render/check laeuft
+   gegen den STAGED Kandidaten — `new_bytes` werden auf die echte Karte
+   geschrieben, DANN render/check (einmalig, fail-closed bei None/Nicht-0),
+   bei Nichtbestehen wird die Karte zurueckgerollt (`existing` zuruengeschrieben)
+   → ein blockierter Publish hinterlaesst keinen dirty working-tree. Remote
+   unveraendert bei fail-closed.
+5. FIX FINDING 3 (test_receipt_tasklink.py): `test_rejected_push_reaches_seam_and_fails_closed`
+   — reale validation (render/check True), Push-Seam wird erreicht, abgelehnter
+   Push → TaskLinkError, origin/main unveraendert.
+6. TESTS (neu, `TestEvidenceNodeReplacement`, 7 Tests): BEIDE Formen
+   (inline-flow + block) mit echtem plan.py-Parser (baseharbor-plan
+   `scripts/plan.py` per Path-Mechanismus geladen, sonst faithful lokales
+   Reimplement von `parse_frontmatter` inkl. duplicate-key-Erkennung);
+   assert EXAKT ein evidence-Schluessel, alte+neuere Werte je einmal present,
+   metadata (id/release/version/parent/owner/repos/sources/labels) byte-weise,
+   remote readback auf bare origin, duplicate-key fails real plan.py parser,
+   invalid card fails closed before remote, validation rolls back.
+7. QUALITAET (lokale 5-Suiten, exit 0):
+   `python3 -m unittest test_receipt_verifier test_receipt_postrun
+   test_receipt_chain test_receipt_writer test_receipt_tasklink`
+   => `Ran 203 tests … OK` (Runde D: 196; +7 neue). `py_compile` aller 3
+   geaenderten Dateien OK. (board `receipt-suite.sh` zeigt PATH-Typo
+   `baseharor` auf nicht-existente Datei — nicht maßgeblich; maßgeblich ist
+   die laufende 5-Suite.)
+8. COMMIT/PUSH: Forward-Commits `5446ac7b` (whole evidence node + staged
+   validation) + `29ccc9c2` (runner-portabler plan.py-Parser-Test), Branch
+   `work/r27-tasklink-yamlfix`, PR #1213 Kopf = `29ccc9c2c909c70a1b26a97ea809e68780f3e757`.
+9. HOSTED CI (Eigenes-Run-Pflicht, §4.6, bis terminal beobachtet):
+   `gh run watch 40963693705` => `conclusion: success, status: completed`.
+   Alle required checks success (PR · Focused Python, PR · Validation ·
+   receipt-execution-tests, PR · Validation · ci-executor-verifier-tests,
+   PR · Validation · ci-policy, PR · Validation · pr-planner-tests,
+   PR · Trusted Plan, Workflow policy, PR Selected Checks); HA/Docker/Podman/
+   Exact Candidate/Runner Interface/Consumer Pins/Demo Pin/Selected Runtime/
+   Public Contracts skipped (nicht betroffen). Run-ID 40963693705.
+   (Lauf 40962739907 war fehlgeschlagen an test_duplicate_evidence_key, weil
+   baseharbor-plan im PR-Checkout nicht unter parents[3] lag; mit
+   fallback-sicherem Parser behoben.)
+10. KEIN MERGE, KEIN git in baseharbor-plan. Abnahme + Merge obliegen
+    Maintainer/Owner (CODEX-MERGE-Aktion bei full pass).
+
+END o235-DONE
