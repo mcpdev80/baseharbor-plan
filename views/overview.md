@@ -25,7 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
 | [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
-| [t-20261029-r27-postrun-token-mapping](../tasks/t-20261029-r27-postrun-token-mapping.md) | CI: pass Planning write token to receipt writer publish step | active | high | o203 (3fba91dd, ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | — |
+| [t-20261029-r27-postrun-token-mapping](../tasks/t-20261029-r27-postrun-token-mapping.md) | CI: pass Planning write token to receipt writer publish step | active | high | o203 (3fba91dd, ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201) |
 
 ## Ready for review
 
