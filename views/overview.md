@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 0 |
+| active | 4 |
 | review | 0 |
 | blocked | 7 |
-| ready | 8 |
+| ready | 4 |
 | queued | 27 |
 | waiting | 228 |
 | backlog | 7 |
@@ -21,7 +21,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Active
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
+| [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
+| [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
+| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | active | high | Flash-Coordinator (41e61806) via worker lanes | — | — |
 
 ## Ready for review
 
@@ -47,10 +52,6 @@ None.
 | [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | ready | high | — | — | — |
-| [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | ready | high | — | — | — |
-| [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | ready | high | — | — | — |
-| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | ready | high | — | — | — |
 
 ## By release
 
