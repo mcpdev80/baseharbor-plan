@@ -6,11 +6,11 @@ Planning main: 2eff5d668e772a42c6eca0f6cfbb1ed4242a5b9f
 VERDICT: REQUEST_CHANGES
 
 ## PLAN
-- [x] 0. Record plan; native TodoWrite is unavailable in this session.
-- [x] 1. Refresh candidate and task contract, inspect complete diff and PR body.
-- [x] 2. Run focused suites and check self-pin positive and negative paths.
-- [x] 3. Verify current CI and map acceptance criteria to evidence.
-- [x] 4. Record SHA-specific verdict, findings and actionable recipe.
+- ✔ 0. Record plan; native TodoWrite is unavailable in this session.
+- ✔ 1. Refresh candidate and task contract, inspect complete diff and PR body.
+- ✔ 2. Run focused suites and check self-pin positive and negative paths.
+- ✔ 3. Verify current CI and map acceptance criteria to evidence.
+- ✔ 4. Record SHA-specific verdict, findings and actionable recipe.
 
 ## Review evidence
 Fetched product origin; remote develop and PR branch resolve to the stated base and candidate. Planning SSH fetch failed due to system SSH config permissions; GitHub API independently confirmed origin/main SHA above, matching the locally available task contract. GitHub API confirmed current PR head and develop SHA. Reviewed the entire two-file three-dot diff. The temporary detached candidate worktree was clean before and after the tests; existing unrelated product working-tree changes were untouched.
@@ -30,10 +30,10 @@ No hosted shadow execution, registration, merge, push or production activation w
 END RV1200FULL
 
 ## RV1200FULLB PLAN
-- [x] 0. Record plan in evidence; native TodoWrite is unavailable.
-- [x] 1. Fetch and verify unchanged PR head.
-- [x] 2. Read and hash current PR body; compare with the requested correction.
-- [x] 3. Record complete-candidate verdict and remaining findings.
+- ✔ 0. Record plan in evidence; native TodoWrite is unavailable.
+- ✔ 1. Fetch and verify unchanged PR head.
+- ✔ 2. Read and hash current PR body; compare with the requested correction.
+- ✔ 3. Record complete-candidate verdict and remaining findings.
 
 ROLLE: REVIEW
 UTC: 2026-10-29 09:56 UTC
