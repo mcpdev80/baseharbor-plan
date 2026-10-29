@@ -19,7 +19,7 @@ evidence: []
 
 - [ ] t-20261029-r27-develop-main-reconcile · CI: forward-port main-only hardening back to develop #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** q207 (ae27e0da, qwen) · **Priority:** high  
+    **Owner:** o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C) · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
@@ -28,7 +28,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** q207 (ae27e0da, qwen)  
+**Owner:** o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -44,7 +44,7 @@ Root cause (codex-rv1205 finding 1): CI fixes #1193-#1198 landed main-only and w
 
 ## Acceptance
 
-Merge-base conflict gone (git merge-tree clean main->develop); every main hardening line present on develop (file:line table); focused receipt suites pass; #1205 promotable without deleting any main defense.
+PRÜFUNG AM FINALEN MERGE-ERGEBNIS (Owner-Direktive 2026-10-29, ersetzt merge-tree-main->develop-Klausel): #1205 ist nach Synchronisierung mit main konfliktfrei promotierbar (Branch-Sync-Beweis: commit-tree-Simulation S/M2, merge-tree main×M2 exit 0, diff main..M2 ohne Minus-Zeilen der main-Härtungen GH_WORKFLOW_TOKEN/--product/run_attempt/pull_requests); alle main-Härtungen und alle neueren develop-Änderungen bleiben erhalten (file:line table am finalen Kandidaten-Baum); gezielte Tests (unittest-Quartett, 73 Tests) am Kandidaten ausgeführt; geprüfte SHAs (Kandidat, develop-Tip, main-Tip, Simulationen) dokumentiert.
 
 ## Required checks
 
