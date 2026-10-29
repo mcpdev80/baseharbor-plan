@@ -44,7 +44,7 @@ Inspect current registered workflow, source pin and verifier; correct the empty 
 
 ## Acceptance
 
-Approval loads the intended trusted source and rejects wrong or absent pins; shadow executes reviewed source. Focused tests and workflow validation pass; hosted end-to-end remains a separate proof.
+Approval loads the intended trusted source and rejects wrong or absent pins; the shadow job is statically wired to a self-consistent reviewed ref (interface + pin correctness). Focused tests and workflow validation pass. Executed shadow evidence belongs to t-20261027-r27-shadow-run (CODEMAN-START proof ordering: registration and hosted execution follow integration; a merged pin cannot be proven by pre-merge hosted runs). Contract clarified by coordinator 2026-10-29 per CODEMAN-START authority in response to codex-merge-1200.md MERGE1200B finding.
 
 ## Required checks
 
