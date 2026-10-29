@@ -107,3 +107,39 @@ o229-DONE
 8. PR #1213: OPEN, HEAD = `5f0504d0`. Kein Merge, kein git in baseharbor-plan.
 
 o230-DONE
+
+## Runde C (o232, product path fixed)
+
+1. SETUP: worktree `worktrees/o232` zu `5f0504d0` angelegt; Remote-Branch
+   `work/r27-tasklink-yamlfix` war bereits exakt auf `5f0504d0`, kein Push
+   noetig (Recipe SETUP: Forward-Push ohne Force). NET-DIFF zu develop
+   enttaelt nur `scripts/test_receipt_tasklink.py` (product fix war im Forward
+   versehentlich reverttriert).
+2. FIX (Produkt-Pfad) `scripts/receipt_tasklink.py` `publish_evidence`:
+   `evidence: []` wird durch einen einzelnen `evidence:`-Block mit
+   2-space-indentierten `<url>`-Listen-Items ersetzt, bestehende `- <url>`-Items
+   werden erhalten (additiv), candidate/plan nur in der Commit-Nachricht,
+   sha40-Guards fuer candidate_sha/plan_revision, render/check BEFORE push,
+   Push zu origin/main + Remote-Readback (fail closed). Vorheriges gebrochenes
+   `- evidence: <url> (candidate <sha>, plan <sha>)` entfaellt.
+3. FIX (Regeln) Regressionstests AUF PRODUKTPEAD: `test_receipt_verifier.py`
+   `test_publish_evidence_schema_valid_and_preserves_existing` auf echtes
+   Bare-`origin` + `plan.py`-Schema umgestellt (kein `render_fn=None`-Kurzkick),
+   `test_receipt_tasklink.py` `PublishEvidenceYamlFormat` auf geschachtelten
+   Block + sha40-valide Inputs korrigiert. Fall-Matrix: absent evidence,
+   existing evidence erhalten, unnaechte Nested-Metadata erhalten,
+   Idempotenz-Retry, Remote-Fehlschlag fail-closed, render/check blockiert vor
+   Push.
+4. FIX (Voll-Suite 5 Dateien):
+   `python3 -m unittest test_receipt_verifier test_receipt_postrun
+   test_receipt_chain test_receipt_writer test_receipt_tasklink`
+   => `Ran 191 tests ... OK` (exit 0). py-compile aller 3 geaenderten Dateien
+   OK; yaml-parse aller `.github/workflows/*.yml` OK.
+5. FIX (Commit/Push): Forward-Commit `ba24541e` auf `work/r27-tasklink-yamlfix`,
+   Fast-Forward-Push nach origin (`5f0504d0..ba24541e`), PR #1213 Kopf =
+   `ba24541e2d0a2a07a1eef982fce5bac51ea4a3a1`.
+6. CI Check-Run-ID: `40949715746` (PR Selected Checks; Focused Python +
+   Validation-Jobs liefen, restliche nicht-ausgewaehlte Jobs skipped).
+7. Kein Merge, kein git in baseharbor-plan (Task-Vertrag).
+
+END o232-DONE
