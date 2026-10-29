@@ -17,7 +17,20 @@ resolution: ""
 evidence: []
 ---
 
-- t-20261029-workspace-hygiene-rotine · Betrieb: Workspace-Hygiene-Routine (Dauerkarte) #task #release/v0-4-27 #status/active #view/backlog #area/ops #kind/task
+- [ ] t-20261029-workspace-hygiene-rotine · Betrieb: Workspace-Hygiene-Routine (Dauerkarte) #task #release/v0-4-27 #status/active #view/active #area/ops #kind/task
+    <!-- generated:card -->
+    **Owner:** coordinator · **Priority:** medium  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** none  
+**Owner:** coordinator  
+**Priority:** medium  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Purpose
 Dauerhaft saubere Arbeitsumgebung ohne Manueraufruesten: Worktree-/Branch-Pflege, tmp-Sweep, Watcher-Registry als Cron-Routine mit Bundle-Nachweis und Aktiven-Schutz.
