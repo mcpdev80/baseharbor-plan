@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
-| review | 1 |
+| active | 3 |
+| review | 2 |
 | blocked | 7 |
 | ready | 0 |
 | queued | 27 |
@@ -23,7 +23,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | active | high | f60 (correction round, flash H3) | — | [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200) |
 | [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
 | [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
 | [t-20261029-r27-postrun-token-mapping](../tasks/t-20261029-r27-postrun-token-mapping.md) | CI: pass Planning write token to receipt writer publish step | active | high | o203 (3fba91dd, ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201) |
@@ -32,6 +31,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | review | high | f60 (29879f0e, flash) | — | [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200) |
 | [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | review | high | q202 (a71d5cd0, qwen) | — | [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199) |
 
 ## Blocked
