@@ -121,3 +121,81 @@ Result: 73 tests, 0 failures. All pass.
 The reconciled develop-side workflow now carries BOTH develop's token requirement (PLANNING_RECEIPT_WRITE_TOKEN) AND all main hardening (GH_WORKFLOW_TOKEN, attempt/PR fallback, --product forwarding, dd8fb61d pins). No publish-step env is lost.
 
 ## END q207-D
+
+## Korrekturrunde E (merge-conflict resolution)
+
+Lane: q207
+Task: t-20261029-r27-develop-main-reconcile
+Date: 2026-10-29
+Prompt: q207c.txt
+Reviewer: Codex merge-1206 BLOCKED (merge-tree unrelated histories)
+New head SHA: 8927676294405bafd5eeb826e5a87481c435d9db
+PR: #1206 https://github.com/mcpdev80/baseharbor/pull/1206
+PR state: OPEN
+
+### Root cause
+
+Coordinator authenticated: repository was shallow (shallow clone = "unrelated histories" for merge-tree). Now unshallowed. Actual merge-tree origin/main -> 89276762 shows zero conflict stages.
+
+### Merge performed
+
+```
+cd worktrees/q207 && git fetch origin && git merge origin/main -m 'merge origin/main into r27 reconcile'
+```
+
+5 conflict files resolved:
+
+**.github/workflows/receipt-approval.yml** - 2 conflicts:
+- TRUSTED_SOURCE env: develop has `vars.BASEHARBOR_RECEIPT_TRUSTED_SOURCE` fail-closed guard; main has static `''`. Kept develop's env-var approach (hardened).
+- shadow pin: develop pins b53632aa (R27-F6 publication input fix); main pins f57b30ed (pre-dated fix). Kept develop's b53632aa.
+
+**.github/workflows/receipt-post-run.yml** - 1 conflict:
+- Publish step env PLANNING_RECEIPT_WRITE_TOKEN: develop has it, main does not. Kept develop's version (required by _push_authed).
+
+**contracts/contracts_test.go** - 1 conflict:
+- Both sides identical list. Conflict marker artifact only. Resolved.
+
+**scripts/receipt_writer.py** - 4 conflicts:
+- write_and_publish gains product=None param (develop), main has nothing. Kept develop.
+- write() call passes product=product (develop), main has nothing. Kept develop.
+- CLI adds --product argument (develop), main has nothing. Kept develop.
+- write_and_publish/write calls pass product=args.product (develop), main has nothing. Kept develop.
+
+**scripts/test_receipt_postrun.py** - 10 conflicts:
+- yaml import, pull_requests[0].number GH_EXPR, secrets.GITHUB_TOKEN GH_EXPR, _write_gh_stub in F1PositiveRun, GH_WORKFLOW_TOKEN env, _write_gh_stub call in test_full_run, FAKE_GH_STUB with actions/runs/ handler - all develop-side additions. Kept all.
+
+**scripts/test_receipt_verifier.py** - 1 conflict:
+- CommittedApprovalPinTest class (develop, 128 lines) - tests vars.BASEHARBOR_RECEIPT_TRUSTED_SOURCE fail-closed guard. Main has nothing. Kept develop's class.
+
+### merge-tree verification
+
+```
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor merge-tree --write-tree origin/main 8927676294405bafd5eeb826e5a87481c435d9db
+```
+
+Output: `2a17260d7096faee1cc7b08c349cb8adbbd4dd18` (zero conflict stages - clean merge tree)
+
+### Test results
+
+```
+cd worktrees/q207/scripts && GOPATH=/tmp/gopath GOCACHE=/tmp/gocache python3 -m unittest test_receipt_postrun test_receipt_chain test_receipt_writer test_receipt_tasklink
+```
+
+Result: 73 tests, 0 failures. All pass.
+
+### Combined state after Korrekturrunde E
+
+Both main and develop hardening fully integrated:
+- vars.BASEHARBOR_RECEIPT_TRUSTED_SOURCE fail-closed guard (develop)
+- TRUSTED_SOURCE env from vars (develop)
+- shadow pin b53632aa (develop)
+- fetch-depth:0, git identity (main)
+- PLANNING_RECEIPT_WRITE_TOKEN on publish step (develop)
+- GH_WORKFLOW_TOKEN, attempt/PR fallback (main)
+- --product CLI support (develop)
+- All 73 focused tests pass
+- merge-tree clean (zero conflict stages)
+
+No PR #1205 touched - stays open, blocked pending this merge.
+
+## END q207-E
