@@ -6,11 +6,11 @@ Planning main: 2eff5d668e772a42c6eca0f6cfbb1ed4242a5b9f
 VERDICT: REQUEST_CHANGES
 
 ## PLAN
-[✔] 0. Record plan; native TodoWrite is unavailable in this session.
-[✔] 1. Refresh candidate and task contract, inspect complete diff and PR body.
-[✔] 2. Run focused suites and check self-pin positive and negative paths.
-[✔] 3. Verify current CI and map acceptance criteria to evidence.
-[✔] 4. Record SHA-specific verdict, findings and actionable recipe.
+- [x] 0. Record plan; native TodoWrite is unavailable in this session.
+- [x] 1. Refresh candidate and task contract, inspect complete diff and PR body.
+- [x] 2. Run focused suites and check self-pin positive and negative paths.
+- [x] 3. Verify current CI and map acceptance criteria to evidence.
+- [x] 4. Record SHA-specific verdict, findings and actionable recipe.
 
 ## Review evidence
 Fetched product origin; remote develop and PR branch resolve to the stated base and candidate. Planning SSH fetch failed due to system SSH config permissions; GitHub API independently confirmed origin/main SHA above, matching the locally available task contract. GitHub API confirmed current PR head and develop SHA. Reviewed the entire two-file three-dot diff. The temporary detached candidate worktree was clean before and after the tests; existing unrelated product working-tree changes were untouched.
@@ -30,7 +30,23 @@ No hosted shadow execution, registration, merge, push or production activation w
 END RV1200FULL
 
 ## RV1200FULLB PLAN
-[✔] 0. Record plan in evidence; native TodoWrite is unavailable.
-[☐] 1. Fetch and verify unchanged PR head.
-[☐] 2. Read and hash current PR body; compare with the requested correction.
-[☐] 3. Record complete-candidate verdict and remaining findings.
+- [x] 0. Record plan in evidence; native TodoWrite is unavailable.
+- [x] 1. Fetch and verify unchanged PR head.
+- [x] 2. Read and hash current PR body; compare with the requested correction.
+- [x] 3. Record complete-candidate verdict and remaining findings.
+
+ROLLE: REVIEW
+UTC: 2026-10-29 09:56 UTC
+Head: 114d6e48e0396d4a92a97f4fe4dca9badc4b0a63
+VERDICT: ACCEPT (complete candidate; registration instruction corrected).
+
+Fetched origin and confirmed both the remote tracking PR branch and GitHub PR head match the reviewed candidate. The live develop branch remains 80d0312276aab8829deb80188aa9902ff0183b73; the PR API base.sha reports 7a4debccc4e2fa5e78287e9b9388b0cb521d66e2, its earlier base snapshot. Both produce the identical three-dot diff (git hash-object 8d5bc939371f2c0730cc547b1b5453ec642e9283). The original complete review and acceptance mapping remain applicable to unchanged candidate bytes; current integration and CI gates require their own live verification before any merge.
+
+The PR body now states the static shadow ref b53632aa, the TRUSTED_SOURCE repository variable, and registration at the reviewed final integrated commit containing this candidate's exact workflow and verifier bytes, explicitly excluding b53632aa. The earlier finding is resolved; no remaining review findings. Registration and hosted shadow execution remain future work under their own task.
+
+Git hash-object of the API body text, including its terminating newline as returned by gh --jq: 9849b55318a59d22bc8f5a24c2d26bd0af76d0fe. The text quoted below is copied directly from that same file and has the same hash.
+
+```text
+Repair approval trusted-source wiring per Codex rv1200 (F1) + rv1200b: the shadow call is pinned to b53632aa (static interface-correct reviewed ref), while TRUSTED_SOURCE is now read from repository variable BASEHARBOR_RECEIPT_TRUSTED_SOURCE with fail-closed guard (unset/malformed -> rejection). AT REGISTRATION the coordinator sets that variable to the reviewed final integrated commit containing the exact approval-workflow and verifier bytes of this candidate - NOT to b53632aa (whose approval bytes predate this change and would fail pinned_source). Same-commit/unchanged-descendant positive and wrong/absent/malformed/divergent negatives are covered by scripts/test_receipt_verifier.py regressions. Scoped to receipt-approval.yml + focused tests. Evidence: baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/approval-pin.md + approval-pin-correction.md; verdicts codex-rv1200.md / codex-rv1200b-verdict.md (plan repo). Task t-20261029-r27-ci-approval-pin, lanes o201+f60.
+```
+END RV1200FULLB
