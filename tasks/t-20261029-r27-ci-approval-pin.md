@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "o201 (350b6e73, ornith)"
+owner: "f60 (correction round, flash H3)"
 early: true
 priority: high
 depends_on: []
@@ -17,18 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** o201 (350b6e73, ornith) · **Priority:** high  
+    **Owner:** f60 (correction round, flash H3) · **Priority:** high  
     **PR:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** o201 (350b6e73, ornith)  
+**Owner:** f60 (correction round, flash H3)  
 **Priority:** high  
 **PRs:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
 **Source:** 
