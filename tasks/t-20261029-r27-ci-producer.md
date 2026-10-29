@@ -10,26 +10,27 @@ early: true
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1199"]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** q202 (a71d5cd0, qwen) · **Priority:** high  
+    **PR:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** q202 (a71d5cd0, qwen)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -53,7 +54,5 @@ Run focused validation for the changed surface; record exact revision and result
 
 Reserve only the concrete profile files and tests agreed by coordinator; no shared CI workflow edits.
 
-## Handoff
-
-Lane q202 session a71d5cd0; no product writes; receipt-chain diagnostics vs merged #1199 run 40833893562; evidence baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/producer-diagnostics.md.
+Lane q202 delivered producer-diagnostics.md (END q202-DONE, disk-verified, sanitized). Verified: #1199 (head 96a96362, merge 7a4debcc, run 40833893562) executed integration/static/public-contracts on integration_sha 8515e627 with trusted-pr-plan artifact and tree parity; post-run writer fired automatically but failed closed at publication because the token was absent in that run context (repo secret now verified present via gh api — requalification of a NEW producer run required to prove automatic publication). Evidence: https://github.com/mcpdev80/baseharbor-plan/blob/{sha}/evidence/r27-ci-replacement-2026-10-29/producer-diagnostics.md
 

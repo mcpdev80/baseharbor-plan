@@ -10,26 +10,27 @@ early: true
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1200"]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** o201 (350b6e73, ornith) · **Priority:** high  
+    **PR:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o201 (350b6e73, ornith)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -53,7 +54,5 @@ Run focused validation for the changed surface; record exact revision and result
 
 Exclusive .github/workflows/receipt-approval.yml and its focused tests after coordinator reservation; shared verifier changes require owner coordination.
 
-## Handoff
-
-Lane o201 session 350b6e73; product writes: .github/workflows/receipt-approval.yml + focused tests only, own new worktree/branch work/r27-pin-o201.
+Lane o201 delivered: branch work/r27-pin-o201 head 5aaa38ec, PR #1200 pins TRUSTED_SOURCE to reviewed b53632aa per evidence approval-pin.md (END o201-DONE, disk-verified by coordinator). Independent review pending per RUNBOOK §5 END rule; merge only via Codex-MERGE after ACCEPT. Evidence: https://github.com/mcpdev80/baseharbor-plan/blob/{sha}/evidence/r27-ci-replacement-2026-10-29/approval-pin.md
 

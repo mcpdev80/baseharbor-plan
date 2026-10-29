@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
-| review | 0 |
+| active | 2 |
+| review | 2 |
 | blocked | 7 |
 | ready | 4 |
 | queued | 27 |
@@ -23,14 +23,15 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | active | high | o201 (350b6e73, ornith) | — | — |
 | [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
 | [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
-| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | active | high | q202 (a71d5cd0, qwen) | — | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261029-r27-ci-approval-pin](../tasks/t-20261029-r27-ci-approval-pin.md) | CI: repair approval trusted source pins | review | high | o201 (350b6e73, ornith) | — | [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200) |
+| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | review | high | q202 (a71d5cd0, qwen) | — | [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199) |
 
 ## Blocked
 
