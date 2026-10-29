@@ -5,7 +5,7 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
+owner: Flash-Coordinator (41e61806) via worker lanes
 early: true
 priority: high
 depends_on: []
@@ -17,18 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Flash-Coordinator (41e61806) via worker lanes · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** unassigned  
+**Owner:** Flash-Coordinator (41e61806) via worker lanes  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
