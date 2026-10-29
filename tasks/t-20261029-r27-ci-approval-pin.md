@@ -13,11 +13,11 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1200"]
 sources: []
 blocker: ""
-resolution: ""
+resolution: "Owner-delegated acceptance of static pin/interface criteria at merged develop a3750a8f (schema has no accepted state; acceptance evidence in Handoff). Executed-shadow criterion explicitly assigned to t-20261027-r27-shadow-run per contract clarification 2eff5d66; that chain proof is still pending."
 evidence: []
 ---
 
-- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/accepted #view/accepted #area/ci #kind/task
+- [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** f60 (29879f0e, flash) · **Priority:** high  
     **PR:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
