@@ -3,14 +3,14 @@ id: t-20261029-r27-develop-main-reconcile
 type: task
 areas: [ci]
 release: v0.4.27
-version: ""
+status: closed
 parent: v0.4.27
 owner: "o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C)"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [{number: 1206, state: merged, sha: 1f94951d2dc014ff924f35777b08a96e75781c06}]
 sources: []
 blocker: ""
 resolution: ""
