@@ -12,7 +12,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151]
 sha: 4f0ce579
 sources: []
-blocker: "native-qualification gate #1154 merged 2026-10-28T15:31Z; still blocked on t-20261017-release-0-4-27-updates (NOT accepted) and sibling evidence cards (NOT accepted). Stale #1154 blocker text refreshed by LANE clnd."
+blocker: "receipt chain blocked only on final producer choice: writer gate requires job 'PR · Public Contracts' success (receipt_verifier live()), which a docs producer skips; planner analysis 2026-10-29 shows contracts/**.{go,json} selects the public-contracts gate. Next: owner picks a genuine contracts update as producer run. Prior gate #1154 merged 2026-10-28."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md"]
 ---
@@ -21,7 +21,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Blocker:** native-qualification gate \#1154 merged 2026-10-28T15:31Z; still blocked on t-20261017-release-0-4-27-updates (NOT accepted) and sibling evidence cards (NOT accepted). Stale \#1154 blocker text refreshed by LANE clnd.  
+    **Blocker:** receipt chain blocked only on final producer choice: writer gate requires job 'PR · Public Contracts' success (receipt\_verifier live()), which a docs producer skips; planner analysis 2026-10-29 shows contracts/\*\*.{go,json} selects the publ…  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md)  
     <!-- /generated:card -->
