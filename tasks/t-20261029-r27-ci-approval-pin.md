@@ -19,16 +19,16 @@ evidence: []
 
 - [ ] t-20261029-r27-ci-approval-pin · CI: repair approval trusted source pins #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** f60 (correction round, flash H3) · **Priority:** high  
+    **Owner:** f60 (29879f0e, flash) · **Priority:** high  
     **PR:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** f60 (correction round, flash H3)  
+**Owner:** f60 (29879f0e, flash)  
 **Priority:** high  
 **PRs:** [baseharbor#1200](https://github.com/mcpdev80/baseharbor/pull/1200)  
 **Source:** 
