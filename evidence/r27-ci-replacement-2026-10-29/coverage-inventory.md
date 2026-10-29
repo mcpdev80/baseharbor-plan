@@ -8,15 +8,15 @@
 
 ## PLAN
 
-- [x] PLAN 0: Track task t-20261029-r27 CI coverage inventory
-- [x] PLAN 1: Read task note baseharbor-plan/tasks/t-20261029-r27-ci-coverage-inventory.md
-- [x] PLAN 2: Gather rulesets via `gh api repos/mcpdev80/baseharbor/rulesets`
-- [x] PLAN 3: List workflow files on origin/develop
-- [x] PLAN 4: Analyze planner mapping (pr-gate-plan.py, release-requirements.json)
-- [x] PLAN 5: Collect last 15 develop runs per workflow
-- [x] PLAN 6: Gather runners and secrets inventory
-- [x] PLAN 7: Check receipt chain state on baseharbor-plan origin/main
-- [x] PLAN 8: Build acceptance table and write coverage-inventory.md
+1. PLAN 0: Track task t-20261029-r27 CI coverage inventory — DONE
+2. PLAN 1: Read task note baseharbor-plan/tasks/t-20261029-r27-ci-coverage-inventory.md — DONE
+3. PLAN 2: Gather rulesets via `gh api repos/mcpdev80/baseharbor/rulesets` — DONE
+4. PLAN 3: List workflow files on origin/develop — DONE
+5. PLAN 4: Analyze planner mapping (pr-gate-plan.py, release-requirements.json) — DONE
+6. PLAN 5: Collect last 15 develop runs per workflow — DONE
+7. PLAN 6: Gather runners and secrets inventory — DONE
+8. PLAN 7: Check receipt chain state on baseharbor-plan origin/main — DONE
+9. PLAN 8: Build acceptance table and write coverage-inventory.md — DONE
 
 ## 1. Rulesets
 
