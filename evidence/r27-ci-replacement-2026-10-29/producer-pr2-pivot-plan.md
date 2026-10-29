@@ -15,3 +15,12 @@
 - baseharbor/AGENTS.md: test files in contracts/ use package `contracts_test`; JSON Schema 2020-12; one contract per test function; clone schema-valid baseline and mutate a single required field per case; assert schema rejection. New test file follows the same conventions as contracts/v0425_contracts_test.go.
 - baseharbor/CONVENTIONS.md (if present): single mutation per negative; baseline validated first.
 - baseharbor-plan: evidence-only write in the designated evidence/... path; no git in baseharbor-plan.
+
+## Coordinator Recovery-Notiz (o214 EXITED vor Push)
+- Lane stürzte nach lokalem Commit 908f1d09 (Profil-Negative) vor Push/PR-Edit ab.
+- objects waren im geteilten Repo-Store → Coordinator übernahm (explizite Übergabe, Lane tot):
+  go vet clean, go test ./contracts/ -run TestConnectionProfile PASS, Push auf
+  work/r27-producer-extension-contracts, PR #1203 Titel/Body auf Profil-Slice umgestellt.
+- Extension-Arbeit unverändert gesichert: work/r27-producer-extension-reserve = b9ebc475.
+- rv1207 (CODEX-REVIEW am SHA 908f1d09) dispatched. Worktree o214 entfernt + Registry pruned.
+- END coordinator-recovery DONE
