@@ -5,12 +5,12 @@ Referenced policy/merge evidence: `evidence/board-2026-10-29/codex-merge-1206.md
 
 ## PLAN
 
-- [x] 0. Read dispatch + referenced m1206g; record plan. Native TodoWrite used; plan recorded here.
-- [ ] 1. worktree add at develop head 1f94951d; create `-new` branch; `-s ours` merge origin/main (7a417d37) so main is an ancestor of the promotion head.
-- [ ] 2. VERIFY paste (removed-line grep = 0), `diff 1f94951d HEAD --stat` empty, `merge-base --is-ancestor origin/main HEAD` exit 0.
-- [ ] 3. push `-new` branch; PATCH PR #1205 head to `-new`; read back `gh pr view 1205` mergeable/mergeStateStatus.
-- [ ] 4. Await exact-head PR Checks to terminal (poll max 8 min).
-- [ ] 5. Record all SHAs + command outputs; END.
+- [✔] 0. Read dispatch + referenced m1206g; record plan. Native TodoWrite used; plan recorded here.
+- [☐] 1. worktree add at develop head 1f94951d; create `-new` branch; `-s ours` merge origin/main (7a417d37) so main is an ancestor of the promotion head.
+- [☐] 2. VERIFY paste (removed-line grep = 0), `diff 1f94951d HEAD --stat` empty, `merge-base --is-ancestor origin/main HEAD` exit 0.
+- [☐] 3. push `-new` branch; PATCH PR #1205 head to `-new`; read back `gh pr view 1205` mergeable/mergeStateStatus.
+- [☐] 4. Await exact-head PR Checks to terminal (poll max 8 min).
+- [☐] 5. Record all SHAs + command outputs; END.
 
 ## ZUSTAND (before)
 
