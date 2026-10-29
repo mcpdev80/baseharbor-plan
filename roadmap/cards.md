@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 3/77 · **Blocked:** 6 · **Waiting:** 63  
+    **Accepted tasks:** 3/79 · **Blocked:** 6 · **Waiting:** 65  
     **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — native-qualification gate \#1154 merged 2026-10-28T15:31Z; still blocked on t-20261017-release-0-4-27-updates (NOT accepted) and sibling evidence cards (NOT acc…  
     **Blocker:** [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md) — native-qualification gate \#1154 merged 2026-10-28T15:31Z; still blocked on t-20261017-release-0-4-27-updates (NOT accepted). Stale \#1154 blocker text refreshed…  
     Plus 4 further blockers in the task list.  
