@@ -60,4 +60,4 @@ Dependency semantics: t-20261017-release-0-4-27-updates is the release-start int
 
 ## Handoff
 
-Unassigned. Coordinator checks current claims and source heads before assignment.
+#1201 merged (80d03122). Codex rv1202b ACCEPT develop-side at de93ff65 (#1202: pins dd8fb61d, GH_TOKEN preserved, write-token kept; checkout semantics verified at actions/checkout v7.0.1 source; hosted execution NOT claimed). #1202 CODEX-MERGE re-dispatched with the early:true dependency semantics documented above. Remaining for this card: main-side registration candidate (adds ONLY PLANNING_RECEIPT_WRITE_TOKEN to main's publish step; preserves main's existing pins/GH_TOKEN/attempt hardening per codex-rv1201 recipe step 1) and one observed automatic publication on a real producer run. Post-cutover follow-up candidate: exercise both SHA-checkout paths hosted; fetch-depth hardening if warranted (rv1202b).
