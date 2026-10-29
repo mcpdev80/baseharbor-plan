@@ -12,21 +12,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1109, mcpdev80/baseharbor#1115, mcpdev80/baseharbor#1125, mcpdev80/baseharbor#1129, mcpdev80/baseharbor#1128, mcpdev80/baseharbor#1131, mcpdev80/baseharbor#1132, mcpdev80/baseharbor#1133, mcpdev80/baseharbor#1134, mcpdev80/baseharbor#1135]
 sources: []
 early: false
-blocker: ""
+blocker: "Current exact source and actual receipt-suite discovery require reconciliation and qualification; release-start updates remain open."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1108", "https://github.com/mcpdev80/baseharbor/pull/1109", "https://github.com/mcpdev80/baseharbor/pull/1110", "https://github.com/mcpdev80/baseharbor/pull/1121", "https://github.com/mcpdev80/baseharbor/pull/1122", "https://github.com/mcpdev80/baseharbor/commit/839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/b2-board.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-f57b30ed48f1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/rv3-review-f57b30ed.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/p1-pilot-prereq.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/d3-mergecheck-v36.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-27507add.md"]
 ---
 
-- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261024-r27-ci-impact-prototype · W1: trusted receipt execution, discovery and shadow consumption #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133), [baseharbor#1134](https://github.com/mcpdev80/baseharbor/pull/1134), [baseharbor#1135](https://github.com/mcpdev80/baseharbor/pull/1135)  
+    **Blocker:** Current exact source and actual receipt-suite discovery require reconciliation and qualification; release-start updates remain open.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1108), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1109), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1110), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1121), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1122), [proof 6](https://github.com/mcpdev80/baseharbor/commit/839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md), [proof 8](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/b2-board.md), [proof 10](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-f57b30ed48f1.md), [proof 11](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/rv3-review-f57b30ed.md), [proof 12](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/p1-pilot-prereq.md), [proof 13](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/d3-mergecheck-v36.md), [proof 14](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-27507add.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
@@ -61,7 +62,7 @@ No native/full matrix, blanket map, disabled required check, invented source fla
 
 ## Governing order and preserved history
 
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-ci-impact-prototype.md) remain immutable history, not competing operational instructions.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-ci-impact-prototype.md) remain immutable history, not competing operational instructions.
 
 ## Coordinator reservation 2026-10-27 (restart)
 Slot W1 executes via fresh lane `w1` (ornith), branch `work/r27-w1-discovery` from frozen develop `3431b22c`; historical owner string preserved per governing order. Lane WIP checkpoint `worktrees/pr3a` (ci.yml change = reusable input; scripts/pr-required-final.py + scripts/test_pr_required_final_receipt.py are outside the reserved write set and enter only by owner-of-file review).

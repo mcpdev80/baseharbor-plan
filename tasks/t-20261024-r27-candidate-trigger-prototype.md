@@ -12,7 +12,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1055]
 sources: []
 early: false
-blocker: "Owner pause; deferred until accepted one-gate skeleton. Do not run old trigger prototype."
+blocker: "Deferred until accepted one-gate skeleton. Do not run old trigger prototype."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055)  
-    **Blocker:** Owner pause; deferred until accepted one-gate skeleton. Do not run old trigger prototype.  
+    **Blocker:** Deferred until accepted one-gate skeleton. Do not run old trigger prototype.  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
     <!-- /generated:card -->
 
@@ -49,4 +49,4 @@ Accepted automatic skeleton and required-check semantics; source/ref/actor and e
 
 ## Governing order and preserved history
 
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-candidate-trigger-prototype.md) remain immutable history, not competing operational instructions.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261024-r27-candidate-trigger-prototype.md) remain immutable history, not competing operational instructions.

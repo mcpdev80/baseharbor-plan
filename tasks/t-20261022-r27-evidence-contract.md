@@ -46,9 +46,6 @@ PR #1092 incorporated #1090; #1090 is closed without separate merge. The audit f
 ## Interface ownership
 W1 owns trusted execution/discovery and docs; W2 owns publication/plan/task-link interfaces in existing helpers; W3 owns live/approve/retained validation. Freeze shared call signatures once before parallel edits. Receipt fields/modes remain stable; no unilateral branch/API invention.
 
-## Timebox
-T0 2026-10-26T23:35:50Z and deadline 2026-10-29T23:35:50Z remain unchanged. Read the code audit and current order; do not start new contract implementation or restart old archive stories.
-
 ## Governing order and preserved history
 
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman remains paused until explicit Owner restart. Existing owner strings/commits are preserved; coordinator reconciles local checkpoints before assigning the three slots. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-evidence-contract.md) remain immutable history, not competing operational instructions.
+The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-evidence-contract.md) remain immutable history, not competing operational instructions.
