@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-workspace-hygiene-rotine · Betrieb: Workspace-Hygiene-Routine (Dauerkarte) #task #release/v0-4-27 #status/active #view/backlog #area/ops #kind/task
+- t-20261029-workspace-hygiene-rotine · Betrieb: Workspace-Hygiene-Routine (Dauerkarte) #task #release/v0-4-27 #status/active #view/backlog #area/ops #kind/task
 
 ## Purpose
 Dauerhaft saubere Arbeitsumgebung ohne Manueraufruesten: Worktree-/Branch-Pflege, tmp-Sweep, Watcher-Registry als Cron-Routine mit Bundle-Nachweis und Aktiven-Schutz.
@@ -28,7 +28,7 @@ Dauerhaft saubere Arbeitsumgebung ohne Manueraufruesten: Worktree-/Branch-Pflege
 - alle 15min: `prune-watch.sh` (Watcher-Registry), alle 10min: `ci-watch.sh` (PR-Wachen)
 - Eingreifpflicht Coordinator: >80 Worktree-Register; KEEP-Zeilen 'not-integrated' aelter 3 Tage; bundle-failed.
 
-## PLAN-Checkliste
-- [x] 1. Routine gebaut und getestet (removed=0, age guard aktiv)
-- [x] 2. Crons installiert
-- [ ] 3. Erstlauf-Bewertung nach o234-Bereinigung
+## PLAN
+- 1. Routine gebaut und getestet (removed=0, age guard aktiv)
+- 2. Crons installiert
+- 3. Erstlauf-Bewertung nach o234-Bereinigung
