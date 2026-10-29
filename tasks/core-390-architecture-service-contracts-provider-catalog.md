@@ -6,7 +6,7 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: ""
-depends_on: [core-893, core-895, core-896]
+depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#390"]
@@ -17,16 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/planned #view/ready #area/architecture #kind/architecture
+- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
