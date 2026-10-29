@@ -8,7 +8,7 @@ parent: v0.4.27
 owner: "Flash-Coordinator (2713f9f2) via worker lane"
 early: true
 priority: high
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -17,16 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-postrun-token-mapping · CI: pass Planning write token to receipt writer publish step #task #release/v0-4-27 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261029-r27-postrun-token-mapping · CI: pass Planning write token to receipt writer publish step #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Flash-Coordinator (2713f9f2) via worker lane · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** Flash-Coordinator (2713f9f2) via worker lane  
 **Priority:** high  
 **PRs:** none  

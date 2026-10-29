@@ -13,9 +13,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | active | 2 |
 | review | 2 |
 | blocked | 7 |
-| ready | 5 |
+| ready | 4 |
 | queued | 27 |
-| waiting | 228 |
+| waiting | 229 |
 | backlog | 7 |
 | closed | 57 |
 
@@ -53,7 +53,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) | — |
-| [t-20261029-r27-postrun-token-mapping](../tasks/t-20261029-r27-postrun-token-mapping.md) | CI: pass Planning write token to receipt writer publish step | ready | high | Flash-Coordinator (2713f9f2) via worker lane | — | — |
 
 ## By release
 
