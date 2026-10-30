@@ -5,7 +5,7 @@ type: architecture
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: ""
+owner: marcel
 depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,17 +17,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/planned #view/ready #area/architecture #kind/architecture
+- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/active #view/active #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** marcel  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
-**Owner:** unassigned  
+**Owner:** marcel  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#390](https://github.com/mcpdev80/baseharbor/issues/390)

@@ -5,7 +5,7 @@ type: bug
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: mcpdev80
+owner: marcel
 depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,17 +17,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-x #status/planned #view/ready #area/lifecycle #kind/bug
+- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-x #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** marcel  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
-**Owner:** mcpdev80  
+**Owner:** marcel  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#766](https://github.com/mcpdev80/baseharbor/issues/766)
