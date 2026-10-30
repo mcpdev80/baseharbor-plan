@@ -20,7 +20,7 @@ evidence: []
 - [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/active #view/active #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** marcel  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

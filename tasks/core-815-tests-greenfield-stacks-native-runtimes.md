@@ -21,7 +21,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

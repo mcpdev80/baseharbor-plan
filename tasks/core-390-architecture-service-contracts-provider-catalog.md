@@ -20,6 +20,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board
 - [x] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/closed #view/closed #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** marcel  
+    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/w390.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/dd1923dc), [proof 3](https://github.com/mcpdev80/baseharbor/blob/develop/docs/decisions/0013-standards-first-service-provider-contracts.md)  
     <!-- /generated:card -->
 

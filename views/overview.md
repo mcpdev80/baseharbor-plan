@@ -11,24 +11,26 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 2 |
-| review | 0 |
+| review | 1 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 27 |
 | waiting | 230 |
 | backlog | 7 |
-| closed | 71 |
+| closed | 70 |
 
 ## Active
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
-| [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
+| [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) (open) | — |
+| [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) (open) | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | PR3: review and switch only the accepted completion path | review | critical | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) | [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107) |
 
 ## Blocked
 
@@ -41,7 +43,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 71 open, 18 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 72 open, 17 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
