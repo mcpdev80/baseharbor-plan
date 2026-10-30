@@ -2,11 +2,11 @@
 id: core-815
 areas: [testing]
 type: acceptance
-release: v0.4.x
+release: v0.4.27
 version: ""
-parent: v0.4.x
+parent: v0.4.27
 owner: ""
-depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
+depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#815"]
@@ -17,16 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-x #status/planned #view/ready #area/testing #kind/acceptance
+- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
-**Release:** [v0.4.x](../releases/v0.4.x.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**State:** waiting  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
