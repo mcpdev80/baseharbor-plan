@@ -14,7 +14,7 @@ prs: [mcpdev80/baseharbor#1206]
 sources: []
 blocker: ""
 resolution: accepted
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1206","https://github.com/mcpdev80/baseharbor/pull/1214","https://github.com/mcpdev80/baseharbor/pull/1218"]
 ---
 
 - [x] t-20261029-r27-develop-main-reconcile · CI: forward-port main-only hardening back to develop #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
@@ -22,6 +22,7 @@ evidence: []
     **Owner:** o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C) · **Priority:** high  
     **PR:** [baseharbor#1206](https://github.com/mcpdev80/baseharbor/pull/1206)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1206), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1214), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1218)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
