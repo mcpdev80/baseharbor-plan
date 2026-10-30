@@ -13,18 +13,18 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/82f82260006715da98669b7094fcb4b054594438/evidence/r27-ci-replacement-2026-10-29/coverage-inventory.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/blob/develop/docs/internal/ci-binding-qualifications.md", "https://github.com/mcpdev80/baseharbor/blob/develop/docs/development/minimal-ci-receipts.md"]
 ---
 
-- [ ] t-20261029-r27-ci-coverage-inventory · CI: map current required checks and replacement coverage #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261029-r27-ci-coverage-inventory · CI: map current required checks and replacement coverage #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** o202 (1138dbc9, ornith) · **Priority:** high  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/82f82260006715da98669b7094fcb4b054594438/evidence/r27-ci-replacement-2026-10-29/coverage-inventory.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/blob/develop/docs/internal/ci-binding-qualifications.md), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/docs/development/minimal-ci-receipts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  

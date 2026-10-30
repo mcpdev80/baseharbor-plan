@@ -10,14 +10,14 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 3 |
 | review | 0 |
-| blocked | 4 |
+| blocked | 0 |
 | ready | 2 |
 | queued | 27 |
 | waiting | 229 |
 | backlog | 7 |
-| closed | 62 |
+| closed | 70 |
 
 ## Active
 
@@ -25,10 +25,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) | Architecture: align service contracts and provider catalog | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
-| [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) | Prove one automatic contributor receipt chain | active | critical | coordinator-lane (r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) (open), [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) (open) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
-| [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
-| [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
-| [t-20261029-r27-postrun-token-mapping](../tasks/t-20261029-r27-postrun-token-mapping.md) | CI: pass Planning write token to receipt writer publish step | active | high | o203 (3fba91dd, ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201), [baseharbor#1202](https://github.com/mcpdev80/baseharbor/pull/1202), [baseharbor#1205](https://github.com/mcpdev80/baseharbor/pull/1205) |
 | [t-20261029-workspace-hygiene-rotine](../tasks/t-20261029-workspace-hygiene-rotine.md) | Betrieb: Workspace-Hygiene-Routine (Dauerkarte) | active | normal | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open) | — |
 
 ## Ready for review
@@ -37,12 +33,7 @@ None.
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) | Accept the automatic receipt chain, not partial jobs | blocked | critical | flash-coordinator + o145 (W5 independent) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) (open), [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) (open), [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) (open) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
-| [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) | W3: genuine Owner approval and live/offline verification | blocked | critical | w3-lane (W3 verifier package) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
-| [t-20261024-r27-candidate-trigger-prototype](../tasks/t-20261024-r27-candidate-trigger-prototype.md) | Deferred explicit candidate-trigger policy (after skeleton) | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) (open) | [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055) |
-| [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) | W1: trusted receipt execution, discovery and shadow consumption | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md) | [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133), [baseharbor#1134](https://github.com/mcpdev80/baseharbor/pull/1134), [baseharbor#1135](https://github.com/mcpdev80/baseharbor/pull/1135) |
+None.
 
 ## Ready to assign
 
@@ -54,7 +45,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 77 open, 10 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 69 open, 18 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

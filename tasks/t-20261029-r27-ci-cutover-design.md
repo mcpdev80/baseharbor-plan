@@ -13,17 +13,18 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-29/scripts/ruleset-activation/README-activation.md"]
 ---
 
-- [ ] t-20261029-r27-ci-cutover-design · CI: specify candidate-bound completion and ruleset #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261029-r27-ci-cutover-design · CI: specify candidate-bound completion and ruleset #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** q201 (38460858, qwen) · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-29/scripts/ruleset-activation/README-activation.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
