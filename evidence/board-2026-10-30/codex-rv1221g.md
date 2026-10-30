@@ -1,10 +1,10 @@
 ROLLE: REVIEW — rv1221g
 
 ## PLAN
-- [x] 0. Auftrag und bindende Richtlinien lesen; PLAN in Evidence erfassen. Native TodoWrite ist in dieser Sitzung nicht verfügbar.
-- [x] 1. Kandidat, Remote-Stand und vorherigen Befund SHA-genau verifizieren.
-- [x] 2. Ausschließlich den beauftragten Befund und zugehörige Tests prüfen; Urteil und Lösungsrezept dokumentieren.
-- [x] 3. Evidence auf Planning main veröffentlichen und Remote-Stand bezeugen.
+- ✓ 0. Auftrag und bindende Richtlinien lesen; PLAN in Evidence erfassen. Native TodoWrite ist in dieser Sitzung nicht verfügbar.
+- ✓ 1. Kandidat, Remote-Stand und vorherigen Befund SHA-genau verifizieren.
+- ✓ 2. Ausschließlich den beauftragten Befund und zugehörige Tests prüfen; Urteil und Lösungsrezept dokumentieren.
+- ✓ 3. Evidence auf Planning main veröffentlichen und Remote-Stand bezeugen.
 
 ## Urteil
 

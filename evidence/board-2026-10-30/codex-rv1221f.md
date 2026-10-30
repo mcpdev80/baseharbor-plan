@@ -1,10 +1,10 @@
 ROLLE: REVIEW
 
 ## PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
-- [x] 1. Refresh exact candidate and inspect run-bound PR base, API-shaped fixtures and negative cases.
-- [x] 2. Run focused tests and verify exact-head hosted status; record verdict and executor prerequisite.
-- [x] 3. Publish the evidence and applicable Planning status safely, without merging.
+- ✓ 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
+- ✓ 1. Refresh exact candidate and inspect run-bound PR base, API-shaped fixtures and negative cases.
+- ✓ 2. Run focused tests and verify exact-head hosted status; record verdict and executor prerequisite.
+- ✓ 3. Publish the evidence and applicable Planning status safely, without merging.
 
 ## ROLLE: REVIEW
 
