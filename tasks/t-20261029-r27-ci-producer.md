@@ -15,7 +15,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence:
-  - https://github.com/mcpdev80/baseharbor-plan/blob/aa41ea5bebb4e69a7ba7ec6c54b7996e61215953/evidence/receipts/public-contracts/40921493079-1.json
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/d4eb0ee706f97c075c393f2154028dc1053edd2b/evidence/receipts/public-contracts/41017667953-1.json"
 ---
 
 - [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
