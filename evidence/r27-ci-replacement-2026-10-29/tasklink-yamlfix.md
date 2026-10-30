@@ -78,3 +78,37 @@ END o244-DONE
 ## Coordinator-Nachtrag J2-Finale
 - Finaler Head: 545eaca9 (ls-remote bezeugt), Run 40998116429 completed SUCCESS, Worktree clean, Debug-Rest verworfen (Option b, Lane-Bestätigung im Transcript).
 - Lane d14ec578 released, Worktree entfernt. naechste Aktion: rv1213i (Codex, A/B/C-Grenze + Matrix-Katalog).
+
+## Runde K2 (o246)
+
+**Task:** `t-20261022-r27-evidence-publisher` · **Prompt:** `evidence/board-2026-10-29/prompts/o246.txt` (Runde K2)
+**Base-Commit:** `545eaca9` (detached worktree `worktrees/o246`) · **Candidate:** `13026f29612bdae7adffe61dbcd4d7708f43938e` (baseharbor, branch `work/r27-tasklink-yamlfix`)
+**PR:** #1213 (OPEN, `fix(receipt): tasklink writes evidence as valid YAML list element`)
+
+### 1. Wrapper (dünner Delegator)
+`publish_evidence` (receipt_tasklink.py:367) ist jetzt dünner Wrapper: alte Implementation (Evidenz-Knoten-Neubau, bare receipt_path) ENTFERNT. Wrapper konvertiert `receipt_path` → HTTPS-url `https://github.com/mcpdev80/baseharbor/blob/<candidate_sha>/<receipt_path>` (identische Form wie live `evidence_reference`, Zeile 656) und ruft `publish_card_evidence` (`receipt_tasklink.py:1089`) ein Mal auf; gibt die durable commit SHA zurück. Signature erhalten (`planning_root, task, receipt_path, candidate_sha, plan_revision, render_fn, check_fn, _git_fn, push_fn`), `ReceiptError`-Alias lazy per `_receipt_error()`. Kein dualer Output mehr — Alt-Tests assertieren künftig die URL-Form statt `front["evidence"]==[receipt_path]`.
+
+### 2. A/B/C — file:line
+**(2A)** live fetch vor Remote-Vergleich — `_verify_durable`/`_verify_durable_live` (`receipt_tasklink.py:1027`/`:1093`) fetchen `origin/main` LIVE vor read-back; fetch-Fehler → `TaskLinkError` (fail closed, kein Local-Fallback). Idempotenz-Pfad liest HEAD-Blob + live fetched origin/main (`:931-943`).
+**(2B)** render/check EINMAL — `publish_card_evidence` (`:962`) ruft `_planning_render_check` EXAKT MAL; verifier-Production-Pfad ruft `publish_card_evidence` bei `receipt_verifier.py:751-753` EXAKT Mal ein. `edit_evidence_add` (`:1254`) wirft bei duplicatem evidence key (single-publisher invariant).
+**(2C)** try/except + deterministisches Restore — write/commit try/except (`:969-985`) fängt `(TaskLinkError, ReceiptError)`; `ReceiptError = _receipt_error()` (lazy, keine circular import). `HEAD@{1}`-Reflog-Reset ENTFERNT; neu `_snapshot_index` (`:1123`), `_reset_index_to_snapshot` (`:1147`), `_restore_after_failure` (`:1181`); restore-Fehler → `PublicationError` (explizite Meldung). Push/readback rollback ruft `_rollback_commit` explizite (`:1006-1022`).
+
+### 3. Matrix-Ergebnis
+`TestPublicationAcceptanceMatrix` 10/10 neu getroffen: fetch-fail (`test_07`), stale-ref (`test_08`), unpushed-retry (`test_09`), invalid-after-edit mit ECHTEM `baseharbor-plan/scripts/plan.py` (`test_10`), push-fail-rollback mit bare remote (`test_02`/`test_03`).
+- 221 receipt tests pass: `test_receipt_tasklink.py` (72) + `test_receipt_verifier.py` (119) + `test_receipt_chain.py` (6), 9 subtests.
+- **PLAN_STUB-Entfernung in test_receipt_verifier.py REVERTET:** realer plan.py validiert die **ganze** Vault (braucht `migration/source-snapshot/inventory.json`), Vollständiges Entfernen bricht 11 Production-Path-Tests (Scope-Erweiterung außerhalb des Vertrags). F5-Fidelity erhalten; `RealPlanValidationTest` übt realen plan.py gesondert am echten Vault.
+
+### 4. receipt-suite.sh — exit0 lokal
+`evidence/board-2026-10-29/scripts/receipt-suite.sh` neu geschrieben (alte Version zeigte auf nicht-existentes `pr-check-runner.py`, Typo `baseharor`). Laufft die drei receipt-Suiten gegen worktree o246, exit 0 nur bei allem pass. **Lokal: EXIT 0** — 221 passed.
+
+### 5. Hosted CI (§4.6 eigener terminaler Run)
+- Branch: `work/r27-tasklink-yamlfix`.
+- **Run 3927** (base `545eaca9`, head `13026f29`): `completed/success` (gh run watch bis terminal).
+- CI-Push `13026f29` auf `origin/work/r27-tasklink-yamlfix` erfolgreich (fast-forward aus `545eaca9`).
+- Mandatory Python/validation receipt-gate grün: `PR · Validation · receipt-execution-tests`, `ci-policy`, `ci-executor-verifier-tests`.
+
+### 6. Lokal
+- `receipt-suite.sh` exit 0; py_compile OK; 221 receipt tests.
+- GRENZE eingehalten: kein Refactor außerhalb Punkte 1-4; Callgraph-Vertrag zitiert; Root-Workspace baseharbor (master) nicht angefasst; nur diese Evidence-Datei in baseharbor-plan geschrieben.
+
+END o246-DONE
