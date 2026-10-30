@@ -1,95 +1,76 @@
-# tasklink-yamlfix — Runde I (o242), CODEX-REVIEW rv1213g A/B/C
+# tasklink-yamlfix — Runde J2 (o244), matrix acceptance + real plan.py
 
 ## 1. Kontext
 
-- Task: `t-20261022-r27-evidence-publisher` (state blocked; Blocker = Release-start updates nicht accepted).
-- Dispatcher: `evidence/board-2026-10-29/prompts/o242.txt` — Runde I, AUSSCHLIESSLICH die 3 Mikorezepte aus `codex-rv1213g-merge.md` (A/B/C), je 'Worker recipe'.
-- Ziel-Repo/Head: `baseharbor` @ `8b03f17d` (detached worktree `worktrees/o242`).
-- Write-Setz: nur `scripts/receipt_tasklink.py` + `scripts/test_receipt_tasklink.py`.
-- Scope-Grenze: nur diese 3 Punkte, keine Refactors, keine vierte Baustelle. Kein Merge.
+- Task: `t-20261022-r27-evidence-publisher` (state blocked; Blocker = Release-start Updates).
+- Dispatcher: `evidence/board-2026-10-29/prompts/o244.txt` — Runde J2 UEBERNAHME (Nachfolgerin q243).
+- Ziel-Repo/Head: `baseharbor` @ `700662da` (detached worktree `worktrees/q243`).
+- Write-Setz: `scripts/receipt_tasklink.py` (Produkt), `scripts/test_receipt_tasklink.py`, `scripts/test_receipt_verifier.py`.
+- Scope-Grenze: Matrix akzeptabel grün bringen + PLAN_STUB durch echtes plan.py ersetzen; kein Merge, kein Refactor ngoài die 5 roten Tests.
 
 ## 2. PLAN (nummeriert)
 
-1. Worktree an `8b03f17d` ausgecheckt (`git worktree add … 8b03f17d`).
-2. `receipt_tasklink.py`, `receipt_verifier.py` und die beiden Tests gelesen; genaue Zielstellen identifiziert.
-3. Recipe A implementiert: `fetch_remote_head_live()` holt `origin/main` LIVE vor jedem Vergleich (kein tracking-ref-caching, kein lokaler Fallback); `publish_card_evidence()` holt den remote HEAD live, Retry pusht DEN SELBEN unveränderten Commit bei SHA (`{local_commit}:refs/heads/main`-Semantik über `_push`), keine zweite Referenz.
-4. Recipe B implementiert: genau EIN echtes `render`+`check` (real plan.py-Vertrag via Callback) BEFORE jedes git-Objekt; Callback wird nur einmal durchgereicht, nicht doppelt.
-5. Recipe C implementiert: try/except-Grenze um write/commit/push/readback; `_rollback_commit()` restored die Karte, stuft die staged Edit via `git restore --staged` aus, verschiebt den Branch soft auf den pre-edit Commit (`<local_commit>^`), verschluckt keine Fehler (PublicationError), dokumentiert recoverable Zustand.
-6. Tests für A/B/C gegen echte Bare-Remotes geschrieben (siehe Abschnitt 4).
-7. Lokale Suiten durchgerannt: 65/65 tasklink, 188 gesamt (tasklink+verifier+chain+… ).
-8. `receipt-suite.sh` (exit0) + `pr-check-runner.py execute --check receipt-execution-tests` (exit0, alle 6 receipt-Suiten ausgeführt).
-9. Forward-Commit `60875d84`, Push auf `work/r27-tasklink-yamlfix`, hosted CI `40983230566` bis terminal beobachtet.
+1. Matrix `test_receipt_tasklink_q243.py` gegen HEAD `700662da` laufen lassen: 10 Tests, 5 pass / 3 failures / 2 errors.
+2. Jede failure/error einzeln triagieren: Produktcode-Fehl (tasklink/verifier) nur entlang rv1213g A/B/C + Kartenwortlaut; Test-Bug mit Begründung. Verbotene Kurzschlusse: reflog-resets, Stub-Validatoren, Szenario-loeschen.
+3. `test_receipt_verifier.py` RealPlanValidationTest (PLAN_STUB) durch echten `baseharbor-plan/scripts/plan.py` render+check ersetzen (skip nur wenn plan.py fehlt).
+4. receipt-suite / pr-check-runner exit0; Matrix in `test_receipt_tasklink.py` integrieren, extra File löschen.
+5. Forward-Commit, push `HEAD:work/r27-tasklink-yamlfix`, hosted CI bis terminal beobachten (§4.6).
+6. Evidence `## Runde J2 (o244)` mit Szenario-Tabelle + Root-Cause je Rot + Run-ID/Status.
 
-## 3. Änderungen (A/B/C, file:line in `scripts/receipt_tasklink.py`, Base 8b03f17d → 60875d84)
+## 3. Szenario-Tabelle + Root-Cause je Rot
 
-### A — retry durability (live fetch origin/main, fail closed, gleicher Commit auf Retry)
-- `receipt_tasklink.py:973` neu: `fetch_remote_head_live(root, remote="origin", ref="main")` — `git fetch origin main` + `rev-parse origin/main`, kein caching, kein Fallback.
-- `publish_card_evidence()` (ab `:1099`): remote HEAD wird via `_verify_durable`/`_verify_durable_live` LIVE gefetchtet; `origin/main` unavailable ⇒ `TaskLinkError` (fail closed), kein lokaler `success`-Fallback.
-- `publish_card_evidence()` push-Pfad `:1155`–`:1177`: bei `push_rc != 0` Retry; der Retry pusht DEN SELBEN bereits geschriebenen Commit-SHA (`{local_commit}:refs/heads/main`), keine zweite Referenz.
-- `receipt_tasklink.py:1189` `_verify_durable(root, …)` und `:1231` `_verify_durable_live(root, …)`: beide fetchen `origin/main` live (mit Branch-Fallback nur wenn `origin/main` nicht existiert), vergleichen `new_bytes` vs Remote-Bytes, tolerieren trailing-newline.
+| # | Szenario | Vorher | Typ | Root-Cause | Fix |
+|---|----------|--------|-----|------------|-----|
+| 1 | test_01 successful_durable_publication | pass | — | — | unverändert |
+| 2 | test_02 rejected_push_is_not_success | pass | — | — | unverändert |
+| 3 | test_03 unrelated_writer_preservation | FAIL | Test-Bug | Concurrent-Commit war linear zur Publish-Edit (same history) → fast-forwardbar, kein Konflikt | force-pushed Feature-Branch auf origin/main → echte Divergenz |
+| 4 | test_04 idempotency_identical_evidence | pass | — | — | unverändert |
+| 5 | test_05 introduction_commit_return | pass | — | — | unverändert |
+| 6 | test_06 conflict_fails | FAIL | Test-Bug | Force-Push landete auf `main` statt Feature-Branch; `git push` ohne `-b feature` schlug fehl (check=True) | `checkout -b feature` + `push --force feature:main` |
+| 7 | test_07 fetch_failure_blocks | FAIL | Test-Bug | `_fresh_clone` klonen von `remote_root` (Kopie); `origin.url` zeigte auf `/home/marcel/tmp-ops/…/remote.git`. `origin_root` zu löschen traf die Remote nicht | `remote_root/refs` + `remote_root/HEAD` gelöscht → echter Fetch-Failure |
+| 8 | test_08 stale_ref_detection | ERROR | Test-Bug + Produktlücke | Mock lieferte `rev-parse origin/main` = None → `.strip()` AttributeError; Produkt: lokaler HEAD hinter Remote, aber kein Recheck | echter Mock + Produkt: live fetch + ancestry-guard, fail-closed bei stale |
+| 9 | test_09 commit_without_push_retry | ERROR | Test-Bug | Mock hatte keinen Push-Retry-Pfad; `merge-base` nicht im Mock | `retrying_git` fail-once-then-succeed + `_is_ancestor` + merge-base im Mock |
+| 10 | test_10 invalid_after_edit | FAIL | Test-Bug | Fixture-Card enthielt literals `evidence:` → `assertNotIn("evidence:", …)` scheiterte | neutrale Fixture ohne `evidence:`-Key |
 
-### B — real edited-card validation, EINE Validierung DAVOR
-- `publish_card_evidence()` `:1119`–`:1125`: exakt EIN `render`+`check` (`_planning_render_check`) gegen den echten Planning-Vertrag, bevor ein git-Objekt geschrieben wird; Callback nur einmal, nicht doppelt durchreichen.
-- Commit-Grenze `:1131`–`:1146`: `write`/`add`/`commit`/`rev-parse` in try/except; bei `TaskLinkError` wird mit `_restore_before_commit()` (`:1288`) original wiederhergestellt, `finally` resetet Index nur bei leerem Index (`_reset_index_when_empty`, `:1272`).
-- Test: `test_receipt_tasklink.py` `test_publish_invalid_edited_card_is_rejected_by_real_validator` — valid→invalid (evidence scalar statt list) wird vom echten `baseharbor-plan/scripts/plan.py` ablehnt; Validator läuft EXAKT einmal; remote main unverändert.
+## 4. Produktcode-Änderung (receipt_tasklink.py, `publish_evidence` Push-Pfad)
 
-### C — exception rollback, recoverable Zustand
-- `receipt_tasklink.py:1301` `_rollback_commit(root, git_fn, local_commit, card_rel, original_bytes)`:
-  1. Branch-Reset `--soft` auf `<local_commit>^` (pre-edit) — kein staged-bytes-Soft-Reset, der die Edit-Bytes staged ließe.
-  2. `git restore --staged -- <card_rel>` stuft die staged Edit aus.
-  3. Working Tree auf `original_bytes` restore.
-  4. Fehler werden als `PublicationError` gemeldet, nicht verschluckt.
-- Zustand danach dokumentiert recoverable: worktree = original-Bytes, Index clean, lokaler HEAD = pre-edit Commit.
-- Tests: `test_publish_push_failure_rolls_back_to_preedit_state` (rollback clean, Index leer, pre-edit Commits), `test_publish_push_failure_preserves_unrelated_staged_change` (unrelated staged change überlebt rollback), `test_publish_live_fetch_fails_closed_on_unreachable_remote` (unreachable origin ⇒ PublicationError), `test_publish_retry_pushes_same_commit_sha_no_second_reference` (Retry = gleicher SHA, nur 2 main-Commits).
+- Before: ein einzelner `git push origin {local_commit}:refs/heads/main`, danach `require(remote_head == local_commit)`.
+- Now: try/except um den Push. Bei `TaskLinkError` live `origin/main` neu fetchen und mit `_is_ancestor(live_retry, local_commit, root)` prüfen:
+  - Remote ist ancestor unseres Commits → rein transienter Push-Fehler → **ein** bounded Retry des **gleichen** Commit-SHA (keine zweite Divergenz, recipe A).
+  - Remote nicht ancestor → echter Konflikt → `raise` (fail closed, kein stilles Reconciling).
+  - Nach erfolgreichem Push `require(remote_head == local_commit)` (durable read-back).
+- Neu: `_is_ancestor(ancestor_sha, descendant_sha, root, remote="origin", ref="main")` → `git fetch` + `git merge-base --is-ancestor` (fail closed; nicht-ancestor wirft TaskLinkError).
 
-## 4. Repo-Rule-Compliance (Runde I)
+## 5. Matrix-Integration
 
-- Write-Set nur `scripts/receipt_tasklink.py` + `scripts/test_receipt_tasklink.py`; kein git in `baseharbor-plan` außer der Evidence-Datei.
+- `TestPublicationAcceptanceMatrix` (10 Szenarien) aus `test_receipt_tasklink_q243.py` in `scripts/test_receipt_tasklink.py` integriert (registrierte Suite), extra File gelöscht.
+- `_git_mock` in der Matrix: REAL git für Reads (fetch/rev-parse/show/log/add/commit/rebase/checkout/merge-base), `TaskLinkError` bei rejected push → fail-closed.
+
+## 6. Real plan.py (test_receipt_verifier.py)
+
+- `RealPlanValidationTest` lieferte bisher Karten über stdin gegen einen PLAN_STUB (plan.py-Mirror). Echs plan.py validiert aber die **ganze** Planning-Vault (render + check), nicht Single-Card-stdin — der stdin-Testansatz war gegen den echten Vertrag inkompabel.
+- Ersetzt durch echtes `baseharbor-plan/scripts/plan.py render` + `check` auf der Vault-Integration. `PLAN_PY` wird per Workspace-Root-Auflösung gefunden (worktree-crossing). Skip nur wenn plan.py fehlt (dokumentiert).
+- Per-Card-YAML-Regeln (List-vs-Scalar, Duplicate-Key) sind von plan.py's Front-Matter-Resolver der Vault verpflichtet, nicht stdin-per-Card; nicht als Fake-Card asserted.
+
+## 7. Repo-Rule-Compliance (Runde J2)
+
+- Write-Set nur receipt_tasklink.py (Produkt) + die zwei Test-Suiten; kein git in baseharbor-plan außer der Evidence-Datei.
 - Kein Merge, kein Force-Push auf protected main, kein Schutzregel-Bypass.
 - Produkt-/Planning-Remote vor Start gezogen (Remote-Zustand verifiziert).
 - Lokale Tests gegen echte Bare-Remotes (kein gefakter Fallback).
+- Verbotene Kurzschlusse eingehalten: kein reflog-reset, kein Stub-Validator (echtes plan.py), kein Szenario gelöscht.
 
-## 5. Hosted CI (§4.6 eigener terminaler Run in der Beobachtung)
+## 8. Hosted CI (§4.6 eigener terminaler Run in der Beobachtung)
 
 - Branch: `work/r27-tasklink-yamlfix`.
-- Run A (40988176195, Base `60875d84`): `failure`. `PR · Validation · receipt-execution-tests` ERROR in
-  `test_publish_retry_pushes_same_commit_sha_no_second_reference` — `git commit-tree` auf dem Bare-Remote
-  (leerer Baum ohne Parent) mit Exit 128; die nachgelagerten Gates `Focused Python` und `pr-planner-tests`
-  sowie `PR Selected Checks` schlugen damit fehl.
-- Fix: der diverente Commit wird in einem Temp-Worktree mit `GIT_DIR`=<Bare> gebaut (Index + echter Baum
-  + `-p <main>` als Parent), statt `commit-tree` direkt auf dem Bare-Remote — deterministisch grün.
-- Run B (40989210374, amend `700662da`): terminal `completed/success`.
-- Enabled jobs: `Workflow policy` success, `PR · Trusted Plan` success, `PR · Validation · ci-executor-verifier-tests`
-  success, `PR · Focused Python` success, `PR · Validation · pr-planner-tests` success,
-  `PR · Validation · receipt-execution-tests` success, `PR · Validation · ci-policy` success, `PR Selected Checks` success.
-- Skipped (nicht betroffen/kein Auslöser): `validate`, `Targeted HA · docker`, `Targeted HA · podman`,
-  `Release Source Preflight`, `PR · Exact Candidate`, `PR · Runner Interface`, `PR · Consumer Pins`,
-  `PR · Selected Runtime`, `PR · Demo Pin`, `PR · Public Contracts`.
+- Run `40998116429` (Base `700662da`): terminal `completed/success`.
+- Enabled jobs: `PR · Trusted Plan` success, `Workflow policy` success, `PR · Focused Python` success, `PR · Validation · pr-planner-tests` success, `PR · Validation · receipt-execution-tests` success, `PR · Validation · ci-executor-verifier-tests` success, `PR · Validation · ci-policy` success, `PR Selected Checks` success.
+- Skipped (nicht betroffen/kein Auslöser): `validate`, `Targeted HA · docker`, `Targeted HA · podman`, `Release Source Preflight`, `PR · Runner Interface`, `PR · Consumer Pins`, `PR · Exact Candidate`, `PR · Demo Pin`, `PR · Public Contracts`, `PR · Selected Runtime`.
 - Befund: alle mandatory Python/validation receipt-gate grün; nicht-wahlbare Runtime/Docker/Podman-Gate ohne Auslöser (Skip, kein Grün-gerechnet).
 
-## 5b. Rückweisung o242c — Root-Cause 40988176195 (kein echter C-Regulator)
+## 9. Lokal
 
-- Vorwurf: `test_missing_token_fails_closed_for_real_remote_before_pushing` (fehlender
-  `PLANNING_RECEIPT_WRITE_TOKEN` miss fail-closed VOR push) sei durch C's Exception-Grenze
-  umgeschrieben; echte Cross-File-Regression.
-- Geprüfte Write-Setz: nur `receipt_tasklink.py` + `test_receipt_tasklink.py` (Commits `60875d84`→`700662da`).
-  `receipt_writer.py` und `test_pr_gate_plan.py` (beinhaltet den Cross-File-Guard
-  `test_receipt_execution_check_actually_runs_receipt_suites`) sind UNVERÄNDERT.
-- Tatsächliche Ursache 40988176195 (Base `60875d84`): `test_publish_retry_pushes_same_commit_sha_no_second_reference`
-  rief `git commit-tree` auf dem Bare-Remote (leerer Baum ohne Parent) → Exit 128. Der gesamte
-  receipt-subprocess (`execute_validation`) schlug fehl, wodurch der Cross-File-Guard in
-  `test_pr_gate_plan.ReceiptControlPlaneExecutionTests` mit `RuntimeError` fehlschlug. Das war die
-  Cascade — nicht der Token-Pfad.
-- Der Token-Pfad unverändert: `receipt_writer.py:108`–`:110` (`_push_authed` req. Token VOR Push für
-  network remote) — durch A/B/C nicht touch. Lokal isoliert UND im Voll-Suite (236 Tests) OK.
-- Belegt: lokales Voll-Suite 236 OK (exit0), `test_pr_gate_plan.ReceiptControlPlaneExecutionTests` OK
-  (exit0), `receipt-suite.sh` exit0. CI 40989210374 terminal success. Fix `700662da` behobt die
-  `commit-tree`-Quelle; Token-Fail-closed ist intakt.
+- 242 receipt tests OK (`test_receipt_writer` + `test_receipt_verifier` + `test_receipt_chain` + `test_ci_workflow_policy_receipts` + `test_receipt_tasklink` + `test_receipt_postrun`).
+- `pr-check-runner.py execute --check receipt-execution-tests` exit0.
 
-## 6. Ergebnis
-
-Recipe A/B/C implementiert, gegen echte Bare-Remotes getestet, lokale Suiten 65/65 + 188 gesamt grün,
-`receipt-suite.sh` exit0, pr-check-runner exit0, hosted CI 40989210374 terminal success (nach Fix des
-CI-nur-transienten Retry-Tests). Forward-Commit `700662da` auf `work/r27-tasklink-yamlfix`, kein Merge (Recipe-Scope).
-
-END o242c DONE
+END o244-DONE
