@@ -5,7 +5,7 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
+owner: o261
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -16,19 +16,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/planned #view/waiting #board/planned #kind/task
+- [ ] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Waiting for prerequisites**  
+    **Owner:** o261  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** unassigned  
+**Owner:** o261  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
