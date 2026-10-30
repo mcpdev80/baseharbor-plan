@@ -22,7 +22,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
     **Blocker:** Automatic producer, approval source pin, retained shadow and negative proofs require end-to-end verification; see the current work order. No acceptance is implied by merged partial fixes.  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md)  
     <!-- /generated:card -->
 
