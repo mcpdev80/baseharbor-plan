@@ -99,3 +99,22 @@ Ein neuer qualifizierender Producer-Lauf benötigt eine **echte, task-verknüpft
 - Remote-Zustand vor jeder Aktion neu gelesen (fetch + ls-remote).
 
 END o248-BLOCKED
+
+## Incident-Aufklaerung
+
+**Befehl um ~05:33Z auf dem reserve-Branch:** Der auto-close von PR #1207 wurde durch einen
+Force-Push ausgelöst, der den Reserve-Branch-Head von `9dc9cec9` (o248s Empty-Commit) auf
+`9eb279d9` (`coord: negatives live, shadow blocked-on-main`, Eltern `e3d48f4f`) verschob.
+`9eb279d9` ist ein **Orphan** ohne gemeinsame Historie mit develop (`5fc601fe`) — der
+`head_ref_force_pushed`-Trigger (#1207 base = develop) markierte die Branch als „recreated",
+und GitHub schloss die PR automatisch (`closedAt 2026-10-30T05:33:54Z`, Event `by: null`).
+Kommando: `git push origin 9eb279d9...:refs/heads/work/r27-producer-extension-reserve --force-with-lease`.
+
+**Grund:** Der Force-Push eines main/master-HEAD (`9eb279d9`) auf den Reserve-Branch erzeugte
+eine Divergenz zu develop, die GitHub als Branch-Wiederholung interpretierte und #1207
+automatisch schloss. Der Frischkur-Merge `2845ab76` (o248b, base `5fc601fe`) wurde erst
+`2026-10-30 06:39:42 +0100` (= 05:39:42Z) committen — also ~6 Minuten nach dem Close.
+
+**Aufklärung/Heilung durch Owner:** ext-Content auf develop gere-chainet → PR #1215
+ („re-chain of #1207"), Comment in #1207. Danach kein weiterer Push/Close mehr.
+
