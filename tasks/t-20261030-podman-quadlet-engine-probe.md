@@ -9,7 +9,7 @@ owner: o261
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [1231]
+prs: [mcpdev80/baseharbor#1231]
 sources: []
 blocker: ""
 resolution: ""
@@ -19,6 +19,7 @@ evidence: []
 - [ ] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** o261  
+    **PR:** [baseharbor#1231](https://github.com/mcpdev80/baseharbor/pull/1231)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
@@ -29,7 +30,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o261  
 **Priority:** not set  
-**PRs:** [#1231](https://github.com/mcpdev80/baseharbor/pull/1231)  
+**PRs:** [baseharbor#1231](https://github.com/mcpdev80/baseharbor/pull/1231)  
 **Source:** 
 <!-- /generated:links -->
 
