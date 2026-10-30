@@ -9,7 +9,7 @@ owner: o261
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [1231]
 sources: []
 blocker: ""
 resolution: ""
@@ -29,7 +29,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o261  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [#1231](https://github.com/mcpdev80/baseharbor/pull/1231)  
 **Source:** 
 <!-- /generated:links -->
 
