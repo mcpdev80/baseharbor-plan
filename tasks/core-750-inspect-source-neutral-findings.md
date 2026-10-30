@@ -17,15 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-x #status/planned #view/waiting #board/planned #area/inspect #kind/bug
+- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-x #status/planned #view/ready #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** mcpdev80  

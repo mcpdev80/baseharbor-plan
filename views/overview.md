@@ -12,12 +12,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | ---: |
 | active | 6 |
 | review | 0 |
-| blocked | 5 |
-| ready | 0 |
+| blocked | 4 |
+| ready | 4 |
 | queued | 27 |
-| waiting | 233 |
+| waiting | 229 |
 | backlog | 7 |
-| closed | 60 |
+| closed | 61 |
 
 ## Active
 
@@ -42,16 +42,20 @@ None.
 | [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) | W3: genuine Owner approval and live/offline verification | blocked | critical | w3-lane (W3 verifier package) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261024-r27-candidate-trigger-prototype](../tasks/t-20261024-r27-candidate-trigger-prototype.md) | Deferred explicit candidate-trigger policy (after skeleton) | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) (open) | [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055) |
 | [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) | W1: trusted receipt execution, discovery and shadow consumption | blocked | high | ChatGPT (isolated v0.4.27 prototype) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md) | [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133), [baseharbor#1134](https://github.com/mcpdev80/baseharbor/pull/1134), [baseharbor#1135](https://github.com/mcpdev80/baseharbor/pull/1135) |
-| [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | PR3: review and switch only the accepted completion path | blocked | critical | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) (open), [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) (open) | [baseharbor#1107](https://github.com/mcpdev80/baseharbor/pull/1107) |
 
 ## Ready to assign
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) | Architecture: align service contracts and provider catalog | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
+| [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
+| [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
+| [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 79 open, 8 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 78 open, 9 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
