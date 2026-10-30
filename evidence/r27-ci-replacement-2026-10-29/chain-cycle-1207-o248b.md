@@ -87,3 +87,25 @@ END o248b-BLOCKED
 
 Fazit: Der Close von #1207 ist ein vor meiner Lane liegendes System/Automatisierungs-Ereignis. Ich habe PR #1207 nicht geschlossen.
 
+## Incident-Aufklaerung
+
+**Befehl um ~05:33Z auf dem reserve-Branch:** Der auto-close von PR #1207 wurde durch einen
+Force-Push ausgelöst, der den Reserve-Branch-Head von `9dc9cec9` (o248s Empty-Commit) auf
+`9eb279d9` (`coord: negatives live, shadow blocked-on-main`, Eltern `e3d48f4f`) verschob.
+`9eb279d9` ist ein **Orphan** ohne gemeinsame Historie mit develop (`5fc601fe`) — der
+`head_ref_force_pushed`-Trigger (#1207 base = develop) markierte die Branch als „recreated",
+und GitHub schloss die PR automatisch (`closedAt 2026-10-30T05:33:54Z`, Event `by: null`).
+
+**Kein Commit von mir ist dafür verantwortlich:** Der von mir (o248b) gesetzte Frischkur-Merge
+`2845ab76` wurde lokal erst um `2026-10-30 06:39:42 +0100` (= 05:39:42Z) committen — also
+**~6 Minuten nach** dem Close. Der Close ist mechanisch vor meiner Frischkur aufgetreten.
+
+**Aufklärung/Heilung durch Owner:** Der ext-Content wurde sauber auf develop gere-chainet
+(→ neue PR **#1215**, „re-chain of #1207"; Comment in #1207). Die Reserve-Branch wurde
+wieder auf einen develop-kompatiblen Stand gebracht.
+
+**Meine nachfolgende Handlung:** Nur noch Reading + Evidence-Append. Kein weiterer
+Push/Close/Reset an `work/r27-producer-extension-reserve` und kein Git gegen
+baseharbor-ferne Repositorys.
+
+
