@@ -63,7 +63,7 @@
 ## 8. Hosted CI (§4.6 eigener terminaler Run in der Beobachtung)
 
 - Branch: `work/r27-tasklink-yamlfix`.
-- Run `40998116429` (Base `700662da`): terminal `completed/success`.
+- Run `40998116429` (Base `700662da`, head `545eaca9`): terminal `completed/success`.
 - Enabled jobs: `PR · Trusted Plan` success, `Workflow policy` success, `PR · Focused Python` success, `PR · Validation · pr-planner-tests` success, `PR · Validation · receipt-execution-tests` success, `PR · Validation · ci-executor-verifier-tests` success, `PR · Validation · ci-policy` success, `PR Selected Checks` success.
 - Skipped (nicht betroffen/kein Auslöser): `validate`, `Targeted HA · docker`, `Targeted HA · podman`, `Release Source Preflight`, `PR · Runner Interface`, `PR · Consumer Pins`, `PR · Exact Candidate`, `PR · Demo Pin`, `PR · Public Contracts`, `PR · Selected Runtime`.
 - Befund: alle mandatory Python/validation receipt-gate grün; nicht-wahlbare Runtime/Docker/Podman-Gate ohne Auslöser (Skip, kein Grün-gerechnet).
