@@ -1,1 +1,1 @@
-{"approved":null,"gate":"public-contracts","plan":"13935a541d5002b39314e179ee43a0cde3684c85","run":{"attempt":1,"id":41021394575},"sha":"55cb0c4c66886ac7cca197140fa44810ff57b632","status":"pass"}
+{"approved":{"at":"2026-10-30T07:46:07Z","by":"mcpdev80","receipt_commit":"0007c271f42c501b030603ecc1f49fe6595d1ec2"},"gate":"public-contracts","plan":"13935a541d5002b39314e179ee43a0cde3684c85","run":{"attempt":1,"id":41021394575},"sha":"55cb0c4c66886ac7cca197140fa44810ff57b632","status":"pass"}
