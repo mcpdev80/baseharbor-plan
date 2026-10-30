@@ -34,7 +34,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | review | high | q202 (a71d5cd0, qwen) | — | [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207), [baseharbor#1215](https://github.com/mcpdev80/baseharbor/pull/1215) |
+| [t-20261029-r27-ci-producer](../tasks/t-20261029-r27-ci-producer.md) | CI: qualify a real public-contracts producer | review | high | q202 (a71d5cd0, qwen) | — | [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207), [baseharbor#1215](https://github.com/mcpdev80/baseharbor/pull/1215), [baseharbor#1217](https://github.com/mcpdev80/baseharbor/pull/1217) |
 
 ## Blocked
 
