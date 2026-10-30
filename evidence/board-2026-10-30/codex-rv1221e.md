@@ -1,10 +1,10 @@
 ROLLE: REVIEW
 
 ## PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
-- [x] 1. Refresh exact candidate and inspect base-SHA hardening and regression tests.
-- [x] 2. Run focused tests and verify exact-head hosted result; record verdict and executor prerequisite.
-- [x] 3. Record evidence and applicable Planning status without merging.
+- ✓ (evidence-note) 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
+- ✓ (evidence-note) 1. Refresh exact candidate and inspect base-SHA hardening and regression tests.
+- ✓ (evidence-note) 2. Run focused tests and verify exact-head hosted result; record verdict and executor prerequisite.
+- ✓ (evidence-note) 3. Record evidence and applicable Planning status without merging.
 
 ## ROLLE: REVIEW
 
