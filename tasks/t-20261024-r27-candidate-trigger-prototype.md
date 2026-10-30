@@ -12,21 +12,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1055]
 sources: []
 early: false
-blocker: "Deferred until accepted one-gate skeleton. Do not run old trigger prototype."
-resolution: ""
-evidence: []
+blocker: ""
+resolution: superseded
+superseded_by: t-20261029-r27-ci-producer
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1055"]
 ---
 
-- [ ] t-20261024-r27-candidate-trigger-prototype · Deferred explicit candidate-trigger policy (after skeleton) #task #release/v0-4-27 #status/blocked #view/blocked #area/ci #kind/task
+- [x] t-20261024-r27-candidate-trigger-prototype · Deferred explicit candidate-trigger policy (after skeleton) #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055)  
-    **Blocker:** Deferred until accepted one-gate skeleton. Do not run old trigger prototype.  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1055)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  

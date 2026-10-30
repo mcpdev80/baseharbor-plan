@@ -3,7 +3,7 @@ id: t-20261027-r27-shadow-run
 type: task
 areas: [ci]
 release: v0.4.27
-status: active
+status: closed
 parent: v0.4.27
 priority: critical
 owner: coordinator-lane (r27 board-up)
@@ -12,20 +12,20 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1151"]
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md", "https://github.com/mcpdev80/baseharbor/pull/1129"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/41022064363", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-29/CUTOVER-NACHWEISBAND.md"]
 ---
 
-- [ ] t-20261027-r27-shadow-run · Prove one automatic contributor receipt chain #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261027-r27-shadow-run · Prove one automatic contributor receipt chain #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coordinator-lane (r27 board-up) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-27/SHADOW-RUN-STATUS.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1129)  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/41022064363), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-29/CUTOVER-NACHWEISBAND.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
