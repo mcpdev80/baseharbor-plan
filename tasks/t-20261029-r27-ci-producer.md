@@ -13,20 +13,20 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1199", "mcpdev80/baseharbor#1203", "mcpdev80/baseharbor#1207", mcpdev80/baseharbor#1215, mcpdev80/baseharbor#1217]
 sources: []
 blocker: ""
-resolution: ""
+resolution: accepted
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/3715fd01ad87fed1b12a1b7f050d3aab7239e168/evidence/receipts/public-contracts/41021394575-1.json"
 ---
 
-- [ ] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [x] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** q202 (a71d5cd0, qwen) · **Priority:** high  
     **PR:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207), [baseharbor#1215](https://github.com/mcpdev80/baseharbor/pull/1215), [baseharbor#1217](https://github.com/mcpdev80/baseharbor/pull/1217)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/aa41ea5bebb4e69a7ba7ec6c54b7996e61215953/evidence/receipts/public-contracts/40921493079-1.json)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/3715fd01ad87fed1b12a1b7f050d3aab7239e168/evidence/receipts/public-contracts/41021394575-1.json)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
