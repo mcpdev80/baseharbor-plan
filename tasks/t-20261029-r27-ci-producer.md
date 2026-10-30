@@ -18,7 +18,7 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/3715fd01ad87fed1b12a1b7f050d3aab7239e168/evidence/receipts/public-contracts/41021394575-1.json"
 ---
 
-- [x] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/review #view/closed #board/planned #area/ci #kind/task
+- [x] t-20261029-r27-ci-producer · CI: qualify a real public-contracts producer #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** q202 (a71d5cd0, qwen) · **Priority:** high  
     **PR:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207), [baseharbor#1215](https://github.com/mcpdev80/baseharbor/pull/1215), [baseharbor#1217](https://github.com/mcpdev80/baseharbor/pull/1217)  
