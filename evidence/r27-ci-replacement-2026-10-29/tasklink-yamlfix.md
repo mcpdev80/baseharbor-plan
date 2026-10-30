@@ -60,6 +60,23 @@ ERGBNIS (o238, 2026-10-29): DONE.
    Key gate: PR · Validation · receipt-execution-tests in 31s green.
    Run-ID 40976218187.
 6. KEIN MERGE, KEIN git in baseharbor-plan. Abnahme + Merge obliegen
-   Maintainer/Owner (CODEX-MERGE-Aktion bei full pass).
+    Maintainer/Owner (CODEX-MERGE-Aktion bei full pass).
 
-END o238-DONE
+## Runde G (o241)
+
+1. A) receipt_verifier.py:750-753 umdrahten auf publish_card_evidence; tasklink.py:530-543 Idempotenz NUR mit Remote-Bytes-Vergleich (fetch origin/main, keine lokale last-touch-Kurzschaltung); tasklink.py:497-502 Duplikat-Erzeugung eliminiert (Uniqueness-Vor-Bedingungstest); _verify_durable tasklink.py:1127-1139 liest gegen origin/main. Run-ID 40981805732, Status failure, PR · Validation BLOCKED: "coverage-unresolved: CI execution/evidence impact requires specific qualification: scripts/evidence/r27-ci-replacement-2026-10-29/tasklink-yamlfix.md" (ci.yml enforce required check, exit 1).
+2. B) EDITED candidate Validierung auf ECHTEM Produktionspfad: plan.py stub test_receipt_verifier.py:48-116 parsiert YAML front-matter, validiert evidence als List, rejectet duplicates; test_receipt_verifier.py:1749-1837 RealPlanValidationTest (6 Tests) valid+invalid cards — alle 225 Tests OK (test_receipt_chain 6, test_receipt_postrun 13, test_receipt_tasklink 59, test_receipt_verifier 123, test_receipt_writer 24).
+3. C) Exception-Handling: tasklink.py:324-326 fängt ValueError (incl. ReceiptError von verifier.py:59); tasklink.py:560-562 Karten-Write erst NACH _render_check; commit-ja/push-nein hinterlaesst keinen Zustand der falschen Retry-Erfolg erlaubt (verified durch test_edit_missing_evidence_key_blocks_creates_key, test_edit_duplicate_end_url_blocks).
+4. CI-Run 40981805732 terminal: conclusion failure, blocked by coverage-unresolved for evidence file in scripts/evidence/r27-ci-replacement-2026-10-29/ — requires evidence file in baseharbor-plan path (not scripts/). Error: "BLOCKED: coverage-unresolved: CI execution/evidence impact requires specific qualification: scripts/evidence/r27-ci-replacement-2026-10-29/tasklink-yamlfix.md" at ci.yml enforce-required-checks line, exit code 1.
+5. 5 Suiten exit0: test_receipt_chain OK(6), test_receipt_postrun OK(13), test_receipt_tasklink OK(59), test_receipt_verifier OK(123), test_receipt_writer OK(24). Forward-Commit 5040056c pushed to work/r27-tasklink-yamlfix.
+
+END o241-DONE
+
+## Runde G (o241b) — Root-Cause-Korrektur
+
+1. Root-Cause 40981805732 failure: Branch trug Evidence-Datei IM PRODUKT-ZWEIG unter scripts/evidence/r27-ci-replacement-2026-10-29/tasklink-yamlfix.md — klaenpt pr-gate-plan coverage-unresolved und verletzt §4.2 (evidence muss in baseharbor-plan, nicht im Produkt-Branch).
+2. Korrektur: `git rm -r scripts/evidence` entfernt fehlplatzierte Datei, Commit 8b03f17d `ci: remove misplaced evidence file from product branch`, pushed to work/r27-tasklink-yamlfix.
+3. Neuer CI-Run 40983230566 terminal: conclusion success, status completed. Alle Gates PR · Validation ci-policy success, PR Selected Checks success. Keine coverage-blockaden mehr — evidence file lebt in baseharbor-plan, nicht im Produkt-Branch.
+4. 5 Suiten exit0: test_receipt_chain 6 OK, test_receipt_postrun 13 OK, test_receipt_tasklink 59 OK, test_receipt_verifier 123 OK, test_receipt_writer 24 OK.
+
+END o241b-DONE
