@@ -118,3 +118,82 @@ automatisch schloss. Der Frischkur-Merge `2845ab76` (o248b, base `5fc601fe`) wur
 **Aufklärung/Heilung durch Owner:** ext-Content auf develop gere-chainet → PR #1215
  („re-chain of #1207"), Comment in #1207. Danach kein weiterer Push/Close mehr.
 
+## rv1217-Fix (o249)
+
+### 1. Kontext
+
+- Task: `t-20261029-r27-ci-producer` · Ziel: rv1217 Ein Befund — Testqualität für
+  `contracts/extension_trust_test.go` (extension/v1 artifact contract).
+- Rezept: `evidence/board-2026-10-29/prompts/o249.txt` (Worker o249).
+- Ziel-Repos/Head: `baseharbor` @ `work/r27-producer-extension-reserve`.
+- Write-Set: NUR `contracts/connection_profile_trust_test.go` + Evidence-Append.
+- Scope-Grenze: kein Merge, keine anderen Dateien, baseharbor-plan nur Evidence-Append.
+
+### 2. Schema-Kontract (belegt)
+
+`contracts/extension/v1/extension-descriptor.schema.json`:
+
+- Top-Level `required`: `schema_version`, `id`, `family`, `version` — **artifact
+  NICHT required** ⇒ artifact ist optional.
+- Innerhalb `artifact`: `required: ["oci_reference"]` ⇒ oci_reference **required**,
+  wenn artifact vorhanden.
+- `configuration_schema`: `required: ["dialect"]` ⇒ dialect required, wenn
+  configuration_schema vorhanden.
+
+### 3. PLAN (nummeriert)
+
+0. todo + Evidence initialisieren. DONE.
+1. Worktree o249 bei `8a36c679` (Remote-HEAD des Reserve-Branchs) angelegt; Ziel-Datei
+   gelesen. Remote-HEAD via `git ls-remote` verifiziert (`8a36c679`). DONE.
+2. Schema-Kontract gegen packaged Schema probe-validiert:
+   `empty{}` artifact → Reject `required: missing properties: ["oci_reference"]`;
+   artifact omitted → `<nil>` (accepted). DONE.
+3. Zwei Tests in `contracts/connection_profile_trust_test.go` ergänzt (die
+   Develop-Merge hatten `contracts/extension_trust_test.go` →
+   `connection_profile_trust_test.go` umbenannt und die Datei umgeschrieben):
+   - `TestExtensionDescriptorArtifactEmptyObjectRejectsOciReference` (Rezept (a)).
+   - `TestExtensionDescriptorArtifactIsOptional` (Rezept (b)).
+   + lokales `newSchema`-Helper. DONE.
+4. `go vet ./contracts ./internal/extension` → EXIT 0; `go test ./contracts ./internal/extension` → ok.
+   DONE.
+5. Forward-Commit `3a04457f` (Parent `2845ab76`, current branch tip nach
+   Force-Push einer anderen Session), Force-Push mit `--force-with-lease` auf
+   `work/r27-producer-extension-reserve` → Remote-HEAD `3a04457f`. DONE.
+6. CI-Lauf `41021394575` (`gh run watch`) bis terminal beobachtet → `success`.
+   Job `PR Selected Checks` → completed/success. DONE (§4.6).
+7. Evidence-Append. DONE.
+
+### 4. Run-IDs + Status (terminal, §4.6 eigener beobachteter Run)
+
+| Run-ID | Typ | HEAD-SHA | Status | Conclusion | Datum |
+|--------|-----|----------|--------|------------|-------|
+| 41021394575 | CI · PR #1217 (pull_request) | 3a04457f | completed | **success** | 2026-10-30 |
+
+Job-Zeuge: `gh api .../runs/41021394575/jobs` → `PR Selected Checks`: completed/success.
+Kein `workflow_run`-Receipt für diesen Lauf registriert (`total_count 0` für
+`event=workflow_run` auf `3a04457f`) — der Lauf ist der Qualifying-Producer selbst.
+
+### 5. SHA-Zeugen
+
+- Remote-HEAD vor Start: `8a36c679` (`git ls-remote origin
+  refs/heads/work/r27-producer-extension-reserve`).
+- Branch-Base des Force-Pushs (andere Session): `2845ab76` (Merge develop
+  `5fc601fe` into #1207).
+- Forward-Commit o249: `3a04457f5d66e4b99da013769f2bf41fb9090a77` (Parent
+  `2845ab76`). Remote-Push via `--force-with-lease`, Remote-HEAD danach `3a04457f`.
+- CI-Lauf `41021394575` auf `3a04457f` (head_branch
+  `work/r27-producer-extension-reserve`), conclusion `success`.
+
+### 6. Repo-Rule-Compliance
+
+- Nur `contracts/connection_profile_trust_test.go` geändert (produktiver Fix).
+- Kein Merge, kein Force-Push auf protected main, kein Schutzregel-Bypass.
+- Force-Push nur auf den eigenen Reserve-Branch mit `--force-with-lease`; Branch
+  aktuell durch eine andere Session auf `2845ab76` verschoben — Forward-Commit auf
+  current branch tip, `--force-with-lease` sicher.
+- baseharbor-plan nur Evidence-Append (Edit in chain-cycle-1207.md); kein push
+  anderer baseharbor-plan-Dateien.
+- Remote-Zustand vor jeder Aktion neu gelesen (fetch + ls-remote).
+
+END o249-DONE
+
