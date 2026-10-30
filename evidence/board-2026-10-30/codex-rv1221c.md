@@ -1,10 +1,10 @@
 ROLLE: CODEX-REVIEW
 
 ## PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
-- [x] 1. Refresh exact candidate and inspect endpoint binding, planner/executor coverage, and diff.
-- [x] 2. Run receipt suite and verify exact-head checks, threads and rules.
-- [x] 3. Merge only if acceptance and mandatory gates pass; verify develop and checks.
+1. erledigt: 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
+2. erledigt: 1. Refresh exact candidate and inspect endpoint binding, planner/executor coverage, and diff.
+3. erledigt: 2. Run receipt suite and verify exact-head checks, threads and rules.
+4. erledigt: 3. Merge only if acceptance and mandatory gates pass; verify develop and checks.
 
 ## ROLLE: CODEX-REVIEW
 

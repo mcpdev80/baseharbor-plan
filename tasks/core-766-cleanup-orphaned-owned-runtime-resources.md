@@ -8,7 +8,7 @@ parent: v0.4.27
 owner: marcel
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1220]
 sources: ["mcpdev80/baseharbor#766"]
 source_updated: "2026-10-15T16:51:08Z"
 labels: [kind/bug, area/runtime, area/security, area/dx]
@@ -20,6 +20,7 @@ evidence: []
 - [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** marcel  
+    **PR:** [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220)  
     **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
@@ -30,7 +31,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** marcel  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220)  
 **Source:** [baseharbor#766](https://github.com/mcpdev80/baseharbor/issues/766)
 <!-- /generated:links -->
 
