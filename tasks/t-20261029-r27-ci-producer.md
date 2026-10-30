@@ -57,3 +57,7 @@ Run focused validation for the changed surface; record exact revision and result
 Reserve only the concrete profile files and tests agreed by coordinator; no shared CI workflow edits.
 
 Lane q202 delivered producer-diagnostics.md (END q202-DONE, disk-verified, sanitized). Verified: #1199 (head 96a96362, merge 7a4debcc, run 40833893562) executed integration/static/public-contracts on integration_sha 8515e627 with trusted-pr-plan artifact and tree parity; post-run writer fired automatically but failed closed at publication because the token was absent in that run context (repo secret now verified present via gh api — requalification of a NEW producer run required to prove automatic publication). Evidence: https://github.com/mcpdev80/baseharbor-plan/blob/HEAD/evidence/r27-ci-replacement-2026-10-29/producer-diagnostics.md
+
+## Amendment 2026-10-30 (Owner)
+
+PR #1207 zusaetzlich zum Profil-Slice: Liv-proof der Kette mit Producer-Erweiterung (negative-Pfade, extension-Reserve-Zweig). Das Profil-Slice bleibt separat wie contractualisiert qualifiziert; die Erweiterung ist zusaetzlicher Producer-Coverage-Text im selben PR und tragt KEINE neue Gate-Verpflichtung ueber die Kartenaufzaehlung hinaus.
