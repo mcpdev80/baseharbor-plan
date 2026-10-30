@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 0 |
 | blocked | 0 |
-| ready | 2 |
+| ready | 1 |
 | queued | 27 |
 | waiting | 229 |
 | backlog | 7 |
@@ -23,6 +23,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 
 ## Ready for review
@@ -37,7 +38,6 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 
 ## By release
