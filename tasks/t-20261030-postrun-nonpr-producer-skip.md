@@ -45,7 +45,9 @@ One or two sentences: the observable outcome.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- receipt-post-run.yml skips cleanly (exit0, neutral) when producer run event != pull_request (e.g. runtime-validation push runs); no failure, no receipt attempted
+- negative regression: fake non-PR producer payload yields skipped outcome in the focused suite
+- witness runs: 41111017354 and 41111798732 (Extract Trusted Plan failure on push producer, main e92e2058)
 
 ## Required checks
 
