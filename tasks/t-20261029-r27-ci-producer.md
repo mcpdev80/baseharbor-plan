@@ -10,7 +10,7 @@ early: true
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1199", "mcpdev80/baseharbor#1203", "mcpdev80/baseharbor#1207", mcpdev80/baseharbor#1215]
+prs: ["mcpdev80/baseharbor#1199", "mcpdev80/baseharbor#1203", "mcpdev80/baseharbor#1207", mcpdev80/baseharbor#1215, mcpdev80/baseharbor#1217]
 sources: []
 blocker: ""
 resolution: ""
