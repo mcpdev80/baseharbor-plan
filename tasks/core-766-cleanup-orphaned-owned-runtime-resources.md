@@ -2,11 +2,11 @@
 id: core-766
 areas: [lifecycle]
 type: bug
-release: v0.4.x
+release: v0.4.27
 version: ""
-parent: v0.4.x
+parent: v0.4.27
 owner: marcel
-depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
+depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#766"]
@@ -17,15 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-x #status/active #view/active #area/lifecycle #kind/bug
+- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** marcel  
+    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
-**Release:** [v0.4.x](../releases/v0.4.x.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** marcel  
 **Priority:** not set  
 **PRs:** none  
