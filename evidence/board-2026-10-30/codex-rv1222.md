@@ -22,3 +22,28 @@ Der zuständige Owner/Worker soll den tatsächlich veröffentlichten Repository-
 Nur Remote-Lesezugriffe und Planning-Evidence; kein Produkt-Push, Merge, Review-Freigabe oder Änderung fremder Claims. basics-check meldete offene Coordinator-Reminders, Pool- und PLAN-Flags; unbekannte Lanes bleiben unberührt. Die Evidence ist kein Ersatz für die fehlende Kandidatenprüfung.
 
 END rv1222 BLOCKED
+
+## PLAN — korrigierte Mission rv1222
+
+0. DONE — Korrigierten Dispatch und Richtlinien gelesen; native TodoWrite ist nicht verfügbar.
+1. DONE — Head, Basis, Task-Vertrag, frühere Evidence und CI live abgeglichen.
+2. DONE — Acceptance und Capability-Mapping anhand des Kandidaten geprüft; Urteil und Rezept erfasst.
+3. DONE — Evidence zur Veröffentlichung vorbereitet; Push und ls-remote im Transcript.
+
+## Korrigiertes Urteil: REQUEST_CHANGES
+
+Die frühere BLOCKED-Mission bezog sich auf einen falschen Head und ist storniert. Aktuelle Prüfung: PR #1222 offen bei 74a357654c174e0818e5323ed71cab4c694157b2 gegen develop 72ba7a99ff7dcd4b04ee3cf16516991ef567d376; beide per HTTPS ls-remote bezeugt. Run 41059938103 completed/success; PR Selected Checks success von Actions App 15368 und inspect-package-tests, inspect-vet, inspect-consumer-tests und build success. Reuse der vorhandenen exact-head Evidence, kein erneuter gehosteter Lauf. Full Go test laut rv1224-Evidence timeout; vollständiges Go vet nicht nachgewiesen. Die Task-Abfrage zeigt zwei nicht akzeptierte Abhängigkeiten. Kein Merge.
+
+**Befund, nach rv1224 neu festgestellt:** `internal/repositoryinspect/workload_source.go:644-656` normalisiert MinIO/SeaweedFS als `storage.object`; `workload_source_compose_quadlet.go:42-43` verwendet denselben Klassennamen. Quadlet und Kubernetes verwenden den gemeinsamen Classifier. Die neue Projektion in `inspect.go:471-490` und das Mapping `inspect.go:508-520` erkennen dagegen `object-storage.s3` als *Klasse*, nicht `storage.object`. Ein non-Compose Objekt-Storage-Component mit Image wird daher als Workload statt Infrastruktur klassifiziert und sein normalisierter Infrastrukturtyp erzeugt kein `object-storage.s3`-Finding. Das verletzt Source-neutral Classification und Capability-Findings. Die Paritätsfixtur prüft nur SQL und Cache und deckt Objekt-Storage nicht ab. Die frühere rv1224-ACCEPT-Aussage deckt diesen Unterschied nicht ab und ist insoweit nicht übernehmbar.
+
+Weiterer Vertragsabgleich: `inspect.go:215-217` schließt Compose ausdrücklich von der Projektion aus `WorkloadEvidence.Components` aus; gemeinsame Compose-Ports, Health und Klassifikation stammen weiterhin aus dem separaten Parser (`:162-187`). Das widerspricht dem ausdrücklichen core-750 Scope, der normalisierte Components für gemeinsame Zusammenfassungen aller Adapter als kanonische Quelle verlangt. Der Test prüft primär Anwesenheit statt Gleichheit vollständiger Semantik und belegt diese Vertragsanforderung nicht. Das zuvor gemeldete Evidence-Kind für den Logs-Vorschlag ist hingegen im Code korrigiert.
+
+## Worker-Rezept
+
+In `internal/repositoryinspect/inspect.go` den tatsächlich vom Normalizer ausgegebenen Typ `storage.object` auf Infrastruktur und Capability `object-storage.s3` abbilden. Gemeinsame Ports, Health und Workload-/Infrastruktur-Projektion für Compose, Quadlet und Kubernetes aus den normalisierten Components speisen; Compose-spezifische Bootstrap-/Ambiguitätsdetails erhalten und doppelte Ergebnisse vermeiden. In `workload_source_parity_test.go` echte gleichwertige MinIO- oder SeaweedFS-Fixturen aller drei Familien und Vergleiche von Klasse, Capability und vollständiger gemeinsamer Semantik ergänzen; bestehende Compose- und Consumer-Tests mit fokussierten Tests ausführen. Für den endgültigen SHA die auf der Karte geforderten full Go tests/vet und Mandatory-CI mit tatsächlichen Ergebnissen nachweisen; bei abweichendem Mapping, Paritätsfehlern, fehlenden Pflichtchecks oder offenen Abhängigkeiten stoppen und erneut unabhängig prüfen lassen.
+
+## repo-rule compliance — korrigierte Mission
+
+Lesender Review; keine Produktänderung, kein Task-Statuswechsel, keine Freigabe oder Merge. Planning check: 0 Fehler, 14 bestehende Warnungen. Coordinator-Reminders und Pool-Hinweise bleiben offen.
+
+END rv1222 REQUEST_CHANGES
