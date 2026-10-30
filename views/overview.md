@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 8 |
 | review | 0 |
 | blocked | 4 |
-| ready | 4 |
+| ready | 2 |
 | queued | 27 |
 | waiting | 229 |
 | backlog | 7 |
@@ -23,6 +23,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) | Architecture: align service contracts and provider catalog | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
+| [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 | [t-20261027-r27-shadow-run](../tasks/t-20261027-r27-shadow-run.md) | Prove one automatic contributor receipt chain | active | critical | coordinator-lane (r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261022-r27-evidence-contract](../tasks/t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](../tasks/t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) (open), [t-20261024-r27-ci-impact-prototype](../tasks/t-20261024-r27-ci-impact-prototype.md) (open) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261029-r27-ci-coverage-inventory](../tasks/t-20261029-r27-ci-coverage-inventory.md) | CI: map current required checks and replacement coverage | active | high | o202 (1138dbc9, ornith) | — | — |
 | [t-20261029-r27-ci-cutover-design](../tasks/t-20261029-r27-ci-cutover-design.md) | CI: specify candidate-bound completion and ruleset | active | high | q201 (38460858, qwen) | — | — |
@@ -47,9 +49,7 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) | Architecture: align service contracts and provider catalog | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 | [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
-| [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | ready | not set | mcpdev80 | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | ready | not set | — | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) | — |
 
 ## By release
