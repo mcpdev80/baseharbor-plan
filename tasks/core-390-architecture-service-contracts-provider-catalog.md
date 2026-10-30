@@ -17,15 +17,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
+- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/planned #view/ready #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** unassigned  

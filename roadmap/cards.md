@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 7/87 · **Blocked:** 5 · **Waiting:** 67  
+    **Accepted tasks:** 8/87 · **Blocked:** 4 · **Waiting:** 67  
     **Blocker:** [t-20261022-r27-evidence-acceptance](../tasks/t-20261022-r27-evidence-acceptance.md) — Automatic producer, approval source pin, retained shadow and negative proofs require end-to-end verification; see the current work order. No acceptance is impl…  
     **Blocker:** [t-20261022-r27-evidence-verifier](../tasks/t-20261022-r27-evidence-verifier.md) — Release-start updates are not accepted; approval pin and genuine approval/retained verification still require correction and end-to-end proof.  
-    Plus 3 further blockers in the task list.  
+    Plus 2 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
@@ -39,7 +39,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 5/9 · **Blocked:** 0 · **Waiting:** 4  
+    **Accepted tasks:** 5/9 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
