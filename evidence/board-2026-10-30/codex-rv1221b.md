@@ -1,10 +1,10 @@
 ROLLE: CODEX-REVIEW
 
 ## PLAN
-- [x] 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
-- [x] 1. Refresh candidate and verify the four workflow behaviors and regression coverage.
-- [x] 2. Run receipt suite and verify exact-head checks, threads and live rules.
-- [x] 3. Merge only if acceptance and mandatory gates pass; verify develop and checks.
+1. (x) 0. Read dispatch and binding policies; record plan. Native TodoWrite unavailable.
+2. (x) 1. Refresh candidate and verify the four workflow behaviors and regression coverage.
+3. (x) 2. Run receipt suite and verify exact-head checks, threads and live rules.
+4. (x) 3. Merge only if acceptance and mandatory gates pass; verify develop and checks.
 
 ## ROLLE: CODEX-REVIEW
 
