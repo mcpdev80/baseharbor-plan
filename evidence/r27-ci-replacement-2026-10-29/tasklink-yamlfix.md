@@ -67,10 +67,29 @@
   `PR · Selected Runtime`, `PR · Demo Pin`, `PR · Public Contracts`.
 - Befund: alle mandatory Python/validation receipt-gate grün; nicht-wahlbare Runtime/Docker/Podman-Gate ohne Auslöser (Skip, kein Grün-gerechnet).
 
+## 5b. Rückweisung o242c — Root-Cause 40988176195 (kein echter C-Regulator)
+
+- Vorwurf: `test_missing_token_fails_closed_for_real_remote_before_pushing` (fehlender
+  `PLANNING_RECEIPT_WRITE_TOKEN` miss fail-closed VOR push) sei durch C's Exception-Grenze
+  umgeschrieben; echte Cross-File-Regression.
+- Geprüfte Write-Setz: nur `receipt_tasklink.py` + `test_receipt_tasklink.py` (Commits `60875d84`→`700662da`).
+  `receipt_writer.py` und `test_pr_gate_plan.py` (beinhaltet den Cross-File-Guard
+  `test_receipt_execution_check_actually_runs_receipt_suites`) sind UNVERÄNDERT.
+- Tatsächliche Ursache 40988176195 (Base `60875d84`): `test_publish_retry_pushes_same_commit_sha_no_second_reference`
+  rief `git commit-tree` auf dem Bare-Remote (leerer Baum ohne Parent) → Exit 128. Der gesamte
+  receipt-subprocess (`execute_validation`) schlug fehl, wodurch der Cross-File-Guard in
+  `test_pr_gate_plan.ReceiptControlPlaneExecutionTests` mit `RuntimeError` fehlschlug. Das war die
+  Cascade — nicht der Token-Pfad.
+- Der Token-Pfad unverändert: `receipt_writer.py:108`–`:110` (`_push_authed` req. Token VOR Push für
+  network remote) — durch A/B/C nicht touch. Lokal isoliert UND im Voll-Suite (236 Tests) OK.
+- Belegt: lokales Voll-Suite 236 OK (exit0), `test_pr_gate_plan.ReceiptControlPlaneExecutionTests` OK
+  (exit0), `receipt-suite.sh` exit0. CI 40989210374 terminal success. Fix `700662da` behobt die
+  `commit-tree`-Quelle; Token-Fail-closed ist intakt.
+
 ## 6. Ergebnis
 
 Recipe A/B/C implementiert, gegen echte Bare-Remotes getestet, lokale Suiten 65/65 + 188 gesamt grün,
 `receipt-suite.sh` exit0, pr-check-runner exit0, hosted CI 40989210374 terminal success (nach Fix des
 CI-nur-transienten Retry-Tests). Forward-Commit `700662da` auf `work/r27-tasklink-yamlfix`, kein Merge (Recipe-Scope).
 
-END o242b DONE
+END o242c DONE
