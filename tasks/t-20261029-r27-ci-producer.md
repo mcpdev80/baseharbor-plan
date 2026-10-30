@@ -60,4 +60,4 @@ Lane q202 delivered producer-diagnostics.md (END q202-DONE, disk-verified, sanit
 
 ## Scope & Re-chain (Owner 2026-10-30)
 
-Amendment: #1216 (re-chain nach Coordinator-Pushunfall, Nachfolger von #1215/#1207) traegt Extension-Negatives als Ketten-Livproof. Details: evidence/r27-ci-replacement-2026-10-29/chain-cycle-1207.md + konvergenz-entscheid-o246.md.
+Amendment: #1217 (dritter re-chain nach Transport-Unfaellen; unique head 2f78917e loest Receipt-Tuple-Ambiguitaet). Details + Superseded-Vermerke: #1207/#1215/#1216. traegt Extension-Negatives als Ketten-Livproof. Details: evidence/r27-ci-replacement-2026-10-29/chain-cycle-1207.md + konvergenz-entscheid-o246.md.
