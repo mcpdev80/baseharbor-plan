@@ -1,0 +1,30 @@
+## core-766 · Cleanup: remove orphaned owned runtime resources
+
+**Owner:** marcel
+**Area:** lifecycle / runtime / security
+**Type:** bug
+
+### Problem
+
+`baha destroy --all --yes` reports `Registered deployments: 0` when no deployment state exists, while BaseHarbor-owned runtime projects (containers, networks) still exist on the host. The full-destroy flow cannot infer a runtime provider for targets with no config AND no deployments, causing it to return early with DEFERRED status — orphan cleanup is never attempted.
+
+### Fix
+
+Added a fallback orphan cleanup path that discovers ALL available container engines (Docker, Podman), filters containers by target prefix, verifies ownership via provider-neutral compose labels (fail-closed), removes owned resources, and verifies emptiness after deletion.
+
+### Changes
+
+- `cmd/baha/runtime_destroy_all.go`: Added `cleanupOrphanedRuntimeProjectsByFallback()` and wired it into the destroy path when `len(deployments) == 0`
+- `cmd/baha/runtime_destroy_all_test.go`: Added `TestFullDestroyWithNoDeploymentsInvokesOrphanCleanup`
+- `internal/runtime/resolver/resolver.go`: Added provider resolution helpers for orphan fallback
+
+### Evidence: Targeted-HA runtime validation
+
+runtime-validation lane pushes `HEAD` to qualify CI coverage for runtime-impact files:
+
+- Branch: `runtime-validation/ha/core-766-destroy`
+- CI Run: https://github.com/mcpdev80/baseharbor/actions/runs/41043503376
+- Status: **SUCCESS**
+- Run-ID: `41043503376`
+
+This lane provides the targeted-HA (docker+podman) proof that the runtime-validation planner output maps correctly. The CI coverage block on PR #1220 (`pr-gate-plan.py` missing mapping class for CLI-runtime-impact) is a separate issue (Mapping-PR w750, 2 Klassen).
