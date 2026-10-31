@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 19/91 · **Blocked:** 0 · **Waiting:** 59  
+    **Accepted tasks:** 19/91 · **Blocked:** 1 · **Waiting:** 58  
+    **Blocker:** [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) — 68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
