@@ -12,7 +12,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
     **Accepted tasks:** 19/91 · **Blocked:** 6 · **Waiting:** 58  
-    **Blocker:** [core-750](../tasks/core-750-inspect-source-neutral-findings.md) — CI Native HA Run auf rootless Runnern: docker-Job failt weil rootless dockerd-Socket im Actions-Job-Kontext nicht aktiv ist (/run/user/1001/docker.sock no such…  
+    **Blocker:** [core-750](../tasks/core-750-inspect-source-neutral-findings.md) — Zwei Teil-Ursachen (t-runner2 Ground-Truth, evidence/board-2026-10-31/t-runner2/): Q1 DOCKER=Owner-Entscheidung (baha-runner-docker-2 faehrt ROOTFUL docker; ro…  
     **Blocker:** [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) — cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     Plus 4 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
