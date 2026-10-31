@@ -17,7 +17,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q43-renovate.md"]
 ---
 
-- [x] t-20261017-release-0-4-27-updates · v0.4.27 · Release start: integrate Renovate updates before feature work #task #release/v0-4-27 #status/review #view/closed #board/planned #area/release #kind/maintenance
+- [x] t-20261017-release-0-4-27-updates · v0.4.27 · Release start: integrate Renovate updates before feature work #task #release/v0-4-27 #status/active #view/closed #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** Coordinator (o267-base) · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-27-cleanup](t-20261017-release-0-4-27-cleanup.md)  
