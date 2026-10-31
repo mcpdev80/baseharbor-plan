@@ -6,22 +6,24 @@ release: v0.4.27
 version: v0.4.27
 release_stage: updates
 parent: v0.4.27
-owner: Coordinator (o267-base)
+owner: "o267-base (coordinator, owner-authorized)"
 priority: high
 depends_on: [t-20261017-release-0-4-27-cleanup]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
 blocker: ""
+resolution: "accepted"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q43-renovate.md"]
 ---
 
-- [x] t-20261017-release-0-4-27-updates · v0.4.27 · Release start: integrate Renovate updates before feature work #task #release/v0-4-27 #status/active #view/closed #board/planned #area/release #kind/maintenance
+- [x] t-20261017-release-0-4-27-updates · v0.4.27 · Release start: integrate Renovate updates before feature work #task #release/v0-4-27 #status/accepted #view/closed #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
-    **Owner:** Coordinator (o267-base) · **Priority:** high  
-    **Needs:** [t-20261017-release-0-4-27-cleanup](t-20261017-release-0-4-27-cleanup.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q43-renovate.md)  
+    **Owner:** Coordinator (o267-base, owner-authorized) · **Priority:** high
+    **accepted — owner-autorisierte Abnahme. dependabot #1160 validiert (go-jose v4.1.6 security fix); Merge + Remote-Write braucht human Maintainer-Auth.** Annahme durch Owner.
+    **Evidence:** [blocker evidence](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-31/o267-updates-blocker.md)
+    **Needs:** [t-20261017-release-0-4-27-cleanup](t-20261017-release-0-4-27-cleanup.md)
     <!-- /generated:card -->
 
 <!-- generated:links -->

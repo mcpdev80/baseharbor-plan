@@ -20,14 +20,14 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1096"]
     <!-- generated:card -->
     **Owner:** z3-lane  
     **PR:** [baseharbor#1077](https://github.com/mcpdev80/baseharbor/pull/1077)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1096)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Depends on:** t-20261017-release-0-4-27-updates  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** z3-lane  
 **Priority:** not set  

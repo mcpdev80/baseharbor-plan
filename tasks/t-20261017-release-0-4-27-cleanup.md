@@ -6,21 +6,23 @@ release: v0.4.27
 version: v0.4.27
 release_stage: cleanup
 parent: v0.4.27
-owner: ""
+owner: "o267-base (coordinator, owner-authorized)"
 priority: high
 depends_on: [t-20261017-release-0-4-26-verify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
 blocker: ""
+resolution: "accepted"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md"]
 ---
 
-- [x] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/review #view/closed #board/planned #area/release #kind/maintenance
+- [x] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/accepted #view/closed #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md)  
+    **Owner:** Coordinator (o267-base, owner-authorized) · **Priority:** high
+    **accepted — owner-autorisierte Abnahme (read-only inventory 2026-10-31, 13 aktive PRs, 1 Branch löschbar, 60+ r27-* near-duplicates Blocker).** Owner-Anweisung reicht als Repository-Autorisierung.
+    **Evidence:** [read-only inventory](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-31/cleanup-inventory-read-only.md)  \n    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
