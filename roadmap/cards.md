@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 19/91 · **Blocked:** 4 · **Waiting:** 58  
+    **Accepted tasks:** 19/91 · **Blocked:** 5 · **Waiting:** 58  
     **Blocker:** [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) — cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     **Blocker:** [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) — 68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required  
-    Plus 2 further blockers in the task list.  
+    Plus 3 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
