@@ -1,0 +1,41 @@
+=== grep -n 'runs-on' pre-release.yml ===
+49:    runs-on: ubuntu-latest
+373:    runs-on: ubuntu-latest
+431:    runs-on: ubuntu-latest
+577:    runs-on: ubuntu-latest
+631:    runs-on: ubuntu-latest
+649:    runs-on: ${{ matrix.runtime == 'podman' && 'ubuntu-26.04' || 'ubuntu-latest' }}
+744:    runs-on: ${{ matrix.runtime == 'podman' && 'ubuntu-26.04' || 'ubuntu-latest' }}
+839:    runs-on: ubuntu-latest
+863:    runs-on: ${{ matrix.runtime == 'podman' && 'ubuntu-26.04' || 'ubuntu-latest' }}
+1060:    runs-on: ubuntu-latest
+1100:    runs-on: ubuntu-latest
+1140:    runs-on: ubuntu-latest
+1180:    runs-on: ubuntu-latest
+1224:    runs-on: ubuntu-26.04
+1268:    runs-on: ubuntu-latest
+1319:    runs-on: ubuntu-26.04
+1370:    runs-on: ubuntu-latest
+1416:    runs-on: ubuntu-latest
+1462:    runs-on: ubuntu-latest
+1509:    runs-on: ubuntu-latest
+1599:    runs-on: ubuntu-latest
+=== grep -n 'runs-on' pre-release-runtime-suite.yml ===
+34:    runs-on: ${{ inputs.runtime == 'podman' && 'ubuntu-26.04' || 'ubuntu-latest' }}
+=== grep -rin 'self.hosted' in write-set ===
+(keine Treffer)
+=== self-hosted in OTHER workflows (out of scope, FUND) ===
+.github/workflows/ci.yml
+.github/workflows/mcp-lifecycle-acceptance.yml
+.github/workflows/nextjs-greenfield-e2e.yml
+.github/workflows/observability-acceptance.yml
+.github/workflows/podman-acceptance.yml
+.github/workflows/runtime-broker.yml
+.github/workflows/runtime-s3-acceptance.yml
+=== actionlint ===
+actionlint: PASS (exit 0)
+=== sha256 write-set ===
+b805da215a2c747b45e696343021b97737ea1dc787c7b623c556e13465e27834  .github/workflows/pre-release.yml
+92ea738ba76adf9d5c51a59b674a526c8fb97db5450d993c2da2335adbf70372  .github/workflows/pre-release-runtime-suite.yml
+=== git state ===
+cb6b73875f478b6be5624412fb9f4c3695e51518 2026-10-31 10:33:36 +0100 ci(receipt-post-run): producer-eligibility probe, fail-closed absence-vs-error (#1235, supersedes #1227)
