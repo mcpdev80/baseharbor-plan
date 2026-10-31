@@ -5,31 +5,30 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: o261
+owner: "t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1231]
 sources: []
-blocker: PR mcpdev80/baseharbor#1231 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate
+blocker: ""
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-10-30/o261.md]
 ---
 
-- [ ] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/blocked #view/blocked #kind/task
+- [ ] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** o261  
+    **Owner:** t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)  
     **PR:** [baseharbor#1231](https://github.com/mcpdev80/baseharbor/pull/1231)  
-    **Blocker:** PR mcpdev80/baseharbor\#1231 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-10-30/o261.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** o261  
+**Owner:** t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)  
 **Priority:** not set  
 **PRs:** [baseharbor#1231](https://github.com/mcpdev80/baseharbor/pull/1231)  
 **Source:** 
