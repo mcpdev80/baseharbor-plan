@@ -40,3 +40,14 @@ design. See coordinator/LAYOUT.md + MIGRATION.md.
   verification->acceptance->planning-publish->cleanup (worker-cleanup.sh).
 - #1225 native-run qualification route (Owner decision) is being executed by worker lane o1240
   on develop cb6b7387; will report candidate SHA + authenticated self-hosted rootless run id.
+
+## #1225 native-run route - status after o1240 round 1
+Owner-chosen route (resolve executor coverage via an authenticated NATIVE RUN) is currently
+UNIMPLEMENTED in the gate: pr-gate-plan.py resolves `.github/workflows/*` + `scripts/pr-*.py`
+coverage only via pre-registered hardcoded SHA sets (no native-execution code path), and the
+Targeted HA docker+podman jobs SKIPPED for candidate 1954a46 (PR #1236), proving nothing. This is
+a genuine coverage gap, not a product regression. Correct action per CODEMAN-START 6.1(b) /
+RUNBOOK 6.1: a bounded classifier extension (own small PR) that resolves those areas ONLY on
+genuine executed rootless native jobs (docker AND podman green, fail-closed on skip/absent), with
+cli_native_required set so they RUN not skip, plus tests. Candidate #1236 branch is the base.
+Lane o1240 executing this now; no gate weakening, no register hack.
