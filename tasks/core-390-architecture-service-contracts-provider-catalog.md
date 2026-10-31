@@ -5,31 +5,30 @@ type: architecture
 release: v0.4.x
 version: ""
 parent: v0.4.x
-owner: marcel
+owner: "t1229-svc-binding (Flash; owner-directive, prior=marcel)"
 depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#390"]
 source_updated: "2026-10-15T16:52:05Z"
 labels: [kind/architecture, area/providers, area/compatibility]
-blocker: cutover-pr3 #1226 OPEN (extern Maintainer-Review Gate) blocks this task
+blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/w390.md","https://github.com/mcpdev80/baseharbor/commit/dd1923dc","https://github.com/mcpdev80/baseharbor/blob/develop/docs/decisions/0013-standards-first-service-provider-contracts.md"]
 ---
 
-- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/blocked #view/blocked #area/architecture #kind/architecture
+- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/active #view/active #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** marcel  
-    **Blocker:** cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
+    **Owner:** t1229-svc-binding (Flash; owner-directive, prior=marcel)  
     **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/w390.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/dd1923dc), [proof 3](https://github.com/mcpdev80/baseharbor/blob/develop/docs/decisions/0013-standards-first-service-provider-contracts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
-**Owner:** marcel  
+**Owner:** t1229-svc-binding (Flash; owner-directive, prior=marcel)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#390](https://github.com/mcpdev80/baseharbor/issues/390)
