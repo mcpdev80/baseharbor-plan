@@ -17,15 +17,14 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md"]
 ---
 
-- [ ] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/planned #view/queued #area/release #kind/maintenance
+- [x] t-20261017-release-0-4-27-cleanup · v0.4.27 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-27 #status/review #view/closed #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Later release** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/q42-v27cleanup.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** checked  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
 **Required by:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
