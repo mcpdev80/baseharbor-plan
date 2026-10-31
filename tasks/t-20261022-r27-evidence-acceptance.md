@@ -21,14 +21,14 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1151", "https://github.c
     <!-- generated:card -->
     **Owner:** flash-coordinator + o145 (W5 independent) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1151), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/public-contracts/41021394575-1.json)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
+**Depends on:** t-20261017-release-0-4-27-updates, [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261024-r27-candidate-trigger-prototype](t-20261024-r27-candidate-trigger-prototype.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** flash-coordinator + o145 (W5 independent)  
 **Priority:** critical  

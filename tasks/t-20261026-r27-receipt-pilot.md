@@ -21,14 +21,14 @@ superseded_by: t-20261027-r27-shadow-run
     <!-- generated:card -->
     **Owner:** coordinator-lane (r27 board-up) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/CODE-AUDIT-2026-10-27.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+**Depends on:** t-20261017-release-0-4-27-updates, [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** coordinator-lane (r27 board-up)  
 **Priority:** critical  

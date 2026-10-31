@@ -22,14 +22,14 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1091"]
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092), [baseharbor#1109](https://github.com/mcpdev80/baseharbor/pull/1109), [baseharbor#1115](https://github.com/mcpdev80/baseharbor/pull/1115), [baseharbor#1125](https://github.com/mcpdev80/baseharbor/pull/1125), [baseharbor#1129](https://github.com/mcpdev80/baseharbor/pull/1129), [baseharbor#1128](https://github.com/mcpdev80/baseharbor/pull/1128), [baseharbor#1131](https://github.com/mcpdev80/baseharbor/pull/1131), [baseharbor#1132](https://github.com/mcpdev80/baseharbor/pull/1132), [baseharbor#1133](https://github.com/mcpdev80/baseharbor/pull/1133), [baseharbor#1134](https://github.com/mcpdev80/baseharbor/pull/1134), [baseharbor#1135](https://github.com/mcpdev80/baseharbor/pull/1135)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1091)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+**Depends on:** t-20261017-release-0-4-27-updates, [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** ChatGPT (isolated v0.4.27 prototype)  
 **Priority:** high  

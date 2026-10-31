@@ -20,14 +20,14 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-
     <!-- generated:card -->
     **Owner:** q260  
     **PR:** [baseharbor#1230](https://github.com/mcpdev80/baseharbor/pull/1230)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/q260.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Depends on:** t-20261017-release-0-4-27-updates  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** q260  
 **Priority:** not set  

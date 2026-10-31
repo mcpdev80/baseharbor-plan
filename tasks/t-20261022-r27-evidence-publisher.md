@@ -21,14 +21,14 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- generated:card -->
     **Owner:** w2-lane (W2 writer package) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151), [baseharbor#1213](https://github.com/mcpdev80/baseharbor/pull/1213)  
-    **Needs:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-29/tasklink-yamlfix.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-2026-10-23/o68-publisher.md), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1108), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1109), [proof 5](https://github.com/mcpdev80/baseharbor/pull/1110), [proof 6](https://github.com/mcpdev80/baseharbor/pull/1121), [proof 7](https://github.com/mcpdev80/baseharbor/pull/1122), [proof 8](https://github.com/mcpdev80/baseharbor/commit/839e5cc9fa9b3da3908ee65f26596c2b3dfaaca7), [proof 9](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-c7936e8bd838.md), [proof 10](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-804383ed3364.md), [proof 11](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/b2-board.md), [proof 12](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-f57b30ed48f1.md), [proof 13](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/rv3-review-f57b30ed.md), [proof 14](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/p1-pilot-prereq.md), [proof 15](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/d3-mergecheck-v36.md), [proof 16](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-27507add.md), [proof 17](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/CODEX-REVIEW-cb7d8213.md), [proof 18](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl2-board-sync.md), [proof 19](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-27/R6-BELEGSETZ.md), [proof 20](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-28/pl3-board-sync3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+**Depends on:** t-20261017-release-0-4-27-updates, [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** w2-lane (W2 writer package)  
 **Priority:** critical  
