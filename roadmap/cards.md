@@ -11,8 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 19/91 · **Blocked:** 1 · **Waiting:** 58  
-    **Blocker:** [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) — 68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required  
+    **Accepted tasks:** 19/91 · **Blocked:** 6 · **Waiting:** 58  
+    **Blocker:** [core-750](../tasks/core-750-inspect-source-neutral-findings.md) — cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
+    **Blocker:** [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) — cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
+    Plus 4 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/later
@@ -37,7 +39,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 5/6 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 5/6 · **Blocked:** 1 · **Waiting:** 0  
+    **Blocker:** [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) — cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later

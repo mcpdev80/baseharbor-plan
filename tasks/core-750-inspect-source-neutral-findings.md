@@ -12,20 +12,21 @@ prs: ["mcpdev80/baseharbor#1222"]
 sources: ["mcpdev80/baseharbor#750"]
 source_updated: "2026-10-15T16:51:33Z"
 labels: [kind/bug, area/dx, area/compatibility]
-blocker: ""
+blocker: cutover-pr3 #1226 OPEN (extern Maintainer-Review Gate) blocks this task
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/active #view/active #area/inspect #kind/bug
+- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/blocked #view/blocked #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** marcel  
     **PR:** [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222)  
+    **Blocker:** cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  

@@ -12,20 +12,21 @@ prs: [mcpdev80/baseharbor#1220]
 sources: ["mcpdev80/baseharbor#766"]
 source_updated: "2026-10-15T16:51:08Z"
 labels: [kind/bug, area/runtime, area/security, area/dx]
-blocker: ""
+blocker: cutover-pr3 #1226 OPEN (extern Maintainer-Review Gate) blocks this task
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/blocked #view/blocked #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** marcel  
     **PR:** [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220)  
+    **Blocker:** cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
