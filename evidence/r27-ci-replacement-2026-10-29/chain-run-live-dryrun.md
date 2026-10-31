@@ -22,15 +22,15 @@ PLAN q227 - chain-run.sh DRYRUN gegen echte Kette - CHAIN-RUN DRYRUN GEGEN ECHTE
      eef674d0b7d9214724417b215495d500cc1c24b2
 
 3. Kurz-Abschnitt 'Was der Dryrun fuer den NAECBSTEN Kettenlauf (neuer PR) zu aendern hat' (checkliste-stil nummeriert):
-   - [x] chain-run.shparameter-fixen: IDs, URLs, Pfade, Trennung Pin-Namen OK
-   - [x] DRYRUN komplett durchlaufen: OK (rc=0)
-   - [x] gh api nur lesend, keine dispatches: OK
-   - [x] Ausgabe in Evidence: OK
-   - [x] receipt_tasklink.py: OK (rc=0, auto-resolved task)
-   - [x] PR-Auflösung: PR 1207
-   - [x] tasklink: tasks/t-20261029-r27-ci-producer.md
-   - [x] next-run: chain-run.sh 40921493079 1 --dry-run (wiederholbar)
-   - [x] real production chain: needs #1200+#1201 (nicht blocked, nur dry-run supported)
-   - [x] planning-main vs product-main: PIN_PLANNING_MAIN vs PIN_PRODUCT_MAIN klar getrennt
+   - chain-run.shparameter-fixen: IDs, URLs, Pfade, Trennung Pin-Namen OK
+   - DRYRUN komplett durchlaufen: OK (rc=0)
+   - gh api nur lesend, keine dispatches: OK
+   - Ausgabe in Evidence: OK
+   - receipt_tasklink.py: OK (rc=0, auto-resolved task)
+   - PR-Auflösung: PR 1207
+   - tasklink: tasks/t-20261029-r27-ci-producer.md
+   - next-run: chain-run.sh 40921493079 1 --dry-run (wiederholbar)
+   - real production chain: needs #1200+#1201 (nicht blocked, nur dry-run supported)
+   - planning-main vs product-main: PIN_PLANNING_MAIN vs PIN_PRODUCT_MAIN klar getrennt
 
 END q227-DONE

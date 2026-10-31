@@ -39,7 +39,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 5/6 · **Blocked:** 0 · **Waiting:** 0  
+    **Accepted tasks:** 5/6 · **Blocked:** 1 · **Waiting:** 0  
+    **Blocker:** [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) — coverage-unresolved: native targeted qualification fehlt (rootless-runner Cutover, geteilt mit \#1236/\#1232/\#1220). ALLE product-Gates success (Public Contracts…  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
