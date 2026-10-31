@@ -1,24 +1,13 @@
 # PLAN: gh-dispatch-runtime
 
-## Step 0: Plan und Evidence-Verzeichnis erstellt ✓
-
-## Step 1: YAML-Workflows analysieren
-- File: `.github/workflows/runtime-broker.yml` (self-hosted docker ~Z27,~Z233)
-- File: `.github/workflows/runtime-s3-acceptance.yml` (self-hosted docker ~Z15)
-- File: `.github/workflows/docker-runtime-acceptance.yml` (uses ci-core-rootless-runtime.sh)
-- File: `.github/workflows/targeted-integration.yml` (uses rootless-skript)
-- File: `.github/workflows/targeted-demo-acceptance.yml` (uses rootless-skript)
-
-## Step 2: runs-on: self-hosted → ubuntu-latest migrieren
-- docker nativ auf GH-hosted ausführen
-- Skripte aus gh-ci-core-Lane NICHT ändern
-
-## Step 3: workflow_dispatch-Jobs nachweisen
-- `gh workflow run <file> -R mcpdev80/baseharbor --ref <branch>` bis terminal
-- Eigenes-Run-Pflicht: Run-ID, Status, Fehlerzeilen dokumentieren
-
-## Step 4: Self-hosted-Abhängigkeiten entfernen
-- Erst nach grünem GH-hosted-Ersatz
-
-## Step 5: END post
-- SHA + Run-IDs + Runner-Status je Workflow + rootless-Interface-Bedarf
+## Step 0: Plan und Evidence-Verzeichnis ✓
+## Step 1: YAML-Workflows analysiert ✓
+## Step 2: runs-on: self-hosted → ubuntu-latest migriert ✓
+## Step 3: workflow_dispatch Runs nachgewiesen ✓
+- runtime-broker.yml: 41246264824 failure (rootless Docker)
+- runtime-s3-acceptance.yml: 41246264909 failure (rootless Docker)
+- docker-runtime-acceptance.yml: 41246264908 in_progress
+- targeted-integration.yml: 41246265123 success
+- targeted-demo-acceptance.yml: 41246264910 failure (demo_ref input)
+## Step 4: self-hosted-Abhängigkeiten entfernt — nein, BLOCKED
+## Step 5: END BLOCKED — rootless-Interface-Bedarf
