@@ -16,17 +16,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261029-r27-receipt-contract-test · CI: add required contract test — producer artifact must carry every extract_facts field #task #release/v0-4-27 #status/planned #view/waiting #board/planned #kind/task
+- [ ] t-20261029-r27-receipt-contract-test · CI: add required contract test — producer artifact must carry every extract_facts field #task #release/v0-4-27 #status/planned #view/queued #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
-    **Needs:** t-20261017-release-0-4-27-updates  
+    **Later release** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** queued  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** t-20261017-release-0-4-27-updates  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  

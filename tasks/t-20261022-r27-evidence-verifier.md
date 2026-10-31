@@ -21,14 +21,13 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1151", "https://github.c
     <!-- generated:card -->
     **Owner:** w3-lane (W3 verifier package) · **Priority:** critical  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1151), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1213), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-29/CUTOVER-NACHWEISBAND.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** t-20261017-release-0-4-27-updates, [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-evidence-contract](t-20261022-r27-evidence-contract.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** w3-lane (W3 verifier package)  
 **Priority:** critical  

@@ -21,13 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** t-20261017-release-0-4-27-updates, [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), t-20261017-release-0-4-27-updates, [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  

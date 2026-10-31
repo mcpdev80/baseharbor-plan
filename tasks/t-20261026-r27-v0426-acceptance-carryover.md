@@ -16,18 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261026-r27-v0426-acceptance-carryover · Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27 #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/acceptance #area/release #kind/review
+- [ ] t-20261026-r27-v0426-acceptance-carryover · Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27 #task #release/v0-4-27 #status/planned #view/queued #area/acceptance #area/release #kind/review
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
-    **Waiting for prerequisites**  
-    **Needs:** t-20261017-release-0-4-27-updates  
+    **Later release** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** queued  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** t-20261017-release-0-4-27-updates  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** high  

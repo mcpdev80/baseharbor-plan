@@ -22,13 +22,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** t-20261017-release-0-4-27-updates, [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+    **Needs:** [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** t-20261017-release-0-4-27-updates, [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
 **Owner:** unassigned  
 **Priority:** normal  
