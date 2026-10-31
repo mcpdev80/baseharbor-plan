@@ -27,3 +27,16 @@ on DISK). Binding operating model: spawn -> work -> handoff -> verification ->
 coordinator-acceptance -> planning-publish -> cleanup. Durable truth = GitHub + this repo's
 main; no second local durable copy. Coordinator tooling is immune to worker git-clean by
 design. See coordinator/LAYOUT.md + MIGRATION.md.
+
+## Update (later 2026-10-31): layout migration COMPLETE + #1225 native-run route active
+- Container ~/dev/baseharbor-ecosystem de-git-ized to the agreed layout: five repos +
+  coordinator/ + workers/ (own local git) + .tmp; governance docs AGENTS.md/RUNBOOK.md now in
+  coordinator/ (durable) with root symlinks. Coordination tooling relocated to
+  coordinator/scripts; cron relocated+disarmed (no git clean/reset; tmp-sweep/hygiene scoped to
+  workers/worktrees + .tmp). 527 leaked full-clone scratch dirs (3 GB) purged. Loops verified
+  against codeman 1.47: only idle/exit signals fire for opencode lanes (blocked/stop 400 -> the
+  old watcher missed idle-awaiting lanes); replaced by watch.py (idle/exit+inbox -> events.log +
+  tmux wake) and coord-tick.sh (idle keep-alive). Worker lifecycle = spawn->work->handoff->
+  verification->acceptance->planning-publish->cleanup (worker-cleanup.sh).
+- #1225 native-run qualification route (Owner decision) is being executed by worker lane o1240
+  on develop cb6b7387; will report candidate SHA + authenticated self-hosted rootless run id.
