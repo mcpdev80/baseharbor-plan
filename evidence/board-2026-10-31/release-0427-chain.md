@@ -4,3 +4,6 @@ Control-Plane docker-only + podman-only acceptance Step10 -> inspectTargetDocker
 Vorbestehende Luecke, out-of-scope der Migration -> eigener Fix (app/doctor Engine-Erkennung runtime-neutral).
 Produkt-Sprache: "BaseHarbor erkennt das Laufzeit-Backend falsch, wenn Control-Plane und Test-Runtime (docker vs podman)
 nicht uebereinstimmen." Lane: product-gap-engine (App/Doctor Write-Set, disjunkt von CI/openbao).
+
+## (2026-10-31) runtime-neutral engine detection #1241 code-ready (accepted, runtime rides GH-hosted HA gate)
+gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provisioning in ci-core-rootless-runtime.sh on ubuntu-latest). gh-ci-core = jetziger Linchpin.
