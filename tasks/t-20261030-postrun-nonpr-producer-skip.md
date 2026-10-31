@@ -11,20 +11,21 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1230]
 sources: []
-blocker: ""
+blocker: PR mcpdev80/baseharbor#1230 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/q260.md]
 ---
 
-- [ ] t-20261030-postrun-nonpr-producer-skip · Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip #task #release/v0-4-27 #status/review #view/review #kind/task
+- [ ] t-20261030-postrun-nonpr-producer-skip · Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip #task #release/v0-4-27 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** q260  
     **PR:** [baseharbor#1230](https://github.com/mcpdev80/baseharbor/pull/1230)  
+    **Blocker:** PR mcpdev80/baseharbor\#1230 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/q260.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
