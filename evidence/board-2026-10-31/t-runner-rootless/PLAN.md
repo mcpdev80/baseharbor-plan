@@ -35,7 +35,7 @@ Eigener Login als `marcel` (uid 1000, sudo-Gruppe) — Diagnosen als `github-run
 - 11. END-line in Evidence + Evidence-Publish (render + check)
 
 ## REPARATUR-STATUS
-STILL-BLOCKED (Endstatus bis jetzt; Details in DIAGNOSIS.md / CI-ERROR.md / REPAIR.md)
+RECIPE_FOR_OWNER (Endstatus; Details in DIAGNOSIS.md / CI-ERROR.md / REPAIR.md)
 
 ## END-line
-END <lane> BLOCKED t-runner-rootless: <status + root cause + was fixed or exact command needed>
+END <lane> BLOCKED t-runner-rootless: recipe_for_owner — CI sudo-Defekt (docker+podman rootless Runner gesund; github-runner hat kein sudo; scripts/ci-core-rootless-runtime.sh braucht sudo) — Rezept in REPAIR.md, Owner-Ausführung; Evidence committet fb81d22.
