@@ -21,14 +21,13 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1201", "https://github.c
     <!-- generated:card -->
     **Owner:** o203 (3fba91dd, ornith) · **Priority:** high  
     **PR:** [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201), [baseharbor#1202](https://github.com/mcpdev80/baseharbor/pull/1202), [baseharbor#1205](https://github.com/mcpdev80/baseharbor/pull/1205)  
-    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1201), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1211), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/41022064363)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** t-20261017-release-0-4-27-updates  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o203 (3fba91dd, ornith)  
 **Priority:** high  

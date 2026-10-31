@@ -22,14 +22,13 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026
     <!-- generated:card -->
     **Owner:** ChatGPT (isolated v0.4.27 prototype) · **Priority:** high  
     **PR:** [baseharbor#1048](https://github.com/mcpdev80/baseharbor/pull/1048)  
-    **Needs:** t-20261017-release-0-4-27-updates  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-10-26-minimal-receipts.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1090), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/RECEIPT-PR1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** t-20261017-release-0-4-27-updates  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** ChatGPT (isolated v0.4.27 prototype)  
 **Priority:** high  
