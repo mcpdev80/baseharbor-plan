@@ -59,8 +59,7 @@ Inspect actual remote state; verify required changes are incorporated before del
 
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
 
-> Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege.
-> Pre-research evidence retained (o64/o66/o68, console-2 PR #8, nc-3 PR pending): v0.4.26 ist noch nicht geschlossen (D2/W1/verify pending) => Release-27-Arbeit formal zurueck auf waiting, Outcome-Referenzen bleiben verlinkt.
+> Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege. v0.4.26 ist veröffentlicht (v0.4.26-verify: published/superseded); die logische depends_on-Referenz bleibt bestehen, der Release-Stand blockiert die 27-Arbeit nicht mehr.
 
 ## Stand 2026-10-28
 - baseharbor: 0 offene PRs, 0 offene Branches mit Payload (Inventur clna).
