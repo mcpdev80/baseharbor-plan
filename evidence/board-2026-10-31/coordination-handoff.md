@@ -51,3 +51,14 @@ RUNBOOK 6.1: a bounded classifier extension (own small PR) that resolves those a
 genuine executed rootless native jobs (docker AND podman green, fail-closed on skip/absent), with
 cli_native_required set so they RUN not skip, plus tests. Candidate #1236 branch is the base.
 Lane o1240 executing this now; no gate weakening, no register hack.
+
+## o1240b (correction round) result: classifier fix WORKS; blocked on runner rootless infra
+Lane implemented the native-EXECUTION qualifier in pr-gate-plan.py; on #1236 (head advanced to
+776841be) the Targeted HA docker AND podman jobs now EXECUTE instead of skipping (PR run attempts
+41194053/57/58). They FAIL because the self-hosted rootless runners cannot present a verified
+rootless daemon session in the PR-HA context (docker/podman user-service, linger, socket ownership -
+RUNBOOK 6.2). This is runner INFRASTRUCTURE state, not code and not a gate weakening.
+Blocker owner: runner host rootless session. Next trigger: restore rootless (verify `docker info`/
+`podman info` as github-runner on baha-runner-docker-2/podman-2), then re-run #1236; HA jobs should go
+green and flip coverage to resolved. Lane released (result recorded). Wake+tick moved to cron (the
+sleep-loop froze across a VM suspend and missed a finished worker for hours - fixed).
