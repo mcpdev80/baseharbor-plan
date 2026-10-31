@@ -12,12 +12,12 @@ depends_on: [core-750, core-766, core-815, nc-3, t-20261017-release-0-4-27-updat
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: ["mcpdev80/baseharbor#1151"]
 sources: []
-blocker: ""
+blocker: "68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/blocked #view/waiting #board/planned #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** o66 (coordinator, r27 board-up) · **Priority:** normal  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
