@@ -10,12 +10,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 3 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 27 |
-| waiting | 230 |
+| waiting | 229 |
 | backlog | 7 |
 | closed | 69 |
 
@@ -26,6 +26,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-390](../tasks/core-390-architecture-service-contracts-provider-catalog.md) | Architecture: align service contracts and provider catalog | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) (open) | — |
 | [core-750](../tasks/core-750-inspect-source-neutral-findings.md) | Inspect: present complete source-neutral findings | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) (open) | [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222) |
 | [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) | Cleanup: remove orphaned owned runtime resources | active | not set | marcel | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) (open), [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) (open) | [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220) |
+| [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | v0.4.27 · Release start: integrate Renovate updates before feature work | active | high | Coordinator (o267-base) | [t-20261017-release-0-4-27-cleanup](../tasks/t-20261017-release-0-4-27-cleanup.md) (open) | — |
 
 ## Ready for review
 
