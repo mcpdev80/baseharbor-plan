@@ -57,12 +57,24 @@ Inspect actual remote state; verify required changes are incorporated before del
 
 ## Handoff
 
-Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
+Live-Inventur erbracht, Branches sauber (0 >14 Tage). 5 "still-open-legit" alle merged, 2 stale-candidates bereits geschlossen. Neue offene PRs (#1227–#1232 CI-Kette, demo#120, console#8, nc#9) dokumentiert.
 
-> Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse), deshalb bleibt Status active bis Owner-Abnahme der Vorschlaege. v0.4.26 ist veröffentlicht (v0.4.26-verify: published/superseded); die logische depends_on-Referenz bleibt bestehen, der Release-Stand blockiert die 27-Arbeit nicht mehr.
+**Status: active → review.** Ein prüpbarer Cleanup-Kandidat mit Live-Evidence (GitHub-API, 2026-10-31, main = e1ef5ea) liegt an der Karte. **Annahme bleibt dem Maintainer vorbehalten** — nur dieser markiert eine Task `accepted` mit Evidence (AGENTS.md). Sobald cleanup `accepted`, wird `updates` (Gate) freigegeben und als erste Worker-Lane dispatched.
 
-## Stand 2026-10-28
-- baseharbor: 0 offene PRs, 0 offene Branches mit Payload (Inventur clna).
-- console#8 + demo#120: NOCH AKTUELL (iv2a).
-- Branch-Saeuberung: 70 geprueft, 2 LOESCH-OK (ancestor), 68 PRUEFEN (content-only, dossier iv3a).
-- Promotion: PR #1159 (merge-Ansatz, 15/15 Checks gruen, CLEAN) wartet Owner-Merge; danach receipt-post-run auf main registriert -> Shadow-Run Runbook A.
+> Inventar-Deliverables liegen als https-Evidence an der Karte; ein PR existiert nicht (read-only Analyse). v0.4.26 ist veröffentlicht (v0.4.26-verify: published/superseded); die logische depends_on-Referenz bleibt bestehen.
+>
+> **Live-Gegenprüfung 2026-10-31 (GitHub API, main = e1ef5ea):**
+> - baseharbor: 10 offene PRs (#1227–#1232 CI-Receipt-Kette, #1229, #1227–#1231; #1042 PR-closed aber merged).
+> - demo: 1 offen (#120 v0.4.26 freeze-lift). console: 1 offen (#8 CI-Adapter-Proof). node-connector: 1 offen (#9 consumer-freeze).
+> - Die 5 "still-open-legit" aus der q42-Evidence sind alle **merged** (baseharbor #1043/#1039/#1042, console#7, nc#8).
+> - Die 2 stale-close-candidates (#3 console, #4 nc, vom 06.10.) sind **bereits geschlossen**.
+> - Branches >14 Tage: 0 (unverändert).
+> - Die neuen CI-PRs (#1227–#1232) gehören zum updates/prepare-Work, nicht zur Cleanup-Inventur.
+> Inventur erbracht; Branches sauber; Kategorien validiert.
+
+## Stand 2026-10-31
+- **Inventur erbracht, Branches sauber.** GitHub-API-Gegenprüfung: 0 Branches >14 Tage.
+- **5 "still-open-legit": alle merged** (baseharbor #1043/#1039/#1042, console#7, nc#8).
+- **2 stale-close-candidates (#3 console, #4 nc) bereits geschlossen** — keine Aktion erforderlich.
+- **Neue offene PRs** nach q42-Evidence: baseharbor #1227–#1232 (CI-Receipt-Kette), demo#120, console#8, nc#9. Gehören zum updates/prepare-Work.
+- Cleanup-Kern erbracht; Branches bereinbar.
