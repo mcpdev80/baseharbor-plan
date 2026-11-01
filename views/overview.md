@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 0 |
 | blocked | 7 |
 | ready | 0 |
@@ -23,7 +23,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261101-openbao-1240](../tasks/t-20261101-openbao-1240.md) | Secret-Store: OpenBao→Postgres TLS wiring (verify-ca) + SASL auth fix on | active | not set | worker-openbao-1240 | — | [baseharbor#1240](https://github.com/mcpdev80/baseharbor/pull/1240) |
+| [t-20261101-docker-engine-1245](../tasks/t-20261101-docker-engine-1245.md) | resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket | active | not set | worker-ornith-1245 | — | [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250) |
+| [t-20261101-openbao-1240](../tasks/t-20261101-openbao-1240.md) | Secret-Store: OpenBao→Postgres TLS wiring (verify-ca) + SASL auth fix | active | not set | worker-openbao-1240 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1240](https://github.com/mcpdev80/baseharbor/pull/1240) |
 
 ## Ready for review
 
