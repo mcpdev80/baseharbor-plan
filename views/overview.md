@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 3 |
 | review | 0 |
 | blocked | 7 |
 | ready | 0 |
@@ -24,6 +24,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261101-docker-engine-1245](../tasks/t-20261101-docker-engine-1245.md) | resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket | active | not set | worker-ornith-1245 (Ornith; session 35cdb02e) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250) |
+| [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
 | [t-20261101-openbao-1240](../tasks/t-20261101-openbao-1240.md) | Secret-Store: OpenBao→Postgres TLS wiring (verify-ca) + SASL auth fix | active | not set | worker-openbao-1240 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1240](https://github.com/mcpdev80/baseharbor/pull/1240) |
 
 ## Ready for review
@@ -49,7 +50,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 74 open, 19 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 75 open, 19 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

@@ -1,0 +1,13 @@
+{
+  "number": 1254,
+  "title": "ci(targeted-integration): prepare runtime context in Targeted runtime job (parity fix)",
+  "state": "open",
+  "user": {
+    "login": "mcpdev80"
+  },
+  "updated_at": "2026-11-01T15:36:28Z",
+  "body": "",
+  "comments": 1,
+  "html_url": "https://github.com/mcpdev80/baseharbor/pull/1254",
+  "head_sha": "a6e79c768215b5a36a20e88f688d06aa46fe155c"
+}

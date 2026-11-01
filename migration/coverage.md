@@ -6,11 +6,11 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 
 | Repository | Open issues | Mapped |
 | --- | ---: | ---: |
-| mcpdev80/baseharbor | 85 | 85 |
-| mcpdev80/baseharbor-demo | 1 | 1 |
+| mcpdev80/baseharbor | 86 | 86 |
 | mcpdev80/baseharbor-console | 2 | 2 |
+| mcpdev80/baseharbor-demo | 1 | 1 |
 | mcpdev80/baseharbor-node-connector | 1 | 1 |
-| **Total** | **89** | **89** |
+| **Total** | **90** | **90** |
 
 ## Dispositions
 
@@ -23,7 +23,7 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | release+task | 1 |
 | roadmap | 1 |
 | split | 2 |
-| task | 67 |
+| task | 68 |
 
 ## Source to destination
 
@@ -112,11 +112,12 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | [baseharbor#921](https://github.com/mcpdev80/baseharbor/issues/921) | task | [tasks/core-921-cli-mcp-register-new-interfaces.md](../tasks/core-921-cli-mcp-register-new-interfaces.md) |
 | [baseharbor#922](https://github.com/mcpdev80/baseharbor/issues/922) | task | [tasks/core-922-docs-new-edit-provider-selection.md](../tasks/core-922-docs-new-edit-provider-selection.md) |
 | [baseharbor#923](https://github.com/mcpdev80/baseharbor/issues/923) | task | [tasks/core-923-acceptance-new-edit-journeys-consumers.md](../tasks/core-923-acceptance-new-edit-journeys-consumers.md) |
-| [baseharbor-demo#24](https://github.com/mcpdev80/baseharbor-demo/issues/24) | task | [tasks/demo-24-managed-exposure-https-default.md](../tasks/demo-24-managed-exposure-https-default.md) |
-| [baseharbor-console#1](https://github.com/mcpdev80/baseharbor-console/issues/1) | epic | [epics/console-1-console-product-plan.md](../epics/console-1-console-product-plan.md) |
-| [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2) | task | [tasks/console-2-live-core-adapter-workflow-proofs.md](../tasks/console-2-live-core-adapter-workflow-proofs.md) |
-| [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3) | split | [tasks/nc-3-core-enrollment-remote-runtime-acceptance.md](../tasks/nc-3-core-enrollment-remote-runtime-acceptance.md), [tasks/t-20261018-r27-node-service.md](../tasks/t-20261018-r27-node-service.md), [tasks/t-20261018-r27-node-streams.md](../tasks/t-20261018-r27-node-streams.md), [tasks/t-20261018-r27-node-trust.md](../tasks/t-20261018-r27-node-trust.md) |
 | [baseharbor#1251](https://github.com/mcpdev80/baseharbor/issues/1251) | task | [tasks/t-20261101-plan-card-fix-diff-base.md](../tasks/t-20261101-plan-card-fix-diff-base.md) |
 | [baseharbor#1253](https://github.com/mcpdev80/baseharbor/issues/1253) | task | [tasks/t-20261101-openbao-1240.md](../tasks/t-20261101-openbao-1240.md) |
+| [baseharbor#1254](https://github.com/mcpdev80/baseharbor/issues/1254) | task | [tasks/t-20261101-ha-prep-fix.md](../tasks/t-20261101-ha-prep-fix.md) |
+| [baseharbor-console#1](https://github.com/mcpdev80/baseharbor-console/issues/1) | epic | [epics/console-1-console-product-plan.md](../epics/console-1-console-product-plan.md) |
+| [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2) | task | [tasks/console-2-live-core-adapter-workflow-proofs.md](../tasks/console-2-live-core-adapter-workflow-proofs.md) |
+| [baseharbor-demo#24](https://github.com/mcpdev80/baseharbor-demo/issues/24) | task | [tasks/demo-24-managed-exposure-https-default.md](../tasks/demo-24-managed-exposure-https-default.md) |
+| [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3) | split | [tasks/nc-3-core-enrollment-remote-runtime-acceptance.md](../tasks/nc-3-core-enrollment-remote-runtime-acceptance.md), [tasks/t-20261018-r27-node-service.md](../tasks/t-20261018-r27-node-service.md), [tasks/t-20261018-r27-node-streams.md](../tasks/t-20261018-r27-node-streams.md), [tasks/t-20261018-r27-node-trust.md](../tasks/t-20261018-r27-node-trust.md) |
 
 Open pull requests at capture (18) are inspected separately in [pull-requests.md](pull-requests.md); they stay in their code repositories.
