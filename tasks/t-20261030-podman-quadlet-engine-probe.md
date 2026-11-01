@@ -16,7 +16,7 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-10-30/o261.md]
 ---
 
-- [ ] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/blocked #view/blocked #kind/task
+- [x] t-20261030-podman-quadlet-engine-probe · CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner) #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)  
     **PR:** [baseharbor#1231](https://github.com/mcpdev80/baseharbor/pull/1231), [baseharbor#1241](https://github.com/mcpdev80/baseharbor/pull/1241)  
@@ -25,7 +25,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/boar
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** checked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
