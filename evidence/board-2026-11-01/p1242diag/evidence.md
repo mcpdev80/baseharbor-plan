@@ -129,6 +129,10 @@ this lane's PR; only the head had to be corrected.
 - Local planner on the develop→branch diff now resolves both observability gates
   instead of `coverage_unresolved`.
 
+## repo-rule compliance
+
+OWNER-REGEL hart: Worker spaunen KEINE Agenten, dispatchen KEINE Lanes — nur der Coordinator koordiniert. Kein `subagent`/`task`-Spawn verwendet (nicht einmal nur-zum-Lesen oder nur-Review); alle Arbeiten inline in dieser Session. AgentGateway-Modellaufrufe nur fuer die eigene Lane-Arbeit. Keine Selbstfreigabe; CODEX-REVIEW bleibt einer separativen Codex-Session vorbehalten.
+
 ---
 END p1242diag DONE
 

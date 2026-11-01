@@ -65,3 +65,7 @@ The PRSC run 41340862268 concluded FAILURE at "PR Selected Checks". The enforcem
 
 ### END Lane
 END_BLOCKED p1242q: head=2a561ff9 probe-run=41340862268 | PRSC run 41340862268 completed/failure at runtime enforcement check (unqualified runtime blocked), no auth for PR-comment/plan.py
+
+## repo-rule compliance
+
+**Keine subagent/task/Spawn/Dispatch:** Alle Arbeit inline in dieser Session. `execute`-Aufrufe nutzten nur OpenCode-Katalog-Tools (`tools.todowrite`, `tools.opencode.*`), keine Agenten-Sessions, keine Lane-Dispatch, kein `subagent`, kein `task`, kein `spawn`. Die Wache flaggt Kind-Sitzungen automatisch.
