@@ -7,3 +7,4 @@ Release note: [triage](../../releases/triage.md) · release status: **planned** 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [demo-24](../../tasks/demo-24-managed-exposure-https-default.md) | Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI | backlog | not set | — | — | — |
+| [t-20261101-pr-inventory-2026-11](../../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
