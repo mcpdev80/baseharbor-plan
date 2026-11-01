@@ -83,5 +83,36 @@ The CI runtime checks are skipped because GitHub-hosted runners do not have podm
 - Existing docker-specific tests remain green.
 - New test covers podman path.
 
+## Step 7: Rebase onto develop TIPP + full CI pass (p1241 dispatch)
+The original head `ed5ca739` was based on `cb6b7387` (an intermediate receipt commit),
+not the develop tip. Mission p1241 required rebasing the PR branch onto the develop TIPP
+(`5c903560`). Rebase applied cleanly (no divergence in `cmd/baha/docker_engine.go`);
+new commit: `5664175c`.
+
+- Branch: `work/fix-engine-detect` (rebased, force-pushed per own-lane-branch rule)
+- Commit SHA: `5664175c`
+- PR: https://github.com/mcpdev80/baseharbor/pull/1241
+- CI Run: **41338807540** — **conclusion = success**
+- Triggered via pull_request on work/fix-engine-detect
+
+CI Check Results (all terminal):
+- `PR · Trusted Plan` — PASS
+- `Workflow policy` — PASS
+- `PR · Runner Interface` — PASS
+- `PR · Focused Python` — PASS (1m33s)
+- `PR · Exact Candidate` — PASS (49s)
+- `PR · Validation · cli-build` — PASS (58s)
+- `PR · Validation · source-contracts` — PASS (52s)
+- `PR · Validation · cli-vet` — PASS (41s)
+- `PR · Validation · cli-guided-tests` — PASS (1m41s)
+- `PR · Selected Runtime` (podman + docker lifecycle) — PASS
+- **`PR Selected Checks` — SUCCESS**  ← previously the blocking gate
+
+## Handoff decision (mission p1241)
+Status: review. Candidate `5664175c` is code-ready and passes the full Selected Checks
+chain (including the previously-blocking runtime-qualification gate). Write-set confined
+to `cmd/baha/docker_engine.go` + `cmd/baha/docker_engine_podman_test.go`. Before merge a
+CODEX-REVIEW must confirm the SHA-genauer Diff against the contract.
+
 ## END fix-engine-detect
-[Status: DONE — code-ready, PR #1241]
+[Status: review — code-ready, PR #1241 head 5664175c, CI run 41338807540 SUCCESS]
