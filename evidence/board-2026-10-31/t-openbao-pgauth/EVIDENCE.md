@@ -7,12 +7,12 @@
 - Branch: work/o1249-openbao-pgauth (from develop cb6b7387)
 
 ## PLAN
-- [x] PLAN 0: Read mission, verify worktree state, initialize evidence file
-- [x] PLAN 1: Inspect involved Go files (stack.go, openbao_runtime_prepare.go) for root cause
-- [x] PLAN 2: Identify the actual fix (password mismatch or TLS wiring)
-- [ ] PLAN 3: Implement the fix in the correct source files
-- [ ] PLAN 4: Build, vet, and run local tests against docker/podman
-- [ ] PLAN 5: Submit PR to CI, observe target HA podman gate, document evidence
+- PLAN 0: Read mission, verify worktree state, initialize evidence file
+- PLAN 1: Inspect involved Go files (stack.go, openbao_runtime_prepare.go) for root cause
+- PLAN 2: Identify the actual fix (password mismatch or TLS wiring)
+- PLAN 3: Implement the fix in the correct source files
+- PLAN 4: Build, vet, and run local tests against docker/podman
+- PLAN 5: Submit PR to CI, observe target HA podman gate, document evidence
 
 ## Diff
 *(pending — will be filled after fix is implemented)*

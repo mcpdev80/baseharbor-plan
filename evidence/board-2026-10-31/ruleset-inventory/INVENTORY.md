@@ -4,14 +4,14 @@ ROLLE: ANALYSE | Modell: agentgateway/worker-flash (via AgentGateway) | Zeit: 20
 Dispatch: coordinator/missions/ruleset-inventory.txt | Methode: ausschließlich lesende `gh api` GETs + Lesekooperation lokaler Worktree-Kopien (develop @ cb6b73875f478b6be5624412fb9f4c3695e51518). KEINE POST/PUT/PATCH, keine Aktivierung/Deaktivierung.
 
 ## PLAN (vollständig abgearbeitet)
-- [x] 0. Evidence-Datei mit PLAN-Checkliste + nativer Todo-Plan (workers/todos/ruleset-inventory.md)
-- [x] 1. baseharbor: Rulesets gelistet + alle 3 Ruleset-Details (required_status_checks)
-- [x] 2. baseharbor: klassische Branch-Protection develop/main geprüft (beide 404 = keine)
-- [x] 3. node-connector: Rulesets [] + Branch-Protection main 404
-- [x] 4. Required-Check-Kontexte gegen Workflow-Jobs abgeglichen (file:line der runs-on-Zeilen, develop- checkout)
-- [x] 5. Klassifizierung GH-hosted vs. self-hosted-abhängig; Runner-Inventar gelesen
-- [x] 6. Tabelle + Gesamtantwort
-- [x] 7. HANDOFF-Post an Coordinator
+- 0. Evidence-Datei mit PLAN-Checkliste + nativer Todo-Plan (workers/todos/ruleset-inventory.md)
+- 1. baseharbor: Rulesets gelistet + alle 3 Ruleset-Details (required_status_checks)
+- 2. baseharbor: klassische Branch-Protection develop/main geprüft (beide 404 = keine)
+- 3. node-connector: Rulesets [] + Branch-Protection main 404
+- 4. Required-Check-Kontexte gegen Workflow-Jobs abgeglichen (file:line der runs-on-Zeilen, develop- checkout)
+- 5. Klassifizierung GH-hosted vs. self-hosted-abhängig; Runner-Inventar gelesen
+- 6. Tabelle + Gesamtantwort
+- 7. HANDOFF-Post an Coordinator
 
 ## Repo: mcpdev80/baseharbor
 

@@ -2,13 +2,13 @@
 
 ## PLAN Checkliste
 
-- [x] Step 0: Evidence file + todo list created
-- [x] Step 1: Read current openbao_runtime_prepare.go and stack.go
-- [x] Step 2: Analyze root causes A, B, C
-- [x] Step 3: Implement fix
-- [x] Step 4: Build and test locally
-- [x] Step 5: Push to GitHub
-- [x] Step 6: END_CODE_READY with SHA and rationale
+- Step 0: Evidence file + todo list created
+- Step 1: Read current openbao_runtime_prepare.go and stack.go
+- Step 2: Analyze root causes A, B, C
+- Step 3: Implement fix
+- Step 4: Build and test locally
+- Step 5: Push to GitHub
+- Step 6: END_CODE_READY with SHA and rationale
 
 ## Mission Summary
 

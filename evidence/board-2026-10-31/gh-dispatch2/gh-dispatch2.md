@@ -1,10 +1,10 @@
 ## PLAN
-- [x] Step 0: Setup — initialize evidence, read mission, verify worktree/branch
-- [x] Step 1: Change `runs-on: [self-hosted,...]` to `ubuntu-latest` in all 5 workflow files
-- [x] Step 2: Remove rootless-specific setup steps from workflow files (dockerd-rootless-setuptool, sysctl), use system docker
-- [x] Step 3: actionlint + YAML check on all 5 files
-- [x] Step 4: workflow_dispatch test on branch (GH-hosted), observe run
-- [x] Step 5: Codex post with END result
+- Step 0: Setup — initialize evidence, read mission, verify worktree/branch
+- Step 1: Change `runs-on: [self-hosted,...]` to `ubuntu-latest` in all 5 workflow files
+- Step 2: Remove rootless-specific setup steps from workflow files (dockerd-rootless-setuptool, sysctl), use system docker
+- Step 3: actionlint + YAML check on all 5 files
+- Step 4: workflow_dispatch test on branch (GH-hosted), observe run
+- Step 5: Codex post with END result
 
 ## Evidence
 - Candidate SHA: 878a21247996244d55769b3a1a3c7fdb47d53147
