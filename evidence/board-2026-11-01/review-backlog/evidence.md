@@ -4,15 +4,15 @@ Lane: review-backlog (Ornith-Worker) | Repo: baseharbor | Basis: origin/develop 
 Modell: Ornith | Zeit: 2026-11-01 23:5xZ
 Scope: 8 alte offene PRs — READ ONLY. Kein Merge, keine Schliessung, keine Kommentare, kein subagent/codeman-spawn.
 
-## PLAN
-- [x] Schritt 0: todowrite-Tool + Board-Datei review-backlog.json + ## PLAN anlegen (§4.4)
-- [x] Schritt 1: Worktree review-backlog an origin/develop vorbereitet; gh auth verifiziert (mcpdev80)
-- [x] Schritt 2: Metadaten je PR (state/base/head_sha/files) via gh api
-- [x] Schritt 3: CI-Lage je PR (actions/runs?head_sha -> Run-ID, conclusion)
-- [x] Schritt 4: Diffs/Umfang je PR inspiziert (gh api /files + git diff vs base)
-- [x] Schritt 5: Kernzweck vs develop prüfen (cherry, file:line, ersetzt durch neuere Mergels)
-- [x] Schritt 6: EINE Zeile Urteil je PR in Tabelle unten (MERGE×2 / SUPERSEDED×4 / STALE-DROP×2)
-- [x] Schritt 7: evidence.md + ## PLAN publiziert; Board getickert; HANDOFF post END_DONE
+## PLAN-Checkliste
+- Step 0: todo (GUI) + Board-Datei review-backlog.json + ## PLAN (§4.4)
+- Step 1: Worktree review-backlog an origin/develop (a567ff46) vorbereitet; gh auth (mcpdev80) verifiziert
+- Step 2: Metadaten je PR (state/base/head_sha/files) via gh api — alle 8 open, base develop (1237 base main)
+- Step 3: CI-Lage je PR (actions/runs?head_sha -> Run-ID, conclusion) — 7 mit PR-CI FAILURE, 1237 = 0 Runs
+- Step 4: Diffs/Umfang je PR inspiziert (gh api /files + git diff vs base; cherry, file:line)
+- Step 5: Kernzweck vs develop prüfen — Integration/SuperseDED durch #1252/#1256/#1249/#core-1220 verifiziert
+- Step 6: EINE Zeile Urteil je PR in Tabelle — MERGE×2 (1222,1229) SUPERSEDED×4 (1220,1225,1232,1236) STALE-DROP×2 (1226,1237)
+- Step 7: evidence.md + ## PLAN publiziert; Board-Datei getickert; HANDOFF post END_DONE
 
 ## BEFUND je PR
 
@@ -78,4 +78,5 @@ Scope: 8 alte offene PRs — READ ONLY. Kein Merge, keine Schliessung, keine Kom
 | 1237 | **STALE-DROP** | Behauptet t-openbao-pgauth SASL-Fix (runtime.env in postgres-init), aber PR berührt KEINE postgres-init/runtime.env-Datei; Umfang 2453 files / 332k+/- = massiver CI-workflow-Sweep (pre-release.yml +925/-593, ci.yml, acceptance-workflows), kein echter PGAuth-SASL-Fix im Inhalt. Base main, 0 CI-Runs. Inhaltlich nicht belastbar, Drop. |
 
 ## HANDOFF
-post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE review-backlog: merge=<n> superseded=<n> drop=<n> | <Satz>"
+HANDOFF posted 2026-11-01 23:5xZ to 35cdb02e-a3b3-4e6d-86f9-1cbb35822587:
+`END_DONE review-backlog: merge=2 (1222,1229) superseded=4 (1220,1225,1232,1236) drop=2 (1226,1237) | Read-only verdict for 8 old open PRs published to baseharbor-plan board (ec80fac); no merge/close/comment performed.`
