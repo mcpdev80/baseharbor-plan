@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1250"]
 sources: []
 blocker: ""
-resolution: ""
+resolution: "accepted"
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-11-01/docker-engine-1245/evidence.md]
 ---
 
-- [ ] t-20261101-docker-engine-1245 · resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket #task #release/v0-4-27 #status/active #view/active #kind/task
+- [x] t-20261101-docker-engine-1245 · resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** worker-ornith-1245 (Ornith; session 35cdb02e)  
     **PR:** [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250)  
@@ -30,7 +30,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/boar
   <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
