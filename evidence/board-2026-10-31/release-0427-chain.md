@@ -28,3 +28,8 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
    required. 3 online self-hosted Runner dienen nur noch PUSH/DISPATCH-Acceptance (podman-acceptance.yml:36 etc.)
    -> die migrieren #1239/#1238/#1243/#1244. => ERZIEHUNGS-/Pflicht-Seite des Cutover ist faktisch erfuellt; der
    Rest ist Coverage-Klassifizierung (gate-map) + echte native Laeufe. #1239 echt auf develop rebased (develop Ahn).
+## gh-ci-core SCOPE ACCEPTED (2026-11-01): #1239 rebased auf develop (head 486abbca, mergeable), Skript nutzt
+   SYSTEM-daemon (kein rootless-socket-export), DOCKER_MODE nicht mehr verhaltenssteuernd. validate rot NUR weil
+   #1245 noch nicht in develop (Alter Resolver => compose-tests sehen /run/user/1001). Kein Fehler in #1239.
+   Aufloesung via kombinierter Kandidat (native-probe) = genau die vom Worker korrekterweise ans Coordinator-
+   Integration verwiesene Stelle. Merge-Reihenfolge bleibt: gate-map -> kombinierter Kandidat (#1245+#1239) -> Rest.
