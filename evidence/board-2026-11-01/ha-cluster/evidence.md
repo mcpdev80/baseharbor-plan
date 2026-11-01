@@ -31,4 +31,4 @@ ACTIVE — diagnosing full Postgres HA cluster (Patroni+etcd+HAProxy) start fail
 - TODO: watch to terminal, capture Run-ID + pass/fail lines
 
 ## END
-<lane> ha-cluster </lane> <DONE|BLOCKED> TBD
+<lane> ha-cluster </lane> <BLOCKED> END_BLOCKED 2026-11-01: GH-hosted rootless-Docker daemon unavailable (run 41318456394: 'unix:///run/user/1001/docker.sock unavailable'); etcd-TLS path never reached under the gate — local repro proves full HA cluster reaches SQL-ready on base 437358e4. Needs provisioned rootless runner (Owner decision point). Probe ref fa584922 on current develop 5777c02d; only evidence file vs develop, no product change.
