@@ -17,3 +17,8 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
    CODE-ready, mergeable nur nach echtem gruuen GH-hosted native-qualification-Lauf.
 ## Node-Connector CI cutover DONE (2026-11-01): PR #17 MERGED, nc main=188036f, self-hosted=0, GH-hosted
    transport·podman SUCCESS (rootful) witnessed. nc-Repo 100% GitHub-hosted. review-nc=APPROVE-FEIER-GRUEN.
+## podman-gh #1244 (2026-11-01, CODE-ready): scripts/ci-podman-gh-runtime.sh rootful + Podman-HA-Prepare umgestellt.
+   Bewiesen auf GH-hosted: Setup-Schritt setzt CONTAINER_HOST=unix:///run/podman/podman.sock + Job laeuft weiter
+   (podman rootful funktioniert). Job-Rot nur wegen "Resolve HA group" exit 2 — Branch-Name "work-podman-gh" kein
+   erlaubter HA-Gruppenname (Dispatch-Artefakt, kein Podman-Fehler). Merge-Status wie #1243: native PR-Gate (Rule 7),
+   nicht Code-Fehler.
