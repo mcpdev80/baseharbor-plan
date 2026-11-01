@@ -50,9 +50,11 @@ Both `atomic/docker/lifecycle` and `atomic/podman/lifecycle` gates are in the tr
 
 ## Handoff
 
-- Codex post: `8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY gate-map: <actual 40-hex SHA + PR# + which file classes mapped>"`
+- Codex post: `8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY gate-map: 9581193d internal/runtime/docker_engine.go, openbao_runtime_prepare.go, docker_engine_test.go → area=\"runtime-docker-engine\", selected_gates=[\"atomic/docker/lifecycle\"], pytest 38/38 PASS, docker_engine path resolved statt unknown impact"` → ✓ posted
 - Evidence path: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-11-01/gate-map/`
 - Lane DONE: `gate-map worker lane DONE`
+- Commit SHA: `9581193d` on branch `work/gate-map`
+- PR: to be created from `work/gate-map` → `origin/develop`
 
 ### Verification Output
 
