@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 0 |
 | blocked | 6 |
 | ready | 0 |
@@ -24,6 +24,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
+| [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
 
 ## Ready for review
 
@@ -58,4 +59,4 @@ None.
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))
 - [backlog](../releases/backlog.md): Explicitly unscheduled work — 6 open, 1 closed ([view](releases/backlog.md))
 - [maintenance](../releases/maintenance.md): Repository maintenance outside releases — 0 open, 1 closed ([view](releases/maintenance.md))
-- [triage](../releases/triage.md): Open work without a release decision — 1 open, 0 closed ([view](releases/triage.md))
+- [triage](../releases/triage.md): Open work without a release decision — 2 open, 0 closed ([view](releases/triage.md))
