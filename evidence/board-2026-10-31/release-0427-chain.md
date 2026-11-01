@@ -10,3 +10,8 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
 ## #1160 dep-bump (2026-11-01): rebased 6389342d, build/test clean, mergeable; aggregate red nur wg.
    native-HA-skipped/coverage (dasselbe Endpoint/CI-Gate-Loch). Wartet auf Endpoint-Fix + CI-Etablierung wie der Rest.
 ## #1243 broker+s3 acceptance GH-hosted (2026-11-01, verified self-hosted=0, mergeable=true; native green gated on endpoint fix)
+## #1240 sslmode regression-guard ACCEPTED (2026-11-01, coord eigenverifiziert): neuer Head 116adb3d auf
+   work/o1249b-openbao-cauth; additive openbao_sslmode_guard_test.go (+84, liest echte Quelle, lehnt off/trust/
+   verify-none/disable ab, verlangt positiv verify-ca im Code + Init-Skript). Coordinator-Run: go test PASS (0.009s).
+   review-A Rezept Pkt2 damit erfuellt; Pkt1 (coverage-resolved) bleibt am Endpoint-Gate haengen. PR #1240 =
+   CODE-ready, mergeable nur nach echtem gruuen GH-hosted native-qualification-Lauf.
