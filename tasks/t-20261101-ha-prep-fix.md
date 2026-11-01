@@ -7,7 +7,7 @@ version: ""
 parent: ""
 owner: "ha-prep-fix worker (ornith1.5)"
 priority: ""
-depends_on: ["t-20261017-release-0-4-27-updates"]
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1254]
 sources: [mcpdev80/baseharbor#1254]
@@ -27,6 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1254", "https://github.c
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** ha-prep-fix worker (ornith1.5)  
 **Priority:** not set  
 **PRs:** [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254)  
