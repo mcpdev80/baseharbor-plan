@@ -48,6 +48,64 @@ Both `atomic/docker/lifecycle` and `atomic/podman/lifecycle` gates are in the tr
 - All existing tests pass
 - New test `test_docker_engine_path_classifies_to_lifecycle_gate` validates that `internal/runtime/docker_engine.go` → `coverage_status='resolved'`, selected_gates contains `'atomic/docker/lifecycle'`
 
+## Round 2 — CLI *_engine.go + podman test (A/B only)
+
+### Changes to `scripts/pr-gate-plan.py`
+
+Added TWO new classification branches BEFORE the existing `cmd/baha/` catch-all:
+
+**Branch A: `cmd/baha/*_engine.go`**
+```python
+elif path.startswith('cmd/baha/') and path.endswith('_engine.go'):
+    area = 'cli-engine-runtime-impact'
+    require(CODE_CHECKS)
+    require(CLI_CHECKS)
+    selected.add('atomic/docker/lifecycle')
+    selected.add('atomic/podman/lifecycle')
+```
+
+**Branch B: `cmd/baha/docker_engine_podman_test.go`**
+```python
+elif path == 'cmd/baha/docker_engine_podman_test.go':
+    area = 'cli-engine-runtime-impact'
+    require(CODE_CHECKS)
+    require(CLI_CHECKS)
+    selected.add('atomic/docker/lifecycle')
+    selected.add('atomic/podman/lifecycle')
+```
+
+### Rationale for A/B
+
+- `cmd/baha/docker_engine.go` is the CLI endpoint that calls the runtime and binds Docker/Podman engine observations to the Compose backend. It is a true runtime-mutation surface.
+- Both Docker and Podman/Quadlet runners are affected — hence BOTH lifecycle gates.
+- The new test file `docker_engine_podman_test.go` exercises both runners in a single dedicated test.
+
+### C/D/F/G Intentionally NOT Mapped
+
+- **C**: Workflow files → would need real HA-run qualification, not a table-based "resolved" blanket
+- **D**: CI-executor files → same — real runs needed
+- **F**: Dependency changes → same
+- **G**: Binding changes → same
+
+Mapping these via a table-based "resolved" classification would be a **gate-strengthening violation**. They require real green native Targeted HA runs for qualification.
+
+### Test Results
+
+- 5 new `CliEngineMappingTests` PASS:
+  1. `docker_engine.go` → resolved + both lifecycle gates
+  2. `docker_engine_podman_test.go` → resolved + both lifecycle gates
+  3. Fail-closed: docker_engine.go + manifest.go → unresolved
+  4. `main.go` → unresolved (catch-all, not *_engine.go)
+  5. Missing podman gate → unresolved (fail-closed)
+- All 33 existing MappingTests PASS
+- All 5 existing RuntimeDockerEngineMappingTests PASS
+- **Total: 43/43 tests PASS, 0 failures**
+
+### CI Status
+
+- PR #1246 checks running — `ci-planner` area → only CI_CHECKS (pr-planner-tests, ci-policy, ci-executor-verifier-tests, receipt-execution-tests), no native runtime gates triggered
+- "Trusted Plan" check already passed
+
 ## Handoff
 
 - Codex post: `8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY gate-map: 9581193d internal/runtime/docker_engine.go, openbao_runtime_prepare.go, docker_engine_test.go → area=\"runtime-docker-engine\", selected_gates=[\"atomic/docker/lifecycle\"], pytest 38/38 PASS, docker_engine path resolved statt unknown impact"` → ✓ posted
