@@ -10,7 +10,7 @@ korrigierte Basis heben und die Kette beweisen. Keine neuen Gates, keine Feature
   diff-resolver (behoben in #1251 = d56e9ddd, noch NICHT auf develop).
 - Basis = develop (437358e4) + diff-resolver-fix (d56e9ddd).
 - Branch `work/baseline-1240` ab d56e9ddd; #1240-Produkt-Diff (116adb3d gegen seinen alten Base
-  cb6b7387, `internal/`, 3 Dateien) als EINEN Applikatifs-Commit (kein Merge-Commit) aufd56e9ddd ziehen.
+  cb6b7387, `internal/`, 3 Dateien) als EINEN Applikations-Commit (kein Merge-Commit) auf d56e9ddd ziehen.
 - PR #1252 gegen develop eröffnen; #1240 als "superseded by #1252" markieren (Referenz-Kommentar,
   nicht.closeen — erst nach Grün des Nachfolgers).
 - Eigenes-Run-Pflicht: kompletten PR-Lauf bis terminal beobachten; 'PR Selected Checks' SUCCESS.
