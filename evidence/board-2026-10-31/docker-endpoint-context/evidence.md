@@ -8,12 +8,12 @@ Write-set kept: internal/runtime/docker_engine.go + internal/runtime/docker_engi
 
 ## PLAN
 
-- [x] 0. Read mission, create evidence file + native todo plan, verify worktree/branch/base SHA
-- [x] 1. Reproduce: current resolver hardcodes unix:///run/user/<uid>/docker.sock for the "default" context and fails closed there (docker_engine.go old ~Z105)
-- [x] 2. Implement: endpoint follows the ACTIVE docker context / DOCKER_HOST (rootful OR rootless per host facts); fail-closed preserved for every configured selection; no engine-kind fallback
-- [x] 3. Tests: go build ./... PASS; go vet ./... PASS; go test ./internal/runtime/... PASS (26 subtests incl. GH-runner-host simulation); source-readability-audit PASS
-- [x] 4. Commit c201c516 on work/docker-endpoint-context, pushed to origin (ls-remote verified below)
-- [x] 5. Handoff: END_CODE_READY posted; native docker HA runs on PR CI (Eigenes-Run-Pflicht: watcher on run 41264295964, result appended here)
+- 0. Read mission, create evidence file + native todo plan, verify worktree/branch/base SHA
+- 1. Reproduce: current resolver hardcodes unix:///run/user/<uid>/docker.sock for the "default" context and fails closed there (docker_engine.go old ~Z105)
+- 2. Implement: endpoint follows the ACTIVE docker context / DOCKER_HOST (rootful OR rootless per host facts); fail-closed preserved for every configured selection; no engine-kind fallback
+- 3. Tests: go build ./... PASS; go vet ./... PASS; go test ./internal/runtime/... PASS (26 subtests incl. GH-runner-host simulation); source-readability-audit PASS
+- 4. Commit c201c516 on work/docker-endpoint-context, pushed to origin (ls-remote verified below)
+- 5. Handoff: END_CODE_READY posted; native docker HA runs on PR CI (Eigenes-Run-Pflicht: watcher on run 41264295964, result appended here)
 
 ## Findings (step 1)
 

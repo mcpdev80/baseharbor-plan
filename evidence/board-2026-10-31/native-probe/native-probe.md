@@ -5,21 +5,21 @@ Date: 2026-11-01
 Goal: BEWEISEN, dass der native Docker-Durchspiel-Lauf auf GitHub-hosted mit Endpoint-Fix #1245 (head c201c516) + System-daemon-Skript #1239 (work/gh-ci-core head 486abbca) ECHT GRUEN wird. Kein Produkt-PR; PRUEF-Kandidat + Push-Mode 'Targeted HA · docker'.
 
 ## PLAN
-- [x] 0. Todo-Plan in nativem Tool + hier angelegt; Worktree und Baseline verifiziert
+- 0. Todo-Plan in nativem Tool + hier angelegt; Worktree und Baseline verifiziert
       (Hinweis: natives Todo-/Task-Tool ist in dieser Session nicht verfigbar — opencode-API hat keinen /todo-Endpunkt,
       codeman task ist die Ralph-Queue, nicht das Session-Todo. Deshalb wird dieser PLAN-Checkliste hier gefuehrt,
       Schritt-fuer-Schritt synchron gehalten.)
-- [x] 1. fetch origin develop, pull/1245/head, pull/1239/head, work/gh-ci-core — SHAs bestätigt:
+- 1. fetch origin develop, pull/1245/head, pull/1239/head, work/gh-ci-core — SHAs bestätigt:
       - pr-1245 head = c201c51624300206a00226da88afed5e68abaa86 (fix(runtime): resolve the ACTIVE Docker context …)
       - work/gh-ci-core head = 486abbca1b298b4980912ddaa94565add718f5e5 (#1239, ci.yml + ci-core-rootless-runtime.sh)
       - origin/develop = cb6b73875f478b6be5624412fb9f4c3695e51518
-- [x] 2. Merge --no-ff pr-1245 in probe/int0427 -> 049adc0b61e85c9d5064812ebab88a9f3d89a5c6 (nur internal/runtime/docker_engine{,_test}.go, clean)
-- [x] 3. Merge --no-ff work/gh-ci-core -> 0f6c5dab611741ae17f7af779eeeae1ae9786242 (.github/workflows/ci.yml, nextjs-greenfield-e2e.yml, scripts/ci-core-rootless-runtime.sh, scripts/test_ci_docker_runtime_doctor.py, clean; disjunkte Write-Sets bestaetigt)
-- [x] 4. Lokale Checks: go vet ./internal/runtime OK; go test ./internal/runtime -run 'Docker|Endpoint|Context' ok; ci.yml YAML-parse OK
-- [x] 5. Push probe/int0427:refs/heads/runtime-validation/ha/control-plane/docker/int0427 (SAUBER = 0f6c5dab, damit 'Prepare verified rootless runtime' = #1239-Skript laeuft)
-- [x] 6. Run bis terminaler Zustand beobachten; Run-ID + Status + Fehlerzeilen gesichert (0f6c5dab -> 41266351533, r2 -> 41303585799)
-- [x] 7. Runtime-Validation-Ref r2 nach terminalem Zustand geloescht; alter int0427-Ref nicht heimlich entfernt (fremde Lane)
-- [x] 8. Handoff per codeman agent post
+- 2. Merge --no-ff pr-1245 in probe/int0427 -> 049adc0b61e85c9d5064812ebab88a9f3d89a5c6 (nur internal/runtime/docker_engine{,_test}.go, clean)
+- 3. Merge --no-ff work/gh-ci-core -> 0f6c5dab611741ae17f7af779eeeae1ae9786242 (.github/workflows/ci.yml, nextjs-greenfield-e2e.yml, scripts/ci-core-rootless-runtime.sh, scripts/test_ci_docker_runtime_doctor.py, clean; disjunkte Write-Sets bestaetigt)
+- 4. Lokale Checks: go vet ./internal/runtime OK; go test ./internal/runtime -run 'Docker|Endpoint|Context' ok; ci.yml YAML-parse OK
+- 5. Push probe/int0427:refs/heads/runtime-validation/ha/control-plane/docker/int0427 (SAUBER = 0f6c5dab, damit 'Prepare verified rootless runtime' = #1239-Skript laeuft)
+- 6. Run bis terminaler Zustand beobachten; Run-ID + Status + Fehlerzeilen gesichert (0f6c5dab -> 41266351533, r2 -> 41303585799)
+- 7. Runtime-Validation-Ref r2 nach terminalem Zustand geloescht; alter int0427-Ref nicht heimlich entfernt (fremde Lane)
+- 8. Handoff per codeman agent post
 
 ## Kandidat / Trigger
 - Kandidat-SHA: 0f6c5dab611741ae17f7af779eeeae1ae9786242

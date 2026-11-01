@@ -2,12 +2,12 @@
 
 ## PLAN
 
-- [x] Step 0: Read mission file, set up evidence and todo
-- [x] Step 1: Create `scripts/ci-podman-gh-runtime.sh` — rootful Podman setup on GH-hosted ubuntu runner
-- [x] Step 2: Update Targeted-HA-podman Job in `.github/workflows/ci.yml` — point Prepare step to new script
-- [x] Step 3: actionlint + YAML validation
-- [x] Step 4: VALIDATION — push to `runtime-validation/ha/podman/work-podman-gh` triggered CI run
-- [x] Step 5: Push to `work/podman-gh`, open PR against develop, report END_DONE
+- Step 0: Read mission file, set up evidence and todo
+- Step 1: Create `scripts/ci-podman-gh-runtime.sh` — rootful Podman setup on GH-hosted ubuntu runner
+- Step 2: Update Targeted-HA-podman Job in `.github/workflows/ci.yml` — point Prepare step to new script
+- Step 3: actionlint + YAML validation
+- Step 4: VALIDATION — push to `runtime-validation/ha/podman/work-podman-gh` triggered CI run
+- Step 5: Push to `work/podman-gh`, open PR against develop, report END_DONE
 
 ## Evidence: Step 1 — New script `scripts/ci-podman-gh-runtime.sh`
 
