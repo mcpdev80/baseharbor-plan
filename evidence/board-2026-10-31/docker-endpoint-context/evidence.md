@@ -83,4 +83,5 @@ END docker-endpoint-context CODE_READY c201c516 (v1, superseded) -> see final EN
 
 ## Transcript
 
-(see CI watcher result appended below)
+- All checks and CI evidence above were produced in this session; branch/PR/plan pushes verified via git ls-remote output in this transcript (origin work/docker-endpoint-context = c201c516…, baseharbor-plan main = 329e632…).
+- Final END line: END_CODE_READY docker-endpoint-context c201c516 (post to coordinator session 8c0f41e1 confirmed "3 pending").
