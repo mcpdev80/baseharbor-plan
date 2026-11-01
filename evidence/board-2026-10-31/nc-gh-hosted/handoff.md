@@ -8,8 +8,8 @@ Write-set: nur .github/workflows/source.yml, .github/workflows/release-integrati
 2. [x] source.yml: Rootless-Vorbereitung (loginctl-linger / systemctl --user show-environment) für GH-hosted umstellen (transport + enrollment Jobs)
 3. [x] release-integration.yml: gleiche Umstellung (qualification Job)
 4. [x] actionlint + YAML-Check (beide grün)
-5. [ ] Wenn möglich: workflow_dispatch auf Branch, Run beobachten (Eigenes-Run-Pflicht): GH-hosted, podman läuft
-6. [ ] Evidence + STATUS aktualisieren, push, END posten
+5. [x] workflow_dispatch auf Branch observiert (Eigenes-Run-Pflicht): GH-hosted, podman läuft (rootful, rootless=true, cgroup_manager=systemd)
+6. [x] Evidence + PR + push + ls-remote, END posten
 
 ## Befunde Schritt 0
 - Branch work/nc-gh-hosted = origin/main b39f890ae541134c27f186c966cd232a3ec13d58, noch nicht auf Remote (git ls-remote leer).
@@ -27,8 +27,25 @@ Write-set: nur .github/workflows/source.yml, .github/workflows/release-integrati
 - Kein Code geändert (Go/tests unangetastet).
 
 ## Checks
-- python3 yaml.safe_load: beide Dateien OK.
-- actionlint .github/workflows/*.yml: ohne Befunde.
+- python3 yaml.safe_load: beide Dateien OK. actionlint .github/workflows/*.yml: ohne Befunde.
+
+## Hosting-Nachweis (Eigenes-Run-Pflicht, alle selbst beobachtet bis terminal)
+- Kandidaten-Shas: 3de8eb542217dfe6665e57b9ec41d8c98e613c9f, final 4aa41acccb58114e6aa3084474142f77f2b1b124 (PR #17 HEAD).
+- git ls-remote origin work/nc-gh-hosted -> 4aa41acccb58114e6aa3084474142f77f2b1b124 (Zeuge im Transcript).
+- Run 41261879476 (workflow_dispatch, runtime=podman, @3de8eb5): jobs: transport·podman SUCCESS (1m54s, ubuntu-24.04), source SUCCESS, enrollment skipped. TestConnectorRuntimeTransport PASS (70.41s) mit podman auf GH-hosted, ohne loginctl-Dance.
+- Run 41262442519 (workflow_dispatch, runtime=podman, @4aa41ac): SUCCESS. Prepare-Schritt-Log: "::notice podman GH-hosted mode: default (rootful) OK" und "runtime cgroup_manager=systemd rootless=true" => podman läuft GH-hosted nativ (vorinstalliert, apt-Fallback nicht nötig), kein cgroupfs-Fallback nötig.
+- PR-Run 41262420312 @4aa41ac: source check pass; transport/enrollment-Jobs korrekt skipped (push-only ifs).
+- Kann-jeder-Schritt-Check: keine Tokens/Pins/ENV durch diese Lane gesetzt; Auth kommt vom System-gh des Hosts, dispatch nur `gh workflow run -f runtime=podman` (Pflichtinput).
+
+## Befunde/Grenzen (nicht blockierend)
+- Der GH-hosted podman-Lauf ist rootless im podman-Sinne (rootless=true, geteilte userns des Hosts nutzbar für Container), aber der user-Session-Dienst (loginctl/user@.service/dbus show-environment) ist auf GH-hosted NICHT verfügbar — genau der Dance ist raus.
+- release-integration.yml "Prepare verified rootless Docker" ruft baseharbor/scripts/ci-core-rootless-runtime.sh (sysctl-Lift + dockerd-rootless-setuptool — auf GH-hosted nach gh-ci-core empirisch unmöglich). Datei liegt in baseharbor/* = anderes Write-Set, hier nur dokumentiert; Docker-Pfad des qualification-Jobs nutzt danach regulär `docker build/pull` (rootful, funktioniert laut gh-ci-core run 41255597778).
+- enrollment-Job-Asserts erwarten wörtlich "rootless Quadlet"-Stringe in Core-Go-Tests; falls Go-Code das Wort/Verhalten an rootful anpasst, ist das ein Interface-Thema außerhalb dieses Write-Sets (Missionspunkt 4: kein Code-Change hier).
+
+## repo-rule compliance
+- Write-Set eingehalten: nur .github/workflows/source.yml + release-integration.yml (diff-Stat: 2 files).
+- Kein baseharbor/* angefasst; nc-3/t-20261018-r27 Claims unangetastet (andere Lanes).
+- Geflusste Änderungen gezielt committet (git add <datei>, kein -A).
 
 ## END
-(offen — END_DONE|END_BLOCKED nc-gh-hosted: <SHA + PR# + podman GH-hosted status>)
+END_DONE nc-gh-hosted: 4aa41acccb58114e6aa3084474142f77f2b1b124, PR #17 (baseharbor-node-connector), podman GH-hosted: VERIFIZIERT GRÜN (dispatch run 41262442519: default/rootful OK, rootless=true, cgroup_manager=systemd; rootless-Annahmen und loginctl-Dance raus; transport-Gate auf GH-hosted PASS 70.4s).
