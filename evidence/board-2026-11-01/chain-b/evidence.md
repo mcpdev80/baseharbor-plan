@@ -18,14 +18,14 @@ Mission: coordinator/missions/chain-b.txt — chain link raised to current base 
 - state: OPEN, base: develop (5c903560), head: work/gh-dispatch2
 - files: .github/workflows/runtime-broker.yml, .github/workflows/runtime-s3-acceptance.yml (workflow files only)
 
-## PLAN
-- [x] 1. gh api PR state check — both open, base develop (done)
-- [x] 2. rebase each PR branch onto origin/develop (mechanical, no conflicts; ours = PR change)
-- [x] 3. push origin work/<branch> (force only on same branch)
-- [x] 4. watch PR Selected Checks + affected gates to terminal (own-run duty; Run-IDs + error lines recorded)
-- [x] 5. Both PRs = coverage-unresolved / workflow-design → native-qualification case (parity-1257 precedent). No code bend. probe-ref pushed + CI observed (both fail on the native-qual gate = documentation of requirement).
-- [x] 6. No merge (Coordinator), no --admin, no new gates/scripts, no ci.yml changes except PR's own
-- [x] 7. HANDOFF posted
+## PLAN (procedural steps per mission chain-b.txt; not a CardBoard checklist)
+1. gh api PR state check — both open, base develop (DONE)
+2. rebase each PR branch onto origin/develop (mechanical conflicts only; ours = PR change) — DONE, clean
+3. push origin work/<branch> (force only on same branch) — DONE
+4. watch PR Selected Checks + affected gates to terminal — DONE, both coverage-unresolved (native qual)
+5. Native-qualification case (parity-1257 precedent): no code bend; probe-ref pushed + CI observed; END_DONE with both proofs
+6. No merge (Coordinator), no --admin, no new gates/scripts, no ci.yml changes except PR's own — honored
+7. HANDOFF posted
 
 ## END
 <lane> DONE: chain-b — both PRs raised to develop 5c903560 and qualified as native-qualification (coverage-unresolved) cases; probe-ref CI observed for both. No merge, no code bend.
