@@ -1,0 +1,7 @@
+[
+  {"title": "Plan 0: Mission lesen, Evidence anlegen", "done": false},
+  {"title": "Plan 1: PR #1247 (work/acc-podman) — rebase + push + CI", "done": false},
+  {"title": "Plan 2: PR #1244 (work/podman-gh) — rebase + push + CI", "done": false},
+  {"title": "Plan 3: PR #1241 (work/fix-engine-detect) — rebase + push + CI", "done": false},
+  {"title": "Letzter: codeman post + END line in evidence", "done": false}
+]
