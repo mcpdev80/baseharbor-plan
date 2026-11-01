@@ -38,3 +38,6 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
    blockiert userns real) -> hostDefaultEndpoint waehlt toten /run/user/1001 statt System-daemon. endpoint-refine
    (qwen) fixt das in #1245 + erzwingt gruenen nativen docker-HA-Lauf auf develop+fix+#1239. PODMAN ist bereits
    BEWIESEN gruen auf GH-hosted (Targeted runtime podman=success, ubuntu-26.04, run 41267346809).
+## Node-Connector 100% GH-hosted BESTAETIGT (2026-11-01, coord-verifiziert): alle runs-on GH-hosted; der
+   loginctl/rootless-Code steckt NUR im `RUNNER_ENVIRONMENT != github-hosted`-Fallback (laeuft auf GH-hosted nie);
+   GH-Pfad nutzt rootful/cgroupfs podman + fails closed (exit1). nc-Repo: 0 self-hosted Runner. nc-Cutover KOMPLETT.
