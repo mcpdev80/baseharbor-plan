@@ -6,11 +6,11 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 
 | Repository | Open issues | Mapped |
 | --- | ---: | ---: |
-| mcpdev80/baseharbor | 83 | 83 |
+| mcpdev80/baseharbor | 85 | 85 |
 | mcpdev80/baseharbor-demo | 1 | 1 |
 | mcpdev80/baseharbor-console | 2 | 2 |
 | mcpdev80/baseharbor-node-connector | 1 | 1 |
-| **Total** | **87** | **87** |
+| **Total** | **89** | **89** |
 
 ## Dispositions
 
@@ -23,7 +23,7 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | release+task | 1 |
 | roadmap | 1 |
 | split | 2 |
-| task | 65 |
+| task | 67 |
 
 ## Source to destination
 
@@ -116,5 +116,7 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | [baseharbor-console#1](https://github.com/mcpdev80/baseharbor-console/issues/1) | epic | [epics/console-1-console-product-plan.md](../epics/console-1-console-product-plan.md) |
 | [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2) | task | [tasks/console-2-live-core-adapter-workflow-proofs.md](../tasks/console-2-live-core-adapter-workflow-proofs.md) |
 | [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3) | split | [tasks/nc-3-core-enrollment-remote-runtime-acceptance.md](../tasks/nc-3-core-enrollment-remote-runtime-acceptance.md), [tasks/t-20261018-r27-node-service.md](../tasks/t-20261018-r27-node-service.md), [tasks/t-20261018-r27-node-streams.md](../tasks/t-20261018-r27-node-streams.md), [tasks/t-20261018-r27-node-trust.md](../tasks/t-20261018-r27-node-trust.md) |
+| [baseharbor#1251](https://github.com/mcpdev80/baseharbor/issues/1251) | task | [tasks/t-20261101-plan-card-fix-diff-base.md](../tasks/t-20261101-plan-card-fix-diff-base.md) |
+| [baseharbor#1253](https://github.com/mcpdev80/baseharbor/issues/1253) | task | [tasks/t-20261101-openbao-1240.md](../tasks/t-20261101-openbao-1240.md) |
 
 Open pull requests at capture (18) are inspected separately in [pull-requests.md](pull-requests.md); they stay in their code repositories.

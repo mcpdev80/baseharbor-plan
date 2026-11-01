@@ -6,8 +6,8 @@
     "mcpdev80/baseharbor-console",
     "mcpdev80/baseharbor-node-connector"
   ],
-  "open_issue_count": 87,
-  "mapped_count": 87,
+  "open_issue_count": 89,
+  "mapped_count": 89,
   "issues": [
     {
       "source": "mcpdev80/baseharbor#100",
@@ -1442,6 +1442,34 @@
         },
         {
           "path": "tasks/t-20261018-r27-node-trust.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#1251",
+      "title": "ci(diff-resolver): resolve stale event-base and linear-rebase integration checks (fail-closed preserved)",
+      "source_updated": "2026-11-01T13:54:54Z",
+      "snapshot": "migration/source-snapshot/baseharbor/1251.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/t-20261101-plan-card-fix-diff-base.md",
+          "kind": "task",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "source": "mcpdev80/baseharbor#1253",
+      "title": "Planning task t-20261101-openbao-1240 — OpenBao→Postgres TLS/SASL wiring (baseline)",
+      "source_updated": "2026-11-01T14:06:21Z",
+      "snapshot": "migration/source-snapshot/baseharbor/1253.json",
+      "disposition": "task",
+      "destinations": [
+        {
+          "path": "tasks/t-20261101-openbao-1240.md",
           "kind": "task",
           "role": "primary"
         }

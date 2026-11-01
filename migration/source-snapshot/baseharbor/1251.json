@@ -1,0 +1,15 @@
+{
+  "source": "mcpdev80/baseharbor#1251",
+  "number": 1251,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/1251",
+  "title": "ci(diff-resolver): resolve stale event-base and linear-rebase integration checks (fail-closed preserved)",
+  "state": "closed",
+  "author": "mcpdev80",
+  "labels": [],
+  "milestone": null,
+  "assignees": [],
+  "created_at": "2026-11-01T13:12:54Z",
+  "updated_at": "2026-11-01T13:54:54Z",
+  "body": "## diff-base — PR diff-base Resolver: stale event-base + linear-rebase Defekt behoben\n\nZwei strukturelle Defekte machten `PR Selected Checks` blockierend mit `integration_sha_mismatch` — auf **jeder** PR, deren `develop` weitergelaufen war (u. a. #1240). Kein Gate-Bypass, Fail-Closed unverändert.\n\n### Root-Case (a) STALE EVENT-BASE\n- `ci.yml` Plan-Job nutzt `github.event.pull_request.base.sha` als `target_base`. GitHub aktualisiert die Merge-Ref (`github.sha`) aber gegen den **aktuellen** develop.\n- Live #1240: merge-ref `a84b71e2` = Eltern `[437358e4 (alt-develop), b8446716 (head)]`, event base.sha = `cb6b738` (stale). Eltern-Vergleich `parents == [integration, target, head]` gegen das feste Event-Feld scheitert sofort, sobald develop weiterläuft.\n\n### Root-Case (b) LINEARER FALL (Rebase)\n- Nach Rebase ist head selbst Nachkomme von develop; GitHub setzt `github.sha == head` (kein Merge-Commit) → Elternliste hat 1 Element → immer `integration_sha_mismatch`, obwohl base-ancestry sauber.\n\n### Fix\n- **Autoritative Basis = Target-Branch-TIP** (`origin/<base.ref>`), GEGEN DEN GitHub die Merge-Ref gebaut hat — nicht das stale event base.sha. Der base-parent B muss gefetchter tip sein oder Vorfahr davon UND Vorfahr von event base.sha (divergent → blockt).\n- **Linear**: `github.sha == head`, single-parent, ancestry-check auf `base_tip` + event base → Diff = `merge_base(==base)..head`, merge-tree conflict-check bleibt aktiv.\n- **Fail-Closed unverändert**: ≥3 Eltern / head fehlt / B divergent / Geschichte unvollstaendig → `integration_sha_mismatch`.\n- `ci.yml` Plan-Job holt `refs/heads/<base.ref>` und übergibt `--base-tip`.\n\n### Verification (eigene Runs)\n- `test_pr_diff_base.py`: **17/17 OK** (13 existend + 4 neu: linear rebased resolves, develop-forward mergeref resolves, third-parent fail-closed, wrong-head fail-closed). Reversed-parents nun order-agnostic (Contract-Änd.).\n- `test_pr_gate_plan.py`: 5/5 OK. YAML parses.\n- **Live #1240** `a84b71e2` (Eltern `[437358e4, b8446716]`) + `--base-tip origin/develop` → `broad_required=false`, 3 changes.\n\n### Write-Set (exklusiv)\n`scripts/pr-diff-base.py`, `scripts/test_pr_diff_base.py`, Plan-Job-Abschnitt `.github/workflows/ci.yml`. Kein pr-gate-plan Gate-Mapping, kein Produkt-Go, kein Push auf develop. Merge = Coordinator-Schritt nach Abnahme.\n",
+  "comments": []
+}
