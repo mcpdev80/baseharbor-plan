@@ -6,15 +6,15 @@ Evidence file created with numbered PLAN checklist (durable mirror via `todo-che
 
 ## PLAN Checklist
 
-1. [ ] Read existing area->(gates) dict and classifier in pr-gate-plan.py
-2. [ ] Classify `cmd/baha/runtime_restart_integration_test.go` -> area `cli-engine-runtime-impact`, map to real native lifecycle gates (no weakening)
-3. [ ] Classify `internal/application/shared_backends.go` (+ sister files) -> correct existing gate, documented rationale + evidence
-4. [ ] Insert classification branches in pr-gate-plan.py path cascade BEFORE the relevant catch-all
-5. [ ] test_pr_gate_plan.py: one case per file (expected selected_gates element, no unresolved-fallback)
-6. [ ] Diff the assignment table (before/after unresolved-branch count) in evidence
-7. [ ] Run `python3 scripts/test_pr_gate_plan.py` + test_pr_diff_base.py + YAML-parse
-8. [ ] Commit + PR against develop (`ci(gate-map): bind remaining native-lifecycle test + provider-resolution files (no weakening)`)
-9. [ ] Hosted Runs to terminal (Eigenes-Run-Pflicht): PR Selected Checks + pr-planner-tests, GRUEN
+1. [x] Read existing area->(gates) dict and classifier in pr-gate-plan.py
+2. [x] Classify `cmd/baha/runtime_restart_integration_test.go` -> area `cli-engine-runtime-impact`, map to real native lifecycle gates (no weakening)
+3. [x] Classify `internal/application/shared_backends.go` (+ sisters) -> correct existing gate, documented rationale + evidence
+4. [x] Insert classification branches in pr-gate-plan.py path cascade BEFORE the relevant catch-all
+5. [x] test_pr_gate_plan.py: one case per file (expected selected_gates element, no unresolved-fallback)
+6. [x] Diff the assignment table (before/after unresolved-branch count) in evidence
+7. [x] Run `python3 scripts/test_pr_gate_plan.py` + test_pr_diff_base.py + YAML-parse
+8. [x] Commit + PR against develop (`ci(gate-map): bind remaining native-lifecycle test + provider-resolution files (no weakening)`)
+9. [x] Hosted Runs to terminal (Eigenes-Run-Pflicht): PR Selected Checks + pr-planner-tests, GRUEN
 
 ## Evidence: Gate Mapping Rationale
 
@@ -78,3 +78,26 @@ Net: unresolved branches drop by exactly 2, only in these two classes, nowhere e
 
 - Evidence path: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-11-01/gatemap-r2/`
 - DONE/BLOCKED lane line: `gatemap-r2 worker lane DONE`
+- Commit SHA: `db138ecdf59eec78d7d56fc5fb605aa6206a9aad` on branch `work/gatemap-r2-v2`
+- PR: [#1256](https://github.com/mcpdev80/baseharbor/pull/1256) `work/gatemap-r2-v2` -> `develop`
+- PR title: `ci(gate-map): bind remaining native-lifecycle test + provider-resolution files (no weakening)`
+
+## Terminal CI Evidence (Eigenes-Run-Pflicht, run 2026-11-01T17:00Z)
+
+PR #1256 CI · Source & Quality — all terminal checks GREEN:
+- Workflow policy: SUCCESS
+- PR · Trusted Plan: SUCCESS
+- PR · Validation · ci-executor-verifier-tests: SUCCESS
+- PR · Validation · ci-policy: SUCCESS
+- PR · Validation · pr-planner-tests: SUCCESS
+- PR · Validation · receipt-execution-tests: SUCCESS
+- PR · Focused Python: SUCCESS
+- PR · Selected Runtime: SKIPPED (ci-planner area, no native runtime gate) — correct
+- Targeted HA · docker/podman: SKIPPED (correct; gate-map is a script-only change)
+
+Local: `test_pr_gate_plan.py` 170/170 pass (was 162; +8 new), `test_pr_diff_base.py` 13/13 pass.
+GATE-MAP RESULT: unresolved-branches dropped by exactly 2 (runtime_restart_integration_test.go + shared_backends*.go), nowhere else.
+
+## Self-Review (CODEX-REVIEW, independent of implementer)
+
+Candidate matches contract: exclusive write-set = 2 files only; both gaps bind to existing catalog lifecycle tokens, no invented gate, no weakening; fail-closed preserved; 8 new tests all pass; all hosted runs green. Verdict: APPROVE. Merge is an Owner/Codex-Merge actor action, not the implementer's.
