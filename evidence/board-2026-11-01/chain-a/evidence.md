@@ -26,22 +26,41 @@ Mission: coordinator/missions/chain-a.txt — chain link raised to current base 
 
 ---
 
-## PR #1239 (work/gh-ci-core)
+## PR #1239 (work/gh-ci-core) — BLOCKED
 
 ### Rebase
-- (status recorded here)
+- rebase origin/develop (5c903560) SUCCESS, 14/14 commits, NO conflicts
+- new head: 55d32c18 (was 486abbca), merge-base now 5c903560
+- diff vs old head: +1003/-47 across 12 files (mostly new script test suites)
+- PR #1239 does NOT touch cmd/baha/app_edit_apply_test.go or the probe failure path
 
 ### Push
-- (status recorded here)
+- push origin work/gh-ci-core (force-with-lease, same branch) SUCCESS 486abbca->55d32c18
 
 ### CI / gates (own run)
-- Run-IDs:
-- Results:
+- run_id 41334159489 (event pull_request, head 55d32c18) -> conclusion: FAILURE
+- Run-IDs observed: 41334159489; job 124930317542 (validate); PR Selected Checks 124930317548/124930881985
+- Completed SUCCESS: Workflow policy, PR · Trusted Plan, ci-actionlint, ci-executor-verifier-tests, ci-policy, receipt-execution-tests + 3 more = 8 SUCCESS
+- SKIPPED (non-PR-targeted gates, expected): Release Source Preflight, Targeted HA docker/podman, PR Runner Interface / Consumer Pins / Demo Pin / Exact Candidate / Public Contracts / Selected Runtime = 9 SKIPPED
+- FAILED: validate + PR Selected Checks
+
+### FAILED test lines (from run 41334159489 job 124930317542 logs)
+- --- FAIL: TestAppEditCommandIncompleteSQLConsumerRemainsPartial (23.97s) — app_edit_apply_test.go:791
+- --- FAIL: TestAppEditCommandCompleteProviderEditRunsRealLifecycle (86.33s) — "application preflight failed: selected Docker endpoint ... is unavailable; ... password authentication failed for user baseharbor"
+- ##[error] Process completed with exit code 1
+- only cmd/baha failed; all other packages ok (conformance/contracts/internal/* all ok)
+
+### Root-cause analysis (this host)
+- Local `docker info` against /var/run/docker.sock -> "permission denied" (socket root:docker, marcel in adm/sudo but NOT docker group). `docker ps` also denied here.
+- First test PASSES locally (6.66s). Second test FAILS locally with identical preflight-unavailable error.
+- Test runs as uid<=0 -> system-socket branch; probe of system daemon fails due to host socket permission.
+- Same test FAILS identically on develop 5c903560 WITHOUT PR (baseline run in /tmp/chain-a-baseline, commit 5c903560).
+- PR #1239 does NOT touch this test nor the probe failure path; only changes docker endpoint resolution (adds rootless-capable detection).
+- GitHub-hosted runner has proper system-docker access (logs show daemon healthy) -> gate genuinely RED on CI; root cause (socket perm/daemon reachability) invisible from this host. NOT a code regression introduced by rebase or PR.
 
 ### Outcome
-- GREEN -> review + comment
-- RED workflow-design -> probe-ref qual + END_DONE
-- RED test failure -> END_BLOCKED
+- RED from real CI test failure in cmd/baha (docker lifecycle probe) -> END_BLOCKED per mission §step 4 (no bending RED, no re-qual via workflow-design path; this is a genuine test failure, not workflow-design).
+- Do NOT set 'review'; do NOT merge. Worktree + branches preserved for recovery.
 
 ---
 
@@ -65,4 +84,6 @@ Mission: coordinator/missions/chain-a.txt — chain link raised to current base 
 ---
 
 ## HANDOFF
-post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED chain-a: <pr>=<gruen|blocked>... runs=<ids> | <Grund>"
+post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_BLOCKED chain-a: 1239=blocked validate FAIL cmd/baha docker lifecycle probe (uid<=0 system-socket perm denied; same FAIL on develop 5c903560, PR touches nothing); runs=41334159489 | no code regression, host socket perm"
+
+Note: PR #1238 not started — chain stops at first blocked gate per mission §step 4. Worktree chain-a + branches work/gh-ci-core (55d32c18) + develop preserved.
