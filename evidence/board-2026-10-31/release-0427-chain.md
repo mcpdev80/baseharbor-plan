@@ -22,3 +22,9 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
    (podman rootful funktioniert). Job-Rot nur wegen "Resolve HA group" exit 2 — Branch-Name "work-podman-gh" kein
    erlaubter HA-Gruppenname (Dispatch-Artefakt, kein Podman-Fehler). Merge-Status wie #1243: native PR-Gate (Rule 7),
    nicht Code-Fehler.
+## Ruleset/Erzwingungs-Inventur (2026-11-01, BEWIESEN): baseharbor/develop hat GENAU 1 Required-Check
+   `PR Selected Checks` = ubuntu-latest (ci.yml:811) -> bereits GH-hosted, 0 umzustellen. main + nc: keine
+   Required-Checks (nc Rulesets [], Protection 404). self-hosted `validate` (ci.yml:275) ist push-only & NICHT
+   required. 3 online self-hosted Runner dienen nur noch PUSH/DISPATCH-Acceptance (podman-acceptance.yml:36 etc.)
+   -> die migrieren #1239/#1238/#1243/#1244. => ERZIEHUNGS-/Pflicht-Seite des Cutover ist faktisch erfuellt; der
+   Rest ist Coverage-Klassifizierung (gate-map) + echte native Laeufe. #1239 echt auf develop rebased (develop Ahn).
