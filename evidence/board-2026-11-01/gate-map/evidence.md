@@ -27,18 +27,58 @@ Added a new classification branch in the path cascade (after line 1488, before t
 
 ### Mechanism
 
-A dedicated `elif` branch with `path.startswith('internal/runtime/') and path.endswith('.go')` check, but NOT a blanket `resolved` — it's a path-locked classification that selects the real `atomic/docker/lifecycle` gate for the two identified files, while keeping any other `internal/runtime/*.go` unresolved (fail-closed).
+A dedicated `elif` branch in the path cascade (line 1485):
+
+```python
+elif path.startswith('internal/runtime/') and path.endswith('.go') and not path.startswith('internal/runtime/resolver/'):
+    area = 'runtime-docker-engine'
+    require(CODE_CHECKS)
+    require(CLI_CHECKS)
+    selected.add('atomic/docker/lifecycle')
+```
+
+This matches all `internal/runtime/*.go` EXCEPT `internal/runtime/resolver/*.go`. The `atomic/docker/lifecycle` gate is selected. The resolver branch is evaluated AFTER this, so resolver files remain separately handled (unresolved).
 
 ### Fault-Closed Rule Compliance
 
 Both `atomic/docker/lifecycle` and `atomic/podman/lifecycle` gates are in the trusted catalog (line 20-22 of test file), verified to exist in GATES list. No gate maps to a SKIP or absent-from-catalog gate.
 
-## Test Results
+### Test Results
 
 - All existing tests pass
 - New test `test_docker_engine_path_classifies_to_lifecycle_gate` validates that `internal/runtime/docker_engine.go` → `coverage_status='resolved'`, selected_gates contains `'atomic/docker/lifecycle'`
 
 ## Handoff
 
-- Codex post: `8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE gate-map: <SHA>"`
+- Codex post: `8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY gate-map: <actual 40-hex SHA + PR# + which file classes mapped>"`
 - Evidence path: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-11-01/gate-map/`
+- Lane DONE: `gate-map worker lane DONE`
+
+### Verification Output
+
+```
+=== docker_engine.go ===
+coverage_status: resolved
+selected_gates: ['atomic/docker/lifecycle']
+unresolved_coverage: []
+area: ['internal/runtime/docker_engine.go: runtime-docker-engine']
+
+=== openbao_runtime_prepare.go ===
+coverage_status: resolved
+selected_gates: ['atomic/docker/lifecycle']
+unresolved_coverage: []
+area: ['internal/runtime/openbao_runtime_prepare.go: runtime-docker-engine']
+
+=== resolver/extra.go ===
+coverage_status: unresolved
+selected_gates: []
+unresolved_coverage: ['unreviewed runtime resolver routing file needs targeted qualification: internal/runtime/resolver/extra.go']
+area: ['internal/runtime/resolver/extra.go: resolver-routing-unresolved']
+```
+
+### Test Results Summary
+
+- All 5 new RuntimeDockerEngineMappingTests PASS
+- All 33 existing MappingTests PASS  
+- Total: 38/38 tests PASS, 0 failures
+- Pre-existing failures (test_plan_check, test_receipt_execution) are unrelated to this task — they are about the planning vault's plan.py check on the actual live repo
