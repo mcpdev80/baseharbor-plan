@@ -71,3 +71,7 @@ Diese Annahmen sind **nicht fail-open**: ein fehlendes Setup bricht den CI mit e
 ---
 
 *Ende des Audits — 2026-11-01*
+
+---
+
+## END_DONE code-audit: 11 Befunde, kritischste top3: (1) ci-core-rootless-runtime.sh:11 sysctl apparmor_kernel, (2) docker_engine.go:85 hardcoded /run/user/{uid} socket, (3) ci-core-rootless-runtime.sh:8 sudo loginctl enable-linger
