@@ -23,7 +23,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261101-deps-gatemap-1160](../tasks/t-20261101-deps-gatemap-1160.md) | Gate-map: bind go.mod/go.sum to Go build-test gates | active | high | Ornith-Worker (lane deps-gatemap) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261101-deps-gatemap-1160](../tasks/t-20261101-deps-gatemap-1160.md) | Gate-map: bind go.mod/go.sum to Go build-test gates | active | high | Ornith-Worker (lane deps-gatemap) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1260](https://github.com/mcpdev80/baseharbor/pull/1260) |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
 | [t-20261101-p1242diag-gatemap-1259](../tasks/t-20261101-p1242diag-gatemap-1259.md) | CI: bind observability acceptance test to observability gates | active | high | Ornith-Worker (lane p1242diag) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1259](https://github.com/mcpdev80/baseharbor/pull/1259) |
 
