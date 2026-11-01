@@ -75,18 +75,63 @@ Der **inhaltliche Gate-Befund** ist dagegen korrekt aktiv: PR #1242 löst in
 ## Kein Ruleset-/Anzeigefehler
 `merge_base_sha`/`target_base_sha`/`integration_sha` im plan stimmen mit base/head/integration überein (Stale-Input-Assert ci.yml line 845 lief grün). `coverage_status`/`selected_gates` sind planner-seitig korrekt `unresolved`/leer. Es liegt **kein** Ruleset-Anzeige-/IF-Fehler vor.
 
-## Rezept (END_BLOCKED)
-Mission erlaubt nur einen minimalen Fix, **wenn** die Ursache eindeutig in `scripts/pr-gate-plan.py` liegt und **kein** `.github/workflows/ci.yml`-Stück anfasst.
+## Fix (mandate follow-up, done)
 
-Die Ursache (`cli-unresolved-runtime-impact` catch-all line 1473-1477) liegt formal in `scripts/pr-gate-plan.py`. Ein Fix wäre, `cmd/baha/app_observability_acceptance_test.go` wie `runtime_restart_integration_test.go` (line 1454) in ein reviewed-pattern aufzunehmen und auf die bestehenden atomaren native lifecycle-gates (`atomic/docker/lifecycle`, `atomic/podman/lifecycle`) zu binden — analog zur #1245-Fixzeile (ci.yml line 1454-1472), **ohne** neues Gate und ohne Abschwächung. Das ist jedoch eine **Owner-Entscheidung**: es verändert die Fail-closed-Policy des plan-job und berührt die `cli-unresolved-runtime-impact`-Strategie. Nach Mission-STOP (keine ci.yml-/Ruleset-Änderungen) bleibt der Fix auf `scripts/pr-gate-plan.py` begrenzt; ein solcher Change benötigt Review + PR + Planning-Abschluss, nicht dieses Diagnose-Lane.
+Add a branch BEFORE the catch-all at `scripts/pr-gate-plan.py` that binds
+`cmd/baha/app_observability_acceptance_test.go` to the existing catalog
+observability gates (`atomic/docker/observability`, `atomic/podman/observability`),
+exactly like the other `cmd/baha` runtime-acceptance files bind to the lifecycle
+gates (mirroring PR #1245 / commit db138ecd for
+`runtime_restart_integration_test.go`).
 
-Zusätzlicher, separater Befund (nicht missionsscope): der RERUN-Skip durch `validate` port-5432-Kollision ist ein GitHub-Hosted-Runner-Infrafund und gehört in eine eigene Diagnose/Lane (z.B. Concurrency/Port-Slot für `validate`).
+- Commit `6d8c984a` on branch `work/gatemap-1242` (base: develop `1206db79`)
+- PR #1259 `ci(gate-map): bind observability acceptance test`
+- Scope: `scripts/pr-gate-plan.py` + `scripts/test_pr_gate_plan.py` only. No .github/* / ci.yml.
+- 174/174 planner tests pass (170 before my 4 new tests).
 
-## Entschaidung
-**END_BLOCKED** — Diagnose abgeschlossen, Ursache mit file:line festgemacht. Kein Produktfix in diesem Lane (STOP: keine ci.yml-/Ruleset-Änderungen; plan-job-Fix in `scripts/pr-gate-plan.py` erfordert gesonderte Owner-Autorisierung + Review + PR). Rezept o.g.
+## CI verdict (terminal)
+
+Run **41342355666** (PR #1259, head `6d8c984`): **PR Selected Checks = SUCCESS**.
+Validation checks green: `pr-planner-tests`, `ci-policy`,
+`ci-executor-verifier-tests`, `receipt-execution-tests`. `validate` and
+`Targeted HA · docker/podman` are SKIPPED because the PR touches only `scripts/`
+(no Go/product files) — correct fail-open behaviour. Full rollup green/skip, no red.
+
+## DEFEKT-BEFUND (extern, behoben)
+
+PR #1259 started on the WRONG head: the branch was cut from the dependabot
+`work/go-jose-v0.21.0` tree (`88604ee6`, a go-jose bump → `go.mod`/`go.sum`), not
+develop. CI runs against the old head reported
+`BLOCKED: coverage-unresolved: unknown impact for go.mod; unknown impact for go.sum`
+and the PR API showed files `["go.mod","go.sum"]` — the gate-map fix never ran.
+
+Correction performed:
+1. Reset branch tip to develop tip `1206db79`.
+2. Re-applied the gate-map diff (`git show 56f47cb6 -- <files> | git apply`) so the
+   working tree carries only the two permitted files on the develop base.
+3. Re-ran the planner suite (174/174 green) before committing.
+4. Committed `6d8c984a`, then forced the branch via the explicit refspec
+   (`git push origin 6d8c984a:refs/heads/work/gatemap-1242`) — plain `--force` was
+   silently reported "up to date" while the remote-tracking ref stayed at
+   `88604ee6`; the explicit refspec was required to move it.
+5. PR #1259 now shows head `6d8c984` and files
+   `["scripts/pr-gate-plan.py", "scripts/test_pr_gate_plan.py"]` (verified via
+   `gh pr diff`).
+
+The `pdeps` lane (#1160/#1259) confusion noted in the mandate is resolved: #1259 is
+this lane's PR; only the head had to be corrected.
+
+## Verifizierung
+
+- `gh pr view 1259` head `6d8c984`, changedFiles=2, files = the two permitted files.
+- `gh run watch 41342355666` terminal: PR Selected Checks SUCCESS; Enforcer step
+  `✓ Enforce every required check`.
+- Local planner on the develop→branch diff now resolves both observability gates
+  instead of `coverage_unresolved`.
 
 ---
-END p1242diag BLOCKED
+END p1242diag DONE
+
 
 ## Zeugen
 - `gh run view 41334397810 --log-failed` → `BLOCKED: coverage-unresolved: ... cmd/baha/app_observability_acceptance_test.go`; `SELECTED_RUNTIME_REQUIRED: false`.
@@ -96,3 +141,6 @@ END p1242diag BLOCKED
 - `scripts/pr-gate-plan.py` lines 1454-1477 (classifier).
 - `scripts/pr-selected-runtime-matrix.py` lines 23-24 (runtime_required-Logik).
 - `.github/workflows/ci.yml` lines 809-810, 843-861 (Enforcer).
+- PR #1259 `gh pr view` head `6d8c984`, files = the two permitted files.
+- `gh run view 41342355666` → PR Selected Checks SUCCESS; validation checks green.
+- `gh run view 41340837439 --log-failed` (old head 88604ee) → `BLOCKED: coverage-unresolved: unknown impact for go.mod/go.sum` (DEFEKT-BEFUND, now corrected).
