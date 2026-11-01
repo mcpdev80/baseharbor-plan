@@ -1,14 +1,14 @@
 # chain-c Evidence — Kettenglied-Qualifikation
 
 ## PLAN
-- [x] Plan 0: Mission lesen, Evidence-Datei erstellen, todo-Liste anlegen
-- [x] Plan 1: PR #1247 (work/acc-podman) — rebase + push + native qualification
-  - [x] 1a: Rebase on origin/develop → 80a16138 ✓
-  - [x] 1b: Push work/acc-podman ✓
-  - [x] 1c: Check PR CI → PR Selected Checks fail (workflow-design Grund)
-  - [x] 1d: Push 3 runtime-validation/* branches for native qualification
-  - [x] 1e: Observe 3 workflow results until terminal → ALL FAILURE
-  - [x] 1f: 3 RUNS ROT → END_BLOCKED mit Fehlerzeile
+- Plan 0: Mission lesen, Evidence-Datei erstellen, todo-Liste anlegen
+- Plan 1: PR #1247 (work/acc-podman) — rebase + push + native qualification
+  - 1a: Rebase on origin/develop → 80a16138 ✓
+  - 1b: Push work/acc-podman ✓
+  - 1c: Check PR CI → PR Selected Checks fail (workflow-design Grund)
+  - 1d: Push 3 runtime-validation/* branches for native qualification
+  - 1e: Observe 3 workflow results until terminal → ALL FAILURE
+  - 1f: 3 RUNS ROT → END_BLOCKED mit Fehlerzeile
 
 ## Ergebnis
 
