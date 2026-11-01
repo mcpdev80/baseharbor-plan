@@ -1,0 +1,15 @@
+{
+  "source": "mcpdev80/baseharbor#1208",
+  "number": 1208,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/1208",
+  "title": "Planning task t-20261029-r27-ci-producer (profile/extension trust producer)",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [],
+  "milestone": null,
+  "assignees": [],
+  "created_at": "2026-10-29T15:39:07Z",
+  "updated_at": "2026-10-30T06:59:20Z",
+  "body": "Planning mirror. Task: baseharbor-plan/tasks/t-20261029-r27-ci-producer.md · Release: v0.4.27 · Area: ci/public-contracts. This issue is the task-link target for producer PRs in the receipt chain.",
+  "comments": []
+}

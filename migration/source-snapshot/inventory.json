@@ -672,12 +672,28 @@
       "sha256": "16c6800265181ce5ec955d254cbf0ff40f032c980781b674c2c432de3350a88c"
     },
     {
-      "source": "mcpdev80/baseharbor-demo#24",
-      "title": "demo app: BaseHarbor-managed exposure must be HTTPS by default using managed PKI certificates",
-      "updated_at": "2026-09-22T23:35:17Z",
-      "comments": 2,
-      "file": "migration/source-snapshot/baseharbor-demo/24.json",
-      "sha256": "cacc363f90bd62fd1cd2840ee572a6a44d6727ffeed62d4bf224bfe67c3a12f9"
+      "source": "mcpdev80/baseharbor#1251",
+      "title": "ci(diff-resolver): resolve stale event-base and linear-rebase integration checks (fail-closed preserved)",
+      "updated_at": "2026-11-01T13:54:54Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/1251.json",
+      "sha256": "fc3e4173edbd25ba92de475946170a03520a0a8f7e8eee093b1b7f8757c4771d"
+    },
+    {
+      "source": "mcpdev80/baseharbor#1253",
+      "title": "Planning task t-20261101-openbao-1240 — OpenBao→Postgres TLS/SASL wiring (baseline)",
+      "updated_at": "2026-11-01T14:06:21Z",
+      "comments": 0,
+      "file": "migration/source-snapshot/baseharbor/1253.json",
+      "sha256": "78491170723e75e39ac439ecfcf738d280aefd11035d501599ad8c3e7d20a24b"
+    },
+    {
+      "source": "mcpdev80/baseharbor#1254",
+      "title": "ci(targeted-integration): prepare runtime context in Targeted runtime job (parity fix)",
+      "updated_at": "2026-11-01T15:30:44Z",
+      "comments": 1,
+      "file": "migration/source-snapshot/baseharbor/1254.json",
+      "sha256": "252d1c6a24b0744dbf0254d3ec345f8745002f89713f76fdd9d4565d13737b7e"
     },
     {
       "source": "mcpdev80/baseharbor-console#1",
@@ -696,28 +712,20 @@
       "sha256": "9f646e912a77328c56ee61dbce8c89ad60db17fc3417d65b62bdafbb966cea9a"
     },
     {
+      "source": "mcpdev80/baseharbor-demo#24",
+      "title": "demo app: BaseHarbor-managed exposure must be HTTPS by default using managed PKI certificates",
+      "updated_at": "2026-09-22T23:35:17Z",
+      "comments": 2,
+      "file": "migration/source-snapshot/baseharbor-demo/24.json",
+      "sha256": "cacc363f90bd62fd1cd2840ee572a6a44d6727ffeed62d4bf224bfe67c3a12f9"
+    },
+    {
       "source": "mcpdev80/baseharbor-node-connector#3",
       "title": "v0.4.23 integration: Core-compatible enrollment/session fixtures and real remote Docker/Podman acceptance",
       "updated_at": "2026-10-08T13:52:57Z",
       "comments": 3,
       "file": "migration/source-snapshot/baseharbor-node-connector/3.json",
       "sha256": "6b31ccd891aaae3ccad8e81a25068ead633e3b7a4b55232e7673eb2653e751df"
-    },
-    {
-      "source": "mcpdev80/baseharbor#1251",
-      "title": "ci(diff-resolver): resolve stale event-base and linear-rebase integration checks (fail-closed preserved)",
-      "updated_at": "2026-11-01T13:54:54Z",
-      "comments": 0,
-      "file": "migration/source-snapshot/baseharbor/1251.json",
-      "sha256": "fc3e4173edbd25ba92de475946170a03520a0a8f7e8eee093b1b7f8757c4771d"
-    },
-    {
-      "source": "mcpdev80/baseharbor#1253",
-      "title": "Planning task t-20261101-openbao-1240 — OpenBao→Postgres TLS/SASL wiring (baseline)",
-      "updated_at": "2026-11-01T14:06:21Z",
-      "comments": 0,
-      "file": "migration/source-snapshot/baseharbor/1253.json",
-      "sha256": "78491170723e75e39ac439ecfcf738d280aefd11035d501599ad8c3e7d20a24b"
     }
   ],
   "open_pull_requests": [
