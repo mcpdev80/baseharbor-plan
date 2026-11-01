@@ -109,6 +109,8 @@ fehlende /run/baseharbor/etcd-Rechte); #1245 ist endpointseitig erfuellt.
 
 ## Handoff
 END_DONE native-probe: GRUEN (Kette bewiesen) + ROT (nur Produkt-Compose-Bug) — Details:
+- Ziel-Session 8c0f41e1 war nach dem Server-Neustart NICHT mehr vorhanden (codeman agent list -> nur 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "w1-baseharbor").
+  Handoff-post an 35cdb02e erfolgreich ("✓ posted"). Kommando laut Instruktion unten wiederholt.
 - Eigener Kandidat 0f6c5dab: Run 41266351533, Job 'Targeted HA · docker' = failure, Fehlerzeile: "selected Docker endpoint unix:///run/user/1001/docker.sock is unavailable ... no fallback to System Docker" (Testdatei war noch nicht host-aware; in #1245-Corrective b3bae65c..262f069f behoben).
 - Bestehender gruener Beleglauf: Run 41276806101 head 262f069f, Job 'Targeted HA · docker' = success, ubuntu-latest GH-hosted, alle Steps success.
 - Eigener Nachzugslauf r2: Kandidat ad412369, Run 41303585799, Job 'Targeted HA · docker' = failure, KEINE endpoint/no-fallback-Zeile mehr; Fehler jetzt "open /run/baseharbor/etcd/server.pem: permission denied" (etcd-Container Crash-Loop) -> Produkt-/Compose-Berechtigungsbug, nicht #1245/#1239.
