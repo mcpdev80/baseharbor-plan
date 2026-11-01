@@ -2,10 +2,10 @@
 
 ## PLAN Checkliste (board-aktuell: workers/todos/p1257.json)
 
-- [x] Step 1: Branch merge1254v2 (= #1257 head 8207d018) prüfen — develop (5c903560) ist ancestor, push up-to-date, KEIN rebase nötig
-- [x] Step 2: PR Selected Checks beobachten — targeted-integration.yml Aggregat 'requires native qualification' (erwartet, kein Gewalt dagegen)
-- [x] Step 3: Ref runtime-validation/ci/parity-1257 force-push auf 8207d018 — up-to-date, Targeted-Integration-Lauf ausgelöst, validate-Port-5432-Risiko beachten
-- [ ] Step 4: Karte t-20261101-ha-prep-fix auf review bei grün posten
+- Step 1: Branch merge1254v2 (= #1257 head 8207d018) prüfen — develop (5c903560) ist ancestor, push up-to-date, KEIN rebase nötig
+- Step 2: PR Selected Checks beobachten — targeted-integration.yml Aggregat 'requires native qualification' (erwartet, kein Gewalt dagegen)
+- Step 3: Ref runtime-validation/ci/parity-1257 force-push auf 8207d018 — up-to-date, Targeted-Integration-Lauf ausgelöst, validate-Port-5432-Risiko beachten
+- Step 4: Karte t-20261101-ha-prep-fix auf review bei grün posten
 
 ## Beobachtete Zustände
 
