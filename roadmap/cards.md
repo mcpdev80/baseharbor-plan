@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 22/96 · **Blocked:** 5 · **Waiting:** 58  
+    **Accepted tasks:** 24/96 · **Blocked:** 5 · **Waiting:** 58  
     **Blocker:** [core-750](../tasks/core-750-inspect-source-neutral-findings.md) — Zwei Teil-Ursachen (t-runner2 Ground-Truth, evidence/board-2026-10-31/t-runner2/): Q1 DOCKER=Owner-Entscheidung (baha-runner-docker-2 faehrt ROOTFUL docker; ro…  
     **Blocker:** [core-766](../tasks/core-766-cleanup-orphaned-owned-runtime-resources.md) — cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     Plus 3 further blockers in the task list.  
