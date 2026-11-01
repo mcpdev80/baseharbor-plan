@@ -54,7 +54,10 @@ Both `atomic/docker/lifecycle` and `atomic/podman/lifecycle` gates are in the tr
 - Evidence path: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-11-01/gate-map/`
 - Lane DONE: `gate-map worker lane DONE`
 - Commit SHA: `9581193d` on branch `work/gate-map`
-- PR: to be created from `work/gate-map` → `origin/develop`
+- PR: [#1246](https://github.com/mcpdev80/baseharbor/pull/1246) `work/gate-map` → `develop`
+- PR title: `ci(gate-map): classify internal/runtime/*.go to atomic docker lifecycle gate (no more unknown-impact)`
+- CI status: checks pending (PR just opened, CI will auto-start)
+- PR area is `ci-planner` → only `CI_CHECKS` required, no native runtime gate needed
 
 ### Verification Output
 
