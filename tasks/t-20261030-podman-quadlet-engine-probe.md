@@ -12,7 +12,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1231, mcpdev80/baseharbor#1241]
 sources: []
 blocker: "CI-hosted Qualifier wartet auf gemergtes #1225/#1226 (Cutover-Kette, selbst an Rootless-Runner-Infra RUNBOOK 6.2 gebunden). Engine-Probe lokal PASS (o265 34e60037, q1242 e4464b68)."
-resolution: ""
+resolution: "accepted"
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-10-30/o261.md]
 ---
 
@@ -25,7 +25,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/boar
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** checked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
