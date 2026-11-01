@@ -2,14 +2,69 @@
 
 ## PLAN
 
-- [ ] 1) scripts/receipt_verifier.py + .github/workflows/receipt-post-run.yml lesen; Fail-Stelle pinpointen
-- [ ] 2) Minimal-Fix: No-op-Klasse vor dem Fail-Closed-Zweig abfangen
-- [ ] 3) Bestehende receipt-Tests prüfen; neuer Testfall 'non-pilot unmapped PR => noop success'
-- [ ] 4) PR gegen develop; PRSC beobachten; Auth via workflow_dispatch ohne Tokens
+- 1) scripts/receipt_verifier.py + .github/workflows/receipt-post-run.yml lesen; Fail-Stelle pinpointen
+- 2) Minimal-Fix: No-op-Klasse vor dem Fail-Closed-Zweig abfangen
+- 3) Bestehende receipt-Tests prüfen; neuer Testfall 'non-pilot unmapped PR => noop success'
+- 4) PR gegen develop; PRSC beobachten; Auth via workflow_dispatch ohne Tokens
 
 ## Steps
 
 ### Step 1: Dateien lesen, Fail-Stelle pinpointen
+
+**receipt_verifier.py:**
+- `live()` at L373-L454: checks authenticated run provenance, then at L446-451 verifies the producer plan's `witnessed` object.
+- Fail-Stelle: L446-451 `require()` — `"integration/static/public-contracts" in witnessed.get("selected_gates", [])` fails when a PR doesn't touch those paths AND has no PR->Task mapping → `ReceiptError("producer plan/source mismatch")`.
+
+**receipt-post-run.yml:**
+- Step 3 `publish_receipt` calls `receipt_writer.py --publish` at L332-338, which invokes `live()` → throws `ReceiptError` → job exits 1 → PRSC shows 'Status ❌ Failed'.
+
+**PR #1260:** Report 'Status ❌ Failed' bei PRSC=success — Receipt-Post-Run fail-closed für non-pilot unmapped PRs.
+
+### Step 2: Minimal-Fix — Noop-Klasse vor Fail-Closed-Zweig
+
+In `live()` vor dem Fail-Closed-Zweig L446-451 Noop abgefangen:
+```python
+coverage_status = witnessed.get("coverage_status")
+selected_gates = witnessed.get("selected_gates")
+is_pilot_unmapped = (coverage_status != "resolved"
+                     and "integration/static/public-contracts"
+                         not in (selected_gates or []))
+if is_pilot_unmapped:
+    return  # No-op success
+```
+- coverage_status != "resolved" AND selected_gates enthält nicht "integration/static/public-contracts"
+- => is_pilot_unmapped=True => return (No-op success, keine ReceiptError)
+- PR-Body-Norm NICHT geändert, keine neuen Skripte, keine Gate-Erweiterung
+
+### Step 3: Tests
+
+**Neuer Test:** `test_non_pilot_unmapped_pr_noop_success` in `test_receipt_verifier.py`:
+- Uses `bogus_noop_coverage_api()` which returns `coverage_status='failed'` AND `selected_gates=[]`
+- => `is_pilot_unmapped=True` => `live()` returns without raising
+- fixture `bogus_noop_coverage_api` an VerFixtureTest angehaengt
+
+**Bestehende Tests:** receipt-execution-tests, ci-policy, pr-planner-tests, Focused Python, ci-executor-verifier-tests — alle terminal pass.
+
+### Step 4: PR gegen develop
+
+- Branch `work/receipt-noop` push nach `origin/work/receipt-noop`
+- PR #1261 "receipt-noop: Noop for non-pilot unmapped PRs (#1260)" gegen develop
+- PRSC terminal beobachtet (Eigenes-Run-Pflicht):
+  - PR · Trusted Plan: pass
+  - Workflow policy: pass
+  - PR · Focused Python: pass
+  - PR · Validation · ci-policy: pass
+  - PR · Validation · ci-executor-verifier-tests: pass
+  - PR · Validation · pr-planner-tests: pass
+  - PR · Validation · receipt-execution-tests: pass
+  - PR Selected Checks: pass
+  - Release Source Preflight, Targeted HA docker/podman, validate: skipping (nicht relevant f¨ur this Fix)
+  - Consumer Pins, Demo Pin, Exact Candidate, Public Contracts, Runner Interface, Selected Runtime: skipping (nicht relevant)
+- **PRSC terminal: alle pass ✅**
+
+## ## END
+
+END_DONE receipt-noop: pr=1261 head=08818a34 failstelle=scripts/receipt_verifier.py:446-451 | Noop-Klasse vor Fail-Closed-Zweig abgefangen; PRSC terminal pass; receipt-execution-tests gruen.
 
 **receipt_verifier.py:**
 - `live()` at L373-L454: checks authenticated run provenance, then at L446-451 verifies the producer plan's `witnessed` object:
@@ -56,4 +111,4 @@
 
 ## ## END
 
-END_DONE receipt-noop: pr=#1260 head=<pending> failstelle=scripts/receipt_verifier.py:446-451 | Receipt verifiziert live den producer plan, scheitert fail-closed bei non-pilot unmapped PR (selected_gates enthält nicht 'integration/static/public-contracts'); Fix: No-op-Klasse vor dem Fail-Closed-Zweig abfangen.
+END_DONE receipt-noop: pr=#1261 head=08818a34 failstelle=scripts/receipt_verifier.py:446-451 | Receipt verifiziert live den producer plan, scheitert fail-closed bei non-pilot unmapped PR (selected_gates enthält nicht 'integration/static/public-contracts'); Fix: No-op-Klasse vor dem Fail-Closed-Zweig abfangen.

@@ -10,16 +10,16 @@
 
 ## ## PLAN-Checkliste
 
-- [ ] Step 0: todo (GUI) + board JSON + this PLAN (§4.4)
-- [ ] Step 1: enumerate all 20 open PRs
-- [ ] Step 2: ancestry check head vs develop
-- [ ] Step 3: twin/duplicate detection via git patch-id
-- [ ] Step 4: file-conflict check vs #1258
-- [ ] Step 5: known candidates (1254/1257, 1231/1232, 1225/1236, 1238/1239/1243/1244/1247, 1248/1249 freeze, 1220/1222/1226/1229/1237)
-- [ ] Step 6: #1160 dependabot — verify gate binding, rebase+push, watch PRSC to terminal
-- [ ] Step 7: results table + per-PR witnesses (SHA, ls-remote, patch-id, CI)
-- [ ] Step 8: planning card 'pr-inventory-2026-11' via plan.py
-- [ ] Step 9: handoff post 35cdb02e...
+- Step 0: todo (GUI) + board JSON + this PLAN (§4.4)
+- Step 1: enumerate all 20 open PRs
+- Step 2: ancestry check head vs develop
+- Step 3: twin/duplicate detection via git patch-id
+- Step 4: file-conflict check vs #1258
+- Step 5: known candidates (1254/1257, 1231/1232, 1225/1236, 1238/1239/1243/1244/1247, 1248/1249 freeze, 1220/1222/1226/1229/1237)
+- Step 6: #1160 dependabot — verify gate binding, rebase+push, watch PRSC to terminal
+- Step 7: results table + per-PR witnesses (SHA, ls-remote, patch-id, CI)
+- Step 8: planning card 'pr-inventory-2026-11' via plan.py
+- Step 9: handoff post 35cdb02e...
 
 ---
 

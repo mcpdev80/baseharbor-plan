@@ -1,0 +1,26 @@
+diff --git a/scripts/pr-gate-plan.py b/scripts/pr-gate-plan.py
+index dd9c6b2e..2507eb46 100644
+--- a/scripts/pr-gate-plan.py
++++ b/scripts/pr-gate-plan.py
+@@ -1496,11 +1496,21 @@ def plan(diff, requirements, mapping, repository='.',
+             require(CODE_CHECKS)
+             require(CAPABILITY_CHECKS)
+             selected.add('integration/static/public-contracts')
++        elif path in ('internal/capability/lifecycle.go',
++                      'internal/capability/service_binding.go',
++                      'internal/capability/service_binding_test.go'):
++            area = 'capability-implementation-resolved'
++            require(CODE_CHECKS)
++            require(CAPABILITY_CHECKS)
++            selected.add('integration/static/public-contracts')
+         elif path.startswith('internal/capability/'):
+             area = 'capability-implementation-unresolved'
+             require(CODE_CHECKS)
+             require(CAPABILITY_CHECKS)
+             unresolved.append('provider/capability registry or lifecycle impact needs targeted qualification: ' + path)
++        elif path.startswith('testdata/adoption-parity/'):
++            area = 'inspect-testdata-fixed'
++            require(INSPECT_CHECKS)
+         elif path in PROJECTION_REVIEWED_FILES:
+             area = 'application-projection-reviewed-path'
+             require(PROJECTION_CHECKS)
