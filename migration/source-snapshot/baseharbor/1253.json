@@ -1,0 +1,15 @@
+{
+  "source": "mcpdev80/baseharbor#1253",
+  "number": 1253,
+  "url": "https://github.com/mcpdev80/baseharbor/issues/1253",
+  "title": "Planning task t-20261101-openbao-1240 — OpenBao→Postgres TLS/SASL wiring (baseline)",
+  "state": "open",
+  "author": "mcpdev80",
+  "labels": [],
+  "milestone": null,
+  "assignees": [],
+  "created_at": "2026-11-01T14:06:21Z",
+  "updated_at": "2026-11-01T14:06:21Z",
+  "body": "Planning mirror. Task: baseharbor-plan/tasks/t-20261101-openbao-1240.md · Release: v0.4.27 · Area: secret-store/TLS. This issue is the task-link target for the #1252 receipt/post-run PR chain (baseline port of #1240 onto develop + diff-resolver-fix).\n\nBaseline port of #1240 (pin PostgreSQL TLS verify-ca on the openbao←postgres HAProxy path + sslmode regression guard) onto current develop + diff-resolver-fix base. Supersedes #1240 as the runnable candidate.\n",
+  "comments": []
+}

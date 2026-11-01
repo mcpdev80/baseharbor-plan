@@ -14,4 +14,4 @@ Epics: [core-209](../../epics/core-209-future-capabilities-integrations.md) Trac
 | [core-886](../../tasks/core-886-macos-keychain-trust-dev-remote.md) | macOS: Keychain trust and developer remote access | backlog | not set | — | — | — |
 | [core-887](../../tasks/core-887-review-assess-technical-evaluations.md) | Review: assess technical project evaluations | backlog | not set | — | — | — |
 | [t-20261017-cli-package-layout-after-freeze](../../tasks/t-20261017-cli-package-layout-after-freeze.md) | CLI: assess package decomposition after the contract freeze | backlog | low | — | — | — |
-| [diff-base](../../tasks/diff-base.md) | PR diff-base resolver: stale event-base + linear-rebase integration checks fixed, fail-closed preserved | accepted | not set | — | — | [baseharbor#1251](https://github.com/mcpdev80/baseharbor/pull/1251) |
+| [t-20261101-plan-card-fix-diff-base](../../tasks/t-20261101-plan-card-fix-diff-base.md) | Regenerate diff-base planning card to valid schema (mechanical, no content rewrite) | accepted | not set | worker-ornith (session 35cdb02e) | — | [baseharbor#1251](https://github.com/mcpdev80/baseharbor/pull/1251) |
