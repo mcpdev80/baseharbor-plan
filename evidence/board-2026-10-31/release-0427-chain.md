@@ -15,3 +15,5 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
    verify-none/disable ab, verlangt positiv verify-ca im Code + Init-Skript). Coordinator-Run: go test PASS (0.009s).
    review-A Rezept Pkt2 damit erfuellt; Pkt1 (coverage-resolved) bleibt am Endpoint-Gate haengen. PR #1240 =
    CODE-ready, mergeable nur nach echtem gruuen GH-hosted native-qualification-Lauf.
+## Node-Connector CI cutover DONE (2026-11-01): PR #17 MERGED, nc main=188036f, self-hosted=0, GH-hosted
+   transport·podman SUCCESS (rootful) witnessed. nc-Repo 100% GitHub-hosted. review-nc=APPROVE-FEIER-GRUEN.
