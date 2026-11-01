@@ -5,66 +5,66 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: "worker-ornith1.5 (Ornith; session 35cdb02e-a3b3-4e6d-86f9-1cbb35822587)"
+owner: worker-ornith-1245
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1250]
-sources: []
-blocker: "Merge blockt ausschliesslich am Voll-Cluster-Nachweis (Targeted Integration, etcd DNS/quorum) — KEIN Required-Check von #1245/#1250 (Pflicht = Lifecycle-Gates, die GRUEN). Ha-Blocker-Klasse bestaetigt durch CI run 41306532173 (Targeted HA docker GRUEN, BLOCKER Voll-Cluster) und eigenen Repeat. claim publiziert 2026-11-01 nach Heilung von plan.py check (lane plan-hygiene @74ce5e4)."
+prs: ["mcpdev80/baseharbor#1250"]
+sources: ["mcpdev80/baseharbor#1250"]
+blocker: "Merge blockt am Voll-Cluster-Nachweis (Targeted Integration, etcd DNS/quorum) — KEIN Required-Check von #1245/#1250. Lifecycle-Gates (Targeted HA docker, ci.yml) GRUEN auf head 78fe0a54 (CI run 41306532173). Ha-Blocker-Klasse bestaetigt; claim publiziert nach Heilung plan.py check (plan-hygiene @74ce5e4)."
 resolution: ""
-evidence: [evidence/board-2026-11-01/docker-engine-1245/evidence.md]
+evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-11-01/docker-engine-1245/evidence.md]
 ---
 
-- [ ] t-20261101-docker-engine-1245 · resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket #task #release/v0-4-27 #status/accepted #view/accepted #kind/task
+- [ ] t-20261101-docker-engine-1245 · resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** worker-ornith1.5 (Ornith; session 35cdb02e-a3b3-4e6d-86f9-1cbb35822587)  
+    **Owner:** worker-ornith-1245  
     **PR:** [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250)  
-    **Blocker:** Merge blockt ausschliesslich am Voll-Cluster-Nachweis (Targeted Integration, etcd DNS/quorum) — KEIN Required-Check von \#1245/\#1250 (Pflicht = Lifecycle-Gates, die GRUEN). Ha-Blocker-Klasse bestaetigt durch CI run 41306532173 (Targeted HA…  
-    **Evidence:** [proof 1](evidence/board-2026-11-01/docker-engine-1245/evidence.md)  
+    **Blocker:** Merge blockt am Voll-Cluster-Nachweis (Targeted Integration, etcd DNS/quorum) — KEIN Required-Check von \#1245/\#1250. Lifecycle-Gates (Targeted HA docker, ci.yml) GRUEN auf head 78fe0a54 (CI run 41306532173). Ha-Blocker-Klasse bestaetigt; c…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-11-01/docker-engine-1245/evidence.md)  
     <!-- /generated:card -->
   <!-- generated:card -->
-  **Owner:** worker-ornith1.5 (Ornith; session 35cdb02e)
+  **Owner:** worker-ornith-1245
   **PR:** [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250) (work/docker-endpoint-context-ornith, head 78fe0a54 — byte-identisch zu #1245 HEAD 262f069f)
-  **Blocker:** Merge blockt am Voll-Cluster-Nachweis (Targeted Integration, etcd DNS/quorum) — kein Required-Check von #1245/#1250. Lifecycle-Gates (Targeted HA docker, ci.yml) GRUEN auf head 78fe0a54 (CI run 41306532173).
+  **Blocker:** Merge blockt am Voll-Cluster-Nachweis (Targeted Integration, etcd DNS/quorum); Lifecycle-Gates GRUEN.
   **Evidence:** [proof](https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/board-2026-11-01/docker-engine-1245/evidence.md)
   <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
-**Owner:** worker-ornith1.5 (Ornith; session 35cdb02e-a3b3-4e6d-86f9-1cbb35822587)  
+**Owner:** worker-ornith-1245  
 **Priority:** not set  
 **PRs:** [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250)  
-**Source:** 
+**Source:** [baseharbor#1250](https://github.com/mcpdev80/baseharbor/issues/1250)
 <!-- /generated:links -->
 
-## Goal
+## Ziel
 
-BaseHarbor finds the Docker endpoint an instance runs on reliably, rootful as well as rootless, by resolving the active Docker context like the docker CLI instead of a hardcoded per-user socket.
+BaseHarbor findet den Docker-Endpoint, unter dem eine Instanz läuft (rootful wie rootless), zuverlässig — auflösesstatt hartcodiertem `/run/user/<uid>/docker.sock` die aktive Docker-Context-Wahl der CLI.
 
-## Scope
+## Umfang
 
-- In scope: internal/runtime/docker_engine*.go, internal/providers/runtime/podman/provider_status_test.go, cmd/baha/runtime_restart_integration_test.go.
-- Out of scope: CI workflow files, other lanes' evidence, #1231/#1232 (documented as sibling engine-probe lanes).
+- In Scope: internal/runtime/docker_engine*.go, internal/providers/runtime/podman/provider_status_test.go, cmd/baha/runtime_restart_integration_test.go.
+- Out of Scope: CI-Workflows, anderer Lanes Evidence, #1231/#1232 (Dokumentation alsSibling-Lanes).
 
-## Acceptance
+## Akzeptanz
 
-- A1: exact HEAD of #1245 has PR Selected Checks + Selected Runtime without error; the runtime qualification actually ran for the changed path.
-- A2: a test proves rootless AND rootful endpoint detection without a hardcoded uid path (regression against docker_engine.go:85).
-- A3: #1231/#1232 documented as closed-by-ancestry OR independent green candidate.
+- A1: exakter Head von #1245 hat PR Selected Checks + Selected Runtime ohne Fehler; Runtime-Qualifizierung gelaufen.
+- A2: ein Test beweist rootless UND rootful Endpoint-Erkennung ohne hartcodierten uid-Pfad.
+- A3: #1231/#1232 dokumentiert (geschlussfolgert aus Ancestry).
 
-## Required checks
+## Pflicht-Checks
 
-- Lifecycle gates (atomic/docker/lifecycle, runtime-qualified) — green on head 78fe0a54 (CI run 41306532173).
-- Native control-plane HA full-cluster (Targeted Integration) is NOT a required check for this lane.
+- Lifecycle-Gates (atomic/docker/lifecycle, runtime-qualifiziert) — GRUEN auf head 78fe0a54 (CI run 41306532173).
+- Voll-Cluster-Nachweis (Targeted Integration) ist KEIN Pflicht-Check dieser Lane.
 
-## Dependencies and file ownership
+## Abhängigkeiten und File-Ownership
 
-- Owned files / area: internal/runtime/docker_engine.go (sole owner, mission verified facts).
-- Shared files: coordinate through the owning task.
+- Own: internal/runtime/docker_engine.go (sole owner, mission verified facts).
+- Shared: durch die owning Task koordinieren.
 
 ## Handoff
 
-Merge is Owner/Maintainer authority only. The candidate (MR #1250, byte-identical to #1245 HEAD) is ready; only the non-required full-cluster proof is outstanding. #1231/#1232 remain open sibling lanes.
+Merge nur Owner/Maintainer-Autorität. Kandidat (MR #1250, byte-identisch zu #1245 HEAD) bereit; einziges offenes Thema der nicht-pflichtige Voll-Cluster-Nachweis. #1231/#1232 bleiben offene Sibling-Lanes.
