@@ -86,14 +86,13 @@ BELEG-KETTE (alle Laeufe via gh API verifiziert, sha+Ref-praezise):
    mit demselben etcd permission-denied — konsistent mit (3), zusaetzliches Indiz fuer #1239-seitige etcd-Dir-Bereitstellung.
 
 URTEIL FÜR SCHRITT 4 (Meldepflicht erfuellt): Die Endpoint-Kette (#1245) ist auf GH-hosted GRUEN bewiesen (41276806101, Job 'Targeted HA · docker' = success).
-KORREKTUR DERAttribute 3 (root-cause): Nach Skript-Inhalt #1239 (work-gh-ci-core scripts/ci-core-rootless-runtime.sh) ist die Andock-Kette in Wahrheit:
-  * #1239 fuehrt den PRE-EXISTING-Rootful-System-daemon auf GH-hosted (kein rootless, nur docker version + hello-world smoke). Es schreibt ~/.config/docker/daemon.json registry-mirrors.
-  * Der GRUENE 262f069f-Lauf (41276806101) fuehrt denselben HA-Job AUCH auf ubuntu-latest GH-hosted, aber sein CI ist die develop/PR-#1245-Variante
-    (develop-Prepare-Skript, das den daemon NICHT umstellt; die compose-Subpfade haben etcd-TLS-Dir unter /run/baseharbor-erforderlich).
-  * Der r2-Lauf ad412369 MISCHT die #1239-Variante (System-daemon + registry-mirrors config) auf den 262f069f-Tree; das fuehrt zu dem etcd permission denied.
-Damit ist die #1239-System-daemon-Komponente der r2-ROT-Ausloeser (etcd-TLS-/run/baseharbor-Berechtigungen unter rootful), NICHT die compose-/gate-map- oder
-develop-Seite. Empfehlung an Coordinator: #1245 (head 262f069f) mit gruener HA-Evidence 41276806101 akzeptieren; fuer #1239-Kombination eine Korrektur dispatchen
-(/run/baseharbor/etcd under rootful GH-hosted, scripts/ci-core-rootless-runtime.sh bzw. compose-Init).
+KONFIRMATION DER Attribute-3-Ursache (idempotenter Gegenlauf, sha-genau):
+- 41276806101 (262f069f, PR-#1245-eigener CI, KEIN #1239): HA docker = SUCCESS, keine etcd-Zeile.
+- 41283404441/41282983076 (c91c83fb = integrate/candidate0427, der die #1239-ci.yml in develop hebt): HA docker = FAILURE mit derselben etcd
+  "open /run/baseharbor/etcd/server.pem: permission denied"-Zeile (Job 124779747941, Log /tmp/opencode/ha-docker-41283404441.log) UND docker-podman beide rot.
+Das ist ein unabhaengiger zweiter Beleg: die etcd-ROT-Linie laeuft mit der #1239-CI-Konfiguration, nicht mit 262f069f allein. Nachziehkomponente fuer den
+HA-Durchspiel-Lauf = #1239 (scripts/ci-core-rootless-runtime.sh / compose-Berechtigungen im System-daemon-Pfad, datei:zeile z.B. docker-Python-Block daemon.json +
+fehlende /run/baseharbor/etcd-Rechte); #1245 ist endpointseitig erfuellt.
   * Mein frischer ad412369-Lauf: HA-Endpoint-Auswahl GRUEN (Prepare=success, Context=default->System-daemon, keine endpoint/no-fallback-Zeile),
     ROT nur noch wegen PRODUKT-/COMPOSE-Berechtigungsbug: /run/baseharbor/etcd/server.pem permission denied in etcd-Containern
     (vermutlich rootful-System-daemon schreibt Host-Pfad /run/baseharbor ohne Rechte fuer Nicht-root-Container). KEINE endpoint- (#1245)
