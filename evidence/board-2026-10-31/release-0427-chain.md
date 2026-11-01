@@ -33,3 +33,8 @@ gh-dispatch-runtime END_BLOCKED waiting on gh-ci-core (rootless docker provision
    #1245 noch nicht in develop (Alter Resolver => compose-tests sehen /run/user/1001). Kein Fehler in #1239.
    Aufloesung via kombinierter Kandidat (native-probe) = genau die vom Worker korrekterweise ans Coordinator-
    Integration verwiesene Stelle. Merge-Reihenfolge bleibt: gate-map -> kombinierter Kandidat (#1245+#1239) -> Rest.
+## Keystone gate-map #1246 MERGED (develop 437358e4). Docker-Beweislauf deckte Rest-BUG in #1245 auf:
+   rootlessCapable() false-positiv auf GH-hosted (liest unprivileged_userns_clone, fehlt auf Ubuntu; AppArmor
+   blockiert userns real) -> hostDefaultEndpoint waehlt toten /run/user/1001 statt System-daemon. endpoint-refine
+   (qwen) fixt das in #1245 + erzwingt gruenen nativen docker-HA-Lauf auf develop+fix+#1239. PODMAN ist bereits
+   BEWIESEN gruen auf GH-hosted (Targeted runtime podman=success, ubuntu-26.04, run 41267346809).
