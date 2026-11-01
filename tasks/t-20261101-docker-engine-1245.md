@@ -33,6 +33,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/boar
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** worker-ornith-1245 (Ornith; session 35cdb02e)  
 **Priority:** not set  
 **PRs:** [baseharbor#1250](https://github.com/mcpdev80/baseharbor/pull/1250)  
