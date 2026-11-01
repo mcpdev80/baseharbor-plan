@@ -31,3 +31,10 @@ MISSION: Process gap — PR #1252 body lacks 'Closes/Fixes/Resolves #NNN', causi
 - ROOT CAUSE: the Receipt · Post-Run Writer loads `receipt-post-run.yml` from **origin/main** (e92e2058), NOT from the CI run's ref (work/baseline-1240). origin/main has NEITHER my clean-skip NOR my pilot no-op guard. Every post-run since the mission (14:47, 15:19, 15:40, 15:56) loaded the main version.
 - Consequence: my fix on work/baseline-1240 is invisible to the post-run. To reach main I had to cherry-pick f032c6fb + 9a746576 onto main and push — but main is PR-gated (GH013: "Changes must be made through a pull request"). Cannot push main directly.
 - This gate-touch (receipt-post-run.yml on main) is in-lane per coord, but main's PR-gating blocks a direct worker push. Requires an Owner/Coordinator path (a PR to main, or Owner push) to land the guard on the ref the post-run actually loads.
+
+### COORD-CLOSING DECISION (2026-11-01) — END_DONE
+- Decision: the No-Op proof CANNOT appear before #1252 merges to main — main's logic is by definition the OLD pilot-hard path. A receipt is constructive-NULL for non-pilot PRs (#1252). The 16:02 failure (post-run 41324207068) is the SAME pilot-hard logic on my own PR = EXPECTED, not a defect in my work.
+- Final run-IDs: CI #1252 run **41323704873** (head ab5994e7) = SUCCESS (PR Selected Checks + PR · Selected Runtime SUCCESS, not skipped); post-run **41324207068** = FAILURE (pilot-hard by design on unmerged main).
+- Product-diff == original #1240 head (116adb3d) PROVEN: `git diff --stat e93d797d HEAD -- internal/` = EMPTY on work/baseline-1240 (ab5994e7).
+- Action: (1) NO further branch changes. (2) Evidence finalized below. (3) Card → review/accepted. (4) Merge = separate lane.
+- work/baseline-1240 = ab5994e7 (e93d797d product + d56e9ddd #1251 diff-resolver fix + clean-skip 639de164 + pilot no-op ab5994e7).
