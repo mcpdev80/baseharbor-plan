@@ -8,24 +8,29 @@ parent: ""
 owner: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [1251]
+prs: ["mcpdev80/baseharbor#1251"]
 sources: ["mcpdev80/baseharbor#1240"]
 source_updated: "2026-11-01T13:00:00Z"
-labels: [kind/bug, area/ci, status/claimed]
+labels: [kind/bug, area/ci, status/accepted]
 blocker: ""
-resolution: ""
-evidence: ["baseharbor-plan/evidence/board-2026-11-01/diff-base/evidence.md"]
+resolution: accepted
+evidence: ["baseharbor-plan/evidence/board-2026-11-01/diff-base/evidence.md", "baseharbor-plan/tasks/diff-base.md"]
 ---
 
-- [ ] diff-base · PR diff-base resolver: stale event-base + linear-rebase integration checks fixed, fail-closed preserved #task #fix #status/claimed #view/progress #area/ci
+- [x] diff-base · PR diff-base resolver: stale event-base + linear-rebase integration checks fixed, fail-closed preserved #task #fix #status/accepted #view/closed #board/planned #area/ci #kind/fix
     <!-- generated:card -->
-    **Owner:** unassigned
+    **Owner:** unassigned  
+    **PR:** [baseharbor#1251](https://github.com/mcpdev80/baseharbor/pull/1251)  
+    **Evidence:** [proof 1](baseharbor-plan/evidence/board-2026-11-01/diff-base/evidence.md), [proof 2](baseharbor-plan/tasks/diff-base.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** progress
-**Release:** [backlog](../releases/backlog.md)
-**PRs:** [baseharbor#1251](https://github.com/mcpdev80/baseharbor/pull/1251)
+**State:** accepted  
+**Release:** [backlog](../releases/backlog.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** [baseharbor#1251](https://github.com/mcpdev80/baseharbor/pull/1251)  
 **Source:** [baseharbor#1240](https://github.com/mcpdev80/baseharbor/issues/1240)
 <!-- /generated:links -->
 
@@ -49,3 +54,5 @@ Authoritative base is the target branch tip GitHub actually built the merge-ref 
 
 - Local: `test_pr_diff_base.py` 17/17 OK (13 existing + 4 new: linear rebased resolves, develop-forward merge-ref resolves, third-parent rejects, wrong-head rejects); `test_pr_gate_plan.py` 5/5.
 - Hosted CI, run `41311582975` (own run, Eigenes-Run-Pflicht): `PR · Trusted Plan` **pass** (7s), `PR Selected Checks` **success**, `ci-policy` pass, `ci-executor-verifier-tests` pass, `Workflow policy` pass. Zero failures. candidate SHA `40b2028f` / final `d56e9ddd`.
+
+- **2026-11-01 CODEX-MERGE acceptance (mechanischer Merge-Vollzug, REVIEW|MERGE):** Merge bestätigt. `gh pr merge 1251 --repo mcpdev80/baseharbor --merge` → EXIT 0, Merge-Commit `5777c02d20dd76101e2538ccd489fbad90c29741` (Eltern `437358e4` develop + `d56e9ddd`, kein Squash/Rebase/Admin/Force). `git ls-remote ... develop` = `5777c02d`. Die Fix-Änderung betrifft nur `scripts/pr-diff-base.py` + `scripts/test_pr_diff_base.py`; `ci.yml` wird auf develop nicht gebaut (Bootstrap-Paradoxon: Runner führt trusted develop-Checkout → ci.yml-Fix greift erst post-Merge). Ein Hosted-CI-Lauf auf dem develop-Push existiert NICHT (ci.yml push nur auf `runtime-validation/**`, sonst `pull_request develop|main`) — daher kein roter Lauf zu beobachten, nichts rot. Der Fix ist bereits im hosted PR#1251-Lauf `41311582975` verifiziert (Step 0: 18 completed checks, keine `failure`, `PR Selected Checks`=success). Card `diff-base` von claimed→accepted. Merge nur als mechanischer Vollzug; kein Review/Code/Upstream-Change.
