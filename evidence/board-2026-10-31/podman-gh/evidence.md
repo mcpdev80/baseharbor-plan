@@ -75,3 +75,5 @@ Triggered CI by pushing to `runtime-validation/ha/podman/work-podman-gh`:
 ## HANDOFF
 
 `codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_CODE_READY podman-gh: 46bef235b9b2e8e9a36433efd9176fc3c6c6726d PR#1244 podman run alpine OK on GH-hosted + Run-ID 41263450917"`
+
+## <lane> CODE_READY
