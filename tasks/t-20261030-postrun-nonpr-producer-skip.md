@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1230]
 sources: []
 blocker: PR mcpdev80/baseharbor#1230 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate
-resolution: ""
+resolution: "accepted"
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/q260.md]
 ---
 
-- [ ] t-20261030-postrun-nonpr-producer-skip · Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip #task #release/v0-4-27 #status/blocked #view/blocked #kind/task
+- [x] t-20261030-postrun-nonpr-producer-skip · Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** q260  
     **PR:** [baseharbor#1230](https://github.com/mcpdev80/baseharbor/pull/1230)  
@@ -25,7 +25,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -62,3 +62,7 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - q260: PR #1230 created, CI terminal (Workflow policy pass, PR checks skipping as expected for non-PR trigger branch). Evidence: q260.md. Branch work/postrun-nonpr-skip, commit 9a5abda0.
+
+
+## Resolution (2026-11-02)
+- Fixed by PR #1252 (non-PR source runs = clean no-op) and generalized by PR #1261 (merge f2e43b0a: Noop class before fail-closed for non-pilot+unmapped; pilot stays hard — verified in review).

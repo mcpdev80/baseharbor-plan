@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#766"]
 source_updated: "2026-10-15T16:51:08Z"
 labels: [kind/bug, area/runtime, area/security, area/dx]
 blocker: cutover-pr3 #1226 OPEN (extern Maintainer-Review Gate) blocks this task
-resolution: ""
+resolution: "superseded"
 evidence: []
 ---
 
-- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/blocked #view/blocked #area/lifecycle #kind/bug
+- [ ] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** marcel  
     **PR:** [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220)  
@@ -26,7 +26,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -70,3 +70,7 @@ Full installation destroy removes orphaned BaseHarbor-owned runtime projects eve
 ## Handoff
 
 - Assigned to mcpdev80; no current claim.
+
+
+## Resolution (2026-11-02)
+- Develop refactor (registry/Resolve, a567ff46 lineage) makes the fallback-orphan cleanup obsolete: resolver dead funcs already removed; PR #1220 closed as superseded with patch-id proof (review-backlog ec80fac).
