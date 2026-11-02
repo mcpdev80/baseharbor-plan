@@ -61,23 +61,57 @@ area and a planner test. Confirmed present on `origin/develop` HEAD at line 1611
 
 ## END
 
-_BLOCKED lane broker-ready3 — see below.
+_DONE lane broker-ready3 — fix landed in PR #1287, CI all pass, merge state CLEAN.
+Candidate SHA: 6ddef0ff2b575e9a9a3c4ee1a7bb988a5d1acd86
+PR: #1287 (work/broker-ready3-startperiod-grace)
 
-Candidate SHA: <pending>
-PR: <pending>
+## PROOF: local render before/after
 
-## BLOCKER / HANDOFF (2026-11-02)
+BEFORE (develop HEAD, predecessor #1263 narrowed):
+  interval: 5s
+  timeout: 5s
+  retries: 12
+  start_period: 30s
 
-The mission's exact target values (`start_period: 15s, timeout: 10s, retries: 24`) are NOT
-present on develop HEAD, which still carries the predecessor lane's narrower
-`start_period: 30s, timeout: 5s, retries: 12`. PR #1263 (predecessor) is CLOSED and its
-branch `work/broker-ready2-startperiod-fix` is stale vs develop. The CI coverage blocker I
-identified (no `internal/runtimebroker/` classifier) was already resolved by #1264 on
-develop.
+AFTER (my branch, commit 6ddef0ff):
+  interval: 5s
+  timeout: 10s
+  retries: 24
+  start_period: 15s
 
-Decision required (Owner, per mission wording ambiguity): the mission text pins
-`retries: ~24` while the repo Vorbild `mongodb_runtime.go` uses `retries: 18`. The
-predecessor lane chose `start_period: 30s` (different from both). I must not silently pick a
-value the Owner did not implement. The CI path is clear, so this is a single focused
-product change awaiting a one-line Owner confirmation on the exact retry count, after which
-the fix, local proof, and PR are a short straight-line follow-up.
+Only the four timing values changed; the healthcheck `test` line and all other
+`writeHealthcheck` output are byte-identical. Produced via a temporary
+`go test -run` that renders the broker compose and prints the healthcheck block.
+
+## CI (own run, AGENTS 4.6)
+
+PR #1287 CI run 41447175508 — all gates pass:
+- PR Selected Checks: pass (the previously-failing coverage-unresolved gate is
+  now RESOLVED — runtimebroker paths bind to atomic/docker + atomic/podman
+  lifecycle gates, landed by #1264)
+- atomic/docker/lifecycle: pass (3m53s)
+- atomic/podman/lifecycle: pass (3m55s)
+- source-contracts, cli-build, cli-vet, cli-guided-tests, Trusted Plan, Exact
+  Candidate, Workflow policy: pass
+- mergeStateStatus: CLEAN
+
+Local: `go test ./internal/runtimebroker/... ./cmd/baha -run Broker|Healthcheck`
+pass; `scripts/test_pr_gate_plan.py` suite passes (279/193 tests). The 2 failing
+receipt/plan.py tests are PRE-EXISTING on clean develop (verified by stashing my
+change), unrelated to this fix.
+
+## HANDOFF to CODEX (AGENTS §5.2)
+
+Worker role complete: product fix + local proof + PR + CI to terminal.
+Per AGENTS 5.2 the acceptance is CODEX-REVIEW at the SHA and the merge is
+CODEX-MERGE — the worker does not self-approve or merge. Card status is
+#status/review; resolution stays empty until CODEX-ACCEPT.
+
+## SCOPE NOTE (Owner awareness)
+
+The mission pins `retries: ~24`; the repo Vorbild (mongodb_runtime.go) uses
+`retries: 18`. I followed the mission text literally (retries: 24 => ~135s grace,
+start_period 15s, timeout 10s). If the Owner prefers the Vorbild's retries:18,
+that is a one-line change to compose_render.go + the test assertion and re-runs
+cleanly.
+
