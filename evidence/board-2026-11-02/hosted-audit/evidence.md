@@ -7,10 +7,10 @@
 **Read-only:** kein git-Diff auf Produkt/Workflow-Dateien, kein Commit.
 
 ## CHECKLISTE
-- [x] Step 1: Alle 22 Workflow-Dateien auf develop erfasst; runs-on je Job in Matrix.
-- [x] Step 2: Jede runs-on klassifiziert. Alle = ubuntu-latest / ubuntu-24.04 / ubuntu-26.04 oder Condition, die NUR auf diese auflösen. 7 migrierte Jobs = OK (merged in PR #1258). Keine self-hosted anywhere.
-- [x] Step 3: Gegenprobe via API auf realen develop CI Run 41475826670 (b8b56bbc): alle 15 Jobs completed, runner="GitHub Actions", labels ∈ {ubuntu-latest, ubuntu-26.04}, KEIN self-hosted.
-- [x] Step 4: evidence geschrieben, Board + Todos getickt, HANDOFF posted.
+  - [x] Step 1: Alle 22 Workflow-Dateien auf develop erfasst; runs-on je Job in Matrix.
+  - [x] Step 2: Jede runs-on klassifiziert. Alle = ubuntu-latest / ubuntu-24.04 / ubuntu-26.04 oder Condition, die NUR auf diese auflösen. 7 migrierte Jobs = OK (merged in PR #1258). Keine self-hosted anywhere.
+  - [x] Step 3: Gegenprobe via API auf realen develop CI Run 41475826670 (b8b56bbc): alle 15 Jobs completed, runner="GitHub Actions", labels ∈ {ubuntu-latest, ubuntu-26.04}, KEIN self-hosted.
+  - [x] Step 4: evidence geschrieben, Board + Todos getickt, HANDOFF posted.
 
 ## 1. WORKFLOW-INVENTORY (alle 22 .yml auf develop)
 

@@ -2,11 +2,11 @@
 
 ## PLAN
 
-- [x] Step 1: Locate: compose/Startpfad des runtime-broker in scripts/ + internal/providers/ (grep '/readyz', healthcheck, EXPOSE, Startcommand)
-- [x] Step 2: Minimal-Fix: start_period der Healthcheck-Konfiguration von 2s auf 30s erhöhen
-- [x] Step 3: Lokaler Beweislauf: /readyz Handler-Code analysiert
-- [x] Step 4: PR gegen develop, PRSC terminal
-- [x] Step 5: planning-Update
+  - [x] Step 1: Locate: compose/Startpfad des runtime-broker in scripts/ + internal/providers/ (grep '/readyz', healthcheck, EXPOSE, Startcommand)
+  - [x] Step 2: Minimal-Fix: start_period der Healthcheck-Konfiguration von 2s auf 30s erhöhen
+  - [x] Step 3: Lokaler Beweislauf: /readyz Handler-Code analysiert
+  - [x] Step 4: PR gegen develop, PRSC terminal
+  - [x] Step 5: planning-Update
 
 ## Ergebnis
 
