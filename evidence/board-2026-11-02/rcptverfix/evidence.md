@@ -46,6 +46,44 @@ receipt_verifier.py:409-415 HARDCODES `selected = [j for j in jobs if j.get("nam
 
 **Tests:** 276 receipt tests pass (125 verifier + 6 chain + 49 postrun + tasklink + writer).
 
+## KORREKTURRUNDE — codex-1285 REVIEW=REJECT (2026-11-02)
+
+All three blocking findings fixed, re-based onto develop 9a93865a, pushed
+`--force-with-lease` (head b8666695), CI GREEN on new SHA (run 41452440424).
+
+**Fix #1 (fail-closed, executed-and-failed):** A required job skipped/failed still
+BLOCKS. A job NOT in the plan is accepted when ABSENT (skipped) but must BLOCK if
+it RAN and FAILED (new scan after required checks:
+`executed-and-failed job not in trusted plan`). Test inverted from
+`test_not_required_optional_failure_is_accepted` →
+`test_not_required_optional_failure_blocks`.
+
+**Fix #2 (authoritative gate derivation):** mirrors `scripts/pr-authenticated-results.py`
+exactly — always `PR · Focused Python`, `Workflow policy`, and one `PR · Validation ·
+<id>` per `required_validation_checks`; `PR · Exact Candidate` + `PR · Runner
+Interface` only for EXACT prefixes `atomic/docker/`,`atomic/podman/`,`integration/
+docker/`,`integration/podman/` (NOT substring — a bare "native"/"lifecycle" gate
+cannot dodge); `PR · Consumer Pins`/`PR · Demo Pin` from `required_consumer_dependencies`
+(console/connector or demo); `PR · Public Contracts` for the pilot gate. Added
+regressions: native selection, missing/failed validation, consumer/demo deps,
+substring-dodge.
+
+**Fix #3 (uniqueness):** `by_count` requires EXACTLY ONE job per required name; a
+duplicate required name (shadow success) BLOCKS regardless of ordering. Both
+orderings tested.
+
+**Tests:** 135 verifier tests OK (12 baseline + 12 new rcptverfix-correction).
+Combined receipt suite 286 tests (only pre-existing `plan.py check` remains,
+unrelated).
+
+**CI run 41452440424 (all terminal PASS):** PR Selected Checks, PR · Focused
+Python (2m4s), receipt-execution-tests (46s), pr-planner-tests (2m26s),
+ci-executor-verifier-tests, ci-policy, Workflow policy, PR · Trusted Plan.
+Head b8666695a80f4b81d165915da4eb966e5550347c (ls-remote verified).
+
+**Remaining (Owner/Coordinator-gated):** receipt run against blocked PR #1272
+(Step 5) needs hosted `workflow_dispatch` — Owner-approval (5.2). No merge.
+
 **Not a defect — pre-existing, unrelated:** `test_real_plan_check_runs_on_production_planning`
 fails because the production `baseharbor-plan` `plan.py check` exits 1 (34 errors: evidence
 `.md` checkboxes outside `tasks/` — a Coordinator Publishing/Board issue, commit c9455c6).
