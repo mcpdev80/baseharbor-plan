@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#750"]
 source_updated: "2026-10-15T16:51:33Z"
 labels: [kind/bug, area/dx, area/compatibility]
 blocker: "Zwei Teil-Ursachen (t-runner2 Ground-Truth, evidence/board-2026-10-31/t-runner2/): Q1 DOCKER=Owner-Entscheidung (baha-runner-docker-2 faehrt ROOTFUL docker; rootless setuptool verweigert; Linger已从 coordinator enabled, aber Service-Modell rootful-vs-rootless --force = Host-Sicherheitsentscheidung, RUNBOOK 6.2). Q2 PODMAN=worker product fix (openbao-postgres scram/mTLS 28P01, Lane t-openbao-pgauth). sudo/env Codefix gelandet (8155a1dc). sudo-Fix + prep laufen; HA-Jobs failen an Q1/Q2."
-resolution: ""
+resolution: "accepted"
 evidence: []
 ---
 
-- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/blocked #view/blocked #area/inspect #kind/bug
+- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)  
     **PR:** [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222)  
@@ -26,7 +26,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
@@ -71,3 +71,7 @@ evidence: []
 
 - Logic still present at develop `33b7ca94b42cc45e908c0d964cfbe0cc8349f231` (2026-10-15). Earlier fix branches: `fix/750-source-neutral-inspect-summary` `4c810c9f749eaaba9f755c628df22770826c3e05`, `…-v0421-r2` `e73bc60595a9426242ec1cd1e0883377cf91ab91`, `…-v0421` `7ffe2417587d0cab80f04808e64187d72b3b0668`. Branch hygiene (2026-10-15): divergent earlier fix branches were inventoried; neither full integration nor safe deletion was proven by ancestry. Compare useful changes against the current contract; no blanket merge/rebase. The remote branches were later removed in the [maintenance cleanup](core-909-maintenance-remove-superseded-branches.md); their original commits are preserved in the Maintainer's local mirror backup.
 - No release target: core-901 explicitly gives this bug no new release assignment.
+
+
+## Resolution (2026-11-02)
+- Merged via PR #1222 (merge commit 8bc490ea) after rebase onto develop tip; PRSC success on e1b42d64. Source-neutral inspect findings delivered.
