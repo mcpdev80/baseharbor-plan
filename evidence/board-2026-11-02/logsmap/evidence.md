@@ -8,16 +8,16 @@
 
 ## PLAN (worked checklist — AGENTS 4.4)
 
-- [x] 1. Mission + review-r3 gelesen; isolierter develop-Branch `logsmap-ci-integrate` (base `9a93865a`).
-- [x] 2. #1258 gh-hosted-Migration (head `8c323acd`, 0 self-hosted) in Integrations-Branch integriert (base der Integration).
-- [x] 3. Native Logs-Auffassung: `logs-package-tests` existiert, `go -list`/Discover bestaetigt; Sandbox-Docker = Runtime-Check FAIL (CI-Host-Gate, nicht Code-Fehler).
-- [ ] 4. PR-A Classifier: `internal/logs/render.go` EXAKT-Bindung + enge register-Aufloesung fuer EXAKT `{pr-check-runner.py, ci.yml}` -> `CI_CHECKS` + `WORKFLOW_SYNTAX_CHECKS`/ci-actionlint (Abschwachung behoben).
-- [ ] 5. PR-B Handler: ci.yml `logs-package-tests)`-Case (openbao-Muster) + pr-check-runner.py VALIDATIONS-Eintrag, ausfuehrbar.
-- [ ] 6. `LOGS_REVIEWED_HEAD`/Register-Eintrag an FINALen Integrations-HEAD binden; `core752_reviewed_merge_chain` verifizieren (nicht nur behaupten).
-- [ ] 7. Tests: 4 Gruppen (positive/negative neue Register-Anahme, unregistrierte CI-Pfade, nicht-vertrauenswuerdige Heads, render.go EXAKT + neue/verschachtelte/gemischte); 21 bestehende Tests gruen.
-- [ ] 8. BEWEIS: neutraler Hosted-Lauf auf finalem Integrations-SHA (Registrierung, Handler, natives Logs-Ergebnis, fail-closed); actionlint erhalten.
-- [ ] 9. Evidence.md aktualisieren (## PLAN, PR#, head, register-head-Bindung bewiesen, 4 Testgruppen, Run-ID); Handoff an Coordinator.
-- [ ] 10. END_CODE_READY/END_BLOCKED — KEIN Merge durch mich.
+  - [x] 1. Mission + review-r3 gelesen; isolierter develop-Branch `logsmap-ci-integrate` (base `9a93865a`).
+  - [x] 2. #1258 gh-hosted-Migration (head `8c323acd`, 0 self-hosted) in Integrations-Branch integriert (base der Integration).
+  - [x] 3. Native Logs-Auffassung: `logs-package-tests` existiert, `go -list`/Discover bestaetigt; Sandbox-Docker = Runtime-Check FAIL (CI-Host-Gate, nicht Code-Fehler).
+  - [ ] 4. PR-A Classifier: `internal/logs/render.go` EXAKT-Bindung + enge register-Aufloesung fuer EXAKT `{pr-check-runner.py, ci.yml}` -> `CI_CHECKS` + `WORKFLOW_SYNTAX_CHECKS`/ci-actionlint (Abschwachung behoben).
+  - [ ] 5. PR-B Handler: ci.yml `logs-package-tests)`-Case (openbao-Muster) + pr-check-runner.py VALIDATIONS-Eintrag, ausfuehrbar.
+  - [ ] 6. `LOGS_REVIEWED_HEAD`/Register-Eintrag an FINALen Integrations-HEAD binden; `core752_reviewed_merge_chain` verifizieren (nicht nur behaupten).
+  - [ ] 7. Tests: 4 Gruppen (positive/negative neue Register-Anahme, unregistrierte CI-Pfade, nicht-vertrauenswuerdige Heads, render.go EXAKT + neue/verschachtelte/gemischte); 21 bestehende Tests gruen.
+  - [ ] 8. BEWEIS: neutraler Hosted-Lauf auf finalem Integrations-SHA (Registrierung, Handler, natives Logs-Ergebnis, fail-closed); actionlint erhalten.
+  - [ ] 9. Evidence.md aktualisieren (## PLAN, PR#, head, register-head-Bindung bewiesen, 4 Testgruppen, Run-ID); Handoff an Coordinator.
+  - [ ] 10. END_CODE_READY/END_BLOCKED — KEIN Merge durch mich.
 
 ### Aenderungen gegen die vorige lanes-Entscheidung (r3 PR-A/PR-B-Split)
 Mission Runde 4 ersetzt den PR-A/PR-B-Split durch EINEN zusammenhaengenden develop-Kandidaten (R3-Punkt 1-5): kein zweites PR mehr. `#1258`-hosted-migration + PR-A-Classifier + PR-B-Handler in EINEM Integrations-SHA; `LOGS_REVIEWED_HEAD` bindet an DEN finalen Kandidaten, nicht an `9a93865a`.

@@ -103,11 +103,11 @@ Loki ist healthy: `grafana/loki:3.7.8` läuft, Caddy-Proxy reachable,
 
 ## PLAN
 
-- [x] 1. Volle Fehlerzeile + vorangehende Zeilen aus CI Run 41397537623 Job-Log ziehen
-- [x] 2. Ursache triagieren: `render.go:286` — Container-Namensmuster matcht keine `-N` Suffix
-- [x] 3. Minimaler Fix an `render.go:286` — `-?[0-9]*` an Pattern-Ende hinzufügen
-- [x] 4. Local test verification (go test ./internal/logs — 26 Tests PASS)
-- [ ] 5. PR gegen develop, Observability-Dispatch beobachten
+  - [x] 1. Volle Fehlerzeile + vorangehende Zeilen aus CI Run 41397537623 Job-Log ziehen
+  - [x] 2. Ursache triagieren: `render.go:286` — Container-Namensmuster matcht keine `-N` Suffix
+  - [x] 3. Minimaler Fix an `render.go:286` — `-?[0-9]*` an Pattern-Ende hinzufügen
+  - [x] 4. Local test verification (go test ./internal/logs — 26 Tests PASS)
+  - [ ] 5. PR gegen develop, Observability-Dispatch beobachten
 
 ## END_DONE
 

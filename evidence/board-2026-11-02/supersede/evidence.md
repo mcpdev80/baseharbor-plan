@@ -1,10 +1,10 @@
 # supersede — Parkdeck-Tabelle (Coord-Analyse, read-only, 2026-11-02)
 
 ## PLAN
-- [x] Dateien-Listen aller 7 PRs vs #1258-Schreibset + develop
-- [x] Baum-Vergleiche pro Datei (head-vs-1258, head-vs-develop)
-- [x] Empfehlung je PR
-- [ ] Nach #1258-Merge: finale Einzel-Probe 'git diff <pr-head> develop' -> Close-Nachweis
+  - [x] Dateien-Listen aller 7 PRs vs #1258-Schreibset + develop
+  - [x] Baum-Vergleiche pro Datei (head-vs-1258, head-vs-develop)
+  - [x] Empfehlung je PR
+  - [ ] Nach #1258-Merge: finale Einzel-Probe 'git diff <pr-head> develop' -> Close-Nachweis
 
 ## Tabelle (Stand 735acd95 / develop 9a93865a)
 
