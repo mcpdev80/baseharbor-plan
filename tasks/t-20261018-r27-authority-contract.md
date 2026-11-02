@@ -47,6 +47,11 @@ Use only accepted predecessor interfaces and the existing authorities identified
 
 docs/spec/target-access-v1.md; docs/spec/control-plane-runtime.md; corresponding DE specs; one new ADR; bounded internal/coreinstallation management-selection types and tests. These are bounded write reservations, not assertions that proposed files already exist. New interface/type paths are fixed by the contract predecessor before assignment. Never edit another slice's files or use its draft branch. Shared indexes/registrations belong only to `t-20261018-r27-public-surfaces` (documentation navigation belongs to the docs task). If an additional shared write is necessary, update dependencies/ownership before work; do not reconcile competing copies later.
 
+> Coordinator authorization 2026-11-02 (night): shared-write update per final sentence —
+> extraction of lock primitives into `internal/stableid` is permitted for cycle-breaking
+> `coreinstallation -> serviceaccess` consumption, ONLY if zero `serviceaccess` files change
+> and behavior is preserved; documented in task evidence r27-night-2026-11-02.
+
 ## Required checks
 
 Existing docs/link/EN-DE checks and focused authority-type tests; no native runtime. Use existing trusted contract/docs/package checks for this prerequisite; acceptance must not wait on downstream ci-lanes. Any genuinely missing contract-check route is resolved explicitly before assignment, without self-exemption. Owner implements, runs sufficient selected checks, diagnoses real failures and hands off exact-SHA evidence; no self-qualification or automatic full matrix. Reuse green evidence only through the existing verifier; failed/skipped/missing requirements remain open.
