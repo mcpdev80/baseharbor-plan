@@ -2,6 +2,14 @@
 
 **Owner restart, 2026-10-29:** Codeman is authorized to work autonomously with multiple workers in small parallel iterations until the new CI is implemented, verified and enforced. There is no timebox or legacy-check fallback for feature development. This order supersedes older pause, deadline, fallback and fixed worker-count instructions. Preserve historical evidence and claims. This is not authorization to tag or publish a release.
 
+## Owner clarification — 2026-11-02
+
+The current Owner instruction supersedes older receipt-specific approval and proof requirements below: the receipt is a small commit record (the actual merged commit SHA and PR reference), not a claim that CI passed. The receipt writer checks the commit binding; it does not re-query or re-judge GitHub Actions runs or jobs. GitHub Required Checks enforce actual CI outcomes before merge; the Owner makes the merge decision, with no separate receipt approval dispatch. Preserve existing V1 receipts and their readers as historical data. Never fabricate a PASS or weaken required checks, source authentication or SHA binding.
+
+As of this clarification, the change is not deployed or accepted. Core drafts [#1335](https://github.com/mcpdev80/baseharbor/pull/1335) (commit-only receipt) and [#1336](https://github.com/mcpdev80/baseharbor/pull/1336) (advanced-base CI repair) require review and actual GitHub-hosted qualification. Workflow and Planning write-source protection, token scope, GitHub event policy, missed-event recovery and an actual end-to-end proof remain open. Required rulesets are disabled; do not claim GitHub enforces them yet. No release or tag is authorized.
+
+The older sections below describe the prior V1 pilot and its history; wherever they demand a separate Owner receipt approval, job/run re-verification by the receipt writer, or an approved-pilot receipt as a new required check, this clarification takes precedence. Continue to preserve the proven CI checks and their fail-closed behavior.
+
 ## Goal
 Complete the automatic producer → plan/receipt → Owner decision → approved publication → retained verification chain and replace the old required CI path for current development. Regular product feature work waits for verified new CI cutover. A bounded real profile-contract producer is permitted as an explicit pilot slice; select and reserve its exact files after checking current startup state. Existing test implementations and valid evidence may be reused in the new execution path; do not call legacy enforcement the completed replacement.
 
