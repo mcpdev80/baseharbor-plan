@@ -2,10 +2,10 @@
 
 ## PLAN
 
-- [x] 1) Volle Fehlerzeile + vorangehende Zeilen aus Run-Log 41397537623, Job app_observability_acceptance_test.go:165 ziehen (gh api job logs)
-- [x] 2) Ursache triagieren: Loki-Startbereitschaft (Grace/healthcheck #1265), Query-Zeitfenster/Sortierung, oder Ingestion-Pat echt kap
-- [ ] 3) Minimaler Fix + Regression; PR gegen develop; Observability-Dispatch auf PR-Branch beobachten
-- [x] 4) END_BLOCKED nach 90 Min Diagnose wenn keine eindeutige file:line-Ursache; statt Weiterbohren
+- 1) Volle Fehlerzeile + vorangehende Zeilen aus Run-Log 41397537623, Job app_observability_acceptance_test.go:165 ziehen (gh api job logs)
+- 2) Ursache triagieren: Loki-Startbereitschaft (Grace/healthcheck #1265), Query-Zeitfenster/Sortierung, oder Ingestion-Pat echt kap
+- 3) Minimaler Fix + Regression; PR gegen develop; Observability-Dispatch auf PR-Branch beobachten
+- 4) END_BLOCKED nach 90 Min Diagnose wenn keine eindeutige file:line-Ursache; statt Weiterbohren
 
 ## RUN-LOG 41397537623, Job docker, Step 7 "Run focused full-stack observability acceptance"
 
