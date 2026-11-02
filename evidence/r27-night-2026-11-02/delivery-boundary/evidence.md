@@ -1,6 +1,6 @@
 # Evidence: t-20261018-r27-delivery-boundary — Night W2-B (2026-11-02)
 
-- [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner
+- Task: t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner
 
 ## PLAN
 
