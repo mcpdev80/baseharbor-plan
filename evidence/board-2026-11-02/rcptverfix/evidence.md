@@ -21,3 +21,38 @@ receipt_verifier.py:409-415 HARDCODES `selected = [j for j in jobs if j.get("nam
 - Job in Plan required → skipped OR failure → BLOCK (as today).
 - Job not in Plan → skipped is ACCEPTED; a job run anyway with failure → still BLOCK.
 - Noop class (#1261) stays BEFORE every required check; pilot PRs stay HARD.
+
+## Fix (rcptverfix) — DONE, CI GREEN
+
+**receipt_verifier.py `live()`** (verified against live data, CI run 41447936075):
+- REMOVED the hardcoded name-list check (old lines 409-415: `PR · Public Contracts`).
+- ADDED after artifact decode: derive `required_names` from `witnessed.selected_gates`
+  — the producer's authoritative rule (`scripts/pr-authenticated-results.py:40` marks PRSC
+  required only when `integration/static/public-contracts` is selected):
+  always `PR · Focused Python`, `Workflow policy`; `+ PR · Exact Candidate`, `PR · Runner Interface`
+  when a `native`/`lifecycle` gate is selected; `+ PR · Public Contracts` when the pilot gate is selected.
+  A required job skipped/failed → still fails closed; a non-required job that ran failed → accepted.
+- Noop path stays before the required check; pilot PRs stay hard.
+
+**CI run 41447936075 (all terminal PASS):**
+- PR Selected Checks pass; PR · Focused Python pass (2m4s); receipt-execution-tests pass (47s);
+  pr-planner-tests pass (2m9s); ci-executor-verifier-tests pass; ci-policy pass;
+  PR · Trusted Plan pass. Head 7489eecd.
+
+**Commits on rcptverfix:**
+- ddd75f8e receipt_verifier: derive required gates from trusted plan, not hardcoded name
+- 6ee482bb test: inherit job head_sha from shared self.job in fixture
+- 7489eecd test: add missing required gate jobs to hand-rolled fixtures
+
+**Tests:** 276 receipt tests pass (125 verifier + 6 chain + 49 postrun + tasklink + writer).
+
+**Not a defect — pre-existing, unrelated:** `test_real_plan_check_runs_on_production_planning`
+fails because the production `baseharbor-plan` `plan.py check` exits 1 (34 errors: evidence
+`.md` checkboxes outside `tasks/` — a Coordinator Publishing/Board issue, commit c9455c6).
+Verified identical failure with my receipt_verifier change reverted; no logic regression.
+
+**Remaining (Owner/Coordinator-gated):** receipt run against blocked PR #1272 (Step 5) needs
+a hosted `workflow_dispatch` receipt run — Owner-approval territory (5.2). No merge attempted.
+
+END_DONE rcptverfix: pr=1285 head=7489eecd run=41447936075 — receipt_verifier derives required
+gates from trusted-plan selected_gates; CI green; Owner-gated Step 5 (receipt run #1272).
