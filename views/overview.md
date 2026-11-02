@@ -10,7 +10,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 0 |
 | blocked | 2 |
 | ready | 0 |
@@ -26,6 +26,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
 | [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
+| [t-20261102-rcptlink-task](../tasks/t-20261102-rcptlink-task.md) | Receipt post-run writer: add single `Resolves #<issue>` link to merged PRs so tasklink auto-resolves green | active | not set | ornith (rcptlink) | — | [baseharbor#1267](https://github.com/mcpdev80/baseharbor/pull/1267), [baseharbor#1268](https://github.com/mcpdev80/baseharbor/pull/1268), [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269), [baseharbor#1270](https://github.com/mcpdev80/baseharbor/pull/1270), [baseharbor#1271](https://github.com/mcpdev80/baseharbor/pull/1271), [baseharbor#1274](https://github.com/mcpdev80/baseharbor/pull/1274), [baseharbor#1275](https://github.com/mcpdev80/baseharbor/pull/1275) |
 
 ## Ready for review
 
@@ -50,7 +51,7 @@ None.
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
-- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 1 open, 6 closed ([view](releases/v0.4.x.md))
+- [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 2 open, 6 closed ([view](releases/v0.4.x.md))
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))
 - [v0.8.x](../releases/v0.8.x.md): Complete Kubernetes support — 56 open, 0 closed ([view](releases/v0.8.x.md))
