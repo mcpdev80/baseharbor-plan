@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 27/97 · **Blocked:** 2 · **Waiting:** 58  
+    **Accepted tasks:** 27/97 · **Blocked:** 2 · **Waiting:** 57  
     **Blocker:** [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) — 68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required;…  
     **Blocker:** [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) — Automatic pilot receipt and candidate-bound CI-change bootstrap are not yet proven; develop required-check ruleset is disabled and native HA qualification rema…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
