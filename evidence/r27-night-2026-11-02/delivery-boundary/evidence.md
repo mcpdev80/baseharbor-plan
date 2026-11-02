@@ -9,7 +9,8 @@
 3. Audit slice deliverables against reserved paths (`internal/delivery/contract.go` + `contract_test.go`; `docs/spec/delivery-provider-contract-v1.md` + DE counterpart; one product ADR — `0011-delivery-providers-and-tool-neutrality.md` EN/DE).
 4. Baseline `go build ./internal/delivery/` + `go test ./internal/delivery/`.
 5. Resolve hard dependency gate `t-20261018-r27-authority-contract`.
-6. Post QUESTION to coordinator; await Owner decision.
+6. Claim task; push plan repo.
+7. Report gate as blocker; await Owner decision (A: CODE_READY handoff, or B: hold until accepted).
 
 ## Work done
 
@@ -36,4 +37,4 @@ Posted QUESTION: (A) claim + verify this already-complete slice and hand off COD
 
 ## Status
 
-END_BLOCKED w2-delivery-boundary: hard predecessor `t-20261018-r27-authority-contract` still active/not accepted; gate on task acceptance per AGENTS 4.2; awaiting Owner decision (QUESTION posted to codeman f49a3303). Deliverables themselves are present and green at SHA `63573ee5`.
+END_BLOCKED w2-delivery-boundary: hard predecessor `t-20261018-r27-authority-contract` still active/not accepted; gate on task acceptance per AGENTS 4.2; claim published (plan commit `e2a3551`), awaiting Owner decision (A: CODE_READY handoff, B: hold until accepted). Deliverables present and green at SHA `63573ee5`.
