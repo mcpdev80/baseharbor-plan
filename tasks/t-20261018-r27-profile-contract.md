@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: critical
-owner: ""
+owner: codeman-coordinator (w1-profile lane)
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -18,19 +18,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/planned #view/queued #area/access #kind/architecture
+- [ ] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/active #view/active #area/access #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Later release** · prerequisites accepted  
+    **Owner:** codeman-coordinator (w1-profile lane) · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
-**Owner:** unassigned  
+**Owner:** codeman-coordinator (w1-profile lane)  
 **Priority:** critical  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
