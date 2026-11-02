@@ -63,10 +63,13 @@ type WorkloadConfig struct {
 
 ## Evidence
 
-- Schema-Lokalisierung: jsonschema-go infer.go:342-343; lokaler Schema-Dump `Workload.required = ["Components","Compose"]`.
+- Schema-Lokalisierung: jsonschema-go infer.go:342-343; lokaler Schema-Dump `Workload.required = ["Components","Compose"]` → nach Fix `["Components"]`.
 - Spec-Zitate: application-contract-v1.md:66; manifest.md:38.
 - Commit-Analyse: 1a4f9b8c / aef6b0e1 (#1265).
+- CI: PR #1272 (SHA 31f4bfe7) auf `develop`. Gates green: `source-contracts` (53s), `exact-candidate`, `focused-python`, `workflow-policy`, `runtime` (docker 4m11s / podman 4m43s), `public-contracts`, `runner-interface`, `demo-pin`.
+- Coverage `PR Selected Checks` BLOCKED: `coverage-unresolved` — `cmd/baha/mcp_application_authoring_test.go` (`registration-mixed-unresolved`) und `internal/application/manifest.go` (`application-manifest-lifecycle`) benötigen unabhängige Diff-Prüfung (independent diff review, AGENTS §2). Worker darf sich selbst nicht freigeben.
 
 ## END
 
-ACTIVE — Fix implemented, local verification pending.
+BLOCKED — Fix + Tests + CI (source-contracts) grün, aber Coverage-Review benötigt unabhängige PR-Abnahme (CODEX-REVIEW). Kein Self-Approval.
+
