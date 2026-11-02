@@ -15,16 +15,16 @@ Repo paths are at repo root (no `scripts/` prefix — mission's `scripts/` is a 
 
 ## ## PLAN
 
-- [x] Step 0: workers/todos/gatemap-r3.json + ## PLAN in evidence (todo-write GUI tool not bound in this worker env — board JSON carries the plan; documented honestly)
-- [x] Step 1: Reality check — gh auth (mcpdev80, ssh), fetch, worktree gatemap-r3 @ f2e43b0a; reproduced both failures locally
-- [x] Step 2: Reproduce both PRSC failures locally (planner.plan → coverage_status unresolved)
-- [x] Step 3: Design: bind (1) testdata/adoption-parity/* else-catch-all -> INSPECT_CHECKS (same gate-Set as internal/repositoryinspect/*, pattern #1259); bind (2) internal/capability/{lifecycle,service_binding,service_binding_test}.go -> require(CAPABILITY_CHECKS)+selected.add('integration/static/public-contracts') (#1260: reference existing gates, NO new gate). Scope: only scripts/pr-gate-plan.py + test file, no .github/*
-- [x] Step 4: Applied verified recipe.patch exactly to scripts/pr-gate-plan.py; removed lifecycle.go from test_application_and_capability_production_remain_unresolved
-- [x] Step 5: Added 4 planner tests (scripts/test_pr_gate_plan.py): capability_implementation_reviewed_files_resolve (+unreviewed_capability_implementation_stays_fail_closed) + testdata_adoption_parity_fixtures_resolve (+other_testdata_stays_unresolved). All 4 PASS; existing capability regression OK.
-- [x] Step 6: Planner tests from worktree: 183 in main group (179 baseline +4 new), only the 2 pre-existing planning-vault failures remain (dirty baseharbor-plan, unrelated to change — confirmed identical on origin/develop).
-- [ ] Step 7: PR against develop, title 'ci(gate-map): bind testdata/adoption-parity + internal/capability paths'
-- [ ] Step 8: After PR's own PRSC GREEN, re-trigger PRSC on #1222 + #1229 (no empty rebase-repush; try `gh workflow run -- rerun --failed`; if plan-context stale, report). Watch to terminal.
-- [ ] Step 9: Post END_DONE/END_BLOCKED handoff; record 1222/1229 status, PR nr, head SHA, test count
+- Step 0: workers/todos/gatemap-r3.json + ## PLAN in evidence (todo-write GUI tool not bound in this worker env — board JSON carries the plan; documented honestly)
+- Step 1: Reality check — gh auth (mcpdev80, ssh), fetch, worktree gatemap-r3 @ f2e43b0a; reproduced both failures locally
+- Step 2: Reproduce both PRSC failures locally (planner.plan → coverage_status unresolved)
+- Step 3: Design: bind (1) testdata/adoption-parity/* else-catch-all -> INSPECT_CHECKS (same gate-Set as internal/repositoryinspect/*, pattern #1259); bind (2) internal/capability/{lifecycle,service_binding,service_binding_test}.go -> require(CAPABILITY_CHECKS)+selected.add('integration/static/public-contracts') (#1260: reference existing gates, NO new gate). Scope: only scripts/pr-gate-plan.py + test file, no .github/*
+- Step 4: Applied verified recipe.patch exactly to scripts/pr-gate-plan.py; removed lifecycle.go from test_application_and_capability_production_remain_unresolved
+- Step 5: Added 4 planner tests (scripts/test_pr_gate_plan.py): capability_implementation_reviewed_files_resolve (+unreviewed_capability_implementation_stays_fail_closed) + testdata_adoption_parity_fixtures_resolve (+other_testdata_stays_unresolved). All 4 PASS; existing capability regression OK.
+- Step 6: Planner tests from worktree: 183 in main group (179 baseline +4 new), only the 2 pre-existing planning-vault failures remain (dirty baseharbor-plan, unrelated to change — confirmed identical on origin/develop).
+- Step 7: PR against develop, title 'ci(gate-map): bind testdata/adoption-parity + internal/capability paths'
+- Step 8: After PR's own PRSC GREEN, re-trigger PRSC on #1222 + #1229 (no empty rebase-repush; try `gh workflow run -- rerun --failed`; if plan-context stale, report). Watch to terminal.
+- Step 9: Post END_DONE/END_BLOCKED handoff; record 1222/1229 status, PR nr, head SHA, test count
 
 ## Repo-rule compliance
 

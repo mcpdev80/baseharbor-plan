@@ -17,7 +17,7 @@ resolution: "accepted"
 evidence: []
 ---
 
-- [ ] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/inspect #kind/bug
+- [x] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/inspect #kind/bug
     <!-- generated:card -->
     **Owner:** t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)  
     **PR:** [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222)  
@@ -26,7 +26,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  

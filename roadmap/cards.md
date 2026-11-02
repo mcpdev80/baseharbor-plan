@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 25/96 · **Blocked:** 2 · **Waiting:** 58  
+    **Accepted tasks:** 26/96 · **Blocked:** 2 · **Waiting:** 58  
     **Blocker:** [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) — 68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required  
     **Blocker:** [t-20261027-r27-cutover-pr3](../tasks/t-20261027-r27-cutover-pr3.md) — PR mcpdev80/baseharbor\#1107, mcpdev80/baseharbor\#1226 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
