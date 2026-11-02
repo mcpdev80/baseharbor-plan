@@ -107,6 +107,19 @@ Per AGENTS 5.2 the acceptance is CODEX-REVIEW at the SHA and the merge is
 CODEX-MERGE — the worker does not self-approve or merge. Card status is
 #status/review; resolution stays empty until CODEX-ACCEPT.
 
+## HANDOFF POST STATUS (2026-11-02 ~13:55)
+
+Mission requires: `codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587
+"END_DONE broker-ready3: pr=1287 head=6ddef0ff | ..."`. The coordinator
+session 35cdb02e-... returned HTTP 404 (session not alive), so the post could
+not be delivered live. Work is complete and durable:
+- PR #1287 (6ddef0ff), mergeStateStatus CLEAN, all CI gates pass.
+- Plan card t-20261102-broker-ready3-widen-readiness-grace active -> #status/review,
+  published to baseharbor-plan main (80a7ec7).
+Evidence persists on disk + GitHub. The END_DONE handoff is re-postable once the
+coordinator session is reachable again; no further worker action is required
+unless CODEX-REVIEW returns a contract deviation.
+
 ## SCOPE NOTE (Owner awareness)
 
 The mission pins `retries: ~24`; the repo Vorbild (mongodb_runtime.go) uses
