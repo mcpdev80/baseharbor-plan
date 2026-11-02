@@ -51,6 +51,20 @@ docs/spec/target-access-v1.md; docs/spec/control-plane-runtime.md; corresponding
 > extraction of lock primitives into `internal/stableid` is permitted for cycle-breaking
 > `coreinstallation -> serviceaccess` consumption, ONLY if zero `serviceaccess` files change
 > and behavior is preserved; documented in task evidence r27-night-2026-11-02.
+>
+> **Ownership / cycle-break recorded (fix round, 2026-11-02):** The permitted write set is
+> `internal/coreinstallation` only. The real production authority boundary is
+> `serviceaccess.Issuer` (issuer reference = identity, revocation = foreign rejection,
+> `ExpiresAt` = freshness); the candidate's self-contained `RemoteAuthority` was never
+> consumed. A Go import cycle forced a minimal, acyclic break: the lifecycle-lock
+> primitives moved from `internal/coreinstallation` to the stdlib-only leaf
+> `internal/stableid` (new `internal/stableid/lock.go` + `lock_test.go`;
+> `serviceaccess/local_issuer.go` re-imports `stableid`; `coreinstallation` re-exports the
+> lock with unchanged signatures). Verified: `go build ./...`, focused authority-type tests,
+> `internal/stableid` lock tests, `go vet`, `mkdocs-en-de-strict`, `documentation-audit`,
+> `pages-candidate-build` all pass. Zero `serviceaccess` files changed beyond the import swap
+> (no logic edit). This is the documented, coordinator-authorized dependency/ownership
+> update; no other shared index/registration was touched.
 
 ## Required checks
 
