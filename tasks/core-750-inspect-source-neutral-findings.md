@@ -14,7 +14,7 @@ source_updated: "2026-10-15T16:51:33Z"
 labels: [kind/bug, area/dx, area/compatibility]
 blocker: "Zwei Teil-Ursachen (t-runner2 Ground-Truth, evidence/board-2026-10-31/t-runner2/): Q1 DOCKER=Owner-Entscheidung (baha-runner-docker-2 faehrt ROOTFUL docker; rootless setuptool verweigert; Linger已从 coordinator enabled, aber Service-Modell rootful-vs-rootless --force = Host-Sicherheitsentscheidung, RUNBOOK 6.2). Q2 PODMAN=worker product fix (openbao-postgres scram/mTLS 28P01, Lane t-openbao-pgauth). sudo/env Codefix gelandet (8155a1dc). sudo-Fix + prep laufen; HA-Jobs failen an Q1/Q2."
 resolution: "accepted"
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/8bc490ea"]
 ---
 
 - [x] core-750 · Inspect: present complete source-neutral findings #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/inspect #kind/bug
@@ -23,6 +23,7 @@ evidence: []
     **PR:** [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222)  
     **Blocker:** Zwei Teil-Ursachen (t-runner2 Ground-Truth, evidence/board-2026-10-31/t-runner2/): Q1 DOCKER=Owner-Entscheidung (baha-runner-docker-2 faehrt ROOTFUL docker; rootless setuptool verweigert; Linger已从 coordinator enabled, aber Service-Modell r…  
     **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8bc490ea)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

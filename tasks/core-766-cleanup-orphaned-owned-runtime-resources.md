@@ -14,7 +14,8 @@ source_updated: "2026-10-15T16:51:08Z"
 labels: [kind/bug, area/runtime, area/security, area/dx]
 blocker: cutover-pr3 #1226 OPEN (extern Maintainer-Review Gate) blocks this task
 resolution: "superseded"
-evidence: []
+superseded_by: "develop resolver refactor (registry/Resolve) + PR #1220 closed as superseded"
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1220"]
 ---
 
 - [x] core-766 · Cleanup: remove orphaned owned runtime resources #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/lifecycle #kind/bug
@@ -23,6 +24,7 @@ evidence: []
     **PR:** [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220)  
     **Blocker:** cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
     **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1220)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
