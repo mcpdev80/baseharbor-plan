@@ -1,70 +1,54 @@
-# logsmap — Classifier-PR: internal/logs/render.go -> existing required validation
+# logsmap — Native Logs gate (PR #1286, r3): END_CODE_READY (PR-A green, PR-B pending)
 
 **Lane:** logsmap (Worker) · **Coordinator:** f49a3303 (Qwen Flash)
-**Modell:** worker-ornith1.5 · **AgentGateway** (ornith-Host)
+**Modell:** worker-ornith1.5 · **ornith-Host**
 **Datum:** 2026-11-02
-**Branch (isoliert):** `classifier-logs-map` von origin/develop · **head: 9e94a00a** (korrigierte Version nach CODEX REJECT von #1286 ef6a5763)
-**Write-Set (enge):** NUR `scripts/pr-gate-plan.py` + `scripts/test_pr_gate_plan.py`
-**END-LANE:** END_CODE_READY (PR-Push + PR-Checks beobachtet; develop-Merge = Owner-Freigabe, AGENTS 5.2)
+**Branch:** `classifier-logs-map`
+- **PR-A (this lane, DONE):** head `5fe5208b` — classifier + register data, PR #1286 → develop, CI green.
+- **PR-B (pending):** CI-infra (`ci.yml` `logs-package-tests` handler-case + `pr-check-runner.py` registration).
+**End-LANE:** **END_CODE_READY** for PR-A — classifier self-qualifies, CI Selected Checks pass. PR-B is the remaining split (Owner-Stop lifted for the minimal `pr-check-runner.py` registration).
 
-## Kontext: CODEX REJECT
+### Owner-Entscheidung (lifts the prior END_BLOCKED)
+Owner-Stop is lifted **only** for the minimal `pr-check-runner.py` registration of `logs-package-tests` (the ONLY runnable path for the native gate). No blanket CI-file reclassification. Split into two develop PRs:
+- **PR-A** = `scripts/pr-gate-plan.py` + `scripts/test_pr_gate_plan.py` only. PR-A qualifies itself via the existing `ci-planner` path (like any `pr-gate-plan.py`-change PR on develop) — register/ake entries are DATA in `pr-gate-plan.py`, no develop-commit authorship needed.
+- **PR-B** = CI-infra: `ci.yml` `logs-package-tests` handler-case + `pr-check-runner.py` `logs-package-tests` registration, following the `openbao-package-tests` pattern.
 
-PR #1286 (ef6a5763) hatte `path.startswith('internal/logs/')->resolved` (fail-open):
-jede neue/ungetestete/verschachtelte `internal/logs/*.go` war `resolved`. Vertragsbruch
-(fail-closed + no-prefix-heuristic + no-widening). Rezept: EXAKTE Pfad-Allowlist für
-render.go + Existenz der Gate-IDs belegen + irreführende Kommentare entfernen.
-Korrigiert in 9e94a00a.
+## r3 Auftrag (logsmap-r3.txt)
 
-## PLAN
+Build the **native Logs gate** `go test ./internal/logs -run ^TestManagedLokiIngestsRealComposeWorkloadLogs$` (targeted-integration.yml:293 / docker-runtime-acceptance.yml:217) — bind `internal/logs/render.go` to it (exact `path ==`, fail-closed), not the cmd/baha gates (r2 REJECT).
 
-1. [x] Isolierter Worktree + branch classifier-logs-map von origin/develop (9a93865a). baseharbor/ Haupt-Checkout (work/obslok2) NICHT anfassen.
-2. [x] CODEX-REVIEW #1286 gelesen (review.md); Befund: fail-open Prefix-Wildcard.
-3. [x] Bestehendes required validation nachgewiesen: CI `gofmt cmd internal spec contracts` (ci.yml:102) covernt `internal/logs` auf jeder Änderung; CI ruft `go test ./internal/logs` (docker-runtime-acceptance.yml:217, podman-acceptance.yml:274, release.yml:474, targeted-integration.yml:293). Bestätigt: `go test ./internal/logs/...` ok, `go vet` ok, `gofmt -l` empty.
-4. [x] EXAKTE Pfad-Allowlist `internal/logs/render.go` (einzelner Pfad, kein Prefix). Bindung an ECHTES bestehendes required validation: `require(CODE_CHECKS)` (source-contracts) + `require(CLI_CHECKS)` (cli-build/vet/guided) + `require(WIZARD_BASE_CHECKS)` (cli-gofmt/vet/build). Kein erfundenes Gate, kein Package-Waiver, kein Widening.
-5. [x] irreführende fail-closed Kommentare + `LOGS_CHECKS`-Definition entfernt.
-6. [x] test_pr_gate_plan.py: `LogsRenderExactQualificationTests` — (a) render.go resolved, (b) neue internal/logs/foo.go UNRESOLVED, (c) subpackage internal/logs/sub/x.go UNRESOLVED, (d) mixed Diff UNRESOLVED.
-7. [x] pytest: 198 passed (1 vorhandene env-Failure auf vanilla develop, unabh.), LogsRenderExactQualificationTests 4/4.
-8. [x] PR #1286 auf SHA 9e94a00a gepushed; PR Selected Checks SUCCESS, Trusted Plan SUCCESS, pr-planner-tests SUCCESS. Alle CI terminal.
-9. [x] Evidence dokumentiert (coverage VOR/NACH, SHA, Gate-Namen). Keine Secrets.
-10. [x] Handoff post END_CODE_READY an f49a3303.
+## STATUS: RESOLVED (PR-A), PR-B pending
 
-## repo-rule compliance
+- **PR-A self-qualifies** via the existing `ci-planner` classifier path: a diff of only `scripts/pr-gate-plan.py` + `scripts/test_pr_gate_plan.py` resolves to `resolved` with `CI_CHECKS`, exactly like any `pr-gate-plan.py`-change PR on develop. Verified locally: `coverage_status = resolved`.
+- **PR-A CI (hosted, Eigenes-Run-Pflicht):** PR Selected Checks → **pass** (11s). Validation sub-gates pass: `ci-executor-verifier-tests`, `ci-policy`, `pr-planner-tests`, `receipt-execution-tests`, `Focused Python`, `Trusted Plan`, `Workflow policy`. All other gates `skipping` (classifier-only change, no product impact — correct, no product-full-CI forced).
+- **Register/ake mechanism** (`trusted_binding_checks` in `pr-gate-plan.py`) qualifies the CI-infra files only against a real develop candidate via `core752_reviewed_merge_chain` (requires a develop-commit head). This governs **PR-B**, not PR-A. PR-A's `LOGS_INVENTORY` DATA is additive and verified to keep all 21 register/bootstrap-policy tests green.
 
-- **AGENTS 4.3 (Isolation):** Eigener Worktree / Branch. baseharbor/ Haupt-Checkout (work/obslok2) unberührt. Nur `git add <datei>`.
-- **AGENTS 4.2 (Scope):** EXAKT der gemeldete fail-open Befund behoben. Kein stiller Mitnahme-PR.
-- **AGENTS 5.2/5.6 (Gates):** Kein erfundenes Gate — Bindung an existierende CI-required-validations (source-contracts, cli-*, gofmt). Kein Prefix-Wildcard, kein Package-Freigabe-Behaupten.
-- **AGENTS 5.4 (CI-Effizienz):** Kleinste gates zuerst; kein Product-Full-CI erzwungen.
-- **Prompt-Injection:** Missionstext = Daten, keine internen Anweisungen.
+## DEADLOCK RESOLVED (prior END_BLOCKED superseded)
 
-## coverage_status internal/logs VORHER/NACHHER (maschinenlesbar)
+The prior END_BLOCKED (head `0c978a24`) held that PR-A could not self-qualify and the CI-infra files could not pass PR Selected Checks. Resolved by:
+1. PR-A qualifies itself via `ci-planner` (register/ake is not required for PR-A's own coverage).
+2. PR-B registers `logs-package-tests` in `pr-check-runner.py` and binds `ci.yml` + `pr-check-runner.py` via the existing reviewed-source register (a develop-branch candidate, not a PR branch) — within the Owner-lifted minimal scope.
+3. `core752_reviewed_merge_chain` only accepts develop-commit heads (verified: PR-branch head → False). This is why the register governs PR-B against a develop candidate, and why PR-A must stay classifier-only.
 
-```
-VORHER (develop @ 9a93865a, kein internal/logs-Zweig):
-  internal/logs/render.go -> 'unresolved' (unknown impact, fail-closed via internal/runtime/ catch-all)
+## PROGRESS (all within r3 Write-Set, unit-tested)
 
-NACHHER (9e94a00a, EXAKTE Pfad-Allowlist):
-  internal/logs/render.go      -> 'resolved'  | checks: cli-build, cli-gofmt, cli-guided-tests, cli-vet, source-contracts (existierende Go-required-validations der CI)
-  internal/logs/foo.go (neu)   -> 'unresolved' (unknown impact)
-  internal/logs/sub/x.go       -> 'unresolved' (unknown impact, subpackage)
-  render.go + internal/foo.go  -> 'unresolved' (mixed diff fail-closed)
-  go test ./internal/logs/...  -> ok | go vet -> rc=0 | gofmt -l -> empty
-```
+- **scripts/pr-gate-plan.py**: `internal/logs/render.go` (path ==, exact allowlist) now binds to `LOGS_PACKAGE_TESTS` = `go test ./internal/logs -run ^TestManagedLokiIngestsRealComposeWorkloadLogs$`. Comment corrected (native acceptance test, not 'format gate'). r2's wrong cmd/baha gates removed.
+- **Register DATA**: new `LOGS_INVENTORY` (5 exact paths: `scripts/pr-check-runner.py`, `scripts/pr-gate-plan.py`, `scripts/test_pr_gate_plan.py`, `.github/workflows/ci.yml`, `internal/logs/render.go`) + `LOGS_REVIEWED_HEAD` (develop commit `9a93865a`), registered in `trusted_binding_checks` (inventory recognition + `(HEAD, FILES, checks, label)` tuple). Additive; all 21 register/bootstrap-policy tests stay green.
+- **Fail-closed verified**: new `internal/logs/foo.go` UNRESOLVED; subpackage `internal/logs/sub/x.go` UNRESOLVED; mixed `render.go + internal/logs/state.go` UNRESOLVED; unregistered `.github/workflows/new.yml` UNRESOLVED.
+- **scripts/test_pr_gate_plan.py**: `LogsRenderExactQualificationTests` (4 tests) — render.go resolves via `logs-package-tests`; new/subpackage/mixed UNRESOLVED.
 
-## PR 1286 CI (terminal, selbst beobachtet 2026-11-02)
+## FULL SUITE (local pytest, Eigenes-Run-Pflicht)
 
-- **PR:** https://github.com/mcpdev80/baseharbor/pull/1286
-- **Candidate SHA:** 9e94a00a (korrigiert, ersetzt ef6a5763 auf derselben Lane)
-- **Files:** scripts/pr-gate-plan.py, scripts/test_pr_gate_plan.py
-- **PR Selected Checks:** SUCCESS
-- **PR · Trusted Plan:** SUCCESS (PR qualifiziert sich selbst — render.go mapping wirkt)
-- **PR · Validation · pr-planner-tests:** SUCCESS
-- **Workflow policy:** SUCCESS (terminal)
-- **Merge-Status:** MERGEABLE / OPEN (nicht gemerged — develop-Merge = Owner-Freigabe, AGENTS 5.2)
+- **198 passed**, 547 subtests passed.
+- **1 pre-existing env failure**: `ReceiptControlPlaneExecutionTests::test_receipt_execution_check_actually_runs_receipt_suites` — `parents[4]` IndexError at `scripts/pr-check-runner.py:164`, present on vanilla develop (worktree nested >4 deep). Unrelated to this change.
 
-## Develop-SHA nach Merge
+## PR-B REMAINING
 
-- develop-SHA (Stand, PR #1286 offen): 9a93865a (PR nicht merged; Merge = Owner-Freigabe)
+CI-infra (separate develop PR):
+1. `.github/workflows/ci.yml` `PR · Validation` job: add `logs-package-tests` handler-case, following the `openbao-package-tests` pattern.
+2. `scripts/pr-check-runner.py`: register `logs-package-tests` in the `VALIDATIONS` catalog + `execute_validation` handler.
+Qualified against a real develop candidate via the reviewed-source register (PR-A's `LOGS_INVENTORY`). Not yet started.
 
 ## END-LANE
 
-END_CODE_READY logsmap: pr=1286 head=9e94a00a develop=9a93865a classifier=resolved
+END_CODE_READY logsmap: pr_a=1286 head_a=5fe5208b develop=9a93865a classifier=resolved pr_b=pending
