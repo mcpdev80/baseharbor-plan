@@ -84,6 +84,11 @@ Head b8666695a80f4b81d165915da4eb966e5550347c (ls-remote verified).
 **Remaining (Owner/Coordinator-gated):** receipt run against blocked PR #1272
 (Step 5) needs hosted `workflow_dispatch` — Owner-approval (5.2). No merge.
 
+END_CODE_READY rcptverfix: pr=1285 head=b8666695 run=41452440424 | codex-1285 REJECT
+korrigiert: #1 fail-closed (optional executed-fail blockiert), #2 authoritative gate
+derivation (pr-authenticated-results.py, no string dodge), #3 uniqueness (dup shadow
+block). develop sync + CI green on new SHA. Owner-gated Step 5 (receipt run #1272).
+
 **Not a defect — pre-existing, unrelated:** `test_real_plan_check_runs_on_production_planning`
 fails because the production `baseharbor-plan` `plan.py check` exits 1 (34 errors: evidence
 `.md` checkboxes outside `tasks/` — a Coordinator Publishing/Board issue, commit c9455c6).
