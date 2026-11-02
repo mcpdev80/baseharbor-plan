@@ -1,0 +1,12 @@
+# Independent review: codex-authz1-r3
+
+ROLLE: CODEX-REVIEW
+VERDICT: APPROVE
+
+Reviewer: Codex, independent follow-up review. PR #1272 head `72c14450e13f63b05f3d29bd2c4e87c65b11488c`, base `640846e1d9d8df2b52c726a21cf5ad06206c51d6`. Fetched PR head over HTTPS. `git ls-remote` confirmed PR head, branch and develop; final recheck confirmed PR head and develop unchanged. Merge-base is the stated develop SHA. Reviewed the complete three-dot diff and delta from `771b502241f06103e87b20c0780bcb4afc3a158b`; no product modifications or local tests.
+
+The complete diff contains exactly `internal/application/manifest.go`, `cmd/baha/mcp_application_authoring_test.go` and `CHANGELOG.md`. The shared-backend identity code and regression test are identical to develop; the R2 blocking finding is resolved. The `omitempty` tag makes Compose optional in generated schema; the manual YAML parser still reads supplied values and the Go string defaults to empty when absent, as recorded in review 1.
+
+The positive test exercises an adopt request without Compose. The negative test at `cmd/baha/mcp_application_authoring_test.go:175` omits Name and checks for both `missing properties` and `Name`; `cmd/baha/mcp_application_authoring.go:15-23` explicitly requires Name. If this schema requirement is removed, this Name-specific missing-property assertion cannot pass even if later business validation rejects the request. This is a code-logic assessment, not a claim of an observed mutation test. Both create and adopt use the shared Manifest schema generator (`cmd/baha/mcp_adoption_tools.go:11-19,31-38`), resolving the route question.
+
+[Run 41414899894](https://github.com/mcpdev80/baseharbor/actions/runs/41414899894) completed on the exact head: all 13 executed jobs other than `PR Selected Checks` succeeded, including Docker and Podman lifecycle and source-contracts; six jobs were skipped. `PR Selected Checks` failed with `coverage-unresolved: mixed registration/execution source needs independent diff review: cmd/baha/mcp_application_authoring_test.go`. The log names that one file, not two. The source-contracts log demonstrates `internal/application` and `contracts` tests, not execution of the new `cmd/baha` tests; their exact-SHA execution evidence must be independently confirmed before acceptance. This is approval of the reviewed diff only, not acceptance or merge authorization. The required aggregate remains red and must genuinely pass under the existing rules; no bypass. If the head or base changes, obtain a new SHA-specific review and applicable checks.
