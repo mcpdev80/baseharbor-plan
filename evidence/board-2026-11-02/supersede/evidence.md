@@ -1,21 +1,24 @@
-# supersede — PR-Parkdeck Analyse
+# supersede — Parkdeck-Tabelle (Coord-Analyse, read-only, 2026-11-02)
 
 ## PLAN
+- [x] Dateien-Listen aller 7 PRs vs #1258-Schreibset + develop
+- [x] Baum-Vergleiche pro Datei (head-vs-1258, head-vs-develop)
+- [x] Empfehlung je PR
+- [ ] Nach #1258-Merge: finale Einzel-Probe 'git diff <pr-head> develop' -> Close-Nachweis
 
-- [ ] 1. PR #1244: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 2. PR #1239: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 3. PR #1238: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 4. PR #1247: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 5. PR #1248: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 6. PR #1249: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 7. PR #1257: Dateien extrahieren, patch-id gegen develop prüfen
-- [ ] 8. PR #1258: Dateien extrahieren, patch-id gegen develop prüfen (Referenz-Schreibset)
-- [ ] 9. Gesamttabelle erstellen mit Empfehlung
-- [ ] 10. Evidence-Datei speichern und codeman post abschließen
+## Tabelle (Stand 735acd95 / develop 9a93865a)
 
-## PLAN-Checkliste
+| PR | Dateien (Kern) | Befund | Empfehlung |
+|----|----------------|--------|------------|
+| #1244 | ci.yml, scripts/ci-podman-gh-runtime.sh | Baum-inhalte == #1258-Kopf; develop-Zeilenvergleich 0; ein Hunk-Wurzel-Podman-Skript in develop noch NICHT nachweisbar | BLOCKED-BIS-1258, danach SUPERSEDED-Prüfung |
+| #1239 | ci.yml, nextjs-e2e.yml, rootless-skript, py-test | alle Dateien == #1258-Fassungen | SUPERSEDED-vorbehaltlich-1258 |
+| #1238 | 3 Akzeptanz-Workflows | == #1258 | SUPERSEDED-vorbehaltlich-1258 |
+| #1247 | 3 Workflows + Podman-Skript | == #1258 | SUPERSEDED-vorbehaltlich-1258 |
+| #1248 | ci.yml, pr-check-runner.py, gate-plan, test | == #1258 (gate-plan-Bindung anderswo nachgezogen) | SUPERSEDED-vorbehaltlich-1258 |
+| #1249 | ci.yml | == #1258 | SUPERSEDED-vorbehaltlich-1258 |
+| #1257 | targeted-integration.yml | == #1258-Fassung; eigener Probe-Lauf NOT WENDEL — Inhalt kommt mit #1258 in develop | nach #1258: SUPERSEDED, kein separater Merge |
+| #1243 | broker+s3 Workflows | == #1258 (2 Dateien) | SUPERSEDED bei #1258-Merge |
 
-1. Alle 8 PRs durchgearbeitet: TODO
-2. Jede PR hat Dateien-Liste, patch-id, develop-Abgleich
-3. Empfehlung für jede PR: MERGE-READY / SUPERSEDED / BLOCKED-BIS-1258 / TOTES-EIS
-4. Tabelle komplett und SHA-genau
+## Entscheidungsregel nach #1258-Merge
+git diff <pr-head> origin/develop -- <jede PR-Datei>: leer => Close 'superseded by #1258' mit Diff-Null-Nachweis;
+nicht leer => Rest-Wert prüfen (rebase+nativ ODER totes-Eis mit Begründung).
