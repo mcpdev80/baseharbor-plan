@@ -1,0 +1,1305 @@
+diff --git a/contracts/binding/v1/service-binding.schema.json b/contracts/binding/v1/service-binding.schema.json
+index b9f9b95c..c65a56f3 100644
+--- a/contracts/binding/v1/service-binding.schema.json
++++ b/contracts/binding/v1/service-binding.schema.json
+@@ -3,7 +3,6 @@
+   "$id": "https://github.com/mcpdev80/baseharbor/blob/HEAD/contracts/binding/v1/service-binding.schema.json",
+   "title": "BaseHarbor Service Binding 1.1-aligned representation",
+   "type": "object",
+-  "description": "Service Binding 1.1 well-known output names are authoritative; non-standard entries must be namespaced (see spec/bindings/service-binding-1.1.md). BaseHarbor security/lifecycle extensions stay under the versioned baha.* namespace. additionalProperties:true reserves open, namespaced-only top-level extensions; unknown non-namespaced output keys are rejected by the well-known-output-name guard (contracts/contracts_test.go) and by capability.ValidateServiceBindingName.",
+   "additionalProperties": true,
+   "properties": {
+     "type": {
+diff --git a/contracts/contracts_test.go b/contracts/contracts_test.go
+index bd404815..6abebd8f 100644
+--- a/contracts/contracts_test.go
++++ b/contracts/contracts_test.go
+@@ -6,8 +6,6 @@ import (
+ 	"path/filepath"
+ 	"strings"
+ 	"testing"
+-
+-	"github.com/mcpdev80/baseharbor/internal/capability"
+ )
+ 
+ func TestServiceSchemasUseJSONSchema202012AndStayProviderNeutral(t *testing.T) {
+@@ -56,46 +54,6 @@ func TestShippedServiceFamiliesHaveSchemas(t *testing.T) {
+ 	}
+ }
+ 
+-func TestServiceBindingSchemaReservesNamespacedExtensionsOnly(t *testing.T) {
+-	data, err := os.ReadFile(filepath.Join("binding", "v1", "service-binding.schema.json"))
+-	if err != nil {
+-		t.Fatal(err)
+-	}
+-	var schema map[string]any
+-	if err := json.Unmarshal(data, &schema); err != nil {
+-		t.Fatalf("service-binding.schema.json: invalid JSON: %v", err)
+-	}
+-	if got := schema["$schema"]; got != "https://json-schema.org/draft/2020-12/schema" {
+-		t.Fatalf("service-binding.schema.json: $schema=%v", got)
+-	}
+-}
+-
+-// TestServiceBindingGuardRejectsUnknownOutputNames asserts the well-known
+-// output-name policy: the binding schema reserves open top-level extensions,
+-// but the well-known-output-name guard must fail for an unknown, non-namespaced
+-// top-level output key. This is the behavioral counterpart to the dialect test.
+-func TestServiceBindingGuardRejectsUnknownOutputNames(t *testing.T) {
+-	for _, key := range []string{"region", "account", "connectionstring"} {
+-		if err := capability.ValidateServiceBindingName(key); err == nil {
+-			t.Fatalf("well-known-output-name guard accepted unknown non-namespaced output key %q", key)
+-		}
+-	}
+-
+-	for _, key := range []string{"type", "provider", "host", "uri", "username", "private-key", "baha.region", "provider.example/endpoint"} {
+-		if err := capability.ValidateServiceBindingName(key); err != nil {
+-			t.Fatalf("accepted entry %q rejected: %v", key, err)
+-		}
+-	}
+-}
+-
+-func keysOf(m map[string]string) []string {
+-	out := make([]string, 0, len(m))
+-	for k := range m {
+-		out = append(out, k)
+-	}
+-	return out
+-}
+-
+ func TestProviderAndBindingSchemasUseJSONSchema202012(t *testing.T) {
+ 	for _, path := range []string{
+ 		filepath.Join("provider", "v1", "provider-descriptor.schema.json"),
+diff --git a/go.mod b/go.mod
+index 634061f7..b09e0eac 100644
+--- a/go.mod
++++ b/go.mod
+@@ -12,11 +12,11 @@ require (
+ 	github.com/jackc/pgx/v5 v5.11.0
+ 	github.com/modelcontextprotocol/go-sdk v1.8.0
+ 	github.com/rabbitmq/amqp091-go v1.15.0
+-	github.com/swaggest/swgui v1.8.5
+ 	go.mongodb.org/mongo-driver/v2 v2.9.1
+-	go.yaml.in/yaml/v3 v3.0.5
++	github.com/swaggest/swgui v1.8.5
+ 	golang.org/x/crypto v0.55.0
+ 	golang.org/x/sys v0.47.0
++	go.yaml.in/yaml/v3 v3.0.5
+ )
+ 
+ require (
+@@ -28,12 +28,16 @@ require (
+ 	github.com/charmbracelet/x/windows v0.2.2 // indirect
+ 	github.com/clipperhouse/displaywidth v0.11.0 // indirect
+ 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
+-	github.com/go-jose/go-jose/v4 v4.1.6
+-	github.com/google/jsonschema-go v0.4.3
++	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
++	github.com/google/jsonschema-go v0.4.3 // indirect
+ 	github.com/jackc/pgpassfile v1.0.0 // indirect
+ 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
+ 	github.com/jackc/puddle/v2 v2.2.2 // indirect
+ 	github.com/klauspost/compress v1.19.2 // indirect
++	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
++	github.com/xdg-go/scram v1.2.0 // indirect
++	github.com/xdg-go/stringprep v1.0.4 // indirect
++	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
+ 	github.com/lucasb-eyer/go-colorful v1.4.1 // indirect
+ 	github.com/mattn/go-runewidth v0.0.24 // indirect
+ 	github.com/muesli/cancelreader v0.2.2 // indirect
+@@ -41,13 +45,9 @@ require (
+ 	github.com/segmentio/asm v1.1.3 // indirect
+ 	github.com/segmentio/encoding v0.5.4 // indirect
+ 	github.com/vearutop/statigz v1.4.0 // indirect
+-	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
+-	github.com/xdg-go/scram v1.2.0 // indirect
+-	github.com/xdg-go/stringprep v1.0.4 // indirect
+ 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
+ 	github.com/yosida95/uritemplate/v3 v3.0.2 // indirect
+-	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
+-	golang.org/x/oauth2 v0.36.0
++	golang.org/x/oauth2 v0.36.0 // indirect
+ 	golang.org/x/sync v0.22.0 // indirect
+ 	golang.org/x/text v0.41.0 // indirect
+ 	golang.org/x/time v0.15.0 // indirect
+diff --git a/go.sum b/go.sum
+index acbf392a..89d6d33e 100644
+--- a/go.sum
++++ b/go.sum
+@@ -26,21 +26,13 @@ github.com/clipperhouse/displaywidth v0.11.0 h1:lBc6kY44VFw+TDx4I8opi/EtL9m20WSE
+ github.com/clipperhouse/displaywidth v0.11.0/go.mod h1:bkrFNkf81G8HyVqmKGxsPufD3JhNl3dSqnGhOoSD/o0=
+ github.com/clipperhouse/uax29/v2 v2.7.0 h1:+gs4oBZ2gPfVrKPthwbMzWZDaAFPGYK72F0NJv2v7Vk=
+ github.com/clipperhouse/uax29/v2 v2.7.0/go.mod h1:EFJ2TJMRUaplDxHKj1qAEhCtQPW2tJSwu5BF98AuoVM=
+-github.com/coreos/go-oidc/v3 v3.21.0 h1:wZo4Q9Pum8dYEj0eMUPrqR+kvuGkeUplbLpNCkBqoWM=
+-github.com/coreos/go-oidc/v3 v3.21.0/go.mod h1:DYCf24+ncYi+XkIH97GY1+dqoRlbaSI26KVTCI9SrY4=
+-github.com/creack/pty v1.1.24 h1:bJrF4RRfyJnbTJqzRLHzcGaZK1NeM5kTC9jGgovnR1s=
+-github.com/creack/pty v1.1.24/go.mod h1:08sCNb52WyoAwi2QDyzUCTgcvVFhUzewun7wtTfvcwE=
+ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+-github.com/go-jose/go-jose/v4 v4.1.6 h1:sNRkftxFJxwsILiQukqp5z83QBSmntVwmgRY7AqBDO4=
+-github.com/go-jose/go-jose/v4 v4.1.6/go.mod h1:x4oUasVrzR7071A4TnHLGSPpNOm2a21K9Kf04k1rs08=
+-github.com/golang-jwt/jwt/v5 v5.3.1 h1:kYf81DTWFe7t+1VvL7eS+jKFVWaUnK9cB1qbwn63YCY=
+-github.com/golang-jwt/jwt/v5 v5.3.1/go.mod h1:fxCRLWMO43lRc8nhHWY6LGqRcf+1gQWArsqaEUEa5bE=
+-github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
+-github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
+-github.com/google/jsonschema-go v0.4.3 h1:/DBOLZTfDow7pe2GmaJNhltueGTtDKICi8V8p+DQPd0=
+-github.com/google/jsonschema-go v0.4.3/go.mod h1:r5quNTdLOYEz95Ru18zA0ydNbBuYoo9tgaYcxEYhJVE=
++github.com/coreos/go-oidc/v3 v3.21.0 h1:wZo4Q9Pum8dYEj0eMUPrqR+kvuGkeUplbLpNCkBqoWM=
++github.com/coreos/go-oidc/v3 v3.21.0/go.mod h1:DYCf24+ncYi+XkIH97GY1+dqoRlbaSI26KVTCI9SrY4=
++github.com/go-jose/go-jose/v4 v4.1.4 h1:moDMcTHmvE6Groj34emNPLs/qtYXRVcd6S7NHbHz3kA=
++github.com/go-jose/go-jose/v4 v4.1.4/go.mod h1:x4oUasVrzR7071A4TnHLGSPpNOm2a21K9Kf04k1rs08=
+ github.com/jackc/pgpassfile v1.0.0 h1:/6Hmqy13Ss2zCq62VdNG8tM1wchn8zjSGOBJ6icpsIM=
+ github.com/jackc/pgpassfile v1.0.0/go.mod h1:CEx0iS5ambNFdcRtxPj5JhEz+xB6uRky5eyVu/W2HEg=
+ github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 h1:iCEnooe7UlwOQYpKFhBabPMi4aNAfoODPEFNiAnClxo=
+@@ -49,26 +41,16 @@ github.com/jackc/pgx/v5 v5.11.0 h1:IzBBtyK9AHqf98cctWFifYSci2hgQR/cd56wB4p+ogg=
+ github.com/jackc/pgx/v5 v5.11.0/go.mod h1:mal1tBGAFfLHvZzaYh77YS/eC6IX9OWbRV1QIIM0Jn4=
+ github.com/jackc/puddle/v2 v2.2.2 h1:PR8nw+E/1w0GLuRFSmiioY6UooMp6KJv0/61nB7icHo=
+ github.com/jackc/puddle/v2 v2.2.2/go.mod h1:vriiEXHvEE654aYKXXjOvZM39qJ0q+azkZFrfEOc3H4=
+-github.com/klauspost/compress v1.19.2 h1:hMRETovs/pu/dVWN7zIT1PGG8t509MwT6bO7XSi26R8=
+-github.com/klauspost/compress v1.19.2/go.mod h1:cwPg85FWrGar70rWktvGQj8/hthj3wpl0PGDogxkrSQ=
+ github.com/lucasb-eyer/go-colorful v1.4.1 h1:1EO+WB73+EH8EVbzlrG3KLAfEypQWVHIBqlTf+2hNss=
+ github.com/lucasb-eyer/go-colorful v1.4.1/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
+ github.com/mattn/go-runewidth v0.0.24 h1:cpokDiIn0MGnhdHwuWnJBITySJ20QyNGnY2kR/ay2DU=
+ github.com/mattn/go-runewidth v0.0.24/go.mod h1:XBkDxAl56ILZc9knddidhrOlY5R/pDhgLpndooCuJAs=
+-github.com/modelcontextprotocol/go-sdk v1.8.0 h1:KIvahhYqwtbeniWVPs3TcXEA7b8jEtwfBpOTAI+Urx4=
+-github.com/modelcontextprotocol/go-sdk v1.8.0/go.mod h1:dL7u98E/zjJTGzEq+j30jQ8K2k1mb6LeAH4inEcSGts=
+ github.com/muesli/cancelreader v0.2.2 h1:3I4Kt4BQjOR54NavqnDogx/MIoWBFa0StPA8ELUXHmA=
+ github.com/muesli/cancelreader v0.2.2/go.mod h1:3XuTXfFS2VjM+HTLZY9Ak0l6eUKfijIfMUZ4EgX0QYo=
+ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
+ github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+-github.com/rabbitmq/amqp091-go v1.15.0 h1:LEQL4/yp48/Wigt6A6XOu18RQRo8ZHtB5I/KZJn+gkw=
+-github.com/rabbitmq/amqp091-go v1.15.0/go.mod h1:Hy4jKW5kQART1u+JkDTF9YYOQUHXqMuhrgxOEeS7G4o=
+ github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
+ github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
+-github.com/segmentio/asm v1.1.3 h1:WM03sfUOENvvKexOLp+pCqgb/WDjsi7EK8gIsICtzhc=
+-github.com/segmentio/asm v1.1.3/go.mod h1:Ld3L4ZXGNcSLRg4JBsZ3//1+f/TjYl0Mzen/DQy1EJg=
+-github.com/segmentio/encoding v0.5.4 h1:OW1VRern8Nw6ITAtwSZ7Idrl3MXCFwXHPgqESYfvNt0=
+-github.com/segmentio/encoding v0.5.4/go.mod h1:HS1ZKa3kSN32ZHVZ7ZLPLXWvOVIiZtyJnO1gPH1sKt0=
+ github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
+ github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
+ github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
+@@ -78,65 +60,58 @@ github.com/swaggest/swgui v1.8.5 h1:nceK5OJcpXpkfjmPNH6wtubbd8ZYwxy043xmx0SK18g=
+ github.com/swaggest/swgui v1.8.5/go.mod h1:kvSzLC7+wK4l9n/YcQlb2AMeQtkno9i3C6imADv/fLQ=
+ github.com/vearutop/statigz v1.4.0 h1:RQL0KG3j/uyA/PFpHeZ/L6l2ta920/MxlOAIGEOuwmU=
+ github.com/vearutop/statigz v1.4.0/go.mod h1:LYTolBLiz9oJISwiVKnOQoIwhO1LWX1A7OECawGS8XE=
+-github.com/xdg-go/pbkdf2 v1.0.0 h1:Su7DPu48wXMwC3bs7MCNG+z4FhcyEuz5dlvchbq0B0c=
+-github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
+-github.com/xdg-go/scram v1.2.0 h1:bYKF2AEwG5rqd1BumT4gAnvwU/M9nBp2pTSxeZw7Wvs=
+-github.com/xdg-go/scram v1.2.0/go.mod h1:3dlrS0iBaWKYVt2ZfA4cj48umJZ+cAEbR6/SjLA88I8=
+-github.com/xdg-go/stringprep v1.0.4 h1:XLI/Ng3O1Atzq0oBs3TWm+5ZVgkq2aqdlvP9JtoZ6c8=
+-github.com/xdg-go/stringprep v1.0.4/go.mod h1:mPGuuIYwz7CmR2bT9j4GbQqutWS1zV24gijq1dTyGkM=
+ github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e h1:JVG44RsyaB9T2KIHavMF/ppJZNG9ZpyihvCd0w101no=
+ github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e/go.mod h1:RbqR21r5mrJuqunuUZ/Dhy/avygyECGrLceyNeo4LiM=
+-github.com/yosida95/uritemplate/v3 v3.0.2 h1:Ed3Oyj9yrmi9087+NczuL5BwkIc4wvTb5zIM+UJPGz4=
+-github.com/yosida95/uritemplate/v3 v3.0.2/go.mod h1:ILOh0sOhIJR3+L/8afwt/kE++YT040gmv5BQTMR2HP4=
+-github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 h1:ilQV1hzziu+LLM3zUTJ0trRztfwgjqKnBWNtSRkbmwM=
+-github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78/go.mod h1:aL8wCCfTfSfmXjznFBSZNN13rSJjlIOI1fUNAtF7rmI=
+-github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
+-go.mongodb.org/mongo-driver/v2 v2.9.1 h1:jewiFs2m1/VOQp8qhFshX6hWZ+EAXDhZHXExAUMcOgQ=
+-go.mongodb.org/mongo-driver/v2 v2.9.1/go.mod h1:SHKN0IWkKmEVGHLjXnni6s4wPKX4v86FTgOeJJFuXcA=
+-go.uber.org/goleak v1.3.0 h1:2K3zAYmnTNqV73imy9J1T3WC+gmCePx2hEGkimedGto=
+-go.uber.org/goleak v1.3.0/go.mod h1:CoHD4mav9JJNrW/WLlf7HGZPjdw8EucARQHekz1X6bE=
+-go.yaml.in/yaml/v3 v3.0.5 h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=
+-go.yaml.in/yaml/v3 v3.0.5/go.mod h1:HVTZu1O7/Vkt2N+BFy8Zza+lnLsABggaTM2ZpNIGuKg=
+-golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
+-golang.org/x/crypto v0.0.0-20210921155107-089bfa567519/go.mod h1:GvvjBRRGRdwPK5ydBHafDWAxML/pGHZbMvKqRZ5+Abc=
+ golang.org/x/crypto v0.55.0 h1:+KWHjbgOaAQ66dh/YlkZKHlz9ZUlq61AFirAR9ntP8M=
+ golang.org/x/crypto v0.55.0/go.mod h1:uq0V9dE/fzQuJtbnL+2EhWOE63vo164FY8xqEnV9xis=
+ golang.org/x/exp v0.0.0-20231006140011-7918f672742d h1:jtJma62tbqLibJ5sFQz8bKtEM8rJBtfilJ2qTU199MI=
+ golang.org/x/exp v0.0.0-20231006140011-7918f672742d/go.mod h1:ldy0pHrwJyGW56pPQzzkH36rKxoZW1tw7ZJpeKx+hdo=
+-golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4/go.mod h1:jJ57K6gSWd91VN4djpZkiMVwK6gcyfeH4XE8wZrZaV4=
+-golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
+-golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
+-golang.org/x/net v0.0.0-20220722155237-a158d28d115b/go.mod h1:XRhObCWvk6IyKnWLug+ECip1KBveYUHfp+8e9klMJ9c=
+ golang.org/x/oauth2 v0.36.0 h1:peZ/1z27fi9hUOFCAZaHyrpWG5lwe0RJEEEeH0ThlIs=
+ golang.org/x/oauth2 v0.36.0/go.mod h1:YDBUJMTkDnJS+A4BP4eZBjCqtokkg1hODuPjwiGPO7Q=
+-golang.org/x/sync v0.0.0-20190423024810-112230192c58/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+-golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+ golang.org/x/sync v0.22.0 h1:SZjpbeLmrCk4xhRSZFNZW5gFUeCeFgjekvI/+gfScek=
+ golang.org/x/sync v0.22.0/go.mod h1:9xrNwdLfx4jkKbNva9FpL6vEN7evnE43NNNJQ2LF3+0=
+-golang.org/x/sys v0.0.0-20190215142949-d0b11bdaac8a/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
+-golang.org/x/sys v0.0.0-20201119102817-f84b799fce68/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
+-golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+-golang.org/x/sys v0.0.0-20220520151302-bc2c85ada10a/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+-golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
+ golang.org/x/sys v0.47.0 h1:o7XGOvZQCADBQQ4Y7VNq2dRWQR7JmOUW8Kxx4ZsNgWs=
+ golang.org/x/sys v0.47.0/go.mod h1:4GL1E5IUh+htKOUEOaiffhrAeqysfVGipDYzABqnCmw=
+-golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
+-golang.org/x/term v0.0.0-20210927222741-03fcf44c2211/go.mod h1:jbD1KX2456YbFQfuXm/mYQcufACuNUgVhRMnK/tPxf8=
+-golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
+-golang.org/x/text v0.3.3/go.mod h1:5Zoc/QRtKVWzQhOtBMvqHzDpF6irO9z98xDceosuGiQ=
+-golang.org/x/text v0.3.7/go.mod h1:u+2+/6zg+i71rQMx5EYifcz6MCKuco9NR6JIITiCfzQ=
+-golang.org/x/text v0.3.8/go.mod h1:E6s5w1FMmriuDzIBO73fBruAKo1PCIq6d2Q6DHfQ8WQ=
+ golang.org/x/text v0.41.0 h1:vz/seA0lnX87Othu2f/0L24RcgrXD9/YFTSuGjj3rH8=
+ golang.org/x/text v0.41.0/go.mod h1:jvf1O8ajNzZqhSrQBPbutR/EB83Cc0CFrezNQIwbb5M=
+-golang.org/x/time v0.15.0 h1:bbrp8t3bGUeFOx08pvsMYRTCVSMk89u4tKbNOZbp88U=
+-golang.org/x/time v0.15.0/go.mod h1:Y4YMaQmXwGQZoFaVFk4YpCt4FLQMYKZe9oeV/f4MSno=
+-golang.org/x/tools v0.0.0-20180917221912-90fa682c2a6e/go.mod h1:n7NCudcB/nEzxVGmLbDWY5pfWTLqBcC2KZ6jyYvM4mQ=
+-golang.org/x/tools v0.0.0-20191119224855-298f0cb1881e/go.mod h1:b+2E5dAYhXwXZwtnZ6UAqBI28+e2cm9otk0dWdXHAEo=
+-golang.org/x/tools v0.1.12/go.mod h1:hNGJHUnrk76NpqgfD5Aqm5Crs+Hm0VOH/i9J2+nxYbc=
+-golang.org/x/tools v0.48.0 h1:3+hClM1aLL5mjMKm5ovokw9epgRXPuu2tILgismM6RE=
+-golang.org/x/tools v0.48.0/go.mod h1:08xX0orndb/F7jJxGDicx061tyd5pcMto75YMAXr6lk=
+-golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
+ gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
+ gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
+ gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
+ gopkg.in/yaml.v3 v3.0.1/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=
++github.com/golang-jwt/jwt/v5 v5.3.1 h1:kYf81DTWFe7t+1VvL7eS+jKFVWaUnK9cB1qbwn63YCY=
++github.com/golang-jwt/jwt/v5 v5.3.1/go.mod h1:fxCRLWMO43lRc8nhHWY6LGqRcf+1gQWArsqaEUEa5bE=
++github.com/google/go-cmp v0.7.0 h1:wk8382ETsv4JYUZwIsn6YpYiWiBsYLSJiTsyBybVuN8=
++github.com/google/go-cmp v0.7.0/go.mod h1:pXiqmnSA92OHEEa9HXL2W4E7lf9JzCmGVUdgjX3N/iU=
++github.com/google/jsonschema-go v0.4.3 h1:/DBOLZTfDow7pe2GmaJNhltueGTtDKICi8V8p+DQPd0=
++github.com/google/jsonschema-go v0.4.3/go.mod h1:r5quNTdLOYEz95Ru18zA0ydNbBuYoo9tgaYcxEYhJVE=
++github.com/modelcontextprotocol/go-sdk v1.8.0 h1:KIvahhYqwtbeniWVPs3TcXEA7b8jEtwfBpOTAI+Urx4=
++github.com/modelcontextprotocol/go-sdk v1.8.0/go.mod h1:dL7u98E/zjJTGzEq+j30jQ8K2k1mb6LeAH4inEcSGts=
++github.com/segmentio/asm v1.1.3 h1:WM03sfUOENvvKexOLp+pCqgb/WDjsi7EK8gIsICtzhc=
++github.com/segmentio/asm v1.1.3/go.mod h1:Ld3L4ZXGNcSLRg4JBsZ3//1+f/TjYl0Mzen/DQy1EJg=
++github.com/segmentio/encoding v0.5.4 h1:OW1VRern8Nw6ITAtwSZ7Idrl3MXCFwXHPgqESYfvNt0=
++github.com/segmentio/encoding v0.5.4/go.mod h1:HS1ZKa3kSN32ZHVZ7ZLPLXWvOVIiZtyJnO1gPH1sKt0=
++github.com/yosida95/uritemplate/v3 v3.0.2 h1:Ed3Oyj9yrmi9087+NczuL5BwkIc4wvTb5zIM+UJPGz4=
++github.com/yosida95/uritemplate/v3 v3.0.2/go.mod h1:ILOh0sOhIJR3+L/8afwt/kE++YT040gmv5BQTMR2HP4=
++golang.org/x/time v0.15.0 h1:bbrp8t3bGUeFOx08pvsMYRTCVSMk89u4tKbNOZbp88U=
++golang.org/x/time v0.15.0/go.mod h1:Y4YMaQmXwGQZoFaVFk4YpCt4FLQMYKZe9oeV/f4MSno=
++golang.org/x/tools v0.48.0 h1:3+hClM1aLL5mjMKm5ovokw9epgRXPuu2tILgismM6RE=
++golang.org/x/tools v0.48.0/go.mod h1:08xX0orndb/F7jJxGDicx061tyd5pcMto75YMAXr6lk=
++go.yaml.in/yaml/v3 v3.0.5 h1:N6y/pJk8buWs9NY5ERU2HSMfm+IuD/OtfdAnq6kESPw=
++go.yaml.in/yaml/v3 v3.0.5/go.mod h1:HVTZu1O7/Vkt2N+BFy8Zza+lnLsABggaTM2ZpNIGuKg=
++github.com/rabbitmq/amqp091-go v1.15.0 h1:LEQL4/yp48/Wigt6A6XOu18RQRo8ZHtB5I/KZJn+gkw=
++github.com/rabbitmq/amqp091-go v1.15.0/go.mod h1:Hy4jKW5kQART1u+JkDTF9YYOQUHXqMuhrgxOEeS7G4o=
++go.uber.org/goleak v1.3.0/go.mod h1:CoHD4mav9JJNrW/WLlf7HGZPjdw8EucARQHekz1X6bE=
++github.com/klauspost/compress v1.19.2 h1:hMRETovs/pu/dVWN7zIT1PGG8t509MwT6bO7XSi26R8=
++github.com/klauspost/compress v1.19.2/go.mod h1:cwPg85FWrGar70rWktvGQj8/hthj3wpl0PGDogxkrSQ=
++github.com/xdg-go/pbkdf2 v1.0.0 h1:Su7DPu48wXMwC3bs7MCNG+z4FhcyEuz5dlvchbq0B0c=
++github.com/xdg-go/pbkdf2 v1.0.0/go.mod h1:jrpuAogTd400dnrH08LKmI/xc1MbPOebTwRqcT5RDeI=
++github.com/xdg-go/scram v1.2.0 h1:bYKF2AEwG5rqd1BumT4gAnvwU/M9nBp2pTSxeZw7Wvs=
++github.com/xdg-go/scram v1.2.0/go.mod h1:3dlrS0iBaWKYVt2ZfA4cj48umJZ+cAEbR6/SjLA88I8=
++github.com/xdg-go/stringprep v1.0.4 h1:XLI/Ng3O1Atzq0oBs3TWm+5ZVgkq2aqdlvP9JtoZ6c8=
++github.com/xdg-go/stringprep v1.0.4/go.mod h1:mPGuuIYwz7CmR2bT9j4GbQqutWS1zV24gijq1dTyGkM=
++github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 h1:ilQV1hzziu+LLM3zUTJ0trRztfwgjqKnBWNtSRkbmwM=
++github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78/go.mod h1:aL8wCCfTfSfmXjznFBSZNN13rSJjlIOI1fUNAtF7rmI=
++go.mongodb.org/mongo-driver/v2 v2.9.1 h1:jewiFs2m1/VOQp8qhFshX6hWZ+EAXDhZHXExAUMcOgQ=
++go.mongodb.org/mongo-driver/v2 v2.9.1/go.mod h1:SHKN0IWkKmEVGHLjXnni6s4wPKX4v86FTgOeJJFuXcA=
++github.com/creack/pty v1.1.24 h1:bJrF4RRfyJnbTJqzRLHzcGaZK1NeM5kTC9jGgovnR1s=
++github.com/creack/pty v1.1.24/go.mod h1:08sCNb52WyoAwi2QDyzUCTgcvVFhUzewun7wtTfvcwE=
+diff --git a/internal/application/manifest.go b/internal/application/manifest.go
+index 2c8d1c0e..a926f170 100644
+--- a/internal/application/manifest.go
++++ b/internal/application/manifest.go
+@@ -145,7 +145,6 @@ func WithIdentityAuthentication(m Manifest, mfa string, methods []string, passwo
+ // repository authoring metadata and never to portable application intent.
+ type WorkloadConfig struct {
+ 	Components []string
+-	Compose    string
+ }
+ 
+ // HTTPExposureRequirement is provider-neutral public HTTP exposure intent.
+diff --git a/internal/application/manifest_parse.go b/internal/application/manifest_parse.go
+index 68a60b01..5cfc9b44 100644
+--- a/internal/application/manifest_parse.go
++++ b/internal/application/manifest_parse.go
+@@ -299,20 +299,11 @@ func (p *manifestYAMLParser) parseServiceSection(lineNo int, trim string) error
+ }
+ 
+ func (p *manifestYAMLParser) parseWorkloadField(lineNo int, trim string) error {
+-	switch {
+-	case trim == "components:":
+-		p.workloadField = "components"
+-		return nil
+-	case strings.HasPrefix(trim, "compose:"):
+-		_, value, ok := strings.Cut(trim, ":")
+-		if ok {
+-			p.manifest.Workload.Compose = strings.TrimSpace(value)
+-		}
+-		p.workloadField = "compose"
+-		return nil
+-	default:
+-		return fmt.Errorf("line %d: unsupported workload field %q; expected components: or compose:", lineNo, trim)
++	if trim != "components:" {
++		return fmt.Errorf("line %d: unsupported workload field %q; expected components:", lineNo, trim)
+ 	}
++	p.workloadField = "components"
++	return nil
+ }
+ 
+ func (p *manifestYAMLParser) parseIndent4(lineNo int, trim string) error {
+diff --git a/internal/application/v0425_contract_test.go b/internal/application/v0425_contract_test.go
+index def0305b..3dda12d1 100644
+--- a/internal/application/v0425_contract_test.go
++++ b/internal/application/v0425_contract_test.go
+@@ -418,16 +418,3 @@ func TestFootprintUnprojectedDependenciesNeverClaimCoreless(t *testing.T) {
+ 		}
+ 	}
+ }
+-
+-func TestParseYAMLAcceptsComposeWorkloadField(t *testing.T) {
+-	// Regression: S3 acceptance stack sends 'compose: compose.yaml' as workload field.
+-	// The parser must accept it instead of rejecting with 'unsupported workload field'.
+-	input := "version: 1\napp:\n  name: myapp\n  environment: dev\nworkload:\n  compose: compose.yaml\n"
+-	m, err := ParseYAML(input)
+-	if err != nil {
+-		t.Fatalf("ParseYAML rejected compose workload field: %v", err)
+-	}
+-	if m.Workload.Compose != "compose.yaml" {
+-		t.Fatalf("expected Workload.Compose=%q, got %q", "compose.yaml", m.Workload.Compose)
+-	}
+-}
+diff --git a/internal/capability/lifecycle.go b/internal/capability/lifecycle.go
+index 3caa505c..13b0a5e7 100644
+--- a/internal/capability/lifecycle.go
++++ b/internal/capability/lifecycle.go
+@@ -300,11 +300,6 @@ func BuildPlan(application string, requests []Request) (Plan, error) {
+ 			}
+ 			binding.Security = &value
+ 		}
+-		for _, projected := range projectedServiceBindingNames(binding) {
+-			if err := ValidateServiceBindingName(projected); err != nil {
+-				return Plan{}, fmt.Errorf("capability binding for %s/%s: %w", application, request.Requirement.Name, err)
+-			}
+-		}
+ 		plan.Items = append(plan.Items, PlanItem{Resource: resource, Binding: binding})
+ 	}
+ 	return plan, nil
+diff --git a/internal/capability/service_binding.go b/internal/capability/service_binding.go
+index 58d42155..3a047180 100644
+--- a/internal/capability/service_binding.go
++++ b/internal/capability/service_binding.go
+@@ -36,32 +36,6 @@ func IsServiceBindingWellKnownName(name string) bool {
+ 	return ok
+ }
+ 
+-// projectedServiceBindingNames returns the names a capability.Binding would
+-// project as Service Binding 1.1 output entries. Only the fields the runtime
+-// exposes through SERVICE_BINDING_ROOT are enforced here; secure-binding
+-// references resolve at the trusted projection boundary and are not entry names.
+-func projectedServiceBindingNames(b Binding) []string {
+-	names := []string{}
+-	if b.Resource.Provider != "" {
+-		names = append(names, ServiceBindingProvider)
+-	}
+-	if b.Security != nil {
+-		if b.Security.Identity != nil {
+-			names = append(names, "baha.identity-ref")
+-		}
+-		if len(b.Security.Credentials) > 0 {
+-			names = append(names, "baha.credential-ref")
+-		}
+-		if len(b.Security.Secrets) > 0 {
+-			names = append(names, "baha.secret-ref")
+-		}
+-		if len(b.Security.Trust) > 0 {
+-			names = append(names, "baha.trust-ref")
+-		}
+-	}
+-	return names
+-}
+-
+ // ValidateServiceBindingName prevents BaseHarbor from creating aliases for
+ // Service Binding 1.1 well-known fields. Provider-specific or capability-specific
+ // extensions remain allowed when they use a namespaced name.
+diff --git a/internal/capability/service_binding_test.go b/internal/capability/service_binding_test.go
+index 226a3369..f6fc53bb 100644
+--- a/internal/capability/service_binding_test.go
++++ b/internal/capability/service_binding_test.go
+@@ -39,35 +39,3 @@ func TestServiceBindingAllowsNamespacedExtensions(t *testing.T) {
+ 		t.Fatal(err)
+ 	}
+ }
+-
+-func TestProjectingServiceBindingNamesAtBoundary(t *testing.T) {
+-	standardBinding := Binding{
+-		Resource: Resource{Application: "app", Kind: SQL, Name: "pg", Provider: "baseharbor"},
+-		Security: &SecureBinding{
+-			Identity:    &WorkloadIdentityBinding{Subject: "spiffe://baseharbor/apps/app", Reference: "openbao://secret"},
+-			Credentials: []CredentialReference{{Name: "c", Reference: "openbao://c"}},
+-			Secrets:     []SecretReference{{Name: "s", Reference: "openbao://s"}},
+-			Trust:       []TrustMaterialReference{{Name: "t", Reference: "ca-bundle"}},
+-		},
+-	}
+-	for _, name := range projectedServiceBindingNames(standardBinding) {
+-		if err := ValidateServiceBindingName(name); err != nil {
+-			t.Fatalf("projected entry %q at binding boundary rejected: %v", name, err)
+-		}
+-	}
+-
+-	unknownNamespacedBinding := Binding{
+-		Resource: Resource{Application: "app", Kind: SQL, Name: "pg", Provider: "baseharbor"},
+-	}
+-	_ = projectedServiceBindingNames(unknownNamespacedBinding)
+-	if err := ValidateServiceBindingName("region"); err == nil {
+-		t.Fatal("projected entry \"region\" at binding boundary accepted though non-namespaced/unknown")
+-	}
+-}
+-
+-func TestProjectedServiceBindingNamesEmptyWithoutProvider(t *testing.T) {
+-	binding := Binding{}
+-	if got := len(projectedServiceBindingNames(binding)); got != 0 {
+-		t.Fatalf("expected no projected output names for empty binding, got %d", got)
+-	}
+-}
+diff --git a/internal/repositoryinspect/inspect.go b/internal/repositoryinspect/inspect.go
+index 6cb7ff34..c8c70126 100644
+--- a/internal/repositoryinspect/inspect.go
++++ b/internal/repositoryinspect/inspect.go
+@@ -212,18 +212,14 @@ func (e Engine) Inspect(ctx context.Context, root string) (Result, error) {
+ 	result.WorkloadServices = uniqueSorted(result.WorkloadServices)
+ 	result.InfrastructureServices = uniqueSorted(result.InfrastructureServices)
+ 	result.AmbiguousServices = uniqueSorted(result.AmbiguousServices)
+-	if result.SelectedWorkloadSource != nil && result.SelectedWorkloadSource.Kind != WorkloadSourceCompose &&
+-		result.WorkloadEvidence != nil {
+-		shareProjectSummaryFromComponents(&result, result.WorkloadEvidence)
+-	}
+-	if manifest == nil && result.SelectedWorkloadSource != nil && len(result.WorkloadServices) > 0 {
++	if manifest == nil && result.SelectedCompose != "" && len(result.WorkloadServices) > 0 {
+ 		result.Findings = mergeFindings(result.Findings, []Finding{{
+ 			Capability: "logs",
+ 			Direction:  DirectionExport,
+ 			Confidence: ConfidenceSuggested,
+ 			Evidence: []Evidence{{
+-				Kind:   sourceEvidenceKindScalar(result.SelectedWorkloadSource.Kind),
+-				Path:   result.SelectedWorkloadSource.Path,
++				Kind:   EvidenceCompose,
++				Path:   result.SelectedCompose,
+ 				Detail: "application workload can opt into managed stdout/stderr log collection",
+ 			}},
+ 		}})
+@@ -453,105 +449,3 @@ func reconcileSelectedComposeInspectionView(result *Result, data []byte) error {
+ 	result.DatabaseBootstrapServices = uniqueSorted(bootstrap)
+ 	return nil
+ }
+-
+-// shareProjectSummaryFromComponents projects the shared inspection summary
+-// (workload vs infrastructure service classification, published ports,
+-// readiness/health checks and capability findings implied by normalized
+-// infrastructure classes) from the canonical normalized workload evidence.
+-//
+-// NormalizeWorkloadSource fills WorkloadEvidence.Components for every supported
+-// source family (compose, quadlet, kubernetes); gating the shared summary on
+-// SelectedCompose only made Quadlet and Kubernetes repositories under-report.
+-// This is the non-Compose projection path; Compose keeps its dedicated parser
+-// (database bootstrap details, ambiguous-service reconciliation), which already
+-// classifies infrastructure services and emits capability findings, so running
+-// the projection for Compose too would duplicate reconciled findings.
+-func shareProjectSummaryFromComponents(result *Result, evidence *WorkloadEvidence) {
+-	path := evidence.Source.Path
+-	for _, component := range evidence.Components {
+-		switch {
+-		case component.InfrastructureClass == "database.sql" ||
+-			component.InfrastructureClass == "cache.key-value" ||
+-			component.InfrastructureClass == "database.document" ||
+-			component.InfrastructureClass == "messaging" ||
+-			component.InfrastructureClass == "storage.object":
+-			result.InfrastructureServices = append(result.InfrastructureServices, component.ID)
+-		case len(component.Ports) > 0 || component.Health || component.Image != "" || component.Build != "":
+-			result.WorkloadServices = append(result.WorkloadServices, component.ID)
+-		}
+-		for _, port := range component.Ports {
+-			result.Ports = append(result.Ports, PortEvidence{Path: path, Service: component.ID, Value: port})
+-		}
+-		if component.Health {
+-			result.HealthChecks = append(result.HealthChecks, Evidence{
+-				Kind: EvidenceHealth, Path: path,
+-				Detail: string(evidence.Source.Kind) + " component " + component.ID + " exposes readiness",
+-			})
+-		}
+-		if finding, ok := capabilityFindingForInfrastructureClass(component); ok {
+-			result.Findings = mergeFindings(result.Findings, []Finding{finding})
+-		}
+-	}
+-	result.WorkloadServices = uniqueSorted(result.WorkloadServices)
+-	result.InfrastructureServices = uniqueSorted(result.InfrastructureServices)
+-}
+-
+-// capabilityFindingForInfrastructureClass maps a normalized component's
+-// infrastructure class to the source-neutral capability finding it implies, so
+-// Quadlet and Kubernetes repositories surface the same capability findings as
+-// Compose. Empty InfrastructureClass yields no finding.
+-func capabilityFindingForInfrastructureClass(component WorkloadComponent) (Finding, bool) {
+-	class := component.InfrastructureClass
+-	if class == "" {
+-		return Finding{}, false
+-	}
+-	var capability string
+-	switch class {
+-	case "database.sql":
+-		capability = "database.sql"
+-	case "cache.key-value":
+-		capability = "cache.key-value"
+-	case "database.document":
+-		capability = "database.document"
+-	case "messaging":
+-		capability = "messaging"
+-	case "storage.object":
+-		capability = "object-storage.s3"
+-	default:
+-		return Finding{}, false
+-	}
+-	return Finding{
+-		Capability: capability,
+-		Name:       component.ID,
+-		Direction:  DirectionExport,
+-		Confidence: ConfidenceDetected,
+-		Evidence: []Evidence{{
+-			Kind:   sourceEvidenceKind(component.Source),
+-			Path:   component.Source[len(component.Source)-1].Path,
+-			Detail: component.InfrastructureClass + " implied by normalized workload component",
+-		}},
+-	}, true
+-}
+-
+-// sourceEvidenceKindScalar maps a source family to the evidence kind that
+-// records it. Compose keeps its compose evidence kind; any other source family
+-// records config provenance so the evidence never falsely claims Compose
+-// provenance.
+-func sourceEvidenceKindScalar(kind WorkloadSourceKind) EvidenceKind {
+-	if kind == WorkloadSourceCompose {
+-		return EvidenceCompose
+-	}
+-	return EvidenceConfig
+-}
+-
+-// sourceEvidenceKind derives the evidence kind from a component's provenance
+-// sources: compose provenance records compose, any other source family records
+-// config so the evidence never falsely claims Compose provenance.
+-func sourceEvidenceKind(sources []WorkloadSourceReference) EvidenceKind {
+-	for _, ref := range sources {
+-		if ref.Kind == WorkloadSourceCompose {
+-			return EvidenceCompose
+-		}
+-	}
+-	return EvidenceConfig
+-}
+diff --git a/internal/repositoryinspect/workload_source_parity_test.go b/internal/repositoryinspect/workload_source_parity_test.go
+index 6c75b8cc..27df3809 100644
+--- a/internal/repositoryinspect/workload_source_parity_test.go
++++ b/internal/repositoryinspect/workload_source_parity_test.go
+@@ -63,169 +63,3 @@ func TestWorkloadSourceCrossSourceSemanticParity(t *testing.T) {
+ 		})
+ 	}
+ }
+-
+-// TestInspectProjectsNeutralSummaryForAllSourceFamilies asserts that the shared
+-// inspection summary (ports, health/readiness, workload vs infrastructure
+-// classification and capability findings) is projected from normalized workload
+-// evidence for every supported source family, not only Compose. This is the
+-// core-750 contract: Quadlet and Kubernetes repositories must not under-report.
+-// The object-storage variants additionally prove that the normalized
+-// infrastructure class storage.object (MinIO/SeaweedFS) maps to infrastructure
+-// classification and the object-storage.s3 capability in all three families.
+-func TestInspectProjectsNeutralSummaryForAllSourceFamilies(t *testing.T) {
+-	fixtures := map[string]struct {
+-		root           string
+-		components     []string
+-		infrastructure map[string]string
+-	}{
+-		"compose": {
+-			root:           filepath.Join("..", "..", "testdata", "adoption-parity", "compose"),
+-			components:     []string{"api", "worker", "db", "cache", "storage"},
+-			infrastructure: map[string]string{"db": "database.sql", "cache": "cache.key-value", "storage": "object-storage.s3"},
+-		},
+-		"quadlet": {
+-			root:           filepath.Join("..", "..", "testdata", "adoption-parity", "quadlet"),
+-			components:     []string{"api", "worker", "db", "cache", "storage"},
+-			infrastructure: map[string]string{"db": "database.sql", "cache": "cache.key-value", "storage": "object-storage.s3"},
+-		},
+-		"kubernetes": {
+-			root:           filepath.Join("..", "..", "testdata", "adoption-parity", "kubernetes"),
+-			components:     []string{"api", "worker", "db", "cache", "storage"},
+-			infrastructure: map[string]string{"db": "database.sql", "cache": "cache.key-value", "storage": "object-storage.s3"},
+-		},
+-	}
+-
+-	for name, fx := range fixtures {
+-		t.Run(name, func(t *testing.T) {
+-			result, err := Inspect(context.Background(), fx.root)
+-			if err != nil {
+-				t.Fatal(err)
+-			}
+-
+-			for _, id := range fx.components {
+-				if !contains(result.WorkloadServices, id) && !contains(result.InfrastructureServices, id) {
+-					t.Fatalf("%s: component %q not projected to workload/infrastructure services: workload=%v infra=%v",
+-						name, id, result.WorkloadServices, result.InfrastructureServices)
+-				}
+-			}
+-			for id, class := range fx.infrastructure {
+-				if !contains(result.InfrastructureServices, id) {
+-					t.Fatalf("%s: infrastructure component %q (%s) not projected: infra=%v", name, id, class, result.InfrastructureServices)
+-				}
+-				if contains(result.WorkloadServices, id) {
+-					t.Fatalf("%s: infrastructure component %q (%s) must not be classified workload: workload=%v", name, id, class, result.WorkloadServices)
+-				}
+-				assertFindingConfidence(t, result, class, ConfidenceDetected)
+-			}
+-			if len(result.Ports) == 0 {
+-				t.Fatalf("%s: ports not projected from normalized component evidence", name)
+-			}
+-			if len(result.HealthChecks) == 0 {
+-				t.Fatalf("%s: health/readiness not projected from normalized component evidence", name)
+-			}
+-			logFinding := resultFindByCapability(result, "logs")
+-			if logFinding == nil {
+-				t.Fatal("logs suggestion not projected; it must not be Compose-only")
+-			}
+-			assertSourceEvidenceKind(t, name, *logFinding)
+-		})
+-	}
+-}
+-
+-// TestInspectObjectStorageParityAcrossSourceFamilies compares the shared
+-// classification semantics for the same logical application expressed in
+-// Compose, Quadlet and Kubernetes: the MinIO storage component must land in
+-// InfrastructureServices (never WorkloadServices) and carry a detected
+-// object-storage.s3 capability finding in every family. The finding Name stays
+-// empty for the aggregate Compose detector finding and names the providing
+-// component for per-component projections; that source-native naming is
+-// provenance, not shared semantics, and is therefore excluded from the
+-// cross-family equality.
+-func TestInspectObjectStorageParityAcrossSourceFamilies(t *testing.T) {
+-	families := []string{"compose", "quadlet", "kubernetes"}
+-	type projection struct {
+-		infrastructure bool
+-		workload       bool
+-		capability     string
+-		confidence     Confidence
+-	}
+-	projected := map[string]projection{}
+-	for _, name := range families {
+-		root := filepath.Join("..", "..", "testdata", "adoption-parity", name)
+-		result, err := Inspect(context.Background(), root)
+-		if err != nil {
+-			t.Fatal(err)
+-		}
+-		p := projection{
+-			infrastructure: contains(result.InfrastructureServices, "storage"),
+-			workload:       contains(result.WorkloadServices, "storage"),
+-		}
+-		if finding := resultFindByCapability(result, "object-storage.s3"); finding != nil {
+-			p.capability = finding.Capability
+-			p.confidence = finding.Confidence
+-		}
+-		projected[name] = p
+-	}
+-	for _, name := range families {
+-		p := projected[name]
+-		if !p.infrastructure {
+-			t.Fatalf("%s: object-storage component not classified infrastructure while %v are", name, projected)
+-		}
+-		if p.workload {
+-			t.Fatalf("%s: object-storage component misclassified as workload: %#v", name, p)
+-		}
+-		if p.capability != "object-storage.s3" || p.confidence != ConfidenceDetected {
+-			t.Fatalf("%s: object-storage capability finding mismatch: %#v", name, p)
+-		}
+-	}
+-	if projected["compose"] != projected["quadlet"] ||
+-		projected["compose"] != projected["kubernetes"] {
+-		t.Fatalf("object-storage semantics differ across families: %#v", projected)
+-	}
+-}
+-
+-// assertSourceEvidenceKind verifies the workload log suggestion carries the
+-// evidence kind of the selected source family: Compose records compose, every
+-// other family records config provenance and never falsely claims Compose.
+-func assertSourceEvidenceKind(t *testing.T, name string, finding Finding) {
+-	t.Helper()
+-	if len(finding.Evidence) == 0 {
+-		t.Fatalf("%s: logs finding has no evidence", name)
+-	}
+-	if name == "compose" && finding.Evidence[0].Kind != EvidenceCompose {
+-		t.Fatalf("%s: compose logs finding kind = %q, want compose", name, finding.Evidence[0].Kind)
+-	}
+-	if name != "compose" && finding.Evidence[0].Kind == EvidenceCompose {
+-		t.Fatalf("%s: non-compose logs finding must not claim compose evidence, got %q", name, finding.Evidence[0].Kind)
+-	}
+-	if name != "compose" && finding.Evidence[0].Kind != EvidenceConfig {
+-		t.Fatalf("%s: non-compose logs finding kind = %q, want config", name, finding.Evidence[0].Kind)
+-	}
+-}
+-
+-func contains(list []string, value string) bool {
+-	for _, item := range list {
+-		if item == value {
+-			return true
+-		}
+-	}
+-	return false
+-}
+-
+-func resultFindByName(result Result, name string) *Finding {
+-	for i := range result.Findings {
+-		if result.Findings[i].Name == name {
+-			return &result.Findings[i]
+-		}
+-	}
+-	return nil
+-}
+-
+-func resultFindByCapability(result Result, capability string) *Finding {
+-	for i := range result.Findings {
+-		if result.Findings[i].Capability == capability {
+-			return &result.Findings[i]
+-		}
+-	}
+-	return nil
+-}
+diff --git a/internal/runtimebroker/broker_test.go b/internal/runtimebroker/broker_test.go
+index 98169a44..80cf99bc 100644
+--- a/internal/runtimebroker/broker_test.go
++++ b/internal/runtimebroker/broker_test.go
+@@ -384,56 +384,6 @@ func TestComposeYAMLBrokerHealthcheckPinsTLSHostnameToLoopback(t *testing.T) {
+ 	}
+ }
+ 
+-func TestComposeYAMLBrokerHealthcheckTimingConfiguration(t *testing.T) {
+-	dir := t.TempDir()
+-	write := func(name string) string {
+-		t.Helper()
+-		path := filepath.Join(dir, name)
+-		if err := os.WriteFile(path, []byte("test"), 0o644); err != nil {
+-			t.Fatal(err)
+-		}
+-		return path
+-	}
+-	m := application.New("demo", "dev", false, false, true)
+-	mtls := openbao.RuntimeMTLSFiles{
+-		CA:         write("ca.pem"),
+-		BrokerCert: write("broker-cert.pem"),
+-		BrokerKey:  write("broker-key.pem"),
+-		ClientCert: write("client-cert.pem"),
+-		ClientKey:  write("client-key.pem"),
+-	}
+-	got, err := composeYAML(
+-		m,
+-		mtls,
+-		write("runtime-token"),
+-		write("openbao.env"),
+-		write("openbao-ca.pem"),
+-		write("permissions.json"),
+-		write("service-tokens.json"),
+-		"baseharbor-runtime:test",
+-		"",
+-		nil,
+-	)
+-	if err != nil {
+-		t.Fatal(err)
+-	}
+-	// Healthcheck timing must allow OpenBao and broker enough time to initialize
+-	// before the first /readyz probe. start_period 2s was too aggressive.
+-	// 30s gives OpenBao ~30s to come up before the healthcheck loop starts.
+-	if !strings.Contains(got, "start_period: 30s") {
+-		t.Errorf("healthcheck start_period should be 30s to avoid premature /readyz failures; got:\n%s", got)
+-	}
+-	if !strings.Contains(got, "interval: 5s") {
+-		t.Errorf("healthcheck interval should be 5s; got:\n%s", got)
+-	}
+-	if !strings.Contains(got, "retries: 12") {
+-		t.Errorf("healthcheck retries should be 12; got:\n%s", got)
+-	}
+-	if !strings.Contains(got, "timeout: 5s") {
+-		t.Errorf("healthcheck timeout should be 5s; got:\n%s", got)
+-	}
+-}
+-
+ func TestProjectOwnerOnlyFilePreservesCanonicalPrivateKeyProtection(t *testing.T) {
+ 	root := t.TempDir()
+ 	files := application.RuntimeFiles{
+diff --git a/internal/runtimebroker/compose_render.go b/internal/runtimebroker/compose_render.go
+index f158589a..1fb9e58a 100644
+--- a/internal/runtimebroker/compose_render.go
++++ b/internal/runtimebroker/compose_render.go
+@@ -262,7 +262,7 @@ func (c runtimeBrokerComposeConfig) writeHealthcheck(b *strings.Builder) {
+ 	b.WriteString("      interval: 5s\n")
+ 	b.WriteString("      timeout: 5s\n")
+ 	b.WriteString("      retries: 12\n")
+-	b.WriteString("      start_period: 30s\n")
++	b.WriteString("      start_period: 2s\n")
+ }
+ 
+ func (c runtimeBrokerComposeConfig) writeServiceNetworks(b *strings.Builder) {
+diff --git a/scripts/pr-gate-plan.py b/scripts/pr-gate-plan.py
+index 02ee5511..dd9c6b2e 100644
+--- a/scripts/pr-gate-plan.py
++++ b/scripts/pr-gate-plan.py
+@@ -341,19 +341,6 @@ PROJECTION_REVIEWED_FILES = frozenset({
+     'internal/application/runtime_environment.go',
+     'internal/application/runtime_placement_retention_test.go',
+ })
+-# #1265 application-implementation-unresolved (gatemap-r4): the manifest parser
+-# drives the real App-Apply/Promotion path.  manifest.go renders the concrete
+-# Manifest with its Provider/SQL/Valkey/Identity/TLS/readiness resolution;
+-# manifest_parse.go parses and validates it.  Bind these EXACT three files to
+-# the two EXISTING native lifecycle gates (atomic/docker/lifecycle,
+-# atomic/podman/lifecycle) — the #1259/#1262 pattern: reference existing gates,
+-# NO new gate, no wildcard over internal/application/*. Every other
+-# internal/application/* source stays on the conservative unresolved branch.
+-GATEMAP_R4_MANIFEST_FILES = frozenset({
+-    'internal/application/manifest.go',
+-    'internal/application/manifest_parse.go',
+-    'internal/application/v0425_contract_test.go',
+-})
+ PROJECTION_CHECKS = CODE_CHECKS
+ OPENBAO_CHECKS = [
+     {'id': 'openbao-package-tests', 'owner': 'internal/openbao',
+@@ -1483,46 +1470,6 @@ def plan(diff, requirements, mapping, repository='.',
+             require(CLI_CHECKS)
+             selected.add('atomic/docker/lifecycle')
+             selected.add('atomic/podman/lifecycle')
+-        elif path in (
+-                'cmd/baha/podman_doctor_checks.go',
+-                'cmd/baha/podman_doctor_checks_test.go'):
+-            # Podman-target doctor readiness checks (PodmanRuntimeDoctorChecks and
+-            # its regression test).  collectControlPlaneDoctorChecks in
+-            # cmd/baha/control_plane_operations.go appends podman + quadlet
+-            # readiness checks here BEFORE the core-deployment early return, but
+-            # ONLY for target.RuntimeProvider == "podman"; the Docker-target
+-            # doctor output is intentionally untouched.  These three files are a
+-            # single runtime-mutation surface that affects BOTH runner backends
+-            # (Docker doctor output must stay clean, Podman doctor output gains
+-            # two named checks) and must exercise the real atomic lifecycle gates
+-            # on both, exactly like the other cmd/baha runtime-mutation files.
+-            # Bind to the SAME existing native lifecycle gates (atomic/docker/
+-            # lifecycle, atomic/podman/lifecycle) — no new gate, no weakening.
+-            # Without this branch the three files fell to the
+-            # cli-unresolved-runtime-impact catch-all and blocked PR Selected
+-            # checks (#1267).  This branch must sit BEFORE the
+-            # cli-unresolved-runtime-impact catch-all.
+-            area = 'cli-podman-doctor-runtime-impact'
+-            require(CODE_CHECKS)
+-            require(CLI_CHECKS)
+-            selected.add('atomic/docker/lifecycle')
+-            selected.add('atomic/podman/lifecycle')
+-        elif path == 'cmd/baha/control_plane_operations.go' and path_status.get(path) == 'modified':
+-            # The control-plane doctor path that appends the podman/quadlet
+-            # readiness checks for a Podman target.  It is the exact mutation the
+-            # new PodmanRuntimeDoctorChecks wires into, affects both runner
+-            # backends (Docker output stays clean, Podman output gains two checks)
+-            # and binds to the SAME existing native lifecycle gates as the runtime
+-            # acceptance family (atomic/docker/lifecycle, atomic/podman/lifecycle)
+-            # — no new gate, no weakening.  Without this branch this file fell to
+-            # the cli-unresolved-runtime-impact catch-all and blocked PR Selected
+-            # checks (#1267).  This branch must sit BEFORE the
+-            # cli-unresolved-runtime-impact catch-all.
+-            area = 'cli-podman-doctor-runtime-impact'
+-            require(CODE_CHECKS)
+-            require(CLI_CHECKS)
+-            selected.add('atomic/docker/lifecycle')
+-            selected.add('atomic/podman/lifecycle')
+         elif path == 'cmd/baha/app_observability_acceptance_test.go':
+             # Full-stack observability acceptance for the CLI (TestObservabilityFullStack
+             # AcceptanceInCI).  This boots a real native container runtime (Docker and
+@@ -1539,22 +1486,6 @@ def plan(diff, requirements, mapping, repository='.',
+             require(CLI_CHECKS)
+             selected.add('atomic/docker/observability')
+             selected.add('atomic/podman/observability')
+-        elif path.startswith('internal/runtimebroker/') and path.endswith('.go'):
+-            # runtime-broker container realization + its tests (compose_render.go
+-            # readiness grace, broker/retirement lifecycle). The broker renders
+-            # and drives the runtime on BOTH runners (Docker/Compose and rootless
+-            # Podman/Quadlet), so it must exercise the real atomic lifecycle gates
+-            # on both.  Bind the whole package to those EXISTING gates only — no
+-            # new release gate, no widening.  Without this branch the files fell to
+-            # the generic internal/runtime/ catch-all and left PR Selected Checks
+-            # fail-closed with 'unknown impact for internal/runtimebroker/…'
+-            # (#1265).  Any other internal/runtimebroker/*.go that does not match an
+-            # explicit reviewed-source clause below stays unresolved.
+-            area = 'runtimebroker-lifecycle'
+-            require(CODE_CHECKS)
+-            require(CLI_CHECKS)
+-            selected.add('atomic/docker/lifecycle')
+-            selected.add('atomic/podman/lifecycle')
+         elif path.startswith('cmd/baha/') and path.endswith('.go'):
+             area = 'cli-unresolved-runtime-impact'
+             require(CODE_CHECKS)
+@@ -1565,34 +1496,11 @@ def plan(diff, requirements, mapping, repository='.',
+             require(CODE_CHECKS)
+             require(CAPABILITY_CHECKS)
+             selected.add('integration/static/public-contracts')
+-        elif path in ('internal/capability/lifecycle.go',
+-                      'internal/capability/service_binding.go',
+-                      'internal/capability/service_binding_test.go'):
+-            # core-390 service-binding enforcement (#1229): the reviewed
+-            # lifecycle/service_binding implementation + its test are covered by
+-            # the package's own capability-package-tests check (already in
+-            # CAPABILITY_CHECKS) plus the existing static public-contracts gate.
+-            # Bind to those EXISTING gates only (#1260 pattern: reference existing
+-            # gates, no new gate) — no new release gate, no widening. Any other
+-            # internal/capability/* production file stays fail-closed unresolved
+-            # below.
+-            area = 'capability-implementation-resolved'
+-            require(CODE_CHECKS)
+-            require(CAPABILITY_CHECKS)
+-            selected.add('integration/static/public-contracts')
+         elif path.startswith('internal/capability/'):
+             area = 'capability-implementation-unresolved'
+             require(CODE_CHECKS)
+             require(CAPABILITY_CHECKS)
+             unresolved.append('provider/capability registry or lifecycle impact needs targeted qualification: ' + path)
+-        elif path.startswith('testdata/adoption-parity/'):
+-            # #1222 static adoption fixtures (README/compose/k8s/quadlet). Bind to
+-            # the same focused inspect checks that already run the
+-            # repositoryinspect parity test (#1259 observability-binding pattern):
+-            # no new gate, no widening. Only this prefix resolves; any other
+-            # unmatched file still falls to the fail-closed catch-all below.
+-            area = 'inspect-testdata-fixed'
+-            require(INSPECT_CHECKS)
+         elif path in PROJECTION_REVIEWED_FILES:
+             area = 'application-projection-reviewed-path'
+             require(PROJECTION_CHECKS)
+@@ -1622,19 +1530,6 @@ def plan(diff, requirements, mapping, repository='.',
+             area = 'application-shared-provider-resolution'
+             require(CODE_CHECKS)
+             selected.add('atomic/podman/lifecycle')
+-        elif path in GATEMAP_R4_MANIFEST_FILES:
+-            # #1265 application-implementation-unresolved: the manifest parser
+-            # drives the real App-Apply/Promotion path.  manifest.go renders the
+-            # concrete Manifest and its Provider/SQL/Valkey/Identity/TLS/readiness
+-            # resolution; manifest_parse.go parses/validates it.  Binding to the
+-            # two EXISTING native lifecycle gates (#1259/#1262 pattern: reference
+-            # existing gates, NO new gate, no wildcard over internal/application/*)
+-            # proves the real provider-resolution + readiness path on BOTH runners.
+-            # v0425_contract_test.go pins the v0.4.25 contract for both lifecycles.
+-            area = 'application-manifest-lifecycle'
+-            require(CODE_CHECKS)
+-            selected.add('atomic/docker/lifecycle')
+-            selected.add('atomic/podman/lifecycle')
+         elif path.startswith('internal/application/'):
+             area = 'application-implementation-unresolved'
+             require(CODE_CHECKS)
+diff --git a/scripts/receipt_verifier.py b/scripts/receipt_verifier.py
+index 830be049..c2b907fb 100644
+--- a/scripts/receipt_verifier.py
++++ b/scripts/receipt_verifier.py
+@@ -443,19 +443,6 @@ def live(value, plan, api=None, product=None):
+             witnessed = decode(archive.read(entries[0]), 65536)
+     except (zipfile.BadZipFile, RuntimeError, NotImplementedError) as exc:
+         raise ReceiptError("unreadable plan ZIP") from exc
+-    # No-op abfangen: wenn der producer plan weder die Pilotpfade aendert
+-    # noch eine PR->Task-Karte gemappt ist, ist das ein No-op mit success.
+-    # Fail-closed stattdessen: der coverage_status != "resolved" UND die
+-    # selected_gates enthalten nicht "integration/static/public-contracts"
+-    # => der Gate hat keinen relevanten Einfluss auf diesen PR.
+-    coverage_status = witnessed.get("coverage_status")
+-    selected_gates = witnessed.get("selected_gates")
+-    is_pilot_unmapped = (coverage_status != "resolved"
+-                         and "integration/static/public-contracts"
+-                             not in (selected_gates or []))
+-    if is_pilot_unmapped:
+-        # Non-pilot + unmapped => No-op success (PR #1252 Praezedenz).
+-        return
+     require(witnessed.get("schema") == "baseharbor.pr-gate-plan/v1"
+             and witnessed.get("coverage_status") == "resolved"
+             and "integration/static/public-contracts" in witnessed.get("selected_gates", [])
+diff --git a/scripts/test_pr_gate_plan.py b/scripts/test_pr_gate_plan.py
+index 32556cb2..660f2621 100644
+--- a/scripts/test_pr_gate_plan.py
++++ b/scripts/test_pr_gate_plan.py
+@@ -841,65 +841,6 @@ class MappingTests(unittest.TestCase):
+                 commands = {check['command'] for check in result['required_validation_checks']}
+                 self.assertIn('go test ./internal/capability/... -count=1', commands)
+ 
+-    def test_capability_implementation_reviewed_files_resolve(self):
+-        # gatemap-r3 / #1229 (core-390 service-binding enforcement): the reviewed
+-        # lifecycle/service_binding implementation + its paired test resolve via
+-        # their package's own capability-package-tests check plus the existing
+-        # static public-contracts gate (#1260 pattern: reference existing gates,
+-        # NO new gate). The reviewed files bind to EXISTING gates only.
+-        for name in ['internal/capability/lifecycle.go',
+-                     'internal/capability/service_binding.go',
+-                     'internal/capability/service_binding_test.go']:
+-            with self.subTest(path=name):
+-                result = planner.plan(diff(paths(name)), REQ, MAP)
+-                self.assertEqual('resolved', result['coverage_status'])
+-                self.assertFalse(result['unresolved_coverage'])
+-                self.assertFalse(result['broad_required'])
+-                self.assertEqual(['integration/static/public-contracts'],
+-                                 result['selected_gates'])
+-                ids = {c['id'] for c in result['required_validation_checks']}
+-                self.assertIn('capability-package-tests', ids)
+-                self.assertIn('source-contracts', ids)
+-
+-    def test_unreviewed_capability_implementation_stays_fail_closed(self):
+-        # Fail-closed regression: any OTHER internal/capability/* production file
+-        # that is not the reviewed core-390 set stays unresolved, exactly like
+-        # the registry/provider_placement surface.
+-        for name in ['internal/capability/registry.go',
+-                     'internal/capability/provider_placement.go',
+-                     'internal/capability/manifest.go']:
+-            with self.subTest(path=name):
+-                result = planner.plan(diff(paths(name)), REQ, MAP)
+-                self.assertEqual('unresolved', result['coverage_status'])
+-                self.assertTrue(result['unresolved_coverage'])
+-
+-    def test_testdata_adoption_parity_fixtures_resolve(self):
+-        # gatemap-r3 / #1222: static adoption fixtures (README/compose/k8s/quadlet)
+-        # bind to the same focused inspect checks that already run the
+-        # repositoryinspect parity test (#1259 observability-binding pattern) —
+-        # no new gate, no widening.
+-        for name in ['testdata/adoption-parity/README.md',
+-                     'testdata/adoption-parity/compose/compose.yaml',
+-                     'testdata/adoption-parity/kubernetes/app.yaml',
+-                     'testdata/adoption-parity/quadlet/storage.container']:
+-            with self.subTest(path=name):
+-                result = planner.plan(diff(paths(name)), REQ, MAP)
+-                self.assertEqual('resolved', result['coverage_status'])
+-                self.assertFalse(result['unresolved_coverage'])
+-                self.assertFalse(result['broad_required'])
+-                ids = {c['id'] for c in result['required_validation_checks']}
+-                self.assertEqual({'inspect-gofmt', 'inspect-package-tests',
+-                                  'inspect-vet', 'inspect-consumer-tests',
+-                                  'inspect-consumer-build'}, ids)
+-
+-    def test_other_testdata_stays_unresolved(self):
+-        # Fail-closed regression: a testdata file OUTSIDE adoption-parity still
+-        # falls to the catch-all unresolved branch (only the adopted prefix is
+-        # resolved).
+-        result = planner.plan(diff(paths('testdata/something/else.txt')), REQ, MAP)
+-        self.assertEqual('unresolved', result['coverage_status'])
+-        self.assertTrue(result['unresolved_coverage'])
+-
+     def test_reconcile_source_runs_focused_inspect_checks_resolved(self):
+         # core-752 permanent lane: only the exact reviewed reconciliation files
+         # resolve to the focused package checks, with zero native gates.
+@@ -953,28 +894,6 @@ class MappingTests(unittest.TestCase):
+                 commands = {c['command'] for c in result['required_validation_checks']}
+                 self.assertIn('go test ./internal/repositoryinspect/ -count=1', commands)
+ 
+-    def test_runtimebroker_package_binds_existing_lifecycle_gates_resolved(self):
+-        # #1265 / broker-ready4 PR B: the runtime-broker container realization
+-        # (compose_render.go readiness grace, broker/retirement lifecycle) runs
+-        # on BOTH runners and must resolve to the EXISTING atomic lifecycle
+-        # gates — no new gate, no widening.  Without this binding the files fell
+-        # to the catch-all and blocked PR Selected checks with 'unknown impact'.
+-        for name in ['internal/runtimebroker/broker.go',
+-                     'internal/runtimebroker/compose_render.go',
+-                     'internal/runtimebroker/retirement.go',
+-                     'internal/runtimebroker/broker_test.go',
+-                     'internal/runtimebroker/retirement_test.go']:
+-            with self.subTest(path=name):
+-                result = planner.plan(diff(paths(name)), REQ, MAP)
+-                self.assertEqual('resolved', result['coverage_status'])
+-                self.assertFalse(result['unresolved_coverage'])
+-                self.assertFalse(result['broad_required'])
+-                self.assertEqual(['atomic/docker/lifecycle', 'atomic/podman/lifecycle'],
+-                                 sorted(result['selected_gates']))
+-                ids = {c['id'] for c in result['required_validation_checks']}
+-                self.assertIn('cli-vet', ids)
+-                self.assertIn('cli-build', ids)
+-
+     def test_resolver_routing_allowlist_runs_focused_resolver_checks_resolved(self):
+         # core-1220 permanent lane: only the exact reviewed resolver files resolve
+         # to the focused package checks, with zero native release gates.
+@@ -1044,9 +963,11 @@ class MappingTests(unittest.TestCase):
+                                       'inspect-consumer-build'}, ids)
+ 
+     def test_application_and_capability_production_remain_unresolved(self):
+-        for name in ['internal/application/footprint.go',
++        for name in ['internal/application/manifest.go',
++                     'internal/application/footprint.go',
+                      'internal/application/provider_union.go',
+                      'internal/capability/registry.go',
++                     'internal/capability/lifecycle.go',
+                      'internal/capability/provider_placement.go',
+                      'internal/capability/registry_test.go',
+                      'internal/capability/new_provider.go']:
+@@ -1373,7 +1294,7 @@ class RuntimeDockerEngineMappingTests(unittest.TestCase):
+         # Even if docker_engine is resolved, a second unreviewed file must
+         # keep the whole PR unresolved — fail-closed.
+         result = planner.plan(diff(paths('internal/runtime/docker_engine.go',
+-                                          'internal/application/footprint.go')), REQ, MAP)
++                                          'internal/application/manifest.go')), REQ, MAP)
+         self.assertEqual('unresolved', result['coverage_status'])
+         self.assertTrue(result['unresolved_coverage'])
+ 
+@@ -1415,7 +1336,7 @@ class CliEngineMappingTests(unittest.TestCase):
+         # round2 fail-closed: even if docker_engine.go is resolved, a second
+         # unreviewed file must keep the whole PR unresolved.
+         result = planner.plan(diff(paths('cmd/baha/docker_engine.go',
+-                                          'internal/application/footprint.go')), REQ, MAP)
++                                          'internal/application/manifest.go')), REQ, MAP)
+         self.assertEqual('unresolved', result['coverage_status'])
+         self.assertTrue(result['unresolved_coverage'])
+ 
+@@ -1503,50 +1424,17 @@ class SharedBackendResolutionMappingTests(unittest.TestCase):
+         # fail-closed: resolved shared-backend file + an unreviewed second file
+         # keeps the whole PR unresolved.
+         result = planner.plan(diff(paths('internal/application/shared_backends.go',
+-                                          'internal/application/footprint.go')), REQ, MAP)
++                                          'internal/application/manifest.go')), REQ, MAP)
+         self.assertEqual('unresolved', result['coverage_status'])
+         self.assertTrue(result['unresolved_coverage'])
+ 
+     def test_unrelated_application_file_stays_unresolved(self):
+-        # A non-manifest application file must NOT pick up the r4 manifest
++        # A non shared_backend application file must NOT pick up the new
+         # classification; it stays in application-implementation-unresolved.
+-        result = planner.plan(diff(paths('internal/application/footprint.go')), REQ, MAP)
++        result = planner.plan(diff(paths('internal/application/manifest.go')), REQ, MAP)
+         self.assertEqual('unresolved', result['coverage_status'])
+         self.assertIn('application lifecycle', result['unresolved_coverage'][0])
+         self.assertNotIn('atomic/podman/lifecycle', result['selected_gates'])
+-        self.assertNotIn('atomic/docker/lifecycle', result['selected_gates'])
+-
+-    def test_gatemap_r4_manifest_paths_bind_lifecycle_gates(self):
+-        # gatemap-r4: the three reviewed manifest-parser paths bind to the two
+-        # EXISTING native lifecycle gates (atomic/docker/lifecycle,
+-        # atomic/podman/lifecycle) -> coverage resolved, selected_gates exactly
+-        # those two catalog tokens (no new gate).
+-        for name in ['internal/application/manifest.go',
+-                     'internal/application/manifest_parse.go',
+-                     'internal/application/v0425_contract_test.go']:
+-            with self.subTest(path=name):
+-                result = planner.plan(diff(paths(name)), REQ, MAP)
+-                self.assertEqual('resolved', result['coverage_status'])
+-                self.assertEqual([], result['unresolved_coverage'])
+-                self.assertEqual({'atomic/docker/lifecycle',
+-                                  'atomic/podman/lifecycle'},
+-                                 set(result['selected_gates']))
+-                commands = {c['command'] for c in result['required_validation_checks']}
+-                self.assertIn('go test ./internal/application/... ./contracts/...',
+-                              commands)
+-
+-    def test_gatemap_r4_other_application_file_stays_unresolved(self):
+-        # Next application file that is NOT the reviewed manifest parser stays
+-        # fail-closed unresolved; the three-file binding does NOT widen.
+-        for name in ['internal/application/footprint.go',
+-                     'internal/application/provider_union.go']:
+-            with self.subTest(path=name):
+-                result = planner.plan(diff(paths(name)), REQ, MAP)
+-                self.assertEqual('unresolved', result['coverage_status'])
+-                self.assertTrue(result['unresolved_coverage'])
+-                self.assertNotEqual({'atomic/docker/lifecycle',
+-                                     'atomic/podman/lifecycle'},
+-                                    set(result['selected_gates']))
+ 
+     def test_shared_backend_missing_lifecycle_gate_fails_closed(self):
+         # Fail-closed on incomplete catalog: no atomic/podman/lifecycle => unresolved.
+@@ -4086,36 +3974,6 @@ class RuntimeProjectionPathMappingTests(unittest.TestCase):
+                       ' '.join(result['unresolved_coverage']))
+ 
+ 
+-class PodmanDoctorRuntimeImpactMappingTests(unittest.TestCase):
+-    """gatemap-r5: the three PR #1267 podman-doctor files bind to the existing
+-    atomic lifecycle gates; a genuinely unrelated new cmd/baha file stays
+-    unresolved (the catch-all is unchanged)."""
+-
+-    def test_three_podman_doctor_files_resolve_on_both_lifecycle_gates(self):
+-        reviewed = [
+-            {'status': 'modified', 'path': 'cmd/baha/control_plane_operations.go'},
+-            {'status': 'added', 'path': 'cmd/baha/podman_doctor_checks.go'},
+-            {'status': 'added', 'path': 'cmd/baha/podman_doctor_checks_test.go'},
+-        ]
+-        result = planner.plan(diff(reviewed), REQ, MAP)
+-        self.assertEqual('resolved', result['coverage_status'], result)
+-        self.assertEqual([], result['unresolved_coverage'], result)
+-        self.assertFalse(result['broad_required'])
+-        self.assertEqual(['atomic/docker/lifecycle', 'atomic/podman/lifecycle'],
+-                         result['selected_gates'])
+-        required = planner.CODE_CHECKS + planner.CLI_CHECKS
+-        self.assertEqual({c['id'] for c in result['required_validation_checks']},
+-                         {c['id'] for c in required})
+-
+-    def test_unrelated_new_cmd_baha_file_stays_unresolved(self):
+-        result = planner.plan(
+-            diff([{'status': 'added', 'path': 'cmd/baha/brand_new_command.go'}]),
+-            REQ, MAP)
+-        self.assertEqual('unresolved', result['coverage_status'])
+-        self.assertIn('CLI runtime impact needs qualified targeted native coverage',
+-                      ' '.join(result['unresolved_coverage']))
+-
+-
+ def runner_validations():
+     import importlib.util
+     spec_v = importlib.util.spec_from_file_location('check_runner', ROOT / 'pr-check-runner.py')
+diff --git a/scripts/test_receipt_verifier.py b/scripts/test_receipt_verifier.py
+index b490cf28..e794c934 100644
+--- a/scripts/test_receipt_verifier.py
++++ b/scripts/test_receipt_verifier.py
+@@ -384,21 +384,6 @@ class VerifierFixtureTest(unittest.TestCase):
+             return self.api(path, binary=binary)
+         return api
+ 
+-    def bogus_noop_coverage_api(self):
+-        """Noop coverage: coverage_status != 'resolved' AND selected_gates
+-        omits the pilot gate path => is_pilot_unmapped=True => No-op success."""
+-        def api(path, *, binary=False):
+-            if binary:
+-                buffer = io.BytesIO()
+-                with zipfile.ZipFile(buffer, 'w') as archive:
+-                    archive.writestr('pr-plan.json', verifier.canonical(dict(
+-                        schema='baseharbor.pr-gate-plan/v1', coverage_status='failed',
+-                        selected_gates=[], head_sha=self.head_sha,
+-                        target_base_sha=self.base_sha, integration_sha=self.candidate)))
+-                return buffer.getvalue()
+-            return self.api(path, binary=binary)
+-        return api
+-
+ 
+ class D3ExtractionNegativesTest(unittest.TestCase):
+     """D3 recipe: strict, bounded, typed extraction from a producer plan object.
+@@ -647,16 +632,6 @@ class LiveNegativeNegativesTest(VerifierFixtureTest):
+         with self.assertRaisesRegex(verifier.ReceiptError, 'producer plan/source mismatch'):
+             verifier.live(value, self.plan, api=self.bogus_selected_gates_api([]))
+ 
+-    def test_non_pilot_unmapped_pr_noop_success(self):
+-        """PR #1252 Praezedenz: non-pilot + unmapped PR => No-op success.
+-        coverage_status != 'resolved' AND selected_gates omits the gate path.
+-        The live() verifier must return without raising ReceiptError."""
+-        path, original = self.create()
+-        value = verifier.receipt((self.root / path).read_bytes())
+-        # bogus_noop_coverage_api returns coverage_status='failed' AND empty selected_gates
+-        # => is_pilot_unmapped=True => live() returns None (success, No-op)
+-        verifier.live(value, self.plan, api=self.bogus_noop_coverage_api())
+-
+     def test_negative_second_attempt_rejected(self):
+         path, original = self.create()
+         value = verifier.receipt((self.root / path).read_bytes())
+diff --git a/testdata/adoption-parity/README.md b/testdata/adoption-parity/README.md
+index 82278d20..2960aae2 100644
+--- a/testdata/adoption-parity/README.md
++++ b/testdata/adoption-parity/README.md
+@@ -18,7 +18,6 @@ workload components
+ embedded infrastructure
+   db       -> database.sql
+   cache    -> cache.key-value
+-  storage  -> object-storage.s3 (S3-compatible, e.g. MinIO)
+ 
+ api
+   exposed on port 8080
+diff --git a/testdata/adoption-parity/compose/compose.yaml b/testdata/adoption-parity/compose/compose.yaml
+index 0c5e74f1..34a9c634 100644
+--- a/testdata/adoption-parity/compose/compose.yaml
++++ b/testdata/adoption-parity/compose/compose.yaml
+@@ -11,5 +11,3 @@ services:
+     image: postgres:17
+   cache:
+     image: valkey/valkey:8@sha256:640c5e62cea04b6d6f2084232651d0cc70362d31f4f805e7be94dbed6855e8f2
+-  storage:
+-    image: quay.io/minio/minio:latest
+diff --git a/testdata/adoption-parity/kubernetes/app.yaml b/testdata/adoption-parity/kubernetes/app.yaml
+index 55103635..fcb3e8e8 100644
+--- a/testdata/adoption-parity/kubernetes/app.yaml
++++ b/testdata/adoption-parity/kubernetes/app.yaml
+@@ -61,14 +61,3 @@ spec:
+       containers:
+         - name: cache
+           image: valkey/valkey:8
+----
+-apiVersion: apps/v1
+-kind: StatefulSet
+-metadata:
+-  name: storage
+-spec:
+-  template:
+-    spec:
+-      containers:
+-        - name: storage
+-          image: quay.io/minio/minio:latest
+diff --git a/testdata/adoption-parity/quadlet/storage.container b/testdata/adoption-parity/quadlet/storage.container
+deleted file mode 100644
+index c94695b8..00000000
+--- a/testdata/adoption-parity/quadlet/storage.container
++++ /dev/null
+@@ -1,2 +0,0 @@
+-[Container]
+-Image=quay.io/minio/minio:latest
