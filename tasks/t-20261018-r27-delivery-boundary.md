@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: ""
+owner: w2-delivery (lane)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,19 +17,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
+- [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/active #view/active #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Waiting for prerequisites**  
+    **Owner:** w2-delivery (lane) · **Priority:** critical  
     **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
-**Owner:** unassigned  
+**Owner:** w2-delivery (lane)  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
