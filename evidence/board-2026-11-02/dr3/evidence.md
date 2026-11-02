@@ -75,18 +75,30 @@ Target, not the runner). This turns the silent ~5 min into an instant,
 actionable failure without weakening any fail-closed guarantee.
 
 File changed: `cmd/baha/internal_runtime_docker_probe_test.go` (NEW).
-`internal/runtime/docker_engine.go`: guarded a new exported
-`DockerEndpointMissingDaemon()` behind `ci_docker_probe.go` so the *test
-package* can call it without touching the product runtime path (no new
-non-test symbols on the product runtime). No `./...` test behaviour changes
-(gating env unchanged); the dedicated gate still exercises the real
-fail-closed probe.
+`internal/runtime/ci_docker_probe.go` (NEW, build-tag `ci_docker_probe`) exposes a
+read-only probe of the SAME fail-closed product path already in
+`docker_engine.go:32-219`; the symbol never leaks into the product runtime
+build (`go vet` untagged clean). No `./...` test behaviour changes (gating env
+unchanged); the dedicated gate still exercises the real fail-closed probe.
 
 ## Evidence log
-- 2026-11-02T06:xx dr3 worktree from origin/develop @ 52d999b8 (>= aef6b0e1)
+- 2026-11-02 dr3 worktree from origin/develop @ 52d999b8 (>= aef6b0e1)
 - 2026-11-02 CI validate transcript analysed → silent-drop root cause pinned
-- Local proof below: pre-fix FAIL (missing daemon) → post-fix instant
-  runner-hygiene error on the same inputs (same SHA for both, test-only change)
+- Local proof (tagged test, dr3 @ 52d999b8):
+  `go test -tags ci_docker_probe ./cmd/baha/ -run TestHostedValidateDockerDaemonMissingFailsRunnerHygiene`
+  → PASS (missing rootless daemon fails closed with "no fallback to System Docker"
+  + runner-hygiene hint "start its rootless daemon").
+  Existing `TestDockerEngineSelectionPrecedenceAndNoFallback` (22 subtests) still PASS.
+  `gofmt -l` clean; `go vet ./cmd/baha/` clean; untagged build clean.
+
+## Recommended durable fix (CI repo, out of worktree scope — handoff)
+The silent ~5 min is a CI-runner-hygiene race, fixed correctly by the
+`validate` job, not by product code. In `.github/workflows/ci.yml` add a
+`ci-core-rootless-runtime.sh` step immediately before the
+`runtime_integration` step (or guard the step with a `docker info` readiness
+check that re-prepares/aborts fast) so the per-job rootless daemon is
+guaranteed up and verified within the step. This is the Owner/CI-owner decision
+point; the product side now fails fast with the runner hint regardless.
 
 ## Status
-END_BLOCKED dr3: <candidate name> | pr=<nr|none> | stelle=<file:line>
+END_DONE dr3: pr=none stelle=internal/runtime/docker_engine.go:217 kandidat=silent-drop=shared-runner rootless Docker daemon died (~5 min) → validate `runtime_integration` step fail-closed on `unix:///run/user/1001/docker.sock`; fix=tagged test `cmd/baha/internal_runtime_docker_probe_test.go` + probe `internal/runtime/ci_docker_probe.go` proving the hint. Root cause is CI-runner-hygiene (no per-step rootless-daemon re-prep in `ci.yml` validate job), not a BaseHarbor product bug.
