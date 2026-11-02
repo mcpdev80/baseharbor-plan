@@ -54,8 +54,41 @@
 - During work my commit accidentally landed on local `develop`; reset develop to `origin/develop` (`c8fddea3`) and re-created the branch cleanly, cherry-picked the commit as `5c5b1f9a`. Verified clean base before PR.
 - No blocker.
 
-## HANDOFF
+## KORREKTURRUNDE #1323 — DE documentation-audit fix
 
-codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1-authority: task=t-20261018-r27-authority-contract pr=#1323 head=5c5b1f9a tests=pass ci_files=none | <Satz>"
+**Trigger:** 3 red checks — `mkdocs-de-strict`, `documentation-audit`, `pages-candidate-build`. Root: DE-strict reported `decisions/0021-one-installation-authority.md is not found among documentation files` for the links from `spec/control-plane-runtime.md` and `spec/target-access-v1.md` (EN + DE).
 
-**END_CODE_READY** — ADR 0021 + EN/DE spec updates + bounded coreinstallation authority types + positive/negative regressions; PR #1323 open (base develop). No merge/release/tag. CI/registry files untouched (other session).
+**Diagnosis (on disk):** `mkdocs.de.yml` uses `docs_dir: docs/de`. The EN spec linked `../decisions/0021-...md` (resolves to `docs/decisions/`), but **no DE counterpart existed** in `docs/de/decisions/`. Convention on develop: every ADR 0001–0020 has a DE counterpart in `docs/de/decisions/` plus an entry in both `docs/decisions/index.md` (EN) and `docs/de/decisions/index.md` (DE). The reference ADRs 0019/0020 carry **zero fenced code blocks**.
+
+**Fix (doc-only; NOT touching mkdocs.*.yml or any shared nav/index beyond my own ADR overview):**
+1. Created `docs/de/decisions/0021-one-installation-authority.md` (full DE translation, style of ADR 0020; zero fenced blocks — tree rendered as bullet list to match the EN ADR and the 0019/0020 convention).
+2. Added ADR 0021 entry to `docs/decisions/index.md` (EN) and `docs/de/decisions/index.md` (DE) — my own ADR overview, matching the 0019/0020 line style exactly.
+3. Converted the EN ADR 0021 tree from a ` ```text ` fenced block to plain bullets (balances the EN/DE fence count for `check_de_translation_integrity.py`).
+4. Made the DE `target-access-v1.md` tree block byte-identical to EN (DE integrity requires identical fenced content across paired pages).
+5. Fixed umlaut typos (`maßeb` → `maßgeb`) across my DE files.
+
+**Write-set (committed `63573ee5`, pushed to `work/r27-authority-contract-doc-fix`, PR #1326):**
+- `docs/de/decisions/0021-one-installation-authority.md` (new)
+- `docs/decisions/index.md` (M: ADR 0021 entry)
+- `docs/de/decisions/index.md` (M: ADR 0021 entry)
+- `docs/decisions/0021-one-installation-authority.md` (M: tree → bullets)
+- `docs/de/spec/target-access-v1.md` (M: tree block identical to EN)
+
+**Local verification (clean committed tree, EXIT=0):**
+- `scripts/check_docs_locale_parity.py` → EN/DE page coverage OK (160 matched pages)
+- `scripts/check_de_translation_integrity.py` → PASS (160 paired pages)
+- `scripts/documentation-audit.sh` → all 11 checks PASS (Structure/Human-doc/No-legacy/German-scope/Internal-evidence/ADR-ids/Governance/Runtime-docs/Task-domain/Podman-release/Brand)
+- `mkdocs build --strict --config-file mkdocs.de.yml` → exit 0
+- `mkdocs build --strict --config-file mkdocs.yml` → exit 0
+
+**CI observation (run 41526297819, branch work/r27-authority-contract-doc-fix, SHA 63573ee5):**
+- `pages-candidate-build` → **SUCCESS** ✅
+- `mkdocs-de-strict` → **SUCCESS** ✅
+- `documentation-audit` → **SUCCESS** ✅
+- `mkdocs-en-strict` → **SUCCESS** ✅
+- `PR · Focused Python` → OK (all suites)
+- `PR Selected Checks` → **failure** — aggregation gate. It reads `pr-plan.json` generated against the **base** (`c8fddea3`), so for a doc-only PR the runtime/contract gates (Selected Runtime, Public Contracts, Consumer Pins, etc.) are correctly **skipped** and the aggregation marks them blocked/missing-required. This is a **coverage-meta finding**, not a defect in my fix: no product code changed, so product gates legitimately do not run. Not bypassed, not worked around (per correction-round instruction).
+
+**Note:** `spec/management-access-profiles-v1.md` appears in a working-tree parity failure — it is NOT mine (untracked file from another session's in-flight work polluting the working tree). Excluded from my write-set.
+
+**END_CODE_READY** — Correction round complete. DE counterpart ADR 0021 + both index entries + DE/EN spec fence parity added. PR #1326 open (base develop), head `63573ee5`. Three requested gates green; `PR Selected Checks` is a doc-only coverage-meta finding (runtime/contract gates skipped, correctly). No merge/release/tag; CI/workflow/register/shared-nav files untouched.
