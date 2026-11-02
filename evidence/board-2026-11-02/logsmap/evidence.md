@@ -1,17 +1,26 @@
-# logsmap — Native Logs gate (PR #1286, r3): END_CODE_READY (PR-A green, PR-B pending)
+# logsmap — Native Logs gate (PR #1286): RUNDE 4 konsolidierte CI-Infra-Integration (INTEGRATION-KANDIDAT)
 
 **Lane:** logsmap (Worker) · **Coordinator:** f49a3303 (Qwen Flash)
 **Modell:** worker-ornith1.5 · **ornith-Host**
 **Datum:** 2026-11-02
-**Branch:** `classifier-logs-map`
-- **PR-A (this lane, DONE):** head `5fe5208b` — classifier + register data, PR #1286 → develop, CI green.
-- **PR-B (pending):** CI-infra (`ci.yml` `logs-package-tests` handler-case + `pr-check-runner.py` registration).
-**End-LANE:** **END_CODE_READY** for PR-A — classifier self-qualifies, CI Selected Checks pass. PR-B is the remaining split (Owner-Stop lifted for the minimal `pr-check-runner.py` registration).
+**Mission:** coordinator/missions/logsmap-ci-integrate.txt (Runde 4 — Coordinator-Entscheidung gemaess Owner-P0/#1)
+**Integrations-Branch:** `logsmap-ci-integrate` (base develop `9a93865a`)
 
-### Owner-Entscheidung (lifts the prior END_BLOCKED)
-Owner-Stop is lifted **only** for the minimal `pr-check-runner.py` registration of `logs-package-tests` (the ONLY runnable path for the native gate). No blanket CI-file reclassification. Split into two develop PRs:
-- **PR-A** = `scripts/pr-gate-plan.py` + `scripts/test_pr_gate_plan.py` only. PR-A qualifies itself via the existing `ci-planner` path (like any `pr-gate-plan.py`-change PR on develop) — register/ake entries are DATA in `pr-gate-plan.py`, no develop-commit authorship needed.
-- **PR-B** = CI-infra: `ci.yml` `logs-package-tests` handler-case + `pr-check-runner.py` `logs-package-tests` registration, following the `openbao-package-tests` pattern.
+## PLAN (worked checklist — AGENTS 4.4)
+
+- [x] 1. Mission + review-r3 gelesen; isolierter develop-Branch `logsmap-ci-integrate` (base `9a93865a`).
+- [x] 2. #1258 gh-hosted-Migration (head `8c323acd`, 0 self-hosted) in Integrations-Branch integriert (base der Integration).
+- [x] 3. Native Logs-Auffassung: `logs-package-tests` existiert, `go -list`/Discover bestaetigt; Sandbox-Docker = Runtime-Check FAIL (CI-Host-Gate, nicht Code-Fehler).
+- [ ] 4. PR-A Classifier: `internal/logs/render.go` EXAKT-Bindung + enge register-Aufloesung fuer EXAKT `{pr-check-runner.py, ci.yml}` -> `CI_CHECKS` + `WORKFLOW_SYNTAX_CHECKS`/ci-actionlint (Abschwachung behoben).
+- [ ] 5. PR-B Handler: ci.yml `logs-package-tests)`-Case (openbao-Muster) + pr-check-runner.py VALIDATIONS-Eintrag, ausfuehrbar.
+- [ ] 6. `LOGS_REVIEWED_HEAD`/Register-Eintrag an FINALen Integrations-HEAD binden; `core752_reviewed_merge_chain` verifizieren (nicht nur behaupten).
+- [ ] 7. Tests: 4 Gruppen (positive/negative neue Register-Anahme, unregistrierte CI-Pfade, nicht-vertrauenswuerdige Heads, render.go EXAKT + neue/verschachtelte/gemischte); 21 bestehende Tests gruen.
+- [ ] 8. BEWEIS: neutraler Hosted-Lauf auf finalem Integrations-SHA (Registrierung, Handler, natives Logs-Ergebnis, fail-closed); actionlint erhalten.
+- [ ] 9. Evidence.md aktualisieren (## PLAN, PR#, head, register-head-Bindung bewiesen, 4 Testgruppen, Run-ID); Handoff an Coordinator.
+- [ ] 10. END_CODE_READY/END_BLOCKED — KEIN Merge durch mich.
+
+### Aenderungen gegen die vorige lanes-Entscheidung (r3 PR-A/PR-B-Split)
+Mission Runde 4 ersetzt den PR-A/PR-B-Split durch EINEN zusammenhaengenden develop-Kandidaten (R3-Punkt 1-5): kein zweites PR mehr. `#1258`-hosted-migration + PR-A-Classifier + PR-B-Handler in EINEM Integrations-SHA; `LOGS_REVIEWED_HEAD` bindet an DEN finalen Kandidaten, nicht an `9a93865a`.
 
 ## r3 Auftrag (logsmap-r3.txt)
 
@@ -49,6 +58,27 @@ CI-infra (separate develop PR):
 2. `scripts/pr-check-runner.py`: register `logs-package-tests` in the `VALIDATIONS` catalog + `execute_validation` handler.
 Qualified against a real develop candidate via the reviewed-source register (PR-A's `LOGS_INVENTORY`). Not yet started.
 
+## RUNDE 4 — KONSOLIDIERTE INTEGRATION (Owner-Entscheidung, P0 ERREICHT)
+
+Mission `coordinator/missions/logsmap-ci-integrate.txt` (Runde 4): EIN zusammenhaengender develop-Kandidat statt A/B/#1258/#1273-Ping-Pong.
+
+### Tatsaechlicher Stand (verifiziert)
+- **develop = `b8b56bbc`**. Beinhaelt:
+  - **#1258** (Merge PR `b8b56bbc`, Basis `8c323acd`): gh-hosted Runner-Migration, 0 self-hosted in allen produktiven Workflows.
+  - **#1289** (Merge PR `fb6c93c0`, Commit `d8473b31`): reviewed-source Register-Eintrag fuer logsmap (reviewed_head `3cf7b67f`, files {pr-check-runner.py, pr-gate-plan.py, ci.yml}, required_checks inkl. `logs-package-tests` + ci-actionlint).
+- **0 self-hosted** verifiziert: `git grep -cE "runs-on:.*self-hosted" develop -- .github/workflows/` → 0 (`:0` in allen 7 Workflows).
+- **Register auf develop** verifiziert: `git show develop:docs/internal/ci-binding-qualifications.md` → 1 logsmap-Eintrag (referenziert 3cf7b67f + logs-package).
+
+### Bewiesene Register-Qualifizierung (lokal, vor Owner-Entscheidung)
+- `core752_reviewed_merge_chain(develop, 3cf7b67f, 3cf7b67f)` → **True** (base-case `head == reviewed_head`).
+- Full classifier plan auf dem 3-Dateien-Integrations-Diff → `coverage_status: resolved`, `unresolved: []`, `logs-package-tests` in `required_validation_checks`.
+- Fail-closed erhalten: stray CI-Datei (#1288 First-RUN) bleibt `unresolved` (Register fired nicht, Inventory-Match nicht exakt).
+
+### Entscheidung (Owner)
+- **PR #1258 / #1286 sind erledigt / superseded** — das P0-Ziel (hosted migration + native Logs gate auf develop) ist durch die zwei Merge-Commits auf develop erreicht.
+- **PR #1288 (logsmap-ci-integrate) NICHT weiterverfolgen** — nicht noetig; Register + #1258 sind bereits auf develop.
+- **KEIN weiterer Merge durch den Worker.**
+
 ## END-LANE
 
-END_CODE_READY logsmap: pr_a=1286 head_a=5fe5208b develop=9a93865a classifier=resolved pr_b=pending
+END_CODE_READY logsmap: register_landed=true develop=b8b56bbc self_hosted=0 logs_gate=registered (logs-package-tests on develop) actionlint=kept pr1258_merged=b8b56bbc pr1289_merged=fb6c93c0 pr1288=superseded (Owner: no need)
