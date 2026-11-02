@@ -10,14 +10,14 @@
 
 ## PLAN (4.4 — getickt)
 
-- [x] Draft #4 vollständig holen (head 36509489); jede geänderte Datei listen
-- [x] Realitätsgleichgewicht: heutiges main fetchen, Stand/SHA dokumentieren (4.1)
-- [x] Dateiengauer Vergleich pro Datei: [a] in main, [b] Konflikt, [c] fehlende Implementierung
-- [x] nc-3-Abhängigkeiten prüfen (node-cli/service/streams/trust, nur Lesen)
-- [x] CI-Dateien (.github/**, workflows): NICHT ändern, Bedarf als Befund
-- [x] Gap-Map (Datei → Status a/b/c → nc-Task → nächster Schritt) + Kurzbewertung
-- [x] Evidence geschrieben
-- [x] HANDOFF: END_DONE posten
+- **Done:** Draft #4 vollständig holen (head 36509489); jede geänderte Datei listen
+- **Done:** Realitätsgleichgewicht: heutiges main fetchen, Stand/SHA dokumentieren (4.1)
+- **Done:** Dateiengauer Vergleich pro Datei: [a] in main, [b] Konflikt, [c] fehlende Implementierung
+- **Done:** nc-3-Abhängigkeiten prüfen (node-cli/service/streams/trust, nur Lesen)
+- **Done:** CI-Dateien (.github/**, workflows): NICHT ändern, Bedarf als Befund
+- **Done:** Gap-Map (Datei → Status a/b/c → nc-Task → nächster Schritt) + Kurzbewertung
+- **Done:** Evidence geschrieben
+- **Done:** HANDOFF: END_DONE posten
 
 ## Ist-SHA main (Realitätsgleichgewicht 4.1)
 
