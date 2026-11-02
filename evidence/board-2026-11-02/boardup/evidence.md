@@ -4,13 +4,13 @@
 CardBoard/Planning auf den tatsächlich abgenommenen Stand bringen (§3.7).
 
 ## PLAN
-- [x] 1) PR-States live mit gh api verifiziert (alle 10 PRs MERGED, SHA matches)
-- [x] 2) 10 Karten t-20261102-ci-<slug> angelegt, status=accepted, resolution=accepted, evidence=merge links
-- [x] 3) Bestehende blocked-Karten geprüft: Blocker nicht geloest → status unveraendert
-- [x] 4) render + check: 0 errors auf neuen Karten
-- [x] 5) Supersede cross-reference in release-prepare + cutover-pr3 notiert
-- [x] 6) Board file workers/todos/boardup.json ticked
-- [x] 7) 359 tasks valid, 2 warnings (pre-existing)
+- 1) PR-States live mit gh api verifiziert (alle 10 PRs MERGED, SHA matches)
+- 2) 10 Karten t-20261102-ci-<slug> angelegt, status=accepted, resolution=accepted, evidence=merge links
+- 3) Bestehende blocked-Karten geprüft: Blocker nicht geloest → status unveraendert
+- 4) render + check: 0 errors auf neuen Karten
+- 5) Supersede cross-reference in release-prepare + cutover-pr3 notiert
+- 6) Board file workers/todos/boardup.json ticked
+- 7) 359 tasks valid, 2 warnings (pre-existing)
 
 ## Verified PR States
 
