@@ -13,11 +13,11 @@ sources: ["mcpdev80/baseharbor#390"]
 source_updated: "2026-10-15T16:52:05Z"
 labels: [kind/architecture, area/providers, area/compatibility]
 blocker: "coverage-unresolved: native targeted qualification fehlt (rootless-runner Cutover, geteilt mit #1236/#1232/#1220). ALLE product-Gates success (Public Contracts/Trusted Plan/source-contracts/capability-package/Focused Python) + local gofmt/vet/build + 28/28 tests PASS; run 41236459973 failt NUR am Aggregator. Contracts-integration bleibt hinter #1226. Kein service-binding-Code-Defekt, kein Gate geweaket."
-resolution: ""
+resolution: "accepted"
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/w390.md","https://github.com/mcpdev80/baseharbor/commit/dd1923dc","https://github.com/mcpdev80/baseharbor/blob/develop/docs/decisions/0013-standards-first-service-provider-contracts.md"]
 ---
 
-- [ ] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/blocked #view/blocked #area/architecture #kind/architecture
+- [x] core-390 · Architecture: align service contracts and provider catalog #task #release/v0-4-x #status/closed #view/closed #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** t1229-svc-binding (Flash; owner-directive, prior=marcel)  
     **Blocker:** coverage-unresolved: native targeted qualification fehlt (rootless-runner Cutover, geteilt mit \#1236/\#1232/\#1220). ALLE product-Gates success (Public Contracts/Trusted Plan/source-contracts/capability-package/Focused Python) + local gofmt/…  
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
 **Owner:** t1229-svc-binding (Flash; owner-directive, prior=marcel)  
@@ -74,3 +74,7 @@ Complete standards-first service/provider contract alignment before the v0.5 fre
 ## Handoff
 
 - 2026-09-23 progress (branch `fix/runtime-artifact-convergence`): Standards First rule in the guidelines; JSON Schema 2020-12 layout under `contracts/`; provider-neutral service schemas; Service Binding-aligned binding schema with output-name validation; `secure-binding/v1` reduced to security/lifecycle extension semantics; provider descriptor schema with `builtin | oci` distribution; registry vs catalog documented; capability specs classified; ADR 0013 and a standards/gap matrix; pre-release audit requires standards review. Still to prove: exact-head tests, executable compatibility behavior, final pre-v0.5 contract review.
+
+
+## Resolution (2026-11-02)
+- Service-Binding-Durchsetzung via PR #1229 gemergelt (6624ad62): ValidateServiceBindingName fest in Build-Plan verdrahtet; Provider-Katalog-/Vertragsangleich damit vollzogen. PRSC success auf 792ed1d1, Review-Grundlage: review-backlog ec80fac.
