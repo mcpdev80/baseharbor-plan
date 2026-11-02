@@ -27,7 +27,7 @@
 - `t-20261018-r27-delivery-boundary` state `waiting`; `depends_on`:
   - `t-20261017-release-0-4-27-updates` → **accepted**
   - `t-20261018-r27-authority-contract` → **active, NOT accepted** (owner `w1-authority (lane)`)
-- The task acceptance text gates on this predecessor: "Use [the standards boundary](../../decisions/2026-10-18-r27-native-delivery-and-stages.md)" and "New interface/type paths are fixed by the contract predecessor before assignment." AGENTS 4.2: work only within the contract.
+- The task acceptance text gates on this predecessor: "Use [the standards boundary](../../../decisions/2026-10-18-r27-native-delivery-and-stages.md)" and "New interface/type paths are fixed by the contract predecessor before assignment." AGENTS 4.2: work only within the contract.
 - The slice deliverables already exist at HEAD, so this is not a missing-scope STOP. It is an ownership/dependency question: whether to hand off this already-complete slice as CODE_READY now, or hold until `authority-contract` is accepted.
 
 ## Decision surfaced (QUESTION to coordinator)
