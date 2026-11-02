@@ -49,9 +49,7 @@ receipt_verifier.py:409-415 HARDCODES `selected = [j for j in jobs if j.get("nam
 ## KORREKTURRUNDE — codex-1285 REVIEW=REJECT (2026-11-02)
 
 All three blocking findings fixed, re-based onto develop 9a93865a, pushed
-`--force-with-lease` (head b8666695), CI GREEN on new SHA (run 41452440424).
-
-**Fix #1 (fail-closed, executed-and-failed):** A required job skipped/failed still
+`--force-with-lease` (head b8666695), CI GREEN on new SHA (run 41452440424).**Fix #1 (fail-closed, executed-and-failed):** A required job skipped/failed still
 BLOCKS. A job NOT in the plan is accepted when ABSENT (skipped) but must BLOCK if
 it RAN and FAILED (new scan after required checks:
 `executed-and-failed job not in trusted plan`). Test inverted from
@@ -94,8 +92,55 @@ fails because the production `baseharbor-plan` `plan.py check` exits 1 (34 error
 `.md` checkboxes outside `tasks/` — a Coordinator Publishing/Board issue, commit c9455c6).
 Verified identical failure with my receipt_verifier change reverted; no logic regression.
 
+## KORREKTURRUNDE 3 — codex-1285 REJECT round-2 (2026-11-02, session f49a3303)
+
+Mission rcptverfix-r3: three review-r2 findings (skipped / real required-id /
+dup ordering). Fixes 1 and 2 landed in the prior correction round, but the
+executed-and-failed scan was **INVERTED** — it required `name not in required`
+so a non-required executed-and-failed job passed instead of blocking. This
+round corrects that and aligns all tests to REAL plan objects.
+
+**Fix #1 (fail-closed) — corrected:** the scan now blocks ANY executed-and-failed
+job (`require(False, "executed-and-failed job in trusted plan: <name>")`).
+`skipped` stays excluded from `EXECUTED_FAILURES = {failure, timed_out,
+action_required}`. A non-required job that RAN with `failure` now blocks
+(`test_not_required_optional_failure_blocks`); the SAME resolved pilot plan with
+`skipped` is accepted (`test_not_required_skipped_is_accepted`), proving the
+skipped-vs-executed-failure distinction.
+
+**Fix #2 (authoritative gate derivation) — real objects:** `required_validation_checks`
+entries are now schema-validated `{"id": ...}` objects; the id is extracted via
+`check["id"]` exactly as `scripts/pr-authenticated-results.py:20` (`c["id"]`),
+yielding `PR · Validation · <id>`. `str(check_id)` dict-repr is gone. Tests use
+real dicts `[{'id':'7','owner':...,'command':...}]` instead of scalars `[7]`.
+
+**Fix #3 (dup ordering):** both orderings now inject a success/failure pair via
+`bogus_duplicate_api` and assert the ambiguity blocks in BOTH orderings.
+
+**Tests:** 135 verifier tests OK (1 skipped). Combined receipt suite 291 tests;
+the single failure `test_real_plan_check_runs_on_production_planning` is the same
+pre-existing `plan.py check` failure on the clean base — NOT introduced by this
+change.
+
+Next: commit clean-to-develop, push new SHA, run receipt-suite.sh + required CI
+gates green (own-run duty 4.6), then END_CODE_READY to f49a3303.
+
+**CI run 41456543735 (all terminal PASS; SHA 20bef715):**
+- PR Selected Checks SUCCESS; PR · Focused Python SUCCESS;
+  receipt-execution-tests SUCCESS; pr-planner-tests SUCCESS;
+  ci-executor-verifier-tests SUCCESS; ci-policy SUCCESS; PR · Trusted Plan
+  SUCCESS. 18 jobs total: 10 SUCCESS, 8 SKIPPED (release/preflight/exact-candidate
+  gates that run only on the default branch, not on a PR to develop). Head
+  20bef715e0180eddd71e2172c3bfb021ae76109f (ls-remote verified).
+- Local receipt suite (test_receipt_verifier + chain + postrun + tasklink +
+  writer): 286 tests, only the pre-existing unrelated `plan.py check` failure.
+
 **Remaining (Owner/Coordinator-gated):** receipt run against blocked PR #1272 (Step 5) needs
 a hosted `workflow_dispatch` receipt run — Owner-approval territory (5.2). No merge attempted.
 
-END_DONE rcptverfix: pr=1285 head=7489eecd run=41447936075 — receipt_verifier derives required
-gates from trusted-plan selected_gates; CI green; Owner-gated Step 5 (receipt run #1272).
+END_READY rcptverfix-r3: pr=1285 head=20bef715 run=41456543735 — corrected
+inverted fail-closed scan (any executed-and-failed job blocks), real
+required_validation_checks ids (check["id"], pr-authenticated-results.py:20),
+both dup orderings. develop clean, CI GREEN on new SHA (18 jobs: 10 success,
+8 skip). Local receipt suite 286 tests, 1 pre-existing unrelated failure.
+Owner-gated: END_CODE_READY to f49a3303, then merge-gate (promotable #4).
