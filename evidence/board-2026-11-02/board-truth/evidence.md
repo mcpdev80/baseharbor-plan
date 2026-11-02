@@ -1,40 +1,47 @@
-# board-truth — Board-Wahrheit nachziehen
+# board-truth — Board-Wahrheit nachziehen (REST-AUFGABE)
 
 **Mission:** `coordinator/missions/board-truth.txt`
-**Owner-Direktive:** 2026-11-02 (AUFGABEN-ZUSCHLAG — koordiniere Board-Schreiber, du bist einziger Plan-Repo-Schreiber)
+**Owner-Direktive (2026-11-02):** 3 veraltete blocked-Karten selbstrichtiggestellt (750 accepted 8bc490ea, 766 dropped, postrun accepted 1252+1261, render+check 0 errors, gepusht). **REST:** nur pruefen, ob die anderen heutigen Mergel (1160, 1242, 1258?, 1259, 1260, 1261, 1262, 1241) ihre Karten-Eintrae/Resolutionen haben; fehlende ergaenzen; END_DONE mit Zaehler.
 **Datum:** 2026-11-02
-**Arbeitsdepot:** baseharbor-plan (origin/main) — Planungsdepot
+**Arbeitsdepot:** baseharbor-plan (origin/main, HEAD c4b655b)
 **Rolle:** Worker (Ornith)
-**Stop-Regel:** kein Produktcode, kein baseharbor-Repo-Schreiben, kein spawn — nur Plan/Evidence-Änderungen
+**Stop-Regel:** kein Produktcode, kein baseharbor-Repo-Schreiben, kein spawn
 
-## PLAN-Checkliste
+## PR-Status gegen Karten (live verifiziert via gh api)
 
-1. 6 blocked-Karten + zugehörige PRs gegen Live-Daten verifizieren
-2. core-750: blocked→accepted via #1222 merge 8bc490ea
-3. core-766: blocked→superseded (#1220 closed)
-4. t-20261030-postrun-nonpr-producer-skip: blocked→accepted via #1252 (c8fe5cde) UND #1261 (f2e43b0a)
-5. core-390: UNVERAENDERT blocked (wartet #1229)
-6. t-20261017-release-0-4-27-prepare: UNVERAENDERT blocked (Release-Tor)
-7. t-20261027-r27-cutover-pr3: #1226 STALE-DROP, blocked mit gefülltem Blocker-Feld (nur #1107 offen)
-8. scripts/release_cycles.py sync
-9. python3 scripts/plan.py render + check => 0 Fehler
-10. regulär auf main pushen (nur Plan/Evidence)
-11. Evidence-Doku + codeman agent post
+| PR | Merge SHA | merged_at | Karte | Zustand |
+|---|---|---|---|---|
+| #1160 | a567ff46 | 2026-11-02 | t-20261101-deps-gatemap-1160 | accepted + evidence OK |
+| #1242 | e0dce0d6 | 2026-11-01 | (keine eigene; #1259-Diagnose p1242diag referenziert) | ok |
+| #1258 | c5c3fe6c | — | open (kein Merge) | **ausser Scope** |
+| #1259 | 46307b75 | 2026-11-01 | t-20261101-p1242diag-gatemap-1259 | accepted + evidence OK |
+| #1260 | 790e5426 | 2026-11-01 | t-20261101-deps-gatemap-1160 | accepted + evidence OK |
+| #1261 | f2e43b0a | 2026-11-01 | t-20261030-postrun-nonpr-producer-skip | accepted (Owner) OK |
+| #1262 | 048a806c | 2026-11-02 | **t-20261101-gatemap-1262 NEU** | accepted + evidence |
+| #1241 | 1206db79 | 2026-11-01 | t-20261030-podman-quadlet-engine-probe | accepted + evidence OK |
 
-## Endgültiger Board-Zustand (6 blocked-Karten, live verifiziert)
+## Erledigt
 
-| Karte | Aktion | Begründung / Beleg |
-|---|---|---|
-| core-750 | blocked→**accepted** | #1222 merged 2026-11-02T01:20:49Z, merge_commit_sha 8bc490ea |
-| core-766 | blocked→**superseded** | #1220 closed unmerged (head 5d5b5c30); cutover-pr3 #1226 STALE-DROP |
-| t-20261030-postrun-nonpr-producer-skip | blocked→**accepted** | #1252 merged 2026-11-01T16:16:28Z (c8fe5cde) + #1261 merged 2026-11-01T23:10:41Z (f2e43b0a) |
-| core-390 | UNVERAENDERT blocked | wartet PRSC/Merge #1229 (head 792ed1d1) |
-| t-20261017-release-0-4-27-prepare | UNVERAENDERT blocked | echtes Release-Tor, 68/86 deps nicht accepted |
-| t-20261027-r27-cutover-pr3 | UNVERAENDERT blocked | #1226 STALE-DROP, nur #1107 offen (head b83e4faa) — Blocker-Feld ausfüllen |
+- #1262 hatte KEINE Karte -> neue Karte `tasks/t-20261101-gatemap-1262.md` angelegt:
+  - Frontmatter: id, type=task, areas=[], release=v0.4.27, owner Ornith-Worker (lane gatemap-1262), priority high,
+    depends_on [t-20261017-release-0-4-27-updates], repos mcpdev80/baseharbor, prs [#1262],
+    resolution accepted, evidence [PR-URL, merge 048a806c].
+  - Body: Gate-map follow-up (mirrors #1259/#1260), `scripts/pr-gate-plan.py` only.
+  - Generierte Blocke via render/Check neu generiert; handgenerierte Blocke NICHT manuell editiert.
+- `scripts/release_cycles.py sync` -> 28 Zykle synchronisiert; gatemap-1262 in release-0-4-27-prepare dep-Graph gewirkt.
+- `plan.py render` + `plan.py check` => **0 errors** (1 erwartete warning: core-750 accepted trotz offener Abhaengigkeit cutover-pr3 — korrekt, laut Owner-Direktive).
+- Auf main gepusht: `c4b655b` (working tree clean).
+
+## ZAHLER (fuer END_DONE)
+
+- **prs_geprueft = 8** (1160, 1242, 1258, 1259, 1260, 1261, 1262, 1241)
+- **karten_neu = 1** (t-20261101-gatemap-1262)
+- **karten_fix = 0** (die 3 stale Karten vom Owner selbstrichtiggestellt, nicht in dieser Lane)
+- **check_errors = 0**
+- ausser Scope: #1258 (open)
 
 ## END-DOKU
 
-- Status: IN ARBEIT
-- Karten_fix=3 (core-750, core-766, t-20261030-postrun), UNVERAENDERT=3 (core-390, release-0-4-27-prepare, r27-cutover-pr3)
-- check_errors=0
-- Codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587: pending
+- Status: **END_DONE**
+- push_SHA: c4b655b
+- codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587: PENDING (letzter Schritt)
