@@ -13,6 +13,8 @@
 - Retention value/decision: **journal.jsonl rotiert bei 4 MiB nach journal.jsonl.1..3 (max 4 Segmente gesamt = 16 MiB hart); beim Rotationsschnitt bleibt pro execution-id der NEUESTE Eintrag erhalten (compaction); active/unknown-Zustände werden NIEMALS entfernt; alle Grenzen als benannte constants in store.go.** Kein Result-/Progress-/Fehler-Payload im Journal (nur id/status/actor/context/zeit).
 - Basis-pflicht: develop 5813ef85 (runtime-squash) war NICHT Vorfahr von 76484b0e; merge origin/develop rc=0 (disjunkte write-sets, 3 neue Testdateien), go build + go test ./internal/machinehttp gruen, push FF. ls-remote == HEAD 5b3976b2.
   - ancestry: `git merge-base --is-ancestor 5813ef85 HEAD` → rc=0 nach merge; merge-base = 5813ef8581feb0cb7943038ab1c44545186f650f.
+- Basis-hinweis 0107d8e1 (appid-squash-merge): develop driftte auf 0107d8e1, kein Vorelhifer in 5b3976b2; merge origin/develop rc=0 (disjunkte write-sets: cmd/baha/provider_external_removal_test.go + internal/testsupport/externalprovider/seed.go), go build + go test ./internal/machinehttp gruen, push FF. ls-remote == HEAD 4f09aac6.
+  - ancestry: `git merge-base --is-ancestor 0107d8e1 HEAD` → rc=0 nach merge; merge-base = 0107d8e1530ff3469048022d7035a2a472dbda34.
 - Evidence posted to f49a3303: END_NEU.
 
 ## PLAN (numbered)
