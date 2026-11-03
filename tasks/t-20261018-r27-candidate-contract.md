@@ -18,15 +18,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/architecture #kind/architecture
+- [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/planned #view/ready #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  

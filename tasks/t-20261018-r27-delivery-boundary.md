@@ -21,7 +21,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-n
     <!-- generated:card -->
     **Owner:** w2-delivery (lane) · **Priority:** critical  
     **PR:** [baseharbor#1333](https://github.com/mcpdev80/baseharbor/pull/1333)  
-    **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1333q.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1333r.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/merge-1333.md)  
     <!-- /generated:card -->
 
