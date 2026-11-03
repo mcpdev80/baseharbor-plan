@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: ""
+owner: coord-welle3 (lane w42)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -16,18 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-ci-runtime · Deferred trusted CI readiness: runtime #task #release/v0-4-27 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261022-r27-ci-runtime · Deferred trusted CI readiness: runtime #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle3 (lane w42) · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle3 (lane w42)  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
