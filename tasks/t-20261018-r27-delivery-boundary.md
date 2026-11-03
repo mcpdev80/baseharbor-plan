@@ -65,3 +65,13 @@ integration edit in internal/deployment/deployment_store.go at SaveDeploymentRec
 hook + one regression test file); all other files in internal/deployment stay read-only. Shared decision
 indexes remain owned by public-surfaces per card; decision/index.md entries for ADR 0022 are allowed as
 navigation-only additions. Recorded here per card rule update dependencies/ownership before work.
+
+### Coordinator scope decision on one-writer depth (2026-11-03, night wave)
+
+In-scope for THIS card now: (a) fix the serialization bypass — persist the guarded/canonical
+owner (guardRecord), never the raw caller record, carry prior Conflict into the guard, and assert
+unchanged stored bytes on every rejection; (b) honest EN/DE scope text. The authoritative ACTIVE-
+reconciler observation (cross-process read/check/write lock around the real apply/observe path)
+DEPENDS on t-20261018-r27-state-owner + t-20261018-r27-authority-contract, not yet accepted; it is
+an EXPLICIT deferred dependency named in the spec, not a silent claim. Full enforcement is
+re-qualified when those predecessors accept.
