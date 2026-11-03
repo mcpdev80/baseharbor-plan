@@ -28,7 +28,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1201", "https://github.c
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o203 (3fba91dd, ornith)  
 **Priority:** high  
 **PRs:** [baseharbor#1201](https://github.com/mcpdev80/baseharbor/pull/1201), [baseharbor#1202](https://github.com/mcpdev80/baseharbor/pull/1202), [baseharbor#1205](https://github.com/mcpdev80/baseharbor/pull/1205)  

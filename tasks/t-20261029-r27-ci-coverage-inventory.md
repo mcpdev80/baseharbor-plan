@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/blob/develop/docs/internal/ci
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** o202 (1138dbc9, ornith)  
 **Priority:** high  
 **PRs:** none  

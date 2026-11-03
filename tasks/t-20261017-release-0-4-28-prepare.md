@@ -8,7 +8,7 @@ release_stage: prepare
 parent: v0.4.28
 owner: ""
 priority: normal
-depends_on: [console-2, t-20261017-release-0-4-28-updates]
+depends_on: [t-20261017-release-0-4-28-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -21,13 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
-**Depends on:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
 **Required by:** [t-20261017-release-0-4-28-qualify](t-20261017-release-0-4-28-qualify.md)  
 **Owner:** unassigned  
 **Priority:** normal  

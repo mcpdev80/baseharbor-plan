@@ -28,7 +28,6 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Depends on:** [core-823](core-823-tests-platform-conformance-support.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
-**Required by:** [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

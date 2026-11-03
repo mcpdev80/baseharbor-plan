@@ -28,7 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.4)  
 **Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md), [t-20261017-release-0-7-4-updates](t-20261017-release-0-7-4-updates.md)  
-**Required by:** [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-4-prepare](t-20261017-release-0-7-4-prepare.md)  
+**Required by:** [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

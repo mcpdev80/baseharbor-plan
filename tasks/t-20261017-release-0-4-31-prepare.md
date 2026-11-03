@@ -8,7 +8,7 @@ release_stage: prepare
 parent: v0.4.31
 owner: ""
 priority: normal
-depends_on: [core-862, t-20261017-release-0-4-31-updates]
+depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -21,13 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [core-862](core-862-quality-staticcheck-govulncheck-risk-tests.md), [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+    **Needs:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.31](../releases/v0.4.31.md) (v0.4.31)  
-**Depends on:** [core-862](core-862-quality-staticcheck-govulncheck-risk-tests.md), [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+**Depends on:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
 **Required by:** [t-20261017-release-0-4-31-qualify](t-20261017-release-0-4-31-qualify.md)  
 **Owner:** unassigned  
 **Priority:** normal  

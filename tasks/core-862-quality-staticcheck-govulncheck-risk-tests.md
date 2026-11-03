@@ -29,7 +29,6 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.31](../releases/v0.4.31.md)  
 **Depends on:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
-**Required by:** [t-20261017-release-0-4-31-prepare](t-20261017-release-0-4-31-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

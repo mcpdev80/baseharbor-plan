@@ -30,7 +30,7 @@ evidence: []
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
 **Depends on:** [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
-**Required by:** [core-819](core-819-architecture-host-interface-guard.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
+**Required by:** [core-819](core-819-architecture-host-interface-guard.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
