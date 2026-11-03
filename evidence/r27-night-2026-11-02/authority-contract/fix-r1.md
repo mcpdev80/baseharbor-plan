@@ -168,20 +168,35 @@ remain, now documented/authorized.
 
 ## PR / HEAD
 
-- Branch: `work/r27-authority-contract-doc-fix` (qualified on origin/develop 29244ddc).
-- Candidate head: 434196f8 (develop + r27 authority content + cycle-break r2/r3/r4).
-- ls-remote confirmed: PR #1326 head = 434196f840b24c0898523b29b9b72912bc47b3a3.
+- Branch: `work/r27-authority-contract-doc-fix` (based on origin/develop f8417b99).
+- Candidate head: 48aa35ad (develop + r27 authority content + cycle-break r3/r4, cmd/baha + deployment reverted to develop).
+- ls-remote confirmed: PR #1326 head = 48aa35ad145e (ancestor(develop, HEAD)=YES).
 - No merge authorized. PR #1326 head to be updated by coordinator/codex-merge from this branch.
 
 ## HANDOFF
-codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1a-fix: pr=#1326 head=efb307e7 findings=<1-5 all implemented> | fix round complete, all checks green, cycle-break documented"
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1a-fix: pr=#1326 head=48aa35ad findings=<1-5 all implemented> | fix round complete, all checks green, cycle-break documented"
 
 ---
-**END_LANE:** END_CODE_READY w1a-fix: pr=#1326 head=434196f8 findings=1-5 implemented.
+**END_LANE:** END_CODE_READY w1a-fix: pr=#1326 head=48aa35ad findings=1-5 implemented.
 All five review findings addressed and tested; Go import cycle broken via
 internal/stableid (stdlib-only leaf, acyclic verified with go list -deps);
 mkdocs-en/de-strict, documentation-audit, pages-candidate-build,
-go build/vet/test all green; PR #1326 head updated (434196f8) and commented;
-plan card ownership documented. Pre-existing env failures (Doctor test
-retained-state, long CI test timeout) confirmed on clean develop — not
-introduced by this branch. No merge authorized.
+go build/vet/test all green; PR #1326 head updated (48aa35ad) and commented;
+plan card ownership documented. Pre-existing env failures (Docker-unavailable:
+TestAppEditCommandCompleteProviderEditRunsRealLifecycle,
+TestDoctorNotDeployedVersusIncomplete, TestExternalProviderRemoval* / tenant-role,
+long CI timeout) confirmed on clean develop — not introduced by this branch.
+No merge authorized.
+
+Extra-lines source (2026-11-03): branch had +81 cmd/baha lines in
+deployment_record.go, target_test_helpers_test.go, app_new_wizard_test.go,
+app_input_resolver_first_run_test.go, app_identity_callback_origin_test.go plus
+internal/deployment/{deployment_store.go, deployment_owner_binding_test.go}.
+Root cause: r27-state-owner-2 commit f3377d94 ("bind deployment load to
+installation owner") — a SEPARATE branch/PR, NOT this contract's write-set
+(docs + internal/coreinstallation + internal/stableid + serviceaccess-Delegation).
+Diagnosed via `git diff --name-only origin/develop HEAD`. All non-write-set
+files reverted to origin/develop; verified branch now differs from develop ONLY
+in write-set + CI/broker/receipt scripts (develop-owned). Wizard-app-new +
+lifecycle gates now green except the Docker-unavailable env failures above.
+Branch HEAD 48aa35ad verified acyclic + ancestor(develop)=YES.
