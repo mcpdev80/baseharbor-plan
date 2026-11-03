@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: ""
+owner: coord-welle3 (lane w41)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -16,18 +16,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-ci-authority · Deferred trusted CI readiness: authority #task #release/v0-4-27 #status/planned #view/ready #area/ci #kind/task
+- [ ] t-20261022-r27-ci-authority · Deferred trusted CI readiness: authority #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle3 (lane w41) · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle3 (lane w41)  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
