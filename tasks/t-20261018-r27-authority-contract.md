@@ -9,7 +9,7 @@ priority: critical
 owner: w1-authority (lane)
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1348"]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -21,6 +21,7 @@ evidence: []
 - [ ] t-20261018-r27-authority-contract · Authority: define one installation owner for local and remote work #task #release/v0-4-27 #status/active #view/active #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** w1-authority (lane) · **Priority:** critical  
+    **PR:** [baseharbor#1348](https://github.com/mcpdev80/baseharbor/pull/1348)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -31,7 +32,7 @@ evidence: []
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Owner:** w1-authority (lane)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1348](https://github.com/mcpdev80/baseharbor/pull/1348)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -122,3 +123,15 @@ THIS card must deliver: fail-closed revocation/observation predicates (no error 
 functions, ObservedAt freshness inside Fresh, and EN/DE docs stating the wiring deferral with the
 named cards. resolveManagementConnectionIssuer stays as the documented integration point that
 consumers call; a test demonstrating it end-to-end is required, a cmd-side call fan-out is not.
+
+### Coordinator decision confirming w8-authority-r4 delivery (2026-11-03, night wave, r4)
+
+w8-authority-r4 delivered: tri-state read-only revocation (`RevokedStatus(ctx, serial) (bool,
+error)`) on `serviceaccess.LocalIssuer`, `openbao.ServiceIssuer` and the test fake;
+`installauthority.Fresh` rejects on `err != nil || revoked == true` so an unreadable/missing/
+malformed revocation status fails closed; `observedAt` freshness inside `Fresh` (zero/future/
+stale); end-to-end test through `resolveManagementConnectionIssuer` itself (`TestResolveManage mentConnectionIssuerEndToEnd`) proving live pass plus revoked and unreadable-CRL fail-closed via the
+authorized wrapper only. `observedThroughBoundary` no longer issues a leaf (no `Issue()` on the
+verification path) — it observes the existing connection through `BaseSerial`/`BaseExpiry`. EN/DE
+`target-access-v1.md` state the call-site fan-out deferral to the state-owner lane. Only the
+authorized `cmd/baha/application_service_issuer.go` (+ its test) changed among cmd files.

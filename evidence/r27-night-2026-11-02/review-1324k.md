@@ -1,0 +1,7 @@
+# PR #1324 — review 17fc8c20
+
+ROLLE: REVIEW. Urteil: REJECT. Head 17fc8c207e3185d576d77f38aef3f4512a42258b, tree 19b8e856d049546f5f9035fab7da6c7e21908980; develop 01784c388666cea9d656b5a383bf594c45c86ff7. Remote refs confirmed before and after review. Reviewer Codex GPT-6, session 01a19e29-096b-76c2-8950-8018bf0b99ae, 2026-11-03 05:12 UTC. No merge, push or CI logs.
+
+EN and DE docs remain byte-identical to c50747a5: they still claim EnrollDevice binds installation identity and validates trust through the existing anchor, although it only checks the profile certificate against its own fingerprint and does not check InstallationID. Later paragraphs defer those same checks. The coordinator scope notes require honest documentation now; this rejection does not demand implementation of deferred independent anchor, installation/scope, production consumer or import side effects. Recipe: correct both languages to distinguish self-consistency and recipient/time checks from deferred independent authority, retain valid Planning links, and run docs/link/locale checks. Stop if the scope or authority is unclear.
+
+The managementaccess code/schema/fixtures are unchanged from c50747a5. The fresh isolated `go test ./contracts/managementaccess/v1` failed during linking with `disk quota exceeded`; this is an environment failure, not a passing result or a product-failure diagnosis. Prior focused tests passed for the same unchanged contract files. The current-develop diff contains nine reserved files, no CI files. Required docs and CI checks remain unverified.
