@@ -103,3 +103,11 @@ per the existing composition/ownership notes, expose it through the installautho
 it in FreshlyObservedConnection. Mutating Revoke must NOT appear on any verification path; regression
 test asserts revocations.pem bytes unchanged across successful verification. Index navigation entries
 for ADR 0021 are permitted (navigation-only, public-surfaces note acknowledged).
+
+### Coordinator ownership extension for revocation predicate (2026-11-03, night wave, r3)
+
+To make verification read-only the lane additionally touched internal/openbao/service_issuer.go
+and service_pki.go (Revoked predicate on the openbao issuer, mirroring the LocalIssuer method),
+internal/serviceaccess/issuer.go (interface), and internal/testsupport/serviceissuer (fake with the
+method). These are accepted-boundary glue per the composition-wiring note; no behavior other than
+exposing revocation STATUS (no writes) may live there. Recorded before review.

@@ -32,7 +32,7 @@ Per task-card decision sections (2026-11-03, night wave) + review 1326b2:
 
 ## END
 
-END_DONE w7-authority-r3: pr=#1326 head=945d9c45 (clean branch w7-authority-r3-clean @ 945d9c45296a49c72f0b771273027ead61e080bb)
+END_DONE w7-authority-r3: pr=#1326 head=09f14ec8 (rebased onto current develop 01784c38; branch w7-authority-r3-clean @ 09f14ec8e36a1fa5854e405404afc59f2b924ffc)
 
 ---
 
