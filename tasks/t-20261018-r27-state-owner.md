@@ -68,3 +68,9 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 Candidate: PR #1347 head cdfc75bf (branch work/r27-state-owner, base develop, stacked note present);
 duplicate #1340 closed with supersession proof. Review pending on windows-compile + production-consumer
 points of review-1326b; state-owner content itself delivered by the earlier lane round.
+
+### Coordinator note on installation-ID binding (2026-11-03, s2 round)
+
+Same-target installation identity binding is deferred to the authority contract surfaces
+(internal/installauthority plus serviceaccess issuer identity), where the durable installation ID
+already lives; this card consumes it at its Load/Save seams once that lands. Recorded per s2 END.
