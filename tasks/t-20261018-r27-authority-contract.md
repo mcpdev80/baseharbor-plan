@@ -77,3 +77,11 @@ Existing docs/link/EN-DE checks and focused authority-type tests; no native runt
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+### Coordinator ownership decision (2026-11-03, night wave, per card rule)
+
+The accepted predecessor interfaces named in this card (serviceaccess.Issuer identity/revocation,
+ExpiresAt as the single freshness bound) ARE in-scope integration points: the lane may make minimal
+glue/integration edits in internal/serviceaccess for authority wiring only; all other files there
+remain read-only. Freshness policy per card: observation is fresh iff now <= Issuer ExpiresAt
+(no additional maxAge constant; zero/future now fails closed). Recorded for review traceability.
