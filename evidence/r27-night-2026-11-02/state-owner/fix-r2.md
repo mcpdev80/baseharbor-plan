@@ -15,9 +15,10 @@ Evidence contract: plain bullets, no checkboxes.
 ## repo-rule compliance
 
 - Write-set bounded by task card: internal/deployment/deployment_store.go, cmd/baha/app_context.go, cmd/baha/deployment_record.go, matching state-owner tests (task-karten line 52).
-- No edits to another slice's files; no installauthority/coreproduction files; no CI files.
-- STOP rule: two failed identical fixes => END_BLOCKED; no merge.
+- Committed candidate: `f3abccc3c4eb031f843f0ea7130d2dae33bd9799` (branch work/r27-state-owner, fast-forward onto remote tip cdfc75bf).
+- Diff vs base touches ONLY the 6 reserved files; `git diff .github/ scripts/` is empty (verified). No CI/authority files.
+- Stop rule honored: two failed identical fixes => END_BLOCKED; no merge performed.
 
 ## END line
 
-END DONE s2-stateowner-r2: <candidate SHA>
+END_DONE s2-stateowner-r2: f3abccc3 PR #1347 fix round — seam enforcement + tenant-bypass removal + symlink hardening; ID-binding deferred to authority contract (Owner decision). Candidate pushed FF, remote ls-remote verified. internal/deployment green. cmd/baha: only pre-existing docker-unavailable/env failures remain.
