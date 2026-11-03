@@ -8,8 +8,8 @@ STAGES = (
     ('cleanup', 'Release start: reconcile old PRs, tasks and branches'),
     ('updates', 'Release start: integrate Renovate updates before feature work'),
     ('prepare', 'Pre-release: complete ecosystem readiness and candidate preparation'),
-    ('qualify', 'Pre-release: obtain complete authenticated approval'),
-    ('publish', 'Release: promote the approved candidate and deliver exact tagging commands'),
+    ('qualify', 'Pre-release: complete required candidate checks'),
+    ('publish', 'Release: promote the validated candidate and deliver exact tagging commands'),
     ('verify', 'Release: verify publication, artifacts, Pages and closeout'),
 )
 VERSION = re.compile(r'^v\d+\.\d+\.\d+(?:\.\d+)?$')
@@ -41,7 +41,8 @@ def stage_id(version, stage):
 
 def scope_tasks(vault, version, release):
     return [t for t in vault.tasks.values() if not t['meta'].get('release_stage') and
-            t['release'] == release and (t['version'] == version or release == version)]
+            t['release'] == release and t['resolution'] != 'superseded' and
+            (t['version'] == version or release == version)]
 
 
 def expected_dependencies(vault, version, release, stage):
@@ -136,6 +137,10 @@ def sync(root):
         for stage, _ in stages_for(version):
             task = vault.tasks[stage_id(version, stage)]
             deps = task['depends_on']
+            if stage == 'prepare' and not task['done']:
+                # Retired work is searchable history, not an active release prerequisite.
+                deps = [dep for dep in deps if dep not in vault.tasks or
+                        vault.tasks[dep]['resolution'] != 'superseded']
             if version == 'v0.4.26':
                 retired = {stage_id(version, 'cleanup'), stage_id(version, 'updates')}
                 deps = [dep for dep in deps if dep not in retired]

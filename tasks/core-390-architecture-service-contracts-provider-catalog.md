@@ -6,7 +6,7 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: "t1229-svc-binding (Flash; owner-directive, prior=marcel)"
-depends_on: [core-893, core-895, core-896, t-20261027-r27-cutover-pr3]
+depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#390"]
@@ -21,14 +21,13 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board
     <!-- generated:card -->
     **Owner:** t1229-svc-binding (Flash; owner-directive, prior=marcel)  
     **Blocker:** coverage-unresolved: native targeted qualification fehlt (rootless-runner Cutover, geteilt mit \#1236/\#1232/\#1220). ALLE product-Gates success (Public Contracts/Trusted Plan/source-contracts/capability-package/Focused Python) + local gofmt/…  
-    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/w390.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/dd1923dc), [proof 3](https://github.com/mcpdev80/baseharbor/blob/develop/docs/decisions/0013-standards-first-service-provider-contracts.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md)  
 **Owner:** t1229-svc-binding (Flash; owner-directive, prior=marcel)  
 **Priority:** not set  
 **PRs:** none  

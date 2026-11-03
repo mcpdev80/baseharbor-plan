@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)"
-depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261027-r27-cutover-pr3]
+depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1222"]
 sources: ["mcpdev80/baseharbor#750"]
@@ -22,14 +22,13 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/8bc490ea"]
     **Owner:** t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)  
     **PR:** [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222)  
     **Blocker:** Zwei Teil-Ursachen (t-runner2 Ground-Truth, evidence/board-2026-10-31/t-runner2/): Q1 DOCKER=Owner-Entscheidung (baha-runner-docker-2 faehrt ROOTFUL docker; rootless setuptool verweigert; Linger已从 coordinator enabled, aber Service-Modell r…  
-    **Needs:** [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8bc490ea)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261027-r27-cutover-pr3](t-20261027-r27-cutover-pr3.md)  
+**Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)  
 **Priority:** not set  

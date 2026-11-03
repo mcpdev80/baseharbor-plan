@@ -12,53 +12,33 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261103-ci-plain-checks
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261103-ci-plain-checks.md"]
 ---
 
-- [ ] t-20261030-publication-failure-injection-tests · Publication Failure-Injection Tests (Nachlauf PR 1213) #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [x] t-20261030-publication-failure-injection-tests · Historical: Publication Failure-Injection Tests (Nachlauf PR 1213) #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Later release** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261103-ci-plain-checks.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
-## Goal
+## Superseded by Owner instruction — 2026-11-03
 
-Jeder Stage des Publikationspfads (fetch, compare, commit, push, readback, restore) hat einen Test, der den Fehlerfall durch den ECHAUTEN receipt_verifier-Pfad gegen ein bare remote injiziert und HEAD/index/worktree/remote-Zustand assertiert.
+The old post-run artifact/extractor/verifier path is retired. CI, Pre-Release and Release use normal required jobs without gate manifests, evidence verification/reuse or extra receipt approval. The only CI record contains merge SHA and PR number. No new implementation is required under this historical card.
 
-## Scope
+Replacement and its still-pending acceptance: [CI simplification](t-20261103-ci-plain-checks.md). Actual safe-publication tests for the minimal writer remain part of that implementation; this does not remove error handling for rejected pushes or conflicting records.
 
-- In scope: scripts/test_receipt_tasklink.py, scripts/test_receipt_verifier.py (Injektionstests), ggf. minimale Test-Helfer in scripts/.
-- Out of scope: Produktcode-Verhalten (in #1213 gemergt), andere Receipt-Komponenten.
+## Historical scope and results
 
-## Acceptance
-
-- Sieben Faelle gemaess rv1213f..j-Katalog: fetch-fail, stale-ref, commit-without-push-retry, commit-fail, push-fail, readback-mismatch, restore-blob-reconstruction.
-- Jeder Fall laeuft uber den Produktionswrapper, nicht gegen interne Helfer.
-- receipt-suite.sh exit0; bisherige Akzeptanz-Matrix bleibt gruen.
-
-## Required checks
-
-- scripts/receipt-suite.sh (5 Suiten) exit0
-- CI receipt-execution-tests gruen
-
-## Dependencies and file ownership
-
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
-
-## Handoff
-
-- Entstanden aus Owner-Konvergenzentscheid Option 1, baseharbor-plan/evidence/r27-ci-replacement-2026-10-29/konvergenz-entscheid-o246.md (2026-10-30).
-- Bezugskandidat: PR #1213, develop 5fc601fe (rv1213j-Dossiers f..j in evidence/board-2026-10-29/codex-rv1213*-merge.md).
+[Original task](https://github.com/mcpdev80/baseharbor-plan/blob/6a687317d2540106a0ff790d78e5ea05ab84a178/tasks/t-20261030-publication-failure-injection-tests.md). Existing historical data is preserved; no release or tag is authorized.

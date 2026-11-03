@@ -60,6 +60,30 @@ class ReleaseCycleTests(unittest.TestCase):
         cycles.sync(f.dir)
         self.assertEqual(cycles.problems(plan.Vault(f.dir).load()), [])
 
+    def test_superseded_work_is_removed_from_prepare_without_losing_history(self):
+        f = self.fixture()
+        f.add_task('core-1', task_note('core-1', 'Retired implementation'))
+        f.add_task('core-2', task_note('core-2', 'Current replacement'))
+        f.finish()
+        cycles.sync(f.dir)
+        before = plan.Vault(f.dir).load()
+        prepare_id = cycles.stage_id('v1.0.0', 'prepare')
+        self.assertIn('core-1', before.tasks[prepare_id]['depends_on'])
+        retired = before.tasks['core-1']['path']
+        retired.write_text(retired.read_text().replace('- [ ]', '- [x]')
+                           .replace('#status/planned', '#status/closed')
+                           .replace('resolution: ""', 'resolution: superseded\nsuperseded_by: core-2')
+                           .replace('evidence: []', 'evidence: ["https://example.org/history"]'))
+        history = retired.read_text()
+        cycles.sync(f.dir)
+        current = plan.Vault(f.dir).load()
+        self.assertNotIn('core-1', current.tasks[prepare_id]['depends_on'])
+        self.assertIn('core-2', current.tasks[prepare_id]['depends_on'])
+        self.assertEqual(history, retired.read_text())
+        self.assertEqual(cycles.problems(current), [])
+        cycles.sync(f.dir)
+        self.assertNotIn('core-1', plan.Vault(f.dir).load().tasks[prepare_id]['depends_on'])
+
     def test_series_only_materializes_explicit_versions(self):
         f = self.fixture().finish()
         release = f.dir / 'releases/v1.0.0.md'

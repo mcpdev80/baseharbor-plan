@@ -19,7 +19,7 @@ Read the current product sources at execution time; this page is a short plannin
 - [Releases and versioning](https://github.com/mcpdev80/baseharbor/blob/develop/docs/reference/releases.md), [readiness](https://github.com/mcpdev80/baseharbor/blob/develop/docs/development/pre-release-readiness.md), [development rules](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md) and [agent/CI rules](https://github.com/mcpdev80/baseharbor/blob/develop/AGENTS.md).
 - Actual [pre-release workflow](https://github.com/mcpdev80/baseharbor/blob/develop/.github/workflows/pre-release.yml), [resume/evidence verifier](https://github.com/mcpdev80/baseharbor/blob/develop/scripts/pre-release-resume.py), [promotion verifier](https://github.com/mcpdev80/baseharbor/blob/develop/scripts/release-handoff.py), [release workflow](https://github.com/mcpdev80/baseharbor/blob/develop/.github/workflows/release.yml) and [Pages workflow](https://github.com/mcpdev80/baseharbor/blob/develop/.github/workflows/pages.yml).
 
-Source inspection on 2026-10-17 used product `develop` at `b73e27603ee082f2fabb81df1b2789fba3367d23`. Historical release-specific exceptions do not automatically apply to the next release. The audit still contains older wording about one run reproducing every gate; actual workflows support authenticated resumed coverage. Preparation must reconcile documentation against the actual candidate-owned verifier before execution, rather than demanding unrelated green jobs be repeated or weakening approval requirements.
+The current Owner instruction removes CI evidence manifests, verification/reuse and extra receipt approvals everywhere. Historical release records are preserved. Actual product tests, immutable source pins, published artifact checksums and build provenance remain required.
 
 ## Cleanup
 
@@ -35,29 +35,27 @@ Apply audit sections 1–8 and section 9 atomic-first prerequisites. The Prepare
 
 Readiness includes BaseHarbor, Demo, Console, Node Connector, current CLI/JSON/MCP/HTTP semantics, real supported auth/mTLS/lifecycle/cleanup and developer journeys, standards/ownership/security review, EN/DE user/reference/spec docs, navigation/links/staleness, strict Pages candidate builds/workflow, changelog and concise developer-facing release notes. Notes cover what changed, why it matters, usage/upgrade/compatibility, security and deliberate deferrals. The product README stays compact and free of process rules. Do not publish Pages to claim readiness.
 
-Freeze exact actual ecosystem sources, immutable consumer bindings, candidate tree and release-specific gate inventory/evidence plan without circular pins. Check the required platform/runtime/HA/consumer coverage, current source qualifiers and available tooling. Missing/failed/skipped/unverified required coverage blocks readiness. Produce an exact-source dossier and concrete run inputs for review. Preparation alone authorizes no complete pre-release, merge, tag or publication.
+Freeze exact actual ecosystem sources, immutable consumer bindings, candidate tree and release-specific test inventory without circular pins. Check the required platform/runtime/HA/consumer coverage, current source qualifiers and available tooling. Missing/failed/skipped/unverified required coverage blocks readiness. Produce an exact-source test plan and concrete run inputs for review. Preparation alone authorizes no complete pre-release, merge, tag or publication.
 
 ## Qualify
 
-Require accepted preparation plus explicit Maintainer authorization. Use existing workflows, original gate owners and verifier; inspect queued/running equivalent work before dispatch. No full-matrix debugging loop or duplicate orchestrator.
+Require accepted preparation plus explicit Maintainer authorization. Freeze the actual candidate and ecosystem source pins. Use the normal Pre-Release jobs and canonical test inventory; inspect queued/running equivalent work before dispatch. Required job results determine success. Missing, failing, cancelled or improperly skipped required work blocks. During diagnosis rerun failed or affected tests, not unrelated full matrices.
 
-An overall failed workflow may contain valid successful individual receipts. Reuse these only when the existing verifier authenticates compatible inputs, source/gate/runtime/resource profile, origin run/attempt/artifact/digest and freshness. A newer relevant negative attempt blocks stale-green fallback. Fix demonstrated failures and rerun only failed, missing or affected gates. Cache is not evidence; not-required needs a reason and is not PASS. Do not assume cross-SHA compatibility.
-
-Final complete approval must include every unique required gate and immutable ecosystem input through the canonical coverage verifier and `release-approved.json`. Targeted `only_gates` runs never authorize a release. Current `pre-release.yml` accepts `tag`, exact source `ref`, exact `demo_ref` and an exact `consumer_ref` when applicable; inspect the candidate workflow for release-specific changes. Store the actual dispatch and approval origin in the task. Green source CI alone is insufficient.
+No gate manifests, archived evidence reuse, Actions run/job re-verification or release-approved.json is produced or consumed. Targeted `only_gates` execution validates only the chosen scope. Complete pre-release validation executes every required test on the exact source inputs. A successful CI receipt never authorizes promotion or publication.
 
 ## Publish
 
-Require complete approval and separate Maintainer authorization. Use one release/promotion PR and the existing candidate/promotion model, with strict review/CI. Inspect `develop` versus `main`, main-only hotfixes and the exact tree. Do not accidentally promote work added to develop after the approved candidate; do not improvise branch/ruleset bypasses.
+Require complete validation and separate Maintainer authorization. Use one release/promotion PR and verify the resulting Git tree against the intended frozen candidate, including main-only hotfixes. Do not promote later unrelated develop changes or bypass actual technical gates.
 
-Before completion, the Publish task MUST contain a complete executable tagging block for the Maintainer, with the actual release version and full approved resulting main SHA. It must verify the correct repository/remote, clean state, exact fetched main/tree and approval binding, absence of local AND remote version tags, then create an annotated immutable tag on that explicit SHA and push only that tag. No placeholders, unverified SHA or `git push --tags`. If authorization is to prepare only, deliver the commands without executing them. If execution is authorized, record the actual tag/publish run separately.
+Before completion provide one complete executable tagging block with the actual version and full resulting main SHA. Verify repository/remote, clean state, fetched main/tree and local/remote tag absence. Create an annotated immutable tag on that explicit SHA and push only that tag. If only preparation is authorized, do not execute it. Never move a published tag.
 
-The existing release workflow consumes matching immutable approval and performs only required supplemental/publication work. Never move an existing published tag. A prepared command is not a pushed tag or verified publication.
+The normal Release workflow validates the tag and directly runs reusable pre-release checks on that exact source before publishing images, binaries, checksums, human release notes and build provenance. It does not consume an approval artifact or query earlier CI runs. A prepared command is not a pushed tag or a verified publication.
 
 ## Verify
 
 Complete audit sections 10–13: immutable tag/main/tree, GitHub Release, required archives/checksums and actual `baha version` version/commit metadata, build/runtime provenance, matching versioned GHCR image and required compatible/latest channels. Verify actual post-promotion Pages deployment and live EN/DE release notes/navigation/roadmap/references, plus release-mode Demo/consumer dispatch where required. Candidate Pages builds are not live deployment evidence.
 
-Record actual results in the audit and release/task notes; qualify/publish only with accepted evidence. Reconcile roadmap/current-version/next-release messaging and remove incorporated temporary branches/obsolete PRs under retention rules. Do not call a pushed tag release completion, and do not rerun qualified runtime gates merely for publication.
+Record actual results in the audit and release/task notes; qualify/publish only after the required checks succeed. Reconcile roadmap/current-version/next-release messaging and remove incorporated temporary branches/obsolete PRs under retention rules. Do not call a pushed tag release completion, and do not start duplicate validation while equivalent jobs are running.
 
 ## Maintain the cards
 

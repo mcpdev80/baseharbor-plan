@@ -12,11 +12,12 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092]
 sources: []
 blocker: ""
-resolution: accepted
+resolution: superseded
+superseded_by: t-20261103-ci-plain-checks
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-ci-replacement-2026-10-26/ACCEPTANCE-PR1.md"]
 ---
 
-- [x] t-20261022-r27-evidence-contract · Receipt schema and interface contract (PR1 scope) #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
+- [x] t-20261022-r27-evidence-contract · Historical: Receipt schema and interface contract (PR1 scope) #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** flash-f71 (worker-1 contract+legacy-bootstrap) · **Priority:** critical  
     **PR:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092)  
@@ -24,27 +25,21 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-c
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md), [t-20261022-r27-evidence-publisher](t-20261022-r27-evidence-publisher.md), [t-20261022-r27-evidence-resolver](t-20261022-r27-evidence-resolver.md), [t-20261022-r27-evidence-verifier](t-20261022-r27-evidence-verifier.md), [t-20261024-r27-ci-impact-prototype](t-20261024-r27-ci-impact-prototype.md), [t-20261026-r27-receipt-pilot](t-20261026-r27-receipt-pilot.md), [t-20261027-r27-shadow-run](t-20261027-r27-shadow-run.md)  
 **Owner:** flash-f71 (worker-1 contract+legacy-bootstrap)  
 **Priority:** critical  
 **PRs:** [baseharbor#1090](https://github.com/mcpdev80/baseharbor/pull/1090), [baseharbor#1091](https://github.com/mcpdev80/baseharbor/pull/1091), [baseharbor#1092](https://github.com/mcpdev80/baseharbor/pull/1092)  
 **Source:** 
 <!-- /generated:links -->
 
-# Receipt schema and interface contract (PR1 scope)
+## Superseded by Owner instruction — 2026-11-03
 
-## Accepted scope, not complete operational qualification
-Retain the six-field/<500-byte receipt contract and original PR1 source/schema acceptance. One gate is public-contracts; the receipt identifies full tested integration SHA and immutable Planning plan. Only one approved:null -> by/at/receipt_commit transition is permitted. No signatures, payload archive, retention service or extra authority.
+This task describes the retired receipt/evidence implementation. It is closed as **superseded**, not accepted as a current prerequisite. The Owner requires ordinary CI, Pre-Release and Release jobs without gate manifests, completed-run/job re-verification, evidence reuse, separate receipt approval or shadow consumption. The sole CI record contains merge commit SHA and PR number.
 
-## Actual baseline and qualification limit
-PR #1092 incorporated #1090; #1090 is closed without separate merge. The audit found that current trusted CI does not discover receipt suites, contrary to earlier docs/PR1 wording. Do not treat old CI success as complete test execution or automatic publication. W1/W2/W3 own those corrections; this contract card owns no parallel source writes.
+Current implementation and acceptance are tracked in [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md). No historical PASS, pilot or approval satisfies its remaining checks. Existing receipts and release records remain historical data; no release or tag is authorized.
 
-## Interface ownership
-W1 owns trusted execution/discovery and docs; W2 owns publication/plan/task-link interfaces in existing helpers; W3 owns live/approve/retained validation. Freeze shared call signatures once before parallel edits. Receipt fields/modes remain stable; no unilateral branch/API invention.
+## Historical scope and results
 
-## Governing order and preserved history
-
-The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Codeman is resumed by the Owner; the coordinator preserves claims and unpublished work and assigns small non-overlapping iterations under the current order. [Pre-reset task, scope and results](https://github.com/mcpdev80/baseharbor-plan/blob/5df54047097107808e92ba4fe1bb2a8197f8772a/tasks/t-20261022-r27-evidence-contract.md) remain immutable history, not competing operational instructions.
+The [original task at the pre-simplification Planning revision](https://github.com/mcpdev80/baseharbor-plan/blob/6a687317d2540106a0ff790d78e5ea05ab84a178/tasks/t-20261022-r27-evidence-contract.md) preserves the former criteria, owners, PRs and results. Do not resume that workflow or reinstate its dependencies.

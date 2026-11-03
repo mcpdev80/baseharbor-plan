@@ -12,49 +12,33 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261103-ci-plain-checks
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261103-ci-plain-checks.md"]
 ---
 
-- [ ] t-20261029-r27-writer-selftest-job · CI: writer selftest job — validate plan.zip against extract_facts before any publication #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [x] t-20261029-r27-writer-selftest-job · Historical: CI: writer selftest job — validate plan.zip against extract_facts before any publication #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261103-ci-plain-checks.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
-## Goal
+## Superseded by Owner instruction — 2026-11-03
 
-The receipt post-run writer validates the downloaded artifact against extract_facts in an isolated selftest step before any planning publication, so transport/binding errors surface as one precise gate failure.
+The old post-run artifact/extractor/verifier path is retired. CI, Pre-Release and Release use normal required jobs without gate manifests, evidence verification/reuse or extra receipt approval. The only CI record contains merge SHA and PR number. No new implementation is required under this historical card.
 
-## Scope
+Replacement and its still-pending acceptance: [CI simplification](t-20261103-ci-plain-checks.md). Actual safe-publication tests for the minimal writer remain part of that implementation; this does not remove error handling for rejected pushes or conflicting records.
 
-- In scope: A dry-run selftest step (no publish) running extract_facts against the real plan.zip.
-- Out of scope: any product behavior change; this is a CI/contract-coverage card only.
+## Historical scope and results
 
-## Acceptance
-
-The selftest step reports the exact missing/bad field; no publication occurs on its failure.
-
-## Required checks
-
-receipt-postrun tests stay green; selftest failure blocks the publish step fail-closed.
-
-## Dependencies and file ownership
-
-- Owned files or areas: .github/workflows/receipt-post-run.yml (selftest step), scripts/test_receipt_postrun.py
-- Shared files: coordinate through the owning task.
-
-## Handoff
-
-- Created 2026-10-29 from the R27 night-shift Cause-7..16 findings (evidence/board-2026-10-27/SHADOW-RUN-STATUS.md). Unassigned, planned.
+[Original task](https://github.com/mcpdev80/baseharbor-plan/blob/6a687317d2540106a0ff790d78e5ea05ab84a178/tasks/t-20261029-r27-writer-selftest-job.md). Existing historical data is preserved; no release or tag is authorized.

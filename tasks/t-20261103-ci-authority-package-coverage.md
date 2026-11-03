@@ -12,20 +12,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261103-ci-plain-checks
+evidence: [https://github.com/mcpdev80/baseharbor/pull/1345]
 ---
 
-- [ ] t-20261103-ci-authority-package-coverage · CI: execute authority and stable-ID package checks for their real Go changes #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261103-ci-authority-package-coverage · CI: execute authority and stable-ID package checks for their real Go changes #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Codex (CI completion 2026-11-03) · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1345)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-receipt-source-recovery](t-20261103-ci-receipt-source-recovery.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** Codex (CI completion 2026-11-03)  
 **Priority:** high  
 **PRs:** none  
@@ -62,3 +63,7 @@ Resolve the real unknown-impact failure in PR 1326 by executing the authority, s
 
 - Assigned under Owner CI-completion mandate after receipt task acceptance. PR 1326 run 41551484989 failed final with unknown impact for coreinstallation authority/locks, stableid locks and serviceaccess/local_issuer.go; all its selected documentation jobs passed.
 - PR 1333 separately failed DE/EN integrity; its active Owner is already updating the product branch, so no competing product edits are assigned here.
+
+## Superseded by integrated normal CI
+
+The Owner expanded the assignment to complete CI evidence removal. Normal authority package execution is included in t-20261103-ci-plain-checks / Core #1345. Original unpublished work is preserved; no separate acceptance or source-verification gate remains assigned here.

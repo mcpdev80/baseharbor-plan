@@ -11,58 +11,35 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1230]
 sources: []
-blocker: PR mcpdev80/baseharbor#1230 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate
-resolution: "accepted"
+blocker: ""
+resolution: superseded
+superseded_by: t-20261103-ci-plain-checks
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/q260.md]
 ---
 
-- [x] t-20261030-postrun-nonpr-producer-skip · Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
+- [x] t-20261030-postrun-nonpr-producer-skip · Historical: Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** q260  
     **PR:** [baseharbor#1230](https://github.com/mcpdev80/baseharbor/pull/1230)  
-    **Blocker:** PR mcpdev80/baseharbor\#1230 OPEN (DIRTY/BLOCKED) — extern Maintainer-Review Gate  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/board-2026-10-30/q260.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** q260  
 **Priority:** not set  
 **PRs:** [baseharbor#1230](https://github.com/mcpdev80/baseharbor/pull/1230)  
 **Source:** 
 <!-- /generated:links -->
 
-## Goal
+## Superseded by Owner instruction — 2026-11-03
 
-One or two sentences: the observable outcome.
+The old post-run artifact/extractor/verifier path is retired. CI, Pre-Release and Release use normal required jobs without gate manifests, evidence verification/reuse or extra receipt approval. The only CI record contains merge SHA and PR number. No new implementation is required under this historical card.
 
-## Scope
+Replacement and its still-pending acceptance: [CI simplification](t-20261103-ci-plain-checks.md). Actual safe-publication tests for the minimal writer remain part of that implementation; this does not remove error handling for rejected pushes or conflicting records.
 
-- In scope:
-- Out of scope:
+## Historical scope and results
 
-## Acceptance
-
-- receipt-post-run.yml skips cleanly (exit0, neutral) when producer run event != pull_request (e.g. runtime-validation push runs); no failure, no receipt attempted
-- negative regression: fake non-PR producer payload yields skipped outcome in the focused suite
-- witness runs: 41111017354 and 41111798732 (Extract Trusted Plan failure on push producer, main e92e2058)
-
-## Required checks
-
-- Targeted checks for the changed area; broaden when impact is unknown.
-
-## Dependencies and file ownership
-
-- Owned files or areas:
-- Shared files: coordinate through the owning task.
-
-## Handoff
-
-- q260: PR #1230 created, CI terminal (Workflow policy pass, PR checks skipping as expected for non-PR trigger branch). Evidence: q260.md. Branch work/postrun-nonpr-skip, commit 9a5abda0.
-
-
-## Resolution (2026-11-02)
-- Fixed by PR #1252 (non-PR source runs = clean no-op) and generalized by PR #1261 (merge f2e43b0a: Noop class before fail-closed for non-pilot+unmapped; pilot stays hard — verified in review).
+[Original task](https://github.com/mcpdev80/baseharbor-plan/blob/6a687317d2540106a0ff790d78e5ea05ab84a178/tasks/t-20261030-postrun-nonpr-producer-skip.md). Existing historical data is preserved; no release or tag is authorized.
