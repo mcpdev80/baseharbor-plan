@@ -75,3 +75,10 @@ reconciler observation (cross-process read/check/write lock around the real appl
 DEPENDS on t-20261018-r27-state-owner + t-20261018-r27-authority-contract, not yet accepted; it is
 an EXPLICIT deferred dependency named in the spec, not a silent claim. Full enforcement is
 re-qualified when those predecessors accept.
+
+### Coordinator note on regression file scope (2026-11-03, r1333f)
+
+The authorized 'one regression file' for the store hook covers focused regression files for the
+guard behaviour, including preferences_retention_test.go alongside one_writer_guard_test.go, as long
+as each file tests only the authorized SaveDeploymentRecord seam. Recorded; not a licence for broader
+internal/deployment edits.

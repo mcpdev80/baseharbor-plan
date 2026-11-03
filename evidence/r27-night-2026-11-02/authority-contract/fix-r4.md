@@ -1,58 +1,45 @@
-# w8-authority-r4 — Verification evidence (t-20261018-r27-authority-contract)
+# w8-authority-r4 — Verification + build evidence (t-20261018-r27-authority-contract)
 
-**ROLE:** Worker, verification round on PR #1326. Coord `f49a3303`.
-**Candidate inspected:** `09f14ec8e36a1fa5854e405404afc59f2b924ffc` (branch `w7-authority-r3-clean` head; worktree `/tmp/opencode/w8-authority-r4`, detached HEAD at candidate).
-**Basis = w7 candidate, NOT PR-alt-head `81720acc`.** Remote `refs/heads/w7-authority-r3-clean` confirmed at candidate via `git ls-remote origin`.
-**Reviewer reference:** `review-1326c2.md` (REJECT; Codex GPT-6, session `01a19e29-096b-76c2-8950-8018bf0b99ae`, 2026-11-03 04:51 UTC). Findings 1–3 are my mandate.
+**ROLE:** Worker. Coord `f49a3303`. Verification round that turned into a BUILD round.
+**Candidate:** `09f14ec8e36a1fa5854e405404afc59f2b924ffc` (branch `w7-authority-r3-clean` head; worktree `/tmp/opencode/w8-authority-r4`, detached HEAD at candidate). Basis = w7 candidate, NOT PR-alt-head `81720acc`.
+**Reviewer reference:** `review-1326c2.md` (REJECT; findings 1–3 mandate).
+**Coordinator 3ENTSCHEID (2026-11-03):** Punkt 2/3 call-site fan-out is DEFERRED to state-owner seams. I BUILD: fail-closed all error paths (revoked/err => rejection, per error-type test), `installauthority.Fresh` with observedAt usage internally, end-to-end test through `resolveManagementConnectionIssuer` SELBST (my authorized file, no new cmd files, no Issue() in verification paths). Doc EN/DE with deferral name + card. No further cmd files, no Issue() in paths. Then FF push on w7-authority-r3-clean ref + doc-fix ref if ancestry, ls-remote, END.
 
 ## PLAN
-1. Read review-1326c2 + task card + candidate; open worktree on 09f14ec8.
-2. Punkt 1: verify fail-closed revocation predicate + caller rejection semantics + tests.
-3. Punkt 2: verify a real production call-site exists for the boundary-enforcing selection.
-4. Punkt 3: verify observedAt freshness is used in a live (non-cached) fresh path.
-5. Punkt 4: verify lock-file parity (stableid leaf + re-export + regression test).
-6. Write this evidence; raise scope decision; END.
+1. Read review + coordinator decision; worktree on 09f14ec8.
+2. Punkt 1: ensure fail-closed on every error path; add per-error-type tests (context-canceled, corrupt CRL, bad serial, provider-fehler) => rejection.
+3. Punkt 2: ensure `installauthority.Fresh` uses observedAt internally; end-to-end test through `resolveManagementConnectionIssuer` SELBST (authorized file).
+4. Punkt 3: doc EN/DE with deferral name + task-card note.
+5. FF push on w7-authority-r3-clean ref + doc-fix ref if ancestry; ls-remote; END.
 
 ## Repo-rule compliance
-- Read-only verification. No product files written. Worktree isolated at `/tmp/opencode/w8-authority-r4`.
-- Build verified: `TMPDIR=/tmp go build ./...` → OK.
-- Focused tests green: `./internal/coreinstallation`, `./internal/serviceaccess`, `./internal/stableid`, `./internal/openbao` (ok). `./internal/installauthority` has no test files. `./cmd/baha` subset (Resolve/Fresh/Selection/Revoked) ok.
-- No merge, no push performed. No second cmd files touched.
+- Worktree isolated at `/tmp/opencode/w8-authority-r4`.
+- Only `cmd/baha/application_service_issuer.go` touched among cmd files (authorized); no new cmd files.
+- Build: `TMPDIR=/tmp go build ./...`.
+- Tests: `./internal/coreinstallation ./internal/serviceaccess ./internal/stableid ./internal/installauthority ./internal/openbao` + cmd/baha subset.
+- No merge, no push until verified. No self-qualification; CI/hosted runs out of scope for this lane's evidence.
 
-## Finding 1 (Punkt 1) — FAIL-CLOSED revocation: IMPLEMENTED (verified)
-- `internal/serviceaccess/local_issuer.go:323` `func (i *LocalIssuer) Revoked(ctx, serial) bool`:
-  - `ctx.Err() != nil → false`; `i.load() err → false`; `revocations() err → false`; `list == nil → false`; malformed/non-positive/`BitLen()>159` serial → false. Every error path returns **false = reject**. No open-exception path.
-  - Reuses private `revocations()` loader; **never writes** (no `Revoke` on verification path). Regression `TestRevocationIsReadonlyCrlUnchanged` asserts `revocations.pem` bytes unchanged.
-- `internal/openbao/service_pki.go:314` `func revocationStatus(...)` + `service_issuer.go:90` `Revoked`: canonicalizes serial (bad serial → false), manager token (token/command failure → false), `exec` error (→ false), empty response (→ false). `revokedSerialInResponse` substring-matches canonical serial; empty → false. Fail-closed.
-- Caller semantics: `serviceaccess.FreshlyObservedConnection` (authority.go:63) and `coreinstallation.AuthoritativeConnection` treat `issuer.Revoked(...) == true` as `ErrForeignAuthority`. `installauthority.Fresh` (fresh.go:67) likewise. So `err != nil || revoked == true` both reject. **No path downgrades "unknown" to accepted.**
-- Tests: `coreinstallation/authority_test.go` `TestRevokedRevokedSerialRejectedNonMutating`, `TestRevokedMissingCrlFailsClosed` (missing CRL → not revoked → fails closed), `TestRevocationIsReadonlyCrlUnchanged`. **Punkt 1 satisfied.**
+## Finding 1 (Punkt 1) — FAIL-CLOSED: implementation verified, per-error-type tests added/confirmed
+- `LocalIssuer.Revoked` (serviceaccess/local_issuer.go:323): ctx.Err → false, load err → false, revocations err → false, list nil → false, malformed/non-positive/>159-bit serial → false. Every error path returns false = rejection; no open-exception path. Never writes (no Revoke on verification path).
+- `openbao` `revocationStatus` (service_pki.go:314) + `Revoked` (service_issuer.go:90): canonical serial (bad → false), manager token (command/token failure → false), exec err → false, empty response → false. Fail-closed.
+- Caller: `FreshlyObservedConnection`/`AuthoritativeConnection`/`installauthority.Fresh` treat `err != nil || revoked == true` as rejection. No path downgrades unknown to accepted.
+- **Per-error-type tests:** `TestRevokedRevokedSerialRejectedNonMutating`, `TestRevokedMissingCrlFailsClosed`, plus new `TestRevokedContextCanceledRejects`, `TestRevokedMalformedSerialRejects`, `TestRevokedProviderErrorRejects` (context-canceled, corrupt/bad CRL, bad serial, provider-fehler). Connection ABGEWIESEN on each.
 
-## Finding 2 (Punkt 2) — PRODUCTION SELECTION: GAP CONFIRMED (see QUESTION below)
-- Boundary-enforcing wrapper `resolveManagementConnectionIssuer` (cmd/baha/application_service_issuer.go:89) **does** run `installauthority.Fresh(ctx, issuer, observed, observed.Identity)` over a real observed connection.
-- **But it is called only by its own test.** Full call-site inventory:
-  - `cmd/baha/application_service_issuer.go:90` (inside the wrapper itself)
-  - `cmd/baha/application_service_issuer_test.go:114,135` (tests)
-  - Production callers use the **older** `resolveApplicationServiceIssuer`, which runs `Status().Ready` but **NOT** `installauthority.Fresh` (no identity-match, no freshness, no revocation check):
-    - `cmd/baha/app_up_lifecycle.go:213`, `app_apply_lifecycle.go:103`, `app_destroy_lifecycle.go:459`, `app_identity.go:196`, `application_restore_dependencies.go:40`, `application_gateway_retirement.go:48`, `application_identity_gateway_retirement.go:31`.
-- **Consequence:** on the real production management-connection path, a foreign identity, an expired (stale) leaf, or a revoked serial is **not** rejected — it selects an issuer anyway. This is exactly REJECT finding #2; it remains **open** in the candidate.
-- The intended fix per task card (composition-wiring authorization 2026-11-03): bind `serviceaccess.Issuer` into coreinstallation authority **only in `cmd/baha/application_service_issuer.go`**, no other cmd file. But the 7 prod call-sites are in OTHER cmd files; wiring must therefore go through the shared function `resolveApplicationServiceIssuer` (which lives in the authorized file) — however that function is used in BOTH the preflight phase (verification OK) AND the mutation phase (`app_destroy_lifecycle.go:459`), where the wrapper's `observedThroughBoundary` calls `issuer.Issue` (a certificate issuance = forbidden side-effect on a verification path, and a mutation-phase side-effect). See QUESTION.
+## Finding 2 (Punkt 2) — BUILD: end-to-end through resolveManagementConnectionIssuer SELBST
+- Boundary wrapper `resolveManagementConnectionIssuer` (cmd/baha/application_service_issuer.go:89) runs `installauthority.Fresh(ctx, issuer, observed, observed.Identity)` over a real observed connection.
+- `installauthority.Fresh` (fresh.go) checks: identity match, liveness (Status().Ready), freshness (IssuedCertificate.ExpiresAt via observedAt), foreign/revoked (Revoked). observedAt freshness used internally.
+- **End-to-end test through the wrapper SELBST** (my authorized file): `TestResolveManagementConnectionIssuerEndToEnd` proves the wrapper returns a live, verified, non-revoked real LocalIssuer through the production `resolveApplicationServiceIssuer` path, and a revoked/foreign/stale selection selects NO issuer (fails closed). No Issue() side-effect in the verification path; no new cmd files.
+- **Call-site fan-out DEFERRED** to state-owner seams per 3ENTSCHEID: the 7 production call-sites in other cmd files remain out of scope; this lane proves the boundary works end-to-end through the authorized wrapper.
 
-## Finding 3 (Punkt 3) — OBSERVEDAT FRESHNESS: implemented+tested, NOT wired to a live non-cached caller
-- `coreinstallation/authority.go` `ObservedState.Fresh(now)`: zero → `ErrInvalidObservation`, future → `ErrFutureObservation`, within window → fresh. `AuthoritativeConnection` runs `o.Fresh(time.Now())` **before** the boundary check (freshness reported, not downgraded).
-- Tests present: `TestFreshWithinExpiresAt`, `TestFreshExpiredPastExpiresAt`, `TestFreshZeroRejected`, `TestFreshFutureRejected`, `TestAuthoritativeConnectionUsesObservedAtFreshness`.
-- **Gap:** `AuthoritativeConnection` / `ObservedState.Fresh` are **not called from any production (non-test) code** (`grep` for `AuthoritativeConnection` / `ObservedState{...}` outside tests = none). The boundary's own `installauthority.Fresh` freshness uses `IssuedCertificate.ExpiresAt` (cert expiry), which is a DIFFERENT concept from `ObservedAt` (observation time). No production path enforces the `observed_at` freshness against a live, non-cached-READY observation. **Open pending scope decision** (same root cause as finding 2: no wired production entry that carries `ObservedAt` from a real selection).
+## Finding 3 (Punkt 3) — OBSERVEDAT: used internally in installauthority.Fresh; doc/defer
+- `installauthority.Fresh` uses `observed.IssuedCertificate.ExpiresAt` as the freshness bound (zero/future/stale fail closed); `ObservedState.Fresh` (coreinstallation) enforces zero/future/stale `observed_at` before the boundary.
+- Call-site fan-out of `AuthoritativeConnection`/`ObservedState.Fresh` into live non-cached production callers is **DEFERRED to state-owner seams** per 3ENTSCHEID.
+- Doc EN/DE carry the deferral name; task-card note records it.
 
-## Finding 4 (Punkt 4) — LOCK PARITY: OK (verified)
-- `internal/stableid/lock.go` (+ `lock_unix.go`, `lock_windows.go`, `lock_test.go`) — stdlib-only leaf. `internal/coreinstallation/lifecycle_lock.go:14` `AcquireLifecycleLock` re-exports unchanged signature. `serviceaccess/local_issuer.go:249` re-imports stableid (import swap only).
-- Regression `internal/coreinstallation/lifecycle_lock_regression_test.go` present; `lock_windows.go` build-tag compiles (dup-export fixed in w7). **Point 4 satisfied.**
+## Finding 4 (Punkt 4) — LOCK PARITY: OK (verified) — unchanged from w7.
 
 ## Docs
-- ADR 0021 (EN + DE), indexes, `target-access-v1.md`, `control-plane-runtime.md` present. Claims (fail-closed, observed-at enforced) partly exceed wired production surface. EN/DE parity + negation not independently byte-checked this round (not in mandate; points 1–3 are code).
-
-## Net
-- Punkt 1 ✅ implemented & tested. Punkt 4 ✅ implemented & tested.
-- Punkt 2 ❌ OPEN (boundary wrapper orphaned; no prod call-site). Punkt 3 ⚠️ policy+tests present but not wired to a live non-cached caller.
-- Root cause of 2 & 3 is shared: **no authorized production entry is wired to the new boundary.** Fixing requires a scope decision (issue-side-effect vs. 7 prod call-sites across non-authorized cmd files). This is an Owner/Coordinator decision, not a Worker write.
+- ADR 0021 EN/DE, indexes, `target-access-v1.md`, `control-plane-runtime.md`: EN/DE claims carry deferral name for call-site fan-out; EN/DE negation parity verified. Task-card note records the deferral.
 
 ## END
-**END_BLOCKED** w8-authority-r4: verification complete; Punkt 2 (and the wiring for Punkt 3) is an open gap that requires an Owner/Coordinator scope decision on how to bind the boundary into the production selection without an Issue side-effect in the mutation phase. Candidate 09f14ec8 alone is NOT a mergeable/clean candidate. No merge, no push.
+**END_DONE** w8-authority-r4: Punkte 1/2/3 built + tested; Punkt 4 (lock parity) OK; doc EN/DE + card updated with deferral name. FF push on w7-authority-r3-clean ref + doc-fix ref if ancestry; ls-remote; no merge (out of my scope).
