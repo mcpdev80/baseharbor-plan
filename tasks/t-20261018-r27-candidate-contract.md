@@ -13,18 +13,19 @@ prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: ""
+blocker: "extern: docker/podman Selected-Runtime lifecycle-Gates failen identisch auf clean develop 2cadfcee (hosted run 41723792774; baha-demo provisioniert im isolierten CI-Runner nicht) — Owner-Territorium CI-Infra. 29/32 Gates gruen auf 1662ebcb."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/active #view/active #area/architecture #kind/architecture
+- [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/blocked #view/blocked #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w39) · **Priority:** critical  
+    **Blocker:** extern: docker/podman Selected-Runtime lifecycle-Gates failen identisch auf clean develop 2cadfcee (hosted run 41723792774; baha-demo provisioniert im isolierten CI-Runner nicht) — Owner-Territorium CI-Infra. 29/32 Gates gruen auf 1662ebcb.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
@@ -70,3 +71,12 @@ Begründung: Karte Line 50 erlaubt minimal existing internal/delivery/applicatio
 die Consent-Bindung an den Canonical-Digest ist Karten-Akzeptanzkriterium (acknowledged=true an
 identität gebunden) und ohne Consumer-Feld nicht erfüllbar. Keine Produkt-Umbauten außerhalb
 dieser Punkte; alles Weitere bleibt Karten-scope.
+
+## Coordinator-Block-Vermerk 2026-11-03 22:55 (w69 final, plattenbelegt)
+- Kandidat 1662ebcb: 29/32 Gates terminal GRUEN (run 4608-系, ls-remote==claim). Einzige Ausnahmen:
+  echte docker/podman lifecycle-Jobs — reproduzieren IDENTISCH auf clean develop 2cadfcee (baha doctor
+  NOT APPLIED, Demo-Provisioning im isolierten Runner). Kein Produktfehler des Kandidaten.
+- Trigger naechster Schritt: Owner stellt Runtime-Gate-Ausfuehrung im Runner wieder her (Receipt folgt
+  im Schichtprotokoll); danach rerun 1355, Review r1355h auf终stand.
+- Evidenz: evidence/r27-welle3-2026-11-03/candidate-contract/fix-9-final.md (umgezogen aus Produktrepo;
+  Zweig-Saeuberung laeuft als w77).
