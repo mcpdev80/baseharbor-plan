@@ -58,3 +58,21 @@ Schema/golden/negative fixture tests and focused docs/EN-DE checks. Use existing
 ## Handoff
 
 Night lane `w1-profile` (t-20261018-r27-profile-contract) claimed 2026-11-02 and implemented the portable management-access contract. Candidate PR #1324 `work/r27-profile-contract` @ `7eaec1a5ae51ca8126a4aad6f46c2088acae4b5f`, base `develop`. Output: `contracts/managementaccess/v1/{profile.schema.json, interfaces.md, profile.golden.json, profile_test.go}` + `docs/de/spec/credential-access-v1.md`. Positive/negative regression tests pass locally (`go test ./contracts/` ok, `go build`/`go vet` rc=0). Import grants no rights / cannot run plugins / cannot redirect credentials is schema- and test-enforced. No provider implementations, no CI/register files, shared indexes untouched. Open PR awaiting Maintainer acceptance — no merge/release/tag. Evidence: `baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/evidence.md`.
+
+---
+
+### l3-profile-fold lane hand (2026-11-03, worker)
+
+One-off doc-fold lane folded `docs/(de)/spec/management-access-profiles-v1.md` into the reserved
+`docs/(de)/spec/credential-access-v1.md` (EN + DE), deleted the two orphaned sources, ran
+`go build ./...` / `go test ./contracts/managementaccess/v1` / full `documentation-audit.sh` — all PASS.
+Local commit `8b01eda5`, verified.
+
+**Blocker for THIS lane (not a product block):** after pushing `8b01eda5`, the shared
+`work/r27-profile-contract` ref moved under another lane — remote HEAD is now `0db72d35`
+"docs: restore credential profile example parity", which resolves the exact same
+`documentation-audit` EN/DE integrity findings I was fixing. Because the branch is a shared PR
+candidate I must NOT force-push/rewrite history; the audit gate is already green on `0db72d35`.
+
+Terminal state: `8b01eda5` (my fold) + `0db72d35` (audit-parity fix, remote) → PR #1324
+`work/r27-profile-contract` @ `0db72d35`, base `develop`. No merge/release/tag.
