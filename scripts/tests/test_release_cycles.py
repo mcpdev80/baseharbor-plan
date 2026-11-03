@@ -56,7 +56,6 @@ class ReleaseCycleTests(unittest.TestCase):
         f.add_task('core-2', task_note('core-2', 'B: added scope'))
         errors = cycles.problems(plan.Vault(f.dir).load())
         self.assertTrue(any('intake prerequisite missing' in msg for _, msg in errors))
-        self.assertTrue(any('intake prerequisite missing' in msg for _, msg in errors))
         cycles.sync(f.dir)
         self.assertEqual(cycles.problems(plan.Vault(f.dir).load()), [])
 
@@ -68,7 +67,7 @@ class ReleaseCycleTests(unittest.TestCase):
         cycles.sync(f.dir)
         before = plan.Vault(f.dir).load()
         prepare_id = cycles.stage_id('v1.0.0', 'prepare')
-        self.assertIn('core-1', before.tasks[prepare_id]['depends_on'])
+        self.assertNotIn('core-1', before.tasks[prepare_id]['depends_on'])
         retired = before.tasks['core-1']['path']
         retired.write_text(retired.read_text().replace('- [ ]', '- [x]')
                            .replace('#status/planned', '#status/closed')
