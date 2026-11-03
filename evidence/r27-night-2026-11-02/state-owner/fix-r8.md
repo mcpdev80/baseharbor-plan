@@ -3,6 +3,8 @@
 - Role: Worker, lane w28-stateowner-r8, coord f49a3303.
 - Base: head e4af28c2, branch work/r27-state-owner (remote `origin/work/r27-state-owner` = e4af28c2).
 - Task: t-20261018-r27-state-owner, PR #1347. Basis: review-1347g rezepte 1+2.
+- Commit: 797bd811 (HEAD after merge of origin/develop). Pushed to
+  `refs/heads/work/r27-state-owner`; remote `git ls-remote` == HEAD (verified match).
 - Worktree: /tmp/opencode/w28-stateowner-r8-wt (checked out from work/r27-state-owner = e4af28c2).
 - Scope: NUR tests. Produktcode unveraendert. Wenn ein Test produktcode-falsch befuerchtet: END_BLOCKED, kein Code-aendern.
 
@@ -70,11 +72,21 @@ ID guarantee asserted.
 ## RUN EVIDENCE
 
 - `go build ./cmd/baha/` → green.
-- `go vet ./cmd/baha/` → clean.
-- `go test ./internal/deployment ./cmd/baha -run 'TenantScope|Negative|Deployment|Owner|List|Binding' -count=1` → green (see below for the one documented env-fail).
-- Ancestry: `git merge-base --is-ancestor origin/develop HEAD` → rc=0.
-- Write-set: only the two test files changed; `grep .github/scripts/produktcode` empty in the diff.
+- `go vet ./internal/deployment ./cmd/baha` → clean.
+- `go test ./internal/deployment -count=1` → ok (all seam tests incl. the three
+  reworked paths).
+- `go test ./internal/deployment ./cmd/baha -run 'TenantScope|Negative|Deployment|Owner|List|Binding' -count=1`:
+  internal/deployment ok; cmd/baha fails ONLY on
+  `TestExternalProviderRemovalCannotInferGlobalOwnershipFromTenantRole`
+  (`provider-registry-ownership-unverifiable`, pre-existing on clean develop,
+  env/fixture, not introduced here — confirmed present on origin/develop).
+- Ancestry: `git merge-base --is-ancestor origin/develop HEAD` → rc=0 (HEAD =
+  797bd811, develop 9a57107f is ancestor).
+- Write-set: only the two test files changed; no diff in deployment_store.go,
+  remote_project.go, deployment_record.go, app_remote_binding.go (product code).
+- Push: `origin HEAD:work/r27-state-owner`, remote `git ls-remote` == 797bd811
+  == HEAD (verified match).
 
 ## END
 
-END_DONE w28-stateowner-r8: head= e4af28c2 setup-record=echte-liste owner=foreign-spezifisch | byte/load setup-record + list/owner-on-existing-record, write-set only test files
+END_DONE w28-stateowner-r8: head=797bd811 setup-record=echte-liste owner=foreign-spezifisch | byte/load setup-record + list/owner-on-existing-record, write-set only test files, FF from develop, remote sha == HEAD.
