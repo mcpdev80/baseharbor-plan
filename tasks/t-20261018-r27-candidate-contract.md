@@ -59,3 +59,14 @@ Record/golden validation; malformed/digest/path/secret-reference fixtures; docs/
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+
+## Coordinator-Scope-Vermerk 2026-11-03 (Consent-Design, dokumentierte Erweiterung)
+Review-1355d-Befund 4 (Scope) wird hiermit kartenseitig geheilt: Die Consent-Implementierung
+(Paar zu Befund 1-3) erfordert und erhielt Coordinator-Freigabe für erweiterte Write-Punkte:
+cmd/baha (Consent-Consumer + --confirm-candidate), internal/deployment (additives Feld
+CandidateConsent{by,at,digest} auf DeploymentRecord, nil=Altrecord), CLI-/Spec-Index-Zeilen.
+Begründung: Karte Line 50 erlaubt minimal existing internal/delivery/application records/fixtures;
+die Consent-Bindung an den Canonical-Digest ist Karten-Akzeptanzkriterium (acknowledged=true an
+identität gebunden) und ohne Consumer-Feld nicht erfüllbar. Keine Produkt-Umbauten außerhalb
+dieser Punkte; alles Weitere bleibt Karten-scope.
