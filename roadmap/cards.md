@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 38/101 · **Blocked:** 2 · **Waiting:** 54  
+    **Accepted tasks:** 39/101 · **Blocked:** 2 · **Waiting:** 51  
     **Blocker:** [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) — 68/86 deps not accepted (50 r27 feature slices, 4 CI-decomposition slices, 4 external repo blockers, 12 readiness tasks); Owner/Maintainer assignment required;…  
     **Blocker:** [t-20261023-appid-repo-workflow-proof](../tasks/t-20261023-appid-repo-workflow-proof.md) — no authentic native TestRepositoryWorkflowRealLifecycle PASS on 1c921c47; sole docker-core workflow has 0 runs; CI triggers are Owner territory — awaiting Owne…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)

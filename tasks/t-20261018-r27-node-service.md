@@ -22,7 +22,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+    **Needs:** [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
