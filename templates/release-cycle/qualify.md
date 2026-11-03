@@ -25,7 +25,7 @@ Obtain complete release-boundary validation for the frozen candidate.
 
 ## Scope and acceptance
 
-- Require accepted preparation and explicit Maintainer authorization for the complete pre-release. Record that authorization and exact candidate/ecosystem matrix before dispatch.
+- Require accepted preparation, acceptance of every scoped implementation/CI/docs/consumer task (including later-added scope), and explicit Maintainer authorization for the complete pre-release. Record that authorization and exact candidate/ecosystem matrix before dispatch.
 - Use the existing pre-release workflow, canonical release requirements and original test owners. Inspect queued/running equivalent runs first; do not create a duplicate full run or a new proof system.
 - Fix demonstrated failures and rerun only the failed or affected checks during diagnosis. Normal job results determine success; no manifests, evidence reuse or completed-run/job re-verification.
 - Targeted/selected runs cover only their chosen scope. Complete validation executes every required test on the frozen ecosystem sources through normal workflow dependencies. No release-approved.json or other approval payload is required.
