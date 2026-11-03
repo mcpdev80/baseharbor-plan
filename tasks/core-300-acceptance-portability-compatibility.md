@@ -28,7 +28,6 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.5.x](../releases/v0.5.x.md) (v0.5.4)  
 **Depends on:** [core-297](core-297-state-versioning-migration-compatibility.md), [core-298](core-298-contracts-cross-component-compatibility.md), [core-299](core-299-lifecycle-upgrades-recovery-deprecation.md), [t-20261017-release-0-5-4-updates](t-20261017-release-0-5-4-updates.md)  
-**Required by:** [t-20261017-release-0-5-4-prepare](t-20261017-release-0-5-4-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

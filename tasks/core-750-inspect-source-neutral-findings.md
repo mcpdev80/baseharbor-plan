@@ -29,7 +29,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/8bc490ea"]
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)  
 **Priority:** not set  
 **PRs:** [baseharbor#1222](https://github.com/mcpdev80/baseharbor/pull/1222)  

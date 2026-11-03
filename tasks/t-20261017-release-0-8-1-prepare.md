@@ -8,7 +8,7 @@ release_stage: prepare
 parent: v0.8.x
 owner: ""
 priority: normal
-depends_on: [core-314, t-20261017-release-0-8-1-updates]
+depends_on: [t-20261017-release-0-8-1-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -21,13 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [core-314](core-314-kubernetes-capabilities-provider-placement.md), [t-20261017-release-0-8-1-updates](t-20261017-release-0-8-1-updates.md)  
+    **Needs:** [t-20261017-release-0-8-1-updates](t-20261017-release-0-8-1-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.8.x](../releases/v0.8.x.md) (v0.8.1)  
-**Depends on:** [core-314](core-314-kubernetes-capabilities-provider-placement.md), [t-20261017-release-0-8-1-updates](t-20261017-release-0-8-1-updates.md)  
+**Depends on:** [t-20261017-release-0-8-1-updates](t-20261017-release-0-8-1-updates.md)  
 **Required by:** [t-20261017-release-0-8-1-qualify](t-20261017-release-0-8-1-qualify.md)  
 **Owner:** unassigned  
 **Priority:** normal  

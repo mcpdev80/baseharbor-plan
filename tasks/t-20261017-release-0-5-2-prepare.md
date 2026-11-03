@@ -8,7 +8,7 @@ release_stage: prepare
 parent: v0.5.x
 owner: ""
 priority: normal
-depends_on: [core-298, t-20261017-release-0-5-2-updates]
+depends_on: [t-20261017-release-0-5-2-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -21,13 +21,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [core-298](core-298-contracts-cross-component-compatibility.md), [t-20261017-release-0-5-2-updates](t-20261017-release-0-5-2-updates.md)  
+    **Needs:** [t-20261017-release-0-5-2-updates](t-20261017-release-0-5-2-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.5.x](../releases/v0.5.x.md) (v0.5.2)  
-**Depends on:** [core-298](core-298-contracts-cross-component-compatibility.md), [t-20261017-release-0-5-2-updates](t-20261017-release-0-5-2-updates.md)  
+**Depends on:** [t-20261017-release-0-5-2-updates](t-20261017-release-0-5-2-updates.md)  
 **Required by:** [t-20261017-release-0-5-2-qualify](t-20261017-release-0-5-2-qualify.md)  
 **Owner:** unassigned  
 **Priority:** normal  

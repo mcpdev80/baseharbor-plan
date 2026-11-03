@@ -29,7 +29,6 @@ evidence:
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** q202 (a71d5cd0, qwen)  
 **Priority:** high  
 **PRs:** [baseharbor#1199](https://github.com/mcpdev80/baseharbor/pull/1199), [baseharbor#1203](https://github.com/mcpdev80/baseharbor/pull/1203), [baseharbor#1207](https://github.com/mcpdev80/baseharbor/pull/1207), [baseharbor#1215](https://github.com/mcpdev80/baseharbor/pull/1215), [baseharbor#1217](https://github.com/mcpdev80/baseharbor/pull/1217), [baseharbor#1221](https://github.com/mcpdev80/baseharbor/pull/1221), [baseharbor#1227](https://github.com/mcpdev80/baseharbor/pull/1227)  
