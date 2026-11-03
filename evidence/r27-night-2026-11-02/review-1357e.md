@@ -1,0 +1,15 @@
+# PR #1357 Re-Review a4f8904f
+
+ROLLE=REVIEW, kein Merge. **Urteil: REJECT.** Task `t-20261022-r27-ci-access`; Reviewer Codex GPT-6 (exakte Variante nicht exponiert). Head `a4f8904f46b2fb360abd7f25a30bf3a2c1e9ad50`, tree `502fc4fb8a4f62da330a0f4b0498a989b5e13944`; develop `0107d8e1530ff3469048022d7035a2a472dbda34` ist Vorfahr. `git ls-remote` vor/nach bestätigt beide; PR OPEN / UNSTABLE. SHA-genaues Archiv; Kandidat unverändert.
+
+## Gegenprüfung gegen review-1357d
+
+1. **Ready-Recorder existiert, wird in keinem negativen Check ausgewertet.** `checkReachedRecorder` hängt korrekt an `/readyz` und `TestMutualTLSPositiveRoundTripReadyz` prüft ihn positiv. Die negativen `Check`-Tests in `internal/runtimeexecutor/client_test.go:371, 406, 462, 563` verwerfen den zurückgegebenen Recorder (`server, handler, _`) und prüfen weiter nur `handler.HandlerReached`, den Flag des anderen `/internal/`-Handlers. Auch `TestMutualTLSRejectsHandshakeDoesNotReachHandler:648` nutzt nicht `recorder.entered`; `rg 'recorder\.entered'` ergibt als einzige ausgeführte Assertion die positive Zeile 691. Daher ist bei den negativen Ready-Aufrufen der verlangte Nichtaufruf des tatsächlich adressierten Handlers weiterhin nicht nachgewiesen. **Rezept:** jeden negativen `Check`-Fall auf eigenen Ready-Recorder `false` prüfen, positiven Check `true` beibehalten, Execute analog über Test-Wrapper/Resource-Counter; keinen rein für Tests eingeführten Flag im Produktions-Handler benötigen.
+
+2. **Fehlerklassifikation teilweise gehärtet, defektes Zertifikat weiter fehlend.** `assertTLSHandshakeCause` verwendet nun `errors.As` für TLS-/x509-Typen und `net.OpError` mit `Op == "remote error"`; letzteres prüft keine konkrete zugrunde liegende TLS-Alert-Klasse und kann andere Remote-Fehler erfassen. Invalid-CA-Test prüft jetzt eine konkrete Ladefehlermeldung. Ein eigener beschädigter Client-**Cert**-Test ist weiterhin nicht vorhanden; `TestMutualTLSRejectsCorruptedClientCertKey` beschädigt nur den Key. **Rezept:** konkrete Alert-/x509-Fehlerkette oder klar dokumentierte gleichwertige serverseitige TLS-Nachweise prüfen; gesondert beschädigtes Client-Cert über echten `NewClient` abweisen und Ready-/Execute-Zähler unverändert lassen.
+
+3. **Basis, Regressionen und Grenzen.** Netto-Diff gegen develop nur `internal/runtimeexecutor/client_test.go` und `internal/runtimeexecutor/handler.go`; Runtimeexecutor-Dateien sind gegenüber `5efeb42d` unverändert. Frühere sieben Regressionen erhalten; echter positiver Execute und Check nutzen TLS-Server mit `RequireAndVerifyClientCert`. Andere Access-/CI-Gate-Slices bleiben bei ihren Ownern; keine Gesamtqualifikation behauptet.
+
+## Tests / CI
+
+`GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m`: PASS (0.035s); `gofmt -l` der geänderten Dateien leer. Hosted Run `41663873616` ist SUCCESS auf **5efeb42d**, nicht auf aktuellem Merge-Head; dessen Runtimeexecutor-Inhalt ist gleich. Auf dem aktuellen Head war PR-Status UNSTABLE und Source format SUCCESS; kein abgeschlossener Selected-Checks-Pass für `a4f8904f` behauptet.
