@@ -2,12 +2,12 @@
 
 ## PLAN
 
-- [ ] Eigenes worktree anlegen (fetch origin work/r27-profile-contract, worktree add /tmp/opencode/l14-profile-bind-wt)
-- [ ] ÄNDERUNG 1 EN: docs/spec/credential-access-v1.md — EnrollDevice-Satzteil ersetzen
-- [ ] ÄNDERUNG 2 DE: docs/de/spec/credential-access-v1.md — deutscher Satzteil ersetzen
-- [ ] Prüfpunkte: grep counts, diff --name-only, merge-base develop, go build + go test
-- [ ] Push auf work/r27-profile-contract, ls-remote == head
-- [ ] Evidence + codeman agent post END_DONE
+- Eigenes worktree anlegen (fetch origin work/r27-profile-contract, worktree add /tmp/opencode/l14-profile-bind-wt)
+- ÄNDERUNG 1 EN: docs/spec/credential-access-v1.md — EnrollDevice-Satzteil ersetzen
+- ÄNDERUNG 2 DE: docs/de/spec/credential-access-v1.md — deutscher Satzteil ersetzen
+- Prüfpunkte: grep counts, diff --name-only, merge-base develop, go build + go test
+- Push auf work/r27-profile-contract, ls-remote == head
+- Evidence + codeman agent post END_DONE
 
 ## Repo-Regel-Konformität
 
