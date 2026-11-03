@@ -84,3 +84,15 @@ Integrated enforcement entry: bind validation to the EXISTING accepted surfaces 
 in tree). Any genuinely absent predecessor interface must be named in the spec (EN/DE) as an explicit
 deferred dependency with a follow-up card reference; silent claims of enforcement are forbidden. This
 keeps the contract slice closeable while the full production consumer lands with its own card.
+
+### Coordinator scope decision on profile integration depth (2026-11-03, night wave, r1324f)
+
+IN SCOPE to close now: real AEAD nonce spec (document actual base64url(32B) or agreed value)
+consistent across schema/EN/DE/fixtures; rename/fix the truly-absent-export test; bind Go
+ValidateKindEnforcement to the schema whitelist; side-effect-witness tests for import effects
+(no grants, no plugin, no redirect) using local fakes; align DE to EN (remove stale targetsession
+assertion, same nonce wording). DEFERRED with named follow-up cards (NOT silent): independent
+anchor + installation/scope binding and the production consumer entry depend on
+t-20261018-r27-authority-contract + t-20261018-r27-state-owner (unaccepted, same files) — the spec
+must state this as required-but-enforced-later, removing any claim the profile path verifies them now.
+This is a documented deferral; misleading present-tense claims must still be corrected in this round.
