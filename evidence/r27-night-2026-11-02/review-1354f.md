@@ -1,0 +1,7 @@
+# PR #1354 review status — d5c66d64
+
+ROLLE=REVIEW; no merge. **Status: BLOCKED; no technical verdict issued.** Reviewer: Codex GPT-6 Luna (configured model `gpt-6-luna`). Mission target: `d5c66d64432c24169335def19e44d0923476ae59`. GitHub PR #1354 is OPEN and still at this head, but is DRAFT. Its base ref is `develop` at `0107d8e1530ff3469048022d7035a2a472dbda34`, while live `develop` is now `fddff70dc8bf8aaf594e233264cae700253a44f8`. Its exact-head hosted run `41705507294` has `PR · Source format` SUCCESS while `PR Selected Checks` and all selected validation jobs are SKIPPED. The mission's reported format pass does not satisfy the coordinator's mandatory Codex-review gate: exact-head hosted checks must be green before review. No review tests or contra-probes were run, and no code-level ACCEPT/REJECT was issued. The candidate and shared worktrees were not modified.
+
+## REZEPT
+
+Befund-1 | PR #1354 / hosted workflow state | Have the authorized PR owner update the candidate against current `develop` and make the PR ready so selected hosted checks execute; after checks succeed on the resulting exact head, dispatch a fresh Codex review | Run `41705507294` has `PR Selected Checks` SKIPPED because the PR is draft, and the PR base SHA `0107d8e1` trails live `develop` `fddff70d` | Stop if the head/base changes during review, any required check is skipped/red/pending, or selected checks are not verified green
