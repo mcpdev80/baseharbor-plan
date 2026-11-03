@@ -99,5 +99,31 @@ Whether to rebase my branch onto develop, keep this branch as the integration ca
 develop is an Owner/Coordinator integration decision (branch protection + single integration
 candidate rule). I staged my P2 files and left them ready; I did NOT force-push or merge.
 
+## Merge / push execution (Owner directive C, 2026-11-03)
+Executed per Owner ANSWORT: no rebase, no force; merge develop + FF push.
+
+- `git fetch origin "+refs/heads/develop:refs/remotes/origin/develop"` -> develop at 1c921c47.
+- Committed my P1+P2 as a single commit FIRST (188c0697) so it is a proper commit on the branch,
+  not just staged changes during the merge.
+- `git merge --no-edit origin/develop` -> merge commit 25fb9c91. Content conflicts only in
+  `docs/decisions/index.md` and `docs/de/decisions/index.md` (navigation ADR lists): resolved by
+  keeping BOTH ADR 0021 (my installation-authority) and ADR 0022 (develop's reconciliation-owner)
+  — union of the two navigation lists. No product-file conflicts.
+- `git pull/merge origin/w7-authority-r3-clean` (remote tip 17aa2872, a pure test-formatting commit
+  on the same base 9a57107f, no functional change): content conflicts in `internal/openbao/
+  service_issuer.go` and `internal/serviceaccess/authority.go` resolved with `--ours` = my
+  production versions (BaseSerial returns ca.SerialNumber.Text(16), baseCA() fail-closed,
+  DefaultObservationMaxAge). 17aa2872's test-formatting to fresh_test.go/authority_test.go carried
+  through auto-merge. Merge commit 5b6681bd.
+- `git push origin w7-authority-r3-clean` (FF) -> 17aa2872..5b6681bd, exit 0. No force, no rebase.
+
+Post-conditions verified:
+- `git ls-remote origin w7-authority-r3-clean` == head == 5b6681bd7b647d88e8458ec6eac08635c0c03547
+- ancestry rc=0: origin/develop (1c921c47) IS an ancestor of head (fully merged).
+- Final run (own, post-merge): `go build ./...` exit 0;
+  `go test ./internal/openbao/ ./internal/installauthority/ ./internal/coreinstallation/ ./internal/serviceaccess/ ./internal/stableid/` ALL ok;
+  `go vet ./internal/openbao/ ./internal/serviceaccess/` exit 0.
+- PR remains DRAFT (Owner raises to ready at review).
+
 ## END status
-END_BLOCKED w31-authority-r10: head=7781a6f3 | P1 konstant-integriert (DefaultObservationMaxAge=1h, grep 5*time leer) | P2 adapter-echt (BaseSerial/BaseExpiry => CA serial+NotAfter, integ-test green) | BLOCKED: origin/develop 1c921c47 divergent (no r27 authority slice) — Owner decision needed before MERGE/PUSH
+END_DONE w31-authority-r10: head=5b6681bd | P1 konstant-integriert (DefaultObservationMaxAge=1h, grep 5*time leer) | P2 adapter-echt (BaseSerial/BaseExpiry => CA serial+NotAfter, integ-test green) | MERGE done (develop 1c921c47 + remote tip 17aa2872, ancestry rc=0) | PUSH FF 17aa2872..5b6681bd | ls-remote==head | PR DRAFT
