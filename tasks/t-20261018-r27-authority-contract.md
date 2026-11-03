@@ -85,3 +85,11 @@ ExpiresAt as the single freshness bound) ARE in-scope integration points: the la
 glue/integration edits in internal/serviceaccess for authority wiring only; all other files there
 remain read-only. Freshness policy per card: observation is fresh iff now <= Issuer ExpiresAt
 (no additional maxAge constant; zero/future now fails closed). Recorded for review traceability.
+
+### Coordinator ownership decision on composition wiring (2026-11-03, night wave)
+
+The production authority/selection boundary is composed at cmd/baha/application_service_issuer.go
+(exists on develop). The lane MAY make a MINIMAL wiring edit in that single file to bind the accepted
+serviceaccess.Issuer into coreinstallation authority via the new internal/installauthority leaf interface.
+No other cmd/baha files; no new cmd/baha files; coreinstallation imports only leaf packages (acyclic).
+Recorded per card rule update dependencies/ownership before work.
