@@ -29,7 +29,7 @@ evidence: []
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
 **Depends on:** [core-819](core-819-architecture-host-interface-guard.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
-**Required by:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
+**Required by:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

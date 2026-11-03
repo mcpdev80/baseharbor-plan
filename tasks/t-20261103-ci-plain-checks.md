@@ -27,7 +27,7 @@ evidence: [https://github.com/mcpdev80/baseharbor/pull/1345, https://github.com/
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261103-ci-routing-audit](t-20261103-ci-routing-audit.md)  
+**Required by:** [core-766](core-766-cleanup-orphaned-owned-runtime-resources.md), [core-815](core-815-tests-greenfield-stacks-native-runtimes.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261103-ci-routing-audit](t-20261103-ci-routing-audit.md)  
 **Owner:** Codex (Owner CI simplification 2026-11-03)  
 **Priority:** critical  
 **PRs:** [baseharbor#1345](https://github.com/mcpdev80/baseharbor/pull/1345), [baseharbor#1346](https://github.com/mcpdev80/baseharbor/pull/1346), [baseharbor-demo#127](https://github.com/mcpdev80/baseharbor-demo/pull/127), [baseharbor-console#16](https://github.com/mcpdev80/baseharbor-console/pull/16), [baseharbor-node-connector#18](https://github.com/mcpdev80/baseharbor-node-connector/pull/18)  

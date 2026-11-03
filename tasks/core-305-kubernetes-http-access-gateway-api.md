@@ -28,7 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.2)  
 **Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md), [t-20261017-release-0-7-2-updates](t-20261017-release-0-7-2-updates.md)  
-**Required by:** [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-2-prepare](t-20261017-release-0-7-2-prepare.md)  
+**Required by:** [core-309](core-309-tests-kubernetes-restricted-permissions.md), [core-310](core-310-acceptance-compose-to-kubernetes-portability.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
