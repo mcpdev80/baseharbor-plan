@@ -16,14 +16,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261023-appid-test-env-dep · Defect: external provider registry test unverifiable-ownership outside CI runners #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261023-appid-test-env-dep · Defect: external provider registry test unverifiable-ownership outside CI runners #task #release/v0-4-27 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
