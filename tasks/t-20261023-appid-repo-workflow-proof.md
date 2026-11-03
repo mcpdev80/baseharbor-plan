@@ -16,13 +16,14 @@ resolution: accepted
 evidence: [https://github.com/mcpdev80/baseharbor/actions/runs/41622395038]
 ---
 
-- [x] t-20261023-appid-repo-workflow-proof · execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate #task #release/v0-4-27 #status/closed #view/closed #kind/task
+- [x] t-20261023-appid-repo-workflow-proof · execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w33)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/41622395038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-welle3 (lane w33)  
