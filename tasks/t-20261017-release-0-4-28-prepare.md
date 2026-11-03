@@ -43,14 +43,14 @@ Finish every prerequisite for complete-ecosystem pre-release readiness.
 
 - Apply canonical audit sections 1–8 and section 9 atomic-first prerequisites, plus RELEASE_WORKFLOW.md#prepare. Re-read current sources and workflows instead of copying obsolete v0.4.25 exceptions.
 - Accept all assigned implementation/CI/docs/consumer tasks and verify release-note/epic criteria, even when no executable children have been cut. Accepted cards alone do not prove release readiness; inspect deferred or waived test debts explicitly.
-- Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor, Demo, Console and Node Connector compatibility; real supported developer journeys, auth/mTLS and cleanup evidence.
+- Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor, Demo, Console and Node Connector compatibility; real supported developer journeys, auth/mTLS and cleanup tests.
 - Complete concise EN/DE docs/reference/specs, navigation/links, changelog and actual human release message, compatibility/security/upgrade/deferred notes, strict Pages candidate builds/workflow without deployment. Keep process rules out of the product README.
-- Freeze actual immutable ecosystem SHAs, candidate tree, gate requirements and verifier-compatible evidence origins. Verify all required targeted checks, runtime/platform gates and consumer receipts; missing/failed/skipped/unverified requirements block readiness.
+- Freeze actual immutable ecosystem SHAs, candidate tree, gate requirements and required test inputs. Verify all required targeted checks, runtime/platform gates and consumer test execution; missing/failed/skipped/unverified requirements block readiness.
 - Deliver a reviewable readiness dossier and exact authorized-run plan. Preparation does not authorize full pre-release, promotion, tag, publication or public Pages deployment.
 
 ## Required checks
 
-Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/build/security and affected native/consumer gates. Reuse only verifier-proven compatible evidence; do not rerun unaffected green gates.
+Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/build/security and affected native/consumer gates. Run the actual affected checks directly; no CI evidence verifier or manifest reuse.
 
 ## Dependencies and file ownership
 

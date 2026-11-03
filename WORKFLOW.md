@@ -86,7 +86,7 @@ A task is assignable only when it can reach its own review handoff without unfin
 
 ## Owner-authorized Maintainer execution
 
-Marcel's explicit grant also applies to Codex/other designated agents acting through @mcpdev80 within their assigned work. An Owner-authorized implementation, acceptance or merge does not need another repository review or a second Maintainer handoff. This exception supersedes review-only stop instructions in this workflow; ordinary implementation workers without that delegation retain the normal handoff. Document Owner-authorized acceptance rather than claiming independent/self approval. Required technical checks, real evidence, existing claims and exact-source qualification enforced by CI remain binding; no release or unrelated destructive action is implied. [Current decision](decisions/2026-10-19-owner-delegated-maintainer-authority.md).
+Marcel's explicit grant also applies to Codex/other designated agents acting through @mcpdev80 within their assigned work. An Owner-authorized implementation, acceptance or merge does not need another repository review or a second Maintainer handoff. This exception supersedes review-only stop instructions in this workflow; ordinary implementation workers without that delegation retain the normal handoff. Document Owner-authorized acceptance rather than claiming independent/self approval. Required technical checks, real evidence, existing claims and actual required test execution and source identity enforced by CI remain binding; no release or unrelated destructive action is implied. [Current decision](decisions/2026-10-19-owner-delegated-maintainer-authority.md).
 
 ## Ownership protocol
 

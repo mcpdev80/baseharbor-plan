@@ -18,10 +18,10 @@ In this vault the two #893 phases are separate entries so the order has no cycle
 [core-893-interface](../tasks/core-893-interface-agree-planning-execution-interface.md) → [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md) → [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md) → [core-895](../tasks/core-895-reviews-require-maintainer-approval.md).
 
 - PR #930 at `d56737bd147e54733c280383fa86ad2abccc7b33` is the interface reference, **not a qualified or merged dependency**. Inspect its latest head and agree the concrete interface before editing. Do not execute privileged untrusted code or claim missing gates as successful.
-- #893 owns `.github/workflows/ci.yml`, PR planning/execution orchestration, authenticated gate-evidence consumption and the `PR Selected Checks` status.
+- #893 owns `.github/workflows/ci.yml`, PR planning/execution orchestration, normal selected-job result handling and the `PR Selected Checks` status.
 - #896 owns dedicated runner-isolation helpers and tests: per-run Target/volume/port/state isolation, trust boundaries, cleanup and capacity. It is a separate small PR against develop; do not copy #930 wholesale or edit its owned files in parallel.
 - Interface changes are agreed first and the shared-file integration is sequenced through the #893 owner. Inspecting an exact commit does not authorize unreviewed production activation.
-- Qualify #896 with focused isolation fixtures and the two necessary small isolated pilot lanes; then integrate it and let #893 consume it. #893 stays open until authenticated runtime evidence and its Backup/Restore pilot pass.
+- Qualify #896 with focused isolation fixtures and the two necessary small isolated pilot lanes; then integrate it and let #893 consume it. #893 stays open until required runtime tests and its Backup/Restore pilot pass.
 - Required review/check protection (#895) follows a qualified #893 status check. Product implementation still requires the qualified #890–#893/#895/#896 foundation.
 - One assigned task per session; stop after its handoff. No full pre-release, merge, tag or publication is authorized by this correction.
 
@@ -84,17 +84,16 @@ Job wall-clock times, not a statistical baseline. Historical greens are cost ref
 - Record before/after only from necessary regular runs: SHA, runner, scope, wall time/runner minutes. Promise no savings before they are shown.
 - No expensive duplicate PR/push testing without changed inputs. Cancel only within the same PR lane; never displace other PRs/candidates. Forks get no secrets or privileged self-hosted runners.
 
-## Evidence and release
+## Current CI and release checks
 
-Use the existing verifier/collector and gate catalog; no second authority.
+Owner instruction 2026-11-03 supersedes the former CI evidence chain. CI, Pre-Release and Release execute ordinary required jobs and consume their results directly through workflow dependencies. No gate manifests, run/job re-verification, archived evidence reuse, receipt approval or shadow consumer remains active. The sole CI record contains merge commit SHA and PR number. See [CI simplification](../tasks/t-20261103-ci-plain-checks.md).
 
-- Reuse green evidence only with proven equality of bound inputs; check origin, run/attempt, artifact digest, schema, requirements, consumer pins and cleanup. Newer relevant negative attempts prevent falling back to old greens.
-- Selecting a test now does not permit reusing old evidence. Cache is not evidence.
-- V1 may keep the existing conservative fingerprint policy. Gate-specific fingerprints are an optional later optimization, not a start blocker. Changes only with a new qualified policy for v0.4.26+; never reinterpret old v0.4.25 receipts.
-- Real immutable BaseHarbor/Demo/Console/Connector pins and complete required release coverage stay mandatory, including CLI/JSON/MCP, EN/DE docs, Pages candidate build and release notes.
-- Freeze the candidate from verified `develop`; development may continue. Fix PRs target the candidate line, then forward-port to `develop`.
-- Promote only the separately approved candidate; never take a later `develop` wholesale to `main`. Verify handoff/squash/ancestry rules with fixtures.
-- GC protects open PRs, active candidates and needed evidence origins until the end of their defined use/retention. Production Pages only after promotion.
+- Required test selection, actual test assertions, immutable Core/Demo/Console/Connector source pins, isolated runners and cleanup remain mandatory.
+- Failed, missing, cancelled or improperly skipped required jobs block the normal final result. A receipt cannot turn them into success.
+- During diagnosis run the affected tests directly; do not repeatedly start a full matrix or build a second result authority.
+- Freeze the actual release candidate; review main-only hotfixes and promote only the intended tree. Tagging/publication still need their authorized scope.
+- Preserve historical receipts and release records. Build artifacts, runtime images, checksums and build provenance retain their own semantics.
+- Rulesets remain disabled during CI repair. Do not describe current GitHub Required Check enforcement as active.
 
 ## Review rule
 
@@ -104,7 +103,7 @@ PRs from other contributors into develop need Maintainer (@mcpdev80) approval an
 
 - Short titles, e.g. `PR #901 · Edit wizard`; jobs e.g. `Identity · Docker`.
 - Generate only needed matrix entries from the plan; no wall of skipped static jobs. Name unavoidable platform displays openly.
-- Summary: **trigger, checked, reused, not required, failed/blocked, next action**; short names, durations and links; technical detail collapsible.
+- Summary: **trigger, checked, not required, failed/blocked, next action**; short names, durations and links; technical detail collapsible.
 - Few graph stages: planning → selected checks → final check. Technical gate IDs and SHAs live in details/artifacts.
 - Align display names with required checks and the verifier; do not break historical IDs for cosmetics.
 
@@ -119,7 +118,7 @@ No process rules or extra process links in the product README. `docs/DEVELOPMENT
 - Missing/negative results and self-exemption block; integration-state checks after base changes/conflict resolution done.
 - Review rule including the solo exception and CI protection qualified in practice; actual GitHub limits documented.
 - Actions readable; necessary tests run and the pilot demonstrably saves effort or documents remaining cost.
-- Candidate promotable correctly despite ongoing develop; pins, evidence and GC/handoff preserved.
+- Candidate promotable correctly despite ongoing develop; pins and required build artifacts preserved.
 - EN/DE docs and all entry points agree; README stays free of process rules.
 - v0.4.25 unchanged; no full pre-release/tag/release without separate approval.
 

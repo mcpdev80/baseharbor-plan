@@ -12,49 +12,33 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261103-ci-plain-checks
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261103-ci-plain-checks.md"]
 ---
 
-- [ ] t-20261029-r27-receipt-contract-test · CI: add required contract test — producer artifact must carry every extract_facts field #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [x] t-20261029-r27-receipt-contract-test · Historical: CI: add required contract test — producer artifact must carry every extract_facts field #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261103-ci-plain-checks.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
-## Goal
+## Superseded by Owner instruction — 2026-11-03
 
-A hosted contract test proves every field receipt_verifier.extract_facts requires is present in the trusted-pr-plan artifact, failing the producer CI instead of the post-run writer.
+This task describes the retired receipt/evidence implementation. It is closed as **superseded**, not accepted as a current prerequisite. The Owner requires ordinary CI, Pre-Release and Release jobs without gate manifests, completed-run/job re-verification, evidence reuse, separate receipt approval or shadow consumption. The sole CI record contains merge commit SHA and PR number.
 
-## Scope
+Current implementation and acceptance are tracked in [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md). No historical PASS, pilot or approval satisfies its remaining checks. Existing receipts and release records remain historical data; no release or tag is authorized.
 
-- In scope: Required CI job or step validating the artifact schema against the extractor contract for the same run.
-- Out of scope: any product behavior change; this is a CI/contract-coverage card only.
+## Historical scope and results
 
-## Acceptance
-
-A plan without attempt/required fields fails the producer gate before publication.
-
-## Required checks
-
-Existing green chain remains; new job listed in required_validation_checks for qualifying paths.
-
-## Dependencies and file ownership
-
-- Owned files or areas: scripts/test_receipt_postrun.py, .github/workflows/ci.yml (gate registration)
-- Shared files: coordinate through the owning task.
-
-## Handoff
-
-- Created 2026-10-29 from the R27 night-shift Cause-7..16 findings (evidence/board-2026-10-27/SHADOW-RUN-STATUS.md). Unassigned, planned.
+The [original task at the pre-simplification Planning revision](https://github.com/mcpdev80/baseharbor-plan/blob/6a687317d2540106a0ff790d78e5ea05ab84a178/tasks/t-20261029-r27-receipt-contract-test.md) preserves the former criteria, owners, PRs and results. Do not resume that workflow or reinstate its dependencies.

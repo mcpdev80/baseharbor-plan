@@ -1,15 +1,13 @@
 ---
 id: 2026-10-26-minimal-receipts
 type: decision
-status: accepted
+status: superseded
 ---
 
-# Minimal receipts — Owner decision, 2026-10-26
+# Historical minimal-receipt pilot — superseded
 
-Marcel approved the six-field, below-500-byte receipt design and explicitly authorized rewriting the five evidence tasks and beginning PR 1. This decision takes precedence over signature/PKI, archive/manifest, retention/recovery and horizontal publisher/resolver requirements in earlier release/runbook/task text.
+The 2026-10-26 six-field receipt, live witness, Owner approval and retained-verification design is superseded by the Owner's 2026-11-03 instruction. It must not govern new work or remain an active prerequisite.
 
-Trust boundary: GitHub API authenticates the successful exact run/attempt/job while live. A trusted Owner workflow action verifies again before recording approval. Subsequently protected Planning Git history is the authority; no API revalidation, signatures or archived test contents. A compromised protected writer or complete repository loss is outside this model.
+Current CI executes ordinary tests and uses normal job results. The sole receipt is merge SHA plus PR number; no manifests, evidence verification/reuse or extra approval chain. See [current implementation](../tasks/t-20261103-ci-plain-checks.md) and [current work order](../evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md).
 
-Sequence: PR 1 contract + two scripts + tests/docs; PR 2 one genuine shadow gate with automatic task link and authenticated Owner approval; PR 3 final-check cutover after accepted positive and three negative cases (wrong SHA, dead run, edited receipt). Existing legacy CI qualifies bootstrap and remains unchanged until acceptance. Do not build other gates or reuse machinery in parallel.
-
-Owner approval remains explicit, but no person manually authors evidence or copies run numbers/links. Administrative pilot blockers must be concrete. Owner update 2026-10-29 supersedes the former legacy development fallback: regular feature work waits for verified new CI cutover. Unaccepted product contracts and required coverage remain binding.
+The [original decision](https://github.com/mcpdev80/baseharbor-plan/blob/6a687317d2540106a0ff790d78e5ea05ab84a178/decisions/2026-10-26-minimal-receipts.md) and old receipts preserve history. This change does not claim the new implementation accepted and authorizes no release or tag.

@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: ""
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261022-r27-evidence-acceptance]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -20,13 +20,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
+    **Needs:** [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261022-r27-evidence-acceptance](t-20261022-r27-evidence-acceptance.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
 **Owner:** unassigned  
 **Priority:** critical  
@@ -37,7 +37,7 @@ evidence: []
 # Deferred trusted CI readiness: delivery
 
 ## Observable outcome and preconditions
-Qualify only missing domain-specific trusted selection, execution and verification for accepted product interfaces. Wait for the accepted automatic receipt skeleton and this card's product/startup dependencies; do not expand gates to keep workers busy during the current repair.
+Qualify only missing domain-specific trusted selection, execution and verification for accepted product interfaces. Wait for the accepted normal CI baseline and this card's product/startup dependencies; do not expand gates to keep workers busy during the current repair.
 
 ## Covered slices
 - delivery-boundary
@@ -53,10 +53,10 @@ Qualify only missing domain-specific trusted selection, execution and verificati
 - promote
 
 ## Parallel work split when assignable
-W1: existing trusted domain mapping and actual test discovery; W2: bounded producer/executor and domain-local fixture; W3: result/receipt verification and relevant negatives. Coordinator reserves exact files from the actual accepted product interface before assigning writes. Shared central files have one writer; Use a flexible shared worker pool; coordinator reserves non-overlapping files and runner capacity. Independent ready domains may be prepared in disjoint files without a blanket ci-lanes lock.
+W1: existing trusted domain mapping and actual test discovery; W2: bounded producer/executor and domain-local fixture; W3: normal required-job result handling and relevant negatives. Coordinator reserves exact files from the actual accepted product interface before assigning writes. Shared central files have one writer; Use a flexible shared worker pool; coordinator reserves non-overlapping files and runner capacity. Independent ready domains may be prepared in disjoint files without a blanket ci-lanes lock.
 
 ## Acceptance and exclusions
-Actual selected checks execute and fail on missing/invalid required coverage; source/integration/ref and runner isolation stay authenticated. Record available accepted check identity for dependent product slices. Reuse valid compatible evidence; no full matrix, wildcard allowlist, self-reported green, unqualified new lane or duplicate authority. Run only targeted native checks justified by the actual scope and available isolated runners.
+Actual selected checks execute and fail on missing/invalid required coverage; source/integration/ref and runner isolation stay authenticated. Record available accepted check identity for dependent product slices. Execute the affected checks directly; no full matrix, wildcard allowlist, self-reported green, unqualified new lane or duplicate authority. Run only targeted native checks justified by the actual scope and available isolated runners.
 
 ## Governing order and preserved history
 
@@ -65,3 +65,7 @@ The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-20
 ## Owner update 2026-10-29
 
 Separate current CI baseline readiness from later tests of product interfaces that do not yet exist. Coordinator records the real dependency graph and coverage mapping; no fabricated readiness or blanket product development before the new CI cutover. Assign only bounded independent slices with exclusive files.
+
+## Current CI contract — 2026-11-03
+
+The Owner retires the evidence and receipt approval chain. This task supplies only the missing ordinary test selection/execution for its domain. Job results flow through normal dependencies; no gate manifests, archived-run verification or evidence reuse. The only CI receipt is merge SHA plus PR number. The replacement baseline task remains open until its actual checks pass.

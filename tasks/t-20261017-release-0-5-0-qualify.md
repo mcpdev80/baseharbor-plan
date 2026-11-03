@@ -17,7 +17,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-5-0-qualify · v0.5.0 · Pre-release: obtain complete authenticated approval #task #release/v0-5-x #status/planned #view/waiting #board/planned #area/release #kind/acceptance
+- [ ] t-20261017-release-0-5-0-qualify · v0.5.0 · Pre-release: complete required candidate checks #task #release/v0-5-x #status/planned #view/waiting #board/planned #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -37,19 +37,19 @@ evidence: []
 
 ## Goal
 
-Obtain complete authenticated release-boundary approval for the frozen candidate.
+Obtain complete release-boundary validation for the frozen candidate.
 
 ## Scope and acceptance
 
 - Require accepted preparation and explicit Maintainer authorization for the complete pre-release. Record that authorization and exact candidate/ecosystem matrix before dispatch.
-- Use the existing pre-release workflow, canonical release requirements, resume verifier and original gate owners. Inspect queued/running equivalent runs first; do not create a duplicate full run or a new proof system.
-- An overall red workflow does not invalidate every green gate: preserve authenticated successful individual receipts. Fix demonstrated failures; rerun only failed/affected/missing gates. Evidence reuse requires verifier-confirmed unchanged/compatible inputs, original run/attempt/artifact/digest and no newer relevant negative result.
-- Targeted/selected runs cannot approve a release. The final complete approval must cover every required unique gate and current ecosystem inputs, with valid release-approved.json and coverage provenance from the canonical verifier.
+- Use the existing pre-release workflow, canonical release requirements and original test owners. Inspect queued/running equivalent runs first; do not create a duplicate full run or a new proof system.
+- Fix demonstrated failures and rerun only the failed or affected checks during diagnosis. Normal job results determine success; no manifests, evidence reuse or completed-run/job re-verification.
+- Targeted/selected runs cover only their chosen scope. Complete validation executes every required test on the frozen ecosystem sources through normal workflow dependencies. No release-approved.json or other approval payload is required.
 - Deliver exact approval origin, candidate/consumer SHAs, complete coverage, accepted exceptions if any and remaining failures. Do not claim release-ready with required coverage missing. No promotion or tagging under this card.
 
 ## Required checks
 
-Existing final approval and resume/check-approval verifiers; actual required Docker/rootless Podman/consumer evidence. Not-required is justified, never synthetic PASS; no repeat whole matrix merely because one gate failed.
+Normal required-job result checks and actual Docker/rootless Podman/consumer test execution. Not-required is justified, never synthetic PASS; no repeat whole matrix merely because one gate failed.
 
 ## Dependencies and file ownership
 
