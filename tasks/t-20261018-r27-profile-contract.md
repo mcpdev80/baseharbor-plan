@@ -74,8 +74,8 @@ Local commit `8b01eda5`, verified.
 `documentation-audit` EN/DE integrity findings I was fixing. Because the branch is a shared PR
 candidate I must NOT force-push/rewrite history; the audit gate is already green on `0db72d35`.
 
-Terminal state: `8b01eda5` (my fold) + `0db72d35` (audit-parity fix, remote) → PR #1324
-`work/r27-profile-contract` @ `0db72d35`, base `develop`. No merge/release/tag.
+Terminal state: `8b01eda5` (fold) + `0db72d35` (audit-parity) + `e57ecf89` (l7-profile-r5: export-per-kind schema + EnrollDevice device-enrollment entry, closes review-1324e OPEN items) → PR #1324
+`work/r27-profile-contract` @ `e57ecf89a3a0dbbac8a691a0c01b6e866789faa6`, base `develop`. No merge/release/tag. Evidence: `baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r5.md`.
 
 ### Coordinator scope decision on finding 2 (2026-11-03, night wave)
 
