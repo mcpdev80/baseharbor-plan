@@ -1,5 +1,15 @@
 # Review 1347s
 
+## Abschlussurteil nach neutralem Vergleich
+
+ROLLE=REVIEW. **Urteil: ACCEPT-WITH-DEFERRAL** für `be00b1c8ca7e39c063c75f154c1e3c3fe21f01d5`, bezogen auf die sachliche Review-Matrix; die unten dokumentierten BLOCKED-Zwischenstände sind hiermit abgelöst. `git ls-remote` bei Abschluss: PR-Head `be00b1c8ca7e39c063c75f154c1e3c3fe21f01d5`, develop `1706272c3e8d53d37cf4da8f9f1411e5fe419a94`. Kein Merge.
+
+Der unabhängige Worker-Vergleich [verify-cli-1347.md](verify-cli-1347.md) berichtet den vollständigen gefilterten `cmd/baha`-Lauf für genau diesen Head und für das genannte develop: beide FAIL mit denselben zwei Gruppen und `provider-registry-ownership-unverifiable` an `provider_external_removal_test.go:53` und `:151`; Deployment und Delivery bestanden auf beiden Ständen. Damit ist der vom Auftrag tolerierte Vergleich mit dem vorbestehenden Befund dokumentiert. Der CLI-Lauf ist **nicht grün**; der Bericht zeigt gleiche Fehler auf beiden Ständen, belegt aber für sich genommen keine abschließende technische Ursachenanalyse des Provider-Registry-Zustands. Die im Bericht erwähnte vollständige Ausgabe lag diesem Review nicht zur eigenen Einsicht vor. Der CLI-Sammellauf wurde auf ausdrückliche Anweisung nicht wiederholt.
+
+Die Review-eigenen Deployment-/Delivery-Läufe bestanden; echte Core-Owner-Fixtures, negative Familien und Guard-Reihenfolge wurden wie unten belegt geprüft. Same-target Installation-ID-Bindung bleibt gemäß Task-Kartennotiz an den Authority-Vertrag delegiert. Der unabhängige kombinierte Prioritätstest war nur im Review-Archiv vorhanden; als dauerhafte Regression nachführen. Der missverständliche Helper-Kommentar ist nicht blockierend. GitHub meldete OPEN / UNSTABLE; dieses Sachurteil behauptet keine grüne CI und ersetzt keine erforderlichen Merge-Gates.
+
+## Historische Zwischenstände
+
 ## Fortsetzung nach /tmp-Bereinigung
 
 ROLLE=REVIEW. **Urteil: BLOCKED-LAUFZEIT; kein Abschlussurteil.** Einmaliger, durch die weiterhin geltende 90-Sekunden-Regel begrenzter Lauf: `TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go test ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|List|Guard|Retention|Vanish' -timeout 8m -count=1 -v`. Der Build gelang, mehrere ausgewählte Tests bestanden, aber der äußere 90-Sekunden-Timeout beendete den noch laufenden Sammeltest mit Exit 124 (`cmd/baha` 76.686s). Zuletzt aktiv: `TestApplicationDestructionRequiresCurrentOuterScopeAndSeparateDataConsent` in `cmd/baha/application_destroy_authorization_test.go:36`; der frühere Stack verortete das Warten in `Compose.ListRuntimeContainers` und einem Kindprozess. Die Suite ist unvollständig; kein PASS und kein Produktfehler daraus abgeleitet. Keine Wiederholung. Der bestandene Deployment-/Delivery-Lauf und der unabhängige Prioritätstest sind unten dokumentiert; Installation-ID-Bindung bleibt delegiert.
@@ -14,7 +24,7 @@ Einmaliger Lauf im SHA-genauen Archiv: `TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go 
 
 Vor und nach dem Re-Attempt `git ls-remote`: `refs/pull/1347/head` = `be00b1c8ca7e39c063c75f154c1e3c3fe21f01d5`, `refs/heads/develop` = `1706272c3e8d53d37cf4da8f9f1411e5fe419a94`; PR OPEN, UNSTABLE. Kein Merge. Nächster Auslöser: ausreichend nutzbare `/tmp`-Quota bzw. geeignete Umgebung bereitstellen und den vorgegebenen CLI-Lauf dort vollständig durchführen; anschließend Ergebnismatrix entscheiden. Same-target Installation-ID-Bindung bleibt gemäß Karte delegiert.
 
-ROLLE=REVIEW (kein Merge). Urteil: **BLOCKED / kein Abschlussurteil**. Der CLI-Pflichtlauf ist durch Timeout unvollständig; ein Umweltfehler dieses konkreten Timeouts ist nicht unabhängig nachgewiesen. Deshalb ist ACCEPT-WITH-DEFERRAL derzeit nicht belegt. Kein Produktfehler allein aus dem Timeout abgeleitet.
+Historischer Stand: ROLLE=REVIEW (kein Merge), damals **BLOCKED / kein Abschlussurteil**. Der CLI-Pflichtlauf war durch Timeout unvollständig; ein Umweltfehler dieses konkreten Timeouts war nicht unabhängig nachgewiesen. Kein Produktfehler allein aus dem Timeout abgeleitet.
 
 ## Identität
 

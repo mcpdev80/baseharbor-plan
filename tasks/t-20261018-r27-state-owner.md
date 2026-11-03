@@ -80,3 +80,12 @@ already lives; this card consumes it at its Load/Save seams once that lands. Rec
 CODEX-REVIEW verdict on head 33badf7d: **ACCEPT-WITH-DEFERRAL** (evidence/r27-night-2026-11-02/review-1347i.md).
 Deferrals as noted on this and the authority card (same-target installation-ID binding lives
 on these seams once authority-contract lands). Merge via CODEX-MERGE in flight; closes on proof.
+
+
+## Coordinator-Statusvermerk 2026-11-03 (review s + hosted CI)
+CODEX-REVIEW r1347s: ACCEPT-WITH-DEFERRAL (ID-Bindung an Authority-Vertrag delegiert;
+Prioritätsabsicherung = kombinierter Save-Test, angenommen als Deckung). Neutraler CLI-Beweis:
+evidence/r27-night-2026-11-02/verify-cli-1347.md (Branch- und develop-Seitig identische cmd-Fehlschläge).
+ABER Merge zurückgestellt: gehosteter Lauf 41632606424 auf Head be00b1c8 zeigt 4 Fehlschläge im
+source-contracts-Job (internal/application/preferences + cmd/baha Doctor/AppEdit — Fixture-Seed ist
+HOME-abhängig). Korrekturrunde w52 läuft; Merge erst nach grünem Lauf auf neuem Head.
