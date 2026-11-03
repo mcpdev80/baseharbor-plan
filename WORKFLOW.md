@@ -4,6 +4,9 @@ How tasks are written, claimed, handed off and closed in this repository. Produc
 
 > Planning authority is this repository from the activation commit on `main` ([migration/README.md](migration/README.md)). Source GitHub issues are historical/discussion references, not a second task-status authority.
 
+**No duplicate tracking Issues:** Create, claim, update, and accept work only in `tasks/`, `epics/`, and `releases/` here. Never create a product-repository GitHub Issue as a "Planning mirror", PR task-link target, receipt anchor, or secondary task card. PR descriptions and evidence must link directly to the canonical Planning task URL/ID. Historical product Issues may remain closed for reference; bot-owned dependency dashboards (for example Renovate) are operational exceptions, not task-status authority. Do not reopen obsolete mirror Issues when the Planning task is still active. The minimal merge receipt is keyed by merge commit and PR number, not an Issue.
+
+
 ## Files
 
 | Path | Holds |
