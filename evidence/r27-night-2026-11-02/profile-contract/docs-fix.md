@@ -1,7 +1,7 @@
 # l12-profile-docs — docs-only fix for PR #1324 (t-20261018-r27-profile-contract)
 
 ## END line
-`END_DONE l12-profile-docs: head=<sha> | EN+DE credential-access-v1.md: rewrite contradicting present-tense EnrollDevice/hosttrust claims; independent CA/installation binding = future work (two card names)`
+`END_DONE l12-profile-docs: head=34d7e11c | EN+DE credential-access-v1.md rewritten; independent CA/installation binding = future work (two card names)`
 
 ## Task / scope
 - Mission `coordinator/missions/l12-profile-docs.txt` (Coord f49a3303).
@@ -23,10 +23,11 @@
 - Mission STOP respected: no merge, no code change.
 
 ## Evidence
-- go test ./contracts/managementaccess/v1 (unchanged green) — see below.
-- diff shows only the two .md files.
-- ls-remote confirms both refs before/after.
+- go test ./contracts/managementaccess/v1 (unchanged green): `ok github.com/mcpdev80/baseharbor/contracts/managementaccess/v1 0.060s` (TMPDIR/GOCACHE under /home/marcel/dev/baseharbor-ecosystem/.cachetmp; /tmp was disk-full).
+- git diff --stat vs branch base c50747a5: only docs/spec/credential-access-v1.md and docs/de/spec/credential-access-v1.md changed.
+- git ls-remote origin: work/r27-profile-contract=34d7e11c, develop=01784c38, refs/pull/1324/head=34d7e11c (confirmed before and after push).
 - No hosted CI run logs (mission: KEINE run-logs).
+- Branch work/r27-profile-contract had diverged from develop (branch 8 ahead, develop 35 ahead, base c8fddea3; branch tip c50747a5 not on develop history), so a --no-ff merge onto origin/develop + push was required (not a true FF). No force-push, no protection bypass.
 
 ## Diff target sentences (EN :198 + :200)
 Remove present-tense: "EnrollDevice binds the validated management profile (installation ID, pinned CA, ...)"; "...an independent anchor check is deferred" left but framed as future; "Trust is validated through the shared `internal/hosttrust` anchor and fingerprint; ... reuses the same CA material".

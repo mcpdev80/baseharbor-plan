@@ -41,5 +41,31 @@
 ## Docs
 - ADR 0021 EN/DE, indexes, `target-access-v1.md`, `control-plane-runtime.md`: EN/DE claims carry deferral name for call-site fan-out; EN/DE negation parity verified. Task-card note records the deferral.
 
+## Build deliverables (per coordinator 3ENTSCHEID, built)
+- **Tri-state read-only revocation:** `RevokedStatus(ctx, serial) (revoked bool, err error)` added to `serviceaccess.Issuer` interface, `serviceaccess.LocalIssuer` (reuses private `revocations()` loader; canceled ctx → err, unreadable issuer authority → err, corrupt/unparseable CRL → err, missing CRL → `errMissingRevocationStatus`, malformed/non-positive/overflow serial → `errMalformedSerial`), `openbao.ServiceIssuer` (bad serial → err, token/command failure → err, exec err → err, empty response → not-revoked), and both test fakes. `Revoked(serial)` delegates to `RevokedStatus`.
+- **`installauthority.Fresh` fail-closed:** rejects on `issuer.Revoked(...) == true` OR `RevokedStatus(...) err != nil` → `ErrForeignAuthority`. Any unreadable/missing/malformed status fails closed.
+- **observedAt freshness:** `installauthority.Fresh` uses `observed.IssuedCertificate.ExpiresAt` (zero → `ErrInvalidObservation`, future/stale check). `ObservedState.Fresh` enforces zero/future/stale `observed_at` before the boundary.
+- **No Issue() on verification path:** `observedThroughBoundary` (authorized `cmd/baha/application_service_issuer.go`) no longer issues a leaf; observes existing connection read-only via `BaseSerial` (CA serial) + `BaseExpiry` (CA not-after) + `TrustBundle`. Added to interface, LocalIssuer, ServiceIssuer, fakes.
+- **end-to-end test through wrapper:** `TestResolveManagementConnectionIssuerEndToEnd` proves (1) live non-revoked local issuer verifies through `resolveManagementConnectionIssuer`, (2) revoked base serial selects no issuer, (3) corrupt CRL selects no issuer. Authorized wrapper only; no new cmd files.
+
+## Tests (all green)
+- `./internal/coreinstallation` — per-error-type fail-closed tests pass; existing `TestRevocationIsReadonlyCrlUnchanged` updated to mint a valid CRL.
+- `./internal/serviceaccess`, `./internal/stableid`, `./internal/openbao` — pass.
+- `./cmd/baha` `TestResolveManagementConnectionIssuer*` — pass.
+- Doc audit `scripts/documentation-audit.sh` PASS (159 EN/DE pages, ADR ids, governance, brand).
+
+## Docs
+- `docs/spec/target-access-v1.md` (EN) + `docs/de/spec/target-access-v1.md` (DE): paragraph stating the read-only revocation/identity/observed-at boundary is at `resolveManagementConnectionIssuer` and fails closed, call-site fan-out to downstream production selection seams DEFERRED to state-owner lane. Task-card `t-20261018-r27-authority-contract.md` records w8 delivery.
+
+## Push (FF only)
+- Branch `w8-authority-r4-fix` committed `3c63e8e0bf384dd3e7cac9c198d99befbaeb5959` (10 files, +460/-41).
+- FF push `origin w8-authority-r4-fix:w7-authority-r3-clean`: `09f14ec8..3c63e8e0`. **ls-remote verified** `w7-authority-r3-clean` = `3c63e8e0`.
+
+## Supersession of PR #1326 (coordinator 3ENTSCHEID follow-up, 2026-11-03)
+- doc-fix FF to `3c63e8e0` was infeasible (diverged lineages at `c8fddea3`, add/add conflicts in 4 files). Coordinator directed a clean supersession (Präzedenz Owner-Receipt-Ketten):
+  1. `gh pr create --base develop --head w7-authority-r3-clean` -> **PR #1348** "r27 authority-contract: installation authority (rebuilt chain, fail-closed revocation)".
+  2. `gh pr comment 1326 --body "closed: content-final head 3c63e8e0 continues here as PR #1348. doc-fix branch lineage diverged, no FF"` + `gh pr close 1326`.
+- **Evidence:** `gh pr view 1348 --json headRefOid` == `3c63e8e0`; `ls-remote` `refs/pull/1348/head` == `3c63e8e0` and `refs/heads/w7-authority-r3-clean` == `3c63e8e0`. No force-push.
+
 ## END
-**END_DONE** w8-authority-r4: Punkte 1/2/3 built + tested; Punkt 4 (lock parity) OK; doc EN/DE + card updated with deferral name. FF push on w7-authority-r3-clean ref + doc-fix ref if ancestry; ls-remote; no merge (out of my scope).
+**END_DONE** w8-authority-r4: Punkte 1/2/3/4 built + tested (all targeted packages green, doc audit PASS); FF-pushed to w7-authority-r3-clean (3c63e8e0, ls-remote verified). PR #1326 superseded by **PR #1348** (headRefOid 3c63e8e0, verified) on develop; #1326 closed. No merge (out of worker scope).
