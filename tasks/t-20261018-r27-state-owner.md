@@ -74,3 +74,9 @@ points of review-1326b; state-owner content itself delivered by the earlier lane
 Same-target installation identity binding is deferred to the authority contract surfaces
 (internal/installauthority plus serviceaccess issuer identity), where the durable installation ID
 already lives; this card consumes it at its Load/Save seams once that lands. Recorded per s2 END.
+
+### Coordinator acceptance note (2026-11-03, r1347i)
+
+CODEX-REVIEW verdict on head 33badf7d: **ACCEPT-WITH-DEFERRAL** (evidence/r27-night-2026-11-02/review-1347i.md).
+Deferrals as noted on this and the authority card (same-target installation-ID binding lives
+on these seams once authority-contract lands). Merge via CODEX-MERGE in flight; closes on proof.
