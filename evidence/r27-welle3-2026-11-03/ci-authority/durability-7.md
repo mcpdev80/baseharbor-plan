@@ -20,14 +20,14 @@ gofmt leer; `GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp
 
 ## PLAN-Checkliste
 
-- [x] 1. fetch origin refs (develop + work/r27-ci-authority-ab); develop ancestor of branch rc=0.
-- [x] 2. Realitaetsscheck: review-1354g.md + store.go/store_retention.go + round-7 tests + PR #1354.
-- [ ] 3. RED contra-test je Befund (B1 active-id, B2 unterminated JSONL, B3 sync/close) reproduzieren.
-- [ ] 4. Fix bestaetigen/anwenden, contra-tests GRUEN (mutation controls scharf lassen).
-- [ ] 5. gofmt -l internal/machinehttp; go build ./...; go vet; full package test green.
-- [ ] 6. push (Mission-Formel); ls-remote==head; cat-file -e.
-- [ ] 7. PR #1354 selected checks TERMINAL beobachten (eigenes-run).
-- [ ] 8. Evidence durability-7.md; END an f49a3303; todos ticken.
+- 1. fetch origin refs (develop + work/r27-ci-authority-ab); develop ancestor of branch rc=0.
+- 2. Realitaetsscheck: review-1354g.md + store.go/store_retention.go + round-7 tests + PR #1354.
+- 3. RED contra-test je Befund (B1 active-id, B2 unterminated JSONL, B3 sync/close) reproduzieren.
+- 4. Fix bestaetigen/anwenden, contra-tests GRUEN (mutation controls scharf lassen).
+- 5. gofmt -l internal/machinehttp; go build ./...; go vet; full package test green.
+- 6. push (Mission-Formel); ls-remote==head; cat-file -e.
+- 7. PR #1354 selected checks TERMINAL beobachten (eigenes-run).
+- 8. Evidence durability-7.md; END an f49a3303; todos ticken.
 
 ## END an f49a3303
 

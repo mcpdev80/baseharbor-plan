@@ -18,15 +18,15 @@ Vier Punkte aus der Karte/Review behebben und gegenbeweisen:
 
 ## PLAN-Checkliste
 
-- [x] 1. Reproduktion: aktive ID nach 8× ~2,5 MiB + Reopen (Expect: überlebt).
-- [x] 2. Diagnose: Root-Cause der Rotation (Segment-Reset + Backups-Shift).
-- [x] 3. Fix: compaction + backup-shift ohne Segment-Reset (carry-forward).
-- [x] 4. Fix: Crash-Tail fail-closed (Half-Write => corrupt/uncertain).
-- [x] 5. Fix: Close/Sync-Volllendung (`fileSyncCloseLocked`, Fehlerweitergabe, kein Event auf Fehler).
-- [x] 6. Fix: produkt-konstruierter Root-Guard (leer/leer-runtime/korrupt).
-- [x] 7. Tests ergänzt (bestehende unangetastet).
-- [x] 8. gofmt/ven/vet, go build ./internal, go test ./internal/machinehttp grün.
-- [ ] 9. Push + ls-remote == head + Planning-Aktualisierung.
+- 1. Reproduktion: aktive ID nach 8× ~2,5 MiB + Reopen (Expect: überlebt).
+- 2. Diagnose: Root-Cause der Rotation (Segment-Reset + Backups-Shift).
+- 3. Fix: compaction + backup-shift ohne Segment-Reset (carry-forward).
+- 4. Fix: Crash-Tail fail-closed (Half-Write => corrupt/uncertain).
+- 5. Fix: Close/Sync-Volllendung (`fileSyncCloseLocked`, Fehlerweitergabe, kein Event auf Fehler).
+- 6. Fix: produkt-konstruierter Root-Guard (leer/leer-runtime/korrupt).
+- 7. Tests ergänzt (bestehende unangetastet).
+- 8. gofmt/ven/vet, go build ./internal, go test ./internal/machinehttp grün.
+- 9. Push + ls-remote == head + Planning-Aktualisierung.
 
 ---
 
