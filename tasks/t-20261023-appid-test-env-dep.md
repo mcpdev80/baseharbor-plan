@@ -68,3 +68,9 @@ must only occur for genuinely unverifiable state, never because the environment 
 
 - Current state, branch, PR and evidence links. Newest first.
 - 2026-10-24 (o113): resolution documented here only; the schema forbids a free-text resolution on a non-checked card. State remains waiting — external provider-registry test is unverifiable outside CI runners, depends on unaccepted v0.4.27 release-start updates.
+
+### Coordinator scope clarification (2026-11-03, review-1351a)
+
+The ownership-seeding fixture lives in cmd/baha test files; touching TEST files under cmd/baha/ is
+within this card's scope (no non-test cmd files, no .github/scripts). Recorded so scope checks
+judge the candidate against the real defect location.
