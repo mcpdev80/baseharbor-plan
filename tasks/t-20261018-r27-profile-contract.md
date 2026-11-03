@@ -104,3 +104,15 @@ nonce is exactly 12 random bytes, canonically encoded as base64url without paddi
 full octet count). chacha20-poly1305 is OUT unless it lands with its own 12-byte rule and tests; schema
 pattern, Go helper (reject non-canonical trailing bits and wrong length), fixtures, EN/DE all state THIS
 rule and an executable encrypt->decrypt round-trip test proves it per algorithm.
+
+### Coordinator decision on import side-effect clause (2026-11-03, night wave, r1324i)
+
+The behavioral no-grants/no-plugin/no-redirect guarantee requires an ACTUALLY IMPLEMENTED production
+import boundary; none exists on accepted develop surfaces. Per the review's own alternative, this
+clause is EXPLICITLY DEFERRED to the downstream consumer cards (t-20261022-r27-ci-access and
+t-20261018-r27-native-auth territory), which will wire counter-bearing collaborators and add the
+misbehaving-collaborator regression when their import entry lands. THIS card keeps: schema/kind
+rules, self-consistency + recipient/window checks, fixtures, and documentation that names the deferral
+(no test-authored no-op orchestrator presented as evidence). Still in-scope now: golden-decoded
+AEAD roundtrip test, independent per-negative profile copies, and EN/DE docs corrections including
+valid links to planning destinations (not repo-absent tasks/ paths).
