@@ -1,0 +1,17 @@
+# PR #1357 Abschluss-Review 57152dc5
+
+ROLLE=REVIEW, kein Merge. **Urteil: REJECT.** Task `t-20261022-r27-ci-access`; Reviewer Codex GPT-6 (exakte Variante nicht exponiert). Head `57152dc56e7b5ce25b4d38185a3a015e25c5020a`, tree `c9df195efc028074307c9a76a35d0d1d74cee9c5`; develop `5813ef8581feb0cb7943038ab1c44545186f650f` ist Vorfahr. `git ls-remote` vor/nach bestätigt beide; PR OPEN/CLEAN. SHA-genaues Archiv; Kandidat nicht verändert.
+
+## Prüfung und verbleibende Befunde
+
+1. **Flag-Gegenprobe bestanden, aber Ready-Handler weiterhin nicht abgedeckt.** Ein unabhängiger temporärer Test rief über `newMutualTLSServerWithHandler` und den echten `NewClient.Execute` mit gültiger Client-Identität die Production-Handler-Route auf: `HandlerReached` vor Aufruf false, nach erfolgreichem Execute true (PASS). Die negativen Tests für fehlendes Client-Cert, selfsigned, fremde CA und falsche Server-CA rufen aber `Check`, also `/readyz`; der geprüfte Flag liegt ausschließlich am `/internal/`-Handler (`client_test.go:257-267`), nicht am tatsächlich adressierten Ready-Handler. Ein HTTP-Fehler nach erfolgreichem Handshake könnte daher die Nichtaufruf-Assertion passieren. Der separat getestete fremde-CA-Execute-Pfad belegt Nichtaufruf des Execute-Handlers. **Rezept:** Test-Wrapper vor dem gesamten Mux oder separaten Ready-/Execute-Zähler verwenden und für jeden negativen tatsächlichen Request Null-Aufrufe sowie bei positivem Check und Execute jeweils einen Aufruf assertieren; die reine Testinstrumentierung aus `handler.go` entfernen.
+
+2. **Fehlerursachen-Nachweis ist weiterhin zu weit.** `assertTLSHandshakeCause` akzeptiert jede Fehlermeldung, die irgendwo `tls`, `x509` oder `certificate` enthält; dies beweist nicht notwendigerweise eine TLS-/Verifikationsursache, wie der Testkommentar behauptet. `TestMutualTLSRejectsInvalidCAPEM` hat keinen Handler-Flag und `err != nil` genügt; defektes Client-Zertifikat ist weiterhin nicht separat getestet (nur defekter Key). Die fehlende Client-Identität wird jetzt tatsächlich ohne Zertifikat getestet, wobei der Test einen Client manuell konstruiert. **Rezept:** konkrete Fehlerkette/`errors.As` für server-/clientseitige TLS-Ablehnung bzw. explizite Zertifikat-Ladefehler prüfen, tatsächliche Ready-/Execute-Aufrufe überwachen und defektes Cert separat abdecken. Die Verpackung des Produktionsclients kann einen expliziten Fehlervergleich erfordern.
+
+3. **Behobene Punkte.** Sieben wiederhergestellte frühere HTTPS-/URL-/Fehlerregressionen bleiben erhalten; Testserver nutzt `RequireAndVerifyClientCert` und Test-CA. Echter positiver Execute und Check bestehen. `gofmt -l` für geänderte Dateien leer. GitHub Actions `41644965839`: gleicher Head, COMPLETED/SUCCESS; Source format und PR Selected Checks SUCCESS. Keine `.github`-/`scripts`-Änderung; Netto-Diff enthält Testdatei und Produktions-Handler-Flag.
+
+4. **Slice-Matrix:** Andere Access-Slices (profile-contract, profile-codec, native-auth, protected-credentials, secure-export, device-enrollment/lifecycle, connection-client, access-profiles, managed-users, team-auth, access-wizard, onboarding-wizard) und CI-/Missing-Coverage-Zuordnung bleiben bei den jeweiligen Ownern; keine Gesamtqualifikation behauptet.
+
+## Eigener Test
+
+`GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m`: PASS (0.038s) inklusive obiger zusätzlich nur im temporären Archiv vorhandener Gegenprobe. Der Paketpass beweist die vorhandenen Assertions, nicht den Nichtaufruf des Ready-Handlers in den negativen Fällen.
