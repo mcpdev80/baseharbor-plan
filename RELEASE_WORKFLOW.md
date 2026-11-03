@@ -31,7 +31,7 @@ Process all pending applicable Renovate updates first: dependency dashboard, gro
 
 ## Prepare
 
-Apply audit sections 1–8 and section 9 atomic-first prerequisites. The Prepare card depends on both startup cards and every scoped implementation task, including newly added tasks. For the already-running v0.4.26 it depends only on implementation tasks, without retroactive startup cards. Also inspect release/epic requirements that have no leaf task yet, and any explicitly deferred acceptance/test debt. Zero children is not completed scope.
+Apply audit sections 1–8 and section 9 atomic-first prerequisites. The Prepare card depends on the completed Updates stage (no retroactive startup cards for v0.4.26), not on every feature card. It can track release-readiness preparation while development proceeds. CardBoard feature cards and epics remain the authoritative progress view. **Qualification**, not Prepare, requires all scoped implementation, CI, docs and consumer tasks to be accepted. Newly added scope must also be complete before qualification or any later accepted release stage; the release-cycle validator enforces this even after scope changes. Also inspect release/epic requirements that have no leaf task yet, and any explicitly deferred acceptance/test debt. Zero children is not completed scope.
 
 Readiness includes BaseHarbor, Demo, Console, Node Connector, current CLI/JSON/MCP/HTTP semantics, real supported auth/mTLS/lifecycle/cleanup and developer journeys, standards/ownership/security review, EN/DE user/reference/spec docs, navigation/links/staleness, strict Pages candidate builds/workflow, changelog and concise developer-facing release notes. Notes cover what changed, why it matters, usage/upgrade/compatibility, security and deliberate deferrals. The product README stays compact and free of process rules. Do not publish Pages to claim readiness.
 
@@ -67,7 +67,7 @@ python3 scripts/plan.py check
 python3 -m unittest discover -s scripts/tests
 ```
 
-The synchronizer creates missing cards from `templates/release-cycle/`, preserves existing IDs/owners/status/evidence/handoffs and refreshes required dependencies and views. The validator rejects missing/duplicate stages, missing preparation prerequisites and future feature tasks lacking startup intake. It does not mark any stage accepted. New scope requires another sync; closed readiness must be reopened/requalified when scope changes, never silently grandfathered.
+The synchronizer creates missing cards from `templates/release-cycle/`, preserves existing IDs/owners/status/evidence/handoffs, clears obsolete per-feature Prepare dependencies, and refreshes required stage dependencies and views. The validator rejects missing/duplicate stages, missing preparation prerequisites and future feature tasks lacking startup intake. It does not mark any stage accepted. New scope requires another sync; closed readiness must be reopened/requalified when scope changes, never silently grandfathered.
 
 Concrete versions come from numeric `kind: release` notes, explicit task `version` fields and optional `cycle_versions` lists in series notes (v0.5.0 is explicitly scheduled in v0.5.x). Backlog, triage, maintenance and unspecified `x` versions do not invent releases or tags. The six stages also apply to subsequently scheduled hotfixes.
 
