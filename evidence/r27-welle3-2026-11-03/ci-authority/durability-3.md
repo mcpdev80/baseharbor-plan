@@ -9,9 +9,11 @@
 - Evidence file: `baseharbor-plan/evidence/r27-welle3-2026-11-03/ci-authority/durability-3.md`.
 
 ## END
-- Status: DONE — P1-4 implemented + green, retention decision applied.
+- Status: DONE — P1-4 implemented + green, retention decision applied. Basis-pflicht (develop runtime-squash) merged.
 - Retention value/decision: **journal.jsonl rotiert bei 4 MiB nach journal.jsonl.1..3 (max 4 Segmente gesamt = 16 MiB hart); beim Rotationsschnitt bleibt pro execution-id der NEUESTE Eintrag erhalten (compaction); active/unknown-Zustände werden NIEMALS entfernt; alle Grenzen als benannte constants in store.go.** Kein Result-/Progress-/Fehler-Payload im Journal (nur id/status/actor/context/zeit).
-- Evidence posted to f49a3303: END_DONE.
+- Basis-pflicht: develop 5813ef85 (runtime-squash) war NICHT Vorfahr von 76484b0e; merge origin/develop rc=0 (disjunkte write-sets, 3 neue Testdateien), go build + go test ./internal/machinehttp gruen, push FF. ls-remote == HEAD 5b3976b2.
+  - ancestry: `git merge-base --is-ancestor 5813ef85 HEAD` → rc=0 nach merge; merge-base = 5813ef8581feb0cb7943038ab1c44545186f650f.
+- Evidence posted to f49a3303: END_NEU.
 
 ## PLAN (numbered)
 1. Fetch origin refs, worktree reuse w44 (99556b9a), verify ancestry (99556b9a not ancestor of develop).
