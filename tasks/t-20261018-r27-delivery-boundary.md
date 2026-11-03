@@ -9,7 +9,7 @@ priority: critical
 owner: w2-delivery (lane)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1333"]
 sources: []
 early: false
 blocker: ""
@@ -17,20 +17,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/active #view/active #area/architecture #kind/architecture
+- [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/review #view/review #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** w2-delivery (lane) · **Priority:** critical  
+    **PR:** [baseharbor#1333](https://github.com/mcpdev80/baseharbor/pull/1333)  
     **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
 **Owner:** w2-delivery (lane)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1333](https://github.com/mcpdev80/baseharbor/pull/1333)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -82,3 +83,9 @@ The authorized 'one regression file' for the store hook covers focused regressio
 guard behaviour, including preferences_retention_test.go alongside one_writer_guard_test.go, as long
 as each file tests only the authorized SaveDeploymentRecord seam. Recorded; not a licence for broader
 internal/deployment edits.
+
+### Coordinator acceptance note (2026-11-03, r1333q)
+
+CODEX-REVIEW verdict on head 337ed4ee: **ACCEPT-WITH-DEFERRAL** (evidence/r27-night-2026-11-02/review-1333q.md).
+Deferral: live reconciler detection and cross-process runtime lock -> authority-contract + state-owner
+cards (recorded there as of 2026-11-02/03). Merge via CODEX-MERGE in flight; card closes on merge proof.
