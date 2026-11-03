@@ -70,5 +70,5 @@ Publish minimal commit receipts from the actual trusted default-branch writer an
 - Develop parity #1344 at ffaaf5374d3a78c958151f6b7ea27482792cbfe7 is in normal hosted CI run 41552430415; do not merge until its actual checks pass. The normal automatic merge-triggered receipt subsequently passed as recorded above.
 - GitHub connector cannot dispatch workflows; Owner invoked the two recovery commands. Future missed events: `gh workflow run receipt-post-run.yml -R mcpdev80/baseharbor --ref main -f pr_number=<merged-develop-PR>`.
 
-- Owner assigned CI completion on 2026-11-03. Main 74dd7659996e38cf60c8b39368addb542d40c5a4 still has Bearer auth; develop 8860aa2a6801eba80ceaee45c4c91bee8f1e3344 has Basic auth.
+- Owner assigned CI completion on 2026-11-03. Main 74dd7659996e38cf60c8b39368addb542d40c5a4 still has ***; develop 8860aa2a6801eba80ceaee45c4c91bee8f1e3344 has Basic auth.
 - Run 41551273613 checked out main 74dd7659 and therefore did not execute PR 1342. Existing secret presence is confirmed by masked environment; validity remains unproven.
