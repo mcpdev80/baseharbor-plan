@@ -5,7 +5,7 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
+owner: coord-welle3 (lane w35)
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []
@@ -17,18 +17,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/planned #view/ready #area/testing #kind/acceptance
+- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle3 (lane w35)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle3 (lane w35)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)

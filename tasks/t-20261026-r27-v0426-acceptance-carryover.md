@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: ""
+owner: coord-welle3 (lane w34)
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor#1089]
@@ -16,19 +16,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261026-r27-v0426-acceptance-carryover · Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27 #task #release/v0-4-27 #status/planned #view/ready #area/acceptance #area/release #kind/review
+- [ ] t-20261026-r27-v0426-acceptance-carryover · Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27 #task #release/v0-4-27 #status/active #view/active #area/acceptance #area/release #kind/review
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** coord-welle3 (lane w34) · **Priority:** high  
     **PR:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
-    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle3 (lane w34)  
 **Priority:** high  
 **PRs:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
 **Source:** 
