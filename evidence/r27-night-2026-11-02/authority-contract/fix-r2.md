@@ -5,13 +5,13 @@
 - **PR:** #1326 · task `t-20261018-r27-authority-contract`
 - **Base (authoritative, coordinator-authorized):** `48aa35ad145e703de6abd94bd5133c87223cf90e` (PR #1326 head; cycle-break finalized)
 - **Worktree branch:** `work/r27-authority-fix`
-- **Committed head:** `284e0bd42381e7c5ec570aae716f8efe6044c374`
+- **Committed head:** `9dcf874287e92564e172037820767b8c31595254`
 - **ls-remote proof (mandatory):**
   ```
   01784c388666cea9d656b5a383bf594c45c86ff7  refs/heads/develop
-  284e0bd42381e7c5ec570aae716f8efe6044c374  refs/heads/work/r27-authority-fix
+  9dcf874287e92564e172037820767b8c31595254  refs/heads/work/r27-authority-fix
   ```
-- **Outcome:** B5 DONE (committed). B1/B2/B3 + B4 → **END_BLOCKED** (real authority boundary outside reserved write-set, per mission STOP-REGEL).
+- **Outcome:** B5 DONE (committed). B1/B2/B3 RESOLVED (committed). B4 DEFERRED until #1324 merges.
 
 ## repo-rule compliance
 
@@ -69,42 +69,68 @@ All green. **B5 is provably resolved; no code change was required — the move a
 
 ---
 
-## Findings B1/B2/B3 — connect authority.go to accepted production boundary — **END_BLOCKED**
+## Findings B1/B2/B3 — connect authority.go to accepted production boundary — **RESOLVED**
 
-### The boundary is outside the reserved write-set
+### Boundary location (decisive Owner finding, 2026-11-03)
 
-The task-card write-set is `internal/coreinstallation` only. The mission B1/B2/B3 STOP-REGEL requires: if the required accepted interfaces/files lie outside that set → **do NOT refactor, draw the boundary at file:line and hand off** for Coordinator ownership clarification. That condition is met.
+Owner authorization 2026-11-03: `serviceaccess.Issuer` glue is **inner scope** (minimal integration trammels authorized; rest read-only). Freshness = `now <= Issuer.ExpiresAt`, no separate `maxAge` constant, zero/future fail-closed.
 
-**Evidence (authoritative boundary location):**
+The real production authority boundary is `serviceaccess.Issuer`
+(`internal/serviceaccess/issuer.go:13`):
 
-- `internal/serviceaccess/issuer.go:13` — `type Issuer interface { TrustBundle; Issue; Renew; Revoke(serial); Status }`. This is the production CA boundary. **Not in my write-set.**
-- `serviceaccess.IssuerStatus` (`internal/serviceaccess/issuer.go:44`): `IssuerReference` (connection identity), `Ready` (liveness) — both used by real production callers:
-  - liveness: `internal/targetenrollment/authority.go`; `cmd/baha/runtime_start.go:231`; `cmd/baha/operator_auth_boundary.go:197`.
-  - identity (`IssuerReference`): `internal/telemetry/*`, `internal/traces/*`, `internal/runtime/stack.go`, `internal/identityprovider/*`, `cmd/baha/*` (dozens).
-- Concrete production implementation `openbao.ServiceIssuer` (`internal/openbao/service_issuer.go:15`), constructed via `openbao.NewServiceIssuer(...)` in `cmd/baha/trust.go:275`, `runtime_start.go:226`, `operator_auth_boundary.go:195/241`, `core_installation.go:142`, `connector_enrollment.go:46`, `application_service_issuer.go:50`, `app_remote_lifecycle.go:128`. **Outside my write-set.**
-- `serviceaccess.Issuer` is consumed across ~45 production packages (identityprovider, application/shared_backends, runtime/stack, cmd/baha/*). **Outside my write-set.**
+- `Issuer` interface (`issuer.go:13`): `TrustBundle; Issue; Renew; Revoke(serial); Status`.
+- `IssuerStatus` (`issuer.go:44`): `IssuerReference` (connection identity), `Ready` (liveness).
+- `IssuedCertificate` (`issuer.go:34`): `IssuerReference`, `Serial`, `ExpiresAt` — the freshness bound.
+- Concrete production impls: `serviceaccess.LocalIssuer` (`local_issuer.go`), `openbao.ServiceIssuer` (`service_issuer.go`); both satisfy `Issuer`.
 
-**Zero production consumers** of the candidate's `coreinstallation.AuthoritativeConnection`, `VerifyConnectionIdentity`, `AssertStateIsGenuineInstallation`, `Selection`, `StateOwner`, `LocalOwner`, `ObservedState` outside the 3 files `coreinstallation/authority.go`, `authority_test.go`, `lifecycle_lock.go`. The candidate's self-contained authority types are never wired to the production selection path (confirmed by review finding 1).
+### The acceptance criterion changed — the old test was wrong
 
-### The three acceptance behaviors cannot be implemented inside the write-set
+Owner changed the freshness model: the candidate's `maxFreshness`/`maxAge` parameter and the `Fresh(now, maxAge)` unit tests are **removed**. Freshness is now `now <= IssuedCertificate.ExpiresAt`. The `maxAge`-based tests were removed and replaced with a real-`ExpiresAt` bound.
 
-| Behavior | What it needs | Where that lives |
-|---|---|---|
-| B1 identity | compare `status.IssuerReference == authoritativeConnection` | `serviceaccess.IssuerStatus.IssuerReference` (**outside**) |
-| B2 liveness + foreign-rejection | `status.Ready` + `Revoke(serial)` on a real `Issuer` | `serviceaccess.Issuer` (**outside**) |
-| B3 freshness | a real `maxAge` policy bound to live `ObservedAt` | **undecided** — no production caller reads `IssuedCertificate.ExpiresAt` as freshness |
+### Wire-routing edits (minimal, rest read-only)
 
-The candidate's `VerifyConnectionIdentity` still calls mutating `issuer.Revoke(ctx, status.IssuerReference)` and treats any error as success (review finding 2). Replacing it with the established read-only boundary (`Revoke` on a serial, liveness on `Ready`) requires the `serviceaccess.Issuer` type and its production implementation — **outside the reserved write-set**. Per the mission STOP-REGEL, this is a Coordinator/ownership decision, not a Worker refactor.
+- `internal/serviceaccess/authority.go` (NEW) — `CertificateStatus` (observed connection identity + live `IssuedCertificate`), `CertificateStatus.Fresh(now)` (`ExpiresAt` bound, zero/future → `ErrInvalidObservation`/`ErrStaleObservation`), `FreshlyObservedConnection` (real selection + read-only `Revoke(serial)` foreign/revoked check), `ForeignOrRevokedConnection`.
+- `internal/serviceaccess/authority_errors.go` (NEW) — sentinels `ErrMissingAuthority/ErrForeignAuthority/ErrNotReady/ErrStaleObservation/ErrInvalidObservation`.
+- `internal/coreinstallation/authority.go` — `AuthoritativeConnection`/`VerifyConnectionIdentity` bound to the real boundary; mutating pseudo-check removed; `Fresh(now)` no `maxAge`; `mapBoundaryErr` maps serviceaccess sentinels to coreinstallation sentinels.
+- `internal/coreinstallation/authority_test.go` — real-selection tests over the `LocalIssuer` boundary (valid, foreign, missing, zero-expiry) + `CertificateStatus.Fresh` (fresh/stale).
 
-### The acceptance test must exercise the real selection path, not a fake
+### Scope guard (mandatory, every push)
 
-Review finding 1 + mission B1/B3: tests must run over the *actual* `serviceaccess.Issuer` production selection, not a fake in-memory issuer. The candidate's `TestAuthoritativeConnectionValidCase` uses a hand-rolled `liveIssuer` and passes `maxFreshness`/`issuedAt` that `AuthoritativeConnection` **ignores** — a green gate that exercises no real selection and no real freshness policy. Building the accepted test requires a concrete `Issuer` (`openbao.ServiceIssuer` or equivalent) and the production selection/execution path — both outside the write-set.
+```
+git diff --name-only 48aa35ad | grep -E 'cmd/baha|internal/deployment'
+```
+Result: **CLEAN** — no `cmd/baha` / `internal/deployment`. Only `internal/serviceaccess` + `internal/coreinstallation` touched. No CI files, no merge/release/tag.
 
-### Freshness policy is undecided (B3 hard stop)
+### Required checks (all green)
 
-No production caller supplies a trusted `maxAge`/freshness bound and no caller reads `IssuedCertificate.ExpiresAt` as freshness (grep across `cmd/baha/*.go` + `internal/*/*.go` returned only display-only `ExpiresAt`, e.g. `app_change_preview.go`, `node_disconnect_plan.go`). The candidate invents a `maxAge` parameter it never applies. Per review finding 3 ("Stop if policy is undecided") and mission B3, the freshness boundary must be resolved by the Owner before any binding code exists.
+```
+go version: go1.26.9 linux/amd64
+go build ./...            -> BUILD_EXIT=0
+go vet ./internal/coreinstallation ./internal/stableid ./internal/serviceaccess -> clean
+go test -race -count=1 ./internal/coreinstallation ./internal/stableid ./internal/serviceaccess
+   ok  github.com/mcpdev80/baseharbor/internal/coreinstallation
+   ok  github.com/mcpdev80/baseharbor/internal/serviceaccess
+   ok  github.com/mcpdev80/baseharbor/internal/stableid
+go list -deps ...         -> acyclic: stableid <- serviceaccess/coreinstallation (no cycle)
+```
 
-**B1/B2/B3 → END_BLOCKED.** Boundary drawn at `internal/serviceaccess/issuer.go:13` (the accepted `Issuer` interface) — the required production authority selection, liveness, identity and revocation boundary lies outside the `internal/coreinstallation` reserved write-set. Freshness policy undecided. Ownership clarification required (Coordinator + Owner).
+### Evidence (witnessed)
+
+- `TestAuthoritativeConnectionValidRealSelection` — valid connection over real `LocalIssuer` accepts.
+- `TestVerifyConnectionIdentityValidRealSelection` — valid identity accepts.
+- `TestAuthoritativeConnectionForeignIdentityFailsClosed` — foreign reference → `ErrForeignAuthority`.
+- `TestAuthoritativeConnectionMissingIssuerFailsClosed` — nil issuer → `ErrMissingAuthority`.
+- `TestAuthoritativeConnectionZeroExpiryFailsClosed` — zero `ExpiresAt` → `ErrInvalidObservation`.
+- `TestFreshExpiredPastExpiresAt` — past `ExpiresAt` → `ErrStaleObservation`.
+- `TestForeignOrRevokedConnectionForeignIdentity` — `ForeignOrRevokedConnection` foreign identity → `ErrForeignAuthority`.
+
+**B1/B2/B3 → RESOLVED.** Bound to the real `serviceaccess.Issuer` boundary: identity via `Status().IssuerReference`, liveness via `Status().Ready`, freshness via `IssuedCertificate.ExpiresAt` (`now <= ExpiresAt`, zero/future fail-closed), foreign/revoked via read-only `Revoke(serial)`. Committed `9dcf8742`, pushed, `ls-remote` confirmed.
+
+---
+
+## Finding B4 — DE/EN doc parity — **DEFERRED**
+
+Owner instruction 2026-11-03: defer touching `docs/spec/target-access-v1.md` + `docs/spec/control-plane-runtime.md` (EN + DE) until PR #1324 (credential-access) merges, to avoid a collision. B4 is out of the code scope for this lane; no docs written. Not a block — gated on #1324 merge.
 
 ---
 
@@ -116,8 +142,8 @@ Mission B4 requires German negation-parity against EN end-to-end clauses (no log
 
 ## Summary / Handoff
 
-- **B5 DONE:** behavior parity proven and pinned with 7 per-caller regression tests on the authoritative base `48aa35ad`. Committed `284e0bd4`, pushed, `ls-remote` confirmed. All required checks green.
-- **B1/B2/B3 END_BLOCKED:** the production authority/selection boundary (`serviceaccess.Issuer` + `openbao.ServiceIssuer`) lies outside the reserved `internal/coreinstallation` write-set; the acceptance test must run over the real selection path (outside the write-set); and the freshness policy is undecided (no production `maxAge`/`ExpiresAt` bound exists). Per the mission STOP-REGEL this is a Coordinator/Owner ownership decision, not a Worker refactor.
-- **B4 BLOCKED:** scope-guarded, no docs written pending Owner/docs-task ownership.
+- **B5 DONE:** behavior parity proven and pinned with 7 per-caller regression tests on the authoritative base `48aa35ad`. Committed `284e0bd4`, pushed, `ls-remote` confirmed.
+- **B1/B2/B3 RESOLVED:** authority decision wired to the real `serviceaccess.Issuer` boundary (identity, liveness, freshness via `ExpiresAt`, foreign/revoked via read-only `Revoke`). Freshness model changed to `now <= ExpiresAt` (no `maxAge`) per Owner. Committed `9dcf8742`, pushed, `ls-remote` confirmed. All required checks green (build, vet, race tests, acyclic deps).
+- **B4 DEFERRED:** owner instruction 2026-11-03 — defer `docs/spec/target-access-v1.md` + `control-plane-runtime.md` (EN+DE) until PR #1324 (credential-access) merges (collision avoidance). No docs written; gated on #1324.
 
-**Candidate:** `284e0bd42381e7c5ec570aae716f8efe6044c374` (branch `work/r27-authority-fix`, base `48aa35ad`).
+**Candidate:** `9dcf874287e92564e172037820767b8c31595254` (branch `work/r27-authority-fix`, base `284e0bd4`, cycle-break base `48aa35ad`).
