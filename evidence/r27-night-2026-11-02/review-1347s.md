@@ -1,5 +1,11 @@
 # Review 1347s
 
+## Fortsetzung nach /tmp-Bereinigung
+
+ROLLE=REVIEW. **Urteil: BLOCKED-LAUFZEIT; kein Abschlussurteil.** Einmaliger, durch die weiterhin geltende 90-Sekunden-Regel begrenzter Lauf: `TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go test ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|List|Guard|Retention|Vanish' -timeout 8m -count=1 -v`. Der Build gelang, mehrere ausgewählte Tests bestanden, aber der äußere 90-Sekunden-Timeout beendete den noch laufenden Sammeltest mit Exit 124 (`cmd/baha` 76.686s). Zuletzt aktiv: `TestApplicationDestructionRequiresCurrentOuterScopeAndSeparateDataConsent` in `cmd/baha/application_destroy_authorization_test.go:36`; der frühere Stack verortete das Warten in `Compose.ListRuntimeContainers` und einem Kindprozess. Die Suite ist unvollständig; kein PASS und kein Produktfehler daraus abgeleitet. Keine Wiederholung. Der bestandene Deployment-/Delivery-Lauf und der unabhängige Prioritätstest sind unten dokumentiert; Installation-ID-Bindung bleibt delegiert.
+
+`git ls-remote` vor und nach dem Lauf: PR `be00b1c8ca7e39c063c75f154c1e3c3fe21f01d5`, develop `1706272c3e8d53d37cf4da8f9f1411e5fe419a94`. Nächster Schritt: CLI-Pflichtlauf bzw. dessen Umgebungsblockade außerhalb dieser zeitbegrenzten Review-Sandbox abschließend belegen; danach vollständige Matrix beurteilen. Kein Merge.
+
 ## Re-Attempt mit vorgegebenem CLI-Lauf
 
 ROLLE=REVIEW. **Urteil: BLOCKED (Disk-Quota beim Build), kein Abschlussurteil.** Der unveränderte Kandidat und die bereits dokumentierten positiven Deployment-/Delivery- und unabhängigen Prioritätsbefunde bleiben gültig; der CLI-Pflichtlauf ist weiterhin nicht absolviert. Es handelt sich hier nicht um den 90-Sekunden-Laufzeitfall, sondern um einen sofortigen Buildfehler.

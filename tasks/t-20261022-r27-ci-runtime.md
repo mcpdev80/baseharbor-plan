@@ -66,3 +66,10 @@ Separate current CI baseline readiness from later tests of product interfaces th
 ## Current CI contract — 2026-11-03
 
 The Owner retires the evidence and receipt approval chain. This task supplies only the missing ordinary test selection/execution for its domain. Job results flow through normal dependencies; no gate manifests, archived-run verification or evidence reuse. The only CI receipt is merge SHA plus PR number. The replacement baseline task remains open until its actual checks pass.
+
+
+## Coordinator-Vermerk 2026-11-03 (Ancestry-Evidenzpflicht)
+Kandidaten auf dieser Karte müssen im Evidence-Handoff die wörtliche Ausgabe von
+`git merge-base --is-ancestor origin/develop HEAD; echo rc=$?` (rc=0) auf dem Remote-Head
+ausweisen. Ein PR auf nicht-aktuellem develop-Basisstand gilt als unvollständiger Kandidat,
+unabhängig von CI-Grün auf alter Basis (Vorfall: PR #1356 head d8170d47, review-1356a REJECT).
