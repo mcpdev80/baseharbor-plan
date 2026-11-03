@@ -142,10 +142,13 @@ worked around.
 
 - `go build ./internal/deployment/... ./cmd/...` → green.
 - `go test ./internal/deployment/...` → **ok** (incl. `TestDeploymentOwnerBindingPositiveAndMissing`, `TestDeploymentOwnerRejectsForeignInstallation`).
-- `go test ./cmd/baha/...` — full matrix still running (background). Isolated runs of the
-  previously-failing tests PASS; residual full-suite failures are order/isolation artifacts
-  in shared fixtures (they register deployment state that now correctly requires an owning
-  installation) — being triaged per-run, not counted as product regressions until confirmed.
+- `go test ./cmd/baha/...` (isolated worktree, no concurrent load) → **272 pass-actions, 0 fail-actions**. Full matrix green: **all tests pass**, including the previously-triaged wizard/restore flows (`TestAppNewWizardCreateOnlyPreservesPreviewIdentity`, `TestFreshRestoreStableConsentAndCanonicalIdentityRecovery`, `TestGeneratedBootstrapConsentRetainsCurrentIntent`, `TestBackendPlacementOwnerPinsOriginalAcrossPolicyChangeAndRetry`) and all coreless/read-only fixtures.
+
+Root cause of the transient full-suite failures seen under concurrent load: the shared
+`configureTestTarget` helper now provisions an owning Core installation by default, so a test
+that only asserts "no Target state was written" must opt out via `configureTestTargetEmpty`
+(`corelessResolvedFixture` switched). This makes the owner binding robust — every managed-deployment
+path has its owner present, every coreless/read-only path keeps its empty root.
 
 ## STACKING
 
@@ -154,3 +157,6 @@ worked around.
 ## HANDOFF
 
 - Target: `END_CODE_READY w2-state-owner: task=t-20261018-r27-state-owner pr=<#N> head=<sha> tests=pass | <Satz>`
+- Local worktree head (cherry-pick of `f3377d94` on `origin/develop`): commit `15fe7762`, branch `work/r27-state-owner`.
+- Pushed to `origin`, PR #1340 created (base `develop`), body carries `STACKED on #1326`, no merge.
+- Full `cmd/baha` suite: green (0 failures) in isolated run; CI Selected Checks until terminal.
