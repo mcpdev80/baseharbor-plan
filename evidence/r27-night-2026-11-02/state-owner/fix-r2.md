@@ -21,4 +21,4 @@ Evidence contract: plain bullets, no checkboxes.
 
 ## END line
 
-END_DONE s2-stateowner-r2: f3abccc3 PR #1347 fix round — seam enforcement + tenant-bypass removal + symlink hardening; ID-binding deferred to authority contract (Owner decision). Candidate pushed FF, remote ls-remote verified. internal/deployment green. cmd/baha: only pre-existing docker-unavailable/env failures remain.
+END_DONE s2-stateowner-r2: 47c1993d PR #1347 fix round — seam enforcement + tenant-bypass removal + symlink hardening; ID-binding deferred to authority contract (Owner decision). Merge origin/develop, pushed FF, remote ls-remote=47c1993d, merge-base proof rc=0 (develop ancestor). internal/deployment + affected cmd/baha green; only pre-existing docker-unavailable/env failures remain.
