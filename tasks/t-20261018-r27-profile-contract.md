@@ -9,7 +9,7 @@ priority: critical
 owner: codeman-coordinator (w1-profile lane)
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1324"]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -18,20 +18,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/active #view/active #area/access #kind/architecture
+- [ ] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/review #view/review #area/access #kind/architecture
     <!-- generated:card -->
     **Owner:** codeman-coordinator (w1-profile lane) · **Priority:** critical  
+    **PR:** [baseharbor#1324](https://github.com/mcpdev80/baseharbor/pull/1324)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Owner:** codeman-coordinator (w1-profile lane)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1324](https://github.com/mcpdev80/baseharbor/pull/1324)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -116,3 +117,10 @@ rules, self-consistency + recipient/window checks, fixtures, and documentation t
 (no test-authored no-op orchestrator presented as evidence). Still in-scope now: golden-decoded
 AEAD roundtrip test, independent per-negative profile copies, and EN/DE docs corrections including
 valid links to planning destinations (not repo-absent tasks/ paths).
+
+### Coordinator acceptance note (2026-11-03, r1324n)
+
+CODEX-REVIEW verdict on head 775f7a23: **ACCEPT-WITH-DEFERRAL** (evidence/r27-night-2026-11-02/review-1324n.md).
+Formal deferrals tracked on follow-up cards: independent CA/installation/scope binding + trusted time
+-> authority-contract and state-owner; import side effects -> consumer cards (ci-access, native-auth);
+production DR wiring -> follow-up. Merge pending via CODEX-MERGE; card closes on merge proof.
