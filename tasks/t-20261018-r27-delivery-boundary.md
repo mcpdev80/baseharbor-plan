@@ -57,3 +57,11 @@ Focused delivery contract and delegated-owner denial fixtures; docs/link/EN-DE; 
 ## Handoff
 
 Planned/unassigned, 2026-10-18. Maintainer requested native standards, real stage/version operation, existing registries/CI/GitOps and a thin promotion operation. No product implementation or release action started.
+
+### Coordinator ownership decision (2026-11-03, night wave)
+
+For the one-writer production guard (acceptance clause 1) the lane may make the minimal
+integration edit in internal/deployment/deployment_store.go at SaveDeploymentRecord (read-only check
+hook + one regression test file); all other files in internal/deployment stay read-only. Shared decision
+indexes remain owned by public-surfaces per card; decision/index.md entries for ADR 0022 are allowed as
+navigation-only additions. Recorded here per card rule update dependencies/ownership before work.
