@@ -20,7 +20,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
+    **Needs:** [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
