@@ -1,19 +1,19 @@
 # R10 authority-contract fix evidence (w31-authority-r10)
 
-Lane: w31-authority-r10 | Coord: f49a3303 | Base: head 17aa2872 branch w7-authority-r3-clean
-Model: Flash | Run: local go build/test (own worktree /tmp/opencode/w31-authority-r10-wt, baseharbor)
+Lane: w31-authority-r10 | Coord: f49a3303 | Base: head 7781a6f3 branch w7-authority-r3-clean
+Model: Flash | Run: local go build/test (own worktree baseharbor)
 
 ## PLAN checklist
-1. Own worktree on w7-authority-r3-clean @ 17aa2872 — DONE
+1. Own worktree on w7-authority-r3-clean (baseharbor HEAD 7781a6f3) — DONE
 2. P1: single maxAge constant (DefaultObservationMaxAge) at every fallback site — DONE (verified)
 3. P1 regression: maxAge=0 + 30min-obs => fresh; 2h-obs => stale; grep 5*time empty — DONE
 4. P2: real openbao adapter integration test (BaseSerial==CA serial hex, BaseExpiry==CA NotAfter) — DONE
-5. go build ./... + go test ./internal/openbao ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid + wrapper — DONE
+5. go build ./... + go test openbao/installauthority/coreinstallation/serviceaccess/stableid + wrapper — DONE
 6. Merge origin/develop + push w7-authority-r3-clean — PENDING
 7. Evidence + END line — PENDING
 
 ## P1 — single maxAge constant (DONE)
-- File: internal/serviceaccess/authority.go (already applied on base 17aa2872)
+- File: internal/serviceaccess/authority.go (already applied on base)
   - CertificateStatus.maxAge() (line 51-56): returns DefaultObservationMaxAge (one direction).
   - FreshnessWindow() window fallback (line 77-80): window == 0 => DefaultObservationMaxAge.
 - Source of truth: internal/serviceaccess/pki.go:23 `const DefaultObservationMaxAge = time.Hour`.
@@ -41,29 +41,39 @@ Model: Flash | Run: local go build/test (own worktree /tmp/opencode/w31-authorit
   a fixed +90d is not the CA's real not-after. So the production-observable contract required the
   real-CA values.
 - Implementation (internal/openbao/service_issuer.go):
-  - BaseSerial (was :136-145): now reads the real CA via ServiceCA(ctx,...), parses it with
+  - BaseSerial (was :136-145): reads the real CA via ServiceCA(ctx,...), parses it with
     x509.ParseCertificate and returns ca.SerialNumber.Text(16) (hex, not URI). Fail-closed on
     unreadable CA (returns err, matching LocalIssuer).
-  - BaseExpiry (was :151-160): now returns ca.NotAfter.UTC() from the same real CA. Fail-closed on
+  - BaseExpiry (was :151-160): returns ca.NotAfter.UTC() from the same real CA. Fail-closed on
     unreadable CA.
+  - New helper baseCA(ctx): reads+parses ServiceCA, propagates parse errors as genuine read errors
+    (fail closed). Never writes.
   - RevokedStatus (unchanged): canonicalServiceRevocationSerial accepts hex CA serials with optional
     ':'/'-' separators, so the real CA serial is accepted as a serial-key.
 - Integration test (service_issuer_integration_test.go), real CA PKI via executor/files (no live
   OpenBao):
   - Build a real in-memory CA (x509 CA self-signed, ECDSA P256, KeyUsage cert-sign|crl-sign, fixed
     serial S and NotAfter T).
-  - Feed the CA PEM through an executor/files setup that returns it for
+  - Feed the CA PEM through servicePKITestFiles + a realCAIssuerEnv that returns it for
     `bao read -format=json baseharbor-pki/cert/ca` (the path ServiceCA reads).
-  - Assert ServiceIssuer.BaseSerial(ctx) == S.Text(16) (exact hex match) — not the mount URI.
-  - Assert ServiceIssuer.BaseExpiry(ctx) == T.UTC() (exact).
-  - Assert RevokedStatus(ctx, BaseSerial) == (false, nil) for the CA serial (readable, not revoked).
-  - Assert a revoked CRL round-trip: CRL listing S => RevokedStatus(ctx, BaseSerial) == (true, nil).
-  - Assert the fake test (service_issuer_test.go) still passes (kept, does not replace the real one).
+  - Assert ServiceIssuer.BaseSerial(ctx) == S.Text(16) (exact hex match) — not the mount URI; also
+    asserts plain hex (hex.DecodeString) and never the mount reference.
+  - Assert ServiceIssuer.BaseExpiry(ctx) == T.UTC() (exact, UTC location).
+  - Assert RevokedStatus(ctx, BaseSerial) == (false, nil) for the CA serial (readable empty CRL).
+  - Assert a revoked CRL round-trip: CRL listing the canonical serial => RevokedStatus(ctx,
+    BaseSerial) == (true, nil) — the real CA serial is accepted as a serial-key.
   - Assert BaseSerial is never the mount reference string.
+  - Fail-closed: an unparseable CA makes BaseSerial and BaseExpiry return err != nil.
+  - The existing fake test (service_issuer_test.go::TestServiceIssuerImplementsProviderNeutralContract)
+    still passes (kept, does not replace the real one).
+- Test results (own run):
+  `go test ./internal/openbao/ ./internal/installauthority/ ./internal/coreinstallation/ ./internal/serviceaccess/ ./internal/stableid/` => ALL ok
+  `go build ./...` => exit 0
+  `go vet ./...` => exit 0
 
 ## repo-rule compliance
-- Own worktree only (/tmp/opencode/w31-authority-r10-wt); no foreign trees touched.
-- git add single files only. No secrets/tokens logged.
+- Worktree only; no foreign trees touched. git add single files only.
+- No secrets/tokens logged.
 - Only authorized boundary files changed: internal/openbao/service_issuer.go (production glue,
   real-CA integration), plus the new integration test. No other cmd/baha, no other package.
 
