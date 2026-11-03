@@ -14,18 +14,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1324n.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/merge-1324.md"]
 ---
 
-- [ ] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/review #view/review #area/access #kind/architecture
+- [x] t-20261018-r27-profile-contract · Access: define portable connection and device profile records #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/architecture
     <!-- generated:card -->
     **Owner:** codeman-coordinator (w1-profile lane) · **Priority:** critical  
     **PR:** [baseharbor#1324](https://github.com/mcpdev80/baseharbor/pull/1324)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1324n.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/merge-1324.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
