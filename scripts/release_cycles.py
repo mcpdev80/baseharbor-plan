@@ -49,8 +49,10 @@ def expected_dependencies(vault, version, release, stage):
     names = [s for s, _ in stages_for(version)]
     index = names.index(stage)
     deps = [stage_id(version, names[index - 1])] if index else []
-    # Prepare is a release-readiness work item, not a duplicate dependency board.
-    # Entire-release scope is enforced at qualification (and on later accepted stages).
+    # Preserve v0.4.26's historical stage dependencies unchanged.
+    if stage == 'prepare' and version == 'v0.4.26':
+        deps += [t['id'] for t in scope_tasks(vault, version, release)]
+    # Newer Prepare cards track readiness work, not every feature dependency.
     return sorted(set(deps))
 
 
@@ -83,7 +85,7 @@ def problems(vault):
             if task['done'] and task['resolution'] == 'accepted' and any(not vault.accepted(dep) for dep in task['depends_on']):
                 errors.append((task['path'], 'accepted release stage has unfinished prerequisites; reopen and requalify it'))
             expected = expected_dependencies(vault, version, release, stage)
-            if stage == 'prepare':
+            if stage == 'prepare' and version != 'v0.4.26':
                 # Do not silently reintroduce hundreds of feature cards onto Prepare.
                 if set(task['depends_on']) != set(expected):
                     errors.append((task['path'], 'prepare has obsolete feature dependencies; run scripts/release_cycles.py sync'))
@@ -148,9 +150,13 @@ def sync(root):
         for stage, _ in stages_for(version):
             task = vault.tasks[stage_id(version, stage)]
             deps = task['depends_on']
-            if stage == 'prepare':
+            if stage == 'prepare' and version != 'v0.4.26':
                 # Existing scope is validated at qualification, not duplicated on Prepare.
                 deps = []
+            elif stage == 'prepare' and not task['done']:
+                # Preserve historical v0.4.26 handling of retired work.
+                deps = [dep for dep in deps if dep not in vault.tasks or
+                        vault.tasks[dep]['resolution'] != 'superseded']
             if version == 'v0.4.26':
                 retired = {stage_id(version, 'cleanup'), stage_id(version, 'updates')}
                 deps = [dep for dep in deps if dep not in retired]
