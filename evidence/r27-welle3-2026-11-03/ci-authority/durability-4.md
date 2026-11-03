@@ -10,7 +10,13 @@
 - STOP: punkt 3 erfordert entry-groessen-policy die der karte widerspricht => END_BLOCKED mit kartenzeile.
 
 ## END
-- Status: <PENDING — to update on completion/blocked>
+- Status: BLOCKED (awaiting Owner scope call on P1) — implementation done for P1-P4, one existing round-3 test conflicts with mission P1's "running stays running". QUESTION line posted to f49a3303 (176 pending).
+
+## Pending scope decision (posted QUESTION, awaiting Owner)
+- Mission P1 mandates `running` be restored on reopen (Gegentest: create->start(running)->reload == running).
+- I implemented it (operation_id in journal line + load; load restores last-state-per-id incl. running; fixed latent segment-order bug so newest active segment wins on reopen).
+- Conflict: `TestRound3LoadRestoresOnlyTerminalStates` asserts a standalone `running` journal line must NOT be restored — the OLD design the review flagged as finding 1.
+- Awaiting Owner: (A) flip the assertion to the new contract, or (B) restore running only from active segment (not rotated backups).
 
 ## PLAN (numbered)
 1. Fetch origin refs (`work/r27-ci-authority-ab` + `develop`), ancestry rc=0 WÖRLICH, worktree add `/tmp/opencode/w58-ci-authority-d-wt` on `work/r27-ci-authority-ab`, verify head/PR status.
