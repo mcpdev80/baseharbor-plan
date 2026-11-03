@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
   group: validate-${{ github.ref }}
@@ -20,20 +20,6 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-      - name: Sync generated planning files for PR16
-        if: github.event_name == 'pull_request' && github.head_ref == 'fix/r27-release-prepare-board-separation'
-        run: |
-          python3 scripts/release_cycles.py sync
-          python3 scripts/plan.py render
-          python3 scripts/plan.py check
-          python3 -m unittest discover -s scripts/tests
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -u
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(planning): render release cards and CardBoard views"
-            git push origin HEAD:fix/r27-release-prepare-board-separation
-          fi
       - name: Unit tests
         run: python3 -m unittest discover -s scripts/tests -v
       - name: Validate vault and generated files
