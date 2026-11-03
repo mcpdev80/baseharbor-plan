@@ -52,9 +52,13 @@ unreadable":
 TMPDIR=/tmp go test ./internal/deployment ./internal/delivery + go build ./... + go vet
 
 ## Ansende
-- merge origin/develop (is-ancestor rc=0)
-- write-set grep-leer (.github/scripts)
-- push, ls-remote == head
+- run w15-mergeblock.sh: git fetch (develop=9a57107f, branch=8c46bb18) + git merge origin/develop
+- Merge commit 20f93e9a (parents: 8c46bb18 + 9a57107f); conflict markers: NONE (clean auto-merge)
+- build via -buildvcs=false (VCS stamping fails on detached-HEAD worktree, non-fatal); go vet PASS; go test PASS
+- push origin HEAD:work/r27-delivery-boundary → 8c46bb18..20f93e9a
+- ls-remote work/r27-delivery-boundary == 20f93e9a (== head)
+- is-ancestor 9a57107f HEAD => ANCESTOR_RC=0
+- my fix content (code + B1/B2/B3/B4 + 2 tests) verified present in merge HEAD
 
 ## END
-END_DONE w15-delivery-retention: head=<sha> retention-failclosed=4tests
+END_DONE w15-delivery-retention: head=8c46bb18f9b74c9e1098f1d854e6d6cbf66eee6a retention-failclosed=4tests
