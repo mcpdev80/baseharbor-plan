@@ -12,11 +12,11 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: [https://github.com/mcpdev80/baseharbor/actions/runs/41622395038]
 ---
 
-- [ ] t-20261023-appid-repo-workflow-proof · execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate #task #release/v0-4-27 #status/active #view/active #kind/task
+- [x] t-20261023-appid-repo-workflow-proof · execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate #task #release/v0-4-27 #status/closed #view/closed #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w33)  
     <!-- /generated:card -->
@@ -66,6 +66,7 @@ The existing `Runtime · Docker Core` workflow executes its normal serial runtim
 
 ## Handoff
 
+- 2026-11-03: Owner-authorized acceptance based on existing normal workflow [Runtime · Docker Core run #41622395038](https://github.com/mcpdev80/baseharbor/actions/runs/41622395038), job `docker-runtime` SUCCESS. Exact checked-out develop candidate and built commit: `1706272c3e8d53d37cf4da8f9f1411e5fe419a94`; rootless Docker engine verified; `BASEHARBOR_CI_RUNTIME_INTEGRATION=1`. Go JSON test output explicitly records `TestRepositoryWorkflowRealLifecycle` `run` then `pass` (96.74s; no skip). The test reported owned runtime absent after retirement, canonical identity/data/material retained, and unrelated shared installation unchanged. Final job output: `All eight required Docker runtime tests executed and passed.` Existing required runtime cleanup completed. No product merge, additional receipt, or new workflow trigger needed.
 - Current state and ordinary execution results, newest first.
 - 2026-11-03: Owner-authorized execution started via the existing push trigger. Temporary branch `runtime-validation/docker/appid-repo-1706272c` points exactly to `1706272c3e8d53d37cf4da8f9f1411e5fe419a94`; no source commit or product merge was created. Ordinary execution: https://github.com/mcpdev80/baseharbor/actions/runs/41622395038. Administrative blocker removed; native test execution remains pending. The historical handoffs below describe the earlier CI design and do not reinstate it.
 - 2026-10-24 (o113): state remains waiting; v0.4.27 release-start updates unaccepted. CI-explicit-candidate-trigger #1055 is an unqualified draft PR (head work/ci-explicit-candidate-trigger-20261024) in the develop merge window; no acceptance is recorded. Resolution documented here only because the schema forbids a free-text resolution field on a non-checked card.
