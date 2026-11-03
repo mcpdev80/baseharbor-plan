@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 2 |
 | blocked | 1 |
-| ready | 1 |
+| ready | 0 |
 | queued | 26 |
 | waiting | 213 |
 | backlog | 7 |
@@ -25,6 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | Deployment: define immutable source and image submission | active | critical | coord-welle3 (lane w39) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md) | — |
+| [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | Deferred trusted CI readiness: access | active | critical | ornith | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | Deferred trusted CI readiness: authority | active | critical | coord-welle3 (lane w41) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | Deferred trusted CI readiness: runtime | active | critical | coord-welle3 (lane w42) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261023-appid-repo-workflow-proof](../tasks/t-20261023-appid-repo-workflow-proof.md) | execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate | active | not set | coord-welle3 (lane w33) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -49,9 +50,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready to assign
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | Deferred trusted CI readiness: access | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
+None.
 
 ## By release
 
