@@ -1,0 +1,14 @@
+# PR #1351 Re-Review c83a5654
+
+ROLLE=REVIEW, kein Merge. **Urteil: ACCEPT** für den Fixture-Fix. Task `t-20261023-appid-test-env-dep`; Reviewer Codex GPT-6 (exakte Variante nicht exponiert). Head `c83a56542493c73eb6fc35eedf53cb0bdf5dbc66`, tree `175f1464701bd400d129447c707cd7ed44494913`; develop `5813ef8581feb0cb7943038ab1c44545186f650f` ist Vorfahr. `git ls-remote` vor/nach bestätigt beide; PR OPEN / CLEAN. SHA-genaues Archiv; Kandidat nicht verändert.
+
+## Prüfung
+
+- Der neue `internal/testsupport/externalprovider/seed.go` legt eine private Test-State-Root an, setzt `BASEHARBOR_STATE_DIR`, registriert über den echten `application.RegisterExternalProviderAt` und bindet den daraus gelesenen Provider über `capability.RegistryStore` im konkreten Target. Produktions-Owner-Prüfungen bleiben aktiv; keine CI-Umgebungsmarker oder Test-Skips. Der einzige produktnahe Diff ist die Fixture-Änderung in `cmd/baha/provider_external_removal_test.go`; laut Coordinator-Scope-Note auf der Taskkarte sind cmd/baha-Testdateien explizit autorisiert. Keine `.github`-/`scripts`- oder Produktlogikänderung.
+- `GOCACHE=/tmp/opencode/gc TMPDIR=/tmp/opencode XDG_DATA_HOME=/tmp/bh1351b-data XDG_CONFIG_HOME=/tmp/bh1351b-config go test ./cmd/baha -run TestExternalProviderRemoval -count=1 -timeout 8m`: **PASS** (0.055s).
+- Kausalitäts-Gegenprobe ausschließlich im temporären Review-Archiv: `cmd/baha/provider_external_removal_test.go` aus `develop` wiederhergestellt, damit Aufruf und Import des neuen Helpers entfernt; alle anderen Kandidatendateien unverändert. Derselbe Befehl/same XDG/TMP/GOCACHE: **FAIL** in allen drei Testgruppen mit `provider-registry-ownership-unverifiable` (`provider_external_removal_test.go:53, :122, :151`). Der Vergleich belegt die Abhängigkeit von der Fixture-Änderung; er isoliert nicht jede einzelne Helper-Anweisung. Nicht gepusht.
+- GitHub Actions Run [41649649612](https://github.com/mcpdev80/baseharbor/actions/runs/41649649612) ist für diesen Head COMPLETED/SUCCESS; Source format und PR Selected Checks SUCCESS. Der erfolgreiche Job `PR · Validation · go-unit-tests` (125964186839) führt `go test ./... -count=1` aus und meldet `ok github.com/mcpdev80/baseharbor/cmd/baha 355.643s`; der gezielte Test ist damit im unfiltrierten Paketlauf enthalten, aber der nicht-verbose Log belegt kein individuelles Testresultat. Der separate cli-guided-Job filtert nur `^TestGuided` und ist kein Einzelbeleg für diesen Test. Vor Merge kann die Karte `clean develop` mit dem Fix noch nicht als grün behauptet werden; nach Merge ggf. den dortigen Stand bestätigen.
+
+## Rezept für Nachverfolgung
+
+Nach einem separat autorisierten Merge den geforderten Test auf dem neuen develop mit derselben isolierten Umgebung prüfen und die Task-Evidence aktualisieren. Das ist keine Merge-Ausführung durch dieses Review.
