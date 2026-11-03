@@ -35,16 +35,26 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+`TestExternalProviderRemoval*` (and any provider-registry ownership checks) pass or fail based on the code's
+ownership logic alone — identical results in a local isolated run (TMPDIR/XDG under /tmp/opencode) and on a
+hosted runner — with no reliance on CI-runner ambient state. Documented failure `provider-registry-ownership-unverifiable`
+must only occur for genuinely unverifiable state, never because the environment lacks a runner hint.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: test fixtures/helpers in `internal/**` and `internal/testsupport/**` that seed provider-registry
+  ownership state; deterministic setup/teardown independent of ambient env.
+- Out of scope: `.github/**` and `scripts/**` (Owner's CI territory); product runtime behavior changes; the
+  app.id parser fixture (t-20261020) and the CI-planner lane (#1047).
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- `TMPDIR=/tmp/opencode go test ./cmd/baha -run 'TestExternalProviderRemoval' -count=1` passes locally with
+  no CI-only skips; the same command passes on the hosted PR run of the same head.
+- No test asserts via ambient CI markers; ownership state is seeded by fixtures explicitly.
+- Evidence file lists local run output and the hosted run id/url for the identical head.
+- Reviews' repeated note "pre-existing env fail, equal on clean develop" is resolved: clean develop run of
+  the fixed test is green.
 
 ## Required checks
 
