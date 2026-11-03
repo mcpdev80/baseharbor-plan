@@ -21,3 +21,9 @@
 - DONE. head=bcb7b54a8c378e84c93e28de4e8b08c60cc810a1. crlfailclosed=3wrapper observedAt=e2e3.
 - FF merge origin/develop (9a57107f is ancestor, .github net-diff empty) then commit bcb7b54a on w7-authority-r3-clean (f58fb180); FF push f58fb180..bcb7b54a; ls-remote==head.
 - go build ./... rc=0; go vet openbao/cmd/baha rc=0; focused pkg tests green; wrapper e2e TestResolveManagementConnectionIssuerSuppliesObservedAtFreshness green and regression-guarded (future case fails with old time.Now()).
+
+## STOP-BESTÄTIGUNG (Owner-Hinweis)
+- END bcb7b54a eingetroffen; commit ist im Review-Kreis.
+- KEIN ungespeichertes/unpushstes Änderungsstück dieser Lane — alles ist als bcb7b54a gepusht.
+- KEINE Zusatzarbeit mehr an w7-authority-r3-clean; working tree des Worktrees clean.
+- NICHTS mehr pushen; Branch unverlassen. Next points (CRL-Struktur, Expiry/Identity, Single-Source) laufen frische Lane w19 auf dieser Basis.

@@ -135,3 +135,11 @@ authorized wrapper only. `observedThroughBoundary` no longer issues a leaf (no `
 verification path) — it observes the existing connection through `BaseSerial`/`BaseExpiry`. EN/DE
 `target-access-v1.md` state the call-site fan-out deferral to the state-owner lane. Only the
 authorized `cmd/baha/application_service_issuer.go` (+ its test) changed among cmd files.
+
+### Coordinator note on identity cross-binding deferral (2026-11-03, review-1326f)
+
+The card contract line (serviceaccess.Issuer: issuer reference = identity, revocation =
+foreign rejection, ExpiresAt = freshness) does NOT include same-target identity cross-binding
+against an independently stored selection value; that check is deferred to the state-owner
+authority seams (installation-ID binding note on t-20261018-r27-state-owner, 2026-11-03).
+Expiry checking itself is REQUIRED on this card and is not deferred.
