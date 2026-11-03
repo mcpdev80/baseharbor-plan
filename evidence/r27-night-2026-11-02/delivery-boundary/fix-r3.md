@@ -1,48 +1,54 @@
-## r27 delivery-boundary — fix-r3 (last two-pixel guard fix)
+## r27 delivery-boundary — fix-r3 (serialization-bypass fix, lane w6-delivery-r5)
 
-**Lane:** w5-delivery-r4 (Coordinator f49a3303). **Role:** WORKER.
-**Base:** head `d2a88e09` (work/r27-delivery-boundary). **Candidate SHA:** `122ec95638c94164acef35db6a4d2f72fe854fc4` (tree `…`, pushed FF, remote confirmed via `git ls-remote`).
+**Lane:** w6-delivery-r5 (Coordinator f49a3303). **Role:** WORKER.
+**Base:** head `122ec956` (work/r27-delivery-boundary, r2 guard already landed).
+**Candidate SHA:** `8463417589b26b75dae5d26f13bb96c2bc30ae13` (two commits on the shared branch, FF, remote confirmed via `git ls-remote`).
 **Evidence path:** `baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r3.md`.
 
 ### Context
 
-PR #1333 was REJECTED at `review-1333c.md` (Codex GPT-6, session `01a19e29…`). Point 4 (history) is non-blocking, handled separately by the Coordinator. This micro-fix addresses review points **1** and **3** — the store guard is now *wortglaubwürdig* (credibly truthful): the one-writer guard reads an authoritative persisted owner instead of accepting a caller-forged `Observed.Owner`.
+PR #1333 re-review `review-1333d.md` (Codex GPT-6, 2026-11-03) REJECTED head `122ec956`. Point 1: the guard reads the persisted previous owner into `guardRecord`, checks `guardRecord`, but the JSON write still serialised the caller-supplied `record` — so a forged/empty `Observed.Owner` was persisted and a later direct read bypassed the guard. Point 3: `Conflict` carry was not wired into the guard. This micro-fix is exactly those two pixels plus honest EN/DE docs.
 
-### Root cause (review point 1)
+### Root cause
 
-`internal/deployment/deployment_store.go:SaveDeploymentRecord` ran `refuseOneWriterMutation(record)` on **caller-supplied** fields, and only read the previous record afterwards — for provider-preferences retention — without comparing its owner. The production hook `observeReconciliationOwner` (added on develop, removed here — see write-set) only set the real owner on the CLI apply path. Callers that bypass that hook (e.g. `internal/application/provider_preferences.go`, which calls `SaveDeploymentRecord` directly with a caller-supplied `Observed`) could forge `Observed.Owner=""` or `Owner=baseharbor` and overwrite a previously externally-owned record. The previously shipped tests constructed the second record with `OwnerExternal` already copied in, so they never exercised the attack.
+`SaveDeploymentRecord` built `guardRecord` = copy of `record` with the canonical `guardOwner` set, evaluated `refuseOneWriterMutation(guardRecord)` correctly, then did `json.MarshalIndent(record, ...)` — the caller's value, not `guardRecord`. A delegated update with a caller-forged `Observed.Owner` persisted that forged owner; the next direct read saw the forged/empty owner and passed the guard. `guardRecord` also only inherited the caller's own `Conflict` (empty), never the persisted previous conflict, so a recorded two-active-owner conflict was silently dropped on the next same-owner write.
 
-### Changes (candidate `122ec956` vs base `d2a88e09`)
+### Changes (candidate `84634175` vs base `122ec956`)
 
-- **`internal/deployment/deployment_store.go`** — moved the previous-record read ABOVE the one-writer guard. The guard now evaluates the **persisted** `previous.Observed.Owner` when a previous record exists; otherwise the applied selection's mode fixes the owner (a direct/BaseHarbor apply has no prior external owner, so the guarded happy path stays green). The caller-supplied `Observed.Owner` is never used by the guard. Preferences retention now only runs when `previousExists`.
-- **`cmd/baha/application_backend_placement_owner.go`** — restored to develop (`git checkout origin/develop -- …`): removed `observeReconciliationOwner` + the now-unused `delivery` import. The guard lives in the store; the CLI hook is outside the card's minimal write-set and callers bypass it anyway (review point 2, satisfied by centralizing in the store).
-- **`internal/deployment/one_writer_guard_test.go`** — replaced the two forgeable-field tests with attacker regression tests:
-  - `TestAttackerEmptyOwnerDoesNotMutateExternalProof`: seed external owner → submit `Owner=""` and forged `Owner=baseharbor` (Mode=direct), assert `ErrUnauthorizedMutation` and **no `deployment.json` written** (store/runtime no-mutation).
-  - `TestAttackerForgedBaseharborOwnerCannotMasquerade`: seed external → forged baseharbor direct apply → `ErrUnauthorizedMutation`, no mutation.
-  - Positive direct/delegated happy paths seeded first, remain green; `TestPersistedDirectOwnerPassesDirectApply` kept for the alt-gap.
-- **ADR 0022 (EN/DE) + `docs/spec/delivery-provider-v1.md` (EN/DE)** — present-tense detection verbs; decision §2 and spec state that the invariant is enforced at `SaveDeploymentRecord` *before any state is written* (now provably true); DE 'gleiche CA' no-GitOps negation corrected; DE ADR `fehlerfrei fehl` → `bei Konflikt fehl` (the prior reading meant "fails error-free", wrong).
+- `internal/deployment/deployment_store.go`:
+  - `SaveDeploymentRecord` now serialises `guardRecord` instead of `record`, so the persisted owner is canonical and any carried `Conflict` is written. When the guard refuses a mutation the file is never written (store bytes unchanged).
+  - The guard now carries a persisted-previous `Conflict` into `guardRecord` (`guardRecord.Observed.Conflict = true` only when `previous.Observed.Conflict`); a caller-supplied `Conflict` is never trusted.
+- `internal/deployment/one_writer_guard_test.go` (new, all pass):
+  - `TestForgedDelegatedUpdateThenDirectRefused`: seed external owner -> delegated update with caller-forged empty owner -> persisted owner stays canonical external -> subsequent direct (baseharbor) apply refused with `ErrUnauthorizedMutation`.
+  - `TestRejectedWriteLeavesBytesIdentical`: seed external owner -> attacker direct write refused -> `os.ReadFile` bytes before == after (store untouched).
+  - `TestPreviousConflictIsCarried`: hand-inject a conflict into the stored record -> same-owner update refused with `ErrConflictingOneWriter` (fail closed; conflict neither hidden nor cleared).
+  - Positive direct/delegated happy paths (pre-existing) remain green.
+- `docs/decisions/0022-...md` and `docs/de/decisions/0022-...md`: added a Scope / deferred-dependency section stating the invariant is enforced at record-save (`SaveDeploymentRecord`) and that cross-process active-reconciler observation is an explicit, not-yet-implemented dependency deferred until `t-20261018-r27-state-owner` + `t-20261018-r27-authority-contract` are accepted.
+- `docs/spec/delivery-provider-v1.md` (EN) and `docs/de/spec/delivery-provider-v1.md` (DE): same scope/deferred note.
+- No `.github/`, no `scripts/`, no `cmd/baha`.
 
 ### repo-rule compliance
 
-- Write-set inside card: no `.github/`, no `scripts/`, no CI files. Net diff: CLI file −48 lines (restored), store +42/−…, test rewritten, 2 ADRs + 2 specs wording only.
+- Write-set inside card: `internal/deployment/**` authorised + docs delivery-provider + 0022 EN/DE. Net diff 6 files; zero `.github`/`scripts`/`cmd` touches (`git diff --name-only 122ec956..84634175 | grep -E '^(\.github|scripts/|cmd/)'` is empty).
 - FF push on the shared branch (no force), no merge (mission STOP).
+- No hosted CI, no Run-Logs (mission).
 
 ### Verification (local, isolated)
 
 ```
 go build ./...                                   # ok
-go vet ./internal/deployment/ ./internal/delivery/ # ok
-TMPDIR=/tmp go test ./internal/deployment/ ./internal/delivery/ -count=1   # deployment: 5 guard tests PASS (1 pre-existing target_test.go env-isolation fail, identical on develop); delivery ok
-TMPDIR=/tmp BASEHARBOR_STATE_DIR=/tmp/... go test ./cmd/baha/ -count=1     # TestNoImpactPlan... PASS; net-zero regressions vs develop (same 282 shared-env isolation fails as develop)
+TMPDIR=/tmp go test ./internal/deployment/ ./internal/delivery/ -count=1
+   deployment: ok
+   delivery:   ok
+git diff --name-only 122ec956..84634175 | grep -E '^(\.github|scripts/|cmd/)'   # empty (CLEAN)
+git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-delivery-boundary
+   8463417589b26b75dae5d26f13bb96c2bc30ae13   (confirmed post-push)
 ```
-- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-delivery-boundary` → `122ec95638c94164acef35db6a4d2f72fe854fc4` (confirmed post-push).
-- No hosted CI logs (mission: none). Net diff includes no ADR 0021/target-access changes.
 
-### Review-1333c compliance
+### Review-1333d compliance
 
-1. **Resolved.** Authoritative resource-owner observation = the persisted previous record; selection normalized and checked at the mutation boundary (store guard); all conflict/unknown paths fail closed (`ErrConflictingOneWriter`/`ErrUnauthorizedMutation`); regression seeds external ownership and submits empty + forged BaseHarbor without copying the prior value; direct happy path stays green.
-2. **Resolved (minimized).** CLI file reduced to minimum — restored to develop since the store hook supersedes it; net diff 5 files, no CI files.
-3. **Resolved.** EN/DE ADR + specs describe actual implementation honestly (enforced at `SaveDeploymentRecord` before write); DE wording corrected.
-4. **Non-blocking** — history hygiene left to Coordinator (per mission).
+1. **Resolved.** Per-resource authoritative owner = persisted previous record; owner resolved and checked only through `guardRecord`; forged/empty caller owner cannot mutate a persisted external owner; `Conflict` carried from the previous record into the guard and persistence; every conflict/unknown path fails closed (`ErrConflictingOneWriter`/`ErrUnauthorizedMutation`); regression = actual delegated-then-direct bypass + byte-identity of a refused write + carried conflict; direct/delegated happy paths green.
+2. **Resolved (minimized).** EN/DE ADR + delivery-provider spec describe actual scope honestly (enforced at `SaveDeploymentRecord`); cross-process active-reconciler observation named explicitly as deferred; no non-taetliche runtime-lock claim.
+3. Non-blocking history hygiene left to Coordinator.
 
-**END lane DONE** — candidate `122ec956`, FF pushed, no merge. Two-attempt STOP not hit.
+**END lane DONE** — candidate `8463417589b26b75dae5d26f13bb96c2bc30ae13`, FF pushed, no merge. Two-attempt STOP not hit.

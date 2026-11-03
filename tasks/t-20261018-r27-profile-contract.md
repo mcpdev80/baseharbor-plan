@@ -96,3 +96,11 @@ anchor + installation/scope binding and the production consumer entry depend on
 t-20261018-r27-authority-contract + t-20261018-r27-state-owner (unaccepted, same files) — the spec
 must state this as required-but-enforced-later, removing any claim the profile path verifies them now.
 This is a documented deferral; misleading present-tense claims must still be corrected in this round.
+
+### Coordinator crypto decision on profile nonce (2026-11-03, night wave, r1324g)
+
+AEAD binding: AES-256-GCM (Go stdlib crypto/aes+cipher/gcm, NonceSize=12). The credential-export
+nonce is exactly 12 random bytes, canonically encoded as base64url without padding (16 characters,
+full octet count). chacha20-poly1305 is OUT unless it lands with its own 12-byte rule and tests; schema
+pattern, Go helper (reject non-canonical trailing bits and wrong length), fixtures, EN/DE all state THIS
+rule and an executable encrypt->decrypt round-trip test proves it per algorithm.
