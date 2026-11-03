@@ -40,5 +40,24 @@
 - go test ./internal/machinehttp -count=1 -timeout 8m:
 - PR Selected-Checks gate (journal): terminal green|rot — run-id:
 
+## #1360 RUN (coordinator re-dispatch — 2026-11-03, develop advanced to 2cadfcee)
+
+Coordinator note: #1359's base `747aed4a` was superseded by **#1360** (develop `2cadfcee`), the real fix for the meta-gate (strategy matrix now emits only `include` rows, no planner-metadata). Both branches re-merged against the current base. This is the authoritative result.
+
+- **Access** `work/r27-ci-access-ab` → **`6d806c2e4cb4c1c19dd2d6fa475b25392ec4cd0f`** (contains my `3796fdd` base + `2cadfcee`, develop is ancestor). PR **#1357**.
+- **Journal** `work/r27-ci-authority-ab` → **`bfb75813b516fdc00d78c9a93a0f0af5f6d2365c`** (contains my `f200624ffb` base + `2cadfcee`, develop is ancestor). PR **#1354**.
+- ls-remote == head both branches: ✓ (`6d806c2e`, `bfb75813`).
+- Both branches already carry develop `2cadfcee` (merge done by coordinator + Marcel; my local re-trigger `64c8aa76` was adopted by w57 then folded into the merge). Verified trees, not re-pushed (already at correct head).
+
+**Local mandated gates (fresh worktrees of the merge heads):**
+- Access `6d806c2e`: `go build ./...` → exit 0 ✓; `go test ./internal/runtimeexecutor -count=1` → `ok ... 0.060s` ✓
+- Journal `bfb75813`: `go build ./...` → exit 0 ✓; `go test ./internal/machinehttp -count=1 -timeout 8m` → `ok ... 10.071s` ✓
+
+**PR Selected-Checks gates (terminal):**
+- **PR #1357 (access)** — run `41722175406` **completed/success**. `PR Selected Checks: SUCCESS`; both `atomic/docker/lifecycle` and `atomic/podman/lifecycle` → COMPLETED SUCCESS. All gates green/skipped.
+- **PR #1354 (journal)** — run `41722145545` **completed/success**. `PR Selected Checks: SUCCESS`; both lifecycle runs → COMPLETED SUCCESS. All gates green/skipped.
+
+**Verdict:** gate=gruen(2x). The chain **#1358 → #1359 → #1360 → basemerge heals the gate**. On the stale `747aed4a` base the ancestry meta-check rejected the 2-parent integration candidate (`else → exit 1`, `pr_runtime_selected: failure`); with `2cadfcee` (#1360) the strategy matrix emits only include-rows and the lifecycle acceptance runs and passes on both PRs.
+
 ## END
-END_DONE w74-basemerge-two: access=<sha> journal=<sha> gate=gruen(2x)|rot(auszug) | <Satz>
+END_DONE w74-basemerge-two: access=6d806c2e journal=bfb75813 gate=gruen(2x) | both PRs #1357/#1354 PR Selected Checks completed/success (runs 41722175406/41722145545); #1360 heals the meta-gate
