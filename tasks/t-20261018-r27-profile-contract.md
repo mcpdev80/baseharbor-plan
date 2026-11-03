@@ -76,3 +76,11 @@ candidate I must NOT force-push/rewrite history; the audit gate is already green
 
 Terminal state: `8b01eda5` (my fold) + `0db72d35` (audit-parity fix, remote) → PR #1324
 `work/r27-profile-contract` @ `0db72d35`, base `develop`. No merge/release/tag.
+
+### Coordinator scope decision on finding 2 (2026-11-03, night wave)
+
+Integrated enforcement entry: bind validation to the EXISTING accepted surfaces on develop
+(internal/serviceaccess issuer identity/trust + ExpiresAt, contracts/connection-profile surfaces already
+in tree). Any genuinely absent predecessor interface must be named in the spec (EN/DE) as an explicit
+deferred dependency with a follow-up card reference; silent claims of enforcement are forbidden. This
+keeps the contract slice closeable while the full production consumer lands with its own card.

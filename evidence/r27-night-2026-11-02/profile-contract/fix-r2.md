@@ -25,10 +25,9 @@
 **Reviewer claim (review-1324b §3):** `Kind` tagged `json:"version"`, `Version` tagged `json:"kind"`; `profileFor` puts kind/version in those fields so normal marshaling swaps values and does not satisfy the schema. `TestWireRecordJSONTagsMatchSchema` checks key presence only, never marshaled bytes against schema. No consumer outside tests.
 
 **Analysis (verified against `profile.schema.json` + code):**
-- The tag swap on the Go struct is **intentional and required**: the schema declares `additionalProperties: false` with exactly the keys `version` (const) and `kind` (enum). The Go struct serializes the version marker `"baseharbor.management-access/v1"` into the JSON key `version` and the kind value (`management-profile`/`device-enrollment`/`credential-export`) into the JSON key `kind`. This is the documented contract (`ManagementAccessProfile` docstring lines 103-109 + schema). Changing the Go tags to `json:"kind"`/`json:"version"` would make the type **fail to validate** against the packaged schema. So the recipe's literal "correct tags" is not applicable here — the tags are correct; the *docstring* that describes the swap is what's misleading (it reads as if the swap is a bug).
-- **Fix (in-scope, no write-set breach):** (a) correct the misleading docstring on `ManagementAccessProfile` so it no longer frames the tag layout as a swap bug; (b) strengthen `TestWireRecordJSONTagsMatchSchema` to validate the round-trip (decode of marshaled bytes AND re-marshal of unmarshaled bytes) against the packaged schema with real semantic validation (both directions), replacing the key-presence-only check.
-
-**Evidence:** `profileFor(t)` already carries a real generated CA and matching fingerprint, so a round-trip against the schema is a genuine semantic check, not just key presence.
+- The tag swap on the Go struct was a **genuine bug**: with `Kind` tagged `json:"version"` and `Version` tagged `json:"kind"`, the Go field `Kind` (holding e.g. `management-profile`) serialized into the JSON key `version`, and the version marker serialized into key `kind`. A round-trip test against the packaged schema (`TestWireRecordJSONTagsRoundTrip`) caught this: `const: management-profile does not equal baseharbor.management-access/v1`. So the values were being written to the wrong schema slots and the record failed schema validation.
+- **Fix (in-scope):** (a) correct the Go struct tags — `Kind -> json:"kind"` (kind enum value), `Version -> json:"version"` (version marker) — so marshaled bytes satisfy the schema; (b) strengthen the test to validate the round-trip (decode of marshaled bytes AND re-marshal of unmarshaled bytes) against the packaged schema with real semantic validation (both directions); (c) correct the misleading docstring. The tags are now the contract, not a swap.
+- **Evidence:** `profileFor(t)` already carries a real generated CA and matching fingerprint, so the round-trip against the schema is a genuine semantic check, not just key presence. The round-trip test failed before the tag fix and passes after — proving the bug and the fix.
 
 ## Finding 5 — Fixtures (B5-GOLDEN)
 
@@ -67,6 +66,12 @@
 `TMPDIR=/tmp go test ./contracts/managementaccess/v1` + `go build ./...` run after each fix (see transcript). CI not evaluated (owner channel).
 
 ## End state
-- Findings 3, 5, 1, 4: fixed in worktree, locally verified.
+- Finding 3 (wire tags): **FIXED + committed** (`0e2e6d6c`). The Go struct tags were genuinely broken (marshaled bytes failed the packaged schema); corrected to `kind`/`version` and the round-trip test now validates both directions.
+- Finding 5 (fixtures): **FIXED + committed** (`4e4116ce`). Real generated test CA certs + matching fingerprints; goldens validated through real schema + `ValidateTrust`; negative mismatched-pin test.
+- Finding 1 (kind storage enforcement): **FIXED + committed** (`4e4116ce`).
+- Finding 4 (docs): **FIXED + committed** (`6fdc44e1`). EN/DE now match implemented behavior; EN/DE docs audit PASS.
 - Finding 2: **END_BLOCKED** at `contracts/managementaccess/v1/managementaccess.go:207-223` — integration entry needs authorities outside the write-set (connection-profile/Core scope resolver + host-trust anchor). Coordinator to extend ownership.
-- Handoff: `END_CODE_READY` (partial) / `END_BLOCKED` (finding 2) to coord f49a3303.
+- Work committed on lane branch `l4-profile-r2-fix` @ `6fdc44e1` (NOT force-pushed to the shared candidate `work/r27-profile-contract`). CI not evaluated (owner channel).
+- Handoff to coord f49a3303.
+
+## END_CODE_READY l4-profile-r2: head=6fdc44e1 findings=4 fixed (wire tags, golden fixtures, kind-storage, docs) + 1 END_BLOCKED (finding 2 integration: authorities outside write-set).
