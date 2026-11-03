@@ -38,4 +38,10 @@ All other matrix rows (one-use PARTIAL, import-grants-no-rights OPEN, deferred G
 
 ## END lane
 
-END_DONE | candidate SHA: pending (after push)
+END_DONE | candidate SHA: e57ecf89a3a0dbbac8a691a0c01b6e866789faa6 (PR #1324 `work/r27-profile-contract`, base develop) — verified via `git ls-remote`.
+
+- Commit `e57ecf89` (scoped to write-set only).
+- Tests: `TMPDIR=/tmp go test ./contracts/managementaccess/v1` → ok; `go build ./...` rc=0; `go vet` rc=0.
+- ANSANDE: `git fetch origin develop && git merge origin/develop` (already up to date); `git diff --name-only origin/develop...HEAD | grep -E '^(\.github|scripts/)'` → EMPTY.
+- No merge/CI-run/release/tag (candidate stays an unmerged PR).
+- No CI/scripts/cmd files; write-set strictly honored.
