@@ -41,4 +41,9 @@ $ TMPDIR=/tmp go test ./internal/delivery ./internal/deployment
 
 ## Handoff
 
-`END_... w4-delivery-r3: <one line + candidate SHA>`
+`END_CODE_READY w4-delivery-r3: head=d2a88e09aa75acc221d686f05ab2f8ca5598f4fa branch=work/r27-delivery-boundary (ls-remote verified, force-update after push race) | 3 commits? NO — 1 commit d2a88e09 on top of base be6ce48f: production populate Observed.Owner/.Conflict in recordBackendPlacementOwner (authoritative persisted-owner observation), ObservedDeployment.Conflict/Owner fields + ErrConflictingOneWriter/ErrUnauthorizedMutation + refuseOneWriterMutation guard in internal/deployment/deployment_store.go (apply path), one_writer_guard_test.go 6 tests through real SaveDeploymentRecord (positive direct/delegated, conflict fails closed, unauthorized direct refused under external owner, apply blocked by persisted external owner, persisted-external-owner wins over attacker-side client record, persisted baseharbor owner passes direct apply) | EN+DE delivery spec 0022 enforcement cross-reference added | go build ./... green; go test ./internal/delivery ./internal/deployment green | no CI files, no merge/release/tag, credential-access-v1.md untouched`
+
+---
+
+**END_CODE_READY** — all 3 mission steps complete; PR #1333 REJECT gap closed: the one-writer guard now reads an authoritative per-resource owner from the persisted record instead of an empty field.
+
