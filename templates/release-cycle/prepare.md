@@ -21,12 +21,12 @@ evidence: []
 
 ## Goal
 
-Finish every prerequisite for complete-ecosystem pre-release readiness.
+Prepare the ecosystem release-readiness dossier while feature work is tracked on CardBoard.
 
 ## Scope and acceptance
 
 - Apply canonical audit sections 1–8 and section 9 atomic-first prerequisites, plus RELEASE_WORKFLOW.md#prepare. Re-read current sources and workflows instead of copying obsolete v0.4.25 exceptions.
-- Accept all assigned implementation/CI/docs/consumer tasks and verify release-note/epic criteria, even when no executable children have been cut. Accepted cards alone do not prove release readiness; inspect deferred or waived test debts explicitly.
+- Track outstanding implementation/CI/docs/consumer scope in the existing feature cards, epics and release view, without copying all task dependencies into this preparation card. Inventory release-note/epic criteria and deferred or waived test debts; qualification remains blocked until all required scope is accepted.
 - Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor, Demo, Console and Node Connector compatibility; real supported developer journeys, auth/mTLS and cleanup tests.
 - Complete concise EN/DE docs/reference/specs, navigation/links, changelog and actual human release message, compatibility/security/upgrade/deferred notes, strict Pages candidate builds/workflow without deployment. Keep process rules out of the product README.
 - Freeze actual immutable ecosystem SHAs, candidate tree, gate requirements and required test inputs. Verify all required targeted checks, runtime/platform gates and consumer test execution; missing/failed/skipped/unverified requirements block readiness.
@@ -38,7 +38,7 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Dependencies and file ownership
 
-- Procedure and sources: [release workflow](https://github.com/mcpdev80/baseharbor-plan/blob/main/RELEASE_WORKFLOW.md#prepare). Stage dependencies are synchronized by `scripts/release_cycles.py sync`; do not weaken them manually.
+- Procedure and sources: [release workflow](https://github.com/mcpdev80/baseharbor-plan/blob/main/RELEASE_WORKFLOW.md#prepare). Stage dependencies are synchronized by `scripts/release_cycles.py sync`; all release scope is verified at qualification, not duplicated here.
 - Owner updates this task, its release-specific audit/evidence and existing authorized PRs; coordinate product files through their normal owners. Planning goes directly to main.
 
 ## Handoff
