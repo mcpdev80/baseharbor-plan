@@ -22,13 +22,13 @@ Decision (owner): base on remote `78b851d9`, implement R4 on top.
 
 ## Progress
 
-- [x] Step 1: worktree
-- [ ] Step 2: schema
-- [ ] Step 3: enroll binding
-- [ ] Step 4: docs
-- [ ] Step 5: golden one-use
-- [ ] Step 6: tests
-- [ ] Step 7: push + END
+- Step 1: worktree
+- Step 2: schema
+- Step 3: enroll binding
+- Step 4: docs
+- Step 5: golden one-use
+- Step 6: tests
+- Step 7: push + END
 
 ## repo-rule compliance
 
