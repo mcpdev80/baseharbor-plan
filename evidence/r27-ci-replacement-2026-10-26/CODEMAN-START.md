@@ -1,5 +1,13 @@
 # Codeman: v0.4.27 CI replacement — current work order
 
+## Current Owner order and verified state — 2026-11-03
+
+Rulesets stay disabled while CI is repaired. Receipts contain only merged commit SHA and PR number; they never query or reinterpret CI runs/jobs and have no separate approval chain. Normal CI remains mandatory in the development process; use GitHub-hosted runners only. No release or tag.
+
+Owner merged #1339 to main. The actual failure in run 41551273613 was execution of old main writer 74dd7659: #1342's Basic-auth repair existed only on develop. GitHub pull_request_target executes default-branch workflow/source, not the target develop source. #1343 now deploys the repair on main as 1c20b10bfcdf1fee5eb63d2c9d209fe9955e9a6d. The existing Planning PAT successfully published both missing commit receipts: [PR 1341 recovery](https://github.com/mcpdev80/baseharbor/actions/runs/41552421591) and [PR 1342 recovery](https://github.com/mcpdev80/baseharbor/actions/runs/41552425121). No new token is required.
+
+[Correction task](../../tasks/t-20261103-ci-receipt-source-recovery.md) owns receipt files. Develop parity [#1344](https://github.com/mcpdev80/baseharbor/pull/1344) awaits normal CI and automatic merge-trigger proof. Broader CI completion remains open: #1326 final check reports unknown impact for new coreinstallation/stableid/serviceaccess Go files; do not bypass it or take over active product-file claims. Existing historical V1 evidence is retained. Older statements that #1339 is unmerged or that productive receipt publication is unproven are superseded by this record.
+
 **Owner restart, 2026-10-29:** Codeman is authorized to work autonomously with multiple workers in small parallel iterations until the new CI is implemented, verified and enforced. There is no timebox or legacy-check fallback for feature development. This order supersedes older pause, deadline, fallback and fixed worker-count instructions. Preserve historical evidence and claims. This is not authorization to tag or publish a release.
 
 ## Owner clarification — 2026-11-02
