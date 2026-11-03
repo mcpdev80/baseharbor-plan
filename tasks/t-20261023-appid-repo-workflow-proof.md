@@ -16,16 +16,16 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1055"]
 ---
 
-- [ ] t-20261023-appid-repo-workflow-proof · prove native TestRepositoryWorkflowRealLifecycle on final develop head #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261023-appid-repo-workflow-proof · prove native TestRepositoryWorkflowRealLifecycle on final develop head #task #release/v0-4-27 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **PR:** [baseharbor#1055](https://github.com/mcpdev80/baseharbor/pull/1055)  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1055)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  

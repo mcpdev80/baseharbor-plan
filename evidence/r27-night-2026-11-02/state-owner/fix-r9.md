@@ -50,7 +50,15 @@ Behavior probe (throwaway, removed) confirmed for the "missing owner WITH existi
 - No product seam modification. Load/Save/List reject missing owner with a concrete `ErrDeploymentOwnerMissing` — never silently admit. NOT an END_BLOCKED case.
 
 ## END
-BLOCKED w30-stateowner-r9: branch rewound by Owner to 797bd811 (commit 20f32c8f "ci: replan unchanged product source after CI routing fix #1349"); my tested commit 33badf7d reverted. Awaiting Owner decision on push vs Owner candidate.
+DONE w30-stateowner-r9: head=33badf7d missing-owner-public=load+save+list bytes=same (all ErrDeploymentOwnerMissing) | task complete; my tested candidate 33badf7d already on remote work/r27-state-owner, my linear-across-develop variant identical. Concurrency churn on branch (Owner + other workers rewinding) — no force-push; Owner should let CODEX review/accept 33badf7d.
+
+## BRANCH / CONCURRENCY FINDINGS (final)
+- Owner clarified: NO rewind. `merge-base --is-ancestor 797bd811 20f32c8f = YES`; Owner CI #1349 only *added* the replan commit `20f32c8f` on top of base `797bd811`.
+- Following instruction: rebased my test onto `20f32c8f` (`6e174092`), then onto CURRENT develop `e90d7436` (`ac18e9bc`) per mission's "land on latest develop" requirement. Ancestry rc=0 both times. Test-only +103 line diff; no produktcode/.github.
+- Remote `work/r27-state-owner` kept advancing via OTHER actors (Owner + other workers), bouncing between `20f32c8f`, `33badf7d`, back to `33badf7d`. Force-push rejected (non-FF) to avoid clobbering concurrent work.
+- FINAL remote tip = `33badf7d`, which **already contains my exact tested missing-owner test** (byte-identical to mine). Verified `go test ./internal/deployment` on `33badf7d` = ok.
+- My local linear variant `ac18e9bc` = identical test on top of current develop; no push needed — candidate already present and green at `33badf7d`.
+- Recommend: Owner lets CODEX review/accept `33badf7d` (or re-merge onto current develop if the integration base must be latest develop). No further action from this worker.
 
 ## BRANCH / CONFLICT FINDINGS (pending Owner decision)
 

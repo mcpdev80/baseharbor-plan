@@ -13,19 +13,20 @@ prs: ["mcpdev80/baseharbor#1333"]
 sources: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1333q.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1333r.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/merge-1333.md"]
 ---
 
-- [ ] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/review #view/review #area/architecture #kind/architecture
+- [x] t-20261018-r27-delivery-boundary · Delivery: map native standards and one reconciliation owner #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** w2-delivery (lane) · **Priority:** critical  
     **PR:** [baseharbor#1333](https://github.com/mcpdev80/baseharbor/pull/1333)  
     **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1333q.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1333r.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/merge-1333.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
