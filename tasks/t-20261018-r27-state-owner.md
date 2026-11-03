@@ -9,7 +9,7 @@ priority: high
 owner: w2-state-owner
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1347"]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -18,21 +18,22 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
     **Owner:** w2-state-owner · **Priority:** high  
+    **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
     **Needs:** [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
 **Owner:** w2-state-owner  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
