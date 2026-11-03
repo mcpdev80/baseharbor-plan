@@ -1,7 +1,14 @@
 # Fix r4 — PR #1324 (task t-20261018-r27-profile-contract)
 
-**Lane:** l6-profile-r4 · **Coord:** f49a3303 · **Basis:** head `78b851d9` · **PR:** #1324
+**Lane:** l6-profile-r4 · **Coord:** f49a3303 · **Basis:** remote HEAD `78b851d9` (fusion-correct, tests green) · **PR:** #1324
 **Status in progress — lane DONE | BLOCKED line updated with END.**
+
+## Branch reconciliation (done before any edit)
+
+My alt-lane `353fc8a9` diverged from remote `78b851d9` (shared merge-base `8b01eda5`). Remote is fusion-correct and its tests pass; my lane had two real defects and was abandoned:
+- **Swapped struct tags:** `Kind -> json:"version"`, `Version -> json:"kind"` (confirmed via `go run` dump). Schema requires `version`=const and `kind`=enum, so golden fixtures would FAIL with my tags. Remote tags are correct.
+- `EnrollDevice` body was identical to remote (validate-after-enroll); the only divergence was an `Enforcer` interface.
+Decision (owner): base on remote `78b851d9`, implement R4 on top.
 
 ## PLAN
 
