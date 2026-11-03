@@ -111,3 +111,14 @@ and service_pki.go (Revoked predicate on the openbao issuer, mirroring the Local
 internal/serviceaccess/issuer.go (interface), and internal/testsupport/serviceissuer (fake with the
 method). These are accepted-boundary glue per the composition-wiring note; no behavior other than
 exposing revocation STATUS (no writes) may live there. Recorded before review.
+
+### Coordinator decision on production-selection wiring depth (2026-11-03, night wave, r1326c2)
+
+Punkt 2/3 production call-site wiring across the seven cmd/baha resolvers is DEFERRED to the
+consumer seam cards (t-20261018-r27-state-owner owns the deployment Load/Save seams; app-level
+mutation-phase Issue() side effects are explicitly out of contract scope for verification paths).
+THIS card must deliver: fail-closed revocation/observation predicates (no error path may yield
+'valid'), the installauthority boundary itself with production-shape tests through its own real
+functions, ObservedAt freshness inside Fresh, and EN/DE docs stating the wiring deferral with the
+named cards. resolveManagementConnectionIssuer stays as the documented integration point that
+consumers call; a test demonstrating it end-to-end is required, a cmd-side call fan-out is not.
