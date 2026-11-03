@@ -22,7 +22,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1220"]
     **Owner:** marcel  
     **PR:** [baseharbor#1220](https://github.com/mcpdev80/baseharbor/pull/1220)  
     **Blocker:** cutover-pr3 \#1226 OPEN (extern Maintainer-Review Gate) blocks this task  
-    **Needs:** [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1220)  
     <!-- /generated:card -->
 
