@@ -18,4 +18,6 @@
 - write-set grep empty in .github/scripts; not global cmd/baha green.
 
 ## END
-- <END_DONE|END_BLOCKED> w17-authority-r6: head=<sha> crlfailclosed=3wrapper observedAt=e2e3 | <Satz>
+- DONE. head=bcb7b54a8c378e84c93e28de4e8b08c60cc810a1. crlfailclosed=3wrapper observedAt=e2e3.
+- FF merge origin/develop (9a57107f is ancestor, .github net-diff empty) then commit bcb7b54a on w7-authority-r3-clean (f58fb180); FF push f58fb180..bcb7b54a; ls-remote==head.
+- go build ./... rc=0; go vet openbao/cmd/baha rc=0; focused pkg tests green; wrapper e2e TestResolveManagementConnectionIssuerSuppliesObservedAtFreshness green and regression-guarded (future case fails with old time.Now()).
