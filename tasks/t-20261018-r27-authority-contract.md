@@ -93,3 +93,13 @@ The production authority/selection boundary is composed at cmd/baha/application_
 serviceaccess.Issuer into coreinstallation authority via the new internal/installauthority leaf interface.
 No other cmd/baha files; no new cmd/baha files; coreinstallation imports only leaf packages (acyclic).
 Recorded per card rule update dependencies/ownership before work.
+
+### Coordinator revocation-authority decision (2026-11-03, night wave, r1326b2)
+
+No read-only revocation predicate exists on accepted develop surfaces (LocalIssuer.revocations is
+private; only Revoke mutates). The lane MAY add a minimal read-only method to serviceaccess.LocalIssuer
+(e.g. Revoked(serial) bool, reusing the private revocations loader, NO state change) as authorized glue
+per the existing composition/ownership notes, expose it through the installauthority interface, and use
+it in FreshlyObservedConnection. Mutating Revoke must NOT appear on any verification path; regression
+test asserts revocations.pem bytes unchanged across successful verification. Index navigation entries
+for ADR 0021 are permitted (navigation-only, public-surfaces note acknowledged).
