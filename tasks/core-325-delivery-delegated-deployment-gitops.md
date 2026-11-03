@@ -28,7 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.8)  
 **Depends on:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
-**Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [t-20261017-release-0-7-8-prepare](t-20261017-release-0-7-8-prepare.md)  
+**Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

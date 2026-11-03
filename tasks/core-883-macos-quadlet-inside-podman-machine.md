@@ -29,7 +29,7 @@ evidence: []
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
 **Depends on:** [core-820](core-820-linux-host-adapters-regressions.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
-**Required by:** [core-822](core-822-macos-darwin-adapters.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
+**Required by:** [core-822](core-822-macos-darwin-adapters.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

@@ -49,8 +49,10 @@ def expected_dependencies(vault, version, release, stage):
     names = [s for s, _ in stages_for(version)]
     index = names.index(stage)
     deps = [stage_id(version, names[index - 1])] if index else []
-    if stage == 'prepare':
+    # Preserve v0.4.26's historical stage dependencies unchanged.
+    if stage == 'prepare' and version == 'v0.4.26':
         deps += [t['id'] for t in scope_tasks(vault, version, release)]
+    # Newer Prepare cards track readiness work, not every feature dependency.
     return sorted(set(deps))
 
 
@@ -83,8 +85,19 @@ def problems(vault):
             if task['done'] and task['resolution'] == 'accepted' and any(not vault.accepted(dep) for dep in task['depends_on']):
                 errors.append((task['path'], 'accepted release stage has unfinished prerequisites; reopen and requalify it'))
             expected = expected_dependencies(vault, version, release, stage)
-            if not set(expected).issubset(task['depends_on']):
+            if stage == 'prepare' and version != 'v0.4.26':
+                # Do not silently reintroduce hundreds of feature cards onto Prepare.
+                if set(task['depends_on']) != set(expected):
+                    errors.append((task['path'], 'prepare has obsolete feature dependencies; run scripts/release_cycles.py sync'))
+            elif not set(expected).issubset(task['depends_on']):
                 errors.append((task['path'], f'release-cycle prerequisites missing; run scripts/release_cycles.py sync'))
+            if stage in ('qualify', 'publish', 'verify') and task['done'] and task['resolution'] == 'accepted':
+                outstanding = [t['id'] for t in scope_tasks(vault, version, release)
+                               if not vault.accepted(t['id'])]
+                if outstanding:
+                    errors.append((task['path'],
+                                   f'accepted {stage} stage has {len(outstanding)} unfinished release tasks; '
+                                   'reopen and requalify it'))
         startup = stage_id(version, 'updates')
         # No retroactive startup requirement for the already-running release.
         if version != 'v0.4.26':
@@ -137,8 +150,11 @@ def sync(root):
         for stage, _ in stages_for(version):
             task = vault.tasks[stage_id(version, stage)]
             deps = task['depends_on']
-            if stage == 'prepare' and not task['done']:
-                # Retired work is searchable history, not an active release prerequisite.
+            if stage == 'prepare' and version != 'v0.4.26':
+                # Existing scope is validated at qualification, not duplicated on Prepare.
+                deps = []
+            elif stage == 'prepare' and not task['done']:
+                # Preserve historical v0.4.26 handling of retired work.
                 deps = [dep for dep in deps if dep not in vault.tasks or
                         vault.tasks[dep]['resolution'] != 'superseded']
             if version == 'v0.4.26':

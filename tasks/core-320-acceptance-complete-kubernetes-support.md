@@ -28,7 +28,6 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.8.x](../releases/v0.8.x.md) (v0.8.7)  
 **Depends on:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-314](core-314-kubernetes-capabilities-provider-placement.md), [core-315](core-315-kubernetes-backup-disaster-recovery.md), [core-316](core-316-kubernetes-observability-diagnostics-evidence.md), [core-317](core-317-kubernetes-updates-migration-recovery.md), [core-318](core-318-kubernetes-cli-agent-developer-parity.md), [core-319](core-319-kubernetes-production-hardening-conformance.md), [t-20261017-release-0-8-7-updates](t-20261017-release-0-8-7-updates.md)  
-**Required by:** [t-20261017-release-0-8-7-prepare](t-20261017-release-0-8-7-prepare.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

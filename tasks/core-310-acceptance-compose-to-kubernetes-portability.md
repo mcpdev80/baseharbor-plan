@@ -28,7 +28,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.7.x](../releases/v0.7.x.md) (v0.7.7)  
 **Depends on:** [core-102](core-102-kubernetes-namespace-scoped-runtime-foundation.md), [core-304](core-304-kubernetes-security-identity-networking.md), [core-305](core-305-kubernetes-http-access-gateway-api.md), [core-306](core-306-kubernetes-namespaced-persistent-storage.md), [core-307](core-307-kubernetes-stateful-workloads.md), [core-308](core-308-kubernetes-availability-guarantees.md), [core-309](core-309-tests-kubernetes-restricted-permissions.md), [t-20261017-release-0-7-7-updates](t-20261017-release-0-7-7-updates.md)  
-**Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261017-release-0-7-7-prepare](t-20261017-release-0-7-7-prepare.md)  
+**Required by:** [core-313](core-313-kubernetes-complete-app-lifecycle.md), [core-325](core-325-delivery-delegated-deployment-gitops.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

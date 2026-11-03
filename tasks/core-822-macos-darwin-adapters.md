@@ -29,7 +29,7 @@ evidence: []
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
 **Depends on:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
-**Required by:** [core-823](core-823-tests-platform-conformance-support.md), [t-20261017-release-0-4-29-prepare](t-20261017-release-0-4-29-prepare.md)  
+**Required by:** [core-823](core-823-tests-platform-conformance-support.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
