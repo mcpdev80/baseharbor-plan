@@ -35,12 +35,12 @@ Worker `w29-authority-r9`, Modell Ornith. Basis head `7781a6f37de08b540cd345550f
   - PASS: `--- PASS TestBaseSerialIsRealCAHexAndBaseExpiryIsRealCertNotAfter (0.00s)`.
 
 ## Ansende-Checkliste (Status: ALLE ERLEDIGT)
-- [x] merge origin/develop, ancestry rc=0 (develop 9a57107f ist Ancestor; merge --ff-only no-op, up-to-date)
-- [x] write-set: 12 modifizierte Dateien + 1 neue Testdatei, alle 4 Punkten zugeordnet, keine unerwarteten Write-Sites
-- [x] TMPDIR=/tmp go build ./... => BUILD_RC=0
-- [x] go test ./internal/openbao ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid => alle ok
-- [x] go test ./cmd/baha -run '^TestResolveManagementConnectionIssuer' -count=1 => ok (7 Tests grün)
-- [x] PUSH refs/heads/w7-authority-r3-clean: 7781a6f3..73cd6d86, ls-remote==HEAD (73cd6d86)
+- merge origin/develop, ancestry rc=0 (develop 9a57107f ist Ancestor; merge --ff-only no-op, up-to-date)
+- write-set: 12 modifizierte Dateien + 1 neue Testdatei, alle 4 Punkten zugeordnet, keine unerwarteten Write-Sites
+- TMPDIR=/tmp go build ./... => BUILD_RC=0
+- go test ./internal/openbao ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid => alle ok
+- go test ./cmd/baha -run '^TestResolveManagementConnectionIssuer' -count=1 => ok (7 Tests grün)
+- PUSH refs/heads/w7-authority-r3-clean: 7781a6f3..73cd6d86, ls-remote==HEAD (73cd6d86)
 
 ## END an f49a3303
 "END_DONE w29-authority-r9: head=73cd6d86 p1-expiry=pastfail+zero p2-fenster=30min+stale p3-crl=err p4-serial=real | alle 4 Punkte mit je E2E-BEWEIS verdrahtet; build + Pflicht-CI grün; push w7-authority-r3-clean==73cd6d86"
