@@ -12,18 +12,19 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-conso
 prs: [mcpdev80/baseharbor#1089]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle3-2026-11-03/carryover/ledger.md"]
 ---
 
-- [ ] t-20261026-r27-v0426-acceptance-carryover · Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27 #task #release/v0-4-27 #status/active #view/active #area/acceptance #area/release #kind/review
+- [x] t-20261026-r27-v0426-acceptance-carryover · Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27 #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/acceptance #area/release #kind/review
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w34) · **Priority:** high  
     **PR:** [baseharbor#1089](https://github.com/mcpdev80/baseharbor/pull/1089)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle3-2026-11-03/carryover/ledger.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
