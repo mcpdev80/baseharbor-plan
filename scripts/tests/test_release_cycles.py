@@ -50,12 +50,12 @@ class ReleaseCycleTests(unittest.TestCase):
         vault = plan.Vault(f.dir).load()
         self.assertIn(cycles.stage_id('v1.0.0', 'updates'), vault.tasks['core-1']['depends_on'])
         prepare = vault.tasks[cycles.stage_id('v1.0.0', 'prepare')]
-        self.assertIn('core-1', prepare['depends_on'])
+        self.assertNotIn('core-1', prepare['depends_on'])
         self.assertIn(cycles.stage_id('v1.0.0', 'updates'), prepare['depends_on'])
         self.assertEqual(f.checked()[0], 0)
         f.add_task('core-2', task_note('core-2', 'B: added scope'))
         errors = cycles.problems(plan.Vault(f.dir).load())
-        self.assertTrue(any('prerequisites missing' in msg for _, msg in errors))
+        self.assertTrue(any('intake prerequisite missing' in msg for _, msg in errors))
         self.assertTrue(any('intake prerequisite missing' in msg for _, msg in errors))
         cycles.sync(f.dir)
         self.assertEqual(cycles.problems(plan.Vault(f.dir).load()), [])
@@ -78,11 +78,42 @@ class ReleaseCycleTests(unittest.TestCase):
         cycles.sync(f.dir)
         current = plan.Vault(f.dir).load()
         self.assertNotIn('core-1', current.tasks[prepare_id]['depends_on'])
-        self.assertIn('core-2', current.tasks[prepare_id]['depends_on'])
+        self.assertNotIn('core-2', current.tasks[prepare_id]['depends_on'])
         self.assertEqual(history, retired.read_text())
         self.assertEqual(cycles.problems(current), [])
         cycles.sync(f.dir)
         self.assertNotIn('core-1', plan.Vault(f.dir).load().tasks[prepare_id]['depends_on'])
+
+    def test_prepare_is_not_a_duplicate_feature_board(self):
+        f = self.fixture()
+        f.add_task('core-1', task_note('core-1', 'A: implementation'))
+        f.finish()
+        cycles.sync(f.dir)
+        pid = cycles.stage_id('v1.0.0', 'prepare')
+        prepare = plan.Vault(f.dir).load().tasks[pid]
+        self.assertEqual(prepare['depends_on'], [cycles.stage_id('v1.0.0', 'updates')])
+        # A stale manually added dependency is rejected, and sync removes it.
+        cycles.set_dependencies(prepare['path'], prepare['depends_on'] + ['core-1'])
+        self.assertTrue(any('obsolete feature dependencies' in msg
+                            for _, msg in cycles.problems(plan.Vault(f.dir).load())))
+        cycles.sync(f.dir)
+        self.assertEqual(plan.Vault(f.dir).load().tasks[pid]['depends_on'],
+                         [cycles.stage_id('v1.0.0', 'updates')])
+        self.assertEqual(f.checked()[0], 0)
+
+    def test_accepted_qualification_must_include_entire_release_scope(self):
+        f = self.fixture()
+        f.add_task('core-1', task_note('core-1', 'A: implementation'))
+        f.finish()
+        cycles.sync(f.dir)
+        qid = cycles.stage_id('v1.0.0', 'qualify')
+        path = plan.Vault(f.dir).load().tasks[qid]['path']
+        path.write_text(path.read_text().replace('- [ ]', '- [x]')
+                        .replace('#status/planned', '#status/closed')
+                        .replace('resolution: ""', 'resolution: accepted')
+                        .replace('evidence: []', 'evidence: ["https://example.org/proof"]'))
+        errors = cycles.problems(plan.Vault(f.dir).load())
+        self.assertTrue(any('unfinished release tasks' in msg for _, msg in errors))
 
     def test_series_only_materializes_explicit_versions(self):
         f = self.fixture().finish()
@@ -135,7 +166,7 @@ class ReleaseCycleTests(unittest.TestCase):
         vault = plan.Vault(f.dir).load()
         current = [t for t in vault.tasks.values() if t['version'] == 'v0.4.26' and t['meta'].get('release_stage')]
         self.assertEqual({t['meta']['release_stage'] for t in current}, {'prepare', 'qualify', 'publish', 'verify'})
-        self.assertEqual(vault.tasks[cycles.stage_id('v0.4.26', 'prepare')]['depends_on'], ['core-1'])
+        self.assertEqual(vault.tasks[cycles.stage_id('v0.4.26', 'prepare')]['depends_on'], [])
         cycles.sync(f.dir)
         self.assertFalse((f.dir / 'tasks' / (cycles.stage_id('v0.4.26', 'cleanup') + '.md')).exists())
         self.assertFalse((f.dir / 'tasks' / (cycles.stage_id('v0.4.26', 'updates') + '.md')).exists())
@@ -143,7 +174,7 @@ class ReleaseCycleTests(unittest.TestCase):
         cycles.set_dependencies(prepare, ['core-1', cycles.stage_id('v0.4.26', 'updates')])
         cycles.sync(f.dir)
         current = plan.Vault(f.dir).load()
-        self.assertEqual(current.tasks[cycles.stage_id('v0.4.26', 'prepare')]['depends_on'], ['core-1'])
+        self.assertEqual(current.tasks[cycles.stage_id('v0.4.26', 'prepare')]['depends_on'], [])
         self.assertEqual(f.checked()[0], 0)
 
     def test_accepted_release_stage_cannot_hide_unaccepted_scope(self):
