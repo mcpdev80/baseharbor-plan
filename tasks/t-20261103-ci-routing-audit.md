@@ -9,27 +9,28 @@ owner: "Codex (CI routing audit 2026-11-03)"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1349]
+prs: [mcpdev80/baseharbor#1349, mcpdev80/baseharbor#1350]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: [https://github.com/mcpdev80/baseharbor/pull/1349, https://github.com/mcpdev80/baseharbor/pull/1350]
 ---
 
-- [ ] t-20261103-ci-routing-audit · CI: repair Go output parsing and audit every check route #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261103-ci-routing-audit · CI: conservative routing, ready-PR cadence and reliable test execution #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** Codex (CI routing audit 2026-11-03) · **Priority:** critical  
-    **PR:** [baseharbor#1349](https://github.com/mcpdev80/baseharbor/pull/1349)  
+    **PR:** [baseharbor#1349](https://github.com/mcpdev80/baseharbor/pull/1349), [baseharbor#1350](https://github.com/mcpdev80/baseharbor/pull/1350)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1349), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1350)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Owner:** Codex (CI routing audit 2026-11-03)  
 **Priority:** critical  
-**PRs:** [baseharbor#1349](https://github.com/mcpdev80/baseharbor/pull/1349)  
+**PRs:** [baseharbor#1349](https://github.com/mcpdev80/baseharbor/pull/1349), [baseharbor#1350](https://github.com/mcpdev80/baseharbor/pull/1350)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -67,3 +68,12 @@ Resumed on explicit Owner instruction to publish and continue fixing CI. Claimed
 - Product sources remain unchanged by this repair. One tree-identical CI replan commit per open PR preserves each existing tree and uses expected-head leases: #1334 1d7dfd58, #1333 051b4035, #1348 6779d2cc, #1347 20f32c8f. New normal results are pending. Old #1348 failure is JSONDecodeError; old #1333/#1334 are missing mappings; #1347 additionally has real authoritative-installation-owner fixture/runtime failures and remains with its product owner.
 - Automatic merge review initially rejected #1349 using stale queued status. Fresh exact-SHA check/run/job reads proved all required work successful; the ordinary expected-head merge then succeeded. No protection was bypassed.
 - Rulesets remain off. No release/tag or product promotion to main was performed. Original unrelated worktree edits remain preserved.
+
+## Final CI handoff
+
+- CI correction accepted under Owner delegation. Follow-up #1350 merged as e90d7436c3353f85583d8fb4c385a0ba16783fc5 after exact candidate 39ac97f03fbc489b81b9349c6681d2739dcac632 passed hosted run 41611998033 and its final required check. Its two-field receipt is present. An older PR's event base can lag the actual integration parent; formatting now uses the authenticated candidate parents, with real Git/gofmt regression coverage for stale-base and linear inputs.
+- Actual changed-file formatting errors were repaired mechanically in #1333 (f5183ded4b9b306ca4228a527e0c954556705d01; two Deployment test files) and #1348 (17aa2872ce9e5d7deaf620c9f6144cccc7d6ce5d; two Authority test files). Only gofmt whitespace/import ordering changed. Current Deployment and Authority package tests passed locally. Expected-head updates preserved concurrent product ownership.
+- #1333's previous run 41611348234 passed both Docker and Podman lifecycle; only source formatting failed. New exact-candidate run 41612357682 has source formatting green and remaining runtime work in progress at handoff. No product acceptance or native-result reuse is claimed.
+- #1334 was replanned with tree-identical head 7c4834bf7c545e453f37bebbbf20987577ec5889 after #1350. Run 41612448396 has source formatting green and remaining normal checks in progress at handoff.
+- #1348 and #1347 were converted to Draft by the concurrent product sessions. Their current cheap Draft checks pass; required full product checks remain unqualified. The previous ready #1348 run was cancelled, not accepted. No Draft was marked ready and no product PR was merged by this CI task.
+- The complete fresh PR projections have no unresolved mappings. Normal check outcomes remain authoritative; the CI fix does not accept unfinished product contracts or resolve the State Owner's actual ownership defects. No new active CI failure is known at this handoff, but pending product runs must still be inspected before product acceptance.
