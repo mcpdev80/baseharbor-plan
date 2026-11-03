@@ -1,6 +1,9 @@
 name: PR16 planning sync
 
 on:
+  pull_request:
+    paths:
+      - .github/workflows/pr16-sync.yml
   push:
     branches:
       - fix/r27-release-prepare-board-separation
