@@ -61,3 +61,9 @@ Focused deployment/context tests using two isolated homes, foreign identity and 
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+### Handoff (2026-11-03, coordinator)
+
+Candidate: PR #1347 head cdfc75bf (branch work/r27-state-owner, base develop, stacked note present);
+duplicate #1340 closed with supersession proof. Review pending on windows-compile + production-consumer
+points of review-1326b; state-owner content itself delivered by the earlier lane round.
