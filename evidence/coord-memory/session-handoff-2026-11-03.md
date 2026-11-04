@@ -1636,3 +1636,14 @@ RAM-Fuell-quitung pruefen, DANN einen sitz als defekt betrachten.
 Luna -> ausfuehrungsprotokoll (r1373c), arbeitersitz -> basis-auffrischung (drei aeste) DANN gerateraegelung
 (r1371c). beide zustellungen MIT status-beleg (§2.4), und der arbeitersitz laeuft erst wieder seit dem
 tmpfs- Probelauf (§6.2e).
+
+## ~16:35 VERBINDUNGS-CLIENT: variante (B) — wiederverwenden statt zweite wahrheit.
+die lane fand die stelle und fragte RICHTIG statt zu entscheiden: die karte reserviert ein eigenes verbindungs-
+paket, aber die HAUPTLINIE hat die grenze laengst angenommen (internal/coreinstallation/authority.go:
+selection 69, observedState 113, verifyConnectionIdentity 219, assertStateIsGenuineInstallation 258).
+deshalb NEIN zu 'neues paket mit eigener aufloesung' — das waere dieselbe krankheit, die wir heute nacht bei
+den fest kodierten datbank-adressen entfernt haben (zwei wahheiten => scheingruen). JA zu: auswahl in
+use_target.go binDET an die bestehende grenze, fehlende verbindung => typische ablehnung; begriffe bleiben
+getrennt (verbindung != ziel), pruefung kommt NUR aus authority.go. reicht die grenze in einem fall nicht:
+STOP + melden, dann erweitere ICH sie per karte — nicht die lane nachbaun.
+dialogablauf hat zum ersten mal SOFORT geklappt (text, 'enter submit' abgewartet, Enter, statuspruefung).
