@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 owner: ""
 priority: high
-depends_on: [t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -26,7 +26,7 @@ evidence: []
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
