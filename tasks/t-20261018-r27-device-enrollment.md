@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w146)
-kanban_lane: active
+owner: coord-welle4 (Lane w146, freigegeben)
+kanban_lane: review
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w146) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w146, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (Lane w146)  
+**Owner:** coord-welle4 (Lane w146, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -172,3 +172,12 @@ ls-remote==head.
   Produkt. Vorgegeben: die Artefaktmenge aus der Ruücknamedatei der Stufe lesen.
 - R3 Betriebsfehler MIT: Die Lane hat ihre Kennung und meine Basisanweisung in AGENTS.md des Produktrepo
   geschrieben. Das fliegt raus, die Regel kommt in meinen Auftragstext.
+
+## Runde 5 pruefbar 2026-11-04 (kopf 1b3a2767ff5)
+- Der Zulasser akzeptiert zusätzlich eine gültige, noch unverbrauchte Zuweisung aus der bestehenden
+  Zuweisungstabelle — der Zirkel der Erstanmeldung ist damit aufgelöst, ohne neues Schema. Fünf Nachweisfälle
+  stehen in der Eidesstatt (coldstart-1.md).
+- Die Rückbau-Prüfung liest ihre Artefaktmenge jetzt aus der Rücknamedatei der gewählten Stufe; der
+  Zahlentausch von 0008/0009 ist als Gegenprobe gemessen.
+- Betriebsfehler bereinigt: AGENTS.md ist aus dem Antrag raus, der Querschnitt zeigt nur Anmeldungs-,
+  Datenbank- und Verdrahtungsfeld. Lauf 41921792984 auf dem neuen Kopf: erfolgreich (von mir gemessen).
