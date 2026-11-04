@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w142). Coord f49a3303. KARTE: t-20261104-r27-vm-integration-runs (erster teil: DOCKER-seite,
+feld des koordinators). REchner: baha-docker (ssh-alias). KEIN baha-podman (dort laeuft eine andere messung),
+KEINE geteilten stapel (`bh-*shared*` unberuehrt), KEIN Proxmox, KEIN runner.
+
+LAGE (von mir nachgesehen): der rechner fuehrt den GEBAUTEN schnitt 2ea2c6f1 (version zeigt `commit
+2ea2c6f1d34...`), die dazugehörige quelle liegt~/build/. damit ist die integration zum ersten mal auf dem
+GEPRUEFTEN stand messbar — das ist die regel, wegen der wir die rechner neu gebaut haben.
+
+AUFGABE (integration auf der docker-seite, kleinst passende stufe zuerst):
+ (1) STAND-PROTOKOLL: `~/.local/bin/baha --version` (zwei zeilen), docker version zeile, `df -h /` eine zeile,
+     frei laufende container deines projekts (liste mit namen; shared-stapel NUR auflisten, nie anfassen).
+ (2) EIGENER stapel: einen ISOLIERTEN stapel deines eigenen projekte-namens mit eigenem netz aus der
+     EIGENEN definition des repos starten (compose-datei des projekts, keine erfundene variation). notieren:
+     datei + der befehl.
+ (3) ANWENDUNGSENDE-ZYWKLUS (was die karte verlangt, docker-seitig): 
+     (a) eine anwendung anlegen (baha app create ...), (b) auslieferung mit korrekter kennung,
+     (c) zustand=betriebsbereit nachpruefen (baha app inspect --json, feld), (d) INSPEKTION gegen die echte
+     laufende instanz (kein scheingruen: ein feld, das den laufenden container benennt), (e) ZERSTOEREN mit
+     erfolg-rückgabewert, (f) DANACH: keine reste deines stapels (container/netz/volumen-liste leer).
+ (4) WIEDERHOLUNG MIT ABLEHNUNG: dieselbe folge einmal mit FEHLENDER kennung (erwartung: ablehnung, KEIN
+     zustands-schreibgut), danach das selbe objekt sauber zerstoeren (erwartung rc=0). ist das geradenicht
+     rc=0: NICHT umdeuten, NICHT reparieren — wortlich melden, das ist der inhalt der anderen messung.
+ (5) FUNKTIONSSTUFEN des verbindungstuicks falls auf diesem schnitt veruebt: der connector-laeuft hier nicht
+     (eigene karte, eigene sied), also NUR core-seitig. KEIN versuch, fremde komponenten zu integrieren.
+ (6) BELEG je schritt: befehl, rc, eine zeile ausgabe. ls-remote des gebauten schnitts. KEIN commit, KEIN
+     PR, KEINE produkt-aenderung — das ist ein betriebsnachweis, keine lieferung.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN Proxmox, KEINE .github-aenderung, KEIN release/tag/deploy,
+KEIN anlegen eines github-runners, KEIN zerstoeren fremder stapel, scratch nie in der oekosystem-wurzel;
+bei schreibfehlern zuerst df -h (host + /tmp).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-integration-runs/docker-1.md (tabelle der
+schritte mit rc, liste der reste nach herfahren, befehle wortlich; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w142-docker-integration: stand=<schnitt10> zyklus=<rc0+betriebsbereit> ablehnung=<rc0 zerstoerbar|befund> reste=<leer> aufgeraeumt=<ja> | <Satz>"

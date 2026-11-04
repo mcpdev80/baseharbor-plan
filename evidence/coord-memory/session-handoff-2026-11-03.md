@@ -1456,3 +1456,12 @@ main.version im release-pfad — erklaert, kein verlust. damit gilt wieder: laeu
 nachweise FÜR den geprueften schnitt, nicht fuer einen zufaellig installierten.
 zustimmungskarte: w138 mit der VIER-ZELLEN-messung (develop/kandidat × isoliert/geteilter stapel) statt
 meiner entscheidung aus dem kopf; verbindungskodierung: m1363 laeuft (squash + inhaltdiff-beweis).
+
+## ~10:45 ERSTE KARTE DIESER WELLE GESCHLOSSEN MIT VERBUNDENEM SCHNITT: profil-codec ->
+t-20261018-r27-profile-codec closed (resolution accepted), develop e444ae1171. NACHMESSUNG VOR PUBLIKATION:
+diff ac6a048e290..origin/develop im vertragsordner = LEER (0 zeilen), ls-remote zeigt den zweig nicht mehr
+(0 treffer), PR state MERGED 19:29Z. sechs runden, sechs rezepte — und der konsum-pfad bleibt sichtbar auf
+public-surfaces stehen, damit die Annahme nicht als 'komplette funktion' gelesen wird.
+MEHRERE SITZE GLEICHZEITIG: w142 (docker-integration auf dem NEUEN schnitt) sitzt, cx09 (kapsel runde 5),
+w138 (vier-zellen-messung), w135/w139 (basis-auffrischungen) laufen; Luna ist nach der verbindung wieder leer
+-> naechste urteile (Geräteregelung, Protokoll, Umgebungsstellen, Zustimmung).
