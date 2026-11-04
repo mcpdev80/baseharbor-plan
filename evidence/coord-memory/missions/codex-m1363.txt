@@ -1,0 +1,17 @@
+ROLLE: CODEX-MERGE (Verbindung, keine erneute Bewertung). Coord f49a3303. KANAL: GPT-6 Luna.
+FREIGABE: dein eigenes TECHNISCHES URTEIL in baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/
+review-1363e.md (verdict ACCEPT, open=none auf exakt ac6a048e290f4c1be5d2657b7aa3baefd384318b). die VERBINDUNG
+ist damit die autorisierte abschlussaktion (AGENTS 2, 5.2). KEIN force-push, KEIN umgehen von schutzregeln,
+KEINE neuerliche inhaltliche bewertung.
+
+SCHRITTE (pruefen, nicht glauben):
+ (1) gh pr view 1363 — state OPEN, isDraft false, mergeable CLEAN, headRefOid == ac6a048e290f4c1be5d2657b7aa
+     3baefd384318b WOERTLICH dein pruefkopf. ABWICHUNG => STOP + MELDEN (kein merge auf anderen kopf).
+ (2) squash-merge in develop (ueblicher modus dieser kette), verbindungsschnitt notieren.
+ (3) NACHWEIS (inhalt statt ancestorschaft, weil squash): git ls-remote origin refs/heads/develop zeigt den
+     NEUEN schnitt; git diff ac6a048e290 origin/develop -- contracts/managementaccess/v1 muss LEER sein;
+     und die EN-/DE-spezifikationsdateien inhaltsgleich gegen den pruefkopf (je ein diff-befehl, ausgabe).
+ (4) zweig work/r27-profile-codec geloescht (ls-remote vorher/nachher woertlich), PR state MERGED mit
+     mergedAt + mergeCommit.
+ (5) KEIN tag, KEIN release, KEIN deployment, KEIN rerun.
+END an f49a3303: "END_DONE codex-m1363: head=ac6a048e entwickelt=<neuer sha10> inhaltsgleich=<ja> zweig=<geloescht> pr=MERGED | <Satz>"

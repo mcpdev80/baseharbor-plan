@@ -1434,3 +1434,8 @@ lieferung wird von ihm nicht geprueft, die kuer war w141 -> cx09, weil alle vier
 BEIDE in lebenden zweigen wiederfindet (w120-fix bzw. der geloeschte hebel-ast, inhalt in develop) — kein
 verlust, nur platz. siebte/achte eintraege bleiben (laufende lanes). urteilskette angestossen (Luna beginnt
 mit kodierung runde 6), arbeitersitz hat die verbindungskapsel runde 5.
+
+## ~10:05 KODIERUNG ANGENOMMEN (review-1363e ACCEPT, open=none): ich habe vor dem freigeben NACHGERECHNET —
+ls-remote == ac6a048e290, develop 2ea2c6f1 ist Vorfahr, gates terminal 10 gruen / 0 rot, mergeable CLEAN.
+verbindungsauftrag m1363 raus (squash; weil squash keine ancestorschaft hinterlaesst, ist der pflichtbeweis
+der INHALTSDIFF gegen develop — leer — nicht der vorfahr-test. das war bei der hebelkarte genauso).
