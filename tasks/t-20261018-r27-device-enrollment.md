@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w143)
-kanban_lane: review
+owner: coord-welle4 (Lane w146)
+kanban_lane: active
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w143) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w146) · **Priority:** normal  
     **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (Lane w143)  
+**Owner:** coord-welle4 (Lane w146)  
 **Priority:** normal  
 **PRs:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -161,3 +161,14 @@ ls-remote==head.
   Überspringen mehr) und sind mit der Skriptverbindung ausgeführt grün; der Vergleich auf Deiner alten und
   neuen Grundlage sowie auf dem Kandidaten ist dokumentiert.
 - Beweissammlung auf der Platte (rollback-2.md).
+
+## Review-Rueckruf 2026-11-04 (Codex review-1371c, verdict REJECT)
+- R1 Kaeltestart: eine erste Geratestation kann sich auf einer leeren安装 nicht anmelden — der Zulasser
+  verlangt eine Registerzeile, die der Produktionspfad erst nach erfolgreicher Anmeldung schreibt. Die
+  Prüferin hat das mit frischer Datenbank gemessen (vierhundertdrei, null Anlagevorgänge); der bestehende
+  Test setzt die Zeile manuell und deckt den Fall deshalb nicht.
+- R2 Rueckbau: die Stufe wird jetzt aus der Liste gewaehlt, die zugehoerigen Artefakte aber immer noch
+  fest behauptet — nach einem Zahlentausch von 0008/0009 scheitert die Prüfung an der Annahme, nicht am
+  Produkt. Vorgegeben: die Artefaktmenge aus der Ruücknamedatei der Stufe lesen.
+- R3 Betriebsfehler MIT: Die Lane hat ihre Kennung und meine Basisanweisung in AGENTS.md des Produktrepo
+  geschrieben. Das fliegt raus, die Regel kommt in meinen Auftragstext.
