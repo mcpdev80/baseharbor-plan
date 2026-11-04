@@ -1565,3 +1565,16 @@ merge eigener ast <- develop e444ae11, konflikt = develop-fassung, END mit ances
 daraus gelernt habe — in jeder nachricht die zeile 'OFFENER AUFTRAG BLEIBT UNVERAENDERT'. native-auth hat
 einen neuen kopf (ad0ea646d3), der lauf den ich nachsah hat KEINE fehlzeile im protokoll (lauf noch nicht
 terminal) — also kein neuer befund, nur warten.
+
+## ~13:50 drei zufaelle, ein muster (alles plattenfest):
+- kapsel-urteil ACCEPT kam ZUERST nur im pane an, ohne datei. freigabegrenze hatte den schreibzug blockiert.
+  nachhalt: ohne datei gilt mir ein urteil als NICHT geliefert (AGENTS 5.3) — jetzt nachgeliefert und die
+  verbindung befohlen (squash, inhaltsgleichkeit per diff der zwei ordner, zweig loeschen).
+- der vorbehalt der prueferin war RICHTIG und ist ein befund an mich: die beiden nativen laeufe fallen unter
+  die auswahlregel in .github/workflows/release-integration.yml (dispatch-/release-pfad) — auf diesem kopf
+  wurden sie nie gefahren. dokumentierter nicht-blockierender randbefund + eigene ZEUGNAHME auf meinem feld
+  (mission w145), statt das gruene gatebild als nachweis zu verkaufen.
+- w144 fand im produktverzeichnis einen hinterlassenen modul-cache EINES ANDERN NUTZERS (nicht loeschbar,
+ Berechtigungsfrage) und hat RICHTIG nicht angefasst, sondern gemeldet. dasselbe directory hatte ich vor stunden
+  gesehen und NICHT notiert — nachgeholt in RUNBOOK §6.2d. lehrreich: 'nicht angefasst' ist nur häftig,
+  wenn der grund + die folgen daraus an einem ort stehen, den das nächste Gedächtnis liest.

@@ -1,0 +1,15 @@
+ROLLE: CODEX-MERGE (Verbindung, keine neue Bewertung). Coord f49a3303. KANAL: GPT-6 Luna.
+FREIGABE: dein eigenes TECHNISCHES URTEIL in baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/
+review-19d.md (verdict ACCEPT auf exakt 9913ce4770363; vorbehalt = die zwei nativen integrationslaeufe sind
+auf diesem kopf von der AUSWAHLREGEL uebersprungen — dokumentierter, ausdruecklich nicht-blockierender
+randbefund, dafuer laeuft auf koordinatorener feld eine Zeugnahme). KEIN force-push, KEIN schutzregel-
+umgehen, KEINE neue bewertung.
+SCHRITTE:
+ (1) gh pr view 19 -R mcpdev80/baseharbor-node-connector: state OPEN, isDraft false, mergeable CLEAN,
+     headRefOid == 9913ce4770363 WOERTLICH. abweichung => STOP + MELDEN.
+ (2) squash-merge in main, schnitt notieren.
+ (3) NACHWEIS: ls-remote origin refs/heads/main zeigt den NEUEN schnitt; git diff 9913ce4770363 origin/main
+     -- cmd/baseharbor-node-connector internal/nodeservice ist LEER (inhalt, nicht ancestorschaft, weil
+     squash); zweig work/r27-node-service geloescht (ls-remote vorher/nachher); PR state MERGED + mergedAt.
+ (4) KEIN tag/release/deployment, KEIN rerun, KEINE aenderung an .github.
+END an f49a3303: "END_DONE codex-m19: head=9913ce47 main=<neuer sha10> inhaltsgleich=<ja> zweig=<geloescht> pr=MERGED | <Satz>"
