@@ -1758,3 +1758,10 @@ und geloescht. RUNBOOK 2.3a: owner kann jederzeit coord-tick.log sehen (entschei
 e65423f8 (plan) + CI 41926483152 success (eigene gh-abfrage), karte closed/accepted, main seitdem
 b09ba5f5 (nur spiegel/render-_follow-up). node-streams damit ENTSPERRT (einzige dep erfüllt) — wartet auf
 freien sitz, NICHT auf nachfrage; connector-basis wird frisch gemaindet bevor geschrieben wird.
+
+## 00:1x w152 END_DONE: beide zellen auf neutralem boden BELEGT (positiv gruen port 55000 mit vier echten
+laufzeiten, negativ rc1 fail-closed mit zeilenbelegen, ls-remote exakt). Lane freigegeben. Kurz-Abschluss-
+auftrag r1378c an luna (verifiziere gegenprobe + terminalen lauf + unveraendertes write-set; kein neues
+rezept erwartet). sitzornith wieder frei -> naechster wartender: node-streams (entwaermt, falls konfliktfrei
+gegen die drei laufenden baenme — pruefen: der schreibt connector-dateien, die andern vier schreiben
+baseharbor-dateien => disjunkt, also DISPATCH moeglich).

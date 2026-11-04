@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261104-r27-db-skip-sites.
+OBJEKT: PR #1378 head 760c104a6c4 — deine runde B war BLOCKED (sandbox-port + lauf damals pending).
+BEIDE bedingungen sind jetzt erfuellt, NUR verifizieren (kurz, read-only):
+ (1) neutrale gegenprobe auf scheibe: baseharbor-plan/evidence/r27-welle4-2026-11-04/db-skip-sites/
+     neutral-1.md — positive zelle gruen auf freiem port 55000 mit vier echten laufzeiten, negative zelle
+     rc=1 fail-closed mit zeilenbelegen; gegencheck: ein NEUTRALER wiederholungsversuch deiner wahl an
+     deiner eigenen isolierten zelle ist erlaubt und erwuenscht (freiwillig, kurz).
+ (2) gehosteter lauf 41922518146 am exakten kopf: terminal success (gh run view), ls-remote echt==kopf.
+ (3) write-set unveraendert zu runde B (name-only database-test-feld, kein .github, kein AGENTS.md).
+Keine neue produktkorrektur wird erwartet; falls doch etwas substantielles: REJECT mit rezept.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/db-skip-sites/review-1378c.md (ACCEPT = merge-reif).
+END an f49a3303: "END_DONE codex-r1378c: verdict=<X> | <Satz>"
