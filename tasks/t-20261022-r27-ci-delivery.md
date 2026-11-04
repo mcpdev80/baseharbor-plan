@@ -100,8 +100,8 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
   (Migrationsrückbau, Anwendungsänderung mit stehendem Tresordienst, Formatierung im Verbindungsstück).
 
 ## Abschluss 2026-11-04 (verbunden, plattenfest nachgemessen)
-- Verbundenschnitt in Deiner Hauptlinie: 2ea2c6f1; der Inhaitsvergleich der beiden Prüfdateien gegen den
-  geprüften Kopf 5b2fbb65 ist leer, die Überspringung ist in der Hauptlinie weg (mein own Befund, nicht die Lane-Meldung).
+- Verbundenschnitt in Deiner Hauptlinie: 2ea2c6f1; der Inhaltsvergleich der beiden Prüfdateien gegen den
+  geprüften Kopf 5b2fbb65 ist leer, die Überspringung ist in der Hauptlinie weg (mein eigener Befund, nicht die Lane-Meldung).
 - Wirkung: Datenbankprüfungen lesen die Verbindung aus einer Quelle; fehlt die Prüfumgebung, schlagen sie fehl
   und benennen sie. Ein falsch gesetzter Zielrechner macht sie rot — das ist der Unterschied zur Scheinfarbe.
 - Verlaufsreinheit: erster Versuch aus falschem Schnitt (geschlossen, Beleg in der Kartenhistorie), zweiter
