@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: "coord-welle4 (Lane folgt, Codex-Worker-Sitz)"
+owner: coord-welle4 (Codex-Worker-Sitz, Mission cx04)
 kanban_lane: active
 kanban_summary: ""
 kanban_status: active
@@ -22,7 +22,7 @@ evidence: []
 
 - [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane folgt, Codex-Worker-Sitz) · **Priority:** critical  
+    **Owner:** coord-welle4 (Codex-Worker-Sitz, Mission cx04) · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -30,7 +30,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle4 (Lane folgt, Codex-Worker-Sitz)  
+**Owner:** coord-welle4 (Codex-Worker-Sitz, Mission cx04)  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
@@ -71,3 +71,9 @@ Separate current CI baseline readiness from later tests of product interfaces th
 ## Current CI contract — 2026-11-03
 
 The Owner retires the evidence and receipt approval chain. This task supplies only the missing ordinary test selection/execution for its domain. Job results flow through normal dependencies; no gate manifests, archived-run verification or evidence reuse. The only CI receipt is merge SHA plus PR number. The replacement baseline task remains open until its actual checks pass.
+
+## Vorbehalt 2026-11-04 (Owner-Maßnahme)
+- Diese Readiness-Karte ist der Hebel für zwölf nachfolgende Aufgaben und läuft parallel zu den PR-Korrekturen;
+  sie wartet nicht auf die übrigen offenen CI-Läufe.
+- Dazu wird die gemeinsame Go-/Docker-/Datenbank-Testursache als eigenständiges Arbeitspaket abgegrenzt:
+  Ursache, betroffene Gates, Minimalbeispiel und die saubere Trennung von Produktfehler gegen Umgebungsfehler.
