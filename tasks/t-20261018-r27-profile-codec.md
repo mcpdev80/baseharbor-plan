@@ -110,3 +110,6 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Canary-Prüfungen deckten nicht jede Kategorie, Rundlauf verglich Teilfelder, Ersetzen bewies nicht den
   Inhalt.
 - Korrekturrunde = Lane w129, frisch von develop geschnitten (der alte Zweig trägt fremde Historie).
+- Konsumenten-Abgrenzung 2026-11-04: Punkt 7 des letzten Prüfauftrags (der Produktionsaufrufer der Schnittstelle)
+  liegt nach plattenfestem Befund außerhalb der Schreibrechte dieser Karte und ist auf
+  t-20261018-r27-public-surfaces vermerkt. Diese Karte liefert die Kodierung vollständig gegenprüfbar.

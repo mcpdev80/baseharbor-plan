@@ -63,3 +63,11 @@ Focused actual command discovery/help/schema/golden/MCP execution and authorizat
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Vermerk 2026-11-04 (Koordinator, Eigentumsabgrenzung)
+- Gehört zu diesem Vertrag: der aufrufbare Produktionskonsument der Verwaltungszugangs-Schnittstelle
+  (`contracts/managementaccess/v1`). Gegenwärtig importieren nur die eigenen Paketests dieses Paket — die
+  Kodierung selbst ist fertig und wird auf t-20261018-r27-profile-codec abgenommen, der Verbindungspfad in
+  ein öffentliches Kommando ist Aufgabe DIESER Karte, nicht der Kodierungsfremden Karte.
+- Auslöser: Rezept 7 des Prüfauftrags review-1363c (coeprdf: profile-codec Runde 5) wurde mit
+  Eigentumsbegründung hierher verschoben; nicht stillschweigend fallen lassen.
