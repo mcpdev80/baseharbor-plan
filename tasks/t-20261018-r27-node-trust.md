@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: ""
+owner: ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)
 kanban_lane: ready
 kanban_summary: "Reconcile existing implementation, then close actual token/mTLS/CA overlap/revocation/reconnect gaps against immutable Core…"
 kanban_status: planned
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/planned #view/ready #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive) · **Priority:** normal  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md)  
-**Owner:** unassigned  
+**Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -62,3 +62,8 @@ Focused trust/session race tests and bounded real Core/Connector rotation+reconn
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Externe Übernahme — durch Coordinator nur markiert, nicht bearbeitet
+Implementierung, Review, CI, Merge und vollständiger Planning-Abschluss liegen bei ChatGPT. Keine Claims,
+keine Lanes, keine Prüfkapazität von dieser Seite; abhängige Karten (node-cli, node-streams, nc-3,
+release-0-4-27-updates) bleiben auf dieser Seite gesperrt bis bestätigter Merge + Planning-Abschluss.
