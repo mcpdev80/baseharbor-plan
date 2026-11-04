@@ -951,7 +951,7 @@ standard-auftragstext von dispatch-lane.sh (wirkt bei jedem kuftigen dispatch au
 runde 2 REJECT — zwei unabhaengige belege (secret-scan uebersieht felder: store.go:405-411/443-458/783-790,
 test behauptet nur spaetere import-ablehnung; import-commit nicht atomar: direktes os.WriteFile store.go:738-747)
 plus vertrauens-selbstkonsistenz nur bedingt (76-79/679-682), rundlauf unvollstaendig, gehostete gates rot
-(run 41849617084). karte -> active (publsht), mission w123 geschrEIBEN und auf queue-platz 1.
+(run 41849617084). karte -> active (publsht), mission w123 geschrieben und auf queue-platz 1.
 Luna neu besetzt: native-auth abschluss auf a3eee132 (r1362b). team-auth #1369 bleibt DRAFT bis sein
 ready-flip mit der abnahme gemeinsam passiert. alle fuenf arbeitsplaetze besetzt.
 
@@ -1034,7 +1034,7 @@ ausserhalbs der VM gesichert) — soll ich eines anlegen oder willst du das repo
 
 ## ~21:25 zwei ABLEHNUNGEN angenommen und eingeordnet:
 - native-auth #1362 (a3eee132) REJECT = PRODUKTLuecke: broker haengt nicht im echten abfragepfad vor dem
-  prompt, und "gefunden ohne inhalt" gilt als erfolg. karte -> active, mission w125 geschrEIBEN (wartet auf
+  prompt, und "gefunden ohne inhalt" gilt als erfolg. karte -> active, mission w125 geschrieben (wartet auf
   cx02s neuen kopf, damit niemand auf alter basis ba ut).
 - execution-journal #1373 (11ed442e) REJECT = KEIN code-fehler: zwei datenbank-integrationstests +
   scripts/pr-unit-database.sh nutzen verschiedene ports (5432 hart vs. konfigurierte test-url). Luna sagt
@@ -1091,7 +1091,7 @@ grep-beleg: app_init_prompts taucht in KEINER anderen karte auf (nur native-auth
 ## ~23:10 review-1369a REJECT (team-auth, 815fdfb709): ohne memberships-provider faellt die freigabe auf den
 erlaubnispfad des verifizierten akteurs statt abzulehnen; produktionsprovider fehlt ganz; zwei-team und widerruf
 nur in tenancy.Resolve belegt statt auf freigabe-ebene; UND der PR schleppt contracts/managementaccess/v1/*
-mit — das ist profil-codec-territorium (dort laeuft runde 4). karte -> active, mission w127 geschrEIBEN und
+mit — das ist profil-codec-territorium (dort laeuft runde 4). karte -> active, mission w127 geschrieben und
 auf queue-platz 0; zusatzklausel: entweder herausloesen mit diff-beleg oder STOP mit begruendung, damit die
 kette keinen mitnahme-pr behaelt (AGENTS 4.2).
 
@@ -1105,7 +1105,7 @@ tests; PR #1362 bleibt ein kandidat.
 ## ~23:40 OWNER-EINSCHAETZUNG umgesetzt (parallelitaet statt warten):
 - Luna prueft JETZT #1375 (gruen + bisher unbeurteilt) statt auf andere laeufe zu warten — mission r1375a.
 - karte t-20261022-r27-ci-delivery claimed + aktiv gesetzt (hebelkarte fuer 12 nachfolger); mission cx04
-  geschrEIBEN: teil 1 = Go-/Docker-/DB-ursache EINGRENZEN (bestand aller roten/uebersprungenen checks ueber
+  geschrieben: teil 1 = Go-/Docker-/DB-ursache EINGRENZEN (bestand aller roten/uebersprungenen checks ueber
   8 kandidaten, wortliche fehlzeilen, dreispaltige klassifikation produkt/umgebung/reihenfolge,
   minimalbeispiel je ursache, workflow-zeile nur MELDEN mit datei:zeile), teil 2 = die test-seite
   selbststrendend aus einer quelle (kein hartkodierter port) + trennungsnachweis dass echte produktfehler
@@ -1117,7 +1117,7 @@ tests; PR #1362 bleibt ein kandidat.
 
 ## ~00:10 profil-codec IST WIEDER PRUEFBAR: kopf 952299b5a7 (ls-remote==head, develop Vorfahr), gates terminal
 10/0/10 — die beiden roten waren reine spec-unsimmenge, jetzt behoben ohne produkt-logik zu drehen. karte ->
-review (card-status.py), abnahme-mission r1363c geschrEIBEN und laeuft sobald der kanal frei ist (prueft gerade
+review (card-status.py), abnahme-mission r1363c geschrieben und laeuft sobald der kanal frei ist (prueft gerade
 #1375). team-auth runde 2 (w127) neu angesetzt; w126 released; w121 hat teardown-decision (compose-down statt
 anwendungs-destroy; blockierter destroy = zusaetzter beweis fuer consent-abort-Karte).
 
@@ -1224,7 +1224,7 @@ alle gehosteten checks dort gruen, gofmt behoben).
   (b) app-edit/offener tresordienst = klasse B (pruefaufbau stellt nur die datbank her; der produktionspfad
   verlangt den dienst absichtlich), kein produktbefund. beide karten sind berichtigt.
   (c) connector-gofmt = klasse A BESTAETIGT ( zwei dateien, rein formatierung), inzwischen behoben.
-- codec runde 6 mission w133 geschrEIBEN (HAUPTBEFUND: eine unbedingte zweite f.Write-stelle macht den
+- codec runde 6 mission w133 geschrieben (HAUPTBEFUND: eine unbedingte zweite f.Write-stelle macht den
   kurzschreib-beweis wertlos); laeuft sobald ein sitz frei ist.
 
 ## ~04:05 HEBELKANNE AKZEPTIERT + VERBINDUNGSAUFTRAG RAUS: review-1377b verdict ACCEPT auf exakt
@@ -1234,3 +1234,12 @@ kopf NICHT Vorfahr von develop; der nachweis muss der INHALTSDIFF der zwei datei
 nicht die ancestorschaft. danach: basis-auffrischung fuer #1362 #1369 #1373 (je eigener zweig, keine
 ueberschneidung mit #1371 wo w132 arbeitet). PLAN-AUGE hat zum ersten mal korrekt gefeuert (urteil <1 min
 nach commit) — das alte pane-auge bleibt als zweite quelle.
+
+## ~04:15 CONNECTOR-RUNDE 3 IST PRUEFBAR UND DIE HOST-AUSREDE IST WIDERLEGT WORDEN (von der lane selbst
+nachgemessen): wahre ursache = renderUnit schrieb die ausführungszeile ohne Schlüsselwort, also war die
+einheit fuer den benutzermanager ungueltig und wurde nie geladen — kein environment-thema. gegenprobe mit
+reiner, code-freier einheit auf demselben host liegt in round-3.md. lebenszyklus jetzt echt (install/start/
+restart/stop/uninstall rc0 auf lebendigem user-manager). karte -> review, abnahmeauftrag r19b geschrieben
+(laeuft sobald Luna mit der verbindung durch ist — sie hat gerade ACCEPT auf der hebelkarte abgegeben).
+m1377 ist noch NICHT verbunden (develop == ecbb8854, zweig noch da) — ich pruefe vor jedem weiteren schritt
+gegen die platte, nicht gegen pane-meldungen.

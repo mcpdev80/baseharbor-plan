@@ -1,0 +1,25 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS node-service (runde 3).
+OBJEKT: baseharbor-node-connector PR #19 head fcca9c4a295 branch work/r27-node-service base main (Vorfahr von
+mir nachgerechnet; gates terminal 2 pass / 0 fail / 2 skipping). KARTE t-20261018-r27-node-service.
+GESCHICHTE: review-19a REJECT (keine echte benutzer-unit, lebenszyklus nicht aufrufbar, pruefung vor wirkung
+fehlte, source-check berechtigt rot) -> runde 2 meldete BLOCKED mit HOST-AUSREDE (leerer UnitSearchPath) ->
+von mir WIDERLEGT mit eigener null-code probe auf demselben host -> runde 3: echter produktfehler gefunden
+(renderUnit schrieb eine Ausführungslinie OHNE Schlüsselwort => manager lud die einheit nicht).
+PRUEFEN SHA-genau read-only:
+ (1) write-set: diff name-only gegen main = NUR cmd/baseharbor-node-connector + internal/nodeservice (keine
+     workflow-/fremde datei),
+ (2) die erzeugte einheitdatei ist ECHT gueltig: ExecStart= mit absolutem pfad, [Unit]/[Service]-section,
+     dateiname/endung und ablagepfad entsprechen dem, was der benutzermanager findet (nachweis: unit-paths
+     + ls -l der geschriebenen datei + systemctl --user cat),
+ (3) LEBENDER lebenszyklus auf einem echten user-manager: install -> daemon-reload -> start -> is-active ->
+     restart (mit beobachteter neuer haupt-pid) -> stop -> uninstall; jede stufe rc=0, keine rest-artefakte
+     (unit-datei weg, kein verwaister prozess); lingering-verhalten belegt oder als bewusst ausser reichweite
+     dokumentiert — NICHT als erfolg gemeldet wenn nicht ausgefuehrt,
+ (4) MUTATION fehlende autorisierung => typisierter fehler und NULL manager-/store-effekte (unit-datei
+     entsteht nicht, kein daemon-reload, kein unit),
+ (5) doppelte installation / erneute anmeldung erzeugt KEINE zweite einheit (bestand + zaehler-beleg),
+ (6) geschuetzter schluessel bleibt bei fehlerhafter widerholung erhalten (bestehende regression unveraendert),
+ (7) NEUTRALER gegenbeweis dass die frühere BLOCKED-meldung falsch war: eine reine probe ohne produktcode
+     auf DEMSELBEN host+Befehlspfad laedt und startet eine einheit (der haupt-urteilsfaden war die ausrede).
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/review-19b.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r19b: verdict=<X> open=<liste|none> | <Satz>"
