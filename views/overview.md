@@ -13,7 +13,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | active | 6 |
 | review | 3 |
 | blocked | 1 |
-| ready | 2 |
+| ready | 3 |
 | queued | 26 |
 | waiting | 213 |
 | backlog | 7 |
@@ -50,11 +50,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | Connector: reconcile enrollment service and restart behavior | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261104-r27-demo-guided-consent](../tasks/t-20261104-r27-demo-guided-consent.md) | Demo: guided up supplies candidate consent (feature-detected) | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 59 open, 43 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 60 open, 43 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
