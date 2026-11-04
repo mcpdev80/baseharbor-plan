@@ -910,7 +910,7 @@ def render_views(vault):
             f"· **Ready:** {counts['ready']} · **Active:** {counts['active']} "
             f"· **Review:** {counts['review']} · **Blocked:** {counts['blocked']} "
             f"· **Closed:** {counts['closed']}", "",
-            f"![[BaseHarbor.base#{rid}]]", ""])
+            f"![[BaseHarbor.base#{rid}]]" if (vault.root / "BaseHarbor.base").exists() else "", ""])
     out[views / "kanban-dashboard.md"] = "\n".join(dashboard)
 
     ready = by_state.get("ready", [])
