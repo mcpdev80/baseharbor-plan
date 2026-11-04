@@ -164,6 +164,34 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(code, 1, out)
         self.assertIn("requires evidence", out)
 
+    def test_native_ready_lane_is_derived_and_draggable_to_active(self):
+        f = self.fixture()
+        task = task_note("core-1", "Test: lifecycle", extra="worker").replace(
+            "blocker:", 'kanban_status: planned\nkanban_lane: ready\nkanban_summary: ""\nblocker:')
+        f.add_task("core-1", task)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        content = (f.dir / "tasks/core-1-x.md").read_text()
+        self.assertIn("kanban_lane: ready", content)
+        content = content.replace("kanban_lane: ready", "kanban_lane: active")
+        (f.dir / "tasks/core-1-x.md").write_text(content)
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        content = (f.dir / "tasks/core-1-x.md").read_text()
+        self.assertIn("kanban_status: active", content)
+        self.assertIn("#status/active", content)
+
+    def test_native_lane_close_keeps_evidence_guard(self):
+        f = self.fixture()
+        text = task_note("core-1", "Native close").replace(
+            "blocker:", 'kanban_status: planned\nkanban_lane: closed\nblocker:')
+        f.add_task("core-1", text)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 1, out)
+        self.assertIn("requires evidence", out)
+
     def test_duplicate_id_is_rejected(self):
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "Area: first"))

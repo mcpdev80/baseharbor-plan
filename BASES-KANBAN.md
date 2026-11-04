@@ -12,3 +12,9 @@ After dragging, run `python3 scripts/plan.py render && python3 scripts/plan.py c
 
 https://obsidian.md/help/bases/syntax
 https://obsidian.md/help/bases/views/kanban
+
+## Kanban v2: Ready and compact card details
+
+The writable `kanban_lane` property drives Obsidian's status columns. The lifecycle `kanban_status` remains authoritative for all other API and CLI consumers; the planning renderer reconciles a card drag to the lifecycle state and updates the derived `kanban_lane` (ready/waiting/queued are planned tasks with dependency/release computation). Codeman should change `kanban_status` via standard planning processes, not `kanban_lane` directly. Native dragging from Ready to Active is supported after a render, with ordinary owner and release safeguards.
+
+Card properties: `kanban_title` (display title), `id`, `owner`, `kanban_summary` (first authored overview paragraph, max 130 chars). No generated claim or invented summary. Native Kanban cannot collapse columns; inactive states are shown in separate inventory views/count tables instead. For wider columns use Kanban view settings > Column width in Obsidian (officially supported).
