@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261104-r27-db-skip-sites.
+OBJEKT: baseharbor PR #1378 head 760c104a6c4 (kopf aca8ff97 + basis-merge develop ea3fb38e; basis-drift war
+der grund, runde a prüfte den alten kopf). PRUEFEN SHA-genau read-only:
+ (1) diff aca8ff97..760c104a6c4 = nur develop-uebernahme; eigene dateien blob-identisch oder begruendet,
+ (2) kernfall auf dem NEUEN kopf mit EIGENER messung: ohne BASEHARBOR_TEST_DATABASE_URL => der test FAERT
+     fail-closed (kein skip, kein gruen-rechnen), mit skript-verbindung (scripts/pr-unit-database.sh) =>
+     gruen; wortliche ausgaben beider zellen,
+ (3) write-set name-only (database-test-feld), KEINE .github, KEIN AGENTS.md, log-zeile own+merge,
+ (4) gehostete laeufe des neuen kopfs terminal (wenn pending: einmal kurz nachpruefen, NICHT rerun),
+     ls-remote echt == 760c104a6c4.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/db-skip-sites/review-1378b.md.
+END an f49a3303: "END_DONE codex-r1378b: verdict=<X> zellen=<skip=>fail|skip=>gruen ok> | <Satz>"

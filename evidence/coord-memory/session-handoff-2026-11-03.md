@@ -1731,3 +1731,9 @@ makulatur-markiert (dispatch-schutz); abhaengige karten (node-cli, node-streams,
 remote-runtime-acceptance, release-updates) bleiben bei uns GESPERRT bis deren bestaetigter abschluss.
 Vier plaetze + pruefkanal laufen unveraendert. Hinweis: node-trust war NIE geclaimt von uns (owner leer,
 status planned) — es gab nichts freizugeben, kein confikt.
+
+## ~00:05 w149-welle2 teillieferung: #1378 auf 760c104a6c4 (own+merge, ancestor JA nach EXPLIZITEM
+branch-fetch — mein pauschales fetch hatte den tracking-ref NICHT erneuert, deshalb kurz 'NEIN'-alarm;
+regel: nach branch-push immer refspec-exakt fetchen, auditiert). #1373 bleibt bei w147 (die merge selbst).
+w149 freigegeben. r1378b gegen neuen kopf beauftragt — prüfkanal hat jetzt vier urteilsauftraege.
+LEHRE: 'ancestor: NEIN' gegen einen lokalen tracking-ref ist oft NUR mein fetch-fenster, nicht die lane.
