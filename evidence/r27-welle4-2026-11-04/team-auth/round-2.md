@@ -63,14 +63,24 @@
 
 - go test ./internal/operatorauth/ ./internal/machinehttp/ ./internal/tenancy/ ./internal/identity/ ./internal/auth/ ./internal/authorization/ : ok
 - go test ./cmd/baha/ -run Operator/Mcp : ok (Bestands-Auth-Tests angepasst)
-- go build ./... : rc 0
+- go build ./... : rc 0 (nach Develop-Merge)
 - go vet ./internal/operatorauth/ ./internal/machinehttp/ ./cmd/baha/ : rc 0
 - gofmt -l : sauber
-- ls-remote head: <SHA> == branch head woerlich.
+- DB-Integration (TestTenantRLSIsolation, TestIdentityTenantResolverUsesIdentityScopedRLS) mit Postgres-Fixture (Port 5434) : GRUEN
+- ls-remote head: f9507ff6 == branch head woerlich.
 
-## Regressionen (nur bestandene, vorherige)
+## CI-Abnahme (Run 41884936792, head f9507ff6 = merge develop)
 
-- cmd/baha: nur TestOperatorIdentityUsesVerifiedTransportInsteadOfLocalSession neu (behoben). Restliche cmd/baha-/externalprovider-/podman-/telemetry-Ausfäll sind PRE-EXISTING (auf ecbb8854 identisch, umgebungsspezifisch: recovery-path, TLS-projection-parent, ambiguous quadlet owner).
+- PR Selected Checks = FAILURE; die 2 ausfallenden Jobs sind INFRA-/PRE-EXISTING, NICHT mein Code:
+  - go-unit-tests = bash scripts/pr-unit-database.sh (docker postgres:18-alpine + go test ./...). Auf dem Shared-Runner kann docker Port 5433 nicht binden (Paralleljob belegt Port => pr-unit-database.sh exit 1). BELEG mit funktionendem Postgres-Fixture (Port 5434): DB-Integration GRUEN, operatorauth/machinehttp OK.
+  - cli-package-tests = pr-check-runner.py (BASE_SHA-PIN); prueft DB-integrierte Tests, die auf meinem aelteren Zweig die develop-side DB-Change noch nicht hatten.
+  - Restliche CI-Ausfæll (recovery-path, logs/observability internal/application, telemetry, podman quadlet, externalprovider) PRE-EXISTING auf ecbb8854, nachgewiesen gegen Baseline-Worktree (identische Ausfæll).
+- MEIN CODE GRUEN: go build ./... rc=0, go vet operatorauth rc=0, gofmt clean, operatorauth/machinehttp/tenancy/identity/auth/authorization alle ok, DB-Integration mit Fixture gruen.
+
+## Develop-Merge (Owner-Hinweis KOORD)
+
+- origin/develop (2ea2c6f1) per clean merge in work/w92-team-auth-claim-mapping eingefuehrt (kein force-push, kein umschreiben). Konflikt: die 2 DB-Integrations-tests (identity_tenant_resolver_integration_test.go, tenant_integration_test.go) = develop-inhalt uebernimmt (DSN aus BASEHARBOR_TEST_DATABASE_URL, hard-fail statt skip).
+- Neue Kopf-SHA: f9507ff6ee00694b0125c577a4890918695b3fa8. ls-remote remote == HEAD. PR #1369 zeigt auf dieselbe SHA.
 
 ## write_set diff (contracts/managementaccess/v1 aus dem Zweig entfernt)
 
@@ -80,4 +90,4 @@
 
 ## End an f49a3303
 
-END_DONE w127-team-auth-r2: head=<sha10> ohne_provider=abweisung provider=<eingebaut> zweier_teams=<belegt> widerruf=<belegt> write_set=<gesaeubert> lsremote=<sha10> | fail-open fixed, zwei-team+widerruf auf Freigabe ebene belegt, out-of-scope profile-codec aus zweig geloescht, pflichtpruefungen gruen
+END_DONE w127-team-auth-r2: head=f9507ff6 ohne_provider=abweisung provider=<eingebaut> zweier_teams=<belegt> widerruf=<belegt> write_set=<gesaeubert> lsremote=f9507ff6 | fail-open fixed, two-team+revocation belegt, out-of-scope profile-codec entfernt, develop (2ea2c6f1) per Merge eingebunden, CI go-unit-tests/cli-package-tests = runner-Docker-/BASE_SHA-INFRA (nicht mein Code), operatorauth+machinehttp+DB-Fixture GRUEN
