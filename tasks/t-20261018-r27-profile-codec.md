@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Codex-Worker cx06)
-kanban_lane: review
+owner: coord-welle4 (Lanes w90 bis cx06)
+kanban_lane: closed
 kanban_summary: Validate version/trust/installation/scope before any writes; transactional import and explicit conflicts. Default export…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Profiles: import and export non-secret connection metadata"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -18,23 +18,24 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/profile-codec/review-1363e.md", "https://github.com/mcpdev80/baseharbor/commit/e444ae1171", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/profile-codec/round-6.md"]
 ---
 
-- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [x] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Codex-Worker cx06) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lanes w90 bis cx06) · **Priority:** normal  
     **PR:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/profile-codec/review-1363e.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e444ae1171), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/profile-codec/round-6.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Codex-Worker cx06)  
+**Owner:** coord-welle4 (Lanes w90 bis cx06)  
 **Priority:** normal  
 **PRs:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -131,3 +132,13 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Beweissammlung liegt auf der Platte (round-6.md); der Kurzschreib-Beweis nennt einen echten Wert (809 von
   1619 Bytes geschrieben), die Vertrauensselbstkonsistenz ist ohne Schalter, und der Rundlauf vergleicht den
   vollständigen Datensatz samt goldener Bytes.
+
+## Abschluss 2026-11-04 (verbunden, plattenfest nachgemessen)
+- Verbundenschnitt in Deiner Hauptlinie: e444ae1171; der inhaltliche Vergleich des Prüfordsners gegen den
+  geprüften Kopf ac6a048e290 ist leer und der Zweig ist gelöscht (mein eigener Befund, nicht die Lane-Meldung).
+- Sechs Runden: sechs Rezepte aus der ersten Prüfung sind erfüllt — geheime Prüfung je Kategorie statt nur
+  einmal, unbekannte Felder typisch abgewiesen, Pflichtversion und Empfängerbindung ohne Schalter,
+  kanonische Reihenfolge mit goldenen Bytes, atomarer Import mit echtem angebrochenem Schreiben und
+  typisiertem Aufräumfehler, englische und deutsche Fassung inhaltgleich.
+- Der Produktionsaufrufer der Schnittstelle liegt weiter auf t-20261018-r27-public-surfaces (dort vermerkt);
+  diese Karte liefert die Kodierung vollständig gegenprüfbar, nicht den Verbindungs draht.

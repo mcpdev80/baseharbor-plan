@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 9 |
-| review | 6 |
+| review | 5 |
 | blocked | 1 |
-| ready | 3 |
+| ready | 4 |
 | queued | 26 |
-| waiting | 206 |
+| waiting | 205 |
 | backlog | 7 |
-| closed | 112 |
+| closed | 113 |
 
 ## Active
 
@@ -40,7 +40,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md) | Devices: issue and validate scoped workstation enrollment | review | normal | coord-welle4 (Lane w132) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371) |
 | [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md) | Operations: persist execution identity and terminal outcomes | review | normal | coord-welle4 (Lane w134) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373) |
 | [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md) | Credentials: reuse native authentication before prompting | review | high | coord-welle4 (Lane w125) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362) |
-| [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md) | Profiles: import and export non-secret connection metadata | review | normal | coord-welle4 (Codex-Worker cx06) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 | [t-20261104-r27-db-skip-sites](../tasks/t-20261104-r27-db-skip-sites.md) | Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen | review | not set | coord-welle4 (Lane w137) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1378](https://github.com/mcpdev80/baseharbor/pull/1378) |
 
@@ -57,11 +56,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | Sources: package an exact bounded deployment snapshot | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | Client: resolve trusted local or remote management connections | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 59 open, 48 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 49 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
