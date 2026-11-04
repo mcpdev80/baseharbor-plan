@@ -1593,3 +1593,11 @@ die verbindung der kapsel (m19) und die native zeugnahme (w145) — PR #19 war w
 zeugnahme-protokoll fehlte. nach resend mit statuspruefung (`isWorking` ueber die API) laufen BEIDE.
 NEUE regel §2.4: zustellung an einen Codex-Kanal gilt erst mit arbeitsstatus-beleg, nicht mit paste-rc.
 grund: in diesem kanal gibt es kein zustellprotokoll (kein post zurueck), 'accepted' kenne ich nur von lanes.
+
+## ~14:45 native-auth: CODE RICHTIG, DATEI FEHLT — zurueckgewiesen obwohl alles gruen ist.
+mein eigener blick in den zweig: sshagent.go:50-61 trennt genau wie entschieden (runner == nil => Umwelt-
+pruefung, eingesetzter pruefer entscheidet), develop Vorfahr, 14 gruen / 0 rot, lauf 41903525411.
+ABER im evidence-baum nennt KEINE datei den kopf 848d9512 — die beiden neueren dateien (env-isolation,
+basisfix) gehoeren zu ed0c99b1 / 0958107f von heute früh. nachlieferung verlangt (ohne commit), karte bleibt
+bis dahin active. das ist genau die regel, die heute nacht das erste mal greifen musste — sie gilt auch wenn
+der inhalt schon bewiesen ist, denn das naechste gedaechnis findet nur die datei.
