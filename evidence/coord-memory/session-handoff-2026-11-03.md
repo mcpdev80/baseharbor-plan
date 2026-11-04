@@ -1340,3 +1340,12 @@ t-20261104-r27-db-skip-sites (w137, frisch von develop): die fuenf reste-uebersp
 werden zu echtem FEHLSCHLAG mit klarer meldung, mutation je stelle (unreachbares ziel muss rot), begruendung
 im code wo ueberspringen fachlich stimmt. das ist die Wurzel davon, dass drei wochen lang "nicht
 reproduzierbar" und "rot im laeufer" gleichzeitig behauptet werden konnte.
+
+## ~07:15 werkbank aufgeraeumt + zwei werkzeuge geheilt:
+- tmpfs 83 -> 71 % (go-build-ablage + toter pruefer-sandkaesten >40 min, laufende sandkaesten verschont).
+- card-status.py schrieb bei `--pr ""` einen leeren eintrag `prs: [""]` ins kartengeruest — verwirft jetzt
+  leere eingaben; die eine karte (db-skip-sites) ist bereinigt und neu publiziert, plan.py check 0 fehler.
+- BASIS-DRIFT #1347 bleibt OHNE lane-stehender hinweis: die zustandskarte ist blocked (ihr naechster
+  ausloeser ist die zustimmungs-verweigerungs-einheit, #1375 in pruefung). kein leerlauf-auftrag.
+STAND: 4 worker-sitze + 1 codex-arbeitersitz arbeiten, Luna prueft; 3 karten in pruefung (1371, 1369 runde 3
+in arbeit, 1375), 44 warten.
