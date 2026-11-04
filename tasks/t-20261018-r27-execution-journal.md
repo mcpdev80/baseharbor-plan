@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: codex-heavy-wk (cx01, Codex als Worker per Owner-Direktive 2026-11-04)
-kanban_status: active
+owner: codex-heavy-wk (cx01)
+kanban_status: review
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1373"]
+prs: [mcpdev80/baseharbor#1373]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -25,20 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** codex-heavy-wk (cx01, Codex als Worker per Owner-Direktive 2026-11-04) · **Priority:** normal  
+    **Owner:** codex-heavy-wk (cx01) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** codex-heavy-wk (cx01, Codex als Worker per Owner-Direktive 2026-11-04)  
+**Owner:** codex-heavy-wk (cx01)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -103,3 +103,11 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   candidate now on PR #1373 head 0ce814d0. Sole owner for the correction round is the Codex worker instance
   `codex-heavy-wk` executing mission coordinator/missions/cx01-journal-r2.txt. No other session writes this
   branch; you have an explicit handover, so stop-condition "unclear ownership" is cleared.
+
+## Handoff 2026-11-04 (Codex-Worker cx01, Kanban-Setzung über card-status.py)
+- Candidate: PR #1373 head 11ed442e on branch work/r27-execution-journal, develop ecbb8854 is an ancestor,
+  hosted checks terminal 2 pass / 0 fail / 14 skipping.
+- Round 2 addresses all five Codex review-1373a recipes: per-request identity with a non-secret commitment,
+  operation index rebuilt from the retained journal, distinguishable duplicate/reconnect outcomes, and an
+  ordering regression proving the record is readable before the first effect. Wording narrowed to the bounded
+  guarantee. Evidence: evidence/r27-welle4-2026-11-04/execution-journal/round-2.md.
