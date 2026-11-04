@@ -1174,3 +1174,16 @@ kein fall. demo-ast hinter main = ebefalls historisch (#128 gemergt).
 - cx04 klassifikation uebernommen: A:3 B:1 C:0 — die drei A-befunde sind echte produktfehler auf ANDEREN
   karten (mig. rollback -> device-enrollment, app-edit openbao-admin -> state-owner, gofmt -> node-service)
   und werden von der DSN-aenderung NICHT geheilt; steht in boundary-1.md.
+
+## ~02:35 native-auth IST PRUEFBAR (w125, runde 4): kopf 0a67092ca31, ls-remote==head, develop Vorfahr.
+PLATTENBEWEIS VON MIR (nicht der lane-meldung geglaubt): an ALLEN VIER korrekten stellen sitzt die anbindung —
+app_inspect_remote.go, app_update.go, internal/development/workspace_git.go, internal/orgconfig/source.go
+(je HostFromURL + PreInteractiveNoPrompt + GIT_TERMINAL_PROMPT), broker bleibt wertfrei/found-only; 16 dateien,
+keine workflow-/migrationsdatei. karte -> review.
+SELBSTSTANDIG BERICHTIGT: die lane meldete "runner untaeglich, 13 queued eingefroren" — mein nachmesser:
+laeufe 17:20/17:23/17:30 warten,aeltere sind FERTIG (06:52Z success). das ist eine lange schlange, kein
+ausfall; deshalb kein blocker-eintrag, sondern wartender lauf. w125 released, w131 (consent-abort runde 2)
+besetzt den freien sitz.
+Konsumenten-frage codec rezept 7 ist eigentumsmaessig geklaert (public-surfaces) und auf beiden karten
+vermerkt; die drei A-befunde haengen jetzt an ihren karten (device-enrollment, state-owner) und werden von
+Luna unabhaengig nachgemessen (mission codex-r-audit-a).

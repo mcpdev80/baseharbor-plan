@@ -1,5 +1,5 @@
 ROLLE: Worker (Lane w131). Coord f49a3303. KARTE: t-20261104-r27-consent-abort-leaves-undestroyable-state (Runde 2).
-REPO: baseharbor. ZWEIG: work/r27-consent-abort (PR #1375, head c24a6c7c). KEIN neuer zweig, KEIN zweiter PR.
+REPO: baseharbor. ZWEIG: w120-fix (PR #1375, head c24a6c7c777). KEIN neuer zweig, KEIN zweiter PR.
 
 Luna review-1375a verdict=REJECT (akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-1375a.md,
 vollstaendig lesen). Die sachliche trennung ist richtig (pruefung liegt VOR dem speichern, kein rollback
@@ -23,7 +23,7 @@ PFLICHTPRUEFUNGEN: rote-erstkampagne dokumentieren (wortliche ausgabe vorher), d
 neuen kopfs bis TERMINAL beobachten (lauf-id + status, Eigenes-Run-Pflicht). Falls ein lauf wegen der
 gemeinsamen datbank-umgebung faellt: NICHT umschreiben oder ueberspringen — auf das offene hebel-stueck
 verweisen (PR #1377) und den fehler wortlich lassen, das ist eine klasse-B-umgebung, kein dein fehler.
-ls-remote == head WOERTLICH; merge-base --is-ancestor origin/develop HEAD; name-only-diff in die evidence.
+ls-remote == head WOERTLICH; fetch zuerst origin/develop; merge-base --is-ancestor origin/develop HEAD (ast heisst w120-fix, NICHT work/r27-consent-abort); name-only-diff in die evidence.
 GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN .github-eingriff, KEINE tests geloescht, KEIN merge, KEIN
 rerun als ersatz fuer analyse, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp.
 Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/round-2.md (keine markdown-checkboxen).
