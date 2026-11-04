@@ -101,3 +101,10 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
 - Runde 3 = Archäologie (wo war es wirklich kaputt), echte Lebenszyklusprüfungen, rot auf dem kranken Stand,
   grün auf dem eigenen, endgültige Protokollnachweise. Ergibt die Suche keinen produktseitig kranken Commit,
   ist das ein Meldefall, kein Selbstzweck-Grün.
+- Klassifikation 2026-11-04 (Vier-Zellen-Messung, Lane w138, classification-1.md): Der Befund ist ein echter
+  Produktbefund und auf der Hauptlinie reproduzierbar. Auf Deiner Linie allein, isoliert: Auslieferung ohne
+  Kennung abgelehnt, danach schlägt das Zerstören mit „Zustandsdatei fehlt" (Rückgabewert 1). Der Kandidat
+  verhält sich wörtlich gleich, ändert also nichts an der Stelle. Die Zerstörung leitet ihren Eigentümer aus
+  dem Stapelzustand ab, nicht aus der Auslieferungsdatei
+  (internal/application/shared_backends_state.go:15, internal/application/shared_core_sql.go:13).
+- Nächster Auslöser: Korrekturlauf auf demselben Zweig; Messzelle A (Deine Hauptlinie) ist die Rot-Grundlage.
