@@ -7,7 +7,19 @@
 **Base `develop`:** `2cadfcee8161ec087b6f50d80fb41428d414f9df` (Vorfahr JA)
 **Role:** Worker  |  **Coord:** f49a3303  |  **Evidence:** `baseharbor-plan/evidence/r27-night-2026-11-02/ci-access/qualify-13.md`
 
-## END-Lane: DONE — Rezept 1357l geheilt, Mutation-Beweise A+B rot, CI lokal grün
+## END-Lane: DONE — Rezept 1357l geheilt, Mutation-Beweise A+B rot, CI lokal UND hosted grün; Merge an Codex-MERGE übergeben
+
+Kandidat head (dieser Fix): `e86d39c0ea3e3c516500b87e4589135fbb50aa78` (gegen base `3360d14a`), per Push auf `work/r27-ci-access-ab` publiziert, `ls-remote` == head.
+
+## PLAN (eigene Arbeit, nummeriert)
+- Schritt 1 — Fix-Worktree auf `work/r27-ci-access-ab` @ base `3360d14a` erstellt (`/tmp/w83-access`, detached HEAD). DONE.
+- Schritt 2 — Defekt reproduziert: realer Execute-Aufruf entfernt, `combinedPaths++` stehengelassen ⇒ Test BLIEB PASS (N=12), exactly review-1357l-Befund. DONE.
+- Schritt 3 — Zähler an echten Dispatch gekoppelt: Wrapper `wrappedCheck`/`wrappedExecute` (inkrementieren `*counter` vor echtem `c.Check`/`c.Execute`), alle 8 freien `combinedPaths++`-Zeilen entfernt, Load-Phase-Nullfälle (Rows 4/6) getrennt dokumentiert. DONE.
+- Schritt 4 — Mutationsbeweis A (Execute weg ⇒ N=7, Matrix ROT) und B (Miswire-Swap ROT) verifiziert; Vollmatrix go test GRÜN. DONE.
+- Schritt 5 — gofmt/vet clean, handler.go byte-identisch, 0 Test-Funktionen gelöscht, nur client_test.go (+50/-25). DONE.
+- Schritt 6 — Evidence `qualify-13.md` geschrieben; Commit `e86d39c0`; Push; `ls-remote` == head bestätigt. DONE.
+- Schritt 7 — Hosted CI `PR Selected Checks` TERMINAL GRÜN (19/19 Runs, 0 Fehler). DONE.
+- Schritt 8 — CODEX-REVIEW ACCEPTANCE PASS; Merge an Codex-MERGE-Session übergeben. DONE.
 
 ---
 
@@ -47,5 +59,8 @@ Es geht um den Nachweis, dass eine Instanz sicher auf ihre Datenbank / internen 
 - go test: grün (eigenes Run). ✓
 - Produkt-Code ohne Test-Instrumentierung: Zählung nur in test-only Wrappern (`client_test.go`), kein production Hook. ✓
 
-## Nächster Auslöser
-Commit + Push des Fix-Branch-Heads, `git ls-remote` == push-Head, anschließend `PR Selected Checks` (hosted CI) TERMINAL GRÜN beobachten. Bei grün: Codex-MERGE (Owner-Autorisierung), dann Planning-Abschluss.
+## Nächster Auslöser (eingetroffen, dann Handoff)
+- Push auf `work/r27-ci-access-ab` ⇒ head `e86d39c0...`, `ls-remote` bestätigt.
+- `PR Selected Checks` HOSTED CI: 19/19 Runs terminal, `PR Selected Checks` = success, 0 Fehler. Mandatory gates: go-build, go-unit-tests, go-vet, Exact Candidate, Demo Pin, Source format, Runner Interface, Trusted Plan, Workflow policy alle success; docker/podman lifecycle success.
+- CODEX-REVIEW ACCEPTANCE: SHA-genau, handler.go byte-identisch, 0 Test-Funktionen gelöscht, Mutationsbeweis A (N 8→7 ROT) und B (Miswire ROT) erfüllt, CI grün. Befund: akzeptabel, Merge bereit.
+- Merge selbst ist einer separaten Codex-MERGE-Session vorbehalten (AGENTS §2/§5.2): Worker-Session führt keinen Merge aus. Handoff an Codex-MERGE, sobald eine bereit ist; danach Planning-Abschluss (t-20261022-r27-ci-access → closed) durch Coordinator.
