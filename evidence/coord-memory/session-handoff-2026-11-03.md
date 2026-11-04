@@ -1405,3 +1405,12 @@ test.go:132) war ein SUCHTREFFER-SYNDLING: sie vergleicht text, ueberspringt nic
 dokumentiert statt dort still was zu aendern — genau richtig. weil ich das selbst erst nachrechne, steht die
 regel jetzt so im auftragstext an die prueferseite: vollstaendige aufzaehlung aller ueberspruenge mit klasse,
 nicht nur die mir gemeldeten.
+
+## ~09:05 freie sied platz: BEIDE TEST-RECHNER AUF DEN AKTUELLEN SCHNITT (w140).
+grund dafuer, dass ich das jetzt selbst anstosse statt zu warten: meine eigene nachmessung meldet
+baha-podman = ecbb8854 und baha-docker = eine zeile "BaseHarbor 0.4.23" (SCHILD statt SCHNITT), develop ist
+2ea2c6f1. ein lauf auf einem Rechner mit anderem stand ist KEIN nachweis — dieselbe regel, wegen der wir die
+VMs ueberhaupt neu gebaut haben. auftrag: bau gegen den geprueften schnitt, fungsiachweise mit rc je schritt,
+versionsanzeige auf den schnitt stellen (die 0.4.23-zeile ist ein eigener befund), der blockierte podman-
+stapel wird per COMPOSE-DOWN seiner eigenen definition beendet (nicht uerber den anwendungs-zerstoerer, das
+waere genau der fehler den #1375 belegt), shared-stapel und Proxmox bleiben unberuehrt.

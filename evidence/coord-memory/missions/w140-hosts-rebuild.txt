@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane w140). Coord f49a3303. KARTE: t-20261104-r27-vm-rebuild-integration (zweiter durchgang,
+feld des koordinators: die zwei test-rechner).
+REchner: baha-docker und baha-podman (ssh-aliases, zugriff wie bisher). KEIN PROXMOX, KEINE geteilten stapel
+(`bh-*shared*` bleiben unberuehrt), KEINE runner-Infrastruktur, KEIN neues projekt-netz.
+
+LAGE (von mir nachgesehen): beide hosts melden noch den BAU von ecbb8854; develop ist seit der Hebelkarten-
+Verbindung 2ea2c6f1. ein test der auf einem RECHNER laeuft, der einen anderen stand ausfuehrt als der
+gepruefte kandidat, ist KEIN nachweis — die regel gilt weiter (baut gegen die gepruefte fassung, nie gegen
+eine alte installation).
+
+AUFGABE (fuer JEDEN der zwei hosts einzeln, in der evidence getrennt):
+ (1) STAND VORHER PROTOKOLLIEREN: `~/.local/bin/baha --version` wortlich, `uname -r`, `df -h /` eine zeile.
+ (2) NEU BAUEN aus origin/develop (2ea2c6f1 oder frischer, nach fetch): quellcode auf den host (eigener
+     arbeitspfad unter ~/build/, niemals in ein anderes projektverzeichnis), `go build -o baha ./cmd/baha`,
+     INSTALLATION ermitteln wie bisher (~/.local/bin/baha), alte datei NICHT loeschen bevor der neue lauf
+     `baha --version` mit dem NEUEN schnitt liefert (beleg beide ausgaben).
+ (3) FUNKTIONSBEWEIS je host, klein und echt: `baha --version`, ein `go build ./...` des checkouts, ein
+     container-lauf des jeweiligen runtime (docker run --rm / podman run --rm true), ein port-mapping-test.
+     Pro schritt rc + eine zeile ausgabe. KEIN scheingruen: ein schritt ohne eigenen beweis ist ein FEHLER
+     in dieser lieferung.
+     WICHTIG fuer baha-docker: das geraet meldet aktuell eine version wie 'BaseHarbor 0.4.23' statt eines
+     schnitts — klaere WOHER die zeile kommt (build-information des pakets vs. installierte datei) und
+     hinterlasse eine version, die den gepueften SCHNITT nennt (ldflags/-V verhalten wie im repo ueblich).
+ (4) TEST-STapel: eigene definitionen (compose/setup-skripte des projekts) verwenden; der stapel der vom
+     anwendungs-`destroy` NICHT geloescht werden konnte (podman, zustimmungs-fehler) wird per COMPOSE-DOWN aus
+     seiner eigenen definition beendet, nicht uerber den anwendungsbefehl. keine shared-stapel anfassen.
+ (5) RAEOUMEN: nur den eigenen arbeitspfad; keine projektverzeichnisse, keine netze fremder staende.
+ (6) BELEG: pro host eine tabelle (vorher/nachher version, schritt/rc/ausgabe, aufräumstatus), dazu die
+     ls-remote-zeile des gebauten schnitts. KEIN PR, KEIN commit im produkt — das ist ein betriebsauftrag.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN Proxmox, KEINE .github-aenderung, KEIN release/tag/deploy,
+KEIN anlegen eines github-runners, scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c); bei
+schreibfehlern zuerst df -h /tmp und df -h auf dem host.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-rebuild/round-2-hosts.md (zwei tabellen, keine
+markdown-checkboxen).
+END an f49a3303: "END_DONE w140-hosts-rebuild: docker_host=<schnitt10 rc0> podman_host=<schnitt10 rc0> version_anzeige=<schnitt statt tag|geklaert> aufgeraeumt=<ja> lsremote=<schnitt10> | <Satz>"
