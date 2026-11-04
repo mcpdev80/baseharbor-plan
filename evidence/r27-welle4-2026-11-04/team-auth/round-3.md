@@ -55,16 +55,18 @@ Der gleiche Test und Fehler steht in `PR · Validation · cli-package-tests`, Jo
 ### Hosted CI — Laufbeobachtung
 
 - Neuer, vom Push ausgelöster PR-Lauf: [41893767441](https://github.com/mcpdev80/baseharbor/actions/runs/41893767441), Head `a7fa573d5bff6e043fbecbb2aeb79833605dc304`; Event `pull_request`.
-- Beobachtung mit `gh run watch 41893767441 --exit-status` läuft. `PR · Trusted Plan` (Job `126797695596`), `Workflow policy` (`126797695926`), `PR · Source format` (`126797696068`), `documentation-audit` (`126797846141`), `cli-gofmt` (`126797846242`), `pages-candidate-build` (`126797846274`) und `mkdocs-de-strict` (`126797846436`) sind bereits PASS. `cli-package-tests`, `go-unit-tests`, `cli-build`, `cli-vet`, `go-build`, `go-vet`, `source-contracts`, `Focused Python`, `mkdocs-en-strict`, `pages-candidate-build`-abhängige Gates sowie `Workflow policy` sind/waren bei Zwischenabfrage noch nicht alle terminal.
-- Im vorherigen Lauf `41884936792` waren `go-unit-tests` und `cli-package-tests` rot mit den oben wortwörtlich gesicherten First-run-Fehlern. Der neue Lauf enthält die reparierten Testfälle; abschließender Beleg der geänderten Ergebnisse folgt aus dem terminalen Laufbericht.
+- `gh run watch 41893767441 --exit-status`: terminal SUCCESS. `PR Selected Checks` Job `126802286022` PASS; `PR · Validation · go-unit-tests` Job `126797846203` PASS (7m39s); `cli-package-tests` Job `126797846469` PASS (5m13s). Ebenfalls PASS: `cli-guided-tests` `126797846096`, `cli-build` `126797846316`, `cli-vet` `126797846138`, `go-build` `126797846071`, `go-vet` `126797846072`, `cli-gofmt` `126797846242`, `documentation-audit` `126797846141`, `source-contracts` `126797846161`, `PR · Focused Python` `126797845540`, `PR · Trusted Plan` `126797695596`, `Workflow policy` `126797695926`, `PR · Source format` `126797696068`, `PR · Validation · mkdocs-en-strict` `126797846050`, `mkdocs-de-strict` `126797846436` und `pages-candidate-build` `126797846274`. Weitere ausgewiesene native/runtime Checks wurden als `skipped` beendet; keine roten Jobs.
+- Geänderter Ausgang gegen die alten roten Prüfungen: Lauf `41884936792` / SHA `f9507ff6ee00694b0125c577a4890918695b3fa8` beendete `go-unit-tests` Job `126766941366`, `cli-package-tests` Job `126766941411` und `PR Selected Checks` Job `126770680413` als FAILURE. Auf SHA `a7fa573d5bff6e043fbecbb2aeb79833605dc304` sind dieselben drei Checks SUCCESS; `documentation-audit` ist ebenfalls SUCCESS (Job `126797846141`). Damit ist die First-run-Fehlzeile aus dem RED-FIRST-Befund im Paketlauf nicht mehr aufgetreten.
 
 ### Scope und Regelkonformität
 
 - Kandidatenänderung umfasst sieben Dateien: `cmd/baha/app_input_resolver_first_run_test.go`, `cmd/baha/main.go`, `cmd/baha/operator_membership_provider.go`, `internal/database/identity_tenant_resolver.go`, `internal/database/identity_tenant_resolver_integration_test.go`, `internal/operatorauth/authorization_test.go`, `internal/operatorauth/context.go`.
 - Gesamter Name-only-Diff gegen Develop hat 17 Dateien: die vorbestehenden dreizehn Team-auth-Dateien plus diese vier zusätzlichen Pfade (`cmd/baha/main.go`, neuer Provider, Datenbankresolver samt Integrationstest); keine Codec-/Fremddatei, kein `.github`-Pfad.
 - PR #1369 bleibt OPEN, nicht Draft; kein Merge und keine Statusänderung ausgeführt.
-- ## repo-rule compliance
-  - Derselbe zugewiesene Branch und dasselbe Worktree verwendet; keine zweite Branch/PR, keine Subagenten.
-  - Nur aufgezählte Quelldateien gebündelt und gestaged; keine fremden oder ungesicherten Änderungen überschrieben.
-  - Keine Tests entfernt/abgeschwächt, keine Workflowdatei geändert, kein Force-Push, keine CI-Reruns/Dispatches.
+
+## repo-rule compliance
+
+- Derselbe zugewiesene Branch und dasselbe Worktree verwendet; keine zweite Branch/PR, keine Subagenten.
+- Nur aufgezählte Quelldateien gebündelt und gestaged; keine fremden oder ungesicherten Änderungen überschrieben.
+- Keine Tests entfernt/abgeschwächt, keine Workflowdatei geändert, kein Force-Push, keine CI-Reruns/Dispatches.
 

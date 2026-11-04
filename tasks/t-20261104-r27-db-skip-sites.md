@@ -6,32 +6,33 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle4 (Lane w137)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1378]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-db-skip-sites · Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen #task #release/v0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261104-r27-db-skip-sites · Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen #task #release/v0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w137)  
+    **PR:** [baseharbor#1378](https://github.com/mcpdev80/baseharbor/pull/1378)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Owner:** coord-welle4 (Lane w137)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1378](https://github.com/mcpdev80/baseharbor/pull/1378)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -86,3 +87,13 @@ klarer Meldung stehen, damit ein Lauf nicht scheingrün wird. Wo ein Überspring
 - Auftrag: die fünf verbliebenen Stellen, die ohne Verbindungsangabe überspringen statt fehlzuschlagen,
   auf echtes Fehlschlagen mit klarer Meldung umstellen; wo Überspringen fachlich richtig ist, bleibt es mit
   Begründung im Code. Gegenprobe je Stelle mit unerreichbarem Ziel muss rot bleiben.
+
+## Handoff 2026-11-04 (plattenfest nachgemessen, inklusive Berichtigung meiner Liste)
+- Kandidat: PR #1378, Zweig work/r27-db-skip-sites, Kopf aca8ff97df8 (ls-remote == Kopf), develop 2ea2c6f1 ist
+  Vorfahr; Prüfprotokoll: acht grün, null rot, elf nach Auswahlregel übersprungen; Antrag ist verbindbar.
+- Vier echte Stellen umgestellt (Steuerungsschicht, Anmeldungs-Datenbank, Rückbau, Bereitstellungsprüfung):
+  ohne gesetzte Verbindung jetzt Fehlschlag mit klarer Meldung, keine Überspringung mehr in diesen Dateien.
+- BERICHTIGUNG MEINER EIGENEN LISTE: die fünfte Datei (cmd/baha/bugs_864_871_runtime_test.go:132) war ein
+  Suchtreffersyndling — sie prüft Textinhalte, sie überspringt nicht. Die Lane hat das dokumentiert statt
+  dort still etwas zu ändern; richtig so.
+- Gegenproben mit unerreichbarem Ziel sind für alle vier Stellen rot belegt.
