@@ -22,10 +22,24 @@ Date: 2026-11-04
 ## Branch provenance
 
 - origin/develop HEAD at branch cut: e444ae117173dcf84e7aa8b17f73c020d3e2923c
-- origin/develop HEAD now: 1fc148ff586d00c76b57ef9b3ad51060b3375413 (moved after branch cut; card depends on t-20261104-r27-vm-integration-runs which is now on develop)
+- origin/develop HEAD now (real GitHub remote): e444ae117173dcf84e7aa8b17f73c020d3e2923c (fresh; local spawner had no fetch — coordinator fixed; local base branches updated)
 - Merge: 6efee3a238 "Merge remote-tracking branch 'origin/develop' into work/r27-private-integration"
-- merge-base --is-ancestor origin/develop HEAD: TRUE (verified)
+- merge-base --is-ancestor origin/develop HEAD: TRUE (verified against real origin: e444ae11)
 - No unversioned files in my branch: git status --short empty
+- MY COMMIT efadde8e changes exactly 4 files: internal/application/manifest.go, internal/application/manifest_parse.go, internal/application/provider_placement.go, internal/application/r27_private_integration_test.go (verified: `git diff --name-only 6efee3a2 efadde8e`). Stationenrollment files in the develop..HEAD diff are the required develop-merge baseline, not my change.
+
+## PUBLICATION (late, per coordinator f49a3303 2026-11-04)
+
+- HEAD pushed to real GitHub: `git push origin HEAD:refs/heads/work/r27-private-integration` -> `[new branch] HEAD -> work/r27-private-integration`
+- ls-remote witness (WOERTLICH): `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-private-integration` ->
+  `efadde8ef69c701bf2b46bb7c94664e4b2427bc3  refs/heads/work/r27-private-integration` == efadde8e...
+- Draft PR opened: #1379, base=develop (e444ae11), head=work/r27-private-integration (efadde8ef6), isDraft=true, state=OPEN.
+- URL: https://github.com/mcpdev80/baseharbor/pull/1379
+- Name-only diff develop..HEAD: 29 files (develop-merge stationenrollment baseline + my 4 switch files); my switch files only.
+
+## Reason for late publication (single sentence, for Owner's run book)
+
+- The late publication was caused by my local `origin` pointing at the LOCAL repo path `.../baseharbor`, whose local `develop` was stale because the spawner had no fetch — NOT my content fault; content (efadde8e) was correct and committed the whole time. Coordinator fixed the spawner fetch and updated local base branches; I then republished to real GitHub, opened draft PR #1379, and verified via ls-remote.
 
 ## (1) Cause — exact
 
@@ -96,13 +110,14 @@ Implemented the minimal private-mode switch and proved both directions with unit
 ## (6) Mandatory checks — partial
 
 - Local: package tests PASS, `go build ./...` rc=0, `go vet` rc=0, gofmt clean. (Tooling note: go1.26.9 toolchain could not be fetched — tmpfs /tmp full; build/test ran on local go1.26.8 via GOTOOLCHAIN=local, GOMODCACHE at the populated system cache /home/marcel/go/pkg/mod, GOCACHE/TMPDIR under /home. go.mod toolchain directive was reverted to its original value after verification; git diff for go.mod is empty.)
-- Hosted CI (run-id + status): PENDING — requires a draft PR (coordinator action).
-- ls-remote == head: origin/develop == 1fc148ff586d00c76b57ef9b3ad51060b3375413; my HEAD = efadde8ef6 (commit on top of the develop merge 6efee3a238). Branch has no unversioned files (git status --short empty).
+- Hosted CI: RUN to terminal — run-id 41910907497, `CI · PR #1379` (pull_request), status=completed, conclusion=success, headSha=efadde8ef6, createdAt 2026-11-04T20:53:43Z. Only one run for my branch; terminal.
+  - Note (finding for Owner): individual job outcomes report as null because the workflow jobs use matrix/expression names; the overall run conclusion is success. Per baseharbor AGENTS.md, "Rulesets remain disabled during the current CI repair" — so the run source/format gate passed but full required-check enforcement is not yet live. This is a run-state finding, not a claimed green gate.
+- ls-remote == head: real origin/develop = e444ae117173dcf84e7aa8b17f73c020d3e2923c; my HEAD = efadde8ef6 (on top of develop merge 6efee3a238). Branch has no unversioned files (git status --short empty). merge-base --is-ancestor origin/develop HEAD rc=0 against real base e444ae11.
 
-## Open decision for Owner/Coordinator (QUESTION posted to f49a3303)
+## Open decision for Owner/Coordinator
 
-- The private-path switch + cause + counter-probes + minio report are complete and committed. The one remaining step (positive cycle + hosted CI) needs either (a) the coordinator to open a draft PR on this branch so hosted CI runs, or (b) a different run host where the demo's un-pullable minio image is available (e.g. a host that can pull minio/minio or where the demo runs against the shared backend without the standalone minio profile). I cannot open/merge a PR myself and cannot edit the demo/.github. Recommend (a).
+- Positive application cycle (mission item 5) on the private path still needs a run host where the demo's un-pullable minio image is available (or a host running the shared backend without the standalone minio profile). The switch + cause + counter-probes + minio report + hosted CI are complete. Draft PR #1379 is open for review/acceptance.
 
 ## END
 
-END_DONE w144-private-integration-path: head=efadde8ef6 ursache=footprint.go:283-290+provider_union.go privat=<RC implemented+proven: Manifest.Private switch -> Scope=application postgres/valkey, own DB+KV in own net, shared default unchanged> ohne_schalter=<verified shared-bridge identical> minio=<compose.yaml:48 standalone-only, not pullable on baha-docker mirror, does not block shared run> lsremote=1fc148ff | DONE: cause + minimal private switch + both counter-probes + minio report committed; evidence published to baseharbor-plan main. OPEN: hosted CI + positive cycle need your draft PR or a run-host with the minio image available (QUESTION posted to f49a3303).
+END_DONE w144-private-integration-path: head=efadde8ef6 ursache=footprint.go:283-290+provider_union.go (load-apps resolve to ONE shared bridge, no private switch existed) privat=<RC implemented+proven: Manifest.Private switch -> Scope=application for postgres/valkey => own DB+KV in own net; shared default byte-unchanged, all unit tests PASS> ohne_schalter=<verified shared-bridge identical> minio=<compose.yaml:48 standalone-only, not pullable on baha-docker mirror, does not block shared run; not changed> lsremote=efadde8ef69c701bf2b46bb7c94664e4b2427bc3 (work/r27-private-integration == efadde8e, proven) merge-base origin/develop(e444ae11) HEAD rc=0 | PUBLISHED: branch pushed to real GitHub (efadde8e), draft PR #1379 base=develop head=efadde8ef6; hosted CI run 41910907497 completed/success (headSha=efadde8e, full required-check enforcement currently disabled per baseharbor CI repair note). Evidence published to baseharbor-plan main. LATE PUB REASON: local origin pointed at local repo with stale develop (spawner had no fetch) — content fault-free; coordinator fixed fetch, then republished. OFFENER AUFTRAG: nichts am Inhalt aendern; private-umschaltung bleibt wie gemessen. POSITIVE CYCLE (item 5): braucht Run-Host mit zieharem Minio.
