@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Codex-Worker cx03)
-kanban_lane: review
+owner: coord-welle4 (Lane w129)
+kanban_lane: active
 kanban_summary: Validate version/trust/installation/scope before any writes; transactional import and explicit conflicts. Default export…
-kanban_status: review
+kanban_status: active
 kanban_title: "Profiles: import and export non-secret connection metadata"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Codex-Worker cx03) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w129) · **Priority:** normal  
     **PR:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Codex-Worker cx03)  
+**Owner:** coord-welle4 (Lane w129)  
 **Priority:** normal  
 **PRs:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -100,3 +100,13 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   (Documentation-Audit und ausgewählte Prüfungen nach der Spezifikationsangleichung grün).
 - Prüfauftrag für diesen Kopf ist geschrieben und läuft, sobald der Abnahmekanal frei ist
   (coordinator/missions/codex-r1363c.txt).
+
+## Review-Rueckruf 2026-11-04 (Codex review-1363c, verdict REJECT)
+- Kanonische Datensatzversion war nur an Aufruferargumente gekoppelt, nicht Pflicht in Export und Import.
+- Empfängersbindung war nicht zwingend; ein anderer gültiger SPIFFE-Empfänger konnte durchkommen.
+- Vertrauensselbstkonsistenz blieb schalterabhängig statt unbedingt.
+- Kurzschrift nach dem Schichten und Fehler beim Aufräumen des Ersatzes waren nicht echte geprüft (kein
+  Testnaht-Nachweis, Entfernenfehler ignoriert).
+- Canary-Prüfungen deckten nicht jede Kategorie, Rundlauf verglich Teilfelder, Ersetzen bewies nicht den
+  Inhalt.
+- Korrekturrunde = Lane w129, frisch von develop geschnitten (der alte Zweig trägt fremde Historie).
