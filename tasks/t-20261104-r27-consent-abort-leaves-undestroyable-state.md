@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: critical
-owner: coord-welle4 (lane w120)
-kanban_lane: review
+owner: coord-welle4 (Lane w131)
+kanban_lane: active
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
-kanban_status: review
+kanban_status: active
 kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/bug
+- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/bug
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w120) · **Priority:** critical  
+    **Owner:** coord-welle4 (Lane w131) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
     <!-- /generated:card -->
 
 <!-- w120 fix (2026-11-04): refused candidate apply now fails closed before any on-disk record write; prior record survives so `destroy` re-resolves and a consented re-apply reaches the choke point and READY. Fix committed `c24a6c7c` on `w120-fix`; draft PR #1375 (base develop). Owner redirect to non-draft for gate run; CODEX-MERGE on owner approval. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
-**Owner:** coord-welle4 (lane w120)  
+**Owner:** coord-welle4 (Lane w131)  
 **Priority:** critical  
 **PRs:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -70,3 +70,12 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
 - Red-first reproduction on the real path, then the fix at the record-before-mutation choke point
   (cmd/baha/deployment_record.go): a refused candidate apply now leaves state that destroy can remove;
   destroy after a refusal exits 0. Evidence: evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1375a, verdict REJECT)
+- Sachlich ist die Trennung richtig: die Prüfung liegt vor dem Speichern, ein Rückrollpfad wird nicht gebaut,
+  die Spezifikationsstellen decken das ab. Am Kandidaten war diese Datei nur kommentiert.
+- Es fehlt der Lebenszyklus-Nachweis: die Wiedergabe ruft nur den Auflösungshelfer für das Zerstören auf,
+  nicht den echten Zerstörungsbefehl mit Erfolgs-Rückgabewert; die Folgeanwendung speichert einen
+  Anwendungs-Datensatz, führt die Anwendung aber nicht bis betriebsbereit aus.
+- Korrekturrunde = Lane w131 auf demselben Zweig (w120-fix): echter Zerstörungsdurchlauf mit rc=0 auf dem
+  abgelehnten Stand, echte Folgeanwendung bis betriebsbereit, vorher-rot-Nachweis inklusive.
