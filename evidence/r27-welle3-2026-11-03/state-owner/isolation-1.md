@@ -4,9 +4,9 @@ Worker lane w78. Coord f49a3303. Card t-20261018-r27-state-owner.
 Branch head: `d9a48d42` (FF from develop 2cadfcee). CI jobs 41774178200 + 41776994532 (go-unit).
 
 ## Status
-- [x] 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
-- [x] Fix #2 (inverted-mode ADR-0022 proof) committed, red-first
-- [ ] Fix #1 (happy-path) — reverted to hard-coded rootful (matches develop); CI go-unit fails at `app_edit_apply_test.go:1022` with `partial` (SQL-consumer verification, not mode)
+- 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
+- Fix #2 (inverted-mode ADR-0022 proof) committed, red-first
+- Fix #1 (happy-path) — reverted to hard-coded rootful (matches develop); CI go-unit fails at `app_edit_apply_test.go:1022` with `partial` (SQL-consumer verification, not mode)
 
 ## The 10 host-env artifacts (isolated, committed 63d7ea51)
 1. recovery(5) — `TestRecoveryFileForRepositoryUp*`: shared `~/.local/share/baseharbor-recovery` collision. Fix: per-test `t.Setenv("HOME", t.TempDir())` + `t.Setenv("XDG_CONFIG_HOME", t.TempDir())`.
@@ -97,7 +97,7 @@ New `TestAppEditInvertedDockerModeFailsClosedAd0022`:
 - No production code changed. No test deleted. No skip.
 
 ## Still pending
-- [ ] Happy-path (fix #1) converge green on CI — blocked on the shared-postgres backend (see END_BLOCKED).
+- Happy-path (fix #1) converge green on CI — blocked on the shared-postgres backend (see END_BLOCKED).
 
 ## END_BLOCKED (happy-path SQL-consumer verification, per mission STOP rule)
 The happy-path stops at `app_edit_apply_test.go:1022: real Edit lifecycle did not
