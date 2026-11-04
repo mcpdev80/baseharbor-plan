@@ -1334,3 +1334,9 @@ hoechsten stufe) — damit erklaert war auch der widerspruch zwischen "rot im la
 auf develop". karte -> review, abnahmeauftrag r1371b geschrEIBEN (Luna nach #1375). PRUEFPUNKT 5 bewusst
 scharf: ueberspringen ohne verbindung muss FEHLSCHLAGEN — das ist die heute nacht verbundene regel, nicht
 meine meinung.
+
+## ~07:00 w132 delivered + released (enrollment gruen, karte -> review). FREIER SITZ -> NEUE KARTE BEOSETZT:
+t-20261104-r27-db-skip-sites (w137, frisch von develop): die fuenf reste-ueberspringungen ohne verbindung
+werden zu echtem FEHLSCHLAG mit klarer meldung, mutation je stelle (unreachbares ziel muss rot), begruendung
+im code wo ueberspringen fachlich stimmt. das ist die Wurzel davon, dass drei wochen lang "nicht
+reproduzierbar" und "rot im laeufer" gleichzeitig behauptet werden konnte.

@@ -1,0 +1,41 @@
+ROLLE: Worker (Lane w137). Coord f49a3303. KARTE: t-20261104-r27-db-skip-sites (Welle 4, neue karte).
+REPO: baseharbor. ZWEIG: NEU work/r27-db-skip-sites ab origin/develop (aktuell 2ea2c6f1 oder frischer —
+fetch zuerst, merge-base --is-ancestor als BELEG; KEIN ast von einem anderen kandidaten abschneiden).
+
+GRUND (plattenfest, von mir nachgerechnet): die verbundene hebelkarte t-20261022-r27-ci-delivery (PR #1377)
+hat GENAU zwei datbank-pruefungen umgestellt: fehlende umgebung => FEHLSCHLAG statt UEBERSPRINGEN. Auf der
+Hauptlinie bleiben weitere stellen mit dem alten muster — Plattentreffer (git grep 'is not set' origin/develop
+-- '*_test.go'):
+ - cmd/baha/bugs_864_871_runtime_test.go
+ - internal/controlplaneruntime/server_integration_test.go
+ - internal/database/connector_enrollment_integration_test.go
+ - internal/database/migration_rollback_integration_test.go
+ - internal/database/schema_readiness_integration_test.go
+Eine uebersprungene pruefung, die als success erscheint, ist der grund warum drei wochen lang "nicht
+reproduzierbar" und "rot im laeufer" gleichzeitig behauptet werden konnte. DARUM diese karte.
+
+AUFGABE (nur test-seitig, exakt diese trennung):
+ (1) Jede der fünf Stellen: ohne gesetzte BASEHARBOR_TEST_DATABASE_URL => FEHLGESCHLAGEN mit einer klaren,
+     UNTERSCHEIDBAREN meldung ("testumgebung nicht hergestellt: <variable> fehlt"), NICHT skipped.
+     Der Text muss die Variable nennen und darf kein connection-refused-geraeusch nachahmen.
+ (2) WO ein ueberspringen FACHLICH richtig ist (z.B. ein optionaler treiber, eine nur-bei-xxx-gemeinte
+     pruefung): bleibt die überspringung, ABER mit ausdrücklicher begruendung IM CODE (kommentar direkt an
+     der stelle, ein satz, warum hier ueberspringen korrekt ist) und in der evidence aufgelistet. still
+     schweigen ist keineoption.
+ (3) GEGENPROBE je stelle (drei faelle, wortlich in der evidence): (a) ohne variable => das paket wird ROT
+     (exit 1) und der fall heisst failed, nicht skipped; (b) mit skript-verbindung (scripts/pr-unit-database.sh)
+     => der fall wird GRUEN und ist AUSGEFUEHRT (nachweis: -v ausgabe mit laufzeit, nicht nur 'ok');
+     (c) MUTATION: variable auf unreachbares ziel => ROT mit connection-verweigerung (beweis echtes pruefen).
+ (4) KEINE aussage eines bestehenden falls weichkoepfen, KEIN test loeschen, KEIN produktcode aendern —
+     ausser: wenn eine stelle zeigt dass der PRODUKTpfad die verbindung selbst hart kodiert, dann STOP +
+     MELDEN mit datei:zeile (das waere ein anderer befund, nicht dein auftrag).
+ (5) PR DRAFT auf develop, ls-remote == head WOERTLICH, gehostete laeufe deines kopfs bis TERMINAL (lauf-id +
+     status; Eigenes-Run-Pflicht). erwartetes bild: go-unit-tests bleibt gruen, und die fuenf stellen
+     erscheinen in keiner 'skipped'-liste mehr ohne begruendung.
+
+GRENZEN: KEINE .github-/workflow-aenderung (die stelle ist bereits richtig: ci.yml:803 ruft das skript),
+KEINE subagenten (AGENTS §4.8), KEIN rerun als ersatz fuer analyse, KEIN merge, KEIN zweiter PR fuer
+dieselbe kette, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/db-skip-sites/all-1.md (tabelle der fuenf stellen mit
+drei faellen je stelle, code-begrundungen, ls-remote; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w137-skip-sites: head=<sha10> gestellt=<5|n> begruendet-uebersprung=<liste|none> mutation=<5x rot> gates=<terminal n pass/n fail> lsremote=<sha10> | <Satz>"
