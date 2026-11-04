@@ -96,3 +96,7 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Korrekturrunde = Lane w123 auf demselben Zweig/PR #1363 (Kopf vorher e45e85ed5f).
 
 ## Handoff 2026-11-04 (Runde 4, Kandidatenstand)
+- Kopf 952299b5a7, develop ecbb8854 ist Vorfahr, Gatebild terminal 10 grün / 0 rot / 10 übersprungen
+  (Documentation-Audit und ausgewählte Prüfungen nach der Spezifikationsangleichung grün).
+- Prüfauftrag für diesen Kopf ist geschrieben und läuft, sobald der Abnahmekanal frei ist
+  (coordinator/missions/codex-r1363c.txt).
