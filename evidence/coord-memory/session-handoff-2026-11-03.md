@@ -218,7 +218,7 @@ nutzen, nicht roh-json. kein schaden.
 
 ## ~12:10 owner-hinweis runtime-hosts: baha-docker/baha-podman/baha-k3s sind ssh-erreichbar und verifiziert
 (binary+hostname). RUNBOOK §6.2 klausel: missions mit echtem runtime-verhalten nutzen diese hosts statt
-skip/simulation; destruktion nur mit drei-punkte-prüfung. betrifft direkt: k3s-qualifikationen (später),
+skip/simulation; destruktion nur mit drei-punkte-prüfung. betrifft direkt: k3s-qualifikationen (spaeter),
 docker-lifecycle-evidence, appid-core-nachweise.
 
 ## ~12:35 runtime-host-uebernahme: baha-docker aufraeumt nach drei-punkte-pruefung (0 aktive jobs,
@@ -1566,7 +1566,7 @@ daraus gelernt habe — in jeder nachricht die zeile 'OFFENER AUFTRAG BLEIBT UNV
 einen neuen kopf (ad0ea646d3), der lauf den ich nachsah hat KEINE fehlzeile im protokoll (lauf noch nicht
 terminal) — also kein neuer befund, nur warten.
 
-## ~13:50 drei zufaelle, ein muster (alles plattenfest):
+## ~13:50 drei Zufälle, ein Muster (alles plattenfest):
 - kapsel-urteil ACCEPT kam ZUERST nur im pane an, ohne datei. freigabegrenze hatte den schreibzug blockiert.
   nachhalt: ohne datei gilt mir ein urteil als NICHT geliefert (AGENTS 5.3) — jetzt nachgeliefert und die
   verbindung befohlen (squash, inhaltsgleichkeit per diff der zwei ordner, zweig loeschen).
@@ -1578,3 +1578,12 @@ terminal) — also kein neuer befund, nur warten.
  Berechtigungsfrage) und hat RICHTIG nicht angefasst, sondern gemeldet. dasselbe directory hatte ich vor stunden
   gesehen und NICHT notiert — nachgeholt in RUNBOOK §6.2d. lehrreich: 'nicht angefasst' ist nur häftig,
   wenn der grund + die folgen daraus an einem ort stehen, den das nächste Gedächtnis liest.
+
+## ~14:10 zwei pool-buecherungsfehler auf einmal behoben:
+(1) die Codex-arbeitersitze standen MIT in .pool.json — dadurch meldete die einlasspruefung 'ornith 2/2' obwohl
+    die vier echten worker-sitze frei/rege waren, und blockierte neue bahnen. arbeitersitze zaehlen nicht in
+    die pool-datei (AGENTS 2, fester pool); ich habe sie daraus entfernt. grund war meine BEQUEMHEIT: statt
+    den kanal zu pruefen, trug ich die reservation ein — das ist genau die art von zettelwirtschaft, die
+    spaeter falsche stops erzeugt.
+(2) die native-zeugnahme (w145) konnte deshalb nicht auf eine bahn; sie laeuft jetzt auf dem arbeitersitz.
+STAND: 4 worker + 1 arbeiter + Luna-pruefkanal.
