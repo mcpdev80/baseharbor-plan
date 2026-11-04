@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: coord-welle4 (lane w89)
+owner: coord-welle4 (Lane folgt)
 kanban_lane: active
 kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
 kanban_status: active
 kanban_title: "Credentials: reuse native authentication before prompting"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1362]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -24,7 +24,8 @@ evidence: []
 
 - [ ] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w89) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane folgt) · **Priority:** high  
+    **PR:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -33,9 +34,9 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
-**Owner:** coord-welle4 (lane w89)  
+**Owner:** coord-welle4 (Lane folgt)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -72,3 +73,10 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 - From head a3eee132e3 onto develop ecbb8854. The running acceptance review (r1362b) judges the OLD head; its
   verdict is informational until the refreshed head is reviewed. PR stays ready, no merge before a positive
   verdict on the new SHA.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1362b, verdict REJECT)
+- Der Native-Abfrage-Broker ist nicht in den echten Abfragefluss vor der interaktiven Eingabe eingebunden; ein
+  Bool-Wert 'gefunden' ohne Inhalt wird als Erfolg gewertet (internal/credential/native/broker.go plus Aufrufer).
+- Erwartet: Auflösung über den bestehenden geschützten In-Memory-Vertrag weiterreichen, dokumentierter
+  Fallback bleibt fail-closed, keine Secrets in Fehler oder Log, End-to-End-Gegenprobe auf Aufrufer-Ebene.
+- Korrekturen sind produktseitig; die Grundlagen-Auffrischung auf develop ecbb8854 läuft parallel in cx02.

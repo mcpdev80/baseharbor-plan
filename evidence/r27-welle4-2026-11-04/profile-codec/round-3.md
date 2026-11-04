@@ -62,4 +62,4 @@
 
 ## END
 
-END_DONE w123-codec-r3: head=4c1480678f secretfelder=alle belegt (scanContainerSecrets+scanRecordSecrets scan encoded tree) commit=atomar (staging+fsync+rename) trust=pflicht roundtrip=vollstaendig+golden gates=rot+nicht-geprüft-no-token lsremote=4c1480678fbf0e9abf67a4f68150a84677ab73b4 | round-3 code complete on isolated branch work/r27-profile-codec-w123; all findings fixed + tests green; hosted CI gate STATE (auth token unavailable this session, .github not touched)
+END_DONE w123-codec-r3: head=4c1480678f secretfelder=alle belegt (scanContainerSecrets+scanRecordSecrets scan encoded tree) commit=atomar (staging+fsync+rename) trust=pflicht roundtrip=vollstaendig+golden gates=rot+no-token-this-session lsremote=4c1480678fbf0e9abf67a4f68150a84677ab73b4 refs/heads/work/r27-profile-codec | stand JETZT KANDIDAT work/r27-profile-codec @ 4c1480678f (fast-forward von e45e85ed; Zusatzweg w123 gelöscht; Vorfahr develop ecbb8854); PR #1363 unberührt — abnahme auf neuem kopf durch owner
