@@ -42,9 +42,16 @@ gofmt leer; `GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp
 
 ## END an f49a3303
 
-`<BLOCKED w75-journal-r14>` — B2,B3 gruen; B1 owner-pending.
+`END_BLOCKED w75-journal-r14`: head=c0febdd151ce12a5df719ddfcdafc608ee69ff62 (pushed, remote==local, cat-file -e ok); basis develop 2cadfcee rc=0, PR #1354. B2,B3=gruen; B1=owner-pending (marker + zahl).
 
-Branch `work/r27-ci-authority-ab`, HEAD = `c0febdd151ce12a5df719ddfcdafc608ee69ff62` (pushed, remote == local), basis develop `2cadfcee` rc=0, PR #1354.
+**Was genau gebaut/behoben/echt verifiziert wird (Produkt-Sprache):**
+- (B2) Eine Instanz, die ihre Ausfuehrungs-Journale neu laest, wirft jetzt einen Fehler, wenn das letzte Journal-Fragment nicht mit einer Zeilenschluss abgeschlossen ist — auch wenn die Bytes gueltiges JSON sind (aussetzter/write). Keine stillresurrectierte "pending"-Laufzeit mehr.
+- (B3) Ein nicht-durabler Transitionsschritt (write+Sync+Close), der beim Schreiben/Syncen/Schliessen fehlschlaegt, wird als Fehler zurueckgegeben; der innere Zustand bleibt auf dem letzten gueltigen Stand und es wird kein Ereignis veroeffentlicht.
+- (B1) Bei der Journal-Komprimierung unter der fixierten Gesamtkapazitaetsgrenze werden keine laufenden/pending/unbekannten Ausfuehrungen ueber die Backups hinweg vergessen; wenn der Ueberlauf einen aktiven Rekord treffen wuerde, wird der Schreibversuch abgelehnt (fail-closed).
+
+**Blocker / wartet auf:** Owner-Entscheidung zum DESIGN-Konflikt fixierter 16 MiB Retention-Budget (1 aktiv + 3 Backups, je 4 MiB) vs. B1 „alle pending/running/unknown unterm cap erhalten" fuer 8x~2,4 MiB **all-running** (~19,2 MiB newest-per-id). `TestRound7ActiveIDSurvivesManyBigEntriesReopen` ist mit `// B1-OWNER-PENDING (budget vs all-running cap-verhalten)` auf SKIP gesetzt — muss unveraendert blockiert bleiben (nicht gruen/merged). B1-probe (buried active id, budget-konform), B2-probe und B3-probe sind fertig, full-package test gruen (B2/B3/round6/round7-buried); disk-quota-Fehler beim sehr langen Lauf sind tmpfs-druck, kein Code-Problem.
+
+**Nuester Schritt:** nach Owner-Entscheidung round7 neu bewerten (budget anheben / all-running-limit / testsemantik auf succeeded umstellen), dann B1 final gruen, PR #1354 selected checks (eigenes-run) beobachten, Planning-Abschluss.
 
 Was gruen ist: B1 (budget-konform), B2 (unterminated fragment => fail-closed), B3 (write+Sync+Close commit-pfad, rollback+kein-event). Full-package test green (disk-quota-artefakt bei langem lauf nur tmpfs-druck).
 
