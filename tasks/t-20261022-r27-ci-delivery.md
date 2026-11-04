@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: coord-welle4 (Lane w128)
-kanban_lane: review
+owner: coord-welle4 (Codex-Worker cx05)
+kanban_lane: active
 kanban_summary: ""
-kanban_status: review
+kanban_status: active
 kanban_title: "Deferred trusted CI readiness: delivery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
@@ -20,18 +20,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
+- [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w128) · **Priority:** critical  
+    **Owner:** coord-welle4 (Codex-Worker cx05) · **Priority:** critical  
     **PR:** [baseharbor#1377](https://github.com/mcpdev80/baseharbor/pull/1377)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle4 (Lane w128)  
+**Owner:** coord-welle4 (Codex-Worker cx05)  
 **Priority:** critical  
 **PRs:** [baseharbor#1377](https://github.com/mcpdev80/baseharbor/pull/1377)  
 **Source:** 
@@ -89,3 +89,11 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
 - Der erste Versuch (PR #1376) war aus dem Anmelungskandidaten geschnitten (26 Dateien, fremdes Schreibgut);
   er ist mit Beleg geschlossen und der Zweig gelöscht — die Trennung ist damit sauber.
 - Klassifikation über die offenen Kandidaten: 0 Produktfehler, 5 Umgebung, 2 Reihenfolge/Basis in dieser Familie.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1377a, verdict REJECT)
+- Sechs von sieben Prüfpunkten bestanden: genau zwei Testdateien, keine fest kodierte Adresse, dieselbe Quelle
+  wie das Aufbauskript, eigene Gegenprobe mit unerreichbarem Port wird rot.
+- Offen bleibt der scheingrüne Fall: ohne gesetzte Verbindungsay Variable werden beide Prüfungen übersprungen
+  und der Paketlauf meldet Erfolg. Die Überspringung wird in ein echtes Fail mit klarer Meldung umgewandelt.
+- Zusätzlich wird die Trennung zu den drei echten Produktbefunden auf anderen Karten schriftlich belegt
+  (Migrationsrückbau, Anwendungsänderung mit stehendem Tresordienst, Formatierung im Verbindungsstück).
