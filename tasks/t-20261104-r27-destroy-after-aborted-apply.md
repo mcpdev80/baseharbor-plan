@@ -11,26 +11,26 @@ kanban_lane: ready
 kanban_summary: app destroy --yes ends with success and leaves no running instance and no project ownership when a provider-change apply aborted…
 kanban_title: "Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization"
 priority: high
-depends_on: [t-20261104-r27-consent-abort-leaves-undestroyable-state]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-consent-abort-leaves-undestroyable-state]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: [evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
+evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
 ---
 
 - [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/planned #view/ready #area/deployment #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Ready to assign** · prerequisites accepted  
-    **Evidence:** [proof 1](evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
@@ -53,7 +53,8 @@ undestroyable through the normal path.
   the consent gate (blob-identical, fail-closed, unchanged); the never-delivered case already fixed by
   `t-20261104-r27-consent-abort-leaves-undestroyable-state` (that cell lacked deployment.json entirely).
 
-## Measured reproduction (2026-11-04, VM lane w150, host baha-docker rebuilt from develop ea3fb38e)
+## Measured reproduction (2026-11-04, VM lane w150, host baha-docker rebuilt from develop ea3fb38e;
+full transcript: [rebuild-1.md](../evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md))
 
 - `baha target create` → `app init --yes` rc=0 → `app apply --no-input` rc=1 with
   "provider change: impact-confirmation-required (2 confirmations, --yes gives 1)".
