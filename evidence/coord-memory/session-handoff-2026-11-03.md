@@ -1623,3 +1623,11 @@ unbemerkte mitnahme. die drei urteile/laeufe danach sind auf identischer basis m
 - verbindungs-client -> active (w145, frisch von develop, schreibgut auf das verbindungs-feld + use_target.go
   begrenzt; drei mutationen + determinismus-aeuferung -count=10 sind die kerznachweise).
 - vier karten warten auf urteile, zwei auf sitze.
+
+## ~15:55 KEIN KANAL DEF EKT — /tmp WAR VOLL (75%->68%->freier):
+der arbeitersitz stellte arbeit ein mit 'failed to register synthetic bubblewrap mount target /tmp/.git:
+Quota exceeded' und meldete das ehrlich statt zu schauspielern. ursache war MEIN feld: tmpfs = RAM, totere
+pruefer-caches (383M/370M/365M/254M go-caches) hatten den platz gefressen. aufgeraeumt (laufende verschont),
+ein-Befehl-Probelauf geschrieben (heavypress.txt, rc ok), dann die beiden auftraege erneut zugestellt:
+basis-auffrischung der drei aeste + abnahmeauftrag r1371c. regel jetzt in §6.2e: erst die
+RAM-Fuell-quitung pruefen, DANN einen sitz als defekt betrachten.
