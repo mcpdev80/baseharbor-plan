@@ -19,13 +19,14 @@ aliases: []
 early: false
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md"]
 ---
 
 - [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w130) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -110,3 +111,5 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   Entfernen über unterstützte Vorgänge, Prüfung vor jeder Wirkung.
 - Gehostete Läufe des Kopfes: zwei grün, zwei übersprungen nach Auswahlregel; Formatierung leer.
 - Beweissammlung liegt auf der Platte (round-3.md, 8131 Byte).
+
+Round 4 (lane w136): --self-owned-unit ExecStart now executable + unit enabled after install; both review-19b gaps closed with own-command proof; both hosted gates green on 2fe4aef375. Reviewer acceptance pending.
