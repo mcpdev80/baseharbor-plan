@@ -80,3 +80,13 @@ dieser Punkte; alles Weitere bleibt Karten-scope.
   im Schichtprotokoll); danach rerun 1355, Review r1355h auf终stand.
 - Evidenz: evidence/r27-welle3-2026-11-03/candidate-contract/fix-9-final.md (umgezogen aus Produktrepo;
   Zweig-Saeuberung laeuft als w77).
+
+
+## Koordinator-Kartenvermerk 2026-11-04 (Consent-Kommandoflaeche, dokumentierte Prazisierung)
+- Fakt aus lane w80 (gate-laeufe): derselbe submission-input ergibt je nach befehlroute UNTERSCHIEDLICHE
+  confirm-digests (up: d998a895... vs app apply: 4bc64030...). Ein gate, der im selben fluss nicht erfullbar
+  ist, widerspricht dem vertrag (explizite, bedienbare zustimmung).
+- Prazisierung der CLI-Oberflaeche: `baha up` erhaelt --confirm-candidate durch DIESELBE parsing-/consent-
+  route wie app apply (kein zweiter gate, keine neue semantik). Digest-pfad-abhaengigkeit bleibt als
+  neutraler fakt in der evidence der lane; sollte der fingerprint die befehlroute enthalten, ist das
+  nachpruefungswuerdig gegenueber "canonical submission fingerprint" (vermerk, kein verdict).
