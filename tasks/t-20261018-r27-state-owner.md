@@ -97,3 +97,21 @@ HOME-abhängig). Korrekturrunde w52 läuft; Merge erst nach grünem Lauf auf neu
   zurueckgesetzt, siehe evidence/state-owner/round3.md abschnitt 5+7).
 - Owner-stoff: option 1 retire-check erweiterung (ScopeShared), 2 tenant-owner-pfad docker-dev,
   3 tenant-grant-fixture. Empfehlung lane: option 1 NACH ADR-freigabe. Karte blocked bis entscheidung.
+
+### Owner decision and implementation scope (2026-11-04)
+
+Owner authorizes a **narrow product correction** of the App Edit / provider-retirement interaction exposed by PR #1347, not a general relaxation of ADR-0022. This supersedes the undecided option-1 recommendation in the previous block note for this specific correction.
+
+**Reproduced conflict:** The state-owner seam requires an authoritative Core installation to load the deployment. With Core present, the provider union adds management dependencies and may mark the plan incomplete; `prepareApplicationProviderRetirement` then returns `provider_retirement_unverifiable` before the edit can apply. The trace also identifies an application-scoped PostgreSQL instance with zero consumers and unverifiable observed runtime; skipping only `ScopeShared` resources is therefore insufficient. See [the recorded reproduction](../evidence/r27-welle3-2026-11-03/state-owner/isolation-1.md) and current product implementation.
+
+**Required semantics / acceptance:**
+- Distinguish a normal edit that retains/reuses existing resources from an actual attempt to retire a provider. Never treat a `preserve` plan entry as permission to stop/remove runtime.
+- An unrelated, unchanged Core-managed resource must not veto a safe App Edit solely because its retirement facts are unavailable. Narrow the *retirement decision boundary*, not global inventory/ownership validation.
+- Keep ADR-0022 **fail-closed for any actual release, stop or removal** when ownership, runtime state or the last-consumer inventory is unverifiable. Preserve data and ownership; do not bypass a refusal for a real provider release.
+- Prove a real Core-backed App Edit reaches its intended converged result. Also prove unsafe last-consumer retirement still fails with the expected typed error, and foreign/missing installation owners remain rejected.
+- No blanket `ScopeShared` / `OwnershipBaseHarbor` exemption, simulated success, fixture-only bypass, disabled tests or CI modifications. Reuse the existing resolver/authority; no new framework.
+- Focused positive/negative tests including `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`; verify unchanged behavior of unrelated retirement cases.
+
+**Write-set coordination:** `cmd/baha/application_provider_retirement.go` and any necessary provider-plan tests touch the retirement/consumer authority outside the original state-owner write-set. Coordinate exclusive ownership with the corresponding worker before edits; do not overwrite concurrent consumer/ADR work. If the fix requires changing the normative ADR-0022 contract rather than correctly distinguishing non-retirement, stop and return a concrete minimal decision proposal. Existing PR #1347 remains unaccepted until real tests pass; no release authorization.
+
+**Developer Experience:** The developer must be able to finish an ordinary app edit without installing fictitious tenants or manually repairing fixture/runtime state. Only real unsafe retirement is blocked.
