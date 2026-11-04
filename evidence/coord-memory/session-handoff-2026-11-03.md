@@ -1373,3 +1373,10 @@ den eingespritzten pruefer (preinteractive_test.go:63-67) und bekommt trotzdem n
 entweder liest der produktzweig die Umwelt statt des pruefers (dann ist die injektion wertlos — echter
 produktbefund auf DER karte, die "gefunden heisst nicht angemeldet" garantieren soll), oder der
 beispiel-schluessel ist unvollstaendig. befehl an w135 mit der rot-auf-alt-pflicht.
+
+## ~08:05 TEAM-AUTH RUNDE 3 IST RAUS (cx08, arbeitersitz): kopf a7fa573d "Wire CLI claim membership
+authorization to database" — genau die stelle, die die triage als fehlend benannt hatte (einsetzstelle des
+zuordnungstraegers). gates: 14 gruen / 3 laufend / 0 rot, develop ist Vorfahr. die triage-meldung selbst kam
+spaeter ins postfach als das werk schon lief (cx07 A:2 B:0 C:1) — beide klassifikation-A-stellen sind damit
+adressiert, eine davon durch DIESEN commit, die zweite (rueckbau) durch die angemeldung-kette.
+kein abnahmeverdacht: ich pruefe den kopf gegen die triage-akten, bevor ich die karte auf review setze.
