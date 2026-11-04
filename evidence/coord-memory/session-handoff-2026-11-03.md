@@ -1499,3 +1499,17 @@ heute nacht bei w128 abgewehrt habe, nur in die andere richtung).
 AUSSERDEM GELIEFERT: die ABLEGE-SPUR ist an mein auge angeschlossen und TROCKEN GETESTET (datei in
 evidence/coord-memory/inbox/ erzeugt eine meldung; der test-commit ist zurueckgenommen). anlass war eine
 Codex-sitzung, die ihre END-zeile nicht posten durfte (freigabe-grenze) — arbeit halb fertig, meldung weg.
+
+## ~12:05 ZWEI ECHTE BETRIEBSBEFUNDE STATT FAHLER-ERKLARUNG (beide von mir NACHGEMESSEN, nicht geglaubt):
+(1) demo-compose Zeile 48 verlangt minio/minio:RELEASE.2024-12-18T13-15-44Z — auf baha-docker NICHT BEZIEHBAR
+    ("pull access denied, repository does not exist"), ich habe den abruf selbst wiederholt. andere bilder
+    (postgres 17, valkey 8) gehen.
+(2) die kernseiten-auflösung zeigt fuer eine arbeitslast-anwendung auf eine GEMEINSAME bindung
+    (umgebung-dev-bindeglied), OHNE profilschalter/eigenständigen modus => ein privater nachweis ist aus den
+    definitionen derzeit nicht herstellbar.
+FOLGE: NEUE KARTE t-20261104-r27-private-integration-path (betriebsfeld, erste freie sied), die
+vm-integration-karte bleibt EXPLIZIT offen (kein 'teilweise gruen' als abschluss). der NEGATIVE nachweis
+(ablehnung ohne wirkung, zerstoerbar, rc=1) gilt weiterhin und steht in docker-1.md.
+zustands-karte: w139 lieferte saubere basis (kopf 4decc28ecb7, develop Vorfahr, lauf 41898648858, datbank
+gruen), es bleibt GENAU EINE stelle (Tresordienst im pruefaufbau) — als klasse B auf der karte, entscheidung
+bei dir, nichts von mir daran geaendert.
