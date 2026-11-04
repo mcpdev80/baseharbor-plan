@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w129)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Validate version/trust/installation/scope before any writes; transactional import and explicit conflicts. Default export…
-kanban_status: active
+kanban_status: review
 kanban_title: "Profiles: import and export non-secret connection metadata"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,14 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w129) · **Priority:** normal  
     **PR:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -117,3 +117,10 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   Schreibgut genau sieben Dateien im Vertragsordner, Prüfumfeld läuft noch (sechs wartend).
 - Nachliefer-Pflicht vor der Abnahme: die Runden-5-Beweisdatei fehlt im Evidence-Baum (Kopf in keiner Datei);
   die Lane liefert die Blöcke nach, ohne den Kandidaten zu verändern. Abnahmeauftrag ist vorgemerkt.
+
+## Handoff 2026-11-04 (Runde 5, Kandidatenstand, plattenfest nachgemessen)
+- Kandidat: PR #1363, Zweig work/r27-profile-codec, Kopf 064ba01820b (ls-remote == Kopf), develop ecbb8854 ist
+  Vorfahr; Schreibgut sind genau sieben Dateien im Vertragsordner, keine fremden Pfade.
+- Beweissammlung ist nachgeliefert und liegt auf der Platte (round-5.md, 10513 Byte) - Prüfung läuft dagegen.
+- Punkt 7 (Produktionsaufrufer der Schnittstelle) bleibt als Grenzbeleg geführt: Zuständigkeit liegt bei
+  t-20261018-r27-public-surfaces, dort vermerkt, nicht hier.
