@@ -1,0 +1,45 @@
+ROLLE: Worker (Lane w141). Coord f49a3303. KARTE: t-20261018-r27-node-service (RUNDE 5).
+REPO: baseharbor-node-connector. ZWEIG: work/r27-node-service (PR #19, head 2fe4aef3757, Hauptlinie ist
+Vorfahr). KEIN zweiter zweig, KEIN zweiter PR, KEIN Kraftuebertragen, KEIN merge.
+
+Luna review-19c verdict=REJECT (akte: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/
+review-19c.md — VOR dem coding vollstaendig lesen). Deine runde 4 hat die beiden luecken aus 19b echt
+geschlossen (flag eingebaut, einheit aktiviert, richtiger prozess unter dem verwalter) — es bleiben GENAU
+DREI dinge, zwei echte produktluecken und eine nachweisformalitaet:
+
+(1) EIGENTUMS-BINDUNG IST TEILZEICHENFOLGE. der eingebaute wert wird nur als substring geprueft, therefore
+    akzeptiert die schranze artfremde werte. belege der pruefung: `foreign-baseharbor-node-connector.evil.container`
+    und verwandte marker-kollisionen (praefix, suffix, widerspruechlicher wert).
+    KORRIGIEREN: bindung an den KANONISCHEN NAMENSRAUM bzw. die ERWARTETE EINHEITSIDENTITAET — pruefen auf
+    exakte identitaet (oder strukturellen vergleich der feldteile), KEIN substring, KEIN contains.
+    GEGENPROBE (je fall ein test, wortlich in der evidence): (a) exakt eigene identitaet => akzeptiert,
+    (b) praefix-fremd => abweisung, (c) suffix-/erweiterung-fremd => abweisung, (d) gleicher anteil, anderer
+    rest (die evil-container-zeile) => abweisung, (e) widerspruechlicher wert => abweisung; bei ALLEN
+    abweisungen: NULL wirkung (keine datei, kein reload, kein netz, kein schluessel-griff).
+(2) EIN AKTIVIERUNGSFEHLER WIRD VERSCHLUCKT. `serviceRun --op install` meldet erfolg, obwohl der
+    einschalt-vorgang fehlgeschlagen ist — ein nicht aktivierter zustand darf NICHT als erfolgreiche
+    einrichtung erscheinen. KORRIGIEREN: der fehler kommt als FEHLER DER EINRICHTUNG zurück (typisiert),
+    der rueckgabewert ist ungleich null, und die halb-gerenderte einheit wird aufgeraeumt ODER ihr verbleib
+    ist ausdruecklich benannt und geprueft.
+    GEGENPROBE: INJIZIERTER aktivierungs-fehler (naht) => install rc!=0 + `is-enabled` bleibt disabled +
+    kein erfolg-protokolltext. ohne injektion => enabled (dein bisheriger nachweis bleibt).
+(3) ROT-AUF-DEM-KRANKEN-STAND (meine neue regel, lehre aus rueckbau/zustimmung): der neue test muss auf dem
+    commit, auf dem das verhalten falsch war, ROT sein — die pruefung verlangt den beleg auf fcca9c4a
+    (dein eigener runde-4-kopf, wo substring + verschlucken noch standen). ALSO: test auf fcca9c4a laufen
+    lassen, ROTE ausgabe wortlich sichern, dann auf deinem neuen kopf GRUEN. Findest du auf fcca9c4a einen
+    anderen grund als substring/verschlucken: MELDEN statt still anzupassen.
+
+BEHALTEN (nicht zurueckbauen, alle aus 19b/19c belegt): null-effekt-autorisierung, GENAU EINE einheit bei
+doppelter einrichtung/erneuter anmeldung, geschuetzter schluessel bleibt erhalten, echter lauf unter dem
+benutzer-verwalter mit vorgangnummer + programmname, sauberes ende.
+PRUEFPFLICHTEN: go test ./... -count=1, go build ./..., go vet, `gofmt -l cmd internal` LEER; die gehosteten
+laeufe deines kopfs bis TERMINAL (lauf-id + status je job, Eigenes-Run-Pflicht) und uebersprungene stellen als
+uebersprungen AUSWEISEN (nicht als gruen), mit hinweis wo dieselbe abdeckung anders belegt ist.
+ls-remote == head WOERTLICH; merge-base --is-ancestor origin/main HEAD; name-only-diff (nur die vier dateien
+des felds).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-aenderung, KEINE tests geloescht/weichgespuelen,
+KEIN rerun als ersatz fuer analyse, KEIN merge, scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c);
+bei schreibfehlern zuerst df -h /tmp.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-5.md (fuenf faelle aus (1),
+injektion aus (2), der rot-block auf fcca9c4a aus (3); keine markdown-checkboxen).
+END an f49a3303: "END_DONE w141-connector-r5: head=<sha10> eigentum=<exakt,5 faelle> aktivieren=<fehler kommt zurueck> rot_auf_alt=<fcca9c4a belegt> lebenszyklus=<rc0+pid/comm> lsremote=<sha10> | <Satz>"

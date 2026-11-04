@@ -1414,3 +1414,13 @@ VMs ueberhaupt neu gebaut haben. auftrag: bau gegen den geprueften schnitt, fung
 versionsanzeige auf den schnitt stellen (die 0.4.23-zeile ist ein eigener befund), der blockierte podman-
 stapel wird per COMPOSE-DOWN seiner eigenen definition beendet (nicht uerber den anwendungs-zerstoerer, das
 waere genau der fehler den #1375 belegt), shared-stapel und Proxmox bleiben unberuehrt.
+
+## ~09:25 W135 FRAGE ENTSCIEDEN (variante 1, produktseitig): der schluessel-fund darf nicht davon abhaengen,
+ob zufaellig ein socket-FILE existiert. genau das ist naemlich ein ueberspringen in anderer form — dasselbe
+muster, das wir heute nacht in den datbank-pruefungen abgeschafft haben (umgebungs-abhaengige entscheidung =>
+scheingruen moeglich). therefore: vorhandensein = variable gesetzt (kein datei-test), leere variable = der
+dokumentierte absent-fall, gesetzte variable = der eingespritzte pruefer entscheidet. beide tests behalten
+ihre aussage, keiner wird weichgespuelen;(found-only-core bleibt explizit assertiert) + rot-auf-dem-kranken-
+commit. die lane hat den widerstreit SELBST gefunden und statt einer quick-fix-variente gefragt — genau richtig.
+verbindungskapsel runde 5 (w141) ist geschrEIBEN: substring-eigentum und verschluckter aktivierungsfehler sind
+zwei echte produktluecken, die Luna mit marker-kollisionen belegt hat; karte -> active.
