@@ -18,14 +18,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w105) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
@@ -68,3 +68,12 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Path reservation: coordinator decision (b) — no contract-reserved connector service path existed; proposed
   path documented for public-surfaces/authority-contract review.
 - Codex review r19a dispatched on this exact head; merge only after verdict.
+
+## Review-Rueckruf 2026-11-04 (Luna review-19a, verdict REJECT)
+- Kein aufrufbarer Produktionspfad: Install schrieb keine echte systemd-user-Unit; Remove stoppte/disabled die
+  eigene Unit nicht nachweislich; lingering-Policy fehlt.
+- Autorisierung erfolgt nicht vor Wirkungen (Lebensdauer-/Metadataseiteneffekte vor dem Autorisierungsschritt).
+- Restart-Verhalten nicht beobachtet (Tests verglichen keine tatsaechlichen Aufrufe); fehlende Autorisierung
+  nicht als Mutation mit NIL-Wirkungen belegt; zwei nativ uebersprungene Hosted-Jobs wurden nicht ausgefuehrt.
+- Korrekturrunde = Lane w110 auf demselben Zweig/PR #19 (draft bis Umleitung durch coord). PR-Kopf vorher
+  764a2a4.

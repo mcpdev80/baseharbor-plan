@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 3 |
+| active | 12 |
+| review | 2 |
 | blocked | 1 |
 | ready | 1 |
 | queued | 26 |
@@ -27,6 +27,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md) | Devices: issue and validate scoped workstation enrollment | active | normal | coord-welle4 (lane w90) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md) | Operations: persist execution identity and terminal outcomes | active | normal | coord-welle4 (lane w107) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
 | [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md) | Credentials: reuse native authentication before prompting | active | high | coord-welle4 (lane w89) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
+| [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | Connector: reconcile enrollment service and restart behavior | active | normal | coord-welle4 (lane w105) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19) |
 | [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md) | Profiles: import and export non-secret connection metadata | active | normal | coord-welle4 (lane w88) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md) | Access: enforce external SSO claims and scoped team permissions | active | normal | coord-welle4 (lane w92) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
@@ -39,7 +40,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | Connector: reconcile enrollment service and restart behavior | review | normal | coord-welle4 (lane w105) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19) |
 | [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md) | State: enforce installation-owned deployment storage | review | high | w2-state-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 
