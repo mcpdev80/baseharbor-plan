@@ -1647,3 +1647,13 @@ use_target.go binDET an die bestehende grenze, fehlende verbindung => typische a
 getrennt (verbindung != ziel), pruefung kommt NUR aus authority.go. reicht die grenze in einem fall nicht:
 STOP + melden, dann erweitere ICH sie per karte — nicht die lane nachbaun.
 dialogablauf hat zum ersten mal SOFORT geklappt (text, 'enter submit' abgewartet, Enter, statuspruefung).
+
+## ~17:05 SCHADENSBEHEBUNG AUF MEINEM KONTEN: 376 MB lane-caches im PLAN-REPO, VERURSACHT VON MIR.
+frage des eigentuemrs: 'wie so ist sowas im plan repo create mode ... gomodcache/.../zsysctl_openbsd_arm64.go'.
+antwort: mein eigener verleger (card-status.py) nutzte `git add -A`. damit war jeder scratch, der im
+arbeitsbaum lag, in meinem kanban-commit — und die lanes durften laut AGENTS 4.5 kleine helfer unter
+evidence/.../scripts/ ablegen, also fiel deren GOCACHE/GOMODCACHE (zwei lane-namen, 5025 dateien, 376 MB)
+genau dort hinein und wurde von MIR committet, in commits mit titeln wie 'kanban: X -> active'.
+behoben: verleger addet nur tasks+views; caches aus index + platte entfernt (index 6711->1663 dateien);
+.gitignore deckt nun jede cache-form unter scripts/; pruefung nach jedem publish (grep auf gomodcache/gocache
+muss 0 liefern). kein lane-fehler, meine buechoeffnung.
