@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 3 |
 | blocked | 0 |
-| ready | 3 |
+| ready | 2 |
 | queued | 26 |
 | waiting | 208 |
 | backlog | 7 |
@@ -33,6 +33,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
+| [t-20261104-r27-consent-abort-leaves-undestroyable-state](../tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md) | Deployment: refused candidate apply must leave destroyable state | active | critical | coord-welle4 (lane w120) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | — |
 | [t-20261104-r27-demo-guided-consent](../tasks/t-20261104-r27-demo-guided-consent.md) | Demo: guided up supplies candidate consent (feature-detected) | active | high | w85-demo-consent | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
@@ -54,7 +55,6 @@ None.
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | Deferred trusted CI readiness: delivery | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
-| [t-20261104-r27-consent-abort-leaves-undestroyable-state](../tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md) | Deployment: refused candidate apply must leave destroyable state | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | — |
 
 ## By release
 

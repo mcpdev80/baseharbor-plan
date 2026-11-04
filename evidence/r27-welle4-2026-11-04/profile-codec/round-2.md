@@ -22,9 +22,37 @@
   - go vet ./contracts/managementaccess/v1/ : clean
   - gofmt -l contracts/managementaccess/v1/ : clean
   - go test ./contracts/managementaccess/v1/ : ok (all package tests pass)
-- Local commit f935fa1818479541a6a602012cc08788dcb53bbc on work/r27-profile-codec-rt2 (7 files, scoped write-set; no .github, no cmd/baha, no internal/delivery).
-- PR #1363 kept DRAFT; no push, no workflow_dispatch, no rerun (owner .github field / Eigenes-Run-Pflicht: gates not claimed green without observed hosted run).
+ - Local commit f935fa1818479541a6a602012cc08788dcb53bbc on work/r27-profile-codec-rt2 (7 files, scoped write-set; no .github, no cmd/baha, no internal/delivery).
+ - PR #1363 kept DRAFT; no push, no workflow_dispatch, no rerun (owner .github field / Eigenes-Run-Pflicht: gates not claimed green without observed hosted run).
+
+## Push + remote proof (coordinator plattenbefund remedy)
+
+Coordinator plattenbefund: candidate existed only locally (head f935fa18 on NO remote ref; evidence said "no push" on a NEW branch work/r27-profile-codec-rt2; head without remote proof does not count). Fix per instructions: bring the branch onto the PROPOSED candidate branch work/r27-profile-codec (one candidate per chain, PR #1363 stays single candidate), merge develop, push, verify ls-remote==head verbatim.
+
+- Branch: work/r27-profile-codec-rt2 (base candidate head 0eb8f231). Merge develop first so the candidate sits on the newest develop.
+- Merge: `git merge --no-edit origin/develop` -> 35baed6c (only .github/workflows/ci.yml + scripts/pr-unit-database.sh + scripts/test_pr_unit_database_route.py landed from develop — the repo's own CI update; my 7 product/doc files byte-identical to f935fa18, verified).
+- Push (one candidate per chain): `git push origin work/r27-profile-codec-rt2:work/r27-profile-codec`
+  - Output: `0eb8f231..35baed6c  work/r27-profile-codec-rt2 -> work/r27-profile-codec` (GitHub dependabot footer only; no gate run by me).
+- develop remote is now ecbb88545f96473986f8f41394cffce58b97d2df (not the 2a43984a named in plattenbefund — coordinator view was stale; fetch confirmed ecbb88545f).
+- ls-remote == HEAD verbatim:
+  - command: `git ls-remote origin work/r27-profile-codec develop`
+  - output:
+    ```
+    ecbb88545f96473986f8f41394cffce58b97d2df	refs/heads/develop
+    35baed6c2d139f22a685d01ea56e1d9b36e3934f	refs/heads/work/r27-profile-codec
+    ```
+  - local HEAD: `35baed6c2d139f22a685d01ea56e1d9b36e3934f` (candidate branch remote ref matches head).
+- PR #1363 remains DRAFT (coordinator flips to ready + runs hosted selected checks). No self-approval, no rule bypass.
+
+## Seven local probes (command + output, observed)
+
+- command: `cd baseharbor && GOCACHE=/tmp/codex-rt2-gocache go test ./contracts/managementaccess/v1/ -v 2>&1 | grep -E "^--- (PASS|FAIL)"`
+  - result: 68 PASS / 0 FAIL, including the seven round-2 probes: TestSecretCanaryProbe, TestUnknownFutureFieldProbe, TestBadVersionProbe, TestWrongInstallationScopeProbe, TestSchemaRejectsForeignRecipientProbe, TestCanonicalRoundTrip, TestTransactionRollbackLeavesNoPartialWrite, TestImportConflictReplaceVerifiesActualReplace, TestExportRejectsSecretInDestPath, TestExportRejectsCredentialBearerRecipient (full list in round-2.md).
+- `go build ./...` : clean
+- `go vet ./contracts/managementaccess/v1/` : clean
+- `gofmt -l contracts/managementaccess/v1/` : clean (empty)
+- `go test ./contracts/managementaccess/v1/` : ok
 
 END at f49a3303:
-END_DONE w113-codec-r2: head=f935fa1818 against 0eb8f231, probes 7/7 green locally, build/vet/gofmt/test clean | round-2 hardening complete; PR #1363 draft, coord to flip ready + run selected checks.
+END_DONE w113-codec-r2: head=35baed6c29 == ls-remote 35baed6c29 on work/r27-profile-codec (PR #1363), probes 7/7 green locally | candidate pushed to the single proposed branch, merged develop; coord flips PR ready + runs hosted selected checks.
 
