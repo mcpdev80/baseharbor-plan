@@ -57,7 +57,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Schwerpunkt: eigene Rückbau-Gegenprobe (Hintergrund writers zurück => Prüfung muss rot werden).
 - codex-r1378a.txt — Abnahme Umgebungsfehlstellen (Kopf aca8ff97df8, acht grün). Auslöser: freier Prüfkanal.
   Enthält meine Bitte an die Prüferseite, die vollständige Überspringliste selbst zu klassifizieren.
-- w143-enroll-r4.txt — Runde 4 Geräteregelung (review-1371b REJECT): Namensfestschreibung raus,
+- ~~w143-enroll-r4.txt~~ — Makulatur (w146-runde5 uebernimmt, review-1371c-rezepte eingearbeitet).
   Regelableitung + Stufenmutation rein, drei Datenbankprüfungen ohne Überspringen; Dateizuschnitt gegen #1378
   im Auftrag. Auslöser: erster freier Sitz (alle fünf belegt).
 - ~~w145-native-witness.txt~~ — STORNIERT (Owner-Direktive): #19 komplett an ChatGPT übergeben
@@ -70,3 +70,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   sleep-freie Tests (Luna review-1373c REJECT, drei Rezepte). Auslöser: erster freier Sitz.
 - Basis-Refresh LAEUFT als w148 (alle drei Äste auf develop ea3fb38e).
   develop e444ae11 heben, Exakt-SHA-Reviews danach neu. Auslöser: zweiter freier Sitz.
+- w149-base-refresh2.txt — LAEUFT (zweitewelle: #1378 jetzt, #1373 nach w147-lieferung).

@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-native-auth.
+OBJEKT: baseharbor PR #1362 head 2209436c80 (basis-Refresh auf develop ea3fb38e; inhalt = unveraendert der
+bei r1362c geprüfte kopf 848d9512 + merge). VORGESCHICHTE: r1362c prüfte 848d9512 auf aelterer basis.
+PRUEFEN (schnell, SHA-genau, read-only):
+ (1) nachweis, dass der merge KEINEN inhaltlichen drift einfuehrt: git diff 848d9512..2209436c80 — aenderungen
+     muessen ausschliesslich aus develop-uebernahme stammen (dateiliste + stichprobe der konfliktloesungen);
+     eigene dateien (internal/credential/native/*) blob-identisch zu 848d9512 ODER begruendete anpassung,
+ (2) die drei DINGE von r1362c auf dem neuen kopf kurz gegenpruefen (injected-runner entscheidung sshagent.go,
+     write-set, gates terminal), damit das urteil an den jetzt livebaren kopf haelt,
+ (3) ls-remote==head echt, log origin/develop..HEAD = eigener commit + merge, gehostete laeufe des NEUEN
+     kopfs terminal (wenn noch pending: kurz warten, NICHT rerun).
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/native-auth/review-1362d.md (ACCEPT = merge-reif).
+END an f49a3303: "END_DONE codex-r1362d: verdict=<X> drift=<frei|liste> | <Satz>"

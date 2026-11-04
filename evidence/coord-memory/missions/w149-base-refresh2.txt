@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w149). Coord f49a3303. Nur Basen heben, wie bei w148. KEIN feature, KEIN rebase, KEIN kraft.
+REPO baseharbor, ZWEI zweige:
+ (1) work/r27-execution-journal (PR #1373, kopf 0d89a13e63) — ACHTUNG: lane w147 arbeitet GENAU DARAUF an
+     runde 4. Du wartest, bis in origin/... ein NEUER kopf als 0d89a13e63 erscheint (w147 lieferung), und
+     mergst DANN origin/develop ea3fb38e in diesen neuen kopf. Wenn w147 noch nicht geliefert hat: NICHTS
+     tun am zweig, das ist KEIN blocker — du machst (2) zuerst und kommst spaeter einmal zurueck (pruefe
+     alle 10 minuten einmal per ls-remote, kein sleep-loop in einer shell: beende dich mit MELDUNG wenn
+     (1) noch offen ist, ich wiederhole den auftrag dann).
+ (2) work/r27-db-skip-sites (PR #1378, kopf aca8ff97df): develop ea3fb38e reinmergen. Pruefe NACH dem
+     merge-TEST die datbank-paarung (scripts/pr-unit-database.sh + go test ./internal/database -count=1):
+     dein merge beruehrt die gleiche Migrations-Landschaft wie die rueckbau-aenderung aus #1375 — wenn der
+     skip-sites-test jetzt KONFLIKT mit der ordered-list-logik hat: merge-loesung nur in TEST-dateien,
+     never product; wenn das nicht reicht: STOP + MELDEN fuer diesen zweig.
+PRO ZWEIG BELEG: ls-remote echte adresse == neue kopfe, log --oneline origin/develop..HEAD = nur eigene
+commits + merge-commits, ancestor rc=0. PRs NICHT schliessen, KEINE .github, KEIN AGENTS.md, subagenten-nein.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/base-refresh/refresh-3.md
+END an f49a3303: "END_DONE w149-refresh2: e1378=<sha10> e1373=<sha10|wartet-auf-w147> konflikt=<nein|liste> | <Satz>"

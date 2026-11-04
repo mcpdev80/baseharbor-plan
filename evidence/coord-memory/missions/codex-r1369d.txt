@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-team-auth.
+OBJEKT: baseharbor PR #1369 head 6ec7a5db8e (basis-Refresh; inhalt = unveraendert a7fa573d membership-provider-
+verdrahtung + merge). PRUEFEN wie bei 1362d: (1) diff a7fa573d..6ec7a5db8e nur develop-uebernahme, eigene
+dateien (internal/operatorauth/*, cmd/baha verdrahtung) blob-identisch oder begruendet, (2) kernbehauptung auf
+neuem kopf: produktionspfad ruft WithMembershipProvider (authorization.go aufrufstelle) und fremder tenant
+bleibt abgewiesen (test/beleg), (3) ls-remote echt, log-zeile, gehostete laeufe terminal.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/team-auth/review-1369d.md.
+END an f49a3303: "END_DONE codex-r1369d: verdict=<X> drift=<frei|liste> | <Satz>"
