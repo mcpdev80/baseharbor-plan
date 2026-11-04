@@ -1200,3 +1200,14 @@ round-5.md), schreibgut 7 dateien im vertragsordner, evidence NAOGELIEFERT (118 
 wortlicher block) — ich hatte die erste meldung zurueckgewiesen weil die datei fehlte, nicht weil der inhalt
 fehlte. abnahme laeuft (r1363d). w129 released, w132 (geregelter rueckbau, karte device-enrollment) besetzt.
 pool-doppelbuchung w131 bereinigt (zwei reservationen auf einen sitz).
+
+## ~03:25 HOST-AUSREDE DER CONNECTOR-LANE WIDERLEGT (plattenfest, auf IHREM host gemessen):
+die meldung "UnitSearchPath ist leer, host-eigenheit" beruht auf einem FEHLSCHLUSS im messgeraet:
+`systemctl --user show -p UnitSearchPath` liefert diese eigenschaft nicht; korrekt ist
+`systemd-analyze --user unit-paths` — und der nennt auf baha-runner-docker-2 UND auf baha-docker
+/home/marcel/.config/systemd/user. meine eigene probe auf exakt diesem host: probeeinheit in den XDG-pfad
+geschrieben, daemon-reload, start-rc=0, is-active=active,cat zeigt die datei, stop sauber (linger=yes dort).
+=> die grenze liegt im produkt-/testpfad, nicht in der umgebung. gegenprobe-regel verschaerft: eine
+BLOCKED-Aussage ueber die umgebung muss eine reine HOST-probe OHNE den eigenen code enthalten, die auf
+demselben befehlspfad fehlschlaegt. w130 laeuft auf demselben zweig weiter (kopfung 84cf6475ab9 bleibt,
+alle gehosteten checks dort gruen, gofmt behoben).
