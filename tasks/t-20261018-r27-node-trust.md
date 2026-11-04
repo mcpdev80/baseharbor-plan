@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Reconcile existing implementation, then close actual token/mTLS/CA overlap/revocation/reconnect gaps against immutable Core…"
 kanban_status: planned
 kanban_title: "Connector: qualify rotation revocation and session recovery"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/connector #kind/task
+- [ ] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/planned #view/ready #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md)  
