@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w153). Coord f49a3303. KARTE: t-20261018-r27-node-streams (Runde 1).
+REPO: baseharbor-node-connector. ZWEIG: neuer work/r27-node-streams von MAIN 346e5ae77ff (zuerst fetch;
+ls-remote echte adresse; NICHT develop — dieses repo führt main). KEIN zweiter PR, KEIN Kraftuebertragen.
+
+KARTE VOR dem coding VOLLSTAENDIG lesen (python3 scripts/plan.py show t-20261018-r27-node-streams; Akte
+baseharbor-plan/evidence/r27-welle4-2026-11-04/node-streams/ falls vorhanden).
+
+KERN (Outcome): BESTEHENDE logs/exec/PTY/metrics-Implementierung BLEIBT UNANGETASTET — du liefertest die
+Nachweise fuer: cursor-ablauf (expiry), at-least-once-rueckspielen (replay), stream-GRENZEN und FRISTEN,
+und TERMINALE ABBRUCHBEHANDlung (cancellation). Das heisst in der regel: tests + schmale, belegte
+Korrekturen dort wo ein nachweis eine luecke zeigt — KEIN umbau der streaming-architektur, KEIN neues
+framework, WIEDERBENUTZUNG bestehender autoritaeten laut release-plan.
+
+SCHREIBSATZ (Karte, boundiert): connector internal/targetaccess/session*.go und interne stream-/replay-pfade
+DER KARTE; NIEMALS dateien, die node-trust/ChatGPT gestern geaendert haben ohne aktuellen anlass — pruefe
+bei jeder datei vor dem ersten edit: git log -1 --format='%h %s' -- <datei>; ein laengst fremder owner in
+der letzten zeile ist KEIN blocker, aber ein Grund fuer besondere sorgfalt und kurzen hinweis in der
+evidence. KEINE .github, KEIN AGENTS.md, KEINE subagenten.
+
+NACHWEISE (jeder echt ausgefuehrt, wortliche ausgabe in der evidence):
+ (a) cursor abgelaufen => wiederholung liefert korrekte, dokumentierte semantik (kein absturz, kein
+     stillschweigendes neu-Ansetzen bei null ohne kennzeichnung),
+ (b) at-least-once: ein unterbrochener stream setzt beim reconnect GENAU an der cursor-grenze fort —
+     doppel sind erlaubt und sichtbar, VERLUST ist nicht (zaehlung im test),
+ (c) grenze/frist erreicht => stream endet terminal sauber (ressourcen frei, zustand terminal, protokoll
+     getestet),
+ (d) abbruch des clients/verbrauchers => keine geister-session auf dem knoten (liste + aufraeumtest).
+PFLICHTPRUEFUNGEN: go test ./... des repos (mit den datbank-/umgebungs-hinweisen der repo-regeln), build,
+vet, gofmt; gehostete laeufe deines kopfs BIS TERMINAL (lauf-id + status; Eigenes-Run-Pflicht).
+PROVENIENZ: name-only-diff (nur satz-feld), log --oneline origin/main..HEAD NUR eigene commits,
+ls-remote echt==head woertlich, merge-base --is-ancestor origin/main HEAD rc=0.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-streams/round-1.md (faelle a-d mit ausgaben,
+datei-liste mit vorgeschichte-vermerk; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w153-node-streams: head=<sha10> faelle=<abcd ok> diff=<satz ok|liste> lauf=<id+status> lsremote=<sha10> | <Satz>"
