@@ -1297,3 +1297,13 @@ GLEICHES TURN: consent-abort runde 2 GELIEFERT (kopf edd38d31, develop Vorfahr J
 gruen; der volle paket-lauf bleibt klasse B: docker.sock + 10-min-timeout der anwendungs-aenderungspruefung —
 wortlich in round-2.md, das ist der selbe Tresordienst-befund von state-owner). codec runde 6 ist ebenfalls
 geliefert (ac6a048e290, develop Vorfahr, kurzschreib n=809<1619 BEWIESEN).
+
+## ~06:00 W134 FRAGE-ANSWERT (dialogweg): die lane meldete "hat eine FRAGE" — `agent send` liefert bei einem
+offenen frage-fenster nur den text ins feld, Abschicken ist ein zweiter schritt (Enter im pane). danach
+arbeitet sie wieder (isWorking=true). ablauf steht jetzt im RUNBOOK §2.1c, damit kein zustell-schein mehr
+entsteht. INHALT der antwort: verpflichtender protokolleintrag SYNCHRON vor rückgabe (variante 1,
+begruendung aus dem karten-text "verpflichtung VOR den wirkungen"), original-test bleibt unveraendert,
+mutations-beleg zurueck auf goroutine muss rot.
+GLEICHZEITIG: karten -> review fuer consent-abort (edd38d31,develop Vorfahr) und codec runde 6 (ac6a048e,
+develop Vorfahr); Luna prueft consent-abort, der arbeitersitz triagiert read-only die drei roten checks von
+#1369 (eigene Lieferung -> kein eigenturteil); w136 (connector runde 4) sitzt auf dem freien laptop-platz.
