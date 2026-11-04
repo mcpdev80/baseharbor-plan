@@ -7,7 +7,13 @@ properties:
   kanban_title:
     displayName: Aufgabe
   kanban_status:
-    displayName: Status
+    displayName: Lebenszyklus
+  kanban_lane:
+    displayName: Spalte
+  kanban_summary:
+    displayName: Kurzbeschreibung
+  id:
+    displayName: ID
   priority:
     displayName: Prioritaet
   owner:
@@ -21,221 +27,247 @@ views:
       and:
         - 'note.release == "v0.4.27"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.4.26"
     filters:
       and:
         - 'note.release == "v0.4.26"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.4.28"
     filters:
       and:
         - 'note.release == "v0.4.28"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.4.29"
     filters:
       and:
         - 'note.release == "v0.4.29"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.4.30"
     filters:
       and:
         - 'note.release == "v0.4.30"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.4.31"
     filters:
       and:
         - 'note.release == "v0.4.31"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.4.x"
     filters:
       and:
         - 'note.release == "v0.4.x"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.5.x"
     filters:
       and:
         - 'note.release == "v0.5.x"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.7.x"
     filters:
       and:
         - 'note.release == "v0.7.x"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "v0.8.x"
     filters:
       and:
         - 'note.release == "v0.8.x"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "backlog"
     filters:
       and:
         - 'note.release == "backlog"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "triage"
     filters:
       and:
         - 'note.release == "triage"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: kanban
     name: "maintenance"
     filters:
       and:
         - 'note.release == "maintenance"'
     groupBy:
-      property: note.kanban_status
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
-      - backlog
-      - planned
+      - ready
       - active
       - review
       - blocked
-      - closed
+    columnWidth: 420
     order:
       - kanban_title
+      - id
+      - owner
+      - kanban_summary
   - type: table
     name: "Alle Details"
     order:

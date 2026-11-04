@@ -895,6 +895,24 @@ def render_views(vault):
     out[vault.root / "roadmap" / "cards.md"] = render_roadmap(vault)
     out[views / "overview.md"] = "\n".join(lines)
 
+    # Read-only inventory counters; native Kanban has no collapsible columns.
+    dashboard = ["# BaseHarbor – Release-Kanban", "", GENERATED_NOTICE, "",
+        "Backlog, Planned und Closed werden hier als Zähler gezeigt. "
+        "Die interaktive Kanban-Ansicht enthält Ready, Active, Review und Blocked.", ""]
+    for r in sorted_releases(vault):
+        rid = r["id"]
+        items = [t for t in vault.tasks.values() if t["release"] == rid]
+        counts = {key: sum(view_state(vault, t) == key for t in items)
+                  for key in ("backlog", "waiting", "queued", "ready", "active", "review", "blocked", "closed")}
+        planned = sum(t["status"] == "planned" for t in items)
+        dashboard.extend([f"## {rid}", "",
+            f"**Backlog:** {counts['backlog']} · **Planned:** {planned} "
+            f"· **Ready:** {counts['ready']} · **Active:** {counts['active']} "
+            f"· **Review:** {counts['review']} · **Blocked:** {counts['blocked']} "
+            f"· **Closed:** {counts['closed']}", "",
+            f"![[BaseHarbor.base#{rid}]]", ""])
+    out[views / "kanban-dashboard.md"] = "\n".join(dashboard)
+
     ready = by_state.get("ready", [])
     out[views / "ready.md"] = "\n".join(["# Ready to assign", "", GENERATED_NOTICE, "",
         "Derived from accepted prerequisites and active release (or explicit early work). "
