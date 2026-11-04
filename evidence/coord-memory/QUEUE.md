@@ -64,9 +64,9 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   unter die Auswahlregel, sind also auf diesem Kopf nicht gefahren). Kein Auftrag an die Lane, keine
   Dateiänderung. Auslöser: erster freie Bahn.
 - cx10-base-refresh.txt — läuft auf dem Arbeitersitz (drei Äste auf develop e444ae11).
-- w146-enroll-r5.txt — Kaeltestart (Zuweisung aus der Grant-Tabelle), Rueckbau-Artefakte aus der
+- w146-enroll-r5.txt — LAEUFT auf sitz (ornith desktop).
   Ruecknamedatei, AGENTS.md aus dem Antrag. Ausloeser: erster freier Sitz (ornith/laptop voll).
-- w147-journal-r4.txt — Rückbau-fester Endzustandsbeweis + Durchreichen von Persistenzfehlern +
+- w147-journal-r4.txt — LAEUFT auf sitz (ornith laptop).
   sleep-freie Tests (Luna review-1373c REJECT, drei Rezepte). Auslöser: erster freier Sitz.
 - Basis-Refresh #1369/#1362 (war Codex-Worker-Mission, durch Owner-Direktive verlassen): zwei Äste auf
   develop e444ae11 heben, Exakt-SHA-Reviews danach neu. Auslöser: zweiter freier Sitz.
