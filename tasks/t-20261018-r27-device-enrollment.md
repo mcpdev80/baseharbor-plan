@@ -81,3 +81,11 @@ its own namespace, distinct from node/connector enrollment (internal/targetenrol
   files touched (Owner scope decision — reported as none needed).
 - Awaiting Maintainer acceptance + CODEX-REVIEW against evidence; CODEX-MERGE only if it passes. No
   release/tag/deploy authorized by this delivery.
+
+
+## Koordinator-Erweiterung 2026-11-04 (write-set, produktionspfad-runde)
+- Zusaetzlich erlaubt: MINIMALE additive注册-zeilen in internal/controlplaneruntime/server_run.go und
+  cmd/baha (provider-/route- hookup am bestehenden authentisierten management-einstieg) — ausschliesslich
+  ergaenzend, keine umordnung, keine fachfremde zeile. targetenrollment + fremde register bleiben gesperrt.
+- Konfliktabstimmung: state-owner-linie (cmd/baha fixtures) laeuft parallel auf ANDEREM zweig; merges
+  hintereinander ( zuerst was_aelter_reift ), koordiniert coord.
