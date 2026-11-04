@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle4 (Lane w130)
+owner: coord-welle4 (Lane w136)
 kanban_lane: review
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w130) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w136) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (Lane w130)  
+**Owner:** coord-welle4 (Lane w136)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -113,3 +113,15 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Beweissammlung liegt auf der Platte (round-3.md, 8131 Byte).
 
 Round 4 (lane w136): --self-owned-unit ExecStart now executable + unit enabled after install; both review-19b gaps closed with own-command proof; both hosted gates green on 2fe4aef375. Reviewer acceptance pending.
+
+## Handoff 2026-11-04 (Runde 4, plattenfest nachgemessen)
+- Kandidat: PR #19, Zweig work/r27-node-service, Kopf 2fe4aef3757 (ls-remote == Kopf), Hauptlinie ist Vorfahr,
+  Schreibgut bleibt auf sechs Dateien des Verbindungspakets beschränkt; gehostete Läufe: zwei grün, zwei nach
+  Auswahlregel übersprungen.
+- Lücke 1 (nicht ausführbare Befehlszeile) ist im Code geschlossen: Der Anmelder kennt das eigene
+  Eigentumsmerkmal jetzt wirklich (Eingabelesung in cmd/baseharbor-node-connector/main.go:282, Ausgabestelle
+  Zeile 146), und das Protokoll zeigt den echten Vorgang unter dem Dienstverwalter (Prozessnummer im
+  Protokollauszug), nicht eine künstliche Probeeinheit.
+- Lücke 2 (deaktivierte Einheit) ist geschlossen: Nach dem Einrichten wird der einschaltende Vorgang
+  aufgerufen (internal/nodeservice/systemd.go:284), gemeldeter Zustand ist aktiviert.
+- Beweissammlung auf der Platte (round-4.md).
