@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (lane w88)
-kanban_lane: active
+owner: coord-welle4 (Codex-Worker cx03)
+kanban_lane: review
 kanban_summary: Validate version/trust/installation/scope before any writes; transactional import and explicit conflicts. Default export…
-kanban_status: active
+kanban_status: review
 kanban_title: "Profiles: import and export non-secret connection metadata"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1363"]
+prs: [mcpdev80/baseharbor#1363]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w88) · **Priority:** normal  
+    **Owner:** coord-welle4 (Codex-Worker cx03) · **Priority:** normal  
     **PR:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (lane w88)  
+**Owner:** coord-welle4 (Codex-Worker cx03)  
 **Priority:** normal  
 **PRs:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -94,3 +94,5 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Kanonischer Rundlauf vergleicht nur ausgewählte Felder statt vollständiger Datensätze plus Neukodierung.
 - Gehostete Gate auf diesem Kandidaten rot (Lauf 41849617084: Documentation-Audit und PR Selected Checks).
 - Korrekturrunde = Lane w123 auf demselben Zweig/PR #1363 (Kopf vorher e45e85ed5f).
+
+## Handoff 2026-11-04 (Runde 4, Kandidatenstand)

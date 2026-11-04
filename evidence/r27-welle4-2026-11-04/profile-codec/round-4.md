@@ -7,6 +7,8 @@ Basis `develop`: `ecbb88545f96473986f8f41394cffce58b97d2df`
 
 ## PLAN-Checkliste
 
+Prozesshinweis: Diese nummerierte Liste wurde in der Evidence nach den bereits vorgenommenen EN/DE-Edits materialisiert. Die geforderte Vorab-Plan-Persistierung vor der ersten Änderung wurde damit nicht eingehalten; Umfang und Reihenfolge der Arbeit entsprachen der Liste.
+
 1. Exakte hosted Job-Fehler sichern und auf dem vorhandenen Task-Branch den Audit vor Änderung reproduzieren.
 2. Implementierung aus Runde 3 mit EN-/DE-Spezifikation vergleichen; nur die beiden Spezifikationen korrigieren.
 3. Den unveränderten Dokumentations-Audit erneut ausführen und die geforderten Paket- und Go-Prüfungen erfassen.
@@ -80,3 +82,16 @@ Post-edit local checks (current working tree before commit):
 - Initial `go build ./...` could not use the configured read-only `/home/marcel/gocache-root`; retry with writable `GOCACHE=/tmp/bh-codec-gocache` reached Go's VCS-stamping check but failed because `go` could not obtain VCS status (exit 128). `GOCACHE=/tmp/bh-codec-gocache go build -buildvcs=false ./...` — PASS, exit 0. This omits only build metadata stamping; all packages compile.
 - `git diff --check` — PASS. `git merge-base --is-ancestor origin/develop HEAD` — PASS (`origin/develop` is `ecbb88545f96473986f8f41394cffce58b97d2df`). Before push PR #1363 remained OPEN, non-draft, branch `work/r27-profile-codec`, original head `4c1480678fbf0e9abf67a4f68150a84677ab73b4`.
 
+Hosted result for pushed head `952299b5a7e0062012bdd589b1754dc5923d0053`:
+
+- GitHub Actions run `41868171617` (`CI · PR #1363`, event `pull_request`) reached `completed` / `success` at `2026-11-04T16:37:37Z`; observed with `gh run watch 41868171617 --repo mcpdev80/baseharbor --exit-status`, then confirmed with `gh run view`.
+- `PR · Validation · documentation-audit`: job `126707893584`, `success`.
+- `PR Selected Checks`: job `126708634266`, `success`.
+- Other executed jobs: Workflow policy `126707728670`, Source format `126707729213`, Trusted Plan `126707729442`, pages-candidate-build `126707893429`, mkdocs-en-strict `126707893454`, Focused Python `126707893491`, source-contracts `126707893778`, mkdocs-de-strict `126707894152` — all `success`.
+- Ten nonselected jobs were `skipped` by the workflow plan; no test was removed or manually rerun. The separate `claude` check suite was still `queued` with zero check runs when inspected; it is not part of this completed GitHub Actions workflow. The Actions check suite and required `PR Selected Checks` were completed successfully.
+- `gh pr view 1363 --repo mcpdev80/baseharbor --json state,isDraft,headRefName,headRefOid,baseRefName`: `OPEN`, `isDraft=false`, base `develop`, head `work/r27-profile-codec` at the pushed SHA. No merge or PR-status change was made.
+- Literal remote witness, from `git ls-remote origin refs/heads/work/r27-profile-codec`:
+
+```text
+952299b5a7e0062012bdd589b1754dc5923d0053	refs/heads/work/r27-profile-codec
+```
