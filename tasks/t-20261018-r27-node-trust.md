@@ -7,13 +7,13 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)
-kanban_lane: ready
+kanban_lane: active
 kanban_summary: "Reconcile existing implementation, then close actual token/mTLS/CA overlap/revocation/reconnect gaps against immutable Core…"
-kanban_status: planned
+kanban_status: active
 kanban_title: "Connector: qualify rotation revocation and session recovery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-service, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
-prs: []
+prs: [mcpdev80/baseharbor-node-connector#20]
 sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
@@ -22,20 +22,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/planned #view/ready #area/connector #kind/task
+- [ ] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive) · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **PR:** [baseharbor-node-connector#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md)  
 **Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor-node-connector#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
 <!-- /generated:links -->
 
@@ -67,3 +67,8 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 Implementierung, Review, CI, Merge und vollständiger Planning-Abschluss liegen bei ChatGPT. Keine Claims,
 keine Lanes, keine Prüfkapazität von dieser Seite; abhängige Karten (node-cli, node-streams, nc-3,
 release-0-4-27-updates) bleiben auf dieser Seite gesperrt bis bestätigter Merge + Planning-Abschluss.
+
+## ChatGPT implementation 2026-11-04
+
+- Draft [PR #20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20) on `work/r27-node-trust-chatgpt`, currently bounded reconnect backoff handling with regression tests.
+- Task is actively being implemented; neither completed trust qualification nor final merge/acceptance is claimed.
