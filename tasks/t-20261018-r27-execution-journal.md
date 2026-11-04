@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w134)
-kanban_status: review
+owner: coord-welle4 (Lane w147, wartet auf Sitz)
+kanban_status: active
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: review
+kanban_lane: active
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -25,20 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w134) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w147, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w134)  
+**Owner:** coord-welle4 (Lane w147, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -140,3 +140,11 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   das Protokoll nach der Rückgabe weiter. Die Zusage wird jetzt vor der Rückgabe erwartet; die Gegenprobe
   (wieder im Hintergrund) macht die Prüfung nachweislich rot; zwanzig Wiederholungen und der
   Wettläufer-Nachweis sind grün. Beweissammlung: teardown-1.md.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1373c, verdict REJECT)
+- Der Prüfer hat den Synchronismus selbst zurückgebaut (Handler auf Hintergrundlauf gestellt) und gemessen:
+  beide bestehenden Tests bleiben grün — der Endzustandsbeweis fehlt also, er ist nur behauptet. Runde 4 muss
+  einen rückbau-festen Test bringen: nach Rückkehr des Handlers steht der terminale Zustand sofort fest.
+- Fehler beim finalen Speichern werden im Handler verworfen (Zeilen 214-232): ein Schreibfehler kann heute
+  als Erfolg zurückkehren. Runde 4 reicht den Fehler durch und belegt das mit einem Speicherausfall-Test.
+- Sleep-Schleifen in den neuen Tests raus (deterministische Synchronisation).
