@@ -113,3 +113,7 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Konsumenten-Abgrenzung 2026-11-04: Punkt 7 des letzten Prüfauftrags (der Produktionsaufrufer der Schnittstelle)
   liegt nach plattenfestem Befund außerhalb der Schreibrechte dieser Karte und ist auf
   t-20261018-r27-public-surfaces vermerkt. Diese Karte liefert die Kodierung vollständig gegenprüfbar.
+- Stand 2026-11-04 (Runde 5, plattenfest nachgemessen): Kopf 064ba01820b, develop ecbb8854 ist Vorfahr,
+  Schreibgut genau sieben Dateien im Vertragsordner, Prüfumfeld läuft noch (sechs wartend).
+- Nachliefer-Pflicht vor der Abnahme: die Runden-5-Beweisdatei fehlt im Evidence-Baum (Kopf in keiner Datei);
+  die Lane liefert die Blöcke nach, ohne den Kandidaten zu verändern. Abnahmeauftrag ist vorgemerkt.
