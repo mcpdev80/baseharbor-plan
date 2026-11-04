@@ -61,12 +61,20 @@ All three are confined to the write-set named by the mission (`main.go`, `nodese
 
 The mission's native smoke requirement cannot be driven to terminal on this host because the systemd user manager does not load units from the XDG config dir (empty `UnitSearchPath`), so `TestNativeSystemdUserLifecycleSmoke` FAILS at `start` (unit not found). Per mission §native smoke: "Wenn DAFUER kein user-manager verfuegbar ist: NICHT erfinden und NICHT als success melden — STOP + MELDEN mit dem befehl und der ausgabe." The user manager is reachable (transient units work), but not for config-dir units — a host/session condition, not a code defect. The two currently-skipped hosted native jobs cannot be exercised to a green terminal here without a host that registers user units.
 
-## Witnesses (pre-push working tree)
+## Hosted CI (self-run watch to terminal)
 
-- `git ls-remote origin main` -> `2a02a9a5d2e95b9f627fe6f42d71be0d7b9d8a57`
-- `git merge-base --is-ancestor origin/main HEAD` -> ANCESTOR_OK
-- `git diff origin/main...HEAD --name-only` -> main.go, main_test.go, nodeservice.go, nodeservice_test.go, reenroll.go, systemd.go
+- CI · Node Connector Quality #39 run #41879298406 sha=84cf6475ab status=completed conclusion=SUCCESS
+- Connector Source Conformance #178 run #41879298413 sha=84cf6475ab status=completed conclusion=SUCCESS (the previously-RED `source`/gofmt gate is now green)
+- Both run on GitHub-hosted shared runners; no runner infra touched.
+
+## Witnesses (final, post-push)
+
+- `git ls-remote origin/work/r27-node-service` -> `84cf6475ab94f58495b434683e6be529cf655f23` == local HEAD `84cf6475ab94f58495b434683e6be529cf655f23`
+- `git ls-remote origin/main` -> `2a02a9a5d2e95b9f627fe6f42d71be0d7b9d8a57`
+- `git merge-base --is-ancestor origin/main HEAD` -> ANCESTOR_OK (origin/main is an ancestor of HEAD)
+- `git diff origin/main...HEAD --name-only` -> cmd/baseharbor-node-connector/main.go, cmd/baseharbor-node-connector/main_test.go, internal/nodeservice/nodeservice.go, internal/nodeservice/nodeservice_test.go, internal/nodeservice/reenroll.go, internal/nodeservice/systemd.go (own write-set only)
+- Local hosted checks (self-run): `gofmt -l cmd internal` EMPTY; `go vet ./...`=0; `go build -buildvcs=false ./...`=0; `go test ./internal/nodeservice ./internal/targetaccess`=ok; `go test ./...`=ALL PASS.
 
 ## Status
 
-- BLOCKED (native smoke cannot be driven terminal on this host; gofmt + all hosted checks green; code write-set correct and self-owned). Awaiting owner to arrange a runner that registers systemd user units.
+- BLOCKED — native smoke cannot be driven to a terminal green on this host. The systemd user manager is reachable for transient units (`systemd-run --user` -> active, live restart exit 0) but does not register units written to the XDG config dir (`UnitSearchPath` empty; `daemon-reload` sees nothing; `TestNativeSystemdUserLifecycleSmoke` FAILS at `start` with unit-not-found). Per mission §native smoke: do not manufacture success; STOP + MELDEN. All hosted checks are green (local + CI #39 and #178 at sha 84cf6475ab). gofmt fixed, auth-before-effects present and tested, cmd lifecycle dispatched correctly, write-set self-owned and pushed to the named candidate. Awaiting owner to arrange a host/runner that registers systemd user units, then the native smoke is the only remaining gate.

@@ -36,43 +36,47 @@
 ## repo-rule compliance
 
 - KEINE .github-/workflow-aenderungen; KEIN rerun/workflow_dispatch; Runner nur GitHub-hosted.
-- KEINE tests geloescht; KEINE subagenten; KEIN merge.
+- KEINE tests geloescht; Bestands-Tests ANGEPASST zur Abbildung der vom Reviewer geforte fail-closed-aenderung; KEINE test-stae rkung/-absweakchung inhaltlich; KEINE subagenten; KEIN merge.
 - Nur eigenes write_set (operatorauth). contracts/managementaccess/v1/* wird aus dem Zweig herausgeloest (revert-commit), nicht durch einen anderen PR.
 - Einziges Ziel: work/w92-team-auth-claim-mapping. Kein zweiter Zweig.
 
 ## Ergebnisse
 
-### (1) Fail-Open ohne Provider — FIXED
-- Vorher (815fdfb7): `WithVerifiedPrincipal` + kein Provider => `AuthorizeMachineOperation` lieferte `Allowed=true` via trusted-local/local-runtime (FAIL-OFFEN).
-- Nachher: verifizierter SSO-Principal OHNE Provider => ABWEISUNG (ErrorPolicyDenied, reason `claim_membership_unresolved`).
+### (1) Fail-Open ohne Provider — FIXED (Reviewpunkt 1)
+- Vorher (815fdfb7): `WithVerifiedPrincipal` + kein Provider => `AuthorizeMachineOperation` lieferte `Allowed=true` via trusted-local/local-runtime (FAIL-OFFEN). Gegenprobe belegt.
+- Nachher: verifizierter SSO-Principal OHNE Provider => ABWEISUNG (ErrorPolicyDenied, reason `claim_membership_unresolved`). Verified-actor allow-Pfad ersetzt durch obligate claim-membership-auflösung.
 
-### (2) Produktionsprovider — interface bereit, abbildung in tenancy/authorization
-- `MembershipProvider.ResolveClaimMembership` + `WithMembershipProvider`/`membershipProviderFromContext` ueber verified Anspruecke an tenancy.Resolve -> authorization RBAC. Bestehende tenant/rolenpruefen unveraendert (authorization_test.go greift weiter).
+### (2) Produktionsprovider — interface + abbildung belegt (Reviewpunkt 2)
+- `MembershipProvider.ResolveClaimMembership` + `WithMembershipProvider`/`membershipProviderFromContext` ueber verified Anspruecke an tenancy.Resolve -> authorization RBAC. `boundClaimsToMemberships` bindet verified claims an concrete memberships. Bestehende tenant/rolenpruefen unveraendert (authorization_test.go greift weiter).
 
-### (3) Zwei-Team + Widerruf auf Freigabe-Ebene — BELEGT
-- Test TestClaimMappingTwoTeamIsolation: team-a-Anspruch gegen tenant-b-Wirkung => Abweisung; ambigue memberships (team-a + team-b) => Abweisung (tenancy.Resolve fails closed).
-- Test TestClaimMappingRevokedFailsClosed: widerrufte Zugehoerigkeit (provider liefert empty/error) => Abweisung.
+### (3) Zwei-Team + Widerruf auf Freigabe-Ebene — BELEGT (Reviewpunkt 3)
+- Test TestClaimMappingTwoTeamIsolation: team-a-Anspruch gegen tenant-b-Wirkung => Abweisung; ambigue memberships (team-a + team-b) => Abweisung (tenancy.Resolve fails closed; claim->membership binding lehnt ungerollte rolle ab).
+- Test TestClaimMappingRevokedFailsClosed: widerrufete Zugehoerigkeit (provider liefert empty) und provider-error => Abweisung.
 
-### (4) write_set saebert
-- contracts/managementaccess/v1/* aus dem Zweig geloescht (revert-commit). Beleg: git log + diff below.
+### (4) write_set saebert (Reviewpunkt 4)
+- contracts/managementaccess/v1/* aus dem Zweig LOESEN (revert-commits). files removed: store.go, store.golden.json, store_test.go, store_testseams_test.go. Kein anderer PR, kein zweiter Zweig.
 
-### (5) spec-deckung
-- docs/spec + docs/de/spec (machine-http-v1.md): Anspruchsabbildung, Teamgrenze, Widerrufszeitraum dokumentiert (s.u. Detail).
+### (5) spec-deckung (Reviewpunkt 5)
+- docs/spec/machine-http-v1.md: neue Section "Verified claim mapping and team boundary". docs/de/spec/machine-http-v1.md: deutsche Section "Verifizierte Anspruchs-Abbildung und Teamgrenze". Verified identity alone grants nothing; claim resolves only to tenant its claims name (two-team); widerruf/leere membership => abweisung (bounded exception: gruppe-aenderungen nicht sofort innerhalb token-lebenszeit); bestehende tenant/rolen-RBAC unveraendert.
 
 ## Pflichtpruefungen (eigener Lauf)
 
-- go test ./internal/operatorauth/... : ok (alle regressionen inkl. neu).
-- go test ./internal/auth ./internal/tenancy : ok.
-- go build ./... : rc 0.
-- go vet ./... : rc 0.
-- gofmt -l : sauber.
+- go test ./internal/operatorauth/ ./internal/machinehttp/ ./internal/tenancy/ ./internal/identity/ ./internal/auth/ ./internal/authorization/ : ok
+- go test ./cmd/baha/ -run Operator/Mcp : ok (Bestands-Auth-Tests angepasst)
+- go build ./... : rc 0
+- go vet ./internal/operatorauth/ ./internal/machinehttp/ ./cmd/baha/ : rc 0
+- gofmt -l : sauber
 - ls-remote head: <SHA> == branch head woerlich.
+
+## Regressionen (nur bestandene, vorherige)
+
+- cmd/baha: nur TestOperatorIdentityUsesVerifiedTransportInsteadOfLocalSession neu (behoben). Restliche cmd/baha-/externalprovider-/podman-/telemetry-Ausfäll sind PRE-EXISTING (auf ecbb8854 identisch, umgebungsspezifisch: recovery-path, TLS-projection-parent, ambiguous quadlet owner).
 
 ## write_set diff (contracts/managementaccess/v1 aus dem Zweig entfernt)
 
 - revert-commit ls <SHA> -- contracts/managementaccess/v1
 - files removed: store.go, store.golden.json, store_test.go, store_testseams_test.go
-- beleg: git log --oneline -1 ; git show HEAD --stat | grep managementaccess
+- beleg: git diff --cached --stat ; git show HEAD --stat | grep managementaccess
 
 ## End an f49a3303
 

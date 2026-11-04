@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle4 (Lane w130)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Connector: reconcile enrollment service and restart behavior"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -22,14 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w130) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
@@ -97,3 +97,16 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   Entfernen nutzte keine unterstützten Vorgänge, der Produktionspfad konnte den Lebenszyklus nicht aufrufen,
   die Prüfung vor der Wirkung war nicht erzwungen.
 - Korrekturrunde = Lane w130 auf demselben Zweig (Kein zweiter Antrag), mit nativem Rauchtest Nachweispflicht.
+
+## Handoff 2026-11-04 (Runde 3, plattenfest nachgemessen)
+- Kandidat: PR #19, Zweig work/r27-node-service, Kopf fcca9c4a295 (ls-remote == Kopf), Hauptlinie ist Vorfahr;
+  Schreibgut bleibt auf die sechs Dateien des Verbindungspakets beschränkt.
+- Die wahre Ursache des Naturlaufs war ein Produktfehler, keine Umgebung: der ausgelieferte Einheitsabschnitt
+  schrieb eine Blöße Befehlszeile ohne das erforderliche Ausführungsschlüsselwort, therefore der Benutzerdienst
+  die Einheit nicht lud. Meine Gegenprobe hatte die Host-Ausrede widerlegt; die Lane hat mit reiner
+  Null-Code-Gegenprobe gegengemessen.
+- Behoben: gültige Ausführungslinie mit absolutem Pfad, echter Installieren/Starten/Neustarten/Entfernen-
+  Durchlauf auf lebendigem Benutzerdienstverwalter mit Erfolgs-Rückgabewerten, Überspringen und
+  Entfernen über unterstützte Vorgänge, Prüfung vor jeder Wirkung.
+- Gehostete Läufe des Kopfes: zwei grün, zwei übersprungen nach Auswahlregel; Formatierung leer.
+- Beweissammlung liegt auf der Platte (round-3.md, 8131 Byte).

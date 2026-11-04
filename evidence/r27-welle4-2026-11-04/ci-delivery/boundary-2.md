@@ -37,7 +37,9 @@ The `ci.yml:803` workflow line already invokes the database helper. No workflow 
 
 On the same committed head: `go vet ./...` exit 0; `gofmt -d` for both changed test files empty; `go build -buildvcs=false ./...` exit 0. Plain `go build ./...` initially failed with Go's `error obtaining VCS status: exit status 128` in this temporary worktree; disabling only build VCS stamping allowed the full build. No test input was hidden or skipped in the package run with a valid DSN.
 
-Hosted run `41878182617` for head `5b2fbb65c356fb977baa5dcb6d8e6804a90f4fe9` was queued when first observed. Last read-only poll: still `queued`; Source format, Workflow policy, go-unit-tests, go-build and go-vet all await runner start. Prior head's completed run `41874203933` is historical only and not used for this new SHA. This evidence will be updated after terminal status.
+Hosted run `41878182617` for head `5b2fbb65c356fb977baa5dcb6d8e6804a90f4fe9` reached overall `completed/success` at `2026-11-04T17:47:54Z`. Terminal successful jobs: Source format, Workflow policy, go-unit-tests (7m39s), go-build (56s), go-vet (1m03s), PR Selected Checks. The `PR · Focused Python` job is anomalous: all its steps, including “Complete job”, report `completed/success`, but the job/check-run API still reports `in_progress` / PR check `pending` at last observation. No rerun/cancel was issued. PR Selected Checks is terminal pass; `gh pr checks` shows the three required Go checks and Source format pass. Prior head's `41874203933` is historical only and not used for this new SHA.
+
+Final remote witnesses: `git ls-remote origin refs/heads/work/r27-ci-delivery-dsn` returned `5b2fbb65c356fb977baa5dcb6d8e6804a90f4fe9`; `gh pr view 1377` remained OPEN, ready, base develop, head the same SHA. No PR-state change or merge.
 
 ## repo-rule compliance
 
