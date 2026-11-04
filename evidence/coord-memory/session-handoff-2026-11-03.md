@@ -1429,3 +1429,8 @@ zwei echte produktluecken, die Luna mit marker-kollisionen belegt hat; karte -> 
 team-auth, zustimmung), 4 in arbeit, 1 blockiert. Luna ist LEER und hat vier urteile vor sich — ich gebe ihr
 die kette in einer sitzung, der arbeitersitz hat die verbindungskapsel-runde 5 uebernommen (eigene
 lieferung wird von ihm nicht geprueft, die kuer war w141 -> cx09, weil alle vier worker-sitze besetzt sind).
+
+## ~09:55 werkbereinigung: zwei verwaiste arbeitsbaeume entfernt (koepfe edd38d31 und 1fc148ff), nachdem ich
+BEIDE in lebenden zweigen wiederfindet (w120-fix bzw. der geloeschte hebel-ast, inhalt in develop) — kein
+verlust, nur platz. siebte/achte eintraege bleiben (laufende lanes). urteilskette angestossen (Luna beginnt
+mit kodierung runde 6), arbeitersitz hat die verbindungskapsel runde 5.
