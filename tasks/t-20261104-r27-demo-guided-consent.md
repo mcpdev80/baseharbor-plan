@@ -56,3 +56,11 @@ No weakening of the consent gate; no env-var auto-confirm (rejected 2026-11-04: 
 ## Handoff
 
 Raised 2026-11-04 by coordinator from lane w80 dialog 5 (demo location proven: scripts/acceptance.sh + tests/guided/drive.py live in baseharbor-demo; earlier core-side placement note corrected here).
+
+
+## Review-Rueckruf 2026-11-04 (Luna review-128d, verdict REJECT)
+- Gegenprobe hash-stimmig-plus-fremder-fehler loest im Produktionspfad trotzdem einen zweiten Lauf aus
+  (fail-closed-Luecke).
+- Der Dauer-Test laeuft in einem normalen Demo-Testlauf nicht mit (Entdeckungsproblem).
+- Karte zurueck auf active; Korrekturrunde ist vorgemerkt (Mission w109-demo-r5), Lane folgt mit der ersten
+  frei werdenden Pool-Kapazitaet. Kandidat bleibt PR #128 head 061be773 bis zum neuen Push.
