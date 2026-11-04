@@ -50,7 +50,7 @@ Der gleiche Test und Fehler steht in `PR · Validation · cli-package-tests`, Jo
 - `go test -p 2 -vet=off ./cmd/baha -run '^(TestRepositoryRuntimeInitRecordsPendingDeploymentBeforeStateMutation|TestRepositoryRuntimeInitRequiresCurrentClaimMembershipBeforeStateMutation)$' -count=1`: PASS.
 - `go test -p 2 -vet=off ./internal/operatorauth -count=1`: PASS.
 - `go test -p 2 -vet=off ./internal/database -run '^TestIdentityTenantResolverUsesIdentityScopedRLS$' -count=1`: PASS.
-- Gesamter `cmd/baha`-Paketlauf ist durch den Hosted-Check `cli-package-tests` verpflichtend; dieser Bericht wird nach Abschluss mit dem terminalen Resultat ergänzt.
+- Gesamter `cmd/baha`-Paketlauf ist durch den Hosted-Check `cli-package-tests` PASS (Job `126797846469`, 5m13s) belegt.
 
 ### Hosted CI — Laufbeobachtung
 

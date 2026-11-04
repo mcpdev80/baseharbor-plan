@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle4 (Lane w136)
-kanban_lane: review
+owner: coord-welle4 (Lane w141)
+kanban_lane: active
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Connector: reconcile enrollment service and restart behavior"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md"]
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w136) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w141) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (Lane w136)  
+**Owner:** coord-welle4 (Lane w141)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -125,3 +125,13 @@ Round 4 (lane w136): --self-owned-unit ExecStart now executable + unit enabled a
 - Lücke 2 (deaktivierte Einheit) ist geschlossen: Nach dem Einrichten wird der einschaltende Vorgang
   aufgerufen (internal/nodeservice/systemd.go:284), gemeldeter Zustand ist aktiviert.
 - Beweissammlung auf der Platte (round-4.md).
+
+## Review-Rueckruf 2026-11-04 (Codex review-19c, verdict REJECT)
+- Der Eigentumsnachweis prüft nur Teilzeichenfolgen: ein artfremder Wert mit passendem Teilstück wird
+  akzeptiert (Gegenbeispiele der Prüfung: Fremdpräfix/Fremdsuffix und Marker-Kollisionen wie
+  foreign-baseharbor-node-connector.evil.container).
+- Ein Fehler beim Aktivieren wird im Einrichtungsaufruf verschluckt: ein nicht aktivierter Zustand kann als
+  erfolgreiche Einrichtung erscheinen. Beides sind echte Produktlücken, keine Umwelt.
+- Korrekturrunde = Lane w141 auf demselben Zweig: Bindung an den kanonischen Namensraum bzw. die erwartete
+  Einheitsidentität mit geschlossener Abweisung, Aktivierungsfehler muss als Einrichtungsfehler zurückkommen,
+  und die Rot-auf-dem-kranken-Stand-Pflicht wird auf fcca9c4a nachgerechnet.
