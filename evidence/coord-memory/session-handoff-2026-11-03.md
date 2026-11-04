@@ -1279,3 +1279,10 @@ unangetastet, 0008/0007-sonderfall bleibt), mutation = zwei nummern in einer nur
 folgen muss der liste. damit ist der drei-wochen-alte "nicht reproduzierbar"-befund erklaert UND behebbar.
 LEHRE: "nicht reproduzierbar" auf develop heisst nicht "kein fehler" — es kann eine basis-abhaengige
 annahme sein. nach naechsten mal zwei basisen laufen lassen.
+
+## ~05:20 NEUE KARTE AUS PLATTENBEFUND: t-20261104-r27-db-skip-sites — die verbundene hebelkarte hat GENAU
+zwei stellen umgestellt; auf develop bleiben FUENF dateien die ohne verbindung UEBERSPRINGEN statt fehlen
+(cmd/baha/bugs_864_871_runtime_test.go, internal/controlplaneruntime/server_integration_test.go,
+internal/database/{connector_enrollment,migration_rollback,schema_readiness}_integration_test.go). kein
+nachtrag unter einem geschlossenen vertrag, sondern eine eigene karte mit abhaengigkeit + akzeptanz
+(ohne=rot, mit=gruen,mutation=rot, begruendung im code wo ueberspringen fachlich stimmt).
