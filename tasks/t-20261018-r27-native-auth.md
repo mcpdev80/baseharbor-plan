@@ -99,3 +99,14 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 - Erwartetes Verhalten: Treffer mit Inhalt reicht die Auflösung über den geschützten In-Memory-Vertrag weiter und
   ruft den Prompt nullmal; Treffer ohne Inhalt ist kein Erfolg; Fehltreffer hält den dokumentierten Fallback
   und der Nichteingabe-Pfad bleibt unverändert.
+
+## Einbauort berichtigt 2026-11-04 (nach Quellennachweis, Lane-Einwand recht gegeben)
+- Der zuvor freigegebene Punkt in cmd/baha/app_apply.go ist thematisch falsch: dort werden anwendungsbezogene
+  Schlüsselnamen über die Tresoranbindung behandelt, es gibt dort keinen Rechnername. Die Stelle bleibt unbearbeitet.
+- Richtige Stellen sind die Git-Aufrufe gegen HTTPS-Fernziele, wo eine Nachfrage entstehen würde:
+  cmd/baha/app_inspect_remote.go:33, cmd/baha/app_update.go:252, internal/development/workspace_git.go:201,
+  internal/orgconfig/source.go:123. Freigegebenes Schreibfeld: diese vier Stellen minimal plus
+  internal/credential/native und Tests.
+- Wertevertrag: der Broker bleibt bewusst wertfrei. Aus einem Treffer ohne Inhalt darf nirgends
+  'authentifiziert' gefolgert werden; die einzige Wirkung ist, dass der Git-Lauf nicht-interaktiv startet, und
+  Erfolg oder Misserfolg entscheidet Git selbst.
