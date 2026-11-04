@@ -78,3 +78,11 @@ references, so release qualification rests on executed runs rather than skipped 
   Docker/Podman integration tests with core, demo, console and connector, in parallel to the PR fixes.
 - Lanes w116 (Docker host) and w117 (Podman host) execute the rebuild phase. A second pair of lanes executes
   the integration phase once both hosts report functional.
+
+## Progress 2026-11-04
+- Podman host: rebuilt from its own setup script by lane w117, functional proofs recorded (rootless run, port
+  mapping, rc=0 lines) and the lane's own containers removed while every shared stack stayed up. The only
+  remaining unhealthy item on that host is the external backup-recovery broker deployment, documented there as a
+  blocker with cause and next trigger; it is not owned by this card.
+- Docker host: lane w116 is executing the same rebuild now.
+- Integration phase (core, demo, console, connector against a functional host) starts after w116 reports.

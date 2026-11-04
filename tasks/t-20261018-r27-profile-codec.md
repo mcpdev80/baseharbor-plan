@@ -74,3 +74,8 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   den Zähler statt des ersetzt-alten Datensatzes.
 - EN/DE-Spezifikation und Modell stimmten nicht exakt überein.
 - Korrekturrunde: Lane w113 auf demselben Zweig/PR #1363 (Kopf vorher 0eb8f231).
+
+- 2026-11-04 round 2 (lane w113): the seven Codex probes pass locally on head f935fa18, but nothing reached the
+  remote — branch work/r27-profile-codec still points at 0eb8f231 and the lane had built a separate branch
+  instead of continuing the candidate. Order given: merge current develop 2a43984a, push onto the candidate
+  branch, record the ls-remote witness, keep the PR draft until the coordinator flips it with the review.
