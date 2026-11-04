@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w132). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment (Runde nach Umgebungs-
+bereinigung). REPO: baseharbor. ZWEIG: der anmeldungs-zweig work/r27-workstation-enrollment (PR #1371, kopf
+9ac4e2c4af) — ZUERST nachsehen ob develop (frischer als ecbb8854) Vorfahr ist; wenn nein: ast frisch von
+develop schneiden und den anmeldungs-stand als commit darauf setzen, name-only-diff als beleg.
+
+BEFUNDSCHAFT (read-only nachgemessen, zwei unabhaengige quellen):
+ - Die beiden datbank-pruefungen (identity_tenant_resolver_integration_test.go, tenant_integration_test.go)
+   waren rot weil sie eine FEST KODIERTE verbindung lesen. Das wird auf der hebelkarte
+   t-20261022-r27-ci-delivery (PR #1377) behoben — FINGER WEG davon, keine doppelte loesung.
+ - Der echte PRODUKTbefund auf DEINEM feld ist ein anderer: TestMigrationRollbackOwnsOnlyLatestChange
+   (internal/database/migration_rollback_integration_test.go) bleibt auch mit korrekter verbindung rot.
+   Der rueckbau eines migrations-schritts muss NUR die letzte aenderung zuruecknehmen und die fruheren
+   unangetastet lassen.
+
+AUFGABE:
+ (1) ZUERST rot machen und wortlich protokollieren: test mit korrekter BASEHARBOR_TEST_DATABASE_URL ausführen
+     (scripts/pr-unit-database.sh), fehlzeile + zeile in der datei die sie erzeugt.
+ (2) URSACHE SUCHEN im rueckbau-pfad (migrations/ + die stelle die .down.sql anwendet), nicht im test:
+     welcher schritt nimmt mehr zurueck als die letzte aenderung (datum/zeitstempel? sortierung?
+     anzahl? transaktionsgrenze?). datei:zeile in die evidence.
+ (3) MINIMAL KORRIGIEREN, sodass der test gruen wird, und eine ZUSATZ-gegenprobe beweisen: rueckbau eines
+     SCHRITTS der NICHT der letzte ist, muss abgelehnt werden (typisierter fehler), statt stillschweigend
+     mehrere schritte zu droppen.
+ (4) MUTATION: rueckbau-absichtliche-fehlwahl (vorletzter statt letzter) => test muss ROT werden.
+ (5) pakettests ./internal/database -count=1 + die anmeldungs-pakettests, build, vet, gofmt; gehostete
+     laeufe deines kopfs bis TERMINAL beobachten (lauf-id, status). Falls eine datbank-pruefung auf deinem
+     kopf weiter rot bleibt NACHDEM #1377 verbunden ist: das ist ein neuer befund, wortlich protokollieren.
+BELEG-Regel: ls-remote == head woertlich; merge-base --is-ancestor origin/develop HEAD;
+git diff origin/develop...HEAD --name-only wortlich in die evidence (nur eigenes schreibgut).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN .github-/workflow-eingriff, KEINE tests geloescht oder auf
+'erwartet fehler' umgeschrieben, KEIN zweiter PR, KEIN merge, scratch nie in der oekosystem-wurzel; bei
+schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/rollback-1.md (keine checkboxen).
+END an f49a3303: "END_DONE w132-enroll-rollback: head=<sha10> vorher=<rot> nachher=<gruen> gegenprobe=<abgelehnt> mutation=<rot> lsremote=<sha10> | <Satz>"

@@ -33,3 +33,6 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w131-consent-abort-r2.txt — Runde 2 für PR #1375 (Abnahme review-1375a REJECT): echter destroy-Durchlauf mit
   rc=0 und echte Folgeanwendung bis READY, vorher rot. Nächster Auslöser: erster freier Worker-Sitz.
 - cx05-ci-skip-fix.txt — läuft (Codex-Arbeitersitz): Scheingrün-Überspringung wird echtes Fail.
+- w132-enroll-rollback.txt — product regression behind the enrollment candidate (migration rollback drops more
+  than the last change). Next trigger: first free worker seat. Prerequisite noted: do NOT touch the DSN fix
+  (belongs to PR #1377).
