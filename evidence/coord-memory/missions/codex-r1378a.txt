@@ -1,0 +1,25 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS db-skip-sites.
+OBJEKT: baseharbor PR #1378 head aca8ff97df8 branch work/r27-db-skip-sites base develop 2ea2c6f1 (Vorfahr von
+mir nachgerechnet; gates terminal 8 pass / 0 fail / 11 skipping; ready, mergeable). KARTE
+t-20261104-r27-db-skip-sites (von mir aus einem plattenbefund neu angelegt — es gibt keine Vorgeschichte).
+BEFUNDS-ANKER: die verbundene hebelkarte (PR #1377) hat zwei datbank-pruefungen umgestellt; es blieben
+weitere stellen mit dem muster 'ohne umgebung => uebersprungen => laeuft gruen'.
+PRUEFEN SHA-genau read-only:
+ (1) write-set: diff name-only gegen develop = GENAU die vier umgestellten testdateien (keine produkt-,
+     keine workflow-, keine migrations-datei),
+ (2) EIGENE messung je datei (vier mal): (a) ohne variable => PAKET ROT, der fall heisst failed, NICHT
+     skipped (wortliche ausgabe in deine akte), (b) mit skript-verbindung (scripts/pr-unit-database.sh) =>
+     der fall ist AUSGEFUEHRT und gruen (nachweis: -v mit laufzeit, nicht nur 'ok'),
+ (3) EIGENE mutation je datei: variable auf unreachbares ziel => ROT (beweis echtes pruefen),
+ (4) KEINE aussage wurde weichgespuelen: diff der testkoerper gegen develop zeigt, dass die eigentlichen
+     PRUEFUNGSBEHAUPTUNGEN gleich bleiben (nur der umgebungs-pfad ist scharf),
+ (5) die meldung ohne umgebung ist UNTERSCHEIDBAR von connection refused (textliche pruefung),
+ (6) begruendungen: bleibt irgendwo ein ueberspringen, muss es im code begruendet sein (grep -n 't.Skip'
+     auf die betroffenen dateien); die karte verlangt das, und stillschweigend ist kein zustand,
+ (7) EIGENE gegenprobe auf meiner falschen liste: cmd/baha/bugs_864_871_runtime_test.go:132 ist KEIN
+     skip-sitter (textpruefung) — bestaetige das oder widerlege es mit der zeile, und pruefe, ob in DER
+     datei ein echter skip-sitter steht, den Neither ich noch die lane gesehen haben (vollstaendige
+     aufzaehlung aller t.Skip in internen datbank-/steuerungs-testpfaden mit klasse).
+ (8) pakettests + build + vet + gofmt, ls-remote == head.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/db-skip-sites/review-1378a.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1378a: verdict=<X> open=<liste|none> | <Satz>"

@@ -1396,3 +1396,12 @@ abnahmeauftrag r1373c ist in der warteschlange.
 ## ~08:35 brettstand: 5 in pruefung, 6 in arbeit, 1 blockiert, 44 warten. alle sechs sitze besetzt
 (w135 anmeldung-unterschrift, w137 uebersprungsstellen, w138 zustimmung runde 3, w139 zustands-traeger
 auf neuer basis + cx08 team-auth runde 3 + Luna verbindungskapsel).
+
+## ~08:50 UEBERSPRUNGS-STELLEN GELIEFERT (kopf aca8ff97df8, pr #1378 bereit/zugreifbar, 8 gruen/0 rot):
+VIER echte stellen umgestellt (steuerung, anmeldungs-datenbank, rueckbau, bereitstellung) — jede ohne
+verbindung jetzt FEHLSCHLAG mit klarer meldung, jede mit unerreichbarem ziel rot belegt.
+BERICHTIGUNG AN MIR SELBST: meine liste fuehrte FUENF dateien, die fünfte (cmd/baha/bugs_864_871_runtime_
+test.go:132) war ein SUCHTREFFER-SYNDLING: sie vergleicht text, ueberspringt nicht. die lane hat das
+dokumentiert statt dort still was zu aendern — genau richtig. weil ich das selbst erst nachrechne, steht die
+regel jetzt so im auftragstext an die prueferseite: vollstaendige aufzaehlung aller ueberspruenge mit klasse,
+nicht nur die mir gemeldeten.

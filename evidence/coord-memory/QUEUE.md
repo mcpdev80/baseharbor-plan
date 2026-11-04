@@ -55,3 +55,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w138-consent-abort-r3.txt — läuft seit ~07:40 auf Lane w138 (PR #1375, Runde 3).
 - codex-r1373c.txt — Abnahme Ausführungsprotokoll (Kopf 0d89a13e63a, acht grün). Auslöser: freier Prüfkanal.
   Schwerpunkt: eigene Rückbau-Gegenprobe (Hintergrund writers zurück => Prüfung muss rot werden).
+- codex-r1378a.txt — Abnahme Umgebungsfehlstellen (Kopf aca8ff97df8, acht grün). Auslöser: freier Prüfkanal.
+  Enthält meine Bitte an die Prüferseite, die vollständige Überspringliste selbst zu klassifizieren.
