@@ -22,7 +22,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
+    **Needs:** [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

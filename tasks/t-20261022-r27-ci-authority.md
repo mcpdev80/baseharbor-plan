@@ -12,17 +12,17 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
+resolution: accepted
 evidence: []
 ---
 
-- [ ] t-20261022-r27-ci-authority · Deferred trusted CI readiness: authority #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261022-r27-ci-authority · Deferred trusted CI readiness: authority #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w41) · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md)  
@@ -75,3 +75,9 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
 ## Owner-Entscheid B1 2026-11-04 (PR #1354 comment 10:26Z): OPTION 1 genehmigt
 - 16-MB-budget UNVERAENDERT; im test aeltere gross-buchungen in terminal/finished state laufen lassen
   (newest-per-id bleibt klein). Umsetzung: neue lane auf work/r27-ci-authority-ab, danach luna abschluss.
+
+
+## Abschluss-Vermerk 2026-11-04 (coord f49a3303)
+- CODEX-REVIEW ABSCHLUSS verdict=ACCEPT open=none auf head 5a5f1b38 (evidence/r27-night-2026-11-02/review-1354h.md).
+- CODEX-MERGE: PR #1354 squash-merged, develop bb9bc0ef, post-merge checks 19 pass / 0 fail.
+- B1 nach Owner-Entscheid Option 1 (Budget 16 MiB unveraendert, aeltere Eintraege terminal im Test).

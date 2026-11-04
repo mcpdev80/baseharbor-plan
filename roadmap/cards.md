@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 43/103 · **Blocked:** 1 · **Waiting:** 47  
+    **Accepted tasks:** 44/103 · **Blocked:** 1 · **Waiting:** 46  
     **Blocker:** [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) — extern: docker/podman Selected-Runtime lifecycle-Gates failen identisch auf clean develop 2cadfcee (hosted run 41723792774; baha-demo provisioniert im isoliert…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 

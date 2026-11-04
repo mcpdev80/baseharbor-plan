@@ -22,7 +22,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** w2-state-owner · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
-    **Needs:** [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
