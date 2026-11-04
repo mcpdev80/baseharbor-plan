@@ -1559,3 +1559,9 @@ erwartungen bleiben, die umwelt verliert ihre entscheidungsmacht.
 dialogregel korrigiert (§2.1d): 'enter submit' muss SICHTBAR sein bevor ich Enter druecke — zweimal habe ich
 zu frueh bestaetigt und w135 blieb haengen. inhaltlich war die loesung simpel: der eingespritzte pruefer
 entscheidet immer, die umweltpruefung nur wenn kein pruefer gesetzt ist; beide tests bleiben unveraendert.
+
+## ~13:30 drift-welle Nr.2 (mein eigener merge hat sie gemacht) an alle vier laufenden ketten gemeldet:
+merge eigener ast <- develop e444ae11, konflikt = develop-fassung, END mit ancestor-beleg, und — weil ich
+daraus gelernt habe — in jeder nachricht die zeile 'OFFENER AUFTRAG BLEIBT UNVERAENDERT'. native-auth hat
+einen neuen kopf (ad0ea646d3), der lauf den ich nachsah hat KEINE fehlzeile im protokoll (lauf noch nicht
+terminal) — also kein neuer befund, nur warten.
