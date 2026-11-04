@@ -1709,3 +1709,12 @@ sind tmpfs-bewohner lebender lanes (w147 worktree in /tmp/opencode — inhaltlic
 statt scheibe; beim naechsten handoff auf §6.2d hinweisen).
 LEHRE TICK: der 10-min tick war die ganze shift taub (coordinator nie genau im sample-slot idle). Neu:
 DUE-MARKER + basics-check-FLAG, damit das pflichtprogramm auch ohne perfekten idle-slot haelt.
+
+## ~23:10 OWNER-UEBERGABE #19 (node-connector) AN CHATGPT — vollstaendig: CI, review, merge,
+planning-abschluss der karte. ChatGPT hat bereits zwei echte fehler im knotendienst behoben
+(Re-anmeldung erhaelt die gespeicherte dienst-unit; start/neustart reichen persistenzfehler durch)
+und regressionstests committed. Meine Umsetzung: (a) luna-r19d annulliert (nachricht gesendet,
+bestaetigung steht aus — bei verstoss gegen 'keine urteilsdatei hinterlassen' wuerde ich nachsteuern),
+(b) native zeugnahme w145 storniert, mission-akten als makulatur gekennzeichnet, (c) karte
+t-20261018-r27-node-service NICHT angefasst (kein card-status, keine notiz), (d) keine reservierung
+von kapazitaet; vier sitze + prüfkanal laufen normal weiter (#1379/#1380 bleiben bei mir).
