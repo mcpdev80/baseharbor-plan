@@ -1472,3 +1472,9 @@ urteil muss ich UNVERZUEGLICH verbinden — sonst sammelt sich drift und die nae
 der laengst ueberholt ist. darum: Luna bekommt die weiteren ACCEPTS in derselben sitzung direkt zum
 verbinden, und die laufenden lanes kriegen nur die kurz-anweisung (merge eigene basis, konflikt =
 develop-inhalt, sonst STOP+melden).
+
+## ~11:05 lehre ueber MEHRERE nachrichten an eine lane: meine spaeteren KURZ-anweisungen (basis-merge) haben
+bei w138 den AUFTRAG ersetzt — die lane lieferte den merge, aber die Vier-Zellen-messung NICHT (datei
+classification-1.md fehlt, nur slice/round-2/round-3 auf platte). nachgehalten mit klarer nachforderung:
+"die nachricht loescht keinen Auftrag, sie ergaenzt ihn" — wenn ich einer laufenden lane eine zweite anweisung
+gebe, muss die erste EXPLIZIT darin wieder auftauchen. steht ab jetzt so in meinen nachrichten.
