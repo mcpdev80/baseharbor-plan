@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w134). Coord f49a3303. KARTE: t-20261018-r27-execution-journal (Basis-Auffrischung nach
+der Hebelkarten-Verbindung). REPO: baseharbor. ZWEIG: work/r27-execution-journal (PR #1373, kopf 11ed442eed).
+KEIN zweiter zweig, KEIN zweiter PR, KEIN merge.
+
+NEUE LAGE (von mir plattenfest nachgerechnet): die Hebelkarte ist VERBUNDEN — develop ist 2ea2c6f1 (squash von
+5b2fbb65), die beiden datbank-pruefungen lesen ihre verbindung dort aus BASEHARBOR_TEST_DATABASE_URL und
+fehlSCHLAGEN (nicht ueberspringen) wenn die umgebung fehlt. Dein Zweig ist damit um genau diese zwei
+stellen aelter und faellt deshalb rot auf.
+
+AUFGABE (minimal, basis-angelegt):
+ (1) git fetch origin; git merge-base --is-ancestor origin/develop HEAD pruefen — ist develop NICHT Vorfahr,
+     origin/develop (2ea2c6f1 oder frischer) in den EIGENEN zweig mergen (merge, kein force-push, kein rebase
+     die Geschichte um, wenn damit fremde commits umgeschrieben wuerden),
+ (2) KONFLIKTFALL: die zwei datbank-tests beruehren dich nicht — wenn dein zweig sie doch anfasst, nimm
+     ENTWICKLUNG (develop) als inhalt, nicht deinen alten stand, und vermerke das in der evidence,
+ (3) KEINE produkt- und KEINE workflow-aenderung; dein Anteil bleibt das protokoll-feld der karte,
+ (4) BELEG vor dem END: git ls-remote origin refs/heads/work/r27-execution-journal == dein kopf WOERTLICH;
+     git merge-base --is-ancestor origin/develop HEAD rc=0;
+     git diff origin/develop...HEAD --name-only = NUR dateien dieses projekts (liste wortlich),
+ (5) GEHOSTETE LAEUFE BIS TERMINAL beobachten und in der evidence notieren (lauf-id, pruefname, status,
+     wortliche fehlzeile falls rot). Dein erwartetes bild: die beiden datbank-pruefungen gehen von
+     verbindung-abgelehnt auf GRUEN. Bleibt eine stelle rot: klassifiziere mit wortlicher zeile (produkt /
+     umgebung / your-andteil) statt nachzustossen.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN rerun als ersatz fuer analyse, KEINE tests geloescht, KEIN
+merge, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/base-refresh-2.md (keine checkboxen).
+END an f49a3303: "END_DONE w134-journal-base: head=<sha10> basis=<develop sha10> ancestor=<ja> gates=<terminal n pass/n fail> lsremote=<sha10> | <Satz>"

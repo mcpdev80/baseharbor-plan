@@ -1243,3 +1243,10 @@ restart/stop/uninstall rc0 auf lebendigem user-manager). karte -> review, abnahm
 (laeuft sobald Luna mit der verbindung durch ist — sie hat gerade ACCEPT auf der hebelkarte abgegeben).
 m1377 ist noch NICHT verbunden (develop == ecbb8854, zweig noch da) — ich pruefe vor jedem weiteren schritt
 gegen die platte, nicht gegen pane-meldungen.
+
+## ~04:35 HEBELKARTE VERBUNDEN UND GESCHLOSSEN (t-20261022-r27-ci-delivery -> closed, resolution accepted):
+develop ist 2ea2c6f1 (squash des ACCEPT-kopfs 5b2fbb65). PLATTENBEWEIS VON MIR: inhaltlicher diff der BEIDEN
+pruefdateien gegen den geprueften kopf = LEER, und `t.Skip` ist in develop in diesen dateien weg. verbindung
+durch CODEX-MERGE nach eigenem ACCEPT (rollen-getrennt, kein force-push, zweig geloescht — ls-remote zeigt 0
+treffer). FREIGEWORREN: #1373 (w134 laeuft bereits auf neuer basis), danach #1362/#1369/#1347 (je eigener
+auffrisch-auftrag, KEIN produkt-umbau, nur basis). w130 released, w134 sitzt.
