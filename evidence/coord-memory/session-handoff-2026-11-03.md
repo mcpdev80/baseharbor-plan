@@ -1042,3 +1042,18 @@ ausserhalbs der VM gesichert) — soll ich eines anlegen oder willst du das repo
   begruendung + naechstem ausloeser (lane w122), danach neue exakte-SHA-pruefung.
 - w122 hat befehl: DSN-herkunft in den tests beheben (test-seitig, sein feld), workflow-zeile ci.yml:802
   unangetastet lassen (owner-vorlage), migration-0009-befund nur belegen (anmeldungs-kette).
+
+## ~21:50 codec wieder EIN kandidat: lane hatte work/r27-profile-codec per fast-forward auf 4c1480678f gehoben
+(PR #1363 head bestaetigt), den zusatzzweig aber NICHT vom remote entfernt. loeschung von mir ausgefuehrt und
+belegt: beide zweige zeigten dieselbe SHA 4c1480678f (inhaltsgleich per sha, staerker als ancestry), ls-remote
+nachher fuehrt nur noch den kandidaten. damit ist AGENTS 3.8 (ein integrationskandidat pro kette) wieder erfuellt.
+w111: fixture-stufe 2 ist fertig und lokal belegt (ohne admin.env => ErrManagerNotConfigured exakt an
+app_edit_apply_test.go:1090; damit => RoleID/SecretID geladen), aber nicht gepusht — push freigegeben
+(test-only, write-set, keine workflow-datei) mit ausdruecklicher grenze:kein echter openbao-server, kein skip;
+der naechste fehlertext geht als entscheidung an den owner (CI-fixture-dienst ODER dokumentiertes testfenster
+im produkt).
+
+## ~22:00 torbild: #1363 basis richtig (ecbb8854 Vorfahr), 3 pass / 7 pending — noch NICHT terminal, daher
+KEINE abnahme (Codex-gate: nur auf grünen exakten köpfen). mission w126 (tore-observation mit klassifikation
+product/umgebung/reihenfolge) vorgemerkt, damit das bild nicht in meinem kopf haengt. gleiche regel gilt fuer
+#1373 (2 fail, CI-fixture-familie w122) und #1347 (wartet auf w111s push).

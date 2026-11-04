@@ -25,3 +25,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - `codex-pod-ops` (a0ce49b3, zweite Instanz, Owner-Direktive 2026-11-04): OPS-Auftrag Podman-Host.
   Rollenhygiene: dieser Kanal führt einen ausdrucklich als OPS gekennzeichneten Auftrag aus — er schreibt kein
   Review-Urteil und merged nichts; die Revisions- und Versionsnachweise legt er als Evidence ab.
+| 9 | coordinator/missions/w126-gate-watch.txt | Pool 5/5 | vier kandidaten haben nicht-terminale gehostete laeufe; abnahme braucht das terminal-bild + klassifikation |

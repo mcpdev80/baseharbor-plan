@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w126, TORE-BOBACHTUNG — read-only, kein Code, kein Rerun). Coord f49a3303.
+ANLASS: mehrere kandidaten haben NICHT-TERMINALE gehostete laeufe auf frischen köpfen; die abnahme darf erst
+laufen, wenn das torbild terminal ist, und der coordinator soll nicht raten.
+BEOBACHTEN (pro eintrag bis terminal, gh pr checks + gh run view, KEINE schreibenden kommandos):
+  A) baseharbor#1363 kopf 4c1480678f (profil-codec runde 3, basis ecbb8854 = Vorfahr)
+  B) baseharbor#1373 kopf 11ed442eed (ausfuehrungstagebuch runde 2)
+  C) baseharbor#1347 kopf <nach w111-push — den aktuellen remote-kopf lesen, nicht raten>
+  D) baseharbor#1371 kopf 9ac4e2c4af (anmeldung, basis-laedt)
+JE PR: eine zeile TABELLE (pr, head10, pass, fail, pending, skipping, namen der roten stellen). Bei FEHLERN:
+die exakte fehlzeile aus dem job-log (gh run view --log-failed | grep -a -E 'FAIL|error'), und die einordnung
+in eine der drei klassen mit einem satz begruendung: (1) produktfehler im kandidaten, (2) CI-/testumgebung
+(bekannte PG-/OpenBao-/docker-familie — querverweis auf lane w122), (3) basis-/reihenfolgeproblem.
+VERBOTEN: rerun, workflow_dispatch, .github-aenderung, PR-kommandos die den zustand aendern, subagenten.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/gate-watch/round-2.md (tabelle + fehlzeilen +
+klassifikation; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w126-gate-watch: terminal=<n>/4 rot_mit_klasse=<liste|keine> | <Satz>"
