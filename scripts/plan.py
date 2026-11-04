@@ -508,8 +508,9 @@ class Vault:
             self.err(inv_path, f"open issue {src} is not accounted for by any destination")
 
     def check_cardboard(self):
+        # Legacy CardBoard is optional: native Bases no longer needs this plugin.
+        # Validate a retained rollback configuration only when it exists.
         if not CARDBOARD_SETTINGS.exists():
-            self.err(CARDBOARD_SETTINGS, "missing CardBoard settings")
             return
         for problem in validate_cardboard(json.loads(CARDBOARD_SETTINGS.read_text(encoding="utf-8")),
                                           {release_tag(r) for r in self.releases}):

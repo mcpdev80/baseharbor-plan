@@ -1,5 +1,10 @@
 # AGENTS.md
 
+## Native Bases Kanban — binding task status workflow (2026-11-04)
+
+The native Obsidian Bases board [BaseHarbor.base](BaseHarbor.base) replaces the unsupported CardBoard plugin. All task notes now carry `kanban_status` (writable lifecycle source of truth) and `kanban_title` (derived display text). **Do not change #status/ tags or checkboxes directly for migrated tasks.** Change `kanban_status`, then run `python3 scripts/plan.py render && python3 scripts/plan.py check` before committing and pushing. `plan.py claim` updates both representations. `ready/waiting/queued` are derived dependency views, not writable lifecycle values. Moving to closed requires a resolution and genuine HTTPS evidence; active/review/blocked retain owner/PR/blocker validation. Read [BASES-KANBAN.md](BASES-KANBAN.md) for details.
+
+
 ## Current v0.4.27 CI execution — 2026-11-03
 
 Marcel explicitly resumes Codeman. The binding work order is [CODEMAN-START.md](evidence/r27-ci-replacement-2026-10-26/CODEMAN-START.md). Work autonomously in small parallel iterations, preserve existing claims and unpublished work, and coordinate non-overlapping file ownership. There is no CI timebox or legacy-check fallback for product development. Complete ordinary CI before regular feature work. No gate manifests, evidence verification/reuse, run/job rechecking or additional receipt approval/shadow chain remains active. The only CI record contains merge SHA and PR number. Rulesets stay disabled while CI is repaired. Existing tests remain required. Owner delegation below applies. No release or tag is authorized by this planning change.
