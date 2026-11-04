@@ -118,8 +118,24 @@ FAIL
 - Ein Branch pro Kette; kein zweiter Kandidat.
 
 ## ls-remote / Branch-Provenanz
-Base head origin/develop = 2ea2c6f1...  (ls-remote Witness folgt im END).
-origin/develop ist Vorfahr von HEAD (git rev-parse --is-ancestor origin/develop HEAD => true).
+```
+$ git ls-remote origin work/r27-db-skip-sites
+aca8ff97df821305880ed569bafc8dbadfab7857	refs/heads/work/r27-db-skip-sites
+$ git rev-parse HEAD
+aca8ff97df821305880ed569bafc8dbadfab7857
+$ git rev-parse --is-ancestor origin/develop HEAD
+true
+```
+Base head origin/develop = 2ea2c6f1d344cca2b21c17e7acbebf711b1511a1.
+origin/develop ist Vorfahr von HEAD (Witness oben). Branch ab develop geschnitten,
+kein Ast eines anderen Kandidaten.
+
+## Gehosteter Lauf (Eigenes-Run-Pflicht, terminal)
+- PR #1378 (draft -> 19:02 ready gemacht, CI-Auftrag lief bis terminal)
+- Run 41893260741: status=completed, conclusion=success
+- go-build=pass, go-vet=pass, go-unit-tests=pass (8m6s). 18 Jobs, alle success/skipped.
+- Kein ROT, kein Fail im Lauf. Source format + Workflow policy (Draft-Pruefungen)=pass.
+- Basis-Drift: origin/develop unveraendert seit 2ea2c6f1 waehrend der Kette.
 
 ## Repository-Regel (baseharbor AGENTS.md)
 Nur Test-seitige Aenderung, Fail-Closed statt Skip, kleinste passende Pruefung
