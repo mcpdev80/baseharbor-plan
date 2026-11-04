@@ -1057,3 +1057,16 @@ im produkt).
 KEINE abnahme (Codex-gate: nur auf grünen exakten köpfen). mission w126 (tore-observation mit klassifikation
 product/umgebung/reihenfolge) vorgemerkt, damit das bild nicht in meinem kopf haengt. gleiche regel gilt fuer
 #1373 (2 fail, CI-fixture-familie w122) und #1347 (wartet auf w111s push).
+
+## ~22:15 DRITTE BLINDLAUF-GESCHICHTE (owner-frage "warum schon wieder nicht mitbekommen?"): der PATH-fix von
+13:2x war nur die HALFTE wahrheit. die CLI verweigert in cron mit rc=0 + leerem stdout, wenn ein teil des
+session-umfelds fehlt: CODEMAN_MUX=1, CODEMAN_API_URL, hook-secret und den VOLLEN uuid in CODEMAN_SESSION_ID
+(kurz-id reicht nicht, und `agent list` braucht selbst eine session -> huhn+ei; loksung: uuid aus der web-api).
+end-watch + codex-ear haben das jetzt explizit, coord-env.sh ist der eine ort dafuer, und ein parse-fehler
+landet im log statt schweigend (INBOX-FEHLER + HEARTBEAT inbox=<n>). nach dem fix: FIRED 6 — die sechs
+unverarbeiteten posts (w122 END_BLOCKED/QUESTION/END_DONE, w123 zwei ENDs, w111) kamen sofort nach.
+NEBENBEFUND beim lesen meines eigenen fixes: ich hatte beim targetierten add den kompletten commit-/push-chain
+des checkbox-guards in EINEN KOMMENTAR verschluckt (seit ~19:0x lief der guard ohne publizierung). wieder
+auseandergezogen: strip -> add -- file -> commit -> pull --rebase -> push.
+LEHRE: ein auge reparieren heisst NICHT nur PATH — umfeld, rc0-stille und mein eigener patch muessen getestet
+werden (dafuer ist die env -i zeile jetzt der standard-test fuer jedes cron-auge).
