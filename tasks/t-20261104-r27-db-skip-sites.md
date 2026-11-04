@@ -5,9 +5,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w137)
-kanban_status: review
-kanban_lane: review
+owner: coord-welle4 (Lane w152, Gegenprobe; PR #1378 bleibt auf 760c104a6c4)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen"
 priority: ""
@@ -20,17 +20,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-db-skip-sites · Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen #task #release/v0-4-27 #status/review #view/review #kind/task
+- [ ] t-20261104-r27-db-skip-sites · Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w137)  
+    **Owner:** coord-welle4 (Lane w152, Gegenprobe; PR \#1378 bleibt auf 760c104a6c4)  
     **PR:** [baseharbor#1378](https://github.com/mcpdev80/baseharbor/pull/1378)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
-**Owner:** coord-welle4 (Lane w137)  
+**Owner:** coord-welle4 (Lane w152, Gegenprobe; PR #1378 bleibt auf 760c104a6c4)  
 **Priority:** not set  
 **PRs:** [baseharbor#1378](https://github.com/mcpdev80/baseharbor/pull/1378)  
 **Source:** 
@@ -97,3 +97,7 @@ klarer Meldung stehen, damit ein Lauf nicht scheingrün wird. Wo ein Überspring
   Suchtreffersyndling — sie prüft Textinhalte, sie überspringt nicht. Die Lane hat das dokumentiert statt
   dort still etwas zu ändern; richtig so.
 - Gegenproben mit unerreichbarem Ziel sind für alle vier Stellen rot belegt.
+
+## Stand nach review-1378b (BLOCKED, kein Produktbefund)
+Der gehostete Lauf auf dem exakten Kopf ist inzwischen terminal erfolgreich (41922518146, von mir abgerufen).
+Die fehlende isolated Positivzelle mit freiem Port wird neutral nachgemessen; Produktcode bleibt unverändert.
