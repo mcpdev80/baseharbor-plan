@@ -1317,3 +1317,13 @@ w127 released, w135 (native-auth auf neue basis) sitzt auf dem freien laptop-pla
 W134-DIALOG war ein falsch-positiver wachler-hinweis ("AWAITING-ANSWER" während eines zeitueberschreitenden
 pak-laufs): das pane zeigt einen LAUFENDEN -race-durchlauf, keine frage.hinweis: vor einer antwort immer
 capture-pane pruefen — sonst schicke ich Enter in einen laufenden befehl.
+
+## ~06:40 UMGEbungs-ERKLAERUNG DER TEAM-AUTH-LANE WIDERLEGT (zweiter fall in dieser schicht, gleiche lehre):
+cx07 lieferte den kontrollvergleich: develop 2ea2c6f1 = PASS (0.05s), kandidatenkopf f9507ff6 = FAIL
+"keine anspruchsbasierte mitgliedschaft" — klasse A, kein laeufer-thema. WURZEL plattenfest:
+internal/operatorauth/authorization.go:188-199 verlangt ein zuordnungsergebnis fuer JEDES principal, aber der
+produktionsbaum setzt den traeger NIE ein (kein WithMembershipProvider-aufruf) => der echte betrieb weist sich
+selbst ab. karte -> active, runde 3 auf dem arbeitersitz (cx08): echte einsetzstelle, mit/ohne-traeger-test,
+bestehender fall ueber aufbau wieder gruen (nicht Aussage weichspuelen), drei karteninhalte neu belegen.
+REGEL DIE ICH DARAN SEHE: "das ist umgebung" gilt erst, wenn eine reine host-probe ohne den eigenen code auf
+demselben pfad FEHLTSCHLAEGT (RUNBOOK §6.7) — hier war die develop-probe gruen, also war die aussage tot.

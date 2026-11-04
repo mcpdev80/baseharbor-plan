@@ -1,0 +1,46 @@
+ROLLE: CODEX-WORKER (Ausfuehrender, NICHT Reviewer/Merger). Coord f49a3303. KARTE: t-20261018-r27-team-auth
+(RUNDE 3). REPO: baseharbor. ZWEIG: work/w92-team-auth-claim-mapping (PR #1369, head f9507ff6ee0, develop
+2ea2c6f1 ist Vorfahr). KEIN zweiter zweig, KEIN zweiter PR, KEIN Kraftuebertragen.
+
+GRUND DER KORREKTUR (unabhaengige read-only nachmessung, akte:
+baseharbor-plan/evidence/r27-welle4-2026-11-04/team-auth/triage-1.md — VOR dem coding vollstaendig lesen). Die
+lane-meldung "die zwei roten sind laeufer-docker / bezugsschnitt = umgebung" ist WIDERLEGT: kontrollvergleich
+develop vs. kandidatenkopf, gleicher befehl:
+  develop   2ea2c6f1: TestRepositoryRuntimeInitRecordsPendingDeploymentBeforeStateMutation PASS (0.05s), rc=0
+  kandidatenkopf f9507ff6: app_input_resolver_first_run_test.go:56 FAIL — "initialize repository deployment
+  inputs: The verified operator carried no claim-based tenant membership that permits this machine operation"
+das ist klasse A, auf DIESEM ast erzeugt.
+
+WURZEL (datei:stelle aus der nachmessung): internal/operatorauth/authorization.go:188-199 verlangt fuer JEDES
+principal ein aktuelles anspruch->zuordnung-ergebnis, aber im produktionsbaum gibt es KEINEN
+WithMembershipProvider-aufruf — die bereitstellung fehlt. folge: jeder echte betrieb wird abgewiesen
+(schein-dicht, aber dicht gegen sich selbst), und bestehende cmd/baha-pruefungen fallen.
+
+AUFGABE:
+ (1) BEREITSTELLUNG SCHAFFEN: die produktionskomposition (die stelle, die den maschinen-/anwendungs-pfad
+     aufbaut — in dieser kette: cmd/baha-Verdrahtung + internal/operatorauth/kontext-helfer) hält den
+     Durchgeber ein, der die echte zuordnung/quelle benutzt. aufloesung NUR aus verifiziertem
+     aussteller+subjekt und gruppen-/anwendungsrollen-anspruechen; ein principal ohne zuordnung bleibt
+     ABGEWIESEN (das ist korrekt — nur darf es nicht an der fehlenden bereitstellung liegen).
+     BELEG: ein test, der den Pfad MIT bereitgestelltem Geber durchlaeuft und denselben fall OHNE geber
+     mit der klaren absage — beide gruen/rot wie beschrieben (kein test, der nur die fehlende bereitstellung
+     feststellt).
+ (2) DEN BESTEHENDEN cmd/baha-fall wieder gruen machen, OHNE seine aussage zu weichkoepfen: wenn die
+     grundrichtlinie richtig ist, gehoert in die PRUEFBAHN die zuordnung, die der fall braucht (aufbau des
+     gebers im setup) — nicht das entfernen der pruefung. aenderung am test MIT BEGRUENDUNG in der evidence.
+ (3) DIE DREI INHALTE DER KARTE BLEIBEN BELEGT (nicht zurueckgebaut): offen-ohne-provider => abweisung;
+     zwei teams => getrennt; widerruf => sofortige wirkung. nachweis nach deiner aenderung erneut.
+ (4) RED-FIRST: der exacte fehl (app_input_resolver_first_run_test.go:56) wortlich protokollieren, dann
+     dieselbe stelle nach (1)+(2) gruen, dazu der ganze paketlauf ./cmd/baha und ./internal/operatorauth.
+ (5) MUTATION: provider vorhanden aber zuordnung widerrufen/leer => abweisung mit null nebenwirkung
+     (kein speicher-/netzeffekt), nachweisbar.
+ (6) gates bis TERMINAL (lauf-id + pruefname + status; die beiden roten checks MUESSEN auf deinem kopf
+     anders aussehen als auf f9507ff6 — sonst ist nichts bewiesen). ls-remote == head WOERTLICH;
+     merge-base --is-ancestor origin/develop HEAD; name-only-diff gegen develop (bleibt bei dreizehn dateien
+     + was du neu anfasst, KEINE codec-/fremden dateien).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-/workflow-aenderung, KEINE tests geloescht, KEIN
+rerun als ersatz fuer analyse, KEIN merge, KEIN zweiter PR, scratch nie in der oekosystem-wurzel; bei
+schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/team-auth/round-3.md (woertliche blöcke, keine
+markdown-checkboxen).
+END an f49a3303: "END_DONE cx08-team-auth-r3: head=<sha10> bereitstellung=<datei:zeile> develop-fall=<gruen belegt> inhalt=<drei nachweise> mutation=<abweisung+null wirkung> lsremote=<sha10> | <Satz>"
