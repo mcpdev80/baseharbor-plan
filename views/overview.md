@@ -13,9 +13,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | active | 7 |
 | review | 2 |
 | blocked | 1 |
-| ready | 2 |
+| ready | 6 |
 | queued | 26 |
-| waiting | 213 |
+| waiting | 209 |
 | backlog | 7 |
 | closed | 108 |
 
@@ -49,7 +49,11 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
+| [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md) | Devices: issue and validate scoped workstation enrollment | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
+| [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md) | Credentials: reuse native authentication before prompting | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | Connector: reconcile enrollment service and restart behavior | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md) | Profiles: import and export non-secret connection metadata | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
+| [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md) | Access: enforce external SSO claims and scoped team permissions | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 
 ## By release
 

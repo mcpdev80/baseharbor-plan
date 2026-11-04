@@ -22,7 +22,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
+    **Needs:** [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -18,15 +18,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/access #kind/task
+- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/planned #view/ready #area/access #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
