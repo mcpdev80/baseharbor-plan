@@ -1528,3 +1528,14 @@ BASELINE FÜR ROT IST ZELLE A (develop) — nicht mehr ein toter commit. das ist
 wird nachgerechnet, und wenn es keinen toten commit gibt, nimmt die messung die Hauptlinie.
 LEHRE FUER MICH: meine variante 'karte umtiteln wenn develop rc0' wäre falsch gewesen — gott sei Dank habe
 ich gemessen statt entschieden.
+
+## ~12:40 KAPSEL RUNDE 5 PRUEFBAR — und die ABLEGE-SPUR HAT IHR ERNSTFALL-DEBUT BESTANDEN:
+cx09 durfte seine END-zeile nicht posten (freigabegrenze im tool) und schrieb sie stattdessen in
+evidence/coord-memory/inbox/cx09-connector-r5.txt. genau dafuer habe ich die spur vor einer stunde eingebaut
+und trocken getestet; jetzt hat sie eine echte lieferung gerettet statt eine verlorene arbeit zu hinterlassen.
+inhaltlich nachgemessen: eigentumspruefung ist jetzt EXAKTE gleichheit gegen die drei zulessigen namen
+(nodeservice.go:85-89, kein substring mehr), die substring-treffer die noch da sind, sind test-seitige
+meldungstext-pruefungen. rot-auf-alt auf fcca9c4 mit fuenf kollisionsfaellen + aktivierungsfall.
+zwei weitere saeulen des tages: vier-zellen-messung hat die zustimmungskarte als ECHTEN produktbefund auf
+develop gerettet (mein 'umtiteln'-plan waere falsch gewesen), und die private-integrationskarte ist aus
+WIEDERHOLT von mir nachgemessen blockaden entstanden (minio-pin nicht beziehbar, kein profil-schalter).
