@@ -1765,3 +1765,10 @@ auftrag r1378c an luna (verifiziere gegenprobe + terminalen lauf + unveraenderte
 rezept erwartet). sitzornith wieder frei -> naechster wartender: node-streams (entwaermt, falls konfliktfrei
 gegen die drei laufenden baenme — pruefen: der schreibt connector-dateien, die andern vier schreiben
 baseharbor-dateien => disjunkt, also DISPATCH moeglich).
+
+## 00:2x w147 contra-deckung: MEINE anweisung "202 nach runExecution verschieben" widersprach
+docs/spec/machine-http-v1.md:104 (202 = ADMISSION, ergebnis per execution-pfad). Lane meldete dialog statt
+drumzubiegen — korrekt. entscheidung A: synchroner terminal-commit (mutantenfest, schon belegt) +
+sichtbarer persist-fehler OHNE HTTP-bedeutungs-aenderung, docs unbetroffen. LEHRE FUER MICH: vor
+response-semantik-anweisungen immer die spec-datei der flaechen-contracts pruefen (machine-http-v1.md war
+mir als akte bekannt, die 104-zeile nicht). Der dialog-kanal hat den fehler gefangen — genau dafuer ist er da.
