@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS ci-delivery (hebelkarte).
+OBJEKT: baseharbor PR #1377 head 029e3ddd522 branch work/r27-ci-delivery-dsn base develop (ready durch coord,
+develop ist Vorfahr — von mir nachgerechnet; gates terminal 2 pass / 0 fail / 14 skipping).
+KARTE t-20261022-r27-ci-delivery. Gegenstand: zwei integrationstests in internal/database lesen ihre verbindung
+aus BASEHARBOR_TEST_DATABASE_URL statt einer fest kodierten adresse (identity_tenant_resolver_... +
+tenant_integration_test.go); ohne gesetzte variable meldet der test eine KLARE meldung dass die testumgebung
+fehlt statt eines stillen verbindungverweigerungsfehlers. VORGESCHICHTE: erster versuch (#1376) war aus dem
+anmeldungs-kandidaten geschnitten (26 dateien, fremdes schreibgut) und ist mit beleg geschlossen.
+PRUEFEN SHA-genau read-only: (1) diff name-only = NUR die zwei tests + ggf. helper (keine produktdatei, kein
+.github), (2) keine fest kodierte adresse/port bleibt in den betroffenen stellen (grep), (3) die
+fehlt-eine-umgebung-meldung ist typisiert/unterscheidbar und fuehrt NICHT zu einem uebersprungenen (=gruenen)
+test, (4) MUTATIONSGEGENPROBE SELBST: variable auf falschen port gesetzt => der test wird ROT (beweis, dass er
+wirklichprueft), (5) die tests verwenden dieselbe quelle wie scripts/pr-unit-database.sh (keine zweite
+wahrheit), (6) pakettests ./internal/database + build + gofmt + vet gruen, (7) keine tests geloescht/umgeschrieben
+zu 'erwartet fehler' (diff der testfaelle).
+Urteil -> review-1377a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1377a: verdict=<X> open=<liste|none> | <Satz>"

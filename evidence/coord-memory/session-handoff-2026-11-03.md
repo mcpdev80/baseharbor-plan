@@ -1150,3 +1150,12 @@ karte (AGENTS: never label it independent review when none occurred).
 PROVENIENZ-AUDIT ueber alle offenen zweige: develop Vorfahr = OK fuer 1347 1362 1363 1369 1371 1373 und
 connector #19; work/r27-candidate-contract fehlt die basis, ist aber MERGED (#1355 13:55Z) -> historisch,
 kein fall. demo-ast hinter main = ebefalls historisch (#128 gemergt).
+
+## ~01:30 drei zuege nach den urteilen:
+- ci-delivery (hebelkarte) -> review: PR #1377 head 029e3ddd522, basisbeweis von mir NACHGERECHNET (entwickler-
+  meldung "NEIN" war ein stale ref bei mir, nach fetch: Vorfahr JA; diff = genau die zwei tests). Luna prueft
+  mit eigener mutationsgegenprobe.
+- profil-codec -> active: review-1363c REJECT (version nicht pflicht, empfaengerbindung optional,
+  vertrauen schalterabhaengig, kein echter short-write-seam, canary nicht je kategorie, rundlauf teilfelder,
+  consumer-pfad offen) -> w129 frisch ab develop (alter zweig traegt fremde history).
+- w128 released (arbeit auf platte + PR #1377), w111/w121 zuvor released.

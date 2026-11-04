@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w129). Coord f49a3303. KARTE: t-20261018-r27-profile-codec (Welle 4, Runde 5).
+REPO: baseharbor (core). ZWEIG: work/r27-profile-codec, PR #1363, kopf 952299b5a7. NEU ab origin/develop
+(aktuell ecbb8854 oder frischer) schneiden und deinen stand als commit darauf setzen — der alte zweig wird
+NICHT weiter verwendet, weil er fremde history tragt. BELEG im END: merge-base --is-ancestor + name-only-diff.
+
+Luna review-1363c verdict=REJECT (akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-1363c.md, VOR dem
+coding vollstaendig lesen). Sieben rezepte:
+
+(1) KANONISCHE RECORD-VERSION PFLICHTIG — ungeachtet der aufrufer-argumente, in EXPORT WIE IMPORT. Gegenprobe:
+    gleiche argumente mit version /v99 => ablehnung (typisiert, vor jeder wirkung).
+(2) EMPFAENGER-BINDUNG PFLICHTIG: eine ANDERE, gueltige SPIFFE-identitaet muss VOR jedem schreibvorgang
+    abgewiesen werden. Gegenprobe: gueltiger fremder empfaenger => ablehnung, kein datei-/store-artefakt.
+(3) VERTRAUENS-SELBSKONSISTENZ UNBEDINGT (kein schalter): gegenprobe mit TrustSelfConsistent=false => ablehnung.
+(4) ECHTER short-write-NACH dem staging: ein NUR-TEST-seitiger, deterministischer writer-/commit-fehler-seam
+    (store_testseams_test-artig) + assertion: keine partielle finale datei, KEIN temp-artefakt. Bei
+    rueckbau-fehler des ersetzens: typisierter fehlerschluessel und EINDEUTIGER zustand statt ignoriertem
+    removal-fehler.
+(5) CANARY JE KATEGORIE: unabhaengige pro benannte gruppe serialisierter zeichenketten (inkl. verschachtelter
+    export-/speicher-/zeit-/container-felder, soweit darstellbar) — jede kategorie einzeln, mit assertion dass
+    kein secret in export-bytes landet.
+ (6) RUNDLAUF VERGLEICHT VOLLSTAENDIGE record (import -> re-export, nicht ausgewaehlte felder); replacement-
+    test belegt dass der NEUE inhalt vom ALTREN ABWEICHT und das ALTE ersetzt ist (nicht nur ein zaehler).
+(7) KONSUM-PFAD: die karte verlangt den produktionspfad. PRUEFE zuerst, WER den export/import wirklich aufruft
+    (api-/verwaltungs-einstieg). Wenn der Consumer NICHT in deinem write-set/feld liegt: NICHT einfach
+    weiter ohne pfad liefern — STOP + MELDEN, dann klaere ich eigentum/abhaengigkeit (karte oder vorlaeufer).
+
+PFLICHTPRUEFUNGEN am neuen kopf: pakettests ./contracts/managementaccess/v1 -count=1, go build ./..., gofmt,
+vet; gates bis TERMINAL beobachten; PR DRAFT (ich leite zusammen mit der pruefung um); ls-remote==head
+WOERTLICH in der evidence.
+GRENZEN: KEINE .github-/workflow-aenderung, KEIN rerun, KEINE tests geloescht, KEINE subagenten, KEIN merge,
+KEIN zweiter PR fuer dieselbe kette. scratch nie in der oekosystem-wurzel; bei patch-/schreibfehlern zuerst
+`df -h /tmp` (tmpfs-kontingent, RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/round-5.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE w129-codec-r5: head=<sha10> basis=<develop sha> version=<pflicht> empfaenger=<pflicht> vertrauen=<unbedingt> shortwrite=<rot->gruen> canary=<je kategorie> consumer=<pfad|STOP-melden> lsremote=<sha10> | <Satz>"
