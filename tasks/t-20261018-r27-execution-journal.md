@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: codex-heavy-wk (cx01)
-kanban_status: blocked
+owner: coord-welle4 (Lane w134)
+kanban_status: review
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: blocked
+kanban_lane: review
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -17,7 +17,7 @@ prs: [mcpdev80/baseharbor#1373]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "Abnahme durch review-1373b abgelehnt, aber NICHT wegen des PR-codes: zwei datenbank-integrationstests und das PR-Datenbank-Fixture nutzen unterschiedliche ports (5432 hartkodiert vs. konfigurierte BASEHARBOR_TEST_DATABASE_URL). Naechster Ausloeser: CI-Fixture-berichtigung in lane w122, dann neue exakte-SHA-pruefung."
+blocker: ""
 resolution: ""
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md"
@@ -25,21 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/blocked #view/blocked #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** codex-heavy-wk (cx01) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w134) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
-    **Blocker:** Abnahme durch review-1373b abgelehnt, aber NICHT wegen des PR-codes: zwei datenbank-integrationstests und das PR-Datenbank-Fixture nutzen unterschiedliche ports (5432 hartkodiert vs. konfigurierte BASEHARBOR\_TEST\_DATABASE\_URL). Naechster A…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** codex-heavy-wk (cx01)  
+**Owner:** coord-welle4 (Lane w134)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -119,3 +118,14 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   (Zweig work/r27-ci-delivery-dsn, Kopf 029e3ddd522): die Datenbankprüfungen lesen die Verbindung jetzt aus
   einer Quelle. Ist diese Karte angenommen, wird #1373 auf demselben Kopf neu geprüft; bis dahin bleibt der
   Blocker mit diesem Auslöser stehen.
+
+## Handoff 2026-11-04 (Runde nach Basis-Verbindung, plattenfest nachgemessen)
+- Kandidat: PR #1373, Zweig work/r27-execution-journal, Kopf 0d89a13e63a (ls-remote == Kopf), develop 2ea2c6f1
+  ist Vorfahr; Prüfprotokoll des Kopfes: acht grün, null rot, zehn nach Auswahlregel übersprungen.
+- Schreibgut bleibt auf die sechs Dateien des Protokollfeldes beschränkt; keine Workflow-, keine Produktdatei
+  außerhalb des Feldes.
+- Der Aufräumfehler war eine echte Abschlusslücke im Produkt, keine Umgebung: ein Hintergrundauftrag schrieb
+  das Protokoll nach der Rückgabe weiter. Die Zusage wird jetzt vor der Rückgabe erwartet; die Gegenprobe
+  (wieder im Hintergrund) macht die Prüfung nachweislich rot, zwanzig Wiederholungen und der
+  Wettläufer-Nachweis sind grün.
+- Beweissammlung auf der Platte (teardown-1.md).
