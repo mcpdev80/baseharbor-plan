@@ -1,0 +1,60 @@
+ROLLE: Worker (Lane w146). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment (RUNDE 5).
+REPO: baseharbor. ZWEIG: work/w96-production-wiring-f8ef4255 (PR #1371, head f4ec625f8014, develop ist
+Vorfahr). KEIN zweiter zweig, KEIN zweiter PR, KEIN Kraftuebertragen, KEIN merge.
+
+Luna review-1371c verdict=REJECT (akte: baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/
+review-1371c.md — VOR dem coding vollstaendig lesen; die drei blöcke R1/R2/R3 sind mit eigenen messungen
+belegt). Drei dinge, in dieser reihenfolge:
+
+(1) R1 — DER KAELTE START IST TOTGELAUFEN (echter produktbefund, von der pruefung mit frischer datbank
+    gemessen: registrierte zeilen=0 => POST /api/v1/workstations/bootstrap gibt 403, create_calls=0).
+    DER ZYKLUS: der policy-loser laesst eine station nur zu, wenn schon eine ZEILE in
+    workstation_enrollment_registry steht (internal/database/station_policy_resolver.go:67-78), aber diese
+    zeile schreibt der produktionspfad ERST nach erfolgreicher anmeldung
+    (internal/workstationenrollment/http/production_handler.go:137-157). die erste anmeldung kann also die
+    zulassung nie erreichen — ein zirkel, den kein test abdeckt (der bestehende test fuegt die zeile MANUELL
+    ein, station_policy_resolver_integration_test.go:63-64).
+    LOESUNG VORGEGEBEN (weil das schema sie schon hergibt, erfinde NICHTS Neues): die tabel
+    workstation_enrollment_grants ist laut migration 0009 ausdruecklich "the one-use bootstrap
+    authorization" (tenant_id + station + consume-zeitstempel). der policy-loser muss daher ZWEI quellen
+    akzeptieren: (a) bestehende registrierte zeile (wie heute), ODER (b) eine GUEELTIGE, NICHT VERBRAUCHTE
+    ZUWEISUNG in workstation_enrollment_grants fuer dieselbe tenant+station. fremd/unzugewiesen bleibt
+    abgewiesen, und die pruefung der zugehoerigkeit aus verifizierter identitaet bleibt PFLICHT.
+    NACHWEIS (neuer test, kaelte datbank, null registrierte zeilen):
+      (i)   zugewiesene station => erster durchlauf bis anmeldung ERFOLGREICH, und die registrierte zeile
+            entsteht DURCH diesen erfolg (danach ist sie die quelle),
+      (ii)  unzugewiesene station => abweisung mit NULL wirkung (kein speicher-/ issuer-griff, keine zeile),
+      (iii) fremde tenant => abweisung mit NULL wirkung,
+      (iv)  wiederverwendung einer VERBRAUCHTEN zuweisung => abweisung (die einmaligkeit bleibt erhalten),
+      (v)   zweite anmeldung derselben station laeuft nun ueber die registrierte zeile (kein zweiter weg).
+    Wenn (b) aus irgendeinem grund nicht tragfaehig ist: STOP + MELDEN mit datei:zeile — dann entscheide ich
+    die quelle, nicht du im code.
+
+(2) R2 — DIE Artefaktmenge DES RUECKBAUS MUSS AUS DER STUFE SELBST KOMMEN (nicht aus einer liste im test):
+    der kandidat waehlt die hoechste stufe richtig aus der liste, behaelt dann aber FEST GESETZTE
+    aussagen ueber workstation_enrollment_grants/registry (migrations-rollback-test zeilen 71-79). die
+    pruefung hat 0008 und 0009 vertauscht => der test waehlte 0009, rollte richtig zurueck, scheiterte aber
+    an der falschen artefaktannahme. LOESUNG: lies die gehörenden artefakte aus der .down.sql der gewaehlten
+    stufe (sie zaehlt auf, was ihre stufe zuruecknimmt — bei 0009: die zwei workstation-tabelen), und
+    behaupte: nach rueckbau fehlen GENAU diese, und alles aus den FRUEHEREN stufen ist unangetastet.
+    GEGENPROBE WIE VON DER PRUEFUNG: in einer wegwerf-kopie die Nummernpräfixe von 0008 und 0009 vertauschen =>
+    der test muss der neuen liste folgen und GRUEN sein (wortliche ausgabe vorher rot/nachher gruen).
+
+(3) R3 — AGENTS.md RAUS AUS DEM ANTRAG: der ast enthaelt einen AGENTS.md-eintrag mit lane-identitaet und
+    meiner basis-anweisung. das ist BETRIEBSTEXT, gehoert in mein auftragsblatt und meine evidence, nicht in
+    ein produkt-paket. aenderung zuruecknehmen (git checkout develop -- AGENTS.md), und in der evidence
+    vermerken, dass die information dort jetzt steht. sollte ein zweiter nicht-feld-pfad im diff auftauchen:
+    STOP + MELDEN.
+
+BELEG-PFLICHTEN: git diff origin/develop...HEAD --name-only (nur anmeldungs-/datbank-/verdrahtungsfeld,
+KEIN AGENTS.md), git log --oneline origin/develop..HEAD (NUR deine commits — ein einziger artfremder commit
+ist eine scope-verletzung, das war heute zweimal die ursache), ls-remote == head WOERTLICH,
+merge-base --is-ancestor origin/develop HEAD rc=0. PFLICHTPRUEFUNGEN: go test ./internal/database
+-count=1 (mit der skript-verbindung), go test ./internal/workstationenrollment/..., ./cmd/baha, build, vet,
+gofmt; gehostete laeufe deines kopfs bis TERMINAL (lauf-id + status, Eigenes-Run-Pflicht).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-/workflow-aenderung, KEINE tests geloescht, KEIN
+rerun als ersatz fuer analyse, KEIN merge, KEIN zweiter PR, scratch nie in der oekosystem-wurzel; bei
+schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b). GOCACHE/GOMODCACHE/TMPDIR in deinen lane-pfad (§6.2d).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/coldstart-1.md (faelle i-v,
+tausch-gegenprobe, name-only + log-zeile, ls-remote; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w146-enroll-r5: head=<sha10> kaeltestart=<erfolgt+5 faelle> rueckbau=<aus down.sql> tausch=<gruen belegt> agents=<raus> lsremote=<sha10> | <Satz>"

@@ -1679,3 +1679,17 @@ jetzt pruefe ich lieferungen gegen die echte url, nicht gegen den spiegel.
 (2) ZUSTIMMUNGSRUNDE 3 IST PRUEFBAR (kopf 24c9ac5c, develop Vorfahr): zerstoerung einer nie ausgelieferten
     anwendung rc=0, schranke unangetastet, und die regression ist auf DEINER Hauptlinie rot — die
     grundlinie ist damit GEMESSEN (genau das war der fehler in runde 1 und 2). abnahmeauftrag r1375c raus.
+
+## ~18:25 MITNAHME DURCH MEINEN EIGENEN FEHLER (zweiter beweis, dass §6.2g weh tut):
+w144 veroeffentlichte korrekt, ABER der ast beginnt auf 1fc148ff — die spitze des ZURUECKGEZOGENEN
+ci-delivery-zweigs, dessen geschichte die anmeldungs-commits fb701991/af05b198 schon enthielt. deshalb
+traegt PR #1379 vier dateien byte-identisch mit dem anmeldungs-ast (auf develop fehlen sie). ohne
+nachmessen waere die geräteregelung ueber ZWEI ketten gelandet.
+beleg: git log origin/develop..origin/work/r27-private-integration zeigt fb701991 af05b198 1fc148ff
+6efee3a2 efadde8e. korrektur angeordnet: ast neu auf ECHTEM develop schneiden, eigenen commit cherrypicken,
+name-only-diff als beleg, force-with-lease (nur der eigene fehlerhafte schnitt fliegt, keine fremde arbeit),
+bei konflikt mit migration 0009: STOP — dann ziehe ich die arbeit hinter die anmeldung, statt vor.
+LEHRE: der fetch-fix im spawner heilt ZUKUNFTIGE bahn, aber ein AST, der vor dem fix geschnitten wurde, traegt
+die alte krankheit weiter. deshalb pruefe ich ab jetzt bei JEDEM neuen kandidaten die log-linie
+origin/develop..kopf, nicht nur den ancestor-test (der kann bei 'develop ist enthalten, aber mit fremdem
+drauf' gruen bleiben — genau hier).
