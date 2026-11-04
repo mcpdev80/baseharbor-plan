@@ -2,7 +2,7 @@
 
 ROLLE=REVIEW, kein Merge. **Urteil: REJECT.** Reviewer Codex GPT-6 Luna. Karte `t-20261104-r27-demo-guided-consent`. Geprüfter Head `b73be42ba9944d21ffe8869382c37100c3e40384`, tree `d65427166f6413635910149e39b18b17d50bba96`; base `main` `cd9176e0129f01270ca85fd6b29acf99404f6dcd`; merge-base `9493e82faa66ade9c4bacbdb2c269d1f065adf39`. GitHub API und `git ls-remote` bestätigten vor der Prüfung den exakten Head und Base. PR #128 ist OPEN, READY (`draft=false`), CLEAN/MERGEABLE. GitHub weist genau zwei PR-Dateien aus: `tests/guided/drive.py` und `baseharbor-core.ref`; der Pin bleibt auf dem in der Karte begründeten `488a39e6f67ecbc733dc6acdee2443b36db4717c`.
 
-Der demo-spezifische Checkhinweis ist berücksichtigt: [.github/workflows/v0424-targeted.yml](/home/marcel/dev/baseharbor-ecosystem/baseharbor-demo/.github/workflows/v0424-targeted.yml) wird nur bei Push auf Release-Branches ausgelöst. Für PR #128 auf `main` gibt es gemäß Repo-Konfiguration keine PR-Checks; `gh pr checks` meldete keine. Das ist hier kein Befund.
+Der demo-spezifische Checkhinweis ist berücksichtigt: [.github/workflows/v0424-targeted.yml](https://github.com/mcpdev80/baseharbor-demo/blob/main/.github/workflows/v0424-targeted.yml) wird nur bei Push auf Release-Branches ausgelöst. Für PR #128 auf `main` gibt es gemäß Repo-Konfiguration keine PR-Checks; `gh pr checks` meldete keine. Das ist hier kein Befund.
 
 ## Eigene Gegenproben
 
