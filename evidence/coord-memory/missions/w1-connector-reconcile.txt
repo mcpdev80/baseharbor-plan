@@ -19,3 +19,4 @@ EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/connector-reconcile/evid
 Ist-SHA main, Draft-File-Liste, Gap-Map, Befunde, Beantwortung "empty reimplementation avoided: wie".
 HANDOFF letzte Aktion:
 codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE w1-connector-reconcile: files=<n> in_main=<n> conflict=<n> missing=<n> revive=<yes|no> | <Satz>"
+MAKULATUR 2026-11-04: node-trust/connector an ChatGPT extern uebernommen — nicht dispatchen.

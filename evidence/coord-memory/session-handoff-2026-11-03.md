@@ -1723,3 +1723,11 @@ von kapazitaet; vier sitze + prüfkanal laufen normal weiter (#1379/#1380 bleibe
 IHRER SEITE auf accepted/closed-Pfad (plan-commits von ChatGPT vor minuten, 'remove accepted node-service'
 x3 — dreifach, vermutlich view-render-wiederholungen; mein bestand ist jetzt identisch). Kein griff von mir
 an karte oder zweig. Freigegebene kapazitaet bleibt bei den vierplaetzen; reviere 1362d/1369d/r1380a laufen.
+
+## ~23:40 DRITTE EXTERNE UEBERNAHME: node-trust -> ChatGPT (direktive, 'keine rueckfragen noetig').
+Umgesetzt: karte nur als extern-uebernommen MARKIERT (status planned unveraendert, owner-feld auf ChatGPT,
+vermerk-notation), keine lane/mission/abnahme-Kapazitaet dafuer; fuenf alte connector-missionen explizit
+makulatur-markiert (dispatch-schutz); abhaengige karten (node-cli, node-streams, nc-3-core-enrollment-
+remote-runtime-acceptance, release-updates) bleiben bei uns GESPERRT bis deren bestaetigter abschluss.
+Vier plaetze + pruefkanal laufen unveraendert. Hinweis: node-trust war NIE geclaimt von uns (owner leer,
+status planned) — es gab nichts freizugeben, kein confikt.

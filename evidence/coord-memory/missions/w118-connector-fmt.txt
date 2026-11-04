@@ -9,3 +9,4 @@ beobachten und das ergebnis in die evidence.
 Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/format-1.md (datei-liste + vorher/nachher
 des source-jobs; keine checkboxen).
 END an f49a3303: "END_DONE w118-connector-fmt: head=<sha10> formatted=<n dateien> source-job=<gruen|rot+grund> lsremote=<sha10> | <Satz>"
+MAKULATUR 2026-11-04: node-trust/connector an ChatGPT extern uebernommen — nicht dispatchen.

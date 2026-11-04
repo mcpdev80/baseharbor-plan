@@ -38,3 +38,4 @@ tests geloescht oder auf 'erwartet fehler' umgeschrieben, scratch nie in der oek
 patch-/schreibfehlern zuerst `df -h /tmp` melden (tmpfs-Kontingent, RUNBOOK §6.2b).
 Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-2.md (keine markdown-checkboxen).
 END an f49a3303: "END_DONE w130-connector-r2: head=<sha10> gofmt=<leer> lifecycle=<echt> autorisierung=<vor nebenwirkung> native=<rc0|STOP-melden> lsremote=<sha10> | <Satz>"
+MAKULATUR 2026-11-04: node-trust/connector an ChatGPT extern uebernommen — nicht dispatchen.

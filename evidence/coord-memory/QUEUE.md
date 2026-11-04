@@ -71,3 +71,6 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - Basis-Refresh LAEUFT als w148 (alle drei Äste auf develop ea3fb38e).
   develop e444ae11 heben, Exakt-SHA-Reviews danach neu. Auslöser: zweiter freier Sitz.
 - w149-base-refresh2.txt — LAEUFT (zweitewelle: #1378 jetzt, #1373 nach w147-lieferung).
+- SPERRVERMERK (Direktive): alle connector-seitigen Aufgaben (node-trust-Scope: Zertifikatsrotation,
+  Widerruf, mTLS-Vertrauen, Session-Wiederherstellung, Reconnect) liegen bei ChatGPT. Keine Reservierung,
+  kein Dispatch, keine Abnahme. Abhängige Karten erst nach deren bestätigtem Merge + Plan-Abschluss.

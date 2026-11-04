@@ -36,3 +36,4 @@ GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN merge, KEINE tests geloescht oder
 PR, scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c), bei schreibfehlern zuerst df -h /tmp.
 Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-4.md (keine markdown-checkboxen).
 END an f49a3303: "END_DONE w136-connector-r4: head=<sha10> execstart=<a|b+beleg> aktivierung=<enabled|begruendet> eigene_einheit=<rc0> lsremote=<sha10> | <Satz>"
+MAKULATUR 2026-11-04: node-trust/connector an ChatGPT extern uebernommen — nicht dispatchen.

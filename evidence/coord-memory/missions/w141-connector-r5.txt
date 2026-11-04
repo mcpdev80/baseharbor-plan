@@ -43,3 +43,4 @@ bei schreibfehlern zuerst df -h /tmp.
 Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-5.md (fuenf faelle aus (1),
 injektion aus (2), der rot-block auf fcca9c4a aus (3); keine markdown-checkboxen).
 END an f49a3303: "END_DONE w141-connector-r5: head=<sha10> eigentum=<exakt,5 faelle> aktivieren=<fehler kommt zurueck> rot_auf_alt=<fcca9c4a belegt> lebenszyklus=<rc0+pid/comm> lsremote=<sha10> | <Satz>"
+MAKULATUR 2026-11-04: node-trust/connector an ChatGPT extern uebernommen — nicht dispatchen.
