@@ -1331,7 +1331,7 @@ demselben pfad FEHLTSCHLAEGT (RUNBOOK §6.7) — hier war die develop-probe grue
 ## ~06:55 GERÄTEREGELUNG GRUEN DURCH GEHOERTE URSACHE: kopf 8d3531f03ec, 12 pass / 0 fail / 10 skipping,
 develop Vorfahr, rollback-1.md auf platte. der rueckbau folgt jetzt der STUFENLISTE (mit namenprüfung der
 hoechsten stufe) — damit erklaert war auch der widerspruch zwischen "rot im laeufer" und "nicht reproduzierbar
-auf develop". karte -> review, abnahmeauftrag r1371b geschrEIBEN (Luna nach #1375). PRUEFPUNKT 5 bewusst
+auf develop". karte -> review, abnahmeauftrag r1371b geschrieben (Luna nach #1375). PRUEFPUNKT 5 bewusst
 scharf: ueberspringen ohne verbindung muss FEHLSCHLAGEN — das ist die heute nacht verbundene regel, nicht
 meine meinung.
 
@@ -1349,3 +1349,12 @@ reproduzierbar" und "rot im laeufer" gleichzeitig behauptet werden konnte.
   ausloeser ist die zustimmungs-verweigerungs-einheit, #1375 in pruefung). kein leerlauf-auftrag.
 STAND: 4 worker-sitze + 1 codex-arbeitersitz arbeiten, Luna prueft; 3 karten in pruefung (1371, 1369 runde 3
 in arbeit, 1375), 44 warten.
+
+## ~07:25 CONSENT-ABORT REJECT (1375b) — und der grund ist eine formale luecke DIE ICH ZUERST SELBST HABE:
+die prueferin hat den inhalt SELBER erbracht (zerstoeren rc0, folge bis betriebsbereit, isoliert) und damit
+die umgebungs-erklaelung der lane ein zweites mal entkraeftet. ABER die eingecheckten tests hoeren VOR dem
+zerstoeren auf und laufen auf dem KRANKEN stand c24a6c7c GRUEN — rot-vorher war nie bewiesen, ich hatte das
+auf grund der lane-meldung angenommen. dazu identischer blob an der schranke (aenderung = kommentar).
+BEIDE faelle heute (rueckbau + zustimmung) sind dieselbe lehre: "test exists" != "test is red on the bug".
+Deshalb neue Regel im auftragstext: rot-auf-dem-kranken-commit wird NACHGERECHNET (commit wird benannt),
+nicht als Behauptung akzeptiert. karte -> active, mission w138 geschrieben (archaeologie-first).

@@ -1,0 +1,45 @@
+ROLLE: Worker (Lane w138). Coord f49a3303. KARTE: t-20261104-r27-consent-abort-leaves-undestroyable-state
+(RUNDE 3). REPO: baseharbor. ZWEIG: w120-fix (PR #1375, head edd38d31609, develop 2ea2c6f1 ist Vorfahr).
+KEIN zweiter zweig, KEIN zweiter PR, KEIN Kraftuebertragen, KEIN merge.
+
+Luna review-1375b verdict=REJECT (akte: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/
+review-1375b.md — VOR dem coding vollstaendig lesen). Inhaltlich ist die Sache BELEGT (die prueferin hat
+fehlende/falsche zustimmung, unveraenderten datensatz, echten destroy mit erfolg-rückgabewert und die echte
+folgeanwendung bis betriebsbereit ISOLIERT selbsterbracht). Was fehlt, sind zwei formale, harte dinge:
+
+(1) DIE EINGEHECKTEN TESTS SIND NICHT ROT-AUF-ALT: dieselben beiden tests woertlich auf c24a6c7c ausgefuehrt
+    => BEIDE PASS. sie horen naemlich VOR `app destroy` bzw. VOR dem READY-durchlauf auf. Eine regression,
+    die auf dem kranken stand grün bleibt, schuetzt nichts.
+(2) DER PRODUKTCODE DER SCHranke ist auf c24a6c7c und edd38d31 IDENTISCH (blob c2bb123b0b82..., die
+    aenderung in cmd/baha/deployment_record.go ist Kommentartext). Der kandidat enthaelt also KEINE
+    produkt-aenderung an der stelle — die karte behauptet aber, ein verhalten repariert zu haben.
+
+AUFGABE IN DIESER REIHENFOLGE:
+ (A) ARCHAELOGIE (read-only, BELEG in der evidence): FINDE den commit, in dem das gemeldete verhalten WIRKLICH
+     kaputt war: "nach abgelehnter auslieferung laesst sich die anwendung nicht zerstoeren". suche in
+     git log -p ueber cmd/baha (deploy-zerstoerungs-pfad, zustands-aufbau nach ablehnung, anwendung
+     befehlshilfe) und in den urspruenglichen Feld-beleg der karte (slice-1.md, evidence/r27-welle4-2026-11-04/
+     consent-abort/). melde datei:commit + die zeile, die den zustand hinterliess.
+ (B) DIE TESTS ZU ECHTEN LEBENSZYKLEN MACHEN (cmd/baha/w120_consent_abort_repro_test.go, ggf.
+     w120_fix_helpers_test.go): isoliertes laufzeitverzeichnis + eigenes rootloses docker-projekt;
+     vorbereitete betriebsbereite arbeit, ablehnung (fehlend UND falsch), unveraenderter auslieferungs-
+     datensatz, DANN der echte zerstoerungs-befehl mit erfolg-rückgabewert, DANN die echte folgeanwendung mit
+     kanonischer kennung bis zustand=betriebsbereit — OHNE zustand zwischen den schritten manuell zu
+     loeschen oder zu richten. KEIN helpersprung, der den lebenszyklus abkuerzt.
+ (C) ROT-AUF-DEM-KRANKEN-STAND: den fertigen test woertlich auf dem in (A) gefundenen commit laufen lassen,
+     die ROTE ausgabe wortlich sichern; danach auf deinem kopf GRUEN. Wenn (A) ergibt, dass es NIE einen
+     productseitig kranken commit gab (das verhalten war immer so, nur die meldung anders): STOP + MELDEN mit
+     dem nachweis (keine kuenstliche stilllegung der schranke als 'rot' ausgeben — das waere betrug).
+ (D) Pflichtprüfungen: go test ./cmd/baha -count=1, go test ./internal/deployment/..., build, vet, gofmt;
+     PR auf READY setzen und die gehosteten laeufe von GENAU DIESEM kopf bis TERMINAL (lauf-id + status je
+     job, Eigenes-Run-Pflicht). Die grenze des breiten lauftests (docker-socket des systems) separat und
+     WOERTLICH dokumentieren, nicht als success umdeuten.
+ (E) BELEG-Regel: ls-remote == head woertlich; merge-base --is-ancestor origin/develop HEAD;
+     git diff origin/develop...HEAD --name-only wortlich (und: wenn der diff an der schranke nur kommentare
+     enthaelt, das in der evidence SO benennen — der nutz ist dann die regression, nicht ein fix).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-/workflow-aenderung, KEINE tests geloescht oder
+weichgespuelen, KEIN rerun als ersatz fuer analyse, KEIN merge, scratch nie in der oekosystem-wurzel; bei
+schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/round-3.md (archaeologie-block A,
+rote ausgabe auf dem kranken commit, gruene auf dem eigenen, ls-remote; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w138-consent-abort-r3: head=<sha10> kranker_commit=<sha|keiner-belegt> rot_darauf=<ja|STOP> gruen_hier=<ja> lebenszyklus=<echt rc0+READY> lsremote=<sha10> | <Satz>"

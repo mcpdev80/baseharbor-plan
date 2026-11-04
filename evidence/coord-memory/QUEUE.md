@@ -50,3 +50,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Zustimmungsrunde (#1375) frei. Der Codex-Arbeitersitz darf sie NICHT prüfen (eigene Lieferung).
 - codex-r1371b.txt — Abnahme Geräteregelung (Kopf 8d3531f03ec, zwölf grün). Auslöser: Luna nach #1375 frei.
   Prüfschwerpunkt: Rückbau folgt der Stufenliste, Überspringen ohne Verbindung ist kein Scheingrün mehr.
+
+## Einstweilen (2026-11-04, ~07:25)
+- w138-consent-abort-r3.txt — Runde 3 für PR #1375 (review-1375b REJECT): echte Lebenszyklusprüfungen, die auf
+  dem kranken Stand ROT werden; zuerst Archäologie des kranken Commits. Nächster Auslöser: freier Sitz.
