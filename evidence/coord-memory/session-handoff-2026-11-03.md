@@ -1693,3 +1693,10 @@ LEHRE: der fetch-fix im spawner heilt ZUKUNFTIGE bahn, aber ein AST, der vor dem
 die alte krankheit weiter. deshalb pruefe ich ab jetzt bei JEDEM neuen kandidaten die log-linie
 origin/develop..kopf, nicht nur den ancestor-test (der kann bei 'develop ist enthalten, aber mit fremdem
 drauf' gruen bleiben — genau hier).
+
+## ~22:25 EIGENTUEMER-UEBERGABE PR #1375 (direktive): 'PR #1375 übernimmt ChatGPT zur unabhängigen
+Bereinigung. Keine Worker-Änderungen an diesem PR bis zur Übergabe. Alle anderen Lanes unverändert.'
+ umgesetzt: (a) luna-kanal bekam HALT NUR für mission r1375c (urteil => held-owner-takeover, keine
+korrekturrunde), die anderen vier reviews laufen weiter, (b) karte auf besitzer=chatgpt umgetragen,
+zustand bleibt review (kandidat 24c9ac5c liegt unverändert), (c) w138 war längst freigegeben — keine lane
+fasst den zweig an. WICHTIG: das ist KEIN stop für alle anderen lanes (explizit gesagt).
