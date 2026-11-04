@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: coord-welle4 (Lane w125)
+owner: coord-welle4 (Lane w135)
 kanban_lane: review
 kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w125) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w135) · **Priority:** high  
     **PR:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
-**Owner:** coord-welle4 (Lane w125)  
+**Owner:** coord-welle4 (Lane w135)  
 **Priority:** high  
 **PRs:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -123,3 +123,12 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 - Der gemeldete Runner-Stand war ungenau: die Läufe sind nicht ausgefallen, sie stehen in der gemeinsamen
   Warteschlange (mein Nachmesser: Läufe 17:20 / 17:23 / 17:30 wartend, ältere Läufe fertig). Das ist ein
   Warten, kein Blocker; die Prüfung läuft trotzdem gegen den Kopf.
+
+## Handoff 2026-11-04 (Runde 5, plattenfest nachgemessen)
+- Kandidat: PR #1362, Zweig work/r27-native-auth, Kopf 848d9512728 (ls-remote == Kopf, wörtlich in der
+  Beweissammlung), develop e444ae11 ist Vorfahr; Prüfprotokoll 14 grün, null rot, Lauf 41903525411.
+- Die Grundsatzentscheidung ist umgesetzt: Die Umweltprüfung gilt nur auf dem echten Pfad ohne eingesetzten
+  Prüfer (internal/credential/native/sshagent.go:53-61); ein eingesetzter Prüfer entscheidet umweltunabhängig.
+  Beide bisherigen Aussagen bleiben unverändert, der Zusatzfall (Prüfer gesetzt, Ziel nicht vorhanden) belegt
+  die Trennung, und der Fehlschlag vorher ist auf dem Ausgangskopf ad0ea646 gesichert.
+- Beweissammlung auf der Platte (round-5.md, 3252 Byte).
