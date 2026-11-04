@@ -1,6 +1,6 @@
 # w80-candidate-consent-harness: demo harness passes --confirm-candidate
 
-- [x] w80-candidate-consent-harness · CORE-REPO test harness (scripts/acceptance.sh / guided-up pfad) uebergibt die vertraglich vorgesehene candidate-submission zustimmung (--confirm-candidate) an `baha app apply` weiter; gate bleibt ohne zustimmung ROT (negative regression), kein produktcode-umbau.
+- w80-candidate-consent-harness · CORE-REPO test harness (scripts/acceptance.sh / guided-up pfad) uebergibt die vertraglich vorgesehene candidate-submission zustimmung (--confirm-candidate) an `baha app apply` weiter; gate bleibt ohne zustimmung ROT (negative regression), kein produktcode-umbau.
   <!-- lane w80 · coord f49a3303 · worker · branch work/r27-candidate-contract · evidence baseharbor-plan/evidence/r27-welle3-2026-11-03/candidate-contract/harness-consent-1.md -->
 
 ## PLAN

@@ -1,6 +1,6 @@
 # w79-infra-diagnosis: docker/podman lifecycle+backup-restore Selected-Runtime-Jobs failern — Diagnose
 
-- [x] w79-infra-diagnosis · read-only Infra-Diagnose: genauer fehlerschritt im hosted-lauf + kette lokal nachgefuhrt + letzter gruener lifecycle-lauf verglichen + verdichtetes urteil (runner/workflow/demo-ref)
+- w79-infra-diagnosis · read-only Infra-Diagnose: genauer fehlerschritt im hosted-lauf + kette lokal nachgefuhrt + letzter gruener lifecycle-lauf verglichen + verdichtetes urteil (runner/workflow/demo-ref)
   <!-- lane w79 · coord f49a3303 · read-only, KEINE produkt-datei, KEINE worktree-aenderung, KEIN push -->
 
 ## Observable outcome
