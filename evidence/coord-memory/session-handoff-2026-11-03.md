@@ -1539,3 +1539,14 @@ meldungstext-pruefungen. rot-auf-alt auf fcca9c4 mit fuenf kollisionsfaellen + a
 zwei weitere saeulen des tages: vier-zellen-messung hat die zustimmungskarte als ECHTEN produktbefund auf
 develop gerettet (mein 'umtiteln'-plan waere falsch gewesen), und die private-integrationskarte ist aus
 WIEDERHOLT von mir nachgemessen blockaden entstanden (minio-pin nicht beziehbar, kein profil-schalter).
+
+## ~13:00 ZWEITE REGEL FÜR DIALOG-ANTWORTEN (RUNBOOK §2.1c war unvollstaendig):
+ein frage-fenster einer lane braucht DREI schritte, nicht zwei: text eingeben, dann zeigt das feld
+"enter submit" — erst DANN Enter. ich hatte zweimal Enter zu frueh gesendet (bestaetigt die markierung,
+nicht die antwort) und die meldung wurde als nachricht an den fragenden kontext angehaengt statt als
+antwort. ablauf der jetzt gilt: (1) option 'type your own answer' waehlen, (2) text senden, (3) pane
+ablesen bis 'enter submit' sichtbar ist, (4) Enter, (5) arbeitsstatus prüfen.
+INHALT der antwort an w135: eingesetzter pruefer entscheidet IMMER, Available() nur bei runner == nil;
+kein test wird geaendert; zusaetzlicher fall 'runner gesetzt + variable auf nicht-existierenden socket';
+rot-auf-baseline = kopf vor der aenderung. das loest den kollisierenden test-paar sauber — beide
+erwartungen bleiben, die umwelt verliert ihre entscheidungsmacht.
