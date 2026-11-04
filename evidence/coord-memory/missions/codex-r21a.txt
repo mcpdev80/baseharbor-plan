@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261105-r27-test-wire-helper.
+OBJEKT: connector PR #21 head e3afb49a8f2 branch work/r27-test-wire-helper base main (ancestor JA).
+PRUEFEN SHA-genau read-only: (1) name-only == genau die zwei neuen dateien; git diff main..head --
+bestehende dateien LEER (blob-identitaet der trust-/session-pfade wortlich zeigen), (2) testwire.go: nur
+test-zweck-konstruktion, kein produkt-aufrufpfad aendert verhalten (aufrufstellen-pruefung: wer importiert
+es? nur tests), (3) smoke: echter frame-roundtrip, ausgabe echt, kein t.skip, (4) lauf terminal success,
+ls-remote echt==head. Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/node-streams/review-21a.md.
+END an f49a3303: "END_DONE codex-r21a: verdict=<X> blobs=<identisch> imports=<nur-tests> | <Satz>"
