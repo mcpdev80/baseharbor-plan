@@ -11,12 +11,15 @@ properties:
   priority:
     displayName: Prioritaet
   owner:
-    displayName: Owner
+    displayName: Bearbeiter
   release:
     displayName: Release
 views:
   - type: kanban
-    name: "Alle Aufgaben"
+    name: "v0.4.27"
+    filters:
+      and:
+        - 'note.release == "v0.4.27"'
     groupBy:
       property: note.kanban_status
       direction: ASC
@@ -30,17 +33,16 @@ views:
     order:
       - kanban_title
       - priority
-      - owner
-      - release
   - type: kanban
-    name: "v0.4.27"
+    name: "v0.4.26"
     filters:
       and:
-        - 'release == "v0.4.27"'
+        - 'note.release == "v0.4.26"'
     groupBy:
       property: note.kanban_status
       direction: ASC
     groupOrder:
+      - backlog
       - planned
       - active
       - review
@@ -49,19 +51,206 @@ views:
     order:
       - kanban_title
       - priority
-      - owner
-  - type: table
-    name: "Ready"
+  - type: kanban
+    name: "v0.4.28"
     filters:
       and:
-        - 'file.hasTag("view/ready")'
+        - 'note.release == "v0.4.28"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
     order:
       - kanban_title
-      - owner
       - priority
-      - release
+  - type: kanban
+    name: "v0.4.29"
+    filters:
+      and:
+        - 'note.release == "v0.4.29"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "v0.4.30"
+    filters:
+      and:
+        - 'note.release == "v0.4.30"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "v0.4.31"
+    filters:
+      and:
+        - 'note.release == "v0.4.31"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "v0.4.x"
+    filters:
+      and:
+        - 'note.release == "v0.4.x"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "v0.5.x"
+    filters:
+      and:
+        - 'note.release == "v0.5.x"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "v0.7.x"
+    filters:
+      and:
+        - 'note.release == "v0.7.x"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "v0.8.x"
+    filters:
+      and:
+        - 'note.release == "v0.8.x"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "backlog"
+    filters:
+      and:
+        - 'note.release == "backlog"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "triage"
+    filters:
+      and:
+        - 'note.release == "triage"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+  - type: kanban
+    name: "maintenance"
+    filters:
+      and:
+        - 'note.release == "maintenance"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
   - type: table
-    name: "Details"
+    name: "Alle Details"
     order:
       - kanban_title
       - kanban_status
