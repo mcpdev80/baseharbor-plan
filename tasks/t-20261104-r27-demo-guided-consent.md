@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: ""
+owner: w85-demo-consent
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
@@ -18,17 +18,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-demo-guided-consent · Demo: guided up supplies candidate consent (feature-detected) #task #release/v0-4-27 #status/planned #view/ready #area/demo #kind/task
+- [ ] t-20261104-r27-demo-guided-consent · Demo: guided up supplies candidate consent (feature-detected) #task #release/v0-4-27 #status/active #view/active #area/demo #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w85-demo-consent · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** w85-demo-consent  
 **Priority:** high  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
