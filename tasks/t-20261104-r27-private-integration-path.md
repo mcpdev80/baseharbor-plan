@@ -5,33 +5,34 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w144)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w144, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1379]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w144)  
+    **Owner:** coord-welle4 (Lane w144, freigegeben)  
+    **PR:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (Lane w144)  
+**Owner:** coord-welle4 (Lane w144, freigegeben)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -86,3 +87,10 @@ der negative Nachweis (Ablehnung ohne Wirkung, Zerstörbarkeit) bleibt gültig.
   erhält diese Arbeit.
 
 ## Auftrag 2026-11-04 (aus nachgemessenem Befund)
+
+## Kandidat pruefbar 2026-11-04 (nach dem Neu-Schnitt)
+- Kopf 52be57c9893 auf work/r27-private-integration, von mir gegen die ECHTE Adresse gemessen; develop ist
+  Vorfahr; die Log-Zeile origin/develop..HEAD traegt NUR deinen eigenen Commit — die anmeldungsdateien, die
+  mein verjaerter Spiegel untergeschoben hatte, sind nachgewiesen raus (name-only ohne contracts/).
+- Gehosteter Lauf 41913050087 auf genau diesem Kopf: abgeschlossen/erfolgreich (von der Lane beobachtet, von
+  mir mit eigener gh-run-Abruf bestaetigt). Draft-PR, basis develop.
