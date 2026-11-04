@@ -1,0 +1,18 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-device-enrollment (runde 5).
+OBJEKT: baseharbor PR #1371 head 1b3a2767ff5 branch work/w96-production-wiring-f8ef4255 base develop ea3fb38e
+(ancestor JA, laeufe 41921792984 success, ls-remote von mir gemessen). VORGESCHICHTE: runde 5 arbeitet die drei
+1371c-rezepte ab: R1 kaeltestart-zyklus (loser akzeptiert jetzt zusaetzlich un-verbrauchte zuweisung aus
+workstation_enrollment_grants), R2 rueckbau-artefakte aus der .down.sql der eigenen stufe + zahlentausch-
+gegenprobe, R3 AGENTS.md aus dem diff.
+PRUEFEN SHA-genau read-only, gegen die rezepte von review-1371c (akte!):
+ (1) R1: EIGENE messung auf frischer datbank, null registrierzeilen, eine zuweisung: bootstrap ERFOLGT und
+     die registerzeile entsteht DURCH den erfolg; dann die vier gegenfaelle (unzugewiesen=>abweisung null-
+     wirkung; fremder tenant=>abweisung null-wirkung; VERBRAUCHTE zuweisung=>abweisung; zweite anmeldung
+     laeuft ueber registerzeile). Der kaelte totlauf von 1371c (403, create_calls=0) muss WEG sein.
+ (2) R2: rueckbau-test auf dem neuen kopf gruen; in deiner wegwerf-kopdie NUMMERN 0008/0009 TAUSCHEN =>
+     der test folgt der LISTE und bleibt gruen (wortlich, das war der mutationstod von runde 4).
+ (3) R3 + write-set: name-only gegen develop ohne AGENTS.md/.github; nur anmeldungs-/datbank-/verdrahtungsfeld.
+ (4) einmaligkeit der zuweisung bleibt (consume atomar), identitaets-/mitgliedschaftspruefung unveraendert.
+ (5) pakettests ./internal/workstationenrollment/... ./internal/database ./cmd/baha terminal + gates + ls-remote.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/review-1371d.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1371d: verdict=<X> kaelte=<durch+4 gegenfaelle> tausch=<gruen belegt> | <Satz>"
