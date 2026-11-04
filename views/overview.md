@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 9 |
-| review | 7 |
+| review | 6 |
 | blocked | 1 |
 | ready | 3 |
 | queued | 26 |
 | waiting | 205 |
 | backlog | 7 |
-| closed | 113 |
+| closed | 114 |
 
 ## Active
 
@@ -41,7 +41,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md) | Credentials: reuse native authentication before prompting | review | high | coord-welle4 (Lane w135) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362) |
 | [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | Connector: reconcile enrollment service and restart behavior | review | normal | coord-welle4 (Codex-Worker cx09) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
-| [t-20261104-r27-consent-abort-leaves-undestroyable-state](../tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md) | Deployment: refused candidate apply must leave destroyable state | review | critical | Owner/ChatGPT (Übergabe 2026-11-04, Direktive) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375) |
 | [t-20261104-r27-db-skip-sites](../tasks/t-20261104-r27-db-skip-sites.md) | Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen | review | not set | coord-welle4 (Lane w137) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1378](https://github.com/mcpdev80/baseharbor/pull/1378) |
 | [t-20261104-r27-private-integration-path](../tasks/t-20261104-r27-private-integration-path.md) | Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen | review | not set | coord-welle4 (Lane w144, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379) |
 
@@ -62,7 +61,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 59 open, 49 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 58 open, 50 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

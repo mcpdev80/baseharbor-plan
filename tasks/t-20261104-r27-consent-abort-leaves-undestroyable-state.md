@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: critical
 owner: Owner/ChatGPT (Übergabe 2026-11-04, Direktive)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
@@ -18,20 +18,21 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1375 https://github.com/mcpdev80/baseharbor/commit/ea3fb38e8f372ab2da38c10d964f3ea452f"]
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/bug
+- [x] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (Übergabe 2026-11-04, Direktive) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1375 https://github.com/mcpdev80/baseharbor/commit/ea3fb38e8f372ab2da38c10d964f3ea452f)  
     <!-- /generated:card -->
 
 <!-- w120 fix (2026-11-04): refused candidate apply now fails closed before any on-disk record write; prior record survives so `destroy` re-resolves and a consented re-apply reaches the choke point and READY. Fix committed `c24a6c7c` on `w120-fix`; draft PR #1375 (base develop). Owner redirect to non-draft for gate run; CODEX-MERGE on owner approval. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
@@ -129,3 +130,10 @@ Review-Mission r1375c ist auf HALD gestellt. Andere Lanes laufen unberührt weit
 - Owner-Code-Review fand zusätzliche Risiken: Destroy ohne `--yes`, unbestätigte Owner-Identität und fehlende Unterscheidung zwischen nie ausgeliefertem und verlorenem Deployment-Record. Alle drei sind im finalen Head korrigiert; zusätzliche Regressionen für verlorenen Record und Destroy ohne `--yes` sind enthalten.
 - `#1371`-fremde Änderungen aus dem PR-Diff entfernt. Die vorherige Review-Halteanweisung ist durch den erfolgreichen Owner-Merge erledigt.
 - Die Karten-Metadaten/den generierten Status bei der nächsten regulären Planning-Render-Runde auf `closed / accepted` synchronisieren. Release- oder Docker-/Podman-Gesamtintegration wird durch diesen gezielten PR nicht behauptet.
+
+## Geschlossen 2026-11-04 — Merge durch Owner-Seite
+PR #1375 ist MERGED (21:42:08Z, Merge-Commit ea3fb38e8f3, gegen GitHub gemessen; develop = ea3fb38e).
+Die Zerstoerung einer nie ausgelieferten Anwendung endet jetzt auf der Hauptlinie mit Erfolg; die
+Zustimmungs-Schranke ist unveraendert fail-closed. Uebergabe an ChatGPT war vereinbart; der Pruefauftrag
+r1375c ist damit gegenstandslos und zurueckgezogen. Runde-3-Akten im Plan-Repo unter
+evidence/r27-welle4-2026-11-04/consent-abort/.
