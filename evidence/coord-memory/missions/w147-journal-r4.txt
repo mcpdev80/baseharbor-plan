@@ -1,0 +1,44 @@
+ROLLE: Worker (Lane w147). Coord f49a3303. KARTE: t-20261018-r27-execution-journal (RUNDE 4).
+REPO: baseharbor. ZWEIG: work/r27-execution-journal (PR #1373, head 0d89a13e63a, develop ist Vorfahr;
+PR-Basis ist 1 Commit behind — das ist NICHT dein Auftrag, laesst die Basis, solange kein Lauf darauf roth).
+KEIN zweiter Zweig, KEIN zweiter PR, KEIN Kraftuebertragen, KEIN merge.
+
+Luna review-1373c verdict=REJECT (akte: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/
+review-1373c.md — VOR dem coding vollstaendig lesen). Die Prüferin hat mit eigener Rückbau-Gegenprobe
+gemessen: handler.go:211 voruebergehend auf Hintergrundausfuehrung (`go h.runExecution`) gestellt =>
+BEIDE bestehenden Tests bleiben GRUEN. Der Synchronismus ist also behauptet, nicht geschuetzt. Drei Pflichten:
+
+(1) RÜCKBAU-FESTER ENDZUSTANDS-BEWEIS (befund 1): ein neuer Test, der NACH RUECKKEHR des handlers aus
+    handleExecute SOFORT (kein Pollen, kein Warten) liest: (a) der Ausführungs-Zustand im Store ist terminal
+    (erfolgreich oder fehlgeschlagen, je fall), (b) die terminale Journal-Zeile ist vorhanden und lesbar.
+    PFLICHT-GEGENPROBE in einer wegwerf-kopie des kandidaten: handler auf `go h.runExecution(...)` stellen
+    => dein neuer test MUSS rot werden (wortliche ausgabe vorher rot/nach gruen zurueckbauen; nenne den
+    kranken commit — die mutierte kopie — und seine rote ausgabe in der evidence, §5.6). Der alte
+    Reopen-test mit 1-s-Polling darf bleiben, ist aber nicht der beweis.
+(2) PERSISTENZFEHLER DURCHREICHEN (befund 2): handler.go:214-232 verwirft die fehler von start/progress/
+    fail/succeed. Der terminale Übergang (fail/succeed) muss so behandelt werden, dass ein
+    Schreib-/Sync-/Close-fehler NICHT stumm erfolgreich ist: der terminale Eintrag wird vor der letzten
+    antwortphase geschrieben und sein fehler wird als handler-fehler sichtbar (protokollieren + ausführungs-
+    zustand fehlerhaft + fehler im fehlerpfad, wie es die store-vertrag hergibt). NEUER TEST: speicher-
+    ausfall eingesetzt (append oder sync schlägt fehl, z.B. ueber geschlossenes/pfad-verify-hook — was der
+    store hergibt) => handler meldet fehler, es gibt KEIN stummen erfolg, und kein zweiter lauf wird
+    angetreten. Wenn der vertrag an dieser stelle eine entscheidung offen laesst (antwort-code bei
+    terminal-fehler nach 202-codierung): STOP + MELDEN mit datei:zeile, ich entscheide, nicht du im code.
+(3) KEIN SLEEP-POLLING IN NEUEN TESTS (befund 3): time.Sleep in den neuen poll-schleifen
+    (execution_request_identity_test.go:67,101,111) raus — deterministische synchronisation: channel/
+    callback/waitfor-mit-condition und timeout als fehler, nicht als schleife. Ein timeout-im-fehlerfall ist
+    erlaubt; schlaf-schleifen im glücksfall nicht.
+
+BELEG-PFLICHTEN: git diff origin/develop...HEAD --name-only (NUR internal/machinehttp/*, KEINE .github,
+KEIN AGENTS.md — betriebs-text hat im produktrepo nichts verloren), git log --oneline origin/develop..HEAD
+(NUR deine commits), ls-remote https://github.com/mcpdev80/baseharbor.git == dein head WOERTLICH (gegen die
+ECHTE adresse, nicht den lokalen spiegel), merge-base --is-ancestor origin/develop HEAD rc=0.
+PFLICHTPRUEFUNGEN: go test ./internal/machinehttp -count=1 (mehrmals hintereinander, kein flattern),
+./internal/database -count=1 (mit scripts/pr-unit-database.sh-verbindung), build, vet, gofmt; gehostete
+laeufe deines kopfs bis TERMINAL (lauf-id + status, Eigenes-Run-Pflicht).
+GRENZEN: KEINE subagenten, KEINE .github-/workflow-aenderung, KEINE tests geloescht, KEIN rerun als
+ersatz fuer analyse, KEIN merge, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp
+(RUNBOOK §6.2b). GOCACHE/GOMODCACHE/TMPDIR in deinen lane-pfad (§6.2d).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/round-4.md (faelle,
+tausch-/rueckbau-gegenprobe wortlich, name-only + log-zeile, ls-remote; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w147-journal-r4: head=<sha10> rueckbau=<rot auf mutante, wortlich> persistenz=<fehler reicht durch + test> polling=<frei belegt> lsremote=<sha10> | <Satz>"
