@@ -66,3 +66,9 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 ## Handoff-decision (w97, 2026-11-04)
 
 Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 8f4cbd2b7394036b23bdb59a9540a41134595151). The three Luna review-1362a findings are closed: (1) callable path — `internal/credential/native` now exposes `Broker` implementing the accepted `credential.Broker` consumption path (compile-time proof); (2) git-helper protocol fixed to the real stdin/stdout `fill` line protocol; (3) `ExecRunner` stderr redacted to class+exit only. 19 tests green locally; PR #1362 CI run 41813494855 terminal green (go-build/go-vet/go-unit-tests/Source-format/Policy all success, product gates correctly skipped). Evidence: `evidence/r27-welle4-2026-11-04/native-auth/production-1.md`. Candidate is exact-SHA and review-ready for Codex closure + Maintainer merge; card status stays `active` until acceptance/merge.
+
+## Base refresh commissioned 2026-11-04 (Owner option A)
+- Lane: Codex worker seat cx02, same mission as team-auth (second branch in the same pass).
+- From head a3eee132e3 onto develop ecbb8854. The running acceptance review (r1362b) judges the OLD head; its
+  verdict is informational until the refreshed head is reviewed. PR stays ready, no merge before a positive
+  verdict on the new SHA.
