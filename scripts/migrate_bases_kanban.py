@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Idempotently add the native writable lane and concise authored preview to tasks."""
+"""Idempotently migrate concurrent legacy tasks and native Ready lanes."""
 import re
 from plan import ROOT, Vault, dump_value, kanban_summary, view_state
 
