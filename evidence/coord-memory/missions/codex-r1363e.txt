@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna (zweite sitzung falls druck). ABSCHLUSS
+profil-codec (runde 6). OBJEKT: baseharbor PR #1363 head ac6a048e290 branch work/r27-profile-codec base
+develop 2ea2c6f1 (Vorfahr von mir nachgerechnet; evidence round-6.md 7782 byte). KARTE
+t-20261018-r27-profile-codec. VORGESCHICHTE: 1363a/b/c/d REJECT; d hauptbefund = unbedingte zweite
+f.Write-stelle im atomaren Abschluss.
+PRUEFEN SHA-genau read-only, gegen DEINE rezepte aus 1363d:
+ (1) EIN schreibvorgang: kein zweiter unbedingter write; kurzschreib-naht liefert einen ECHTEN n<len-wert
+     (wert in der assertion), keine partielle finale datei, KEIN temp-artefakt,
+ (2) vertrauens-selbstkonsistenz ohne schalter (TrustSelfConsistent=false => ablehnung),
+ (3) rundlauf vergleicht den VOLLSTAENDIGEN datensatz inkl. nicht-leerer export-beschreibung; feld-/record-
+     reihenfolge fest; goldene bytes gegen das kanonische format,
+ (4) canary je kategorie inkl. ziel-/ablagepfad, verschachtelte speicherzeichenketten, export-text — jeweils
+     ablehnung bevor bytes das haus verlassen, assertion kein secret in export-bytes,
+ (5) ersetzt-aufraeumen: deterministischer fehler => typisierter fehler + eindeutiger zustand,
+ (6) EN- UND DE-spezifikation decken version-pflicht, empfaengerbindung-pflicht, atomaren schreibvorgang
+     WORTGLICH gleich ab (beide dateien),
+ (7) write-set (contracts/managementaccess/v1 + die zwei spezdateien), pakettests/build/vet/gofmt, gates.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/review-1363e.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1363e: verdict=<X> open=<liste|none> | <Satz>"

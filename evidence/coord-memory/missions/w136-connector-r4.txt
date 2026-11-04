@@ -1,0 +1,38 @@
+ROLLE: Worker (Lane w136). Coord f49a3303. KARTE: t-20261018-r27-node-service (Welle 4, Runde 4).
+REPO: baseharbor-node-connector. ZWEIG: work/r27-node-service (PR #19, head fcca9c4a295). KEIN zweiter zweig,
+KEIN zweiter PR, KEIN Kraftuebertragen.
+
+Luna review-19b verdict=REJECT (akte: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/review-19b.md,
+vollstaendig lesen). Deine runde 3 war ehrlich und hat die host-ausrede richtig zurueckgenommen — es bleiben
+GENAU ZWEI echte produktluecken, beide von der pruefung mit eigenem befehl belegt:
+
+(1) DIE AUSGELIEFERTE KOMMANDOZEILE IST NICHT AUSFUEHRBAR. main.go:130-135 haengt `--self-owned-unit <einheit>`
+    an ExecStart, aber weder `run` noch `parseConfig` (main.go:138-150, 216-250) kennen dieses flag — der
+    direkte aufruf endet mit `flag provided but not defined: -self-owned-unit` (exit 1). ENTSCHEIDUNG FÜR DICH
+    (beide wege sind akzeptabel, einer muss es sein, BELEG mit ausgefuehrtem befehl):
+    (a) das flag WIRKLICH implementieren: parseConfig nimmt es an, der lebenszyklus-pruefer benutzt es als
+        eigentums-nachweis beim start, und ein test beweist dass ein FREMDER wert abgewiesen wird, oder
+    (b) das flag WEGnehmen und die eigentumsbindung ueber einen anderen bestehenden weg herstellen (z.B. die
+        unit-identitaet aus der prozess-umgebung/des eigenen pfads), ohne dass die bindung lost wird.
+    VERBOTEN: die zeile unveraendert lassen und den text "wird schon gehen" in die evidence schreiben.
+    BEWEIS-PFLICHT: die VOM PRODUKT GERENDETE datei (nicht eine synthetische probe) wird gestartet, und
+    `systemctl --user status` zeigt einen laufenden prozess DES CONNECTORS (pid + comm), dann sauber gestoppt.
+(2) DIE EINHEIT BLEIBT DEAKTIVIERT. die pruefung hat auf dem echten benutzerverwalter gemessen:
+    `systemctl --user is-enabled <einheit>` = disabled (exit 1), obwohl kommentar und `WantedBy=default.target`
+    automatischen start behaupten. Install MUSS die einheit daher aktivieren (enable, oder ausdruecklich
+    documented why nicht) und lingering ist entweder wirklich zu setzen (loginctl enable-lingering, nur mit
+    ausdruecklicher zustimmung im dokumentierten pfad) ODER als bewusst nicht-unternommen zu benennen —
+    aber kommentar, text und VERHALTEN duerfen sich nicht widersprechen. EN- und DE-lesart dazu: ein satz in
+    der documentation des pakets, identische bedeutung.
+
+ZUSAETZLICH (aus demselben urteil, punkt 2 des rezepts): der nachweis muss die EIGENE produkteinheit zeigen,
+nicht nur eine synthetische schlaf-einheit — assertion auf den tatsaechlichen prozess/das kommando.
+
+PFLICHTPRUEFUNGEN am neuen kopf: go test ./internal/nodeservice ./cmd/baseharbor-node-connector -count=1,
+go build ./..., go vet, `gofmt -l cmd internal` LEER; gehostete laeufe bis TERMINAL (lauf-id + status);
+ls-remote == head WOERTLICH; merge-base --is-ancestor origin/main HEAD; name-only-diff gegen main (nur
+cmd/baseharbor-node-connector + internal/nodeservice).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN merge, KEINE tests geloescht oder weichgespuelt, KEIN zweiter
+PR, scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c), bei schreibfehlern zuerst df -h /tmp.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-4.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE w136-connector-r4: head=<sha10> execstart=<a|b+beleg> aktivierung=<enabled|begruendet> eigene_einheit=<rc0> lsremote=<sha10> | <Satz>"

@@ -1,0 +1,17 @@
+ROLLE: CODEX-WORKER (READ-ONLY triage, KEIN review, KEIN merge, KEINE produkt-aenderung). Coord f49a3303.
+KARTE: t-20261018-r27-team-auth. OBJEKT: baseharbor PR #1369 head f9507ff6ee branch work/w92-team-auth-claim-mapping
+(develop 2ea2c6f1 ist Vorfahr — nachrechnen). Drei rote gehostete checks; lane w127 arbeitet an derselben
+karte, deshalb hier NUR die einordnung, keine aenderung an diesem ast.
+LIEFERE:
+ (1) je rotem check: lauf-id, pruefname, wortliche fehlzeile (max 3 zeilen), und klasse
+     A produkt / B umgebung / C basis-reihenfolge mit BEGUERNDUNG in einem satz,
+ (2) besonderer fokus: TestRepositoryRuntimeInitRecordsPendingDeploymentBeforeStateMutation (cmd/baha) —
+     laeuft in 0.00s und ist rot. pruefe SHA-genau ob die pruefung ueberhaupt eine wirkung prueft
+     (fehlende setup-annahme? fruehes return? skipped-but-reported?) und ob sie auf develop ebenfalls rot
+     ist (zwei laeufe: develop-kopf vs. zweig-kopf, isolierte verbindung aus scripts/pr-unit-database.sh),
+ (3) wenn eine stelle eine ECHTE produktluecke ist: datei:zeile + was falsch ist + welcher test sie beweisen
+     wuerde (rezept-formular, damit eine lane es umsetzen kann — du aenderst nichts),
+ (4) keine reruns ueber die vorhandenen protokolle hinaus, kein workflow_dispatch, kein .github-eingriff.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/team-auth/triage-1.md (tabelle + woertliche blöcke,
+keine markdown-checkboxen). ls-remote-zeile und merge-base-zeile woertlich.
+END an f49a3303: "END_DONE cx07-team-auth-triage: klassifikation=A:<n> B:<n> C:<n> repo-init-test=<echt rot|scheingruen|basisproblem> rezept=<datei:zeile|none> | <Satz>"

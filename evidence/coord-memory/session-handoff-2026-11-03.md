@@ -1286,3 +1286,14 @@ zwei stellen umgestellt; auf develop bleiben FUENF dateien die ohne verbindung U
 internal/database/{connector_enrollment,migration_rollback,schema_readiness}_integration_test.go). kein
 nachtrag unter einem geschlossenen vertrag, sondern eine eigene karte mit abhaengigkeit + akzeptanz
 (ohne=rot, mit=gruen,mutation=rot, begruendung im code wo ueberspringen fachlich stimmt).
+
+## ~05:45 DESIGNFRAGE DER JOURNAL-LANE VERTRAGSBASIG BEANTWORTET (variante 1):
+die karte verlangt die anfrage-verpflichtung VOR DEN WIRKUNGEN; ein protokoll-schreiber der nach der
+rückgabe weiterläuft, kann eine akzeptierte ausführung beim absturz verlieren. deshalb: verpflichtender
+protokolleintrag SYNCHRON vor rückgabe, asynchron nur was keine zusage traegt (im code benannt). der
+ORIGINAL-TEST bleibt unveraendert —wird er gruen, ist die produkt-logik deterministisch; mutations-belegt
+durch zurückbau auf goroutine. variante 2 (hook im test) haette den test umgebaut = symptom-flick.
+GLEICHES TURN: consent-abort runde 2 GELIEFERT (kopf edd38d31, develop Vorfahr JA, red-first TestW120x2
+gruen; der volle paket-lauf bleibt klasse B: docker.sock + 10-min-timeout der anwendungs-aenderungspruefung —
+wortlich in round-2.md, das ist der selbe Tresordienst-befund von state-owner). codec runde 6 ist ebenfalls
+geliefert (ac6a048e290, develop Vorfahr, kurzschreib n=809<1619 BEWIESEN).

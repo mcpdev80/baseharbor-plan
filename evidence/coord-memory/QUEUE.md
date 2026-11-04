@@ -46,3 +46,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   der restliche Fehl (Anwendungsänderung / Tresordienst) als Befund von t-20261018-r27-state-owner BENENNEN.
   Auslöser: erster freier Sitz. Danach analog für #1369 (team-auth, falls dasselbe Bild) und #1347.
 - Bereits angesetzt: w134 (Journal #1373) läuft.
+- codex-r1363e.txt — Abnahme profil-codec Runde 6 (Kopf ac6a048e290). Auslöser: Luna ist nach der
+  Zustimmungsrunde (#1375) frei. Der Codex-Arbeitersitz darf sie NICHT prüfen (eigene Lieferung).

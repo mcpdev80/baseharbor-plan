@@ -1,0 +1,16 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS consent-abort (runde 2).
+OBJEKT: baseharbor PR #1375 head edd38d31609 branch w120-fix base develop (Vorfahr von mir nachgerechnet).
+KARTE t-20261104-r27-consent-abort-leaves-undestroyable-state. VORGESCHICHTE: review-1375a REJECT (zwei
+lebenszyklus-nachweise fehlten: echter destroy-rc0, echte follow-up-anwendung bis READY).
+PRUEFEN SHA-genau read-only (gegen DEIN recept, nicht gegen die lane-meldung):
+ (1) write-set + ancestor gegen develop 2ea2c6f1,
+ (2) ablehnung OHNE und mit FALSCHEM --confirm-candidate: typisierter fehler, KEIN zustands-schreibgut, und
+     auf DEMSELBEN umfeld ein ECHTER `app destroy`-durchlauf mit rc=0 (kein resolve-only-helfer),
+ (3) folge-anwendung mit korrektem kanonischem digest erreicht betriebsbereit OHNE manuelles nachraeumen,
+ (4) red-first: beide stellen auf dem ALTEN stand (c24a6c7c) rot — wortliche ausgabe,
+ (5) keine rollback-semantik eingefuehrt, ungueltige zustimmung wird NICHT gespeichert (code-stele nachweisen),
+ (6) der als klasse-B gemeldete rand (docker.sock / 10-min timeout) ist wirklch eine UMgebungsgrenze und
+     nicht das weglassen eines geforderten nachweises — wenn punkt 2/3 NUR in einem vollen paketlauf haengen
+     und dort nicht ausgefuehrt wurden: REJECT mit recept wie sie isoliert ausfuehrbar werden.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/review-1375b.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1375b: verdict=<X> open=<liste|none> | <Satz>"
