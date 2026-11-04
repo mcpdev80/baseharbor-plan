@@ -63,4 +63,4 @@ The fix makes the test self-verifying in the reverse direction too: if runtime/c
 
 ## END
 
-END_DONE w111-state-owner (coordinator CI field): root-cause-fixed compose.yaml-missing at managed-service PKI preflight; fix=test-scope Core-runtime fixture materialization (no product, no .github). Evidence below.
+END_DONE w111-state-owner (coordinator CI field): root-cause-fixed compose.yaml-missing at managed-service PKI preflight; fix=test-scope Core-runtime fixture materialization (no product, no .github). CODEX-REVIEW ACCEPT (independently verified byte-exact one-hunk test-only fix). PR #1374 open (head 0e99ab6a, base work/r27-state-owner 03e4e01b). CODEX-MERGE: literal merge of fix branch onto current develop (ecbb885) is NOT conflict-free (126 files conflict — the fix rides on the 42-commit r27-owner branch); worker cherry-picked the single 18-line fix commit onto develop -> carrying branch w111-ci-fix-appedit-pki-preflight-fixture-carry-v2 @ 47a0f10f (verified go build/vet clean, fix intact). QUESTION to Owner pending: how to advance PR #1374 (force-its-branch-to-47a0f10f to trigger hosted runtime matrix, or keep the safe carrying branch). Evidence below.
