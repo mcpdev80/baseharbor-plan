@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: critical
 owner: coord-welle4 (Lane w138)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
-kanban_status: active
+kanban_status: review
 kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
@@ -22,7 +22,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/bug
+- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w138) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
@@ -31,7 +31,7 @@ evidence: []
 <!-- w120 fix (2026-11-04): refused candidate apply now fails closed before any on-disk record write; prior record survives so `destroy` re-resolves and a consented re-apply reaches the choke point and READY. Fix committed `c24a6c7c` on `w120-fix`; draft PR #1375 (base develop). Owner redirect to non-draft for gate run; CODEX-MERGE on owner approval. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
@@ -108,3 +108,10 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
   dem Stapelzustand ab, nicht aus der Auslieferungsdatei
   (internal/application/shared_backends_state.go:15, internal/application/shared_core_sql.go:13).
 - Nächster Auslöser: Korrekturlauf auf demselben Zweig; Messzelle A (Deine Hauptlinie) ist die Rot-Grundlage.
+
+## Handoff 2026-11-04 (Runde 3, nach der Vier-Zellen-Messung)
+- Kandidat: PR #1375, Zweig w120-fix, Kopf 24c9ac5ceba (ls-remote == Kopf), develop e444ae11 ist Vorfahr.
+- Was jetzt gilt: die Zerstörung einer nie ausgelieferten Anwendung endet mit Erfolg, die Schranke selbst ist
+  unangetastet fail-closed, und die neue Regression ist auf Deiner Hauptlinie ROT (Zustandsdatei fehlt) und auf
+  dem Kandidaten grün — die Grundlinie ist also gemessen, nicht behauptet.
+- Antrag ist zur Prüfung freigegeben; Lauf 41908789544 beobachtet.
