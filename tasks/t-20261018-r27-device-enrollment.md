@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w132)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,14 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w132) · **Priority:** normal  
     **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -133,3 +133,11 @@ ls-remote==head.
   letzte Änderung (internal/database/migration_rollback_integration_test.go) und bleibt auch mit richtiger
   Verbindung rot.
 - Kandidatenkette bleibt PR #1371 auf work/w96-production-wiring-f8ef4255 (develop ist Vorfahr), kein zweiter Antrag.
+
+## Handoff 2026-11-04 (Runde nach Basis-Bereinigung, plattenfest nachgemessen)
+- Kandidat: PR #1371, Zweig work/w96-production-wiring-f8ef4255, Kopf 8d3531f03ec (ls-remote == Kopf),
+  develop 2ea2c6f1 ist Vorfahr; Prüfprotokoll des Kopfes: zwölf grün, null rot, zehn übersprungen.
+- Der Rückbau-Fehlschlag ist aufgeklärt und behoben: Die Prüfung las ihren Festwert für die letzte Stufe,
+  jetzt folgt sie der Stufenliste (mit Namensprüfung der höchsten Stufe); damit ist die drei Wochen alte
+  Frage, warum sie auf der Hauptlinie grün und auf dem Zweig rot war, beantwortet.
+- Beweissammlung auf der Platte (rollback-1.md).
