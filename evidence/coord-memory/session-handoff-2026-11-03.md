@@ -1226,3 +1226,11 @@ alle gehosteten checks dort gruen, gofmt behoben).
   (c) connector-gofmt = klasse A BESTAETIGT ( zwei dateien, rein formatierung), inzwischen behoben.
 - codec runde 6 mission w133 geschrEIBEN (HAUPTBEFUND: eine unbedingte zweite f.Write-stelle macht den
   kurzschreib-beweis wertlos); laeuft sobald ein sitz frei ist.
+
+## ~04:05 HEBELKANNE AKZEPTIERT + VERBINDUNGSAUFTRAG RAUS: review-1377b verdict ACCEPT auf exakt
+5b2fbb65c35 (write-set = 2 tests, keine fest kodierte adresse, EIGENE kurzschreib/mutation messungen, lauf
+41878182617 success). verbindung ueber CODEX-MERGE (m1377) — WICHTIG FÜR MICH: squash, deshalb ist der
+kopf NICHT Vorfahr von develop; der nachweis muss der INHALTSDIFF der zwei dateien gegen develop sein (leer),
+nicht die ancestorschaft. danach: basis-auffrischung fuer #1362 #1369 #1373 (je eigener zweig, keine
+ueberschneidung mit #1371 wo w132 arbeitet). PLAN-AUGE hat zum ersten mal korrekt gefeuert (urteil <1 min
+nach commit) — das alte pane-auge bleibt als zweite quelle.

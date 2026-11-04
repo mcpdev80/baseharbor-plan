@@ -1,0 +1,18 @@
+ROLLE: CODEX-MERGE (Verbindung, keine erneute Bewertung). Coord f49a3303. KANAL: GPT-6 Luna.
+FREIGABE: dein eigenes TECHNISCHES URTEIL in baseharbor-plan/evidence/r27-welle4-2026-11-04/ci-delivery/review-1377b.md
+(verdict ACCEPT auf exakt 5b2fbb65c356fb977baa5dcb6d8e6804a90f4fe9) — der VERBINDUNGSSCHRITT ist damit die
+autorisierte abschlussaktion (AGENTS 2, 5.2). KEIN force-push, KEIN umgehen von schutzregeln.
+
+SCHRITTE (pruefen, nicht glauben):
+ (1) gh pr view 1377 — state OPEN, isDraft false, mergeable CLEAN/CONFLICTLESS, headRefOid == 5b2fbb65c356...
+     WOERTLICH gleich deinem pruefkopf. Bei ABICHUNG: STOP + MELDEN (kein merge auf einen anderen kopf).
+ (2) squash-merge in develop, verbindungsschnitt NOTIEREN (gh pr merge --squash --delete-branch wie ueblich
+     fuer diese kette; die letzten drei verbindungen sind ebenda squash gelandet).
+ (3) NACHWEIS: git ls-remote origin refs/heads/develop zeigt den NEUEN schnitt; git log -1 --format=%H%an%x09%s;
+     und: git merge-base --is-ancestor 5b2fbb65c356 origin/develop? NEIN bei squash — dafuer den inhalt
+     nachweisen: git diff 5b2fbb65c356 origin/develop -- internal/database/identity_tenant_resolver_integration_test.go
+     internal/database/tenant_integration_test.go muss LEER sein (beide dateien inhaltlich in develop).
+ (4) zweig work/r27-ci-delivery-dsn ist geloscht (ls-remote vorher/nachher woertlich), PR #1377 state MERGED
+     mit mergedAt + mergeCommit.
+ (5) KEINE weiteren aenderungen, KEIN rerun, KEIN tag/release.
+END an f49a3303: "END_DONE codex-m1377: head=5b2fbb65 entwickelt=<neuer sha10> inhaltsgleich=<ja> zweig=<geloescht> pr=MERGED | <Satz>"
