@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "o203 (3fba91dd, ornith)"
+kanban_lane: closed
+kanban_summary: Close the fail-closed publication gap found on run 40834168626
 kanban_status: closed
 kanban_title: "CI: pass Planning write token to receipt writer publish step"
 early: true

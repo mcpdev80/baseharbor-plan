@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80 (session 1)
+kanban_lane: closed
+kanban_summary: "Agree the concrete planning/execution interface that core-896 (runner isolation) builds on, before #893's final integration.…"
 kanban_status: closed
 kanban_title: "CI: agree the planning/execution interface for runner isolation"
 depends_on: []

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: ""
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Historical: CI: add required contract test — producer artifact must carry every extract_facts field"
 priority: ""

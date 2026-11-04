@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_lane: waiting
+kanban_summary: "A reusable conformance suite, CI matrix and support/evidence rules keep platform claims aligned with what BaseHarbor actually…"
 kanban_status: planned
 kanban_title: "Tests: verify platform conformance and support"
 depends_on: [core-821, core-822, core-884, t-20261017-release-0-4-29-updates]

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (CI routing audit 2026-11-03)"
+kanban_lane: closed
+kanban_summary: "Owner requests the JSON parser fix and a complete audit of all existing CI mappings, including current open PRs. Normal tests…"
 kanban_status: closed
 kanban_title: "CI: conservative routing, ready-PR cadence and reliable test execution"
 priority: critical

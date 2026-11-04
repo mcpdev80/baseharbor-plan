@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
 kanban_status: planned
 kanban_title: "Remote providers: project exposure material to the actual target"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]

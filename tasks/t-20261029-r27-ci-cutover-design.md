@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "q201 (38460858, qwen)"
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Historical: CI: specify candidate-bound completion and ruleset"
 early: true

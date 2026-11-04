@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: marcel
+kanban_lane: closed
+kanban_summary: "Full installation destroy removes orphaned BaseHarbor-owned runtime projects even when deployment state is gone, verifies…"
 kanban_status: closed
 kanban_title: "Cleanup: remove orphaned owned runtime resources"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]

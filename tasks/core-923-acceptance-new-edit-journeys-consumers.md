@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Codex session 2 native acceptance (d48643e22049)
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Acceptance: verify New/Edit journeys and ecosystem consumers"
 depends_on: [core-921, core-922, core-900]

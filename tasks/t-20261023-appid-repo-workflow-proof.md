@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle3 (lane w33)
+kanban_lane: closed
+kanban_summary: Execute TestRepositoryWorkflowRealLifecycle as an actual native Docker lifecycle on a fixed current develop candidate. Preserve…
 kanban_status: closed
 kanban_title: execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate
 priority: ""

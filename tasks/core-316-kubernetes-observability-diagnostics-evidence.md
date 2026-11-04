@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.3
 parent: v0.8.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Complete Kubernetes observability and diagnostic behavior so BaseHarbor can explain application/runtime health without requiring…
 kanban_status: planned
 kanban_title: "Kubernetes: add observability, diagnostics and evidence"
 depends_on: [core-313, core-314, t-20261017-release-0-8-3-updates]

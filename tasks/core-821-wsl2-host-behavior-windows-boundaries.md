@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_lane: waiting
+kanban_summary: Implement Windows-side Host Platform semantics with native Windows client behavior explicitly separated from WSL2 Linux…
 kanban_status: planned
 kanban_title: "WSL2: implement host behavior and Windows boundaries"
 depends_on: [core-820, t-20261017-release-0-4-29-updates]

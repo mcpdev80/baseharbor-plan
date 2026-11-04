@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_lane: waiting
+kanban_summary: Inventory every real host-dependent call site and define the smallest Host Platform Contract that isolates platform mechanics…
 kanban_status: planned
 kanban_title: "Architecture: define the host interface and guard"
 depends_on: [core-882, t-20261017-release-0-4-29-updates]

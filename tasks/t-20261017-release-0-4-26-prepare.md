@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: prepare
 parent: v0.4.26
 owner: Codex (Maintainer release completion)
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation"
 priority: normal

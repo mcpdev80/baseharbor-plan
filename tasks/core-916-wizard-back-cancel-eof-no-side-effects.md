@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-916 controller)"
+kanban_lane: closed
+kanban_summary: "No returns to the retained selection as often as needed; cancel writes nothing. Lane: TUI control."
 kanban_status: closed
 kanban_title: "Wizard: handle back, cancel and EOF without side effects"
 depends_on: [core-912, core-913, core-914, core-915]

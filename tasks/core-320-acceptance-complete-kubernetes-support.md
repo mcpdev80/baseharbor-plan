@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.7
 parent: v0.8.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Close the Kubernetes roadmap phase and establish Kubernetes as a fully first-class BaseHarbor production runtime before…
 kanban_status: planned
 kanban_title: "Acceptance: verify complete Kubernetes support"
 depends_on: [core-313, core-314, core-315, core-316, core-317, core-318, core-319, t-20261017-release-0-8-7-updates]

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "ha-prep-fix worker (ornith1.5)"
+kanban_lane: active
+kanban_summary: The Targeted runtime job of .github/workflows/targeted-integration.yml is the only heavy job without a Prepare verified rootless…
 kanban_status: active
 kanban_title: "targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix)"
 priority: ""

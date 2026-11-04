@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "o202 (1138dbc9, ornith)"
+kanban_lane: closed
+kanban_summary: Map all current required checks and replacement coverage
 kanban_status: closed
 kanban_title: "CI: map current required checks and replacement coverage"
 early: true

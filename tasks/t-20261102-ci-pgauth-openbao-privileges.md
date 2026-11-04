@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: Grant OpenBao postgres backend the right privileges so it can connect to its storage database and postgres/template1 at startup.
 kanban_status: closed
 kanban_title: "fix(secrets): grant OpenBao postgres backend the right privileges"
 priority: ""

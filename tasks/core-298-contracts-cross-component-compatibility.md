@@ -6,6 +6,8 @@ release: v0.5.x
 version: v0.5.2
 parent: v0.5.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: "Make the public compatibility boundaries explicit so CLI, stored state, capability providers and machine interfaces evolve…"
 kanban_status: planned
 kanban_title: "Contracts: define cross-component compatibility"
 depends_on: [core-297, t-20261017-release-0-5-2-updates]

@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: ""
+kanban_lane: waiting
+kanban_summary: Resolve explicitly configured app-scoped OCI registry/artifact endpoints including GitLab/GHCR/Harbor/Quay/Artifactory/Nexus…
 kanban_status: planned
 kanban_title: "Registries: use configured enterprise endpoints and native credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-native-auth, t-20261022-r27-ci-delivery]

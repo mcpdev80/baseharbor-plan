@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: "Skip Docker-engine checks in the doctor for non-Docker runtime providers, preventing false-positive failures when the Docker…"
 kanban_status: closed
 kanban_title: "fix(doctor): skip Docker-engine check for non-Docker runtime providers"
 priority: ""

@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: Expose the same existing lifecycle executor on a protected management host with one durable state root and active-writer…
 kanban_status: planned
 kanban_title: "Management: run one durable minimal authority on the selected host"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]

@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-917 New wiring)"
+kanban_lane: closed
+kanban_summary: "baha app new uses the new flow with the existing source/ID/provider/lifecycle owners. Lane: wiring New."
 kanban_status: closed
 kanban_title: "App new: connect the compact wizard to the existing lifecycle"
 depends_on: [core-916]

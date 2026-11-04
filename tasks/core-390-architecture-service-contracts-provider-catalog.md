@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: "t1229-svc-binding (Flash; owner-directive, prior=marcel)"
+kanban_lane: closed
+kanban_summary: Complete standards-first service/provider contract alignment before the v0.5 freeze without discarding the working v0.4…
 kanban_status: closed
 kanban_title: "Architecture: align service contracts and provider catalog"
 depends_on: [core-893, core-895, core-896]

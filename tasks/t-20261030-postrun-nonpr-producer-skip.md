@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: q260
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Historical: Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip"
 priority: ""

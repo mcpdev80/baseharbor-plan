@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80 (session 1)
+kanban_lane: closed
+kanban_summary: Independent PR lanes share neither mutable runtime state nor permissions.
 kanban_status: closed
 kanban_title: "Runners: isolate parallel PR checks safely"
 depends_on: [core-893-interface]

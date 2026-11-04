@@ -5,6 +5,8 @@ areas: [ci]
 release: v0.4.x
 parent: v0.4.x
 owner: "mcpdev80 (independent reviewed policy binding)"
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Bind independent reviewed #991 and #982 candidates"
 priority: high

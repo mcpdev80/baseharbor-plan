@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-919)"
+kanban_lane: closed
+kanban_summary: "baha app footprint show delivers the existing authoritative projection for humans and as JSON. Lane: CLI/JSON read-only."
 kanban_status: closed
 kanban_title: "Footprint: serve CLI and JSON from one projection"
 depends_on: [core-910, core-914]

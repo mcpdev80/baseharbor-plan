@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.2
 parent: v0.8.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Bring BaseHarbor backup/restore semantics to Kubernetes with real recovery verification.
 kanban_status: planned
 kanban_title: "Kubernetes: verify backup and disaster recovery"
 depends_on: [core-313, core-314, t-20261017-release-0-8-2-updates]

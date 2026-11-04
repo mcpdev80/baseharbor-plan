@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "mcpdev80 (core-901)"
+kanban_lane: closed
+kanban_summary: Qualify the new workflow with necessary regular work and own the before/after documentation.
 kanban_status: closed
 kanban_title: "Pilot: verify parallel task PRs and CI costs"
 depends_on: [core-893, core-895, core-896, core-900]

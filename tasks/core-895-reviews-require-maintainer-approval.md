@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80
+kanban_lane: closed
+kanban_summary: "PRs from other contributors need Maintainer approval; the Maintainer's own PRs remain possible under the documented solo…"
 kanban_status: closed
 kanban_title: "Reviews: require maintainer approval for develop"
 depends_on: [core-893]

@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: "Make Workload.Compose optional in the MCP intent schema, relaxing a required field constraint that was too strict for some…"
 kanban_status: closed
 kanban_title: "fix(authoring): Workload.Compose optional in MCP intent schema"
 priority: ""

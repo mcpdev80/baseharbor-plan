@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80 (session 1)
+kanban_lane: closed
+kanban_summary: Existing workflows execute the PR test plan and always deliver a reliable required final check. This is phase 2 (final…
 kanban_status: closed
 kanban_title: "CI: enforce selected PR checks"
 depends_on: [core-893-interface, core-896]

@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (comment-guideline session)"
+kanban_lane: closed
+kanban_summary: "Make code comments clear, concise and useful through the canonical development guidelines."
 kanban_status: closed
 kanban_title: "Docs: require clear and concise code comments"
 priority: ""

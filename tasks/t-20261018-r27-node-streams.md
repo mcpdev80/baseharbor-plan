@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
 kanban_status: planned
 kanban_title: "Connector: bound log replay and terminal cancellation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]

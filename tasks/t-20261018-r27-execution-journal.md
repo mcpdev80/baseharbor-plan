@@ -7,6 +7,10 @@ version: ""
 parent: core-777
 priority: normal
 owner: codex-heavy-wk (cx01, Codex als Worker per Owner-Direktive 2026-11-04)
+kanban_status: active
+kanban_title: "Operations: persist execution identity and terminal outcomes"
+kanban_lane: active
+kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1373"]

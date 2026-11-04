@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: qualify
 parent: v0.4.26
 owner: ""
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "v0.4.26 · Pre-release: obtain complete authenticated approval"
 priority: normal

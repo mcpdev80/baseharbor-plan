@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80 (session 2)
+kanban_lane: closed
+kanban_summary: Cleanup removes no reference or evidence the new workflow still needs.
 kanban_status: closed
 kanban_title: "GC: preserve active PRs, candidates and evidence origins"
 depends_on: []

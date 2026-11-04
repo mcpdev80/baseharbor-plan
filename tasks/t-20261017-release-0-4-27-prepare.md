@@ -7,6 +7,8 @@ version: v0.4.27
 release_stage: prepare
 parent: v0.4.27
 owner: o66 (coordinator, r27 board-up)
+kanban_lane: ready
+kanban_summary: Prepare the v0.4.27 ecosystem release-readiness dossier while implementation progress is tracked by its own CardBoard tasks and…
 kanban_status: planned
 kanban_title: "v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation"
 priority: normal

@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: core-209
 owner: ""
+kanban_lane: backlog
+kanban_summary: Make BaseHarbor fully usable in disconnected/air-gapped and enterprise environments where all container images and future…
 kanban_status: backlog
 kanban_title: "Distribution: air gap and private OCI registries"
 depends_on: []

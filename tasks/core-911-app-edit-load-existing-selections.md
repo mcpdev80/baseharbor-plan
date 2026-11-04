@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-911)"
+kanban_lane: closed
+kanban_summary: "An existing app and its selected Target load losslessly into the shared editing state. Lane: data adapter."
 kanban_status: closed
 kanban_title: "App edit: load existing selections completely"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]

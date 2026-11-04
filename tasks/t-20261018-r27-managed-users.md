@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: "Optional managed Identity path: discover/invite owned users through least-privilege native API; IdP owns…"
 kanban_status: planned
 kanban_title: "Identity: invite users through the native provider admin adapter"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261022-r27-ci-access]

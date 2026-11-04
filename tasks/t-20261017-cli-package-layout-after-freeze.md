@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: backlog
 owner: ""
+kanban_lane: backlog
+kanban_summary: "After the contract freeze, assess whether decomposing the growing cmd/baha package would improve navigation and maintainability,…"
 kanban_status: backlog
 kanban_title: "CLI: assess package decomposition after the contract freeze"
 priority: low

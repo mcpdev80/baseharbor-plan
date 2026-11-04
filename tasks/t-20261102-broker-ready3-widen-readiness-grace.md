@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "worker-ornith"
+kanban_lane: review
+kanban_summary: "The runtime-broker Compose container reaches readiness in time: app apply's /readyz wait no longer times out because the broker…"
 kanban_status: review
 kanban_title: Widen broker readiness grace to the established healthcheck pattern
 priority: ""

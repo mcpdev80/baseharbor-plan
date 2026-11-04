@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: Owner + ChatGPT
+kanban_lane: closed
+kanban_summary: "Define only the minimal Baha app/target/consent binding around existing Git revisions, OCI images/artifacts/layouts and native…"
 kanban_status: closed
 kanban_title: "Deployment: define immutable source and image submission"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-delivery-boundary]

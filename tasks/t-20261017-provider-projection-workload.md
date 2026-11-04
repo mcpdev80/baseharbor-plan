@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (Maintainer dependency repair)"
+kanban_lane: closed
+kanban_summary: Unblock the real core-917 New controller path by retaining existing workload-component identity in its read-only provider-choice…
 kanban_status: closed
 kanban_title: "Provider choice: preserve workload identity in requirement projections"
 priority: high

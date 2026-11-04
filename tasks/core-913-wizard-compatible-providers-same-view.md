@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-913 implementation)"
+kanban_lane: closed
+kanban_summary: "For a need, a compatible provider preference can be set in place; Automatic stays the default. Lane: provider view."
 kanban_status: closed
 kanban_title: "Wizard: offer compatible providers in the same view"
 depends_on: [core-910, core-912]

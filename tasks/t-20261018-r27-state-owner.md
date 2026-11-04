@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: high
 owner: w2-state-owner
+kanban_lane: review
+kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
 kanban_status: review
 kanban_title: "State: enforce installation-owned deployment storage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]

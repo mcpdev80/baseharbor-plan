@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.1
 parent: v0.8.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Make every existing BaseHarbor capability that is applicable to Kubernetes work through the same portable capability/provider…
 kanban_status: planned
 kanban_title: "Kubernetes: add capabilities and provider placement"
 depends_on: [core-313, t-20261017-release-0-8-1-updates]

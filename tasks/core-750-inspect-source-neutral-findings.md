@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "t1236-ha-native (Ornith; owner-directive 2026-10-31, prior=marcel)"
+kanban_lane: closed
+kanban_summary: "baha app inspect projects ports, health, workload/infrastructure classes and capability findings from normalized evidence for…"
 kanban_status: closed
 kanban_title: "Inspect: present complete source-neutral findings"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates]

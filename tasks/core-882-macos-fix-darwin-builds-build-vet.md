@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_lane: waiting
+kanban_summary: cmd/baha compiles for GOOS=darwin (arm64 and amd64) and CI keeps it that way. Pulled ahead of v0.4.29; targets develop (the…
 kanban_status: planned
 kanban_title: "macOS: fix Darwin builds and verify build/vet"
 depends_on: [t-20261017-release-0-4-29-updates]

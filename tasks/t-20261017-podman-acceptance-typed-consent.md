@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (Podman acceptance consent)"
+kanban_lane: closed
+kanban_summary: Make the existing clean-state native Podman acceptance journey exercise the supported typed provider-consent protocol without…
 kanban_status: closed
 kanban_title: "Podman acceptance: honor fresh typed provider consent"
 priority: high

@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Codex (Maintainer complete v0.4.26 defect audit)
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: Audit and repair the complete v0.4.26 release scope
 priority: critical

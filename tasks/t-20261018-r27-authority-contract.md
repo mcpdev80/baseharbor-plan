@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: w1-authority (lane)
+kanban_lane: closed
+kanban_summary: Define installation identity versus management connection versus Target; one authoritative state/lock owner per managed…
 kanban_status: closed
 kanban_title: "Authority: define one installation owner for local and remote work"
 depends_on: [t-20261017-release-0-4-27-updates]

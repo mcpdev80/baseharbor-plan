@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: ""
 owner: Codeman (o23 demo cleanup fix)
+kanban_lane: closed
+kanban_summary: "On the frozen demo input D = 896dc3cb, harden the cleanup provenance ordering so the owned-container preview/verification in…"
 kanban_status: closed
 kanban_title: "Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown"
 priority: ""

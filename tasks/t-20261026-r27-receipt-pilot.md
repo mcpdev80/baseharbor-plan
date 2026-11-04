@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coordinator-lane (r27 board-up)
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Historical: Retired paper-only pilot; real proof is shadow-run"
 priority: critical

@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: "Provide the exact reviewed candidate for PR #1272 registration-mixed fix through the pr-planner infrastructure."
 kanban_status: closed
 kanban_title: "pr-planner: exact reviewed candidate for PR #1272 registration-mixed fix"
 priority: ""

@@ -6,6 +6,8 @@ release: maintenance
 version: ""
 parent: ""
 owner: mcpdev80 (core-909 local Qwen maintenance)
+kanban_lane: closed
+kanban_summary: "Remove verified-superfluous branches; every remaining branch has a justified owner, work or evidence purpose. Not a product…"
 kanban_status: closed
 kanban_title: "Maintenance: safely remove superseded branches"
 depends_on: []

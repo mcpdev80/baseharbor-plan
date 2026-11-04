@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: coord-welle3 (lane w41)
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Deferred trusted CI readiness: authority"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261103-ci-plain-checks]

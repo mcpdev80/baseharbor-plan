@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-920)"
+kanban_lane: closed
+kanban_summary: "Agents can use the same useful needs/provider operations without the TUI or a CLI subprocess. Lane: JSON/MCP."
 kanban_status: closed
 kanban_title: "Machine adapters: reuse capability changes and footprint"
 depends_on: [core-910, core-911, core-919]

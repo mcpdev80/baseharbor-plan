@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Codex (session 1 CI implementation and integration)
+kanban_lane: closed
+kanban_summary: Complete the serialized v0.4.26 CI qualification chain and integrate verified candidates without changing v0.4.27 or publishing…
 kanban_status: closed
 kanban_title: "CI: finish serialized v0.4.26 qualification and integration"
 priority: critical

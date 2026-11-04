@@ -7,6 +7,8 @@ version: v0.8.0
 release_stage: publish
 parent: v0.8.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Promote only approved content and provide the complete exact tagging command to the Maintainer.
 kanban_status: planned
 kanban_title: "v0.8.0 · Release: promote the validated candidate and deliver exact tagging commands"
 priority: normal

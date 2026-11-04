@@ -6,6 +6,8 @@ release: v0.5.x
 version: v0.5.1
 parent: v0.5.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Make BaseHarbor state safely evolvable after the v0.5.0 freeze without migration ceremony for normal users. A supported upgrade…
 kanban_status: planned
 kanban_title: "State: define versioning and migration compatibility"
 depends_on: [t-20261017-release-0-5-1-updates]

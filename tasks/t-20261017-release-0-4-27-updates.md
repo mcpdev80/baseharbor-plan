@@ -7,6 +7,8 @@ version: v0.4.27
 release_stage: updates
 parent: v0.4.27
 owner: "o267-base (coordinator, owner-authorized)"
+kanban_lane: closed
+kanban_summary: Complete dependency intake before feature development.
 kanban_status: closed
 kanban_title: "v0.4.27 · Release start: integrate Renovate updates before feature work"
 priority: high

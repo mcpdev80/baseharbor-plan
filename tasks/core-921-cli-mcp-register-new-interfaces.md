@@ -7,6 +7,8 @@ priority: critical
 version: ""
 parent: v0.4.26
 owner: "Flash (codeman w1-baseharbor); prior implementation: ChatGPT (core-921 registration implementation)"
+kanban_lane: closed
+kanban_summary: "The finished separate handlers are reachable consistently through the real CLI/JSON/MCP entry points. Lane: single shared…"
 kanban_status: closed
 kanban_title: "CLI and MCP: register new interfaces consistently"
 depends_on: [core-917, core-918, core-919, core-920, t-20261016-registration-ci-readiness]

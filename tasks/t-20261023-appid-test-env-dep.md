@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle3 (lane w38)
+kanban_lane: closed
+kanban_summary: "TestExternalProviderRemoval (and any provider-registry ownership checks) pass or fail based on the code's ownership logic alone…"
 kanban_status: closed
 kanban_title: "Defect: external provider registry test unverifiable-ownership outside CI runners"
 priority: ""

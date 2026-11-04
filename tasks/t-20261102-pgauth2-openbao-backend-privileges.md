@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: ornith (pgauth2)
+kanban_lane: active
+kanban_summary: "OpenBao's PostgreSQL storage backend must start legally under the MCP/hosted lifecycle sweep instead of failing with FATAL:…"
 kanban_status: active
 kanban_title: "OpenBao: grant PG backend role legal connect on postgres/template1"
 priority: ""

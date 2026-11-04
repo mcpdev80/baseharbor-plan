@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (Maintainer-authorized bounded #995 correction; prior Flash claim preserved)"
+kanban_lane: closed
+kanban_summary: Make the real native backup/restore acceptance reach and verify its full recovery chain using the existing selected-Target…
 kanban_status: closed
 kanban_title: "Podman recovery acceptance: reuse initialized OpenBao and clean owned resources on failure"
 priority: high

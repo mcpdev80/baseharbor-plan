@@ -6,6 +6,8 @@ release: v0.4.28
 version: ""
 parent: console-1
 owner: ""
+kanban_lane: waiting
+kanban_summary: "The Console's live mode reads and mutates only through the protected Core adapter, with live workflow and stream proofs.…"
 kanban_status: planned
 kanban_title: "Console: replace fixtures with the protected Core adapter and live workflow proofs"
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]

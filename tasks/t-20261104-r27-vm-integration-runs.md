@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
+kanban_lane: waiting
+kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
 kanban_status: planned
 kanban_title: "Operations: real Docker and Podman integration runs with core, demo, console and connector"
 priority: high

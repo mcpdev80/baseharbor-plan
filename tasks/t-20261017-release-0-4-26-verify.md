@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: verify
 parent: v0.4.26
 owner: "Codex (Owner-authorized publication verification)"
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "v0.4.26 · Release: verify publication, artifacts, Pages and closeout"
 priority: normal

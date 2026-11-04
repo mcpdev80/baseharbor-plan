@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "coord-welle4 (lanes w116, w117)"
+kanban_lane: active
+kanban_summary: "Both test hosts are rebuilt from their own setup scripts instead of patched by hand, and afterwards the real Docker and Podman…"
 kanban_status: active
 kanban_title: "Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs"
 priority: critical

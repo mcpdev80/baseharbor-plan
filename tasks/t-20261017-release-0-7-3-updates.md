@@ -7,6 +7,8 @@ version: v0.7.3
 release_stage: updates
 parent: v0.7.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Complete dependency intake before feature development.
 kanban_status: planned
 kanban_title: "v0.7.3 · Release start: integrate Renovate updates before feature work"
 priority: high

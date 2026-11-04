@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle4 (lane w105)
+kanban_lane: review
+kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
 kanban_status: review
 kanban_title: "Connector: reconcile enrollment service and restart behavior"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]

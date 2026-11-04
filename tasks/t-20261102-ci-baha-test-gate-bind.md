@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: Bind cmd/baha/test.go files to the existing cli-gofmt gate so baha test files receive the same formatting enforcement.
 kanban_status: closed
 kanban_title: "ci(pr-gate-plan): bind cmd/baha/*_test.go to existing cli-gofmt gate"
 priority: ""

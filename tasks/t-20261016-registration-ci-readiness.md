@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "mcpdev80 (registration-ci-readiness)"
+kanban_lane: closed
+kanban_summary: "Qualify the exact shared command/CLI/JSON/MCP registration paths of core-921 on the real trusted PR planner, executor and…"
 kanban_status: closed
 kanban_title: "CI: qualify shared command and MCP registration checks"
 priority: ""

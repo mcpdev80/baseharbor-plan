@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (Owner CI simplification 2026-11-03)"
+kanban_lane: closed
+kanban_summary: "Owner explicitly authorizes complete removal of gate manifests, CI evidence collection/reverification, receipt approval/shadow…"
 kanban_status: closed
 kanban_title: "CI: remove evidence verification and keep normal checks plus commit receipts"
 priority: critical

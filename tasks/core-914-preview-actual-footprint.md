@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-914)"
+kanban_lane: closed
+kanban_summary: "The New/Edit preview explains required services and incremental resource needs in a few lines. Lane: read-only presentation."
 kanban_status: closed
 kanban_title: "Preview: present the actual footprint concisely"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]

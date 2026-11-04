@@ -7,6 +7,8 @@ version: v0.4.27
 release_stage: cleanup
 parent: v0.4.27
 owner: "o267-base (coordinator, owner-authorized)"
+kanban_lane: closed
+kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: closed
 kanban_title: "v0.4.27 · Release start: reconcile old PRs, tasks and branches"
 priority: high

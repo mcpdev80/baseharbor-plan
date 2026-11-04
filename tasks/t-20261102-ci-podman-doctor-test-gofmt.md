@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: Apply gofmt to podmandoctorcheckstest.go to ensure consistent code style in the test file.
 kanban_status: closed
 kanban_title: "style: gofmt podman_doctor_checks_test.go"
 priority: ""

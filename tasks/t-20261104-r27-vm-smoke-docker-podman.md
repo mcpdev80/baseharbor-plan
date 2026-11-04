@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
+kanban_lane: waiting
+kanban_summary: "A workstation enrolls once against a real BaseHarbor installation and the node service installs, starts, restarts and is removed…"
 kanban_status: planned
 kanban_title: "Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts"
 priority: high

@@ -6,6 +6,8 @@ release: triage
 version: ""
 parent: ""
 owner: ""
+kanban_lane: backlog
+kanban_summary: "baha up of the demo yields an HTTPS application endpoint automatically, with the certificate issued through BaseHarbor's managed…"
 kanban_status: backlog
 kanban_title: "Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI"
 depends_on: []

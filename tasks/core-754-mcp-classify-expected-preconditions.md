@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: Flash (codeman w1-baseharbor)
+kanban_lane: closed
+kanban_summary: Expected machine/MCP preconditions get stable typed codes instead of being flattened to internalerror.
 kanban_status: closed
 kanban_title: "MCP: classify expected preconditions correctly"
 depends_on: [core-893, core-895, core-896]

@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: "ChatGPT (isolated v0.4.27 prototype)"
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Historical: W1: trusted receipt execution, discovery and shadow consumption"
 depends_on: [t-20261017-release-0-4-27-updates]

@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: ""
 owner: worker-ornith (session 35cdb02e)
+kanban_lane: closed
+kanban_summary: "Repair the planning card tasks/diff-base.md that commit 6cc2371 (PR#1251-Merge-Epoche) introduced by hand instead of via…"
 kanban_status: closed
 kanban_title: "Regenerate diff-base planning card to valid schema (mechanical, no content rewrite)"
 priority: ""

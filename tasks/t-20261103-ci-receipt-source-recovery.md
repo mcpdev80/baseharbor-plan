@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (CI completion 2026-11-03)"
+kanban_lane: closed
+kanban_summary: Publish minimal commit receipts from the actual trusted default-branch writer and recover missed develop merges without…
 kanban_status: closed
 kanban_title: "CI: deploy receipt authentication on trusted main and recover missing records"
 priority: critical

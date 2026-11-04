@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.26
 priority: high
 owner: "Codex (Owner-authorized release closeout)"
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: Close v0.4.26 Owner-directed publication
 depends_on: []

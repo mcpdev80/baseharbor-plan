@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: "Make shared backend environment identity canonical (owner-dir) instead of caller-drift, ensuring consistent environment lookup…"
 kanban_status: closed
 kanban_title: "fix(application): shared backend environment identity is canonical (owner-dir), not caller-drift"
 priority: ""

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)"
+kanban_lane: closed
+kanban_summary: "One or two sentences: the observable outcome."
 kanban_status: closed
 kanban_title: "CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner)"
 priority: ""

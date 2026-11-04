@@ -6,6 +6,8 @@ release: v0.7.x
 version: v0.7.6
 parent: v0.7.x
 owner: ""
+kanban_lane: waiting
+kanban_summary: Define Kubernetes Runtime conformance around real BaseHarbor lifecycle semantics and multiple realistic authorization profiles.
 kanban_status: planned
 kanban_title: "Tests: verify Kubernetes with restricted permissions"
 depends_on: [core-102, core-304, core-305, core-306, core-307, core-308, t-20261017-release-0-7-6-updates]

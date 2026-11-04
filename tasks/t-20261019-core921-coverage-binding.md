@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: ""
 owner: Flash (codeman w1-baseharbor)
+kanban_lane: closed
+kanban_summary: "Trusted PR gate planning resolves coverage for the corrected, independently re-reviewed core-921 registration candidate by an…"
 kanban_status: closed
 kanban_title: "CI: bind reviewed core-921 registration coverage"
 priority: high

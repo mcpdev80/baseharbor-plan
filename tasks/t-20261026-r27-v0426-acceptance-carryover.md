@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: coord-welle3 (lane w34)
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27
 depends_on: [t-20261017-release-0-4-27-updates]

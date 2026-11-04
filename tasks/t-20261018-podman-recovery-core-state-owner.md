@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Flash (codeman w1-baseharbor)
+kanban_lane: closed
+kanban_summary: Correct the Compose-only lookup in the native Podman backup/restore fixture using established selected-Target Core/OpenBao…
 kanban_status: closed
 kanban_title: "Podman recovery: resolve existing Core/OpenBao state without Compose assumptions"
 priority: high

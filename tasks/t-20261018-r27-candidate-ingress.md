@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: Accept and retain minimal authorized app/revision/consent metadata and the exact native input/reference for an operation. Reuse…
 kanban_status: planned
 kanban_title: "Sources: persist authorized immutable deployment candidates"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-pack, t-20261022-r27-ci-authority]

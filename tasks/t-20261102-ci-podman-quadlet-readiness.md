@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: Emit podman/quadlet readiness checks in the baha doctor for Podman-target doctor verification.
 kanban_status: closed
 kanban_title: "fix(baha): emit podman/quadlet readiness checks for Podman-target doctor"
 priority: ""

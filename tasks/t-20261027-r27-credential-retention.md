@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: z3-lane
+kanban_lane: closed
+kanban_summary: "Native credential retention with an explicit provenance decision on the switch-back path, so the retention work that only ever…"
 kanban_status: closed
 kanban_title: "Implement native credential retention + provenance (supersedes #1077 debt)"
 priority: ""

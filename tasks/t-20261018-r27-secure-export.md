@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: Opt-in local eligible credentials only; authenticated encryption/version/KDF using existing reviewed primitives. Password never…
 kanban_status: planned
 kanban_title: "Profiles: encrypt explicitly selected local credential export"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-codec, t-20261018-r27-protected-credentials, t-20261022-r27-ci-access]

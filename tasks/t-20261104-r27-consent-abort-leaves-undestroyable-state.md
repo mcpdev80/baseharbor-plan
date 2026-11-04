@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: coord-welle4 (lane w120)
+kanban_lane: active
+kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
 kanban_status: active
 kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]

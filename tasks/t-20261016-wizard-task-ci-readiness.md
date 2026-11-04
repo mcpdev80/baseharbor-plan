@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "mcpdev80 (CI readiness session)"
+kanban_lane: closed
+kanban_summary: "Before another product component is assigned, the trusted develop pipeline can execute and enforce the focused checks for its…"
 kanban_status: closed
 kanban_title: "CI: prepare autonomous wizard task verification"
 priority: ""

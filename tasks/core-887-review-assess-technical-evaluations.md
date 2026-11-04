@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: ""
 owner: ""
+kanban_lane: backlog
+kanban_summary: "Keep the two technical evaluations supplied on 2026-10-14 and our assessment of them on record, so their claims can be checked…"
 kanban_status: backlog
 kanban_title: "Review: assess technical project evaluations"
 depends_on: []

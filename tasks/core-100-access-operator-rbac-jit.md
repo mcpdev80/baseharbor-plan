@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: core-209
 owner: ""
+kanban_lane: backlog
+kanban_summary: "Add a managed identity and authorization layer for non-local environments, especially production, without turning BaseHarbor…"
 kanban_status: backlog
 kanban_title: "Access: operator RBAC and just-in-time access"
 depends_on: []

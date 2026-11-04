@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: mcpdev80 (session 2)
+kanban_lane: closed
+kanban_summary: "Correct the existing #892 trusted diff-to-check planner without changing the #893 executor and final-check owners. This is a…"
 kanban_status: closed
 kanban_title: "CI: correct PR impact selection and unresolved coverage"
 priority: high

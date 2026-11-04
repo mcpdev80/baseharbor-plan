@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: "Revoke A without affecting B, apps or platform; bound stale sessions and active connections. Reconnect/renew require valid…"
 kanban_status: planned
 kanban_title: "Devices: renew and revoke one workstation independently"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261022-r27-ci-access]

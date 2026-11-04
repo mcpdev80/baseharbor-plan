@@ -5,6 +5,8 @@ areas: [ci]
 release: v0.4.26
 parent: v0.4.26
 owner: "mcpdev80 (scoped XDG reset review)"
+kanban_lane: closed
+kanban_summary: "Fix baseharbor#992 before v0.4.26 readiness. A resource-scoped scripts/ci-runtime-reset.sh call must never recursively delete…"
 kanban_status: closed
 kanban_title: Scoped runtime reset must retain unrelated XDG state
 priority: high

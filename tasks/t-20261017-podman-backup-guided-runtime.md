@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "ChatGPT (bug-988 implementation session)"
+kanban_lane: closed
+kanban_summary: Run the existing native Podman disaster-recovery test successfully from isolated state and prove actual backup/restored data and…
 kanban_status: closed
 kanban_title: "Podman backup/restore: resolve isolated guided runtime and prove recovery"
 priority: high

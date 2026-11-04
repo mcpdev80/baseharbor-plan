@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: "w2-lane (post-run + task link, dormant PR2)"
+kanban_lane: closed
+kanban_summary: ""
 kanban_status: closed
 kanban_title: "Historical: Retired standalone resolver; lookup is part of verifier"
 depends_on: [t-20261017-release-0-4-27-updates]

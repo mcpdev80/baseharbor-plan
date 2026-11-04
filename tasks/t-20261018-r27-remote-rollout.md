@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
+kanban_lane: waiting
+kanban_summary: Apply an explicitly selected next version through native Docker Compose or Podman Quadlet/systemd using existing…
 kanban_status: planned
 kanban_title: "Remote lifecycle: apply a new candidate without losing the previous owner"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-journal-wiring, t-20261018-r27-mutation-lock, t-20261018-r27-remote-podman-web, t-20261018-r27-stage-versions, t-20261022-r27-ci-runtime]

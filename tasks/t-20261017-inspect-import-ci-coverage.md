@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: "mcpdev80 (core-751 trusted import coverage)"
+kanban_lane: closed
+kanban_summary: "Qualify targeted import-detector coverage for core-751 through the existing trusted planner, executor and final check. No…"
 kanban_status: closed
 kanban_title: "CI: qualify import detector tests without path exemptions"
 priority: ""

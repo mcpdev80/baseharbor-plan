@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: w2-delivery (lane)
+kanban_lane: closed
+kanban_summary: "Start from existing direct/delegated Selection, OwnerBaseHarbor/OwnerExternal, revision and provenance. Map OCI…"
 kanban_status: closed
 kanban_title: "Delivery: map native standards and one reconciliation owner"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract]

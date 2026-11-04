@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (Owner-authorized readiness documentation preparation)"
+kanban_lane: closed
+kanban_summary: "Developers find a short, accurate New/Edit guide that needs no prior infrastructure product knowledge. Lane: EN/DE guide."
 kanban_status: closed
 kanban_title: "Docs: explain New/Edit and provider selection concisely"
 depends_on: [core-921, core-900]

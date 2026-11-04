@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: ""
+kanban_lane: waiting
+kanban_summary: "Persist desired, last applied and observed release/component references independently for application identity + selected Target…"
 kanban_status: planned
 kanban_title: "Deployments: isolate version and configuration per stage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-delivery]

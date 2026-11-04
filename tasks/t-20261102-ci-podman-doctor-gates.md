@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_lane: closed
+kanban_summary: Bind podman-doctor CLI paths to lifecycle gates so that podman-target doctor checks are enforced through the existing gate-map…
 kanban_status: closed
 kanban_title: "ci(gate-map): bind podman-doctor CLI paths to lifecycle gates"
 priority: ""

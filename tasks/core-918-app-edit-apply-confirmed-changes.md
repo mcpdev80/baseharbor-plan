@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-918 Edit wiring)"
+kanban_lane: closed
+kanban_summary: "baha app edit shows the exact change and executes it through the accepted lifecycle. Lane: wiring Edit."
 kanban_status: closed
 kanban_title: "App edit: apply confirmed changes safely"
 depends_on: [core-911, core-916]

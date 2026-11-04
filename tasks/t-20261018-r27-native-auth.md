@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: high
 owner: coord-welle4 (lane w89)
+kanban_lane: active
+kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
 kanban_status: active
 kanban_title: "Credentials: reuse native authentication before prompting"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]

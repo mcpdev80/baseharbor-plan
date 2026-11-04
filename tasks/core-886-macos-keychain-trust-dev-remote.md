@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: core-818
 owner: ""
+kanban_lane: backlog
+kanban_summary: ""
 kanban_status: backlog
 kanban_title: "macOS: Keychain trust and developer remote access"
 depends_on: []

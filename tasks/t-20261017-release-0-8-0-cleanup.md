@@ -7,6 +7,8 @@ version: v0.8.0
 release_stage: cleanup
 parent: v0.8.x
 owner: ""
+kanban_lane: queued
+kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: planned
 kanban_title: "v0.8.0 · Release start: reconcile old PRs, tasks and branches"
 priority: high

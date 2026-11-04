@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: mcpdev80
+kanban_lane: closed
+kanban_summary: "A declared canonical default instance reconciles with the single detected named instance of the same capability and direction,…"
 kanban_status: closed
 kanban_title: "Inspect: reconcile default instances unambiguously"
 depends_on: [core-893, core-895, core-896]
