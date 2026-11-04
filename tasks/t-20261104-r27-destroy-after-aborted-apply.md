@@ -1,7 +1,7 @@
 ---
 id: t-20261104-r27-destroy-after-aborted-apply
 type: task
-areas: [platform]
+areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
@@ -20,7 +20,7 @@ resolution: ""
 evidence: [evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
 ---
 
-- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0.4.27 #status/planned #view/planned #area/platform #kind/bug
+- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/planned #view/planned #board/planned #area/deployment #kind/bug
 
 ## Goal
 
