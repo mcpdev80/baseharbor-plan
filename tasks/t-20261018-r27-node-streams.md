@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
 kanban_status: planned
 kanban_title: "Connector: bound log replay and terminal cancellation"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/connector #kind/task
+- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/planned #view/ready #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
