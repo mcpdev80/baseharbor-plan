@@ -57,3 +57,6 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Schwerpunkt: eigene Rückbau-Gegenprobe (Hintergrund writers zurück => Prüfung muss rot werden).
 - codex-r1378a.txt — Abnahme Umgebungsfehlstellen (Kopf aca8ff97df8, acht grün). Auslöser: freier Prüfkanal.
   Enthält meine Bitte an die Prüferseite, die vollständige Überspringliste selbst zu klassifizieren.
+- w143-enroll-r4.txt — Runde 4 Geräteregelung (review-1371b REJECT): Namensfestschreibung raus,
+  Regelableitung + Stufenmutation rein, drei Datenbankprüfungen ohne Überspringen; Dateizuschnitt gegen #1378
+  im Auftrag. Auslöser: erster freier Sitz (alle fünf belegt).
