@@ -24,7 +24,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
+    **Needs:** [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
