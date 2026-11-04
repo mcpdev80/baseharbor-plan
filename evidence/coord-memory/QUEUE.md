@@ -64,3 +64,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   unter die Auswahlregel, sind also auf diesem Kopf nicht gefahren). Kein Auftrag an die Lane, keine
   Dateiänderung. Auslöser: erster freie Bahn.
 - cx10-base-refresh.txt — läuft auf dem Arbeitersitz (drei Äste auf develop e444ae11).
+- w146-enroll-r5.txt — Kaeltestart (Zuweisung aus der Grant-Tabelle), Rueckbau-Artefakte aus der
+  Ruecknamedatei, AGENTS.md aus dem Antrag. Ausloeser: erster freier Sitz (ornith/laptop voll).
