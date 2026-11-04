@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w145). Coord f49a3303. KARTE: t-20261018-r27-node-service (BELEG-ERGAENZUNG, kein
+neuer inhalt). REPO: baseharbor-node-connector (kopf 9913ce4770363, zweig work/r27-node-service) — du
+aenderst KEINE datei. REchner: baha-docker (ssh-alias, dein feld ist der rechner).
+
+GRUND (von mir nachgesehen): die beiden nativen integrationslaeufe des antrags
+('Actual encrypted transport', 'Managed native enrollment') sind auf diesem kopf von der AUSWAHLREGEL in
+.github/workflows/release-integration.yml uebersprungen (dispatch-/release-pfad, nicht PR-pfad). inhaltlich
+ist nichts offen, aber ein uebersprungener nachweis ist kein nachweis — daher die Messung auf dem rechner,
+genau wie die pruefung es im vorbehalt verlangt hat.
+
+AUFGABE (nur ausfuehren + protokollieren, KEIN commit, KEIN PR, KEINE .github-aenderung):
+ (1) auf baha-docker: quelle des Antrag-Zweiges (ls-remote == 9913ce4770363 woertlich belegen) in einen
+     EIGENEN arbeitspfad (~/build/w145), `go build` des anmelders, version/beide programme belegen.
+ (2) NATIVER DURCHLAUF mit dem eingesetzten Prüfer des pakets: die tests, die die beiden uebersprungenen
+     jobs abdecken, lokal mit echtem user-manager ausfuehren (GO-/TMP-pfade in deinem arbeitspfad, nicht im
+     projekt). pro test: befehl + rc + eine zeile ausgabe. WENN ein test eine bild-/netzvoraussetzung hat,
+     die auf dem rechner fehlt: die fehlstelle WOERTLICH protokollieren und als NICHT BELEGBAR melden
+     (kein ersatz, kein 'warum auch immer übersprungen').
+ (3) TRANSPORT-ZELLE: verschluesselte uebertragung gegen die echte instanz, wie der job sie fahren wuerde —
+     befehl + rc + das feld, das die verschluesselung bestaetigt.
+ (4) ANMELDUNGS-ZELLE: verwaltete anmeldung inkl. widerruf, befehl + rc, und die probe dass eine
+     widerrufene anmeldung KEINE wirkung mehr hat.
+ (5) AUFRÄUMEN: dein arbeitspfad weg, kein shared-stapel angefasst, keine einheit des anmelders aktiv
+     zuruecklassen (listenzustand vorher/nachher).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN Proxmox, KEIN aendern/am repo, KEIN zerstoeren fremder stapel,
+KEIN runner, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h (host + /tmp).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/native-witness-1.md (je zelle befehl,
+rc, woertliche zeile; ueberspringbegruendung der gehosteten jobs mit datei:zeile; aufraeumstatus).
+END an f49a3303: "END_DONE w145-native-witness: transport=<rc0|nicht belegbar> anmeldung=<rc0|nicht belegbar> zweig=<sha10> aufgeraeumt=<ja> | <Satz>"

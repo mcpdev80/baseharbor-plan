@@ -1,0 +1,28 @@
+ROLLE: CODEX-WORKER (Ausfuehrender, NICHT Reviewer/Merger). Coord f49a3303.
+AUFTRAG: BASIS-AUFFRISCHUNG für drei Anträge, deren Aelte die urteile unannehmbar macht. REPO: baseharbor.
+KEINE inhaltliche aenderung an keinem der drei — nur develop in den je eigenen ast, sonst nichts.
+
+DREI ASTE (develop = e444ae1171 oder frischer, ZUERST fetch):
+ (1) work/r27-execution-journal  (PR #1373, kopf 0d89a13e63a)
+ (2) work/w96-production-wiring-f8ef4255 (PR #1371, kopf 8d3531f03e)
+ (3) work/r27-db-skip-sites      (PR #1378, kopf aca8ff97df8)
+
+PRO AST, in dieser reihenfolge:
+ a) git merge-base --is-ancestor origin/develop origin/<ast> — ist develop schon Vorfahr: NICHTS tun, nur
+    die zeile als beleg in die evidence (kein sinnloser merge-commit).
+ b) sonst: eigenen ast checkout, `git merge origin/develop` (KEIN rebase, KEIN Kraftuebertragen, KEIN
+    umschreiben), konfliktfall in contracts/managementaccess/v1 oder den zwei datbank-tests
+    (identity_tenant_resolver_..._test.go, tenant_integration_test.go) = develop-fassung uebernehmen.
+ c) BELEG je ast: neuer kopf, `git ls-remote origin refs/heads/<ast>` == neuer kopf WOERTLICH,
+    `git merge-base --is-ancestor origin/develop <neuer kopf>` rc=0, und `git diff origin/develop...HEAD
+    --name-only` (muss dieselben dateien zeigen wie vorher — wenn ZUSAETZliche erscheinungen: STOP+MELDEN,
+    das waere eine unbemerkaenderung).
+ d) PR DRAFT laesst du wie er ist (kein ready, kein merge, kein kommentar am inhalt), die gehosteten laeufe
+    des NEUEN kopfs beobachtest du bis TERMINAL und notierst lauf-id + status je ast.
+
+GRENZEN: KEIN produkt-/test-inhalt, KEINE .github-aenderung, KEIN rerun als ersatz fuer analyse, KEIN merge,
+KEIN zweiter PR pro ast, KEINE subagenten, scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c); bei
+schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/base-refresh/round-3.md (drei blocke, je die
+woertlichen belege aus c) und die lauf-iden aus d); keine markdown-checkboxen).
+END an f49a3303: "END_DONE cx10-base-refresh: 1373=<sha10|unveraendert> 1371=<sha10|unveraendert> 1378=<sha10|unveraendert> ancestor=<3x ja> gates=<terminal> | <Satz>"

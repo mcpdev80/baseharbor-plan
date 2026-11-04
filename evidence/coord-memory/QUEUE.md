@@ -60,3 +60,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w143-enroll-r4.txt — Runde 4 Geräteregelung (review-1371b REJECT): Namensfestschreibung raus,
   Regelableitung + Stufenmutation rein, drei Datenbankprüfungen ohne Überspringen; Dateizuschnitt gegen #1378
   im Auftrag. Auslöser: erster freier Sitz (alle fünf belegt).
+- w145-native-witness.txt — native Zeugnahme für PR #19 auf baha-docker (die beiden nativen Läufe fallen
+  unter die Auswahlregel, sind also auf diesem Kopf nicht gefahren). Kein Auftrag an die Lane, keine
+  Dateiänderung. Auslöser: erster freie Bahn.
+- cx10-base-refresh.txt — läuft auf dem Arbeitersitz (drei Äste auf develop e444ae11).
