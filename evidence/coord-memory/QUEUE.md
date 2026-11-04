@@ -74,3 +74,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - SPERRVERMERK (Direktive): alle connector-seitigen Aufgaben (node-trust-Scope: Zertifikatsrotation,
   Widerruf, mTLS-Vertrauen, Session-Wiederherstellung, Reconnect) liegen bei ChatGPT. Keine Reservierung,
   kein Dispatch, keine Abnahme. Abhängige Karten erst nach deren bestätigtem Merge + Plan-Abschluss.
+- w150-vm-integration.txt — LAEUFT (laptop-Sitz 2/2): beide Test-VMs aus setup-Skripten auf develop
+  ea3fb38e neu + echter Integrationslauf inkl. Zerstörungsfall. Lücke war ein Dispatch-Versäumnis von mir.

@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w150). Coord f49a3303. KARTE: t-20261104-r27-vm-rebuild-integration.
+FELD: die zwei Test-VMs baha-docker und baha-podman im LAN (Zugangswege: RUNBOOK §6, du kennst die Hosts
+aus den w142/w144-Akten). KEIN Produkt-Repo-Edit, KEIN connector-datei-aendern (der zweig liegt extern bei
+ChatGPT — nur BAUEN und FAHREN, nie schreiben), KEINE .github, KEINE subagenten.
+
+SCHRITTE (in dieser Reihenfolge, Abweichung => STOP+MELDEN):
+(1) PRUEFPROTOKOLL VOR dem ersten Bau: df -h /tmp auf beiden HOSTS und dein Scratch-Verzeichnis; freie
+    Scheibe > 6G sonst STOP+MELDEN (lehrreich: laufende Zaehlen nicht pruefen, sondern belegen).
+(2) BEIDE hosts NEU bauen aus den EIGENEN setup-Skripten der Repos (scripts/vm/ oder docs-akten — NICHT
+    handpatchen). Grundlinie: develop ea3fb38e (zuerst fetch, ls-remote gegen echte adresse), connector bei
+    main 816720c (read-only bauen). Nach dem Bau auf beiden: baha --version nennt den verbauten Commit
+    (ldflags-Regel, kein tag-string-Wunder).
+(3) ECHTER INTEGRATIONS-LAUF pro host (das ist der Kern der karte):
+    a) normale auslieferung einer test-anwendung bis zustand betriebsbereit (protokoll + liste),
+    b) ablehnung OHNE gueltige kennung im anlagefeld => zustand bleibt zerstörbar, dann ECHT app destroy
+       --yes => rc=0 (das ist das frisch gemergte zerstoerungs-IRRTUM-Feature, hier erstmals im VM nachgewiesen),
+    c) verbindung zum KNOTEN-dienst: ein Knoten-anschluss-laeufchen gegen den built connector main auf dem
+       host; wenn der lauf eine funktion LUECKT, die nach node-trust (extern) aussieht: NICHT fixen,
+       NICHT umschreiben — Befund in die evidence, weiter mit dem naechsten host.
+    d) sauberer rueckbau des hosts auf den leerzustand (setup-skript reverse oder VM-neubau-erklaerung).
+(4) REPRODUZIERBARKEITS-BEWEIS: deine setup-/lauf-kommandos in die evidence (pfade+argumente, keine
+    passwoerter, keine tokens), damit ein naechster mann dieselben laeufe ohne mundpropaganda nachbaut.
+BELEG-PFLICHT: pro host eine Sektion: build-kopf (sha), version-zeigeile wuertlich, jede teil-a-d ausgabe
+mit rc; ls-remote (echt) fuer develop und connector-main; KEINE erfundenen greens.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md
+END an f49a3303: "END_DONE w150-vm-integration: docker=<ok|befund> podman=<ok|befund> zerstoerungsfall=<rc0 auf beiden|liste> befehle=<abgelegt> | <Satz>"
