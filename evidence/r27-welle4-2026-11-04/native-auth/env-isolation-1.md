@@ -37,4 +37,4 @@
 - Nur gezieltes git add <datei> im worktree.
 
 ## END
-END_DONE w94-nativeauth-env: head=<sha10> faelle=2/2 gehaertet lsremote=<sha10> | <Satz>
+END_DONE w94-nativeauth-env: head=c2adcc864f faelle=2/2 gehaertet lsremote=c2adcc864f | PR #1362 gates terminal gruen (run-id 126502703868; go-unit-tests/go-vet/go-build success); sshagent.go unveraendert, nur native_test.go isoliert
