@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: coord-welle4 (Lane folgt)
+owner: coord-welle4 (lane w125)
 kanban_lane: active
 kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane folgt) · **Priority:** high  
+    **Owner:** coord-welle4 (lane w125) · **Priority:** high  
     **PR:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
-**Owner:** coord-welle4 (Lane folgt)  
+**Owner:** coord-welle4 (lane w125)  
 **Priority:** high  
 **PRs:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -80,3 +80,13 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 - Erwartet: Auflösung über den bestehenden geschützten In-Memory-Vertrag weiterreichen, dokumentierter
   Fallback bleibt fail-closed, keine Secrets in Fehler oder Log, End-to-End-Gegenprobe auf Aufrufer-Ebene.
 - Korrekturen sind produktseitig; die Grundlagen-Auffrischung auf develop ecbb8854 läuft parallel in cx02.
+
+## Schreibfelderweiterung 2026-11-04 (Coordinator-Autorisation, dokumentiert für die Abnahme)
+- Lane w125 meldete korrekt, dass der Native-Broker im Produktionspfad null Aufrufer hat; die Karte verlangt
+  aber die Wiederverwendung vor der interaktiven Eingabe, ein nicht aufgerufener Adapter erfüllt sie nicht.
+- Autorisiert ist ausschließlich der Aufrufer-Punkt in cmd/baha/app_init_prompts.go (promptSecretPolicies /
+  promptSecretProvisionPolicy, Aufrufer app_init_selection.go:137) plus die nötige winzige Registrierung.
+  Kein anderer Bereich von cmd/baha, keine Workflow-Datei, kein Umbau des Init-Ablaufs.
+- Gegenprobe auf Aufrufer-Ebene ist Pflicht: bei gesetztem nativem Treffer wird der echte Prompt nullmal
+  gerufen und die Auflösung läuft über den geschützten In-Memory-Vertrag; Fehltreffer hält den fail-closed
+  Fallback.
