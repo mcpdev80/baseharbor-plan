@@ -1,0 +1,38 @@
+ROLLE: CODEX-WORKER (Ausfuehrender, NICHT Reviewer/Merger). Coord f49a3303. KARTE: t-20261022-r27-ci-delivery (Hebelkarte).
+REPO: baseharbor. ZWEIG: work/r27-ci-delivery-dsn (PR #1377, head 029e3ddd522, develop ecbb8854 ist Vorfahr —
+nachrechnen). KEIN neuer zweig, KEIN zweiter PR, KEIN merge.
+
+Ausloeser: dein eigener Kandidat ist geprueft und ABGELEHNT (akte:
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1377a.md, vollstaendig lesen). Sechs von sieben punkten
+sind BESTANDEN (write-set genau zwei tests, keine fest kodierte adresse, eine quelle wie
+scripts/pr-unit-database.sh, eigene mutationsgegenprobe mit port 59999 -> rot). Es fehlt GENAU EIN punkt:
+
+(3) FEHLENDE UMGEBUNG DARF NICHT GRUEN SEIN: beide tests rufen bei ungeseteter variable `t.Skip(...)` auf
+    (identity_tenant_resolver_integration_test.go und tenant_integration_test.go, zeile ~18). Der pruefer hat
+    es nachgemessen: ohne variable SKIP + `go test` PASS = scheingruen.
+    UMWANDLN in ein echtes fehlschlagen mit klarer meldung (t.Fatal oeffentlich: "testumgebung nicht
+    hergestellt: BASEHARBOR_TEST_DATABASE_URL fehlt" — ohne connection-refused-geraeusch), sodass derselbe
+    lauf OHNE variable ROT wird.
+    BEIDE faelle auf demselben kopf messen und in der evidence zeigen: (a) ohne variable -> EXIT 1 mit der
+    klaren meldung, (b) mit richtiger variable (skript-DSN) -> die zwei tests laufen und werden GRUEN,
+    (c) mutationsgegenprobe: variable auf unreachbaren port -> ROT mit connection-refused (beweis, dass der
+    test wirklich prueft und nicht nur meckert).
+
+ZUSAETZLICH (gleiche karte, Read-only, KEIN rerun, KEINE workflow-anderung): in der evidence eine kurze
+ABGRENZUNG ueber die drei punkt-A produktbefunde aus der klassifikation — welche karte dafuer zustaendig ist
+und warum sie NICHT von deiner DSN-aenderung geheilt werden: (1) migration_rollback_integration_test
+.eingetroffene regression (karte t-20261018-r27-device-enrollment), (2) TestAppEditCommandCompleteProvider
+EditRunsRealLifecycle mit `service "openbao-admin" is not running` (karte t-20261018-r27-state-owner),
+(3) connector gofmt (karte t-20261018-r27-node-service, laeuft bereits in einer anderen lane). Wenn eine
+stelle doch mit der DSN-frage zusammenhaengt: mit datei:zeile belegen.
+
+PFLICHTPRUEFUNGEN am neuen kopf: pakettests ./internal/database -count=1 (mit und ohne variable), go build
+./..., go vet, gofmt; die gehosteten laeufe deines kopfs bis TERMINAL beobachten (lauf-id + status in der
+evidence, Eigenes-Run-Pflicht). ls-remote == head WOERTLICH.
+GRENZEN: KEINE .github-/workflow-aenderung (die stelle ist bereits richtig: ci.yml:803 ruft das skript),
+KEINE subagenten, KEINE tests geloescht, KEIN rerun als ersatz fuer analyse, scratch nie in der
+oekosystem-wurzel; bei schreibfehlern zuerst `df -h /tmp` melden.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/ci-delivery/boundary-2.md (drei faelle a/b/c
+woertlich, ls-remote, punkt-abgrenzung; keine markdown-checkboxen).
+END an f49a3303: "END_DONE cx05-ci-skip-fix: head=<sha10> ohne_variable=<rot belegt> mit_variable=<gruen>
+mutation=<rot> abgrenzung=<3 zeilen> lsremote=<sha10> | <Satz>"

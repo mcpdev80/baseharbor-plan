@@ -1,0 +1,40 @@
+ROLLE: Worker (Lane w130). Coord f49a3303. KARTE: t-20261018-r27-node-service (Welle 4, Runde 2).
+REPO: baseharbor-node-connector. ZWEIG: work/r27-node-service (PR #19, head 78b3c4f3c3, origin/main ist
+Vorfahr — nachrechnen und im END belegen). KEIN neuer Zweig, KEIN zweiter PR.
+
+Luna review-19a verdict=REJECT (akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-19a.md, VOR dem
+coding vollstaendig lesen). Vier rezepte plus ein plattenfest Fundamentales:
+
+(0) QUELLFORMAT — der gehostete check `source` ist ROT, und zwar berechtigt: gofmt -l zeigt
+    cmd/baseharbor-node-connector/main.go und internal/nodeservice/nodeservice.go. gofmt -w ueber genau
+    diese dateien, `gofmt -l cmd internal` muss LEER sein; das ist die kleinste echte Gate-Heilung.
+(1) internal/nodeservice/systemd.go: ECHTE rootless-user-unit installation und -entfernung — validierte
+    ExecLine, XDG-user-pfad der unit-datei, daemon-reload, unterstuetzte systemctl-kommandos, explizite
+    Lingering-Politik. Install meldet NICHT erfolg nach blosser Manager-Probe; Remove stoppt, deaktiviert
+    und loescht die EIGENE unit durch unterstuetzte operationen (nicht rm-only, nicht probe-only).
+(2) cmd/baseharbor-node-connector/: der produktions-pfad kann den lebenszyklus wirklich aufrufen
+    (install/start/restart/uninstall als ausfuehrbarer befehl, beschaenkt auf die eigene unit).
+(3) internal/nodeservice/nodeservice.go: ausdrueckliche PRUEFUNG vor JEDEM nebenwirkung (unit- oder
+    metadaten-griff); ErrUnauthorized entfernen oder wirklich benutzen; die Reihenfolge autorisierung vor
+    schluessel/netz in BootstrapEnroll bleibt erhalten.
+(4) internal/nodeservice/nodeservice_test.go: Restart-Tests zeichnen die tatsaechlichen aufrufe auf und
+    vergleichen sie mit start; fehlende autorisierung als MUTATION mit dem beweis dass null manager- und
+    null store-effekte bleiben; doppelte installation/erneute anmeldung erzeugt KEINE zweite unit; die
+    bestehende regression die den geschuetzten schluessel erhaelt bleibt drin.
+
+NACHWEISPLICHT (ohne den gilt runde 2 nicht als geliefert):
+ - gehostete pruefungen deines kopfs bis TERMINAL beobachten und ergebnis in der evidence (lauf-id, status).
+   Die zwei bisher uebersprungenen nativen laufe muessen auf deinem kopf tatsaechlich laufen; erklaere in
+   der evidence warum ein lauf uebersprungen bleibt, wenn er es tut.
+ - NATIVER Rauchtest: begrenzter durchlauf install -> status -> restart -> uninstall (plus lingering-stand)
+   auf einem rechner mit echtem user-manager. Wenn DAFUER kein user-manager verfuegbar ist: NICHT erfinden
+   und NICHT als success melden — STOP + MELDEN mit dem befehl und der ausgabe, die das belegen, dann
+   organisiere ich den lauf ueber eine andere lane.
+ - BELEG-Regel: ls-remote == head woertlich; merge-base --is-ancestor origin/main HEAD; git diff
+   origin/main...HEAD --name-only wortlich in die evidence (nur dateien dieses schreibguts).
+
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN merge, KEIN .github-eingriff in einem anderen repo, KEINE
+tests geloescht oder auf 'erwartet fehler' umgeschrieben, scratch nie in der oekosystem-wurzel; bei
+patch-/schreibfehlern zuerst `df -h /tmp` melden (tmpfs-Kontingent, RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-2.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE w130-connector-r2: head=<sha10> gofmt=<leer> lifecycle=<echt> autorisierung=<vor nebenwirkung> native=<rc0|STOP-melden> lsremote=<sha10> | <Satz>"

@@ -1159,3 +1159,18 @@ kein fall. demo-ast hinter main = ebefalls historisch (#128 gemergt).
   vertrauen schalterabhaengig, kein echter short-write-seam, canary nicht je kategorie, rundlauf teilfelder,
   consumer-pfad offen) -> w129 frisch ab develop (alter zweig traegt fremde history).
 - w128 released (arbeit auf platte + PR #1377), w111/w121 zuvor released.
+
+## ~02:05 urteile angenommen, zwei korrekturen angesetzt, eine eigentumsfrage erledigt:
+- review-1377a REJECT (ci-delivery): 6/7 punkte bestanden, es fehlt GENAU der scheingruene fall — beide tests
+  SKIPpen bei ungeseteter variable (`go test` = PASS). korrigiert cx05 auf demselben zweig (ohne variable ROT
+  mit klarer meldung, mit variable GRUEN, mutation ROT).
+- review-19a REJECT (connector #19): der source-check ist BERECHTIGT rot (gofmt -l nennt main.go +
+  nodeservice.go, von mir nachgemessen), dazu fehlt die echte benutzer-unit. korrigiert w130 (ornith) auf
+  demselben zweig, mit nativem rauchtest-nachweispflicht und STOP-regel statt erfinden.
+- review-1363c REJECT -> w129 (runde 5) meldete REZEPT 7: das paket hat KEINEN produktions-konsumenten
+    (nur eigene tests importieren es). EIGENTUM KLAR GEMACHT statt still durchgewunken: konsumenten-vermerk
+    auf t-20261018-r27-public-surfaces (genau dafuer angelegt) + abgrenzung auf der codec-karte; w129 liefert
+    rezepte 1-6 und dokumentiert den grep-beweis.
+- cx04 klassifikation uebernommen: A:3 B:1 C:0 — die drei A-befunde sind echte produktfehler auf ANDEREN
+  karten (mig. rollback -> device-enrollment, app-edit openbao-admin -> state-owner, gofmt -> node-service)
+  und werden von der DSN-aenderung NICHT geheilt; steht in boundary-1.md.
