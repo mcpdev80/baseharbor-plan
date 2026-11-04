@@ -1448,3 +1448,11 @@ kein anwendungs-zerstoerer-fehler) — nicht still als 'funktioniert doch' abgel
 echte luecke im zerstoerungs-pfad, dann rot-auf-dem-ausgangsstand DIESES astes statt auf einem toten commit.
 genau dafuer habe ich die rot-auf-alt-regel (§5.6): sie verhindert betrug UND verhindert, dass eine echte
 luecke unter 'kann man nicht reproduzieren' begraben wird.
+
+## ~10:30 BEIDE TEST-RECHNER AUF DEM AKTUELLEN SCHNITT (von mir auf den Rechnern nachgemessen, nicht der
+meldung gefolgt): baha --version liefert `BaseHarbor develop` + ZEILE `commit 2ea2c6f1d34...` + bauzeit,
+installationsdatei 20:23 Uhr, 51 MB. die fruehere zeile "BaseHarbor 0.4.23" war diefele tag-injektion von
+main.version im release-pfad — erklaert, kein verlust. damit gilt wieder: laeufe auf diesen rechnern sind
+nachweise FÜR den geprueften schnitt, nicht fuer einen zufaellig installierten.
+zustimmungskarte: w138 mit der VIER-ZELLEN-messung (develop/kandidat × isoliert/geteilter stapel) statt
+meiner entscheidung aus dem kopf; verbindungskodierung: m1363 laeuft (squash + inhaltdiff-beweis).

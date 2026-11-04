@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane w138, fortsetzung). Coord f49a3303. KARTE: t-20261104-r27-consent-abort-leaves-undestroyable-state
+KLASSIFIKATION (kein fix-auftrag, keine produkt-aenderung).
+
+DEIN STOP IST ANGENOMMEN: "kein produktkrankes commit belegbar, blob identisch, beide verlangten tests gruen
+auf c24a6c7c bei echtem CLI-lauf, kuenstliche stilllegung waere betrug" — richtig gemeldet, richtig gestoppt.
+Ich entscheide die karte jetzt NICHT aus dem kopf, sondern lasse sie ausmessen.
+
+VIER ZELLEN, je zelle: befehl, rueckgabewert, wortliche ausgabe (max 3 zeilen), umfeldbeschreibung:
+ (A) ENTWICKLUNG (develop 2ea2c6f1, OHNE dein ast) + ISOLIERTE umgebung (rootless, eigener pfad):
+     anlegen, auslieferung mit FEHLENDER kennung ablehnen lassen, dann ECHTER zerstoerungsbefehl.
+ (B) ENTWICKLUNG + dem UMSTELD-TYP der urspruenglichen meldung: ein stapel mit geteiltem netz, zerstoerung
+     ueber den anwendungs-befehl (die lage auf dem podman-rechner, aus der der fehler zuerst kam).
+ (C) DEIN KANDIDAT (edd38d31) + isoliert (hast du schon, in dieselbe tabelle).
+ (D) DEIN KANDIDAT + geteiltes netz.
+
+ENTSCHEIDUNGSREGEL (wende sie NICHT selbst an, melde nur was gemessen ist):
+ - ist A=erfolg und B=fehlgeschlagen => das produkt ist an der stelle korrekt, die karte beschreibt eine
+   stapel-/betriebs-eigenheit. ich aendere dann titel/akzeptanz der karte (sichtbar, mit belegen), damit sie
+   nicht als "funktioniert doch" verschwindet.
+ - ist A=fehlgeschlagen => echte luecke im zerstoerungs-pfad (eigentum wird nicht gefolgert). dann folgt ein
+   zweiter auftrag mit korrektur und ROT-AUF-DEM-AUSGANGSSTAND DIESES astes, nicht auf einem toten commit.
+
+ZUSAETZLICHE LESARBEIT (read-only, KEINE aenderung): pruefe ob der zerstoerer die eigentums-info aus der
+stapel-definition SELBST lesen koennte (datei:zeile + der satz, was dort stehen wuerde) statt aus dem
+anwendungs-zustand. das ist die stelle, um die es der karte inhaltlich geht; eine aenderung daran ist
+Eigentum der betriebs-seite und braucht deine meldung, nicht deinen pinsel.
+
+GRENZEN: KEINE produkt-/workflow-aenderung, KEIN merge, KEINE subagenten (AGENTS §4.8), KEIN rerun als
+ersatz fuer analyse, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp (RUNBOOK
+§6.2b). geteilte stapel der rechner NICHT zerstoeren oder umbauen — fuer (B)/(D) einen EIGENEN stapel mit
+geteiltem netz in deinem projekt, oder die messung auf dem podman-rechner nur dort fuehren, wo sie den
+gemeinsamen zustand nicht antastet (sonst STOP + MELDEN).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/classification-1.md (tabelle A-D mit
+befehlen/rc/wortlichen zeilen, dazu der datei:zeile-block zur eigentums-info; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w138-consent-classify: A=<rc> B=<rc> C=<rc> D=<rc> eigentumsquelle=<datei:zeile|unklar> lsremote=<sha10> | <Satz>"
