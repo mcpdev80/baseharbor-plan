@@ -1700,3 +1700,12 @@ Bereinigung. Keine Worker-Änderungen an diesem PR bis zur Übergabe. Alle ander
 korrekturrunde), die anderen vier reviews laufen weiter, (b) karte auf besitzer=chatgpt umgetragen,
 zustand bleibt review (kandidat 24c9ac5c liegt unverändert), (c) w138 war längst freigegeben — keine lane
 fasst den zweig an. WICHTIG: das ist KEIN stop für alle anderen lanes (explizit gesagt).
+
+## ~22:55 #1375 IST MERGED DURCH OWNER-SEITE (ea3fb38e, 21:42Z). Karte geschlossen (HTTPS-Belege —
+regelwerk-blockierte sonst, das ist gut so). r1375c gegenstandslos, Luna annulliert. develop ist VORGESCHLOSSEN:
+alle laufenden Kandidaten brauchten Basis-Refresh — w148 spaet dafuer auf dem freien desktop-Sitz, drei Aeste,
+merge statt rebase, log-zeilen-beleg pro ast. RAM: /dev/shm vollstaendig leer (2.3G), /tmp 9.7G->8.0G; der Rest
+sind tmpfs-bewohner lebender lanes (w147 worktree in /tmp/opencode — inhaltlich merkwuerdig, lane nutzte RAM
+statt scheibe; beim naechsten handoff auf §6.2d hinweisen).
+LEHRE TICK: der 10-min tick war die ganze shift taub (coordinator nie genau im sample-slot idle). Neu:
+DUE-MARKER + basics-check-FLAG, damit das pflichtprogramm auch ohne perfekten idle-slot haelt.

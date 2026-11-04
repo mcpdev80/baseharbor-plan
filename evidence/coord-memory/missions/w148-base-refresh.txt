@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w148). Coord f49a3303. KEIN Feature — nur Basen heben, PRs bleiben dieselben.
+REPO: baseharbor. DREI zweige, nacheinander, je MIT BELEG:
+ (1) work/w96-production-wiring-f8ef4255 (PR #1371) — ACHTUNG: die lane runde-5 arbeitete darauf; erst
+     git log ansehen: wenn dort neue commits (kaeltestart-fix) liegen, SIE NICHT beruehren, nur develop
+     reinmergen. wenn nichts neues: develop ea3fb38e reinmergen.
+ (2) work/r27-native-auth (PR #1362, kopf 848d9512728)
+ (3) der zweig hinter PR #1369 (team-auth, kopf a7fa573d5b)
+PRO ZWEIG: git merge origin/develop (KEIN rebase, KEIN kraft), konflikt => STOP + MELDEN mit datei nur fuer
+DENN zweig, andere zwei weiter. Danach: push NORMAL auf denselben zweignamen (KEIN force), ls-remote gegen
+die ECHTE adresse fur den neuen kopf, git log --oneline origin/develop..HEAD muss zeigen: nur eigene commits
++ ein merge-commit (kein artfremder kopf). PR-HEADs muessen sich selbst aktualisieren; PRs NICHT schliessen.
+Wenn ein zweig develop ea3fb38e schon enthaelt: nichts tun, das ist ein beleg (ancestor rc=0).
+GRENZEN: KEINE inhaltliche aenderung, KEINE tests umschreiben, KEINE .github, KEIN AGENTS.md-Anfassen,
+KEINE subagenten. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/base-refresh/refresh-2.md
+(drei zweige: vorher-kopf, nachher-kopf, ls-remote wortlich, log-zeile).
+END an f49a3303: "END_DONE w148-base-refresh: e1371=<sha10|schon-drin> e1362=<sha10|schon-drin> e1369=<sha10|schon-drin> lsremote-ok=ja|nein | <Satz>"

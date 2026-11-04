@@ -68,5 +68,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Ruecknamedatei, AGENTS.md aus dem Antrag. Ausloeser: erster freier Sitz (ornith/laptop voll).
 - w147-journal-r4.txt — LAEUFT auf sitz (ornith laptop).
   sleep-freie Tests (Luna review-1373c REJECT, drei Rezepte). Auslöser: erster freier Sitz.
-- Basis-Refresh #1369/#1362 (war Codex-Worker-Mission, durch Owner-Direktive verlassen): zwei Äste auf
+- Basis-Refresh LAEUFT als w148 (alle drei Äste auf develop ea3fb38e).
   develop e444ae11 heben, Exakt-SHA-Reviews danach neu. Auslöser: zweiter freier Sitz.
