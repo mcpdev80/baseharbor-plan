@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS ci-delivery (hebelkarte, runde 2).
+OBJEKT: baseharbor PR #1377 head 5b2fbb65c35 branch work/r27-ci-delivery-dsn base develop (Vorfahr von mir
+nachgerechnet; gates TERMINAL 8 pass / 0 fail / 10 skipping; mergeable). KARTE t-20261022-r27-ci-delivery.
+VORGESCHICHTE: 1376 aus falschem basis-zweig (geschlossen), 1377a REJECT wegen scheingruen (t.Skip bei
+fehlender variable). DER NEUE KOPF wandelt genau diese ueberspringung in ein echtes fehlagen um.
+PRUEFEN SHA-genau read-only (gegen DEIN recept aus 1377a, nicht gegen die lane-meldung):
+ (1) write-set: diff name-only = genau die zwei integrationstests (keine produkt-, keine workflowdatei),
+ (2) KEIN t.Skip mehr in den betroffenen zeilen; die meldung ist eindeutig und nennt die fehlende
+     testumgebung, ohne connection-refused-geraeusch zu imitieren,
+ (3) EIGENE messung: ohne variable => das paket wird ROT (exit 1) und der test gilt als fehlgeschlagen,
+     NICHT als uebersprungen; mit korrekter skript-DSN => beide tests GRUEN und ausgefuehrt,
+ (4) EIGENE mutationsgegenprobe: variable auf unreachbaren port => ROT (beweis echtes pruefen),
+ (5) dieselbe quelle wie scripts/pr-unit-database.sh (keine zweite wahrheit, kein zweiter port),
+ (6) keine tests geloescht/umgeschrieben zu 'erwartet fehler' (diff der testkoerper gegen develop),
+ (7) pakettests ./internal/database + go build + go vet + gofmt auf dem exakten kopf.
+URTEIL -> review-1377b.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1377b: verdict=<X> open=<liste|none> | <Satz>"
