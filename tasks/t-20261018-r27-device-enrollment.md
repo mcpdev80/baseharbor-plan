@@ -99,3 +99,9 @@ management-einstieg. Ausschliesslich ergaenzend, keine umordnung, keine fachfrem
 targetenrollment + fremde register bleiben HEILIG. Wenn ein teil dieser drei komponenten groesser wird als
 die erlaubnis traegt: HALT + END_BLOCKED mit datei:stelle. Basis-Vorfahr develop f8ef4255; gates terminal;
 ls-remote==head.
+
+
+## Coordinator-Umleitungs-Vermerk 2026-11-04 (w96 production round)
+- #1364 geschlossen (superseded, begruendung + diff-beleg im close-comment): rebase auf develop f8ef4255.
+- Neuer Kandidat: PR #1371 (draft) branch work/w96-production-wiring-f8ef4255 head fb701991;
+  prototyp + produktionspfad-verdrahtung, 14 eigene dateien im namespace + store dauernd + policy-quelle.

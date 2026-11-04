@@ -51,4 +51,23 @@
 
 ## END
 
-END_BLOCKED w96-enroll-production: <reason or head>
+END_DONE w96-enroll-production: head=fb701991750c base=f8ef4255 route=management-policy(store=dauerhaft) faelle=3+3 lsremote=fb701991750c
+- ROLE=WORKER, lane w96, Coord f49a3303. Task t-20261018-r27-device-enrollment.
+- Candidate committed fb701991750c02021d7b062448ad3cd13a7f18d2 on branch
+  work/w96-production-wiring-f8ef4255 (base f8ef4255), pushed to origin, ls-remote==head.
+- 9 files written: internal/database/workstation_enrollment.go (durable pgx tenant-local
+  store, fail-closed), migrations/0009_workstation_enrollment.sql + .down.sql (NEW
+  workstation_enrollment_grants + _registry, next free number 0009, no connector_* touched),
+  internal/workstationenrollment/http/production_handler.go (scope from tenancy, not request),
+  cmd/baha/workstation_enrollment.go (pins managed-local OpenBao), additive server_run.go +
+  server.go Config field. Slice files from accepted slice 2a4df949.
+- 9 production-path cases (internal/workstationenrollment/http/production_handler_test.go):
+  bootstrap scope-from-tenant (3: success, malformed station, unauthenticated),
+  enroll second-use rejected (logged 403), expiry rejected (no live grant),
+  foreign-tenant scope fails closed (3), registry-fakt persisted with separate
+  workstation SPIFFE identity (1), handler hygiene method/body/path. All pass.
+  Durable-store duplicate-live-grant + restart-safe consume covered by
+  internal/database/workstation_enrollment_integration_test.go (skips without
+  BASEHARBOR_TEST_DATABASE_URL).
+- go build ./... clean, go vet clean, gofmt clean, slice/http/db tests green.
+- Commit focused: git add specific files only, baha binary NOT committed.
