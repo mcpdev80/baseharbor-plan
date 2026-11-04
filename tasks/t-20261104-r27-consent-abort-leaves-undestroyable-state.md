@@ -18,15 +18,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/deployment #kind/bug
+- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/planned #view/ready #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  

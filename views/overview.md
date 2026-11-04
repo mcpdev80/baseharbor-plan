@@ -12,12 +12,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | ---: |
 | active | 11 |
 | review | 4 |
-| blocked | 1 |
-| ready | 1 |
+| blocked | 0 |
+| ready | 3 |
 | queued | 26 |
-| waiting | 209 |
+| waiting | 207 |
 | backlog | 7 |
-| closed | 109 |
+| closed | 110 |
 
 ## Active
 
@@ -46,20 +46,20 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | Deployment: define immutable source and image submission | blocked | critical | coord-welle3 (lane w39) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md) | — |
+None.
 
 ## Ready to assign
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
+| [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | Deferred trusted CI readiness: delivery | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
+| [t-20261104-r27-consent-abort-leaves-undestroyable-state](../tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md) | Deployment: refused candidate apply must leave destroyable state | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 60 open, 45 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 59 open, 46 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
