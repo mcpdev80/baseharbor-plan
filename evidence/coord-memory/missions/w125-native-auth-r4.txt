@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w125). Coord f49a3303. KARTE: t-20261018-r27-native-auth, PR #1362 (zweig
+work/r27-native-auth). ACHTUNG REIHENFOLGE: cx02 bringt den zweig gerade auf develop ecbb8854 — warte meinen
+befehl zum start ab bzw. beginne NUR lesen (akte + code), änderungen erst auf dem aktuellen kopf.
+Luna review-1362b REJECT. Akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-1362b.md (vollstaendig
+lesen). Rezept, wortgetreu:
+ (1) internal/credential/native/broker.go + der ECHTE credential-abfrage-aufrufer: broker wird VOR jeder
+     interaktiven eingabe befragt. aktuell ist er nicht in den fluss eingebunden.
+ (2) ein boolean "gefunden" OHNE inhalt darf KEIN erfolg sein — die aufgeloeste kredenz läuft ausschließlich
+     ueber den bestehenden geschtzten in-memory-vertrag weiter zu downstream auth.
+ (3) dokumentierter fallback bleibt fail-closed wenn keine native quelle aufloest; KEINE secrets in fehlern
+     oder logs.
+ (4) TESTS: end-to-end gegenprobe auf AURUFER-ebene mit gesetztem nativem treffer (a) helper wird befragt,
+     (b) der echte prompt-/interaktions-callback wird NICHT gerufen, (c) die kredenz kommt beim nachfolger an;
+     dazu regression in internal/credential/native/caller_test.go + die bestehenden faelle unveraendert.
+GRENZE: KEINE .github-/workflow-/scripts-pr-unit-database-aenderung (lane w122-Feld), KEIN hardcodierter
+DB-port, KEINE subagenten, KEIN merge, PR-status unangetastet. develop-Vorfahr im letzten schritt, push,
+ls-remote==head WÖRTLICH, gates bis terminal beobachten.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/native-auth/round-4.md (keine checkboxen).
+END an f49a3303: "END_DONE w125-native-auth-r4: head=<sha10> broker=<im-pfad-vor-prompt> empty-found=<kein-erfolg> fallback=<fail-closed> geg enprobe=<belegt> lsremote=<sha10> | <Satz>"

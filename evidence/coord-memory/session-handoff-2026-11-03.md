@@ -1023,3 +1023,22 @@ fehlt in der fixture; befehl raus: fixture-stufe 2, test-only, gegenprobe rot/mi
 ecbb8854 als Vorfahr, danach gebe ich die abnahme frei. Seine drei rezepte (secret-felder, atomarer commit,
 vertrauenspflicht) meldet er belegt; lokale checks gruen, gehostete rote checks fallen in die PG-/Docker-
 umgebungsklasse von w122. karte state-owner blocker-text auf den neuen stand gehoben (render+check, publiziert).
+
+## ~21:0x DAUERBEFUND (wichtig, an owner): coordinator/-repo hat KEIN fernlager (git remote = leer, branch
+master, agent-workflow-coordinator auf github ist das produkt-repo nicht unsernotizbuch). heisst: bis gerade
+lagen mein schicht-protokoll, missionen, queue und alle befehle-only-auf-der-platte-dieser-vm. gegengemaakt:
+coordinator/scripts/sync-memory.sh via cron */10/15 — spiegelt handoff + missions + QUEUE nach
+baseharbor-plan/evidence/coord-memory/ (erste spiegelung publiziert, 3 dateien + ordner). FRAGE AN DICH:
+richtig waere ein eigenes privates fernlager fuer coordinator/ (dann ist auch script-/pool-anderung
+ausserhalbs der VM gesichert) — soll ich eines anlegen oder willst du das repo selbst einrichten?
+
+## ~21:25 zwei ABLEHNUNGEN angenommen und eingeordnet:
+- native-auth #1362 (a3eee132) REJECT = PRODUKTLuecke: broker haengt nicht im echten abfragepfad vor dem
+  prompt, und "gefunden ohne inhalt" gilt als erfolg. karte -> active, mission w125 geschrEIBEN (wartet auf
+  cx02s neuen kopf, damit niemand auf alter basis ba ut).
+- execution-journal #1373 (11ed442e) REJECT = KEIN code-fehler: zwei datenbank-integrationstests +
+  scripts/pr-unit-database.sh nutzen verschiedene ports (5432 hart vs. konfigurierte test-url). Luna sagt
+  ausdruecklich: separate CI-fixture-berichtigung, PR-write-set NICHT verbreitern. karte -> blocked mit
+  begruendung + naechstem ausloeser (lane w122), danach neue exakte-SHA-pruefung.
+- w122 hat befehl: DSN-herkunft in den tests beheben (test-seitig, sein feld), workflow-zeile ci.yml:802
+  unangetastet lassen (owner-vorlage), migration-0009-befund nur belegen (anmeldungs-kette).

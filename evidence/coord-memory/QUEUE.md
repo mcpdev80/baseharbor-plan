@@ -5,7 +5,8 @@ Lane dispatcht wurde. Der Audit-Punkt "POOL" zeigt beim Tick, ob ein Platz frei 
 
 | # | Mission | Warum noch nicht dispatcht | Nächster Auslöser |
 | --- | --- | --- | --- |
-| 1 | coordinator/missions/w123-codec-r3.txt | Pool 5/5 belegt | Profil-Kodierung Runde 3 (review-1363b REJECT: secret-felder, atomarer commit, vertrauenspflicht, vollständiger rundlauf, gates) |
+| 1 | coordinator/missions/w125-native-auth-r4.txt | Pool 5/5 | native-auth runde 4 (review-1362b REJECT: broker nicht im pfad, leer-treffer == erfolg) |
+| 2 | coordinator/missions/w123-codec-r3.txt | Pool 5/5 belegt | Profil-Kodierung Runde 3 (review-1363b REJECT: secret-felder, atomarer commit, vertrauenspflicht, vollständiger rundlauf, gates) |
 | 2 | ~~w121-podman-rebuild~~ | ERLEDIGT-DURCH-ANDEREN | Podman-Host läuft jetzt in codex-ops-podman (zweite Codex-Instanz, Owner-Direktive 17:5x). w121 bleibt als Fallback-Mission, wird NICHT doppelt dispatcht (ein Host, ein Bearbeiter). |
 | 3 | VM-Folgeauftrag Docker-Host: keycloak-stapel crasht in schleife (datenbankzertifikat wird stapeluebergreifend falsch aufgeloest) — down/up mit berichtigter zertifikatsangabe, definition liegt vor | Pool 5/5 belegt | naechster freier ornith-sitz |
 | 4 | ~~w119-journal-r2~~ | ERLEDIGT | wurde von cx01 (Codex-Worker) geliefert: head 11ed442e, Karte auf review, Luna prueft | Pool 4/4 | Ausführungstagebuch-Runde 2 (Codex review-1373a REJECT, fünf Rezepte) |
