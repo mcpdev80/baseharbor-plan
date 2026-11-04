@@ -656,7 +656,7 @@ def card_line(vault, task):
         tags.append("#board/planned")
     tags += ["#area/" + a for a in sorted(task.get("areas", []))]
     tags.append("#kind/" + task["type"])
-    return (f"- [{{'x' if task['done'] else ' '}] {task['id']} · {task['title']} "
+    return (f"- [{'x' if task['done'] else ' '}] {task['id']} · {task['title']} "
             + " ".join(tags) + ((match.group("completed") or "") if task["done"] else ""))
 
 
