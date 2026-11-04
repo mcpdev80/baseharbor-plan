@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w135). Coord f49a3303. KARTE: t-20261018-r27-native-auth (Basis-Auffrischung nach der
+Hebelkarten-Verbindung). REPO: baseharbor. ZWEIG: work/r27-native-auth (PR #1362, kopf 0a67092ca31).
+KEIN zweiter zweig, KEIN zweiter PR, KEIN merge, KEIN force-push.
+
+NEUE LAGE (plattenfest, von mir nachgerechnet): develop ist 2ea2c6f1 — die beiden datbank-pruefungen lesen
+ihre verbindung dort aus BASEHARBOR_TEST_DATABASE_URL und SCHLAGEN FEHL wenn die umgebung fehlt (statt zu
+ueberspringen). Dein zweig ist aelter und faellt genau deshalb auf den beiden stellen rot.
+
+AUFGABE (nur basis, kein umbruch):
+ (1) git fetch origin; merge-base --is-ancestor origin/develop HEAD pruefen; ist develop NICHT Vorfahr,
+     origin/develop in den EIGENEN zweig MERGEN (kein rebase-umschreiben der Geschichte),
+ (2) KONFLIKT in den zwei datbank-tests: nimm develop als inhalt (die loesung ist dort angenommen), nicht
+     deinen alten stand — vermerke jede so geloeste stelle in der evidence,
+ (3) AN DEINEM eigenanteil aenderst du NICHTS (die vier git-stellen, der helfer, die pakete bleiben wie
+     geprueft); solltest du beim mergen sehen, dass ein konflikt DEINE stelle anfasst, loesage die
+     UEBERNAHME der develop-DSN-loesung, aber keine funktions-aenderung,
+ (4) BELEG vor dem END: ls-remote == dein kopf WOERTLICH; merge-base --is-ancestor origin/develop HEAD rc=0;
+     diff origin/develop...HEAD --name-only (liste wortlich) — es muss weiterhin NUR dein anteil sein
+     (cmd/baha + internal/credential/native + internal/development + internal/orgconfig),
+ (5) GEHOSTETE LAEUFE BIS TERMINAL beobachten und notieren (lauf-id, pruefname, status, wortliche fehlzeile
+     falls rot). Erwartung: die datbank-paarung wird GRUEN. Was weiterhin rot bleibt (z.B. der
+     anwendungs-aenderungsdurchlauf, der den verwalteten tresordienst braucht) ist ein ANDERER befund auf
+     karte t-20261018-r27-state-owner — als solchen in der evidence BENENNEN, nicht reparieren.
+GRENZEN: KEINE .github-/workflow-aenderung, KEINE subagenten (AGENTS §4.8), KEINE tests geloescht, KEIN
+rerun als ersatz fuer analyse, KEIN merge, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst
+df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/native-auth/base-refresh-1.md (keine checkboxen).
+END an f49a3303: "END_DONE w135-native-auth-base: head=<sha10> basis=<develop sha10> ancestor=<ja> db-paarung=<gruen|rot+grund> rest=<klasse+grund> lsremote=<sha10> | <Satz>"

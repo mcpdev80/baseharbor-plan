@@ -40,3 +40,9 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Abschluss muss weg, Kurzschreib-Beweis mit n<len-Wert, Vertrauen ohne Schalter, Rundlauf mit vollständigem
   Datensatz plus goldenen Bytes, Canary je Kategorie, Aufräumfehler typisiert, EN/DE parallel.
   Nächster Auslöser: erster freier Worker-Sitz (der_codec-Kopf 064ba01820b bleibt bis dahin in review).
+
+## Einstweilen (2026-11-04, ~04:40) — nach der Hebelkarten-Verbindung (develop 2ea2c6f1)
+- w135-native-auth-base.txt — PR #1362 auf neue Hauptlinie mergen (nur basis, DB-Paarung muss grün werden),
+  der restliche Fehl (Anwendungsänderung / Tresordienst) als Befund von t-20261018-r27-state-owner BENENNEN.
+  Auslöser: erster freier Sitz. Danach analog für #1369 (team-auth, falls dasselbe Bild) und #1347.
+- Bereits angesetzt: w134 (Journal #1373) läuft.
