@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w143)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,14 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w143) · **Priority:** normal  
     **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -150,3 +150,14 @@ ls-remote==head.
   fliegt raus, die Regel ableitung bleibt.
 - Korrekturrunde = Lane w143 auf demselben Ast; die Überspringung in den drei Dateien gehört zu diesem Feld,
   alle anderen Überspringstellen bleiben bei der eigenen Karte (PR #1378), damit keine Doppelung entsteht.
+
+## Handoff 2026-11-04 (Runde 4, plattenfest nachgemessen)
+- Kandidat: PR #1371, Zweig work/w96-production-wiring-f8ef4255, Kopf f4ec625f801 (ls-remote == Kopf),
+  develop e444ae11 ist Vorfahr; Prüfprotokoll 16 grün, null rot, zehn nach Auswahlregel übersprungen.
+- Die Namensfestschreibung ist raus (von mir im Zweig gesucht: kein Treffer), die höchste Stufe wird aus der
+  geordneten Liste abgeleitet; die Gegenprobe mit vertauschten Stufen folgt weiter der Liste und lässt die
+  früheren Stufen unangetastet.
+- Die drei Datenbankprüfungen schlagen ohne gesetzte Verbindung fehl (je eine Fehlstelle in der Datei, kein
+  Überspringen mehr) und sind mit der Skriptverbindung ausgeführt grün; der Vergleich auf Deiner alten und
+  neuen Grundlage sowie auf dem Kandidaten ist dokumentiert.
+- Beweissammlung auf der Platte (rollback-2.md).

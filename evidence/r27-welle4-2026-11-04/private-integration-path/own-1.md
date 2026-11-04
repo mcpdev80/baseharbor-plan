@@ -53,6 +53,12 @@ The load-app binding resolution routes to a COMMON (shared) bridge because of tw
 Running example (unit-level), file:internal/application/footprint.go:283:
 - A manifest requesting SQL (sql=true) with no explicit binding resolves id to the first ScopeShared postgres instance in the registry. No application-scoped or private postgres instance can be selected through ResolveFootprint — the manifest has no field to request one. This is the COMMON-bridge resolution the finding describes (Umgebungsbindeglied nach Rechnername = the shared, hostname-derived target backend).
 
+Verified with a focused unit test `internal/application/r27_private_integration_cause_test.go` (`TestPrivateIntegration_NoSwitchResolvesSharedBridge`), run rc=0, PASS:
+- `ResolveFootprint(New("demo","dev",sql=true), snapshot, nil)` returns the single shared postgres `sql/shared` (the common bridge). rc=0.
+- `manifestFields(Manifest)` contains no field named Private/Standalone/Profile/PrivateMode/Isolated — no switch exists to select a different backend.
+- Command: `go test ./internal/application/ -run 'TestPrivateIntegration_NoSwitchResolvesSharedBridge' -count=1 -v` -> PASS.
+- Note on tooling: the go.mod toolchain go1.26.9 could not be fetched (tmpfs /tmp full); build/test ran on local go1.26.8 with GOTOOLCHAIN=local, GOMODCACHE pointed at the populated system cache, GOCACHE/TMPDIR under /home (NOT the shared stray .gopath). go.mod toolchain directive reverted to its original value after verification.
+
 ## (2) Minimal private path — evaluation
 
 - To give a load-app its own DB + own KV in an own network, the switch would have to be read inside ResolveFootprint / ResolveProviderPlan (footprint.go:283) and the Manifest (manifest.go). The shared backend is authored by internal/application/shared_backends_runtime.go and shared_backends.go; it is the one target backend.
