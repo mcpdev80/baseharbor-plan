@@ -1744,3 +1744,12 @@ karten (haengerliste nach abhaengigkeits-closure) nicht durchgerechnet hatte —
 kapazitaets-fehler. ab jetzt Teil des ticks: 'welche karten haben ALLE abhaengigen geschlossen?' steht als
 AKTION in coord-state, wenn ein sitz frei ist und die antwort nicht leer ist. flash-kanal war 0/0 (existiert
 nicht mehr seit 2026-11-02) — spawn mit --flash ist damit ein fehlerpfad; notiert.
+
+## ~23:58 w152 zwischenstand (END_BLOCKED): BEIDE ZELLEN auf neutralem boden sauber (port 55000, read-only)
+— der blocked-teil war die SANDBOX-PORT-sache der prueferin, NICHTS am produkt. evidence-Datei noch im
+schreiben (STATUS DONE, rohe ausgaben folgen). Gate-Regel danach: positvzelle + terminal grüner lauf
+41922518146 => r1378c kurz-AUFTRAG an Luna wenn die ausgaben auf scheibe liegen. w151 arbeitet noch.
+
+## ~23:45 TICK-SICHTBARKEIT eroertert (owner-frage): kein fehler — idle-only design + meine busy-kette.
+Due-marker war gesetzt (sechs wartende, platz=nein — veraltet nach meinem sitzfuillen), jetzt abgearbeitet
+und geloescht. RUNBOOK 2.3a: owner kann jederzeit coord-tick.log sehen (entscheidung pro slot).
