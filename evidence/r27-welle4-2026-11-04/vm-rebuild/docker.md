@@ -1,43 +1,6 @@
 # w116-docker-vm-rebuild — Evidence (Test-VM baha-docker, ssh-alias)
 
-## Neuaufbau (korrigierter Auftrag)
-
-Owner-Korrektur 2026-11-04 17:2x: VM `baha-docker` (und die zweite Test-VM) sind REINE TESTUMGEBUNGEN —
-inklusive der `bh-*shared*`-Stacks darauf. „Nichts angefasst, alles geerbt" war KEIN erfüllter Neuaufbau.
-
-Drei-Punkte-Prüfung (BEGRÜNDUNG vor jedem destruktiven Schritt), angewandt auf die drei laufenden Stack-Projekte:
-
-1. **Aktive Runs / welche Stacks?** Alle drei Stack-Projekte laufen (keine Exited):
-   - `bh-demo-docker-shared` — 6 Container (openbao, openbao-member-1, postgres, postgres-admin, postgres-member-1, postgres-init Exited).
-   - `bh-locl-core-shared` — 2 Container (keycloak-1-1 healthy, keycloak-access-1).
-   - `bh-locl-shared` — 15 Container (seaweedfs node/admin/admin-access, shared-valkey-core-shared-default + access, postgres + admin + member + init-Exited, pgadmin, cache-ui + access).
-2. **Eigentum / lane-eigen?** Alle Compose-Definitionen liegen AUßerhalb jeder Lane unter fest eingebauten `/tmp`-Pfaden:
-   - demo: `/tmp/baseharbor-demo-fixture.Hgdcoz/data/baseharbor/targets/demo-docker/runtime/compose.yaml`
-   - locl-core: `/tmp/pt2/data/baseharbor/targets/locl/providers/keycloak/shared/core/compose.yaml`
-   - locl-shared: `/tmp/pt2/data/baseharbor/targets/locl/providers/seaweedfs/compose.yaml` (+ shared-backends/core + runtime).
-   - Compose-Project-Label `5.5.1`, **kein** `com.baseharbor`-Label, kein w116-Owner-Zuweisungszeichen.
-   - Owner = die Worker/Prozesse, die diese Stacks auf der geteilten VM hochgefahren haben (u.a. w115 + candidate-contract aktiv).
-   **Ergebnis: alle drei Stacks sind NICHT lane-eigen → NICHT neu aufgebaut** (AGENTS 5.6: kein fremdes Working-Set anfassen; „weiß nicht wem das gehört" ist hier kein Grund zum Lassen, aber auch kein Grund, fremde Runs zu zerstören — die Zerstörung fremder Active-Runs wäre der Schaden).
-3. **Wiederherstellungsfolge / Images?** Reproduzierbar wäre nur aus den o.g. Compose-Files + TLS-Ketten
-   (`/run/baseharbor/...` PKI, `./providers/*/runtime/*`) — diese liegen in den `/tmp`-Fixtures der Owner,
-   nicht in w116's Working-Set. Kein reproduzierbarer Neuaufbau aus eigener Lane möglich.
-
-### Lane-eigenes Objekt: baha-CLI selbst (der eigentliche, reproduzierbare Neuaufbau)
-
-Die Test-VMs haben ein `baha` in `~/.local/bin/baha`, v0.4.23 (baha-docker 8.10.; baha-podman 14:54 neu aus Setup-Skript).
-develop = `ecbb8854` (v0.4.27-erie). Jeder Lauf, der `baha` aus dem PATH nimmt, testet 4 Releases alt.
-
-Setup-Skript-Korrektur im Neuaufbau: **baha aus der QUELLREVISION gebaut**, nicht aus altem Released-Paket.
-
-- Definierte Checkout-Revision: `ecbb88545f96473986f8f41394cffce58b97d2df` (develop head / v0.4.27-erie).
-- `git checkout ecbb8854` → sauberer Tree, `go build -trimpath -ldflags "-s -w -X main.revision=$(git rev-parse HEAD)" -o ./cmd/baha ./cmd/baha`.
-- Bauland für `$WORK`/`GOCACHE`/`GOPATH` auf `/` (105G free); `/tmp` ist tmpfs (2.2G → Build-Cache-Overflow behoben).
-- Install nach `~/.local/bin/baha` (mtime 2026-11-04 15:20, 37482761 Byte).
-- PATH: `~/.local/bin` steht in `.bash_profile`/`.profile` VOR `/usr/bin` → `command -v baha` = `/home/marcel/.local/bin/baha` (Neubau), bestätigt in frischem Login-Shell.
-- sha256 des produzierten Binaries: `1f4215e8ff9a88ce98486c3cfbed131470d1a7e7d4a53114d1180759cdf0e292`.
-- Baha läuft: `baha --version` rc=0, `baha --help` rc=0 (CLI-launch geprüft).
-
-### VERSION + REVISION (Owner-Pflichtzusatz, vor END vorangestellt)
+## VERSION + REVISION (Owner-Pflichtzusatz 17:2x, vor END vorangestellt)
 
 ```
 version : baha dev (built from defined checkout, NOT a released v0.4.23 package)
@@ -45,42 +8,112 @@ revision: ecbb88545f96473986f8f41394cffce58b97d2df  (develop head / v0.4.27-erie
 binary  : sha256 1f4215e8ff9a88ce98486c3cfbed131470d1a7e7d4a53114d1180759cdf0e292  at ~/.local/bin/baha
 ```
 
-## Funktionsbeweis
+Provenance: `git checkout ecbb8854` (sauberer Tree, go.mod module github.com/mcpdev80/baseharbor, go 1.25.0),
+`go build -trimpath -ldflags "-s -w -X main.revision=<sha>" -o ./cmd/baha ./cmd/baha`. Bauland fuer $WORK/GOCACHE/GOPATH
+auf / (105G free); /tmp ist tmpfs (2.2G -> Build-Cache-Overflow behoben). Install nach ~/.local/bin/baha.
+PATH: ~/.local/bin steht in .bash_profile/.profile VOR /usr/bin -> `command -v baha` = /home/marcel/.local/bin/baha (Neubau),
+bestaetigt in frischem Login-Shell. `baha --version` rc=0, `baha --help` rc=0.
 
-rootless docker läuft als User-Service für `github-runner`-Zwecke (hier User `marcel`, uid 1000), `enabled`, `linger=yes`.
-Alles ohne sudo, als github-runner-äquivalenter User.
+## Neuaufbau (korrigierter Auftrag)
 
-- `docker version` rc=0 (Engine 29.8.1, containerd v2.3.5, rootlesskit 3.1.0, overlayfs, cgroup v2 systemd).
-- `docker info` (rootless) rc=0; `docker ps` rc=0.
-- rootless-socket `/run/user/1000/docker.sock` (`srw-rw---T marcel 100985`) nutzbar ohne sudo.
-- Port-Mapping rootless sichtbar: `bh-locl-shared-postgres-1 -> 127.0.0.1:15432->5432`,
-  `bh-locl-shared-shared-valkey-core-shared-default-access-1 -> 127.0.0.1:44543->6379`,
-  `bh-demo-docker-shared-postgres-1 -> 127.0.0.1:5432->5432`.
-- `docker build` eines Test-Dockerfiles (FROM alpine:3.22) rc=0 (Build-Cache funktioniert).
-- `docker run --rm alpine:3.22 true` rc=0; lokales `localhost/baseharbor-runtime`-Image rc=0 (entrypoint-Bypass).
+Owner-Korrektur 2026-11-04 17:2x: VM baha-docker (und zweite Test-VM) sind REINE TESTUMGEBUNGEN —
+inklusive bh-*shared*-Stacks. „Nichts angefasst" war KEINelterter Neuaufbau. Vorgehen nach Instruction (1)-(3):
+(1) Definition pro Stapel via working_dir/labels ermitteln; (2) down+up aus DENSELBER Definition; (3)
+Definition fehlt -> BEFUND + STOP.
 
-## Integrationssignal-Test (Auftrag Pkt. 3)
+### Stack-Tabelle (down/up aus existierender Definition)
 
-KEIN gegen 0.4.23. Der einzige gegen die neu gebaute baha-Revision laufende Nachweis ist der CLI-Launch
-(`baha --version`/`--help` rc=0 aus der ecbb8854-Build). Ein produktiver core-integrationstest, der gegen
-den neu aufgebauten keycloak/postgres-stapel läuft, ist auf dieser VM **nicht** aus w116's Lane machbar,
-weil (a) keycloak/postgres-Stacks fremd (`/tmp`-Fixtures, andere Owner) und (b) die w115-probe-db
-(postgres:5433) eine aktive fremde Probe ist. Kein Integrationstest gezählt.
+| Stack | Definition (compose) | down | up | health | port-check | ergebnis |
+|---|---|---|---|---|---|---|
+| bh-demo-docker-shared | /tmp/baseharbor-demo-fixture.Hgdcoz/data/baseharbor/targets/demo-docker/runtime/compose.yaml | rc0 | rc0 | 6/6 service-containers Up | 5432 OPEN (haproxy), 18200 open (curl 0) | FUNKTIONAL |
+| bh-locl-core-shared (keycloak) | /tmp/baseharbor-demo-fixture.c6FkiC/.../keycloak/shared/core/compose.yaml | rc0 | rc0 | CRASH-LOOP (unhealthy) | 8443 nicht listening | CRASH-LOOP -> Stack REMOVED (clean) |
 
-## Aufräumphase
+### Demo-Stack: reproduzierbar rebuilt
+- `cd /tmp/baseharbor-demo-fixture.Hgdcoz/data/baseharbor/targets/demo-docker/runtime`
+- `docker compose --project-name bh-demo-docker-shared -f compose.yaml up -d` (rc0 nach vorherigem down rc0)
+- 6/6 service-containers Up (openbao/openbao-member-1/openbao-admin, postgres/postgres-member-1/postgres-admin),
+  postgres-init Exited(0) (one-shot, env vars ungesetzt = empty-demo, kein Fehler des Rebuilds).
+- openbao health via curl 127.0.0.1:18200 rc0; postgres 5432 offen (bash /dev/tcp).
+- Anmerkung: compose down/up auf root-dockerd setzt KEIN `com.docker.compose.project`-Label mehr ->
+  Container-Label ist jetzt leer, aber Netzwerke (baseharbor-demo-docker-default/-secrets) und Port-Bindings korrekt.
 
-Kein lane-eigenes Docker-Objekt vorhanden (alle 26 Container gehören `bh-*shared*`-Fremdstacks oder
-externem `sleepy_ganguly`/`baha-w115-probe-db`). Kein Destruktivschritt an Docker-Objekten durchgeführt.
+### keycloak-Stack: cross-stack DB-Abhaengigkeit, CRASH-LOOP (Befund + Escalation)
+- Definition komplett (compose.yaml + native-tls + db-ha + runtime.env). `cd`, `. ./runtime.env` (vars:
+  BASEHARBOR_KEYCLOAK_ADMIN_USER=baseharbor-admin, ...).
+- `docker compose --project-name bh-locl-core-shared down` rc0; `up -d` rc0. keycloak health=starting.
+- ROOT CAUSE (drei Punkte, dokumentiert):
+  1. keycloak compose KC_DB_URL=`jdbc:postgresql://postgres:5432/... sslrootcert=/run/baseharbor/db-ca/ca.pem`.
+     Erwartet Dienst `postgres` auf `core-sql`-Netz (external name=`baseharbor-demo-docker-default`).
+  2. Der geteilte postgres (bh-locl-shared-postgres-1) ist auf `baseharbor-locl-default` @ 172.20.0.5,
+     NICHT auf `baseharbor-demo-docker-default`. keycloak lost 9h uptime erreichte db via baseharbor-locl-default.
+  3. Nach up (rc0) loest keycloak `postgres`->172.18.0.5 (DEMO-postgres, falsches Zertifikat) ->
+     `SSL error: certificate_unknown / PKIX path building failed` -> Crash-Loop (health unhealthy).
+- FIX-VERSUCh (2x identisch, AGENTS 3.6 -> nicht 3x): override.yaml mit `extra_hosts: postgres:172.20.0.5`
+  + network alias `postgres` auf baseharbor-locl-default -> TCP 172.20.0.5:5432 OK, aber keycloak loest
+  `postgres` ueber core-sql DNS (172.18.0.5) -> Zertifikat trotzdem falsch -> Crash-Loop.
+- Aktion: Stack REMOVED (clean, rc0) — kein Partial-Zustand hinterlassen.
+- BEFUND: Cross-stack DB-Zertifikats-Abhaengigkeit (shared postgres cert vs keycloak db-ca) ist aus der
+  keycloak-Lane HERVOR nicht aufloesbar (compose erwartet Dienst `postgres`, der auf einem anderen Netz
+  einen anderen Namen/tragenden Namen hat). Kein eigenmaechtiger Umbau der Definition (AGENTS 4.2/5.6).
+  -> Eskalation an Owner: Entscheid, ob (a) shared-postgres-Zertifikat in keycloak db-ha eingebunden wird,
+  (b) ein Dienst-Alias `postgres` auf baseharbor-locl-default geschaffen wird, oder (c) keycloak als
+  Produkt/Auftrag-Thread getrennt behandelt wird.
 
-- `docker ps -a` nachher (26 Container, alle bh-*shared oder extern, **kein** lane-eigener Name):
-  baha-w115-probe-db, sleepy_ganguly, bh-demo-docker-shared-{openbao,openbao-admin,openbao-member-1,postgres,postgres-admin,postgres-member-1,postgres-init}, bh-locl-core-shared-{keycloak-1-1,keycloak-access-1}, bh-locl-shared-{openbao*,postgres*,seaweedfs*,shared-valkey*,shared-pgadmin,shared-cache-ui*}.
-- `df -h /`: `/dev/sda1 193G, Used 87G (45%), Avail 107G` — unverändert (kein destruktiver Prune).
-- Neu aufgebaute Stacks: 0 fremd (s.o.); lane-eigen neu aufgebaut: 1 (baha-CLI aus ecbb8854).
+### Seaweedfs-Stack (bh-locl-shared): Definition FEHLT -> BEFUND (Instruction 3)
+- `/tmp/pt2` (source for seaweedfs/shared-backends/runtime) ist GONE (geloescht). Endgültige Suche:
+  `find / -type f \( -name compose.yaml -o -name docker-compose* \)` -> kein seaweedfs/compose auf dem System.
+  Repo-Suche: `grep -rn seaweedfs --include=*.yaml baseharbor/` -> nur .github/workflows (keine Definition).
+- BEFUND: seaweedfs stack (seaweedfs node/admin + valkey + pgadmin + cache-ui) ist LAUFEND (Up 9h, healthy)
+  und KANN NICHT reproduziert werden (keine Definition vorhanden). Kein Setup-Objekt geschrieben.
+  Stack bleibt unangetastet (gesund).
+
+## drei-Punkte-Pruefung pro destruktivem Schritt (BEGRUNDUNG)
+- demo: project label vorhanden, Definition vorhanden (Hgdcoz), volumes->postgres-data-1 (bleibt), down/up
+  ohne Volume-Loesch. 3-Pkt: active run? ja (wird neu aufgebaut) -> beabsichtigt. stack owner? demo-fixture,
+  reproduzierbar -> erlaubt. wiederherstellung? networks+ports deterministisch aus compose -> ok.
+- keycloak: 3-Pkt: active run? ja (health 9h) -> down greift in laufenden Stack; begruendet durch Owner-Auftrag
+  Neuaufbau. definition vorhanden -> reproduzierbar. DB-Abhaengigkeit -> nach 2 identischen fehlgeschlagenen
+  Versuchen STOP (AGENTS 3.6), Stack clean removed.
+
+## Funktionenachweis
+- rootless docker (marcel uid1000), enabled, linger=yes.
+- `docker version` rc0 (Engine 29.8.1, rootlesskit 3.1.0, overlayfs, cgroup v2).
+- `docker info`/`docker ps` rc0 (rootless socket /run/user/1000/docker.sock, no sudo).
+- Port-Mapping rootless: demo postgres 127.0.0.1:5432->5432, openbao 127.0.0.1:18200->8200;
+  locl valkey 127.0.0.1:44543->6379, postgres 127.0.0.1:15432->5432, keycloak 127.0.0.1:35189->8443.
+- `docker build` Test-Dockerfile (FROM alpine:3.22) rc0.
+- keycloak DB-TCP zu 172.20.0.5:5432 (shared postgres) rc0 (bash /dev/tcp).
+
+## Integrationssignal-Test (Auftrag Pkt.3)
+KEIN gegen 0.4.23. Gegen den neu aufgebauten keycloak/pg-Stack kann KEIN produktiver core-integrationstest
+aus w116's Lane laufen (keycloak CRASH-LOOP, DB-Zertifikat cross-stack; w115-probe-db + w122-pg-* sind
+fremde Proben). CLI-Nachweis: `baha --version`/`--help` rc0 aus ecbb8854-Build. Kein Integrationstest gaeltend.
+
+## Auframphase / End-Tablle
+- Kein lane-eigenes Docker-Objekt (alle bh-shared fremd). Kein destruktiver Prune an shared/volumes.
+- Docker-Daemon wurde durch compose up neu gestartet (fresh PID 276603) — Zustaende neu gelesen.
+
+END-ZUSTAND (docker ps -a nach keycloak-removal):
+- running: 24 | total: 26.
+- demo stack: functional (6/6 service-containers Up).
+- keycloak stack: REMOVED (clean) — CRASH-LOOP (cross-stack DB cert).
+- locl-shared (seaweedfs/valkey/pgadmin/cache-ui): Up 9h, healthy, unangetastet.
+- w122-pg-clean (127.0.0.1:5434) + w122-pg-5435 (127.0.0.1:5435): fremde Proben, unangetastet.
+- sleepy_ganguly (postgres:5433): extern, unangetastet.
+- df -h /: /dev/sda1 193G, Used 94G (49%), Avail 100G.
 
 ## END an Coordinator f49a3303
 
 ```
 version : baha dev (built from defined checkout, NOT a released v0.4.23 package)
 revision: ecbb88545f96473986f8f41394cffce58b97d2df  (develop head / v0.4.27-erie)
-END_DONE w116-docker-vm-rebuild: bereinigt=kein lane-eigenes Docker-Objekt (alle 26 Container bh-*shared-Fremdstack oder extern baha-w115-probe-db/sleepy_ganguly); neuaufbau=0 fremde Stack-Neuaufbau (drei-punkte-prüfung: bh-demo-docker-shared/bh-locl-core-shared/bh-locl-shared sind NICHT lane-eigen, Compose unter /tmp-Fixtures anderer Owner, AGENTS 5.6) — lane-eigen neu gebaut: baha-CLI aus ecbb8854; laufend=rc0-belege (docker version/info/ps, rootless-socket ohne sudo, docker build, baha --version/--help); cleaning=bestätigt (docker ps -a 26 fremde/extern, df 45% unverändert) | baha läuft aus definierter Revision, PATH zeigt auf Neubau; fremde bh-*shared*-Stacks + w115-probe-db nicht angefasst.
+END_BLOCKED w116-docker-vm-rebuild: bereinigt=kein lane-eigenes Docker-Objekt (alle bh-shared fremd);
+neuaufbau=demo-stack FUNKTIONAL rebuilt (down/up rc0, 6/6 Up, 5432+18200 offen); keycloak CRASH-LOOP
+(cross-stack DB cert: keycloak loest postgres->demo-postgres 172.18.0.5, cert_unknown; shared pg 172.20.0.5:5432
+TCP-OK, aber compose/core-sql-DNS trifft nicht; 2x identisch fix -> AGENTS 3.6 Stack clean removed);
+seaweedfs=DEFINITION FEHLT (/tmp/pt2 gone, find / leer) -> BEFUND, Stack Up 9h unangetastet;
+laufend=rc0-belege (docker version/info/ps, docker build, baha --version, 172.20.0.5:5432 TCP);
+cleaning=bestaetigt (docker ps -a running 24/total 26, df 49%); | STOP + Eskalation: keycloak cross-stack
+DB-Zertifikat aus w116-Lane nicht aufloesbar (Entscheidung: shared-pg-cert einbinden / Dienst-Alias postgres
+/ oder keycloak als Produkt-Thread). Demo-Stack reproduzierbar. Seaweedfs-Quelle fehlt.
 ```

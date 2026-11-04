@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 45/106 · **Blocked:** 0 · **Waiting:** 46  
+    **Accepted tasks:** 45/106 · **Blocked:** 1 · **Waiting:** 46  
+    **Blocker:** [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md) — Warten auf die CI-Umgebungsursache der PostgreSQL-und-Docker-Klasse (Lane w122, PR 1371 und 1363 dieselbe Familie). Naechster Ausloeser: w122-Meldung der exakt…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

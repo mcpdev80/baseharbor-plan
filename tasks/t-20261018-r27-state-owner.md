@@ -6,35 +6,36 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: w2-state-owner
-kanban_lane: review
+owner: coord-welle4 (lane w111)
+kanban_lane: blocked
 kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
-kanban_status: review
+kanban_status: blocked
 kanban_title: "State: enforce installation-owned deployment storage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1347"]
+prs: [mcpdev80/baseharbor#1347]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: ""
+blocker: "Warten auf die CI-Umgebungsursache der PostgreSQL-und-Docker-Klasse (Lane w122, PR 1371 und 1363 dieselbe Familie). Naechster Ausloeser: w122-Meldung der exakten fehlenden Bedingung."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [ ] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/blocked #view/blocked #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** w2-state-owner · **Priority:** high  
+    **Owner:** coord-welle4 (lane w111) · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
+    **Blocker:** Warten auf die CI-Umgebungsursache der PostgreSQL-und-Docker-Klasse (Lane w122, PR 1371 und 1363 dieselbe Familie). Naechster Ausloeser: w122-Meldung der exakten fehlenden Bedingung.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** w2-state-owner  
+**Owner:** coord-welle4 (lane w111)  
 **Priority:** high  
 **PRs:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -136,3 +137,8 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
 - Hosted red on PR #1347 is therefore an environment cause, named by the Owner: the core lifecycle/PKI fixture
   lacks runtime/compose.yaml. Lane w111 is making that fixture self-contained (no skip, no bypass, no .github
   edits); if a workflow change is required the lane stops and reports, and I clear it with the Owner.
+
+## Status 2026-11-04 (Kanban-Setzung über card-status.py)
+- Candidate: PR #1347 head fd4980a1, develop ecbb8854 is an ancestor, hosted checks 16 pass / 4 fail.
+- Blocked on the CI environment cause that lane w122 is locating, not on product work. PR #1374 was closed with
+  supersession proof so this chain keeps exactly one candidate.
