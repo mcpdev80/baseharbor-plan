@@ -117,3 +117,11 @@ references, so release qualification rests on executed runs rather than skipped 
   VM lane fixes.
 - Consequence: the Podman rebuild is re-commissioned for a worker lane with these findings in its brief, and the
   broker stack must come back from its own definition before backup/recovery tests count.
+
+## Security finding 2026-11-04 (open, escalated to Owner)
+- On the Docker test host a lane observed a plaintext GitHub personal access token inside a `.codex/auth.json`
+  belonging to a foreign tool/config. The lane was ordered: metadata only (path, owner, mode, age) in its
+  evidence, no reading, no copying, no moving, no deleting; the coordinator escalates for revocation.
+- Coordinator-side check under `/home` on that host found no such file at marcel's path, so the owner/account of
+  the token is still unidentified. Closing this finding requires either the lane's recorded metadata or an Owner
+  revocation decision.
