@@ -1187,3 +1187,10 @@ besetzt den freien sitz.
 Konsumenten-frage codec rezept 7 ist eigentumsmaessig geklaert (public-surfaces) und auf beiden karten
 vermerkt; die drei A-befunde haengen jetzt an ihren karten (device-enrollment, state-owner) und werden von
 Luna unabhaengig nachgemessen (mission codex-r-audit-a).
+
+## ~02:55 codec runde 5 GELIEFERT ABER BELEGFEHLEND: kopf 064ba01820b (ls-remote==head, develop Vorfahr,
+schreibgut = 7 dateien im vertragsordner — alles von mir NACHGERECHNET), ABER round-5.md fehlt im
+evidence-baum und der neue kopf taucht in KEINER datei auf (grep = leer). nachlieferung verlangt (kein neuer
+commit), abnahmeauftrag r1363d vorgemerkt fuer Luna sobald der kanal frei ist. rezept 7 (produktions-
+konsument) ist eigentumsseitig public-surfaces zugeordnet und in der abnahme nur als grenzbeleg gefuehrt.
+w125 released (native-auth -> review mit plattenbeweis an allen vier stellen), w131 consent-abort runde 2 laeuft.

@@ -1,0 +1,30 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS profil-codec (runde 5).
+OBJEKT: baseharbor PR #1363 head 064ba01820b branch work/r27-profile-codec base develop (develop ist Vorfahr —
+von mir nachgerechnet; schreibgut = genau 7 dateien in contracts/managementaccess/v1). KARTE
+t-20261018-r27-profile-codec. VORGESCHICHTE: 1363a/b REJECT, runde 4 spec-angleich, 1363c REJECT (sieben
+rezepte), runde 5 = neue lane, frisch von develop (alter zweig trug fremde history).
+EIGENTUMSKLAERUNG zu rezept 7: der produktions-konsument der schnur gehoert auf
+t-20261018-r27-public-surfaces (von mir vermerkt); in DIESER abnahme ist rezept 7 nur als GRENZBELEG zu
+fuehren (grep dass nur eigene tests das paket importieren) — kein abzugsgrund, aber auch kein bestandener
+punkt, wenn der beleg fehlt.
+PRUEFEN SHA-genau read-only, gegen DEINE eigenen rezepte aus 1363c (nicht gegen die lane-meldung):
+ (1) kanonische version PFLICHT in export UND import, unabhaengig von aufrufer-argumenten; gegenprobe /v99
+     => typisierte ablehnung vor jeder wirkung,
+ (2) empfaengerbindung PFLICHT: anderer gueltiger SPIFFE-empfaenger => abweisung vor jedem schreibvorgang,
+     kein artefakt; leerer/fehlender schluessel-prefix => fail-closed,
+ (3) vertrauens-selbstkonsistenz UNBEDINGT (schalter auf false => ablehnung),
+ (4) kanonischer rundlauf: feld-/record-reihenfolge fest, goldenes fixture folgt dem format, vergleich des
+     VOLLSTAENDIGEN importierten datensatzes mit dem re-export (nicht teilfelder),
+ (5) import atomar: staging + fsync + rename; ECHTE short-write-injektion nach teileingebettetem staging ueber
+     eine nur-test-naht => keine partielle finale datei, KEIN temp-artefakt; replacement-auflaeumfehler =>
+     typisierter fehler + eindeutiger zustand; replacement belegt dass neuer inhalt vom alten ABWEICHT und
+     das alte ersetzt ist,
+ (6) canary UNABHAENGIG je serialisierter feld-kategorie (installation/scope/empfaenger/geheimer schluessel
+     + verschachtelte speicher-/zeit-/containerfelder soweit darstellbar), jeweils mit assertion dass kein
+     secret in export-bytes landet; kein leerer test,
+ (7) write-set + pakettests + build + gofmt + vet gruen, EN- UND DE-spezifikation decken das implementierte
+     verhalten EXAKT ab (keine punkt den nur eine sprachfassung beschreibt),
+ (8) EVIDENZDATEI round-5.md existiert mit den acht blocks (feht sie: nachlieferung verlangen, kein Urteil
+     aus der lane-prosa).
+Urteil -> review-1363d.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1363d: verdict=<X> open=<liste|none> | <Satz>"

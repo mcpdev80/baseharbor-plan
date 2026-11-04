@@ -1,7 +1,7 @@
 ROLLE: Worker (Lane w132). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment (Runde nach Umgebungs-
-bereinigung). REPO: baseharbor. ZWEIG: der anmeldungs-zweig work/r27-workstation-enrollment (PR #1371, kopf
-9ac4e2c4af) — ZUERST nachsehen ob develop (frischer als ecbb8854) Vorfahr ist; wenn nein: ast frisch von
-develop schneiden und den anmeldungs-stand als commit darauf setzen, name-only-diff als beleg.
+bereinigung). REPO: baseharbor. ZWEIG: der anmeldungs-zweig work/w96-production-wiring-f8ef4255 (PR #1371, kopf
+9ac4e2c4af; develop ist VORFAHR — von mir nachgerechnet, du bestaetigst es mit merge-base) — KEIN zweiter
+ast, KEIN zweiter PR; neue commits auf denselben zweig.
 
 BEFUNDSCHAFT (read-only nachgemessen, zwei unabhaengige quellen):
  - Die beiden datbank-pruefungen (identity_tenant_resolver_integration_test.go, tenant_integration_test.go)
