@@ -6,32 +6,33 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: coord-welle4 (Codex-Worker cx05)
-kanban_lane: active
+owner: coord-welle4 (Lane w128 + Codex-Worker cx05)
+kanban_lane: closed
 kanban_summary: ""
-kanban_status: active
+kanban_status: closed
 kanban_title: "Deferred trusted CI readiness: delivery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1377]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/ci-delivery/review-1377b.md", "https://github.com/mcpdev80/baseharbor/commit/2ea2c6f1d3", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/ci-delivery/boundary-2.md"]
 ---
 
-- [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Codex-Worker cx05) · **Priority:** critical  
+    **Owner:** coord-welle4 (Lane w128 + Codex-Worker cx05) · **Priority:** critical  
     **PR:** [baseharbor#1377](https://github.com/mcpdev80/baseharbor/pull/1377)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/ci-delivery/review-1377b.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/2ea2c6f1d3), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/ci-delivery/boundary-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle4 (Codex-Worker cx05)  
+**Owner:** coord-welle4 (Lane w128 + Codex-Worker cx05)  
 **Priority:** critical  
 **PRs:** [baseharbor#1377](https://github.com/mcpdev80/baseharbor/pull/1377)  
 **Source:** 
@@ -97,3 +98,13 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
   und der Paketlauf meldet Erfolg. Die Überspringung wird in ein echtes Fail mit klarer Meldung umgewandelt.
 - Zusätzlich wird die Trennung zu den drei echten Produktbefunden auf anderen Karten schriftlich belegt
   (Migrationsrückbau, Anwendungsänderung mit stehendem Tresordienst, Formatierung im Verbindungsstück).
+
+## Abschluss 2026-11-04 (verbunden, plattenfest nachgemessen)
+- Verbundenschnitt in Deiner Hauptlinie: 2ea2c6f1; der Inhaitsvergleich der beiden Prüfdateien gegen den
+  geprüften Kopf 5b2fbb65 ist leer, die Überspringung ist in der Hauptlinie weg (mein own Befund, nicht die Lane-Meldung).
+- Wirkung: Datenbankprüfungen lesen die Verbindung aus einer Quelle; fehlt die Prüfumgebung, schlagen sie fehl
+  und benennen sie. Ein falsch gesetzter Zielrechner macht sie rot — das ist der Unterschied zur Scheinfarbe.
+- Verlaufsreinheit: erster Versuch aus falschem Schnitt (geschlossen, Beleg in der Kartenhistorie), zweiter
+  wegen Scheingrün abgelehnt, dritter angenommen; die Verbindung führte die Prüfrolle nach eigenem Urteil aus.
+- Folge: die vier Anträge, die nur an diesem Umstand hingen, werden auf der neuen Hauptlinie aufgefrischt
+  (Auslöser für #1373 bereits angesetzt).

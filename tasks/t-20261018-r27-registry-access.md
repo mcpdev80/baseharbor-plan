@@ -25,7 +25,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
+    **Needs:** [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

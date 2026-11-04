@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Adapt existing native build-context/source-acquisition mechanisms for one selected local checkout, including honest dirty-source…"
 kanban_status: planned
 kanban_title: "Sources: package an exact bounded deployment snapshot"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-candidate-pack · Sources: package an exact bounded deployment snapshot #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/sources #kind/task
+- [ ] t-20261018-r27-candidate-pack · Sources: package an exact bounded deployment snapshot #task #release/v0-4-27 #status/planned #view/ready #area/sources #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
