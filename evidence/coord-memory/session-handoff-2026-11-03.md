@@ -1250,3 +1250,10 @@ pruefdateien gegen den geprueften kopf = LEER, und `t.Skip` ist in develop in di
 durch CODEX-MERGE nach eigenem ACCEPT (rollen-getrennt, kein force-push, zweig geloescht — ls-remote zeigt 0
 treffer). FREIGEWORREN: #1373 (w134 laeuft bereits auf neuer basis), danach #1362/#1369/#1347 (je eigener
 auffrisch-auftrag, KEIN produkt-umbau, nur basis). w130 released, w134 sitzt.
+
+## ~04:50 NACH DER VERBINDUNG: allen laufenden ketten die neue basis beigebracht (6 aehnliche
+BASIS-DRIFT-meldungen im auge sind die normale folge von develop 2ea2c6f1, kein fehler einer lane). lanes
+w127/w131/w132/w134 per nachricht, cx06 (codec) per kanalhinweis; regelformulierung: origin/develop in den
+eigenen ast mergen, konflikt in den zwei datbank-tests = develop-inhalt, END mit ancestor-beleg.
+w135 (native-auth basis-auffrischung) ist geschrieben und laeuft als erster auf einem freien sitz.
+Luna prueft jetzt die verbindungskapsel (#19, kopf fcca9c4a295) mit null-code-gegenbeweis-pflicht.
