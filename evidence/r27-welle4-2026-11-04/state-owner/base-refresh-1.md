@@ -125,8 +125,15 @@ Date: 2026-11-04
   - cli-package-tests, wizard-app-edit-tests, PR Selected Checks: failure (all Spot3 app-edit, class B, OpenBao service not running)
   - All other jobs success/skipped. go-build, go-vet, source-contracts, deployment-package-tests, openbao-package-tests: success.
   - The only remaining red spot (Spot3) fails because the managed OpenBao vault service (`openbao-admin` compose service) is not running — a test-setup state the w111 fixture (runtime/openbao-admin.env) prepared the credentials for but cannot start. This is the Owner-owned Prüfaufbau change (class B), not a .github/CI-file fix and not a product regression.
+- Hosted CI run C watched to terminal (run 41898648858, sha 4decc28e, triggered by my push of the develop=e444ae11 base refresh):
+  - go-unit-tests (job 126814977398): `ok internal/database` — the two named db-verification tests PASS; 1 FAIL only = Spot3 (app-edit):
+    - failing line: `app_edit_apply_test.go:1094: measured post-Edit fact: {... State:stopped-but-owned ...}`
+    - pre-diagnosis: `application preflight failed: managed service PKI preflight: authenticate OpenBao manager for service PKI: OpenBao AppRole login failed: compose exec -T openbao-admin bao write -format=json auth/approle/login -: service "openbao-admin" is not running`
+  - Failing jobs: go-unit-tests, cli-package-tests, wizard-app-edit-tests, PR Selected Checks — all Spot3 app-edit (class B).
+  - Success gates: go-build, go-vet, source-contracts, deployment-package-tests, openbao-package-tests.
+  - Same class-B root cause (OpenBao service not running); no new regression from the e444ae11 profile-codec merge.
 - Local: `go build ./...` RC=0; two DB integration tests fail with identical DSN-gate message on both candidate and develop (control pair confirmed).
 
 ## END
 
-END_DONE w139-state-owner-base: head=bc7d55fc basis=2ea2c6f1 db-paarung=gruen-auf-develop (class-C, DSN-gated) rest=klasse-B (Spot3 app_edit_apply_test.go:1094 hosted / :875 local, OpenBao-Managerdienst fehlt) STOP+MELDEN (Zustands-aenderung-pruefaufbau, Owner-entscheidung) lsremote=95533a788d1d6f87e3afaf5bf10e6ffa2569f750 | base refresh done (merge 2ea2c6f1, conflict application_backend_binding_change_test.go=develop-content); all 3 red spots trace to develop-gleichen environment causes, no regression
+END_DONE w139-state-owner-base: head=4decc28e basis=e444ae11 db-paarung=gruen-auf-host (Spots 1+2 ok in CI run C 41898648858; class-C DSN-gate) rest=klasse-B (Spot3 app_edit_apply_test.go:1094 hosted, OpenBao-Managerdienst 'openbao-admin' not running) STOP+MELDEN (Zustands-aenderung-pruefaufbau, Owner-entscheidung) lsremote=4decc28e07f789af20c5bcc1e5f0a3224e5c5c96 | base refresh e444ae11 merged clean (no conflict), build=ok, CI run C: DB-tests green, only class-B app-edit red (OpenBao service)

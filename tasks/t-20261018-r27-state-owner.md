@@ -157,3 +157,8 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
   der Prüfungsaufbau stellt nur die Datenbank her, der Produktionspfad verlangt absichtlich den
   verwalteten Tresordienst und lehnt ohne ihn geschlossen ab. Nächster Auslöser: Prüfaufbau mit
   Tresordienst herstellen und genau diese Prüfung erneut laufen; erst ihr Ausgabeergebnis entscheidet.
+- Nachmessung 2026-11-04 (zweiter Durchgang, Lane w139, Kopf 4decc28ecb7 auf der neuen Hauptlinie): die
+  Datenbankpaarung ist auf dem Läufer grün (Lauf 41898648858, Paket internen Bereich in Ordnung). Es bleibt
+  GENAU EINE Stelle: der vollständige Anwendungsänderungsdurchlauf verlangt den verwalteten Tresordienst
+  ("openbao-admin läuft nicht"), gemessen an cmd/baha/app_edit_apply_test.go im Änderungsnachweisblock.
+  Klasse B, ein Prüfaufbau-Eingriff, keine Produktänderung — die Entscheidung liegt beim Eigentümer.
