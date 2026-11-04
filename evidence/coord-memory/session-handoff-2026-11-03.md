@@ -1657,3 +1657,14 @@ genau dort hinein und wurde von MIR committet, in commits mit titeln wie 'kanban
 behoben: verleger addet nur tasks+views; caches aus index + platte entfernt (index 6711->1663 dateien);
 .gitignore deckt nun jede cache-form unter scripts/; pruefung nach jedem publish (grep auf gomodcache/gocache
 muss 0 liefern). kein lane-fehler, meine buechoeffnung.
+
+## ~17:30 WAHRER GRUND FUER EINE 'FERTIGE' ABER NIE VEROEFFENTLICHTE LIEFERUNG — und er war MEIN fehler:
+w144 meldete head=efadde8e + ls-remote=1fc148ff. mein erster reflex 'lane hat falsche basis gelesen' war
+FALSCH: der arbeitsbaum der lane hing an einem LOKALEN spiegel (.../baseharbor) als origin, und dessen
+lokales develop war verjaehrt (1fc148ff = der zurueckgezogene mitnahme-kopf von heute frueh!). die lane hat
+also RICHTIG gemessen, an einem kaputten ursprung. behoben: (a) spawn-lane.sh fetcht jetzt vor jedem
+arbeitsbaum und zieht lokale basiszweige NUR VORWAERTS nach (ahnen-test), (b) fuenf verjaehrte lokale zweige
+aufgeholt (main + vier alte), (c) laufende baeume wurden verschont, (d) nachlieferung mit push auf die ECHTE
+adresse befohlen. RUNBOOK §6.2g.
+LEHRE FUER MICH: 'ls-remote == head' als beweis reicht nur, wenn der ursprung selbst die wahrheit ist. ab
+jetzt pruefe ich lieferungen gegen die echte url, nicht gegen den spiegel.
