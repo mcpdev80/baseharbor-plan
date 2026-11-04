@@ -4,9 +4,9 @@ Worker lane w78. Coord f49a3303. Card t-20261018-r27-state-owner.
 Branch head: `63d7ea51` (FF from develop 2cadfcee). CI job 41761149975 (go-unit).
 
 ## Status
-- [x] 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
-- [x] 11th case (app-edit ADR-0022) split into two clear subtasks per coord directive
-- [ ] happy-path (fix #1) converges green on CI; this host blocked by postgres topology
+- 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
+- 11th case (app-edit ADR-0022) split into two clear subtasks per coord directive
+- happy-path (fix #1) converges green on CI; this host blocked by postgres topology
 
 ## The 10 host-env artifacts (isolated, committed 63d7ea51)
 1. recovery(5) — `TestRecoveryFileForRepositoryUp*`: shared `~/.local/share/baseharbor-recovery` collision. Fix: per-test `t.Setenv("HOME", t.TempDir())` + `t.Setenv("XDG_CONFIG_HOME", t.TempDir())`.
@@ -84,8 +84,8 @@ New `TestAppEditInvertedDockerModeFailsClosedAd0022`:
 - No production code changed. No test deleted. No skip.
 
 ## Still pending
-- [ ] Happy-path (fix #1) converge green on CI (watch PR #1347 go-unit job).
-- [ ] Final report after merge/acceptance.
+- Happy-path (fix #1) converge green on CI (watch PR #1347 go-unit job).
+- Final report after merge/acceptance.
 
 ## END_BLOCKED (host-limited happy-path, per mission STOP rule)
 The happy-path converges on CI (proven) but cannot converge on this lane because
