@@ -99,28 +99,62 @@ New `TestAppEditInvertedDockerModeFailsClosedAd0022`:
 ## Still pending
 - Happy-path (fix #1) converge green on CI — blocked on the shared-postgres backend (see END_BLOCKED).
 
-## END_BLOCKED (happy-path SQL-consumer verification, per mission STOP rule)
-The happy-path stops at `app_edit_apply_test.go:1022: real Edit lifecycle did not
-converge: application machine: partial` with the mode correct (hard-coded
-`rootful`), so the failure is NOT the daemon mode. The failing plan is
-`Scenario:provider-changed`: the Edit's SQL-consumer RESUME cannot verify its
-postgres backend (`ObserveSQLConsumerInventory`, runtime_postgres.go:179 →
-`SQL consumer identity/database inventory unavailable`). This is the documented
-ADR-0022 fail-closed boundary, triggered by the application-scoped postgres
-consumer that the baseline binds but never realizes into a verifiable backend.
+### Runde-2 root-cause (proven by instrumented run, 2026-11-04)
+The happy-path stops at `app_edit_apply_test.go:1022` — but NOT where prior notes
+said. Instrumented `runApplicationApplyLifecycle` shows the RESUME's real failure
+is the FIRST seam before the mutate: `prepareApplicationProviderRetirement`
+(`cmd/baha/application_provider_retirement.go:36`), which returns
+`machine.ErrorOwnershipAmbiguous` / cause `provider_retirement_unverifiable`:
 
-Evidence:
+    The last consumer cannot be released without verified runtime and complete
+    consumer inventory.
+
+Precise trigger (DBG-PLAN captured on this branch):
+
+    DBG-PLAN: Complete=false total=4 Action="preserve" reason="inventory or ownership is not verified"
+
+The RESUME plan has the postgres as `Action="preserve"` with `plan.Complete=false`
+because the postgres consumer inventory is unverified. The mutate (source write at
+`app_apply.go:117`) never runs — the retirement check aborts first. Confirmed via
+instrumented run: `FINAL-CHECK` (mutate site) is never reached; the `DBG-RETIRE`
+line fires.
+
+### Why ci-access-ab (sha 3360d14a) passes this seam and my branch does not
+ci-access-ab's identical happy-path test runs PAST this retirement check and fails
+LATER, at `verifyDesiredRuntimeServices` (compose-up readiness):
+
+    Waiting for backend readiness: application verification failed: verify postgres
+    instance default: compose exec ... FATAL: password authentication failed
+
+so ci-access-ab's RESUME plan reaches `plan.Complete=true` here. My branch's plan
+stays `Complete=false` / `preserve` at the same seam. `application_provider_retirement.go`
+is byte-identical between the two trees (diff empty), so the divergence is the plan
+input — the postgres is verified in ci-access-ab's run and unverified in mine. This
+is the decisive r27-state-owner divergence: the one-installation-owner production
+makes the RESUME's postgres change land as `preserve` (unverified) rather than a
+verifiable `resume`. The happy-path converges only where that change verifies.
+
+## END_BLOCKED (happy-path SQL-consumer RESUME, per mission STOP rule)
+The happy-path stops at `app_edit_apply_test.go:1022: real Edit lifecycle did not
+converge: application machine: partial`. Instrumented run pins the failing seam to
+`prepareApplicationProviderRetirement` (`application_provider_retirement.go:36`):
+the RESUME plan (Scenario:provider-changed) marks the postgres consumer
+`Action="preserve"` with `plan.Complete=false` (reason: "inventory or ownership is
+not verified") and aborts before the mutate — `machine.ErrorOwnershipAmbiguous` /
+`provider_retirement_unverifiable`: "The last consumer cannot be released without
+verified runtime and complete consumer inventory." This is the documented
+ADR-0022 fail-closed boundary, reached because the RESUME's postgres change is not
+verified. Evidence:
 - CI go-unit 41774178200 (branch head `dc157b5c`): the ONLY go-unit failure is
   `TestAppEditCommandCompleteProviderEditRunsRealLifecycle (20.59s)` → `partial`
   (line 1022); all other cmd/baha tests pass.
-- This host fails identically under rootless (native) AND rootful (sudo): the
-  reachable-postgres precondition is absent, not the mode.
-- The probe-based fix #1 (mode-adaptive) cannot converge on CI either: the
-  unprivileged test cannot reach the runner's rootful socket, falls back to
-  rootless, mismatches the daemon, and fails closed — so the probe was reverted.
+- ci-access-ab (sha 3360d14a) green on the SAME test — but the retirement seam is
+  passed (plan.Complete=true there); my branch diverges at that seam.
+- This host fails identically under rootful (sudo): the reachable-postgres /
+  verified-runtime precondition is absent, not the daemon mode.
 
 Fix #2 (inverted-mode ADR-0022 proof, `TestAppEditInvertedDockerModeFailsClosedAd0022`)
 is delivered, red-first, and committed at `dc157b5c`. The happy-path converges only
-where a verifiable postgres backend is available (a proper Core/backend on the
-executing lane or CI runner); it is blocked on this lane because the shared Core
-backend cannot be reinitialized here. Fix #1 is the remaining blocker; see §3.
+where the RESUME's postgres change verifies (`plan.Complete=true`); it is blocked on
+this lane because that verification needs a real verified postgres backend (a proper
+Core/backend on the executing lane or CI runner). Fix #1 is the remaining blocker.
