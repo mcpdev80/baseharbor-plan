@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (lane w90)
+owner: coord-welle4 (Lane w132)
 kanban_lane: active
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
 kanban_status: active
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1371]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -24,7 +24,8 @@ evidence: []
 
 - [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w90) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w132) · **Priority:** normal  
+    **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -33,9 +34,9 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (lane w90)  
+**Owner:** coord-welle4 (Lane w132)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -120,3 +121,10 @@ ls-remote==head.
   test dials 127.0.0.1:5433). Task to bring #1371 onto 2a43984a and re-verify real PR CI is commissioned as
   lane w115 (mission queued behind pool capacity: 4 lanes busy).
 - Umgebungsbefund 2026-11-04 (Koordinator): Der Migrationsrückbau-Test (internal/database/migration_rollback_integration_test.go) bleibt auch nach der Umgebungskorrektur rot; die Verbindungsumstellung heilt ihn nicht. Er ist ein eigenständiger Produktbefund dieser Karte (Klassifikation A in evidence/r27-welle4-2026-11-04/ci-delivery/boundary-1.md).
+
+## Runde 2026-11-04 (Produktbefund Migrationsrückbau)
+- Die Umgebungsursache (fest kodierte Datenbankadresse) wird auf der Hebelkarte t-20261022-r27-ci-delivery
+  behoben; hier wird nur der echte Produktbefund bearbeitet: Der Rückbautest nimmt mehr zurück als die
+  letzte Änderung (internal/database/migration_rollback_integration_test.go) und bleibt auch mit richtiger
+  Verbindung rot.
+- Kandidatenkette bleibt PR #1371 auf work/w96-production-wiring-f8ef4255 (develop ist Vorfahr), kein zweiter Antrag.
