@@ -17,7 +17,7 @@ prs: [mcpdev80/baseharbor#1347]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "Warten auf die CI-Umgebungsursache der PostgreSQL-und-Docker-Klasse (Lane w122, PR 1371 und 1363 dieselbe Familie). Naechster Ausloeser: w122-Meldung der exakten fehlenden Bedingung."
+blocker: "CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app_edit_apply_test.go:1090, application_service_issuer.go:20 -> internal/openbao/bootstrap.go, AdminCredentialsPath runtime/openbao-admin.env). Naechster Ausloeser: Fixtur-Ergaenzung von lane w111 schreibt runtime/openbao-admin.env test-only, dann neue Beobachtung."
 resolution: ""
 evidence: []
 ---
@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w111) · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
-    **Blocker:** Warten auf die CI-Umgebungsursache der PostgreSQL-und-Docker-Klasse (Lane w122, PR 1371 und 1363 dieselbe Familie). Naechster Ausloeser: w122-Meldung der exakten fehlenden Bedingung.  
+    **Blocker:** CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app\_edit\_apply\_test.go:1090, application\_service\_issuer.go:20 -\> internal/openbao/bootstrap.go, AdminCrede…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -142,3 +142,11 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
 - Candidate: PR #1347 head fd4980a1, develop ecbb8854 is an ancestor, hosted checks 16 pass / 4 fail.
 - Blocked on the CI environment cause that lane w122 is locating, not on product work. PR #1374 was closed with
   supersession proof so this chain keeps exactly one candidate.
+
+## Fortschritt 2026-11-04 (lane w111, Kanban-Setzung über card-status.py)
+- Fixture-Stufe 1 (nur cmd/baha/app_edit_apply_test.go, 18 Zeilen, Commit 069b02b5) hat die fehlende
+  compose.yaml behoben; der PR #1347-Kopf ist fd4980a1 mit develop ecbb8854 als Vorfahr.
+- Die nächste Blockerstufe ist lokalisiert und dokumentiert: die Fixtur erzeugt compose.yaml und runtime.env,
+  aber nicht runtime/openbao-admin.env, das die Produktion beim Bootstrap schreibt.
+- PR #1374 wurde mit Supersession-Beleg geschlossen (Kommentar 6634103570), damit die Kette genau einen
+  Kandidaten behält.

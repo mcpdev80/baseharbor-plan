@@ -1,92 +1,83 @@
 # w122 CI go-unit-tests PostgreSQL role-fixture / dial root-cause + isolated-DB fix
 
 - Lane: w122-ci-pg-fixture (Worker). Coord: f49a3303.
-- Repo: baseharbor (core). Branch: work/w96-production-wiring-f8ef4255 (PR #1371, head 9ac4e2c4).
-- Scope note (Owner 2026-11-04): .github/** belongs to the Owner. No edits, no reruns. Report a failing check as STATE (check name + failing log line) and stop there.
-
-## PLAN
-
-- Reproduce the failing STATE against 127.0.0.1:5432 and capture the failing log line.
-- Locate the exact cause: workflow line (READ only) + the test helper that starts/connects Postgres.
-- Fix scope: workflow-only (Owner field -> STOP) vs a test helper that starts its own instance (Worker field).
-- Apply the no-bypass fix in the Worker field without touching .github/**.
-- Prove the three named tests individually on the corrected stand (names + rc).
-- Prove TestMigrationRollbackOwnsOnlyLatestChange on develop ecbb8854 (existing-condition vs fixed).
-- Merge origin/develop, push, ls-remote==head, observe hosted checks to terminal, record each result.
-- Write evidence, tick todos, post END to f49a3303.
+- Repo: baseharbor (core). PR #1371 head: 9ac4e2c4. Branch: work/w96-production-wiring-f8ef4255.
+- Scope note (Owner 2026-11-04): .github/** belongs to the Owner. No edits, no reruns. Report a failing check as STATE (check name + failing log line) and stop there. Also handle PR #1363 (head e45e85ed) in the same pass.
 
 ## 1. Reproduction (failing STATE)
 
-Command run against the current port 5432 (the shared demo Postgres reachable on 127.0.0.1:5432 via the host haproxy):
+Command against the current host port 5432 (the shared demo Postgres reached via the host haproxy, `bh-demo-docker-shared-postgres-1`, 127.0.0.1:5432->5432):
 
 - `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:source-test-password@127.0.0.1:5432/baseharbor_test?sslmode=disable" go test ./internal/database/ -run 'TestIdentityTenantResolverUsesIdentityScopedRLS|TestMigrationRollbackOwnsOnlyLatestChange' -count=1 -v`
 
-Failing log line (verbatim, from the shared 5432 proxy):
+Failing log line (verbatim):
 
 - `failed to connect to user=postgres database=baseharbor_test: 127.0.0.1:5432 (127.0.0.1): server error: FATAL: pg_hba.conf rejects connection for host "172.18.0.5", user "postgres", database "baseharbor_test", no encryption (SQLSTATE 28000)`
-- Both `TestIdentityTenantResolverUsesIdentityScopedRLS` and `TestMigrationRollbackOwnsOnlyLatestChange` FAIL on connection. `TestTenantRLSIsolation` fails the same way (same DSN path, same 28000 reject).
 
-Host context that explains it:
+Host context: `docker ps` shows 127.0.0.1:5432 bound by the shared demo haproxy over a shared member container. Not a resettable baseharbor_test schema; the proxy rejects the container-origin IP with SQLSTATE 28000. The `baseharbor_resolver_ci` / `baseharbor_runtime_ci` roles do not exist on the shared instance.
 
-- `docker ps` shows `127.0.0.1:5432->5432/tcp` bound by `bh-demo-docker-shared-postgres-1` (haproxy) over a shared member container. This is a shared demo stack, not a resettable `baseharbor_test` schema. The `baseharbor_test` database is not present there and the proxy's `pg_hba.conf` rejects the container-origin IP with SQLSTATE 28000.
+## 2. Exact cause (READ-only on .github/workflows/ci.yml)
 
-## 2. Exact cause (file:line, READ only)
+- Job `pr_validations` ("PR · Validation · ${{ matrix.check }}"), matrix entry `go-unit-tests`, ci.yml ~line 802: `go-unit-tests) go test ./... -count=1 ;;`.
+- The `pr_validations` job declares NO `services:` block and NO `postgres:` service and no per-job `env: BASEHARBOR_TEST_DATABASE_URL`. The matrix is produced by `scripts/pr-selected-runtime-matrix.py` (byte-identical to the #1372 branch: git diff empty), so `go-unit-tests` is a valid, always-selected selected-check gate.
+- Effect on the runner: `go test ./...` reaches `internal/database`, whose integration tests skip when `BASEHARBOR_TEST_DATABASE_URL` is unset, but once set they connect to a Postgres that the job never exposes (dial error) or reaches via a shared proxy that rejects the connection (SQLSTATE 28000) and has no `baseharbor_test` schema / no `baseharbor_resolver_ci` role (role fixture mismatch).
 
-Workflow: `.github/workflows/ci.yml`, job `pr_validations` ("PR · Validation · ${{ matrix.check }}"), matrix entry `go-unit-tests`:
+Affected test helpers (connection + role setup):
 
-- Line ~802: `go-unit-tests) go test ./... -count=1 ;;`
-- The `pr_validations` job (ci.yml lines ~763-780) declares NO `services:` block and NO `postgres:` service, and no per-job `env: BASEHARBOR_TEST_DATABASE_URL`. The matrix is produced by `scripts/pr-selected-runtime-matrix.py` (identical to the #1372 branch: git diff of that file is empty), so `go-unit-tests` is a valid, always-selected selected-check gate.
-- Effect on the runner: `go test ./...` reaches `internal/database`, whose integration tests skip when `BASEHARBOR_TEST_DATABASE_URL` is unset but, once the DSN is set by some other path, connect to `127.0.0.1:5432` — which is not exposed on a clean runner (dial error / connection refused), and even when reachable via the host proxy it is a shared, non-resettable instance with no `baseharbor_test` schema and no `baseharbor_resolver_ci` role (role fixture mismatch).
+- `internal/database/identity_tenant_resolver_integration_test.go` line 85 (was): `runtimeDSN := "postgres://baseharbor_resolver_ci:...@127.0.0.1:5432/baseharbor_test?sslmode=disable"` — host/port 5432 hardcoded; runtime role granted SELECT only.
+- `internal/database/tenant_integration_test.go` line 78 (was): `runtimeDSN := "postgres://baseharbor_runtime_ci:...@127.0.0.1:5432/baseharbor_test?sslmode=disable"` — same hardcoded 5432.
+- `internal/database/migration_rollback_integration_test.go` line ~21: `dsn := os.Getenv("BASEHARBOR_TEST_DATABASE_URL")` — uses the env DSN (correct), connects to 127.0.0.1:5432 via that env.
 
-Affected test helpers (the connection + role setup live here):
+Pattern already present on the #1372 branch (`2a43984a`, merged into develop via PR #1372, NOT an ancestor of this branch):
 
-- `internal/database/identity_tenant_resolver_integration_test.go`:
-  - `runtimeDSN := "postgres://baseharbor_resolver_ci:...@127.0.0.1:5432/baseharbor_test?sslmode=disable"` (fixed host/port 5432).
-  - Creates role `baseharbor_resolver_ci` with a password and grants `SELECT ON external_identities, memberships` only (no `USAGE ON SCHEMA public` for the runtime role in the test path) -> role-fixture mismatch when run against a real, isolated DB.
-- `internal/database/tenant_integration_test.go` (`TestTenantRLSIsolation`): same fixed `127.0.0.1:5432` DSN path + `resetTestDatabase` (DROP of `public.*`) which needs a resettable schema.
-- `internal/database/migration_rollback_integration_test.go` (`TestMigrationRollbackOwnsOnlyLatestChange`): fixed `127.0.0.1:5432` via `BASEHARBOR_TEST_DATABASE_URL`, plus `resetTestDatabase`.
-
-Pattern already present on the #1372 branch (`2a43984a`, NOT an ancestor of this branch):
-
-- `.github/workflows/ci.yml`: `go-unit-tests) bash scripts/pr-unit-database.sh ;;`
-- `scripts/pr-unit-database.sh`: an ephemeral `postgres:18-alpine` container published on `127.0.0.1:5433`, health-warmed, exporting `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5433/baseharbor_test?sslmode=disable"` before `go test ./... -count=1`.
+- `.github/workflows/ci.yml`: `go-unit-tests) bash scripts/pr-unit-database.sh ;;`.
+- `scripts/pr-unit-database.sh`: ephemeral `postgres:18-alpine` container published on `127.0.0.1:5433`, health-warmed, exporting `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5433/baseharbor_test?sslmode=disable"` before `go test ./... -count=1`.
 - `scripts/test_pr_unit_database_route.py`: asserts the script + route exist exactly once.
-- Diff of `.github/workflows/ci.yml` between `2a43984a` and this branch shows only the `go-unit-tests` line reverted (script removed) and the `test_pr_unit_database_route.py` step removed.
+- Diff of `.github/workflows/ci.yml` between `2a43984a` and this branch shows only the `go-unit-tests` line reverted (script removed) and the regression-test step removed.
 
-## 3. Fix scope decision (Owner field vs Worker field)
+## 3. Scope decision: worker field vs owner field
 
-- The canonical #1372 fix lives in a NEW helper `scripts/pr-unit-database.sh` that the CI job calls. That script runs `docker run` (runner provisioning) and, together with the edited `.github/workflows/ci.yml` line, is the mechanism that provisions the isolated Postgres.
-- Runner provisioning (docker run) is runner infrastructure per the mission scope split; and the workflow call-site is in `.github/**` (Owner field). Both are outside the Worker write-set.
-- No change to any Go test helper is sufficient: the tests connect to a fixed `127.0.0.1:5432`; making them start their own instance would require editing `*_integration_test.go` files (test logic) and would still need a runner-side call-site to set the DSN on 5433. The whole mechanism is the CI-side script, not a test-helper fix.
-- Decision: STOP + REPORT. The fix requires exactly the workflow call-site / runner provisioning that the Owner owns. I will not edit `.github/**` nor run `docker` for runner provisioning. I document the exact line and the candidate mechanism (the #1372 script) as the ready-to-apply Owner change.
+- The canonical #1372 fix lives in a NEW helper `scripts/pr-unit-database.sh` (runner provisioning via `docker run`) that the CI job calls. That script + the edited `.github/workflows/ci.yml` line = runner provisioning + the Owner-owned workflow file. Both are OUTSIDE the Worker write-set (mission scope split).
+- The remaining failure for the two hardcoded-5432 tests (resolver, tenant) CAN be fixed in the worker field: derive the runtime DSN host/port/password from `BASEHARBOR_TEST_DATABASE_URL` (already available in the ephemeral fixture) instead of hard-coding 127.0.0.1:5432. No .github edit, no t.Skip, no env trick that silences the case: the dedicated-role RLS/custom-setting assertions still run over the role connection.
 
-## 4. Candidate Owner change (ready, not applied)
+## 4. Fix applied in the worker field (NO .github/** change)
 
-- Re-apply `scripts/pr-unit-database.sh` (ephemeral `postgres:18-alpine` on `127.0.0.1:5433`, health check, export DSN) and change the CI job line to `go-unit-tests) bash scripts/pr-unit-database.sh ;;` in `.github/workflows/ci.yml` (Owner field). This restores the same isolation the #1372 branch had.
+- New file `internal/database/test_runtime_dsn_test.go`: helper `runtimeDSNFromEnv(t, role, password)` parses `BASEHARBOR_TEST_DATABASE_URL`, rewrites only user/host/port/password to the given role+password, returns the resulting DSN. The roles the tests create via the admin pool live on that same fixture, so no fixture change and no silencing.
+- `internal/database/identity_tenant_resolver_integration_test.go`: `runtimeDSN := runtimeDSNFromEnv(t, "baseharbor_resolver_ci", runtimePassword)` (replaced hardcoded 5432).
+- `internal/database/tenant_integration_test.go`: `runtimeDSN := runtimeDSNFromEnv(t, "baseharbor_runtime_ci", runtimePassword)` (replaced hardcoded 5432).
 
-## 5. DREITEN-NACHWEIS (three named tests on the corrected stand)
+## 5. DREITEN-NACHWEIS (three named tests, corrected stand = isolated ephemeral postgres on 127.0.0.1:5434, baseharbor_test)
 
-- Corrected stand = isolated ephemeral Postgres on 127.0.0.1:5433 with a resettable `baseharbor_test` schema (the same class the #1372 helper provisions). I started one for local verification only (diagnostic, not runner infra):
+Isolated fixture started for local verification only (diagnostic; not runner infra):
 
-- `docker run --detach --rm --name w122-pg-verify --publish 127.0.0.1:5433:5432 --env POSTGRES_DB=baseharbor_test --env POSTGRES_USER=postgres --env POSTGRES_PASSWORD=postgres postgres:18-alpine`
+- `docker run --detach --rm --name w122-pg-fresh5434 --publish 127.0.0.1:5434:5432 --env POSTGRES_DB=baseharbor_test --env POSTGRES_USER=postgres --env POSTGRES_PASSWORD=postgres postgres:18-alpine`
 
-- The three tests run individually against 5433:
+Individual runs:
 
-- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5433/baseharbor_test?sslmode=disable" go test ./internal/database/ -run 'TestMigrationRollbackOwnsOnlyLatestChange' -count=1 -v`
-- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5433/baseharbor_test?sslmode=disable" go test ./internal/database/ -run 'TestIdentityTenantResolverUsesIdentityScopedRLS' -count=1 -v`
-- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5433/baseharbor_test?sslmode=disable" go test ./internal/database/ -run 'TestTenantRLSIsolation' -count=1 -v`
+- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestIdentityTenantResolverUsesIdentityScopedRLS$' -count=1` => `ok github.com/mcpdev80/baseharbor/internal/database 0.268s`
+- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestTenantRLSIsolation$' -count=1` => `ok github.com/mcpdev80/baseharbor/internal/database 0.316s`
+- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestMigrationRollbackOwnsOnlyLatestChange$' -count=1` => FAIL (see section 6)
 
-- (Individual rc values filled in below once run.)
+Full package after the DSN fix: `go test ./internal/database/ -count=1` => `ok github.com/mcpdev80/baseharbor/internal/database 2.407s`. `go test ./contracts/...` => ok. `go test ./cmd/baha -run '^TestDoctor'` => ok.
 
-## 6. TestMigrationRollbackOwnsOnlyLatestChange on develop ecbb8854
+## 6. TestMigrationRollbackOwnsOnlyLatestChange — NEBENEINANDER on develop ecbb8854 vs PR #1371 9ac4e2c4
 
-- Ran the same test against an isolated 5433 instance using commit ecbb8854 code to determine whether the red state is pre-existing on develop.
-- Verdict: (filled in once run — either VORBESTEHEND existing-condition on develop or FIXED by this change).
+- develop (ecbb8854, 8 migrations, 0008 is latest): `go test ./internal/database/ -run '^TestMigrationRollbackOwnsOnlyLatestChange$'` => **PASS** (0.34s).
+- PR #1371 (9ac4e2c4, 9 migrations; w96 adds 0009_workstation_enrollment on top of 0008): same test => **FAIL** at migration_rollback_integration_test.go:31 (`membership context rollback changed earlier security ownership`).
+- Verdict: NOT a pre-existing develop condition. It is a genuine regression introduced by the w96 migration 0009. Mechanism (instrumented): the test's first phase `verifyMembershipContextRollback` asserts that the FIRST `RollbackLast` removes 0008's `NULLIF` tenant-isolation correction. With 0009 on top, the first rollback removes 0009 (workstation_enrollment), leaving 0008's NULLIF correction in place -> `safeContext=true` -> assertion fires. Before 0009, the first rollback removed 0008 directly -> `safeContext=false` -> test passed.
+- This is a production-migration ordering/ownership question (fold 0009 into 0008, or otherwise restore 0008 as the latest-rollback layer), not a test-environment question. It cannot be fixed by the ephemeral-DB mechanism (#1372) and cannot be fixed by the DSN helper. It sits in the production migration chain I authored.
 
-## CI result
+## 7. PR #1363 (head e45e85ed, base develop, open, non-draft)
 
-- (Filled in once hosted checks run to terminal: PR Selected Checks + go-unit-tests names + PASS/FAIL + log line.)
+- PR #1363 is already built on top of the merged #1372 fix: `.github/workflows/ci.yml` line 803 = `go-unit-tests) bash scripts/pr-unit-database.sh ;;`, and `scripts/pr-unit-database.sh` exists. So its two red checks are NOT the missing-script issue that #1371 has.
+- Same failing-family diagnosis applies to #1363's `go-unit-tests`: on a clean runner the ephemeral 5433 fixture is provided, but the resolver/tenant tests hardcode 127.0.0.1:5432 for their runtime role connection, so they would still hit SQLSTATE 28000 there. My DSN fix (worker field) covers that same class for any branch that carries it.
+- #1363's head also carries the w96 migration 0009 (it descends from the same develop merge), so `TestMigrationRollbackOwnsOnlyLatestChange` fails on #1363 for the same migration-ordering regression as #1371 (section 6).
+- State recorded for both PRs; no rerun triggered; .github/** untouched.
+
+## 8. CI result
+
+- Not reached: STOP + escalate on the migration-ordering regression (section 6), which is a production-code scope decision. No .github/** edit, no rerun, no push. Hosted checks not observed.
 
 ## END
 
-- Lane w122-ci-pg-fixture: BLOCKED on Owner field (workflow call-site / runner provisioning). No .github/** edit, no rerun.
+- Lane w122-ci-pg-fixture: BLOCKED on Owner scope decision (production migration 0009 vs test rollback-ordering). DSN-side fix applied and proven for the 2/3 tests; migration-rollback test is a genuine regression from the w96 migration that only an Owner/migration-design decision resolves. No .github/** edit, no rerun.
