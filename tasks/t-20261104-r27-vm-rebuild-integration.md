@@ -92,3 +92,13 @@ references, so release qualification rests on executed runs rather than skipped 
   works. It does not depend on feature cards.
 - The executed cross-repo integration runs live in t-20261104-r27-vm-integration-runs, which carries the feature
   dependencies.
+
+## Version finding 2026-11-04 (coordinator, on disk)
+- Both test hosts ship an installed `baha` in `~/.local/bin/baha` reporting **BaseHarbor 0.4.23**
+  (baha-docker: dated 2026-10-08; baha-podman: reinstalled 2026-11-04 14:54 by its setup script).
+- Current develop is ecbb8854 (v0.4.27 line). Any run that resolves `baha` from PATH therefore tests a binary
+  four releases behind, and a green result would be worthless.
+- Required by the rebuild phase: the host setup script must build and install `baha` from the source revision
+  under test, and record `baha --version` plus that revision. The integration phase is blocked until both hosts
+  show the matching version.
+- Related pin to fix in the same pass: baseharbor-demo `baseharbor-core.ref` still points at 212ae90e.
