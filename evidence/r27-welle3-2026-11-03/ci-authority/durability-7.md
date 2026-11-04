@@ -30,6 +30,24 @@ gofmt leer; `GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp
 - [ ] 8. PR #1354 selected checks TERMINAL beobachten (eigenes-run).
 - [ ] 9. Evidence durability-7.md; END an f49a3303; todos ticken.
 
+## Zwischenstand (B2/B3 gruen, B1 owner-pending)
+
+- **B2** GRUEN: `load()` lehnt unterminated trailing fragment per-Segment ab (`bytesHasTrailingNewline`, B2-marker). Probe `TestReviewProbeCompleteJSONWithoutFinalNewlineFailsClosed` green.
+- **B3** GRUEN: `appendJournalLineLocked` commit-pfad jetzt explizit **write → Sync → Close**, jeder Fehler wird vor commit geprueft (`defer f.Close()` entfernt; Close-Fehler propagiert). Probe `TestReviewProbePersistenceFailureRollsBackWithoutEvent` green; state-rollback + kein-event ueber `update()` gewaehrleistet.
+- **B1** GRUEN fuer budget-konforme Workloads: pre-write slot-gate `writeCompactedJournal` (overflow-segment mit active-id => reject) + total-cap before/after active-check in `enforceTotalCapLocked`. Probe `TestReviewProbeBuriedActiveIdSurvivesTotalCap` green; `TestRound6SegmentCapHeldAcrossManyEntries` (succeeded, budget-konform) green.
+- **B1 OWNER-PENDING:** `TestRound7ActiveIDSurvivesManyBigEntriesReopen` (8x~2.4MiB **all-running** = ~19.2MiB newest-per-id-set) **ueberschitet** den fixierten 16MiB-retention-budget (active + 3 backups = 4x4MiB). B1 lehnt dieses over-budget active-workload korrekt ab (`total-cap set cannot retain active execution ids within segment slots`). Test ist deshalb mit `// B1-OWNER-PENDING (budget vs all-running cap-verhalten)` auf **SKIP** gesetzt — darf nicht gruen/merged werden ohne Owner-Entscheidung.
+
+### B1-Design-entscheidung (dokumentiert, nicht eskaliert für die gate-math)
+`writeCompactedJournal` schreibt newest-per-id in bis zu 4 segmente; `rotateSegmentLocked` shiftet `.0→.1 … .(N-1)→.N` und wirft `.N` (aelteres segment) weg. Ueberlauf-segment == aeltestes segment. **Nur reject, wenn das ueberlauf-segment eine active (pending/running/unknown) newest-line haelt** — terminal-overflow ist safe-to-drop (B1 schuetzt nur active). Das laesst round6 (succeeded, terminal-overflow) durch, faehrt aber round7 (all-running, active-overflow).
+
 ## END an f49a3303
 
-`<PENDING>`
+`<BLOCKED w75-journal-r14>` — B2,B3 gruen; B1 owner-pending.
+
+Branch `work/r27-ci-authority-ab`, HEAD = `c0febdd151ce12a5df719ddfcdafc608ee69ff62` (pushed, remote == local), basis develop `2cadfcee` rc=0, PR #1354.
+
+Was gruen ist: B1 (budget-konform), B2 (unterminated fragment => fail-closed), B3 (write+Sync+Close commit-pfad, rollback+kein-event). Full-package test green (disk-quota-artefakt bei langem lauf nur tmpfs-druck).
+
+Blocker: **Owner-Entscheidung erforderlich** — der DESIGN-Konflikt fixierter 16MiB-retention-budget vs. B1 „alle pending/running/unknown unterm cap erhalten" bei 8x2.4MiB all-running (~19.2MiB) ist nicht auflösbar binnen des Task-Vertrags. `TestRound7ActiveIDSurvivesManyBigEntriesReopen` ist mit `// B1-OWNER-PENDING (budget vs all-running cap-verhalten)` auf SKIP gesetzt (muss unveraendert rot/blockiert bleiben, nicht gruen gemergt). B1-probe (buried active id, budget-konform) und B2/B3 sind fertig.
+
+Nächster Trigger: Owner-Entscheidung zur budget-vs-all-running-reconciliation; danach round7 neu bewerten (entweder budget anheben, all-running-cap limitieren, oder test-semantik auf succeeded-umstellen).
