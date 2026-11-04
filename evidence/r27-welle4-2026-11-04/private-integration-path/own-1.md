@@ -102,3 +102,7 @@ Implemented the minimal private-mode switch and proved both directions with unit
 ## Open decision for Owner/Coordinator (QUESTION posted to f49a3303)
 
 - The private-path switch + cause + counter-probes + minio report are complete and committed. The one remaining step (positive cycle + hosted CI) needs either (a) the coordinator to open a draft PR on this branch so hosted CI runs, or (b) a different run host where the demo's un-pullable minio image is available (e.g. a host that can pull minio/minio or where the demo runs against the shared backend without the standalone minio profile). I cannot open/merge a PR myself and cannot edit the demo/.github. Recommend (a).
+
+## END
+
+END_DONE w144-private-integration-path: head=efadde8ef6 ursache=footprint.go:283-290+provider_union.go privat=<RC implemented+proven: Manifest.Private switch -> Scope=application postgres/valkey, own DB+KV in own net, shared default unchanged> ohne_schalter=<verified shared-bridge identical> minio=<compose.yaml:48 standalone-only, not pullable on baha-docker mirror, does not block shared run> lsremote=1fc148ff | DONE: cause + minimal private switch + both counter-probes + minio report committed; evidence published to baseharbor-plan main. OPEN: hosted CI + positive cycle need your draft PR or a run-host with the minio image available (QUESTION posted to f49a3303).
