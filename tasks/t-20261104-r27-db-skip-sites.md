@@ -5,9 +5,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord-welle4 (Lane w137)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen"
 priority: ""
@@ -20,17 +20,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-db-skip-sites · Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen #task #release/v0-4-27 #status/planned #view/ready #kind/task
+- [ ] t-20261104-r27-db-skip-sites · Tests: fehlende Prüfumgebung bleibt in fünf Stellen ein Überspringen #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle4 (Lane w137)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle4 (Lane w137)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -82,3 +81,8 @@ klarer Meldung stehen, damit ein Lauf nicht scheingrün wird. Wo ein Überspring
 2. Gegenprobe mit absichtlich falschem Ziel: rot (Beweis, dass wirklich geprüft wird).
 3. Keine Überspringung bleibt ohne schriftliche Begründung im Code.
 4. Prüfprotokoll der gehosteten Läufe bis zum endgültigen Zustand in der Nachweissammlung.
+
+## Claim 2026-11-04
+- Auftrag: die fünf verbliebenen Stellen, die ohne Verbindungsangabe überspringen statt fehlzuschlagen,
+  auf echtes Fehlschlagen mit klarer Meldung umstellen; wo Überspringen fachlich richtig ist, bleibt es mit
+  Begründung im Code. Gegenprobe je Stelle mit unerreichbarem Ziel muss rot bleiben.
