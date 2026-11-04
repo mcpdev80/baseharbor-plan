@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle4 (Lane w141)
+owner: coord-welle4 (Codex-Worker cx09)
 kanban_lane: review
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w141) · **Priority:** normal  
+    **Owner:** coord-welle4 (Codex-Worker cx09) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (Lane w141)  
+**Owner:** coord-welle4 (Codex-Worker cx09)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -142,3 +142,15 @@ Round 4 (lane w136): --self-owned-unit ExecStart now executable + unit enabled a
 - New tests failed on `fcca9c4a295625062827343263de5b2ddaff4d62` and passed on this candidate. `go test ./... -count=1`, `go vet ./...`, `go build ./...`, `gofmt -l cmd internal` (empty), and `git diff --check` passed.
 - Hosted runs reached terminal: Quality `41900064640` SUCCESS / job `126819771900` PASS; Source Conformance `41900064793` SUCCESS / job `126819771878` PASS. Native enrollment and encrypted transport were terminal SKIPPED, not counted as green.
 - Full red-on-old output, run evidence, diff, and repo-rule compliance: `evidence/r27-welle4-2026-11-04/node-service/round-5.md`.
+
+## Handoff 2026-11-04 (Runde 5, plattenfest nachgemessen)
+- Kandidat: PR #19, Zweig work/r27-node-service, Kopf 9913ce4770363 (ls-remote == Kopf), Hauptlinie ist
+  Vorfahr; sechs Dateien im Feld, Läufe zwei grün / zwei nach Auswahlregel übersprungen.
+- Die Eigentumsprüfung vergleicht jetzt EXAKT gegen die drei zulässigen Eigennamen
+  (internal/nodeservice/nodeservice.go:85-89, Gleichheit statt Teilzeichenfolge); die verbliebenen
+  Textvergleiche in der Datei sind Prüfungen von Fehlermeldungen in Tests.
+- Ein Fehler beim Aktivieren kommt als typisierter Einrichtungsfehler zurück; die Rot-auf-dem-kranken-Stand-
+  Pflicht ist auf fcca9c4 nachgerechnet (fünf Kollisionsfälle plus der Aktivierungsfall, wörtlich in der
+  Beweissammlung) statt behauptet.
+- Die Meldung kam über die Ablagespur an, weil das Senden einer Freigabegrenze begegnete; beide Wege sind
+  protokolliert.
