@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w145)
-kanban_lane: active
+owner: coord-welle4 (Lane w145, freigegeben)
+kanban_lane: review
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
-kanban_status: active
+kanban_status: review
 kanban_title: "Client: resolve trusted local or remote management connections"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1380]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -22,20 +22,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w145) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w145, freigegeben) · **Priority:** normal  
+    **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md)  
-**Owner:** coord-welle4 (Lane w145)  
+**Owner:** coord-welle4 (Lane w145, freigegeben)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -66,3 +67,11 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 ## Anspruch 2026-11-04
 - Auftrag: Verwaltungsverbindung und Platzierungsziel getrennt halten, ausdrueckliche Auswahl gewinnt
   deterministisch, Bindungen (Installation, Vertrauen, Entdeckung) weisen bei Abweichung vor jeder Wirkung ab.
+
+## Kandidat pruefbar 2026-11-04
+- Kopf f1f3551291c, develop ist Vorfahr, log-Zeile traegt nur den eigenen Commit (von mir gemessen).
+- Die Wiederverwendung laeuft ueber die bereits abgenommene Kern-Installations-Autoritaet; Verbindung und
+  Ziel sind getrennt, ausdrueckliche Auswahl gewinnt, Bindungen schliert fehlgeschluessen.
+- Die Lane meldet einen PRE-EXISTING Ausfall der Compose-Lebenszyklus-Pruefung und nennt das keine
+  Regression. Der Review muss das auf Deiner Hauptlinie selbst nachmessen (rote Grundlinie, nicht
+  behauptet); die PR-eroeffnung uebernahm ich, weil die Lane den Schritt vergessen hatte.
