@@ -9,7 +9,7 @@ priority: normal
 owner: coord-welle4 (lane w105)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
-prs: []
+prs: ["mcpdev80/baseharbor-node-connector#19"]
 sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
@@ -18,19 +18,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w105) · **Priority:** normal  
+    **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Owner:** coord-welle4 (lane w105)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
 <!-- /generated:links -->
 
@@ -57,3 +58,13 @@ Focused Connector service/bootstrap tests/vet/build; bounded native service smok
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+
+## Handoff 2026-11-04 (lane w105, coord f49a3303)
+- Candidate: connector PR #19 (draft -> ready by coordinator), branch work/r27-node-service, head 764a2a4.
+- Delivered: thin internal/nodeservice lifecycle (install/start/restart/uninstall, rootless systemd-user,
+  lingering), re-enrollment determinism, protected local key generation; targetaccess reused; no desired-state
+  or placement authority on the node. Nine red-first cases in evidence (slice-2).
+- Path reservation: coordinator decision (b) — no contract-reserved connector service path existed; proposed
+  path documented for public-surfaces/authority-contract review.
+- Codex review r19a dispatched on this exact head; merge only after verdict.

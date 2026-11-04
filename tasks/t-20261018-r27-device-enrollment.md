@@ -105,3 +105,8 @@ ls-remote==head.
 - #1364 geschlossen (superseded, begruendung + diff-beleg im close-comment): rebase auf develop f8ef4255.
 - Neuer Kandidat: PR #1371 (draft) branch work/w96-production-wiring-f8ef4255 head fb701991;
   prototyp + produktionspfad-verdrahtung, 14 eigene dateien im namespace + store dauernd + policy-quelle.
+
+- Round 2 (lane w104) delivered head af05b198 on branch work/w96-production-wiring-f8ef4255 / PR #1371: all
+  four review-1371a recipes addressed (route suffix, policy-sourced station scope, fail-closed registry fact,
+  PostgreSQL integration executed against a real database). Base refresh onto develop bb9bc0ef is in flight
+  (lane w108); Codex final review follows on the refreshed head only.
