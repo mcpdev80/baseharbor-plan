@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w154). Coord f49a3303. KARTE: t-20261104-r27-destroy-after-aborted-apply (RUNDE 1).
+REPO baseharbor, zweig work/r27-destroy-aborted-apply von develop (zuerst fetch; ls-remote echt).
+KARTE VOR dem coding VOLLSTAENDIG lesen — sie ENTHAELT DIE GEMESSENE REPRODUKTION (VM-lane w150, wortlicher
+fehlerpfad runtime.env fehlt, anlage-akten present inkl. last_applied_ref).
+
+KERNDIFFERENZIERUNG (verwechsle NICHT die zellen): der geschlossene fall #1375 = deployment.json FEHLT
+GANZ. DEIN fall = deployment.json PRESENT mit applied-intent + last_applied_ref, aber die
+STUFEN-runtime-umgebung (state/<stage>/runtime/runtime.env) wurde nie materialisiert, weil ein
+provider-wechsel mitten im anwenden an der doppel-bestaetigung scheiterte. Zerstoerung muss in DIESEM
+zustand rc=0 enden.
+
+LOESUNGSRAHMEN (entscheidet sich am eigentum, nicht am raeumen): der zerstoerungs-pfad darf eine
+runtime-umgebung NUR dort voraussetzen, wo der zustand sie garantiert hat. Leite die zerstoerungs-menge aus
+DEN DINGEN AB, DIE WIRKLICH EXISTIEREN (eigentum-akten, deployments, verzeichnis-inhalt), statt an einem
+festen dateinamen zu scheitern. DER ZUSTANDSORIENTIERTE ANSATZ aus dem geschlossenen fall ist wiederverwendbar —
+pruefe shared_core_sql.go/manifest-akten als eigentumsquelle, erfinde keine zweite wahrheit.
+
+NACHWEISE:
+ (1) NEUE REGRESSION in genau deiner zelle: setup wie die reproduction (provider-change-abort), dann
+     destroy => rc=0, keine laufende instanz + kein eigentum uebrig (liste). SIE MUSS ROT auf develop
+     ea3fb38e (wortlich, kranker commit benannt) und GRUEN auf deinem kopf.
+ (2) UNVERAENDERTEN Faelle BELEGT: #1375-zelle (deployment.json fehlt) bleibt rc=0; normale
+     auslieferung+zerstoerung unveraendert; schranke blob-identisch (deployment_record.go vorher/nacher).
+ (3) GEGENPROBE: provider-wechsel-ABBRUCH mittendrin erneut ausgefuehrt (zweiter anlauf mit korrekten
+     zwei bestaetigungen) => auslieferung erreicht betriebsbereit rc=0 ODER dokumentierter sauberer
+     fehler ohne zerstoerbaren rest — beides akzeptabel, HAUPTSACHE kein undurchschaubarer zustand.
+GRENZEN: KEINE .github, KEIN AGENTS.md, KEINE subagenten, KEIN zweiter PR, kein rerun als analyseersatz.
+PFLICHTPRUEFUNGEN: go test ./cmd/baha ./internal/deployment -count=1 (skript-verbindung), build, vet,
+gofmt; gehostete laeufe deines kopfs bis TERMINAL (Eigenes-Run-Pflicht); name-only + log-zeile + ls-remote
+echt WORTLICH.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/destroy-aborted-apply/round-1.md
+END an f49a3303: "END_DONE w154-destroy-abort: head=<sha10> zelle-rot-auf-develop=<ja> zelle-gruen-head=<ja> faelle=<1375|glueck|schranke ok> gegenprobe=<...> lauf=<id+status> lsremote=<sha10> | <Satz>"

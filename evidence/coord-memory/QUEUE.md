@@ -85,3 +85,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   ist closed/accepted, Plan-CI #41926483152 success — von mir gemessen). Connector-Dateien: enger
   Schreibsatz der Karte (targetaccess/session*, outbound*), niemals die von ChatGPT hinterlassenen Pfade
   parallel; basis main 816720c+ frisch fetchen.
+- w154-destroy-aborted-apply.txt — LAEUFT (ornith): neue bug-karte aus VM-reproduktion (zerstoerung nach
+  abgebrochenem provider-wechsel). #1378c ACCEPT → merge befohlen; candidate-pack #1381 in pruefung.
