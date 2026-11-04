@@ -1,160 +1,154 @@
-# w78-seam-isolation — 11/11 isolated (r27-state-owner, branch work/r27-state-owner)
+# r27 welle3 · state-owner · runde-2: Probe-Befund (END_BLOCKED)
 
-Worker lane w78. Coord f49a3303. Card t-20261018-r27-state-owner.
-Branch head: `d9a48d42` (FF from develop 2cadfcee). CI jobs 41774178200 + 41776994532 (go-unit).
+**Task / lane:** state-owner (PR #1347), lane 11 = `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`
+**Datum:** 2026-11-04
+**Autoritativer Zweig:** `work/r27-state-owner` @ `d9a48d42` (FF von develop `3d08ef72`)
+**Ergebnis runde-2:** END_BLOCKED — der 11. Failure ist ein **echter Produktions-Konflikt**, den **kein testseitiger Pfad** auflösen kann; die Platte entscheidet.
 
-## Status
-- 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
-- Fix #2 (inverted-mode ADR-0022 proof) committed, red-first
-- Fix #1 (happy-path) — reverted to hard-coded rootful (matches develop); CI go-unit fails at `app_edit_apply_test.go:1022` with `partial` (SQL-consumer verification, not mode)
+> Der Probe-Befund schließt sich an runde-1 an (isolation-vs-selection-Hypothese widerlegt: alle 10 host-env-Kreise sauber isoliert, Commit `63d7ea51`; Fix #2 inverted-mode proof `dc157b5c`). runde-2 hat die Fail-Kette per Edit-Debug lückenlos instrumentiert und die Strasse zwischen zwei kontradiktoren Production-Pfaden gezeigt.
 
-## The 10 host-env artifacts (isolated, committed 63d7ea51)
-1. recovery(5) — `TestRecoveryFileForRepositoryUp*`: shared `~/.local/share/baseharbor-recovery` collision. Fix: per-test `t.Setenv("HOME", t.TempDir())` + `t.Setenv("XDG_CONFIG_HOME", t.TempDir())`.
-2. telemetry(3) — `TestRegisteredOTLP*`: "OTLP TLS projection has no protected existing parent". Fix: package `TestMain` sets `syscall.Umask(0o022)` so the `t.TempDir()` numbered dir isn't group-writable.
-3. externalprovider(1) — `TestDiscoverCertificateDirectoryMatchesWildcardAndKey`: same umask artifact.
-4. podman(2) — quadlet retirement: podman ownership env. Fix: `TestMain` umask 022.
+---
 
-All verified red-first → green under `umask 022`. No production code touched.
+## 1. Tatsachenstand (instrumentiert, reproduzierbar)
 
-### Fix #1 (happy-path mode) — reverted to hard-coded rootful (matches develop / wt-ci-access)
-The probe-based fix #1 (`probeTargetDockerMode`) cannot converge on CI: on the
-GitHub runner the rootful socket `unix:///var/run/docker.sock` is not reachable
-from the unprivileged test process, so the probe falls back to the rootless
-socket and binds `rootless`, which mismatches the rootful daemon and fail-closes
-at baseline (`…IS ROOTFUL, but Target requires rootless`). The CI log shows the
-happy-path stopping at `app_edit_apply_test.go:1022: real Edit lifecycle did not
-converge: application machine: partial` even with the mode correct — the blocker
-is the SQL-consumer verification, not the mode. Reverted the happy-path to the
-original hard-coded `DockerMode="rootful"` / `DockerEndpoint="unix:///var/run/docker.sock"`
-(so it is byte-identical to develop's happy-path, which is the wt-ci-access converge
-path). `probeTargetDockerMode` is kept because Fix #2 depends on it.
+Der 11. Failure ist **nicht** `docker`-mode rootless/rootful und **nicht** ein fehlendes postgres-service im matrix-job. Die Fail-Kette ist lückenlos verfolgt:
 
-## The 11th case: TestAppEditCommandCompleteProviderEditRunsRealLifecycle
+- **Terminal-Ursache:** `runApplicationApplyLifecycle` (`cmd/baha/app_apply.go:117`) schlägt in `prepareApplicationProviderRetirement` (`cmd/baha/application_provider_retirement.go:36`) fest zu:
+  `machine.ErrorOwnershipAmbiguous` / `provider_retirement_unverifiable` → *"The last consumer cannot be released without verified runtime and complete consumer inventory."*
+- Der Mutate-/Apply-Pfad wird **nie** erreicht; die Failure ist ADR-0022 fail-closed auf dem RESUME-Retire-Check.
+- **Reproduziert under develop's green runner state** (rootful dockerd via `sudo -n DOCKER_HOST=unix:///var/run/docker.sock go test …`) — **identisch** zu CI go-unit `126399618419` (sha `d9a48d42`):
+  - lokal: `app_edit_apply_test.go:1022: real Edit lifecycle did not converge: application machine: partial … The last consumer cannot be released …`
+  - CI: `DIAG_EXEC adapter executionErr=The last consumer cannot be released …` + `app_edit_apply_test.go:1007: measured post-Edit fact: … state=stopped-but-owned`.
 
-### Root cause (proven, refutes prior "needs rootless daemon" thesis)
-The case is NOT a daemon-mode issue and NOT hostless-only. Evidence:
-- CI runs 41757162384 + 41730516012 (branch work/r27-ci-access-ab, shas 3360d14a / 1d39010d)
-  both green: `ok github.com/mcpdev80/baseharbor/cmd/baha 283.381s` / `319.729s`.
-  The happy-path test in that tree asserts convergence — it converges on CI.
-- On this host the same test fails with the SAME fail-closed line under BOTH
-  rootless (native) AND rootful (sudo to /var/run/docker.sock):
+### 1.1 Instrumentierte Fail-Kette (probe /tmp/acc-probe)
 
-  `DIAG_EXEC adapter executionErr=The last consumer cannot be released without
-   verified runtime and complete consumer inventory.`
-  `result=... Status:partial Outcomes:[... Operation:resume Status:pending ...]`
-  `app_edit_apply_test.go:N: real Edit lifecycle did not converge: application machine: partial`
+```
+DBG-LOADER target="docker-dev" LoadErr=<nil> hasFile=true   # Core-Installation ist PRESENT
+DBG-UNION app-pg  InstanceID="postgresql/application/…/dev-ef260e9a/default-37a8eec1"
+                 Action=preserve Complete=false deps=[] anc=false   # app-eigene postgres, kein consumer
+DBG-TRIP  InstanceID="runtime/bh-docker-dev-core-shared/keycloak" Complete=false consumers=1
+DBG-TRIP  InstanceID="runtime/bh-docker-dev-shared/control-plane/openbao" Complete=false consumers=1
+DBG-TRIP  InstanceID="runtime/bh-docker-dev-shared/control-plane/postgresql" Complete=false consumers=1
+DBG-TRIP  InstanceID="postgresql/application/…/dev-ef260e9a/default-37a8eec1" Complete=false consumers=0
+DBG-FACT  postgresql/application/…/…: state=stopped-but-owned anc=false deps=[]   # <- trippt zuerst (sortiert)
+→ app_edit_apply_test.go:1022: partial
+```
 
-- The failing plan is `Scenario:provider-changed` — the Edit's SQL-consumer
-  RESUME can't verify its postgres backend. `ObserveSQLConsumerInventory`
-  (internal/application/runtime_postgres.go:179) needs the runtime.env
-  USER/DB to resolve and a reachable postgres; the probe reports
-  `SQL consumer identity/database inventory unavailable`.
+Der RESUME-Retire-Check (`prepareApplicationProviderRetirement.go:31-36`) iteriert `plan.Changes`; der **app-eigene** `postgresql/application/…` ist `stopped-but-owned`, `deps=[]`, **0 consumer** → `Action=preserve, Complete=false` → fail-closed.
 
-### Why it's a host postgres-topology limit, not a test bug
-- `docker ps` on this host shows `bh-local-shared-postgres-init-1 Exited (1)`
-  (down 17+ hours), while member/admin proxies are up. The application-scoped
-  postgres consumer the baseline binds can't be verified in the Edit release
-  path from this lane. This fails identically against a rootful daemon via sudo —
-  so it is NOT the daemon mode; it is the reachable-postgres precondition.
-- CI has a healthy shared-postgres topology, which is why it converges there.
+### 1.2 Woher kommt die app-eigene postgres (unverifizierbar, 0 consumer)?
 
-### Fix #1 (mode-adaptive happy-path) — committed, converges on CI
-`cmd/baha/app_edit_apply_test.go`: `probeTargetDockerMode` helper derives the
-real daemon mode via the production path
-(`inspectTargetDockerEngine` → `ResolveDockerEngine`, engine.go:148/34) and binds
-the Target `DockerMode`/`DockerEndpoint` from it, instead of the previous
-hard-coded `DockerMode="rootful"` / `DockerEndpoint="unix:///var/run/docker.sock"`.
-On CI (rootful daemon) it resolves rootful and converges; on a rootless dev host
-it resolves rootless. This is the coordinator's fix #1: "mode-ADAPTIV bauen …
-wird in BEILER welt gruen."
+- `observeNativeBackendProviderFacts` (`cmd/baha/application_native_backend_observation.go`) iteriert den **von dem Test vorgeprägten** `provider-registry.json` (line 978: `Save(available)`) und leitet aus `observeCanonicalProviderContainers` (0 container → `stopped-but-owned`) die app-postgres-Fakt ab.
+- Der RESUME-consumer für die app-postgres-`binding` kommt aus `resolveApplicationProviderPlanFromSnapshot` (`cmd/baha/application_provider_plan.go:94-101`), **aber** die app-eigene Zeile (`Key == "application/<appID>/…"`) ist dort **explizit ausgenommen** (`consumers[index].Key != "application/…"`). Es gibt **keinen deployment-consumer** (single-deployment-test): `DBG-DEPLOY-LOAD`/`DBG-BIND-INJECT` bleiben leer.
+- **Ergebnis:** app-postgres hat in beiden Bäumen `deps=[]`, 0 consumer → `preserve, Complete=false`. Identisch.
 
-### Consent input correction
-The wt-branch test dropped a trailing `y` in the 2-stage edit consent; restored to
-`"\nprovider database.sql/default " + ID + "\nnext\nyes\ny\ny\ny\n"` (3 y's:
-provider-selection + `next` + edit-confirm + two confirmation stages). Both edit
-tests now carry it.
+---
 
-### Fix #2 (inverted-mode ADR-0022 proof) — committed, red-first, passes locally
-New `TestAppEditInvertedDockerModeFailsClosedAd0022`:
-- Derives the real daemon mode, INVERTS it (`rootful`↔`rootless`), binds the
-  Target, then asserts production's single verified probe (`inspectTargetDockerEngine`)
-  fails closed: `err != nil`, message contains `no engine fallback` and
-  `requires <inverted>`.
-- Red-first guarantee: a matching (correct) daemon must NOT be rejected — the
-  assertion `if err == nil { t.Fatalf(...) }` fires for a matching mode, so a
-  wrong inversion that still passes is caught. Verified: matching-mode probe
-  succeeds → test correctly fails; inverted-mode probe fails closed → test passes.
-- This is the environment-independent ADR-0022 proof the coordinator directed:
-  the documented "partial + no-engine-fallback" refusal asserted, not merely shown.
+## 2. Der decisive divergence: Core ist zwingend erforderlich UND fatal
 
-## Red-first checks
-- 10 isolation cases: reproduced red, green under `umask 022` (or HOME/XDG isolation).
-- Fix #2: matching-mode probe succeeds (test fails), inverted-mode probe fails closed (test passes).
-- Fix #1: converges green on CI (41757162384 / 41730516012).
+Der **einzig reale** production-divergenz zwischen den Bäumen ist **nicht** die retire-pruefung (byte-identisch, siehe §3), sondern **`configureTestTarget`** in `cmd/baha/target_test_helpers_test.go`:
 
-## Build / hygiene
-- `go build ./...` green; `gofmt -l cmd/baha` empty; `go vet ./cmd/baha` clean.
-- No production code changed. No test deleted. No skip.
+| Baum | `registerInstallationForTarget` in `configureTestTarget` | Core im happy-path | Retire-Check |
+| --- | --- | --- | --- |
+| **develop** (`3d08ef72`) | **nicht aufgerufen** | **core-free** | **kein** `control-plane/postgresql` → grün |
+| **my-branch** (`d9a48d42`) | **aufgerufen** | **Core present** (`DBG-VDO installOK=true`) | injects unverifizierbaren Control-Plane → **rot** |
 
-## Still pending
-- Happy-path (fix #1) converge green on CI — blocked on the shared-postgres backend (see END_BLOCKED).
+### 2.1 Gegenbeweis A — Core ist für die Owner-Bindung **Pflicht** (Probe: Core auskommentiert)
 
-### Runde-2 root-cause (proven by instrumented run, 2026-11-04)
-The happy-path stops at `app_edit_apply_test.go:1022` — but NOT where prior notes
-said. Instrumented `runApplicationApplyLifecycle` shows the RESUME's real failure
-is the FIRST seam before the mutate: `prepareApplicationProviderRetirement`
-(`cmd/baha/application_provider_retirement.go:36`), which returns
-`machine.ErrorOwnershipAmbiguous` / cause `provider_retirement_unverifiable`:
+`configureTestTarget` **ohne** `registerInstallationForTarget` → `registerTestDeployment` (line 935) schlägt fehl:
 
-    The last consumer cannot be released without verified runtime and complete
-    consumer inventory.
+```
+app_edit_apply_test.go:935: missing deployment state for docker-dev/edit-runtime-integration/dev
+  [22222222-...]: deployment has no authoritative installation owner for its Target;
+  the installation must be restored before its state is loadable
+  → ErrDeploymentOwnerMissing (VerifyDeploymentOwner, deployment_store.go)
+```
 
-Precise trigger (DBG-PLAN captured on this branch):
+Core ist also zwingend notwendig; ein Coreloser Pfad scheitert an der Bindung.
 
-    DBG-PLAN: Complete=false total=4 Action="preserve" reason="inventory or ownership is not verified"
+### 2.2 Gegenbeweis B — Core ist für den Retire-Check **fatal** (Probe: Core aktiviert)
 
-The RESUME plan has the postgres as `Action="preserve"` with `plan.Complete=false`
-because the postgres consumer inventory is unverified. The mutate (source write at
-`app_apply.go:117`) never runs — the retirement check aborts first. Confirmed via
-instrumented run: `FINAL-CHECK` (mutate site) is never reached; the `DBG-RETIRE`
-line fires.
+`configureTestTarget` **mit** `registerInstallationForTarget` → `appendManagementProviderDependencies`
+(`cmd/baha/application_management_dependency.go:22`) injectt die Core-Management-Fakte, deren
+`Dependencies = [RuntimeStorageDependencyID(target)]` = `control-plane/postgresql`
+(`internal/application/runtime_storage_dependency.go:10`, `ScopeShared`, `OwnershipBaseHarbor`,
+`state=ProviderUnverifiable`) → `provider_union.go:159` setzt `Action=preserve, Complete=false` → ADR-0022.
 
-### Why ci-access-ab (sha 3360d14a) passes this seam and my branch does not
-ci-access-ab's identical happy-path test runs PAST this retirement check and fails
-LATER, at `verifyDesiredRuntimeServices` (compose-up readiness):
+### 2.3 Probe-Ergebnis: beide testseitigen Pfade schlagen fehl
 
-    Waiting for backend readiness: application verification failed: verify postgres
-    instance default: compose exec ... FATAL: password authentication failed
+`cmd/baha` full unit suite im sauberen git-worktree `/tmp/acc-probe` (FF my-branch HEAD), rootful dockerd:
 
-so ci-access-ab's RESUME plan reaches `plan.Complete=true` here. My branch's plan
-stays `Complete=false` / `preserve` at the same seam. `application_provider_retirement.go`
-is byte-identical between the two trees (diff empty), so the divergence is the plan
-input — the postgres is verified in ci-access-ab's run and unverified in mine. This
-is the decisive r27-state-owner divergence: the one-installation-owner production
-makes the RESUME's postgres change land as `preserve` (unverified) rather than a
-verifiable `resume`. The happy-path converges only where that change verifies.
+```
+--- FAIL: TestAppEditCommandCompleteProviderEditRunsRealLifecycle (20.61s)
+FAIL
+FAIL	github.com/mcpdev80/baseharbor/cmd/baha	193.317s
+```
 
-## END_BLOCKED (happy-path SQL-consumer RESUME, per mission STOP rule)
-The happy-path stops at `app_edit_apply_test.go:1022: real Edit lifecycle did not
-converge: application machine: partial`. Instrumented run pins the failing seam to
-`prepareApplicationProviderRetirement` (`application_provider_retirement.go:36`):
-the RESUME plan (Scenario:provider-changed) marks the postgres consumer
-`Action="preserve"` with `plan.Complete=false` (reason: "inventory or ownership is
-not verified") and aborts before the mutate — `machine.ErrorOwnershipAmbiguous` /
-`provider_retirement_unverifiable`: "The last consumer cannot be released without
-verified runtime and complete consumer inventory." This is the documented
-ADR-0022 fail-closed boundary, reached because the RESUME's postgres change is not
-verified. Evidence:
-- CI go-unit 41774178200 (branch head `dc157b5c`): the ONLY go-unit failure is
-  `TestAppEditCommandCompleteProviderEditRunsRealLifecycle (20.59s)` → `partial`
-  (line 1022); all other cmd/baha tests pass.
-- ci-access-ab (sha 3360d14a) green on the SAME test — but the retirement seam is
-  passed (plan.Complete=true there); my branch diverges at that seam.
-- This host fails identically under rootful (sudo): the reachable-postgres /
-  verified-runtime precondition is absent, not the daemon mode.
+**Einziger** Misserfolg in der gesamten `cmd/baha`-Suite; alle anderen ~280 Tests grün.
+- Probe-Baum 1 (Core auskommentiert): `line 935: missing deployment state … ErrDeploymentOwnerMissing`.
+- Probe-Baum 2 (Core aktiviert): `line 1022: partial … The last consumer cannot be released …`.
 
-Fix #2 (inverted-mode ADR-0022 proof, `TestAppEditInvertedDockerModeFailsClosedAd0022`)
-is delivered, red-first, and committed at `dc157b5c`. The happy-path converges only
-where the RESUME's postgres change verifies (`plan.Complete=true`); it is blocked on
-this lane because that verification needs a real verified postgres backend (a proper
-Core/backend on the executing lane or CI runner). Fix #1 is the remaining blocker.
+Beide testseitigen Wege sind damit **ausgeschöpft**.
+
+---
+
+## 3. Produktions-Differenz ist minimal und belegt (byte-Prüfung)
+
+`diff` develop `d9a48d42` vs ci-access-ab/e86d39c0 — **production-only** (`*.go`, nicht `_test.go`):
+
+| Datei | diff |
+| --- | --- |
+| `cmd/baha/deployment_record.go` | **nur** `TenantOwnerResolver` init + one-installation-owner binding + `installationRootFor` |
+| `cmd/baha/docker_engine.go` | leer (identisch) |
+| `cmd/baha/app_edit_apply.go` | leer (nur comment) |
+| `cmd/baha/app_machine_adapters.go` | leer (nur comment) |
+| `internal/deployment/deployment_store.go` | `VerifyDeploymentOwner` (byte-identisch zur Logik) |
+| `cmd/baha/application_provider_retirement.go` | leer (identisch) |
+| `cmd/baha/application_provider_plan.go` | leer (identisch) |
+
+Die retire-pruefung (`application_provider_retirement.go:31-36`) und `VerifyDeploymentOwner` sind **byte-identisch** zwischen den Bäumen. Der einzige productive change ist die `TenantOwnerResolver`/one-installation-owner-Bindung; der retire-check unverändert.
+
+---
+
+## 4. Counter-belege (beide Pfade, datei:leile)
+
+**Bindung (Core Pflicht):**
+- `cmd/baha/target_test_helpers_test.go:935` (happy-path `registerTestDeployment`) → `ErrDeploymentOwnerMissing`.
+- `internal/deployment/deployment_store.go` `VerifyDeploymentOwner`: `err == os.ErrNotExist → ErrDeploymentOwnerMissing`.
+
+**Retire (Core fatal):**
+- `cmd/baha/application_provider_retirement.go:33-36`: `if !plan.Complete || change.Action == "preserve"` → fail-closed.
+- `cmd/baha/application_management_dependency.go:22`: Core-Installation → injectt `control-plane/postgresql` als unverifizierbare ancillary.
+- `internal/application/runtime_storage_dependency.go:10`: `RuntimeStorageDependencyID` = `control-plane/postgresql`.
+
+---
+
+## 5. Konfliktformel (3 Zeilen)
+
+```
+core-noetig-fuer-owner-bindung : VerifyDeploymentOwner verlangt installation.json (ErrDeploymentOwnerMissing, line 935)
+core-fatal-fuer-retire-check   : Core injectt control-plane/postgresql unverifizierbar → ADR-0022 (retirement.go:36)
+core-notwendig-und-verifizierbar: nicht durch test-only erreichbar; Production-Aenderung an retire.pruefung = stiller ADR-0022-umbau
+```
+
+Der Happy-path braucht Core (Binding), aber Core löst den ADR-0022 fail-closed aus. Der Retire-Check überspringt `ScopeShared`-Core-Backends nicht → der Core-`control-plane/postgresql` trifft zuerst.
+
+---
+
+## 6. Vorschlag fuer Nachfolge-Karte
+
+Eine Karte, die **nicht** in dieser Lane liegt (Owner-Entscheidung), mit folgenden Optionen:
+
+1. **Production-Fix retire-check** (vorschlag): `prepareApplicationProviderRetirement` so erweitern, dass `ScopeShared && OwnershipBaseHarbor` Control-Plane-Backends (`control-plane/postgresql`/`openbao`/`keycloak`) **vor** der ADR-0022-Pruefung als `preserve`-skipped markiert werden (z.B. `change.InstanceID == RuntimeStorageDependencyID(target)` **und** `ScopeShared`/`OwnershipBaseHarbor` abfragen). Korrekt, aber **ADR-0022-Semantik-Änderung** → Owner-Freigabe erforderlich.
+2. **Tenant-owner-Pfad für docker-dev**: `configureTestTarget`/`registerTestDeployment` so führen, dass `docker-dev` über `TenantOwnerResolver` (Coreless, valid access scope) admitted wird — dann kein Core, kein Control-Plane-Inject, retire-grün. Erfordert, dass `docker-dev` als echter tenant registriert ist (aktuell `TenantID=""` → `isTenant=false` → durch Core-Check).
+3. **Test-Fixture**: happy-path ohne `registerInstallationForTarget`, sondern Core via eine `tenantResolvedForTarget`-grantbare tenant-target-Konfiguration; isoliert den RESUME von der Core-Dependency.
+
+**Empfehlung:** Option 1 als korrekter Bugfix, aber nur nach Owner-Autorisierung (ADR-0022-Release-Note). Bis dahin: `blocked`/`waiting` mit dieser Evidence.
+
+---
+
+## 7. Hygiene
+
+- **keine Production-Aenderung** unternommen; alle debug-Ergenzungen im probe /tmp/acc-probe zurueckgesetzt (`git checkout -- .`), `wt-branch` HEAD `d9a48d42`, working tree clean (nur `?? baha`).
+- probe-baeume: `/tmp/acc-probe` (FF HEAD), `/tmp/acc-check` (FF HEAD), `/tmp/acc-ab` (FF ci-access-ab) — alle clean, **kein** commit darauf.
+- CI matrix: my-branch `ci.yml` hat `go-unit-tests` = `go test ./...` → `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` wird ausgeführt; develop `validate` läuft `go test ./...` (identisch).
