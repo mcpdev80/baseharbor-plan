@@ -11,12 +11,14 @@ Fehlertext + Hash + alle Interaktionen). Bei anderem Fehlertext nach Hash
 Abbruch, kein zweiter `up`.
 
 ## Head / Basis
-- Fix-Kandidat (dieser Branch): `138a793ab67ccc0f4cb2d5e8df5976d33453fd60`
+- Fix-Kandidat (dieser Branch): `e453e2a19a30ba9ffec787e6ffbf981c665cc225`
 - Ziel-Head der Runde (b73be42): `b73be42ba9944d21ffe8869382c37100c3e40384`
 - Basis main: `cd9176e0129f01270ca85fd6b29acf99404f6dcd`
-- `git ls-remote origin w85-demo-guided-consent`
+- `git ls-remote origin w85-demo-guided-consent` => `e453e2a19a30ba9ffec787e6ffbf981c665cc225`
 - PR #128: OPEN, READY (`isDraft=false`), `mergeStateStatus=CLEAN`
-- Net-Diff vs `origin/main` (git diff --stat): drive.py + test_consent_capture.py + core.ref (plus revert).
+- Net-Diff vs `origin/main` = EXAKT 3 Dateien: `baseharbor-core.ref` (M), `tests/guided/drive.py` (M), `tests/guided/test_consent_capture.py` (A).
+- PR-Diff enthALT NICHT: `.github/workflows/v0424-targeted.yml` (revert), `demo/consent-harness-3.md` (nach baseharbor-plan gezogen).
+- `evidence_b1_b2.py`: netto weder neu noch gelöscht (7e972f0-Kritik berücksichtigt).
 
 ## Änderungen (netter PR #128 Diff gegen main)
 - `tests/guided/drive.py` — (1) früher `if capture: return rc, buffer` ENTFERNEN; Validator läuft im Capture-Pfad (Luna review-128b B1). (2) `up_rules`: verpflichtende READY-Regel (non-optional). (3) Aufrufer: non-zero nur als dokumentierter Candidate-Consent-Abbruch (exakter Fehler + Hash + alle Interaktionen), sonst hard abort.
@@ -59,4 +61,4 @@ abgesichert.
 - Kein Force-Push, keine Branch-Protection-Umgehung.
 
 ## Status
-END_DONE w91-demo-r3: validator=erreichbar regressions=7/7 | PR #128 netter diff = drive.py + test_consent_capture.py + core.ref.
+END_DONE w91-demo-r3: validator=erreichbar regressions=7/7 | PR #128 netter diff = drive.py + test_consent_capture.py + core.ref. Workflow revert (owner CI-Territorium), Evidence nach baseharbor-plan/evidence/r27-welle4-2026-11-04/demo/ verschoben. HEAD=e453e2a, ls-remote=e453e2a.
