@@ -11,7 +11,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 7 |
-| review | 3 |
+| review | 2 |
 | blocked | 1 |
 | ready | 2 |
 | queued | 26 |
@@ -36,7 +36,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md) | State: enforce installation-owned deployment storage | review | high | w2-state-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) (open) | [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347) |
-| [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | Deferred trusted CI readiness: access | review | critical | ornith | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | [baseharbor#1357](https://github.com/mcpdev80/baseharbor/pull/1357) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 
 ## Blocked
