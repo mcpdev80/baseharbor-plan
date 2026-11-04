@@ -1131,3 +1131,13 @@ ist die eingrenzung nicht belegt) und die klassifikations-tabelle ueber alle off
 grenzt cx04 (codex-sitz) die Readiness-karte ci-delivery ein. w111 released: sein fixture-commit 95533a788d
 (nur app_edit_apply_test.go +19/0, ls-remote==head) ist angenommen; der OpenBao-rest bleibt als befund auf der
 state-owner-karte stehen.
+
+## ~00:55 MITNAHME-PR ERWISCHT (w128, PR #1376): inhalt correct (DSN aus BASEHARBOR_TEST_DATABASE_URL statt
+fest kodierter adresse), ABER zweig nicht von develop geschnitten — letzter gemeinsamer f8ef4255, develop
+ecbb8854 kein Vorfahr, PR zeigt 26 dateien inkl. contracts/workstationenrollment/**, migration 0009,
+controlplaneruntime (die hoeren zum anmeldungs-kandidaten af05b198/fb701991). Ohne gegenpruefung waere die
+anmeldung ueber einen zweiten kanal gelandet. korrektur ohne force-push angeordnet: #1376 mit beleg
+schliessen, zweig loeschen, neuen zweig ab develop + cherry-pick 1fc148ff, name-only-diff als BELEG dass nur
+eigene dateien drin sind, mutation auf dem neuen kopf erneut, gates terminal.
+LEHRE FUER MICH: ein neuer zweig braucht den basis-beleg (merge-base --is-ancestor) VOR dem PR — steht ab jetzt
+im auftragstext, nicht nur in meinem gedaechtnis.
