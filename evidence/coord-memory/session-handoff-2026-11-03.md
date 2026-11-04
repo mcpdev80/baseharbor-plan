@@ -1631,3 +1631,8 @@ pruefer-caches (383M/370M/365M/254M go-caches) hatten den platz gefressen. aufge
 ein-Befehl-Probelauf geschrieben (heavypress.txt, rc ok), dann die beiden auftraege erneut zugestellt:
 basis-auffrischung der drei aeste + abnahmeauftrag r1371c. regel jetzt in §6.2e: erst die
 RAM-Fuell-quitung pruefen, DANN einen sitz als defekt betrachten.
+
+## ~16:10 drei urteilkanaele gefuellt, einer nach dem anderen:
+Luna -> ausfuehrungsprotokoll (r1373c), arbeitersitz -> basis-auffrischung (drei aeste) DANN gerateraegelung
+(r1371c). beide zustellungen MIT status-beleg (§2.4), und der arbeitersitz laeuft erst wieder seit dem
+tmpfs- Probelauf (§6.2e).
