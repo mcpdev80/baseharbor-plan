@@ -1,0 +1,38 @@
+ROLLE: Worker (Lane w144). Coord f49a3303. KARTE: t-20261104-r27-private-integration-path (neu, aus
+nachgemessenem befund). REPO: baseharbor (kern), zweig NEU: work/r27-private-integration ab origin/develop
+(e444ae11 oder frischer — fetch, Vorfahr-Beleg im END, name-only-diff als beweis).
+
+BEFUNDSLAGE (von mir auf dem rechner nachgemessen, zwei harte stellen):
+ - baseharbor-demo compose.yaml:48 verlangt minio/minio:RELEASE.2024-12-18T13-15-44Z; auf baha-docker ist das
+   bild NICHT beziehbar ('pull access denied, repository does not exist or may require docker login').
+   postgres 17 und valkey 8 sind beziehbar.
+ - die kernseiten-auflösung zeigt für eine arbeitslast-anwendung auf eine GEMEINSAME bindung
+   (umgebung-dev-...), und es gibt KEINEN profilschalter/eigenständigen modus => ein privater
+   integrationsschein ist aus den Definitionsdateien derzeit nicht herstellbar.
+
+AUFGABE (PRUEFPFAD, kleinster geeigneter eingriff, KEIN umbau):
+ (1) URSACHE GENAU MACHEN: lies die stelle, die die bindung auswählt (datei:zeile — erwartung: ein
+     standard-provider-pfad ohne profilschalter), und belege mit EINEM laufenden beispiel, dass die
+     auflösung auf das gemeinsame bindeglied zeigt (wortliche ausgabe, rc, zustand).
+ (2) MINIMALER PRIVATER PFAD: erweitere die bestehende bindungs-auflösung um EINEN ausdruecklichen,
+     dokumentierten privatemodus (ein schalter/ein profil, nicht neue konfigurationswelten): eigene
+     datenbank + eigener key/value-dienst im eigenen netz, ohne das gemeinsame bindeglied anzufassen.
+     Wenn dafür eine Änderung an .github nötig wäre: STOP + MELDEN mit datei:zeile (die workflow-datei ist
+     NICHT dein feld). WENN dafuer das demo-repo geaendert werden muesste: STOP + MELDEN (andere kette).
+ (3) DER private modus DARF NICHTS an dem ändern, was ohne schalter passiert: standard bleibt die bestehende
+     COMMON-bindung. gegenprobe: ohne schalter identisches verhalten (wortlich gemessen), mit schalter
+     privater stapel.
+ (4) DER minio-pin ist eine eigene frage: pruefe auf dem Rechner, ob das bild unter ANDEREM namen/bezug
+     verfuegbar ist (index-umschlag, tag ohne datum, oder das repo sieht einen ersatz vor — datei:zeile in
+     den Definitionsdateien). aendere den pin NICHT selbst; melde nur was es gibt, entscheide ich.
+ (5) NACHWEIS: der positive anwendungs-zyklus (anlegen, ausliefern mit korrekter kennung, zustand
+     betriebsbereit, inspektion gegen die echte instanz, zerstoeren rc=0, reste leer) LAEUFT auf dem
+     privaten pfad auf baha-docker. befehl + rc je schritt, wortlich. geteilte stapel bleiben unangetastet.
+ (6) PFLICHTPRUEFUNGEN am kopf: pakettests der betroffenen felder, build, vet, gofmt; gehostete laeufe bis
+     TERMINAL (lauf-id + status); ls-remote == head; name-only-diff.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-/workflow-aenderung, KEIN zerstoeren/aendern
+geteilter stapel, KEINE tests geloescht, KEIN merge, KEIN release/tag, KEIN runner, scratch nie in der
+oekosystem-wurzel (RUNBOOK §4.9/§6.2c); bei schreibfehlern zuerst df -h /tmp und df -h auf dem host.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/private-integration-path/own-1.md (ursache mit
+datei:zeile, beide gegenproben, der positive zyklus schritt fuer schritt, der minio-befund; keine checkboxen).
+END an f49a3303: "END_DONE w144-private-integration: head=<sha10> ursache=<datei:zeile> privat=<rc0+betriebsbereit|STOP+grund> ohne_schalter=<unveraendert> minio=<verfuegbar unter ...|nicht beziehbar> lsremote=<sha10> | <Satz>"

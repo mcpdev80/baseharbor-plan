@@ -1,0 +1,22 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS node-service (runde 5).
+OBJEKT: baseharbor-node-connector PR #19 head 9913ce4770363 branch work/r27-node-service base main (Vorfahr
+von mir nachgerechnet; gates terminal 2 pass / 0 fail / 2 skipping). KARTE t-20261018-r27-node-service.
+VORGESCHICHTE: 19a REJECT -> 19b REJECT (execstart nicht ausfuehrbar, einheit deaktiviert) -> 19c REJECT
+(eigentum nur teilzeichenfolge, aktivierungsfehler verschluckt) -> runde 5: EXAKTE gleichheit
+(internal/nodeservice/nodeservice.go:85-89, drei zulaessige eigennamen) + typisierter einrichtungsfehler.
+PRUEFEN SHA-genau read-only:
+ (1) write-set: diff name-only gegen main = nur die sechs dateien des felds,
+ (2) eigentum: IsSelfOwnedUnitName prueft GLEICHHEIT gegen die drei erlaubten namen; KEIN substring/prefix/
+     suffix in der PRODUKTIONSkette (substring-treffer in tests sind nur meldungstext-pruefungen — belege,
+     dass sie keine entscheidung tragen). EIGENE gegenproben: praefix-fremd, suffix-fremd, gleicher anteil
+     anderer rest, widerspruechlicher wert => abweisung mit NULL wirkung (datei/netz/schluessel/manager),
+ (3) aktivieren: injizierter aktivierungs-fehler => einrichtung schlägt FEHL (rc!=0, typisierter fehler),
+     und die einheit ist danach entweder weg oder ihr verbleib ist ausdruecklich geprueft/benannt. ohne
+     injektion => is-enabled=enabled (red-first auf fcca9c4, wortlich, das ist die baseline),
+ (4) echter lebenszyklus der PRODUKTeinheit unter echtem user-manager (install/start/restart/stop/uninstall,
+     rc je stufe, pid+comm als echter vorgang, keine schlaf-einheit, keine reste),
+ (5) fehlende autorisierung als mutation => typisierter fehler + null wirkung; keine zweite einheit bei
+     doppelter einrichtung; geschuetzter schluessel bleibt,
+ (6) gates terminal, pakettests + build + vet + gofmt LEER, ls-remote == head.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/review-19d.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r19d: verdict=<X> open=<liste|none> | <Satz>"

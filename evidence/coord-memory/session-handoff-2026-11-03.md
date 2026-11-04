@@ -1550,3 +1550,12 @@ INHALT der antwort an w135: eingesetzter pruefer entscheidet IMMER, Available() 
 kein test wird geaendert; zusaetzlicher fall 'runner gesetzt + variable auf nicht-existierenden socket';
 rot-auf-baseline = kopf vor der aenderung. das loest den kollisierenden test-paar sauber — beide
 erwartungen bleiben, die umwelt verliert ihre entscheidungsmacht.
+
+## ~13:15 zwei freie plaetze neu besetzt, einer davon war ein BETRIEBSBEFUND:
+- w144 sitzt auf der neuen karte t-20261104-r27-private-integration-path (privater prüfpfad: ein schalter,
+  eigene datenbank/dienst/netz, standardverhalten bleibt; .github/demo-ändeRUNG = STOP+melden; der
+  minio-befund wird nur gemeldet, entscheide ich).
+- Luna prueft die kapsel runde 5 (r19d) mit EIGENEN kollisionsgegenproben.
+dialogregel korrigiert (§2.1d): 'enter submit' muss SICHTBAR sein bevor ich Enter druecke — zweimal habe ich
+zu frueh bestaetigt und w135 blieb haengen. inhaltlich war die loesung simpel: der eingespritzte pruefer
+entscheidet immer, die umweltpruefung nur wenn kein pruefer gesetzt ist; beide tests bleiben unveraendert.
