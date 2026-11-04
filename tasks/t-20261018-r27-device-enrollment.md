@@ -119,3 +119,4 @@ ls-remote==head.
   PR #1371 is red on go-unit-tests because its base predates that fix (station policy resolver integration
   test dials 127.0.0.1:5433). Task to bring #1371 onto 2a43984a and re-verify real PR CI is commissioned as
   lane w115 (mission queued behind pool capacity: 4 lanes busy).
+- Umgebungsbefund 2026-11-04 (Koordinator): Der Migrationsrückbau-Test (internal/database/migration_rollback_integration_test.go) bleibt auch nach der Umgebungskorrektur rot; die Verbindungsumstellung heilt ihn nicht. Er ist ein eigenständiger Produktbefund dieser Karte (Klassifikation A in evidence/r27-welle4-2026-11-04/ci-delivery/boundary-1.md).
