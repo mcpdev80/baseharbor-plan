@@ -1610,3 +1610,8 @@ bereit. der kanal hat RICHTIGStopped statt zu schauspielern. das ist eine freiga
 NICHT etwas, das ich durch Selbstverbindung loese (AGENTS 5.2).
 auge ist scharf gemacht: 'STOP:'-zeilen im kanal feuern jetzt ebenfalls (vorher nur END_*), der fall haette
 mich sonst 2 h blind gelassen.
+
+## ~15:15 drift-trio (1378/1373/1369) auf den arbeitersitz gegeben — diesmal MIT status-beleg nach 8s
+(§2.4: vor zwei stunden waren zwei auftraege 'gesendet' aber niegelandet, weil das pane leer lief).
+wenn einer der drei aeste durch den merge MEHR dateien zeigt als vorher: STOP + meldung, das waere eine
+unbemerkte mitnahme. die drei urteile/laeufe danach sind auf identischer basis messbar.
