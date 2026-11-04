@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w129)
+owner: coord-welle4 (Codex-Worker cx06)
 kanban_lane: review
 kanban_summary: Validate version/trust/installation/scope before any writes; transactional import and explicit conflicts. Default export…
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w129) · **Priority:** normal  
+    **Owner:** coord-welle4 (Codex-Worker cx06) · **Priority:** normal  
     **PR:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Lane w129)  
+**Owner:** coord-welle4 (Codex-Worker cx06)  
 **Priority:** normal  
 **PRs:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -124,3 +124,10 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Beweissammlung ist nachgeliefert und liegt auf der Platte (round-5.md, 10513 Byte) - Prüfung läuft dagegen.
 - Punkt 7 (Produktionsaufrufer der Schnittstelle) bleibt als Grenzbeleg geführt: Zuständigkeit liegt bei
   t-20261018-r27-public-surfaces, dort vermerkt, nicht hier.
+
+## Handoff 2026-11-04 (Runde 6, plattenfest nachgemessen)
+- Kandidat: PR #1363, Zweig work/r27-profile-codec, Kopf ac6a048e290 (ls-remote == Kopf), develop 2ea2c6f1 ist
+  Vorfahr (Basis nach der Hebelkarten-Verbindung aufgefrischt).
+- Beweissammlung liegt auf der Platte (round-6.md); der Kurzschreib-Beweis nennt einen echten Wert (809 von
+  1619 Bytes geschrieben), die Vertrauensselbstkonsistenz ist ohne Schalter, und der Rundlauf vergleicht den
+  vollständigen Datensatz samt goldener Bytes.
