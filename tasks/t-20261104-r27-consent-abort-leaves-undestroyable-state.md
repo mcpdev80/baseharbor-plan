@@ -1,16 +1,16 @@
 ---
 id: t-20261104-r27-consent-abort-leaves-undestroyable-state
 areas: [deployment]
-type: bugfix
+type: bug
 release: v0.4.27
 version: ""
 parent: core-777
 priority: critical
 owner: ""
-depends_on: [t-20261018-r27-candidate-contract]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["mcpdev80/baseharbor#1355"]
+sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
@@ -18,7 +18,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/deployment #kind/bugfix
+- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** critical  
     **Waiting for prerequisites**  
@@ -29,11 +29,11 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
-**Depends on:** [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
 **Owner:** unassigned  
 **Priority:** critical  
 **PRs:** none  
-**Source:** [baseharbor#1355](https://github.com/mcpdev80/baseharbor/issues/1355)
+**Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
 ## Outcome and acceptance

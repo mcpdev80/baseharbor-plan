@@ -733,6 +733,11 @@
           "path": "tasks/t-20261018-r27-video-proof.md",
           "kind": "task",
           "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md",
+          "kind": "task",
+          "role": "primary"
         }
       ]
     },
