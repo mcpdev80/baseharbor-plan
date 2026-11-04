@@ -1,0 +1,40 @@
+ROLLE: Worker (Lane w143). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment (RUNDE 4).
+REPO: baseharbor. ZWEIG: work/w96-production-wiring-f8ef4255 (PR #1371, head 8d3531f03ec, develop e444ae11 —
+nach fetch pruefen, Vorfahr-Beleg im END). KEIN zweiter zweig, KEIN zweiter PR, KEIN merge, KEIN Kraftuebertragen.
+
+Luna review-1371b verdict=REJECT (akte: baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/
+review-1371b.md — VOR dem coding vollstaendig lesen). Trotz 12 grüner gehosteter prüfpunkte sind es
+Prüfpunkte, und einer davon geht auf MICH zurueck:
+
+(1) DER NAME-BEWEIS, DEN ICH SELBST VERLANGT HABE, IST ZU SCHWACH: mein auftrag wollte "hoechste stufe aus der
+    liste lesen" und ZUSAETZLICH eine aussage dass 0009 die neueste ist. genau diese namen-festschreibung ist
+    der fehler den die pruefung fand — sie macht die Prüfung abhängig von einer Zahl statt von der regel.
+    KORRIGIEREN: die kandidaten-stufe und ihre zugehoerigen "gehoert ihr / bleibt erhalten"-aussagen werden
+    AUSSCHLIESSLICH aus der GEORDNETEN LISTE abgeleitet. eine namen-basierte regression bleibt NUR dort, wo der
+    vertrag die stufen 0007/0008 ausdruecklich herausgreift (policy-stufen) — mit begruendungssatz im code.
+    GEGENPROBE (nur-test-kopie, wegwerfbar): zwei stufennummern/-reihenfolge vertauschen => die Prüfung muss
+    der liste folgen und die fruheren artefakte unangetastet lassen. wortliche ausgabe beider laeufe.
+(2) KEIN UEBERSPRINGEN MEHR OHNE VERBINDUNG in den drei geforderten datbank-pruefungen
+    (internal/database/migration_rollback_integration_test.go,
+     internal/database/workstation_enrollment_integration_test.go,
+     internal/database/station_policy_resolver_integration_test.go): ohne BASEHARBOR_TEST_DATABASE_URL =>
+    FEHLSCHLAG mit klarer meldung; die station-policy-prüfung liest ihre verbindung aus DEMSELBEN variable
+    statt eines fest kodierten anschlusswertes.
+    EIGENER BELEG: je datei eine zeile "ohne variable => rot", ausgang wortlich.
+(3) EIGENTUMSGRENZE (wichtig, damit zwei ketten nicht dieselbe datei schreiben): die allgemeine umstellung
+    aller uebersprung-stellen laeuft auf karte t-20261104-r27-db-skip-sites mit PR #1378. FÜR DIE DREI
+    OBEREN DATEIEN GILT: du aenderst sie, weil sie dein feld sind; ALLE ANDEREN dateien mit demselben muster
+    LAESST DU UNBERUEHRT. falls #1378 vorher verbunden wird: develop in deinen ast mergen und die
+    develop-fassung der betroffenen zeile uebernehmen, statt sie doppelt zu erfinden.
+(4) VERGLEICHSMESSUNG (pflicht, weil 'nicht reproduzierbar' hier schon zweimal in die irre fuehrte): derselbe
+    befehl auf exakt 2ea2c6f1 (basis VOR der kodierungs-verbindung), auf e444ae11 (heutige basis) und auf
+    deinem kopf — drei results, wortliche zeilen, gleiche verbindung aus scripts/pr-unit-database.sh.
+(5) inhalte der karte bleiben stehen (route, anspruch->mitgliedschaft aus POLICY, register-fakten fail-closed,
+    echte datbank-integration mit neu-pool-wiederholung und ruecklesen) — nach deiner aenderung erneut belegt.
+PRUEFPFLICHTEN: go test ./internal/database -count=1 (mit UND ohne variable), build, vet, gofmt; gehostete
+laeufe deines kopfs bis TERMINAL (lauf-id + status); ls-remote == head woertlich; name-only-diff gegen develop.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-/workflow-aenderung, KEINE tests geloescht, KEIN rerun
+als ersatz fuer analyse, KEIN merge, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/rollback-2.md (regel-ableitung,
+drei-vergleich, mutation, rot-ohne-verbindung je datei; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w143-enroll-r4: head=<sha10> stufe=<aus liste, kein name> rot_ohne_verbindung=<3x belegt> vergleich=<basis/basis/heutig/kandidat> mutation=<folgen der liste> lsremote=<sha10> | <Satz>"

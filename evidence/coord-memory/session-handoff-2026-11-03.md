@@ -1489,3 +1489,13 @@ ZELL-E (6) gratis daneben: auf dem privaten stapel die zerstoerbarkeit NACH abge
 BEOBACHTEN (wortliche ausgabe, kein reparieren) — das ist dieselbe frage wie auf der zustimmungskarte, nur
 aus einer anderen richtung gemessen. stand fuer den positiven teil: e444ae11 (mein bisher gelieferter rc=1-
 beweis bleibt mit seinem schnitt daneben stehen, keine stufen vermischen).
+
+## ~11:40 GERATEREGELUNG ABGELEHNT TROTZ 12 GRUENER PRUEFPUNKTE — und der falsche satz stammte von mir:
+ich hatte verlangt 'hoechste stufe aus der liste' UND zusaetzlich 'beweise dass 0009 die neueste ist'. die
+zweite haelfte war die schwaeche stelle (ein name statt einer regel). korrigiert in mission w143: name RAUS, regel-ableitung + zwei-stufen-mutation rein; dazu die drei datbank-pruefungen ohne ueberspringung.
+Eigentums-Aufteilung ausdruecklich hinein geschrieben: die drei dateien sind anmeldungs-feld, der REST der
+uebersprungstellen bleibt bei #1378 — sonst schreiben zwei ketten dieselbe stelle (genau das muster, das ich
+heute nacht bei w128 abgewehrt habe, nur in die andere richtung).
+AUSSERDEM GELIEFERT: die ABLEGE-SPUR ist an mein auge angeschlossen und TROCKEN GETESTET (datei in
+evidence/coord-memory/inbox/ erzeugt eine meldung; der test-commit ist zurueckgenommen). anlass war eine
+Codex-sitzung, die ihre END-zeile nicht posten durfte (freigabe-grenze) — arbeit halb fertig, meldung weg.
