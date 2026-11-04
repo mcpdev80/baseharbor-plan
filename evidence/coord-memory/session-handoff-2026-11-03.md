@@ -1327,3 +1327,10 @@ selbst ab. karte -> active, runde 3 auf dem arbeitersitz (cx08): echte einsetzst
 bestehender fall ueber aufbau wieder gruen (nicht Aussage weichspuelen), drei karteninhalte neu belegen.
 REGEL DIE ICH DARAN SEHE: "das ist umgebung" gilt erst, wenn eine reine host-probe ohne den eigenen code auf
 demselben pfad FEHLTSCHLAEGT (RUNBOOK §6.7) — hier war die develop-probe gruen, also war die aussage tot.
+
+## ~06:55 GERÄTEREGELUNG GRUEN DURCH GEHOERTE URSACHE: kopf 8d3531f03ec, 12 pass / 0 fail / 10 skipping,
+develop Vorfahr, rollback-1.md auf platte. der rueckbau folgt jetzt der STUFENLISTE (mit namenprüfung der
+hoechsten stufe) — damit erklaert war auch der widerspruch zwischen "rot im laeufer" und "nicht reproduzierbar
+auf develop". karte -> review, abnahmeauftrag r1371b geschrEIBEN (Luna nach #1375). PRUEFPUNKT 5 bewusst
+scharf: ueberspringen ohne verbindung muss FEHLSCHLAGEN — das ist die heute nacht verbundene regel, nicht
+meine meinung.

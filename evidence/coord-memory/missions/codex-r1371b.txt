@@ -1,0 +1,22 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS device-enrollment (runde 2).
+OBJEKT: baseharbor PR #1371 head 8d3531f03ec branch work/w96-production-wiring-f8ef4255 base develop 2ea2c6f1
+(Vorfahr von mir nachgerechnet; gates terminal 12 pass / 0 fail / 10 skipping). KARTE
+t-20261018-r27-device-enrollment. VORGESCHICHTE: review-1371a REJECT (routen, anspruch->mitgliedschaft,
+register-festschreibung fail-closed, echte datbank-integration) -> laeuufe 2/3 (basis 2ea2c6f1, rueckbau-
+annahme behoben).
+PRUEFEN SHA-genau read-only:
+ (1) write-set gegen develop (26 dateien) — NUR anmeldungs-/datbank-/verdrahtungsfeld, KEIN .github,
+     KEINE codec-fremden dateien; die vier rezepte aus 1371a sind inhaltlich noch drin (nicht zurueckgebaut),
+ (2) rueckbau-prüfung: folgt der STUFENLISTE (nicht einer zahl), behaelt aber die aussage dass die neueste
+     stufe genau eine aenderung zuruecknimmt und die fruheren bleiben; MUTATION: zwei nummern in einer
+     nur-test-kopie vertauscht => verhalten folgt der liste,
+ (3) vergleichende messung: develop-KOPF (2ea2c6f1) und kandidaten-KOPF, gleicher befehl, beide gruen —
+     BELEG dass der alte "nicht reproduzierbar"-befund erklaert ist,
+ (4) authentisierung vor wirkung + widerruf auf der anmeldungs-schiene (wie 1371a), anspruch->mitgliedschaft
+     aus POLICY/ECHTER quelle (kein anfrage-feld), register-fakten fail-closed,
+ (5) datbank-integration laeuft mit der skript-verbindung (BASEHARBOR_TEST_DATABASE_URL), kein scheingruen
+     durch skip (der fall ohne variable muss FEHLSCHLAGEN, nicht ueberspringen — wenn diese stelle noch
+     ueberspringt: REJECT, denn genau das ist die verbundene hebelkarten-regel),
+ (6) pakettests + build + vet + gofmt, gates terminal, ls-remote == head.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/review-1371b.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1371b: verdict=<X> open=<liste|none> | <Satz>"

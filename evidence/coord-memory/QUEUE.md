@@ -48,3 +48,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - Bereits angesetzt: w134 (Journal #1373) läuft.
 - codex-r1363e.txt — Abnahme profil-codec Runde 6 (Kopf ac6a048e290). Auslöser: Luna ist nach der
   Zustimmungsrunde (#1375) frei. Der Codex-Arbeitersitz darf sie NICHT prüfen (eigene Lieferung).
+- codex-r1371b.txt — Abnahme Geräteregelung (Kopf 8d3531f03ec, zwölf grün). Auslöser: Luna nach #1375 frei.
+  Prüfschwerpunkt: Rückbau folgt der Stufenliste, Überspringen ohne Verbindung ist kein Scheingrün mehr.
