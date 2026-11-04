@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: critical
 owner: coord-welle4 (Lane w131)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
-kanban_status: active
+kanban_status: review
 kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
@@ -22,7 +22,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/bug
+- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w131) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
@@ -31,7 +31,7 @@ evidence: []
 <!-- w120 fix (2026-11-04): refused candidate apply now fails closed before any on-disk record write; prior record survives so `destroy` re-resolves and a consented re-apply reaches the choke point and READY. Fix committed `c24a6c7c` on `w120-fix`; draft PR #1375 (base develop). Owner redirect to non-draft for gate run; CODEX-MERGE on owner approval. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
@@ -79,3 +79,13 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
   Anwendungs-Datensatz, führt die Anwendung aber nicht bis betriebsbereit aus.
 - Korrekturrunde = Lane w131 auf demselben Zweig (w120-fix): echter Zerstörungsdurchlauf mit rc=0 auf dem
   abgelehnten Stand, echte Folgeanwendung bis betriebsbereit, vorher-rot-Nachweis inklusive.
+
+## Handoff 2026-11-04 (Runde 2, plattenfest nachgemessen)
+- Kandidat: PR #1375, Zweig w120-fix, Kopf edd38d31609 (ls-remote == Kopf); Entwicklung ist Vorfahr (durch
+  Ausdruck des Verbindungsschnitts, kein Kraftübertragung).
+- Die zwei fehlenden Nachweise aus dem letzten Urteil sind jetzt geführt: Ablehnung ohne Zusage lässt einen
+  löschbaren Zustand (echter Zerstörungsbefehl mit Erfolgs-Rückgabewert) und die Folgeanwendung mit richtiger
+  Kennung erreicht den betriebsbereiten Zustand ohne manuelles Nachräumen; Erstfassung rot, jetzt grün.
+- Der vollständige Paketlauf bleibt eine Umweltgrenze (Docker-Socket nicht verfügbar, die
+  Anwendungsänderungsprüfung läuft in eine Zehn-Minuten-Grenze) — wortlich in der Beweissammlung, und es ist
+  derselbe Tresordienst-Befund von t-20261018-r27-state-owner, kein neuer.

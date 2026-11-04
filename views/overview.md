@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
-| review | 4 |
+| active | 8 |
+| review | 5 |
 | blocked | 2 |
 | ready | 4 |
 | queued | 26 |
@@ -30,7 +30,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
-| [t-20261104-r27-consent-abort-leaves-undestroyable-state](../tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md) | Deployment: refused candidate apply must leave destroyable state | active | critical | coord-welle4 (Lane w131) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
@@ -41,6 +40,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | Connector: reconcile enrollment service and restart behavior | review | normal | coord-welle4 (Lane w130) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19) |
 | [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md) | Profiles: import and export non-secret connection metadata | review | normal | coord-welle4 (Lane w129) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
+| [t-20261104-r27-consent-abort-leaves-undestroyable-state](../tasks/t-20261104-r27-consent-abort-leaves-undestroyable-state.md) | Deployment: refused candidate apply must leave destroyable state | review | critical | coord-welle4 (Lane w131) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) | [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375) |
 
 ## Blocked
 
