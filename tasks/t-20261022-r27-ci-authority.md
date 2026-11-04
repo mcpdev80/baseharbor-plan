@@ -64,3 +64,9 @@ Separate current CI baseline readiness from later tests of product interfaces th
 ## Current CI contract — 2026-11-03
 
 The Owner retires the evidence and receipt approval chain. This task supplies only the missing ordinary test selection/execution for its domain. Job results flow through normal dependencies; no gate manifests, archived-run verification or evidence reuse. The only CI receipt is merge SHA plus PR number. The replacement baseline task remains open until its actual checks pass.
+
+
+## Coordinator-Vermerk 2026-11-04 00:30 (w75 runde 14, plattenbelegt)
+- head c0febdd1: B2+B3 GELIEFERT und gruen (fragment=uncertain; sync/close-fehler => rollback, kein event).
+- B1 (retention-budget vs. alle-aktiven-unter-cap) = OWNER-ENTSCHEIDUNG ausstehend (optionen 1/2/3 im
+  schichtprotokoll 23:20). Lane released; nach entscheidung frische korrektur-lane.
