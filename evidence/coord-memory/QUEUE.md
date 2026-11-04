@@ -81,3 +81,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w152-neutral-probe.txt — LAEUFT (ornith): neutrale Positivzelle mit freiem Port für #1378 (review war
   BLOCKED durch sandbox-Port, nicht durch Produktbefund; gehosteter Lauf inzwischen terminal success).
 - t-20261018-r27-ci-lanes — NICHT dispatchen: Arbeitsanweisung liegt bei CODEMAN-START.md (Owner-Feld).
+- t-20261018-r27-node-streams — FREIGEGEBEN für den nächsten freien Sitz (einzige Abhängigkeit node-trust
+  ist closed/accepted, Plan-CI #41926483152 success — von mir gemessen). Connector-Dateien: enger
+  Schreibsatz der Karte (targetaccess/session*, outbound*), niemals die von ChatGPT hinterlassenen Pfade
+  parallel; basis main 816720c+ frisch fetchen.

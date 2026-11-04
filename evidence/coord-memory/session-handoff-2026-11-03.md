@@ -1753,3 +1753,8 @@ schreiben (STATUS DONE, rohe ausgaben folgen). Gate-Regel danach: positvzelle + 
 ## ~23:45 TICK-SICHTBARKEIT eroertert (owner-frage): kein fehler — idle-only design + meine busy-kette.
 Due-marker war gesetzt (sechs wartende, platz=nein — veraltet nach meinem sitzfuillen), jetzt abgearbeitet
 und geloescht. RUNBOOK 2.3a: owner kann jederzeit coord-tick.log sehen (entscheidung pro slot).
+
+## 00:0x ABSCHLUSS-MELDUNG DER DRITTEN EXTERNEN KETTE (node-trust) VERARBEITET: finale commits
+e65423f8 (plan) + CI 41926483152 success (eigene gh-abfrage), karte closed/accepted, main seitdem
+b09ba5f5 (nur spiegel/render-_follow-up). node-streams damit ENTSPERRT (einzige dep erfüllt) — wartet auf
+freien sitz, NICHT auf nachfrage; connector-basis wird frisch gemaindet bevor geschrieben wird.
