@@ -1257,3 +1257,25 @@ w127/w131/w132/w134 per nachricht, cx06 (codec) per kanalhinweis; regelformulier
 eigenen ast mergen, konflikt in den zwei datbank-tests = develop-inhalt, END mit ancestor-beleg.
 w135 (native-auth basis-auffrischung) ist geschrieben und laeuft als erster auf einem freien sitz.
 Luna prueft jetzt die verbindungskapsel (#19, kopf fcca9c4a295) mit null-code-gegenbeweis-pflicht.
+
+## ~05:00 JOURNAL-BASIS DRAN, ABER FALSCH KLASSIFIZIERT — von mir am protokoll nachgemessen:
+lauf 41884382767: `internal/database ok` (die hebelkarten-wirkung ist damit AUCH auf diesem ast BELEGT), der
+einzige fehler ist der EIGENANTEIL: `TempDir RemoveAll cleanup: unlinkat .../001/journal: directory not empty`
+in TestRequestIdentityBindsFullInputAndAllowsFreshSemanticRequest. das ist ein LAEUFIGER protokoll-schreiber
+der nach testende noch schreibt — echte abschlussluecke, keine umgebung. w134 erhaelt die korrektur auf dem
+selben ast (reproduzieren -> datei:zeile -> synchroner abschluss -> -count=10 + -race; kein sleep-flicken).
+LEHRE: eine lane darf einen fehl nicht als "erwartete umgebung" ablegen, wenn das protokoll ein ok fuer
+genau die betreffende stelle zeigt — das protokall ist die wahrheit, nicht die END-zeile.
+
+## ~05:10 MIGRATIONS-RUECKBAU IST AUFGEKLAERT (eigentscheid OPTION C, plattenfest belegen):
+develop = 0001..0008, anmeldungs-ast = +0009_workstation_enrollment. der test ruft RollbackLast auf und
+prueft dan FEST KODIERTE erwartungen fuer die artefakte von 0006/0007/0008. auf develop ist die letzte stufe
+0008 => gruen (exakt darum hiess die unabhaengige nachmessung "nicht reproduzierbar" — sie lief auf develop).
+auf dem ast ist die letzte stufe 0009 => dieselbe assertiontraft die falsche stufe => rot. der fehler sitzt in
+DER ANNAHME DES TESTS, nicht im rueckbau und nicht in der neue migration. entscheiden: 0009 bleibt neueste
+nummer (NUMMER-UMSORTE = NEIN, angwendete datenbanken wuerden nicht mitmachen), der test wird
+NUMMER-AGNOSTISCH (hoechste stufe aus der migrationsliste lesen, objekte von stufe N fehlen danach, N-1/N-2
+unangetastet, 0008/0007-sonderfall bleibt), mutation = zwei nummern in einer nur-test-kopie vertauschen =>
+folgen muss der liste. damit ist der drei-wochen-alte "nicht reproduzierbar"-befund erklaert UND behebbar.
+LEHRE: "nicht reproduzierbar" auf develop heisst nicht "kein fehler" — es kann eine basis-abhaengige
+annahme sein. nach naechsten mal zwei basisen laufen lassen.
