@@ -2,7 +2,7 @@
 
 ## Native Bases Kanban — binding task status workflow (2026-11-04)
 
-The native Obsidian Bases board [BaseHarbor.base](BaseHarbor.base) replaces the unsupported CardBoard plugin. All task notes now carry `kanban_status` (writable lifecycle source of truth) and `kanban_title` (derived display text). **Do not change #status/ tags or checkboxes directly for migrated tasks.** Change `kanban_status`, then run `python3 scripts/plan.py render && python3 scripts/plan.py check` before committing and pushing. `plan.py claim` updates both representations. `ready/waiting/queued` are derived dependency views, not writable lifecycle values. Moving to closed requires a resolution and genuine HTTPS evidence; active/review/blocked retain owner/PR/blocker validation. Read [BASES-KANBAN.md](BASES-KANBAN.md) for details.
+The native Obsidian Bases board [BaseHarbor.base](BaseHarbor.base) replaces the unsupported CardBoard plugin. All task notes carry `kanban_status` (canonical lifecycle for agents), `kanban_lane` (writable Obsidian board column, including derived ready/waiting/queued), `kanban_title` and `kanban_summary` (generated display text). **Never modify generated #status/ tags or checkboxes directly.** Agents change `kanban_status`, Obsidian drag-and-drop changes `kanban_lane`; the renderer reconciles both and derives Ready from prerequisites. Run `python3 scripts/plan.py render && python3 scripts/plan.py check` before committing and pushing. `plan.py claim` keeps both lifecycle fields in sync. Moving to closed requires a resolution and genuine HTTPS evidence; active/review/blocked retain owner/PR/blocker validation. Read [BASES-KANBAN.md](BASES-KANBAN.md) for details.
 
 
 ## Current v0.4.27 CI execution — 2026-11-03

@@ -15,7 +15,9 @@ properties:
   id:
     displayName: ID
   priority:
-    displayName: Prioritaet
+    displayName: Priorität
+  areas:
+    displayName: Themen
   owner:
     displayName: Bearbeiter
   release:
@@ -40,6 +42,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.4.26"
     filters:
@@ -59,6 +63,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.4.28"
     filters:
@@ -78,6 +84,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.4.29"
     filters:
@@ -97,6 +105,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.4.30"
     filters:
@@ -116,6 +126,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.4.31"
     filters:
@@ -135,6 +147,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.4.x"
     filters:
@@ -154,6 +168,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.5.x"
     filters:
@@ -173,6 +189,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.7.x"
     filters:
@@ -192,6 +210,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "v0.8.x"
     filters:
@@ -211,6 +231,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "backlog"
     filters:
@@ -230,6 +252,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "triage"
     filters:
@@ -249,6 +273,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: kanban
     name: "maintenance"
     filters:
@@ -268,6 +294,8 @@ views:
       - id
       - owner
       - kanban_summary
+      - priority
+      - areas
   - type: table
     name: "Alle Details"
     order:

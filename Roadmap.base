@@ -1,0 +1,40 @@
+filters:
+  and:
+    - 'file.inFolder("releases")'
+    - 'file.ext == "md"'
+    - 'roadmap_lane != null'
+properties:
+  roadmap_title:
+    displayName: Release
+  roadmap_lane:
+    displayName: Phase
+  roadmap_progress:
+    displayName: Fortschritt
+  status:
+    displayName: Release-Status
+  order:
+    displayName: Reihenfolge
+views:
+  - type: kanban
+    name: "Roadmap"
+    groupBy:
+      property: note.roadmap_lane
+      direction: ASC
+    groupOrder:
+      - Current
+      - Next
+      - Later
+      - Delivered
+    columnWidth: 420
+    order:
+      - roadmap_title
+      - roadmap_progress
+      - status
+  - type: table
+    name: "Release-Übersicht"
+    order:
+      - roadmap_title
+      - roadmap_lane
+      - roadmap_progress
+      - status
+      - order
