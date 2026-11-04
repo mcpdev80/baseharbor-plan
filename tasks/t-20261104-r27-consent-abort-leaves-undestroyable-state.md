@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: critical
-owner: coord-welle4 (Lane w131)
-kanban_lane: review
+owner: coord-welle4 (Lane w138)
+kanban_lane: active
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
-kanban_status: review
+kanban_status: active
 kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/bug
+- [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/bug
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w131) · **Priority:** critical  
+    **Owner:** coord-welle4 (Lane w138) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
     <!-- /generated:card -->
 
 <!-- w120 fix (2026-11-04): refused candidate apply now fails closed before any on-disk record write; prior record survives so `destroy` re-resolves and a consented re-apply reaches the choke point and READY. Fix committed `c24a6c7c` on `w120-fix`; draft PR #1375 (base develop). Owner redirect to non-draft for gate run; CODEX-MERGE on owner approval. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
-**Owner:** coord-welle4 (Lane w131)  
+**Owner:** coord-welle4 (Lane w138)  
 **Priority:** critical  
 **PRs:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -89,3 +89,15 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
 - Der vollständige Paketlauf bleibt eine Umweltgrenze (Docker-Socket nicht verfügbar, die
   Anwendungsänderungsprüfung läuft in eine Zehn-Minuten-Grenze) — wortlich in der Beweissammlung, und es ist
   derselbe Tresordienst-Befund von t-20261018-r27-state-owner, kein neuer.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1375b, verdict REJECT)
+- Die Sache ist belegt: die Prüferin hat Verweigerung ohne/ mit falscher Kennung, unveränderten Datensatz,
+  echten Zerstörungsbefehl mit Erfolg-Rückgabewert und die echte Folgeanwendung bis betriebsbereit selbst
+  isoliert erbracht.
+- Abgenommen wird die Form: die zwei eingecheckten Prüfungen enden vor dem Zerstören bzw. vor dem
+  betriebsbereiten Durchlauf und bleiben auf dem kranken Stand grün (wörtlich auf c24a6c7c gemessen: beide
+  Erfolg). Zudem ist der Schranken-Code auf altem und neuem Kopf identisch (Blob c2bb123b0b82), die Änderung
+  dort ist Kommentartext — die Prüfungen schützen also nichts.
+- Runde 3 = Archäologie (wo war es wirklich kaputt), echte Lebenszyklusprüfungen, rot auf dem kranken Stand,
+  grün auf dem eigenen, endgültige Protokollnachweise. Ergibt die Suche keinen produktseitig kranken Commit,
+  ist das ein Meldefall, kein Selbstzweck-Grün.
