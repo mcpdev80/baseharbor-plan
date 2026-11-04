@@ -47,6 +47,33 @@ Wesentliche Aenderung:
   aufloesbar, ohne (a) manuelles Teardown der podman-test-spezifischen Container/Netze/State (OUT OF SCOPE: Gefahr
   fuer geteilte Infrastruktur, `podman system reset` nicht erlaubt) oder (b) Owner-Entscheidung zum Teardown-Mechanismus.
 
+### TEARDOWN-VERSUCH UEBER DIE DEFINITION (Koord-Anwort 2026-11-04, VM-Feld ist Koord-Feld)
+- Koord-Entscheidung: KEIN `baha destroy` (der blockierte destroy ist der Produktfehler #1375 consent-abort); Teardown
+  ueber die compose-/setup-Definition; compose down haengt -> pods/container einzeln NACH drei-punkte-pruefung.
+- BEFUND teardown: Der `podman-test`-Core ist in `sql_failed` OHNE deployte Container.
+  - `podman ps -a` (alle): 25 Container, SAMTLICH `bh-*shared*` (7 Up 2 weeks, 14 Up 3 hours, 3 healthy, 1 healthy).
+  - `com.baseharbor`-labeled Container: **0**; `com.baseharbor.runtime=podman-test`: **0**. => Core Identity NICHT deployed.
+  - `compose down` aus `~/.local/share/baseharbor/targets/podman-test/runtime/compose.yaml`: keine podman-test-Container
+    vorhanden -> nichts abzubrechen; die zugehoerigen Netze `baseharbor-podman-test-default/-secrets` und
+    `baseharbor-identity-core-podman-test(-internal)` sind GEMEINSAM belegt:
+    - `baseharbor-podman-test-default` belegt von: bh-podman-test-shared-{postgres,postgres-admin,postgres-member-1,openbao,openbao-admin,...} (Up 3h), bh-podman-test-core-shared-keycloak-*
+    - `baseharbor-identity-core-podman-test` belegt von: bh-podman-test-core-shared-keycloak-access (Up 3h)
+    => Netze NICHT entfernbar ohne shared-Stapel abzureissen (`podman network remove` -> OUT OF SCOPE).
+  - Volumes: keine `podman-test`-volaten (alle `bh-podman-test-shared*`/`bh-podman-test-core-shared*` = extern).
+- DREI-PUNKTE-PRUEFUNG: Punkt1 active run? Core NICHT am laufen (sql_failed), Shared-Stapel laufen (fremd).
+  Punkt2 ownership? podman-test-Core ist Lane-Install, aber ohne deployte Objekte -> kein compose-down-Ziel.
+  Punkt3 wiederherstellung? Netze geteilt -> Teardown haengt an shared-Referenz. => Compose-Definition-Teardown
+  fuehrt NICHT zu einem laufenden podman-test-Stapel (kein Ziel).
+
+### VERKNUEPFUNG auf consent-abort-Karte (t-20261104-r27-consent-abort, PR #1375) — echter Zusatzbeleg
+- Der festgefahrene Zustand ist BELEG FUR den #826/ownership-Schutzfehler:
+  - installation.json: `"phase":"sql_failed"`, `"ready":false`, installation_id `6e0e95cc-f0fb-4d21-a417-9f3968b61f72`.
+  - destroy-Fehler WORTLICH: `Runtime mutation requires verified existing Target and deployment ownership.`
+    `Inspect the protected owner and native resource before retrying; no ownership is inferred.`
+  - Kein Ownership-Verweis vorhanden (0 `com.baseharbor`-Container) => der ownership-geschuetzte destroy blockiert.
+  - status: `postgres READY, openbao READY, Core Identity FAILED` / `runtime is running but not ready`.
+- Diese Kette belegt die akzeptanz-relevante Schutzluecke fuer #1375 (ownership-nicht-inferiert -> runtime-mutation blockiert).
+
 ### DIFF setup-baha-podman.sh.orig -> setup-baha-podman-source.sh (KERN)
 ```
 -VERSION="${BAHA_VERSION:-v0.4.23}"
