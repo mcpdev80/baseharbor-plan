@@ -28,3 +28,8 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Rollenhygiene: dieser Kanal führt einen ausdrucklich als OPS gekennzeichneten Auftrag aus — er schreibt kein
   Review-Urteil und merged nichts; die Revisions- und Versionsnachweise legt er als Evidence ab.
 | 9 | coordinator/missions/w126-gate-watch.txt | Pool 5/5 | vier kandidaten haben nicht-terminale gehostete laeufe; abnahme braucht das terminal-bild + klassifikation |
+
+## Einstweilen (2026-11-04, ~02:20)
+- w131-consent-abort-r2.txt — Runde 2 für PR #1375 (Abnahme review-1375a REJECT): echter destroy-Durchlauf mit
+  rc=0 und echte Folgeanwendung bis READY, vorher rot. Nächster Auslöser: erster freier Worker-Sitz.
+- cx05-ci-skip-fix.txt — läuft (Codex-Arbeitersitz): Scheingrün-Überspringung wird echtes Fail.

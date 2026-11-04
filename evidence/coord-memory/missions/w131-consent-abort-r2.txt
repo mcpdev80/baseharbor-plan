@@ -1,0 +1,30 @@
+ROLLE: Worker (Lane w131). Coord f49a3303. KARTE: t-20261104-r27-consent-abort-leaves-undestroyable-state (Runde 2).
+REPO: baseharbor. ZWEIG: work/r27-consent-abort (PR #1375, head c24a6c7c). KEIN neuer zweig, KEIN zweiter PR.
+
+Luna review-1375a verdict=REJECT (akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-1375a.md,
+vollstaendig lesen). Die sachliche trennung ist richtig (pruefung liegt VOR dem speichern, kein rollback
+noetig, EN/DE-deckend) — es fehlt der NACHWEIS in zwei punkten, beide in derselben datei:
+
+(1) ECHTER destroy-durchlauf: die aktuelle widergabe ruft nur resolveApplication(..., "destroy") auf
+    (cmd/baha/w120_consent_abort_repro_test.go:62-70). Stattdessen: in einer isolierten, wirklich
+    ausfuehrbaren lebenszyklus-wiedergabe (a) anwendung anlegen, (b) apply OHNE und mit FALSCHEM
+    --confirm-candidate ablehnen lassen (jeweils typisierter fehler, KEIN zustands-schreibgut),
+    (c) auf DEMSELBEN umfeld `app destroy --yes` ausfuehren und rc=0 behaupten. Vorher-Nachher: dieselbe
+    wiedergabe muss auf dem ALTEN stand ROT sein (das ist der gemeldete fehler), auf dem neuen GRUEN.
+(2) Folge-anwendung nach zulassung: nicht nur ein `applying`-datensatz validieren und speichern
+    (zeilen 98-110), sondern den apply mit dem KANONISCHEN digest wirklich ausfuehren und READY behaupten —
+    OHNE manuelles nachraeumen dazwischen.
+(3) KEINEN rueckroll-pfad einbauen, KEINEN ungueltigen zulassungsdatensatz speichern; der kommentar-only
+    diff in cmd/baha/deployment_record.go (punkt 3 des urteils) bleibt so — die stelle war bereits richtig,
+    das ist kein fehler, aber auch keine lieferung: die änderung liegt in den tests.
+
+PFLICHTPRUEFUNGEN: rote-erstkampagne dokumentieren (wortliche ausgabe vorher), dann go test ./cmd/baha
+-count=1 und die internen auslieferungs-pakettests, go build ./..., go vet, gofmt; die gehosteten laeufe des
+neuen kopfs bis TERMINAL beobachten (lauf-id + status, Eigenes-Run-Pflicht). Falls ein lauf wegen der
+gemeinsamen datbank-umgebung faellt: NICHT umschreiben oder ueberspringen — auf das offene hebel-stueck
+verweisen (PR #1377) und den fehler wortlich lassen, das ist eine klasse-B-umgebung, kein dein fehler.
+ls-remote == head WOERTLICH; merge-base --is-ancestor origin/develop HEAD; name-only-diff in die evidence.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN .github-eingriff, KEINE tests geloescht, KEIN merge, KEIN
+rerun als ersatz fuer analyse, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/round-2.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE w131-consent-abort-r2: head=<sha10> destroy_rc0=<echt> bereit_nach_zulassung=<echt> rot_vorher=<belegt> lsremote=<sha10> | <Satz>"

@@ -1,0 +1,20 @@
+ROLLE: CODEX-REVIEW (kein Merge, read-only diagnostik). Coord f49a3303. KANAL: GPT-6 Luna.
+GEGENSTAND: die drei punkt-A-behaupteungen der Ci-delivery-klassifikation GEGENPRUEFEN (single-source ist zu
+wenig): baseharbor-plan/evidence/r27-welle4-2026-11-04/ci-delivery/boundary-1.md behauptet, drei rote
+gehostete stellen seien ECHTE produktfehler und werden von der DSN-umstellung NICHT geheilt.
+PRUEFE fuer jede stelle SHA-genau und UNABHAENGIG (eigener lauf, nicht nachbeten):
+ (1) internal/database/migration_rollback_integration_test.go (TestMigrationRollbackOwnsOnlyLatestChange)
+     auf origin/develop (ecbb8854) UND auf work/r27-native-auth (0a67092ca31): mit korrekter
+     BASEHARBOR_TEST_DATABASE_URL lauffaehig machen; bleibt der fallback auf die letzte aenderung falsch,
+     ist die behauptete regression REAL und auf welcher basis (develop rot = basisfehler, nur zweig rot =
+     kartenfehler). melde datei:zeile des fehlanschlusses + wortliche fehlzeile.
+ (2) cmd/baha TestAppEditCommandCompleteProviderEditRunsRealLifecycle: braucht der pfad einen laufenden
+     openbao-admin-dienst (compose-exec) — welche zeile baut die voraussetzung auf, und ist die
+     voraussetzung im gehosteten lauf ueberhaupt hergestellt (datei:zeile in .github/scripts, read-only)?
+     Klassen-entscheid: A (produkt/pruefungsdesign) oder B (umgebung) — mit grund.
+ (3) baseharbor-node-connector #19 source: bestaetige dass gofmt -l auf dem zweig-kopf die zwei dateien nennt
+     und dass die aenderung rein- formatierung ist (kein inhalt).
+URTEIL als tabelle in baseharbor-plan/evidence/r27-welle4-2026-11-04/ci-delivery/class-a-verification.md
+(fuer jede stelle: basis, befehl, wortliche ausgabe, klasse, karte die es tragen muss, naechster ausloeser).
+Keine produkt-/workflow-aenderung, kein rerun, kein merge. END an f49a3303:
+"END_DONE codex-r-audit-a: (1)=<real|basisfehler|nicht reproduzierbar> (2)=<A|B> (3)=<bestaetigt> | <Satz>"
