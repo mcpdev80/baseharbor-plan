@@ -57,8 +57,9 @@ Date: 2026-11-04
   6. ls-remote witness (WOERTLICH): `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-private-integration` ->
      `52be57c9893d2d824b8cfbcfec97ca4c7fb26ef9  refs/heads/work/r27-private-integration` == 52be57c9...
   7. PR #1379 head re-pointed to 52be57c9 (still isDraft=true, base=develop, state=OPEN).
-  8. CI run to terminal: run-id 41913050087, `CI · PR #1379` (pull_request), status=completed, conclusion=success, headSha=52be57c9, createdAt 2026-11-04T21:07:13Z. (Finding: full required-check enforcement still disabled per baseharbor CI-repair note — run-state finding, not a claimed green gate.)
-  - merge-base --is-ancestor origin/develop HEAD: rc=0 against real base e444ae11. Branch clean (git status --short empty).
+  8. CI run to terminal: run-id 41913050087, `CI · PR #1379` (pull_request), status=completed, conclusion=success, headSha=52be57c9, createdAt 2026-11-04T21:07:13Z. Triggered by PR #1379 head-change from efadde8e to 52be57c9 (a pull_request event). Verified via `gh run view 41913050087 --json event,conclusion,headSha,status` = event=pull_request, conclusion=success, headSha=52be57c9... (the terminal run for the NEW head, not the old efadde8e run 41910907497). merge-base --is-ancestor origin/develop HEAD: rc=0 against real base e444ae11. Branch clean (git status --short empty).
+  - (Eigenes-Run-Pflicht: this is the new head 52be57c9's terminal hosted run; the old run 41910907497 was for efadde8e and does not count. No rotation needed.)
+  - (Finding for Owner: full required-check enforcement still disabled per baseharbor CI-repair note — run-state finding, not a claimed green gate.)
 
 ## (1) Cause — exact
 
