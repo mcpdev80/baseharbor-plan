@@ -5,7 +5,7 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (unbesetzt, wartet auf Sitz)
+owner: coord-welle4 (Lane w144)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
@@ -22,7 +22,7 @@ evidence: []
 
 - [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (unbesetzt, wartet auf Sitz)  
+    **Owner:** coord-welle4 (Lane w144)  
     **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
     <!-- /generated:card -->
 
@@ -30,7 +30,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
-**Owner:** coord-welle4 (unbesetzt, wartet auf Sitz)  
+**Owner:** coord-welle4 (Lane w144)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -85,3 +85,5 @@ der negative Nachweis (Ablehnung ohne Wirkung, Zerstörbarkeit) bleibt gültig.
 - Aus dem Integrationslauf w142 entstanden und von mir auf dem Rechner nachgemessen (Bildabruf mit
   Fehlerausgabe wiederholt). Kein Auftrag an eine laufende Lane: alle fünf Sitze belegt, erste freie Bahn
   erhält diese Arbeit.
+
+## Auftrag 2026-11-04 (aus nachgemessenem Befund)
