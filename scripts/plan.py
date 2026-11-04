@@ -271,13 +271,28 @@ class Vault:
         release_tags = [t[len("#release/"):] for t in tags if t.startswith("#release/")]
         done = m.group("done") != " "
         kanban_status = as_str(meta.get("kanban_status"))
+        lane = as_str(meta.get("kanban_lane"))
+        if kanban_status and kanban_status not in STATUSES + [CLOSED]:
+            self.err(path, f"invalid kanban_status {kanban_status!r}")
+        if lane and lane not in VIEW_STATES:
+            self.err(path, f"invalid kanban_lane {lane!r}")
+        # The displayed Kanban lane is writable. Resolve a drag against the
+        # last rendered #status tag so a concurrent direct lifecycle edit is
+        # not silently overwritten. ready/waiting/queued all mean planned.
+        status = kanban_status or (status_tags[0] if len(status_tags) == 1 else "")
+        prior = status_tags[0] if len(status_tags) == 1 else ""
+        if lane:
+            requested = "planned" if lane in ("ready", "waiting", "queued") else lane
+            if requested != status:
+                if prior == status:
+                    status = requested
+                elif prior != lane and prior != requested:
+                    self.err(path, "conflicting kanban_lane and lifecycle status edits")
         if kanban_status:
-            if kanban_status not in STATUSES + [CLOSED]:
-                self.err(path, f"invalid kanban_status {kanban_status!r}")
-            done = kanban_status == CLOSED
+            done = status == CLOSED
         item = {
             "id": tid, "path": path, "title": m.group("title").strip(), "done": done,
-            "status": kanban_status or (status_tags[0] if len(status_tags) == 1 else ""),
+            "status": status,
             "card_line": idx, "body": body, "meta": meta,
             "type": as_str(meta.get("type")) or "task",
             "release": as_str(meta.get("release")), "version": as_str(meta.get("version")),
@@ -665,6 +680,22 @@ def card_line(vault, task):
             + " ".join(tags) + ((match.group("completed") or "") if task["done"] else ""))
 
 
+def kanban_summary(task, limit=130):
+    """Compact verbatim-ish description from the authored task note, never AI inferred."""
+    text = task["body"]
+    section = re.search(r"(?ms)^## (?:Outcome and acceptance|Goal|Objective|Scope|Summary|Inputs and output)\s*\n(.*?)(?=^## |\Z)", text)
+    source = section.group(1) if section else ""
+    paragraphs = re.split(r"\n\s*\n", source)
+    for paragraph in paragraphs:
+        para = " ".join(line.strip() for line in paragraph.splitlines()
+                        if line.strip() and not line.lstrip().startswith(("-", "*", "#", "<!--")))
+        para = re.sub(r"!?\[([^\]]+)\]\([^)]*\)", r"\1", para)
+        para = re.sub(r"[`*_]", "", para).strip()
+        if len(para) >= 20:
+            return para[:limit - 1].rsplit(" ", 1)[0] + "…" if len(para) > limit else para
+    return ""
+
+
 def card_text(value, limit=None):
     """Flatten authored metadata so it cannot inject Markdown cards or hidden tags."""
     value = " ".join(str(value).split())
@@ -969,6 +1000,12 @@ def render(vault):
         head, body = text[:text.find("\n---\n", 4) + 5], text[text.find("\n---\n", 4) + 5:]
         if "kanban_title" in t["meta"]:
             head = re.sub(r"(?m)^kanban_title:.*$", "kanban_title: " + dump_value(t["title"]), head, count=1)
+        if "kanban_status" in t["meta"]:
+            head = re.sub(r"(?m)^kanban_status:.*$", "kanban_status: " + t["status"], head, count=1)
+        if "kanban_lane" in t["meta"]:
+            head = re.sub(r"(?m)^kanban_lane:.*$", "kanban_lane: " + view_state(vault, t), head, count=1)
+        if "kanban_summary" in t["meta"]:
+            head = re.sub(r"(?m)^kanban_summary:.*$", "kanban_summary: " + dump_value(kanban_summary(t)), head, count=1)
         new = head + apply_card(vault, t, apply_block(body, links_block(vault, t)))
         if new != text:
             t["path"].write_text(new, encoding="utf-8")
@@ -1063,6 +1100,8 @@ def cmd_claim(root, args):
     text = re.sub(r"(?m)^blocker:.*$", 'blocker: ""', text, count=1)
     if "kanban_status" in t["meta"]:
         text = re.sub(r"(?m)^kanban_status:.*$", "kanban_status: active", text, count=1)
+    if "kanban_lane" in t["meta"]:
+        text = re.sub(r"(?m)^kanban_lane:.*$", "kanban_lane: active", text, count=1)
     lines = text.split("\n")
     for i, l in enumerate(lines):
         if CARD.match(l):

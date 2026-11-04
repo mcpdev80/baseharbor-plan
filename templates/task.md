@@ -7,6 +7,8 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: {{status}}
+kanban_lane: {{status}}
+kanban_summary: ""
 kanban_title: "{{title}}"
 priority: ""
 depends_on: []
