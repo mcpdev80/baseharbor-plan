@@ -1141,3 +1141,12 @@ schliessen, zweig loeschen, neuen zweig ab develop + cherry-pick 1fc148ff, name-
 eigene dateien drin sind, mutation auf dem neuen kopf erneut, gates terminal.
 LEHRE FUER MICH: ein neuer zweig braucht den basis-beleg (merge-base --is-ancestor) VOR dem PR — steht ab jetzt
 im auftragstext, nicht nur in meinem gedaechtnis.
+
+## ~01:05 demo-guidecard-abstimmung ANGENOMMEN + karte geschlossen (card-status.py, resolution accepted):
+PR #128 war vom owner 13:58Z in demo-main verbunden (c355d2a15f). WAHRHEITSGEMAESS vermerkt: letztes
+Codex-Urteil auf diesem zweig = REJECT (review-128d), der ENDkopf wurde NICHT mehr unabhaengig nachgeprueft —
+akzeptiert ueber die delegierte Maintainer-macht des owners, nicht ueber eine abnahme. genau so steht es auf der
+karte (AGENTS: never label it independent review when none occurred).
+PROVENIENZ-AUDIT ueber alle offenen zweige: develop Vorfahr = OK fuer 1347 1362 1363 1369 1371 1373 und
+connector #19; work/r27-candidate-contract fehlt die basis, ist aber MERGED (#1355 13:55Z) -> historisch,
+kein fall. demo-ast hinter main = ebefalls historisch (#128 gemergt).
