@@ -83,9 +83,19 @@ its own namespace, distinct from node/connector enrollment (internal/targetenrol
   release/tag/deploy authorized by this delivery.
 
 
-## Koordinator-Erweiterung 2026-11-04 (write-set, produktionspfad-runde)
+## Koordinator-Erweiterung 2026-11-04 (write-set, produktionspfad-runde, w96)
 - Zusaetzlich erlaubt: MINIMALE additive注册-zeilen in internal/controlplaneruntime/server_run.go und
   cmd/baha (provider-/route- hookup am bestehenden authentisierten management-einstieg) — ausschliesslich
   ergaenzend, keine umordnung, keine fachfremde zeile. targetenrollment + fremde register bleiben gesperrt.
-- Konfliktabstimmung: state-owner-linie (cmd/baha fixtures) laeuft parallel auf ANDEREM zweig; merges
+- KonFLICTabstimmung: state-owner-linie (cmd/baha fixtures) laeuft parallel auf ANDEREM zweig; merges
   hintereinander ( zuerst was_aelter_reift ), koordiniert coord.
+
+## Produktionspfad-Runde 2026-11-04 (worker w96, lane w96)
+Erlaubnis (Coord f49a3303, 2026-11-04): full production wiring — dauerhafter Store im database-Paket
+(eigene workstation-enrollment-Tabellen, connector_* unangetastet), scope-aus-Policy-Resolver +
+enrollment-provider in cmd/baha (ConnectorEnrollmentHTTP-Muster), plus minimale ADDITIVE provider-/route-
+hookup-zeilen in internal/controlplaneruntime/server_run.go und cmd/baha am bestehenden authentisierten
+management-einstieg. Ausschliesslich ergaenzend, keine umordnung, keine fachfremde zeile;
+targetenrollment + fremde register bleiben HEILIG. Wenn ein teil dieser drei komponenten groesser wird als
+die erlaubnis traegt: HALT + END_BLOCKED mit datei:stelle. Basis-Vorfahr develop f8ef4255; gates terminal;
+ls-remote==head.
