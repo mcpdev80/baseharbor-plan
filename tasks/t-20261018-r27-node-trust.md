@@ -72,3 +72,11 @@ release-0-4-27-updates) bleiben auf dieser Seite gesperrt bis bestätigter Merge
 
 - Draft [PR #20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20) on `work/r27-node-trust-chatgpt`, currently bounded reconnect backoff handling with regression tests.
 - Task is actively being implemented; neither completed trust qualification nor final merge/acceptance is claimed.
+
+## Trust implementation progress 2026-11-04
+
+- Draft PR [#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20), candidate `c87f562e1d09f7b0f61f2e4b5d8841f9cb9d5a91`.
+- Added saturating outbound reconnect delays in single-session and pooled paths.
+- Added fail-closed parsing for malformed revocation serials and zero-padded revoked serial matching.
+- Added regression tests for CA overlap/retirement, certificate/key reload and reconnect timing; verification of final candidate in progress.
+- Existing source checks and hosted selected tests do not replace the required real current-Core rotation/reconnect qualification. Card remains active, not accepted.
