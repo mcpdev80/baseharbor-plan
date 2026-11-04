@@ -18,13 +18,13 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w88) · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -58,3 +58,6 @@ Round-trip/tamper/wrong-installation/partial-write/secret-exclusion tests; no ru
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+- 2026-11-04: base refreshed onto develop bb9bc0ef (lane w108), head 0eb8f231, gates terminal 2/0/14.
+  Codex final review r1363a dispatched on this exact head.

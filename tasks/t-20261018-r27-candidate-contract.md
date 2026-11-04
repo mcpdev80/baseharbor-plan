@@ -21,7 +21,7 @@ evidence: []
 - [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/blocked #view/blocked #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w39) · **Priority:** critical  
-    **Blocker:** Integration offen: Core PR #1355 und Demo-Consent PR #128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo-SHAs fehlt. Gruene PR-CI allein ist kein Runtime-Nachweis.  
+    **Blocker:** Integration offen: Core PR \#1355 und Demo-Consent PR \#128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo-SHAs fehlt. Gruene PR-CI allein ist kein Runtime-Nachweis.  
     <!-- /generated:card -->
 
 <!-- generated:links -->

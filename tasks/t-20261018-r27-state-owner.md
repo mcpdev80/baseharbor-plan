@@ -114,3 +114,13 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
 **Write-set coordination:** `cmd/baha/application_provider_retirement.go` and any necessary provider-plan tests touch the retirement/consumer authority outside the original state-owner write-set. Coordinate exclusive ownership with the corresponding worker before edits; do not overwrite concurrent consumer/ADR work. If the fix requires changing the normative ADR-0022 contract rather than correctly distinguishing non-retirement, stop and return a concrete minimal decision proposal. Existing PR #1347 remains unaccepted until real tests pass; no release authorization.
 
 **Developer Experience:** The developer must be able to finish an ordinary app edit without installing fictitious tenants or manually repairing fixture/runtime state. Only real unsafe retirement is blocked.
+
+## Evidence-Nachlieferung 2026-11-04 (coord f49a3303)
+- Lane w101 delivered head 03e4e01b (develop bb9bc0ef is an ancestor, ls-remote verified) and reported a
+  side-by-side comparison, but the named evidence file does not exist on disk or on origin/main. A claim
+  without a written proof is not accepted (owner directive 2026-10-28), so lane w111 re-runs the identical
+  five-case comparison on neutral develop and on the candidate and commits
+  evidence/r27-welle4-2026-11-04/state-owner/adr22-fix-1.md before its END.
+- Hosted #1347 gates: 16 pass / 4 fail (PR Selected Checks, cli-package-tests, go-unit-tests,
+  wizard-app-edit-tests). Reported cause is a docker-endpoint-dependent test that fails identically on develop;
+  pending the written proof above. No rerun, no CI changes from lanes (owner-owned CI field).
