@@ -102,3 +102,14 @@ references, so release qualification rests on executed runs rather than skipped 
   under test, and record `baha --version` plus that revision. The integration phase is blocked until both hosts
   show the matching version.
 - Related pin to fix in the same pass: baseharbor-demo `baseharbor-core.ref` still points at 212ae90e.
+
+## Ops probe result 2026-11-04 (second Codex instance, owner-requested test)
+- The instance reported BLOCKED and wrote no evidence file: no stacks rebuilt, `baha` still 0.4.23
+  (revision 9514a768be) on the Podman host. Useful facts, but the operating task belongs to a worker lane.
+- Verified by the coordinator on the host: the backup-recovery broker container no longer exists (it was
+  removed as lane-owned during the first Podman pass); host memory is tight (about 2.4 GB available of 7.9 GB),
+  which matches the earlier exit 137. Historical logs additionally show a TLS handshake without a client
+  certificate — recorded here as a possible product finding for the runtime-executor path, not something the
+  VM lane fixes.
+- Consequence: the Podman rebuild is re-commissioned for a worker lane with these findings in its brief, and the
+  broker stack must come back from its own definition before backup/recovery tests count.
