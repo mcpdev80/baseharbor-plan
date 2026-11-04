@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde6 (r1355e befehle + diffstat-pflicht erfuellt).
+OBJEKT: PR #1355 head 5f7af540 (9 dateien +226/-13 ECHTER code-diff; hard digest compare mit
+constant-time helper; schema pattern + DisallowUnknownFields-mapper; prompt==bindung shared helper;
+links sauber (grep leer); matrix). = t-20261018-r27-candidate-contract.
+PRUEFEN (SHA-genau, read-only): eigene contra-proben: falscher digest=>kein write; revision main=>
+schema-und-go-invalid; unknown field=>mapper err; angezeigter==persistierter digest bei neuer submission;
+links leben (contents-api). Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/delivery
+./internal/application ./contracts -count=1 -timeout 8m + go test ./cmd/baha -run 'Candidate|Consent|Apply'
+-count=1. matrix => ACCEPT wenn traegt.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1355f.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355f: verdict=<X> open=<liste|none> | <Satz>"

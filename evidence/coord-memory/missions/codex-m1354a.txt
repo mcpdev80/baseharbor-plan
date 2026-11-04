@@ -1,0 +1,11 @@
+ROLLE: CODEX-MERGE (Owner-abgesegnete Abschlussaktion; kein Review mehr). Coord f49a3303. KANAL: GPT-6 Luna.
+OBJEKT: baseharbor PR #1354 head 5a5f1b38f5 branch work/r27-ci-authority base develop.
+VORBEDINGUNG NACHGEWIESEN: deine ABSCHLUSS r1354h2 verdict=ACCEPT open=none (review-1354h.md), gates 18 pass/
+0 fail terminal, state OPEN/mergeable=true, istDraft=false.
+PROTOKOLL (RUNBOOK §3, merge-protokoll pro PR): (1) live-gates erneut am head (head-wache: sha unveraendert),
+(2) offene threads/rulesets pruefen (code-owner approval + last-push approval + squash-only + up-to-date),
+(3) approve + SQUASH-MERGE auf develop, (4) post-merge develop-checks beobachten bis terminal, neue develop-sha
+notieren, (5) Abschnitt in baseharbor-plan evidence/r27-night-2026-11-02/codex-merge-1354a.md (UTC, sha
+before/after, gate-ids, ruleset-belege). KEIN force, KEIN bypass; falls ein ruleset-block dich auf owner-aktion
+zwingt: STOP + MELDEN, nicht umgehen.
+END an f49a3303: "END_DONE codex-m1354a: merged=<bool> develop=<sha10> checks=<status> | <Satz>"

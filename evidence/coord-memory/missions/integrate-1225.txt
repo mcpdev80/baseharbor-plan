@@ -1,0 +1,24 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/integrate-1225  (Repo baseharbor)
+MISSION integrate-1225 — PR #1225 auf AKTUELLES develop (437358e4, enthaelt gate-map #1246) zusammenfuehren/superseeden
+KONTEXT: gate-map #1246 ist GEMERGT und mappt internal/runtime/*.go + cmd/baha/*_engine.go -> Lifecycle-Gates.
+  #1225 (fix/750-ci-gate-qualify, head 5060cb23, 26 commits) andert DENSELBEN scripts/pr-gate-plan.py + scripts/
+  pr-check-runner.py + ci.yml + podman-acceptance.yml + test_pr_gate_plan.py. prep-1225/integrate-map ergaben: #1225
+  ist inhaltlich SCHON GH-hosted (runs-on ubuntu), seine "self-hosted"-Commits sind nur irrefuehrende Titel.
+EXKLUSIVES ZIEL: klären, ob #1225s pr-gate-plan.py/pr-check-runner.py-Anteile JETZT noch etwas ZUSÄTZLICHES zu
+  develop+gate-map beitragen, oder ob sie durch gate-map (#1246) + develop erSETZT sind.
+SCHRITTE:
+ 1. git fetch origin; diff origin/develop..refs/pull/1225/head -- scripts/pr-gate-plan.py scripts/pr-check-runner.py
+    scripts/test_pr_gate_plan.py .github/workflows/ci.yml .github/workflows/podman-acceptance.yml
+ 2. Fuer JEDE #1225-Aenderung pruefen: ist der Effekt bereits in develop+gate-map vorhanden? (gate-map deckt
+    internal/runtime + cmd/baha engine ab; #1225 NATIVE_INTEGRATION_HA_FILES/cmd-baha-integration-ha-bound — braucht
+    develop das noch?) 
+ 3. ERGEBNIS-WEG:
+    (a) Wenn #1225 NICHTS neues mehr bringt -> als SUPERSEDED auf develop dokumentieren (exact: welche Zeilen durch
+        gate-map/develop abgedeckt sind) -> ich (Coord) schliesse #1225 mit Ahnen-Nachweis.
+    (b) Wenn #1225 ECHT zusätzliches Mapping braucht (z.B. cmd/baha/app_*_integration_test.go an native HA Gates,
+        die gate-map NICHT abdeckt) -> einen SCHMALTEN PR gegen develop bauen, der NUR die fehlenden Mapping-Zeilen
+        aus #1225 übernimmt (kein Voll-Rebase der 26 Commits, kein ci.yml-Duplikat zu #1246), + Test.
+ 4. KEINE product runtime files (docker_engine.go = andere Lane), KEIN ci.yml-Voll-Umbau. Nur pr-gate-plan.py/
+    pr-check-runner.py Mapping-Klärung + ggf. minimaler PR.
+EVIDENCE: baseharbor-plan/evidence/board-2026-10-31/integrate-1225/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE integrate-1225: <SUPERSEDED: begruendung+zeilen | MINIMAL-PR#N: was zusatzlich gemappt> + pytest PASS"

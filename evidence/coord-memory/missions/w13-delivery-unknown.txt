@@ -1,0 +1,47 @@
+ROLLE: Worker (Lane w13-delivery-unknown). Coord f49a3303. MIKRO-AUFGABE: code+doc Eine-Punkt-Runde
+PR #1333 (t-20261018-r27-delivery-boundary). Basis = head a53cba29. Review-Grundlage: review-1333j.md.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w13-delivery-unknown-wt work/r27-delivery-boundary
+
+TEIL A — CODE (deployment_store.go Guard-Pfad ~196-215):
+  before guardOwner is used: normalise a PERSISTED previous owner that is neither "" nor a recognised
+  owner value (baseharbor|external) to "" (unset) — mirroring Selection.Normalize — so an unknown/
+  corrupt persisted owner neither silently blocks nor silently attests; add helper
+  normalisePersistedOwner(owner string) string IN demelben file (small, no new package).
+  Recorded Conflict handling stays exactly as-is (previous governs, caller discarded on first save).
+  REGRESSIONEN (in existing guard test file):
+   1) previous owner "corrupt-third-party" + direct save => allowed via unset-path, persisted owner
+      becomes baseharbor; 2) same corrupt owner + delegated selection => refuses (unknown external
+      attestation not widened); 3) corrupt owner + previous conflict=true => still refuses;
+   4) existing empty/known cases unchanged.
+TEIL B — DOKU, WORTLAUT (nur diese ersatztexte; DE sinngleich wie unten):
+  EN §1 (satz "For one managed resource set there is exactly one active mutation/reconciliation owner
+  at any observed moment.") ERSETZEN DURCH:
+  "For a managed resource set there is exactly one persisted reconciliation owner at record-save time,
+  enforced at record save; runtime detection of concurrent ownership is deferred (see Decision 2 and
+  the follow-up cards)."
+  EN §2 (_absatz-ende bei "A direct mutation is refused if an external reconciler already owns the
+  resource; a recorded conflict of two active owners refuses closed.") ERSETZEN DURCH:
+  "A direct save is refused if the persisted owner is external; a recorded conflict of two active
+  owners refuses closed. A persisted owner that is absent, empty, or unrecognised is treated as unset
+  by the same normalization `Selection.Normalize` applies to selections, so a corrupt value never
+  widens or attests ownership."
+  DE :22-23 satz analog:
+  "Für einen verwalteten Ressourcensatz gibt es genau einen persistierten Versöhnungs-Besitzer zum
+  Zeitpunkt des Datensatz-Speicherns, durchgesetzt beim Speichern; die Laufzeit-Erkennung paralleler
+  Besitzerschaft ist zurückgestellt (siehe Beschluss 2 und die Folgekarten)."
+  DE :40-block analog:
+  "Ein direktes Speichern wird verweigert, wenn der persistierte Besitzer `external` ist; ein
+  protokollierter Konflikt zweier aktiver Besitzer schlägt fail-closed fehl. Ein persistierter
+  Besitzer, der fehlt, leer oder nicht erkannt ist, wird wie ungesetzt behandelt — nach derselben
+  Normalisierung, die `Selection.Normalize` auf Selektionen anwendet — sodass ein beschädigter Wert
+  weder Besitz bestätigt noch erweitert."
+
+ANSENDE-PFLICHT: merge origin/develop; write-set grep-leer (keine .github/scripts/cmd).
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery + go build ./... + vet.
+push FF, ls-remote==head, keine run-logs, END an f49a3303:
+"END_DONE w13-delivery-unknown: head=<sha> corrupt-normalised=3tests | <Satz>"
+Evidence: .../delivery-boundary/fix-r10.md (plain bullets).
+STOP: wortlaute nicht abwandeln; bei unklarer fundstelle END_BLOCKED mit datei:zeile; kein Merge.

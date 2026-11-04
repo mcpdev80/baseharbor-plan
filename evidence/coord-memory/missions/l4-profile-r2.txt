@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane l4-profile-r2). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde 2 zu PR #1324 (task t-20261018-r27-profile-contract).
+
+ZUERST LESEN (Pflicht): baseharbor-plan/evidence/r27-night-2026-11-02/review-1324b.md (REJECT, 5 Befunde mit Rezepten) + baseharbor-plan/tasks/t-20261018-r27-profile-contract.md. Basis = head 0db72d35.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/l4-profile-r2-wt work/r27-profile-contract
+Haupt-Checkout NICHT benutzen. Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+REIHENFOLGE (kleinste Hebel zuerst, je Befund 1 Commit):
+1 B3-TAGS (Mechanik, 20 Min): ManagementAccessProfile.Kind/Version json-Tags sind VERTAISCHT (kind<->version)
+   — korrigieren; TestWireRecordJSONTagsMatchSchema verschärfen: gemarschalte Bytes gegen packaged Schema
+   validieren (decode UND encode), nicht nur Key-Präsenz.
+2 B5-GOLDEN: profile.golden.json Fake-PEM + Null-Fingerprints ersetzen durch generierte Test-Zertifikate
+   mit echten passenden Fingerprints (private keys NICHT in fixtures); goldens durch denselben realen
+   Schema+Semantic-Pfad; negative mismatched-pin/expired/one-use goldens dazu.
+3 B1-SCHEMA: profile.schema.json kind-konditionale required/forbidden (export/storage/import je Typ),
+   storage/encryption-Konsistenz, one-use Enrollment; Import-VERHALTENS-Tests (no grant/no plugin/
+   no redirect als echtes Verhalten, nicht behauptete Booleans).
+4 B2-INTEGRATION: EINE akzeptierte Import-/Selection-Entry-Funktion, die Profil gegen unabhängig
+   autorisierte installation/trust/recipient/scope + clock prüft, BEVOR Effekte eintreten; Negative:
+   fremde aber in-sich-konsistente CA/Installation/Recipient, malformed dates, abgelaufen/zukunft.
+   STOPP-REGEL: wenn dafür Dateien außerhalb des Write-Sets nötig sind: END_BLOCKED mit datei:line —
+   Coordinator erweitert Ownership (Präzedenz delivery).
+5 B3-CONSUMER + B4: minimaler authorisierter Produktions-Consumer ODER expliziter Deferred-Hinweis in
+   EN+DE-Doku (Behauptungen an implementiertes Verhalten anpassen; Beispiele auf compiliierende Wire-Typs;
+   same-CA connection-profile-Beziehung prüfen oder als offen markieren).
+
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build ./... . KEINE CI-Auswertung
+(Owner-Kanal): nach push+ls-remote keine Run-Logs, keine Reruns.
+HANDOFF: codeman agent post f49a3303 "END_CODE_READY|END_BLOCKED l4-profile-r2: head=<sha> findings=<1-5 status> | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r2.md (befund-fuer-befund).
+
+STOP-KRITERIEN: keine CI-Dateien; kein Merge/Release/Tag; keine cmd/baha-Änderungen; zwei erfolglose
+identische Versuche => END_BLOCKED.

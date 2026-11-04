@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w62). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 6, TEST-ERST-STRATEGIE).
+PR #1357, branch work/r27-ci-access-ab, basis head a4f8904f. review-1357e hat zum wiederholten male
+GENAU EINEN punkt: die negativen Check()-aufrufe beobachten den falschen recorder. Diese lane arbeitet
+ANDERS: ZUERST den gegentest des reviewers 1:1 nachbauen und ROT SEHEN, DANN fixen, DANN GRUEN melden.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w62-ci-access-f-wt work/r27-ci-access-ab.
+
+SCHRITT A (rot beweisen): schreibe TestCheckNegativesObserveReadyRoute: fuer JEDEN negativen fall
+(selfsigned, fremde CA, defekter key, CA-PEM muell, falsche server-CA) ruft client.Check() gegen den
+server mit ZWEI recordern: readyHandler (die route die Check traf/traefen sollte) executeHandler.
+BEHAUPTUNG im test: readyReached==false ODER je nach entwurf die ECKIGE realitaet — fuehre den test
+AUF DEM BASIS-HEAD aus, kopiere die FAIL-AUSGABE woertlich in die evidence (beweis: bug war real und
+wurde reproduziert, nicht umschifft).
+SCHRITT B (fix): verdrahte die recorder so, dass Check-tatsaechlich die readyz-route bedient und jeder
+negative check-fall BOTH assert: readyReached==false UND executeReached==false (kein test mehr, der den
+falschen recorder beobachtet). Positive faelle: ready Reached==true bei gueltigem material.
+SCHRITT C (ursache): die bestehenden errors.As ursachen-asserts bleiben; falls der readyz-weg einen
+anderen fehler-typ liefert (z.B. HTTP-statt handshake bei halb-offenem weg) — typ-fest fuer den
+TATSAECHLICH auftretenden pfad dokumentieren, kein substring-fallback.
+
+REGELN: write-set internal/runtimeexecutor/** nur; keine bestehende testfunktion loeschen (diff
+'^-func Test' leer WÖRTLICH); gofmt -l leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... +
+go test ./internal/runtimeexecutor -count=1 -timeout 8m gruen; merge develop drift rc=0; push FF;
+ls-remote==head; PR-STATUS nicht anfassen. EIGENES-RUN: gh pr checks 1357 --watch bis terminal (run-id
+woertlich in evidence).
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-6.md (SCHRITT-A rot-auszug PFLICHT, dann gruen).
+END an f49a3303: "END_DONE w62-ci-access-f: head=<sha> rot-reproduziert=ja fix=beide-recorder gruen=ja hosted=green(<id>) | <Satz>"

@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde4 (r1355c rezepte 1-4 + coord-consent-design).
+OBJEKT: PR #1355 head 3b0fd03d (develop 0107d8e1 Vorfahr JA; additive *CandidateConsent{by,at,digest} auf
+DeploymentRecord; apply-choke-point bindet canonical confirm-hash VOR Save; cli --confirm-candidate;
+schema consent-pflicht + go-paritaet; fixtures gehaertet (traversal/symlink/byte-grenze, secret-ref am
+echten owner-pfad); EN/DE branch/tag-streiche + echter decision-link; 0 geloeschte tests; alt-records
+loadbar, erste neue mutation verlangt consent (migrationssatz in spec)). = t-20261018-r27-candidate-contract.
+PRUEFEN (SHA-genau, read-only): 1. consent-negativpaare: ohne flag => kein write; digest-falsch => err;
+alt-record+consent => ok. 2. schema==go vektor-paritaet (ein test-set, beide validierer). 3. migrationssatz
+EN+DE vorhanden. 4. matrix => ACCEPT wenn traegt (sonst rezept-liste). Tests: GOCACHE=/tmp/opencode/gc
+TMPDIR=/tmp go test ./internal/delivery ./internal/application ./contracts -count=1 -timeout 8m; cmd/baha
+nur -run gefiltert (Deployment|Candidate|Apply|Consent), env-fails wie belegt tolerieren.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1355d.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355d: verdict=<X> open=<liste|none> | <Satz>"

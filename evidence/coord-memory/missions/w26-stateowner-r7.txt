@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w26-stateowner-r7). Coord f49a3303. MIKRO-AUFGABE: NUR test-precision (1 datei+)
+PR #1347 (t-20261018-r27-state-owner). Basis = head 59bcb5b5 branch work/r27-state-owner.
+Grundlage: review-1347f rezept 1. Code-VERHALTEN ist bestatigt korrekt; nur die assertion ist zu nett.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w26-stateowner-r7-wt work/r27-state-owner
+
+PUNKT 1 — SCHARFE FEHLERKLASSE (deployment_tenant_scope_negative_regression_test.go :254-264):
+  - im corrupt-scope fall NUR errors.Is(err, targetsession.ErrUnavailable) akzeptieren (save UND load);
+    ErrDeploymentOwnerMissing/Foreign und text-fragmente als akzeptanz-stuetze ENTFERNTEN.
+  -ablauf im test: (a) gueltiger scope -> echten record speichern, bytes sichern; (b) scope corrupten;
+    (c) save-versuch nil-preferences => ablehnung mit exakt ErrUnavailable; bytes unveraendert;
+    (d) load/list => ablehnungErrUnavailable-spezifisch, bytes unveraendert.
+  - positiver fall (gueltiger scope) bleibt durchlass wie bisher.
+PUNKT 2 — LIST/OWNER-NACHWEIS: vorhandene public list-/owner-fehlerfaelle mit EXISTIERENDEM record
+  spezifisch nachweisen (nicht nur missing-path): liste enthaellt record; fremder owner => foreign;
+  corrupter scope => ErrUnavailable-Klasse.
+PUNKT 3 — REGRESSIONSPROBE: verhaltenstraegerischer gegenbeweis auf dea01b83 archiv beibehalten
+  (test muss dort FAILen), ergebnis-zeile in evidence.
+
+ANSENDE-PFLICHT: merge origin/develop; ancestry rc=0 ls-remote-SHA; write-set nur test-dateien +
+max 1 helper; grep .github/scripts leer. Tests: TMPDIR=/tmp go test ./cmd/baha -run 'TenantScope|Negative|Deployment' -count=1 gruen.
+PUSH ZIEL refs/heads/work/r27-state-owner (KEINE tmp-branch), ls-remote==head. END an f49a3303:
+"END_DONE w26-stateowner-r7: head=<sha> assert=ErrUnavailable-only list=specific dea-fail=belegt | <Satz>"
+Evidence: .../state-owner/fix-r7.md (plain bullets). STOP: keine produktcode-aenderungen; wenn eine
+ablehnung NICHT als ErrUnavailable kommt => END_BLOCKED mit fehlerausgabe (dann ist code doch offen —
+das waere ein echter befund, nicht test-verbiegen!).

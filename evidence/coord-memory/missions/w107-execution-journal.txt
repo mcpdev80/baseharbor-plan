@@ -1,0 +1,20 @@
+ROLLE: Worker (Lane w107). Coord f49a3303. KARTE: t-20261018-r27-execution-journal — CLAIM GESETZT UND PUBLSHT.
+REPO: baseharbor (core), basis develop bb9bc0ef (Vorfahr halten, letzter schritt vor push neu pruefen).
+VORLESEN: baseharbor/AGENTS.md + kartenwortlaut wortgetreu; die karte verlinkt t-20261022-r27-ci-authority
+(ACCEPTED und gemergt: review-1354h.md + codex-merge-1354a.md) — deren gelandete retention-/journal-teile
+NICHT erneut bauen, sondern nutzen.
+AKZEPTANZ der karte (product-Sprache, pruefbar machen): (1) akzeptiert/laufend/terminal-oder-unsicherer
+status, korrelation und autorisierte anfrage-verpflichtung werden GESCHRIEBEN BEVOR wirkungen eintreten;
+(2) doppelte anfrage MIT geändertem inhalt => abweisung; (3) reconnect holt dieselbe operation wieder;
+(4) gebundene retention, KEINE secrets/artifact-payloads im normalen journal; (5) KEIN exactly-once-versprechen
+ueber crashes hinweg (text/kommentar/test dürfen das nicht behaupten). handler/lifecycle-wiring ist spaetere
+karte — auslassen.
+ISOLATION: zweig work/r27-execution-journal, worktree /tmp/opencode/w107-journal-wt. Write-set:
+internal/machinehttp (+ dessen tests) und nur falls noetig docs/spec-ergaenzung journal; KEIN cmd/baha,
+KEIN internal/delivery, KEIN internal/workstationenrollment, KEIN .github (andere lanes + owner-CI-Feld).
+TESTS: rote-first faelle fuer (2) und (3) als echte tests gegen den produkt-pfad (kein rein-funktions-unit);
+focused go test ./internal/machinehttp -count=1, go build ./..., gofmt, vet.
+PR DRAFT auf develop; ls-remote==head; eigene-run-beobachtung der gates bis terminal.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md (bullets, keine
+checkboxen).
+END an f49a3303: "END_DONE w107-execution-journal: head=<sha10> pr=<n> faelle=<1-5 belegt| liste> lsremote=<sha10> | <Satz>"

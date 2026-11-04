@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w109). Coord f49a3303. KARTE: t-20261104-r27-demo-guided-consent. REPO: baseharbor-demo
+(zweig w85-demo-guided-consent, PR #128, kopf 061be773 — du arbeitest darauf weiter).
+Luna review-128d REJECT, zwei rezepte (akte lesen, dann coding):
+(1) FAIL-CLOSED: "candidate-hash stimmt + fremder fehler" loest im produktionspfad trotzdem einen ZWEITEN up
+    aus. Erwartet: fremder fehler => KEIN zweiter lauf, hash-pass allein ist keine freigabe. rote-first:
+    genau diese kombination als test (vorher rot auf dem aktuellen kopf belegen), dann die vier bekannten
+    gegenproben unveraendert behalten.
+(2) ENTDECKUNG: der dauer-test laeuft im normalen demo-testlauf NICHT mit. Grund (dateiname/pfad/testpattern
+    des demo-workflows) finden und korrigieren; nachweis durch den ausgefuehrten lauf mit testnamen.
+BASIS: letzter schritt vor push — demo-hauptzweig + baseharbor-core.ref auf aktuellen stand (develop bb9bc0ef
+bzw. dessen Core-tag) pruefen, ergebnis notieren.
+GRENZE: nur tests/guided/* + baseharbor-core.ref. KEINE core-aenderung (anderes repo, andere lanes).
+push; ls-remote==head; PR-checks des demo-repos bis terminal beobachten, fehlzeilen aufnehmen.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/demo-guided-consent/round-5.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w109-demo-r5: head=<sha10> r1=rot->gruen r2=entdeckt-belegt lsremote=<sha10> | <Satz>"

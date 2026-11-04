@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head ccb5e83f = merge(33badf7d + develop 1706272c) mit UNION-konfliktloesung in
+internal/deployment/deployment_store.go (branch seam VerifyDeploymentOwner x5 + develop guard
+normalisePersistedOwner x3 bleiben BEIDE). develop Vorfahr JA, alle deployment/delivery tests gruen,
+9 cmd/baha fails als pre-existing env auf clean baseline belegt. RE-REVIEW der reconcile-runde.
+PRUEFEN (SHA-genau, read-only): 1. UNION ist semantik-echt: Save/Load/List fahren erst owner-grant-
+first seam, dann one-writer guard inkl. retention fail-closed; kein zweig der einen abschaltet.
+2. negative regressionen beider verträge bestehen zusammen (scope=ErrUnavailable, vanish=err,
+missing-owner-public, corrupt-owner normalize). 3. karten-matrix + deferrals => ACCEPT-WITH-DEFERRAL.
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery -count=1 + cmd-run wie mission.
+Urteil -> review-1347r.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347r: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w105). Coord f49a3303. KARTE: t-20261018-r27-node-service — CLAIM GESETZT UND PUBLSHT.
+REPO: baseharbor-node-connector — VORLESE-PFLICHT: dessen AGENTS.md + plan.py show der karte wortgetreu;
+verlinke beide im ## PLAN deiner evidence.
+ZIELE der karte: paket/install/start/restart/uninstall rootless service OHNE Go auf dem knoten; native
+XDG/systemd-user/lingering; explizite re-enrollment-regeln; schuetzte lokale schluesselerzeugung; KEINE
+desired-state-/placement-autoritaet auf dem knoten. PREZEDENZ: PR #4 exact unique work gegen current Core
+pruefen und ERHALTEN (nicht still erweitern).
+ISOLATION: zweig work/r27-node-service ab connector-main (fetch origin; aktueller remote-kopf NOTIEREN);
+worktree /tmp/opencode/w105-node-wt. Disjunkt zu allen core-laeufen (anderes repo!).
+TESTS: rote-first faelle: re-enrollment zweimal => definierter zustand; fehlende authorization => schutz
+greift; service-neustart == same behavior; schluessel-erzeugung ersetzt NICHT schuetzende dateien.
+focused service/bootstrap tests + vet + build laut connector-AGENTS. KEIN produkt-CI-aenderung.
+PR DRAFT auf connector repo; basis-check letzter schritt (origin/main Vorfahr); ls-remote==head;
+eigene-run beobachtung des connector-CI falls dort PR-checks existieren (sonst begruendung in evidence).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/slice-1.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w105-node-service: head=<sha10> pr=<n> faelle=belegt lsremote=<sha10> | <Satz>"

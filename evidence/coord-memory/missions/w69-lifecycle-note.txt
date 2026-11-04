@@ -1,0 +1,4 @@
+BEFUND coord: head 1662ebcb — echte docker+podman lifecycle-jobs laufen jetzt und FAILERN (meta geheilt).
+Ziehe exakte fehlerzeilen (run 41723792774, step "Run runtime gate"), baseline-check auf baha-docker/
+baha-podman gegen CLEAN develop: JA rot => infra-blocker END_BLOCKED mit beleg, karte waiting.
+NEIN => zweig-ursache datei:stelle, korrigiere im vertrag. END um "baseline=develop-gruen|rot" erweitern.

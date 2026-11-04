@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w71). Coord f49a3303. KARTE: t-20261018-r27-state-owner (final-runde, uebernahme
+der stillgewordenen lane w52 — dein vorgaenger ist kontext-leer, alles was zehlt liegt auf branch+evidence).
+
+REALITAETSCHECK ERSTE AKTION (pflicht):
+1. fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner"
+   "+refs/heads/develop:refs/remotes/origin/develop"
+2. worktree add /tmp/opencode/w71-stateowner-final-wt work/r27-state-owner
+3. lies baseharbor-plan/evidence/r27-welle3-2026-11-03/state-owner/reconcile-*.md (runden 1-4) — dort
+   steht der vertrag: seam+guard union, 29er seeds, docker_engine.go binding fix, app-edit runtime.env
+   probe-richtig. pruefe was auf dem head 5f625b30 schon steht (git log --oneline develop..HEAD).
+4. git merge origin/develop (fddff70d = owner CI-fix) rc=0, rc=0-zeile WÖRTLICH in evidence.
+
+AUFGABE — 8 hosted fails auf 5f625b30 beheben (gh pr checks 1347 zeigt sie; die vier runtime-gates sind
+DOCKER/PODMAN lifecycle/backup-restore gegen deinen deployment-store): lokale REPRODUKTION auf den
+SSH-runtime-hosts (RUNBOOK §1.6 — dir erlaubt, mit END-Reinigungspflicht): ssh baha-docker / baha-podman,
+dort den betroffenen test-pfad fahren; eigene reste nachher loeschen, bh-*shared* NICHT anfassen.
+go-unit/wizard/cli-package fails: -run gefiltert lokal nachbauen (vermutlich rootless-DockerMode commit
+5f625b30 — pruefe den auf seinen ne-beneffekt hin; wenn er der Verusacher ist: gezielt korrigieren oder
+RUECKGÄNGIG machen mit begruendung, die 4 gates sind wichtiger als das eine label).
+
+REGELN: write-set wie karten contract (internal/** + cmd/baha tests + docker_engine product-stelle die
+schon freigegeben war); keine bestehende testfunktion loeschen; gofmt -l leer VOR jedem push (hosted
+source-format war schon rot wegen dir); go build ./... vor jedem push; push nur mit ancestry rc=0 als
+ALLERLETZTEM schritt; ls-remote==head + cat-file -e als END-zeilen. EIGENES-RUN: gh pr checks 1347
+--watch bis terminal; alle affected gruen ODER rest mit begruendung + run-id liste.
+Evidence: .../r27-welle3-2026-11-03/state-owner/final-1.md.
+END an f49a3303: "END_DONE w71-stateowner-final: head=<sha> gates=<n/8> reprod=<host|lokal> cleanup=bestaetigt | <Satz>"
+STOP: wenn ein runtime-gate einen echten produkt-fehler in DEINER karten-aenderung zeigt, der grosser
+ist als ein gezieltes fix: END_BLOCKED mit gate-log-zeile + host-auszug.

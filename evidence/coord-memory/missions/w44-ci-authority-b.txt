@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w44). Coord f49a3303. KARTE: t-20261022-r27-ci-authority, slice execution-journal
++ journal-wiring. PR #1354, basis head 159054c2 branch work/r27-ci-authority-ab. Grundlage:
+review-1354a.md (3 befunde). COORD-ENTSCHEID: journal-persistenz ist minimal-produktarbeit DIESER
+slice-familie (release-plan notierte "execution records in-memory" explizit als LUECKE) — kein
+neues subsystem, nur echte persistence des bestehenden stores.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; git worktree add /tmp/opencode/w44-ci-authority-b-wt work/r27-ci-authority-ab.
+
+PUNKT 1 — EHRLICHE TESTNAMEN: TestExecutionJournalDurableTransitions heisst um in
+TestExecutionJournalInMemoryTransitions (kommentar: same-process map, keine persistenz-behauptung).
+PUNKT 2 — MINIMALE PERSISTENZ (internal/machinehttp/store.go):
+  records werden bei mutation append-persistiert (XDG-datenpfad unter <state-root>/journal/ oder das
+  im paket bereits uebliche muster — LIES store.go + aufrufer, nothing new invented); Reopen/Load bei
+  konstruktor liest vorhanden journal zurueck; defekte zeile => fail-closed err (kein silent skip).
+  Durable-regression: save -> NEUER store-instance ueber dieselbe root => transitions sichtbar;
+  corrupt-log => fehler; unknown-id verhaelt sich wie bisher.
+PUNKT 3 — gehostete CI-selektion: NICHT dein feld — in evidence als owner-CI-punkt notieren
+(aktuell skipped auf dem PR), kein .github/scripts.
+
+REGELN: write-set nur internal/machinehttp/** (+ tests); merge develop bei drift, ancestry rc=0
+ls-remote-SHA; TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go build ./... + go test ./internal/machinehttp
+-count=1 + aufrufer-pakete; push FF (PR #1354 branch), ls-remote==head; PR bleibt DRAFT.
+Evidence: .../r27-welle3-2026-11-03/ci-authority/qualify-2.md (plain bullets; je punkt testname).
+END an f49a3303: "END_DONE w44-ci-authority-b: head=<sha> rename=done durable=reopen-test persist=store-load | <Satz>"
+STOP: wenn store.go eine andere persistence-heimat ERZWINGT (zyklus/ownership): END_BLOCKED mit
+datei:stelle statt eigenmachtiges neues layout.

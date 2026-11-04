@@ -1,0 +1,24 @@
+ROLLE: Worker (Lane w57). Coord f49a3303. KARTE: t-20261022-r27-ci-access. PR #1357, basis head
+57152dc5 branch work/r27-ci-access-ab. Grundlage: review-1357d — NUR zwei schmale test-verdrahtungs-punkte,
+rest ist als behoben FESTGESTELLT (restore OK, server-config OK, gofmt/hosted OK, flag-gegenprobe OK).
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w57-ci-access-e-wt work/r27-ci-access-ab.
+
+PUNKT 1 — CHECK-FAELLE ÜBERWACHEN DEN RICHTIGEN HANDLER: die negativen Check()-tests müssen den
+READY/handler beobachten, den Check tatsächlich aufruft (current: falscher handler => flag sagt nichts
+über den weg). je pfad (execute vs. check) eigener reach-flag; positive gegenprobe BEIDER wege:
+flag false->true bei gültigem material.
+PUNKT 2 — URSACHE STRENGER: assertTLSHandshakeCause ersetzt durch typ-feste prüfung: errors.As auf
+*x509.UnknownAuthorityError/x509.CertificateInvalidError/tls.CertificateRequired-Alert oder
+errors.Is(tls.HandshakeFailure) — reine substring-toleranz auf "tls"|"x509"|"certificate" ENTFÄLLT.
+TestMutualTLSRejectsInvalidCAPEM: behaupte die konkrete ablehnungsursache (server-seitige verification,
+nicht transport-abriss).
+
+REGELN: write-set internal/runtimeexecutor/client_test.go nur; keine bestehende testfunktion löschen
+(diff '^-func Test' == leer, WÖRTLICH); gofmt -l leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/runtimeexecutor -count=1 gruen; go build ./...; push FF; ls-remote==head; PR-STATUS nicht
+anfassen. EIGENES-RUN: gh pr checks 1357 --watch bis terminal (run-id in evidence).
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-5.md.
+END an f49a3303: "END_DONE w57-ci-access-e: head=<sha> per-pfad-flags=execute+check ursache=typ-fest hosted=green(<id>) | <Satz>"

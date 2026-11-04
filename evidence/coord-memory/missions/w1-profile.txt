@@ -1,0 +1,42 @@
+NACHT-AUFTRAG W1-B — t-20261018-r27-profile-contract (Architektur/Access, critical, v0.4.27)
+Repo: mcpdev80/baseharbor. Basis: develop c8fddea3 (verifiziert grüner develop-Selbsttest).
+
+ZIEL (Task-Vertrag baseharbor-plan/tasks/t-20261018-r27-profile-contract.md — VOR ALLEM lesen):
+Definitionsvertrag Profile/Credentials: nicht-geheimes Profil vs sensitive Einmal-Geräte-Registrierung vs
+explizit verschlüsseltem lokalem Credential-Export. Installation-Identität/Trust/Empfänger/Scope/Ablauf
+festlegen. Import gewährt KEINE Rechte, kann keine Plugins ausführen, leitet keine Credentials um.
+Native Git/SSH/Kube/Cloud-Wiederverwendung dokumentieren; session-only vs protected durable Storage und
+DR getrennt. Output: minimale Profile-/Credential-Source-Interfaces + Golden-Fixtures unter
+contracts/managementaccess/v1/ + executable positive/negative Regressionen. KEINE Provider-Implementierungen,
+kein unbenutzter Adapter.
+
+WICHTIG — bestehende Flächen nicht duplizieren: contracts/connection-profile/v1/ existiert bereits.
+VOR Implementierung Ist-Stand lesen (4.1): contracts/** (alle v1-Schemas), docs/spec/** + docs/de/**,
+bestehende Profil-/Trust-Tests (z.B. contracts/connection_profile_trust_test.go). Das neue Management-
+Access-Profil muss sich klar abgrenzen (Verweis + Kompatibilitätsaussage), nicht parallel erfinden.
+
+SCHRITTE:
+1. CLAIM zuerst öffentlich: python3 baseharbor-plan/scripts/plan.py claim t-20261018-r27-profile-contract
+   (Commit + Push baseharbor-plan main; bei Conflict STOP+MELDE — nicht fremde Claims überdecken).
+2. Isolierte Branch work/r27-profile-contract AB develop c8fddea3. Nur dort arbeiten.
+3. docs/spec/credential-access-v1.md + DE-Pendant (docs/de/** Muster); versionierte Connection-/Profil-
+   Datensätze + Golden-Fixtures unter contracts/managementaccess/v1/; Interfaces + Schema-Tests.
+4. Tests: Schema-/Golden-/Negative-Fixture-Tests (go test ./contracts/... + betroffene Pakete) und die
+   bestehenden Docs-/EN-DE-Konsistenzchecks (Kommandos aus dem Repo, nicht erfinden; if missing: als
+   Befund melden, NICHT selbst CI-Bausteine bauen).
+5. Positive UND negative Regressionen: Import ohne Rechte; Import kann kein Plugin ausführen; kein
+   Credential-Umweg; abgelaufene/Scope-fremde Registrierung abgelehnt; Verschlüsselungspflicht Export.
+6. KEIN Merge/Release/Tag. PR (offen, base develop) mit Exakt-SHA + Ausweisen.
+
+HARTE GRENZEN (Owner-Direktive 2026-11-02 Nacht):
+- VERBOTEN: .github/**, scripts/pr-gate-plan.py, scripts/pr-check-runner.py, alle CI-/Workflow-/Register-
+  Dateien (andere Session). Bedarf -> Befund im Handoff, keine Änderung.
+- Shared indexes/Registrations gehören NUR t-20261018-r27-public-surfaces — nicht anfassen.
+- Keine Secrets in Fixtures (nur offensichtlich synthetische Testwerte). Kein Gate-Weakening.
+
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/evidence.md — ## PLAN (getickt),
+Ist-Stände contracts/**, Write-Set real geänderter Dateien, PR+head, Testkommandos+Ausgang, Positiv-/
+Negativliste, Abweichungen/Blocker. Nur gezieltes git add; sanitize.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1-profile: task=t-20261018-r27-profile-contract pr=<#N> head=<sha> tests=<pass|fail> ci_files=<none|Beobachtung> | <Satz>"

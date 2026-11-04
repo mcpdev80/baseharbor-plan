@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w63). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal runde 7).
+Branch work/r27-ci-authority-ab head 15d69dbd (PR #1354 DRAFT). Grundlage: review-1354e.md rezepte.
+Kernbeleg des reviewers: unabhaengiger reopen verliert eine LAUFENDE id nach acht grossen eintraegen —
+rotation schneidet active-IDs ab, entgegen design.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w63-ci-authority-f-wt work/r27-ci-authority-ab.
+
+PUNKT 1 — ACTIVE-ID ÜBERLEBT ROTATION (rot-erst): test der exakt reviewer-muster faehrt: 8+ grosse
+eintraege (je ~2,5MiB) mit aktiver id frueh im protokoll -> danach REOPEN -> aktive id noch da mit
+letztem zustand. Auf basis-head zuerst ROT nachweisen (auszug in evidence), dann fixen: rotation
+darf den neuesten eintrag JEGER aktiven/unsicheren id NICHT entfernen (compaction behaelt neueste pro id,
+segment-schnitt muss das garantieren, notfalls carry-forward-zeile beim rotieren schreiben).
+PUNKT 2 — CRASH-UNSICHERHEIT: abgebrochene letzte zeile (half-write) beim load: record wird als
+uncertain/corrupt klassifiziert WIE die karte es verlangt (Karte zitieren), nicht still als pending.
+PUNKT 3 — CLOSE/SYNC-VOLLENDUNG: nach append: file.Sync() + expliziter close mit fehlerpruefung;
+fehlender sync war in runde6 ehrlich als offen gemeldet — jetzt Implementierung + test (fehlerhafter
+fd-schleusen-fall => err, kein event).
+PUNKT 4 — ROOT-GUARD-TEST produkt-konstruktion PRUEFTJETZT wirklich machinehttp.New/registerOperatorAPI
+— verfeinern bis die behauptung ohne selbst-beleg auskommt; reviewer contre: urteil prueft test-code.
+
+REGELN: keine bestehende testfunktion loeschen/umbenennen (diff '^-func Test' leer WÖRTLICH);
+gofmt/vet leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./internal/machinehttp
+-count=1 -timeout 8m gruen; merge develop drift rc=0; push FF; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/ci-authority/durability-6.md (rot-auszuege PFLICHT je punkt).
+END an f49a3303: "END_DONE w63-ci-authority-f: head=<sha> active-rotation=ueberlebt crash=uncertain sync=ja+test root=echt | <Satz>"

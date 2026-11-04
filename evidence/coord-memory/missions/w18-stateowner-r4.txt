@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w18-stateowner-r4). Coord f49a3303. MIKRO-AUFGABE: 2 enge punkte PR #1347
+(t-20261018-r27-state-owner). Basis = head dea01b83 branch work/r27-state-owner.
+Grundlage: review-1347c befunde 1+2 (hook-semantik 3 ist BESTATIGT ok).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w18-stateowner-r4-wt work/r27-state-owner
+
+PUNKT 1 — SCOPE-FEHLER PROPAGIEREN (cmd/baha/deployment_record.go :233-250 + hook :24-45):
+  Wo heute ein fehler von connectorScopeForTarget in (isTenant=false, ok=true) uebersetzt wird, muss
+  der fehler als ECHTER err aus dem hook rauskommen: (false, err). Ein tenant-target mit defektem/
+  unlesbarem scope darf NICHT auf den core-owner-pfad fallen (sonst gewaehrt ein vorhandener core-owner
+  trotz invalidem tenant-scope). REGRESSION (wrapper-test): target ist tenant aber scope corrupt/err
+  => save wird mit dem scope-fehler abgewiesen, NICHT mit nil durchgelassen; gegenprobe: gueltiger
+  scope => durch, echtes nicht-tenant => fallt auf core-pruefung.
+PUNKT 2 — FIXTURE-REST (cmd/baha/application_backend_binding_change_test.go :41-44):
+  RemoveAll- und Stat-fehler wie in configureTestTargetEmpty ueblich an t.Fatal binden; verlagere wenn
+  sinnvoll in denselben helper-stil. Kein test-assertion-wechsel.
+
+ANSENDE-PFLICHT (SHA-Beweise): merge origin/develop (ls-remote-SHA als Vorfahr beweisen, rc=0);
+write-set grep-leer (.github/scripts). Tests: TMPDIR=/tmp go build ./... && go test ./internal/deployment
+./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding' (betroffene; environment-fails separat notieren,
+NICHT schweigen). push FF auf work/r27-state-owner, ls-remote==head, keine run-logs.
+END an f49a3303: "END_DONE w18-stateowner-r4: head=<sha> scope-err=propagiert fixture=fatal | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/state-owner/fix-r4.md (plain bullets, keine
+checkboxen). STOP: nur diese zwei punkte; bei abweichender fundstelle END_BLOCKED mit datei:zeile.

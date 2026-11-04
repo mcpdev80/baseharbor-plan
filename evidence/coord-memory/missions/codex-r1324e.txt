@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head ead09bc7 (base develop sauber, Diff = exakt 8 Write-Set-Dateien) =
+t-20261018-r27-profile-contract — RE-REVIEW nach review-1324d.md (Punkte: store-reihenfolge der
+enrollment-validierung, schema-class-completeness, doku-ehrlichkeit, one-use-golden).
+PRUEFEN (SHA-genau, read-only; KEINE CI-Run-Logs; ls-remote vor/nach als Zeuge):
+1. Validate-then-enroll: EnrollDevice prueft pinned CA (ResolveFingerprint-Aufruf real), recipient,
+   gueltigkeitsfenster, profil-kind und one-use VOR jedem Effekt; Angreifer-Negative (fresh CA
+   fremd, abgelaufen, wiederverwendet) laufen denselben Pfad.
+2. Schema: kind-konditionale required/forbidden fuer ALLE drei Klassen + export-pflicht je art;
+   jede Klausel mit positivem+negativem executablem Test (kein Flag-Glaube).
+3. Doku EN/DE: claims = implementiertes Verhalten, deferred-interfaces Abschnitt deckt ab was offen
+   ist; DE-Negationen sinngleich.
+4. Goldens: positive + negative durch denselben realen Pfad, fingerprint-echtheit ohne secrets.
+5. acceptance matrix der Karte Klausel fuer Klausel: erfuellt / deferred-belegt / offen.
+Urteil -> review-1324e.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT + Rezept/Deferral-Klausel).
+KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324e: verdict=<X> open=<liste|none> | <Satz>"

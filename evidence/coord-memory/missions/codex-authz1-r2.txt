@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (Zweit-Review, kein Merge, keine Produktänderung)
+Kandidat: PR #1272, head 771b5022 (NEU gegen Review #1 auf be022b55), base develop (640846e1+).
+Vorwurf aus Review #1 (codex-authz1/review.md): Negativfall fehlte; author-vs-adopt Route offen.
+Worker-Behauptung: (1) TestMCPAuthoringSchemaStillRejectsMissingRequiredField ergaenzt
+ (Name-Feld ueber app.adopt, Schema-Ebene, diskriminierend nachgewiesen); (2) app.create/.adopt
+ teilen denselben Generierer (machineApplicationAuthoringTool) -> eine Route genuegt.
+PFLICHTPRUEFUNG:
+ 1) Diff be022b55..771b5022 + Voll-Diff gegen base pruefen (SHA-genau, fetch refs/pull/1272/head).
+ 2) Negativtest inhaltlich pruefen: fails er, wenn die Schema-Pflicht fuer Name entfernt wird?
+    (Lies den Test; wenn Beweisführung ueberzeugend dokumentiert, genuegt das Protokoll + Code-Logik.)
+ 3) Behauptung 'eine Route' gegen internal/application/authoring-Quellcode stichprobenartig
+    verifizieren (Datei:Zeile).
+ 4) Torstand 771b5022 (run 41413487364): Funktionsgaene gruen verifiziert; Aggregat nur Review-Holder.
+ Urteilsdatei: baseharbor-plan/evidence/board-2026-11-02/codex-authz1/review-r2.md, VERDICT: APPROVE|REQUEST_CHANGES.
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END codex-authz1-r2: VERDICT=<A|R> | <Satz>"

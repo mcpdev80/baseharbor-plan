@@ -1,0 +1,43 @@
+ROLLE: Worker (Lane w123). Coord f49a3303. KARTE: t-20261018-r27-profile-codec. REPO: baseharbor (core),
+zweig work/r27-profile-codec, PR #1363, kopf e45e85ed5f — du arbeitest darauf weiter. BASIS: develop ecbb8854
+(lass sie vor dem push Vorfahr sein).
+
+CODEX review-1363b verdict=REJECT. Akte VOR dem coding vollständig lesen:
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1363b.md. Zwei Befunde erfordern die Ablehnung unabhängig
+voneinander, drei weitere sind offene Akzpte:
+
+(1) SECRET-SCAN DECKT NICHT ALLE serialisierten felder: store.go:443-458 `scanContainerSecrets` prüft nur
+    DestPath + record.Recipient; store.go:783-790 `scanRecordSecrets` nur installation/recipient/scope, und
+    ExportToContainer (store.go:405-411) ruft die ERSTERE auf. Ein secret-vermerk in einem anderen
+    text-feld wandert daher in die export-bytes. Der test (store_test.go:291-312) legt den canary in `Scope`
+    und behauptet nur eine spaetere import-ablehnung — er verlangt KEINE export-ablehnung. Das widerspricht der
+    spec-zeile "scans every serialized field".
+    -> JEDES serialisierte feld der vollständigen export-/import-record prüfen (explicit allowlist NUR fuer
+       nachweislich sichere werte), und ZUERST ablehnen, BEVOR export-bytes zurueckgegeben oder geschrieben
+       werden. TEST: canary unabhaengig in JEDE feld-kategorie einsetzen und zeigen, dass ExportToContainer ihn
+       zurueckweist, bevor er bytes sieht.
+
+(2) IMPORT-COMMIT IST NICHT ATOMAR: store.go:738-747 schreibt direkt auf den finalen commitPath mit
+    os.WriteFile und entfernt ihn nur bei fehler — eine teil-/gekuerzte finale datei kann sichtbar werden,
+    rollback ist nicht garantiert. store_test.go:470-492 prueft nur das oeffnen einer absichtlich kaputten
+    bestehenden datei, NICHT einen short-write/commit-fehler.
+    -> same-directory staging, vollständige schreib-prüfung, sync/close, ATOMARE rename; bei JEDEM fehler
+       staging-artefakte entfernen; ersatz-aufräum-fehler DEFINIEREN statt ignorieren. TEST: deterministische
+       short-write-/commit-fehler-injektion, assertion: keine partielle finale datei, kein temp-artefakt;
+       erfolgreicher ersatz hinterlässt genau die erwartung eine record.
+
+(3) TRUST-BINDUNG ist bedingt (`ExpectedBinding.TrustSelfConsistent`, store.go:76-79 und 679-682) und damit
+    nicht standardmaessig erzwungen -> mach die selbskonsistenz zur PFLICHT im freigabeweg (oder begründe
+    schriftlich in spec+code, warum sie ausbleibt — stillschweigend aus ist nicht akzeptabel).
+(4) KANONISCHER round-trip prueft nur ausgewaehlte felder -> vollständiger record-vergleich + goldenes
+    re-encoding als regression.
+(5) GEHOSTETE gates auf diesem kandidat sind ROT (run 41849617084: documentation-audit + PR Selected Checks).
+    Die umgebungsklasse (PostgreSQL/dockertests) bearbeitet lane w122 parallel; du aenderst daran NICHTS. Wenn
+    die läufe nach deinem push weiter rot sind: melde im END welche checks mit welcher EXAKTEN fehlzeile rot
+    sind, dann ordne ich die CI-ursache zu — ein nicht-terminales oder rotes gate gilt NICHT als bestand.
+
+GRENZE: KEIN .github-/workflow-eingriff (owner-/ci-feld), keine tests geloescht, kein cmd/baha, kein
+internal/delivery, KEINE subagenten (AGENTS §4.8) — jeden schritt selbst in deiner session ausfuehren.
+PR uebernimmt dein push, DRAFT bleibt bis ich umleite. ls-remote==head WÖRTLICH in die evidence.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/round-3.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w123-codec-r3: head=<sha10> secretfelder=<alle belegt> commit=<atomar+injektion> trust=<pflicht|begruendet> roundtrip=<vollstaendig> gates=<terminal|rot+fehlzeile> lsremote=<sha10> | <Satz>"

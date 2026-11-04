@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 03f51437 (develop Vorfahr, write-set sauber) = t-20261018-r27-profile-contract.
+RE-REVIEW nach r1324l — die present-tenseanker-sätze sind JETZT WIRKLICH ersetzt (coord disk-check:
+alt-treffer 0, self-consistency-formel 1, EN+DE).
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs): 1. EN+DE: neue formulierung vollstaendig, ohne
+widerspruch zum deferral-absatz, DE sinngleich, keine weiteren present-tense claims (grep-muster
+"validated through" "binds installation" im head). 2. keine code-aenderung gegen 34d7e11c (diff = nur
+docs). 3. finale matrix: alle klauseln ACCEPT oder formal-deferred (die drei karten-notizen) ->
+ACCEPT-WITH-DEFERRAL mit exakter deferral-liste.
+Urteil -> review-1324m.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324m: verdict=<X> open=<liste|none> | <Satz>"

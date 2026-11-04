@@ -1,0 +1,18 @@
+ARBEITSVERZEICHNIS: Lane-cwd ist nur Modell-Dir — arbeite ausnahmslos in diesem baseharbor-Worktree (Branch work/o1249b-openbao-cauth checked out): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/openbao-cauth
+MISSION openbao-cauth — RICHTIGER Produktfix openbao<->postgres TLS/SASL (core-750/#1225 native run)
+EXKLUSIVES WRITE-SET: internal/.../openbao_runtime_prepare.go, internal/.../stack.go (+ deren Tests).
+  NICHT: .github/workflows/* oder scripts/ci-core-rootless-runtime.sh (andere Lanes). Kein compose.yaml-Hack.
+Root-Cause (belegt, baseharbor-plan/evidence/board-2026-10-31/t-openbao-pgauth/REVIEW-coordinator.md):
+  A) openbao-init psql erbt PGSSLMODE=verify-full ohne PGSSLROOTCERT -> Spilo-self-signed untrusted ("certificate unknown").
+  B) projectControlPlanePostgresTLS (stack.go ~276-309) ueberschreibt bootstrap-CA NACH Container-Erzeugung -> Mismatch.
+  C) BASEHARBOR_OPENBAO_DB_PASSWORD Quelle vs Postgres-Rollen-Create kann divergieren -> SASL 28P01.
+FIX (minimal + sicher): connection so herstellen, dass openbao->postgres TLS verifiziert ODER bewusst verify-ca mit
+  richtiger CA; NICHT ssl=off/sslmode=disable/trust (Security-Regression = STOP). CA-Reihenfolge konsistent,
+  Password-Injection fuer init+role deterministisch identisch.
+TESTS: lokal `go build ./... && go vet ./...` + betroffene Unit-Tests. Du hast HIER moeglicherweise KEIN podman —
+  validiere NICHT mit compose-Hacks. Der BEWEIS-Gruen ist spaeter der GitHub-hosted "Targeted HA · podman"-Run
+  (nach CI-Migration Lane gh-ci-core).
+END-REGEL (wichtig): melde `END_CODE_READY openbao-cauth: <SHA + PR# + rationale + welche Zeilen>` — NICHT END_DONE,
+ 除非 du einen ECHTEN gruenen podman-HA-Run beobachtet hast (run-id belegen). Kein DONE ohne Run (§4.6).
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/openbao-cauth/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_CODE_READY|END_DONE|END_BLOCKED openbao-cauth: <...>"

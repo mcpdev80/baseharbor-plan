@@ -1,0 +1,8 @@
+ROLLE: Worker (Lane w86). Coord f49a3303. MECHANISCH, nur basis: branch work/r27-ci-authority-ab head
+627efe9d auf develop 3d08ef72 (enthält access-merge) ziehen: fetch origin "+refs/heads/develop:..."
+"+refs/heads/work/r27-ci-authority-ab:..."; worktree add /tmp/opencode/w86-bm-wt; merge origin/develop
+(konfliktfrei erwartet, access=auf access-dateien, journal=machinehttp — disjunkt); go build ./... +
+go test ./internal/machinehttp -count=1 -timeout 8m gruen; push; ls-remote==head; PR checks NICHT
+anraehren; gate kurz terminalem stand folgen lassen (run-id in evidence basemerge-3x.md).
+END an f49a3303: "END_DONE w86-journal-base3: head=<sha10> gate=gruen lsremote=<sha10> | <Satz>"
+STOP bei content-konflikt: END_BLOCKED mit datei:stelle.

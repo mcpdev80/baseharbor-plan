@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w5-delivery-r4). Coord f49a3303. MIKRO-AUFGABE: letzte TWO-Pixel-Korrektur zu PR #1333 (task t-20261018-r27-delivery-boundary). Basis = head d2a88e09.
+
+ZUERST LESEN: baseharbor-plan/evidence/r27-night-2026-11-02/review-1333c.md (REJECT, 4 Punkte —
+Punkt 4 Historie ist nicht-blockierend, wird vom Coordinator separiert behandelt).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w5-delivery-r4-wt work/r27-delivery-boundary
+
+SCHRITTE (genau 3, alles andere bleibt):
+1 REIHENFOLGE im Store (Kern): In SaveDeploymentRecord die persistierung des neuen Records bzw. den
+  Guard-PUNKT so verschieben, dass der Vor-Record-LESZUGRIFF (existing store read des previous
+  reconciliation owner) VOR refuseOneWriterMutation liegt und die Observed-Felder aus dem GELESENEN
+  Record bestückt werden, nicht aus Caller-Eingabe. Angreifer-Regressionstest NEU: Caller setzt
+  record.Observed.Owner="" und Owner=fremd -> Store-Wert gewinnt, Mutation verweigert; positiver
+  direct/delegated-Pfad bleibt gruen. (review-1333c Punkt 1 + 3: ADR-Aussage muss jetzt WORTGLAUBWÜRDIG sein.)
+2 cmd/baha/application_backend_placement_owner.go: aenderungen REDUZIEREN auf das minimum, das der
+  Guard für Schritt 1 braucht (Karten-Note: minimale Integration). Wenn ganz entbehrlich: auf
+  develop-Fassung zuruecksetzen (git checkout origin/develop -- die Datei).
+3 DE/EN ADR + specs: Zeitformen = real (detected before apply JETZT bewiesen durch 1), DE 'gleiche
+  CA'-Rest-Negation laut Punkt 3 des Reviews berichtigen.
+
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery ./cmd/baha + go build ./... .
+push FF auf work/r27-delivery-boundary, ls-remote, keine Run-Logs, sofort END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r3.md.
+STOP: zwei erfolglose Versuche => END_BLOCKED; keine .github//scripts/-Dateien; kein Merge.

@@ -1,0 +1,31 @@
+ROLLE: Worker (Lane w55). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract (runde 4).
+PR #1355, basis head beae8e8a branch work/r27-candidate-contract. Grundlage: review-1355c.md alle 4 rezepte.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-candidate-contract:refs/remotes/origin/work/r27-candidate-contract"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH in evidence; worktree add
+/tmp/opencode/w55-candidate-d-wt work/r27-candidate-contract.
+
+PUNKT 1 — CONSENT ECHT, NICHT PAUSCHAL: consumer (cmd/baha/app_apply.go:158 + app_remote_lifecycle.go:136
+-> recordDeploymentBeforeMutation) darf Acknowledged/ConsentBy NICHT hartsetzen. Muster: der
+bestehende Consent-Pfad der environment-keyed records — der submit-eintrag trägt ein ECHTES
+consent-feld (operator-input oder dokumentierte identität des auftraggebers); fehlendes consent =>
+Validate-fehler VOR SaveDeploymentRecord. Regressionstest: eintrag ohne consent -> apply wird
+abgewiesen, state unverändert.
+PUNKT 2 — SCHEMA==GO EINE WAHRHEIT: published json-schema rejects bewegliche branch-namen wie "main"
+(muster: ^[0-9a-f]{40}$|^[0-9a-f]{64}$|^[a-z0-9]+:[0-9a-f]{32,}$ wie im go-leaf); go Validate:
+imageDigest OHNE imageRef => err (parity). ein geteiltes test-vector-set fährt BEIDE validierer.
+PUNKT 3 — FIXTURE-HÄRTE: negative-fixtures: source+image both MUSS traversal ("../"), symlink-art,
+byte-limit-fall zeigen; SecretRef test ueb dem vorhandenen secret-owner-pfad (grep nach bestehendem
+field, nicht als unknown-key). Pflichtschema/index-ÄNDERUNGEN als beweisender diff dokumentieren.
+PUNKT 4 — DOKUMENTE: EN+DE: branch/tag KEIN fixed revision mehr (formulierung auf hex/digest-only),
+stage-label abschnitt = konkrete minimale ERWEITERUNG bestehender environment-keyed records (datei+
+feld benennen), decision-link zeigt auf echten ADR-pfad (beide sprachen, funktionierender md-link).
+
+REGELN: write-set cmd/baha consumer-zeilen + internal/delivery + contracts/* + specs EN/DE; KEINE
+bestehende testfunktion löschen (diff '^-func Test' leer, WÖRTLICH in evidence); merge develop bei
+drift rc=0; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./internal/delivery
+./contracts ./cmd/baha -run 'Candidate|Apply|Consent' -count=1 gruen; push FF; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/candidate-contract/fix-4.md.
+END an f49a3303: "END_DONE w55-candidate-d: head=<sha> consent=echt schema-paritaet=ja fixtures=gehaertet docs=berichtigt | <Satz>"
+STOP: echter consent-eintrag existiert Nirgends im state-schema => END_BLOCKED mit fundstelle der
+environment-keyed records, VORSCHLAG minimal-erweiterung, nicht pauschal weiter-hartsetzen.

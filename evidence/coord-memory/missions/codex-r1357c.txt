@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde3 (r1357b rezepte 1+2+3 umgesetzt).
+OBJEKT: PR #1357 head 8e410e12 (067274a1 + 7 develop-tests woertlich zurueck (diff '^-func Test' == 0
+belegt), handler-nichtaufruf-flag in allen negatives, gofmt leer; echter mutual-TLS server mit
+RequireAndVerifyClientCert; develop Vorfahr JA; write-set internal/** nur; hosted gruen gemeldet
+run 41638833511). = t-20261022-r27-ci-access produktseitige qualifizierung ABSCHLUSS.
+PRUEFEN (SHA-genau, read-only): 1. alle 19 testfunktionen (7 alt + handshake-serie) fahren echten
+NewClient/Check/Execute gegen TLS-server; negatives mit handler-flag==false behauptet. 2. kei n
+stiller fallback im client (fehlende CA => err). 3. slice-matrix karte => wenn alles traegt
+ACCEPT-WITH-DEFERRAL (gate-slices = owner-CI-punkte, documente liste). Tests: GOCACHE=/tmp/opencode/gc
+TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357c.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357c: verdict=<X> open=<liste|none> | <Satz>"

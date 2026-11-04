@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head 59bcb5b5 (develop Vorfahr JA; negative regression mit vollständiger
+fehlerklassen-assertion (6 treffer), fixtures fatal, evidence-richtstellung in fix-r6) =
+t-20261018-r27-state-owner. RE-REVIEW nach review-1347e: nur befund 1 (fehlerklassen) + 2 (baseline).
+PRUEFEN (SHA-genau, read-only): 1. korrupter tenant-scope bei vorhandenem core-owner => ablehnung mit
+scope/connector/provider-registry-klasse, datei nicht neu geschrieben; gueltiger scope => grant;
+kein nil-durchlass. 2. evidence: mutations-baseline korrekt benannt (defekt=dea01b83, fix ab 4cc93db8).
+3. matrix: alle klauseln erfüllt oder formal-deferred (ID-binding karten-note) => ACCEPT-WITH-DEFERRAL.
+Tests: TMPDIR=/tmp go test ./internal/deployment ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|CoreAuthority'.
+Urteil -> review-1347f.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347f: verdict=<X> open=<liste|none> | <Satz>"

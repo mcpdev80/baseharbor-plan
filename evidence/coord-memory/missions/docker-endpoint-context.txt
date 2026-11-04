@@ -1,0 +1,16 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/docker-endpoint-context  Branch work/docker-endpoint-context
+MISSION docker-endpoint-context — Produktfix: BaseHarbor nutzt den AKTIVEN Docker-Kontext (rootful ODER rootless)
+EXKLUSIVES WRITE-SET: internal/runtime/docker_engine.go (endpoint-Auswahl ~Z105) + seine *_test.go. NICHT cmd/baha/docker_engine.go (#1241), NICHT *.yml/scripts, NICHT stack.go/openbao.
+Kontext: Auf GitHub-hosted ubuntu-latest gibt es NUR den System(rootful)-Docker-Sockel; der Test-Haed pfadet hart
+  unix:///run/user/1001/docker.sock und meldet "no fallback to System Docker" -> Tests SKIPpen/failen.
+FIX (fail-closed respektieren, KEIN stummer Ruckfall der Fehlkonfiguration verbirgt):
+  - Endpoint aus dem AKTIVEN docker-Kontext / DOCKER_HOST ableiten (System-sock ODER rootless, je nachdem was laeuft),
+    statt eines gehaerteten Rootless-Pfads. Wenn gar kein zugreifbarer Daemon: FAIL-CLOSED mit klarer Meldung (wie jetzt).
+  - d.h. Verhalte dich wie `docker context use`/DOCKER_HOST es vorgibt; der "selected endpoint" = der gerade aktive.
+  - Wichtig: KEIN automatischer Fallback, der einen bewusst konfigurierten (aber toten) Endpoint verdeckt — nur die
+    aufloesung auf den tatsaechlich aktiven Kontext.
+TESTS: `go build ./... && go vet ./...`; `go test ./internal/runtime/...` (endpoint-Auswahl, fake sockets); docker
+  native-Lauf spaeter ueber PR-CI (Targeted HA docker) — Ziel: TestRepository*Lifecycle laufen statt SKIP wegen Endpoint.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/docker-endpoint-context/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY|END_BLOCKED docker-endpoint-context: <SHA + was geaendert + fail-closed bestaetigt>"
+STOP: wenn Kontext-Aufloesung die Fail-closed-Regel (2.3) aufweicht -> END_BLOCKED, nicht umsetzen.

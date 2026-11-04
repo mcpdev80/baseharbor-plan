@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w112). Coord f49a3303. KARTE: t-20261018-r27-execution-journal — CLAIM publiziert, lane
+wartete auf kapazitaet, jetzt bist du dran. REPO: baseharbor (core), basis develop (aktuell halten, letzter
+schritt vor push).
+VORLESEN: baseharbor/AGENTS.md + kartenwortlaut. Die vorgaengerin t-20261022-r27-ci-authority ist ACCEPTED und
+gemergt (review-1354h.md + codex-merge-1354a.md, develop bb9bc0ef): retention-extrakt store_retention.go und
+journal fail-closed tests sind GELANDET — darauf aufbauen, nicht doppelt bauen.
+AKZEPTANZ (produkt-sprache, pruefbar):
+ (1) akzeptiert / laufend / terminal-oder-unsicherer status, korrelation und die autorisierte anfrage-
+     verpflichtung werden GESCHRIEBEN, BEVOR wirkungen eintreten (test zeigt reihenfolge, nicht nur inhalt);
+ (2) doppelte anfrage MIT geaendertem inhalt => abweisung (typisierter fehler, keine wirkung);
+ (3) reconnect holt dieselbe operation wieder (gleiche korrelation, kein zweiter versuch);
+ (4) gebundene retention, KEINE secrets oder artifact-payloads im normalen journal (test mit gefaelschtem
+     eintrag zeigt abweisung/kurzung);
+ (5) KEIN exactly-once-versprechen ueber crashes — text/kommentar/tests duerfen das nicht behaupten.
+     handler-/lifecycle-wiring ist eine spaetere karte: auslassen.
+ISOLATION: zweig work/r27-execution-journal, worktree /tmp/opencode/w112-journal-wt. Write-set:
+internal/machinehttp + dessen tests, nur falls noetig docs/spec-ergaenzung journal. KEIN cmd/baha, KEIN
+internal/delivery, KEIN internal/workstationenrollment, KEIN .github (andere lanes + owner-CI-feld).
+TESTS: (2) und (3) ALS ROTE-FIRST-FAELLE gegen den echten produkt-pfad (kein reine-funktions-unit); danach
+go test ./internal/machinehttp -count=1, go build ./..., gofmt, vet.
+PR DRAFT auf develop; ls-remote==head; gates bis TERMINAL selbst beobachten (Eigenes-Run-Pflicht).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w112-execution-journal: head=<sha10> pr=<n> faelle=<1-5> lsremote=<sha10> | <Satz>"

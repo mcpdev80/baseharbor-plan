@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w12-delivery-wording). Coord f49a3303. MIKRO-AUFGABE: zwei WORTLAUT-Lücken
+PR #1333 ADR 0022 (t-20261018-r27-delivery-boundary). Basis = head c85a201f. NUR die zwei .md-adr-dateien.
+Du formulierst NICHTS um — die ersatztexte sind beschlossen (Reviewer-rezept r1333i + kartendeferrals).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w12-delivery-wording-wt work/r27-delivery-boundary
+
+ÄNDERUNG 1 — EN docs/decisions/0022-*.md absatz ":51" (bullet "Two competing reconcilers ... not
+after partial mutation:"): ERSETZE den gesamten bullet-durchgehenden satzteil nach "record save," bis
+einschließlich "not after partial mutation" sinngemäß DURCH exakt diese formel (umbruch frei):
+"Two competing reconcilers for one resource set are refused persistence at record save (the one-writer
+guard in `internal/deployment`); this is a persistence check, not live runtime detection, which is
+deferred to `t-20261018-r27-authority-contract` and `t-20261018-r27-state-owner`. Zero or unknown
+persisted owner is treated as unset and follows the `Selection.Normalize` direct default; it is not an
+attestation of any external activity."
+
+ÄNDERUNG 2 — DE docs/de/decisions/0022-*.md: derselbe inhalt als sinngleicher ersatz des entsprechenden
+DE-bullets, wortlaut:
+"Zwei konkurrierende Versöhner für dieselbe Ressourcenmenge werden beim Datensatz-Speichern abgewiesen
+(der Guard in `internal/deployment`); dies ist eine Speicherprüfung, keine Laufzeit-Erkennung — diese ist
+gemäß `t-20261018-r27-authority-contract` und `t-20261018-r27-state-owner` zurückgestellt. Ein fehlender
+oder unbekannter gespeicherter Besitzer gilt als ungesetzt und folgt der Direktvorgabe von
+`Selection.Normalize`; darin liegt keine Bestätigung irgendeiner externen Aktivität."
+
+PRÜFPUNKTE VOR END (nachweisung, nicht gefühl):
+- grep -c "not after partial mutation" EN-head == 0; grep -c "runtime detection" EN-head >= 1
+- DE-head enthält "Laufzeit-Erkennung" und "zurückgestellt"; DE enthält NICHTS von "unmittelbar" o.a.
+- git diff c85a201f..HEAD zeigt genau die zwei dateien
+- merge origin/develop + write-set grep-leer; go build ./... + go test ./internal/deployment
+  ./internal/delivery (unveraendert gruen); push FF; ls-remote==head.
+HANDOFF: codeman agent post f49a3303 "END_DONE w12-delivery-wording: head=<sha> proofs=3of3 | <Satz>"
+Evidence: .../delivery-boundary/fix-r9.md (plain bullets).
+STOP: keine weiteren dateien/sätze; bei zweifel an einer stelle: END_BLOCKED mit zeilenangabe.

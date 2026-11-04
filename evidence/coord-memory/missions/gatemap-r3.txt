@@ -1,0 +1,16 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gatemap-r3 (Repo baseharbor; Basis origin/develop >=f2e43b0a)
+MISSION gatemap-r3 — UMSETZUNG des verifizierten Rezepts (revive-prsc): scripts/pr-gate-plan.py an ZWEI Stellen
+  binden, damit PRSC nicht mehr auf coverage-unresolved faellt:
+  (1) Zeilen ~1648-1650:else-catch-all fuer testdata/adoption-parity/* — binde an dasselbe Gate-Set wie
+      internal/repositoryinspect/* (Muster observability-Bindung #1259).
+  (2) Zeilen ~1499-1503: Zweig internal/capability/* — binde an die Build-Plan-/Binding-Gates, die diese
+      Dateien zur Laufzeit ziehen (Muster go.mod-Bindung #1260: bestehende Gates referenzieren, KEINE neuen).
+SCHRITTE: 1) Die zwei Binds + planner-Tests in scripts/test_pr_gate_plan.py (je 1 positiver resolved-Fall +
+ 1 regressiver unknown-Fall bleibt blockiert). 2) planner-Tests lokal voll (>=179) gruen. 3) PR gegen develop
+ 'ci(gate-map): bind testdata/adoption-parity + internal/capability paths'. 4) Nach PRSC-GRUEN des PRs selbst:
+ PRSC auf #1222 und #1229 neu anstossen (leerer Rebase-Repush NICHT noetig — rerun --failed reicht, sonst
+ push leeren Amend? NEIN: nur rerun versuchen; wenn Plan-Context starr bleibt, melde es) und bis terminal
+ beobachten; 1222/1229-Zustand in Evidence-Tabelle.
+STOP: keine .github/*, nur die zwei scripts-Dateien; kein Merge; kein subagent/codeman-Spawn.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-01/gatemap-r3/evidence.md + ## PLAN + workers/todos/gatemap-r3.json.
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED gatemap-r3: pr=<nr> head=<sha> tests=<n/n> 1222=<status> 1229=<status> | <Satz>"

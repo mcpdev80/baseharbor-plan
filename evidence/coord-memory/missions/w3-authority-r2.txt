@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w3-authority-r2). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde 2 zu PR #1326 (task t-20261018-r27-authority-contract).
+
+ZUERST LESEN (Pflicht): baseharbor-plan/evidence/r27-night-2026-11-02/review-1326.md (Urteil REJECT, 5 Befunde mit Rezepten) + baseharbor-plan/tasks/t-20261018-r27-authority-contract.md.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-authority-fix develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/w3-authority-r2-wt work/r27-authority-fix
+Haupt-Checkout baseharbor/ NICHT benutzen. Basis = head 48aa35ad.
+
+ARBEITSREIHENFOLGE (klein halten, jeder Befund ein Commit):
+B5 (zuerst, am klarsten): Verhaltensgleichheit der Lock-Verschiebung wiederherstellen — stableid.AcquireLifecycleLock
+   prueft directory-type/private-permissions NICHT mehr wie das alte coreinstallation.AcquireLifecycleLock;
+   diese Pruefungen zurueckbringen + coreinstallation Empty-root-Fehler wieder wie develop; Regressionstests:
+   non-directory, symlink, non-private, empty root, platform lock (linux) je aufrufender Pfad.
+B1/B2/B3 (Produktionspfad): authority.go an die AKTUELLEN acceptierten Produktions-Grenzen anschliessen
+   (connection/selection/revocation read-only boundaries aus internal/serviceaccess + deployment-Bestandteilen,
+   die develop bereits hat); mutating Revoke-Pseudo-Check RAUS; revision/consent-Freshness an echten
+   ObservationSource binden; je Rolle (AuthoritativeConnection, VerifyConnectionIdentity,
+   AssertStateIsGenuineInstallation) positiver + fremd/fehlend/expired-Negativtest UEBER den echten
+   Selektionspfad, nicht nur Unit-Isolation.
+   STOP-REGEL B1-B3: wenn die dafuer noetigen akzeptierten Interfaces/Dateien AUSSERHALB deines Write-Sets
+   (docs + internal/coreinstallation + internal/stableid + serviceaccess-Delegation) liegen: NICHT umbauen,
+   sondern END_BLOCKED mit datei:line-Grenzziehung — Ownership-Klaerung macht der Coordinator.
+B4: DE-Doku-Negations-Paritaet gegen EN-End-to-End-Klauseln (no login/server/bundle, no remote fallback).
+
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/coreinstallation ./internal/stableid ./internal/serviceaccess
++ die betroffenen cmd/baha-Pfade falls Selection dort laeuft (nur LESend, keine cmd/baha-Aenderungen!).
+DANN: commit, push origin work/r27-authority-fix, ls-remote. KEINE CI-Auswertung (Owner-Kanal, nur Status
+unkommentiert notieren). Evidence in
+baseharbor-plan/evidence/r27-night-2026-11-02/authority-contract/fix-r2.md (befund-fuer-befund).
+HANDOFF: codeman agent post f49a3303 "END_CODE_READY|END_BLOCKED w3-authority-r2: head=<sha> findings=<abgearbeitet|blockierte stelle> | <Satz>"
+
+STOP-KRITERIEN: keine CI-Dateien (.github/**, pr-gate-plan.py, pr-check-runner.py); kein Merge/Release/Tag;
+keine cmd/baha-/internal/deployment-Aenderungen; zwei erfolglose identische Test-Korrekturversuche => END_BLOCKED.

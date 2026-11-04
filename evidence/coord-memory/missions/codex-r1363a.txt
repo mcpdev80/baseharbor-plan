@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS profil-codec.
+OBJEKT: baseharbor PR #1363 head 0eb8f231 branch work/r27-profile-codec (basis develop bb9bc0ef Vorfahr,
+refreshed; gates terminal 2 pass / 0 fail / 14 skipping — die owner-decoupling macht die ausgewaehlten checks
+opt-in, pruefe gegen AKTUELLEN workflow-regeln). KARTE t-20261018-r27-profile-codec: import/export nicht-
+geheimer verbindungs-metadaten.
+PRUEFEN SHA-genau read-only: (1) export enthaelt KEINERLEI secrets/credential-material (gegenprobe: record mit
+gesetztem secret => export haelt es draussen oder fail-closed), (2) round-trip import=>export ist kanonisch
+stabil (reihenfolge/format), (3) fremde/unbekannte felder fuehren nicht zu silent-drop (typisierter fehler oder
+dokumentierte erhaltung), (4) schema/version-feld wird geprueft, falsch version => abweisung, (5) karten-
+write-set eingehalten (diff name-only gegen karte), (6) pakettests + build + gofmt/vet gruen, (7) docs/spec EN+DE
+stimmen mit dem modell ueberein. Urteil -> review-1363a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1363a: verdict=<X> open=<liste|none> | <Satz>"

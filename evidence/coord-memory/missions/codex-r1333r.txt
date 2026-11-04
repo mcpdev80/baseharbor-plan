@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. DELTA-REVIEW.
+OBJEKT: PR #1333 head f5183ded = autorisierter kandidat 337ed4ee + 2 owner-commits (ci replan receipt
++ style/format von 2 test-dateien). Coord-disk-check: diff = genau one_writer_guard_test.go +
+preferences_retention_test.go, keine produktlogik-dateien.
+PRUEFEN (SHA-genau, read-only): 1. diff 337ed4ee..f5183ded ist NUR whitespace/gofmt-reformat +
+receipt-/plan-zeilen — keine assertions-/semantik-aenderung in den zwei test-dateien (vergleiche
+token-stroeme, nicht nur zeilen). 2. TMPDIR=/tmp go test ./internal/deployment ./internal/delivery im
+head-archiv PASS. 3. ausdrueckliches verdict: "f5183ded erbt ACCEPT-WITH-DEFERRAL von 337ed4ee" JA/NEIN
++ grund. Urteil -> review-1333r.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333r: verdict=<X> inherit=<JA|NEIN> | <Satz>"

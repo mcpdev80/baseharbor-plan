@@ -1,0 +1,28 @@
+MISSION t-runner2 — Runner-Host GRUNDWAHRHEIT rootless CI (Critical Path #1236/#1225; KEIN Produkt-Repo)
+Kontext (belegt, baseharbor-plan/evidence/board-2026-10-31/t1236/EVIDENCE.md): sudo/env-Codefix ist gelandet
+(8155a1dc), HA-Jobs failen jetzt an ZWEI echten Punkten. Beantworte beide FAKTISCH, nicht ratend.
+Hosts: ssh marcel@baha-runner-docker-2 , ssh marcel@baha-runner-podman-2 (Jobs laufen als github-runner uid 1001).
+RUNBOOK §6.2 befolgen; Destruktion nur nach 3-Punkte-Prüfung.
+
+Q1 DOCKER — ist rootless docker im ACTIONS-JOB-Kontext (NICHT login) ohne sudo startbar?
+ - Als github-runner: `export XDG_RUNTIME_DIR=/run/user/1001; systemctl --user status docker docker.socket`
+   (Status, nicht start), dann NICHT-destruktiv: `systemctl --user start docker.socket docker` (user-service
+   braucht KEIN sudo). Danach `docker run --rm hello-world`.
+ - VERDIKT Q1: (a) user-service startbar -> dann ist es ein CI-PREP-Fix (Skript soll `systemctl --user start
+   docker.socket` ausfuehren) = WORKER-addressable, Rezept angeben; ODER (b) root/owner/Host-Konfig noetig
+   (linger/machine-id/userns) = OWNER-Aktion mit exaktem Befehl. Kein `sudo` blind erzwingen.
+Q2 PODMAN NATIVE TESTS — reproduzierbar echt oder Env/Timeout?
+ - Als github-runner auf podman-Host, im baseharbor-Repo-Checkout (branch work/v0.4x-core-750-r1240 oder develop):
+   `BASEHARBOR_TEST_RUNTIME=podman BASEHARBOR_CI_RUNTIME_INTEGRATION=1 go test -p1 ./cmd/baha ./internal/application
+   -run 'TestRepositoryWorkflowRealLifecycle|TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI' -count=1 -v`.
+ - Prüfe: ist "context deadline exceeded 180s" ein HARTE 180s-Gate (Runner einfach zu langsam -> legitimer
+   Timeout-Value? AENDERN nur wenn begrundet, nicht um grün zu heucheln) oder haengt ein Compose-/Volume-Schritt?
+   Ist der "SQL fixture persistence volume"-Fehlschlag ein echter Produktbug (Volume-Mount rootless) oder Env?
+ - VERDIKT Q2: exakte Fehlerzeile + tests.log-Tail, und Klassifikation {product-bug | runner-perf-timeout | env-config}.
+
+LIEFERBELEG (absolut): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/t-runner2/
+  PLAN (KEIN `- [ ]`-Checkbox), Q1-Q2 Befehle+Ausgaben, Verdikte, und REPARATUR-ZUORDNUNG:
+  {worker_ci_prep_fix | owner_root_action | product_code_fix} fuer jeden Punkt. Plan-Repo NICHT selbst pushen.
+HANDOFF: `codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED t-runner2: Q1=<verdict> Q2=<verdict>"`.
+STOP: root noetig und nicht vorhanden -> owner_root_action Rezept; nichts Destruktives ohne 3-Punkt-Pruefung;
+  keine gruen-Heuchelei (Timeout nur aendern wenn Runner objektiv langsamer als 180s fuer legitimen Workload).

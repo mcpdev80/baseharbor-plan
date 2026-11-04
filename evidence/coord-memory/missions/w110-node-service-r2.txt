@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w110). Coord f49a3303. KARTE: t-20261018-r27-node-service. REPO: baseharbor-node-connector
+(zweig work/r27-node-service, PR #19, kopf 764a2a4 — du arbeitest darauf weiter; PR bleibt DRAFT bis coord
+umleitet). VORGANGER w105 ist released, sein stand ist unveraendert der deine.
+Luna review-19a REJECT. Kernvorwurf: die pakettests bestehen, aber es gibt KEINEN aufrufbaren produktionspfad —
+install schreibt kein systemd-user-unit, restart/uninstall sind nicht belegt, authorisierung kommt nicht vor
+den wirkungen. Vier rezepte (akte = baseharbor-plan/evidence/r27-night-2026-11-02/review-19a.md, VOR dem coding
+vollstaendig lesen):
+(1) internal/nodeservice/systemd.go: ECHTE rootless user-unit installation/entfernung mit der validierten
+    ExecLine, XDG systemd-user-pfad, daemon-reload und unterstuetzten systemctl-operationen; explizite
+    lingering-policy. Install darf NICHT als erfolg melden, wenn nur der manager geprobt wurde. Remove muss
+    die eigene unit stoppen/deaktivieren/entfernen.
+(2) cmd/baseharbor-node-connector/: lifecycle an einen echten ausfuehrbaren pfad haengen (executable/
+    install/start/restart/uninstall). ownership bleibt auf die eigene unit beschraenkt.
+(3) internal/nodeservice/nodeservice.go: ausdrueckliche authorisierung VOR jedem lifecycle-/metadata-nebeneffekt;
+    ErrUnauthorized entfernen oder wirklich werfen; BootstrapEnroll-reihenfolge (auth vor key/netz) behalten.
+(4) internal/nodeservice/nodeservice_test.go: restart-test zeichnet tatsaechliche aufrufe auf und vergleicht
+    mit start; mutation "fehlende authorisierung => NIL manager-/store-wirkungen"; doppelte installation/
+    re-enrollment => KEINE zweite unit; schuetzende schluessel-regression unveraendert behalten.
+PFLICHT-NACHWEIS am korrigierten kopf: fokussierte service-/bootstrap-tests, go vet, go build, und ein
+BEGRENZTER nativer systemd-user smoke (install/start/restart/uninstall + lingering) — auf einem echten
+systemd-user-host, entweder hier oder ueber die zwei derzeit UBERSPRUNGENEN native-jobs; wenn ein native-job
+gezielt laeuft, fuehre seine run-beobachtung bis terminal durch (Eigenes-Run-Pflicht).
+STOP-KLAUSELN (aus dem rezept): unautorisierter aufruf hat eine wirkung => STOP; restart-verhalten unbelegt =>
+STOP; CLI kann den lifecycle weiter nicht aufrufen => STOP.
+PR#4-praezedenz: exact unique work erhalten. Basis: letzter schritt origin/main Vorfahr. ls-remote==head.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/round-2.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w110-node-service-r2: head=<sha10> r1=unit-echt r2=cli-pfad r3=auth-vor-wirkung r4=restart-belegt native-smoke=<ja|nein+grund> lsremote=<sha10> | <Satz>"

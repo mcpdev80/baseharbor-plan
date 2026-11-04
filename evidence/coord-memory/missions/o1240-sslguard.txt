@@ -1,0 +1,22 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/o1240-sslguard  Branch work/o1249b-openbao-cauth (Repo baseharbor, Basis PR #1240 head 33d1ef49)
+MISSION o1240-sslguard — Regression-Guard-TEST fuer #1240 ergaenzen (review-A Rezept, Punkt 2)
+KONTEXT: PR #1240 verdrahtet openbao->postgres TLS/SASL und nutzt absichtlich sslmode=verify-ca (statt verify-full,
+  weil HAProxy den Server-Hostname nimmt -> verify-full scheitert; verify-ca ist korrekt, KEIN Downgrade).
+  review-A: "Der Code ist OK; fuege einen Regression-Guard hinzu, der zukuenftige Downgrades blockiert."
+EXKLUSIVES WRITE-SET: NUR eine (neue) Test-Datei, z.B. internal/runtime/openbao_sslmode_guard_test.go ODER ein
+  zus鋔zlicher Testfall in internal/runtime/stack_test.go. NICHT die Produktionslogik in openbao_runtime_prepare.go
+  aendern, NICHT internal/runtime/docker_engine.go (andere Lane), NICHT .github/workflows/*.
+AUFGABE (nur dieser eine Punkt des Rezepts):
+ 1. Test schreiben, der failt, falls in internal/runtime/openbao_runtime_prepare.go (und den HCL/Init-Skript-URLs,
+    die es setzt) jemals sslmode=off | sslmode=trust | sslmode=verify-none | PGSSLMODE=off|trust|disable auftaucht.
+    Am robustesten: ein Test, der die Quellstelle/erzeugte DSN einliest oder die Satz-Bausteine prueft, und
+    explizit verify-ca/verify-full zulaesst, die drei unsicheren Modi ablehnt.
+ 2. Test laeuft isoliert (`go test ./internal/runtime -run <DeinTestname>`), ohne Docker/Daemon (reine String-/
+    Quelltext-Pruefung), damit er NICHT vom ausstehenden Endpoint-Fix abhaengt.
+ 3. go vet fuer das Paket; kein Gate/Timeout abschwchen.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/o1240-sslguard/
+  Dort: Datei+Zeilen, `go test`-Ausgabe (PASS), Beweis dass ein absichtlich eingebauter `sslmode=off` den Test rot
+  macht (ein kurz manualleingetester Gegenbeweis, dann rueckgaengig).
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE o1240-sslguard: <SHA + Testdatei + go test PASS + Gegenbeweis>"
+Hinweis: Arbeite auf Branch work/o1249b-openbao-cauth und pushe darauf (PR #1240 zieht sich daraus). Melde erst
+  END_DONE wenn ein ECHTER Commit gepusht ist (40-hex SHA, den git rev-parse HEAD liefert) + go test PASS auf Disk.

@@ -1,0 +1,23 @@
+MISSION gh-acc-suite — Acceptance-Suiten auf GitHub-hosted migrieren
+ARBEITSVERZEICHNIS: Lane-cwd ist nur Modell-Dir — arbeite ausnahmslos in diesem baseharbor-Worktree (Branch work/gh-acc-suite bereits checked out, NICHT neues Worktree anlegen): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-acc-suite
+EXKLUSIVES WRITE-SET (nur diese Dateien):
+  .github/workflows/podman-acceptance.yml   (self-hosted podman ~Z36)
+  .github/workflows/mcp-lifecycle-acceptance.yml  (self-hosted docker~Z38, podman~Z77)
+  .github/workflows/observability-acceptance.yml  (self-hosted docker~Z38, podman~Z103)
+Owner-Ziel: 100% GitHub-hosted, echte+volle+sichere Coverage, KEINE self-hosted Runner. Diese sind
+workflow_call/push-Suiten (von Required-Checks/Matrix aufgerufen) -> müssen auf GitHub-hosted LAUFEN und
+die nativen docker/podman-Tests ECHT ausführen, nicht wegfallen.
+
+ARBEIT:
+ 1. Jedes `runs-on: [self-hosted,...]` -> `ubuntu-latest`. docker ist dort nativ.
+ 2. podman-Jobs: rootless podman auf ubuntu-latest im Job SETUPPEN (z.B. apt podman + `podman system` /
+    user namespace; ubuntu-latest unterstützt rootless podman). Kein Job auf unsere Boxen verlagern.
+ 3. KEIN künstliches PASS/SKIP; Assertions/Tests unverändert inhaltlich, nur Runner + nötiges In-Job-Setup.
+ 4. Wenn ein Job `scripts/ci-core-rootless-runtime.sh` aufruft: diese Datei NICHT selbst ändern (gehört
+    Lane gh-ci-core) — falls du eine Skript-Änderung brauchst, als Interface-Bedarf im END melden.
+ 5. Nachweis pro Workflow: Branch pushen; für push/call-Trigger einen PR oder `gh workflow run --ref <branch>`
+    fahren und Run bis terminal beobachten (Eigenes-Run-Pflicht): läuft auf ubuntu-latest, nativer Test echt grün.
+    Vorher self-hosted-Abhängigkeit nicht entfernen, erst nach grünem Ersatz.
+
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/gh-acc-suite/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED gh-acc-suite: <SHA + PR#/run-id + runner-status je Workflow + Interface-Bedarf>"

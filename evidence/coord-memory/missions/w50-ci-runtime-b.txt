@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w50). Coord f49a3303. KARTE: t-20261022-r27-ci-runtime. PR #1356, basis head
+d8170d47 branch work/r27-ci-runtime-ab. Grundlage: review-1356a.md rezepte 1+2 (3 ist hinweis).
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-runtime-ab:refs/remotes/origin/work/r27-ci-runtime-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w50-ci-runtime-b-wt work/r27-ci-runtime-ab.
+
+PUNKT 1 — DEVELOP-VORFAHR: merge origin/develop in den branch (rc=0 erwarten; konflikt => dokumentierte
+loesung, beide seiten behalten wo moeglich; danach git merge-base --is-ancestor origin/develop HEAD == 0).
+PUNKT 2 — ENTFERENTE REGRESSIONEN ZURUECK: internal/deployment/runtime_selection_test.go hat ersetzt statt
+erweitert. Stelle die vier-umgebungen version von TestRuntimeSelectionDoesNotInferFromEnvironmentName,
+TestRuntimeSelectionAcceptsKnownFutureProvider (Kubernetes), und die explizite ApplyRuntimeSel-pruefung
+WIEDER HER (develop-fassung aus git show origin/develop:...] holen) und ERGAEENZE deine neuen tests daneben —
+kein bestehender testname darf verschwinden (grep-liste alt vs. neu in evidence).
+PUNKT 3 — handler-peer-cert fixtures: kurzer Doku-abschnitt in evidence was sie qualifizieren (handler-logik)
+und was NICHT (kein TLS-handshake — das ist die access-karte, laeuft separat). Kein neuer code dafuer noetig.
+
+REGELN: write-set internal/** nur; .github/scripts grep-leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build
+./... + go test ./internal/deployment ./internal/machinehttp -count=1 -timeout 8m GRUEN; push FF;
+ls-remote==head; PR-STATUS nicht anfassen (draft-regel gilt: PR bleibt wie er ist).
+Evidence: .../r27-welle3-2026-11-03/ci-runtime/fix-2.md (plain bullets: ancestry-nachweis, testnamen-liste
+alt+neu, lauf-ende).
+END an f49a3303: "END_DONE w50-ci-runtime-b: head=<sha> ancestry=ja regressions=restored(n) green=ja | <Satz>"
+STOP: develop-merge konflikt in deinen 3 test-dateien der semantik-kostet => END_BLOCKED mit datei:stelle.

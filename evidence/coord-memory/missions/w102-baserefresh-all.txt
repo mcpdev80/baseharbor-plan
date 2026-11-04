@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w102). Coord f49a3303. MECHANISCHE basis-aktion, kein inhalt: der owner hat develop
+auf f8ef4255 gezogen (3 devex-commits) — ALLE offenen r27-zweige brauchen diese basis als Vorfahr.
+Der Reihe nach pro zweig: fetch origin "+refs/heads/<branch>:refs/remotes/origin/<branch>" "+refs/heads/develop:...";
+worktree add /tmp/opencode/w102-<kurz>-wt <branch>; git merge origin/develop (erwarte rc=0, konflikt bei
+ci-landschaft moeglich — bei content-konflikt: dieken zweig ueberspringen und im END als konflikt mit
+datei:stelle melden, NICHT pitchen); build + die betroffenen pakettests kurz (machinehttp 8m timeout,
+credential, contracts, deployment/delivery je nach zweig); push; ls-remote==neuer head. Zweige:
+1 work/r27-ci-authority-ab (journal, head da99cac4)
+2 work/r27-native-auth (head 0958107f)
+3 work/r27-profile-codec (head 73a75b5e)
+4 work/r27-workstation-enrollment (head 2a4df949 — VORSICHT: w96 arbeitet DARAUF, pruefe vor merge sein
+  board/ls-remote; wenn sein kopf waehrend deiner arbeit weiterlaeuft: lasse diesen zweig komplett aus w96
+  soll selbst schliessen, notiere das)
+5 work/w92-team-auth-claim-mapping (head 1043d12d)
+6 work/r27-candidate-contract (head 0468a896)
+PR-status NIE anfassen. Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/baserefresh-all.md
+(tabelle zweig->neuer head, rc, konflikt ja/nein; bullets statt checkboxen).
+END an f49a3303: "END_DONE w102-baserefresh: refreshed=<n>/6 konflikte=<liste|keine> | <Satz>"

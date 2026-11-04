@@ -1,0 +1,8 @@
+ROLLE: CODEX-MERGE. Coord f49a3303. AUTORISIERT durch review-1326k ACCEPT-WITH-DEFERRAL auf exakt
+head cf95e6e1... (PR #1348, branch w7-authority-r3-clean, base develop, t-20261018-r27-authority-contract).
+SCHRITTE: 1. VORHER gh pr view 1348 --json headRefOid,state,mergeable,mergeStateStatus: head MUSS
+cf95e6e1 sein + NICHT CONFLICTING (sonst END_BLOCKED — reconcile wäre nötig, nicht dein job).
+2. gh pr merge 1348 --squash. Kein --admin/force. 3. NACHWEIS: develop neue SHA ls-remote; state
+MERGED+mergedAt; diff cf95e6e1 origin/develop auf write-set (installauthority/coreinstallation/
+openbao/serviceaccess/stableid/cmd-dateien/docs) leer/stichhaltig. 
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-m1348: merged=squash develop=<sha> diffproof=ok | <Satz>"

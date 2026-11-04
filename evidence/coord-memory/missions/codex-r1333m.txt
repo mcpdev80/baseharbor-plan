@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 0270e480 (develop Vorfahr SHA-bewiesen; retention ENOENT now fail-closed,
+5 byte-stability regressionen, B1/B2 wortlaut-bullets EN+DE ersetzt, alt-treffer 0; write-set sauber)
+= t-20261018-r27-delivery-boundary. ABSCHLUSS-REVIEW nach review-1333l rezepten 1+2.
+PRUEFEN (SHA-genau, read-only): 1. retention: JEDES loader-fehler bei existentem previous (inkl.
+ENOENT vanished) => save abgewiesen; byte-stabilitaet durch echte vor/nach-vergleiche bewiesen;
+erster save erlaubt. 2. ADR EN/DE: erster folgen-bullet liest nur gespeicherten stand (conflict-flag/
+persistierter owner), laufzeit formald deferred, null/unknown=unset, DE sinngleich. 3. finale matrix:
+alle klauseln erfuellt oder formal-deferred => ACCEPT-WITH-DEFERRAL mit deferral-liste. Tests: TMPDIR=/tmp
+go test ./internal/deployment ./internal/delivery. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333m: verdict=<X> open=<liste|none> | <Satz>"

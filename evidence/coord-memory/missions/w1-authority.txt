@@ -1,0 +1,39 @@
+NACHT-AUFTRAG W1-A — t-20261018-r27-authority-contract (Architektur, critical, v0.4.27)
+Repo: mcpdev80/baseharbor. Basis: develop c8fddea3 (verifiziert gruener develop-Selbsttest).
+
+ZIEL (Task-Vertrag baseharbor-plan/tasks/t-20261018-r27-authority-contract.md — VOR ALLEM lesen):
+Definitionsvertrag "Eine Installation, ein Eigentuemer": Installation-Identitaet vs Management-Connection
+vs Target trennen; ein massgeblicher State-/Lock-Owner je Managed Deployment; lokale Direktausfuehrung
+nutzt denselben semantischen Kern OHNE Login/Server/SQL-Pflichtbundel; Remote-Clients besitzen niemals
+massgeblichen Zustand und fallen niemals lokal zurueck; Revision/Consent-Akzeptanz, observed-at-Frische,
+unabhaengige Sicherheitsgrenzen spezifizieren. Output: minimal aufrufbare Selection-/Authority-Typen
+(internal/coreinstallation, begrenzt) + positive/negative Regressionstests — kein neues Framework,
+kein unbenutzter Adapter (Adapter ohne production path = NICHT fertig).
+
+SCHRITTE:
+1. CLAIM zuerst oeffentlich: python3 baseharbor-plan/scripts/plan.py claim t-20261018-r27-authority-contract
+   (Commit + Push baseharbor-plan main; bei Conflict STOP+MELDE — nicht.Override fremder Claims).
+2. Isoliertes Arbeitsverzeichnis/branch work/r27-authority-contract AB develop c8fddea3. NUR dort arbeiten.
+3. ZUERST Remote-Stand der Input-Dokumente lesen (docs/spec/*, docs/de/**, bestehende ADRs, internal-
+   Kernpfade, bestehende Lock-/State-Implementierungen) und Ist-Staende in der Evidence notieren (4.1).
+4. Implementieren+spezifizieren: ein neuer ADR (Ort an bestehende ADR-Konvention anlehnen),
+   docs/spec/target-access-v1.md + DE-Pendant, docs/spec/control-plane-runtime.md aktualisieren + DE-Pendant,
+   begrenzte Typen in internal/coreinstallation/ + Tests.
+5. Tests: go build ./... && go test ./internal/coreinstallation/... + die beruehrten Package-Tests.
+   Positive AND negative Regressionen (Connection != Target != Installation; kein lokaler Fallback;
+   veraltete observed-at => abgelehnt; fremde Revision/Consent => abgelehnt).
+6. KEIN Merge, KEIN Push auf develop/main. PR (offen, base develop) mit Exakt-SHA + Testausweisen.
+   Vor Reifung: basics der Repo-Regeln (baseharbor/AGENTS.md, docs/DEVELOPMENT_GUIDELINES.md falls vorhanden).
+
+HARTE GRENZEN (Owner-Direktive 2026-11-02 Nacht):
+- VERBOTEN: .github/**, scripts/pr-gate-plan.py, scripts/pr-check-runner.py, alle CI-/Workflow-/Register-Dateien
+  (andere Session arbeitet daran). Bei Bedarf daran: NICHT aendern, im Handoff als Befund melden.
+- VERBOTEN: Merge, Release, Tag, shared indexes (gehoren t-...-public-surfaces), fremde Draft-Branches.
+- Kein Gate-Weakening, keine Tests entfernt/abgeschwaecht.
+
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/authority-contract/evidence.md — ## PLAN nummeriert
+(getickt), Ist-Stand-Shas, Write-Set-Liste der tatsaechlich geaenderten Dateien, PR+head, Testkommandos+Ausgang,
+positive+negative Regressionsliste, Abweichungen/Blocker. PR-Link. Nur gezieltes git add; sanitize vor Kopien.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1-authority: task=t-20261018-r27-authority-contract pr=<#N> head=<sha> tests=<pass|fail> ci_files=<none|BEOBachtung> | <Satz>"

@@ -1,0 +1,31 @@
+ROLLE: Worker (Lane w22-delivery-wording2). Coord f49a3303. MIKRO-AUFGABE: drei WORTLAUT-Stellen
+PR #1333 (t-20261018-r27-delivery-boundary). Basis = head 87d1df12 branch work/r27-delivery-boundary.
+NUR die zwei 0022-adr-dateien. ersatztexte sind BESCHLOSSEN (review-1333n rezept; dritter doku-runde
+an selben stellen — du formulierst nichts um).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-delivery-boundary:refs/remotes/origin/work/r27-delivery-boundary" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w22-delivery-wording2-wt work/r27-delivery-boundary
+
+STELLE 1 — EN §2 absatz (zeilen ~32-36): ersetze den satzteil
+  "If a selection observes both a direct `baseharbor` owner and a delegated\n`external` owner active for the same resource set, the observation fails closed:\nBaseHarbor reports the conflict at **record save** and refuses to persist an apply\nor observation unless exactly one owner is expressible in portable intent."
+DURCH
+  "If the persisted record attests conflicting active ownership — a recorded\nconflict flag, or two differing persisted owners for one resource set — the save\nfails closed: BaseHarbor reports the conflict at **record save** and refuses to\npersist an apply or observation unless exactly one owner is expressible in\nportable intent."
+STELLE 2 — DE §2 absatz (zeilen ~32-38): ersetze den entsprechenden satzteil ("Wenn eine
+Auswahlen-Beobachtung gleichzeitig ... portable Intent ausdrückbar ist;") sinngemäß DURCH exakt:
+  "Wenn der gespeicherte Datensatz einen widersprechenden aktiven Besitz belegt —\neine protokollierte Konflikt-Flagge oder zwei verschieden gespeicherte Besitzer für\ndenselben Ressourcensatz — schlägt das Speichern fail-closed fehl: BaseHarbor meldet\nden Konflikt beim Speichern des Datensatzes und verweigert das Speichern eines\nApply- oder Beobachtungssatzes, sofern nicht genau ein Besitzer in portable Intent\nausdrückbar ist;"
+STELLE 3a — EN trade-offs letzte zeile (":64"): ersetze die ganze bullet-zeile DURCH
+  "- The invariant is checked at record-save time against persisted ownership state; live concurrent acceptance is out of scope until the deferred runtime detection lands."
+STELLE 3b — DE letzte nachteile-zeile (":69"): ersetze die ganze bullet-zeile DURCH
+  "- Der Invariant wird beim Speichern des Datensatzes anhand des gespeicherten Besitzstands geprüft; lebende gleichzeitige Akzeptanz ist außerhalb des Umfangs bis zur nachgelieferten Laufzeit-Erkennung."
+
+PRÜFPUNKTE VOR END (nachweisung):
+- grep -c 'If a selection observes' EN-head == 0; 'persisted record attests conflicting' >= 1
+- grep 'Auswahlen-Beobachtung' DE-head leer; 'widersprechenden aktiven Besitz' >= 1
+- 'still accepting|still akzeptiert' in BEIDEN head-versionen == 0
+- git diff 87d1df12..HEAD --name-only == genau die zwei .md
+- ANSENDE-PFLICHT: merge origin/develop, ancestry rc=0 gegen ls-remote-SHA; write-set grep-leer;
+  go build ./... + go test ./internal/deployment ./internal/delivery; push FF; ls-remote==head.
+HANDOFF: codeman agent post f49a3303 "END_DONE w22-delivery-wording2: head=<sha> grep0=3stellen | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r14.md (plain bullets).
+STOP: keine weiteren stellen/sätze; fundstellen-abweichung => END_BLOCKED mit datei:zeile.

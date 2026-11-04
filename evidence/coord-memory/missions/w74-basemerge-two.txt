@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w74). Coord f49a3303. Nur BASIS, kein inhalt — mechanische mission.
+Der Owner hat #1359 (CI-runtime-routing-fix) auf develop 747aed4a gemergt; das war das systematische
+Selected-Checks-Gate das journal+access blockierte. ZIEHE diese basis in BEIDE zweige, nacheinander:
+A) work/r27-ci-access-ab (head 2819c522): worktree add /tmp/opencode/w74-bm-access-wt; merge origin/develop
+   (konflikte? bei content-konflikt: END_BLOCKED mit datei:stelle); go build ./... + go test
+   ./internal/runtimeexecutor -count=1 gruen; push; ls-remote==head.
+B) work/r27-ci-authority-ab (head f42be63f): worktree add /tmp/opencode/w74-bm-journal-wt; merge
+   origin/develop; go build ./... + go test ./internal/machinehttp -count=1 -timeout 8m gruen; push;
+   ls-remote==head.
+PR-STATUS beider PRs nicht anfassen. EIGENES-RUN: nach JEDEM push die PR-checks beobachten bis das
+PR-Selected-Checks-GATE TERMINAL gruen ist (das ist der sinn der uebung) — run-ids + gate-ergebnis
+woertlich in evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/basemerge-2x.md.
+Wenn das gate TROTZ develop-fix weiter rot: END mit gate-log-auszug (dann ist #1359 nicht die ursache —
+wichtige nachricht an den owner).
+END an f49a3303: "END_DONE w74-basemerge-two: access=<sha> journal=<sha> gate=gruen(2x)|rot(auszug) | <Satz>"

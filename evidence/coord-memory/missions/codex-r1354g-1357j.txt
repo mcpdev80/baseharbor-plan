@@ -1,0 +1,28 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. REZEPT-PFLICHTBLOCK am Ende
+(jede REJECT: Befund | datei:zeile | Aenderung | Test | Stop — siehe REVIEW-MISSION-CLAUSE.txt).
+FAHRT ZWEI ZIELE IN REIHENFOLGE, je eines pro Datei+END (keine Vermischung):
+
+VERFAHRENS-HINWEIS (bindend, damit kein dritter BLOCKER-Verschleiss): Auf BEIDEN PRs ist genau EIN
+Check rot: "PR Selected Checks". Das ist ein NAChSGEWIESENER Infrastruktur-Defekt (Job
+pr_runtime_selected erzeugt im Lauf ueberhaupt KEINEN check-run, obwohl matrix+needs-bedingungen
+erfuellt sind; Diagnose laeuft an den Owner — #1359 war nicht die Ursache). Die Gate-Resultate auf
+diesem META-GATE SIND KEIN BLOCKER FUER DEIN TECHNISCHES URTEIL. Alle SUBSTANTIELLEN Gates sind
+terminal gruen. Urteile rein technisch-inhaltlich.
+
+ZIEL 1 (journal): branch work/r27-ci-authority-ab head f200624ffb (= d5c66d64 + mechanischer
+base-merge develop 747aed4a; Inhalt unveraendert). Gegenstand t-20261022-r27-ci-authority
+journal-slice ABSCHLUSS wie in codex-r1354f.txt beschrieben: contra-proben 1-6 auf dem kopf,
+GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp -count=1 -timeout 8m,
+gofmt leer, build gruen, retention-extrakt store_retention.go, kein test-hook im produktcode.
+Urteil (ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT) -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1354g.md.
+END1 an f49a3303: "END_DONE codex-r1354g: verdict=<X> open=<liste|none> | <Satz>"
+
+ZIEL 2 (access): branch work/r27-ci-access-ab head 3796fdddbb (= 2819c522 + base-merge develop;
+Inhalt: 12-zeilen universum-matrix {check,execute}x6 materialfaelle, readyz-neulesen, getrennte
+cert/schluessel-faelle, handler.go diff=leer gegen develop). Gegenstand t-20261022-r27-ci-access
+ABSCHLUSS wie in codex-r1357i.txt (fetchen aus den missionen; review-1357h rezepte geheilt meldung):
+eigene contra-proben auf dem kopf inkl. MISWIRE-MUTATION (route vertauschen ->测试 muss ROT werden —
+red-first kontrolle), go test ./internal/runtimeexecutor -count=1 -timeout 8m, N==M zaehlen im
+matrix-helfer, handler bleibt produktcode-frei.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357j.md.
+END2 an f49a3303: "END_DONE codex-r1357j: verdict=<X> open=<liste|none> | <Satz>"

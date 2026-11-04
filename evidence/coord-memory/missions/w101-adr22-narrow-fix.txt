@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane w101). Coord f49a3303. KARTE: t-20261018-r27-state-owner — OWNER-AUFTRAG 2026-11-04
+"karte vollständig lesen und den ADR-0022-Blocker beheben, autonom bis zum getesteten PR, keine CI-Änderungen,
+keine Abschwächung der Sicherheitsregeln". DIE KARTENSEKTION "Owner decision and implementation scope
+(2026-11-04)" IST DEIN VERTRAG — wortgetreu lesen (plan.py show + datei tasks/...) und ## PLAN darin verankern.
+ZIELE (kurz): normaler App-Edit, der resources nur behaelt/preserve, darf NICHT am retire-check scheitern;
+unverifizierbare retirement-fakten eines UNBEZOGENEN unveraenderten Core-managed resource duerfen den edit
+nicht veto'en — die ENTSCHEIDUNGSGRENZE wird verengt, nicht global validierung abgeschwaecht; echte
+release/stop/removal bleibt fail-closed bei unverifizierbarem owner/runtime/last-consumer.
+ERFAELLUNGSNACHWEIS (pflicht): (1) echtes Core-backed App Edit erreicht convergiertes ergebnis
+(TestAppEditCommandCompleteProviderEditRunsRealLifecycle GRUEN); (2) unsichere last-consumer retirement
+=> erwarteter TYPFEHLER (regression); (3) fremde/fehlende installation owners => weiter abgewiesen;
+(4) unbetroffene retirement-faelte unveraendert gruen; (5) KEIN blanket ScopeShared/OwnershipBaseHarbor-
+ausnahmepfad, keine simulierte erfolge, kein fixture-bypass, kein test-disabled, KEINE CI-/workflow-DATEI.
+SCHREIBGRENZE: cmd/baha/application_provider_retirement.go +provider-plan tests + state-owner dateien der
+karte. VOR erstem edit: git ls-remote + diff gegen develop fuer ALLE offenen work/r27-* zweige pruefen ob
+ein anderer laufender worker (w96! workstation-enrollment, cmd/baha provider-hookup) dieselbe datei fasst —
+falls Ueberschneidung: END_BLOCKED mit datei+zweig, koordiniere ich; nicht dreinfunken. Wenn die korrektur
+eine NORMATIVE ADR-0022-aenderung braeuchte statt nur die nichtrichtige retirement-abgrenzung: STOP +
+konkreter minimaler entscheidungsvorschlag (kartenwort).
+BASIS: develop f8ef4255 Vorfahr (merge rc=0; access+journal-aenderungen disjunkt). PR #1347 bleibt der
+PR (branch work/r27-state-owner, head d9a48d42 — darauf aufbauen, nicht neu anfangen; die 10/11-isolation
+aus w78/w95 ist bereits drin und UNANGETASTET). gofmt/vet/build + cmd/baha pakettests; push; ls-remote==head;
+PR #1347 TERMINAL beobachten (validation-tore muessen gruen werden; lifecycle/backup-restore = owner-ci-
+territorium, dortige ergebnisse nur notieren). Evidence: state-owner/adr22-fix-1.md (bullets).
+END: "END_DONE w101-adr22: head=<sha10> pr=1347 positiv=gruen negativ-typfehler=gruen fremdowner=gruen lsremote=<sha10> | <Satz>"

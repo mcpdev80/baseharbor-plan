@@ -1,0 +1,24 @@
+ROLLE: Worker (Lane w21-stateowner-r5). Coord f49a3303. MIKRO-AUFGABE: 1 regression + 1 helper
+PR #1347 (t-20261018-r27-state-owner). Basis = head 4cc93db8 branch work/r27-state-owner.
+Grundlage: review-1347d befunde 1+2 (scope-propagierung BESTATIGT wirksam; env-fails belegt).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w21-stateowner-r5-wt work/r27-state-owner
+
+PUNKT 1 — SCHARFE NEGATIVE REGRESSION (cmd/baha hook/integration tests):
+  Test-Szenario: ZIEL ist echtes tenant-target MIT corrupt/ungueltigem access scope UND es existiert
+  ein gueltiger core-owner im state-root (vorher der bypass-fall!) => SaveDeploymentRecord/
+  recordDeploymentBeforeMutation muss mit dem scope-fehler (provider/authenticated-session-klasse)
+  ABGEWIESEN werden; gegenprobe: identischer aufbau mit gueltigem scope => gewaehrt. Assertion prueft
+  explizit, dass der core-owner-pfad die ablehnung NICHT uebernimmt/umdeutet (fehlermeldung enthaellt
+  scope/connector-hinweis).
+PUNKT 2 — HELFER-HAERTUNG (cmd/baha/application_core_authority_test.go :48-55):
+  TargetStateRoot-fehler => t.Fatal; os.RemoveAll(err) => t.Fatal (muster wie backendBindingFixtureEmpty);
+  keine stummen '_' zuweisungen an fehlertcken.
+
+ANSENDE-PFLICHT (SHA-Beweise): merge origin/develop; merge-base --is-ancestor <ls-remote-SHA> HEAD rc=0;
+write-set grep-leer. Tests: TMPDIR=/tmp go test ./internal/deployment ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|CoreAuthority'. push FF, ls-remote==head, keine run-logs.
+END an f49a3303: "END_DONE w21-stateowner-r5: head=<sha> negative-reg=scope-vs-coreowner helper=fatal | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/state-owner/fix-r5.md (plain bullets).
+STOP: nur zwei punkte; abweichung => END_BLOCKED mit datei:zeile; kein merge.

@@ -1,0 +1,18 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/nc-gh-hosted  Branch work/nc-gh-hosted (Repo baseharbor-node-connector, basis origin/main)
+MISSION nc-gh-hosted — Node-Connector-CI 100% GitHub-hosted (Rootless-Annahmen raus)
+EXKLUSIVES WRITE-SET: nur .github/workflows/*.yml in baseharbor-node-connector (source.yml, release-integration.yml).
+  NICHT baseharbor/* (andere Lanes).
+WISSEN (baseharbor code-audit + gh-ci-core empirisch): Ubuntu-latest GitHub-hosted Runner: rootless docker/podman
+  NICHT moeglich (unshare userns blockiert, auch nach sysctl sudo); rootful/system docker funktioniert. Podman auf
+  GH-hosted: pruefe ob der `podman` Befehl mit `--cgroup-manager=cgroupfs` oder als rootful laeuft.
+AUFGABE:
+ 1. In source.yml und release-integration.yml die rootless-Vorbereitung
+    (`sudo loginctl enable-linger`, `systemctl --user show-environment`) so umstellen, dass sie auf GH-hosted
+    laeuft: wenn podman nativ vorinstalliert ist (ubuntu-latest >= 24.04 hat podman), `loginctl`-Dance raus;
+    nur wenn nicht vorhanden, apt-get podman ohne rootless. Wenn ein user-Session-Dienst gebraeut wird, dokumentiere,
+    dass GH-hosted ihn nicht bereitstellen kann und podman rootful/cgroupfs alternativ zu pruefen ist.
+ 2. actionlint + YAML check.
+ 3. Wenn moeglich: workflow_dispatch auf Branch, Run beobachten (Eigenes-Run-Pflicht): GH-hosted, podman laeuft.
+ 4. Nichts an Code (Go, tests) — nur CI files. Wenn Code-Change noetig, END_BLOCKED als Interface.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/nc-gh-hosted/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY|END_BLOCKED nc-gh-hosted: <SHA + PR# + podman GH-hosted status>"

@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1356 head d8170d47 (branch work/r27-ci-runtime-ab; develop Vorfahr; 3 test-dateien nur
+internal/**; lane meldet alle betroffenen CI-checks gruen auf exaktem head). = t-20261022-r27-ci-runtime,
+produktseitige Qualifikation runtime fail-closed.
+PRUEFEN (SHA-genau, read-only): 1. Tests pruefen ECHTEN runtime-pfad fail-closed (fehlendes/defektes
+material => verweigerung, kein stiller fallback); write-set grep gegen .github/scripts leer.
+2. Slice-matrix der karte: qualifiziert vs. owner-CI-punkt (remote-docker-web slice bleibt owner).
+3. VERMERK nicht-blockierend: PR wurde ready statt draft eroeffnet (leitfaden-verstoss der lane, der
+coord der lane rueckgemeldet hat) — bewertung nur der sachlichen qualifikation.
+4. matrix => ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/... -run 'Runtime|Execution|Fail' -count=1 -timeout 8m (keine unfiltered suites >90s).
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1356a.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1356a: verdict=<X> open=<liste|none> | <Satz>"

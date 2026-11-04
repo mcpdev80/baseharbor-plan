@@ -1,0 +1,16 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/acc-podman  Branch work/acc-podman (baseharbor, Basis origin/develop 437358e4 mit gate-map)
+MISSION acc-podman — Podman-Achse integrieren: Inhalte von #1238 (mcp-lifecycle/observability/podman-acceptance.yml ->
+  GH-hosted) und #1244 (ci-podman-gh-runtime.sh + Targeted-HA-podman prepare rootful) auf develop anwenden, KEIN
+  ci.yml-Duplikat zu #1239 bauen. Ziel: ein sauberer PR, der die Podman/Akzeptanz-Workflows auf GitHub-hosted bringt.
+EXKLUSIVES WRITE-SET: .github/workflows/{mcp-lifecycle-acceptance.yml,observability-acceptance.yml,podman-acceptance.yml,
+  runtime-broker.yml,runtime-s3-acceptance.yml} + scripts/ci-podman-gh-runtime.sh. NICHT ci.yml (gh-ci-core-Lane),
+  NICHT internal/** (endpoint-refine), NICHT pr-gate-plan.py (integrate-1225-Lane).
+SCHRITTE:
+ 1. cherry-pick/uebernehme die LAEUFE-relevanten aenderungen aus pull/1238 und pull/1244 auf diese workflows (nur
+    runs-on->ubuntu + rootful-podman-prepare; NICHT deren ci.yml-Anteile). Conflicts in deinen Dateien loesen.
+ 2. grep: KEIN runs-on self-hosted + KEIN loginctl/rootless in diesen Dateien (nutze rootful/cgroupfs wie nc #17).
+ 3. actionlint + YAML. PR gegen develop oeffnen.
+ 4. VALIDIERUNG (Eigenes-Run): push runtime-validation/ha/<gruppe>/podman/acc + 'Targeted HA · podman' beobachten
+    (soll GRUEN sein — rootful podman bewiesen). Run-ID notieren. Docker-Teil kann skipped sein (andere Lane).
+EVIDENCE (absolut, kein '- [ ]'): baseharbor-plan/evidence/board-2026-10-31/acc-podman/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE acc-podman: <PR# + SHA + self-hosted=0 grep + Targeted HA podman GRUEN run-ID>"

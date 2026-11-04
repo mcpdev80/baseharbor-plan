@@ -1,0 +1,8 @@
+LAPTOP-2 — Delivery-Sync t-20261018-r27-delivery-boundary (Fortsetzung; Task claimed/active, PR #1333 steht).
+ISOLATION: eigenes worktree: git -C baseharbor worktree add /tmp/opencode/l2-delivery-wt -b work/r27-delivery-boundary origin/work/r27-delivery-boundary
+1. Fallende Fach-Checks PR #1333 prüfen (gh pr checks). Falls Basis-Drift: aktuellen origin/develop mergen,
+   ancestor-Check JA, push --force-with-lease, ls-remote, Checks bis terminal beobachten.
+2. Falls ein Fach-Check inhaltlich rot ist: Befund reproduzieren, minimal korrigieren INNERHALB des
+   Karten-Write-Sets (contract-Typen/Doku/eigene Tests), fremde Dateien fingeranlassen.
+KEINE CI-/Workflow-/Register-Dateien, KEIN Merge. EVIDENCE: evidence/r27-night-2026-11-02/delivery-boundary/sync-r1.md.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED l2-delivery: pr=1333 head=<sha> checks=<green|red-list> | <Satz>"

@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1351 head b2c2979c (develop 1706272c Vorfahr JA; fixture seedet provider-registry
+ownership explizit (0700) statt CI-runner-Ambient; TestExternalProviderRemoval* lokal gruen gemeldet)
+= t-20261023-appid-test-env-dep. KARTE: baseharbor-plan/tasks/t-20261023-appid-test-env-dep.md.
+PRUEFEN (SHA-genau, read-only): 1. diff enthält KEIN .github/scripts und KEIN skip-if-env-trick;
+ seeding passiert im test-fixture-pfad (internal/** oder testsupport/**). 2. TMPDIR=/tmp/opencode
+ go test ./cmd/baha -run TestExternalProviderRemoval -count=3 im head-archiv: grün OHNE CI-marken.
+ 3. dieselben tests ohne die änderung (develop-archiv) reproduzieren den bekannten fehler — beweist
+    root-cause-zuordnung. 4. acceptance-matrix der karte erfüllt => ACCEPT|REJECT.
+Urteil -> review-1351a.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1351a: verdict=<X> open=<liste|none> | <Satz>"

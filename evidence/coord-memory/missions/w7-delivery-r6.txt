@@ -1,0 +1,31 @@
+ROLLE: Worker (Lane w7-delivery-r6). Coord f49a3303. MIKRO-AUFGABE: einen DATENVERLUST-Bug PR #1333
+schliessen (t-20261018-r27-delivery-boundary). Basis = head 84634175.
+
+ZUERST LESEN: review-1333e.md — PUNKT 1 (preferences-lost regression, reviewer-repro scheitert
+tatsaechlich) + PUNKT 3 (caller-conflict wird nie geloescht; doku-widerspruch).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w7-delivery-r6-wt work/r27-delivery-boundary
+
+SCHRITTE (2 commits):
+1 (deployment_store.go ~199-237): die retain-reihenfolge fixen — preferences-Retention/replace und
+  authoritativer owner/conflict müssen auf DEMSELBEN final record landen der serialisiert wird
+  (guardRecord nach der retention anwenden ODER retention vor dem guard-copy). EXPLIZITE leer-array
+  ersetzt, nil behaelt. REGRESSIONS-TESTE (im kandidat, nicht nur reviewer-archiv):
+  a) nil-retention: vorher gesetzte preferences bleiben nach lifecycle-save mit nil erhalten
+     (der exakte reviewer-repro: seed nonempty, save nil, reload, assert identical)
+  b) explicit empty [] ersetzt
+  c) invalid input keine aenderung
+  d) forged-owner bypass bleibt zu (bestehender test)
+  Ausserdem: guardRecord.Observed.Conflict VOR pruefung auf den persistierten/previous wert setzen
+  (caller-wert wird verworfen, nicht nur OR-verknuepft) + test fuer caller-conflict=true bei
+  previous=false => keine ablehnung wegen caller-feld allein? NEIN: semantik = previous-conflict
+  ODER store-eigene erkenntnis; caller-feld Ignoriert — dokumentiere genau das im testnamen.
+2 DOKU EN/DE: die absaetze die "refuses actual apply/observation" pauschal sagen auf record-save
+  umfang stellen + deferred-verweis (bestehende karten-namen), comments = code.
+
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/|cmd/)' leer; 9-10 dateien.
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery + build/vet. push FF, ls-remote, END an f49a3303.
+Evidence: .../delivery-boundary/fix-r4.md (plain bullets, keine checkboxes).
+STOP: kein Merge; keine neuen dateien ausserhalb write-set; max 1 iteration schritt.

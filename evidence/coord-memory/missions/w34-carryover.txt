@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w34). Coord f49a3303. KARTE: t-20261026-r27-v0426-acceptance-carryover — LIES
+vollstaendig inkl. des referenzierten core-923 snapshots (SHA-fixiertes blob, karte verlinkt es).
+repos: mcpdev80/baseharbor.
+ERSTE AKTION: fetch origin develop, worktree /tmp/opencode/w34-carryover-wt branch work/r27-carryover ab develop.
+KERN: ECHT offene v0.4.26-akzeptanz-punkte in v0.4.27 abgleichen — kartenregel: bounded carryover,
+KEIN full release audit. Ergebnis je punkt: bereits erfüllt (beleg: commit/test/lauf auf develop)
+oder kleine fehlende änderung (dann im eigenen branch beheben + test). Keine neuen features.
+PFLICHTREGELN: write-set ohne .github/scripts (grep-leer); merge origin/develop + ancestry rc=0
+ls-remote-SHA; tests passend zu den betroffenen paketen; push FF eigener branch; PR DRAFT; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/carryover/ledger.md (plain bullets je punkt: status+beleg).
+HANDOFF: END an f49a3303. STOP: bei punkt-unklarheit karten-snapshot zitieren, nicht erfinden.

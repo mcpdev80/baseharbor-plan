@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w48). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract (runde 3).
+PR #1355, basis head e093df21 branch work/r27-candidate-contract. Grundlage: review-1355b.md alle 4
+rezepte. COORD-ENTSCHEID zu rezept 1: der consumer ist DER bestehende anwendungseintrag, der
+desired-state/submit heute bedient — finie ihn per grep (internal/application cmd/baha pfad), der leaf-
+aufruf passiert GENAU DORT einmal, vor jeder zustandsänderung.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-candidate-contract:refs/remotes/origin/work/r27-candidate-contract"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w48-candidate-c-wt work/r27-candidate-contract.
+
+PUNKT 1 — ECHTER CONSUMER: Validate wird von produktcode aufgerufen (nicht nur tests). regression:
+der consumer-pfad weist defekte submission ab (test ueb den echten eintrag, nicht gegen den leaf).
+PUNKT 2 — UNVERAENDERLICH KEIN BRANCH-ADJ: source.revision akzeptiert NUR 40-hex-commit oder
+digest (algo:hex, >=32); release-1/main2/bewegliche tags => err. identity := (source revision
+vollwertig ODER image digest) — spec-text exakt darauf.
+PUNKT 3 — SCHEMA WAHRHEIT: contracts tests validieren gegen das VEROEFFENTLICHTE json-schema mit
+DisallowUnknownFields (mapper ohne stillschweigen); die schema-regeln == go-leaf-regeln (eine
+wahrheitsquelle, test gegen beide).
+PUNKT 4 — LINKS: decision + application/delivery verweise als echte markdown-links (keine
+[eckigen klammern]-texte), keine umbruch-zerrissenen referenzen EN+DE.
+
+REGELN: write-set internal/delivery + internal/application (EIN consumer-punkt) + contracts/* +
+specs EN/DE; .github/scripts grep-leer; merge develop drift rc=0 ls-remote; TMPDIR=/tmp go build
+./... + go test ./internal/delivery ./contracts ./internal/application -count=1 (betroffene cmd/baha
+tests mit); push FF; ls-remote==head; PR-STATUS nicht anfassen.
+Evidence: .../r27-welle3-2026-11-03/candidate-contract/fix-3.md (plain bullets je punkt + testnamen).
+END an f49a3303: "END_DONE w48-candidate-c: head=<sha> consumer=produkt-pfad immut=hex|digest schema=scharf links=md | <Satz>"
+STOP: wenn der echte submit-eintrag ohne zustands-aenderung-Zwang nicht erreichbar ist: END_BLOCKED
+mit call-graph-skizze (datei:stellen), nicht consumer-los bauen.

@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 17fc8c20 (develop Vorfahr, net-diff = 9 write-set dateien, witness-test
+removed gemaess formaler deferral-entscheidung) = t-20261018-r27-profile-contract. RE-REVIEW nach
+review-1324j.md — bearbeitet war NUR der doku-present-tense-punkt (EN/DE selbstbindung-formulierung).
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs):
+1. EN :198-200 + DE pendant: keine present-tense anchor/installation/same-CA behauptungen mehr;
+   text = (a) self-consistency fingerprint, (b) recipient, (c) time window; independent binding =
+   future work mit den zwei karten. Deferral-absatz ohne widderpruch.
+2. KEINE regression: code/schema/fixtures inhaltlich unveraendert gegen c50747a5 (nur merge-develop
+   + die zwei .md saetze), tests gehen im archiv durch.
+3. final matrix: jede klausel ACCEPT oder formal-deferred (referenz: die drei karten-notizen).
+Urteil -> review-1324k.md (ROLLE: REVIEW, ACCEPT-WITH-DEFERRAL wenn nur die dokumentierten
+deferrals offen sind). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324k: verdict=<X> open=<liste|none> | <Satz>"

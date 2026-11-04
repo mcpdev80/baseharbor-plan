@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS demo runde 4.
+OBJEKT: baseharbor-demo PR #128 head 061be773 (branch w85-demo-guided-consent; diff genau 3 dateien:
+drive.py + test_consent_capture.py + core.ref). Dein r128c-rezept laut lane umgesetzt: dauer-test
+importiert drive und prueft ALLE vier gegenproben gegen den ECHENTSCHEIDUNGSPFAD drive.run_guided_consent_flow
+mit production up_rules (keine test-eigenen regelsaetze). PRUEFEN SHA-genau read-only: (1) im test die
+production-regelquelle nachweisen (import, kein literal), (2) deine vier gegenproben SELBST auf dem kopf:
+rc=0 ohne READY-marker => kein PASS; pflicht-prompt fehlt => abbruch; rc!=0 hash+fremder text => KEIN zweiter
+lauf; rc!=0 hash+unvollstaendige interaktion => abbruch; (3) positiver pfad abort=>zweiter lauf=>READY;
+(4) syntax/discovery: test wird bei normalem demo-testlauf ausgefuehrt. Urteil -> review-128d.md.
+END: "END_DONE codex-r128d: verdict=<X> open=<liste|none> | <Satz>"

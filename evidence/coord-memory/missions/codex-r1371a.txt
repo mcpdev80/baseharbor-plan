@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna.
+OBJEKT: baseharbor PR #1371 head fb701991 branch work/w96-production-wiring-f8ef4255 (draft->ready durch
+coord; supersession von #1364 mit close-beleg; karte t-20261018-r27-device-enrollment + ihr vermerk
+"Umleitungs-Vermerk"). Gegenstand: prototype-runde w90 (review-1364a befeunde 1: kein callbarer pfad) UND
+dein rezept: handler am authentisierten management-einstieg, policy als scope-quelle (nicht request),
+dauern der store (einweg-recht + consume über NEUSTART fail-closed), registry-fakt mit reichweite/zeit/
+SEPARATER workstation-identitaet. PRUEFEN SHA-genau read-only: (1) route wirklich registriert (grep
+einstieg-datei), (2) scope NIE aus request autorisiert — gegenprobe: request mit fremder installation =>
+abweisung, (3) store-persistenz-test echtes neu-oeffnen (kein memory store), (4) einweg zweiter gebrauch
+=> typisierter fehler, (5) targetenrollment/fremde register unangetastet (diff name-only), (6) pakettests
++ build + gofmt/vet gruen. Urteil -> review-1371a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1371a: verdict=<X> open=<liste|none> | <Satz>"

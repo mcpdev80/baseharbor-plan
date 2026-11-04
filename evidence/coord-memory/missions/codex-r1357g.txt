@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE ci-access (r1357f beide punkte umgesetzt).
+OBJEKT: PR #1357 head ea3e88e0 (inner-typ-assert bei net.OpError remote-error [fake-injection gegentest
+gemeldet], beide ready-flags in allen faellen, hosted 41677012219 SUCCESS auf exaktem head, develop
+Vorfahr JA, 0 loeschungen, write-set nur die zwei dateien). = t-20261022-r27-ci-access ABSCHLUSS.
+PRUEFEN (SHA-genau, read-only): (a) fake-net.OpError-gegenteil MUSS rejecten (eigene gegenprobe im
+read-only-archiv), (b) samtliche negativen: beide flags false; positive: erreich-route flag true,
+(c) slice-matrix karte => ACCEPT-WITH-DEFERRAL wenn traegt (gate-slices owner dokumentiert). Tests:
+GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m; gofmt leer.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357g.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357g: verdict=<X> open=<liste|none> | <Satz>"

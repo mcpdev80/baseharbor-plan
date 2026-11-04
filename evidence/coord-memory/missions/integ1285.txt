@@ -1,0 +1,38 @@
+LANE: integ1285   (EXKLUSIVE Integrations-Lane, Coordinator f49a3303-e8bb-491b-9e2c-b629783c4e5f)
+MODELL: worker-ornith1.5-laptop (Kanal 'laptop')
+
+PFLICHT: Exklusive Lane — niemand sonst schreibt an diesen Refs. AGENTS 4.3 (eindeutiger
+Integrations-Owner, disjunkte Write-Sets).
+
+AUFGAB (Owner-Entscheidung #2): PR #1285 (receipt_verifier plan-driven gates, head 20bef715,
+base develop 9a93865a, main e92e2058) wurde CODEX-REVIEW-seitig REJECT wegen NICHT-nachgewiesenem
+promotable (main/develop-Divergenz). Stelle die Beweisklasse 'promotable' gemäß RUNBOOK §3.3(2) her:
+
+1. Hole exakte Remote-Refs (ls-remote): main=e92e2058, develop=9a93865a, candidate=#1285 head 20bef715.
+2. Baue einen INHALTLICH korrekten, konfliktfrei aufgelösten UNION-TREE von main und dem Kandidaten:
+   - git merge-tree / echter Merge-Zweig: lose Konflikte (u.a. .github/workflows/receipt-post-run.yml,
+     scripts/receipt_verifier.py, scripts/pr-gate-plan.py, go.mod, CHANGELOG.md) SO auf, dass
+     (a) die MAIN-DEFENSE (Security-/Policy-Zeilen auf main) ERHALTEN bleibt und
+     (b) die KANDIDATEN-Aenderung (plan-driven required-gates) VOLLESTANDIG enthalten ist.
+   - Die Union-Tree-Aufloesung ist die Integrationsentscheidung — dokumentiere je Konflikt die
+     inhaltliche Begruendung (welche Seite bleibt, warum).
+3. S = git commit-tree <union-tree> -p <developTip>;  M2 = git commit-tree <union-tree> -p <S> -p <mainTip>.
+4. Beweise: `git merge-tree --write-tree main × M2` CLEAN, und `git diff main..M2` OHNE Defense-Minus-Zeilen
+   (kein main-Defense-Verlust). Beides als maschinenlesbaren Auszug in die Evidence.
+5. Wenn (und nur wenn) die Union-Tree-Aufloesung die main-Defense erhaelt UND die Kandidaten-Aenderung
+   traegt: PR #1285 mit dem korrekt basisierten Kandidaten (ggf. gegen develop nach der Integration)
+   AKTUALISIEREN und die Pflichtchecks (PR Selected Checks auf exaktem head) neu ausloesen + beobachten
+   (Eigenes-Run-Pflicht 4.6). KEIN MERGE — nur die promotable-Vorbedingung + grüner Re-Qual-Run.
+
+SCHREIB-REGELN: Nur Integrations-Refs (ein Integrations-Zweig + PR #1285-Aktualisierung). KEIN Merge,
+KEIN Force an develop/main, KEIN Bypass. Keine pauschale Umklassifizierung. ZEITKAESTCHEN 90 min.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/integ1285/evidence.md — ## PLAN nummeriert, je
+Konflikt die Aufloesung + Begruendung, S/M2-SHA, merge-tree-Ausgabe (clean), diff main..M2 (Defense-Check),
+Run-ID+Farbe des Re-Qual-Runs. ## repo-rule compliance. sanitize vor Plan-Kopie. Nur gezieltes git add.
+
+NAECHSTER SCHRITT (nicht du): nach deinem END_CODE_READY veranlasse ich ein UNABHAENGIGES Review der
+promotable-Beweisklasse; erst bei ACCEPT merged CODEX-MERGE. melde END, mergen tu ich NICHT.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_CODE_READY|END_BLOCKED integ1285: pr=1285 candidate=<sha> S=<sha> M2=<sha> main_X_M2=<clean|conflict> defense_minus=<none|LIST> requal_run=<id/Farbe> | <Satz>"

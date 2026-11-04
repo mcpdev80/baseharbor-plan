@@ -1,0 +1,24 @@
+ROLLE: Worker (Lane l12-profile-docs). Coord f49a3303. MIKRO-AUFGABE: eine reine DOKU-Korrektur
+PR #1324 (t-20261018-r27-profile-contract). Basis = head c50747a5. Code/Schema/Test werden NICHT
+angefasst — nur die zwei Doku-Dateien.
+
+ZUERST LESEN: review-1324j.md Befund "Independent anchor... documentation is still contradictory"
+(mit datei:zeile EN :198-200, DE :200) + Karten-sektion "integration depth".
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C baseharbor worktree add /tmp/opencode/l12-profile-docs-wt work/r27-profile-contract
+
+SCHRITT (ein commit): EN docs/spec/credential-access-v1.md und DE Pendant: die present-tense saetze
+die behaupten EnrollDevice "bindet installation ID" / "trust wird durch vorhandenen hosttrust anchor
+validiert" / "reuse the same CA" umschreiben auf die Wahrheit: geprueft werden (a) selbstkonsistenz
+des profil-Zertifikats gegen seinen eigenen fingerprint, (b) recipient der anfrage, (c) zeitfenster;
+UNABHAENGIGE CA/Installations-bindung und gleiches-CA-Verhaeltnis zu connection-profile sind FUTURE
+WORK mit den zwei karten-namen (bestehender deferral-abschnitt bleibt bezugspunkt, widderholung
+vermeiden). DE sinngleich. Keine anderen absaetze anfassen.
+
+BEWEIS: go test ./contracts/managementaccess/v1 (unveraendert gruen), mkdocs-audit falls repo-lokal
+billig, diff zeigt nur die zwei .md dateien. merge origin/develop; FF push; ls-remote; KEINE run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE l12-profile-docs: head=<sha> | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/docs-fix.md (plain bullets).
+STOP: kein Merge; keine code-aenderung (jede versuch=END_BLOCKED).

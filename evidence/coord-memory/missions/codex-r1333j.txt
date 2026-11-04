@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head a53cba29 (diff c85a201f..a53cba29 = nur die zwei ADR dateien, wortlaut-gemäss
+review-1333i rezept) = t-20261018-r27-delivery-boundary. ABSCHLUSS-REVIEW dokumentationszweig.
+PRUEFEN (SHA-genau, read-only): 1. EN/DE: persistence-check-formel + zero/unknown=Normalize-direkt-
+default + deferred mit zwei karten; keine runtime-behauptung mehr; DE sinngleich. 2. in sich
+konsistent mit absatz 2 (record save) und code. 3. keine sonstigen änderungen; tests im archiv grün.
+Urteil -> review-1333j.md: ACCEPT|ACCEPT-WITH-DEFERRAL (deferrals sind karten-notizen) | REJECT.
+KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333j: verdict=<X> | <Satz>"

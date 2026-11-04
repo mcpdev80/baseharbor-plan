@@ -1,0 +1,30 @@
+ROLLE: Worker (Lane l8-profile-r6). Coord f49a3303. MIKRO-AUFGABE: letzte SCHLIESBARE Punkte PR #1324
+(t-20261018-r27-profile-contract). Basis = head e57ecf89. Review r1324f war OK — lies zuerst
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1324f.md UND die Karten-Sektion "Coordinator
+scope decision on profile integration depth" (IN-SCOPE vs DEFERRED steht dort verbindlich).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/l8-profile-r6-wt work/r27-profile-contract
+Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+IN-SCOPE (exakt diese, sonst END_BLOCKED):
+1 NONCE-WAHRHEIT: dokumentiere das Tatsächliche — 43-Zeichen base64url = 32 Bytes — ODER fuehre ein
+  agreed 12-byte format ein; schema + EN + DE + fixtures + golden MUESSEN wörtlich dasselbe sagen.
+2 TEST named "TrulyAbsent...": export-Objekt WIRKLICH weglassen (nicht nur algorithm entfernen); umbenennen wenn noetig.
+3 ValidateKindEnforcement: algorithm/nonce an Schema-Whitelist binden (kein beliebiges nonempty),
+  kombinierter schema+semantic import test (positiv + je eine negative pro achse).
+4 SIDE-EFFECT WITNESSES fuer import: no grants / no plugin execution / no redirect durch den ECHTEN
+  import-entry mit lokalen fake-witnesses belegt (before/after zustand).
+5 DE Doku: stale targetsession-behauptung entfernen, an EN angleichen; doc-links korrekt.
+6 DEFERRED-TEXT (statt falscher present-tense claims): EN+DE Abschnitt "Enforced later, with" —
+  independent anchor + installation/scope binding + production consumer haengen an
+  t-20261018-r27-authority-contract + t-20261018-r27-state-owner (not accepted). KEIN Satz mehr,
+  der behauptet, der Profilpfad pruefe das jetzt schon.
+
+ANSENDE-PFLICHT: merge origin/develop; git diff --name-only origin/develop...HEAD | grep -E '^(\.github|scripts/|cmd/)' leer.
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build ./... + go vet.
+push FF, ls-remote, keine run-logs, END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r6.md — plain bullets,
+KEINE [ ] checkboxes (Validator-Fehler).
+STOP: zwei erfolglose identische Versuche => END_BLOCKED; kein Merge; keine CI-/cmd/scripts-/anchor dateien.

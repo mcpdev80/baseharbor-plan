@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. REZEPT-PFLICHT bei REJECT.
+OBJEKT: access branch work/r27-ci-access-ab head e86d39c0 (unveraendert seit r1357m — weil die coord-
+ENTSCHEIDUNG zu deinem r1357m-stop-klausel-pfad auf dem INHALT liegt: abnahme = 8 echte dispatches + 4
+load-phase-verweigerungen, getrennt gezaehlt; karten-vermerk publizht unter "Universum-Matrix-Praezisierung"
+in tasks/t-20261022-r27-ci-access.md). PR #1357: 13 pass/0 fail terminal, ready, basis develop Vorfahr.
+PRUEFEN (SHA-genau): (1) counter an echtem dispatch (wrapped*) — eigene mutation: ein echter execute raus
+=> echt-zaehler 8->7 ROT; (2) load-phase-nullfaelle: verweigerungs-assertions vorhanden und eigenstandig
+mutierbar (assert raus => ROT — eigene probe); (3) miswire swap => ROT; (4) handler develop-identisch,
+0 geloeschte tests; (5) go test ./internal/runtimeexecutor -count=1 -timeout 8m (GOCACHE=/tmp/opencode/gc
+TMPDIR=/tmp) + gofmt/vet. Falls die trennung 8+4 im code NICHT ausdruecklich sichtbar ist (nur in der
+kommentierung), REJECT mit datei:stelle rezept. Hinweis: eigene qualify-14.md fehlt — rein technisch
+bewertet das der inhalt, nicht die ablage; eine deferral-zeile "evidence-file nachreichen" ist akzeptabel.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357n.md.
+END an f49a3303: "END_DONE codex-r1357n: verdict=<X> open=<liste|none> | <Satz>"

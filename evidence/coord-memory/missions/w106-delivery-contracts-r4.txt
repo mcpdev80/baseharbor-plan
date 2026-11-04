@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w106). Coord f49a3303. GEGENSTAND: PR #1334 (branch clean-delivery) = delivery-provider-v1
+Kontrakt-DOCS (EN+DE spec, ADR 0022 text, index) + internal/delivery/contract_test.go. Kein Karten-prs-Feld
+traegt die 1334 heute — sie ist ein verwaistes kandidaten-fragment; inhalt wird fuer die ci-delivery-kette
+(blockiert 12 karten) gebraucht.
+AUFGAB: (1) letzte stand-Sicht: gh pr view 1334 --json headRefOid + diff gegen develop f8ef4255 genau
+auflisten (welche dateien NEU, welche geaendert); (2) basis-refresh: fetch origin, merge origin/develop in den
+zweig (letzter schritt vor push), konflikte NUR in den eigenen write-set dateien loesen — inhaltliche
+Entscheidungen NICHT erfinden; (3) ADR/spec-text gegen den WORTEHLTEN stand der inzwischen gelandeten
+entscheidungen pruefen (kandidat #1355-consent-pfad, state-owner owner-entscheid auf karte
+t-20261018-r27-state-owner): wenn der text eine NORMATIVE aenderung braucht => STOP + MELDEN, nicht still
+umschreiben; (4) tests: go test ./internal/delivery -count=1 + go build ./... + gofmt + vet; contract_test.go
+muss die gelieferten pflichtfaelle positiv UND negativ zeigen (fremde reichweite => abweisung).
+GRENZE: KEIN produkt-CI-aenderung, keine dateien ausser dem 7er-write-set, kein merge, keine ADR-nummer neu.
+PR: bleibt OPEN, basis-check letzter schritt, ls-remote==head.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/delivery-contracts/round-4.md (bullets, keine
+checkboxen; incl. wortlaut-pruefungspunkte 3 und den test-outputs).
+END an f49a3303: "END_DONE w106-delivery-contracts-r4: head=<sha10> basis=drift-behoenert normativ=<ok|STOP-melden> tests=<gruen|rot> lsremote=<sha10> | <Satz>"

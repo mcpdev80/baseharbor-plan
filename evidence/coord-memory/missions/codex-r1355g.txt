@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde7 (r1355f drei punkte umgesetzt).
+OBJEKT: PR #1355 head ccb0d111 (develop Vorfahr JA; prompt nutzt denselben fingerprint-helfer wie bindung;
+mapper typisiert mit DisallowUnknownFields wirksam (top-level+nested gegentests gemeldet); case-paritaet
+mit shared vektoren; ls-remote==head WÖRTLICH im lane-END; 0 loeschungen). = t-20261018-r27-candidate-contract.
+WICHTIGE KONTEXT-KOLLEN: Die hosted fails TestAppEditCommandCompleteProviderEditRunsRealLifecycle (+wizard/
+cli-package) sind derselbe app-edit-defekt den PR #1347 (andere karte, gleiche release) gerade behebt —
+BELEGE die zuordnung: fahren dieselben tests auf develop-BASELINE同样 rot (GEGENPROBE auf develop, read-only),
+dann sind sie vorbestehend und blockieren DIESE karte nicht (urteile develop-baseline-verweis in deferral-liste).
+PRUEFEN (SHA-genau, read-only): gegenproben wie mission r1355f zuzusätzlich case-faelle (GROSSbuchstaben-hex)
+durch beide validierer; unknown-nested-feld err. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/delivery ./internal/application ./contracts -count=1 -timeout 8m; app-edit nur -run gefiltert.
+Urteil (ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT) -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1355g.md.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355g: verdict=<X> open=<liste|none> | <Satz>"

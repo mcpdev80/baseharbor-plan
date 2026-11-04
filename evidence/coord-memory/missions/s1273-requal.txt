@@ -1,0 +1,12 @@
+FRISCHE Lane: PR #1273 (runtime-broker: persist shared openbao/secret) auf neue develop requalifizieren.
+develop ist JETZT vollstaendig GitHub-hosted (b8b56bbc, 0 self-hosted). #1273 branch work/bcore1 head 6ce07ec4
+war gegen ALTE develop und seine nativen docker/podman/broker-Gates hingen auf self-hosted Queue (nun entblockt).
+1. Rebase work/bcore1 auf b8b56bbc, ISOLIERTER worktree, Konflikte inhaltlich loesen, push --force-with-lease + ls-remote.
+2. QUALIFIZIERE hosted auf dem neuen SHA: Runtime · Docker Core + Podman Core + Broker (dispatch-gesteuert) laufen
+   JETZT auf ubuntu-latest — beobachte bis terminal (Eigenes-Run-Pflicht), Run-IDs + runner-Label notieren.
+3. coverage-unresolved falls runtime_start.go/provider_registry.go NICHT gemappt sind (PR Selected Checks): dann
+   NICHT umgehen, exakt dokumentieren (Check-Name, file:line) = Coordinator-Plan-Remap-Thema.
+WRITE-SET: nur #1273-branch (runtime-broker code/tests). KEIN Edit ci.yml/pr-gate-plan.py/register. Kein Merge.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/s1273/evidence.md — ## PLAN, rebase-SHA, hosted native Run-IDs+labels,
+fail-closed-Status, evtl. coverage-block.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED s1273: pr=1273 head=<sha> native=<green-RunIDs|queued|coverage-block> | <Satz>"

@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 337ed4ee (2dfcafcd + zwei mikrokorrrekturen: DE Adjektiv-endung, EN "The guard
+lives at" wieder da; diff 6a335b4b..head = genau 2 doku; develop Vorfahr JA) = t-20261018-r27-
+delivery-boundary. ABSCHLUSS-REVIEW (6. dokumentations-punkt, code unverändert seit r1333n PASS).
+PRUEFEN (SHA-genau, read-only): 1. §2 EN+DE: asymmetrie-formel wortgleich mit mission-text
+"persistierte Besitzer" DE, "The guard lives at" EN vor code-ref; KEINE weitere asymmetrische
+alt-stelle (vollständiger grep beider dateien auf refuse/verweig|abgelehnt-formulierungen; jede muss
+zur guard-realität passen: direct+external=>refuse, conflict=>refuse, delegated+baseharbor=>kein refuse).
+2. DE line61 dekltination OK (out-of-scope hinweis der lane verifizieren). 3. matrix =>
+ACCEPT-WITH-DEFERRAL mit deferral-liste. Tests: go test ./internal/deployment ./internal/delivery.
+KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333q: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,31 @@
+ROLLE: Worker (Lane l14-profile-bindwording). Coord f49a3303. MIKRO-AUFGABE: zwei WORTLAUT-Satzteile
+PR #1324 (t-20261018-r27-profile-contract). Basis = head 03f51437 auf branch work/r27-profile-contract.
+NUR die zwei credential-access-v1.md Dateien. Du formulierst NICHTS um — ersetzungstexte sind beschlossen
+(review-1324m befund 1: der haupt-satz behauptet EnrollDevice-Installationsbindung, die spätere
+Klarstellung widerspricht ihm im selben Absatz).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C baseharbor worktree add /tmp/opencode/l14-profile-bind-wt work/r27-profile-contract
+
+ÄNDERUNG 1 — EN docs/spec/credential-access-v1.md, langer Absatz "These profiles are a fail-closed
+contract..." (Zeile ~198, EIN physical line): ERSETZE exakt den teilsatzt
+  "`EnrollDevice` binds the validated management profile (installation ID, pinned CA, recipient, validity window) to the one-use enrollment"
+DURCH
+  "`EnrollDevice` enrols the validated device-enrollment profile (pinned CA, recipient, validity window; its `installation_id` field is carried in the profile and schema-validated, but `EnrollDevice` neither reads nor binds it) against the one-use enrollment"
+
+ÄNDERUNG 2 — DE docs/de/spec/credential-access-v1.md, entsprechender absatz (Zeile ~200): ERSETZE exakt
+  "`EnrollDevice` bindet das validierte Management-Profil (Installations-ID, pinned CA, Empfänger, Gültigkeitsfenster) an die Einmal-Enrollment"
+DURCH
+  "`EnrollDevice` registriert das validierte Enrollment-Profil (pinned CA, Empfänger, Gültigkeitsfenster; sein Feld `installation_id` wird im Profil mitgeführt und schema-geprüft, aber `EnrollDevice` liest und bindet es nicht) an der Einmal-Enrollment"
+
+PRÜFPUNKTE VOR END (nachweisung, nicht gefühl):
+- git grep -c "installation ID, pinned CA" HEAD EN-file == 0; grep -c "neither reads nor binds" >= 1
+- git grep -c "Installations-ID, pinned CA" DE-file == 0; grep -c "liest und bindet es nicht" >= 1
+- git diff 03f51437..HEAD --name-only zeigt GENAU die zwei .md dateien
+- merge origin/develop (develop muss Vorfahr werden: merge-base --is-ancestor rc=0)
+- go build ./... + go test ./contracts/managementaccess/v1 (unveraendert gruen)
+- push FF auf work/r27-profile-contract; ls-remote == head. KEINE run-logs, KEIN force-push.
+HANDOFF: codeman agent post f49a3303 "END_DONE l14-profile-bindwording: head=<sha> grep0=yes | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r11.md (plain bullets).
+STOP: keine weiteren dateien/sätze; bei zweifel an fundstelle: END_BLOCKED mit datei:zeile.

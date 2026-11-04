@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head c85a201f (diff 60eb3ed1..c85a201f = genau 1 EN-ADR satz) = t-20261018-r27-delivery-boundary.
+Nach review-1333h: EN :38-39 inversion bereinigt ("is refused if an external reconciler already owns").
+PRUEFEN (SHA-genau, read-only): 1. EN+DE jetzt logikgleich + in sich konsistent (guard = persistence
+owner; direct refuse wenn external owner; conflict fail-closed; deferred-satz ohne widderpruch).
+2. keine inhaltänderung sonst; go test ./internal/deployment ./internal/delivery archiv grün.
+3. finale matrix: alle klauseln erfüllt oder formal-deferred -> ACCEPT-WITH-DEFERRAL (= merge-reif).
+Urteil -> review-1333i.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333i: verdict=<X> | <Satz>"

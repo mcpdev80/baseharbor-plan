@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head 8c07e971 (develop Vorfahr rc=0; neu: deployment_tenant_scope_negative_regression
+_test.go mit scope-vs-coreowner ablehnung (auf 4cc93db8 nachweislich FAILS, auf 8c07e971 PASS —
+literales behaviour-beleg), application_core_authority_test.go ohne stummes RemoveAll) =
+t-20261018-r27-state-owner. RE-REVIEW nach review-1347d.
+PRUEFEN (SHA-genau, read-only): 1. negative regressionfaehrt echten save-pfad mit vorhandenem core-owner
++ corruptem tenant-scope und prueft scope/connector-fehlerklasse; gegenprobe gueltiger scope => grant.
+2. helper haertung vollstaendig (keine '_' fehler-tilgung in angefassten dateien). 3. matrix: alle
+klauseln erfüllt oder formal-deferred (ID-binding karten-note) => ACCEPT-WITH-DEFERRAL mit liste.
+Tests: TMPDIR=/tmp go test ./internal/deployment ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|CoreAuthority'.
+Urteil -> review-1347e.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347e: verdict=<X> open=<liste|none> | <Satz>"

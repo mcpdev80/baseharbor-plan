@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w87). Coord f49a3303. KORREKTURRUNDE auf bestehender demo PR #128 (repo
+mcpdev80/baseharbor-demo, branch w85-demo-guided-consent head 683f1da7). Luna REJECT review-128a.md —
+ZWEI befeunde, vollstaendig in der akte lesen (contre-proben dort beschrieben):
+B1 tests/guided/drive.py run_tty capture-zweig: capture=True kehrt ZURUECK VOR expected_returncodes- und
+rules-pruefung — beliebiger fehler (exit 7 gegeneprobe!) oder fehlender pflicht-prompt MELDET READY. FIX:
+pruefwerte auch im capture-pfad auswerten; der EINGEPAESTE consent-abbruch (dokumentierter fehler+hash,
+alle interaktionen abgearbeitet) ist der einzige erlaubte zwischen-zustand; normaler erfolg ohne hash nur
+bei erwarteten bedingungen. REGRESSIONEN (neu, positiv): exit!=0 ohne hash => abbruch; fehlender
+pflicht-prompt => abbruch; erfolg ohne hash mit erwarteten bedingungen => OK; erwarteter consent-abbruch
+mit hash => zweiter lauf. STOP-KRITERIUM: nirgends "READY reached"/PASS bei unerwartetem exit oder
+fehlendem pflicht-prompt.
+B2 binary_supports_confirm_candidate: OSError/timeout => True (fail-open!). FIX: unterstuetzung NUR bei
+positivem eindeutigem merkmal; exakte unsupported-antwort => nicht-unterstuetzt; ALLES andere (fehlendes
+binary, timeout, unbekannte meldung) => FEHLERHAFTER probe, abbruch, KEIN zweiter up-lauf. GEGENPROBEN in
+evidence: binary fehlt / timeout / unbekannte meldung / exakte unsupported-antwort (vier zeilen, je
+erwartetes verhalten).
+ZUSATZ (luna-notiz): PR checks melden "no checks reported" — pruefe in baseharbor-demo/AGENTS.md wie der
+demo-ci anlaeuft (workflow_dispatch? push-trigger?) und bringe den PR-lauf zum laufen; ohne sichtbaren
+gehosteten lauf kein review-wert. Basis main cd9176e aktuell halten. push; ls-remote==head; PR auf READY
+lassen (coord hat geschaltet). Evidence: demo/consent-harness-2.md (KEINE checkboxen).
+END an f49a3303: "END_DONE w87-demo-r2: head=<sha10> B1=B1regressions gruen B2=vier gegenproben hosted=lauf<id> lsremote=<sha10> | <Satz>"

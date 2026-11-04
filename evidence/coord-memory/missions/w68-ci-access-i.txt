@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane w68). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 9, letzte zwei faelle).
+PR #1357, branch work/r27-ci-access-ab, basis head bd7009c5. review-1357h: 5 faelle PERFECT, es fehlen
+NUR: (1) defektes-client-cert fall ueber echten NewClient mit beiden recordern, (2) invalid-CA-lade-
+fehler fall mit recorder/null-aufruf-assert.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ls-remote==bd7009c5 woertlich; worktree add
+/tmp/opencode/w68-ci-access-i-wt work/r27-ci-access-ab.
+
+ARBEIT (nur diese zwei, musterbild = die 5 bestehenden faelle — kopieren statt neu erfinden):
+1. TestNegativesObserveReadyRouteClientBrokenCert: client mit defektem/partial keypair durch ECHTEN
+   NewClient+Check+Execute; assert: TLS/handshake-fehler UND ready-entered==false UND execute-reached==false.
+2. Invalid-CA-Ladefehler (client seite CA-datei muell): der lade-fehler kommt VOR dem request — assert
+   err + bestrate recorder nie beruehrt (null aufrufe). Phase-Spalte (lade- vs handshake-) in der
+  faelle-matrix-tabelle der evidence fuellen.
+3. MATRIX-VOLLSTAENDIGKEIT ANDERS DEFINIERT (dein vorgaenger zahlte nur testFUNKTIONEN): universe =
+   JEDE kombination aus {check,execute} x {kein cert, selfsigned, fremde CA, defektes cert, falsche
+   server-CA, muell-CA-datei(ladephase)} = 12 zeilen; jede zeile mit flag-paar + phase in der tabelle;
+   END nennt "zeilen=12 asserts=24".
+
+REGELN: write-set NUR internal/runtimeexecutor/client_test.go; nichts loeschen (diff '^-func Test' leer);
+gofmt leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m;
+merge develop drift rc=0; push FF; ls-remote==head. EIGENES-RUN: gh pr checks --watch bis terminal (run-id).
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-9.md (12er-tabelle).
+END an f49a3303: "END_DONE w68-ci-access-i: head=<sha> zeilen=12 asserts=24 hosted=green(<id>) | <Satz>"

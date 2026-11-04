@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. WARTEND dispatchen wenn frei.
+OBJEKT: PR #1333 head 87d1df12 (merge-alle-basis: develop Vorfahr JA, seam testHookAfterGuardRead
+4 treffer, vanish-e2e mit echtem SaveDeploymentRecord der gegen den BUG FAILT, B-wortlaut auf
+selection-mode umgestellt: "normalized selection being saved", "direct default" 0 treffer EN+DE
+sinngleich) = t-20261018-r27-delivery-boundary. ABSCHLUSS-REVIEW nach r1333m rezepten 1+2.
+PRUEFEN (SHA-genau, read-only): 1. vanish-e2e: previousExists=true + datei verschwindet vor retention
+=> save abgewiesen + datei nicht neu geschrieben; seam nil-default ohne wirkung. 2. ADR: erster
+folgen-bullet + §2-Normalisierung jetzt selection-mode (direkt=baseharbor, delegiert=external),
+keine laufzeit-behauptung, EN/DE gleich. 3. matrix: alle klauseln erfüllt oder formal-deferred =>
+ACCEPT-WITH-DEFERRAL mit deferral-liste. Tests: TMPDIR=/tmp go test ./internal/deployment
+./internal/delivery. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333n: verdict=<X> open=<liste|none> | <Satz>"

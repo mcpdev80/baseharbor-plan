@@ -1,0 +1,8 @@
+ROLLE: CODEX-MERGE. Coord f49a3303. AUTORISIERT durch review-1356b ACCEPT-WITH-DEFERRAL auf exakt
+head 1be411f6... (PR #1356, branch work/r27-ci-runtime-ab, base develop, t-20261022-r27-ci-runtime).
+SCHRITTE: 1. VORHER gh pr view 1356 --json headRefOid,state,mergeable,mergeStateStatus: head MUSS
+1be411f6 sein + NICHT CONFLICTING + checks ohne fail (sonst END_BLOCKED — reconcile ist nicht dein job).
+2. gh pr merge 1356 --squash. Kein --admin/force. 3. NACHWEIS: develop neue SHA via ls-remote;
+state MERGED + mergedAt; diff 1be411f6 origin/develop auf write-set (internal/deployment/runtime_selection*
+internal/machinehttp docs falls vorhanden) leer/stichhaltig (squash-übernahme belegt).
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-m1356a: merged=squash develop=<sha> diffproof=ok | <Satz>"

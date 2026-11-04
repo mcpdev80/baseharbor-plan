@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS journal.
+Vorbedingungen jetzt ALLE erfuellt (deine r1354h-wartebedingung): head 5a5f1b38 (!= 6eb497a7, basis-refresh
+auf develop f8ef4255 als Vorfahr), gates TERMINAL 18 pass/0 fail (w103-begleitet, coord gegenprueft),
+B1 erledigt nach deiner option-1-stop-klausel via OWNER-ENTSCHEID (PR #1354 kommentar 10:26Z; kartenvermerk
+"Owner-Entscheid B1"): budget 16MB unveraendert, testseitig aeltere buchungen terminal. PRUEFEN SHA-genau:
+(1) contra-proben 1-6 aus review-1354g auf dem aktuellen kopf, (2) B1-spezifisch: aktive IDs bleiben unter
+cap; MUTATION ohne terminal-states => exakter cap-fehler ROT (lane meldet belegt, du gegenprobe), (3)
+budget-konstanten im produkt unveraendert (16MB, benannte constants), (4) retention-extrakt store_retention.go
+ohne test-hook im produkt, (5) go test ./internal/machinehttp -count=1 -timeout 8m gruen, gofmt/vet leer.
+Urteil -> review-1354h.md (ueberschreibt den hint).
+END: "END_DONE codex-r1354h2: verdict=<X> open=<liste|none> | <Satz>"

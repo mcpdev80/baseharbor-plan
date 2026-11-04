@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane l9-profile-r7). Coord f49a3303. MIKRO-AUFGABE: drei closing Punkte PR #1324
+(t-20261018-r27-profile-contract). Basis = head 593da4d9. Review r1324g war berechtigt.
+
+ZUERST LESEN: baseharbor-plan/evidence/r27-night-2026-11-02/review-1324g.md + die zwei Karten-Sektionen
+"Coordinator scope decision on profile integration depth" und "Coordinator crypto decision on profile
+nonce" (AES-256-GCM, 12 random bytes, base64url ohne padding = 16 Zeichen, kanonisch; round-trip Pflicht).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/l9-profile-r7-wt work/r27-profile-contract
+Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+SCHRITTE (3 Commits, sonst END_BLOCKED):
+1 CRYPTO: algorithm-feld auf aes-256-gcm (chacha fall nicht dokumentiert bleibt, sonst RAUS);
+   nonce: pattern ^[A-Za-z0-9_-]{16}$ (16 base64url zeichen = 12 bytes, kanonisch), schema+Go decodieren
+   WIRKLICH (base64url.DecodeString + len==12 + kanonische-restbits-pruefung); EN/DE text = diese Regel;
+   fixtures auf 16-zeichen werte. EXECUTABLEN round-trip test: verschluesseln mit echtem AES-GCM,
+   entbuendeln, plus negative: wrong-length, noncanonical-trailing-bits, unknown-algorithm.
+2 IMPORT WITNESSES (echt): fake grant-registry / plugin-loader / credential-destination MIT ZAHLERN um
+   den echten import-entry; proof: accepted input => keine zaehler erhoht; jede negative achse
+   (grant=true, plugin=true, redirect gesetzt) => verweigert ODER dokumentiert ignoriert, jeweils mit
+   witness-assert; rejected input => zero side effects (before/after counter-verleich).
+3 DOKU-praesens: EN+DE so umformulieren, dass pre-effect checks = SELBST-bindung (fingerprint des
+   profils vs. eingabewert, recipient, window), UNABHAENGIGE anchor/installation/scope-pruefung als
+   "required, enforced with r27-authority-contract + r27-state-owner" (links zu den karten). DE
+   targetenrollment-reuse-satz an EN angleichen (raus wenn EN ihn nicht hat).
+
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\\.github|scripts/|cmd/)' leer.
+CONTENT-PARITAET: git diff --name-only origin/develop...HEAD == exakt die 8 write-set dateien.
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build/vet. push FF, ls-remote, END an f49a3303.
+Evidence: .../profile-contract/fix-r7.md (plain bullets, KEINE [ ] checkboxes).
+STOP: zwei erfolglose identische versuche => END_BLOCKED; kein Merge; keine CI-/cmd/scripts-dateien.

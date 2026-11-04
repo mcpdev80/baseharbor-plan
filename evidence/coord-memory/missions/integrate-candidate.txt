@@ -1,0 +1,29 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/integrate-cand  Branch integrate/candidate0427 (Repo baseharbor, Basis origin/develop 437358e4, enthaelt gate-map)
+MISSION integrate-candidate — EINEN Integrations-Kandidaten bauen, der die fertige v0.4.27-Kette zusammenfuehrt und
+  mit EINEM echten gruenen nativen GitHub-hosted Docker+Podman-Lauf qualifiziert. Ziel: ein Kandidat statt vieler
+  einzelner PRs, die sich gegenseitig am by-design Workflow-Gate blockieren. (AGENTS §3.8: ein Integrationskandidat pro Kette.)
+ZUSAMMENSETZEN (git merges auf integrate/candidate0427; Konflikte loesen, KEINE Produktlogik neu schreiben):
+  - origin/develop (437358e4, gate-map) als Basis.
+  - merge #1245 endpoint: refs/pull/1245/head (head 262f069f) — internal/runtime/docker_engine.* + host-aware Tests.
+  - merge #1239 ci system-daemon: refs/pull/1239/head (486abbca) — ci.yml validate/system-daemon + doctor.
+  - merge #1249 pr_native_gate: refs/pull/1249/head (22f55b96) — ci.yml 'pr_native_gate' Job.
+      => ci.yml KONFLIKT zwischen #1239 und #1249 erwartbar: loese ihn, sodass BEIDES drin ist (system-daemon validate
+         UND pr_native_gate Job). Begründe die Loesung. KEIN Gate verlieren.
+  - merge #1247 acc-podman (9aad7009): podman/mcp-lifecycle/observability-acceptance.yml + ci-podman-gh-runtime.sh.
+  - merge #1243 broker/s3 (878a2124), #1241 engine detect (ed5ca739), #1242 observability (f392273),
+    #1240 openbao (Branch work/o1249b-openbao-cauth head 116adb3d mit ssl-guard), #1160 deps (6389342d).
+  - #1248 mapping PR: NOCH NICHT einbauen (läuft Korrektur). Als TODO-Kommentar vermerken; spaeter 1 commit drueber.
+PRUEFEN im Kandidaten (nur lokale, billige Checks — KEIN Push von dutzenden vollen CI-Matrizen):
+  - go build ./...  + go test ./internal/runtime ./cmd/baha -run 'Endpoint|EngineDetect|SSLMode|Observability'  (kurz)
+  - python3 -m pytest scripts/test_pr_gate_plan.py scripts/test_ci_docker_runtime_doctor.py -q   (Gate-Logik + Doctor)
+  - actionlint + 'git diff develop..HEAD --name-only' -> selbst pruefen: KEIN runs-on self-hosted in den .github/
+    Dateien des Kandidaten; grep bestaetigt 0.
+NATIVER QUALIFIKATIONSNACHWEIS (Entscheidend, EINMAL):
+  - Push integrate/candidate0427:refs/heads/runtime-validation/ha/both/int0427 (oder control-plane/docker + .../podman),
+    sodass die GH-hosted 'Targeted HA · docker' UND 'Targeted HA · podman' Jobs auf dem KOMBIERTEN Kandidaten laufen.
+    Beide bis terminal beobachten (Eigenes-Run-Pflicht), Run-IDs + Status in Evidence. GRUEN = die Kette ist qualifiziert.
+  - Wenn ein Lauf wegen einer NICHT-Zusammenfuehrungs-Ursache rot ist (z.B. pre-existing etcd perms): exakt melden,
+    nicht am Produkt herumbauen.
+NICHT: irgendetwas auf develop pushen/mergen (ich, Coordinator, tue den finalen Merge nach deinem GRUEN-Bericht).
+EVIDENCE (absolut, kein '- [ ]'): baseharbor-plan/evidence/board-2026-10-31/integrate-candidate/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE integrate-candidate: branch SHA + self-hosted=0(grep) + pytest/build PASS + nativer docker&podman HA GRUEN run-IDs | ggf. ROT+Grund + ci.yml-Konflikteschaetzung"

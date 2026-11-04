@@ -1,0 +1,31 @@
+s1258 RUNDE 2 (P0 des Owners — geh nicht in eine Scope-Rueckfrage, der Owner hat entschieden).
+ZIEL: PR #1258 (GitHub-hosted Runner-Migration) startklar machen fuer kontrollierte Integration
+nach develop. Migration ist inhaltlich fertig (Rebase-head 735acd95 zeigt 0 self-hosted in allen
+produktiven Workflows). Entwickle NICHT weiter an Features/Architektur.
+
+AUFGAB NUR:
+1. REBASE #1258 (branch work/gh-hosted-sweep) auf develop 9a93865a. Loese Konflikte INHALTLICH —
+   erhalte a) die vollstaendige hosted-Migration (alle 7 betroffenen Workflows: ci.yml,
+   mcp-lifecycle-acceptance, nextjs-greenfield-e2e, observability-acceptance, podman-acceptance,
+   runtime-broker, runtime-s3-acceptance — KEIN produktives runs-on self-hosted/baseharbor mehr),
+   und b) ALLE nativen Tests + Required Checks (KEIN Gate-Weakening, kein Entfernen von Checks).
+   Push via `git push --force-with-lease` + ls-remote Gegencheck (§6.5).
+2. VERIFIZIERE am rebased Head: `git grep -nE 'runs-on:.*self-hosted' -- .github/workflows` = 0
+   in ALLEN produktiven Workflows; liste die runs-on-Werte je Workflow in der Evidence (hosted-Beweis).
+3.QUALIFIZIERE: CI · Source & Quality + actionlint + die affected nativen Gates auf dem NEUEN rebase-SHA.
+   WICHTIG — bekannte Grenze: #1258 aendert ci.yml, der develop-Classifier loest ci.yml evtl. noch als
+   coverage-unresolved (derselbe Bootstrap wie #1286 PR-A). Wenn PR-Selected-Checks genau daran haengt:
+   NICHT Gate umgehen/aendern — dokumentiere den Block exakt (welcher Check, file:line) und melde
+   END_CODE_READY mit 'blocked-on-1286-PR-A'. Der Coordinator integriert in richtiger Reihenfolge.
+4. Eigenes-Run-Pflicht (4.6): alle ausgeloesten hosted-Runs bis terminaler Farbe beobachten, Run-IDs.
+
+WRITE-SET: nur #1258-Branch + seine 7 Workflows + cmd/baha/openbao*/tests + ci-core-rootless-runtime.sh.
+NICHT pr-gate-plan.py/Register (#1286), NICHT receipt_verifier (#1285/integ1285), NICHT #1273.
+KEIN Force an develop/main, KEIN Merge durch dich. ZEITKAESTCHEN: rebase+verify zuegig, dann END.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/s1258/evidence.md aktualisieren — ## PLAN ticks,
+rebase-SHA, je Workflow final runs-on (hosted-Beweis), native-Checks erhalten (Liste), Run-IDs+Farbe,
+etwaiger ci.yml-Bootstrap-Block (file:line). sanitize vor Plan-Kopie, nur gezieltes git add.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED s1258: pr=1258 head=<rebase-sha> self_hosted=0 native_preserved=<yes|no> selchecks=<green|blocked-on-1286-A> | <Satz>"

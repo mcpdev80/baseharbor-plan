@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1326 head 48aa35ad (base develop) = t-20261018-r27-authority-contract, RE-REVIEW nach
+Deinem früheren REJECT (review-1326.md) + Bereinigungsrunden.
+PRÜFEN (SHA-genau, read-only):
+1. Alle 5 Alt-Befunde abgearbeitet? Insb.: keine no-consumer types; ObservedAt-Richtung; DE-Negationen;
+   Index-/Ownership-Frage; und NEU: cmd/baha + internal/deployment FREMDINHALTE raus (Verifikations-
+   against develop: Diff enthaelt nur docs + internal/coreinstallation/authority* + lifecycle_lock +
+   stableid/lock* + serviceaccess/local_issuer.go Delegation).
+2. Zyklusbruch stabilid-leaf real (go list -deps acyclic) + Lock-Dateien unveraendet in coreinstallation,
+   neue stableid/lock.go Verhaltensgleichheit belegt (Test da?).
+3. Akzeptanzkarte t-20261018-r27-authority-contract: positive + negative Tests je Klausel.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1326.md (ERSETZEN, ROLLE: REVIEW,
+ACCEPT|REJECT + Rezept). Danach WEITERE Mission: PR #1333 head be6ce48f gegen
+t-20261018-r27-delivery-boundary pruefen (Write-Set-Treue: nur 0022 + delivery-provider EN/DE +
+internal/delivery + index; target-access/0021 NICHT mehr; Rebase-Historie ohne Authority-Commits) ->
+review-1333.md. KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE|END_BLOCKED codex-re-review: 1326=<A|R> 1333=<A|R> | <Satz>"

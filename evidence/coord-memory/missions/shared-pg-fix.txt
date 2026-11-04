@@ -1,0 +1,33 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/shared-pg-fix  (Repo baseharbor; Basis origin/develop aktueller Stand >=5777c02d)
+MISSION shared-pg-fix — ECHTER PRODUKTBEFUND (pre-existing, von zwei Laeufen belegt):
+  TestSharedPostgresTwoApplicationIsolationBackupRestoreDestroy (internal/application) scheitert mit
+  'non-HA provider must run exactly one native PostgreSQL service: [shared-postgres-core], <nil>' —
+  identisch auf SAUBEREM develop (gate=shared-postgres dispatch runs 41321042904 auf a6e79c76 + Kontrolle
+  auf develop-Stand; localer Witness der ha-prep-Lane, siehe baseharbor-plan/evidence/board-2026-11-01/
+  ha-prep-fix/evidence.md). Erwartet: 'shared-postgres-dev'.
+VERDACHTSLINIE (aus Befund, pruefen statt übernehmen): SharedBackendFilesAt(dataDir,ns,'dev')
+  (internal/runtime/shared_backends.go:88/93) liefert persistierten State (environment='core') und
+  sharedPostgresService(state.Environment) (internal/runtime/shared_backends_runtime.go:595) loest daraus
+  'shared-postgres-core' — die Umgebung des ANRUFS ('dev') verliert gegen persistierten Misch-State.
+  Frage: Woher kommt 'core'-State in einer 'dev'-Anfrage (State-Pfad-Kollision? Namespace-Mapping? Alter
+  Test-Aufbau hinterlaeuft core-State im selben dataDir?).
+SCHRITTE:
+ 1. Reproduktion LOKAL (rootful docker) mit BASEHARBOR_SHARED_POSTGRES_INTEGRATION=1 -run auf den exakten
+    Test; state.json-Inhalt + Pfade vor der fehlgeschlagenen Assertion protokollieren (Debug-Ausgabe NICHT
+    committen).
+ 2. Ursache festnageln: Datei:Zeile. Pruefe insbesondere: (a) loadSharedBackendState environment-Fallback,
+    (b) ob der Test erst appA('dev'?) dann appB mit anderer Umgebung laedt und der Persist Pfad teilt,
+    (c) SharedBackendFilesAt NamensSchema vs. running service lookup.
+ 3. Minimaler ECHTER Fix im Produkt: Umgebung des Anrufs ist autoritativ fuer Backend-Identitaet UND -Naming;
+    persistenter environment-Divergenz = Fehler/Zustandskonflikt (fail-closed wie im Vertrag), kein
+    stiller Core-Fallback. KEIN Test-Loeschen, KEIN Assert-Weichen ([shared-postgres-core] Toleranz waere
+    das Falsche), KEIN Timeout-Gefummel.
+ 4. go build ./... ; go vet; go test ./internal/runtime ./internal/application (unit ohne Env-Flag) + der
+    betroffene Integrationstest LOBAL mit env flag (rootful docker OK auf diesem Host? pruefe docker context).
+ 5. Commit + push refs/heads/work/shared-pg-fix (PR gegen develop). Gehostet: gate=shared-postgres dispatch
+    auf deinem Ref (workflow_dispatch targeted-integration.yml gate=shared-postgres ref=work/shared-pg-fix)
+    bis terminal (Eigenes-Run-Pflicht) + PR-Checks. GRUEN-Ziel: der Integrationstest selbst.
+EXKLUSIVES WRITE-SET: internal/runtime/shared_backends*.go + internal/application/shared_postgres_integration_test.go.
+  NICHT: workflows, scripts/pr-*, receipt-*.
+EVIDENCE (plain bullets): baseharbor-plan/evidence/board-2026-11-01/shared-pg-fix/evidence.md + Karte via plan.py new.
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED shared-pg-fix: PR=<nr> root=<datei:zeile> integration=<run-id>/<status> | <Grund>"

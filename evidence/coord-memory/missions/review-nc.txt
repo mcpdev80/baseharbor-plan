@@ -1,0 +1,19 @@
+MISSION review-nc — UEBAENDIGES Review von node-connector PR #17 (NUR lesen; Repo baseharbor-node-connector)
+Read-only. Kein Produktcode aendern. Kein mergen. Ziel: Kandidat gegen Vertrag pruefen + loesbares Rezept liefern.
+PR #17 head 4aa41acccb (base main). Bewiesener CI-Status: `source` SUCCESS + `Actual encrypted transport · podman`
+SUCCESS auf GitHub-hosted; self-hosted=0.
+VORGEHEN (gh api / gh pr diff gegen baseharbor-node-connector):
+ 1. Diff pruefen: `.github/workflows/source.yml` + `release-integration.yml`. Wurde die Rootless-/loginctl-Vorbehandlung
+    (sudo loginctl enable-linger, XDG_RUNTIME_DIR=/run/user/$uid, DBUS/`systemctl --user`) wirklich entfernt bzw. auf
+    rootful Podman umgestellt, statt nur ein Diagnose-echo daneben zustellen? Kein Rest-pfad, der auf GH-hosted
+    fehlschlaegt?
+ 2. Kein Gate/Check abgeschwaecht oder auf Dauer-SKIP gesetzt; keine Test-Loeschung; keine Approval/Security-
+    Umgehung (§ Sicherheit). Kein `runs-on` self-hosted mehr.
+ 3. Fail-closed: wenn Podman weder rootful noch cgroupfs kann, bricht der Job SICHTBAR != 0 (kein gruener Schein)?
+    Der SUCCESS-Beweis "Actual encrypted transport · podman" gilt als positiver Real-Beleg — im Diff verifizieren,
+    dass dieser Job kein SKIP ist.
+ 4. Write-Set disjunkt zu baseharbor/* (anderes Repo, gut). Repo-Regeln des nc-AGENTS eingehalten?
+ERGEBNIS: baseharbor-plan/evidence/board-2026-10-31/review-nc/REVIEW.md — Verdict {APPROVE-FEIER-GRUEN | CHANGES:
+  <Datei/Zeile/Aenderung/Test/Stop-Kriterium>} + ROLLE:REVIEW + Session/Modell/Zeit. Akzeptanz/Merge macht der
+  Coordinator erst NACH deinem gruuen Verdict.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE review-nc: #17=<verdict>"

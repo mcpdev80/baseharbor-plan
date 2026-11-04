@@ -1,0 +1,22 @@
+MISSION review-1238 — Unabhaengiges REVIEW von PR #1238 (NUR lesen; nichts editieren/mergen)
+Repo baseharbor. PR #1238 head 38073e9ef5 (base develop), 3 files:
+  .github/workflows/{mcp-lifecycle-acceptance.yml, observability-acceptance.yml, podman-acceptance.yml}
+Auftrag: diese drei Workflows von Self-hosted/rootless auf GitHub-hosted umgestellt — gegen Vertrag pruefen.
+WISSEN (bewiesen, als Ziel-Realitaet):
+  - Docker: auf ubuntu-latest nur SYSTEM(rootful) daemon; rootless UNMOEGLICH (userns).
+  - Podman: auf ubuntu-latest/26.04 laeuft ROOTFUL podman (unix:///run/podman/podman.sock), Fallback
+    --cgroup-manager=cgroupfs. Beleg: nc PR #17 "transport·podman SUCCESS" + baseharbor #1244 rootful-Skript.
+PRUEFPUNKTE (gh api pulls/1238/files + diff + gh pr checks):
+ 1. runs-on in allen 3 Dateien jetzt GH-hosted (ubuntu-latest/24.04/26.04)? KEIN `self-hosted` mehr (grep = 0)?
+ 2. Bleibt eine Rootless-/loginctl-Annahme (XDG_RUNTIME_DIR=/run/user, loginctl enable-linger, dockerd-rootless)
+    in diesen Dateien, die auf GH-hosted FEHLSCHLAEGT? Falls ja: CHANGES mit exakter GH-hosted-Alternative
+    (rootful podman.socket / system docker), NICHT rootless.
+ 3. Kein Gate abschwechen: keine Dauer-SKIP (if:false/enabled:false), kein Timeout-Weg, keine Test-Loeschung,
+    keine Approval-/Security-Umgehung. Fail-closed erhalten?
+ 4. Write-Set disjunkt zu docker_engine.go/Endpoint-Lane, #1239 (ci.yml), #1244 (ci.yml-podman-job) — pruefe
+    UEBERLAPPUNG: touching #1238 dieselben Job-Definitionen wie #1244? Wenn ja, Merge-Konflikt als Befund melden.
+ 5. Evidence vorhanden/plausibel?
+ERGEBNIS: baseharbor-plan/evidence/board-2026-10-31/review-1238/REVIEW.md — je Datei Befund + Gesamtverdict
+  {APPROVE-WARTEND-GREEN | CHANGES: <Datei:Zeile + GH-hosted-Aenderung + Test + Stop-Kriterium>} + Ueberlappungs-
+  Hinweis zu #1244/#1239 + ROLLE:REVIEW + Session/Modell/Zeit. NICHT mergen/approven.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE review-1238: <verdict + ueberlappung #1244 ja/nein>"

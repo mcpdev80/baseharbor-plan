@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 53b522c4 (base develop, CLEAN, alle Checks gruen) = t-20261018-r27-profile-contract.
+VERTRAG: baseharbor-plan/tasks/t-20261018-r27-profile-contract.md (Zuerst lesen!).
+PRUEFEN (SHA-genau, read-only):
+1. Akzeptanzabdeckung: Profil(non-secret) vs Einmal-Enrollment(sensitiv) vs verschluesselter Export —
+   Definitionen in docs/spec/management-access-profiles-v1.md (EN) + docs/de-Pendant; Pinned:
+   installation identity/trust/recipient/scope/expiry; Import granted keine Rechte, keine Plugin-Ausfuehrung,
+   kein Credential-Redirect — jeweils mit POSITIVEM und NEGATIVEM ejecutablem Test in
+   contracts/managementaccess/v1/profile_test.go + golden fixtures.
+2. Abgrenzung zu bestehendem contracts/connection-profile/v1 (Duplikation? Kompatibilitaetsaussage?).
+3. Write-Set-Treue: nur contracts/managementaccess/v1/** + die zwei Doku-Dateien; keine CI-/Fremddateien.
+4. DE-Vollstaendigkeit und Negations-Korrektheit gegen EN (Vorsicht: sininvertierte Uebersetzung war
+   bereits einmal REJECT-Grund im Paralleltask).
+5. Fail-closed in Schemas (no rights-by-default; expiry required) + KEINE echten Secrets in Fixtures.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1324.md (ROLLE: REVIEW, ACCEPT|REJECT
++ Losungsrezept falls REJECT: Datei/Aenderung/Testanforderung/Stop-Kriterium). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED codex-r1324: verdict=<A|R> gaps=<none|liste> | <Satz>"

@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w38). Coord f49a3303. KARTE: t-20261023-appid-test-env-dep — LIES zuerst
+vollstaendig: baseharbor-plan/tasks/t-20261023-appid-test-env-dep.md (Goal/Scope/Acceptance sind
+verbindlich; owner-directive 2026-11-03: alles -> v0.4.27).
+ERSTE AKTION: fetch origin "+refs/heads/develop:refs/remotes/origin/develop"; worktree
+/tmp/opencode/w38-envdep-wt branch work/r27-envdep-ab develop.
+KERNUFGABE: TestExternalProviderRemoval* (cmd/baha) haelt lokal ein provider-registry-ownership-unverifiable,
+weil fixtures sich auf CI-runner-umgebung stuetzen statt eigenschaft zu seeden (belege: reviews
+r1347d/e/f/h, r1326f). Fix in scope: fixtures/helpers in internal/** + internal/testsupport/** so
+dass eigenschafts-besitz explizit gesetz wird; tests ohne umgebungs-herleitung. OUT: .github/scripts,
+app.id parser (t-20261020), planner-lane (#1047), KEIN skip-by-env-trick (skip ist kein fix).
+AKZEPTANZ (karte): lokal gruen (TMPDIR=/tmp/opencode go test ./cmd/baha -run TestExternalProviderRemoval
+-count=1) UND dokumentierter identischer Satz; keine CI-marken-abhaengigkeit im test-code.
+PFLICHTREGELN: merge develop faellig falls voraneilt + ancestry rc=0 ls-remote-SHA; write-set grep-leer
+(.github/scripts); PR DRAFT eroffnen auf eigenem branch; ls-remote==head.
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/envdep/fix-1.md (plain bullets, keine
+checkboxen: root-cause, aenderungen, lokale laeufe mit ausgabe).
+END an f49a3303. STOP: braucht ein fall echte PRODUKT-semantik-aenderung statt fixture? => END_BLOCKED
+mit stelle — produktverhalten ist hier NICHT scope.

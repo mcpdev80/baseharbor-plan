@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE ci-access (matrix runde9).
+KANAL-HINWEIS: du laeuft auf GPT-6 Luna (frischer kanal) — protokolliere das im urteil-kopf.
+OBJEKT: PR #1357 head e9c9e826 (develop Vorfahr JA; 12 zeilen matrix {check,execute}x{kein cert,
+selfsigned, fremde CA, defektes cert, falsche server-CA, muell-CA-datei/ladephase} mit je 2 flag-
+asserts gemeldet; hosted 41688014380 SUCCESS auf exaktem head; 0 loeschungen; write-set client_test.go).
+PRUEFEN (SHA-genau, read-only): (a) matrix-UNIVERSE selbst aufzaehlen aus der karte/CLi-oberflaeche —
+pruefe 12/24 NICHT aus den testNamen sondern aus den PFAD-KOMBINATIONEN des clients; (b) eine eigene
+mutation-kontrolle im read-only-archiv; (c) lade-phase fall: recorder null-aufrufe; (d) slice-matrix
+=> ACCEPT-WITH-DEFERRAL wenn traegt (gates = owner-punkte, liste dokumentieren).
+Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357i.md. ENDE MIT STRUKTURIERTEM BLOCK:
+## REZEPT
+Befund-1 | datei:zeile | genau Aenderung | geforderter test (name+behauptung) | stop-kriterium
+(eine zeile je befund, keine fliesstext-rezepte — kopierbar in worker-mission). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357i: verdict=<X> open=<liste|none> | <Satz>"

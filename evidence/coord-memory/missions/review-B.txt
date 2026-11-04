@@ -1,0 +1,9 @@
+MISSION review-B — Unabhängiges REVIEW der Punkte #1242 und #1243 (NUR lesen)
+Read-only Review-Lane. PR #1242: Observability-Akzeptanz folgt Plan->Apply-Vertrag (nur *_test.go). PR #1243:
+broker+s3 acceptance auf GitHub-hosted (runs-on). Kein Produktcode aendern.
+Je PR (gh diff/files): SHA-genauer Diff; schreibt der Test die vorgeschriebene Consent-Regel (§2.7) korrekt und
+NICHT als Umgehung (kein Blind---force auf echte Loeschung)? #1243: sind die nativen Gates echt (kein Dauer-SKIP,
+der Coverage verdeckt)? Repo-Regeln ok?
+Ergebnis: baseharbor-plan/evidence/board-2026-10-31/review-B/REVIEW.md je PR Verdict {APPROVE-WARTEND-GREEN |
+CHANGES:...} + ROLLE:REVIEW + Session/Modell/Zeit. Nicht mergen.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE review-B: #1242=<v> #1243=<v>"

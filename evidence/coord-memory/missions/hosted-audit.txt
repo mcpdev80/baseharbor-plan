@@ -1,0 +1,12 @@
+FRISCHE Lane: Nachweis-Pflicht P0.3 — PRUEFEN dass KEINE produktive GitHub Action mehr self-hosted laeuft.
+Read-only + Evidence, KEINE Produkt-/Workflow-Aenderung (sonst Befund an mich, nicht selbst aendern).
+1. Erfasse ALLE Workflow-/composite-/reusable-Dateien auf develop b8b56bbc (.github/workflows/*.yml, *.composite-action.yml,
+   beliebte actions/), pruefe JEDES runs-on + default runner: melde JEDES Vorkommen von self-hosted / baseharbor /
+   /docker/ /podman/ LABELS die ein JOB ausfuehrt (nicht nur die 7 bekannten). Liste die 7 migrierten + alles weitere.
+2. Fuer JEDES gefundene self-hosted runs-on: PR-Referenz (file:line), betroffener Job, ob produktiv oder nur
+   Referenz/Doku. Nur die 7 known = OK (gemerged). ALLES ANDERE self-hosted = FINDING (ein eigener Nachfolge-PR noetig).
+3. Gegenprobe auf dem realen develop CI run (CI · develop workflow_dispatch auf b8b56bbc): bestaetige via API dass alle
+   completed/in_progress Jobs labels ubuntu-latest/26.04 haben, KEIN self-hosted Runner.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/hosted-audit/evidence.md — Matrix alle Workflows, runs-on je Job,
+Finding-Liste (file:line) falls nicht-hosted, API-Gegenprobe des develop-Runs. Read-only.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED hosted-audit: self_hosted_found=<0|N> findings=<file:line|none> develop_run_hosted=<yes|no> | <Satz>"

@@ -1,0 +1,51 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/diff-base  (Repo baseharbor; Basis origin/develop 437358e4)
+MISSION diff-base — Executor-/Planner-Bug im PR-Diff-Base-Resolver beheben. KEIN CI-Ausbau, KEIN neuer Gate,
+  KEIN Architekturumbau: vorhandene Logik korrigieren, Fail-Closed-Eigenschaft bleibt vollständig erhalten.
+
+BEWIESENER FEHLER (PR #1240, 2026-11-01):
+  'PR Selected Checks' BLOCKED mit reason integration_sha_mismatch
+  ("integration commit must have exactly target base and PR head as its first and second parents").
+  Zwei strukturelle Defekte in scripts/pr-diff-base.py + .github/workflows/ci.yml (Plan-Job, ca. Zeile 449-457):
+  (a) STALE EVENT-BASE: ci.yml nutzt github.event.pull_request.base.sha als target_base, aber GitHub aktualisiert
+      die Merge-Ref (github.sha) gegen den AKTUELLEN develop. Live-Nachweis: merge-ref a84b71e2 Eltern =
+      [437358e4(entwickelt=aktuell), b8446716(head)], event base.sha = cb6b738 (alt) -> Eltern-Vergleich
+      parents == [integration_sha, target_sha, head_sha] scheitert immer, sobald develop weiterlaeuft.
+  (b) LINEARER FALL: nach Rebase ist head selbst Nachkomme von develop; GitHub setzt github.sha = head
+      (kein Merge-Commit) -> Elternliste hat nur ein Element -> immer Mismatch. Exakt der Zustand von #1240:
+      PR Selected Checks failure 'integration_sha_mismatch', obwohl base-ancestry sauber ist.
+
+SCHRITTE:
+ 1. LIES zuerst scripts/pr-diff-base.py (resolve_pr_diff, integration-Ast ca. Zeilen 128-155) und den Plan-Job in
+    .github/workflows/ci.yml (Resolve exact immutable PR inputs, INTEGRATION_SHA=${{ github.sha }}) und teste die
+    GitHub-Semantik an den echten Refs (git fetch origin refs/pull/1240/merge refs/pull/1240/head) lokal nach.
+ 2. Minimaler korrekter Fix, beide Fälle:
+    - Fall linear (target_base_sha ist Vorfahr von head): es gibt keinen synthetischen Merge — Integration-Prüfung
+      ist hier sinnentleert. Resolver soll dann die Integration-Identitaet NICHT als Merge-Commit erzwingen;
+      Diff = merge_base(==target)..head, existing conflict-check via merge-tree bleibt. Fail-closed bleibt:
+      fehlt History oder ist Basis unklar -> unveraendert reason-blockiert.
+    - Fall Merge-Ref (github.sha echtes Merge-Commit): Eltern gegen die im Runner aktualisierte Basis pruefen statt
+      gegen dem stale Event-Feld (z.B. zweite Eltern = head, erster Eltern = aktueller develop-tip aus dem
+      frisch aufgefrischten develop-Ref), ODER die Prüfung auf "genau diese zwei Eltern, Reihenfolge egal, und
+      beide bekannt" lockern — Begründung in der Evidence, keine reine Reihenfolge-Duldung ohne Nachweis.
+    - ci.yml Plan-Job: fetch-Strategie so ergaenzen, dass head zuverlaessig im lokalen Repo ist
+      (refs/pull/<n>/head als Fetch-Quelle statt nur github.sha), damit missing_head_history nicht zum Folgefehler wird.
+ 3. Tests: existing test_pr_diff_base.py erhaeltlich; fuege gezielt Faelle hinzu: (i) linear rebased head ->
+    coverage resolved, (ii) merge-ref mit develop-Weiterlauf -> resolved, (iii) echte Manipulation (vierte Eltern /
+    fremder SHA / head nicht drin) -> weiterhin reason integration_sha_mismatch (fail-closed bewiesen).
+    Ebenso pr-gate-plan/tests anpassen, falls sie die alte Elternordnung hart verlangen.
+ 4. python3 scripts/test_pr_diff_base.py ; python3 scripts/test_pr_gate_plan.py ; yaml-parse ci.yml ; commit + push
+    als PR-Zweig work/diff-base (NICHT develop direkt). PR gegen develop aufmachen, 'ci-policy'-Grün beobachten.
+ 5. VERIFIKATION AN #1240 (der eigentliche Beweis, Eigenes-Run-Pflicht): Nach deinem PR-Merge-Wege—NEIN: Merge ist
+    NICHT deine Aufgabe. Stattdessen: push deinen Zweig, oeffne PR, melde END. Der Coordinator qualifiziert danach
+    den Basis-PR #1240 gegen deinen Kandidaten (Rebase von #1240 auf deinen Stand ODER dein Stand in develop) und
+    beobachtet 'PR Selected Checks' bis terminal.
+EVIDENCE (absoluter Pfad, kein '- [ ]' in Checkboxed-Form in Evidence — plain bullets, sonst CardBoard-Fehler):
+  baseharbor-plan/evidence/board-2026-11-01/diff-base/evidence.md mit ## PLAN (numerierte Bullets) + Befunden.
+EXKLUSIVES WRITE-SET: scripts/pr-diff-base.py, scripts/test_pr_diff_base.py (und nur falls noetig die betroffenen
+  Assertions in scripts/test_pr_gate_plan.py), der Plan-Job-Abschnitt in .github/workflows/ci.yml.
+  NICHT: scripts/pr-gate-plan.py-Gate-Mappings (andere Lane), product Go code, andere Jobs.
+STOP-KRITERIEN: wenn die Korrektur an der Vertrauenswurzel rührt (wer ist 'authoritative base' — event-Feld vs.
+  aktueller Branch-tip) und die sicherere Variante einen groesseren Umbau braucht -> END_BLOCKED mit beiden
+  Optionen + Begründung, KEIN stilles Aufweichen der Fail-Closed-Prüfung. Kein Gate-Bypass, keine 'unknown
+  impact'-Toleranz. Kein Push auf develop.
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED diff-base: PR=<nr> head=<sha> + tests(3 Faelle, fail-closed bewiesen) PASS | ODER BLOCKED mit Begründung"

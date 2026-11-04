@@ -1,0 +1,41 @@
+LANE: s1258   (Worker-Auftrag, Coordinator f49a3303-e8bb-491b-9e2c-b629783c4e5f)
+MODELL: worker-ornith1.5 (Kanal 'ornith', AMD-295 Desktop)
+
+KONTEXT (CI-Kette v0.4.27, Prioritaet = Kette fertigstellen, KEIN Feature):
+PR #1258 (mcpdev80/baseharbor, base develop 9a93865a) = ci(gh-hosted) Runner-Migration
+(.github/workflows/*: ci.yml, runtime-broker.yml, podman-acceptance.yml, mcp-lifecycle-acceptance,
+nextjs-greenfield-e2e, observability-acceptance, runtime-s3; cmd/baha/openbao*, ci-core-rootless-runtime.sh).
+Head 735acd95 ist BEHIND develop; Checks: docker x2, podman-quadlet, validate, PR Selected Checks = FAIL.
+
+ZIEL: #1258 rebase auf aktuellen develop + die ECHTEN nativen Fehlschlaege beheben, bis die
+hosted Gates gruen sind (GH-hosted, fail-closed, SHA-gebunden).
+
+SCHRITTE:
+1. Reality-Check (4.1/3.5): gh pr view 1258 + ls-remote (develop, head), gh run list der fehlenden
+   Gates, develop=9a93865a bestaetigen. Pruefe, ob develop seit Handoff vorgerueckt ist.
+2. REBASE: eigener isolierter worktree/branch; git merge origin/develop in den #1258-Branch,
+   Konflikte inhaltlich loesen (KEIN Loss der Runner-Migration), `git push --force-with-lease` auf
+   den PR-Branch + ls-remote-Gegencheck (§6.5, KEIN Head-Switch-API).
+3. NATIVE Fehlschlaege DIAGNOSEN + BEHEBEN (genau der gemeldeten Fehler, AGENTS 4.2, kein Umbau):
+   die roten docker/podman/validate-Runs -> run-log file:line, Root-Cause (hosted runner /
+   rootless-runtime-script / workflow-ref), gezielter Fix auf dem Kandidaten. Docker UND Podman
+   Gates PARALLEL re-dispatchen (AGENTS 3.8). Kann-jeder-Check dokumentieren (Auth/PIN/ENV System).
+4. Eigenes-Run-Pflicht (4.6): alle betroffenen hosted Runs bis terminaler Farbe beobachten,
+   Run-IDs + Fehlerzeilen in Evidence.
+
+BEKANNTE GRENZE: #1258 aendert .github/workflows/ci.yml. Falls 'PR Selected Checks' wegen
+coverage-unresolved fuer ci.yml/pr-check-runner blockiert bleibt (derselbe CI-Infra-Bootstrap wie
+#1286): das NICHT mit Gate-Weakening umgehen. Dann END_CODE_READY und den Bootstrap-Hinweis
+(BLOCKED-auf-#1286-PR-A-Register) in der END-Zeile — ich (Coordinator) loese die Qualifizierung.
+
+WRITE-SET (4.3): nur #1258-Branch + seine workflows + cmd/baha/openbao* + ci-core-rootless-runtime.sh.
+NICHT pr-gate-plan.py/Register (logsmap/#1286), NICHT receipt_verifier (integ1285), NICHT #1273 (n1273).
+KEIN Force/Bypass an develop/main, kein Merge durch diese Lane. ZEITKAESTCHEN 90 min -> END_BLOCKED
+mit file:line. Destruktive Runner-Aktion nur nach Drei-Punkte-Pruefung §6.2, sonst Blocker melden.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/s1258/evidence.md — ## PLAN nummeriert +
+## repo-rule compliance; head vor/nach, je Gate Run-ID+Fehlerzeile+Fix, final-Farbe, etwaiger
+Bootstrap-Block. sanitize vor Plan-Kopie (OPS-4), nur gezieltes git add.
+
+HANDOFF letzte Aktion (PFLICHT):
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_CODE_READY|END_BLOCKED s1258: pr=1258 head=<sha> docker=<g|r> podman=<g|r> validate=<g|r> selchecks=<g|r|blocked-on-1286> | <Satz>"

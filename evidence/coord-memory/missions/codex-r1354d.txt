@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde4 (r1354c alle 5 rezepte umgesetzt).
+OBJEKT: branch work/r27-ci-authority-ab head f15a8566 (develop Vorfahr JA; operation_id im journal +
+load stellt running je id wieder; append VOR event/emit; hartes 4MiB-segment-limit mit oversized-
+ablehnung; echter root-guard-test; scope vermerk zitiert — kartenseitig freigegeben 2026-11-03;
+0 geloeschte tests; round-3-terminal-test laut coord-urteil UMGEBAU auf neues design (review-1354c
+befund 1 gewinnt, gleicher funktionsname). PRUEFEN (SHA-genau, read-only): je befund contra-test auf
+dem kopf; pruefe insb. (a) running-restore OHNE lost-effekt auf unknown/crash-faelle, (b) append-
+fehler => 0 events am subscriber, (c) 5MiB-actor => rotation vor write ODER ablehnung, datei<=4MiB
+woertlich geassert, (d) umgebauter round-3-test enthaelt beide wahrheiten (terminal restore + running
+restore). Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp -count=1 -timeout 8m;
+gofmt -l internal/machinehttp leer.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1354d.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1354d: verdict=<X> open=<liste|none> | <Satz>"

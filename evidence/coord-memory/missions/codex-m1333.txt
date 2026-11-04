@@ -1,0 +1,12 @@
+ROLLE: CODEX-MERGE. Coord f49a3303. AUTORISIERT durch review-1333q.md ACCEPT-WITH-DEFERRAL auf
+exakt head f5183ded4b9b306ca4228a527e0c954556705d01 (ACCEPT r1333q auf 337ed4ee + DELTA-ERBE durch review-1333r inherit=JA) (PR #1333, branch work/r27-delivery-boundary,
+base develop, task t-20261018-r27-delivery-boundary).
+SCHRITTE (mechanisch):
+1. VORHER: gh pr view 1333 -R mcpdev80/baseharbor --json headRefOid,state,mergeable — head MUSS
+   337ed4ee... sein, state OPEN, mergeable CLEAN|HAS_HOOKS. Abweichung => nichts tun, END_BLOCKED.
+2. SQUASH-MERGE (Praezedenz m1324: ruleset-Authority). gh pr merge 1333 --squash. Kein --admin,
+   kein force, kein bypass. Blockierte pflicht-checks => abbruch + END_BLOCKED mit check-liste.
+3. NACHWEIS: ls-remote origin refs/heads/develop neue SHA; gh pr view 1333 --json state,mergedAt
+   => MERGED; git diff 337ed4ee origin/develop auf write-set-pfade (docs/decisions/0022*, docs/de/
+   decisions/0022*, internal/deployment*, internal/delivery*) — leer/stichhaltig erklaert.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-m1333: merged=squash develop=<sha> diffproof=ok | <Satz>"

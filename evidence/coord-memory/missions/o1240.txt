@@ -1,0 +1,51 @@
+MISSION o1240 - Resolve PR #1225 coverage via a ONE-TIME AUTHENTICATED NATIVE RUN
+on the self-hosted rootless runners (Owner decision 2026-10-31; NOT a register entry).
+Repo: mcpdev80/baseharbor. Work in your own worktree under the coordinator workers dir
+($BH_WORKTREE_ROOT from coord-env.sh), git via that worktree only.
+Evidence file: write it under coordinator/evidence/board-2026-10-31/o1240.md (durable git),
+AND keep the pane END marker. Do NOT write into the product working tree's evidence/.
+
+STEP 0  Read coordinator/scripts/RUNBOOK-coordination-tick.md, baseharbor-plan AGENTS.md,
+  CODEMAN-START.md, and prior finding coordinator or evidence o1235 notes if present.
+  No invented process; no tag/publish; NEVER weaken a gate; a SKIP is never a PASS.
+
+CONTEXT
+  develop = cb6b7387 (#1233 + #1235 merged: post-run writer now fail-closed).
+  #1225 head 5060cb23 (branch fix/750-ci-gate-qualify) registers 4 resolver IDs in
+    scripts/pr-check-runner.py and +419 job lines in .github/workflows/ci.yml.
+  o1235 found the gate marks .github/workflows/* -> runtime-workflow-unresolved and
+    scripts/pr-*.py -> ci-executor-unresolved, and resolveCoverage needs EITHER a
+    hardcoded register entry (rejected) OR an actually-EXECUTED native gate for the change.
+  Self-hosted rootless runners ONLINE: baha-runner-docker-2, baha-runner-podman-2,
+    baha-k3s-runner-01. Hosted ubuntu has no rootless socket -> do not use it for native.
+
+GOAL
+  Make #1225's coverage resolve by genuinely RUNNING the changed ci.yml native runtime
+  gate on a validated self-hosted rootless runner, capturing authenticated evidence, so
+  "PR Selected Checks" passes without any register hack or gate change.
+
+PLAN (tick in evidence)
+  1. worktree from origin/develop@cb6b7387; confirm via ls-remote. Re-apply the exact #1225
+     5-file diff (verify byte-identical vs 5060cb23). Push branch work/v0.4x-core-750-r1240.
+     Open PR base develop.
+  2. Read .github/workflows/ci.yml: find the native runtime gate job(s) (Targeted runtime /
+     docker / podman) and the runner labels + the trigger that makes them EXECUTE for this
+     candidate (workflow_dispatch with a gate input, or the runtime-validation/** push pattern
+     o265 used). Identify the exact job that, when it really runs, satisfies the executor/
+     workflow coverage classification.
+  3. TRIGGER that native qualification for your candidate so it runs on a SELF-HOSTED rootless
+     runner. Wait to TERMINAL via the API. Prove from the job log that a real docker AND a real
+     podman test EXECUTED with a verified daemon identity (not skipped, not a hosted-socket error).
+  4. Confirm the PR's "PR Selected Checks" now = pass because coverage resolved (re-run the plan/
+     selected-checks job on the same SHA; read its coverage_status from the log). Record run ids.
+  5. If after a genuine native run coverage STILL reports unresolved, that means the classifier
+     has no native-run code path for executor changes -> capture the exact file:line proving it
+     and END BLOCKED as a precise cross-lane finding for the Owner (do NOT add a register entry).
+
+RULES
+  - Only the five #1225 files (ci.yml, podman-acceptance.yml, pr-check-runner.py,
+    pr-gate-plan.py, test_pr_gate_plan.py). No register edits, no gate weakening.
+  - Small tool output (grep/tail, never full logs). Keep the worktree under workers/, not in
+    the product repo working tree.
+  - LAST action (and whenever awaiting input): codeman agent post <coordinator-uuid>
+    "<END_DONE|END_BLOCKED|QUESTION> o1240: <one line + candidate SHA + native run id>".

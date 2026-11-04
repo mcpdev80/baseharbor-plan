@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head e4af28c2 (develop Vorfahr JA; negative regression jetzt errors.Is nur
+targetsession.ErrUnavailable auf save UND load, text/matrix-akzeptanz entfernt, list/owner-faelle mit
+vorhandenem record spezifisch, regressionsprobe FAIL auf dea01b83 belegt) = t-20261018-r27-state-owner.
+RE-REVIEW nach review-1347f rezept 1 (befund 2 baseline ist in r1347f als behoben bestaetigt).
+PRUEFEN (SHA-genau, read-only): 1. assertion-exaktheit: corrupter scope + gueltiger core-owner =>
+ablehnung NUR als ErrUnavailable-Kette; bei OwnerMissing/Foreign waere der test FEHLERHALF gruen —
+pruefe die assertion-logik im test-code direkt. 2. byte-vergleich vor/nach bei save UND load-pfad mit
+vorab gespeichertem record. 3. list/owner tests mit vorhandenem record spezifisch. 4. matrix =>
+ACCEPT-WITH-DEFERRAL wenn sonst alles erfüllt (ID-binding note). Tests: TMPDIR=/tmp go test
+./cmd/baha -run 'TenantScope|Negative|Deployment|Owner|List' -count=1 + ./internal/deployment.
+Urteil -> review-1347g.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347g: verdict=<X> open=<liste|none> | <Satz>"

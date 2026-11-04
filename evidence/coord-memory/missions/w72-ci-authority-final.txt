@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w72). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal final-runde,
+uebernahme der stillgewordenen lane w63; alles zehlt auf branch+evidence).
+
+REALITAETSCHECK ERSTE AKTION:
+1. fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+   "+refs/heads/develop:refs/remotes/origin/develop"
+2. worktree add /tmp/opencode/w72-ci-authority-final-wt work/r27-ci-authority-ab
+3. lies baseharbor-plan/evidence/r27-welle3-2026-11-03/ci-authority/durability-6.md + review-1354e.md
+   (beide sind dein auftrag: 4 rezepte, rot-erst-protokoll). git log develop..HEAD zeigt was w63 schon
+   setzte; 1 hosted FAIL auf 2e01dc3b ansehen (gh pr checks 1354) — vermutlich format oder ein contra-
+   test der noch fehlt.
+4. merge origin/develop fddff70d rc=0 WÖRTLICH in evidence.
+
+ARBEIT: die vier r1354e-rezepte zu ENDE bringen wie in w63-mission beschrieben (active-id-rotation
+ueberlebt, crash=uncertain statt silent pending, sync/close-fehler => err ohne event, root-test produkt-
+konstruktion), JEDES mit rot-auszug VOR fix in der evidence (protokoll: gegentest zuerst). gofmt/vet/build
+gruen; keine bestehende testfunktion loeschen; go test ./internal/machinehttp -count=1 -timeout 8m gruen.
+REGELN PUSHDISZIPLIN (verschärft, gelt für alle lanes): go build ./... + gofmt -l VOR push; merge develop
+als allerdetzter schritt mit rc=0 zeile; push FF; ls-remote==head + cat-file -e im END. PR #1354 ist
+DRAFT — Finger weg vom status.
+Evidence: .../r27-welle3-2026-11-03/ci-authority/durability-7.md.
+END an f49a3303: "END_DONE w72-ci-authority-final: head=<sha> alle4=rot-dann-gruen sync=ja drift-frei lsremote=<10st> | <Satz>"

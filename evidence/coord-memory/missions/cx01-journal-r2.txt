@@ -1,0 +1,42 @@
+ROLLE: CODEX-WORKER (Owner-Direktive 2026-11-04 16:0x: eine Codex-Instanz arbeitet als Worker für schwerere
+Aufgaben und wird normal vom Coordinator eingesetzt). Coord f49a3303.
+Rollengrenze, damit unsere Abnahme sauber bleibt: DU bist hier der AUSFÜHRENDE. Du schreibst KEIN
+Review-Urteil über diese Arbeit und mergst NOTHING; die Abschlussprüfung dieses Kandidaten macht ein anderer
+Kanal (CODEX-REVIEW), und gemergt wird über CODEX-MERGE. Melde wie jede Lane mit END an f49a3303.
+
+KARTE: t-20261018-r27-execution-journal. REPO: baseharbor (core). ZWEIG: work/r27-execution-journal,
+PR #1373, kopf 0ce814d0 — du arbeitest darauf weiter. BASIS: develop ist INZWISCHEN ecbb8854
+(Kandidaten-Vertrag + ausdrücklicher Consent sind gemergt). Letzter-Schritt-Regel: vor jedem push
+origin/develop (ecbb8854) als Vorfahr.
+
+GRUND: Codex review-1373a verdict=REJECT. Akte VOR dem coding vollständig lesen:
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1373a.md. Fünf Rezepte, wortgetreu:
+ (1) internal/machinehttp/store.go: der SEMANTISCHE operations-selektor ist KEIN idempotenz-schlüssel.
+     EIGENE pro-anfrage eindeutige anfragen-identität einführen und ein NICHT-GEHEIMNIS volles
+     anfrage-versprechen (operation, akteur, kontext + sicherer digest der EINGABE) persistieren.
+     Dieselbe anfragen-identität mit ANDEREM versprechen => typisierter fehler VOR append und VOR wirkungen.
+     Rohe eingabe, ergebnisse, fortschritt bleiben DRAUSSEN. Gegenprobe: gleiche id + andere eingabe =>
+     zweite abgewiesen, zeilenzahl unverändert, kein zweiter eintrag. Neue anfrage fuer dieselbe SEMANTISCHE
+     operation mit FRISCHER id muss weiter möglich sein.
+ (2) load() baut den anfragen-index aus dem retained journal WIEDER auf. Dauerhafte scheiben-tests:
+     (a) same-request reconnect nach schliessen/erneut öffnen => gleiche ExecutionID, unveränderte zeilenzahl;
+     (b) changed-content reuse nach reopening => typisierte ablehnung, zeilenzahl gleich, kein zweiter eintrag.
+ (3) im zustendigen request-integration-pfad: duplikat-/reconnect-ausgänge sind von einem NEU akzeptierten lauf
+     UNTERSCHEIDBAR — fuer eine bestehende record KEIN weiteres runExecution, und den typisierten
+     validierungsfehler NICHT als internal verpacken. Eigentümerschaft der späteren journal-wiring-karte
+     respektieren (deren dateien nicht umbauen).
+ (4) REIHENFOLGE-regression: executor-/wirkungs-callback instrumentieren und belegen, dass der versprochene
+     eintrag LESBAR ist, BEVOR die erste wirkung beginnt. Bestehende abdeckung (append-failure/kein event,
+     bounded retention/kein payload) bleibt erhalten.
+ (5) kommentar-/testformulierung "replayed once, never a second time" auf die ECHTE gebundene garantie
+     einschraenken; exactly-once ueber crashes ausdruecklich NICHT behaupten.
+
+AUFGABEN-BEENDUNG: rote-first (1)(2)(4) ZUERST rot auf dem aktuellen kopf zeigen, dann gruen. Danach
+go test ./internal/machinehttp -count=1 -timeout 8m, go build ./..., gofmt, vet; push; ls-remote==head
+WÖRTLICH in die evidence; PR bleibt DRAFT, ich leite um zusammen mit der review. Gehostete checks nicht als
+gruen melden ohne beobachteten terminalen lauf (Eigenes-Run-Pflicht).
+GRENZE: KEIN cmd/baha, KEIN internal/delivery, KEIN .github/workflow, KEINE tests geloescht, KEIN merge,
+KEIN eigenes urteil.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/round-2.md (bullets, keine
+markdown-checkboxen) + ## PLAN als nummerierte liste.
+END an f49a3303: "END_DONE cx01-journal-r2: head=<sha10> r1=<rot->gruen> r2=<index-aus-log> r3=<pfad-unterscheidbar> r4=<reihenfolge-belegt> r5=<wortlaut> lsremote=<sha10> | <Satz>"

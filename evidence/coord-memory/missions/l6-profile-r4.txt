@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane l6-profile-r4). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde 4 zu PR #1324 (task t-20261018-r27-profile-contract). Basis = head 78b851d9.
+
+ZUERST LESEN (Pflicht): baseharbor-plan/evidence/r27-night-2026-11-02/review-1324d.md — es sind NUR
+diese vier Punkte zu schließen (mehr nicht, Reihenfolge so):
+
+1 SCHEMA-LÜCKE: welche Profil-Typen können noch Pflichtfelder leer lassen? (Review: export-Ausnahmen
+  für Typen ohne Export erlaubt weiterhin eine Lücke). Schema-if/then für JEDE der drei Klassen
+  (management-profile, device-enrollment, credential-export) vollständig machen + je Klasse eine
+  schema-Golden-Positive und -Negative, die durch den echten Validator läuft.
+2 ENROLL-BINDUNG (Kern): EnrollDevice-Signatur so ändern, dass sie das PROFIL + installation ID +
+  pinned CA (über Enforcer.ResolveFingerprint — wird jetzt nie aufgerufen) + recipient + expiry als
+  EINGANG braucht und ALLES validiert BEVOR enforcer.Enroll läuft; Reihenfolge umdrehen:
+  validate-then-enroll. Positive + negative (fremde CA, abgelaufen, recipient-Mismatch) Tests.
+3 DOKU: widerspruchsfrei machen — entweder Code erfüllt die bound-anchor-Aussage (dann bleibt sie)
+  oder sie wird in EN+DE auf den Implementationsstand gesetzt (pre-consumption verification nur dort
+  behaupten, was 1+2 jetzt wirklich tun). deferred-Abschnitt bleibt ehrlich.
+4 GOLDEN one-use: enrollment-Wiederverwendung (one-use) durch denselben echten Pfad als Negativ-Golden.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/l6-profile-r4-wt work/r27-profile-contract
+Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build ./... + go vet.
+push (fast-forward), ls-remote als Beweis, KEINE fremden Run-Logs, dann SOFORT END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r4.md (4 Punkte).
+STOP: zwei erfolglose identische Versuche => END_BLOCKED mit einer Logzeile; kein Merge/Release;
+keine CI-Dateien; keine Änderung außerhalb Write-Set.

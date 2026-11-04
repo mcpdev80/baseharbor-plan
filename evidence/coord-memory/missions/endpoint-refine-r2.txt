@@ -1,0 +1,26 @@
+KORREKTURRUNDE endpoint-refine (PR #1245, Branch work/docker-endpoint-context, jetziger head 9aa9db56)
+
+BEWIESEN (Coord, Job 124739230407): dein rootlessCapable-Fix wirkt — der Resolver nimmt jetzt korrekt den
+  System-daemon unix:///var/run/docker.sock (rootful). Der native docker-HA-Lauf scheitert jetzt an EINER Stelle hoeher:
+     runtime_restart_integration_test.go:25: Docker endpoint unix:///var/run/docker.sock is rootful, but Target
+     requires rootless; no engine fallback or automatic migration; explicitly configure docker-mode: rootful ...
+  => Das ist KORREKTES Fail-closed-Verhalten des Resolvers (declarierten Modus erfuellen). NICHT den Resolver lockern.
+     Die Ursache ist das TEST-TARGET, das hart rootless erklaert, obschon auf GH-hosted nur rootful laeuft.
+
+AUFGABE (Scope jetzt erweitert, gleicher Story "native docker green auf GH-hosted"):
+ 1. Schaue runtime_restart_integration_test.go (und welche Target/definition es baut): wo kommt Mode=rootless her?
+    Muster bereits vorhanden: cmd/baha/app_edit_apply_test.go:810 setzt `definition.Runtime.DockerMode = "rootful"`.
+ 2. FIX-RICHTUNG (waehle die korrektteste, begruende):
+    (a) Der HA-Akzeptanz-Target soll dem AKTIV geloesten Engine-Modus folgen (host-aware), statt hart rootless zu
+        erklaeren — damit auf GH-hosted rootful OK ist und auf echten rootless-Hosten weiter rootless geprueft wird.
+        ODER (b) der CI-Target fuer den GH-hosted native job dekklariert docker-mode: rootful (analog #1239 System-daemon).
+    WAehle NICHT: Resolver-Fallback einbauen, der einen rootless-Target still auf rootful umbiegt (verwaessert Fail-closed).
+ 3. Pruefe, ob weitere native docker-HA Tests dasselbe hart-codierte rootless annehmen und auf GH-hosted dadurch rot
+    wuerden — Liste sie; same host-aware treatment wo noetig (nur die, die im GH-hosted native-Pfad laufen).
+ 4. go build ./... + go test ./cmd/baha -run '<die betroffenen>' + go test ./internal/runtime. Commit auf
+    work/docker-endpoint-context, push. KEIN ci.yml-Duplikat zu #1239 bauen; wenn der Fix rein im Test liegt, prima.
+ 5. ENTSCHEIDENDER NACHWEIS: kombinierter Kandidat = develop(437358e4) + #1245(aktuell) + #1239(486abbca). Push als
+    refs/heads/runtime-validation/ha/control-plane/docker/int0427 und 'Targeted HA · docker' auf GH-hosted bis
+    terminal beobachten -> MUSS jetzt GRUEN sein. Run-ID + Job-Status in Evidence. Wenn GRUEN: Docker-Knoten bewiesen.
+EVIDENCE: baseharbor-plan/evidence/board-2026-10-31/endpoint-refine/ (CORRECTION-2.md)
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE endpoint-refine: #1245 <SHA> + Test/host-aware-Fix + nativer docker-HA Run <ID> = GRUEN|ROT(+Zeile) + weitere rootless-harte Tests: <liste>"

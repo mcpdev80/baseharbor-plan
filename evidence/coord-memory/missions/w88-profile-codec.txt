@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w88). Coord f49a3303. KARTE: t-20261018-r27-profile-codec — CLAIM GESETZT UND PUBLSHT
+(owner coord-welle4 lane w88). VOLLSTAENDIG: python3 baseharbor-plan/scripts/plan.py show + card sections
+(outcome/inputs/ownership/required checks/standards boundary) + baseharbor/AGENTS.md.
+PRODUKTZIEL: import/export von verbindungs-metadaten OHNE ferne geheimnisse per default, mit version/
+trust/installation/scope-pruefung VOR jeglichem write, transaktionaler import, explizite konflikt-
+behandlung. WRITE-SET: bounded connection/profile codec/store + component tests; KEINE CLI-registrierung.
+ARBEITSWEISE: isolierter zweig work/r27-profile-codec ab develop 3d08ef72 (aktuelle basis, access-merge
+enthaltet); worktree /tmp/opencode/w88-profile-wt; rote-first tests VOR implementierung (import mit
+falscher version/trust/scope => KEIN write; export traegt keine secrets; konflikt => explizite entscheidung,
+kein silent overwrite); kleinste passende gates (build/vet/gofmt + fokussierte paket-tests); KEIN push auf
+develop, PR DRAFT, branch-push ohne CI-hoffnung ist ok (CI folgt beim ready-schalten durch coord).
+BASIS-PFLICHT LETZTER SCHRITT: vor finale push origin/develop als Vorfahr pruefen, sonst merge (rc=0).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/slice-1.md (## PLAN checkliste als
+BULLETS — keine checkboxen, keine dateien im produktrepo fuer evidence).
+END an f49a3303: "END_DONE w88-profile-codec: head=<sha10> pr=<n> tests=<pakete> rotfirst=belegt lsremote=<sha10> | <Satz>"

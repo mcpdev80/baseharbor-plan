@@ -1,0 +1,28 @@
+MISSION fix-engine-detect — Produktfix: Engine-Erkennung runtime-neutral (docker vs podman)
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/fix-engine-detect
+Branch work/fix-engine-detect (startet von develop cb6b7387). Kein neues Worktree, nur GitHub-Actions-CI (kein Homelab).
+
+PRODUKTLUCKE (von gh-acc-suite aufgedeckt, PR #1238 Step 10): BaseHarbor verwendet eine DEDIZIERT docker-spezifische
+Engine-Inspektion, auch wenn das Target-Tatsächlich podman ist -> bei docker-only Control-Plane + podman-only
+Acceptance (und vice versa) wird das Backend falsch erkannt/schlägt fehl.
+
+EXKLUSIVES WRITE-SET: cmd/baha/docker_engine.go (inspectTargetDockerEngine, ~Z127), und die Aufrufer, wenn noetig:
+  cmd/baha/app_doctor_collect.go, cmd/baha/app_status_collect.go, cmd/baha/control_plane_operations.go, cmd/baha/target.go
+  (+ deren *_test.go). NICHT: .github/workflows/*, scripts/ci-core-rootless-runtime.sh (CI-Lanes), internal/.../stack.go
+  oder openbao_runtime_prepare.go (openbao-Lane #1240). Keine Kollision.
+
+ZIEL: eine runtime-neutrale Engine-Erkennung — baha erkennt das Laufzeit-Backend am aufgelösten Target (docker ODER
+podman), statt hart nur nach docker zu schauen. Akzeptanz:
+  - docker-Target -> Docker-Engine-Beobachtung wie bisher.
+  - podman-Target -> korrekte podman-Engine-Beobachtung (nicht nil/"docker-only"-Versagen).
+  - existierende docker-Tests bleiben grün (keine Regression), neuer/angepasster Test deckt podman-Pfad ab.
+Qualitaet: echter Fix, kein Überspringen von Inspektion, kein Fake-Grün.
+
+TESTS: `go build ./... && go vet ./...` + `go test ./cmd/baha/...` (Unit). Echte GH-hosted-Integration (podman
+acceptance Step10) validiert spaeter im PR — Ziel ist, dass sie NICHT mehr an der docker-only-Inspektion scheitert.
+Eigenes-Run-Pflicht: PR-Push, gehosteten Run beobachten.
+
+EVIDENCE (absolut, kein '- [ ]'-Checkbox): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/fix-engine-detect/
+  Plan, diff, vor/nach Engine-Erkennung, Run-id. Plan-Repo NICHT selbst pushen.
+HANDOFF letzte Aktion: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY|END_BLOCKED fix-engine-detect: <SHA + PR# + Podman-Step10 status>".
+STOP: wenn der Fix echte Podman-Runtime-Native-Aufrufe braucht, die GH-hosted nicht kann -> END_BLOCKED mit Begründung.

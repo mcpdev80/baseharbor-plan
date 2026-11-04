@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w54). Coord f49a3303. KARTE: t-20261022-r27-ci-access. PR #1357, basis head
+8e410e12 branch work/r27-ci-access-ab. Grundlage: review-1357c — NUR zwei schmale punkte, alles andere
+ist bereits belegt (7er restore OK, RequireAndVerifyClientCert OK, gofmt/hosted OK) — NICHTS umbauen.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry WÖRTLICH in evidence; worktree add
+/tmp/opencode/w54-ci-access-d-wt work/r27-ci-access-ab.
+
+PUNKT 1 — HANDLER-FLAG FÜR ALLE NEGATIVES: jeder einzelne handshake-negative fall (selfsigned,
+fremde CA, defekter key, falsche server-CA, UND der missing-cert fall) behauptet nach dem fehler
+HandlerReached==false. currently nur einer tut das — rest nachziehen, muster existiert bereits.
+PUNKT 2 — FEHLERURSACHE: jeder negative test asserted, dass der error eine TLS/handshake/verification
+ursache hat (errors.Is/As auf x509/tls alert oder enthalt 'tls'/'x509'/'certificate'), nicht nur
+"irgendein error". missing-cert fall: client OHNE eigenes zertifikat bauen (bisher nutzt er eines —
+das ist der gemeldete fehler), server muss wegen RequireAndVerifyClientCert ablehnen.
+
+REGELN: write-set internal/runtimeexecutor/client_test.go nur; keine bestehende testfunktion
+entfernen/umbenennen (diff '^-func Test' == leer, WÖRTLICH in evidence); gofmt -l leer; merge develop
+bei drift rc=0; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 gruen;
+go build ./...; push FF; ls-remote==head; PR-STATUS nicht anfassen.
+EIGENES-RUN: nach push gh pr checks 1357 --watch bis terminal grün (run-id in evidence).
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-4.md.
+END an f49a3303: "END_DONE w54-ci-access-d: head=<sha> flags=alle5+missing uersache=asserted hosted=green(<id>) | <Satz>"

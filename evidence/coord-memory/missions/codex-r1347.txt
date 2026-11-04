@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head cdfc75bf (base develop, develop Vorfahr, STACKED-note im body) =
+t-20261018-r27-state-owner ("bind deployment load to installation owner"), ERSTE Review dieser Karte.
+KONTEXT: enthalte Commits 15fe7762 (transplantat von konserviertem f3377d94) + cdfc75bf
+(seam-regression fixes: tenant-skip + empty fixtures). Karte hat Vorabhaengigkeit
+t-20261018-r27-authority-contract (#1326, in review) — INHALT ist aber eigenstaendig pruefbar;
+die stacked grenze nur als Klausel dokumentieren, nicht als auto-reject.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs; ls-remote Zeuge):
+1. Load-Pfad einer Bereitstellung liest/prueft den installation owner AN der produktionsgrenze
+   (deployment_store.go + cmd/baha glue laut dateiliste); positive + negative tests (fremder owner,
+   fehlender eintrag, mehraendige binding aenderung) laufen den ECHTEN pfad, nicht nur helper.
+2. Write-set-treue gegen karte + previous kontamination (cmd/baha deployment_record/target_test_helpers
+   sind hier HEIMATH — pruefe sie auf vertragslogik, nicht als fremd; der massstab ist DIESE karte).
+3. tenant-skip + empty-fixture aenderungen in cdfc75bf: behebungen echter testbrueche (develop-basis
+   drift) oder stillschweigende abschwächungen? Jede skipped/empty assertion begruendet?
+4. EN/DE doku der karte (falls im diff) + ADR 0021 relation.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1347.md (ROLLE: REVIEW,
+ACCEPT|ACCEPT-WITH-CLAUSE|REJECT + rezept/deferral-klausel). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347: verdict=<X> open=<liste|none> | <Satz>"

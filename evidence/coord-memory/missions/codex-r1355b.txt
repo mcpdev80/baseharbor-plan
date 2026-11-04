@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde2.
+OBJEKT: PR #1355 head e093df21 (2e92832b + leaf=callable in internal/delivery, schema gehaertet,
+7 negativ + 4 targeted tests ueb echten go-aufruf, migration blocked-formel EN+DE; develop Vorfahr JA).
+PRUEFEN (SHA-genau, read-only): 1. leaf ist echter produkt-aufruf (keine schema-inseleigene validierung);
+genau-eine source|image, acknowledged=true PFLICHT, pinned-or-digest regel; je negativfall test ueb
+go-pfad. 2. spec EN+DE migrations-blockade-formel + links. 3. matrix karte t-20261018-r27-candidate-
+contract => ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT. Tests: go test ./internal/delivery ./contracts -count=1.
+Urteil -> review-1355b.md. KEIN Merge, keine run-logs, KEINE compose-/sandbox-timer experimente — wenn
+ein lauf >90s braucht: paket auf betroffene -run filtern und im urteil vermerken.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355b: verdict=<X> open=<liste|none> | <Satz>"

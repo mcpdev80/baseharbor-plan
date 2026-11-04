@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w96). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment — PRODUKTIONS-PFAD-RUNDE
+(Luna review-1364a REJECT 1 rezept — vollstaendig lesen, es ist ausfuehrlich). Branch work/r27-workstation-
+enrollment head 2a4df949, PR #1364. Kern-des-rezepts: der slice ist ein isolierter prototype; vertrag
+verlangt callbaren produktionspfad: (1) HTTP-handler am BESTEHENDEN authentisierten management-einstieg
+registrieren; installation/station NIE aus dem request autorisieren — source = die dort hinterlegte
+installations-policy/owner. (2) akzeptierte authority/registry-Schnittstelle im produktionspfad verdrahten;
+(3) dauerhafter store (kein memory-only) der one-use grant + consume fail-closed über processneustart haelt;
+(4) genehmigter registry-owner persistiert reichweite/issue-zeit/separate workstation-identitaet als FAKT.
+GRENZE: targetenrollment-dateien + fremde register NICHT editieren; braucht es ein weiteres write-set:
+END_BLOCKED mit der DATEI und grund, nicht still erweitern. ALLE bisherigen tests bleiben gruen; NEUE
+faelle am ECHTEN pfad (httptest nur als zusatz): zweiter gebrauch=>abweisung registriert; Neustart-szenario
+(store neu geoeffnet)=>grant nicht nochmal loesbar; scope aus policy, nicht aus request. Rot-first je fall.
+basis develop f8ef4255 Vorfahr; build/vet/gofmt + pakettests; push; ls-remote==head. Evidence:
+evidence/r27-welle4-2026-11-04/device-enrollment/production-1.md (bullets).
+END: "END_DONE w96-enroll-prod: head=<sha10> route=management-policy store=dauerhaft faelle=3+3 lsremote=<sha10> | <Satz>"

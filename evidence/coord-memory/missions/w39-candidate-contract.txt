@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w39). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract — LIES die Karte
+VOLLSTAENDIG (outcome/inputs/file-ownership/checks/standards-boundary sind der vertrag).
+repos: mcpdev80/baseharbor.
+ERSTE AKTION: fetch origin "+refs/heads/develop:refs/remotes/origin/develop"; worktree
+/tmp/opencode/w39-candidate-wt branch work/r27-candidate-contract ab develop (1706272c+).
+KERN: minimale normative definierung der unveraenderlichen source-/image-submission (app/target/consent
+binding um existierende git-revisionen/OCI-artefakte/native compose/quadlet) IN product spec EN +
+DE-gegenstueck, mit input-/negative-fixtures (malformed/digest/path/secret-reference) und den
+bestehenden trusted contract/docs/package checks. KEINE neue engine, keine CI-dateien, keine privaten
+repository-formate (standards-boundary der karte).
+PFLICHTREGELN: write-set = docs/spec + docs/de/spec + zugeordnete fixtures unter contracts/ oder wie
+karte benennt; grep .github/scripts leer; merge develop bei drift + ancestry rc=0 ls-remote-SHA;
+TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go build ./... + betroffene contract/docs tests; PR DRAFT auf
+eigenem branch; ls-remote==head.
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/candidate-contract/fix-1.md (plain bullets).
+END an f49a3303. STOP: wenn karte produkt-code-eingriff verlangt der ueber "minimal existing internal/
+delivery/application inputs" hinausgeht => END_BLOCKED mit stelle (entscheidet coordinator/karte).

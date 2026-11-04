@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 4e8e67d8 (develop Vorfahr, 9 dateien, 0 CI/scripts/cmd) = t-20261018-r27-delivery-boundary.
+RE-REVIEW nach review-1333e.md — NUR dessen PUNKTE 1 (preferences-lost) + 3 (conflict-semantik/doku)
+wurden bearbeitet; PUNKT 2 war schon erfüllt, PUNKT 4 write-set ist bestätigt sauber.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs):
+1. Exakter reviewer-repro jetzt als kandidat-test: seed nonempty preferences, save mit nil, reload
+   => identical; explicit-empty [] ersetzt; invalid input unveraendert; forged-owner-fall bleibt zu.
+   Serialisierung und retention treffen DENSSELBEN final record.
+2. Observed.Conflict: caller-wert wird VERWORFEN (nur previous/store-eigene zaehlt), test beworst
+   caller-conflict=true + previous=false => keine ablehnung allein daraus; comments = verhalten.
+3. EN/DE: keine apply/observation-verweigerungs-behauptung mehr ausserhalb record-save umfangs;
+   deferred-text nennt state-owner + authority karten; DE negationen.
+4. go test ./internal/deployment ./internal/delivery im isolierten archiv.
+Urteil -> review-1333e2.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT + rezept). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333e2: verdict=<X> | <Satz>"

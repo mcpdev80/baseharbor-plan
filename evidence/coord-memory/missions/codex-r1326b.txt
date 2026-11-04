@@ -1,0 +1,20 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1326 head 9dcf8742 (base develop; Basis-Linie enthaelt fruehere authority-Commits,
+Diff = 19 Dateien, alle im Karten-Write-Set + autorisierte serviceaccess-Glue-Dateien laut
+Karten-Sektion "Coordinator ownership decision").
+KONTEXT: review-1326.md REJECT (5 Befunde). Lane meldet: B5 lock-paritaet + regression tests (284e0bd4);
+B1-B3 verdrahtet mit echtem serviceaccess.Issuer (identity/liveness/freshness per IssuedCertificate);
+B4 target-access/control-plane-Doku DEFERRED mit Begruendung (gleiche Dateien werden in #1324
+credential-access-Faltung geaendert — Kollisionsvermeidung, Coordinator-Anweisung).
+PRUEFEN (SHA-genau, read-only, KEINE CI-Run-Logs — nur ls-remote/PR-head-Zeuge):
+1. Rollen-Befunde (AuthoritativeConnection/VerifyConnectionIdentity/AssertStateIsGenuineInstallation):
+   echte Konsumenten + production selection tests (valid/foreign/missing), kein mutating Revoke-Pseudo.
+2. Freshness: now<=ExpiresAt fail-closed (zero/future) mit echtem observation source.
+3. Lock-paritaet: directory-type/private-permissions/empty-root Regression je Aufrufer inkl. windows-Variante
+   (compile-only ok), stableid leaf acyclic (go list -deps rc=0).
+4. serviceaccess-Glue (authority.go/authority_errors.go): minimal, read-only gegen Issuer, keine
+   Seitenefekte; Write-Set-Grenze der Karten-Note gewahrt.
+5. Doku: 0021 DE/EN Paritaet + index; B4-deferral AKZEPTABEL als offene Klausel wenn belegen, dass
+   target-access/control-plane-Inhalt unangetastet bleibt (kein Halbsatz-Widerspruch zu 1324-claims).
+Urteil -> review-1326b.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-CLAUSE|REJECT + Rezept). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326b: verdict=<X> open=<liste|none> | <Satz>"

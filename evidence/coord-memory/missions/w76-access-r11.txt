@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w76). Coord f49a3303. KARTE: t-20261022-r27-ci-access (korrektur-runde 11).
+Branch work/r27-ci-access-ab head 6d806c2e (basis develop 2cadfcee AKTUELL; gate geheilt, 13 pass/0 fail).
+Luna-REJECT review-1357j.md — HAUPTBEFUND: die 12er-universum-matrix fuehrt KEINEN echten Execute-Aufruf und
+nur 4 Check-Aufrufe; die Miswire-mutation wurde ROT => tests pruefen routing nicht wirklich.
+REZEPT (client_test.go:1267, volstaendig in der review-akte lesen): explizite sechs Fall-Fixtures, JE
+matrix-zeile fuehrt den ECHTEN aufruf (check- und execute-pfad getrennt, 12 echte aufrufe), nach jedem
+aufruf beide unabhaengigen nachweise (route-beobachtung + zustands-wirkung) — eine vertauschte route muss
+DANN zwingend rot werden (miswire-KONTRA-KONTROLLE in deiner evidence dokumentieren: kurz vertauschen -> rot
+-> zurueck -> gruen). handler.go bleibt diff-leer gegen develop (produktcode unveraendert, nur tests).
+N==M zaehlung der matrix-zeilen beibehalten. 0 geloeschte tests. gofmt leer; GOCACHE=/tmp/opencode/gc
+TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m.
+BASIS: letzten stand develop als Vorfahr pruefen (fetch; merge-base --is-ancestor rc=0; sonst merge VOR push).
+push; ls-remote==head; PR #1357 checks TERMINAL beobachten (eigenes-run). Evidence:
+baseharbor-plan/evidence/r27-welle3-2026-11-03/ci-access/qualify-11.md (neu).
+END: "END_DONE w76-access-r11: head=<sha10> aufrufe=12x echt miswire=rot-belegt handlerdiff=0 lsremote=<sha10> | <Satz>"

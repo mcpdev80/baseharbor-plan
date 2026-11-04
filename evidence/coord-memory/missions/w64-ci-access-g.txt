@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w64). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 7, zwei mikro-punkte).
+PR #1357, branch work/r27-ci-access-ab, basis head 090295ea. review-1357f: mutation-control ANERKANNT,
+scope CLEAN (nur client_test.go + handler.go im diff). Es fehlen nur:
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w64-ci-access-g-wt work/r27-ci-access-ab.
+
+PUNKT 1 — INNER-TYP: assertTLSHandshakeCause prueft bei *net.OpError mit Op=="remote error" ZUSAETZLICH
+den INNEREN Err auf TLS-/x509-tauglichkeit (errors.As auf tls.AlertError/x509-Fehler ODER tls.RecordHeaderError
+usw. — musterbild: standard-library typen), nicht nur die Op-zeichenkette. gegentest wie reviewer:
+&net.OpError{Op:"remote error",Err:errors.New("not a TLS error")} MUSS reject (test mit dieser fake-injection).
+PUNKT 2 — ZWEI READY-FLAGS: die zwei Ready-tests ohne reach-flag (review nennt stellen im test-koerper
+ohne readyReached-behauptung) auf beide-recorder-muster bringen (ready+execute ==false bei negativ,
+==true bei positiv).
+
+REGELN: write-set NUR internal/runtimeexecutor/{client_test.go,handler.go}; keine bestehende testfunktion
+loeschen (diff '^-func Test' leer WÖRTLICH); gofmt leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/runtimeexecutor -count=1 -timeout 8m gruen; merge develop drift rc=0; push FF; ls-remote==head.
+EIGENES-RUN: gh pr checks 1357 --watch bis terminal (run-id woertlich).
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-7.md.
+END an f49a3303: "END_DONE w64-ci-access-g: head=<sha> inner-typ=ja ready-flags=beide hosted=green(<id>) | <Satz>"

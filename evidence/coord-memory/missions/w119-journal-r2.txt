@@ -1,0 +1,30 @@
+ROLLE: Worker (Lane w119). Coord f49a3303. KARTE: t-20261018-r27-execution-journal. REPO: baseharbor (core),
+zweig work/r27-execution-journal, PR #1373, kopf 0ce814d0 (basis develop 2a43984a — du arbeitest darauf weiter).
+Luna review-1373a REJECT. Akte VOR dem coding vollstaendig lesen:
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1373a.md. Vier rezepte, wortgetreu umgesetzt:
+(1) internal/machinehttp/store.go: der SEMANTISCHE operations-selektor ist KEIN idempotenz-schluessel.
+    EIGENE pro-anfrage eindeutige operations-identitaet einfuehren und ein NICHT-GEHEIMNIS volles
+    anfrage-versprechen (operation, akteur, kontext + sicherer digest der EINGABE) persistieren. Wiederverwendung
+    derselben anfragen-identitaet mit ANDEREM versprechen => typisierter fehler VOR append und VOR wirkungen.
+    Rohe eingabe, ergebnisse und fortschritt bleiben DRAUSSEN im journal.
+    Gegenprobe: zwei aufrufe gleicher anfragen-id, verschiedene eingabe => zweite abgewiesen, zeilenzahl gleich,
+    KEIN zweiter eintrag. Und: neue anfrage fuer dieselbe SEMANTISCHE operation mit FRISCHER anfragen-id muss
+    weiter.moeglich sein (nicht blockiert!).
+(2) load() muss den operations-index aus dem retained journal AUFBAUEN. Dauerhafte scheiben-tests:
+    (a) same-request reconnect NACH oeffnen/schliessen/oeffnen => gleiche ExecutionID, UNVERAENDERTE zeilenanzahl;
+    (b) changed-content reuse nach reopening => typische ablehnung, zeilenanzahl gleich, kein zweiter eintrag.
+(3) der zustendige request-integration-pfad: duplikat-/reconnect-ausgabem sind von einem NEU akzeptierten lauf
+    UNTERSCHEIDBAR — fuer eine bestehende record KEIN weiteres runExecution starten, und den typisierten
+    validierungsfehler NICHT als internal verpacken. Dabei die eigentümerschaft der spaeteren
+    journal-wiring-karte respektieren (nicht deren dateien umbauen).
+(4) REIHENFOLGE-regression: executor-/wirkungs-callback instrumentieren und belegen, dass der versprochene
+    journal-eintrag LESBAR/geoeffnet ist, BEVOR die erste wirkung beginnt. Bestehende abdeckung
+    (append-failure/kein event, bounded retention/kein payload) bleibt unveraendert.
+(5) Kommentar-/testformulierung "replayed once, never a second time" auf die ECHTE gebundene garantien
+    einschraenken; exactly-once ueber crashes ausdruecklich NICHT behaupten.
+BASIS/PFLICHT: letzter schritt merge origin/develop; go test ./internal/machinehttp -count=1 -timeout 8m,
+go build ./..., gofmt, vet; push; ls-remote==head WÖRTLICH in die evidence; PR bleibt DRAFT bis coord umleitet;
+gehostete checks NICHT als gruen melden ohne beobachteten terminalen lauf.
+GRENZE: KEIN cmd/baha, KEIN internal/delivery, KEIN .github/workflow, KEINE tests geloescht.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/round-2.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w119-journal-r2: head=<sha10> r1=requestidentitaet r2=index-aus-log r3=pfad-unterscheidbar r4=reihenfolge-belegt r5=wortlaut lsremote=<sha10> | <Satz>"

@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 78b851d9 (base develop) = t-20261018-r27-profile-contract — r3-Kopf nach
+review-1324c.md REJECT (schema offen, goldens partial, entry binding, docs).
+KANDIDATEN-HISTORIE: 6fdc44e1 (l4: wire/goldens/trust) + 2df98874 (kind-konditional schema + real-path
+negatives) + cad8eaa7 (EnrollDevice an develop CSRIssuer/hosttrust/enrollment gebunden) + 78b851d9
+(EN/DE deferred-interfaces Abschnitt + ehrliche production-binding claims).
+PRUEFEN (SHA-genau, read-only, KEINE CI-Run-Logs):
+1. Schema: kind-conditional required/forbidden real (if/then/allOf) + jede Klasse hat Positiv- UND
+   Negativtest (missing export, plaintext durable, invalid algorithm, repeated enrollment, import
+   grant/plugin/redirect ALS VERHALTEN).
+2. Entry cad8eaa7: EnrollDevice prueft jetzt installation/trust/expiry UEBER AKZEPTIERTE develop-
+   Interfaces (CSRIssuer, hosttrust, enrollment store) VOR Effekt; negative foreign-CA/expired tests
+   laufen denselben Weg. Wenn nur teilweise: welchen Schritt verweigert welche fehlende Akzeptanz?
+3. Deferred-Abschnitt EN+DE: benennt EHRLICH was offen bleibt (kein Behavior-Overclaim); DE-Negationen.
+4. connection-profile-Abgrenzung: same-CA sha256-Bindung behauptet ODER implementiert? Behauptung ohne
+   Test = Befund.
+5. Goldens durch echten Pfad + fingerprint-Bindung (restliche Luecke aus 1324c Abs.2).
+Urteil -> review-1324d.md (ACCEPT|REJECT + Rezept/deferred-Klausel). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324d: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane l7-profile-r5). Coord f49a3303. MIKRO-AUFGABE: letzte zwei offene Klauseln zu PR #1324 (task t-20261018-r27-profile-contract). Basis = head ead09bc7.
+
+ZUERST LESEN: baseharbor-plan/evidence/r27-night-2026-11-02/review-1324e.md — NUR die als OPEN
+markierten Punkte abarbeiten (Acceptance-Matrix), alles andere ist bereits erfüllt/belegt.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C baseharbor worktree add /tmp/opencode/l7-profile-r5-wt work/r27-profile-contract
+Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+PFLICHTSCHRITTE (genau die OPEN-Zeilen des Reviews, minimal halten):
+1 SCHEMA-KONSISTENZ: export auf den anderen Klassen auch im SCHEMA forbidden (if/then je kind);
+   session-only/durable storage Widersprüche je kind ausschliessen; algorithm/nonce auf den
+   real unterstuetzten Wertebind (aus dem Go-Code-Registry, nicht frei).
+2 ENROLL-EINGANG: EnrollDevice verlangt ausd uecklich Kind=device-enrollment (aktuell: jeder
+   vom Helper akzeptierte Kind darf durch) + Test der das erzwingt.
+3 Reviews Satz "test named schema-forbidden tests an invalid algorithm" — Benennung/Testzweck
+   richten: eigener Fall "valider export auf verbotener kind" schema-FAILT.
+4 trust/expiry Klausel des Reviews (compar...-Abschnitt): offene compare-Luecke laut Wortlaut
+   des Reviews schliessen (SHA-genau lesen, nicht raten).
+
+ANSENDE-PFLICHT (Regel, gilt IMMER): vor dem END: git fetch origin develop && git merge origin/develop
+und Nachweis git diff --name-only origin/develop...HEAD | grep -E '^(\\.github|scripts/)' — MUSS leer.
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build ./... + go vet.
+push, ls-remote, KEINE Run-Logs, END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r5.md.
+STOP: zwei erfolglose identische Versuche => END_BLOCKED; kein Merge; keine CI-/scripts-/cmd-Dateien.

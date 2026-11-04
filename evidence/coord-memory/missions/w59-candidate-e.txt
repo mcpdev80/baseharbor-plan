@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w59). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract (runde 5).
+PR #1355 (READY), branch work/r27-candidate-contract, basis head 3b0fd03d. Grundlage: review-1355d.md
+befunde 1-3 + 4. SCOPE IST ERLEDIGT: kart_vermerk 'Coordinator-Scope-Vermerk 2026-11-03' publiziert —
+cmd/baha consumer + internal/deployment Consent-feld + index-zeilen sind ausdruecklich freigegeben;
+ZITIERE den vermerk in deiner evidence (befund 4 ist damit nur noch link-pflichtig, s.u.).
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-candidate-contract:refs/remotes/origin/work/r27-candidate-contract"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w59-candidate-e-wt work/r27-candidate-contract.
+
+PUNKT 1 — DIGEST-WIRKLICH VERGLEICHEN (app_candidate_consent.go finalizeCandidateConsent): der
+operator-raw-digest darf NICHT durch den selbst-errechneten ersetzt werden; stattdessen:
+errechnen, DANN harten gleichheitsvergleich raw==errechnet (abweichung => err, kein write, keine
+still-silent-substitution). Gegen-test: beliebig-falscher 64-hex => apply lehnt ab, state unveraendert.
+PUNKT 2 — PROMPT ZEIGT WAS SPÄTER GEBUNDEN WIRD: promptConfirmCandidateSubmission muss exakt den
+canonical digest anzeigen, den der write bindet ( gleicher berechnungs-pfad, keine zwei quellen);
+nil-record-fall: zuerst berechnen, dann anzeigen, dann vergleichen. Test: angezeigter == gebundener.
+PUNKT 3 — SCHEMA==GO SCHARF: published schema: source.revision pattern ^[0-9a-f]{40}$|^[0-9a-f]{64}$|
+^[a-z0-9]+:[0-9a-f]{32,}$ (main => schema-invalid, gegentest); testmapper mit json.Decoder
+DisallowUnknownFields (unbekanntes feld => err); COMMON vector set (eine datei, beide validierer
+darueber). Source+Image-both fixture auf ECHTEN fall: traversal '../', symlink-art, byte-limit;
+SecretRef gegen das bestehende secret-owner-feld (grep, kein unknown-key-test).
+PUNKT 4 — LINKS: decision-verweise in EN+DE zeigen auf baseharbor-plan repo-pfad decisions/<datei>.md
+(ORDNER PRUEFEN via ls baseharbor-plan/decisions/ — echte ziel-datei name notieren, kein docs/ praefix).
+CI-PUNKT: der 90s-cli-sammellauf ist reviewer-seitig — du laeuft nur -run gefiltert (mission unten).
+
+REGELN: keine bestehende testfunktion loeschen (diff '^-func Test' leer WÖRTLICH); gofmt/vet leer;
+GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./internal/delivery ./internal/application
+./contracts -count=1 -timeout 8m gruen + go test ./cmd/baha -run 'Candidate|Consent|Apply' -count=1;
+merge develop bei drift rc=0; push FF; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/candidate-contract/fix-5.md (je punkt: datei:stelle + testname).
+END an f49a3303: "END_DONE w59-candidate-e: head=<sha> digest=hart prompt=bindend schema=scharf links=echte-pfade | <Satz>"
+STOP: punkt 2 zeigt dass zwei verschiedene hash-pfade im produkt existieren (workspace fingerprint !=
+submission digest) => END_BLOCKED mit beiden compute-stellen, NICHT still eine Seite umbauen.

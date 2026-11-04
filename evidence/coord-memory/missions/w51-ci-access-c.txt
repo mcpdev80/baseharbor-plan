@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w51). Coord f49a3303. KARTE: t-20261022-r27-ci-access. PR #1357, basis head
+067274a1 branch work/r27-ci-access-ab. Grundlage: review-1357b.md rezepte 1+2+3. DU MUSTE auch die
+gelöschten tests deiner eigenen vortaufe wiederholen — deletion-regel ist jetzt PFLICHT.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w51-ci-access-c-wt work/r27-ci-access-ab.
+
+PUNKT 1 — GELÖSCHTE TESTS ZURÜCK (195886cc..067274a1 hatte 7 tests entfernt): hole
+TestNewClientRequiresHTTPS, TestNewClientRejectsEmptyURL, TestNewClientRejectsUnparseableURL,
+TestNewClientRejectsMissingCA, TestCheckReadinessRejectsNon200, TestExecuteRoundTrip* (vollständige liste
+via git show 195886cc:internal/runtimeexecutor/client_test.go) und füge sie UNVERÄNDERT wieder ein —
+deine neuen handshake-tests bleiben daneben stehen. END-liste: alle testnamen alt+neu, keine fehlenden.
+PUNKT 2 — HANDLER-NICHTAUFRUF: jeder negative handshake-fall setzt einen handler-reached-flag (atom bool)
+und der test BEHAUPTET flag==false — abweisung darf den handler nie erreichen.
+PUNKT 3 — GOFMT: gofmt -l internal/runtimeexecutor muss leer sein (source-format-check war FAIL 41635298972).
+
+REGELN: write-set internal/runtimeexecutor/** nur; .github/scripts grep-leer; merge develop bei drift
+rc=0 ls-remote (ancestry-ausgabe WÖRTLICH in evidence); GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build
+./... + go test ./internal/runtimeexecutor -count=1 gruen; push FF; ls-remote==head.
+EIGENES-RUN-PFLICHT: nach push den PR-run 41635… auf github beobachten (gh pr checks 1357 --watch oder
+äquivalent) bis ALLE betroffenen checks terminal grün — run-id+status in evidence; PR-STATUS nicht anfassen.
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-3.md (plain bullets).
+END an f49a3303: "END_DONE w51-ci-access-c: head=<sha> restored=7of7 handler-flag=ja gofmt=leer hosted=green(<run-id>) | <Satz>"

@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane w70). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 10).
+PR #1357, branch work/r27-ci-access-ab, basis head e9c9e826. Mission-QUERLIEFERUNG: das strukturierte
+REZEPT aus baseharbor-plan/evidence/r27-night-2026-11-02/review-1357i.md (lies es VOR jeder aenderung
+vollstaendig; die drei zeilen sind verbindlich, hier nur kurzfassung):
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ls-remote==e9c9e826 woertlich + cat-file -e dein head
+nach push; worktree add /tmp/opencode/w70-ci-access-j-wt work/r27-ci-access-ab.
+
+BEFUND-1 (client_test.go:611-1107): 12-zeilen matrix {check,execute}x{6 fehlermaterialien} VOLLSTAENDIG;
+jede zeile: beide routen-flag asserts; readyz NACH execute NEU ablesen (kein cache-alias). Stopregel:
+zeile die ladefehler mit handshake-verweigerung vermischt => END_BLOCKED mit zeile.
+BEFUND-2 (client_test.go:798-837,994-1065): kaputter-key-fixture und defektes-ZERTIFIKAT sind ZWEI
+faelle — je eigener test mit eigener ursachen-behauptung (cert-bytes muell => cert-ursache, schluessel
+muell => schluessel-ursache).
+BEFUND-3 (handler.go:24-30,50-51): PRODUKT-CODE DARF KEINE test-instrumentierung enthalten —
+HandlerReached aus handler.go ENTFERNEN, zaehlung in einen test-only wrapper in client_test.go verlegen
+(handler darf am ende UNVERAENDERT gegen develop sein: git diff origin/develop -- internal/runtimeexecutor/handler.go == leer
+als END-pflicht-zeile).
+
+REGELN: write-set client_test.go NUR (handler.go rueckgaeufig auf develop-stand); nichts loeschen
+(diff '^-func Test' leer); gofmt leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor
+-count=1 -timeout 8m gruen; merge develop drift rc=0; push FF. EIGENES-RUN: gh pr checks --watch terminal.
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-10.md (12er-tabelle + diff-belege).
+END an f49a3303: "END_DONE w70-ci-access-j: head=<sha> matrix=12zeilen faelle=getrennt handler.diff=leer hosted=green(<id>) | <Satz>"

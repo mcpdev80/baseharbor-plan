@@ -1,0 +1,39 @@
+ROLLE: Worker (Lane w14-stateowner-resolver). Coord f49a3303. AUFGABE: resolver-semantik + echte seams
+PR #1347 (t-20261018-r27-state-owner). Basis = head 47c1993d branch work/r27-state-owner.
+Grundlage: review-1347b.md befunde 1-3. Kernfehler: deployment.TenantOwnerResolver ist ein VETO-hook —
+authorized=false => ErrDeploymentOwnerForeign, und coreinstallation.Load läuft NUR wenn hook==nil.
+Der CLI-hook gibt bei nicht-aufloesbarem/nicht-tenant target (true,nil) => Core-prüfung komplett
+umgangen (fail-open bei config-fehler).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-state-owner develop
+  git -C baseharbor worktree add /tmp/opencode/w14-stateowner-r3-wt work/r27-state-owner
+
+PUNKT 1 — HOOK SEMANTIK (internal/deployment/deployment_store.go ~76-96):
+  TenantOwnerResolver wird zum GRANT-only-hook: Rueckgabe (true,nil) => tenant-pfad autorisiert,
+  return nil. ALLE anderen rueckgaben ((false,nil) oder (false,err) oder (true,err)) => der hook hat
+  NICHT autorisiert und die speicherpruefung FAELLT DURCH auf den unveraenderten
+  coreinstallation.Load ein installations-owner-check (kein Frueh-return von Foreign im !authorized-zweig).
+  Doku-kommentar entsprechend: "grant-only; a resolver that does not grant falls through to the standard
+  single-installation-owner verification — it can never bypass it".
+PUNKT 2 — CLI hook (cmd/baha/deployment_record.go init ~16-39):
+  !ok oder !isTenant => return false, nil (durchfallen zur Core-pruefung, NICHT true).
+  tenant + connectorScopeForTarget err => return false, err (echter fehler wird propagiert).
+  tenant + scope.Validate() err => return false, err; nur gueltiger scope => true, nil.
+ Kommentar: fail-open vorueber — jetzt fail-durchfallend zur authoritative check.
+PUNKT 3 — TESTS (echte seams, nicht FindDeployment-no-op):
+  a) internal/deployment: unit-test fuer alle drei hook-ergbnisse: grant=>nil, (false,nil)=>fällt
+     durch auf coreinstallation-pruefung (fehlt/corrupt installation => dessen fehler, nicht Foreign-only),
+     err=>propagiert. Bestehende tests anpassen.
+  b) cmd/baha integration-test der recordDeploymentBeforeMutation/den echten pfad faehrt mit gesetztem
+     hook: negativer tenant scope => abgewiesen; nicht-tenant target ohne gueltige Core installation =>
+     abgewiesen (beweis: kein bypass); gueltiger tenant => durchgelassen.
+  c) fixture-helfer (configureTestTargetEmpty u.a.): RemoveAll/TargetStateRoot-fehler nicht ignorieren —
+     t.Fatal bei err statt stiller skip (review-1347b befund 3).
+
+ANSENDE-PFLICHT: merge origin/develop (is-ancestor rc=0); write-set grep-leer (.github/scripts/contracts).
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/deployment ./cmd/baha.
+push FF auf work/r27-state-owner, ls-remote==head, keine run-logs, END an f49a3303:
+"END_DONE w14-stateowner-resolver: head=<sha> grant-only=3tests | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/state-owner/fix-r3.md (plain bullets).
+STOP: 1 iteration je punkt; bei unklarheit END_BLOCKED mit datei:zeile; kein Merge, kein force-push.

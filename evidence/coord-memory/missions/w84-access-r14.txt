@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w84). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 14, finaler strittiger
+Punkt — coord-ENTSCHEIDUNG liegt vor, keine rueckfrage noetig).
+Branch work/r27-ci-access-ab head e86d39c0. Luna r1357m: mutationen scharf (N=7/8 rot, miswire rot) ABER
+die 12er-behauptung war aufgeblasen: defekte Zertifikats-/CA-eingaben lassen KEINEN konstruierbaren client
+zu — dort kann es keinen echten methoden-aufruf geben.
+ENTSCHEIDUNG coord (gem. stop-klausel von r1357m, karten-vermerk folgt): abnahme = ACHT echte dispatches
+(4x wrappedCheck + 4x wrappedExecute auf konstruierten clients) plus VIER load-phase-nullfaelle, die
+fail-closed VOR jedem request enden und ALS SOLCHE asserted werden (kein request-Zehler, kein zaehler-
+beitrag, explizite constructor-verweigerung-assertion mit grund-objektion). Matrix-zeilen bleiben 12
+(faelle=12), aber die N-Spalte heisst jetzt ehrlich: echte-methoden-aufrufe (8) und die M-Spalte
+last-phase-verweigerungen (4) — getrennt gezählt, je mit eigner route-/wirkungswahrnehmung fuer die 8.
+MUTATIONSPFLICHT (evidence): (a) einen echten execute-call raus => echte-zaehler 8->7 und ROT; (b) eine
+load-phase-nullfall-erwartung entschärfen (kein fail-closed-assert) => ROT; (c) miswire swap => ROT.
+0 tests geloescht, handler.go diff=0, basis develop Vorfahr, go test ./internal/runtimeexecutor -count=1
+-timeout 8m + gofmt/vet gruen; push; ls-remote==head; PR #1357 TERMINAL gruen. Evidence ci-access/
+qualify-14.md (KEINE checkboxen). Karten-Klammer: missionstreu — die 12er-Fallzahl bleibt, die AUFRUF-
+zahl wird präzisiert.
+END: "END_DONE w84-access-r14: head=<sha10> echt=8 last=4 mutationen=a,b,c=rot lsremote=<sha10> | <Satz>"

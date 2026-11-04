@@ -1,0 +1,19 @@
+KORREKTUR gh-dispatch2 (Coordinator) — dein END_DONE war NICHT erbracht: dein Worktree hat 0 neue Commits
+(steht auf cb6b7387=develop) und die Dateien enthalten WEITER self-hosted. Bitte JETZT real ausfuehren:
+
+Worktree: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-dispatch2 (Branch work/gh-dispatch2)
+
+1) .github/workflows/runtime-broker.yml — die 2 Vorkommen aendern:
+     runs-on: [self-hosted, Linux, X64, baseharbor, docker]     ->   runs-on: ubuntu-latest
+2) .github/workflows/runtime-s3-acceptance.yml — das 1 Vorkommen:
+     runs-on: [self-hosted, Linux, X64, baseharbor, docker]     ->   runs-on: ubuntu-latest
+3) Pruefe mit grep, dass in beiden Dateien KEIN `self-hosted` mehr steht:
+     grep -nE 'runs-on:.*self-hosted' .github/workflows/runtime-broker.yml .github/workflows/runtime-s3-acceptance.yml  -> muss leer sein
+4) git add .github/workflows/runtime-broker.yml .github/workflows/runtime-s3-acceptance.yml
+   git commit -m "ci(gh-dispatch2): run broker + s3 acceptance on GitHub-hosted (100% GH-hosted, owner rule)"
+   git push -u origin HEAD:work/gh-dispatch2   (oder auf den Branch, den #? nutzt) und PR gegen develop oeffnen.
+5) actionlint wenn verfuegbar. NICHT scripts/* oder internal/* anfassen (andere Lanes).
+6) Erst DANN END_DONE melden — und zwar NUR mit echtem, gepushtem SHA (40-hex), den `git rev-parse HEAD` liefert,
+   und PR-Nummer. Wenn du nichts gepusht hast, ist das kein DONE.
+
+Handoff letzte Aktion: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED gh-dispatch2: <echter SHA + PR# + grep-bestaetigt self-hosted=0>"

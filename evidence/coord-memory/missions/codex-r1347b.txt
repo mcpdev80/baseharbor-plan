@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head 47c1993d (develop Vorfahr nach merge) = t-20261018-r27-state-owner. RE-REVIEW
+nach review-1347.md: seam enforcement (Load/Save/list), tenant-bypass entfernt + resolver-hook,
+symlink-test gehaertet; ID-binding formal deferred an authority-flaechen (karten-note "installation-ID
+binding").
+PRUEFEN (SHA-genau, read-only): 1. echten Load-/Save-/list-pfade mit owner-prüfung (tests fahren
+pfade, nicht helper) — positiv/fremd/missing/corrupt. 2. tenant resolver hook: kein Blanketerfolg,
+negative tests. 3. symlink + fixturefehlerbehandlung wie befohlen. 4. deferral-text in doku/evidence
+konsistent mit karten-note (kein behauptetes ID-binding). 5. tests archiv: go test ./internal/deployment
+./cmd/baha. Urteil -> review-1347b.md (ROLLE: REVIEW). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347b: verdict=<X> | <Satz>"

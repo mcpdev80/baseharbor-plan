@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSS access runde 12 (r1357k rezept geheilt).
+KANAL: GPT-6 Luna. REZEPT-PFLICHTBLOCK bei REJECT.
+OBJEKT: branch work/r27-ci-access-ab head 3360d14a (PR #1357 READY, basis develop Vorfahr JA, CI run
+41757162384 TERMINAL GRUEN, handler.go diff=0, 0 tests geloescht). Gegenstand r1357k-Befund-1 behoben:
+N==M wird aus TATSAECHLICH ausgefuehrten Check-/Execute-Aufrufen abgeleitet (keine pauschalen +2),
+mutationsbelege (a) entfernter execute => N sinkt 8->7 ROT, (b) miswire-swap ROT — in evidence
+qualify-12.md. PRUEFEN (SHA-genau, read-only): (1) eigene contra-probe: einen execute-call auskommentieren
+=> matrix ROT + N-Mismatch-zeile; zurueck; (2) die 12 aufrufe sind echt (client-check- und client-execute-pfad
+jeweils mit eigenem route+nachweis-paar); (3) handler.go inhaltlich develop-identisch; (4) go test
+./internal/runtimeexecutor -count=1 -timeout 8m gruen (GOCACHE=/tmp/opencode/gc TMPDIR=/tmp), gofmt leer,
+kein geloeschter/umbenannter bestehender test. Urteil (ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT) ->
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1357l.md.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357l: verdict=<X> open=<liste|none> | <Satz>"

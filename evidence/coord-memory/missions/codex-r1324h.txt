@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 66c54639 (develop Vorfahr, 10 dateien, alle im write-set incl. zweier
+neuer test-dateien import_witness_test.go/nonce_crypto_test.go) = t-20261018-r27-profile-contract.
+RE-REVIEW nach r1324g. Karten-Sektionen "crypto decision" + "integration depth" gegense.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs; ls-remote Zeuge):
+1. AES-256-GCM: schema/Go/fixtures/EN/DE auf 12 bytes = 16 kanonische base64url zeichen;
+   nonce_crypto_test fuehrt ECHTEN cipher.NewGCM roundtrip + wrong-length + noncanonical negatives.
+2. import_witness_test: zaehler-basierte fake collaborators um den echten import entry; proof dass
+   accepted input keine grants/plugins/redirects setzt und rejected input zero effects hinterlaesst.
+3. EnrollDevice self-bind doku jetzt praezise (fingerprint-vs-input, recipient, window) — der
+   foreign-anchor-deferral-text konsistent EN==DE, keine present-tense overclaims.
+4. acceptance matrix der karte: erfuellt / deferred-belegt / offen (restliche lücken namentlich).
+Urteil -> review-1324h.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT + je klausel begruendung).
+KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324h: verdict=<X> open=<liste|none> | <Satz>"

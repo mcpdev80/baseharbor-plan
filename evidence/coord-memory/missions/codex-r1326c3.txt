@@ -1,0 +1,16 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: pr #1348 (supersedes #1326, closed) head w7-authority-r3-clean/3c63e8e0bf (beide refs dann gleich, develop Vorfahr;
+net-diff write-set + 2 cmd dateien laut composition-wiring + revocation-authority karten-notizen) =
+t-20261018-r27-authority-contract. RE-REVIEW nach review-1326c2.md + wiring-depth karten-note
+(call-site fan-out DEFERRED an state-owner — akzeptiere das deferral, fordere keine cmd fan-outs).
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs):
+1. tri-state RevokedStatus: err/unknown => NICHT gültig; je fehlerpfad-art ein test (canceled ctx,
+   corrupt CRL, bad serial, provider error) mit ablehnung; revocations.pem bytes unveraendert bei
+   erfolgreicher prüfung.
+2. installauthority.Fresh verwendet observedAt + fail-closed; positive tests ohne future-expiry.
+3. TestResolveManagementConnectionIssuerEndToEnd faehrt den wrapper echt (live/pass, revoked,
+   corrupt-CRL) — e2e innerhalb des deferrals OK, cmd fan-out NICHT gefordert.
+4. lock-paritaet regression + stableid dateien: inhaltsvergleich gegen develop (nur ORT neu).
+5. doku EN/DE = implementiert + deferred (kartenamen), DE negationen.
+Urteil -> review-1326c3.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326c3: verdict=<X> open=<liste|none> | <Satz>"

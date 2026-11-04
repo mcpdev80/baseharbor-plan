@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde6 (r1357e befehl + test-erst-protokoll).
+OBJEKT: PR #1357 head 090295ea (a4f8904f + mutation-control-beweis [buggy readyz-dispatch => flag true],
+beide recorder readyz+execute in allen negativen, 32/32 tests, hosted 41670724731 green, develop Vorfahr,
+0 loeschungen). = t-20261022-r27-ci-access ABSCHLUSS.
+PRUEFEN (SHA-genau, read-only): (a) contraprobe selbst nachbauen: fehlkonfiguration => test muss rot;
+(b) positive fahre erreichen handler wirklich (flags true); (c) ursachen typ-fest; (d) matrix => ACCEPT
+wenn traegt. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1
+-timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357f.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357f: verdict=<X> open=<liste|none> | <Satz>"

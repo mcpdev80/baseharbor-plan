@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane l11-profile-r9). Coord f49a3303. MIKRO-AUFGABE: finale 3 Fix-Points PR #1324
+(t-20261018-r27-profile-contract). Basis = head faca47d6. STRATEGIE-WECHSEL: Der Witness-Teil wird
+NICHT mehr getestet — er ist formal deferred (Karten-Sektion "Coordinator decision on import
+side-effect clause"). Keine neuen orchestrierungs-konstrukte bauen!
+
+ZUERST LESEN: review-1324i.md + die neue Karten-Sektion.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C baseharbor worktree add /tmp/opencode/l11-profile-r9-wt work/r27-profile-contract
+Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+1 WITNESS-TEST ENTFERNEN statt weiterbauen: import_witness_test.go loeschen ODER auf rein
+   schema/validations-ebense (ohne behaupteten side-effect-beweis); die doku sagt deferral (punkt 3).
+2 NONCE: AEAD roundtrip mit dem DECODED GOLDEN nonce (nicht neu generiert); jede negative variante
+   bekommt ein EIGENES frisches baseline-profil (deep copy vor mutation, damit keine pointer-theilung).
+3 DOKU EN+DE: (a) Sätze die "binds installation ID"/"validated through hosttrust anchor" sagen ->
+   self-consistency + recipient/window formulierung, independent anchor als "future work (cards:
+   r27-authority-contract / r27-state-owner)"; (b) die kaputten ../../tasks/... links ERSETZEN durch
+   die offizielle planning destination https://github.com/mcpdev80/baseharbor-plan (dateiname der
+   karte im text, kein pfad-link — check mit git cat-file dass kein link ins leere führt); DE wie EN.
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/|cmd/)' leer; 9-10 write-set dateien.
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build/vet. push FF, ls-remote, END an f49a3303.
+Evidence: .../profile-contract/fix-r9.md (plain bullets, keine checkboxes).
+STOP: kein Merge/Release; keine neue interface-behauptung; max 1 iteration pro punkt.

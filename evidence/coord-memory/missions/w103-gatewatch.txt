@@ -1,0 +1,10 @@
+ROLLE: Worker (Lane w103, BEOBACHTUNG — kein code). Coord f49a3303. Der basis-refresh w102 hat neue koepfe
+gepusht; deren gehostete laeufe muss jemand bis TERMINAL sehen und die ergebnisse je PR ablegen:
+PRs/koepfe: 1354=5a5f1b38, 1363=d68251ee, 1369=bfaddb37, 1355=bed00516, 1362=0958107f (alt, schon terminal —
+kurz gegenpruefen obs dabei bleibt). Pro PR: gh pr checks beobachten bis kein pending/queued; am ende je PR
+eine zeile TABELLE (pr, head10, pass, fail, skipping, fail-check-namen). Bei FEHLERN: exakte fehlerzeile(n)
+aus dem job-log ziehen (gh api /actions/jobs/<id>/logs | grep FAIL) und NOTIEREN ob dieselbe stelle auch auf
+develop-GRUENEN zweigen faellt (vergleich: letzte gruene laeufe 1357/1362 als gegenreferenz) — klassifikation
+PRODUCT vs FLAKY vs INFRA je fehler mit einem satz begruendung. KEIN rerun, KEIN commit, KEIN PR-kommando
+ausser read-only. Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/gatewatch-1.md (tabelle+belege).
+END an f49a3303: "END_DONE w103-gatewatch: gruene=5/5|n/5 rote_mit_klassifikation=<liste|keine> | <Satz>"

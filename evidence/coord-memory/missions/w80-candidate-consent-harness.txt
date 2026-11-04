@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w80). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract (blocker-ueberlebt!).
+Branch work/r27-candidate-contract head 4ffc3151. Der lifecycle-ausriss ist KEINE infra: dein eigener
+consent-gate meldet in den Selected-Runtime-Jobs "candidate submission requires an explicit
+operator/automation consent (--confirm-candidate)" — die TEST-HARNESCH (scripts/acceptance.sh /
+guided-up-pfad im CORE-REPO, siehe diag-1.md + run 41732361184 fehlerzeile) uebergibt die zustimmung noch nicht.
+AUFGAB: (1) rot-first: fehlerzeile belegen (run-log zitieren). (2) fundstelle: wo guided-up/app-up im
+REPO-harness gebaut wird (scripts/acceptance.sh, NICHT baseharbor-demo — demo-ref cd9176e ist aktuell, kein
+drift). DEN HALTER mit der vertraglich vorgesehenen zustimmung waehlen: bevorzugt expliziter flag
+--confirm-candidate am affected aufruf ODER die im contract/ADR vorgesehene ENV-form — lies t-2026...
+candidate card consent-abschnitt + cli hilfe; KEIN produktcode-umbau, KEIN bypass des gates (der gate muss
+weiter ohne zustimmung ROT bleiben — negative regression: consent-wegfall => fehler bleibt). (3) basis
+develop 2cadfcee Vorfahr halten. (4) go build ./... + go test ./internal/delivery ./internal/deployment
+./cmd/baha -count=1 gruen. push; ls-remote==head. (5) EIGENES-RUN: PR #1355 TERMINAL beobachten — lifecycle
++ backup-restore müssen JETZT ECHT gruen werden (das ist der beweis der these; alle andern 29 bleiben gruen).
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/candidate-contract/harness-consent-1.md (checkbox->bullet).
+END: "END_DONE w80-cand-consent: head=<sha10> lifecycle=gruen|rot+zeile negreg=gruen lsremote=<sha10> | <Satz>"

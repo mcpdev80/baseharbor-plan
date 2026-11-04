@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head 5b6681bd (develop 1c921c47 Vorfahr JA; PUNKT1: 5min-fallback vollständig durch
+DefaultObservationMaxAge=1h ersetzt, grep leer; PUNKT2: openbao ServiceIssuer BaseSerial/BaseExpiry
+echt (CA hex serial, parsed NotAfter) mit echtem adapter-integrationstest statt fake-only) =
+t-20261018-r27-authority-contract. RE-REVIEW nach review-1326h rezepte 1+2 (beide BESTATIGT als
+lokale änderung; widerlegungs-repros jetzt NEU durchführen).
+PRUEFEN (SHA-genau, read-only): 1. alle maxAge-null-pfade nutzen die Konstante (grep 5\*time.Minute
+leer im ganzen repo-pruefpfad; wrapper/core/serviceaccess tests). 2. integrationstest faehrt den
+ECHTEN openbao adapter gegen testsupport CA (serial hex + CRL-treffer + NotAfter parsung), fake-test
+nur zusaetzlich. 3. matrix + deferrals (identity cross-binding, cmd fan-out notes) => ACCEPT-WITH-
+DEFERRAL wenn alles trägt. Tests: TMPDIR=/tmp go test ./internal/openbao ./internal/installauthority
+./internal/coreinstallation ./internal/serviceaccess ./internal/stableid + go test ./cmd/baha -run
+'^TestResolveManagementConnectionIssuer' -count=1. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326j: verdict=<X> open=<liste|none> | <Satz>"

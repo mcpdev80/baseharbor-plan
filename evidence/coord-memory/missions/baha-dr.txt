@@ -1,0 +1,16 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/baha-dr (Repo baseharbor; Basis origin/develop >=46307b75)
+MISSION baha-dr — BEFUND: Auf GH-hosted Docker-Leg (Targeted-Lauf 41344498679, Job app-backup-restore) faellt
+ 'TestAppBackupRestoreCLIRealDisasterRecovery' (163.9s) MIT '--- FAIL' OHNE jegliche Fehler-/Panic-/Error-Trace
+ Zeile; die letzten Test-Logs sind POSITIV (cleanup ok, foreign volume retained). Ziel: Ursachenklasse festmachen
+ und echten Fix oder klaren Befund liefern.
+SCHRITTE: 1) Test lokal reproduzieren (rootless/system Docker im Runner-Container falls moeglich, sonst Diagnose
+ ueber Log-Schnipsel: gh api jobs/1249xxxxx/logs — Job-ID via run view). 2) Erkläre das 'FAIL ohne Text'-Phaenomen
+ (Parallel-Subtest? helper-Fehler in anderem File? TestMain? t.Cleanup-Fehler?). Lies cmd/baha/*backup*restore*
+ Test + Helpers. 3) Echte Mindestkorrektur NUR in cmd/baha/*-Test-/CLI-Dateien (kein Workflow, kein scripts/),
+ Regression laeuft lokal. 4) PR gegen develop, PRSC bis terminal beobachten. Wenn irreproduzierbar/timeoutlastig:
+ END_BLOCKED mit Log-Zeilen + Flowchart, Karte anlegen.
+STOP: keine .github/*, kein subagent/task-Spawn, kein 'codeman agent spawn/rm/send'.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-01/baha-dr/evidence.md + ## PLAN + workers/todos/baha-dr.json.
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED baha-dr: cause=<klasse> pr=<nr|none> head=<sha|-> | <ein Satz>"
+WIEDER-AUFNAHME 2. Anlauf (Session 03925fe4 ist ohne Ergebnis verstorben; board workers/todos/baha-dr.json
+existiert von 22:04 — Schritte 1ff dort fortfuehren; Evidence-Datei FEHLTE bisher — sofort anlegen!).

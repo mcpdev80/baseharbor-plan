@@ -1,0 +1,31 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/endpoint-refine  Branch work/docker-endpoint-context (Repo baseharbor, PR #1245, head c201c516) — NEU auf AKTUELLEM develop (437358e4, enthaelt gate-map) rebasen, dann FIXEN.
+MISSION endpoint-refine — verbleibenden Fehler in hostDefaultEndpoint/rootlessCapable beheben, damit der NATIVE Docker-Lauf auf GitHub-hosted ECHT GRUEN wird.
+EMPIRISCHER BEFUND (Coord, nativer docker-HA-Lauf 41266351436, runtime_restart_integration_test):
+  selected Docker endpoint unix:///run/user/1001/docker.sock is unavailable; ... no fallback to System Docker
+  -> hostDefaultEndpoint hat Rootless-GERAET statt des laufenden System(rootful)-Daemons.
+URSACHE (coord-verifiziert, internal/runtime/docker_engine.go rootlessCapable()):
+  rootlessCapable liest /proc/sys/kernel/unprivileged_userns_clone — auf Ubuntu-GH-hosted existiert die DATEI NICHT
+  (err!=nil -> erster Return false wird uebersprungen), und /proc/sys/user/max_user_namespaces existiert -> return TRUE.
+  ABER: GH-hosted blockiert unprivilegierte userns ueber AppArmor (kernel.apparmor_restrict_unprivileged_userns=1);
+  gh-ci-core Lauf 41255597778 bewies `unshare --user -> Operation not permitted`. rootlessCapable gibt also FALSE-POSITIVE.
+FIX (intern/runtime/docker_engine.go NUR, + sein *_test.go; KEIN ci.yml, KEIN pr-gate-plan.py):
+  1. rootlessCapable() muss echtes Rootless-KOENNEN korrekt erkennen: neben dem vorhandenen Clone-/max_user_namespaces-
+     Check auch die AppArmor-Restriktion auswerten, z.B. /sys/module/apparmor/parameters_enabled bzw.
+     kernel.apparmor_restrict_unprivileged_userns (sysctl oder /proc/sys/...); wenn unprivilegierte userns blockiert
+     sind -> false (host ist system-only). ODER ein billiger, sicherer Echt-Test ob ein Rootless-Daemon ueberhaupt
+     LAEUFT. Wahle den robustesten portablen Weg; begruende.
+  2. hostDefaultEndpoint: wenn KEIN Rootless-DAEMON laeuft (Socket fehlt) und der Host Rootless real nicht kann, muss
+     der AKTIVE System-Daemon (/var/run/docker.sock) gewaehlt werden. Fail-closed bleibt: ein EXPLIZIT konfigurierter
+     Endpoint/Kontext wird NICHT umgebogen (nur der voellig unconfigurierte Host-Default folgt dem real laufenden Daemon).
+  3. REGRESSION-TEST in docker_engine_test.go: simuliere GH-hosted (rootlessSocketExists=false, rootlessCapable=false
+     via test-hook, uid>0) -> expect endpoint = unix:///var/run/docker.sock (system), SelectionOrigin aktiv, Probe
+     auf system. Und: rootlessSocketExists=true -> weiter rootless. Expliziter Endpoint tot -> bleibt Fehler.
+  4. go build ./... + go test ./internal/runtime + `go vet`. Commit auf work/docker-endpoint-context (PR #1245
+     aktualisiert), push.
+NATIVER BEWEIS (Eigenes-Run-Pflicht — das ist das ENTSCHEIDENDE Ziel):
+  5. Nach dem Fix: kombinierter Kandidat = develop(437358e4) + dein #1245-fix + #1239 (work/gh-ci-core 486abbca,
+     system-daemon). Push als refs/heads/runtime-validation/ha/control-plane/docker/int0427 und beobachte
+     'Targeted HA · docker' auf ubuntu-latest bis terminal. Melde GRUEN/ROT + Run-ID + (rot) Fehlerzeile. Wenn GRUEN:
+     der Docker-Knoten ist auf Standard-Rechner bewiesen.
+EVIDENCE (absolut, kein '- [ ]'): baseharbor-plan/evidence/board-2026-10-31/endpoint-refine/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE endpoint-refine: #1245 <neuer SHA> + rootlessCapable-Fix + go test PASS + nativer docker-HA Run <ID> = GRUEN|ROT(+Zeile)"

@@ -1,0 +1,17 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/nc-complete  Branch work/nc-complete (Repo baseharbor-node-connector, Basis origin/main)
+MISSION nc-complete — Node-Connector 100% GitHub-hosted VOLLSTÄNDIG abschliessen (PR #17 war nur source.yml+release-integration.yml)
+ZIEL: belegen/schliessen, dass IM baseharbor-node-connector Repo KEIN einziger Workflow-Job mehr self-hosted/rootless ist.
+EXKLUSIVES WRITE-SET: nur .github/workflows/*.yml (node-connector). KEIN baseharbor/*. 
+SCHRITTE:
+ 1. Repo-Sweep (alle .yml): grep -rnE 'runs-on:.*self-hosted' .github/workflows/  und  'loginctl enable-linger|
+    XDG_RUNTIME_DIR=/run/user|dockerd-rootless|systemctl --user|user@\$uid|cgroup-manager=.*rootless' .github/workflows/
+    -> ALLE Fundstellen (auch release.yml / pre-release / k3s / anything), nicht nur die aus #17.
+ 2. JEDE Fundstelle auf GitHub-hosted umstellen: docker->system-daemon (rootful), podman->rootful (bewiesen: nc #17
+    transport·podman SUCCESS auf GH-hosted). Wo rootless-Setup da war: durch rootful/System ersetzen, fail-closed
+    beibehalten (kein Daemon/Modus lauffaehig -> sichtbarer Fehler, kein stummer SKIP). Kein Gate abschwächen.
+ 3. actionlint + YAML check. push auf work/nc-complete, PR gegen main. Eigene Runs beobachten (Eigenes-Run-Pflicht).
+ 4. Wenn NACH Schritt 1 bereits ALLES GH-hosted ist (0 Fundstellen ausserhalb #17): END_DONE nc-complete: ALREADY-DONE
+    + Beleg (grep-Ausgabe leer), ohne Grund einen PR zu oeffnen.
+EVIDENCE (absolut, kein '- [ ]'): baseharbor-plan/evidence/board-2026-10-31/nc-complete/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE nc-complete: <PR# + alle restlichen self-hosted behoben | ALREADY-DONE> + grep-bestaetigt 0 self-hosted im nc-Repo"
+Kein Release/Tag.

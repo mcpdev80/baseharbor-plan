@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w117). Coord f49a3303. FELD: TEST-VM baha-podman (ssh-alias). OWNER-FREIGABE 2026-11-04:
+die Podman-VM ist eine REINE TESTUMGEBUNG; VOLLSTÄNDIGE bereinigung und NEUAUFBAU sind erlaubt. bevoerzugt:
+reproduzierbarer NEUAUFBAU über das vorhandene setup-skript statt manueller reparatur. PROXMOX-HOSTS und
+PRODUKTIVE DIENSTE bleiben unangetastet.
+WISSEN (RUNBOOK §6.2): rootless podman; bei aardvark/netavark-Hängern (exit 126, "Cannot assign requested
+address") erst `loginctl`/linger + stale network namespaces prüfen, ZULETZT `podman system reset`.
+bekannter Dauerpunkt: stack `bh-backup-recovery-ci-backup-cli-dev-broker` ist seit ~2 wochen UNHEALTHY.
+shared-stapel (`bh-*shared*`) sind NICHT lane-eigen.
+SCHRITTE:
+ 1) IST-BEFUND: `df -h /`, `podman system df`, `podman ps -a --format`, linger-status des podman-users,
+    `podman info` kurz (storage-driver, host rootless ja/nein), unhealthy-container namentlich.
+ 2) DREI-PUNKTE-PRÜFUNG vor jedem destruktiven schritt (aktive runs? laufende/beschlagnahmte container/volumes
+    + ownership? wiederherstellungsfolge?) — ergebnis WÖRTLICH in die evidence. `bh-*shared*` bleiben stehen.
+ 3) Den UNHEALTHY broker-stapel zuerst DIAGNOSTIZIEREN (logs, healthcheck-befehl, abhängigkeiten), dann
+    entscheidung: NEUAUFBAU über das setup-skript / compose-des des stapels. Nur wenn der stapel nach
+    dokumentierter prüfung nicht reif fuer reset ist: als BLOCKER melden (zustand + grund + naechsten ausloeser).
+ 4) REPRODUZIERBARER NEUAUFBAU: /home/marcel/setup-baha-podman.sh (2.6 KB, 8.10.) lesen und ausführen;
+    diff/fehlender schritt in der evidence dokumentieren (skript-im-VM-home anpassen ist erlaubt).
+ 5) FUNKTIONSBEWEIS: `podman run --rm <lokal> true` rc=0, rootless ohne sudo, ein port-mapping-test
+    (`podman run -d -p 127.0.0.1:54321:5432 <bild>` + port-prüfung + remove) als nachweis gegen die
+    netavark-"cannot assign"-klasse.
+ 6) AUFRÄUMPHASE (Pflicht): lane-eigene container/volumes/netns loeschen; END weist wörtlich aus:
+    `podman ps -a` frei von lane-eigenen namen + `df`-zeile.
+GRENZE: KEINE .github-/workflow-aenderung, KEIN runner-registrieren (GitHub shared runner), KEIN proxmox,
+KEINE produktiven dienste, KEIN `podman system reset` ohne dokumentierte Drei-Punkte-Prüfung.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-rebuild/podman.md (befund, prüfung, skript-diff,
+vorher/nachher, funktionsnachweise, broker-stapel-entscheidung; keine checkboxen).
+END an f49a3303: "END_DONE w117-podman-vm-rebuild: bereinigt=<ja/begruendung> neuaufbau=<skript|manuell+warum> broker=<gesund|blocker-text> laufend=<rc0-belege> cleaning=<bestaetigt> | <Satz>"

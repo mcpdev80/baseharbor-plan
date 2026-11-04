@@ -1,0 +1,21 @@
+NACHT-AUFTRAG W1-C — Connector-Draft #4 Reconcile (Grundlage fuer nc-*, Release-Note v0.4.27 Pflicht)
+Repo: mcpdev80/baseharbor-node-connector. NUR Analyse + Evidence, KEINE Produktanderungen.
+
+KONTEXT: Release-Note: "Preserve Connector draft #4 at 365094890c091fbf627c9d71c94e44751018e6e9; it contains
+unmerged implementation. Reconcile exact changed files and current contracts before extending; never replace
+its work with an empty reimplementation." PR #4 ist CLOSED, Inhalt erhalten.
+
+AUFGAB:
+1. Hole Draft #4 vollstaendig (PR #4 diff vs base, head 36509489). ListJEDE geaenderte Datei.
+2. Vergliche dateiengenau mit HEUTIGEM main (fetch, Realitaetsabgleich 4.1): pro Datei:
+   [a] bereits in main enthalten (aquivalent/superseded), [b] Konflikt mit heutigen Vertragen/Interfaces,
+   [c] noch fehlende echte Implementierung. Bewerte [b]/[c] gegen aktuelle Contracts/Tests/Specs im Repo.
+3. Pruefe Bezug zu nc-3-Abhaengigkeiten (node-cli/node-service/node-streams/node-trust in baseharbor-plan
+   tasks — nur Lesen): welche Draft-Teile welche nc-Aufgabe vorbefuellen.
+4. CI-Dateien (.github/**, workflows) des Connector-Repo: NICHT aendern (Owner-Regel Nacht). Bedarf -> Befund.
+5. ERGEBNIS: Gap-Map (Datei -> Status a/b/c -> nc-Task-Bezug -> empfohlener naechster Schritt) als
+   maschinenlesbare Tabelle + Kurzbewertung, ob/ welche Teile wiederbelebt werden sollten.
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/connector-reconcile/evidence.md — ## PLAN (getickt),
+Ist-SHA main, Draft-File-Liste, Gap-Map, Befunde, Beantwortung "empty reimplementation avoided: wie".
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE w1-connector-reconcile: files=<n> in_main=<n> conflict=<n> missing=<n> revive=<yes|no> | <Satz>"

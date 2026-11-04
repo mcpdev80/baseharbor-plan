@@ -1,0 +1,27 @@
+MISSION o1242 - Qualify PR #1232 engine-probe (internal/runtime), native gate on now-online runners
+Repo: mcpdev80/baseharbor. Worktree: git worktree add under workers/worktrees/o1242 -b
+work/podman-quadlet-engine-probe-q1242 origin/develop ; apply the existing #1232 candidate diff
+(branch work/podman-quadlet-engine-probe-o265 @ 34e6003755) on top of CURRENT develop (it predates
+#1233/#1235; rebase the 3 files). Evidence: coordinator/evidence/board-2026-10-31/o1242.md.
+STEP 0 read coordinator/AGENTS.md, RUNBOOK 4.x/6.2, coordinator/evidence/board-2026-10-31/o265.md
+  (prior BLOCKED finding). No gate weakening; a skip is never a pass; no tag/publish.
+
+CONTEXT: #1232 files = internal/runtime/docker_engine.go, internal/runtime/docker_engine_test.go,
+  internal/providers/runtime/podman/provider_status_test.go. o265 END said local correction+tests
+  green but the native runtime acceptance gate could not run (hosted runner had no rootless socket).
+  Self-hosted rootless runners are NOW online: baha-runner-docker-2, baha-runner-podman-2. develop=cb6b7387.
+  This candidate does NOT touch ci.yml/pr-gate-plan.py (those are o1241's/o1240's files) - stay in the 3 Go files.
+
+GOAL: make #1232's PR Selected Checks resolve honestly on current develop.
+ 1. Rebase the 3-file candidate onto develop; run locally: go build ./... ; go test ./internal/runtime/... ;
+    go vet ./internal/runtime/ ./internal/providers/runtime/podman/. The two o265 regression tests
+    (TestResolveDockerEngineNeverDerivesBinaryFromTestRuntime, TestPodmanProviderResolvesBehindLookPathPodmanBoundary)
+    must pass.
+ 2. Trigger the native runtime gate (Targeted runtime docker/podman) for your candidate so it actually
+    EXECUTES on the self-hosted rootless runners. Wait terminal via API; capture run id + a log line
+    proving a real daemon ran the test (NOT skipped, NOT the hosted unix:///run/user/1001/docker.sock error).
+    If the runner rootless session is the blocker (same class o1241 is running down), note it and post it;
+    do not fake.
+ 3. If the prior o265 podman provider_status_test failures were environmental, confirm they are gone.
+END: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "<END_DONE|END_BLOCKED|QUESTION> o1242:
+  <one line + candidate SHA + native run id + verdict>". Do NOT merge.

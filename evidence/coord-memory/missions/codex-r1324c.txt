@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 6fdc44e1 (base develop) = t-20261018-r27-profile-contract, RE-REVIEW nach
+review-1324b.md REJECT (5 Befunde). Lane meldet: 4/5 fixed, Befund 2 (integrierte Import-Entry)
+END_BLOCKED mit Begruendung (abhaengige Akzeptanz), Evidence:
+baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r2.md.
+PRUEFEN (SHA-genau, read-only; KEINE CI-Run-Logs):
+1. Wire-Tags richtig (kind/version) + round-trip gegen packaged Schema validiert (encode+decode)?
+2. Goldene Fixtures mit echten generierten Test-Zertifikats-Fingerprints (keine Fake-PEMs, keine Secrets),
+   negative mismatch/expired/one-use goldens durch dem realen Pfad?
+3. Schema kind-konditional (export/storage/import) + Import-VERHALTEN (no grant/plugin/redirect) echt getestet?
+4. Trust/Validity/Recipient-Bindung: existiert JETZT mindestens ein integrierter Pruefpfad, oder ist
+   Befund-2-Blockade gegruendet (welche akzeptierte Interface fehlt — datei:line)? Blockade = nicht-blockierend
+   fuer die anderen 4, aber im Urteil als offene Klausel dokumentieren (NICHT stillschweigend ACCEPT der Klappe).
+5. Doku EN/DE ehrlich (claims = implementiertes Verhalten) + DE-Negationen.
+Urteil -> review-1324c.md: ACCEPT|PARTIAL|REJECT — wenn Blockade begruendet: PARTIAL mit genau dieser
+einen offenen Klausel (dann entscheidet Coordinator die Folgekarte). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324c: verdict=<X> open=<liste|none> | <Satz>"

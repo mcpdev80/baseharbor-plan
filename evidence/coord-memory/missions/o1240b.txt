@@ -1,0 +1,42 @@
+MISSION o1240b - CORRECTION ROUND on candidate #1236 (same worktree, same lane): implement the
+classifier native-EXECUTION qualifier so #1225's OWN coverage resolves via a genuine native run.
+Your round-1 finding (coordinator/evidence/board-2026-10-31/o1240.md) is correct: pr-gate-plan.py
+appends `unresolved` unconditionally for `.github/workflows/*` + `scripts/pr-*.py` and the Targeted
+HA docker+podman jobs SKIPPED (run 41193153679). Fix the gap per CODEMAN-START 6.1(b) / RUNBOOK 0.3.
+
+Work in your existing worktree (branch work/v0.4x-core-750-r1240 off develop cb6b7387). Files ONLY:
+scripts/pr-gate-plan.py, scripts/pr-check-runner.py, scripts/test_pr_gate_plan.py, and the two
+.github/workflows that select the native gate. git via `git -C baseharbor`/your worktree; NO
+git-clean/reset; worktree stays under workers/worktrees.
+
+IMPLEMENT (in scope, this STRENGTHENS not weakens the gate):
+1. In pr-gate-plan.py classifier: for area 'runtime-workflow-unresolved' and 'ci-executor-unresolved',
+   add a code path that does NOT unconditionally append unresolved. Resolve to 'resolved' ONLY WHEN the
+   PR's authenticated run actually EXECUTED the changed runtime jobs (Targeted HA docker AND podman)
+   GREEN (not skipped, not absent) on a self-hosted rootless runner with a verified daemon identity.
+   Fail-closed: any skip/absent/error stays unresolved. This must be evidence-driven, NOT a hardcoded
+   SHA register entry (Owner rejected registers).
+2. Make the plan set cli_native_required=true for ci.yml / pr-check-runner.py / pr-gate-plan.py changes
+   so the Targeted HA docker+podman jobs RUN instead of skipping (that skip is why run 41193153679 proved
+   nothing). Keep native execution bound to the real rootless runners, never the hosted validate job.
+3. Ensure the PR Selected Checks verifier (pr-check-runner.py) consumes the new coverage_status so a
+   genuine native execution is what flips pass/fail.
+
+TESTS (test_pr_gate_plan.py), all must pass locally with python3 -m pytest:
+- resolved: workflow/executor change + Targeted HA docker AND podman executed green on rootless runner.
+- unresolved: same change but the native job SKIPPED.
+- unresolved: native job absent or failed or daemon identity unverified.
+Run: python3 -m pytest scripts/test_pr_gate_plan.py ; and the existing pr-gate-plan suite unchanged-green.
+
+QUALIFY:
+4. Push candidate; verify PR #1236 (or new clean PR on the branch) runs the Targeted HA docker+podman
+   jobs EXECUTING on baha-runner-docker-2/baha-runner-podman-2 (wait terminal via API; capture run id +
+   the log line proving a real daemon executed, NOT skipped). Confirm PR Selected Checks => pass because
+   coverage is now resolved by that real native execution.
+5. Do NOT merge. Hand back with: exact candidate SHA, PR, native run ids + runner names, and the
+   resolved-via-execution log proof. END via inbox post to 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60.
+
+STOP CRITERIA / BLOCKED reasons (report, do not hack):
+- If resolving requires editing a hardcoded register (not supported) -> report the exact file:line.
+- If the runner cannot execute rootless docker/podman (daemon identity unverifiable) -> report with run id.
+- If two identical failed correction attempts -> stop and hand a concrete plan, do not loop.

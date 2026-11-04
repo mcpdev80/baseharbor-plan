@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w42). Coord f49a3303. KARTE: t-20261022-r27-ci-runtime — LIES die karte
+vollstaendig (slices: node-service/trust/streams/cli, remote-material/docker-web/podman-web/rollout,
+state-recovery, maintenance-client). OWNER-DIREKTIVE wie w41: produktseitige qualifikation JA,
+.github/**+scripts/** TABU.
+ERSTE AKTION: fetch origin "+refs/heads/develop:refs/remotes/origin/develop"; worktree
+/tmp/opencode/w42-ci-runtime-wt branch work/r27-ci-runtime-ab develop.
+LIEFERGUT: echte tests/fixtures die je slice nachweisen: auswahl+ausfuehrung+verifikation funktionieren
+auf akzeptierten produktschnittstellen; defekte eingefaesse => fail-closed sichtbarer fehler. Nutze
+bestehende lauffaehige muster (remote-docker-web/podman-web: lokale compose/quadlet-harness e2e wo
+vorhanden, KEINE neuen engines).
+REGELN: write-set nur internal/** + cmd/baha TEST-dateien + testsupport; grep .github/scripts leer;
+merge develop bei drift + rc=0 gegen ls-remote-SHA; builds+tests; PR DRAFT; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/ci-runtime/qualify-1.md. END an f49a3303. STOP: slice ohne
+produktweg qualifizierbar => END_BLOCKED (owner-CI-punkt), nicht umbauen.

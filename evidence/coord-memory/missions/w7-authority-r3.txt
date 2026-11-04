@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w7-authority-r3). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde PR #1326
+(t-20261018-r27-authority-contract). Basis = head 81720acc.
+
+ZUERST LESEN: baseharbor-plan/evidence/r27-night-2026-11-02/review-1326b2.md + die drei Karten-Sektionen
+"Coordinator ... decision" (composition wiring + revocation-authority = dein erweiterter Scope).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-authority-contract-doc-fix develop
+  git -C baseharbor worktree add /tmp/opencode/w7-authority-r3-wt work/r27-authority-contract-doc-fix
+Haupt-Checkout NICHT benutzen.
+
+SCHRITTE (4 Commits, je Befund einer):
+1 REVOCATION NICHT-MUTIEREND (Kern): liest revocations.pem — (a) minimal methode
+   Revoked(serial string) (bool, error) auf serviceaccess.LocalIssuer (privaten revocations()-loader
+   wiederverwenden, KEIN state change), (b) installauthority-interface accordingly, adapter forwardet,
+   (c) FreshlyObservedConnection nutzt Revoked statt Revoke, (d) regression: datei-bytes des CRL
+   VOR/NACH erfolgreicher验证 identical; revoked serial => ablehnung, foreign/missing => ablehnung.
+2 PRODUKTIONSSELECTION: resolveManagementConnectionIssuer WIRKLICH aufrufen im echten auswahl-pfad
+   (autorisierte cmd/baha datei), test der den echten pfad durchläuft (kein fake-issuer-only).
+3 FRESHNESS: ObservedAt wird BENUTZT (AuthoritativeConnection prueft now<=ExpiresAt UND observedAt
+   nicht null/zukunft/stale gegen issuer status); positive tests NICHT mit future-expiry (widerspruch
+   aus review punkt 2 beheben: abgelaufen=>fail, future=>fail, fresh=>pass); revision/consent negative
+   tests ohne nebenwirkungen.
+4 LOCK-PARITÄT REGRESSION: lifecycle_lock_regression_test.go (aus 284e0bd4) fehlt im diff — zurueck
+   (git checkout 284e0bd4 -- die datei), windows build-tag kompiliert, linux tests execute.
+Doku-Zeitformen (befund 4): EN/DE claims auf implementiertes+autorisiertes stellen, index entries
+navigation-only.
+
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/)' leer; content-paritaet docs
+gegen 9dcf8742 pruefen.
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid ./internal/installauthority + die beruehrten cmd tests.
+push (beide refs: doc-fix + authority-fix auf denselben head), ls-remote, keine run-logs, END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/authority-contract/fix-r3.md (plain bullets, KEINE checkboxes).
+STOP: zwei erfolglose identische versuche => END_BLOCKED; kein Merge; keine weiteren cmd/baha dateien.

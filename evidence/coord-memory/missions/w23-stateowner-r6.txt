@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w23-stateowner-r6). Coord f49a3303. MIKRO-AUFGABE: 1 assertion + 1 evidence-zeile
+PR #1347 (t-20261018-r27-state-owner). Basis = head 8c07e971 branch work/r27-state-owner.
+Grundlage: review-1347e befunde 1+2.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w23-stateowner-r6-wt work/r27-state-owner
+
+PUNKT 1 — FEHLERKLASSEN-VOLLSTAENDIGKEIT (cmd/baha/deployment_tenant_scope_negative_regression_test.go
+:31-123): die assertion akzeptiert bisher nur ErrDeploymentOwnerMissing (+?). Zu akzeptieren sind
+ALLE echten ablehnungen der kette: ErrDeploymentOwnerMissing, ErrDeploymentOwnerForeign, scope-/
+connector-/authenticated-session-fehlerklasse (provider-registry / "authenticated Connector session").
+Formuliere als: ablehnung erwartet; die konkrete meldung muss ZU EINER der klassen passen (kommata-
+getrennte errors.Is strings.Contains-prüfung auf 'scope' 'connector' 'provider-registry' 'owner' oder
+errors.Is gegen die zwei Err-Variablen). KEIN test, der bei nil-fehler durchgeht — ablehnung Pflicht.
+GEGENPROBE unverändert: gueltiger scope => durchlass.
+PUNKT 2 — EVIDENCE-KORREKTUR (baseharbor-plan/evidence/r27-night-2026-11-02/state-owner/fix-r5.md):
+  die zeile mit "fails auf 4cc93db8" richtigstellen auf: "PASS auf 4cc93db8 (enthielt den fix bereits),
+  FAIL auf dea01b83" — nur diese Fakt-zeile aendern, sonst nichts in planning (evidence liegt im
+  baseharbor-plan repo /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan, datei direkt editieren,
+  commit NUR dieser datei mit msg "r27: fix-r5 mutation-baseline corrected per review-1347e").
+
+ANSENDE-PFLICHT: code-punkt: merge origin/develop, ancestry rc=0 gegen ls-remote-SHA, write-set grep-leer,
+go test ./cmd/baha -run 'TenantScope|Negative' gruen, push FF, ls-remote==head. Planning-datei: commit+push
+im baseharbor-plan repo. END an f49a3303: "END_DONE w23-stateowner-r6: head=<sha> errclasses=complete evidence=corrected | <Satz>"
+Evidence code: .../state-owner/fix-r6.md (plain bullets). STOP: nur diese beiden punkte.

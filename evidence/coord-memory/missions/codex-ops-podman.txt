@@ -1,0 +1,42 @@
+ROLLE: OPS-AUFTRAG (Owner-Direktive 2026-11-04 17:5x, ausdruecklich: "lass uns einen test machen, Codex soll
+Podman machen"). KEIN CODEX-REVIEW, KEIN CODEX-MERGE, KEIN Produktcode. Coord f49a3303.
+ZWECK DES TESTS: zeigen, dass ein zweiter Codex-Kanal eine VM-Aufgabe sauber, reproduzierbar und mit
+plattenbeweis ausfuehrt — parallel zu den vier laufenden worker-lanes.
+
+FELD: die TEST-VM `baha-podman` (ssh-alias, Zugang aus der owner-umgebung; du setzt keine credentials).
+OWNER-FREIGABE 16:0x: reine testumgebung, vollstaendige bereinigung und reproduzierbarer NEUAUFBAU ausdruecklich
+gewollt, AUCH fuer die drei wochen alten geteilten teststapel auf diesem host. Proxmox-hosts und produktive
+dienste AUSSERHALB dieser VM bleiben unangetastet.
+
+BEKANNTER BEFUND (coord, 17:3x, auf platte): ~/.local/bin/baha auf diesem host meldet "BaseHarbor 0.4.23" und
+wurde heute 14:54 VOM SETUP-SKRIPT SO installiert. develop ist ecbb8854 (v0.4.27-linie). Genau das soll dein lauf
+richtig machen.
+
+AUFGABE (Reihenfolge ist der auftrag):
+ 1) BESTAND + DREI-PUNKTE-PRUEFUNG als BEGRÜNDUNG FUER DEN NEUAUFBAU notieren: `podman ps -a` (namen, status,
+    alter), `podman system df`, `df -h /`, `~/.local/bin/baha --version`. Pruefung: laufen gerade jobs/runs
+    gegen diese stapel? welche gehoeren zu welchem compose-objekt? was waere die wiederherstellungsfolge?
+    Die pruefung ist KEIN grund mehr, nichts zu tun — sie begruendet den neuaufbau.
+ 2) NEUAUFBAU der compose-/setup-definierten stapel (`bh-backup-recovery-ci-shared-*`,
+    `bh-backup-recovery-ci-core-shared-keycloak-*`) UEBER DEREN EIGENE DEFINITION (setup-skript
+    /home/marcel/setup-baha-podman.sh oder die zugehoerige compose-datei), nicht durch einzelnes
+    container-klatschen. Fuer den UNHEALTHY stapel `bh-backup-recovery-ci-backup-cli-dev-broker`: zuerst logs +
+    healthcheck-ursache notieren, dann neu aufbauen; bleibt er krank, grund + naechsten ausloeser melden.
+ 3) VERSION RICHTIG MACHEN (kern des tests): baha aus QUELLREVISION ecbb8854 bauen und installieren
+    (checkout + `go build -o .../baha ./cmd/baha`), PATH-eintrag auf die neue version zeigen lassen. BELEG in
+    der evidence: ausgabe von `baha --version` UND `git -C <checkout> rev-parse HEAD` WÖRTLICH. Wenn das
+    setup-skript eine released version zieht: das skript AENDERN (diff in die evidence) — das ist der
+    reproduzierbare weg, den der owner will.
+ 4) FUNKTIONSBEWEIS: rootless `podman run --rm <lokales bild> true` rc=0; port-mapping-test
+    (`podman run -d -p 127.0.0.1:54399:5432 <bild>` + port-pruefung + remove) rc=0; danach `baha`-aufruf der
+    neuen version (z.B. `baha --help | head -3` oder ein bestehender kleiner selbsttest) rc=0.
+ 5) AUFRÄUMPHASE: lane-eigene container/volumes/netzwerke weg. END enthält wörtlich: `podman ps -a` nachher,
+    `df`-zeile, anzahl neu aufgebauter stapel, die zwei versionszeilen aus schritt 3.
+
+GRENZEN DIE AUCH FÜR DICH GELTEN (auch als codex): KEINE .github-/workflow-datei aendern, KEIN rerun,
+KEIN workflow_dispatch, KEIN runner registrieren (GitHub stellt die geteilten Runner), KEIN produktcode-commit
+in einem repo, KEIN zugriff auf proxmox, KEIN `podman system reset` ohne dokumentierte dreipunkte-pruefung,
+KEINE secrets in der evidence.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-rebuild/podman-codex.md (bullets + belege, keine
+markdown-checkboxen).
+END an f49a3303: "END_DONE codex-ops-podman: stacks=<n neu> baha=<version>/<revision10> broker=<gesund|blocker-text> laufend=<rc0-belege> cleaning=<bestaetigt> | <Satz>"

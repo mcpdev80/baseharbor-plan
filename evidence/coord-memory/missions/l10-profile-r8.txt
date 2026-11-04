@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane l10-profile-r8). Coord f49a3303. MIKRO-AUFGABE: letzte 3 Handwerks-Punkte PR #1324
+(t-20261018-r27-profile-contract). Basis = head 66c54639. NICHTS Neues erfinden — nur die 3 Rezepte.
+
+ZUERST LESEN: baseharbor-plan/evidence/r27-night-2026-11-02/review-1324h.md (Clause assessment, 3 Rezepte).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C baseharbor worktree add /tmp/opencode/l10-profile-r8-wt work/r27-profile-contract
+Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+PUNKT 1 — nonce test korrekt machen (review: erster-zeichen-tausch ist ein ANDERES gueltiges 12-byte,
+  keine noncanonical-Regel bei 16 chars; base-profil fuehrt zu frueherem ablehngrund):
+  baseline profil VOLLSTAENDIG gueltig (trust+validity gesetzt); tests: invalid alphabet, padding
+  character, wrong length (15/17) => reject; gueltige 16-zeichen varianten => accept; decoded golden
+  durch echten AEAD roundtrip; unknown-algorithm fall mit gueltigem sonstigem profil (kein masking).
+PUNKT 2 — import witnesses ANBINDEN: importWithWitnesses muss einen ECHTEN orchestrierungspunkt
+  aufrufen dem die fakes injiziert sind (z.B. eine package-interne importProfile(prof, grants,
+  plugins, credDir) funktion die sie nachweislich NICHT antastet bei akzeptierten input, und ablehnt
+  + unangetastet bei jedem negativ). before/after counter-vergleich pro achse. Wenn dafuer eine neue
+  kleine orchestrierungs-funktion im write-set noetig ist: erlaubt (sie ist testbar, kein produktions-
+  consumer behaupten — doku bleibt beim existing deferral-text).
+PUNKT 3 — doku widerspruch: die absatze die JETZT noch sagen "binds installation ID" / "validated
+  through existing anchor" in EN+DE auf self-bind realitaet stellen (verweis auf deferral; DE
+  negationen pruefen).
+
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/|cmd/)' leer; write-set paritaet.
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 (komplett gruen, auch die neuen fokussiert)
++ go build/vet. push FF, ls-remote, keine run-logs, SOFORT END an f49a3303.
+Evidence: .../profile-contract/fix-r8.md (plain bullets, keine checkboxes).
+STOP-REGEL (Anti-endlosschleife): wenn ein rezept-typ ohne neue interface-entscheidung nicht
+beweisbar ist: END_CODE_READY mit dokumentiertem deferral-satz statt weiter iterieren; kein Merge;
+keine CI-/cmd-/scripts-dateien.

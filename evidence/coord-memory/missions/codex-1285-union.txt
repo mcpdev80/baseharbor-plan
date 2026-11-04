@@ -1,0 +1,23 @@
+ROLLE: CODEX-REVIEW (kein Merge in dieser Mission). Coord f49a3303.
+OBJEKT: #1285 promotable Union-Tree (integ1285 deliverable). Remote-Referenzen:
+main=e92e2058, develop=b8b56bbc, Kandidat #1285 head=20bef715.
+Union-Tree vom Lane gebaut: tree=dfe249ba5ff28e273258a6d8a3d20b0036e4e8de
+S=c18b07a88df15bc3afc8a62e53bb3288adf79e37, M2=3fbe8f08099b286764193aed7baba638ab5acce0
+Behauptung: main_X_M2=clean, defense_minus=none.
+
+PRUEFEN (SHA-genau, nur lesen, Kandidat unveraendert):
+1. Verifiziere per git: M2 ist ein Merge-tree von main(e92e2058) x Kandidat(20bef715), der den
+   develop-stand (receipt_verifier plan-driven Aenderung) traegt. git merge-tree / git ls-tree der SHAs.
+2. main_X_M2 CLEAN nachweisen: git merge-tree main M2 (oder aequivalent) => kein Konflikt.
+3. defense_minus=none nachweisen: git diff main..M2 => KEINE geloeschten main-Defense-Zeilen,
+   alle main-seitigen Empfangsbeleg-/Verifikations-Pflichtpruefungen bleiben erhalten.
+4. Kandidat-SUBSTANZ: receipt_verifier.py leitet required-Gates plan-getrieben ab (kein hartert
+   Code/Regression), + seine Tests. Fail-closed erhalten.
+5. Beweise, dass M2 auf develop (b8b56bbc, jetzt hosted) lauffaehig qualifizierbar ist (Runner hosted).
+
+Urteil -> baseharbor-plan/evidence/board-2026-11-02/codex-1285/review-r4.md
+(ROLLE: REVIEW, ACCEPT|REJECT + ggf. exaktes Rezept: welche Datei/Aenderung/Stop-Kriterium).
+Wenn promotable belegt => ich (Coordinator) fuehre CODEX-MERGE spaeter separat aus (anderes ROLLE-Label).
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED codex-1285-r4: verdict=<A|R> promotable=<proven|no> | <Satz>"

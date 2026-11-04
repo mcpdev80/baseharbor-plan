@@ -1,0 +1,16 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS profil-codec runde 2.
+OBJEKT: baseharbor PR #1363 head e45e85ed5f branch work/r27-profile-codec (ready durch coord; basis develop
+ecbb8854 = Vorfahr; gates terminal 2 pass / 0 fail / 14 skipping). VORGESCHICHTE: deine review-1363a REJECT
+(sechs rezepte: version/schema-pruefung + bindungs-eingang im store, secret-ablehnung in allen serialisierten
+feldern, unbekannte felder, kanonisches container-format + echter round-trip, echte atomaritaet beim import,
+EN/DE spec-deckung). Lane w113 meldet 7/7 gegenproben gruen lokal.
+PRUEFEN SHA-genau read-only, gegen DEINE eigenen rezepte: (1) echter secret-canary im record => export
+ohne secret, import mit secret => typisierte ablehnung (kein leerer test!), (2) unbekanntes zukunfts-feld
+(also auch verschachtelt) => ablehnung ODER verlustfreie erhaltung mit dokumentierter regel, (3) falsche
+record-version / fremde installation / falscher empfaenger / falscher scope => abweisung VOR nebenwirkung,
+(4) round-trip ist kanonisch stabil (feld-/record-reihenfolge pin + golden fixture folgt dem format),
+(5) partial-write-Fehler hinterlaesst KEINE datei/keinen zustand (test), conflict-replace prueft das
+ersetzt-ALTRE record (nicht nur den zaehler), (6) docs/spec + docs/de/spec exakt wie implementierung,
+(7) pakettests + build + gofmt + vet gruen und write-set ohne griffe in .github/cmd-baha/delivery.
+Urteil -> review-1363b.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1363b: verdict=<X> open=<liste|none> | <Satz>"

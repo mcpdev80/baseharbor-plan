@@ -1,0 +1,33 @@
+ROLLE: Worker (Lane w61). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract (runde 6).
+PR #1355 (ready), branch work/r27-candidate-contract, basis head 41f937d2. Grundlage: review-1355e.
+WARNUNG (coord, plattenfest): dein vorgaenger meldete CODE-FIXES, aber der diff 3b0fd03d..41f937d2
+enthielt NUR docs+evidence. DU daher: jeder punkt mit BEWEIS-ZEILE im END (datei:stelle + testname),
+und dem wörtlichen diff --stat 41f937d2..DEIN_HEAD in evidence — code-dateien MUESSEN sichtbar sein.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-candidate-contract:refs/remotes/origin/work/r27-candidate-contract"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w61-candidate-f-wt work/r27-candidate-contract.
+
+PUNKT 1 — finalizeCandidateConsent (cmd/baha/app_candidate_consent.go): errechneten digest berechnen,
+dann rawDigest==errechnet VERGLEICHEN (ungleich => err, kein speichern, kein ersetzen). Test
+TestConsentRejectsWrongDigest als ECHTER apply-pfad-test (eintrag ohne write nach ablehnung).
+PUNKT 2 — SCHEMA HAERTEN (contracts/candidate/v1/candidate-contract.schema.json): source.revision
+ersetzt minLength:1 durch "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64}|[a-z0-9]+:[0-9a-f]{32,})$" und
+consent.digest analog; mapper (contracts/candidate_contract_test.go + produktpfad falls dort) auf
+json.Decoder + DisallowUnknownFields. TEST: schema-validierung mit revision:"main" + formal gueltigem
+consent => schema INVALID (gegenprobe im test, nicht nur behauptet).
+PUNKT 3 — PROMPT==BINDUNG: promptConfirmCandidateSubmission muss den digest zeigen, den DER SELBE
+aufruf spaeter bindet: einen einzigen berechnungshelfer, prompt und write rufen BEIDE ihn mit derselben
+submission an (kein lesen aus altem record). test: angezeigter digest (captured output) == persistierter
+consent.digest bei neuer submission.
+PUNKT 4 — LINKS HEILEN: die drei doc-links haben ein doppeltes baseharbor-plan/ praefix. korrektes ziel
+(plate belegt): https://github.com/mcpdev80/baseharbor-plan/blob/HEAD/decisions/2026-10-18-r27-native-delivery-and-stages.md
+EN+DE, alle vorkommenden stellen, grep 'baseharbor-plan/blob/HEAD/baseharbor-plan' == leer danach.
+
+REGELN: keine bestehende testfunktion loeschen; gofmt/vet leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp
+go build ./... + go test ./internal/delivery ./internal/application ./contracts -count=1 -timeout 8m +
+go test ./cmd/baha -run 'Candidate|Consent|Apply' -count=1 gruen; merge develop drift rc=0; push FF;
+ls-remote==head.
+END an f49a3303: "END_DONE w61-candidate-f: head=<sha> diffstat=code-daeriger vergleich=hart schema=pattern prompt=bindung links=sauber | <Satz>"
+STOP: wenn der apply-pfad den digest NICHT ohne strukturellen umbau zugreifbar macht => END_BLOCKED mit
+beiden compute-stellen (datei: zeilen), nicht docs-statt-code-melden.

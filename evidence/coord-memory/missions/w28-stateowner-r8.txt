@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w28-stateowner-r8). Coord f49a3303. MIKRO-AUFGABE: NUR tests (2 punkte) PR #1347
+(t-20261018-r27-state-owner). Basis = head e4af28c2 branch work/r27-state-owner.
+Grundlage: review-1347g rezepte 1+2. PRODUKTCODE unveraendert lassen — wenn ein test befuerchten
+laesst, dass produktcode falsch ist: END_BLOCKED mit begruendung, NICHT code aendern.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w28-stateowner-r8-wt work/r27-state-owner
+
+PUNKT 1 — BYTE/LOAD-SETUP ECHT (deployment_tenant_scope_negative_regression_test.go :89-109):
+  vor der scope-korrumpierung einen echten record mit GUELTIGEM scope speichern (save-Pfad durchlaufen
+  lassen), dann bytes sichern; danach corrupt-scope save UND load => je ErrUnavailable-kette, bytes
+  unveraendert. Der test darf ohne diesen setup-record nicht mehr "bestehen".
+PUNKT 2 — LIST/OWNER MIT EXISTIERENDEM RECORD (internal/deployment/deployment_owner_binding_test.go
+:170-173 :198-204 :219-245):
+  die drei stromloeufe auf EXISTIERENDEN record umstellen: (a) list auf target-ohne-record =>
+  konkrete missing/empty-semantik NACH kartendefinition (nicht pauschal err=nil akzeptieren — lies
+  contract_test/main source was list ohne record liefern MUSS, behauete nichts neues); (b) load auf
+  target-mit-record fremder owner => ErrDeploymentOwnerForeign spezifisch; (c) corrupter gespeicherter
+  owner im record => normalisierung wie dokumentiert (unset-pfad) + verhalten wie guard-code.
+
+ANSENDE-PFLICHT: merge origin/develop, ancestry rc=0 ls-remote-SHA, write-set = nur test-dateien
+(grep .github/scripts/produktcode leer), go test ./internal/deployment ./cmd/baha -run
+'TenantScope|Negative|Deployment|Owner|List|Binding' -count=1 gruen (ausser belegte env-fails).
+PUSH ZIEL refs/heads/work/r27-state-owner (KEINE tmp-branch). END an f49a3303:
+"END_DONE w28-stateowner-r8: head=<sha> setup-record=echte-liste owner=foreign-spezifisch | <Satz>"
+Evidence: .../state-owner/fix-r8.md (plain bullets). STOP: 1 iteration je punkt.

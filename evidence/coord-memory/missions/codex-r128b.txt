@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. REZEPT-PFLICHT bei REJECT.
+OBJEKT: baseharbor-demo PR #128 head b73be42 (korrektur-runde auf deine r128a befeunde 1+2; branch
+w85-demo-guided-consent; basis main cd9176e). Behauptung der lane: B1 capture-pfad validiert exit+pflicht-
+prompt (nur dokumentierter consent-abbruch mit hash als zwischenzustand erlaubt; vier regressionen positiv
+belegt), B2 probe fail-closed (nur positives merkmal => supported; fehlendes binary/timeout/unbekannt =>
+FEHLER ohne zweiten lauf; vier gegenproben in demo/consent-harness-2.md). VERFAHRENSNOTIZ: das demo-repo
+hat KEINE PR-checks (nur release-branch-CI, wahrheitsgemaess "hosted=nein" gemeldet) — qualifikation laeuft
+ueber die fokussierten local-regressions der lane + deine eigenen gegenproben, das ist repo-regelkonform
+(bitte NICHT erneut als fehlend ruegen; verifiziere stattdessen in baseharbor-demo/AGENTS.md gegen).
+PRUEFEN SHA-genau read-only: eigene kontra-proben auf dem head: (a) exit!=0 ohne hash => READY-meldung
+verboten; (b) pflicht-prompt fehlt => abbruch; (c) probe mit fehlendem binary => FEHLER, kein zweiter up;
+(d) exakte unsupported-antwort => ein lauf wie heute. Diff-scope: nur tests/guided/drive.py + core.ref.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-128b.md.
+END an f49a3303: "END_DONE codex-r128b: verdict=<X> open=<liste|none> | <Satz>"

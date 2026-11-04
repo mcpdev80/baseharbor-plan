@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSS access runde 13 (r1357l rezept geheilt).
+KANAL: GPT-6 Luna. REZEPT-PFLICHTBLOCK bei REJECT.
+OBJEKT: branch work/r27-ci-access-ab head e86d39c0 (PR #1357 READY, 13 pass/0 fail TERMINAL, basis develop
+2cadfcee Vorfahr JA). Gegenstand r1357l-Befund: zaehlung jetzt ueber wrappedCheck/wrappedExecute AN den
+echten dispatch gekoppelt, 8 freie ++-zeilen entfernt. PRUEFEN (SHA-genau, read-only):
+(1) MACH DEINE EIGENE MUTATION AUF DEM KOPF: kommentiere genau einen wrappedExecute-AUFRUF aus (counter-
+    definition UNveraendert) => matrix MUSS mit N-Mismatch ROT werden; rueckgaengig machen; gleiches
+    Spiel mit einem wrappedCheck. (2) miswire-swap => ROT. (3) handler.go develop-identisch; 0 tests
+    geloescht; (4) go test ./internal/runtimeexecutor -count=1 -timeout 8m gruen (GOCACHE=/tmp/opencode/gc
+    TMPDIR=/tmp), gofmt/vet leer. NUR LESENDER PRUEFPAD — aenderungen rueckgaengig, final HEAD verifizieren
+    (git status clean + ls-remote==e86d39c0 VOR und NACH den mutationen dokumentieren).
+Urteil (ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT) -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357m.md.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357m: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,14 @@
+NACHT W2-B — t-20261018-r27-delivery-boundary (baseharbor). GESTAPELT auf W1-A #1326 (63573ee5)
+(Merges bis Cutover aus; Stacking dokumentieren). Task-Karte zuerst lesen — Akzeptanz massgebend.
+
+ISOLATION (Pflicht): NUR eigenes worktree:
+  git -C baseharbor worktree add /tmp/opencode/w2-delivery-wt -b work/r27-delivery-boundary 63573ee5
+
+AUFGAB:
+1. CLAIM: python3 baseharbor-plan/scripts/plan.py claim t-20261018-r27-delivery-boundary (plan repo push).
+2. Gemäss Karte: native Standards + EINER reconciliation owner — Schnittstellen/Doku gemaess Write-Set
+   der Karte; KEINE Ueberschneidung mit state-owner (internal/coreinstallation), decisions, managementaccess,
+   .github/**, scripts/pr-*. Bei Ueberschneidungsbedarf: END_BLOCKED mit Datei — nicht teilen.
+3. Regressionstests falls Karte Typen verlangt; PR base develop mit "STACKED on #1326". KEIN Merge.
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/evidence.md.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w2-delivery: task=t-20261018-r27-delivery-boundary pr=<#N> head=<sha> | <Satz>"

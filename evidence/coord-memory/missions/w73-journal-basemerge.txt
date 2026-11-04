@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w73). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (nur basis, kein inhalt).
+Branch work/r27-ci-authority-ab head d5c66d64. PR #1354 ist DRAFT->READY durch coord. Luna-verfahren:
+basis muss develop fddff70d als Vorfahr haben. merge-tree ist KONFLIKTFREI bestaetigt (coord-simulation).
+
+AUFGABE (einziger schritt): fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w73-journal-bm-wt
+work/r27-ci-authority-ab; git merge origin/develop (erwartet sauber, merge-commit ok auf feature-branch);
+go build ./... + go test ./internal/machinehttp -count=1 -timeout 8m (erwartet gruen, unveraenderter inhalt);
+push; ls-remote==neuer head + cat-file -e; END an f49a3303:
+"END_DONE w73-journal-bm: head=<sha> ancestry-rc=0 tests=gruen lsremote=<sha10> | <Satz>"
+STOP: ueberraschender konflikt DESWEGEN ENDE_BLOCKED mit datei:stelle — nicht eigenmaechtig pitchen.

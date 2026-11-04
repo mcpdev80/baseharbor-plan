@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w46). Coord f49a3303. KARTE: t-20261018-r27-state-owner (reconcile Runde 3).
+PR #1347, basis head ccb5e83f branch work/r27-state-owner. Grundlage: review-1347r.md rezept 1.
+Fakten: union-merge korrekt (seam5+guard3), ABER 29 guard/retention-tests (delivery-erbgut) scheitern
+beim seed weil der neue seam auf ihren zielen owner-material vermisst.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w46-stateowner-r3-wt
+work/r27-state-owner.
+
+ARBEIT:
+1. gemeinsamer seed-helper: die guard-/retention-fixtures (internal/deployment/*_test.go, u.a.
+   one_writer_guard_test.go + preferences_retention_test.go + was die 29 traegt) erhalten einen
+   ECHTEN autoritativen core-owner für denselben target — musterbild: die bestehenden owner-
+   provisionierer aus cmd/baha (w21-präzedenz registerInstallationForTarget o.a.), hier die
+   internal/deployment-aequivalente fixture (installation.json mit gueltiger identity im
+   target-state-root). KEIN globaler bypass, KEIN abschalte-flag, KEIN skip.
+2. die 4 negativen families bleiben hart: missing/foreign/corrupt-owner tests duerfen durch den
+   helper NICHT versehentlich owner bekommen (ihre eigene abweichende seed-logik behalten).
+3. BEWEIS-pflicht im END: go test ./internal/deployment ./internal/delivery -count=1 KOMPLETT gruen
+   (zahl: n tests passed) + list der 29 namen die jetzt gruen sind + nachweis beide checks im selben
+   save-pfad (ein test der gleichzeitig guard-verletzung UND owner-verletzung liefert => ein err,
+   priorität dokumentiert).
+REGELN: write-set = internal/deployment TEST-dateien (+ max ein neuer helper in derselben datei/
+paket); KEIN produktcode; .github/scripts grep-leer; merge develop bei drift rc=0 ls-remote; go
+build ./...; push FF; ls-remote==head; PR bleibt wie er ist.
+Evidence: .../r27-welle3-2026-11-03/state-owner/reconcile-3.md (plain bullets: 29er-liste, helper,
+lauf-ende). END an f49a3303: "END_DONE w46-stateowner-r3: head=<sha> seeded=29of29 both-checks=documented | <Satz>"
+STOP: ein fall braucht produkt-aenderung => END_BLOCKED mit datei:stelle (nicht still im code bohren).

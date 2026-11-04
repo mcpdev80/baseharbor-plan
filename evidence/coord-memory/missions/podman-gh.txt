@@ -1,0 +1,33 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/podman-gh  Branch work/podman-gh (Repo baseharbor, Basis origin/develop)
+MISSION podman-gh — Podman-Native-Lauf auf GitHub-hosted zum wirklichen Funktionieren bringen (rootful, NICHT rootless)
+GRUND (empirisch belegt, andere Lane): Rootless ist auf ubuntu-latest/26.04 UNMOEGLICH (unshare userns blockiert,
+  auch nach sysctl-Lift). Das Targeted-HA-podman-Job in .github/workflows/ci.yml ruft aktuell
+  `scripts/ci-core-rootless-runtime.sh` auf = rootless = bricht auf GH-hosted. Node-Connector hat bewiesen: auf
+  GH-hosted funktioniert `podman` DEFAULT (rootful), sonst `podman --cgroup-manager=cgroupfs`.
+EXKLUSIVES WRITE-SET (disjunkt): 
+  - NEU: scripts/ci-podman-gh-runtime.sh   (dein neues Setup-Skript)
+  - .github/workflows/ci.yml NUR die Zeile/der Step "Prepare ... runtime" DES `Targeted HA · podman`-Jobs (der Job
+    mit BASEHARBOR_TEST_RUNTIME: podman) darf auf dein neues Skript zeigen. KEINE anderen ci.yml-Jobs/Steps anfassen
+    (validate + docker-Skript = #1239; internal/runtime = Endpoint-Lane).
+  - .github/workflows/podman-acceptance.yml — falls dort rootless/loginctl-Annahmen stehen, auf rootful umstellen.
+  - NICHT scripts/ci-core-rootless-runtime.sh (gehoert #1239), NICHT internal/**, NICHT docker-Workflows.
+AUFGABE:
+ 1. Skripte `scripts/ci-podman-gh-runtime.sh`: stelle auf einem GH-hosted ubuntu-Runner rootful Podman bereit:
+      sudo apt-get update; sudo apt-get install -y podman uidmap   (idempotent, falls fehlt)
+      sudo systemctl enable --now podman.socket                    (-> unix:///run/podman/podman.sock)
+      Nachweis: `podman info` + ein echter Container-Lauf:
+        if ! podman run --rm docker.io/library/alpine:3 echo ok; then
+          # Fallback cgroupfs falls default scheitert:
+          podman --cgroup-manager=cgroupfs run --rm docker.io/library/alpine:3 echo ok && export ...
+        fi
+      Schreibe CONTAINER_HOST/podman-Socket in $GITHUB_ENV wenn noetig. Fail-closed: wenn KEIN Podman-Modus
+      containers ausfuehren kann -> exit != 0 mit klarer Meldung (kein stummer SKIP).
+ 2. Im Targeted-HA-podman-Job den Prepare-Step auf `bash scripts/ci-podman-gh-runtime.sh` umstellen.
+ 3. actionlint + YAML-Check. Kein Timeout/Gate abschwachen.
+ 4. VALIDIERUNG (Eigenes-Run-Pflicht): workflow_dispatch EINES podman-PRUEFPFADES auf deinem Branch, oder ein
+    minimaler Job der dein Skript auf ubuntu-latest/26.04 ausfuehrt und bestaetigt `podman run hello` laeuft.
+    Run-ID + terminalen Status in Evidence. Wenn dafuer der Endpoint-Fix noetig waere: das als Abhaengigkeit notieren
+    (aber dein Skript selbst + `podman run alpine` braucht IHN nicht — das getrennt beweisen).
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/podman-gh/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY podman-gh: <echter 40-hex SHA + PR# + podman run alpine OK auf GH-hosted + Run-ID>"
+PUSHE auf Branch work/podman-gh und oeffne PR gegen develop. Melde END_DONE NUR mit echtem gepushtem SHA.

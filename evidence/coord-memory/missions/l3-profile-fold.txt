@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane l3-profile-fold). Coord f49a3303. MIKRO-AUFGABE — ein Ziel, dann END.
+
+KONTEXT: PR #1324 (task t-20261018-r27-profile-contract, branch work/r27-profile-contract,
+head 3799e932, base develop). Einzig offener Reviewbefund: Dokumentpfad. Die Task-Karte
+(baseharbor-plan/tasks/t-20261018-r27-profile-contract.md) reserviert docs/spec/credential-access-v1.md
++ DE-Pendant — diese Datei EXISTIERT bereits auf develop (125 Zeilen, "Credential and access ownership v1").
+Die Lane-Arbeit liegt stattdessen auf docs/(de/)spec/management-access-profiles-v1.md.
+
+ERSTE AKTION (Regel, nicht verhandelbar): eigenes Worktree anlegen:
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/l3-profile-fold-wt work/r27-profile-contract
+  (Haupt-Checkout baseharbor/ NICHT benutzen; bei Worktree-Fehler: END_BLOCKED, nicht im Haupt-Checkout arbeiten.)
+
+SCHRITTE (genau diese, nichts drumherum):
+1. In work/r27-profile-contract: develop-Fassung von docs/spec/credential-access-v1.md als Basis behalten;
+   den Inhalt aus docs/spec/management-access-profiles-v1.md als neuen normativen Abschnitt
+   "Management surface access profiles" ergaenzen (klassenbezogene Profile/Enrollment/Export-Regeln).
+2. docs/de/spec/credential-access-v1.md ebenso mit DE-Abschnitt aus docs/de/spec/management-access-profiles-v1.md
+   (sinngleich, keine Negations-Umkehr — frueherer REJECT-Punkt!).
+3. docs/spec/management-access-profiles-v1.md + docs/de/spec/management-access-profiles-v1.md loeschen (git rm).
+4. Querverweise nachziehen: mkdocs.yml/nav, Referenzen in anderen Dokus (grep -r nach management-access-profiles-v1).
+5. Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 (muss PASS), plus vorhandener
+   documentation-Audit-Lauf falls repo-local schnell verfuegbar (sonst CI uebernehmen lassen).
+6. commit, push origin work/r27-profile-contract, git ls-remote zur Bestaetigung. KEINE CI-Auswertung
+   (PR-Checks sind Owner-Kanal — nur Endstatus unkommentiert in die Evidence, keine Run-Logs, keine Reruns).
+7. Evidence anhaengen: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/evidence.md
+   ( Abschnitt "Dokumentpfad-Faltung" mit SHA + Testausgang), render+check NUR falls planning-dateien geaendert wurden (sollte nicht sein).
+8. HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY l3-profile-fold: head=<sha> | <ein Satz>"
+   Bei Blockade: END_BLOCKED mit der EINEN Logzeile, die den Grund belegt.
+
+STOP-KRITERIEN: keine Refactors ausserhalb der 6 Dateien; keine CI-Dateien (.github/**, pr-gate-plan.py, pr-check-runner.py) NICHT anfassen;
+kein Merge, kein Release/Tag; bei Konflikt mit develop: merge develop in den Branch, Konflikt nur in Doku-loesen, sonst END_BLOCKED.

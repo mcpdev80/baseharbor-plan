@@ -1,0 +1,3 @@
+(Pflicht-Kopf in jeder Mission: SCHRITT 0 = native GUI-TODO-Liste anlegen (todowrite), identical zur
+ ## PLAN-Liste der Evidence — §4.4 verlangt BEIDES; todo-check.sh prueft die Evidence-Liste, die GUI-Liste
+ ist per Pane sichtbar zu halten.)

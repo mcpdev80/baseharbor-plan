@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head 7781a6f3 (develop Vorfahr JA, write-set sauber; lane hat Option B gewählt:
+intentionen an serviceaccess-struktur verankert — expiry via ValidateSignedCSR/certValidAt in
+csr_material.go:28/68, DefaultObservationMaxAge in serviceaccess/pki.go:23, lokale CRL fail-closed in
+local_issuer.go:320/327 mit read-only-Ausnahme) = t-20261018-r27-authority-contract. RE-REVIEW nach
+review-1326f.
+PRUEFEN (SHA-genau, read-only): 1. EXPIRY im echten prüfpfad: jeder weg durch resolveManagement-
+ConnectionIssuer/installauthority.Fresh muss abgelaufene basis ablehnen — verfolge den call-graph
+(lane-behauptung csr_material) und fahre eine regression mit past-expiresAt. 2. EIN fenster-wert:
+DefaultObservationMaxAge referenziert in wrapper + defaults; KEIN hartkodiertes time.Minute mehr im
+wrapper-pruefpfad; 30min-past fresh + grenze >fenster stale durch wrapper-e2e. 3. lokale CRL: fehlende
+liste => fail-closed im SCHREIB-/prüfungspfad; read-only RevokedStatus-duldung nur wenn karten-text
+das trägt (sonst befund). 4. matrix + deferral-notizen (identity cross-binding) => ACCEPT-WITH-
+DEFERRAL wenn alles übrige erfüllt. Tests: TMPDIR=/tmp go test ./internal/openbao ./internal/install-
+authority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid + go test ./cmd/baha
+-run '^TestResolveManagementConnectionIssuer' -count=1. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326g: verdict=<X> open=<liste|none> | <Satz>"

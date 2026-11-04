@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w115). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment, PR #1371 (zweig
+work/w96-production-wiring-f8ef4255, kopf 589baf0e). Owner-auftrag: auf AKTUELLEN develop + echte PR-CI erneut.
+BEFUNDER LAGE: develop ist 2a43984a ("isolate PostgreSQL for selected PR Go unit tests"); dein zweig hat
+bb9bc0ef als basis, 2a43984a fehlt. Die zwei roten checks auf #1371 waren: PR Selected Checks und go-unit-tests,
+rot weil internal/database + station_policy_resolver_integration_test.go eine postgres-leitung auf
+127.0.0.1:5433 erwarten (dial error) — genau das, was 2a43984a selbststrendend macht.
+AUFGABE:
+(1) letzter schritt: fetch, merge origin/develop (2a43984a) in den zweig; konflikte nur in den 14
+    namespace-dateien des kandidaten (internally workstationenrollment/**), produktlogik NICHT umschreiben.
+(2) lokale gegenprobe VOR push: die beiden betroffenen tests mit derselben bedingung wie der job (PG aus der
+    workflow-eigenen instanz — Lies die ANDERUNG von 2a43984a in .github/workflows NUR LESEND, aendere sie
+    NICHT) -> internal/database und internal/workstationenrollment tests muessen lokal mit echter DB gruen;
+    wenn du keine DB hochbekommst: melde das als BEFUND, nicht als bestand.
+(3) push; ls-remote==head; dann die gehosteten PR-CI-laeufe bis TERMINAL beobachten (Eigenes-Run-Pflicht):
+    je check pass/fail + bei fail die EXAKTE fehlende bedingung aus dem job-log.
+(4) report je FEHLERKLASSE: (a) echter produktfehler im kandidaten, (b) fehlende testumgebung (CI-urg,
+    owner-seitig behoben oder nicht), (c) reihenfolge-/basisproblem. KEIN rerun als ersatz fuer analyse,
+    KEIN .github-/workflow-aenderung, KEIN test-skip/t.Setenv-bypass.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/base-ci-1.md (tabelle alt/neu,
+run-ids, klassifikation je fehlender stelle; keine checkboxen).
+END an f49a3303: "END_DONE w115-enroll-base-ci: head=<sha10> basis=2a43984a checks=<n/terminale> rot=<liste mit klasse|keine> lsremote=<sha10> | <Satz>"

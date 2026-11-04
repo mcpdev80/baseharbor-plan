@@ -1,0 +1,19 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/obslok2 (Repo baseharbor; Basis origin/develop >=20083909)
+MISSION obslok2 — Loki-Log-Ingestion Verifikation scheitert auf GH-hosted
+ Fehlerbild: Acceptance · Observability Full Stack auf GH-hosted (Run 41397537623, Job-Fundstelle
+ app_observability_acceptance_test.go:165): 'Verifying log ingestion: capability verification failed
+ for logs/api: verify Loki ingestion ...' nach ~241s.
+SCHRITTE: 1) Volle Fehlerzeile + vorangehende Zeilen aus Run-Log ziehen (gh api job logs).
+ 2) Ursache triagieren: Loki-Startbereitschaft (Grace/healthcheck — Muster siehe #1265
+ compose_render), Query-Zeitfenster/Sortierung, oder Ingestion-Pfad echt kaputt.
+ 3) Minimaler Fix + Regression; PR gegen develop; Observability-Dispatch auf PR-Branch beobachten.
+ZEITKAESTCHEN: 90 Minuten Diagnose — dann END_BLOCKED mit file:line-Befund statt Weiterbohren.
+STOP: keine Workflow-Gate-Aenderungen, kein Merge, kein subagent/codeman-Spawn, kein Frage-Dialog.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/obslok2/evidence.md + ## PLAN + workers/todos/obslok2.json.
+HANDOFF: post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED obslok2: pr=<n> head=<sha> run=<id> | <Satz>"
+ROTATIONS-KONTEXT (Coord): Vorgaenger hatte 2q Pausen/Schleifen. Fundstellen已经 belegt:
+ Loki-Compose-Render in /home/marcel/dev/baseharbor-ecosystem/baseharbor/internal/logs/render.go
+ (loki:3100 Zeilen ~98/177/223), Target internal/logs/realization.go:229, Verify-Pfad
+ internal/capability/reference.go:132. Muster: PR #1265 (internal/runtimebroker/compose_render.go
+ writeHealthcheck, start_period 15s, Vorlage internal/runtime/mongodb_runtime.go:252-256).
+BEWEISQUELLE Loki-Timeouts: native Run 41397537623 Job-Log (gh api .../jobs/<id>/logs).

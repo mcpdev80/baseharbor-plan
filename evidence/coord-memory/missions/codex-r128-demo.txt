@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. REZEPT-PFLICHT bei REJECT.
+OBJEKT: baseharbor-demo PR #128 (repo mcpdev80/baseharbor-demo) head 683f1da7 branch w85-demo-guided-consent,
+PR #128 READY, draft von coord geschaltet. Karte t-20261104-r27-demo-guided-consent: gefuehrter up-pfad
+capt confirm-hash und faehrt mit feature-detection (up --help) denselben pfad MIT --confirm-candidate <digest>
+erneut; ohne unterstuetzung exakt heutiges verhalten. PRUEFEN (SHA-genau, read-only, demo-repo):
+(1) diff gegen demo-main cd9176e: nur tests/guided/drive.py + scripts/acceptance.sh (und falls pin: baseharbor-core.ref —
+    der pin-auftrag war 488a39e6 ODER analog candidate-head; pruefe konsistenz mit karte);
+(2) detection-pfade beide belegt (evidence .../demo/consent-harness-1.md), (3) KEIN produkt-/core-write im diff,
+(4) demo-eigene tests/vet laut baseharbor-demo/AGENTS.md (fokussiert) gruen. Urteil ->
+baseharbor-plan/evidence/r27-night-2026-11-02/review-128a.md.
+END an f49a3303: "END_DONE codex-r128a: verdict=<X> open=<liste|none> | <Satz>"

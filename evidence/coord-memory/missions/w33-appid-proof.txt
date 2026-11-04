@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w33). Coord f49a3303. KARTE: t-20261023-appid-repo-workflow-proof — LIES
+vollstaendig: baseharbor-plan/tasks/t-20261023-appid-repo-workflow-proof.md (Goal/Scope/Acceptance sind
+der Vertrag). repos: mcpdev80/baseharbor.
+ERSTE AKTION: fetch origin develop, eigenes worktree /tmp/opencode/w33-appid-proof-wt auf frischem
+branch work/r27-appid-proof ab develop.
+KERN: authentischen PASS-Nachweis von TestRepositoryWorkflowRealLifecycle fuer ein fixes develop-SHA in
+GitHub Actions AUFFINDEN (gh run list --json, nur READ — keine reruns, keine workflow-edits). Wenn
+keiner auffindbar: card-conform minimalste eigenlauf-loesung NUR ueb test-source/fixture, gehostete
+laeufe NICHT ausloesen wenn es CI-dateien brauchte — dann END_BLOCKED mit grund.
+PFLICHTREGELN: write-set OHNE .github/scripts (beweis: grep leer); merge origin/develop + ancestry
+rc=0 gegen ls-remote-SHA; TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go build ./... + betroffene tests;
+push FF auf DEINEN branch; PR DRAFT eroffnen (gh pr create --draft); ls-remote==head.
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/appid-proof/run-evidence.md (plain bullets,
+KEINE checkboxen, run-ids/urls). HANDOFF: END an f49a3303. STOP: keine CI-aenderungen; card-scope.

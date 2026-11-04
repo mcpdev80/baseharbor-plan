@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (Dritt-Review; kein Merge, keine Produktänderung)
+Kandidat: PR #1272, head 72c14450, base develop (640846e1 = aktueller develop). 
+R2-Kernvorwurf war ein Basis-Artefakt (Zweig vor #1271); Coord hat rebasiert. Pruefpunkte:
+ 1) Diff origin/develop..origin/authz1-fix (DREI-PUNKT/merge-base) ist exakt: 
+    manifest.go (omitempty + Comment), CHANGELOG.md, cmd/baha/mcp_application_authoring_test.go
+    (Positivfall ohne Compose + NEU: Negativfall Name, Zeilen 175-198). Keine Entfernung von
+    shared_backends-Identitaetscode/-Test (R2-Forderung erfuellt durch Rebase — verifiziere!).
+ 2) Negativfall-Diskriminierung: Assertion verlangt 'missing properties' + 'Name'; Name ist
+    generatorisch required (mcp_application_authoring.go:15-23) — Urteil, ob damit R2-Punkt 1
+    inhaltlich erfuellt ist (R1-Rezept: Negativfall durch dieselbe Schema-Pfad-Validierung).
+ 3) Run 41414899894 auf 72c14450: alle Funktionsgaene gruen (Coord-Gegenprobe: 14 Jobs, nur
+    PR Selected Checks = coverage-unresolved auf die zwei Dateien). Verifiziere selbst.
+Urteilsdatei: baseharbor-plan/evidence/board-2026-11-02/codex-authz1/review-r3.md,
+VERDICT: APPROVE|REQUEST_CHANGES (+ Rezept falls R).
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END codex-authz1-r3: VERDICT=<A|R> | <Satz>"

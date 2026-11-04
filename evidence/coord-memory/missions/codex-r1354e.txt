@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde6 (r1354d zwei befehle; lane meldet
+fsync=nein EHRlich — pruefe ob pre-write-rotation + err-ohne-event die close-fehler-klasse abdeckt).
+OBJEKT: branch work/r27-ci-authority-ab head 15d69dbd (develop Vorfahr JA; rotateBeforeWriteLocked =
+cap HART vor write, 12x2,5MiB gegenprobe je datei <=4MiB woertlich + letzter eintrag recoverable;
+read-only-bei-cap => err ohne events; root-test auf produkt-konstruktion (machinehttp.New/registerOperatorAPI);
+0 geloeschte tests). = t-20261022-r27-ci-authority journal-slice.
+PRUEFEN (SHA-genau, read-only): eigene contra-proben: (a) zwei-430k-fall von r1354d => dateien <=4MiB;
+(b) append-fehler-kanal (verzeichnis statt datei am segment_pfad) => err + 0 events; (c) crash-unsicher:
+half-written letzte zeile => load toleriert/correct per design decision — urteile gegen karten-text;
+(d) root-guard via produkt konstruktionspfad. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/machinehttp -count=1 -timeout 8m. matrix => ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1354e.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1354e: verdict=<X> open=<liste|none> | <Satz>"

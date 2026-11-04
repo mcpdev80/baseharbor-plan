@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE ci-access (r1357d beide befehle + basis).
+OBJEKT: PR #1357 head a4f8904f (5efeb42d + merge origin/develop 0107d8e1 rc=0; develop JETZT Vorfahr;
+execute+check pfade mit EIGENEN reach-recordern (checkReachedRecorder 8 stellen), typ-feste ursache
+(errors.As x509/tls/OpError), hosted run 41663873616 SUCCESS auf 5efeb42d + bestehende checks; client_test
+unveraendert gegenueber der inhaltlich gruenen runde; 0 geloeschte tests; write-set internal/** nur).
+PRUEFEN (SHA-genau, read-only): 1. befehle 1+2 von r1357d auf DIESEM kopf nachpoerien (contra-tests).
+2. basis-merge hat nichts regressiert (runtimeexecutor suite). 3. matrix => ACCEPT-WITH-DEFERRAL (gate-
+slices owner). Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1
+-timeout 8m; gofmt -l leer.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357e.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357e: verdict=<X> open=<liste|none> | <Satz>"

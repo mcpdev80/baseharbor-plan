@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head c50747a5 (develop Vorfahr, 9 dateien) = t-20261018-r27-profile-contract.
+RE-REVIEW nach r1324i; bearbeitet wurden NUR die 3 in-scope rezepte (witness-test entfernt gemaess
+formaler deferral-entscheidung, golden-nonce aead roundtrip, doku links/claims). Massstab: karten
+sektionen "integration depth" + "import side-effect clause" — die import-verhaltensklausel ist
+OFFIZIELL deferred (verbraucher-karten); sie darf KEIN reject grund mehr sein, nur dokumentierte
+deferral mit korrektem text.
+PRUEFEN (SHA-genau, read-only):
+1. nonce: AEAD roundtrip mit DECODED golden; negatives (alphabet/padding/laenge) je eigenes baseline-
+   profil (keine geteilte pointer mutation); positive kanonische variante akzeptiert.
+2. doku EN/DE: keine present-tense anchor/installation claims; deferral-satz nennt state-owner +
+   authority karten; ALLE links valide (kein ../../tasks/... ins leere; planning destination korrekt);
+   DE negationen sinngleich; keine witness-behauptung mehr im text.
+3. acceptance matrix final: jede klausel erfuellt ODER formal-deferred (referenz karten-note).
+   Wenn nur formal-deferrals offen: ACCEPT-WITH-DEFERRAL mit clause-liste (= merge-freiraum).
+Urteil -> review-1324j.md. KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324j: verdict=<X> open=<liste|none> | <Satz>"

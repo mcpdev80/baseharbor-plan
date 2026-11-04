@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head e57ecf89 (base develop sauber, Diff=8 write-set dateien) =
+t-20261018-r27-profile-contract, RE-REVIEW nach review-1324e.md (offene Klauseln: export-per-kind
+schema-forbidden, EnrollDevice muss Kind=device-enrollment verlangen).
+PRUEFEN (SHA-genau, read-only; KEINE CI-run-logs; ls-remote vor/nach Zeuge):
+1. Schema verbietet export auf den NICHT-export klassen hart (if/then/else oder not), storage
+   consistency je kind, algorithm/nonce an echtem Wertebereich — jeweils plus/minus executable.
+2. EnrollDevice verlangt ausdrruecklich device-enrollment kind (Test: anderes kind wird verweigert)
+   + validate-then-enroll bleibt (pinned CA via ResolveFingerprint, recipient, fenster, one-use).
+3. acceptanz-matrix der Karte klausel fuer klausel: erfuellt / deferred-belegt (dokumentiert) / offen.
+4. Doku EN/DE = implementiertes verhalten, deferred-interfaces abschnitt deckt echte lücken ab.
+Urteil -> review-1324f.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT + rezept/deferral-klausel).
+KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324f: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,38 @@
+ROLLE: Worker (Lane w8-authority-r4). Coord f49a3303. MIKRO-AUFGABE: 3 scharfe Punkte PR #1326
+(t-20261018-r27-authority-contract). Basis = branch w7-authority-r3-clean head 09f14ec8 (NICHT der
+PR-alt-head 81720acc — auf 09f14ec8 aufbauen und am ende auf BEIDE doc-fix refs pushen, FF falls
+ancestry sonst END_BLOCKED).
+
+ZUERST LESEN: review-1326c2.md (befunde 1-3 sind dein auftrag) + karten-sektionen composition-wiring
+und revocation-authority.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin w7-authority-r3-clean develop
+  git -C baseharbor worktree add /tmp/opencode/w8-authority-r4-wt w7-authority-r3-clean
+
+PUNKT 1 — FAIL-CLOSED bei fehlern: LocalIssuer.Revoked UND openbao.revocationStatus duerfen bei
+  canceled context / load-/CRL-/token-/command-fehler / malformed serial NIEMALS "false" liefern.
+  Semantik: (revoked bool, err error); aufrufer (FreshlyObservedConnection) behandelt err != ODER
+  revoked==true als ablehnung. Tests je fehlerart: context-canceled, corrupt CRL, bad serial,
+  provider-fehler => verbindung ABGEWIESEN, keine ausnahme-strasse die fail-open wirkt.
+PUNKT 2 — selection OHNE wirkung: resolveManagementConnectionIssuer (a) echten BESTEHENDEN
+  auswahl-pfad verwenden statt issuer.Issue fuer einen NEUEN DEFAULT-TARGET (das ausstellen ist eine
+  SEITENWIRKUNG — verbotem in einem prüfungspfad), (b) von einem ECHTEN produktions-aufrufer
+  aufgerufen werden (stelle den existing selection call-site auf develop fest (grep) und docke dort
+  an; cmd/baha application_service_issuer.go ist autorisiert, weitere cmd dateien NICHT) — wenn ohne
+  develop-aenderung kein echter call-site existiert: orchestriere den nachweis-pflichtigen hook in
+  der autorisierten datei und benenne die luecke in der doku als deferred an state-owner (belege
+  datei:line beider seiten im evidence).
+PUNKT 3 — observedAt im ECHTEN fresh-pfad: installauthority.Fresh muss den store-/issuer-seitigen
+  observationszeitpunkt + revision/consent verwenden (nicht nur caller ExpiresAt vs now); separate
+  helper version wird konsequent verlinkt oder aufgezoen; stale/future/zero observedAt tests.
+NEBENBEFRUNDUNG (punkt 4): platform lock-dateien in stableid verschoben + lifecycle wrapper geaendert
+  — pruefe verhaltensgleichheit wie in auftrag B5 (regression vorhanden?), andernfalls develop
+  stand der verschobenen dateien INHALTLICH bewahren (inhalt = develop, nur ORT neu).
+DOKU: fail-closed/observation claims auf implementierten stand + deferral-namen (EN/DE).
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/)' leer; KEINE cmd dateien
+ausser der einen autorisierten.
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid ./internal/installauthority ./internal/openbao.
+push auf work/r27-authority-contract-doc-fix + w7-authority-r3-clean, ls-remote, END an f49a3303.
+Evidence: .../authority-contract/fix-r4.md (plain bullets). STOP: 1 iteration je punkt sonst END_BLOCKED;
+kein Merge; keine zweiten cmd dateien.

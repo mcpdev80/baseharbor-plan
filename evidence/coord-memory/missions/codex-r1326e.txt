@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head bcb7b54a (develop Vorfahr SHA-bewiesen, write-set sauber; coord pre-checks:
+wrapper leitet observed.ObservedAt durch :108, zeitstempel nur am echten beobachtungspunkt :139,
+CRL fail-closed marker) = t-20261018-r27-authority-contract. RE-REVIEW nach review-1326d 1+2.
+PRUEFEN (SHA-genau, read-only): 1. openbao service_pki: leere/muell/parse-fehlerhafte CRL-antwort =>
+revoked/fail-closed, gueltige CRL ohne serial => passiert; regressionen durch echten pruefpfad (nicht
+nur helper). 2. wrapper-frische: zero/future/stale observedAt JE e2e ueber resolveManagementConnection-
+Issuer abgewiesen; test darf nicht time.Now() als beobachtung annehmen (future-fall muss falsche
+annotation entlarven). 3. identity-expiry-klausel (1326d open point "Identity-Expiry"): pruefen ob
+ExpiresAt der basis im frische-/widerufs-pfad korrekt gelesen wird oder formales deferral noetig.
+4. tests archiv: go test ./internal/openbao ./internal/installauthority ./internal/coreinstallation
+./internal/serviceaccess ./internal/stableid + betroffene cmd/baha wrapper tests.
+Urteil -> review-1326e.md: ACCEPT-WITH-DEFERRAL wenn alle klauseln erfuellt/deferriert. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326e: verdict=<X> open=<liste|none> | <Satz>"

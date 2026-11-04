@@ -1,0 +1,57 @@
+LANE: d1273   (Worker-Auftrag, Coordinator f49a3303-e8bb-491b-9e2c-b629783c4e5f)
+MODELL: worker-qwen3.6
+
+KONTEXT (CI-Stabilisierung v0.4.27):
+PR #1273 (baseharbor, head 765033d4, base develop=9a93865a) aendert
+cmd/baha/runtime_start.go + internal/application/provider_registry.go (Broker/OpenBao
+Persistenz). Es ist NICHT harvestbar: das native Gate "Runtime - Docker Core" FAILT mit
+Runner-/Evidence-Infra-Fehler, NICHT Produktfehler:
+  bash: scripts/ci-evidence.sh: No such file or directory (exit 127)
+  FileNotFoundError: .../docker-runtime-evidence/tests/main.jsonl   (Verify "eight tests" exit 1)
+  Upload: No files found at docker-runtime-evidence (if-no-files-found: error)
+Aber scripts/ci-evidence.sh IST im Tree von 765033d4 vorhanden (git cat-file bestaetigt).
+=> Laufzeit-Pfad-/CWD-Problem des docker-runtime Jobs, oder der Verify-Schritt laeuft vor
+dem Evidence-Schritt, oder base-drift. Runtime-Broker + Podman-Core waren noch 'queued'
+(Host-Backlog).
+
+ZIEL: #1273 beider nativer Docker/Podman/Broker-Qualifikation GRUEN bekommen -> Merge-reif.
+
+AUFGAB (Schritte, in dieser Reihenfolge):
+1. Realitaetsabgleich (AGENTS 4.1): gh pr view 1273 --json headRefOid,mergeable,files;
+   gh run list --branch <head> — aktuelle Docker/Broker/Podman Run-IDs + Status. develop-Tipp
+   ls-remote bestaetigen (9a93865a).
+2. ROOT CAUSE des Docker-Core-Fehls feststellen: .github/workflows/runtime-docker.yml (bzw.
+   betroffener Workflow) lesen: Wo/CWD ruft der Evidence-Schritt `scripts/ci-evidence.sh` auf?
+   Warum fehlt tests/main.jsonl zur Verify-Zeit? Beweise file:line.
+3. Fix-Kategorie bestimmen und ANWENDEN:
+   (a) Wenn base-drift: Branch-SYNC #1273 auf develop 9a93865a (git merge origin/develop im
+       Lane-Worktree, Push via `git push --force-with-lease` + ls-remote-Gegenpruefung; §6.5 —
+       KEIN Head-Switch-API, das ist ein stiller No-op). Dann Re-Qualifikation (Refs+Dispatches
+       auf neuen head).
+   (b) Wenn Workflow-/Evidence-Schritt-Bug (CWD/Reihenfolge/Pfad): gezielter Fix im Workflow auf
+       dem #1273-Kandidaten (genau der gemeldete Fehler, AGENTS 4.2 — kein Umbau drumherum).
+   (c) Wenn es ein Trusted-Base-Skript/Workflow ist, das sich NICHT selbst qualifiziert
+       (RUNBOOK 6.1): eigener kleiner develop-PR dafuer; #1273 sync danach. -> END_CODE_READY
+       mit develop-PR#, nicht auf #1273 'gruen rechnen'.
+4. Hosted-Runs bis terminaler Farbe SELBST beobachten (Eigenes-Run-Pflicht 4.6). Docker- UND
+   Podman-Gates parallel dispatchen, nie serialisiert abwarten (AGENTS 3.8). Kann-jeder-Check
+   dokumentieren: Auth/Pins/ENV vom System, nie lane-gesetzt.
+
+WRITE-SET (AGENTS 4.2/4.3): nur #1273-Branch + betroffener runtime-Workflow/faellige Skripte.
+NICHT #1283/internal/logs (andere Lanes), NICHT product-CI fuer reine Planning-Aenderungen.
+
+ABNAHME: alle nativen Runtime-Gates (Docker, Broker, Podman) GRUEN auf dem finalen head;
+PR Selected Checks coverage 'resolved'; Merge-reif. Evidence: Vorher/Nachher-Run-IDs + Root-Cause.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/d1273/evidence.md, ## PLAN nummeriert +
+## repo-rule compliance; sanitize_evidence_for_plan.sh vor Plan-Kopie (OPS-4); nur gezieltes
+git add <datei>. Inhalt: Root-Cause file:line, Fix-Kategorie a/b/c, Run-IDs+Fehlerzeile, neuer
+head-SHA, develop-SHA falls sync, Final-Farbe.
+
+STOP (AGENTS 5.6 / Owner): Destruktive Runner-Aktionen (workspace-rm, podman reset) nur nach
+Drei-Punkte-Pruefung §6.2, dokumentiert; bei Zweifel BLOCKED+Pruefergebnis statt ausfuehren.
+KEIN Force-Push an develop/main, kein Schutzregel-Bypass. ZEITKAESTCHEN 90 min -> END_BLOCKED
+mit file:line statt Weiterbohren.
+
+HANDOFF letzte Aktion (PFLICHT, vor allem anderen):
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED|END_CODE_READY d1273: pr=1273 head=<sha> docker=<g|r> broker=<g|r|q> podman=<g|r|q> rootcause=<klasse> | <Satz>"

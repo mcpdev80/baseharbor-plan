@@ -1,0 +1,16 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 593da4d9 (base develop, 8 write-set dateien) = t-20261018-r27-profile-contract,
+RE-REVIEW nach review-1324f.md. Karten-Sektion "Coordinator scope decision on profile integration
+depth" gegense lesen: anchor/installation/production-consumer ist DORT formal deferred (dependency
+auf r27-authority-contract + r27-state-owner) — deferred != still offen: pruefe nur, ob die deferral
+EHRLICH und ohne present-tense-overclaim dokumentiert ist, nicht ob sie schon implementiert ist.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs; ls-remote Zeuge):
+1. nonce: schema+fixtures+EN+DE sagen alle 43-base64url/32 bytes (ein Wert), tests erzwingen das.
+2. TrulyAbsent-test laesst das export-OBJEKT fehlen (nicht nur algorithm); positiver+negative export
+   je kind durch schema+semantic kombiniert.
+3. import witnesses: no-grant/no-plugin/no-redirect durch echten entry mit side-effect-beleg.
+4. ValidateKindEnforcement algorithm/nonce an whitelist gebunden (kein beliebiges nonempty).
+5. DE==EN inhaltlich (targetsession rest raus; deferred-abschnitt nennt die beiden Folgekarten).
+Urteil -> review-1324g.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT + begruendung je klausel).
+KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324g: verdict=<X> open=<liste|none> | <Satz>"

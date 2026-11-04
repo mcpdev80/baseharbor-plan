@@ -1,0 +1,56 @@
+LANE: logsmap   (Worker-Auftrag, Coordinator f49a3303-e8bb-491b-9e2c-b629783c4e5f)
+MODELL: worker-ornith1.5
+
+ZIEL (CI-Stabilisierung v0.4.27):
+PR #1283 (baseharbor) ist seit Stunden BLOCKED: "coverage-unresolved: unknown impact
+for internal/logs/render.go". Grund: der Trusted-Base-Gate-Classifier
+scripts/pr-gate-plan.py hat KEINEN Zweig fuer interne/logs/*.go -> fail-closed
+"unknown impact". Ein PR-geaenderter Classifier qualifiziert seinen eigenen PR nicht
+(RUNBOOK 6.1). Loesung = develop-seitiger Classifier-PR.
+
+AUFGAB — genau das, nicht mehr:
+1. Arbeite in einem ISOLIERTE worktree+branch von origin/develop (AGENTS 4.3). Der
+   baseharbor/ Haupt-Checkout ist belegt (work/obslok2) — NICHT dort arbeiten.
+2. In scripts/pr-gate-plan.py einen EXPLIZITEN Mapping-Zweig fuer Pfade
+   internal/logs/*.go ergaenzen, analog dem bestehenden internal/runtimebroker/*.go
+   Zweig (Zeile ~1611, #1265-Muster). Das Ziel-Gate muss ein ECHTES, bereits
+   existierendes required validation sein (z.B. fokussierter `go test ./internal/logs/...`
+   bzw. die vorhandene logs-Package-Validierung). KEIN erfundenes Gate, KEIN widening
+   der Coverage, KEINE prefix-/name-Heuristik ueber internal/logs hinaus.
+3. Den Classifier-Eigen-Test erweitern: ein Diff, der NUR internal/logs/*.go aendert,
+   muss coverage_status "resolved" liefern (nicht "unknown impact").
+
+WRITE-SET (streng, AGENTS 4.2/4.3): NUR scripts/pr-gate-plan.py + dessen Testdatei.
+NICHTS anderes. Nicht #1283-Branch, nicht internal/logs/render.go, keine anderen
+Zweige/Mappings anfassen.
+
+ABNAHME-KRITERIEN:
+- pr-gate-plan.py mappt internal/logs/*.go -> ein bestehendes required validation;
+  reproduzierbar per_classifier-unit-test (pytest) vor/nach bewiesen.
+- PR gegen develop: seine eigenen selected gates GRUEN (Trusted-Base: Mapping muss auf
+  develop landen, damit #1283 nach Branch-Sync qualifiziert).
+- Nach Merge nach develop: finaler develop-Commit-SHA berichten.
+
+TESTS: lokale pytest der pr-gate-plan-Classifier-Suite (kleinstes passendes Gate zuerst,
+AGENTS 5.4); dann PR-Push + PR-Checks bis terminaler Zustand selbst beobachten
+(Eigenes-Run-Pflicht 4.6). Kein Product-Full-CI fuer reine Classifier-Aenderung
+erzwingen, falls die CI-Triggerregeln das vermeiden (AGENTS 3.8).
+
+CAN-JEDER-SCHRITT (AGENTS 3.8): Auth/Pins/ENV vom System/Owner, nie lane-gesetzt.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/logsmap/evidence.md mit ## PLAN
+ nummerierter Checkliste und ## repo-rule compliance; Inhalt: PR#, Kandidat-SHA,
+ Run-IDs, coverage_status internal/logs VORHER/NACHHER (maschinenlesbar), develop-SHA
+ nach Merge. Vor Kopie nach baseharbor-plan durch
+ sanitize_evidence_for_plan.sh (OPS-4). Nur gezieltes git add <datei> (nie -A).
+
+STOP-KRITERIEN (AGENTS 5.6 / Owner-Regeln):
+- Wenn das korrekte required validation fuer internal/logs mehrdeutig ist (kein
+  vorhandenes logs-Gate existiert) -> STOP + END_BLOCKED mit file:line-Befund und 2-3
+  Optionen, statt ein Gate zu erfinden.
+- Wenn der Merge auf develop eine ausdrueckliche Owner-Freigabe verlangt (Release-Tag
+  bleibt Owner) -> END_CODE_READY mit PR#, nicht selbst taggen.
+- ZEITKAESTCHEN 90 min Diagnose, dann END_BLOCKED mit file:line statt Weiterbohren.
+
+HANDOFF letzte Aktion (PFLICHT, vor allem anderen — andere Session):
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED|END_CODE_READY logsmap: pr=<nr> head=<sha> develop=<sha|-> classifier=<resolved|blocked> | <ein Satz>"

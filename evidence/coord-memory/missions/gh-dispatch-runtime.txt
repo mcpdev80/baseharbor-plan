@@ -1,0 +1,22 @@
+MISSION gh-dispatch-runtime — Dispatch-/Runtime-Workflows auf GitHub-hosted
+ARBEITSVERZEICHNIS: Lane-cwd ist nur Modell-Dir — arbeite ausnahmslos in diesem baseharbor-Worktree (Branch work/gh-dispatch-runtime bereits checked out, NICHT neues Worktree anlegen): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-dispatch-runtime
+EXKLUSIVES WRITE-SET (nur diese Dateien):
+  .github/workflows/runtime-broker.yml        (self-hosted docker ~Z27,~Z233)
+  .github/workflows/runtime-s3-acceptance.yml (self-hosted docker ~Z15)
+  .github/workflows/docker-runtime-acceptance.yml (nutzt ci-core-rootless-runtime.sh)
+  .github/workflows/targeted-integration.yml      (nutzt rootless-skript)
+  .github/workflows/targeted-demo-acceptance.yml  (nutzt rootless-skript)
+Owner-Ziel: 100% GitHub-hosted, keine self-hosted Runner, echte+sichere Coverage (auch dispatch-only Jobs).
+
+ARBEIT:
+ 1. Jedes `runs-on: [self-hosted,...]` -> `ubuntu-latest`. docker nativ auf GH-hosted.
+ 2. Jobs, die `scripts/ci-core-rootless-runtime.sh` aufrufen: Skript NICHT selbst ändern (Lane gh-ci-core
+    besitzt es). Nur den `runs-on` migrieren. Falls das Skript auf GH-hosted anders laufen muss, als
+    Interface-Bedarf im END melden (Coordinator koordiniert mit gh-ci-core).
+ 3. Nachweis: für workflow_dispatch-Workflows `gh workflow run <file> -R mcpdev80/baseharbor --ref <branch>`
+    auslösen und Run bis terminal beobachten (Eigenes-Run-Pflicht): läuft auf ubuntu-latest, nativer Test echt.
+    Kein künstliches PASS/SKIP.
+ 4. Vorhandene self-hosted-Abhängigkeiten erst nach grünem GH-hosted-Ersatz entfernen.
+
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/gh-dispatch-runtime/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED gh-dispatch-runtime: <SHA + run-ids + runner-status je workflow + rootless-Skript-Interface-Bedarf>"

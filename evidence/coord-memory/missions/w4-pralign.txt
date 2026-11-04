@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w4-pralign). Coord f49a3303. MIKRO-AUFGABE (~5 Minuten, rein mechanisch): PR #1326 head-Umleitung.
+
+LAGER: PR #1326 (base develop) zeigt auf Zweig work/r27-authority-contract-doc-fix (head 48aa35ad,
+inaktiver Altzweig). Der LEBENDIGE Zweig work/r27-authority-fix (head 9dcf8742) enthaelt dieselbe
+Historie plus die B5/B1-B3-Arbeit und soll der PR-Kopf sein. GitHub laeuft hinterher nicht automatisch.
+
+SCHRITTE (in dieser Reihenfolge, nichts daneben):
+1. git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-authority-fix work/r27-authority-contract-doc-fix develop
+   (NUR fetch — keine Worktrees noetig, keine Aenderung an Inhalten.)
+2. Pruefe Ancestry: git merge-base --is-ancestor origin/work/r27-authority-contract-doc-fix origin/work/r27-authority-fix
+   -> MUSS rc=0 sein (doc-fix = Vorfahr). Falls NICHT: Sofort END_BLOCKED mit beiden SHAs, nichts pushen.
+3. Fast-forward-Push: git push origin origin/work/r27-authority-fix:refs/heads/work/r27-authority-contract-doc-fix
+   (kein force; FF-only).
+4. ls -remote Beweis: beide Zweige = 9dcf8742...; gh pr view 1326 -R mcpdev80/baseharbor --json headRefOid -> 9dcf8742.
+5. KEINE CI-Auswertung, keine Runs anstossen, nichts editieren. Sofort HANDOFF:
+   codeman agent post f49a3303 "END_DONE w4-pralign: pr1326-head=<sha> ff=<yes> | <Satz>"
+
+STOP: jeder Schritt der nicht exakt so aufgeht => END_BLOCKED mit dem einen Beleg. Kein Umbau, kein PR-Edit
+(gh pr edit --head existiert nicht), keine Titelaenderungen, keine Comments.

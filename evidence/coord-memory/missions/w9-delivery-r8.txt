@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w9-delivery-r8). Coord f49a3303. MIKRO-AUFGABE: EIN Dokumentations-Satz PR #1333
++ nichts sonst (t-20261018-r27-delivery-boundary). Basis = head 3d8b6b7c.
+
+ZUERST LESEN: review-1333f.md punkt 2 (DE 0022 :34-36 doppelter unvollständiger satz + " Ablehnung vor
+apply" behauptung) und punkt 3 (kartennote regression-file scope wurde SOEBEN publiziert — damit erledigt).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w9-delivery-r8-wt work/r27-delivery-boundary
+
+SCHRITT (ein commit, nur docs/de/decisions/0022-*): den doppelten/unvollständigen Satz zu EINEM
+vollständigen Satz führen, umfang = record-save guard + deferred active-reconciler observation mit
+kartenamen; EN gegenlesen (falls EN dieselbe stelle trägt, sinngleich halten); keine anderen absätze.
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/|cmd/)' leer; nur 1-2 dateien.
+Tests: go test ./internal/deployment ./internal/delivery + build (unveraendert gruen sein MUSS).
+push FF, ls-remote, keine run-logs, END an f49a3303. Evidence: .../delivery-boundary/fix-r6.md (plain bullets).
+STOP: nichts anderes änern — kein code, kein Merge.

@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 775f7a23 (diff 03f51437..775f7a23 = genau zwei credential-access-v1.md, EN+DE
+Wortlaut-Ersatz nach review-1324m befund 1; coord disk-check: alt-treffer 0, neu-formel 1+1, develop
+Vorfahr) = t-20261018-r27-profile-contract.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs): 1. der EnrollDevice-Satz behauptet JETZT keine
+Installations-Bindung mehr; EN+DE konsistent mit der späteren Klarstellung im selben Absatz und mit
+dem Code (EnrollDevice liest InstallationID nicht). 2. keine weiteren contradictions (grep-muster
+"installation ID" "Installations-ID" "binds.*installation" im head, nur deferral-kontext erlaubt).
+3. finale klauseln-matrix: ACCEPT oder ACCEPT-WITH-DEFERRAL mit exakter deferral-liste (integration-
+depth/crypto/import-side-effect karten-notizen) — REJECT nur bei echtem neuen befund.
+Urteil -> review-1324n.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324n: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1354 head 159054c2 (develop Vorfahr JA; EIN datei: internal/machinehttp/execution_journal_test.go
+— executionStore fail-closed + durable-transition fixture, slice "execution-journal" der karte
+t-20261022-r27-ci-authority). GATE-DATEIEN unveraechtert (Karte verbietet sie lanes).
+PRUEFEN (SHA-genau, read-only): 1. test faehrt echten executionStore-pfad: fehlender/defekter journal-
+eintrag => fail-closed sichtbarer fehler; kein skip. 2. dauerhafte transition-abdeckung vorhanden.
+3. karten-matrix: welche slices sind damit qualifiziert, welche bleiben owner-CI-punkt — liste in
+urteil. Tests: TMPDIR=/tmp go test ./internal/machinehttp -count=1. KEIN Merge, keine run-logs.
+Urteil -> review-1354a.md.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1354a: verdict=<X> open=<liste|none> | <Satz>"

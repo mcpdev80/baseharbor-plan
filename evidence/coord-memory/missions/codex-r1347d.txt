@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head 4cc93db8 (develop Vorfahr rc=0; scopeErr propagiert jetzt als echter err im
+CLI-hook, fixture-helfer mit t.Fatal-Pfaden, REGRESSIONS=0 gemeldet, 3 pre-existing
+TestExternalProviderRemoval* env-fails clean-base-belegt) = t-20261018-r27-state-owner.
+RE-REVIEW nach review-1347c befunde 1+2.
+PRUEFEN (SHA-genau, read-only): 1. tenant-mit-defektem-scope => Save/Load wird mit dem scope-fehler
+abgewiesen, NICHT durch core-owner durchgewinkt (negative regression durch echten pfad). 2. hook
+grant-only unverändert richtig (fremdes/fehlendes material => core-pruefung; grant nur gueltiger scope).
+3. fixture-fehlerbehandlung in ALLEN angefassten test-helfern (stichprobe binding_change+empty).
+4. env-fail-behauptung: die 3 genannten tests auf clean develop archiv nachstellen. 5. tests: go test
+./internal/deployment + ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding'.
+Urteil -> review-1347d.md. ACCEPT-WITH-DEFERRAL wenn klauseln erfüllt/deferred (ID-binding note).
+KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347d: verdict=<X> open=<liste|none> | <Satz>"

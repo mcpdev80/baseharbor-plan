@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (kein Merge, keine Produktänderung — nur Urteil + Lösungsrezept)
+Kandidat: PR #1272, head be022b55, repo mcpdev80/baseharbor, base develop (640846e1).
+Vertrag (v0.4.27-Kette): Behebung der durch #1265 (Commit 1a4f9b8c) verursachten Regression —
+ Workload.Compose war im MCP-Autorisierungs-Intent-Schema unzulässig als PFLICHTfeld markiert;
+ gültige baseharbor.author-Aufrufe ohne Compose wurden abgewiesen. Entscheidungsbegründung der
+ Worker: Compose ist Quellen-Herkunft, nicht Teil des portablen Intents -> json-OPTIONAL.
+PFLICHTPRÜFUNG (Datei für Datei, SHA-genau):
+ 1) git fetch origin pull/1272/head; diff gegen base exakt prüfen: nur
+    internal/application/manifest.go (Tag/Comment), cmd/baha/mcp_application_authoring_test.go
+    (Regressionstest), Changelog.
+ 2) Prüfe: Test prüft BEIDE Richtungen (gültiger Pfad ohne Compose OK; echtes Pflichtfeld-Fehlen
+    im Schema-Kontext bleibt korrekt). Kein Test-Downgrade, kein Bypass.
+ 3) Prüfe json-Tag-Semantik gegen manifest_parse.go/Verbrauchsstellen (Compose-Feld wird gelesen
+    wenn vorhanden — nil/"" behandelt?).
+ 4) Torstand: exakte Head-Checks auf be022b55 verifizieren (gh run 41405869847: functional green,
+    aggregate nur coverage-unresolved wegen DIESES Reviews).
+ Urteilsdatei: baseharbor-plan/evidence/board-2026-11-02/codex-authz1/review.md mit VERDICT:
+ APPROVE|REQUEST_CHANGES + Rezept (Datei:Zeile, Änderung, Testanforderung, Stop-Kriterium).
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END codex-authz1: VERDICT=<A|R> | <Satz>"

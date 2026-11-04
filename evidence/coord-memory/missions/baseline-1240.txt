@@ -1,0 +1,35 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/baseline-1240  (Repo baseharbor)
+MISSION baseline-1240 — DER BASIS-DURCHLAUF (Owner-Direktive): ein kleiner echter PR (#1240,
+  openbao→postgres TLS/SASL-Fix) läuft vollständig durch die EXISTIERENDE neue CI-Kette. Keine neuen Gates,
+  keine Features, nur: Kandidat auf die aktuelle, korrigierte Basis heben und die Kette beweisen.
+
+KONTEXT (alles bewiesen, nutze es):
+ - develop = 437358e4 (gate-map #1246). Der Diff-Base-Resolver-Fix ist PR #1251, head d56e9ddd
+   ('PR Selected Checks' SUCCESS, run 41311582975; Skript-Selbstbestimmung des Basis-Tips, ci.yml = develop).
+ - #1240 aktueller head b8446716 war ein Integration-Merge [437358e4, 116adb3d]; er blockierte NUR am
+   stale-base-Resolver (behoben in #1251, noch NICHT in develop).
+ - Produktcode von #1240 braucht KEINE Änderung (TLS/SASL + sslmode-Guard sind drin, lokal build/vet/test grün).
+
+SCHRITTE:
+ 1. Branch work/baseline-1240: nimm die #1240-Produktcommits (116adb3d-Diff gegen seinen alten Base) und
+    rebde sie auf BASIS = 437358e4 + d56e9ddd (Resolver-Fix). Sauberster Weg: git checkout -b work/baseline-1240
+    d56e9ddd (enthaelt develop+fix) und dann den #1240-Produkt-Diff als EINEN Commitapplizieren
+    (git diff <alter-merge-base>..116adb3d -- internal/ | git apply o.ä.), KEIN Merge-Commit.
+    PR body sagt: base bleibt develop; der Resolver-Fix ist als Vorfahr dokumentiert (PR #1251) — falls
+    GitHub 'base.sha=develop ohne fix' nutzt, ist das der Lineare/Stale-Fall, den das Skript selbst bestimmt.
+ 2. push refs/heads/work/baseline-1240; PR eroffnen gegen develop; PR #1240 als ersetzt markieren
+    (comment: superseded by <new PR>, Grund: stale-base Blocker behoben; NICHT close ohne Referenz-Kommentar,
+    schliessen erst nach Gruen des Nachfolgers).
+ 3. EIGENES-RUN-PFLICHT: Den kompletten PR-Lauf bis terminal beobachten. Erwartung: 'Workflow policy',
+    'PR · Trusted Plan', 'PR · Focused Python', 'PR · Validation *' + mind. EIN Runtime-Lifecycle-Gate
+    (Selected Runtime/Targeted HA docker) werden ausgefuehrt (NICHT skipped), 'PR Selected Checks' SUCCESS.
+    Ein 'skipped' Lifecycle-Gate auf internal/runtime/*.go-Dateien = Planner-Befund — dann END_BLOCKED mit
+    pr-plan.json-Auszug, nicht weitermosern.
+ 4. Rueckbau-Check: Wenn der Lauf zeigt, dass der Resolver-Fix NICHT wirkt (weil base ohne fix), Alternative:
+    Basis = develop-Zweig-ZUKUNFT geht nicht (kein Merge deinerseits!) — dann END_BLOCKED mit exakter
+    Begruendung + Minimalvorschlag (z.B. 'merge #1251 first', Entscheidung liegt beim Coordinator).
+ 5. Do nothing else. Kein Force-Push, keine develop-Pushes, keine ci.yml-Aenderungen.
+EXKLUSIVES WRITE-SET: nur der neue PR-Zweig work/baseline-1240 + PR-Kommentar zu #1240.
+EVIDENCE (plain bullets): baseharbor-plan/evidence/board-2026-11-01/baseline-1240/evidence.md
+  mit ## PLAN (Bullets), Run-ID + Job-Tabelle + pr-plan.json selected_gates.
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED baseline-1240: PR=<nr> head=<sha> SelectedChecks=<green/blocked> Run=<id> | <Restblocker+Begruendung>"

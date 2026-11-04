@@ -1,0 +1,32 @@
+MISSION gh-ci-core — CI auf GitHub-hosted (kritischer Pfad #1236/#1225)
+ARBEITSVERZEICHNIS: Lane-cwd ist nur Modell-Dir — arbeite ausnahmslos in diesem baseharbor-Worktree (Branch work/gh-ci-core bereits checked out, NICHT neues Worktree anlegen): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-ci-core
+EXKLUSIVES WRITE-SET (nur diese Dateien ändern):
+  .github/workflows/ci.yml
+  .github/workflows/nextjs-greenfield-e2e.yml
+  scripts/ci-core-rootless-runtime.sh
+  scripts/test_ci_docker_runtime_doctor.py
+Read-only PRÜFEN (NICHT ändern, nur Befund melden): scripts/pr-gate-plan.py, scripts/pr-check-runner.py,
+  alle receipt-* Skripte — bestätigen dass keine self-hosted Runner-Abhängigkeit hart verdrahtet ist.
+Owner-Ziel: 100% GitHub-hosted CI, echte+volle+sichere Coverage. KEINE self-hosted/custom Runner.
+
+ARBEIT:
+ 1. ci.yml: alle `runs-on: [self-hosted,...]` (z.B. Zeile ~277 docker-HA) auf GitHub-hosted umstellen
+    (`ubuntu-latest`; docker ist dort vorinstalliert). `nextjs-greenfield-e2e.yml` (pull_request-Gate, ~Z11) ebenso.
+ 2. Native docker/podman/k3s-Tests BLEIBEN echte ausführbare Gates — nicht entfernen/skippen.
+    Wenn ein Job rootless-Setup brauchte, stelle es auf GitHub-hosted sicher (docker native ok; für podman
+    rootless-setup im Job falls nötig).
+ 3. ci-core-rootless-runtime.sh: NÖTIGE Isolation/Setup-Funktion BEHALTEN (z.B. registry-mirror/cache,
+    daemon-config, XDG für rootless podman falls Job rootless podman fährt); nur NACHWEISLICH überflüssige
+    RUNNER-spezifische Logik entfernen (host-eigene linger/user-service-Annahmen, `command -v
+    dockerd-rootless-setuptool.sh`-Pflicht, apparmor-sysctl, apt-install-via-sudo). Begründe jede Zeile in Evidence.
+    doctor-Test entsprechend anpassen (test_ci_docker_runtime_doctor.py), damit er GH-hosted-Pfad prüft.
+ 4. QUALITÄT: kein künstliches PASS/SKIP, kein Coverage-Downgrade. Candidate-SHA-Bindung/Required Checks/
+    Receipt-Kette UNVERÄNDERT lassen (nur diese 4 Dateien).
+ 5. Nachweis: Branch pushen, PR gegen develop öffnen, GEHOSTETEN Run beobachten (Eigenes-Run-Pflicht) bis
+    terminal — Ziel: die betroffenen Jobs laufen auf ubuntu-latest und sind ECHT grün. Vorher bestehende
+    self-hosted Required-Check-Abhängigkeit NICHT entfernen (Regressionsschutz), erst nach grünem Ersatz.
+
+EVIDENCE (absolut, kein '- [ ]'-Checkbox): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/gh-ci-core/
+  Plan, diff-Umriss je Datei, Begründung rootless-Skript-Änderungen, Run-id + runner-name ubuntu-latest + Ergebnis.
+  Plan-Repo NICHT selbst pushen.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED gh-ci-core: <SHA + PR# + job/runner status>"

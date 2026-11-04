@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w31-authority-r10). Coord f49a3303. 2 ENGPASSEN PR #1348
+(t-20261018-r27-authority-contract). Basis = head 17aa2872 (73cd6d86 + Owner-CI-replan + test-format, keine funktionale änderung) branch w7-authority-r3-clean.
+Grundlage: review-1326h rezepte 1+2 (alles andere BESTATIGT ok inkl. ablauf-repro).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/w7-authority-r3-clean:refs/remotes/origin/w7-authority-r3-clean" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w31-authority-r10-wt w7-authority-r3-clean
+
+PUNKT 1 — FALLBACK-POLICY AN ALLEN STELLEN (internal/serviceaccess/authority.go :67-79):
+  wo maxAge==0 bisher auf 5 minuten faellt, muss serviceaccess.DefaultObservationMaxAge greifen
+  (eine richtung, keine zweite zahl). PRUEF-regression: aufruf mit maxAge=0 und observation
+  30min-alt => frisch (nicht stale); 2h => stale. grep-beleg: "5 * time.Minute|time.Minute*5|5*time"
+  im pruefpfad leer.
+PUNKT 2 — ECHTER ADAPTER-INTERGRATIONSNACHWEIS (openbao/service_issuer.go :136-159):
+  NEUER test in internal/openbao (datei service_issuer_integration_test.go o.a.): openbao.ServiceIssuer
+  gegen testsupport/test-ca-pki-umgebung: BaseSerial == echte CA-serial (hex, NICHT URI) UND derselbe
+  wert wird von RevokedStatus als serien-Key akzeptiert (CRL-eintrag dieser serie => revoked=true);
+  BaseExpiry == geparstes NotAfter des CA-cert. Der separate fake-test darf bleiben, ersetzt aber
+  NICHT diesen.
+
+ANSENDE-PFLICHT: MERGE origin/develop (develop ist a717c5f1 — basis-drift laut review!), ancestry rc=0
+ls-remote-SHA; write-set grep-leer. TMPDIR=/tmp GOCACHE=/tmp/opencode/go-caches go build ./... +
+go test ./internal/openbao ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess
+./internal/stableid + wrapper-run. PUSH ZIEL refs/heads/w7-authority-r3-clean (KEINE tmp-branch, KEIN
+PR-status-spiel — draft/ready macht der coordinator). ls-remote==head. END an f49a3303:
+"END_DONE w31-authority-r10: head=<sha> fallback=konstant-integrationn achweis=adapter-echt | <Satz>"
+Evidence: .../authority-contract/fix-r10.md (plain bullets, testnamen je punkt).
+STOP: 2 punkte, 1 iteration je punkt; bei quota: caches unter /tmp/opencode.

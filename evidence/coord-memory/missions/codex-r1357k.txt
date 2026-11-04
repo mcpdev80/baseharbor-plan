@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE access (r1357j rezept geheilt).
+KANAL: GPT-6 Luna. REZEPT-PFLICHTBLOCK bei REJECT (REVIEW-MISSION-CLAUSE.txt).
+OBJEKT: branch work/r27-ci-access-ab head 1d39010d (basis develop 2cadfcee Vorfahr, PR #1357 13 pass/0 fail
+TERMINAL gruen, handler.go diff=0 gegen develop, 0 geloeschte tests — coord-plattenpruefung). Gegenstand:
+runde 11 laut r1357j-rezept: matrix fuehrt 12 ECHTE aufrufe (6x check + 6x execute, je eigener fall-fixture),
+nach JEDEM aufruf zwei unabhaengige nachweise (route + wirkung); miswire-swap ROT-belegt in evidence
+qualify-11.md. PRUEFEN (SHA-genau, read-only): contra-probe auf dem kopf — zwei routen vertauschen =>
+zwingend ROT (deine eigene mutation); zaehle matrix-zeilen N==M; pruefe execute-pfad hat echten client-aufruf
+(nicht nur check-reuse); handler.go inhaltlich unveraendert; go test ./internal/runtimeexecutor -count=1
+-timeout 8m gruen (GOCACHE=/tmp/opencode/gc TMPDIR=/tmp); gofmt -l internal/runtimeexecutor leer.
+Urteil (ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT) -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357k.md.
+Hinweis: lifecycle-type runtime-jobs sind auf DIESER PR nicht erforderlich (13/0/6 terminal) — kein verfahrens-blocker.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357k: verdict=<X> open=<liste|none> | <Satz>"

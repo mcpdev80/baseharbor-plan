@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane w29-authority-r9). Coord f49a3303. AUFGABE: 4 verdrahtungs-punkte PR #1348
+(t-20261018-r27-authority-contract). Basis = head 7781a6f3 branch w7-authority-r3-clean.
+Grundlage: review-1326g.md — die Option-B-behauptungen der vorigen lane sind WIDERLEGT (abgelaufene
+frische observation wird durchgewinkt). Diesmal GILT: jede änderung nur mit dem angegebenen E2E-BEWEIS.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/w7-authority-r3-clean:refs/remotes/origin/w7-authority-r3-clean" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w29-authority-r9-wt w7-authority-r3-clean
+
+PUNKT 1 — EXPIRY IN DEN ECHTEN PRUEFPFAD: installauthority.Fresh (oder von ihm aufgerufen) prüft
+IssuedCertificate.ExpiresAt: zero oder < observationszeitpunkt/now => ablehnung. BEWEIS-pflicht: E2E
+wie reviewer-repro — frisch ausgeführte observation MIT ABGELAUFENER basis => resolveManagement-
+ConnectionIssuer muss FEHLSCHLAGEN; test im wrapper-pfad, nicht helper.
+PUNKT 2 — EIN FENSTER-WERT AN ALLEN DREI STELLEN: cmd/baha/application_service_issuer.go :102 und
+internal/coreinstallation/authority.go :232 (zeitminute) und internal/serviceaccess/authority.go :51/:77
+(fuenf minuten) referenzieren serviceaccess.DefaultObservationMaxAge (=1h). BEWEIS: wrapper-e2e mit
+observedAt 30min vergangen => ACCEPTED (fresh); >1h => rejected (stale).
+PUNKT 3 — LOKALE CRL KEINE read-only-ausnahme: local_issuer.go :377 RevokedStatus-pfad: fehlende/
+unlesbare CRL => err (fail-closed) statt (false,nil); kartenentscheidung r4 verlangt das; Renew-pfad
+kann bleiben. BEWEIS: regression ohne CRL-datei => Fresh/prüfpfad weist ab.
+PUNKT 4 — OPENBAO BaseSerial/BaseExpiry ECHT: pki BaseSerial liefert die reale CA-SERIALNUMMER (nicht
+URI) damit RevokedStatus sie als seriensebene akzeptiert; BaseExpiry liest das echte Zertifikats-
+ablaufdatum statt 90-tage-erfindung. BEWEIS: integration-test openbao/testsupport: BaseSerial format
+== serial hex pattern UND in RevokedStatus-CRL vergleichbar; BaseExpiry == parsed cert NotAfter.
+
+JEDER PUNKT: BEWEIS-test-name + PASS-AUSGABE in evidence; ein punkt OHNE beweiss-test ist NICHT
+geliefert (vorige lane-lehre). ANSENDE-PFLICHT: merge origin/develop, ancestry rc=0 ls-remote-SHA,
+write-set grep-leer, TMPDIR=/tmp go build ./... + go test ./internal/openbao ./internal/installauthority
+./internal/coreinstallation ./internal/serviceaccess ./internal/stableid + go test ./cmd/baha
+-run '^TestResolveManagementConnectionIssuer' -count=1. PUSH ZIEL refs/heads/w7-authority-r3-clean
+(KEINE tmp-branch), ls-remote==head. END an f49a3303:
+"END_DONE w29-authority-r9: head=<sha> p1-expiry=pastfail p2-fenster=30min+stale p3-crl=err p4-serial=real | <Satz>"
+Evidence: .../authority-contract/fix-r9.md (plain bullets, je punkt test-name).
+STOP: 1 iteration je punkt; bei nicht-verankerbarkeit => END_BLOCKED mit grep/call-graph, NICHT
+still auf andere ebene ausweichen.

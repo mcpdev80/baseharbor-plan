@@ -1,0 +1,16 @@
+WICHTIGE FACTS für docker-endpoint-context (von gh-ci-core empirisch belegt, run 41255597778):
+- Rootless docker ist auf GitHub-hosted ubuntu-latest UNMOEGLICH: `unshare --user` -> /proc/self/uid_map Operation
+  not permitted, userns blockiert SELBST NACH dem sudo-sysctl-Lift. Also NICHT versuchen, rootless zum Laufen zu
+  bringen — geht dort prinzipiell nicht.
+- Der einzige lauffaehige Daemon auf GH-hosted ist der **System(rootful) docker** (socket /var/run/docker.sock,
+  runner-user hat docker-group). `docker run hello-world` funktioniert out-of-the-box.
+- Ein `DOCKER_MODE: rootful`-ENV-Wert wird NICHT gelesen — der Resolver liest den **docker context / aktiven
+  Endpoint**, nicht diese Env-Variable. Der Bug in internal/runtime/docker_engine.go ist, dass der „selected endpoint"
+  hart auf unix:///run/user/1001/docker.sock steht und bei Unerreichbarkeit NICHT auf den aktiven System-Context
+  wechselt ("no fallback to System Docker").
+
+FIX-RICHTUNG (fail-closed respektieren): der Resolver soll den AKTIVEN docker-Kontext (docker context / DOCKER_HOST,
+  was real erreichbar ist = auf GH-hosted der System-daemon) verwenden, statt einen gehaerteten rootless-Pfad zu
+  erfordern. Kein Daemon erreichbar = wie bisher Fehler (fail-closed, §2.3). KEIN stummer Fallback, der einen
+  bewusst konfigurierten toten Endpoint verdeckt — wohl aber: nutze den Kontext, den der Host tatsaechlich anbietet.
+  Auf GH-hosted fuehrt das zum System-daemon und die native docker-HA laeuft ECHT.

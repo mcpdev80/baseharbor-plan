@@ -1,0 +1,25 @@
+MISSION integrate-map — READ-ONLY Integrations-/Merge-Reihenfolge + Rest-Lücken der v0.4.27-Kette (nichts aendern/mergen)
+Repo baseharbor. Ziel: eine belastbare, pruefbare Reihenfolge, in der die offenen PRs nach dem Endpoint-Fix +
+  gate-map-Klassifikation wirklich grün werden und zusammenführbar sind, + ALLE verbleibenden Gate-Mapping-Lücken.
+DATEN (nutze gh api + git, nur lesend):
+  develop=cb6b7387. Endpoint-Fix #1245 (head c201c516, internal/runtime/docker_engine.*). gate-map-Aenderung (Branch
+  work/gate-map 9581193d, internal/runtime/*.go -> atomic/docker/lifecycle, sonst unresolved). #1239 (486abbca, ci.yml+
+  ci-core-rootless-runtime.sh system-daemon). #1238 (38073e9e, podman/mcp-lifecycle/observability-acceptance.yml),
+  #1243 (878a2124, broker/s3), #1241 (ed5ca739, cmd/baha/docker_engine.go + podman-test), #1242 (f392273, *_test.go),
+  #1240 (33d1ef4+sslguard 116adb3d, openbao), #1160 (6389342d, deps). #1225 (5060cb23, bereits GH-hosted laut prep-1225).
+AUFGABE (fuer JEDES PR):
+ 1. files auflisten (gh api pulls/<n>/files). Bestimme je Datei, WIE sie der Classifier in pr-gate-plan.py MIT der
+    gate-map-Aenderung einstufen Wuerde: (a) bereits gemappt (cmd/baha/* dict, internal/runtime/*.go via gate-map,
+    .github/workflows/ -> native-qualification), (b) IMMER NOCH 'unknown impact' -> LUECKE.
+    => BESONDERS pruefen: aendert #1241 cmd/baha/docker_engine.go, und ist DIESE Datei im cmd/baha-Dict vorhanden?
+       (Das interne Pendant heisst internal/runtime/docker_engine.go — anders!) Falls cmd/baha/docker_engine.go
+       unmapped ist, das als gate-map-Zusaetzluicke markieren.
+ 2. Merge-ABHÄNGIGKEIT: was muss VOR was in develop, damit ein PRs Coverage-Aufloesung ein ECHT laufendes natives
+    Gate findet (Regel: erst grüner GH-hosted native Lauf, dann required self-hosted weg). Konkrete lineare Reihenfolge.
+ 3. Nenne PRs, die NUR einen sauberen Rebase auf develop+gate-map+#1245+combined brauchen (kein Code), vs. solche,
+    die eine ZUSAETZLICHE gate-map-Abbildung brauchen (mit Begründung + Datei).
+ERGEBNIS: baseharbor-plan/evidence/board-2026-10-31/integrate-map/MERGE-ORDER.md —
+  Tabelle PR|files|klassifizierung(nach gate-map)|LUECKE?|braucht-rebase|braucht-gate-map-add|Merge-Fenster;
+  + LEINEARE MERGE-REIHENFOLGE + Liste ZUSAETZLICHER gate-map-Ergaenzungen (die ich in gate-map-Lane nachziehen lasse).
+  ROLLE:ANALYSE + Modell/Zeit. NICHTS aendern/mergen/CI triggern.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE integrate-map: <N PRs, Reihenfolge-Kurzform, K restliche gate-map-Lücken>"

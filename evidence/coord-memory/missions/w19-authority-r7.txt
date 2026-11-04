@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane w19-authority-r7). Coord f49a3303. AUFGABE: 3 code-punkte PR #1348
+(t-20261018-r27-authority-contract). Basis = head bcb7b54a branch w7-authority-r3-clean.
+Grundlage: review-1326e.md rezepte 1-3.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/w7-authority-r3-clean:refs/remotes/origin/w7-authority-r3-clean" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w19-authority-r7-wt w7-authority-r3-clean
+
+PUNKT 1 — CRL STRUKTUR-FAIL-CLOSED (internal/openbao/service_pki.go :340-362):
+  Gueltiges JSON ohne datenstruktur (null, {}, {"data":{}}, {"data":{"serials":null}}) ist KEINE
+  leere liste: Rueckgabe (false, err) mit err "revocation list payload malformed" NUR wenn das
+  serials-array strukturell fehlt/Null ist. Eine ECHTE leere liste {"data":{"serials":[]}} =>
+  (false,nil) wie bisher. REGRESSION fuer alle vier malformed-formen + die empty-list gegenprobe,
+  durch den echten pruefpfad (RevokedStatus), nicht nur helper.
+PUNKT 2 — EXPIRY + ERWARTETE IDENTITY (installauthority/fresh.go :45-88 + wrapper):
+  a) Fresh prueft IssuedCertificate.ExpiresAt: zero oder < jetzt ( observationszeitpunkt!) => ablehnung.
+     Test: abgelaufene basis bei frischem observedAt => wrapper weist ab.
+  b) Der wrapper uebergibt die ERWARTETE identity aus seiner EIGENEN auswahl (resolved connection
+     trust.IssuerReference aus dem production boundary, :120-140), NICHT observed.Identity.
+     Fremdes beobachtetes zertifikat (andere issuer reference) => ablehnung anhand der unabhängigen
+     erwartung. REGRESSION: fake issuer liefert status mit fremder identity aber gueltigem rest =>
+     wrapper-pfad weist ab.
+PUNKT 3 — POLICY SINGLE SOURCE (coreinstallation.ObservedState.Fresh + serviceaccess.CertificateStatus.
+  Fresh, falls dupliziert): die frische-/zeitfenster-logik bleibt in installauthority; die anderen
+  DELEGIEREN darauf (duenner adapter), keine dritte kopie der maxAge/zero/future-regeln. Nachweis:
+  grep zaehlt die zeitvergleichs-kernzeile (now.Sub/observedAt vergl.) genau EINMAL im pruefpfad-paket.
+
+ANSENDE-PFLICHT (SHA-Beweise): merge origin/develop, merge-base --is-ancestor <ls-remote-develop-SHA>
+HEAD rc=0. write-set grep-leer (.github/scripts). Tests: TMPDIR=/tmp go build ./... && go test
+./internal/openbao ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess
+./internal/stableid && go test ./cmd/baha -run '^TestResolveManagementConnectionIssuer' -count=1.
+push FF, ls-remote==head, keine run-logs. END an f49a3303:
+"END_DONE w19-authority-r7: head=<sha> crl-struct=failclosed expiry+id=wrapper-reg single-source=grep1 | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/authority-contract/fix-r7.md (plain bullets).
+STOP: 1 iteration je punkt; openbao/testsupport nur wenn noetig (autorisiert); kein merge, kein force.

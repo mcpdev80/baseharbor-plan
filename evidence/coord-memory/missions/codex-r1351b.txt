@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW (r1351a rezepte umgesetzt).
+OBJEKT: PR #1351 head c83a5654 (write-set jetzt internal/testsupport/externalprovider/seed.go HELFER +
+3-zeilen aufruf cmd/baha — karten-konform; 0 geloeschte tests; hosted run 41649649612 SUCCESS auf
+exaktem head, 19 pass; develop Vorfahr JA; TestExternalProviderRemoval 3x pass gemeldet).
+= t-20261023-appid-test-env-dep: nachweis dass die removal-fixture ihren registry-owner-Seed selbst
+setzt statt aus der umgebung zu raten.
+PRUEFEN (SHA-genau, read-only): 1. helper seedet ECHtes material (identitaet/registry-json wie runtime
+liest) unter dem target-state-root; kein env-raten, kein skip. 2. der aufruf in cmd/baha ist wirklich
+der einzige produkt-nae-punkt (diff ansehen). 3. gegenprobe: helper-AUS-kommentiert => test failt wie
+develop (beweist kausalitaet) — als eigenen kurzlauf im urteil vermerken (er darf lokale aenderung nur
+im sandbox-des-worktree, nie push). 4. matrix => ACCEPT wenn traegt. Tests: GOCACHE=/tmp/opencode/gc
+TMPDIR=/tmp go test ./cmd/baha -run TestExternalProviderRemoval -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1351b.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1351b: verdict=<X> open=<liste|none> | <Satz>"

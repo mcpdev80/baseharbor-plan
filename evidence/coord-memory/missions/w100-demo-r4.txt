@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w100). Coord f49a3303. DEMO RUNDE 4 auf PR #128 (baseharbor-demo, branch
+w85-demo-guided-consent head e453e2a). Luna review-128c REJECT — kern des rezepts (vollstaendig in
+review-128c.md zeile 23+ lesen): der dauer-test prueft gegen SEINE eigenen regelsaetze (complete_rules()/
+TWO_PROMPT_RULES) statt gegen das ECHTE production drive.up_rules — luecke: fremde fehler koennten in
+produktion dennoch zum zweiten lauf kommen. UMBAU: (1) der test muss die ORIGINAL up_rules des moduls
+verwenden (import, keine kopie) und den echten entscheidungspfad (funktion die first_rc/detection/hash
+auswertet) aufrufen — inkl. sequenz abbruch=>zweiter lauf im echten pfad. (2) die vier gegenproben (rc=0
+ohne ready-marker; pflicht-prompt fehlt; rc!=0 hash+fremder text; rc!=0 hash+unvollstaendige interaktion)
+messen ALLE gegen den ECHENTSCHEIDUNGSPFAD, keine test-lokale nachbildung. (3) behauptung "fremder fehler
+erreicht NIE einen zweiten lauf" als assertion im productionspfad. basis main cd9176e aktuell; basis der
+core.ref-zeile unveraendert lassen auesser sie Luna-kritik verlangt. push; ls-remote==head; END.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/demo/consent-harness-4.md (bullets).
+END an f49a3303: "END_DONE w100-demo-r4: head=<sha10> testtraegt=production-pfad gegenproben=4 lsremote=<sha10> | <Satz>"
+HINWEIS: demo/consent-harness-3.md war im demo-zweig — stell sicher NUR drive.py+test+core.ref im diff zu haben.

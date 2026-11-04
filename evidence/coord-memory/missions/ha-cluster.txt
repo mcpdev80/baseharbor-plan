@@ -1,0 +1,37 @@
+ARBEITSVERZECHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/ha-cluster  (Repo baseharbor; Basis origin/develop 437358e4)
+MISSION ha-cluster — DIAGNOSE + minimaler FIX: Der VOLLE Postgres-HA-Cluster (Patroni+etcd+HAProxy) startet auf
+  GitHub-hosted rootful Docker nicht. Bewiesenes Symptom (run 41276806025, head 262f069f, 'Targeted · Integration'):
+    Patroni member: "failed to resolve host postgres-etcd-3: Temporary failure in name resolution"
+    -> "getaddrinfo returns an empty list" -> "waiting on etcd" -> postgres-init -> SQL-ready nie erreicht.
+  Vorlauf (run 41283405474): "open /run/baseharbor/etcd/server.pem: permission denied", etcd crash-loop.
+  VERDACHTSSTRANG (prüfe, nicht übernehmen): etcd-Container crashen/sterben (TLS-Perms!) und verlieren damit
+  Docker-DNS-Registrierung -> Patroni sieht leere Auflösung. Richtiger Fix-Hebel = etcd kommt stabil hoch, nicht DNS-Pflaster.
+
+KONTEXT (bewiesen, nicht neu erfinden): GH-hosted hat nur rootful System-Docker; rootless ist dort unmöglich.
+  Der LEICHTERE Lifecycle-Nachweis ('Targeted HA · docker', ci.yml) ist auf exakt diesem Basisstand GRÜN
+  (run 41306532173) — dein Scope ist NUR der schwere Voll-Cluster, kein Gate-Umbau, kein Architekturumbau.
+
+SCHRITTE:
+ 1. Worktree: origin/develop. Push-Ref-PATTERN einhalten: runtime-validation/ha/<gruppe>/docker/<kurz> mit
+    gruppe IN {control-plane, monitoring, application, workload} (ein 'both' als grupme wird vom Parser
+    'Resolve HA group' mit exit 2 abgelehnt — Ref-Name ha/both/... ist FEHLERHAFT). Nutze
+    runtime-validation/ha/control-plane/docker/hc0427.
+ 2. Probe-Lauf auf aktuellem Stand -> Container-Logs von postgres-etcd-{1,2,3} ziehen (docker logs), terminale
+    Exit-Codes + erste Fehlerzeile sichern. Damit entscheiden: crasht etcd (TLS/perms), oder startet es nie
+    (compose user:/volume), oder DNS-netzwerk-Seitig (Netz-Typ/alias)?
+ 3. Den etcd-TLS-Pfad im Test-Aufbau lesen (compose-fixtures / internal/runtime HA-prep / cmd/baha
+    runtime_restart_integration_test.go): WER erzeugt /run/baseharbor/etcd/server.pem, mit wem Rechten, und
+    als welcher User der etcd-Container läuft. Minimaler ECHTER Fix: z.B. Zertifikats-Vorbereitung rootful-konform
+    (leserechte im Container, korrekt chown/chmod VOR Start), oder compose-user/volume-Fix. Verbotene Wege:
+    SKIP, Timeout-Erhöhung als Scheinlösung, Test löschen, Gate ändern, rootless erzwingen.
+ 4. go build ./... ; go vet; affected go test lokal so weit möglich. Push auf den Probe-Ref.
+ 5. EIGENES-RUN-PFLICHT: 'Targeted · Integration' auf deinem Ref bis terminal beobachten (Run-ID + Fehler-/Erfolgs-
+    zeilen in Evidence). Ziel: Voll-Cluster GRÜN ('SQL-ready' erreicht, TestExistingControlPlaneRestart... ok).
+    Wenn in GH-hosted rootful PRINZIP-BEDINGT nicht löschbar: END_BLOCKED mit exakter Root-Ursache + begründeter
+    Aussage, ob dieser Gate prinzipiell schwereren Runner braucht (echter Owner-Entscheidungspunkt) — NIE
+    kosmetisch grün rechnen.
+EXKLUSIVES WRITE-SET: compose-/Fixture-/HA-Prep-Pfad + cmd/baha runtime_restart_integration_test.go +
+  internal/runtime HA-Zertifikats-Vorbereitung. NICHT: .github/workflows/* (diff-base-Lane hat ci.yml-Plan-Job),
+  scripts/pr-*.py, andere Gates.
+EVIDENCE (absolut; Checkboxen NUR in task-notes, hier plain bullets): baseharbor-plan/evidence/board-2026-11-01/ha-cluster/evidence.md
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED ha-cluster: Fix-SHA + Targeted-Integration GRUEN run-ID | ODER Root-Ursache + 'schwererer Runner nötig' als Owner-Punkt begründet"

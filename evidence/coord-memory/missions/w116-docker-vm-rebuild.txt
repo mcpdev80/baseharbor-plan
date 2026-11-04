@@ -1,0 +1,31 @@
+ROLLE: Worker (Lane w116). Coord f49a3303. FELD: TEST-VM baha-docker (ssh-alias). OWNER-FREIGABE 2026-11-04
+16:0x: die Docker-/Podman-VMs sind REINE TESTUMGEBUNGEN; du darfst sie bei Bedarf VOLLSTÄNDIG bereinigen und
+NEU aufbauen. bevoerzugt ist der REPRODUZIERBAREN NEUAUFBAU (vorhandenes setup-skript) statt manueller
+reparatur. PROXMOX-HOSTS und PRODUKTIVE DIENSTE bleiben unangetastet.
+WISSEN (RUNBOOK §6.2): rootless docker für user `github-runner` (uid 1001) als enabled user-service +
+linger=yes; socket-eigentum über ExecStartPost-override. shared-stapel `bh-*shared*` / `bh-backup-recovery-*`
+sind NICHT lane-eigen — vor JEDEM destruktiven schritt die Drei-Punkte-Prüfung (aktive runs? laufende
+container/volumes + ownership? wiederherstellungsfolge?) und das ergebnis in die evidence; bei zweifel:
+ABBRECHEN und als blocker melden, nicht raten.
+SCHRITTE:
+ 1) IST-BESTAIND dokumentieren: `df -h /`, `docker system df`, `docker ps -a`, `systemctl --user status docker`
+    (als github-runner NICHT als root; wenn du den user-wechsel brauchst: `sudo -u github-runner loginctl`-weg
+    in der evidence benennen), vorhandene images + versionen.
+ 2) Grund-Erhaltungsentscheidung: braucht der host ein wipe (`docker system prune -a --volumes` auf lane-eigene
+    bestände / image-prune) oder reicht cache-prune? Begründung + Vorher-/Nachher-`system df` in die evidence.
+    `bh-*shared*` container/volumes bleibeb stehen.
+ 3) REPRODUZIERBARER NEUAUFBAU: /home/marcel/setup-baha-docker.sh (2.4 KB, 8.10.) lesen, dann ausführen;
+    wenn es von netz/quellen abhängt, die hier nicht erreichbar sind: das Skript in der evidence um den
+    exakten fehlenden schritt + work-around-entscheidung ergänzen (SKRIPT im VM-home anpassen ist erlaubt und
+    erwuenscht — das ist der reproduzierbare weg; dokumentiere diff).
+ 4) FUNKTIONSBEWEIS: `docker version` rc=0, `docker run --rm <lokales bild> true` rc=0, rootless-socket nutzbar
+    ohne sudo; ein `docker build` eines vorhandenen test-Dockerfiles als nachweis dass build-cache funktioniert.
+ 5) RAUM für die integration: das core-/demo-/console-/connector-repo ist auf dem host schon vorhanden
+    (`_work`-pfade) — NICHT klone, wenn bereits da; pruefe stattdessen die checkout-ordnung.
+ 6) AUFRÄUMPHASE (Pflicht): lane-eigene container/volumes/netzwerke/workdirs loeschen; END weist wörtlich aus:
+    `docker ps -a` frei von lane-eigenen namen + `df`-zeile.
+GRENZE: KEINE änderung an .github/workflows, KEIN runner-registrieren/-entfernen (runner gehören GitHub, hier
+laufen geteilte Runner), KEIN zugriff auf proxmox-hosts, KEINE produktiven dienste.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-rebuild/docker.md (befund, drei-punkte-prüfung,
+skript-diff, vorher/nachher-belege, funktionsnachweise mit rc; keine checkboxen).
+END an f49a3303: "END_DONE w116-docker-vm-rebuild: bereinigt=<ja/begruendung> neuaufbau=<skript|manuell+warum> laufend=<rc0-belege> cleaning=<bestaetigt> | <Satz>"

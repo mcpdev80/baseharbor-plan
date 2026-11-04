@@ -1,0 +1,12 @@
+ARBEITSVERZEICHNIS (absolut, read-only Audit): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/code-audit  Branch work/code-audit
+MISSION code-audit — Codebasis-Audit: weitere versteckte Eigenbau-/Rootless-/Self-hosted-Annahmen finden
+ZIEL: 100% GitHub-hosted CI mit echter Coverage. Finde ALLE Stellen, die wie der Docker-Erkennungsbug hart von
+  unseren Test-Boxen ausgehen (statt vom aktiven System zu laufen). NUR LESEN + Befund, KEIN Produktcode aendern
+  (die Endpoint-Lane besitzt internal/runtime/docker_engine.go; du sollst NICHT dieselbe Datei editieren).
+SUCHE (grep ueber develop-Checkout):
+  - `run/user/1001`, `dockerd-rootless`, `loginctl enable-linger`, `DOCKER_HOST=unix://`, `unshare`, `sysctl.*userns`,
+    apparmor, `sudo` in scripts/, internal/, cmd/, .github/workflows/ (ausserhalb legitimer GH-hosted sudo-Nutzung).
+  - weitere `runs-on: self-hosted` (Restbestand, falls PRs noch nicht gemergt).
+Ergebnis: baseharbor-plan/evidence/board-2026-10-31/code-audit/FINDINGS.md — Tabelle: file:line | Kontext |
+  Riskiko (CI-Coverage / Fail-open / Security) | empfohlene Aenderung + welche Lane sie besitzen sollte.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE code-audit: <N Befunde, kritischste top3>"

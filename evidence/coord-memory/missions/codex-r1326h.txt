@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head 73cd6d86 (develop Vorfahr JA, write-set sauber; lane meldet 4/4 punkte mit
+je E2E-beweis: expiry past+zero im frischen prüfpfad abgewiesen, 30min-fresh/>fenster-stale durch
+wrapper mit DefaultObservationMaxAge, lokale CRL => err, BaseSerial/BaseExpiry echt) = t-20261018-
+r27-authority-contract. RE-REVIEW nach review-1326g — PRUEFUNG NUN AUF WIDERLEGUNGS-REPROs:
+1. exakt der 1326g-repro (frische observation MIT abgelaufener basis) => muss JETZT fehlschlagen;
+   eigenendurchführung im archiv, nicht nur test-name glauben. 2. wrapper-e2e 30min/fenster-grenze.
+3. fehlende crl-datei => prüfpfad ablehnung. 4. BaseSerial hex/serial-format + in CRL vergleichbar,
+   BaseExpiry == cert NotAfter (testsupport-integration). 5. matrix + deferrals (identity-cross,
+   cmd-fan-out notizen) => ACCEPT-WITH-DEFERRAL wenn alles trägt. Tests: TMPDIR=/tmp go test
+   ./internal/openbao ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess
+   ./internal/stableid + go test ./cmd/baha -run '^TestResolveManagementConnectionIssuer' -count=1.
+Urteil -> review-1326h.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326h: verdict=<X> open=<liste|none> | <Satz>"

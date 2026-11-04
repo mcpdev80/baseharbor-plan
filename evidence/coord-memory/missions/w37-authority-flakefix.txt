@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w37). Coord f49a3303. MIKRO: 1 zeile test-robustheit PR #1348
+(t-20261018-r27-authority-contract). Basis = head 5b6681bd branch w7-authority-r3-clean.
+Grundlage: review-1326j rezept 1.
+
+ERSTE AKTION: fetch origin "+refs/heads/w7-authority-r3-clean:refs/remotes/origin/w7-authority-r3-clean"
+"+refs/heads/develop:refs/remotes/origin/develop"; git worktree add /tmp/opencode/w37-flakefix-wt w7-authority-r3-clean
+
+ÄNDERUNG (internal/openbao/service_issuer_integration_test.go :58-65/:108): hex-parsing des
+BaseSerial so dass ungerade ziffern zählen: links mit "0" auffuellen ODER big.Int SetString(16) —
+beides ok, eine zeile + comment. KEIN änderung an BaseSerial selbst (big.Int.Text(16) ist korrekt).
+BEWEIS: TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go test ./internal/openbao -run
+'^TestServiceIssuerBaseSerialIsRealCASerial$' -count=200 => 0 FAILS (vollstaendige ausgabe in evidence).
+ANSENDE: merge origin/develop (falls voraneilt), ancestry rc=0 ls-remote-SHA, write-set = diese eine
+datei (.github grep-leer), go build ./... + openbao-paket komplett, push FF auf w7-authority-r3-clean
+(KEINE tmp-branch, PR-STATUS ist coordinatorsache), ls-remote==head.
+END an f49a3303: "END_DONE w37-authority-flakefix: head=<sha> count200=0fail | <Satz>"
+Evidence: .../r27-welle3-2026-11-03/authority-contract/flakefix-1.md (plain bullets).
+STOP: nur diese eine zeile.

@@ -1,0 +1,15 @@
+ROLLE: CODEX-MERGE. Coord f49a3303. AUTORISIERT durch: review-1324n.md verdict ACCEPT-WITH-DEFERRAL
+auf exakt head 775f7a2355fbddd56a196b704f021e635e223228 (PR #1324, branch work/r27-profile-contract,
+base develop, task t-20261018-r27-profile-contract).
+SCHRITTE (mechanisch, PR-territorium baseharbor only):
+1. BEWEIS VOR MERGE: gh pr view 1324 -R mcpdev80/baseharbor --json headRefOid,state,mergeable —
+   headRefOid MUSS 775f7a23... sein, state OPEN, mergeable CLEAN|HAS_HOOKS. Abweichung => NICHTS tun,
+   END_BLOCKED an f49a3303.
+2. SQUASH-merge (Praezedenz m1324: ruleset-Authority).
+   merge-commit wie gehabt). gh pr merge 1324 mit diesem Stil; KEIN --admin, KEIN force, KEin Schutz-
+   regel-Bypass. Blockierte Pflicht-Checks => abbrechen + END_BLOCKED mit Check-Liste.
+3. NACHWEIS: git ls-remote origin refs/heads/develop -> neue develop-SHA; gh pr view 1324 --json
+   state,mergedAt => MERGED; diff head..develop auf write-set leer/stichhaltig + ls-remote develop-SHA.
+4. branch work/r27-profile-contract bleibt wie Repo-Konvention (loeschen nur wenn develop-Historie
+   branch-deletion zeigt).
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-m1324: merged=<sha> ancestor=ok | <Satz>"

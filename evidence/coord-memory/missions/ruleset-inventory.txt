@@ -1,0 +1,18 @@
+MISSION ruleset-inventory — READ-ONLY Inventur der Merge-Durchsetzung (gh api; KEINE Dateien aendern)
+ZIEL: belegen, ob die Pflicht-Prüfungen (Required Checks / Rulesets) für baseharbor (und node-connector) schon auf
+  GitHub-hosted Laeufe zeigen oder noch an Eigenbau-/Self-hosted-Jobs haengen — noetig fuer die 100%-GH-hosted-
+  Durchsetzung (Owner-Regel: erst grüner GH-hosted-Ersatz, dann self-hosted-Pflicht-Check entfernen).
+REPOS: mcpdev80/baseharbor (develop + main), mcpdev80/baseharbor-node-connector (main).
+VORGEHEN (nur lesende gh api calls):
+ 1. gh api repos/<org>/<repo>/rulesets  (list) + je Ruleset Details: welche Checks sind 'required_status_checks'?
+    Falls classic branch protection statt rulesets: gh api repos/<org>/<repo>/branches/develop/protection (required_status_checks.contexts + checks).
+ 2. Für JEDEN required-Check-Kontext: existiert er als GH-hosted Job (name matcht einen ubuntu-latest/26.04-Job in den
+    workflows), oder ist er ein self-hosted-abhaengiger/Job der auf Eigenbau-Boxen laeuft? Liste file:line des Jobs.
+ 3. Identifiziere required-Checks, die NUR auf self-hosted erfuellbar waeren (muessten nach Cutover auf GH-hosted
+    umgestellt werden) und solche, die schon GH-hosted sind.
+ 4. Falls API-Zugriff auf rulesets verboten/404 (App-Token): dokumentiere den genauen 404/Scope als Befund (nicht erfinden).
+ERGEBNIS: baseharbor-plan/evidence/board-2026-10-31/ruleset-inventory/INVENTORY.md —
+  Tabelle repo|branch|required-check|GH-hosted? ja/nein|Job-Nachweis|Aenderungsbedarf; + Gesamtantwort:
+  "sind ALLE required-Checks GH-hosted-erfuellbar? sonst: exakte Liste der umzustellenden". ROLLE:ANALYSE + Modell/Zeit.
+  KEINE gh api POST/PUT/PATCH — reines Lesen. Nichts aktivieren/deaktivieren.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE ruleset-inventory: <ALLE-GH-hosted ODER N required-checks umzustellen: kurze Liste>"

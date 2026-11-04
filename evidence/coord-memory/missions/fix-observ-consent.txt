@@ -1,0 +1,30 @@
+MISSION fix-observ-consent — Observability-Akzeptanz: provider-change consent korrekt behandeln
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/fix-observ-consent
+Branch work/fix-observ-consent (von develop cb6b7387).
+
+BEFUND (GH-hosted docker HA, run 41247476972, rootless docker funktioniert jetzt):
+  TestObservabilityFullStackAcceptanceInCI (cmd/baha/app_observability_acceptance_test.go)
+  -> provider Scope=application (Zeile ~35-36), dann `app apply` (Zeile ~132) OHNE plan->bestaetigung
+  -> baseharbor/internal/application/provider_change_consent.go:31 => "impact-confirmation-required" -> FAIL.
+
+FRAGE (zuerst beantworten, dann FIX — baseharbor AGENTS 2.7 ist verbindlich): Ist das ein
+  (A) TEST-Fehler: der Akzeptanztest muss den vorgeschriebenen Plan->Apply-Pfad fahren
+      (`app plan` -> `app apply --plan-json <file> --force`, oder das Nicht-interaktive CI-Aequivalent), ODER
+  (B) PRODUKT-Fehler: der Consent-Guard feuert zu Unrecht bei ERSTER/full-stack Anwendung ohne vorherigen
+      Provider-Zustand (kein "destruktiver Wechsel", nur initiales Einrichten).
+
+ENTSCHEIDUNGSREGEL:
+  - Wenn (A): fix NUR in den Akzeptanz-Test/Flow-Dateien (deterministisch, nicht interaktiv, kein --force
+    blind auf echte destruktive Loeschung; nur initial-provider-enable). Write-Set: cmd/baha/app_observability_acceptance_test.go (+ geteilte acceptance-helper wenn existierend).
+  - Wenn (B): der Eingriff in provider_change_consent.go ist QUERSCHNITTlich (betrifft postgres/valkey/s3/broker
+    Tests mit) -> NICHT unilateral aendern; stattdessen END_BLOCKED mit exakter Begruendung + Minimalvorschlag,
+    Coordinator entscheidet (Querschnitt = Ownership-Konflikt mit anderen Akzeptanz-Lanes).
+
+EXKLUSIVES WRITE-SET (bei (A)): cmd/baha/app_observability_acceptance_test.go + ein neu angelegter, NUR-hier genutzer helper.
+  NICHT: internal/application/provider_change_consent.go (querschnittlich -> melden, nicht aendern), NICHT *.yml,
+  NICHT docker_engine.go (#1241), NICHT stack.go/openbao (#1240).
+
+TESTS: `go build ./... && go vet ./...`; `go test ./cmd/baha -run TestObservabilityFullStackAcceptance` lokal (docker native, da rootless jetzt da ist — wenn lokal kein docker, PR-CI docker-HA beobachten). Kein Gate-Weaken.
+
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/fix-observ-consent/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY|END_BLOCKED fix-observ-consent: <A|B, SHA, docker-HA status>"

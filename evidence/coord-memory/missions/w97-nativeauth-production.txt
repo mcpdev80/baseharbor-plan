@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w97). Coord f49a3303. KARTE: t-20261018-r27-native-auth — PRODUKTIONS-PFAD-RUNDE nach
+Luna review-1362a (befunde 1-3; befeund 4 ssh-tests = bereits in arbeit lane w94, NICHT doppeln — vor start
+ls-remote sehen: w94s head c2adcc86+ ist basis). Branch work/r27-native-auth, PR #1362.
+(1) CALLABLE PATH: interne credential-broker/consumer-stellen die laut karte/konsumenten existierenden
+akzeptierten interfaces nutzen muessen die native-adapter AUFRUFEN (kein provider-neues, keine cloud-chain) —
+stelle in internal/credential (bestehender konsumpfad) verdrahten; erfolg+fehlerpfad vom echten consumer
+testen inkl. quelle-abwesend und konfigurierungs-erhalt. (2) GIT HELPER PROTOKOLL: beschreibung auf stdin,
+explizit nicht-interaktiv (GIT_TERMINAL_PROMPT=0 / -c credential.interactive=false je nach musterbild im
+repo), antwort nur wenn valide, inhalt nur im speicher an den autorisierten consumer; gegenproben: fake-helper
+konfiguriert / fehlt / unvollstaendige antwort — NIE terminalprompt. (3) STDERR-LECK: ExecRunner haengt stderr
+NICHT mehr an oeffentliche/diagnostische fehler — nur redigierte klasse+exit; regression: dummy-secret auf
+stderr darf in invoke/resolve/externem log-format nirgends auftauchen (sentinel-assertion). 0 tests geloescht.
+basis develop f8ef4255 Vorfahr. gates komplett, push, ls-remote==head, PR #1362 TERMINAL (required gruen).
+Evidence: native-auth/production-1.md (bullets). 
+END: "END_DONE w97-nativeauth-prod: head=<sha10> path=verdrahtet git=protokoll+noninteractive stderr=redigiert lsremote=<sha10> | <Satz>"
+REIHENFOLGE-PFLICHT: NUR starten wenn work/r27-native-auth nicht mehr von einer anderen lane bewegt wird
+(w94 Ende abwarten — coord schaltet frei).

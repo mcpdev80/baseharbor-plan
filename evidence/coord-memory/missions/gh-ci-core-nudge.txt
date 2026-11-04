@@ -1,0 +1,10 @@
+NUDGE gh-ci-core (Coordinator) — KEIN Owner-Entscheid nötig, es IST ein Code-Fix:
+Auf GitHub-hosted ubuntu-latest hat der Runner-Nutzer (runner, uid 1001) NOPASSWD-Sudo — auf unseren self-hosted
+war das verboten, hier NICHT. Der Ubuntu-AppArmor-Tunable für unprivileged user namespaces lässt sich im Job
+setzen. Konkret in `scripts/ci-core-rootless-runtime.sh`:
+  if ! sudo -n sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 2>/dev/null; then
+    echo "warn: sysctl not permitted; rootless docker may fail";    # Fail-offen dokumentieren, nicht Exit
+  fi
+Vor `dockerd-rootless-setuptool.sh install` (oder Rootless-Start). Danach `docker run --rm hello-world` im Job
+als Smoke des Setups. KEIN Owner-Blocker — bitte implementieren, pushen, PR #1239 beobachten.
+Wenn der Tunable trotzdem nicht erlaubt wird (dann echter GitHub-Runner-Limit), END_BLOCKED mit exakter Fehlerzeile.

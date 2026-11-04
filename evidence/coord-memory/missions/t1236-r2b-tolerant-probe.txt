@@ -1,0 +1,32 @@
+KORREKTUR-2 t1236-ha-native (bounded, exakte Diagnose vom Coordinator — NICHT raten)
+
+sudo ist raus (ok). Der Job scheitert jetzt an `set -euo pipefail`-Landminen in `scripts/ci-core-rootless-runtime.sh`
+(run 41237289728, Step "Prepare verified rootless runtime" exit 1 ohne STDOUT):
+  - `command -v dockerd-rootless-setuptool.sh`  -> im Actions-Job-PATH fehlt das Binary => exit 1.
+  - `loginctl show-user "$(id -un)" | grep -q Linger=yes` -> pipefail + job-env => exit 1.
+  - bedingungsloses `dockerd-rootless-setuptool.sh install` spaeter kann ebenfalls fehlschlagen.
+Der ssh-login als github-runner war gesund; der ACTIONS-JOB hat nur einen schmaleren PATH/Env.
+
+AUFGABE (nur `scripts/ci-core-rootless-runtime.sh`, evtl. `ci.yml`/`podman-acceptance.yml` env-Zeile), im Worktree:
+ 1. PRESENZ-/SETUP-GATES TOLERANT machen (NICHT abbrechen wenn Runtime schon funktioniert):
+      - `command -v X`-Checks als `command -v X >/dev/null && echo "ok:X" || echo "warn:X-absent"` (kein harter exit).
+      - linger-Zeile als informativ: `loginctl show-user "$(id -un)" 2>/dev/null | grep -q Linger=yes && echo "linger=yes" || echo "linger: not enforced in job"`.
+      - `dockerd-rootless-setuptool.sh install` NUR noch wenn der Runtime-Probe (Punkt 3) ohne Daemon fehlschlaegt, nicht bedingungslos.
+ 2. XDG_RUNTIME_DIR/DBUS/DOCKER_HOST export BEHALTEN (sudo-frei, korrekt).
+ 3. ECHTER RUNTIME-PROBE als Gate (Qualitaetsgrenze: Runtime MUSS funktionieren — kein skip):
+      - docker: `docker info >/dev/null` (mit gesetztem DOCKER_HOST). Schlaegt es fehl, EINMAL
+        `dockerd-rootless-setuptool.sh install` als Fallback, dann erneut `docker info`. Immernoch失败 => FAIL (echt).
+      - podman: `podman info >/dev/null` analog.
+ 4. DIAGNOSE-AUSGABE (damit ein ggf. 3. Lauf echtes Log liefert statt stummen exit 1):
+      vor dem Probe ausgeben: `echo "PATH=$PATH"; id -un; command -v docker podman dockerd-rootless-setuptool.sh slirp4netns || true`.
+ 5. Rebase auf origin/develop (cb6b7387), push, gehosteten Run selbst bis terminal beobachten
+    (Eigenes-Run-Pflicht): Ziel = "Targeted HA · docker" UND "· podman" grün durch ECHTEN Container-Betrieb.
+
+STOP/ESKALATION: Wenn nach diesem tolerant+probe-Fix der `docker info`/`podman info`-Probe im Actions-Job
+echt fehlschlaegt (Daemon nicht erreichbar), IST das ein Runner-Host/Service-Env-Problem (github-runner
+user-service + XDG in Actions-Kontext) => END_BLOCKED mit der exakten `docker info`-Fehlerzeile + Diagnose-
+Output; dann eskaliere ich an Owner (§6.2 host), kein drittes Blind-Iterieren.
+
+EVIDENCE (absolut): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/t1236/
+  (kein `- [ ]`-Checkbox; diff + Run-id + HA-Vorher/Nachher). Plan-Repo NICHT selbst pushen.
+HANDOFF: `codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED t1236-ha-native: <final SHA + HA docker/podman status + docker-info outcome>"`.

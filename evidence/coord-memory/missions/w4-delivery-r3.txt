@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w4-delivery-r3). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde 2 zu PR #1333 (task t-20261018-r27-delivery-boundary). Basis = head 512b18ad.
+
+ZUERST LESEN (Pflicht): baseharbor-plan/evidence/r27-night-2026-11-02/review-1333b.md (REJECT —
+Guard prueft nur MITGELIEFERTE Observed-Felder, keine autoritative Fremdbesitzer-Beobachtung vor der
+Mutation; ADR-Zeitform "asserted present enforcement" unehrlich) + Karten-Sektion "Coordinator
+ownership decision" (deployment_store.go Minimal-Edit ist autorisiert, Mehrfach-Edits dort erlaubt,
+solange jede Zeile dem Guard-Durchsetzbarkeitszweck dient — Präzedenz: #1340 ist inzwischen mit echtem
+Owner-Bindungs-Commit cdfc75bf auf develop-Basis gelandet, desssen deployment_store-Integration darfst
+du LESEND als Muster verwenden, NICHT kopiieren in deinen Zweig — die develop-Fassung nach Merge dient
+als Referenz).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w4-delivery-r3-wt work/r27-delivery-boundary
+Haupt-Checkout NICHT benutzen.
+
+SCHRITTE (genau 3 Commits):
+1 GUARD-WIRKLICHKEIT: SaveDeploymentRecord liest den AKTUELLEN persistierten Record (Store-Lesezugriff)
+  und vergleicht dessen Owner/Reconciler mit dem anfragenden Akteur, STATT record.Observed-Felder zu
+  glauben; bei aktivem fremdem External-Reconciler -> Verweigerung der direkten Mutation (fehlerhafte
+  Mutation, kein Stillschweigen). Positive (direct-ok, delegated-ok) + negative (conflicting-owner,
+  unauthorized-mutation, zwei-aktive-writer) Tests über den echten Apply-Pfad mit echtem Store (temp
+  dir), nicht nur Feld-Validate.
+2 ADR/DOKU Zeitform: "conflict is detected" nur wo Schritt 1 es jetzt wirklich tut; sonst auf
+  "required by this decision; enforced by internal/delivery guard" umformulieren (EN+DE sinngleich).
+3 regression: ein Test, der die Alt-Lücke explizit abstraft (angreiferischer Observed.Owner-Wert im
+  Client-Record wird ignoriert — Store-Wert gewinnt).
+
+Tests: TMPDIR=/tmp go test ./internal/delivery ./internal/deployment + go build ./... .
+push (fast-forward auf work/r27-delivery-boundary), ls-remote, KEINE fremden Run-Logs, dann END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r2.md.
+STOP: Write-Kollision mit gemergtem #1340-Inhalt in deployment_store.go => END_BLOCKED mit datei:line;
+zwei erfolglose identische Versuche => END_BLOCKED; kein Merge; keine CI-Dateien; keine
+docs/spec/credential-access-v1.md-Berührung (Parallel-Lane).

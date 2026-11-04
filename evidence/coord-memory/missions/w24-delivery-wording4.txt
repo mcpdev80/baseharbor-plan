@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane w24-delivery-wording4). Coord f49a3303. MIKRO-AUFGABE: §2-absatz EN+DE, je EIN
+vollständiger ersatz-block (vierte runde, wortlaut beschlossen; review-1333o rezept).
+PR #1333, basis head 1dde4208 branch work/r27-delivery-boundary.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-delivery-boundary:refs/remotes/origin/work/r27-delivery-boundary" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w24-delivery-wording4-wt work/r27-delivery-boundary
+
+STELLE 1 — EN docs/decisions/0022-*.md: ersetze den kompletten absatz von "If the persisted record
+attests" bis "expressible in portable intent." (5 zeilen) DURCH exakt:
+  "If the persisted record attests conflicting active ownership — a recorded conflict
+  flag, or a persisted owner that conflicts with the delivery mode being saved — the
+  save fails closed: BaseHarbor reports the conflict at **record save** and refuses to
+  persist the save. Where exactly one owner is expressible in portable intent, this
+  decision's admission condition holds."
+STELLE 2 — DE docs/de/decisions/0022-*.md: ersetze den kompletten absatz von "Wenn der gespeicherte
+Datensatz" bis Zeile "ein Besitzer ausdrückbar, gilt die Aufnahmebedingung dieses Beschlusses."
+(ALSO auch das fragment "ausdrückbar ist;" + zeilenumbruch-fragment danach) DURCH exakt:
+  "Wenn der gespeicherte Datensatz einen widersprechenden aktiven Besitz belegt — eine
+  protokollierte Konflikt-Flagge oder ein persistierter Besitzer, der dem gespeicherten
+  Liefermodus widerspricht — schlägt das Speichern fail-closed fehl: BaseHarbor meldet den
+  Konflikt beim Speichern des Datensatzes und verweigert das Speichern. Wo genau ein Besitzer
+  in portable Intent ausdrückbar ist, gilt die Aufnahmebedingung dieses Beschlusses."
+Der anschluss-satz danach ("Der Guard sitzt in" / "The guard lives at") bleibt unverändert.
+
+PRÜFPUNKTE VOR END:
+- DE: grep -c 'ausdrückbar ist;$' == 0; kein wort-fragment "sofern nicht" mehr; 'Wo genau ein Besitzer' == 1
+- EN: grep -c 'two differing persisted owners' == 0; 'conflicts with the delivery mode being saved' == 1
+- diff 1dde4208..HEAD --name-only == genau 2 dateien
+- ANSENDE-PFLICHT: merge origin/develop, ancestry rc=0 gegen ls-remote-SHA, write-set grep-leer,
+  go build ./... + go test ./internal/deployment ./internal/delivery, push FF, ls-remote==head.
+HANDOFF: codeman agent post f49a3303 "END_DONE w24-delivery-wording4: head=<sha> fragment=0 grep0=2stellen | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r15.md (plain bullets).
+STOP: keine weiteren stellen; abweichung => END_BLOCKED mit datei:zeile. KEIN force, kein merge.

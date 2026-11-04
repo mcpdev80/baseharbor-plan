@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head cf95e6e1 (5b6681bd + flakefix: odd-length hex serial padding im integrationstest,
+count=200 0 fails gemeldet + coord auditlauf sauber; develop Vorfahr JA) = t-20261018-r27-authority-
+contract. RE-REVIEW nach review-1326j — der einzige offene befund war der flake.
+PRUEFEN (SHA-genau, read-only): 1. flakefix: -run '^TestServiceIssuerBaseSerialIsRealCASerial$'
+-count=100 selbst, 0 fails erwartet; padding-Logik semantikfest (echte CA serial wird nicht verfälscht).
+2. source-readability-audit auf head-Diff leer. 3. matrix: sonst nichts neu (j war sonst bestätigend)
+=> ACCEPT-WITH-DEFERRAL mit deferral-liste (identity cross-binding + cmd fan-out notizen).
+Urteil -> review-1326k.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326k: verdict=<X> open=<liste|none> | <Satz>"

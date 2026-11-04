@@ -1,0 +1,28 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/ha-oncluster  (Repo baseharbor; Basis origin/develop 437358e4)
+MISSION ha-oncluster — DIAGNOSE + beheben, warum der VOLLE HA-Cluster (Postgres+Patroni+etcd+HAProxy) auf
+  GitHub-hosted NICHT hochkommt. Der schwere funktionale Test scheitert auf JEDEM Kandidaten:
+    TestExistingControlPlaneRestartRequiresAndUsesRecoveryFile -> "BaseHarbor PostgreSQL HA endpoint did not become
+    SQL-ready for initialization"; in einem Lauf vorher: etcd "permission denied /run/baseharbor/etcd/server.pem".
+  Der LEICHTE 'Targeted HA · docker' (reine Daemon-Auswahl) ist bereits GRUEN — es geht HIER nur um den Voll-Cluster.
+KONTEXT (bewiesen): GH-hosted hat NUR rootful System-docker (rootless unmoeeglich, userns blockiert). #1245 loest den
+  aktiven Daemon korrekt. Aber der HA-Stack (Patroni DCS=etcd, TLS server.pem, HAProxy) startet nicht -> wahrscheinlich
+  rootless-/UID-/Permissions-/cgroup-Annahme im Test-/Compose-/Runtime-Aufbau, die auf GH-hosted rootful klemmt.
+SCHRITTE (erst DIAGNOSE, dann minimaler FIX, kein Architekturumbau):
+ 1. Reproduziere den Cluster-Aufbau lokal-nah ODER über einen 'runtime-validation/ha/control-plane/docker/ha0427'-
+    Probe-Run und sammle: startet etcd? (ETCD_* env, cert perms), wird Patroni-Leader gebildet?, ist HAProxy-Endpoint
+    erreichbar? Genau die Fehlerquelle isolieren (etcd-TLS-perms vs. patroni-timing vs. cgroup/userns vs. compose-Volumen).
+ 2. Pruefe die Test-/Compose-Annahmen fuer rootful-GH-hosted: Dateirechte der etcd certs (wer chmod/chownt server.pem,
+    laufen Container als root?), volume perms, HostNetwork/Ports, 'user:' Direktiven, die auf self-hosted/rootless
+    gebaut waren.
+ 3. Minimaler, ECHTER Fix (kein SKIP, kein Timeout-Weg, kein Test-Loeschen): sorgfaeltig, z.B. cert-Vorbereitung
+    (Leserechte im rootful-Container), Patroni-Warte-/Bootstrap-Logik, compose-Berechtigungen. Wenn ein Produkt-Weg
+    (internal/runtime/*) noetig ist: NUR der betroffene Pfad, fail-closed beibehalten.
+ 4. go build ./... ; affected go test. Commit + push (Probe-Ref oder ein klar benannter PR-Zweig, NICHT develop).
+ 5. Nachweis: 'runtime-validation/ha/control-plane/docker/ha0427' -> 'Targeted · Integration'/'Targeted runtime · docker'
+    GRUEN bis terminal (Eigenes-Run-Pflicht, Run-ID). Wenn nicht loesbar in GH-hosted rootful: END_BLOCKED mit exakter
+    Root-Ursache + Begrendung, ob dieser Voll-Cluster-Gate prinzipiell einen schwereren Runner braucht (das waere ein
+    ECHTER Owner-Entscheidungspunkt — dann klar so melden, NICHT als SKIP cosmetisch).
+EXKLUSIVES WRITE-SET: der HA-Cluster-Test-/Compose-/cert-Pfad (cmd/baha integration tests + internal/runtime HA prep
+  + compose fixtures). NICHT scripts/pr-gate-plan.py / ci.yml (Gate-Lanes), NICHT docker_engine-Grundlogik ohne Anlass.
+EVIDENCE (absolut, kein '- [ ]'): baseharbor-plan/evidence/board-2026-10-31/ha-oncluster/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED ha-oncluster: <Root-Ursache + Fix-SHA + Targeted runtime docker GRUEN run-ID | ODER: braucht schwerer Runner — Owner-Entscheidung noetig, Begruendung>"

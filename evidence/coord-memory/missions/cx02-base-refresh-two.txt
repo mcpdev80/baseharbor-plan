@@ -1,0 +1,34 @@
+ROLLE: CODEX-WORKER (Owner-Direktive 2026-11-04, fünfter Sitz im Pool; ausführender Worker, NICHT Reviewer/Merger).
+Coord f49a3303. AUFTRAG DER OWNER-FREIGABE „Option A" (2026-11-04 20:2x).
+
+ZIEL: zwei offene Antrage auf den frisch gepueften develop-Head bringen, konfliktarm, ohne tests abzuschwaechen.
+  A) mcpdev80/baseharbor#1369  zweig work/w92-team-auth-claim-mapping  kopf 689689e3ab  (karte t-20261018-r27-team-auth)
+  B) mcpdev80/baseharbor#1362  zweig work/r27-native-auth              kopf a3eee132e3  (karte t-20261018-r27-native-auth)
+BEIDE treffen develop ecbb8854 NICHT — letzter gemeinsamer commit ist bb9bc0ef; es fehlen 2a43984a (PostgreSQL
+selbststaendig in den ausgewaehlten PR-Unit-Tests) und ecbb8854 (unveraenderliche source/image submission +
+ausdruecklicher consent). Pruefe den develop-Head VOR dem merge neu (git fetch origin develop) und melde die
+SHA, mit der du gearbeitet hast.
+
+PRO ZWEIG (Reihenfolge A dann B, eigenes verzeichnis je zweig):
+ 1) fetch origin; merge origin/develop in den zweig. KONFLIKTE MINIMAL LOESEN: nur die zeilen, die der
+    basis-wechsel erzwingt (imports, test-helfer, generated dateien). KEINE produktlogik umschreiben, KEINE
+    tests loeschen/umbauen/skippen. Wenn ein konflikt eine inhaltliche entscheidung verlangt (z.B. zwei
+    verschiedene consent- oder claim-modelle): STOP + MELDEN mit datei:zeile und beiden varianten — du
+    entscheidest nicht, ich klaere es mit dem owner.
+ 2) betroffene tests PARALLEL auf den GitHub-hosted runnern laufen lassen: dafuer den zweig pushen (PR-Status
+    NICHT aendern: #1369 bleibt DRAFT, #1362 bleibt READY) und die gehosteten laeufe bis TERMINAL beobachten
+    (Eigenes-Run-Pflicht). KEIN rerun als ersatz fuer analyse, KEIN .github-/workflow-eingriff, KEIN
+    workflow_dispatch. Wenn ein gehosteter lauf eine Umgebungsücke zeigt (z.B. postgres-dial), notiere die
+    EXAKTE fehlzeile und melde sie — das ist das bekannte thema von lane w122, nicht dein fix.
+ 3) ls-remote==head WOERTLICH in die evidence (befehl + ausgabe), pro zweig die neue SHA, der merge-rc und das
+    gate-ergebnis (pass/fail/skipping + fehlende stelle je fail).
+ 4) KEIN merge, KEIN approval, KEIN PR-kommando das den zustand aendert (ausser dem push auf den selben zweig).
+    Die unabhaengige pruefung der neuen koepfe beauftrage ICH.
+
+GRENZEN: KEINE subagenten (AGENTS §4.8) — jeden schritt in deiner eigenen session. KEIN zugriff auf test-VMs
+(das sind andere auftraege). scratch NIE in der oekosystem-wurzel, sondern unter /tmp/opencode/<lane>-wt oder
+workers/ (AGENTS/RUNBOOK: wurzel nur repos + coordinator + workers); wegen des tmpfs-kontingents: bei
+schreib-/patch-fehlern zuerst `df -h /tmp` melden.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/base-refresh/two-prs-1.md (tabelle je zweig: alte SHA
+-> neue SHA, merge-rc, konflikt-loesungen mit datei:zeile, gate-bild; keine markdown-checkboxen).
+END an f49a3303: "END_DONE cx02-base-refresh-two: pr1369=<sha10> pr1362=<sha10> konflikte=<keine|liste mit dateien> stops=<keine|liste> gates=<bild> | <Satz>"

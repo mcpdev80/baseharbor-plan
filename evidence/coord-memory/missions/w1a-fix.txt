@@ -1,0 +1,31 @@
+KORREKTURRUNDE — PR #1326 (t-20261018-r27-authority-contract) gegen REVIEW-REZEPT:
+baseharbor-plan/evidence/r27-night-2026-11-02/review-1326.md (5 Befunde, lies VOLLSTAENDIG zuerst).
+
+ISOLATION (Pflicht): eigenes worktree:
+ git -C baseharbor fetch -q origin; git -C baseharbor worktree add /tmp/opencode/w1a-fix-wt -b work/r27-authority-fix origin/develop
+Branch work/r27-authority-contract (63573ee5) INHALTE uebernehmen (cherry-pick oder merge des Zweigs) und
+auf aktuellem develop 0bbab29b neu qualifizieren. NICHT im Haupt-Checkout arbeiten.
+
+BEFUNDE ABARBEITEN (Rezept-Punkte 1-5):
+1. Selection = DREI unterscheidbare Rollen (Installation, Management-Connection, Target) als echte
+   Felder/Typen; Autoritaetsentscheidung an den TATSAECHLICHEN production selection path haengen
+   (consumer in coreinstallation/autorisierter Pfad, nicht nur eigene Datei); Positiv+Negativtests je
+   Rolle inkl. Verwechslung/fehlende/fremde Connection.
+2. Fail-closed ohne lokalen Fallback: identitaet+connection+revision/consent gegen authoritative context
+   auf dem echten Entscheidungspfad pruefen; gueltig + fehlend + fremd + abgelaufen + revision/consent-
+   mismatch Tests. Keine eigene Wahrheitsquelle erfinden — wenn Vorgaenger-Interface fehlt: END_BLOCKED.
+3. ObservedAt = BEOBACHTUNGSZEITPUNKT mit expliziter Frische-Policy (nicht Deadline!): zero/zukunft/
+   stale ablehnen; live failure => niemals READY; deterministische Tests.
+4. DE-Negationsfehler docs/de/decisions/0021 Zeile ~80 korrigieren + komplette DE/EN Paritaet pruefen.
+5. Index-Ownership (docs/decisions/index.md + de): VOM COORDINATOR AUTORISIERT per Task-Vertrag
+   ("update dependencies/ownership before work"): Ergaenze in baseharbor-plan der Task-Karte
+   t-20261018-r27-authority-contract einen Ownership-Hinweis (die beiden index.md-Zeilen sind mit
+   t-20261018-r27-public-surfaces abgestimmt; kein aktiver Claim dort) — Karte editieren + render +
+   check + Push plan main. Index-Eintraege im Produkt-Diff bleiben, jetzt dokumentiert autorisiert.
+CHECKS: mkdocs-en/de-strict, documentation-audit, pages-candidate-build, go tests — bis terminal (Eigenes-
+Run-Pflicht). PR Selected Checks Meta = notieren. KEIN Merge. PR: #1326 aktualisieren (gleicher Branch
+work/r27-authority-contract? NEIN — neuer Zweig, dann PR #1326 head-update statt neuem PR wenn moeglich,
+sonst neuer PR + #1326 schliessen mit Verweis).
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/authority-contract/fix-r1.md — Befund-fuer-Befund
+Umsetzung + Testnachweise + Run-IDs.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1a-fix: pr=<#N> head=<sha> findings=<1-5 status> | <Satz>"

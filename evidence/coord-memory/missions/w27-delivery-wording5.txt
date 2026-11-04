@@ -1,0 +1,36 @@
+ROLLE: Worker (Lane w27-delivery-wording5). Coord f49a3303. MIKRO-AUFGABE: §2-block EN+DE, asymmetrie
+des guards WORTGETREU abbilden (review-1333p rezept 1; fünfte doku-runde, text beschlossen).
+PR #1333, basis head 6a335b4b branch work/r27-delivery-boundary. NUR die zwei 0022-dateien.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-delivery-boundary:refs/remotes/origin/work/r27-delivery-boundary" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w27-delivery-wording5-wt work/r27-delivery-boundary
+
+STELLE 1 — EN :32-36 absatz ("The persisted record attests conflicting active ownership ..." ganzer
+absatz bis "...admission condition holds."): ERSETZE DURCH exakt:
+  "A persisted record blocks a save in exactly two ways: the recorded
+  conflict flag is set, or the persisted owner is `external` and the save is
+  direct — in both cases the save fails closed at record save. A delegated save
+  is not refused by a persisted `baseharbor` owner; for it the conflict flag
+  governs. The guard performs no symmetric mode-versus-owner matrix and observes
+  no live reconciler: where the recorded state expresses exactly one owner, this
+  decision's admission condition holds."
+STELLE 2 — DE :32-36: ERSETZE den entsprechenden absatz DURCH exakt:
+  "Ein gespeicherter Datensatz blockiert ein Speichern auf genau zwei Arten: die
+  protokollierte Konflikt-Flagge ist gesetzt, oder der persistierte Besitzer ist
+  `external` und das Speichern ist direkt — in beiden Fällen schlägt das Speichern
+  beim Datensatz-Speichern fail-closed fehl. Ein delegiertes Speichern wird durch
+  einen persistierten Besitzer `baseharbor` nicht verweigert; maßgeblich ist für es
+  die Konflikt-Flagge. Der Guard führt keine symmetrische Modus-gegen-Besitzer-Matrix
+  und beobachtet keine lebenden Versöhner: Wo der gespeicherte Stand genau einen
+  Besitzer ausdrückt, gilt die Aufnahmebedingung dieses Beschlusses."
+PRÜFPUNKT VOR HERAUSGABE: lies den guard-code (deployment_store.go ~196-230) und bestätige, dass die
+formel die REALITÄT beschreibt (direct+persisted-external => refuse; conflict flag => refuse;
+delegated+persisted-baseharbor => kein refuse). Falls code anders: END_BLOCKED mit zeile (text NIE
+an code vorbeibiegen — text folgt code, nie umgekehrt).
+
+ANSENDE-PFLICHT: merge origin/develop, ancestry rc=0 ls-remote-SHA; diff 6a335b4b..head == 2 dateien;
+go build + go test ./internal/deployment ./internal/delivery; push FF auf refs/heads/work/r27-delivery-boundary
+(KEINE tmp-branch), ls-remote==head. END an f49a3303:
+"END_DONE w27-delivery-wording5: head=<sha> asymmetrie=code-treu grep0=matrix | <Satz>"
+Evidence: .../delivery-boundary/fix-r16.md (plain bullets). STOP: nur dieser block; abweichung END_BLOCKED.

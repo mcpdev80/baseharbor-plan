@@ -1,0 +1,8 @@
+LAPTOP-1 — Profil-Feinschliff t-20261018-r27-profile-contract (Fortsetzung w1b, Task bleibt claimed/active).
+ISOLATION: eigenes worktree: git -C baseharbor worktree add /tmp/opencode/l1-profile-wt -b work/r27-profile-contract origin/work/r27-profile-contract
+1. Tippfehler docs/de/spec/management-access-profiles-v1.md: "Zugiffs" -> "Zugriffs" (Datei komplett auf
+   Rechtschreibung/Falschuebersetzungen pruefen; Negations-Korrekteit gegen EN abgleichen).
+2. develop-Sync: aktuellen origin/develop (f8417b99 oder neuer) mergen; ancestor-Check MUSS danach JA sein.
+3. push --force-with-lease, ls-remote Gegencheck, PR #1324 Checks bis terminal beobachten (Eigenes-Run-Pflicht).
+KEINE CI-/Workflow-/Register-Dateien, KEIN Merge. EVIDENCE: evidence/r27-night-2026-11-02/profile-contract/polish-r1.md.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED l1-polish: pr=1324 head=<sha> de_clean=<yes|no> checks=<green|red-list> | <Satz>"

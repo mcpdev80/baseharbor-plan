@@ -1,0 +1,16 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head dea01b83 (merge e9c30f52+9a57107f, develop Vorfahr SHA-bewiesen) = t-20261018-
+r27-state-owner. RE-REVIEW nach review-1347b befund 1 (CLI-resolver fail-open) + 2 (seam tests) + 3
+(fixture fehlerbehandlung). Behaupteter stand: hook JETZT grant-only (kein fallthrough-verlust der
+Core-pruefung), 12 cmd/baha deployment-owner tests mit echten fixtures, 5 verbleibende cmd/baha
+fehlschläge = auf sauberer develop identisch (environment).
+PRUEFEN (SHA-genau, read-only): 1. store-hook: grant=>nil; (false,*)/err=>UNVERAENDERTE coreinstallation.
+Load-ownerpruefung läuft weiter (kein Frueh-Foreign, kein bypass); regressionen fuer alle zustaende.
+2. CLI-hook: !ok/nicht-tenant => false-nil durchfallend; scope-fehler => echter err. negative integration
+tests (gueltiger tenant durch, invalid scope ab, nicht-tenant ohne installation ab). 3. fixtures:
+RemoveAll/TargetStateRoot-fehler => t.Fatal; 12er-liste stichprobenhaft: tests NUR setup-fixtures,
+assertions unangetastet? 4. environment-behauptung unabhaengig: die 5 fehler auf clean develop
+auf clean develop archiv nachstellen (identische XDG/TMPDIR), diff der fehlernamen. 5. tests: go test
+./internal/deployment + ./cmd/baha (betroffene). ID-binding deferral laut karten-note akzeptiert.
+Urteil -> review-1347c.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347c: verdict=<X> open=<liste|none> | <Satz>"

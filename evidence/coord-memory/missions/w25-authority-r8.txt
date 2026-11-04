@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w25-authority-r8). Coord f49a3303. AUFGABE: 3 code-punkte PR #1348
+(t-20261018-r27-authority-contract). Basis = head 8f7ad334 branch w7-authority-r3-clean.
+Grundlage: review-1326f.md rezepte 1-3. Karten-notiz identity-cross-binding deferral ist JETZT
+explizit publiziert (authority-contract note 2026-11-03) — referenziere sie in doku/evidence.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/w7-authority-r3-clean:refs/remotes/origin/w7-authority-r3-clean" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w25-authority-r8-wt w7-authority-r3-clean
+
+PUNKT 1 — EXPIRESAT AUF BEIDEN PRUEFPFADEN (coreinstallation.ObservedState.Fresh :193-207 UND
+installauthority.Fresh): beide lesen IssuedCertificate.ExpiresAt: zero => fail; expiresAt < now =>
+fail (expired); sonst ok — ZUSAETZLICH zur observedAt/maxAge-pruefung, delegiert auf dieselbe
+gemeinsame kernzeile (single source erhalten). REGRESSIONEN je pfad: abgelaufene basis bei frischem
+observedAt => abweisung durch ECHTEN pfad (AuthoritativeConnection + Fresh direkt).
+PUNKT 2 — EIN Fenster-WERT: wrapper (application_service_issuer.go :102) und serviceaccess default
+(authority.go :77) und coreinstallation test-beispiel nutzen EINEN konstanten default
+(Recommend: 1h = die beschlossene fenster-groesse) — fuehre eine exportierte Konstante
+installauthority.DefaultObservationMaxAge ein, alle drei referenzieren sie; wrapper darf time.Minute
+nicht hartkodieren; 30-min-past => fresh regression durch wrapper-pfad.
+PUNKT 3 — LOKALE CRL FEHLT => FAIL-CLOSED (internal/serviceaccess/local_issuer.go :377-380):
+fehlende lokale CRL darf nicht (false,nil) sein: Rueckgabe err "revocation list unavailable" (oder
+revoked=true — was der kartenformulierung "revocation = foreign rejection fail-closed" besser traegt;
+entscheide mit begruendung, testerwartung dazu). REGRESSION: kein CRL-file => pruefpfad weist ab.
+
+ANSENDE-PFLICHT: merge origin/develop, ancestry rc=0 gegen ls-remote-SHA; write-set grep-leer
+(.github/scripts). Tests: TMPDIR=/tmp go build ./... && go test ./internal/openbao
+./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid
+&& go test ./cmd/baha -run '^TestResolveManagementConnectionIssuer' -count=1.
+PUSH ZIEL = refs/heads/w7-authority-r3-clean (KEINE tmp/helper-branch! ls-remote==head beweisen).
+END an f49a3303: "END_DONE w25-authority-r8: head=<sha> expiry=beide-pfade maxage=konstant1h local-crl=failclosed | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/authority-contract/fix-r8.md (plain bullets).
+STOP: 1 iteration je punkt; bei unklarheit END_BLOCKED mit datei:zeile; kein merge, kein force.

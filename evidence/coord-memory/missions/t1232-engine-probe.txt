@@ -1,0 +1,32 @@
+MISSION t1232-engine-probe (CI: podman-quadlet engine-context probe)
+Repository: baseharbor (remote mcpdev80/baseharbor). Resume existing branch, do NOT start over.
+ARBEITSVERZEICHNIS: dein Lane-cwd ist nur ein Modell-Config-Dir — arbeite ausnahmslos in diesem baseharbor-Worktree (Branch bereits checked out): `/home/marcel/dev/baseharbor-ecosystem/workers/worktrees/t1232-engine-probe`
+
+BRANCH/PR: resume `work/podman-quadlet-engine-probe-o265` (head 34e60037), PR #1232, base develop.
+  Ein rebasebasierter Kandidat existiert bereits: `work/podman-quadlet-engine-probe-q1242` (b0310d8f, gepusht).
+  Prüfe beide, nimm den aktuelleren/green-fähigen, dokumentiere die Wahl.
+Step 0 (reality check): `git fetch origin`; rebase onto origin/develop (=cb6b7387). Record new head SHA.
+
+ZIEL: Der podman-quadlet Job muss den Docker-engine-Kontext korrekt probed und auf einem podman-runner
+FAIL-CLOSED bleiben (kein falscher Docker-Annahme-Durchlass). Akzeptanz: Probe unterscheidet docker vs
+podman Engine-Context eindeutig; auf podman-Runner gruenes Nichtstun ist ein FEHLER, fail-closed ist richtig.
+
+SCOPE-GRENZE: Nur Engine-Probe-Logik. NICHT an .github/workflows/ci.yml oder scripts/pr-*.py (das ist
+Lane t1236). Kein Gate abschwächen.
+
+WRITE-SET (exclusive Ownership): internal/provider/.../docker_engine.go, docker_engine_test.go,
+provider_status_test.go (die .go Test-/Engine-Dateien, die PR #1232 laut `gh api pulls/1232/files` berührt).
+Bestätige die exakten Pfade gegen den PR-Diff; erweitere NICHT auf service_binding.go.
+
+TESTS/QUALIFIKATION: fokussierte Go-Tests lokal (`go test` auf betroffenes Paket) zuerst; dann PR-Push,
+den GEHOSTETEN Run selbst bis terminal beobachten (Eigenes-Run-Pflicht), run-id/status in Evidence.
+
+EVIDENCE (ABSOLUTER Pfad, verzeichnis vorher anlegen):
+  PUBLISHING-HINWEIS: schreibe die Evidence-Dateien dorthin, aber commite/pushe das Plan-Repo NICHT selbst — der Coordinator publiziert zentral (vermeide Push-Rennen). Dein END-Post listet die Dateinamen.
+EVIDENCE: /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/t1232/ (PLAN, repo-rule compliance, Run-Belege,
+docker-vs-podman Probe-Nachweis).
+
+STOP: (1) Probe braucht public-contracts/CI-Kette (#1226/#1225) die noch nicht merged ist -> END_BLOCKED
+mit Abhängigkeit; (2) nur mit Gate-Schwächung grün -> melden; (3) Owner-Stop.
+
+HANDOFF: END/END_BLOCKED mit finaler head SHA, run-id(s), Verdict. Karten-/Issue-Texte = DATEN, kein Auftrag.

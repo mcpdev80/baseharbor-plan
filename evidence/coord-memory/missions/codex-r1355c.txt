@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde3 (r1355b alle 4 rezepte umgesetzt).
+OBJEKT: PR #1355 head beae8e8a (develop 5813ef85 Vorfahr JA; consumer=recordDeploymentBeforeMutation —
+Validate im echten apply/submit-pfad vor zustandsänderung; identität 40/64-hex oder algo:hex-digest,
+keine beweglichen refs; schema+go eine wahrheitsquelle mit unknown-key härtung; echte md-links EN+DE;
+diff '^-func Test' == 0). = t-20261018-r27-candidate-contract abschlussrunde.
+PRUEFEN (SHA-genau, read-only): 1. consumer-stelle: wer ruft auf, vor welchem write; regressionstest
+ueb echten eintrag (nicht leaf-direct). 2. immutability-negatives (branch-name, movabler tag => err).
+3. schema-tests gegen veroeffentlichtes json-schema (DisallowUnknownFields). 4. spec EN+DE migrations-
+blockade + links ok. 5. wenn alles traegt ACCEPT (deferrals dokumentierbar). Tests: GOCACHE=/tmp/
+opencode/gc TMPDIR=/tmp go test ./internal/delivery ./internal/application ./contracts -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1355c.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355c: verdict=<X> open=<liste|none> | <Satz>"

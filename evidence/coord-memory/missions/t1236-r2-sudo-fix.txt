@@ -1,0 +1,33 @@
+KORREKTUR t1236-ha-native (Kern-750) — Root-Cause ist NICHT die Runner-Infra, sondern ein Code-Fix in DEINEM Write-Set.
+
+Frische Fakten vom Coordinator (2026-10-31, unabhängig verifiziert):
+ - Runner-Infra ist GESUND (t-runner-rootless Endbericht, baseharbor-plan/evidence/board-2026-10-31/t-runner-rootless/REPAIR.md):
+   docker 29.8.1 + podman 5.7.0 rootless installiert, Linger=yes, hello-world laeuft. KEIN Owner-/sudoers-Fix noetig.
+ - Der CI-Run 776841be hat ALLE Gates grün AUSSER "Targeted HA · docker" und "Targeted HA · podman" -> beide FAIL,
+   weil `scripts/ci-core-rootless-runtime.sh` `sudo apt-get update/install`, `sudo loginctl enable-linger`,
+   `sudo sysctl`, `sudo install/curl` aufruft und github-runner KEIN sudo hat
+   ("sudo: I'm sorry github-runner. I'm afraid I can't do that"). Bestaetigt per `git grep -n sudo origin/develop -- scripts/ci-core-rootless-runtime.sh`.
+
+AUFGABE (nur diese Dateien, dein Write-Set):
+ 1. Arbeite im Worktree `/home/marcel/dev/baseharbor-ecosystem/workers/worktrees/t1236-ha-native`
+    (Branch work/v0.4x-core-750-r1240). `git fetch origin`; rebase auf origin/develop (cb6b7387).
+ 2. `scripts/ci-core-rootless-runtime.sh` auf ROOTLESS-Check-only umstellen gemaess REPAIR.md Abschnitt A:
+      - `test "$(id -u)" -ne 0` BEHALTEN.
+      - JEDES `sudo …` ERSETZEN durch Anwesenheits-/Funktionscheck: `command -v dockerd-rootless-setuptool.sh`,
+        `command -v podman`, `command -v slirp4netns`, `loginctl show-user "$(id -un)" | grep -q Linger=yes`.
+      - XDG_RUNTIME_DIR + DBUS_SESSION_BUS_ADDRESS export BEHALTEN (sudo-frei).
+      - `dockerd-rootless-setuptool.sh install` nur als Fallback wenn Binary fehlt (ohne sudo).
+ 3. QUALITAETS-GRENZE (kein Gate-Weaken): der Job muss danach ein Container-Runtime WIRKLICH AUSFUEHREN
+    (HA-Acceptance laeuft docker/podman weiter), nicht nur Binaries pruefen und SKIPPen. Ziel = ECHTES Grün der
+    "Targeted HA · docker"/"podman" Jobs, nicht deren Entfernen/Herunterstufen. Pruefe, dass der Workflow diese
+    Steps nicht auf `continue-on-error`/skip umstellt.
+ 4. Push auf den Branch -> den GEHOSTETEN Run selbst bis terminal beobachten (Eigenes-Run-Pflicht): run-id +
+    Status der zwei HA-Jobs in Evidence. Wenn HA-Jobs jetzt echte container ausfuehren und grün sind -> END_DONE.
+    Wenn sie aus einem ANDEREN Grund failen (echter Testfehler) -> END_BLOCKED mit exakter Fehlerzeile.
+ 5. #1225 (fix/750-ci-gate-qualify) ist derselbe Chain-Write-Set -> als Superseded markieren; melde mir die
+    Ancestry-Entscheidung (ich schliesse den PR nach Nachweis), nicht selbst.
+
+EVIDENCE (absolut): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/t1236/
+  PLAN (kein `- [ ]`-Checkbox-Syntax — Validator sonst Fehler), diff-Umriss, check-run Vorher/Nachher, Run-Beleg.
+  Plan-Repo NICHT selbst pushen — Coordinator publiziert zentral.
+HANDOFF letzte Aktion: `codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED t1236-ha-native: <final SHA + HA job status>"`.

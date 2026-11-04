@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w91). Coord f49a3303. DRITTE RUNDE auf demo PR #128 (baseharbor-demo, branch
+w85-demo-guided-consent, head b73be42). Luna r128b: B2 GESCHLOSSEN (alle gegenproben bestaetigt), B1 offen
+mit exaktem rezept (vollstaendlich in review-128b.md — VOR coding lesen):
+(1) drive.py:261-262 fruehen "if capture: return rc, buffer" ENTFERNEN — der validator (exit + nicht-
+optionale regeln, block :270-294) muss auch im capture-pfad ECHT laufen.
+(2) up_rules: pflichtregeln setzen — insbesondere zwingender READY-abschluss-marker (explizit, aus dem
+core-transcript); alle-regeln-optional ist der fehlerzustand.
+(3) Aufrufer: zwischenzustand NUR klasifizieren als dokumentierter candidate-consent-abbruch anhand der
+KONKRETEN erwarteten fehlerausgabe + extrahierter hash + alle notwendigen interaktionen erfuellt;
+hash bei ANDEREM fehlertext => abbruch, KEIN zweiter up.
+(4) REGRESSIONEN AM AUFRUFER/GUIDED-FLOW (nicht nur run_tty-Rueckgabe!): rc=0 ohne READY-marker;
+pflicht-prompt fehlt; rc!=0 ohne hash; rc!=0 mit hash aber fremdem fehlertext; rc!=0 mit hash aber
+unvollstaendigen interaktionen; dazu positiv: dokumentierter consent-abbruch => zweiter lauf => READY;
+regulaerer erfolg ohne hash. BEHARTE: bei ALLEN negativfaellen kein zweites up, kein "READY reached",
+kein PASS. Beweise in demo/consent-harness-3.md; die regressionen selbstmuessen im PR-Diff stehen
+(lunas kritik an 7e972f0: nicht im diff war ein fehler — dateien im zweig ablegen).
+basis main cd9176e aktuell; push; ls-remote==head; PR bleibt READY. GEGENPROBE (evidence): (b)-fall von
+luna wortlich nachfahren (exit 0, pflicht-regel nie erfuellt, kein hash) => jetzt ABBRUCH.
+END: "END_DONE w91-demo-r3: head=<sha10> validator=erreichbar regressions=7/7 lsremote=<sha10> | <Satz>"

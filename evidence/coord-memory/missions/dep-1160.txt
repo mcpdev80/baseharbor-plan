@@ -1,0 +1,16 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/dep-1160  Branch work/dep-1160
+MISSION dep-1160 — Dependabot go.mod/go.sum Bump (#1160) rebasieren + qualifizieren
+EXKLUSIVES WRITE-SET: nur go.mod, go.sum (Abhaengigkeiten). Sonst nichts anfangen (kein Code, keine *.yml).
+SCHRITTE:
+ 1. `git fetch origin develop`; rebase work/dep-1160 auf origin/develop (loest die "behind"-Luecke).
+ 2. `go mod tidy` nur falls noetig; `go build ./... && go vet ./...`; `go test ./...` (Unit) — der Bump darf nichts brechen.
+ 3. `go mod verify` + kurz dokumentieren, WELCHE Module sich aendern (aus dem Dependabot-Diff) und dass keine
+    bekannten Vulnerabilities eingefuehrt werden (govulncheck falls verfuegbar; sonst begruendet auslassen).
+ 4. Push auf origin/dependabot/go_modules/go_modules-315d795eac (derselbe Branch, damit PR #1160 aktuell wird).
+ 5. PR #1160 Checks beobachten (Eigenes-Run): Unit/Focused-Tests gruen? Native HA wird fuer dep-only UBERSPRUNGEN
+    (coverage-Regel) -> wenn Aggregate rot NUR wegen CI-Migrationsabhaengigkeit, das in Evidence festhalten, NICHT
+    am Gate herumbauen. Ziel: dep-Bump ist inhaltlich sauber + bereit, sobald CI steht.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/dep-1160/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY|END_BLOCKED dep-1160: <neuer SHA + go test status + PR#1160 run status>"
+STOP: wenn der Bump einen echten Code-Testbruch verursacht, der ueber go.mod/go.sum hinausgeht -> END_BLOCKED mit
+  Detail (dann evtl. Code-Anpassung noetig, die NICHT dieses Write-Set ist).

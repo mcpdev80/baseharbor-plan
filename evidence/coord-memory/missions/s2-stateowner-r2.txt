@@ -1,0 +1,34 @@
+ROLLE: Worker (Lane s2-stateowner-r2). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde PR #1347
+(t-20261018-r27-state-owner). Basis = head cdfc75bf.
+
+ZUERST LESEN (Pflicht): baseharbor-plan/evidence/r27-night-2026-11-02/review-1347.md (REJECT, 4
+befunde mit rezepten) + task-karte t-20261018-r27-state-owner.md.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-state-owner develop
+  git -C baseharbor worktree add /tmp/opencode/s2-stateowner-r2-wt work/r27-state-owner
+Haupt-Checkout NICHT benutzen. Write-Set der karte: internal/deployment/** + cmd/baha glue laut karte
+(deployment_record.go, target_test_helpers_test.go, app_*_test.go der eigenen dateiliste) — pruefe
+die karte, NICHT weiter.
+
+SCHRITTE (befund-fuer-befund, 4 commits):
+1 SEAM-WIRKLICHKEIT: LoadDeploymentRecord + listing + SaveDeploymentRecord rufen
+   VerifyDeploymentOwner an der ECHTEN grenze auf (loader pfad), kein helper-nur-fuer-tests; tests
+   fahren echten Load/Save/list-pfad (positiv, foreign owner, missing state, corrupt file).
+2 IDENTITÄTS-BINDUNG: deployment wird an installation.ID gebunden (nicht nur target-Pfadname):
+   die ID in den existing installation-authorities (check internal/installauthority/coreinstallation
+   vorlagen auf develop) nachschlagen und vergleichen; SAME-target zwei-installationen test +
+   copied-state test + binding-change test. KEINE zweite zustands-autoritaet erfinden; wenn die
+   noetige dauerhafte ID-bindung ein akzeptiertes protokoll voraussetzt das fehlt: END_BLOCKED mit
+   der genauen stelle (rezept-stop-klausel).
+3 TENANT-BYPASS: VerifyDeploymentOwner:50-53 tenant-frueherfolg entfernen ODER durch echten
+   authorisierten owner-pfad fuer tenant targets erseetzen; server/local pfad beide tests.
+4 TEST-HAERTTE: TestDeploymentOwnerRejectsForeignInstallationDir echtes symlink auf nicht-existenten
+   pfad, setup-fehler => t.Fatal; fixture-entfernungfehler nicht verschlucken.
+
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/)' leer; content-paritaet zu
+deinen 15fe7762/cdfc75bf dateien halten.
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/deployment ./cmd/baha (betroffene tests).
+push FF, ls-remote, keine run-logs, END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/state-owner/fix-r2.md (plain bullets, keine checkboxes).
+STOP: zwei erfolglose identische versuche => END_BLOCKED; kein Merge; keine CI-/installauthority dateien.

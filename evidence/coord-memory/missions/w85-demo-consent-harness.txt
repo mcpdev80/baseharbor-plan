@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w85). Coord f49a3303. KARTE: t-20261104-r27-demo-guided-consent — REPO baseharbor-demo
+(deINE pflicht: baseharbor-demo/AGENTS.md VOR erster aenderung lesen und under repo-rule compliance
+belegen). Claim via scripts/plan.py claim + push, dann arbeit.
+KERZ: tests/guided/drive.py (und falls needed scripts/acceptance.sh) im DEMO-repo:
+(1) gefuehrter 'baha up' ausdruckt confirm-hash => capture ihn. (2) FEATURE-DETECTION: pruefe ob das
+verwendete core-binary --confirm-candidate auf up unterstuetzt (up --help | grep -q -- --confirm-candidate);
+NUR DANN zweiter 'baha up --confirm-candidate <digest>' => READY. (3) OHNE unterstuetzung: exakt heutiges
+verhalten (ein lauf, fail-closed meldung sichtbar, KEIN unknown-flag crash) — feature-detection ist
+rückwärtskompatibilitäts-pflicht, damit dieses PR VOR candidate-#1355 gemergt werden DARF.
+BEWEISLAST: beide zweige der detection als regressions in der evidence (simuliere "kein support" durch
+PATH-auf-altes-binary oder mock — wie das demo-repo muster es nahelegt); rot-first-report wo der zweite
+lauf heute fehlt ( lifecycle gate #1355 zeigt den fehler bereits — referenz genuegt NICHT, eigener beleg).
+PR in baseharbor-demo (draft bis coord-ready-schalter), tests nach AGENTS.md, ls-remote==head, EIGENES-RUN.
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/demo/consent-harness-1.md (KEINE checkboxen).
+END: "END_DONE w85-demo-consent: head=<sha10> pr=<n> detection=beidseits-belegt lsremote=<sha10> | <Satz>"

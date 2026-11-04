@@ -1,0 +1,23 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/rcptverfix (Repo baseharbor; Basis origin/develop >=9a93865a)
+MISSION rcptverfix — Receipt-Verifier respektiert den Trusted-Plan (Root-Cause belegt):
+ scripts/receipt_verifier.py:409-415 verlangt HARDCODED Job 'PR · Public Contracts' == success,
+ BEVOR der Noop-Pfad (~Zeile 456) greift. PRs ohne contracts-Pfade (z.B. #1272, Run 41432869266)
+ haben den Job legitim SKIPPED => Receipt-Kette blockiert dauerhaft: 'required gate job is not
+ successful'. Beweise: baseharbor-plan/evidence/board-2026-11-02/rcptfix2/evidence.md.
+FIX-VERTRAG (fail-closed bleibt Heiligkeit):
+ - Verlangte Gate-Jobs aus dem TRUSTED-PLAN-Output ableiten (selected_gates/required_validation_checks
+   im Plan-JSON aus demselben Run), nicht aus harter Namensliste.
+ - Job im Plan required  -> skipped ODER failure => BLOCK (wie heute).
+ - Job nicht im Plan     -> skipped ist AKZEPTIERT; ein TROTZDEM ausgefuehrter Job mit failure
+   => weiterhin BLOCK.
+ - Noop-Klasse (#1261) bleibt VOR jeder Pflichtpruefung; Pilot-PRs bleiben HARD.
+SCHRITTE: 1) Lies receipt_verifier.py komplett + den Plan-JSON-Aufbau (trusted plan producer).
+ 2) Minimal-Patch + Regressionstests BEIDE Richtungen (required-skipped failt; not-required-skipped
+   gruent; not-required-executed-failure failt). Testdatei: wo bestehende receipt-Tests leben
+   (scripts/ oder scripts/tests — zuerst suchen).
+ 3) PR gegen develop, PRSC + betroffene CI-Jobs terminal beobachten (Eigenes-Run-Pflicht).
+ 4) Nach Merge: ein Receipt-Lauf gegen einen der blockierten PRs (#1272) anstossen
+   (workflow_dispatch falls dafuer vorgesehen) und gruen MELDEN.
+STOP: kein Merge ohne PRSC-gruen, kein subagent-Spawn, kein Frage-Dialog, keine .github/*.yml-Aenderung.
+EVIDENCE: /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-11-02/rcptverfix/evidence.md (absolut) + ## PLAN + workers/todos/rcptverfix.json.
+HANDOFF: post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED rcptverfix: pr=<n> head=<sha> run=<id> | <Satz>"

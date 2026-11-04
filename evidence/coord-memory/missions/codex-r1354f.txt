@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE journal (r1354e alle 4 rezepte).
+KANAL: du laeuft auf GPT-6 Luna. REZEPT-PFLICHTBLOCK am ende (siehe REVIEW-MISSION-CLAUSE.txt).
+OBJEKT: branch work/r27-ci-authority-ab head d5c66d64 (develop Vorfahr=drift-frei gemeldet; retention-
+extrakt store_retention.go 324 zeilen; alle4 rezepte gruen meldung; ls-remote==head im lane-END;
+0 geloeschte tests; CI-format-pass nach refactor). = t-20261022-r27-ci-authority journal-slice abschluss.
+PRUEFEN (SHA-genau, read-only): eigene contra-proben auf dem kopf: (1) active-id überlebt 8+ grosse
+einträge + reopen; (2) crash-half-line => uncertain nicht pending; (3) sync/close-fehler => err ohne
+event; (4) root-guard ueber produkt-konstruktion; (5) retention-grenzen als benannte constants,
+dateien <= cap nach 12x-grossfall; (6) KEIN test-hook mehr im produktcode wenn die karte das verbietet.
+Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp -count=1 -timeout 8m +
+gofmt -l internal/machinehttp leer + go build ./internal/machinehttp.
+Urteil (ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT) -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1354f.md.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1354f: verdict=<X> open=<liste|none> | <Satz>"

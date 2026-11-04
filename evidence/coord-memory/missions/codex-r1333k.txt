@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 87003125 (diff a53cba29..87003125 = zwei ADR dateien WORTLAUT gemaess
+review-1333j rezept + deployment_store.go normalisePersistedOwner + guard regressionen; coord
+disk-check: §1/§2 neu wrap-fest bestaetigt, DE-neu 1, develop Vorfahr JA, write-set .github leer)
+= t-20261018-r27-delivery-boundary. ABSCHLUSS-REVIEW.
+PRUEFEN (SHA-genau, read-only): 1. unbekannte/leere persistierte owner behandeln wie ungesetzt
+(Selection.Normalize-parallel), corrupt erweitert NICHTS und attestiert NICHTS; die drei regressionen
+fahren den echten guard-pfad. 2. ADR EN/DE in sich konsistent: persistence-check-formel ohne
+runtime-behauptung, deferral auf authority/state-owner karten. 3. finale klauseln-matrix: alle
+erfuellt oder formal-deferred => ACCEPT-WITH-DEFERRAL mit deferral-liste; REJECT nur bei echtem
+befund. Testarchiv: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery.
+Urteil -> review-1333k.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333k: verdict=<X> open=<liste|none> | <Satz>"

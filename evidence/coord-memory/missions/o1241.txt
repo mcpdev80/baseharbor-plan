@@ -1,0 +1,43 @@
+MISSION o1241 - Run down #1236 Targeted-HA native-integration exit 1 (docker AND podman)
+Repo: mcpdev80/baseharbor. Isolated worktree (git worktree add under
+/home/marcel/dev/baseharbor-ecosystem/workers/worktrees/o1241 -b work/v0.4x-core-750-r1241 origin/<candidate>).
+Build ON the existing candidate branch work/v0.4x-core-750-r1240 @ 776841be (the classifier/qualifier
+o1240b landed there already - do NOT redo it). Evidence: coordinator/evidence/board-2026-10-31/o1241.md.
+git via `git -C baseharbor`/worktree; NO git clone, NO git clean/reset.
+
+STEP 0 Read coordinator/AGENTS.md (roles), coordinator/RUNBOOK.md 6.1-6.2 (CI bootstrap + runner
+  infra), coordinator/evidence/board-2026-10-31/o1240.md + o1240b finding, and the baseharbor CI file
+  that defines the "Targeted HA" native-integration job (grep workflows for native-integration-docker
+  / native-integration-podman). No invented process; no gate weakening; a skip is never a pass.
+
+KNOWN (coordinator-verified)
+  develop = cb6b7387. PR #1236 head 776841be; run 41203321449. "PR · Native Gate Flag" = success.
+  "Targeted HA · docker" and "Targeted HA · podman" FAIL: the upload annotation says the step produced
+  no files under /home/github-runner/actions-runner/_work/_temp/native-integration-{docker,podman} and
+  "Process completed with exit code 1". One attempt skipped, one failed -> flaky/wrong wiring OR the
+  rootless daemon genuinely can't run the native test in the PR-HA context.
+  Runners online: baha-runner-docker-2 (labels docker), baha-runner-podman-2 (podman), both idle.
+
+GOAL - classify and act:
+ 1. Get the ACTUAL failure: read the real step log (gh run view --log / job <id> logs) for the failed
+    Targeted HA docker job (run 41203321449). Find the command that exits 1 and the FIRST error line
+    (daemon connect? missing socket? test binary? wrong temp path? PY/go error?). Quote run id + line.
+ 2. Decide CODE vs INFRA:
+    - If the failure is in the WORKFLOW/job wiring (wrong path, missing setup step, wrong gate input,
+      the native test never invoked, or a script the job runs) -> FIX it in the workflow's HA job
+      steps (and/or the scripts it calls), on your branch, re-run, and get docker AND podman to
+      genuinely execute green on the self-hosted runners. Prove it via the executed job log.
+    - If the failure is genuinely the runner HOST rootless session (docker/podman daemon unreachable
+      as github-runner, no linger, socket ownership) -> this is RUNBOOK 6.2 infra OUTSIDE the PR. Do
+      NOT hack the gate. END BLOCKED with the EXACT host verification/repair commands (systemctl
+      --user status of the docker/podman socket, loginctl enable-linger github-runner, socket path +
+      chown) and the failing run id + log line. Next trigger = a maintainer restores the runner.
+ 3. Do not edit the hardcoded register or weaken coverage classification. The classifier qualifier is
+    already correct (o1240b); your job is making the native execution actually run/succeed.
+
+RULES
+  - Files: the Targeted-HA job definition in .github/workflows/* (the HA/native-integration job + any
+    script it calls) and your branch. Do NOT touch unrelated product Go. Keep tool output small.
+  - Wait jobs to TERMINAL via API; capture run ids + the executing/failed log line.
+  - LAST action: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60
+    "<END_DONE|END_BLOCKED|QUESTION> o1241: <one line + candidate SHA + native run id(s) + code|infra verdict>".

@@ -1,0 +1,33 @@
+ROLLE: Worker (Lane w6-delivery-r5). Coord f49a3303. MIKRO-AUFGABE: finale Zwei-Punkte-Korrektur PR #1333 (t-20261018-r27-delivery-boundary). Basis = head 122ec956.
+
+ZUERST LESEN: baseharbor-plan/evidence/r27-night-2026-11-02/review-1333d.md UND die neue Karten-Sektion
+"Coordinator scope decision on one-writer depth" (Was JETZT in-scope ist, was explizit deferred wird).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w6-delivery-r5-wt work/r27-delivery-boundary
+Write-Set: internal/deployment/** (autorisiert) + docs/...delivery-provider + 0022 EN/DE. KEIN cmd/baha,
+KEIN .github, KEIN scripts.
+
+SCHRITTE (nur diese, sonst END_BLOCKED):
+1 SERIALIZATION-BYPASS FIX (Kern, deployment_store.go ~199-223):
+   Heute: guardRecord:=record (copy) bekommt guardOwner, aber Zeile 223 serialisiert das ORIGINAL
+   `record` -> forged/leerer Observed.Owner wird persistiert, naechster direct-write liest Value als
+   previous und der Guard wird umgangen. FIXE: serialisiere den GEPRUEFEN/canonical record (guardRecord
+   mit gesetztem guardOwner), carrying auch der previous Conflict in den guard; bei Verweigerung MÜSSEN
+   die store-bytes unveraendert bleiben.
+2 TESTS (echt, nicht nur state-file Save): forged-delegated-update GEFOLGT von direct-apply => zweiter
+   wird verweigert; previous-conflict carry; os.ReadFile-byte-vergleich VOR/NACH rejected write (bytes
+   identical); positiver direct/delegated Pfad bleibt gruen.
+3 EN/DE doku (delivery-provider + 0022): scope = record-save guard, ACTIVE-reconciler cross-process
+   observation EXPLIZIT als deferred dependency benannt (haengt an t-20261018-r27-state-owner +
+   t-20261018-r27-authority-contract, noch nicht accepted). Keine Behauptung von runtime-lock die der
+   Code nicht tut.
+
+ANSENDE-PFLICHT: git merge origin/develop; Nachweis git diff --name-only origin/develop...HEAD |
+grep -E '^(\.github|scripts/|cmd/)' MUSS leer sein.
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery + go build ./... .
+push (FF), ls-remote, keine Run-Logs, sofort END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r3.md
+   (KEINE markdown-checkboxe [ ] im evidence-file — plain bullets, sonst Planning-Validator-Fehler).
+STOP: zwei erfolglose identische Versuche => END_BLOCKED; kein Merge; keine CI-/cmd/scripts-dateien.

@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 84634175 (develop Vorfahr) = t-20261018-r27-delivery-boundary — ERSTE review
+DIESES kopfs nach w5/w6 arbeit: serialization-bypass fix (guardOwner wird serialisiert, conflict-carry)
++ byte-invarianz regression + ADR scope/deferred-text. review-1333d.md rezepte sind der massstab.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs):
+1. SaveDeploymentRecord serialisiert den GEPRUEFTEN stand; forged delegated update + anschliessender
+   direct apply wird verweigert; rejected write laesst datei-bytes identical (test beweist it).
+2. deferred-text (active-reconciler lock) in EN/DE benennt state-owner + authority karten; keine
+   present-tense runtime-lock behauptung. DE negationen.
+3. write-set: 0022+index+delivery-provider EN/DE + internal/delivery + internal/deployment (autorisiert)
+   + KEIN cmd/baha. driftfrei.
+4. go test ./internal/delivery ./internal/deployment auf isoliertem archiv.
+Urteil -> review-1333e.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT + rezept). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333e: verdict=<X> | <Satz>"

@@ -1,0 +1,9 @@
+KORREKTUR RUNDE 3 PR #1285 (codex review-r2 REJECT; lies baseharbor-plan/evidence/board-2026-11-02/codex-1285/review-r2.md Punkte 1-3 — file:line). Halte dich EXAKT an den Kontext, keine Umbauten drumherum (AGENTS 4.2).
+
+1. receipt_verifier.py ~511-515: `skipped` ist ein REGULÄR nicht-ausgewählter Zustand (GitHub liefert skipped), NICHT behandeln wie ausgeführten Fehler. Fix: skipped explizit ZULASSEN; nur tatsächlich AUSGEFÜHRTE negative terminale Zustände (failure/timed_out/action_required) blockieren. test_not_required_skipped_is_accepted erreicht die Schleife nicht — nutze einen REALISTISCH aufgelösten Pilotplan mit (a) optional skipped => accepted und (b) DEMSELBEN Plan mit optional executed-failure => blockiert. No-op-Verhalten separat nach Vertrag prüfen.
+2. receipt_verifier.py ~474-475: required_validation_checks sind OBJEKTE {'id','owner','command'} (Planner ~59/1865); maßgeblich pr-authenticated-results.py nimmt c['id']. Dein str(check_id) erzeugt Dict-Repr statt 'PR · Validation · source-contracts' und blockiert echte Pläne. Fix: Schema validieren, ID pro Objekt = obj['id'] extrahieren, Jobname 'PR · Validation · <id>'. Tests: ECHTES Planobjekt (nicht [7]), Fall erfolgreicher Job + Fall fehlender/fehlgeschlagener Job.
+3. Duplikat-Reihenfolge-Regression: beide Tests hängen nur einen SUCCESS-Shadow via extra_jobs; variiere ERFOLG/MISSERFOLG in BEIDEN Reihenfolgen und weise Ambiguität (Duplikat blockiert) nach.
+
+PROMOTABLE (Punkt 4): Coordinator liefert den main/develop-Ancestry-Nachweis selbst beim Merge-Gate — du musst ihn NICHT in die Lane-Evidence schreiben. Konzentriere dich auf 1-3.
+
+DANN: branch bleibt CLEAN zu develop; Receipt-Suite (scripts/receipt-suite.sh) + erforderliche CI-Gates auf NEUEM SHA gruen (Eigenes-Run-Pflicht 4.6). END_CODE_READY an f49a3303 mit neuem head. ornith, kein qwen-Bezug. Falls ein Punkt dein Write-Set sprengt: STOP + QUESTION an f49a3303.

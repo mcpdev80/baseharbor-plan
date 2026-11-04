@@ -1,0 +1,8 @@
+ROLLE: CODEX-MERGE. Coord f49a3303. AUTORISIERT durch review-1351b ACCEPT auf exakt
+head c83a5654... (PR #1351, branch work/r27-envdep-ab, base develop, t-20261023-appid-test-env-dep).
+SCHRITTE: 1. VORHER gh pr view 1351 --json headRefOid,state,mergeable,mergeStateStatus: head MUSS
+c83a5654 sein + NICHT CONFLICTING (sonst END_BLOCKED — reconcile ist nicht dein job).
+2. gh pr merge 1351 --squash. Kein --admin/force. 3. NACHWEIS: develop neue SHA via ls-remote;
+state MERGED+mergedAt; diff c83a5654 origin/develop auf write-set (internal/testsupport/
+externalprovider/seed.go + cmd/baha/provider_external_removal_test.go) leer/stichhaltig.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-m1351a: merged=squash develop=<sha> diffproof=ok | <Satz>"

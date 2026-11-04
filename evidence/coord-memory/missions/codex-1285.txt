@@ -1,0 +1,29 @@
+ROLLE: CODEX-REVIEW (dann nur bei ACCEPT CODEX-MERGE). BaseHarbor v0.4.27, Coord f49a3303.
+OBJEKT: PR #1285 (mcpdev80/baseharbor) base=develop head=7489eecd — EXAKT diesen SHA pruefen.
+(Anderer Kandidat als dein letztes #1286-Review; Kontext nicht vermischen, frische Pruefung.)
+
+INHALT: aendert scripts/receipt_verifier.py — required gates werden jetzt PLAN-getrieben
+aus dem Trusted-Plan abgeleitet statt Job 'PR · Public Contracts' HARDCODED success zu
+verlangen. Root-Cause-Fix der roten Receipt·Post-Run-Writer-Kette. Fail-closed bleibt:
+required nur wenn im Trusted-Plan required. rcptverfix meldet alle Gates terminal PASS
+(CI run 41447936075: Focused Python, receipt-execution-tests, pr-planner-tests,
+ci-executor-verifier-tests, ci-policy, PR Selected Checks). Eine Failure test_real_plan_check
+ist pre-existing (board-publishing checkboxes, identisch mit revert), KEINE Regression.
+
+SCHRITT 1 REVIEW (SHA-genau, nur-lesend):
+- Kandidat-Diff lesen via: gh pr diff 1285 --repo mcpdev80/baseharbor (NUR #1285, nicht #1286).
+- Pruefen: nur scripts/receipt_verifier.py + tests? Fail-closed-Eigenschaft erhalten (required
+  nur wenn Trusted-Plan required)? Kein 'gruen rechnen'? Hartkodierte Public-Contracts-Abhaengigkeit
+  sauber entfernt, ohne andere Gates zu verwässern?
+- Evidence baseharbor-plan/evidence/board-2026-11-02/rcptverfix/evidence.md gegen Vertrag.
+- Urteil in baseharbor-plan/evidence/board-2026-11-02/codex-1285/review.md (ROLLE: REVIEW, ACCEPT|REJECT).
+
+SCHRITT 2 MERGE nur bei ACCEPT: squash-merge #1285 -> develop, post-merge develop-Checks +
+neuen develop-SHA per ls-remote belegen; evidence codex-1285/merge.md (before/after, UTC).
+WICHTIG danach (NICHT in dieser Session): receipt_verifier.py-Änderung => §5.1 TRUSTED_SOURCE-PATCH
+auf finalen MAIN-Commit noetig (Bytes pinned_source :338-350, alt Pin 0b0659f2) — das melde ich
+(Coord) separat, nicht hier ausfuehren.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED codex-1285: verdict=<A|R> merged=<sha|none> develop=<newsha|-> | <Satz>"
+STOP: bei Nicht-Passen NICHT mergen, END_BLOCKED + Rezept. Kein Force, kein Bypass.

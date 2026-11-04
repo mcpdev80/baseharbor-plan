@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. WARTEND — dispatchen wenn kanal frei.
+OBJEKT: PR #1355 head 2e92832b (develop Vorfahr JA; 8 dateien: candidate-contract v1 spec EN+DE +
+fixtures + go test) = t-20261018-r27-candidate-contract. KARTE vollständig lesen (outcome/file-
+ownership/checks/standards-boundary sind maßstab; native-delivery decision constrained).
+PRUEFEN (SHA-genau, read-only): 1. spec definiert NUR minimales app/target/consent binding um
+existierende git-revisionen/OCI-artefakte/native compose/quadlet — keine neue engine, kein privates
+format (standards-boundary). 2. EN+DE sinngleich; normative formeln (MUST/required) konsisten.
+3. fixtures: malformed/digest/path/secret-reference negativfaelle fahren echten validation-pfad.
+4. matrix => ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT. Tests: go test affected packages. KEIN Merge.
+Urteil -> review-1355a.md.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355a: verdict=<X> open=<liste|none> | <Satz>"

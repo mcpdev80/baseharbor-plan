@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w95). Coord f49a3303. KARTE: t-20261018-r27-state-owner — DRITTE RONDE, frischer
+kontext, alte lane rotiert (dreimal identische blocked-meldung trotz besserer wissensstand). ZUSTAND:
+branch work/r27-state-owner head d9a48d42, PR #1347, 8 fail — gruppen: (a) 11er-isolation ist GELIEFERT
+(gruen auf frueheren laeufen, evidence state-owner/isolation-1.md), (b) der elfte fall hat einen ECHTEN
+konflikt: der gefuehrte happy-path braucht eine CORE-installation (VerifyDeploymentOwner绑定), aber
+core-praeenz loest den ADR-0022 retire-check aus (prepareApplicationProviderRetirement:36 scope-shared
+zurueckweist). Vorgaengerin hatte als option 1-SONDE einen Core-Installer OHNE control-plane/postgres-abhaengigkeit
+angeordnet — deren sonde-ergebnisse liegen in den zwei probe-baeumen /tmp/acc-check und /home/marcel/wt-branch
+(beide waren zurueckzusetzen — pruefe status, niliee nichts, lies nur). AUFGAB: (1) probe-baeume lesen
+(status-pruefen, keine aenderung), erbe die these; (2) entscheidung TESTSEITIG nachfahren: core-Installer
+ohne control-plane-abhaengigkeit im fixture-aufbau (muster: die gruenen nachbar-fixtures), sodass owner-binding
+UND retire-check beide ihr korrektes ergebnis bekommen OHNE produkt-aenderung. (3) Wenn und NUR wenn das
+unmoeglich ist ohne den retire-check zu äNHDERN: END_BLOCKED mit konfliktformel + counter-beleg + VORSCHLAG
+fuer nachfolge-karte (text fertig zum einfügen) — produktumbau an ADR-0022-hueren ist OWNER-stoff, nie lane-stoff.
+basis: develop f8ef4255 Vorfahr (fetch+merge rc=0). go test ./cmd/baha -count=1 -run real-life-cycle gruen;
+full pakettests; gofmt/vet; push; ls-remote==head; PR #1347 gates TERMINAL (validation muss gruen; lifecycle
+ref 41726952160-owner-territorium). Evidence: state-owner/round3.md (bullets). Arbeitsort: /tmp/opencode/w95-seam-wt.
+END: "END_DONE w95-seam-r3: head=<sha10> fall11=<konstruktion|blocked+formel> validation=gruen lsremote=<sha10> | <Satz>"

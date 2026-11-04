@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS native-auth (-production-pfad).
+OBJEKT: baseharbor PR #1362 head a3eee132 branch work/r27-native-auth (ready, basis develop ecbb8854 = Vorfahr;
+gates terminal 8 pass / 0 fail / 10 skipping). KARTE t-20261018-r27-native-auth.
+GESCHICHTE: deine review-1362a REJECT fuehrte zu drei runden (w97 produktions-verdrahtung, w94 ssh-umgebungs-
+ISOLATION, w93 gofmt). Akte review-1362a.md + die drei folgenden runden-belege gegenlesen.
+PRUEFEN SHA-genau read-only: (1) der native nachschlage-laeuft VOR jeder abfrage (kein prompt, wenn das
+systemschluesselbund einen treffer hat) — gegenprobe: Umgebung mit gesetzem treffer => KEIN interaktiver
+durchlauf, (2) FEHLSCHLAG nativ => dokumentierter fallback ohne secret-leck in logs/fehlermeldung, (3) ssh-/
+umgebungs-isolation: tests veraendern KEINE echte anwender-konfiguration (w94-rezept: isolierte umgebung,
+nachher identisch), (4) kein Pfad schreibt ein secret in eine datei ausserhalb des definierten speichers,
+(5) write-set der karte eingehalten (diff name-only), (6) pakettests + build + gofmt + vet gruen,
+(7) die drei rezept-punkte aus review-1362a sind an diesem kopf NACHWEISBAR erledigt (zitiere datei:zeile).
+Urteil -> review-1362b.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1362b: verdict=<X> open=<liste|none> | <Satz>"

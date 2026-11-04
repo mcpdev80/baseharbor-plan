@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 6a335b4b (1dde4208 + §2 round-4: persisted-attestation/delivery-mode-conflict
+EN, volle DE-blockform ohne fragment, trade-offs out-of-scope; diff 1dde4208..head = genau 2 doku;
+develop Vorfahr JA; retention/guard-code unverändert zum r1333n PASS) = t-20261018-r27-delivery-boundary.
+PRUEFEN (SHA-genau, read-only): 1. ADR 0022 EN+DE final in sich konsistent + code-konform (guard=
+persistierter owner+conflict-flag; selection-mode fallback; zero/unknown=unset; KEINE laufzeit-
+behauptung mehr; DE ohne fragmente; sinngleich). 2. keine weiteren ADR-stellen mit alt-semantik
+(vollständiger grep beider dateien). 3. matrix: ACCEPT-WITH-DEFERRAL mit deferral-liste (runtime-
+detection/lock -> authority+state-owner karten-notes). Tests archiv: go test ./internal/deployment
+./internal/delivery. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333p: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane l5-profile-r3). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde 3 zu PR #1324 (task t-20261018-r27-profile-contract). Basis = head 6fdc44e1.
+
+ZUERST LESEN (Pflicht, vollständig):
+- baseharbor-plan/evidence/r27-night-2026-11-02/review-1324c.md (REJECT; 5 Abschnitte — wire OK,
+  goldens PARTIAL, schema OFFEN, integrated PARTIAL mit scope-Begründung, docs PARTIAL)
+- baseharbor-plan/tasks/t-20261018-r27-profile-contract.md — insb. NEUE Sektion
+  "Coordinator scope decision on finding 2" (vorhandene develop-Oberflächen nutzen; wirklich fehlende
+  Interfaces EXPLIZIT als deferred dependency in EN+DE benennen + Folgekarten-Referenz; keine stillen
+  Enforcement-Behauptungen).
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/l5-profile-r3-wt work/r27-profile-contract
+Haupt-Checkout NICHT benutzen. Write-Set: contracts/managementaccess/v1/** + docs/(de/)spec/credential-access-v1.md.
+
+SCHRITTE (drei Commits, klein halten):
+1 SCHEMA (Befund 3, Kern): profile.schema.json kind-konditionale required/forbidden — export fuer
+   credential-export Pflicht, storage je Typ durable/one-use konsistent, import-Pflichten;
+   Import-VERHALTENS-Tests (no grant / no plugin execution / no credential redirect als ausgeführtes
+   Verhalten, nicht behauptete Booleans; missing export / plaintext durable / invalid algorithm /
+   repeated enrollment negativ).
+2 GOLDENS (Befund 2 rest): negative mismatched-pin / expired / one-use-Reuse fixtures durch denselben
+   realen Schema+Semantic-Pfad validieren; positive bleiben (sind ok).
+3 ENTRY+DOCS (Befund 4/5): managementaccess.go:211-223 Entry an vorhandene develop-Oberflächen binden
+   (internal/serviceaccess issuer identity/trust/ExpiresAt, contracts/connection-profile falls trivial
+   andockbar); NICHT existierendes als deferred in EN+DE Doku benennen (konkreter Abschnitt
+   "Deferred interfaces" mit Karten-Referenz t-20261018-r27-access-profiles ODER passende Karte aus
+   baseharbor-plan/tasks/ — belege den Kartennamen in der Evidence); Doku-Claims = Code-Verhalten.
+
+Tests: TMPDIR=/tmp go test ./contracts/managementaccess/v1 + go build ./... . KEINE fremden Run-Logs.
+push (fast-forward, kein force), ls-remote als Beweis, dann SOFORT END an f49a3303.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r3.md (befund-fuer-befund).
+
+STOP-KRITERIEN: keine CI-Dateien; kein Merge/Release/Tag; keine cmd/baha-/internal/deployment-Änderungen;
+zwei erfolglose identische Versuche => END_BLOCKED mit einer Logzeile.

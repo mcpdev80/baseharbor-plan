@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w36-stateowner-reconcile). Coord f49a3303. AUFGABE: develop-KONFLIKT auf PR #1347
+(t-20261018-r27-state-owner). Basis branch work/r27-state-owner head 33badf7d; develop bringt den
+gelieferten DELIVERY-vertrag (one-writer guard + normalisePersistedOwner) — beide aendern
+internal/deployment/deployment_store.go => PR ist CONFLICTING.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w36-stateowner-reconcile-wt work/r27-state-owner
+
+KERN: git merge --no-edit origin/develop. Konfliktloesung BEIDE semantiken HALTEN:
+  (a) delivery: persisted owner/conflict-flag regieren den one-writer guard, normalisePersistedOwner
+      auf unSet, retention fail-closed bei loader-fehler (inkl. ENOENT vanished + seam hook).
+  (b) state-owner: VerifyDeploymentOwner installation-owner-pruefung an denselben load/save/list
+      stellen, grant-only tenant-hook.
+  => die pruefungen sind KOMBINIERBAR (zwei guards, ein pfad): erst ownership-verify, dann
+      one-writer-guard; kein zweites 'either/or'. Wenn die text-loesung das nicht sauber schafft:
+      MINIMALE strukturelle klammerung im store (helfer-aufruf-reihenfolge), KEINE verhaltens-aenderung
+      — und das explizit in evidence begruenden.
+TEST-PFLICHT nach merge: TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go build ./... && go test ./internal/deployment
+./internal/delivery ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|List|Guard|Retention|Vanish'
+-count=1 — ALLE tests beider verträge grün (env-fails wie belegt ausgenommen). Byte-stability- und
+ErrUnavailable-tests duerfen durch die combine NICHT weich werden.
+PFLICHTREGELN: write-set ohne .github/scripts; push FF auf refs/heads/work/r27-state-owner (merge-commit
+ok); ls-remote==head; develop-SHA ist Vorfahr (ancestry rc=0). PR bleibt wie er ist (ready).
+END an f49a3303: "END_DONE w36-stateowner-reconcile: head=<sha> both-guards=green conflicts=<n-loesungen> | <Satz>"
+Evidence: .../r27-welle3-2026-11-03/state-owner/reconcile-1.md (plain bullets, je konfliktstelle
+datei:zone + entscheid + begruendung).
+STOP: wenn eine stelle beide semantiken NICHT kombinierbar macht => END_BLOCKED mit stelle+grund,
+NICHT eine semantik leiser machen.

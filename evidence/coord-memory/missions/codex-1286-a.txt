@@ -1,0 +1,26 @@
+ROLLE: CODEX-REVIEW (kein Merge in dieser Mission). Coord f49a3303.
+OBJEKT: PR #1286 = PR-A, head 5fe5208b (base develop 9a93865a), aendert NUR
+scripts/pr-gate-plan.py + scripts/test_pr_gate_plan.py (CI-Bootstrap-Enabler der Kette).
+
+PRUEFEN (SHA-genau, gh pr diff 1286 --repo mcpdev80/baseharbor):
+1. internal/logs/render.go EXAKT gemappt (path ==) an die bestehende native Logs-Validierung
+   (logs-package-tests), KEIN Prefix-/name-Heuristik, KEIN widening. Fail-closed Fallthrough fuer
+   alle anderen internal/logs-Pfade erhaeltlich (Regressionen: neue/verschachtelte/gemischte -> unresolved).
+2. Der Register-/ci-planner-Anteil, der scripts/pr-check-runner.py + .github/workflows/ci.yml
+   aufloesbar macht, ist ENGGEGRENZT auf GENAU diese zwei Pfade via require(CI_CHECKS) — KEINE
+   pauschale Umklassifizierung aller CI-Dateien. Bestaetige, dass dies die 21 bestehenden
+   Register-/Bootstrap-Policy-Tests (BindingPR1007, BootstrapException) NICHT schwacht (fail-closed
+   fuer unregistrierte CI-Pfade bleibt). Hosted-Checks: PR Selected Checks SUCCESS auf 5fe5208b.
+3. GUARDRAIL (Owner): Bewerte, ob PR-A allein einen fail-open fuer CI-Infra oeffnet, den erst PR-B
+   (ci.yml logs-package-tests-Case + pr-check-runner.py Registrierung) schliesst. Wenn JA: vermerke
+   'PR-A merge erst zusammen/mit PR-B Qualifikationspfad (CI-Executor+Workflow+native Evidence)'.
+4. #1273-Check: enthaelte PR-A auch das Gate-Mapping fuer cmd/baha/runtime_start.go +
+   internal/application/provider_registry.go (sonst bleibt #1273 coverage-unresolved)? Wenn NICHT
+   enthalten -> als Befund: separater Mapping-Schritt noetig (Coordinator-Thema).
+
+Urteil -> baseharbor-plan/evidence/board-2026-11-02/codex-1286/review-r3.md (ROLLE: REVIEW,
+ACCEPT|REJECT + Rezept/Scope-Hinweise). KEIN Merge — ich (Coordinator) mergee PR-A erst nach
+Abgleich mit #1258 (beide beruehren ci.yml) und PR-B-Pfad.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED codex-1286-A: verdict=<A|R> prB_path=<ok|needs-combo> logsmap_1273=<included|separate> | <Satz>"

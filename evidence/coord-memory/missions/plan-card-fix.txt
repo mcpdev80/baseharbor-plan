@@ -1,0 +1,20 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/plan-card-fix  (Repo baseharbor-plan)
+MISSION plan-card-fix — Planning-Schema-Reparatur (mechanisch, ohne Inhaltsumschreibung):
+  commit 6cc2371 (PR#1251-Merge-Epoche) brachte tasks/diff-base.md EIN — von Hand erfunden statt
+  scripts/plan.py new. Folge: 'plan.py check' = 13 errors (invalid id 'diff-base', unsupported tags ['#fix'],
+  missing #release tag, conflicting lifecycle markers accepted-vs-closed, type illegal, evidence must be https
+  links, broken link). Ein vorher freigegebener Runner (Merge-Lane) hatte 'pre-existing' gemeldet — FALSE,
+  du stellst die Wahrheit her.
+SCHRITTE:
+ 1. Inhalt von tasks/diff-base.md lesen (Task-Zweck: Diff-Base-Resolver Fix, PR #1251, merged develop 5777c02d,
+    Run 41311582975, Basislauf 41312529590, Evidence-Datei existiert unter evidence/board-2026-11-01/diff-base/).
+ 2. Karte NEU erzeugen mit: python3 scripts/plan.py new --help konsultieren, dann korrektes Schema
+    (typ task, tag #release/<existierender-release>, #status/closed DA merged, resolution+Evidence-Links als
+    https://github.com/mcpdev80/baseharbor/pull/1251 und https-Plan-Link gem. Konvention anderer Karten).
+    Dateiname/ID vom Tool erzeugen lassen (t-<datum>-<slug>), NICHT selbst erfinden.
+ 3. tasks/diff-base.md entfernen (git rm) — kein Inhalt geht verloren (neu-Karte traegt ihn).
+ 4. python3 scripts/plan.py check => 0 errors zwingend; render; commit; push origin main.
+ 5. In der neuen Evidence-Zeile kurz festhalten: Karte regeneriert wegen Schema-Verstoess aus 6cc2371.
+EXKLUSIVES WRITE-SET: tasks/diff-base.md, eine neue tasks/t-*.md, Evidence-Anhang board-2026-11-01/plan-card-fix/.
+  NICHT: Skripte, Views manuell, andere Karten, Produktrepo.
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED plan-card-fix: check=<0/n errors> new-card=<id> commit=<sha>"

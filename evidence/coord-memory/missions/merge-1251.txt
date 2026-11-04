@@ -1,0 +1,21 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/merge-1251  (Repo baseharbor)
+ROLLE: CODEX-MERGE (mechanischer Merge-Vollzug, ROLLE-Label in jeder Datei). Kein Review, kein Code, kein Umbau.
+GEGENSTAND: NUR PR #1251 (ci(diff-resolver), head d56e9ddd) auf develop. Kein anderer PR wird angefasst.
+KONTEXT: Basisdurchlauf PR#1252 hat mit diesem Fix als Vorfahr bereits 'PR Selected Checks' SUCCESS (run
+  41312529590) — die Funktion ist owner-autorisiert (Direktive: 'vorhandene Runner-/Planner-Probleme beheben').
+
+SCHRITTE (in dieser Reihenfolge, jeder Stop-punkt heilig):
+ 1. Vorpruefung Gehostet (BLOCKIEREND): gh api repos/mcpdev80/baseharbor/commits/d56e9ddd/check-runs —
+    ALLE completed-Checks ohne 'failure'; 'PR Selected Checks' = success. Sonst: NICHTS tun, END_BLOCKED.
+ 2. Vorpruefung Planning: Task-Note des Resolver-Tasks in baseharbor-plan existiert und Status != closed;
+    card via scripts/plan.py show. Fehlende Karte -> Karte neu anlegen (klein, honest, 1 Checkbox) NICHT erfinden
+    — wenn unklar, END_BLOCKED mit Hinweis.
+ 3. Merge: gh pr merge 1251 --repo mcpdev80/baseharbor --merge (kein squash, kein rebase, kein --admin,
+    kein force, keine Schutzregel-Umgehung). Merge-Konflikt -> abbrechen, PR steht lassen, END_BLOCKED.
+ 4. Nachweis: develop-HEAD via ls-remote; der durch den Merge ausgelöste develop-CI-Lauf bis TERMINAL beobachten
+    (Eigenes-Run-Pflicht): 'CI · Source & Quality'/develop Runs, Job-Tabelle + Run-ID. Rot -> sofort melden,
+    KEIN Rückroll-Kommando ohne Coord-Freigabe (nur dokumentieren).
+ 5. Planning-Abschluss: Kartenstatus accepted->closed (Merge bestaetigt), Resolution/Evidence eine Zeile,
+    plan.py render + check (0 errors), push origin main.
+ 6. Datei baseharbor-plan/evidence/board-2026-11-01/merge-1251/merge.md beginnt mit 'ROLLE: MERGE'.
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED merge-1251: merged=<sha> develop-run=<id>/<status> | <Grund>"

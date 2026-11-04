@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w83). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 13, letzter meter).
+Branch work/r27-ci-access-ab head 3360d14a (13/0 gates gruen, aber luna r1357l REJECT 1 rezept):
+BEFUND (vollstaendig review-1357l.md): zaehler wird ueber separat editierbare combinedPaths++-zeilen
+erhoeht — Entfernen eines echten execute-aufrufs entfernte NICHT dessen zaehl-effekt. REZEPT: zaehlung
+AN DEN ECHTEN DISPATCH KOPPELN (共同 count-wrapper um den wirklichen check-/execute-calls; keine freien
+++-zeilen). Load-phase-nullfaelle weiterhin getrennt zaehlen + dokumentieren.
+PFLICHTBEWEIS (mutation): entferne NUR einen echten execute-call (counter-zeilen UNveraendert lassen)
+=> N=7 UND matrix-ROT wegen mismatch; rueckgaengig, dann gruen. Miswire-swap bleibt rot (r11-beweis
+git gilt weiter, kurz gegenpruefen). 0 tests geloescht, handler.go diff=0, basis develop Vorfahr.
+go test ./internal/runtimeexecutor -count=1 -timeout 8m gruen; gofmt+vet leer; push; ls-remote==head;
+PR #1357 TERMINAL gruen beobachten. Evidence: ci-access/qualify-13.md (KEINE checkboxen).
+END: "END_DONE w83-access-r13: head=<sha10> wrapper=ja mutation-N7=rot miswire=rot lsremote=<sha10> | <Satz>"

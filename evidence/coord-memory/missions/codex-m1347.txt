@@ -1,0 +1,8 @@
+ROLLE: CODEX-MERGE. Coord f49a3303. AUTORISIERT durch review-1347i.md ACCEPT-WITH-DEFERRAL auf exakt
+head 33badf7d2a... (PR #1347, branch work/r27-state-owner, base develop, t-20261018-r27-state-owner).
+SCHRITTE: 1. VORHER gh pr view 1347 --json headRefOid,state,mergeable,mergeStateStatus: head muss
+33badf7d sein, sonst END_BLOCKED. 2. falls mergeStateStatus BLOCKED wegen pflicht-checks => END_BLOCKED
+mit liste; sonst gh pr merge 1347 --squash (praezedenz m1324/m1333). 3. NACHWEIS: ls-remote develop neue
+SHA; state MERGED + mergedAt; diff 33badf7d origin/develop auf write-set-pfade internal/deployment +
+cmd/baha + docs stichhaltig/leer. KEIN --admin, kein force.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-m1347: merged=squash develop=<sha> diffproof=ok | <Satz>"

@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w52). Coord f49a3303. KARTE: t-20261018-r27-state-owner (runde 4 — gehosteter CI-BEFUND).
+PR #1347, branch work/r27-state-owner head be00b1c8. Review-URTEIL ist ACCEPT-WITH-DEFERRAL, ABER
+hosted run 41632606424 auf exakt diesem head zeigt 4 echte Fehlschläge im source-contracts-job:
+  TestDesiredProviderPreferencesValidateIdentityIsolationAndStaleSelection
+  TestDesiredProviderPreferencesSurviveReconciliationAndReload   (internal/application/provider_preferences_test.go)
+  TestAppEditCommandCompleteProviderEditRunsRealLifecycle, TestDoctorNotDeployedVersusIncomplete (cmd/baha)
+Lokal (dekolleg) grün; Runner-Umgebung (anderes HOME/state-root) zeigt: diese fixtures finden den
+owner-seed nicht, den runde 3 nur im paket internal/deployment gesetzt hat.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w52-stateowner-r4-wt work/r27-state-owner.
+
+ARBEIT:
+1. REPRODUKTION: führe die 4 tests mit CI-äquivalentem HOME/state-root (tmp-HOME, leerer XDG_* wie im
+   runner) — musterbild der runner-umgebung: mktemp -d HOME, ohne vererbung. Bestätigung fehlgeschlagen==wie-hosted.
+2. FIX NUR IN FIXTURES: interne/anwendung-pfade (internal/application/provider_preferences_test.go,
+   cmd/baha test-helper) erhalten dieselbe echte core-owner provisionierung (muster:
+   internal/deployment/seed_core_owner_test.go), AUF GEDECKT WIRD DERSELBE target — state-root-
+   auflösung muss den ECHTEN pfad des runtime-helfers benutzen (nicht test-lokalen HOME). KEIN
+   globaler bypass, KEIN skip, KEIN abschalte-flag, KEIN produktcode ohne END_BLOCKED.
+3. BEWEIS im END: TMPDIR=/tmp go test ./internal/application ./cmd/baha -run 'Provider|Preferences|Doctor|AppEdit' -count=1
+   unter REINEM HOME (env -i HOME=$(mktemp -d) PATH=/usr/bin:/bin) GRÜN + zahl.
+REGELN: write-set = internal/application/*_test.go + cmd/baha/*_test.go (+ max ein test-helper datei
+dort); KEIN .github/scripts; KEIN produktcode; merge develop bei drift rc=0 (ancestry WÖRTLICH in
+evidence); push FF; ls-remote==head; PR-STATUS nicht anfassen.
+EIGENES-RUN-PFLEICHT: nach push den CI-run auf NEUEM head selbst beobachten (gh run watch / checks
+--watch) bis source-contracts-job TERMINAL — run-id + ergebnis WÖRTLICH in evidence; bei rot: grund
+dokumentieren, nicht einfach erneut pushen.
+Evidence: .../r27-welle3-2026-11-03/state-owner/reconcile-4.md (plain bullets: reproduction, fix-stellen,
+reiner-HOM-lauf, hosted run-id+status).
+END an f49a3303: "END_DONE w52-stateowner-r4: head=<sha> hosted=<run-id>=<status> cleanhome-gruen=<n>of4 | <Satz>"
+STOP: fix erfordert produktcode-änderung am state-root-pfad => END_BLOCKED mit datei:stelle + begründung.

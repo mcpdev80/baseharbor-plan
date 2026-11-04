@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w122, CI-/TESTUMGEBUNGS-URSACHE). Coord f49a3303. REPO: baseharbor (core), zweig
+work/w96-production-wiring-f8ef4255 (PR #1371, kopf 9ac4e2c4, basis develop ecbb8854 — basis ist schon korrekt).
+LAGE (von lane w115 auf platte belegt): die zwei roten checks auf #1371 sind PR Selected Checks und
+go-unit-tests. Grundmuster, wortgetreu aus dem job-log: internal/database tests brauchen eine postgres auf
+127.0.0.1:5432 — dial error — und eine ROLLEN-FIXTUR stimmt nicht (role fixture mismatch). Ein dritter fall
+(TestMigrationRollbackOwnsOnlyLatestChange) soll laut vorgaenger AUCH auf der basis bb9bc0ef rot sein.
+#1372 hat fuer die ausgewaehlten PR-unit-tests eine selbststrendende PostgreSQL eingebaut — pruefe, warum sie
+auf DIESSEM pfad nicht greift (z.B. anderes test-pattern, anderer job, env-variabel nur in einem zweig der
+matrix, BASEHARBOR_TEST_DATABASE_URL ungesetzt).
+AUFGABE:
+ (1) URSACHE praezise benennen mit datei:zeile aus .github/workflows (NUR LESEN) + dem betroffenen test-helfer.
+ (2) BEHEBEN ohne test-bypass: die bedingung HERSTELLEN, die der test erwartet (dieselbe mechanik wie #1372:
+    instanz + port + rollen-fixtur, oder den helper so ergaenzen, dass er die instanz selbst startet). KEIN
+    t.Skip, KEIN t.Setenv-trick, der den fall zum schweigen bringt, KEINE assertions geloescht. Wenn die
+    behebung NUR in einer workflow-datei moeglich ist: STOP + MELDEN mit der exakten zeile — das ist owner-feld.
+ (3) DREITEN-NACHWEIS am korrigierten stand: die drei genannten tests einzeln ausgefuehrt (namen + rc), und
+    fuer TestMigrationRollbackOwnsOnlyLatestChange der NEBENEINANDER-beleg auf develop ecbb8854: ist er dort
+    auch rot, melde das als VORBESTEHENDEN befund (produkt- oder testumgebungs-klasse begruenden), ist er
+    dort gruen, zaehlt er zu deiner aufgabe.
+ (4) letzter schritt: merge origin/develop, push, ls-remote==head, die gehosteten checks bis TERMINAL
+    beobachten und das ergebnis je check in die evidence.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/infra-gate/pg-fixture-1.md (keine checkboxen).
+END an f49a3303: "END_DONE w122-ci-pg-fixture: head=<sha10> ursaache=<datei:zeile> tests=<3/3 belegt> migration=<vorbestehend|behoben> checks=<n/m terminal> lsremote=<sha10> | <Satz>"

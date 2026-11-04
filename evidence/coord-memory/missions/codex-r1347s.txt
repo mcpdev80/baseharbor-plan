@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head be00b1c8 (ccb5e83f + reconcile-runde3: seed_core_owner_test.go helper
+seedManagedTargetOwner/seedAuthoritativeCoreOwnerForTarget; 29 guard/retention-faelle damit mit echtem
+core-owner; seam 5 aufrufe erhalten; basis develop JA). = t-20261018-r27-state-owner reconcile-abschluss.
+PRUEFEN (SHA-genau, read-only): 1. AUFRUF-STELLEN: jede der 29 fixtures ruft den helper tatsaechlich
+(grep call-sites gegen testnamen-liste); kein global-bypass, keine abgeschaltete pruefung.
+2. negative families (missing/foreign/corrupt/vanish/scope) behalten ihre abweichenden seeds.
+3. beide checks im selben save-pfad: ein kombinierter test beweist prioritaet/doku.
+4. TMPDIR=/tmp go test ./internal/deployment ./internal/delivery -count=1 komplett gruen +
+go test ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|List|Guard|Retention|Vanish' (env-fails
+wie belegt toleriert). 5. matrix => ACCEPT-WITH-DEFERRAL wenn alles traegt (ID-binding note).
+Urteil -> review-1347s.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347s: verdict=<X> open=<liste|none> | <Satz>"

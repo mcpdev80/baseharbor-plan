@@ -1,0 +1,20 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1326 head 81720acc (branch work/r27-authority-contract-doc-fix = work/r27-authority-fix,
+base develop Vorfahr, 17 write-set dateien, kein .github/scripts) = t-20261018-r27-authority-contract.
+GESCHICHTE: review-1326.md REJECT -> fix-r2 (284e0bd4 B5 lock-paritaet, 9dcf8742 B1-B3) -> pralign
+zyklus-heilung (internal/installauthority leaf + NewIssuerAdapter, nur cmd/baha/application_service_issuer.go
+laut Karten-"Coordinator ownership decision on composition wiring") -> docs-restaurierung (8 docs
+byte-identisch zu 9dcf8742; 3 doc-dateien zeigen unterschied weil develop inzwischen 0021/index enthaelt —
+pruefe das, es ist kein inhaltsschwund wenn develop-stand schon drin ist).
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs; ls-remote Zeuge):
+1. Rollen-Befunde: AuthoritativeConnection/VerifyConnectionIdentity/AssertStateIsGenuineInstallation —
+   echte Konsumenten im pfad ueber installauthority-interface, composition wiring in der autorisierten
+   cmd/baha-datei; POSITIVE + foreign/missing tests durch echten selection pfad; KEIN mutating revoke.
+2. Azyklizitaet: go list -deps ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid
+   ./internal/installauthority — coreinstallation importiert NUR leaf (installauthority/stableid).
+3. Freshness now<=ExpiresAt fail-closed (zero/future) mit echtem observation source.
+4. Lock-paritaet regressionen (B5) inkl. windows build-tag kompilierung; stableid verhalten = develop.
+5. Doku: 0021 DE/EN + index + control-plane/target-access gegen 9dcf8742-Inhalt — identisch ODER
+   begründet durch develop-übernahme; KEIN stiller verlust.
+Urteil -> review-1326b2.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-CLAUSE|REJECT + rezept). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326b2: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head 33badf7d (797bd811 + missing-owner-MIT-bestehendem-record szenario auf den
+OEFFENTLICHEN load/save/list seams inkl. byte-nachweis; + owner ci-replan/style commits; develop
+Vorfahr-Status bitte gegen ls-remote pruefen und im urteil festhalten) = t-20261018-r27-state-owner.
+RE-REVIEW nach review-1347h befund 1 (einziger offener).
+PRUEFEN (SHA-genau, read-only): 1. szenario fährt echte seams: record mit gueltigem owner anlegen ->
+installation-owner-material entfernen (datei bleibt) -> public load/save/list liefern konkrete
+fehlerklasse + bytes unveraendert; kein helper-only. 2. leer-listing fall bleibt separat ok.
+3. matrix: alle klauseln erfüllt oder formal-deferred => ACCEPT-WITH-DEFERRAL mit deferral-liste.
+Tests: TMPDIR=/tmp go test ./internal/deployment -count=1 + cmd/baha -run 'Owner|List|Deployment'.
+Urteil -> review-1347i.md. KEIN Merge, keine run-logs, env-fails wie belegt tolerieren.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347i: verdict=<X> open=<liste|none> | <Satz>"

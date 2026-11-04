@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w79, DIAGNOSE — kein produkt-write). Coord f49a3303. Gegenstand: der urkundliche
+Infra-Ausriss hinter dem geheilten meta-gate: docker/podman lifecycle+backup-restore Selected-Runtime-Jobs
+failern auf PR #1355/#1347 (z.B. runs 41723792774, 41726952160) und lokal IDENTISCH auf clean develop
+2cadfcee (doctor NOT APPLIED statt READY).
+AUFGAB (read-only + evidence): (1) genauen fehlerschritt im hosted-lauf lokalisieren (welcher step, welches
+kommando, welche ausgabe — gh run view --job, notfalls annotations); (2) auf baha-docker denseiben schritt
+mit develop-BINAER nachfahren und dokumentieren wo die kette abreisst (image pull? compose up? doctor zeit?);
+(3) vergleichen mit letztem bekannten GRUENEN lifecycle-lauf (vor der gate-raeumung, z.B. #1358 zeitfenster):
+was hat sich an UMVELT/Routing/MATRIXFORM geaendert — nicht am produkt; (4) verdichtes urteil: runner-seitig
+(isoliert/rootless/infra) vs. repo-seitig (workflow-yml) vs. demo-repo-seitig (baseharbor.yaml ref drift),
+jeweils mit belegzeile. ALLE funde NUR nach baseharbor-plan/evidence/r27-welle3-2026-11-03/infra-gate/diag-1.md
+(checkboxen als bullet, keine produktdatei anfassen, keine worktree-aenderungen, kein push auf produktzweige).
+Hosts: baha-docker/baha-podman in nutzung, bh-*shared* UNANGETASTET, cleanup-pflicht nach gebrauch.
+END an f49a3303: "END_DONE w79-infra-diag: schuld=<runner|workflow|demo-ref> sicherheit=<hoch|mittel|niedrig> beleg=<datei> | <Satz>"

@@ -1,0 +1,27 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/native-probe  (Repo baseharbor)
+MISSION native-probe — BEWEISEN, dass der native Docker-Durchspiel-Lauf auf GitHub-hosted mit Endpoint-Fix #1245
+  + System-daemon-Skript #1239 ECHT GRUEN wird. Kein neuer Produkt-PR; du baust einen PRUEF-Kandidaten und stoesst
+  den bestehenden GH-hosted 'Targeted HA · docker'-Job an (Push-Mode via runtime-validation-Branch).
+GRUNDFAKTEN (belegt): #1245 (docker_engine.go head c201c516) loest bei unconfiguriertem Host den AKTIVEN Daemon auf
+  -> GH-hosted = system(rootful) /var/run/docker.sock. #1239 (work/gh-ci-core head 486abbca) stellt im CI den
+  System-daemon bereit (kein rootless). rootless ist auf GH-hosted UNMOEGLICH (userns). Die native HA-Testsuite
+  heisst 'Targeted HA · docker', laeuft auf ubuntu-latest, getriggert durch push auf refs/heads/runtime-validation/ha/<gruppe>/docker/<rest> (gruppe in {data|control-plane|valkey|rabbitmq|seaweedfs|identity|observability|routing}).
+SCHRITTE:
+ 1. Integraere einen PRUEF-Zweig probe/int0427:
+      git fetch origin develop pull/1245/head pull/1239/head refs/heads/work/gh-ci-core
+      git checkout -b probe/int0427 origin/develop
+      git merge --no-ff origin/<#1245 branch head>   # = refs ... docker_engine fix (c201c516)
+      git merge --no-ff origin/work/gh-ci-core        # #1239 ci.yml+system-daemon script  (disjunkte Dateien -> clean)
+    Konflikte nur in deinen Merge-Dateien loesen; KEINE Produktlogik neu schreiben.
+ 2. Push als Validierungs-Ref, damit der Push-Mode native docker-Job feuert:
+      git push origin probe/int0427:refs/heads/runtime-validation/ha/control-plane/docker/int0427
+    (gruppe 'control-plane' waehle eine existierende valide HA-Gruppe; wenn die Suite sonst was braucht, nimm 'identity'.)
+ 3. Beobachte den Run 'CI · runtime-validation/ha/control-plane/docker/int0427' -> Job 'Targeted HA · docker'
+    (gh run list --branch ... ; gh run watch). Run-ID + terminalen Status + bei Fehlschlag die FEHLERZEILEN
+    (docker endpoint? 'no fallback'? container error?) in Evidence. Das ist der ENTSCHEIDENDE Nachweis.
+ 4. Wenn GRUEN: notiere als Beweis, dass Endpoint+#1239 die Kette auf GH-hosted oeffnet. Wenn ROT wegen
+    rootless-unavailable ODER endpoint: melde exakte Zeile + welche Komponente (#1245 vs #1239) nachzieht.
+ 5. Rueckaufraumen: Loesche den Runtime-Validation-Ref nach der Feststellung NICHT heimlich — laeuft der Job noch,
+    warte auf terminalen Zustand, dann git push origin :refs/heads/runtime-validation/... zum Aufraeumen.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/native-probe/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE native-probe: <GRUEN|ROT> + Run-ID + Job 'Targeted HA docker' status + (bei rot) Fehlerzeile/Komponente"

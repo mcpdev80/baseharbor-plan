@@ -1,0 +1,12 @@
+MISSION review-A — Unabhängiges REVIEW der Punkte #1240 und #1241 (NUR lesen, nichts editieren)
+Read-only Review-Lane. Kein Produktcode aendern. Ziel: Kandidaten gegen Task-Vertrag pruefen + loesbares Rezept liefern.
+PR #1240: openbao->postgres TLS/SASL (stack.go / openbao_runtime_prepare.go). PR #1241: runtime-neutrale Engine-
+Erkennung (cmd/baha/docker_engine.go + Podman-Test).
+Vorgehen je PR (via gh api pulls/<n>/files + diff):
+ - SHA-genauer Diff gegen develop; Write-Set korrekt/disjunkt? Keine Security-Downgrade (ssl=off/trust/verify-none)?
+ - Fail-closed beachtet? Test deckt den neuen Fall ab? Repo-Regeln (§2.3, §2.7, §4.7) eingehalten?
+ - Evidence-Datei vorhanden/plausibel?
+Ergebnis: baseharbor-plan/evidence/board-2026-10-31/review-A/REVIEW.md — je PR ein Verdict {APPROVE-WARTEND-GREEN |
+CHANGES: <Datei/Aenderung/Test/Stop-Kriterium>} + ROLLE:REVIEW + Session/Modell/Zeit. NICHTs mergen/approven —
+nur Urteil+Rezept. Akzeptanz ist Coordinator/Codex nach echtem gruuen Lauf.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE review-A: #1240=<verdict> #1241=<verdict>"

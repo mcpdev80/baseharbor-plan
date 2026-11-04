@@ -1,0 +1,40 @@
+ROLLE: Worker (Lane w15-delivery-retention). Coord f49a3303. AUFGABE: 1 code-PUNKT + 4 WORTLAUT-Stellen
+PR #1333 (t-20261018-r27-delivery-boundary). Basis = head 87003125 auf work/r27-delivery-boundary.
+Grundlage: review-1333k.md rezepte 1+2. Du formulierst die doku-stellen NICHT um — ersatztexte beschlossen.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin +refs/heads/work/r27-delivery-boundary:refs/remotes/origin/work/r27-delivery-boundary +refs/heads/develop:refs/remotes/origin/develop
+  git -C baseharbor worktree add /tmp/opencode/w15-delivery-retention-wt work/r27-delivery-boundary
+
+TEIL A — CODE (internal/deployment/deployment_store.go Retention-pfad ~232-248):
+  Der block `if record.DesiredProviderPreferences == nil { if previousExists { prev, retErr := load…;
+  if retErr == nil {…} } }` VERSCHLUCKT jeden Loader-Fehler: ein vorheriger datensatz, den der
+  VOLLE loader ablehnt (invalid selection/remote-project), fuehrt zu stille retention-Auslassung =
+  Preferences-Verlust + umgangene identitätsprüfung. FIX: wenn previousExists und retErr != nil =>
+  return fmt.Errorf("cannot retain preferences: previous record unreadable: %w", retErr) (fail-closed).
+  previousExists selbst bleibt wie gehabt (raw-file existiert). IDENTITÄTS-vergleich (ApplicationID/
+  Environment) bleibt. REGRESSIONEN (guard-test-datei): 1) previous mit invalidem persisted selection
+  + nil-preferences save => save wird abgelehnt, datei unveraendert (preferences noch da);
+  2) previous mit ungueltigen remote-project-daten => dasselbe; 3) kein previous (erster save) =>
+  nil-preferences save erlaubt wie bisher; 4) identity-mismatch => bestehender fehlerpfeld unveraendert.
+
+TEIL B — DOKU, VIER WORTLAUT-STELLEN (dateien docs/decisions/0022-*.md + docs/de/decisions/0022-*.md):
+B1. EN ersetze exakt die zeile
+    "  `internal/deployment.SaveDeploymentRecord` reads the authoritative persisted owner before any state is written and fails closed."
+    DURCH
+    "  `internal/deployment.SaveDeploymentRecord` reads the persisted owner and the recorded conflict flag before writing state; a recorded conflict refuses the save fail-closed."
+B2. DE füge nach der zeile "`Selection.Normalize`; darin liegt keine Bestätigung irgendeiner externen Aktivität." eine
+    neue sub-bullet-zeile ein:
+    "  `internal/deployment.SaveDeploymentRecord` liest den persistierten Besitzer und die protokollierte Konflikt-Flagge vor dem Schreiben; ein protokollierter Konflikt weist das Speichern fail-closed ab."
+B3. EN ersetze im Trade-offs-bullet exakt "The invariant is checked at observation time;" DURCH
+    "The invariant is checked at record-save time;"
+B4. DE ersetze im Nachteile-bullet exakt "Der Invariant wird beim Beobachtungszeitpunkt geprüft;" DURCH
+    "Der Invariant wird beim Speichern des Datensatzes geprüft;"
+
+ANSENDE-PFLICHT: merge origin/develop (is-ancestor rc=0 beweisen); write-set grep-leer (.github/scripts).
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery + go build ./... + go vet.
+push FF, ls-remote==head, keine run-logs, END an f49a3303:
+"END_DONE w15-delivery-retention: head=<sha> retention-failclosed=4tests | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r11.md (plain bullets,
+KEINE checkboxen — schema-regel).
+STOP: wortlaute exakt so; bei abweichender fundstelle END_BLOCKED mit datei:zeile; kein Merge.

@@ -1,0 +1,23 @@
+NUDGE-2 gh-ci-core (Coordinator) — Runner-spezifische Logik fällt, Rootless-Ansatz auf GH-hosted nicht nötig:
+Owner-Regel 4: "Behalte benötigte Isolation/Setup-Funktionen und entferne nur nachweislich überflüssige Runner-
+spezifische Logik." Ubuntu-latest bringt einen funktionierenden SYSTEM-docker Daemon (rootful, vorinstalliert,
+"docker run --rm hello-world" out-of-the-box). Rootless war nur auf UNSEREN self-hosted Boxen nötig, weil dort
+github-runner keinen Zugriff auf rootful-socket hatte. Auf GH-hosted ist der SYSTEM-daemon für uid 1001 direkt
+benutzbar -> KEIN Rootless-Setup, KEIN sysctl-Tunable, KEIN cgroup/polkit-Kampf.
+
+Konkrete Korrektur:
+1. `scripts/ci-core-rootless-runtime.sh`: auf GH-hosted (Erkennung: kein self-hosted-label-Kontext, Ubuntu>=22)
+   NICHT rootless aufbauen. Stattdessen nur verifizieren, dass der Vorinstallierte Daemon funktioniert:
+   `docker version` und `docker run --rm hello-world` mit SYSTEM-socket (kein DOCKER_HOST-Override). Für podman
+   analog: system-podman via `podman info` (rootful podman ist auf ubuntu-latest nicht vorinstalliert -> dort
+   apt-get podman ist OK, rootless-Pfade raus, `podman run --rm docker.io/library/hello-world` als Smoke).
+2. Der sysctl-Tunable + dockerd-rootless-setuptool.sh install fallen raus (überflüssig auf GH-hosted).
+   Falls der Skript-Pfad für lokale Homelab-Smoke-Tests bewahrt werden soll: in einem `if is-self-hosted-runner`
+   Zweig — aber nicht für den CI-Required-Pfad.
+3. Doctor-Test `test_ci_docker_runtime_doctor.py` anpassen: GH-hosted = "system daemon" erwartet (nicht rootless);
+   self-hosted = "rootless ok" Zweig optional. Keine assertNotIn-Kollision mehr, wenn der sysctl-Pfad raus ist.
+4. PR #1239 neu ausrollen, validate + PR Selected Checks laufen mit dem vereinfachten Pfad; Ziel: docker-HA auf
+   ubuntu-latest ECHT grün ohne Rootless-Ring.
+
+Wenn du der Meinung bist, das ist ein Rückschritt gegenüber Owner-Regel 3 (Coverage bleibt als GitHub-hosted
+Pflicht-Gate), begründe kurz mit einer Zeile; sonst: implementieren, pushen, Run beobachten, END.

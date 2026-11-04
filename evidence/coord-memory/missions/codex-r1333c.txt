@@ -1,0 +1,20 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head d2a88e09 (branch work/r27-delivery-boundary) = t-20261018-r27-delivery-boundary,
+RE-REVIEW nach review-1333b.md (Guard glaubte Mitlieferungsfelder).
+NEU: SaveDeploymentRecord rueckt jetzt refuseOneWriterMutation VOR das Schreiben, Kommentar belegt
+Ableitung aus persistiertem Vorgaenger-Owner (recordBackendPlacementOwner). PRUEFEN (SHA-genau,
+read-only, keine CI-Run-Logs):
+1. Nachweis dass die Observed-Felder WIRKLICH aus dem persistierten Record kommen (Code-Pfad, nicht
+   Kommentar): Angreifer setzt record.Observed.Owner="" oder fremd im Aufrufer — gewinnt der Store-Wert?
+   Existiert der dazugehoerige negative Test (STEP 3 der Mission) und laeuft er (TMPDIR=/tmp
+   go test ./internal/deployment ./internal/delivery)?
+2. cmd/baha/application_backend_placement_owner.go im Diff: ist die Datei auf develop bereits vorhanden
+   und hier nur modifiziert, oder NEU? Wenn NEU/ueberfluessig: Befund (fremdes Write-Set? Begruendung
+   der Lane gegen die Karten-Note pruefen).
+3. ADR EN/DE Zeitformen ehrlich bezogen auf 1? DE-Negationen.
+4. HISTORIE: origin/develop..head zeigt 4 Commits inkl. be6ce48f-Kette (5a7848ca/1efe43a3/1efe...) aber
+   NICHT den sauberen Einzel-Commit — pruefe ob 8a2aa75f (authority) darin steckt (rc-Test) und
+   markiere ggf. als Nicht-blockierenden Hygiene-Befund mit Rezept (reset -B auf develop + 1 Content-Commit),
+   getrennt vom inhaltlichen Urteil.
+Urteil -> review-1333c.md (ROLLE: REVIEW, ACCEPT|REJECT + Rezept). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333c: verdict=<X> hist=<clean|hygiene> | <Satz>"

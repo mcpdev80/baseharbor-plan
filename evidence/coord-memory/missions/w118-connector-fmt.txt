@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w118, KLEINRUNDE). Coord f49a3303. REPO: baseharbor-node-connector, zweig
+work/r27-node-service, PR #19, kopf 78b3c4f.
+Einziger fehlender nachweis: gehosteter job "source" -> step "Verify exact candidate source formatting" ist ROT
+(run 41839096924). AUFGABE: (1) auf dem kopf `gofmt -l .` + die vom step erwartete prüfung exakt nachbauen
+(den step-namen im workflow NUR LESEND ansehen — KEINE .github-aenderung), (2) die betroffenen dateien NUR
+formatieren (kein inhaltsumbau, kein rename, KEIN behavior-change), (3) go vet + go build + fokussierte
+pakettests, (4) letzter schritt origin/main Vorfahr, push, ls-remote==head, dann den source-job bis TERMINAL
+beobachten und das ergebnis in die evidence.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/format-1.md (datei-liste + vorher/nachher
+des source-jobs; keine checkboxen).
+END an f49a3303: "END_DONE w118-connector-fmt: head=<sha10> formatted=<n dateien> source-job=<gruen|rot+grund> lsremote=<sha10> | <Satz>"

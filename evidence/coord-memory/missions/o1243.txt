@@ -1,0 +1,30 @@
+MISSION o1243 - Advance PR #1229 core-390 service-binding (internal/capability) qualification
+Repo: mcpdev80/baseharbor. Worktree: git worktree add under workers/worktrees/o1243 -b
+work/v0.4x-core-390-binding-r1243 origin/develop ; apply existing #1229 candidate (branch
+work/v0.4x-core-390-binding-enforcement @ df1c9dac88) rebased onto current develop cb6b7387.
+Evidence: coordinator/evidence/board-2026-10-31/o1243.md.
+STEP 0 read coordinator/AGENTS.md, RUNBOOK, baseharbor docs/DEVELOPMENT_GUIDELINES, and the plan card
+  (python3 baseharbor-plan/scripts/plan.py for core-390). Files ONLY: internal/capability/lifecycle.go,
+  internal/capability/service_binding.go, internal/capability/service_binding_test.go,
+  contracts/binding/v1/service-binding.schema.json, contracts/contracts_test.go. Do NOT touch
+  ci.yml/pr-gate-plan.py (o1241) or internal/runtime (o1242). No gate weakening; a skip is never a pass.
+
+CONTEXT: #1229 fails "PR Selected Checks". codex-d25 earlier classified it: capability files
+  (internal/capability/lifecycle.go, service_binding.go, service_binding_test.go) coverage-unresolved
+  + "missing required gate: integration/static/public-contracts". The public-contracts gate is the
+  receipt-approval chain that #1226 enforces for contracts/** (NOT yet merged to develop). So the
+  contracts/** portion may be blocked on the cutover; the internal/capability Go enforcement change
+  can still be reviewed + regressed independently.
+
+GOAL:
+ 1. Rebase onto develop; confirm go build ./... and go test ./internal/capability/... pass; add/verify a
+    focused regression proving well-known output names are enforced at the capability boundary
+    (the core-390 contract). Run go vet ./internal/capability/.
+ 2. Classify the PR Selected Checks fail precisely: which part is capability coverage (fixable here,
+    e.g. a test that actually executes the changed capability effect) vs the public-contracts gate that
+    genuinely depends on #1226 not yet on develop. Document file:line for each.
+ 3. Make the capability-code coverage resolve honestly WITHOUT touching the gate or the contracts
+    receipt chain. If the ONLY remaining blocker is the not-yet-enforced public-contracts gate (#1226),
+    END BLOCKED with that dependency stated (next trigger = #1226 merged) - do not fabricate the gate.
+END: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "<END_DONE|END_BLOCKED|QUESTION> o1243:
+  <one line + candidate SHA + which blocker: capability-coverage | public-contracts(#1226)>". Do NOT merge.

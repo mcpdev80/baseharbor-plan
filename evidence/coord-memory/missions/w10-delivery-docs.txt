@@ -1,0 +1,28 @@
+ROLLE: Worker (Lane w10-delivery-docs). Coord f49a3303. MIKRO-AUFGABE: zwei Nebensatz-Wendungen in
+ADR 0022 (EN+DE), PR #1333 (t-20261018-r27-delivery-boundary). Basis = head 6df94554. NUR die zwei .md.
+
+ZUERST LESEN: review-1333g.md (befund "EN und DE invertieren Bedingung").
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w10-delivery-docs-wt work/r27-delivery-boundary
+
+FIXES (exakt):
+- DE :34-35 (satzueberlauf): statt "...während genau ein Besitzer in portable Intent ausdrückbar ist."
+  -> "...solange nicht bereits mehr als ein Besitzer in portable Intent ausdrückbar ist; ist genau
+  EIN Besitzer ausdrückbar, gilt die Aufnahmebedingung dieses Beschlusses." (sinngemäss: guard
+  greift, bevor/SOBALD Eindeutigkeit NICHT mehr etabliert ist — prüfe den EN-Originalsatz :33-34 und
+  formuliere BEIDE sprachen logikgleich: Ablehnung erfolgt, wenn die Eindeutigkeitsbedingung nicht
+  (mehr) erfüllt ist.)
+- DE :38: "verweigert sich, WÄHREND ein externer Versöhner bereits besitzt" -> "verweigert sich,
+  WENN/SOBALD ein externer Versöhner bereits besitzt".
+- EN :33-34 + :39: dieselbe logikprüfung (while -> if/unless je nach sinn), BEIDE dateien bleiben
+  wörtlich paritetisch.
+KEINE anderen absaetze, KEIN code.
+
+PFLICHT-NACHWEIS (Neu, Regelfall nach l12-vorfall): git log -1 zeigt deinen commit AUF dem branch;
+git diff 6df94554..HEAD -- docs/ DARF NICHT leer sein; git ls-remote origin refs/heads/work/r27-delivery-boundary
+== dein neuer sha. Erst DANN END:
+codeman agent post f49a3303 "END_DONE w10-delivery-docs: head=<sha> diffproof=<lines> | <Satz>"
+Evidence: .../delivery-boundary/fix-r7.md (plain bullets). ANSENDE: merge develop, grep-LEER beweis.
+STOP: kein Merge; keine anderen dateien.

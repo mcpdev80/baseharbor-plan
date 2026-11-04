@@ -1,0 +1,49 @@
+ROLLE: Worker (Lane w16-delivery-final). Coord f49a3303. AUFGABE: 1 code-kante + 2 WORTLAUT-bullets
+PR #1333 (t-20261018-r27-delivery-boundary). Basis = head 20f93e9a auf work/r27-delivery-boundary.
+Grundlage: review-1333l.md rezepte. Doku-satzteile sind BESCHLOSSEN — kein umformulieren.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-delivery-boundary:refs/remotes/origin/work/r27-delivery-boundary" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w16-delivery-final-wt work/r27-delivery-boundary
+
+TEIL A — CODE (internal/deployment/deployment_store.go retention-pfad):
+  1. ENOENT-AUSNAHME RAUS: wenn previousExists und der retention-loader irgendeinen fehler gibt
+     (auch os.ErrNotExist — record ist zwischen guard-load und retention-load verschwunden) =>
+     return error (fail-closed). Kein stiller fallback.
+  2. REGRESSIONEN VOLLSTAENDIG (review zaehlt nur 2 neue; angesagt waren 4) in der guard-test-datei,
+     JEDE mit BYTE-STABILITAETS-assertion (vorher datei-contents lesen, nach abgewiesenem save
+     vergleichen, identisch):
+     r1 previous mit invalidem persisted selection + nil-preferences save => abgewiesen, bytes gleich
+     r2 previous mit ungueltigen remote-project-daten => abgewiesen, bytes gleich
+     r3 datei nach previousExists-pruefung entfernen (vanished) => save abgewiesen (ENOENT-Pfad)
+     r4 erster save ohne previous => nil-preferences erlaubt (unveraendert, als gegenprobe)
+     zusaetzlich identity-mismatch (ApplicationID anders, gueltiges previous) => bestehender fehlerpfad
+     greift + bytes gleich.
+
+TEIL B — DOKU, WORTLAUT (BEIDE dateien, erster Folgen-/Consequences-bullet komplett ersetzen):
+B1. EN — ersetze den KOMPLETTEN bullet von "- Two competing reconcilers" bis "...external activity."
+    (mehrere zeilen) DURCH exakt:
+    "- Saves are refused at record save when the recorded ownership state attests a competing active
+    owner — the persisted conflict flag is set, or the persisted owner is `external` for a direct save
+    (the one-writer guard in `internal/deployment`); this reads recorded state only, not live reconciler
+    activity, whose detection is deferred to `t-20261018-r27-authority-contract` and
+    `t-20261018-r27-state-owner`. Zero, absent or unrecognised persisted owner is treated as unset and
+    follows the `Selection.Normalize` direct default; it is not an attestation of any external activity."
+B2. DE — ersetze den entsprechenden bullet "- Zwei konkurrierende Versöhner" bis "...Aktivität." DURCH:
+    "- Speichern wird beim Datensatz-Speichern verweigert, wenn der gespeicherte Besitzstand einen
+    konkurrierenden aktiven Besitzer belegt — die protokollierte Konflikt-Flagge gesetzt ist oder der
+    persistierte Besitzer `external` für ein direktes Speichern steht (der One-Writer-Guard in
+    `internal/deployment`); dabei wird nur gespeicherter Stand gelesen, nicht lebende Versöhner-Aktivität,
+    deren Erkennung gemäß `t-20261018-r27-authority-contract` und `t-20261018-r27-state-owner`
+    zurückgestellt ist. Ein fehlender, leerer oder nicht erkannter persistierter Besitzer gilt als
+    ungesetzt und folgt der Direktvorgabe von `Selection.Normalize`; darin liegt keine Bestätigung
+    irgendeiner externen Aktivität."
+B3. DIE SUB-BULLET-ZEILE (SaveDeploymentRecord liest/reads ... fail-closed) bleibt, aber prüfe: falls
+    sie nach B1/B2 doppelt dasselbe sagt, lasse sie UNVERAENDERT (redundanz ist ok, widerspruch nicht).
+
+ANSENDE-PFLICHT (SHA-Beweise, nicht refs): fetch mit expliziten refspecs wie oben; merge origin/develop;
+BEWEIS merge-base --is-ancestor <ls-remote-Develop-SHA> HEAD rc=0. write-set grep-leer (.github/scripts).
+Tests: TMPDIR=/tmp go build ./... && go test ./internal/deployment ./internal/delivery. push FF.
+END an f49a3303: "END_DONE w16-delivery-final: head=<sha> byte-stable=5tests enoent=failclosed | <Satz>"
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r12.md (plain bullets,
+KEINE checkboxen). STOP: wortlaut B1/B2 exakt; bei fundstellen-abweichung END_BLOCKED mit datei:zeile.

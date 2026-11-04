@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w47). Coord f49a3303. KARTE: t-20261022-r27-ci-access. PR #1357, basis head
+195886cc branch work/r27-ci-access-ab. Grundlage: review-1357a rezept 1+3 (hosted CI SUCCESS bleibt
+gelten; nur TLS-Schicht war Stückwerk).
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w47-ci-access-b-wt work/r27-ci-access-ab.
+
+PUNKT 1 — ECHTES MUTUAL TLS IM TEST-SERVER (client_test.go :153-156/:220-225):
+  server-tls-config mit ClientCAs = pool der echten test-CA + ClientAuth: tls.RequireAndVerifyClientCert;
+  der handler prueft VerifiedChains NICHT-LERZ (statt "irgendein cert"). Dann ECHTE negativen:
+  (a) client ohne eigenes cert => handshake-fehler; (b) client mit cert einer FREMDEN CA => abgewiesen;
+  (c) positiver gegenprobe mit richtiger CA. Diese drei tests existieren derzeit nicht so.
+PUNKT 2 — behalte die bestehenden HTTPS/URL/CA/nicht-200 tests (sind gut), nichts entfernen.
+
+REGELN: write-set nur internal/runtimeexecutor/** (test-dateien; product client.go nur wenn
+verify-seite drin fehlt — dann begruendung in evidence); .github/scripts grep-leer; merge develop bei
+drift rc=0 ls-remote; TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 gruen + go build ./...;
+push FF; ls-remote==head; PR-STATUS nicht anfassen.
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-2.md (plain bullets, drei handshake-faelle).
+END an f49a3303: "END_DONE w47-ci-access-b: head=<sha> mtls=verify-chain negatives=3 | <Satz>"
+STOP: product-änderung ueber verify-hinweis hinaus => END_BLOCKED.

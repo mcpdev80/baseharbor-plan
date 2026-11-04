@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w108, BASIS-REFRESH + ein inhaltlicher zweig). Coord f49a3303.
+ANLASS: develop ist auf bb9bc0ef (journal-merge). Fuenf zweige brauchen die neue basis BEVOR sie abgeschlossen
+geprueft werden (kein doppeltes review auf gleichem kopf). Ein zweig braucht zusaendlich die eigentliche arbeit.
+ZWEIGE (reihenfolge):
+ 1) work/r27-profile-codec            (#1363, kopf d68251ee)
+ 2) work/w92-team-auth-claim-mapping  (#1369, kopf bfaddb37)
+ 3) work/r27-native-auth              (#1362, kopf 0958107f)
+ 4) work/r27-candidate-contract       (#1355, kopf bed00516)  <- enthaelt owner-commits, inhalt heilig
+ 5) work/w96-production-wiring-f8ef4255 (#1371, kopf af05b198) — Anmeldung, falls schon auf bb9bc0ef: kurz
+    bestaetigen und weiter.
+ 6) clean-delivery (#1334, kopf 7c4834bf) — HIER zusaendlich: der zweig wurde zweimal als "erledigt" gemeldet,
+    ohne dass irgendetwas gepusht war. Du machst die arbeit WIRKLICH: merge origin/develop, konflikte nur im
+    7er-write-set (docs/spec + docs/decisions + internal/delivery/contract_test.go), dann
+    go test ./internal/delivery -count=1 + build + gofmt + vet, push, ls-remote==head. Wenn develop am
+    ADR-0022-text etwas anderes tragt als der zweig: STOP + MELDEN mit datei:zeile, NICHT still umformulieren.
+PRO ZWEIG: eigenes verzeichnis /tmp/opencode/w108-<kurz>-wt; fetch origin; merge origin/develop; passende
+kurze pruefung des betroffenen pakets; push auf DENSELBEN zweignamen; ls-remote-zeile protokollieren.
+KEIN rerun, KEIN gh pr edit/ready/close, KEIN neues PR, KEINE .github-aenderung, KEIN produkt-refactoring.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/base-refresh/round-2.md — tabelle je zweig
+(alter kopf -> neuer kopf, merge rc, testergebnis, ls-remote) + eigener abschnitt fuer zweig 6.
+END an f49a3303: "END_DONE w108-base-refresh: refreshed=<n>/6 konflikte=<liste|keine> stops=<liste|keine> | <Satz>"

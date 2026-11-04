@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w41). Coord f49a3303. KARTE: t-20261022-r27-ci-authority — LIES die karte
+vollstaendig (slices: authority-contract/state-owner/mutation-lock/execution-journal/journal-wiring/
+app-binding/candidate-ingress/management-host). OWNER-DIREKTIVE 2026-11-03 17:45: vier lanes immer,
+produktseitige qualifikation erlaubt — Gate-/workflow-dateien (.github/**, scripts/**) bleiben
+UNANTASTBAR (owner-CI-Strom). Arbeitsinhalt daher: NUR die produktseitige Test-/Fixture- und
+Ergebnisbehandlung fuer die genannten slices (W1-W2 muster der karte), referenziere bestehende
+laeufe statt neue zu erfinden.
+ERSTE AKTION: fetch origin "+refs/heads/develop:refs/remotes/origin/develop"; worktree
+/tmp/opencode/w41-ci-authority-wt branch work/r27-ci-authority-ab develop.
+LIEFERGUT: domain-local fixtures/adapter-pruefungen die zeigen, dass die slices auf dem aktuellen
+develop echte ergebnisse liefern (fehlend/defekt => sichtbarer fehler, nicht skip). Nur test-/fixture-
+dateien unter internal/** und testsupport/**.
+REGELN: write-set grep .github/scripts leer; merge develop bei drift + ancestry rc=0 ls-remote-SHA;
+TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go build ./... + betroffene pakete; PR DRAFT; ls-remote==head.
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/ci-authority/qualify-1.md (plain bullets, je
+slice: referenz+ergebnis). END an f49a3303. STOP: wenn ein slice OHNE gate-datei nicht qualifizierbar
+ist => END_BLOCKED mit slice+grund (das ist dann owner-CI-punkt, nicht deiner).

@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane w114, VM-PFLEGE — deine aufgabe ist ordnung, nicht produktcode). Coord f49a3303.
+FELD: die zwei TEST-VMs des oekosystems (ssh-aliases baha-docker, baha-podman). Zugangsdaten kommen aus der
+owner-umgebung, du setzt keine. AGENTS 5.6: keine secrets in evidence, keine commands die datenvernichtung
+ohne nachweis sind.
+BEKANNTER AUSGANGSSTAND (coord-read, 15:3x):
+ - baha-docker: disk 35%; images 84 (9.27 GB reclaimable), build cache 964 MB reclaimable, 18 gestoppte
+   container, ein unbenannter container "great_poincare" Up 15h.
+ - baha-podman: disk 54%; images 10 (1.89 GB reclaimable), 9 container ALLE aktiv (shared-stapel, 2 wochen).
+AUFGABE PRO HOST:
+ 1) IST-ZUSTAND erheben und in der evidence ablegen (df, system df, ps -a mit namen+status, neueste 3 logs je
+    gestopptem stapel kurz).
+ 2) SICHER aufräumen: dangling images prune, build-cache prune (docker), gestoppte container die eindeutig zu
+    nicht mehr existierenden zweigen/geprueften laeufen gehoeren (name + created vor >48h) entfernen. Vor JEDEM
+    loesch-schritt: die betroffene liste in die evidence (name, alter, groesse), DANN der befehl, DANN das
+    nachher-bild (system df vorher/nachher).
+ 3) UNBEKANNES NICHT anfassen: alles was HEALTHY oder aktiv ist (shared keycloak/postgres/openbao-stapel),
+    bleibt unveraendert. Der unbenannte "great_poincare": ZUERST identifizieren (image, cmd, mounts, startzeit)
+    und nur melden, NICHT loeschen — OWNER entscheidet, weil fremde arbeit sein kann.
+ 4) BEIDE hosts kurz funktionstuechtig pruefen: ein bestehendes kleines bild neu taggen + entfernen (kein
+    download), bzw. `podman run --rm <vorhandenes bild> true` rc=0.
+KEIN redeploy, KEIN stack-start/-stopp, KEINE aenderung an .github/workflows oder runner-configuration
+(owner-feld; nur github shared runner).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-hygiene/sweep-1.md (pro host: vorher/nachher,
+geloeschte namen, befehle, unbeachtet gelassenes + begruendung).
+END an f49a3303: "END_DONE w114-vm-hygiene: freed=<docker MB>/<podman MB> unknown=<liste|keine] untouched=<begruendet> | <Satz>"

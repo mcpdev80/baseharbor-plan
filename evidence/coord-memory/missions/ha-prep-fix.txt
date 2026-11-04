@@ -1,0 +1,26 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/ha-prep-fix  (Repo baseharbor)
+MISSION ha-prep-fix — EIN EINZILER Workflow-Hygiene-Fix (bewiesene Luecke, KEIN Feature, KEIN neues Gate):
+  targeted-integration.yml Job 'Targeted runtime' (~Zeilen 1103-1153): als einziger schwerer Job hat er
+  nur 'Prepare hosted Podman runtime', aber KEINEN 'Prepare verified rootless runtime'-Schritt fuer den
+  docker-Zweig der Matrix. Folge (bewiesen run 41318456394, job 124883413744): aktiver Docker-Context wird
+  nie gesetzt -> Engine-Wahl faellt auf rootless-Sockel -> 'unix:///run/user/1001/docker.sock unavailable;
+  no fallback' FAIL in 0.39s, etcd/Patroni werden nie erreicht. Alle anderen schweren Jobs rufen
+  'bash scripts/ci-core-rootless-runtime.sh' auf (vgl. Zeilen 73/144/182/225/274) — genau das soll der
+  docker-Zweig dieses Jobs auch tun.
+SCHRITTE:
+ 1. Branch work/ha-prep-fix auf AKTUELLEM origin/develop (>=5777c02d).
+ 2. Minimaler Patch: im Job 'Targeted runtime' direkt nach 'Set up job'/ vor 'Checkout exact candidate'
+    (Position wie in den参照-Jobs): Schritt 'Prepare verified rootless runtime' mit
+    'if: matrix.runtime == ''docker'' && startsWith(github.ref_name, ''runtime-validation/ha/'')' und
+    'run: bash scripts/ci-core-rootless-runtime.sh' — EXAKT die Semantik der参照-Jobs kopieren (falls die
+    dort ohne if laufen, dann auch hier ohne if; begruende in Evidence, was die参照-Jobs tun).
+    YAML validieren: python3 -c 'import yaml;yaml.safe_load(open(".github/workflows/targeted-integration.yml"))'.
+ 3. PR gegen develop, Titel 'ci(targeted-integration): prepare runtime context in Targeted runtime job (parity fix)'.
+    Body: Run-Beleg 41318456394 + Liste der参照-Jobs mit Zeilennummern.
+ 4. Eigenes-Run-Pflicht: PR-Checks bis terminal ('PR Selected Checks' muss success werden — es ist der
+    einzige Required-Check der develop-Ruleset, hart verifiziert). Kein Merge (andere Lane/Owner).
+ 5. Evidence (plain bullets): baseharbor-plan/evidence/board-2026-11-01/ha-prep-fix/evidence.md + Karte via
+    scripts/plan.py new (NICHT von Hand), check => 0 errors.
+EXKLUSIVES WRITE-SET: genau diese eine Workflow-Datei + Evidence. KEIN Produktcode, KEIN anderes File,
+  KEIN Gate-Skip, keine matrix-Umbauten.
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED ha-prep-fix: PR=<nr> head=<sha> SelectedChecks=<green|run-id> | <Grund>"

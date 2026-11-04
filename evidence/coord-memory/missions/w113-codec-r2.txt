@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w113). Coord f49a3303. KARTE: t-20261018-r27-profile-codec. REPO: baseharbor (core),
+zweig work/r27-profile-codec, PR #1363, kopf 0eb8f231 (develop bb9bc0ef ist Vorfahr — du arbeitest darauf).
+Luna review-1363a REJECT (akte = baseharbor-plan/evidence/r27-night-2026-11-02/review-1363a.md — VOR dem
+coding vollstaendig lesen). Sechs rezepte:
+(1) contracts/managementaccess/v1/store.go: JEDES importierte/exportierte record gegen kanonische
+    record-VERSION und normative schema PRUEFEN, bevor geschrieben wird; erwartete bindung an
+    installation/empfaenger/scope/trust als EINGABE des stores, abweisung VOR nebenwirkungen; credential-
+    haltige URLs und secret-material in ALLEN serialisierten feldern (auch recipient/destination path)
+    ablehnen. ValidateKindEnforcement ersetzt KEINEN schema-/bindings-check.
+(2) decode mit UNBEKANNTE-FELD-ABLEHNUNG (auch verschachtelt) ODER verlustfreie erhaltung unter dokumentierter
+    forward-compat-regel. ADVERSARISCHE tests: echter secret-canary + unbekanntes zukunfts-feld; typisierte
+    ablehnung oder dokumentierte erhaltung, und assert: kein secret in export-bytes.
+(3) kanonisches container-format + ECHTER import->export round-trip; feld-/record-reihenfolge in einer
+    regression festhalten; golden fixture folgt der kanonischen darstellung.
+(4) transaktional = WIRKLICH atomar: Import nutzt jetzt os.WriteFile direkt und kehrt bei fehler ohne
+    aufraeumen zurueck => partial-write hinterlaesst nichts (test), conflict-replace prueft dass das
+    ALTRE record ersetzt ist (nicht nur Replaced==1).
+(5) docs/spec/credential-access-v1.md UND docs/de/spec/credential-access-v1.md zusammen so dass payload-/
+    envelope-semantik und outer-container-schema dem modell EXAKT entsprechen.
+WIEDERHOL-PFLICHT am korrigierten kopf: alle sieben gegenproben (secret, unknown-field, bad version,
+wrong installation/recipient/scope, kanonischer round-trip, partial-write, conflict-replace) + pakettests,
+build, vet, gofmt. PR am ende READY setzen (coord-flip) — bis dahin draft, gates NICHT als gruen melden ohne
+beobachteten terminalen lauf (Eigenes-Run-Pflicht).
+GRENZE: KEIN .github/, keine workflow-/runner-aenderung (owner-feld), kein cmd/baha, kein internal/delivery.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/round-2.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w113-codec-r2: head=<sha10> gegenproben=<n>/7 lsremote=<sha10> | <Satz>"

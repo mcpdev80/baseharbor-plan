@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head f58fb180 (develop Vorfahr nach rebasel; write-set .github leer; coord pre-
+checks: kein .Revoked()-call im fresh-pruefpfad, ObservedAt 35 diff-referenzen) = t-20261018-r27-
+authority-contract. RE-REVIEW nach review-1326c3 befunde 1+2(+3 doku).
+PRUEFEN (SHA-genau, read-only): 1. EINZIGER wahrheitskanal: Fresh ruft RevokedStatus GENAU EINMAL und
+verzweigt vollstaendig (revoked|err|unknown => ablehnung); kein zweifenster-fenster; regression dafuer.
+2. ObservedAt-frische durch den WRAPPER-pfad: zero/future/stale je e2e abgewiesen; coreinstallation.
+ObservedState.Fresh delegiert auf installauthority (single source). 3. doku: lock-verlagerungs-satz
+"behaviour-preserving relocation with per-caller regression tests" EN+DE. 4. Worker-behauptung
+"cmd/baha failures are environmental, fail on clean develop too" UNABHAENGIG pruefen: testlauf auf
+clean develop archiv vs head — falls head-MEHR fehlschlaegen => echter befund. 5. tests:
+TMPDIR=/tmp go test ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess
+./internal/stableid. Urteil -> review-1326d.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326d: verdict=<X> open=<liste|none> | <Satz>"

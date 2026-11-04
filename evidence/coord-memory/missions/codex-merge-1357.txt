@@ -1,0 +1,11 @@
+ROLLE: CODEX-MERGE (autorisiert durch ACCEPT-WITH-DEFERRAL in review-1357n.md; deferral qualify-14.md ist
+seit dieser minute erfuellt — nachlesen). Coord f49a3303. KANAL: GPT-6 Luna.
+AKTION: squash-merge PR #1357 (mcpdev80/baseharbor) head e86d39c0ea3e3c516500b87e4589135fbb50aa78 auf develop.
+VORHER (belege in merge-akte): ls-remote origin refs/heads/work/r27-ci-access-ab == e86d39c0; PR checks 0 fail
+terminal; merge-state clean; develop head notierst du (2cadfcee+). KEIN force, KEIN bypass, KEINE aenderung am
+branch. DANN: gh pr merge 1357 --repo mcpdev80/baseharbor --squash. DANACH: develop-lauf beobachten bis
+terminal (eigenes-run), neue develop-sha notieren.
+Ergebnis-akte: baseharbor-plan/evidence/r27-night-2026-11-02/merge-1357a.md (sha-vorher/nachher, run-id,
+squash-commit, PR state).
+END an f49a3303: "END_DONE codex-merge-1357: merged=<sha10> run=<id> develop=<sha10> | <Satz>"
+STOP:Merge-Konflikt oder neuer nicht-gruener pflicht-check => NICHTS tun, END_BLOCKED mit log.

@@ -1,0 +1,33 @@
+ROLLE: Worker (Lane w120). Coord f49a3303. KARTE: t-20261104-r27-consent-abort-leaves-undestroyable-state —
+CLAIM GESETZT UND PUBLSHT. REPO: baseharbor (core). BASIS: develop ecbb8854 (der Kandidaten-Vertrag mit dem
+Consent-Tor ist GEMERGT, genau darauf baust du). Letzter-Schritt-Regel: vor jedem push origin/develop als
+Vorfahr.
+
+FEHLER, WORTGETREU AUS DER KARTE: eine `app apply`, die vom Kandidaten-Consent-Tor abgewiesen wird (fehlendes
+oder falsches `--confirm-candidate`), hinterlaesst zustand, der spaetere operationen blockiert: `app destroy`
+auf derselben umgebung FAILT, und ein spaeterer apply mit gueltigem consent erreicht READY nur mit manueller
+nachhilfe. Beobachtet: ein unvollstaendiges deployment.json, dessen netzwerk KEINEN eigentrueger hat.
+Fail-closed heisst "abweisen ohne spur", nicht "abweisen und beschadigen".
+
+SCHRITTE:
+ 1) ROTER FIRST REPRO auf dem echten pfad (kein rein-funktions-unit): eine umgebung aufsetzen, apply mit
+    falschem digest => abweisung, DANN `app destroy --yes` => heute FEHLER. Beide ausgaben in die evidence.
+    Wenn du die umgebung nicht lokal hochbekommst (kein docker auf dieser VM): nutze den existierenden
+    test-helfer fuer lifecycle-umgebungen ODER laufe auf dem test-rechner baha-docker per ssh (SSH-alias ist
+    von der owner-umgebung bereitgestellt; du setzt keine Zugangsdaten).
+ 2) URSPRUNG FINDEN und mit datei:zeile in der evidence benennen: wo wird deployment.json geschrieben, bevor
+    das netzwerk/der eigentrueger feststeht, und wo bricht der pfad bei abweisung ab ohne rueckbau.
+ 3) FIX im write-set der karte (cmd/baha apply-/destroy-pfad + die zustandsdatei-erzeugung; KEIN .github,
+    KEINE consent-semantik umschreiben — die ist seit ecbb8854 gelandet und heilig): die abweisung muss
+    rueckbaufrei sein (entweder nichts schreiben, oder das geschriebene beim abort zuruecknehmen), sodass
+    destroy succeeds und der folgende gueltige apply READY erreicht.
+ 4) DAUERTESTS (keine regressions-loeschung): (a) refused apply => destroy rc=0, (b) refused apply =>
+    erneuter apply mit gueltigem digest => READY ohne manuelle nachhilfe, (c) unveraendert: fehlender digest
+    weist weiter ab und schreibt KEINEN als erfolgreich gemerkten zustand.
+ 5) go build ./..., gofmt, vet, `go test ./cmd/baha -run 'Consent|Candidate|Apply|Destroy' -count=1` und die
+    betroffenen pakettests. PR DRAFT auf develop, ls-remote==head WOERTLICH in die evidence, gates bis
+    TERMINAL selbst beobachten (Eigenes-Run-Pflicht; PR bleibt draft bis ich umleite).
+STOP: wenn der fix eine aenderung am consent-tor selbst oder an der kandidaten-vertrags-datei braucht =>
+HALT + MELDEN (thema ist owner-gepraegt), nicht selbst umdeklarieren.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md (bullets, keine checkboxen).
+END an f49a3303: "END_DONE w120-consent-abort: head=<sha10> pr=<n> repro=rot->gruen destroy=nach-abweisung-rc0 lsremote=<sha10> | <Satz>"

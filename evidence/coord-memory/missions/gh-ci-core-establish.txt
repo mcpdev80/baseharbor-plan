@@ -1,0 +1,13 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-ci-core  Branch work/gh-ci-core (Repo baseharbor; PR #1239, Basis war develop cb6b7387)
+MISSION gh-ci-core (ETABLIEREN) — PR #1239 auf aktuellen develop rebasen und den nativen Docker-Pfad auf GitHub-hosted ECHT lauffaehig machen
+KONTEXT (bewiesen, hat sich seit deiner letzten Runde erweitert):
+  - Die Produkt-Lane hat den Docker-Endpoint-Fix gelandet (PR #1245): docker_engine.go nutzt jetzt den AKTIVEN docker-Kontext (GH-hosted -> /var/run/docker.sock rootful). Der rootless-unmoeglich-Befund bleibt: auf ubuntu-latest gibt es NUR den System(rootful) daemon.
+  - Ein Gate-Mapping-Fix laeuft parallel (eine andere Lane aendert scripts/pr-gate-plan.py) — DU fasst scripts/pr-gate-plan.py NICHT an.
+DEIN EXKLUSIVES WRITE-SET: .github/workflows/ci.yml, .github/workflows/nextjs-greenfield-e2e.yml, scripts/ci-core-rootless-runtime.sh, scripts/test_ci_docker_runtime_doctor.py. NICHT scripts/pr-gate-plan.py (gate-map-Lane), NICHT internal/** (Endpoint), NICHT podman-Skripte (#1244/podman-gh).
+SCHRITTE:
+ 1. git fetch origin develop; rebase work/gh-ci-core auf AKTUELLEN origin/develop (behandle Konflikte in deinen Dateien; develop hat sich bewegt). Falls der Endpoint-Fix #1245 noch NICHT in develop ist, arbeite gegen develop-Stand und notiere #1245 als vorausgesetzte Abhaengigkeit fuer den gruuen native docker-HA-Lauf.
+ 2. In deinem ci-core-rootless-runtime.sh: stelle sicher, dass der Docker-Setup-Pfad auf GH-hosted den SYSTEM(rootful) daemon nutzt (docker context = system / /var/run/docker.sock), KEIN rootless (userns geht dort nicht). Dein Doctor soll den aktiven Daemon nachweisen (fail-closed: kein Daemon -> Fehler).
+ 3. Validiere, dass der GH-hosted "Targeted HA · docker"-Job (ubuntu-latest) mit deinem Skript + dem Endpoint-Code einen ECHTEN Container-Durchlauf schafft. Wenn dafuer #1245 noetig ist und noch nicht gemergt: das explizit als Abhaengigkeit dokumentieren + zeigen, dass DEIN Skript-Teil (system-daemon + doctor) auf GH-hosted eigenstaendig funktioniert (ein minimaler `docker run hello-world` Nachweis).
+ 4. actionlint + YAML-Check. Kein Gate/Timeout abschwachen. push auf work/gh-ci-core (PR #1239 aktualisiert sich), Runs beobachten (Eigenes-Run-Pflicht), Run-IDs festhalten.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/gh-ci-core/ (vorhandene ergaenzen)
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY gh-ci-core: <neuer 40-hex SHA + #1239-Status + docker system-daemon GH-hosted bewiesen? + Run-IDs>"

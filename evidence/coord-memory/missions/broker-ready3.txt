@@ -1,0 +1,16 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/broker-ready3 (Repo baseharbor; Basis origin/develop >=6624ad62)
+MISSION broker-ready3 — PRAEZISE (Vorgaenger-Lane hatte die Ursache gefunden, blieb aber stumm; Coord verifiziert):
+ Die Broker-Healthcheck in internal/runtimebroker/compose_render.go writeHealthcheck (Zeilen 258-266) faehrt
+ interval:5s timeout:5s retries:12 start_period:2s — Gesamtgnadenfrist ~57s. Der Broker braucht auf GH-Hosted
+ langsamer zum Hochfahren (mTLS/Identitaet) => Container bleibt 'unhealthy', /readyz-Warten (cmd/baha app apply,
+ app_baha.go:431 runtimebroker.RuntimeURL+"/readyz") laeuft in 120s-Frist auf. VORBILD IM REPO: internal/
+ application/mongodb_runtime.go:252-256 nutzt interval:5s timeout:10s retries:18 start_period:15s.
+SCHRITTE: 1) writeHealthcheck an das etablierte Muster annaehern (start_period 15s, timeout 10s, retries ~24 =>
+ Gnadenfrist ~135s), KEINE Logik-Aenderung sonst. 2) compose_render/broker-Tests anpassen (broker_test.go:383
+ prueft Healthcheck-Eigenschaften — nur where needed), 'go test ./internal/runtimebroker/... ./cmd/baha -run
+ Broker|Healthcheck' lokal. 3) Beweislauf lokal: broker compose-Rendering zeigen (vorher/nachher) — genuegt als
+ Maschine. 4) PR 'fix(runtime-broker): widen readiness grace to the established healthcheck pattern', PRSC bis
+ terminal. 5) Karte via plan.py new + claim.
+STOP: keine .github/workflows/* (Sweep-Eigentum #1258), keine anderen Provider-Dateien, kein subagent/codeman-Spawn.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/broker-ready3/evidence.md + ## PLAN + workers/todos/broker-ready3.json + todowrite.
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED broker-ready3: pr=<nr> head=<sha> | <Satz>"

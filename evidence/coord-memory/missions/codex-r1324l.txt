@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 34d7e11c (develop Vorfahr, net-diff write-set, .github/scripts/cmd leer) =
+t-20261018-r27-profile-contract. RE-REVIEW nach review-1324k.md — dessen PUNKT 1 (doku present-tense)
+wurde jetzt WIRKLICH geändert (commit auf server, diff c50747a5..34d7e11c zeigt die .md zeilen).
+PRUEFEN (SHA-genau, read-only):
+1. EN+DE credential-access-v1.md: kein Satz mehr, der aktuelle anchor-/installation-/same-CA-
+   VALIDIERUNG behauptet; formulierung = self-consistency des profilmaterials + recipient + window;
+   unabhängige bindung = future work (zwei karten genannt); WIDDERSPRUCHsfreiheit mit deferral-absatz.
+2. PUNKT 2 aus 1324k (testlauf durch disk-quota blockiert): fuhre go test ./contracts/managementaccess/v1
+   im isolierten archiv SELBST — wenn quota erneut blockt: melde exakt den fehler, urteile ueber die
+   uebrigen klauseln und vermerke den quota-punkt als NICHT-blockierenden infra-randbefund.
+3. finale matrix: ACCEPT-WITH-DEFERRAL wenn nur die drei dokumentierten deferrals offen sind.
+Urteil -> review-1324l.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324l: verdict=<X> open=<liste|none> | <Satz>"

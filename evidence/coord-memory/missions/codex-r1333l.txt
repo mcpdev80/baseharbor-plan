@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 20f93e9a (merge-commit 8c46bb18+9a57107f, develop jetzt Vorfahr SHA-bewaiesen;
+inhalt: retention fail-closed "previous record unreadable" + B1-B4 wortlaut + 4 regressionen) =
+t-20261018-r27-delivery-boundary. ABSCHLUSS-REVIEW nach review-1333k rezepten 1+2.
+PRUEFEN (SHA-genau, read-only): 1. retention-pfad: loader-fehler bei existentem previous => save
+abgewiesen, datei unangetastet (regressionen 1-4 fahren echten pfad); erster save unveraendert erlaubt.
+2. ADR EN/DE: folgen/teile ohne laufzeit-behauptung, record-save-formel, null/mehr-als-eins sprachlich
+gleich; sub-bullet EN+DE gleichsinnig. 3. finale klauseln: alle erfuellt oder formal-deferred =>
+ACCEPT-WITH-DEFERRAL mit deferral-liste; REJECT nur bei echtem befund. Tests: TMPDIR=/tmp go test
+./internal/deployment ./internal/delivery. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333l: verdict=<X> open=<liste|none> | <Satz>"

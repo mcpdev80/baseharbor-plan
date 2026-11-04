@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w94). Coord f49a3303. MIKRO-KORREKTUR PR #1362 (branch work/r27-native-auth head
+ed0c99b1). Hosted go-unit-tests failt GENAU zwei faelle: TestSSHAgentAvailableNoKey + TestSSHAgentAvailableWithKey
+(run 41804058880) — die tests vertrauen auf SSH_AUTH_SOCK-welt des laufers (krankheit wie bei der nahtstelle:
+umgebungs-erwartung statt isolation). FIX NUR IN TESTS: sshagent-test datei so isolieren, dass BEIDE richtungen
+determiniert sind: t.Setenv("SSH_AUTH_SOCK", pfad-zu-eigenem-socket-im-tempdir) fuer "with key" (eigner
+Mock-/Loopback-agent wie es die test-landschaft hergibt) und t.Setenv("SSH_AUTH_SOCK","")+unset-Schutz fuer
+"no key" — KEIN produkt-aenderung, KEIN skip, KEIN loeschen, erwartungen unveraendert (was der adapter bei
+agent-mit-/-ohne key liefern muss steht im vertrag). Rot-first: zeige beide faelle erst im gehaerteten
+runner-umfeld (sauberere HOME+kein SSH_AUTH_SOCK => wie hosted). basis: develop e3a0858e Vorfahr machen
+(fetch+merge rc=0, enthaelt die neuen owner-ci-commits). go test ./internal/credential/... -count=1 gruen;
+gofmt/vet leer; push; ls-remote==head; PR #1362 gates TERMINAL beobachten (source+selected: alle required gruen).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/native-auth/env-isolation-1.md (bullets).
+END: "END_DONE w94-nativeauth-env: head=<sha10> faelle=2/2 gehaertet lsremote=<sha10> | <Satz>"

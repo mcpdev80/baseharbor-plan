@@ -1,0 +1,4 @@
+MISSIONS-ERGAENZUNG (wiederhole falls queue-verlust): Owner-#1360 auf develop 2cadfcee = meta-gate-fix
+(matrix nur include-zeilen). Beide zweige erneut gegen origin/develop mergen, bauen, testen, pushen,
+ls-remote==head; PR-Selected-Checks auf 1357+1354 terminal beobachten; evidence basemerge-2x.md
+abschnitt "#1360-runde"; END_DONE w74-basemerge-two: access=<sha> journal=<sha> gate=gruen(2x)|rot(auszug).

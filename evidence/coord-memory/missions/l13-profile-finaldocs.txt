@@ -1,0 +1,41 @@
+ROLLE: Worker (Lane l13-profile-finaldocs). Coord f49a3303. MIKRO-AUFGABE: ZWEI SÄTZE机械isch ersetzen,
+PR #1324 (t-20261018-r27-profile-contract). Basis = head 34d7e11c. Du denkst nichts um — nur ersetzen.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-profile-contract develop
+  git -C baseharbor worktree add /tmp/opencode/l13-profile-finaldocs-wt work/r27-profile-contract
+Nur: docs/spec/credential-access-v1.md + docs/de/spec/credential-access-v1.md.
+
+KONTEXT: review-1324l.md — der Deferral-Absatz ist jetzt OK, aber derselbe absatz davor behauptet
+noch gegenwärtige unabhängige Anker-/Installationsprüfung. Code prüft NUR selbstkonsistenz +
+recipient + fenster.
+
+ERSETZUNGEN (exakt, wortgetreu so einfügen):
+1) EN — finde den satz der mit "Trust is validated through the existing `internal/hosttrust` anchor"
+   BEGINNT (bis zum ende desabsatzes um "rather than introducing a new trust root." / "same-CA rela..."):
+   ERSETZE ihn DURCH genau diesen einen satz:
+   "Within this contract, trust validation is self-consistency: the certificate material carried by a
+   profile is checked against the fingerprint inside the same profile, together with the request
+   recipient and the validity window; comparison against an independent anchor (for example via
+   `internal/hosttrust`) and installation binding are REQUIRED BY this contract but enforced only with
+   the follow-up work named in *Deferred interfaces* below."
+2) DE — finde den entsprechenden satz ("Die Vertrauen-Prüfung erfolgt über die vorhandene..." bzw.
+   sinngleiche formel mit "bestehende autoritative Oberfläche"/hosttrust-anker im prasens):
+   ERSETZE ihn DURCH:
+   "Innerhalb dieses Vertrags ist die Trust-Prüfung Selbstkonsistenz: Das von einem Profil getragene
+   Zertifikatsmaterial wird gegen den Fingerabdruck desselben Profils geprüft, zusammen mit dem
+   Empfänger der Anfrage und dem Gültigkeitsfenster; ein Abgleich mit einem unabhängigen Anker
+   (beispielsweise über `internal/hosttrust`) sowie die Bindung an eine Installation werden von diesem
+   Vertrag ERFORDERLICH gemacht, aber erst mit den in *Deferred interfaces* genannten Folgearbeiten
+   durchgesetzt."
+3) Kontext- sätze direkt davor Dahinter bleiben UNANGETASTET; wenn ein dritter satz im selben
+   absatz nochmal gegenwärtige selbe-CA-prüfung behauptet ("The same-CA rela..." fortsetzung):
+   kürze ihn auf "The same-CA relationship to `contracts/connection-profile/v1` is required by this
+   contract; its enforcement is deferred as named above." (DE sinngleich).
+
+PFLICHT-NACHWEIS: git diff 34d7e11c..HEAD -- docs/ NICHT leer; grep -c "validated through the existing"
+IM NEUEN HEAD == 0; ls-remote == dein head. go test ./contracts/managementaccess/v1 (unveraendert grün).
+ANSENDE: merge origin/develop + grep-LEER-hegweis write-set. push FF, END an f49a3303:
+"END_DONE l13-profile-finaldocs: head=<sha> grep0=yes | <Satz>"
+Evidence: .../profile-contract/final-docs.md (plain bullets). STOP: keine umformulierungen eigenen
+stils, kein Merge, keine anderen dateien.

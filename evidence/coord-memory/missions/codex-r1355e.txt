@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde5 (r1355d befehle umgesetzt).
+OBJEKT: PR #1355 (ready) head 41f937d2 (develop Vorfahr JA; EINE digest-quelle CandidateConsentDigest,
+raw nie persistiert, equalitaet hart vor write; prompt zeigt gebundenen digest; schema pattern
+hex40|hex64|algo:hex>=32 mit DisallowUnknownFields-mapper; common vector set go+schema; secret-ref am
+echten owner-feld; 3 decision-links auf existierende baseharbor-plan/decisions/-dateien (ls-verifiziert);
+0 geloeschte tests; scope-vermerk kartenseitig freigegeben). = t-20261018-r27-candidate-contract.
+PRUEFEN (SHA-genau, read-only): gegenproben: falscher-digest=>kein write; main-als-revision=>schema+go
+err; unknown-field=>mapper err; angezeigter==gebundener digest; links leben. Matrix => ACCEPT wenn
+traegt. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/delivery ./internal/application
+./contracts -count=1 -timeout 8m + go test ./cmd/baha -run 'Candidate|Consent|Apply' -count=1.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1355e.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1355e: verdict=<X> open=<liste|none> | <Satz>"

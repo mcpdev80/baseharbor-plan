@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head 0db72d35 (base develop) = t-20261018-r27-profile-contract, FINAL-REVIEW nach
+Deinem REJECT (review-1324.md, 5 Befunde) + Korrekturrunden (head 3799e932 Go-Interfaces, head 0db72d35
+Doku-Faltung in docs/spec/credential-access-v1.md EN + docs/de/spec/credential-access-v1.md DE).
+PRÜFEN (SHA-genau, read-only; KEINE CI-Run-Logs auswerten — Owner-Kanal, nur ls-remote/PR-head verifizieren):
+1. Befund 1: Schema kind-konditional fail-closed (export/storage/import Pflichten je Typ) + echte
+   Import-Verhaltens-Negative? 2. Befund 2: Trust-Hash==Zertifikatsfp, Empfänger-/Installationsbindung,
+   echte Datumsprüfung (abgelaufen/zukunft/malformed) executable? 3. Befund 3: callbare Go-Interfaces auf
+   Kartenpfad mit positivem+negativem Consumer-Test? 4. Befund 4: Kartenpfad jetzt credential-access-v1.md
+   EN+DE, DE-Negationen sinngleich, Kompatibilitätsaussage zu connection-profile/v1 + DR/Reuse dokumentiert?
+5. Befund 5: Fixtures mit generierten Test-Zertifikaten (echte Fingerprint-Bindung, keine echten Secrets)?
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1324b.md (ROLLE: REVIEW, ACCEPT|REJECT +
+Rezept falls REJECT, Session/Modell/Zeit + ls-remote-Zeuge). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE|END_BLOCKED codex-r1324b: verdict=<A|R> gaps=<none|liste> | <Satz>"

@@ -1,0 +1,19 @@
+NUDGE (Coordinator) — Schluss mit Lesen/Reasonen, JETZT entscheiden + implementieren. Du hast 2 Zyklen nur über
+Spilo-interns nachgedacht, 0 Dateien angefasst. Regel: EIN Fakt-Grep, dann Entscheidung, dann CODE.
+
+SCHRITT A (max 1 Befehl, Fakt holen statt raten):
+  grep -rn 'sslmode\|ssl_ca_file\|SPILO_CONFIGURATION\|postgres-ca\|verify-full\|verify-ca' internal/
+Das zeigt, WELCHE CA openbao sieht und ob Spilo eine eigene erzeugt. Entscheide die MINIMALE korrekte Variante:
+  - Wenn BaseHarbor bereits eine CA an Spilo weitergibt (mount/env): openbao connection_url sslmode=verify-full
+    sslrootcert = GENAU diese CA.
+  - Nur wenn Spilo objektiv eine NICHT-exponierte eigene CA hat: sslmode=verify-ca + Spilo-CA bereitstellen.
+  NIEMALS verify-none / ssl=off / trust — das ist Security-Regression = STOP.
+
+SCHRITT B: implementiere in den beteiligten Go-Dateien (openbao_runtime_prepare.go / stack.go Postgres-Config),
+  commit auf work/o1249-openbao-pgauth, push, PR aufmachen, "Targeted HA · podman"-Run beobachten (Eigenes-Run).
+
+SCHRIFT C: kannst du podman/spilo NICHT lokal starten, das in Evidence begründen und auf den CI-podman-HA-Beweis
+  verlassen — NICHT endlos weiter theoretisieren.
+
+Antworte in max ~5 Schritten mit CODE+PUSH statt Analyse. Braucht es eine echte Owner-/root-Entscheidung,
+END_BLOCKED mit der EINEN Frage.

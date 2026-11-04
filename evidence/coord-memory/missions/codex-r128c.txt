@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS demo (r128b rezept geheilt).
+OBJEKT: baseharbor-demo PR #128 head e453e2a (branch w85-demo-guided-consent; netter diff nur noch
+tests/guided/drive.py + tests/guided/test_consent_capture.py + baseharbor-core.ref — workflow + evidenz-datei
+wurden zurueckgezogen/umgezogen, deine scope-kritik geheilt). PRUEFEN SHA-genau read-only: deine vier
+contra-proben von r128b auf dem neuen kopf: (a) rc=0 ohne READY-marker => KEIN READY-PASS; (b) pflicht-prompt
+fehlt => abbruch (der fall war dein FAIL, pruefe besonders den validator-pfad drive.py:261+); (c) rc!=0 mit
+hash+fremdem fehlertext => KEIN zweiter lauf; (d) rc!=0 mit hash+unvollstaendigen interaktionen => abbruch;
+positiv: dokumentierter consent-abbruch => zweiter lauf => READY; regulaerer erfolg unveraendert.
+Dauer-test-Datei muss in der discovery laufen (nenn sie beim testlauf beim namen). core.ref zeigt auf einen
+Vorfahr/descendant von develop? pruefe kette. Urteil -> review-128c.md.
+END: "END_DONE codex-r128c: verdict=<X> open=<liste|none> | <Satz>"

@@ -1,0 +1,23 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/receipt-1252  (Repos baseharbor + baseharbor-plan)
+MISSION receipt-1252 — Prozess-Lücke schliessen: 'Receipt · Post-Run Writer' auf main scheitert fail-closed
+  (run 41313310474 um 13:48Z): "tasklink blocked: PR #1252 body has no 'Closes/Fixes/Resolves #NNN' reference".
+  Das ist KEIN Produktbug — der Writer verhält sich korrekt. Zu beheben: der PR-BODY muss die Konvention erfüllen.
+KONTEXT: PR #1252 = Basisdurchlauf-PR (head e93d797d, produktiv = #1240-Diff auf develop+Resolver #1251).
+  #1240 bleibt als Referenz offen ('superseded by #1252'). Planungs-Karte existiert bereits:
+  baseharbor-plan tasks/t-20261101-openbao-1240.md (Status aktiv). Vorgängermuster siehe PR #1235/#1246-Bodies.
+SCHRITTE:
+ 1. baseharbor-plan: Spiegel-Issue-Beziehung herstellen — falls für t-20261101-openbao-1240 KEIN GitHub-Issue
+    existiert (gh api issues?state=open durchsuchen; Issue 1208 ist was anderes), EIN neues Issue im Produktrepo
+    anlegen: Titel 'Planning task t-20261101-openbao-1240 — OpenBao→Postgres TLS/SASL wiring (baseline)' +
+    Body mit Task-Referenz (spiegelt Issue-1208-Format). KEIN Produktcode.
+ 2. gh pr edit 1252 --repo mcpdev80/baseharbor --add-assignee or NOT; Body ergänzen (bestehenden Text lassen,
+    oben drüber): 'Resolves #<neues-issue>' + Zeile 'Supersedes #1240' + Link zur Karte. gh pr view 1252 body prüfen.
+ 3. Nachweis: 'gh run rerun' NICHT nötig — der nächste Post-Run (schedule/dispatch) muss zeigen, dass tasklink
+    resolved. Warte auf den nächsten 'Receipt · Post-Run Writer'-Lauf auf main ODER löse workflow_dispatch aus,
+    wenn die Workflow-Datei das für diese Situation vorsieht (lesen, nicht erfinden). Beobachte bis terminal,
+    Job 'Publish Receipt to Planning' = success. Run-ID in Evidence.
+ 4. baseharbor-plan Karte t-20261101-openbao-1240.md: sources-Link aufs neue Issue, plan.py check/render 0 errors, push.
+EXKLUSIVES WRITE-SET: PR-#1252-Body, ein neues Issue, eine Plan-Karte/Issue-Verlinkung. Finger weg von:
+  scripts/**, .github/workflows/**, Produktcode, andere PRs.
+EVIDENCE (plain bullets): baseharbor-plan/evidence/board-2026-11-01/receipt-1252/evidence.md
+HANDOFF: codeman agent post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED receipt-1252: issue=#<n> post-run=<id>/success | <Grund>"

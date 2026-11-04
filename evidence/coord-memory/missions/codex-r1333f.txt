@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 3d8b6b7c (develop Vorfahr) = t-20261018-r27-delivery-boundary. RE-REVIEW nach
+review-1333e2.md — bearbeitet: PUNKT 2 first-save caller-conflict + PUNKT 3 EN/DE alignment.
+PRUEFEN (SHA-genau, read-only):
+1. conflict = previous ODER store-eigen, caller-feld immer ignoriert (beide faelle getestet:
+   first-save caller=true=>kein refuse; previous=true caller=false=>refuse).
+2. EN/DE ADR/specs: umfang = record-save, deferred-text mit kartenamen, keine pauschale
+   apply/observation-verweigerung; DE negationen.
+3. regressionen aus 1333e2 punkt 1 weiterhin gruen (praferenzen retain/replace/invalid/forged).
+4. write-set + drift wie bisher sauber; go test ./internal/deployment ./internal/delivery archiv.
+Urteil -> review-1333f.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333f: verdict=<X> | <Satz>"

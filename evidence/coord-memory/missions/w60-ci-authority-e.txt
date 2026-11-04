@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w60). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal runde 6).
+Branch work/r27-ci-authority-ab head f15a8566 (PR #1354 DRAFT). Grundlage: review-1354d — es sind nur
+NOCH ZWEI echte punkte (vier gegentests gruen, scope angenommen, CI-selektion = owner-slice).
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w60-ci-authority-e-wt work/r27-ci-authority-ab.
+
+PUNKT 1 — SEGMENT-CAP HART VOR DEM WRITE (store.go rotation):
+rotation entscheidet ueber die GROESSE NACH dem anhaengen, nicht vor dem:
+if size(current)+len(entry) > 4MiB { rotate first } — zwei einzeln-erlaubte 430k-nul-eintraege duerfen
+niemals ein 5,16MB-segment ergeben. ZUSAETZLICH datei-echtheit: nach jedem append write->sync->pruefen
+close; bei fehlern in rotation/retention (nicht nur append) darf kein event veroeffentlicht werden
+(dauerhafter-fehler-fall wie bisher behandelt, kein stiller verlust). TEST: 12x 430k eintraege => jede
+datei <= 4MiB WÖRTLICH assert + letzte entry recoverable; ein rotation-rechtschreib-fehler-fall (read-only
+dir nach erstem segment) => err raus, 0 events.
+PUNKT 2 — PRODUKT-KONSTRUKTIONS-ROOT-TEST: ein test der machinehttp.New/registerOperatorAPI mit leerem
+ops-dir + aktiver operator-API faehrt (NICHT newPersistedExecutionStore direkt) und die konkrete
+fehler-behauptung prueft; der bestehende store-level test bleibt daneben stehen (name unveraendert,
+kein assert-klau mehr — er beweist was er sagt).
+
+REGELN: keine bestehende testfunktion loeschen/umbenennen (diff '^-func Test' leer WÖRTLICH);
+gofmt/vet leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./internal/machinehttp
+-count=1 -timeout 8m gruen; merge develop drift rc=0; push FF; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/ci-authority/durability-5.md.
+END an f49a3303: "END_DONE w60-ci-authority-e: head=<sha> cap=pre-write-hart fsync=ja root-test=produkt-konstruktion | <Satz>"

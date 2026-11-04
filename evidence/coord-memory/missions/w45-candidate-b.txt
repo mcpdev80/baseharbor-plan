@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w45). Coord f49a3303. KARTE: t-20261018-r27-candidate-contract. PR #1355,
+basis head 2e92832b branch work/r27-candidate-contract. Grundlage: review-1355a.md + COORD-ENTSCHEID:
+Die karte verlangt BINDUNG AN EXISTIERENDE schnittstellen, kein eigenständiges schema-ensemble.
+Schema-Datei BLEIBT als dokumentform, aber die PRUEFPFLICHTEN leben im bestehenden produkt-/contract-
+pfad und der test muss die echten interfaces aufrufen.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-candidate-contract:refs/remotes/origin/work/r27-candidate-contract"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w45-candidate-b-wt work/r27-candidate-contract.
+
+PUNKT 1 — callable pfad: genau eine minimale leaf-validierung in bestehendem paket (internal/
+application oder internal/delivery — lies wer heute app/target/consent fuehrt; neue datei nur dort,
+STIL wie bestehende leafs z.B. hosttrust). KEIN neues top-level contracts/-ensemble ohne consumer.
+Die schema-validators im test rufen DIESEN produkpfad auf (consumer=bereits existierender Pfad,
+nicht neuer).
+PUNKT 2 — fail-closed hart im validierer: (a) genau EINE von source|image Pflicht, beide fehlend =>
+err; (b) consent.acknowledged MUSS true sein (fehlend/false => err); (c) source.revision: bewegliche
+branch erlaubt NUR mit digest/pinned counterpart — rein version-loser branch-string => err ODER
+zusammen mit image digest akzeptiert (spec-text exakt darauf stellen); schema entsprechend haerten.
+NEGATIV-fixtures je punkt ueb den echten validierer-aufruf (nicht nur JSON-parsing).
+PUNKT 3 — spec EN+DE VOLLSTAENDIG: migrations-evidence-PFLICHT: fehlende verifizierbare
+migrationsevidence blockiert die anwendbare operation (formel in BEIDEN sprachparts, konsistent mit
+existierenden migration/backup karten-texten — zitiere sie); links korrekt + DE sinngleich.
+
+REGELN: write-set: contracts/candidate/v1/* + EINE neue internal leaf-datei + deren test + specs;
+grep .github/scripts leer; merge develop bei drift + rc=0 ls-remote-SHA; TMPDIR=/tmp go build ./...
++ go test ./internal/<leaf-paket> ./contracts -count=1; push FF; ls-remote==head; PR bleibt DRAFT.
+Evidence: .../r27-welle3-2026-11-03/candidate-contract/fix-2.md (plain bullets je punkt).
+END an f49a3303: "END_DONE w45-candidate-b: head=<sha> leaf=callable failclosed=3negativ migration=blocked-formel | <Satz>"
+STOP: wenn kein bestehendes paket als leaf-heimat ohne zyklus taugt: END_BLOCKED mit versuch-matrix.

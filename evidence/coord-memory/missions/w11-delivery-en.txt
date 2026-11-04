@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w11-delivery-en). Coord f49a3303. MIKRO-AUFGABE: EIN englischer Satz, mechanisch.
+PR #1333 (t-20261018-r27-delivery-boundary). Basis = head 60eb3ed1. NUR docs/decisions/0022-*.md.
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w11-delivery-en-wt work/r27-delivery-boundary
+
+ERSETZE in docs/decisions/0022-one-reconciliation-owner-and-delegated-delivery.md exakt:
+  ALT: "A direct (BaseHarbor-owned) mutation refuses\nunless an external reconciler already owns the resource; a recorded conflict of"
+  NEU: "A direct mutation is refused if an external\nreconciler already owns the resource; a recorded conflict of"
+(der umbruch/die zeilenzahl darf angepasst werden — WORTE genau so; DE datei NICHT anfassen, sie ist
+korrekt; keine weiteren zeilen im gesamten repo).
+
+NACHWEIS VOR END: git diff 60eb3ed1..HEAD zeigt GENAU diese zeilen; grep -c 'refuses unless' IM NEUEN
+HEAD == 0; ls-remote == head. go test ./internal/deployment ./internal/delivery (unveraendert gruen).
+merge origin/develop + write-set grep-leer. push FF. END:
+codeman agent post f49a3303 "END_DONE w11-delivery-en: head=<sha> grep0=yes | <Satz>"
+Evidence: .../delivery-boundary/fix-r8.md (plain bullets). STOP: kein Merge, keine eigene umformulierung.

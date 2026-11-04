@@ -1,0 +1,18 @@
+NACHT W2-A — t-20261018-r27-state-owner (baseharbor). GESTAPELT auf W1-A Kandidat #1326 (63573ee5),
+da Merge bis CI-Cutover ausbleibt: Task haelt NUR akzeptierte Vorgaenger-Schnittstellen — wir
+dokumentieren Stapelung statt sie zu verschleiern. Vorgaenger INHALT ist fertig und pruefgruen (7 pass).
+
+ISOLATION (Pflicht, Kontaminations-Lehre von heute): NUR eigenes worktree:
+  git -C baseharbor worktree add /tmp/opencode/w2-stateowner-wt -b work/r27-state-owner 63573ee5
+  (Kein Arbeiten im Haupt-Checkout baseharbor/. Vor jedem commit git status pruefen.)
+
+AUFGAB (Task-Karte baseharbor-plan/tasks/t-20261018-r27-state-owner.md zuerst lesen — Akzeptanz massgebend):
+1. CLAIM: python3 baseharbor-plan/scripts/plan.py claim t-20261018-r27-state-owner (Commit+Push plan).
+2. Definiere/realisiere den EIGENTUEMER des massgeblichen Installationszustands gemaess Karte (single
+   installation owner): Typen + production path + positive/negative Regressionstests. Write-Set strikt
+   gemaess Karte; KEINE Beruehrung von docs/decisions, contracts/managementaccess, .github/**, scripts/pr-*.
+3. Tests lokal (go build ./... + betroffene Pakete). PR base develop, im PR-Body: "STACKED on #1326"
+   vermerken. KEIN Merge. PR Selected Checks Meta-Gate: notieren, nicht umgehen.
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/state-owner/evidence.md (## PLAN, Ist-SHA,
+Write-Set real, PR+head, stacking-Vermerk, Testausweise).
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w2-state-owner: task=t-20261018-r27-state-owner pr=<#N> head=<sha> tests=<pass|fail> | <Satz>"

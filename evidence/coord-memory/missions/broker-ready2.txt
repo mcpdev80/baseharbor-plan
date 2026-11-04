@@ -1,0 +1,17 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/broker-ready2 (Repo baseharbor; Basis origin/develop >=048a806c)
+MISSION broker-ready2 (ROTATION, Vorgänger verstorben ohne Spur) — Wiederherstellungs- und S3-Prüfung schlagen
+  fehl, weil der Runtime-Broker nicht bereit wird: (1) /readyz nach 120s leer, Container unhealthy (Run
+  41361224219/41361226139), (2) "unsupported workload field compose: im Workflow-Manifest" beim apply der Demos
+  (Run 41361222152), (3) app apply bricht nach CREATED ohne Absprung ab. Ziel: Readiness+Manifest-Bereitstellung
+  im Runtime-Weg fixen — Produktseite, NICHT Testdateien.
+ app apply bricht ab, der Test failt ohne eigene Fehlerzeile. Reproduktion auch mit lokal gebautem Bild —
+ Rand-Bild war stale. Fixort: Build/Start der Broker-Komponente (Runtime-Bild/Compose/Startup) — NICHT
+ cmd/baha/*-Tests.
+SCHRITTE: 1) Locate: compose/Startpfad des runtime-broker in scripts/ + internal/providers/... (grep
+ '/readyz', healthcheck, EXPOSE, Startcommand). 2) Minimal-Fix: fehlender Healthcheck-Endpunkt/Port-Warteschleife/
+ Startup-Reihenfolge beheben; harte 120s-Frist nur wo berechtigt. 3) Lokaler Beweislauf: broker starten, /readyz
+ messen (Vorher/Nachher in Evidence). 4) PR gegen develop 'fix(runtime-broker): make readiness reachable',
+ PRSC terminal beobachten. 5) Karte via plan.py new.
+STOP: keine .github/workflows/* der 7 Migrationsdateien (Sweep-Eigentum), kein receipt*, kein subagent/codeman-Spawn.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-01/broker-ready/evidence.md + ## PLAN + workers/todos/broker-ready.json.
+HANDOFF: post 35cdb02e-a3b3-4e6d-86f9-1cbb35822587 "END_DONE|END_BLOCKED broker-ready: pr=<nr> head=<sha> readyz=<vorher/nachher> | <Satz>"

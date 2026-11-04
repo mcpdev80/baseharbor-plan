@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w78). Coord f49a3303. KARTE: t-20261018-r27-state-owner (validierungs-restarbeit).
+Branch work/r27-state-owner head f3ea54e2. Vorgaengerin w71 hat urkundlich (final-1.md, abschnitt
+ENVIRONMENT/SHARED-STATE): hosted go-unit/cli-package/wizard-app-edit rot wegen NICHT-Isolierter tests:
+ - internal/telemetry 3x TestRegisteredOTLP* ("OTLP TLS projection has no protected existing parent")
+ - internal/externalprovider TestDiscoverCertificateDirectoryMatchesWildcardAndKey
+ - cmd/baha 5x TestRecoveryFileForRepositoryUp* (shared ~/.local/share/baseharbor-recovery collision)
+ - internal/providers/runtime/podman 2x quadlet retirement (podman ownership env)
+AUFTRAG:测试-ISOLATION nach bewehrtem muster aus PR #1351 (t.Setenv HOME/XDG_DATA_HOME/XDG_CONFIG_HOME
+-> t.TempDir(); KEIN produktcode, KEIN test geloescht, KEIN skip): alle 11 faelle einzeln rot-first
+reproduzierbar machen (geteiltes HOME erzwingen: TMPDIR-ansage) und auf umgebungs-unabhaengig drehen.
+Die drei fail-closed dokumentationsfaelle (app-edit ADR-0022) bleiben UNANGETASTET.
+BASIS: develop 2cadfcee Vorfahr halten (fetch; notfalls merge). go build ./... + go test ./internal/telemetry
+./internal/externalprovider ./cmd/baha ./internal/providers/runtime/podman -count=1 (GOCACHE=/tmp/opencode/gc
+TMPDIR=/tmp) gruen. push; ls-remote==head; PR #1347 checks TERMINAL beobachten — validationgruppe muss gruen
+werden; lifecycle/backup-restore checks duerfen rot bleiben (infra-ref, zaehlen nicht gegen dich).
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/state-owner/isolation-1.md (checkboxen als bullet!).
+END: "END_DONE w78-seam-isolation: head=<sha10> iso=11/11 hosted-validation=gruen lsremote=<sha10> | <Satz>"
+STOP: falls ein fall auch isoliert hosted rot bleibt: END_BLOCKED mit seiner fehlerzeile, nicht pauschal.

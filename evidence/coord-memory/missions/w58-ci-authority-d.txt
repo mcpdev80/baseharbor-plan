@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w58). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal runde 4).
+Branch work/r27-ci-authority-ab head 4f09aac6 (PR #1354, DRAFT lassen — coord schaltet vor review um).
+Grundlage: review-1354c.md rezepte 1-5.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry rc=0 WÖRTLICH; worktree add
+/tmp/opencode/w58-ci-authority-d-wt work/r27-ci-authority-ab.
+
+PUNKT 1 — OPERATIONID + RESTART-KORRELATION: jeder journal-eintrag traegt operation_id; load nach
+restart stellt den LETZTEN zustand je execution — running bleibt running (kein pending-downgrade).
+Gegentest: append series create->start(running) -> reload -> zustand==running + operationid gesetzt.
+PUNKT 2 — APPEND VOR EVENT: update()-reihenfolge aendern zu appendJournalLocked VOR fn(record)/emit —
+append-fehler => KEIN event auf subscriber-channels, KEIN record-mutation. test: verzeichnis-am-journalpfad
+erzwingt fehler; subscriber zaehlt empfangene events == 0.
+PUNKT 3 — HARTES SEGMENT-LIMIT: die 4-MiB-grenze MUSS beim schreiben erzwungen werden (eintrag der das
+segment ueberschreiten wuerde => rotation VOR dem anhaengen, nie ein 5-MiB-eintrag in ein 4-MiB-segment;
+falls ein einzelner eintrag >limit: ablehnung mit err, dokumentiert). 5-MiB-actor-gegenprobe => datei nie
+>4MiB+eintrag-grenze? NEIN: dateigroesse <= 4 MiB WÖRTLICHER assert im test. Aktive ids bleiben erhalten.
+PUNKT 4 — ROOT-SCHUTZ-TEST ECHT: test in internal/machinehttp (oder wo der guard lebt) der
+ErrMissingOperationsRoot-artiges verhalten bei leerem dir + aktiver operator-API prueft; behaupteter
+test in controlplaneruntime existiert nicht — er wird NICHT nochmal behauptet, sondern echt geschrieben.
+PUNKT 5 — SCOPE-BEREINIGUNG: diff enthiet cmd/baha/machine_http_executor_validation_test.go + zwei
+internal/controlplaneruntime-dateien. Karte erlaubt internal/** (pruefe karten-write-set-zeile und ZITIERE
+sie in evidence): wenn controlplaneruntime dort steht ist's regeltauglich und nur zu dokumentieren, die
+cmd/baha-datei hat in dieser lane nichts verloren —inhalt zurueckziehen, es sei denn kartlich gedeckt.
+
+REGELN: keine bestehende testfunktion loeschen (diff '^-func Test' leer WÖRTLICH); gofmt+vet leer;
+GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./internal/machinehttp -count=1 -timeout 8m
+gruen; merge develop bei drift rc=0; push FF; ls-remote==head; PR-STATUS nicht anfassen.
+Evidence: .../r27-welle3-2026-11-03/ci-authority/durability-4.md (plain bullets je punkt + karten-zitat).
+END an f49a3303: "END_DONE w58-ci-authority-d: head=<sha> opid-restart=ja append-vor-event=ja limit=hart roottest=echt scope=zitiert | <Satz>"
+STOP: punkt 3 erfordert entry-groessen-policy die der karte widerspricht => END_BLOCKED mit kartenzeile.

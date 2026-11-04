@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w77). Coord f49a3303. MECHANISCHE hygiene-korrektur auf work/r27-candidate-contract
+(head 1662ebcb; PR #1355, karte t-20261018-r27-candidate-contract ist waiting auf infra — kein inhalt!).
+ZWEI datei-LOESCHUNGEN im zweig (4.5: evidencegehoert NICHT ins produktrepo):
+  git rm evidence/r27-welle3-2026-11-03/candidate-contract/fix-5.md evidence/r27-welle3-2026-11-03/candidate-contract/fix-8.md
+(evidence liegt bereits vollstaendig in baseharbor-plan/evidence/r27-welle3-2026-11-03/candidate-contract/.)
+evidence/g1/evidence-r27/g1.md UNANGETASTET lassen (develop-bestandteil).
+Arbeitsweise: fetch origin "+refs/heads/work/r27-candidate-contract:..." "+refs/heads/develop:..."; worktree add
+/tmp/opencode/w77-clean-wt; loeschen; commit "chore(evidence): move r27 candidate evidence to planning (repo rules)";
+git merge origin/develop VOR push (basis halten); go build ./... ok; push; ls-remote==head. KEIN inhalt, KEIN
+test-aenderung, 0 weitere dateien. PR#1355 checks nicht beobachten noetig (infra-lauf laeuft sowieso) —
+kurzer hinweis ob 29er-torspur unveraendert anlaeuft genuegt.
+END an f49a3303: "END_DONE w77-cand-clean: head=<sha10> removed=2 evidenceplan=ok lsremote=<sha10> | <Satz>"

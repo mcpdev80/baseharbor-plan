@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane a1-retarget). Coord f49a3303. MIKRO-AUFGABE (~3 Minuten, mechanisch): PR #1326
+head-umleitung auf den rebasierten kandidat.
+
+SCHRITTE (exakt, nichts daneben — KEIN Worktree noetig, keine inhalte aendern):
+1. git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-authority-contract-doc-fix w7-authority-r3-clean develop
+2. Ancestry BEWEIS: git merge-base --is-ancestor <remote doc-fix sha> <remote w7-authority-r3-clean sha>
+   muss rc=0 liefern (doc-fix 81720acc sollte Vorfahr von 09f14ec8 sein nach dem rebase auf develop;
+   falls NICHT: END_BLOCKED mit beiden SHAs — nichts pushen).
+3. git push origin <w7 sha>:refs/heads/work/r27-authority-contract-doc-fix  (fast-forward, KEIN force).
+4. ls-remote Beweis beide refs = 09f14ec8...; gh pr view 1326 -R mcpdev80/baseharbor --json headRefOid.
+5. HANDOFF: codeman agent post f49a3303 "END_DONE a1-retarget: pr1326-head=<sha> ff=<yes|no> | <Satz>"
+STOP: jeder abweichende zustand => END_BLOCKED mit dem einen belegenden befehl/ausgabe.

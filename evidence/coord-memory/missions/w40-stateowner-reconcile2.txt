@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w40). Coord f49a3303. AUFGABE: dreifacher develop-reconcile auf PR #1347
+(t-20261018-r27-state-owner). Basis = head 33badf7d branch work/r27-state-owner; develop = 1706272c
+(bringt delivery-vertrag #1333 + authority #1348).
+GRUND-ENTSCHEID (coordiniator, fest): VerifyDeploymentOwner ist GRANT-FIRST (tenant-hook grant =>
+ok; sonst installation-check). Der Coreless-first-save widerstreit ist KEIN semantik-konflikt: die
+19 bruchstellen sind interne tests OHNE resolver-hook die auf Coreless-artigen zielen schreiben —
+sie müssen wie in Präzedenz w21 (cmd/baha) ihren ECHTEN besitzer bekommen: installation-fixture
+provisionieren ODER im test einen grantenden resolver-hook setzen (t.Cleanup zurücksetzen). Keine
+Semantik abschwächen, kein skip, keine either/or-weiche.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree /tmp/opencode/w40-reconcile2-wt work/r27-state-owner.
+SCHRITTE:
+1. git merge --no-edit origin/develop (konflikte: dateiebene vereinen — guard-LOGIK beider verträge
+   bleibt, reihenfolge: existing owner-guard reads, dann VerifyDeploymentOwner grant-first; belege
+   je konfliktstelle in evidence).
+2. go build ./... — dann go test ./internal/deployment ./internal/delivery ./cmd/baha -count=1;
+   je FAILER: Fixture-provisionierung ODER grant-hook im test (muster w21), NIE assertions weicher.
+3. wenn ein failer echte SEMANTIK-kollision zeigt (nicht fixture): sofort END_BLOCKED mit Minimalklage
+   (datei:stelle + beide regel-texte), nicht weiterbiegen.
+4. ALLE tests grün (env-fails wie belegt ausgenommen) => push FF; ls-remote==head; ancestry rc=0
+   gegen develop-ls-remote-SHA; PR #1347 bleibt wie er ist.
+Evidence: .../r27-welle3-2026-11-03/state-owner/reconcile-2.md (plain bullets: konfliktliste,
+je failed-test -> fixture-entscheid, testlauf-ende).
+END an f49a3303: "END_DONE w40-reconcile2: head=<sha> conflicts=<n> fixtures=<m> all-green=yes | <Satz>"
+STOP: produkt-verhalten NICHT ändern — nur merge-loesungen + test-provisionierung.

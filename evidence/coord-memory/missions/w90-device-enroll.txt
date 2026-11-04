@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w90). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment — CLAIM GESETZT UND PUBLSHT.
+VOLLSTAENDIG: plan.py show + card sections + baseharbor/AGENTS.md.
+PRODUKTZIEL: explizite installations-policy kann empfaenger-gebundene, kurzlebige EINWEG-arbeitsplatz-
+registrierung + geraete-identitaet separat ausstellen/quittieren; ziel/scope werden gepinnt (karte nachlesen);
+KEINE node-enrollment-dateien anfassen, management-boundary einhalten. WRITE-SET: bounded workstation
+enrollment owner/HTTP adapter.
+ARBEITSWEISE: zweig work/r27-device-enrollment ab develop 3d08ef72; worktree /tmp/opencode/w90-enroll-wt;
+rote-first: einweg-token zweiter gebrauch => abgewiesen; ablauf => abgewiesen; fremdes ziel/scope => abgewiesen;
+positiv: einmaliger gebrauch => registry-fakt mit reichweite+zeit. Kleinste gates; PR DRAFT; basis letzter schritt.
+Evidence: evidence/r27-welle4-2026-11-04/device-enrollment/slice-1.md (bullets statt checkboxen).
+END: "END_DONE w90-device-enroll: head=<sha10> pr=<n> einweg=belegt lsremote=<sha10> | <Satz>"

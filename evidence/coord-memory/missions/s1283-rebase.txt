@@ -1,0 +1,14 @@
+FRISCHE Lane-Aufgabe: PR #1283 auf develop vorbereiten. Kein Feature-Umbau.
+#1283 (branch work/obslok2, head cb43c776) fixt render.go:286 provider-log-source-Pattern
+(Befund: Observability-Log-Quelle falsch gemappt). Es ist 19 Commits hinter develop.
+1. Rebase work/obslok2 auf develop 9a93865a in ISOLIERTEM Worktree, Konflikte inhaltlich loesen
+   (render.go Fix bleibt, develop-Aenderungen bleiben). Push --force-with-lease + ls-remote check.
+2. PRUEFE am neuen SHA: der Produkt-Fix (render.go) + seine Tests kompilieren/bestehen lokal; die
+   Observability-Workflow-Aenderung laeuft hosted (kein self-hosted runs-on).
+3. Erwarteter Zustand: nativer logs-Gate bleibt coverage-unresolved bis der CI-Infra-Integrations-
+   Kandidat (internal/logs/render.go -> Gate) auf develop landet — das ist OK, NICHT umgehen/aendern;
+   dokumentiere "blocked-on-ci-integration" mit exaktem Check-Namen. Kein Edit an pr-gate-plan.py/ci.yml.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/s1283/evidence.md — ## PLAN, rebase-SHA, Runs-on hosted,
+Run-IDs+Farbe, evtl. coverage-block (file:line). Nur gezieltes git add, sanitize vor Plan-Kopie.
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED s1283: pr=1283 head=<sha> hosted=<yes|no> logs_gate=<green|blocked-on-ci-integration> | <Satz>"

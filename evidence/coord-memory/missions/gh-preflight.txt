@@ -1,0 +1,22 @@
+MISSION gh-preflight — Pre-Release-Workflows: NUR Runner migrieren
+ARBEITSVERZEICHNIS: Lane-cwd ist nur Modell-Dir — arbeite ausnahmslos in diesem baseharbor-Worktree (Branch work/gh-preflight bereits checked out, NICHT neues Worktree anlegen): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-preflight
+EXKLUSIVES WRITE-SET (nur diese Dateien):
+  .github/workflows/pre-release.yml
+  .github/workflows/pre-release-runtime-suite.yml
+STRENGE GRENZE: KEIN Release, KEIN Tag, KEINE Promotion, KEINE Release-/Versionierungs-SEMANTIK ändern.
+Du änderst AUSSCHLIESSLICH `runs-on` von self-hosted -> `ubuntu-latest` und ggf. nötiges In-Job-Setup
+(docker nativ; falls rootless-skript aufgerufen: nur der Aufruf bleibt, Datei gehört Lane gh-ci-core).
+
+Owner-Ziel: 100% GitHub-hosted CI, keine self-hosted Runner — auch Pre-Release-Läufe sollen GH-hosted fahren.
+PRÜFPUNKT: wenn ein Pre-Release-Job NUR auf self-hosted sinnvoll liefe (z.B. echte Homelab-Integration),
+NICHT stillschweigend GH-hosted erzwingen, das die Semantik ändert — dann END_BLOCKED mit Begründung, damit
+der Coordinator entscheidet (Release-Maschinerie = sensible Zone).
+
+ARBEIT:
+ 1. `runs-on: [self-hosted,...]` -> `ubuntu-latest` in den beiden Dateien; sonst nichts anfassen.
+ 2. actionlint + Workflow-Struktur prüfen (`actionlint` falls verfügbar), damit YAML valide bleibt.
+ 3. KEIN Release auslösen. Falls validiert werden soll: nur ein NICHT-release Workflow-Check (actionlint /
+    `workflow_dispatch` eines reinen Smoke-Jobs) — kein Tag/Promotion.
+
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/gh-preflight/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED gh-preflight: <SHA + was geändert (nur runs-on?) + actionlint/Run-Status>"

@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE ci-access (r1357g befehl + N==M-tabelle).
+OBJEKT: PR #1357 head bd7009c5 (develop Vorfahr JA; 5/5 negative faelle mit BEIDEN recordern asserts
+(63 flag-stellen total); discrimination RED-verified gemeldet; hosted 41682175473 SUCCESS auf exaktem
+head; 0 loeschungen; write-set nur client_test.go). = t-20261022-r27-ci-access.
+PRUEFEN (SHA-genau, read-only): (a) N==M SELBST nachzaehlen (testfunktionen vs assert-zeilen); (b) eine
+eigene mutation-kontrolle (readyz-leitung falsch verdrahtet im read-only-archiv) => ein fall MUSS rot;
+(c) slice-matrix karte => ACCEPT-WITH-DEFERRAL (gate-slices owner, dokumentiert). Tests: GOCACHE=/tmp/
+opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357h.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357h: verdict=<X> open=<liste|none> | <Satz>"

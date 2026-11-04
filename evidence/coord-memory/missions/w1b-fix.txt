@@ -1,0 +1,19 @@
+NACHT — w1b-fix: Restarbeit am Profil-Vertrag (t-20261018-r27-profile-contract), Vorgaenger-Lane hing sich fest.
+IST-STAND (verifiziert): PR #1324 head 0b53f7fcb5 (branch work/r27-profile-contract) mit schemas/golden/
+tests + docs/spec/management-access-profiles-v1.md (EN). Fach-Checks gruen; PR Selected Checks = Meta,
+notieren nicht umgehen. OFFENE PFLICHT aus Task-Vertrag: DEUTSCHES GEGENSTUECK der Spezifikation.
+
+ISOLATION (Pflicht): eigenes worktree:
+  git -C baseharbor fetch -q origin; git -C baseharbor worktree add /tmp/opencode/w1b-fix-wt -b work/r27-profile-contract origin/work/r27-profile-contract
+(NICHT im Haupt-Checkout; branch existiert remote.)
+
+AUFGAB:
+1. Lies Task-Karte t-20261018-r27-profile-contract + EN-Doku docs/spec/management-access-profiles-v1.md.
+2. Lege docs/de/spec/management-access-profiles-v1.md an: vollstaendige deutsche Entsprechung (Terminologie
+   nach docs/de/spec/*-Vorbildern; keine Sinnumkehr — Negationen pruefen, Lektion aus #1326 Review Befund 4).
+3. PR #1324 aktualisieren (push auf work/r27-profile-contract). Falls mkdocs-Nav die neue Seite verlangt:
+   NAV NICHT selbst pflegen (public-surfaces-Territorium) — dann END_BLOCKED mit exakter Datei.
+4. mkdocs-de-strict + documentation-audit + pages-candidate-build bis terminal beobachten (Eigenes-Run-
+   Pflicht). KEIN Merge/Release/Tag, keine CI-/Workflow-/Register-Dateien.
+EVIDENCE: baseharbor-plan/evidence/r27-night-2026-11-02/profile-contract/fix-r1.md (## PLAN, head, Run-IDs).
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED w1b-fix: pr=1324 head=<sha> de_mirror=<added|blocked> | <Satz>"

@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. WARTEND (kanal belegt mit r1347r).
+OBJEKT: PR #1357 head 195886cc (develop Vorfahr JA; internal/runtimeexecutor/client.go mutual-TLS
+client qualifiziert mit 7 Go tests inkl. HTTPS-defect-capture; gehostete runs auf exaktem head SUCCESS
+gemeldet) = t-20261022-r27-ci-access (slices access-domains, product-side qualification).
+PRUEFEN (SHA-genau, read-only): 1. tests fahren echten client gegen lokalen mutual-TLS server,
+defektes trust-material => fail-closed. 2. write-set nur internal/** (gate tabu, grep belege).
+3. slice-matrix der karte: was ist jetzt qualifiziert, was bleibt owner-CI-punkt. 4. matrix =>
+ACCEPT|ACCEPT-WITH-DEFERRAL. Tests: TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1.
+Urteil -> review-1357a.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357a: verdict=<X> open=<liste|none> | <Satz>"

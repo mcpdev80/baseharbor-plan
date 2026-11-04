@@ -1,0 +1,24 @@
+KORREKTURRUNDE gate-map (PR #1246, Branch work/gate-map, Basis 9581193d) — NUR die echten, sicheren Luecken A/B.
+
+WICHTIG: C/D/F/G absichtlich NICHT abbilden (Workflow-/ci-executor-/deps-/bindungs-Aenderungen), weil ein Blind-
+Mapping "workflow->resolved" ein Gate SCHWAECHE (verbotene Owners-Regel: kein Gate abschwchen). Die werden durch
+ECHTE gruenen native 'Targeted HA'-Laufe qualifiziert (das pruefen gerade andere Probe-Lanes), nicht via Tabelle.
+
+AUFGABE (exakt, fail-closed beibehalten):
+1. In scripts/pr-gate-plan.py eine Regel wie die bestehende internal/runtime-Regel ergaenzen, aber fuer cmd/baha:
+     - Pfad endet auf cmd/baha/*_engine.go  (z.B. cmd/baha/docker_engine.go)  UND
+     - die neue Datei cmd/baha/docker_engine_podman_test.go
+     -> area 'cli-engine-runtime-impact'
+     -> selected.add('atomic/docker/lifecycle') UND selected.add('atomic/podman/lifecycle')   (Engine-Code betrifft beide Runner)
+   KEIN glob, das alle cmd/baha/* auf geloest setzt — nur die *_engine.go + docker_engine_podman_test.go.
+   Andere cmd/baha/*.go bleiben wie bisher (dict / cli-... - unveraendert).
+2. Test in scripts/test_pr_gate_plan.py: "nur cmd/baha/docker_engine.go geaendert" -> coverage_status='resolved'
+   UND selected_gates enthaelt BEIDE Lifecycle-Gates; fail-closed: gebuendelt mit einer ungemappten Datei bleibt
+   unresolved. Bestehende 38 Tests bleiben gruen (pytest scripts/test_pr_gate_plan.py -q).
+3. python3 -m pytest scripts/test_pr_gate_plan.py -q (alles PASS), git add der 2 Dateien, commit, push auf
+   work/gate-map (PR #1246 aktualisiert sich). PR-Checks beobachten (Eigenes-Run-Pflicht), Run-ID notieren.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-10-31/gate-map/ ergaenzen (was gemappt, warum A/B sicher, warum C/D
+auf ECHTEN Lauf statt Tabelle).
+
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE gate-map: PR#1246 <neuer 40-hex SHA> cmd/baha/*_engine.go+podman-test -> beide Lifecycle-Gates; pytest <n>/<n> PASS; C/D bewusst NICHT gemappt (echter HA-Lauf qualifiziert)"

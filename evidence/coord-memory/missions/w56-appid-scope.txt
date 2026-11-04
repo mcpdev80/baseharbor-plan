@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w56). Coord f49a3303. KARTE: t-20261023-appid-test-env-dep. PR #1351, branch
+work/r27-appid-test-env-dep (ls-remote pruefen), basis head wie PR. review-1351a: inhalt OK (head PASS,
+develop FAIL 3x belegt) aber write-set FALSCH (cmd/baha statt internal/**+internal/testsupport/**) und
+hosted-akzeptanz auf exaktem head fehlt.
+
+ERSTE AKTION: fetch origin "+refs/heads/*:refs/remotes/origin/*" — dein branch; worktree add
+/tmp/opencode/w56-appid-scope-wt <branch>; merge origin/develop bei drift, rc=0 WÖRTLICH in evidence.
+
+ARBEIT:
+1. MATERIE UMZIEHEN: der fixture-seed-ansatz aus cmd/baha/provider_external_removal_test.go wandert in
+   internal/testsupport (Helfer, z.B. SeedProviderRegistryOwner(t, target) — musterbild: die bestehende
+   internal/deployment/seed_core_owner_test.go technik) und der cmd/baha-test RUFT nur noch den Helfer
+   auf (file am ende: nur internal/** + internal/testsupport/** geaendert, cmd/baha diff idealerweise
+   nur dieser eine test-aufruf; kartenwortlaut FIXTURE-/HELPER-DATEIEN = internal/** — wenn das
+   entfernen des cmd/baha-inhalts den test bricht, HELFER in internal/testsupport + 3-zeilen-aufruf in
+   cmd/baha, und die ABW-RECHENUNG exakt so in evidence + END (karte-zeile zitieren).
+2. HOSTED-AKZEPTANZ: push, dann gh pr checks 1351 --watch bis terminal; die betroffenen runs auf DEINEM
+   head in evidence (run-id, url, status). Kein rerun fremder runs.
+REGELN: keine bestehende testfunktion loeschen (diff '^-func Test' leer); gofmt leer;
+GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./cmd/baha -run TestExternalProviderRemoval -count=3 gruen; push FF.
+Evidence: .../r27-welle3-2026-11-03/appid-test-env-dep/scope-fix.md.
+END an f49a3303: "END_DONE w56-appid-scope: head=<sha> write-set=internal+testsupports hosted=green(<run-id>) dreifach=pass | <Satz>"

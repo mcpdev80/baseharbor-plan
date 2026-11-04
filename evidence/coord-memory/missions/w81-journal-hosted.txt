@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w81). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal, follow-up r14).
+Branch work/r27-ci-authority-ab head c0febdd1 (B2/B3 geliefert; B1 bleibt owner-pending — NICHT anfassen).
+BEFUND: hosted PR #1354 go-unit-tests FAILT auf diesem head (vorher gruen) — einer deiner B2/B3-pfade
+stroert hosted-realitaet (freigegebener zustand? zeit? OS-usuariohnlichkeiten — lokal war es gruen, also
+stelle-die-differenz-fest, nicht "lokal war gruen"). (1) Hole exakte hosted-fehlerzeile(n):
+gh api /repos/mcpdev80/baseharbor/actions/runs/41736559064/jobs --jq nach job "Validation . go-unit" (aktuellster
+lauf auf 1354), dann gh api /actions/jobs/<id>/logs | grep -a 'FAIL\|panic'. (2) red-first: reproduziere die
+bedaempfte stelle lokal unter den HOSTED-bedingungen (sauberer HOME, TMPDIR=/tmp, parallel -count=1 ohne
+serialisierung, ggf. timeout 120s runner-sicht) und korrigiere KONSTRUKTION oder testumgebung — produkt-
+verhalten B2/B3 bleibt wie geliefert (urteil ist gruen fuer die semantik), kein test-LOESCHEN. (3) basis
+develop 2cadfcee Vorfahr halten. (4) go build + go test ./internal/machinehttp -count=1 -timeout 8m gruen,
+gofmt leer; push; ls-remote==head; PR #1354 TERMINAL beobachten (go-unit wieder gruen, lifecycle-jobs auf
+dieser PR duerfen skipping sein). Evidence baseharbor-plan/evidence/r27-welle3-2026-11-03/ci-authority/
+durability-8.md (KEINE checkboxen, nur bullets).
+END: "END_DONE w81-journal-hosted: head=<sha10> hosted-go-unit=gruen ursache=<kurz> lsremote=<sha10> | <Satz>"

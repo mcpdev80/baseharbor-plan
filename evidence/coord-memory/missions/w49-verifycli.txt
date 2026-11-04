@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w49). Coord f49a3303. KARTE: t-20261018-r27-state-owner (neutraler lauf-nachweis).
+GRUND: review-1347s blieb BLOCKED weil der cmd/baha-pflichtlauf in der reviewer-sandbox nach 120s
+timeoutete. §5.3 verlangt beweis auf neutralem produktionspfad — DU bist der neutrale lauf.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner"
+"+refs/heads/develop:refs/remotes/origin/develop"; worktree add /tmp/opencode/w49-verifycli-wt work/r27-state-owner.
+
+ARBEIT (nur ausfuehren+dokumentieren, KEIN code):
+1. GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./cmd/baha -run 'Deployment|Owner|Tenant|Scope|Binding|List|Guard|Retention|Vanish' -count=1 -timeout 10m (vollstaendige ausgabe in evidence-umleitung).
+2. denselben lauf auf develop-baseline (zweites worktree /tmp/opencode/w49-baseline-wt refs/remotes/origin/develop) — fails MUESSEN identisch zur branch sein, sonst ist die
+   "pre-existing"-behauptung falsifiziert => END mit DIFFERENZ-liste.
+3. internal/deployment+delivery -count=1 ebenfalls auf beidem, ergebnisse tabellarisch.
+REGELN: write-set = NUR baseharbor-plan evidence datei; KEIN baseharbor commit/push; .github tabu.
+Evidence: baseharbor-plan/evidence/r27-night-2026-11-02/verify-cli-1347.md (tabelle: test, branch,
+baseline, identisch ja/nein; laufzeiten; environment-angaben OHNE secrets).
+END an f49a3303: "END_DONE w49-verifycli: identisch=<ja|nein> failing_branch=<n> failing_baseline=<n> | <Satz>"

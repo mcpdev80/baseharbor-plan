@@ -1,0 +1,21 @@
+FRISCHE Lane: #1273 Coverage-Gate-Mapping als kleiner develop-PR (CI-Infra, Coordinator-Delegation).
+KONTEXT: #1273 (work/bcore1) hat 'PR Selected Checks' FAIL, Grund coverage-unresolved — die Aenderung von
+cmd/baha/runtime_start.go und internal/application/provider_registry.go (und shared_backends.go) ist in
+scripts/pr-gate-plan.py NICHT auf die passenden Runtime/Broker/Postgres-Gates gemappt, obwohl die nativen
+docker/podman/broker-Gates dafuer existieren. develop b8b56bbc ist vollstaendig hosted; das #1289-Register
+hat bereits internal/logs gemappt — jetzt fehlt das runtime-broker/provider-Mapping analog.
+AUFGAB (NUR scripts/pr-gate-plan.py + scripts/test_pr_gate_plan.py, KEIN anderes File):
+1. LIES pr-gate-plan.py: wie maptet es Pfad->validation (wie internal/logs via #1289). Finde den korrekten
+   Ziel-Gate fuer runtime_start.go/provider_registry.go/shared_backends.go (verwende die EXISTIERENDEN
+   Runtime/Broker/Postgres validations, KEINE neue Validation erfinden, KEIN Gate-Weakening).
+2. Fuege die EXAKTE Pfadbindung hinzu (Gleichheit/klare Prefix-Regel wie im logs-Muster, kein blanket).
+3. Regressionstests in test_pr_gate_plan.py: (a) genau diese Pfade -> passender selected_gate,
+   (b) unbekannte runtime-Pfade bleiben unresolved, (c) die 21+ bestehenden Register-/Bootstrap-Tests gruen,
+   (d) fail-closed erhalten. pytest scripts/test_pr_gate_plan.py exit 0 lokal.
+4. Oeffne einen PR base develop, qualifiziere hosted (PR Selected Checks + Source&Quality + actionlint) bis
+   terminal (Eigenes-Run-Pflicht). KEIN Merge durch dich. KEIN Edit an ci.yml/workflows/shared_backends.go-code.
+STOP: Wenn das Mapping denselben reviewed-head/bootstrap-Mechanismus wie #1289 braucht, dokumentiere exakt
+(file:line) melde END_BLOCKED an mich — nicht raten.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/s1273-map/evidence.md — ## PLAN, PR#, mapping-diff,
+pytest-Ergebnis, Run-IDs+labels, fail-closed-Nachweis.
+HANDOFF: codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED s1273-map: pr=<#N> mapping=<added|blocked> tests=<pass> selchecks=<green|pending> | <Satz>"

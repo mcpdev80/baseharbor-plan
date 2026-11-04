@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. ABSCHLUSSRUNDE journal (r1354b rezepte 1-5 umgesetzt).
+OBJEKT: branch work/r27-ci-authority-ab head 4f09aac6 (develop 0107d8e1 Vorfahr JA; append-journal unter
+<state-root>/journal/ mit rotation 4MiB x4 segmenten, newest-per-id compaction, active/active-unknown
+bleiben; create-persist vor 202; enum-validierung beim load; kein stiller in-memory fallback ohne ops-dir;
+keine result/progress/error-payloads im log; 0 geloeschte tests; write-set internal/** + eine uebergabe-
+stelle; go build + machinehttp suite gruen gemeldet). = t-20261022-r27-ci-authority journal-slice.
+PRUEFEN (SHA-genau, read-only): 1. je r1354b-befund ein gegen-test auf dem Kandidaten (restart-accepted,
+bogus-state, append-fehler ohne side-effect, no-fallback, grenztest 10x daten, secret-scan log).
+2. retention-konstanten benannt + kartenwortlaut "bounded durable files" erfuellt. 3. matrix karte =>
+ACCEPT|ACCEPT-WITH-DEFERRAL (gate-slices owner). Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/machinehttp -count=1 -timeout 8m + gofmt -l internal/machinehttp leer.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1354c.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1354c: verdict=<X> open=<liste|none> | <Satz>"

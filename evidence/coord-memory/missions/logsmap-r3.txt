@@ -1,0 +1,11 @@
+RUNDE 3 PR #1286 (codex review-r2 REJECT; baseharbor-plan/evidence/board-2026-11-02/codex-1286/review-r2.md lesen). Coordinator hat das echte Gate identifiziert — Design geklaert, KEIN neues Gate, alles im Write-Set (scripts/pr-gate-plan.py + dessen Test).
+
+SUBSTANZ DER BEFUND: deine exakte Pfad-Bindung zeigt auf cmd/baha-Gates (cli-gofmt/vet/build) und source-contracts — die führen `go test ./internal/logs` NICHT aus. Comment behauptet Format-Gate decke internal/logs ab = falsch. #1283-Aenderung (Regex render.go) ist dadurch nicht echt getestet.
+
+FIX (exakt):
+1. internal/logs/render.go (path ==, exakt) an das BESTEHENDE native Logs-Paket-Gate binden, das auf develop schon `go test ./internal/logs -run ^TestManagedLokiIngestsRealComposeWorkloadLogs$` ausfuehrt (targeted-integration.yml:293 / docker-runtime-acceptance.yml:217) — exakt analog dem Zweig internal/runtimebroker/*.go -> runtimebroker-lifecycle (pr-gate-plan.py ~1611/1622). NICHT cmd/baha-Gates.
+2. Kommentar korrigieren: echte native Logs-Validierung beschreiben (TestManagedLokiIngestsRealComposeWorkloadLogs prueft render.go-Regex), nicht 'Format-Gate'.
+3. Negativtest: diff = render.go PLUS weitere internal/logs/*.go -> zweite Datei bleibt fail-closed unresolved (direkter Regressionstest).
+4. Beweisklasse promotable gem. RUNBOOK.md:166 in Evidence: merge-tree-Simulation (S=commit-tree(union-tree,-p developTip); M2=commit-tree(union-tree,-p S,-p mainTip); merge-tree main x M2 clean + diff main..M2 ohne Defense-Minus) fuer develop-Merge.
+5. Neuer SHA, Hosted-Checks gruen selbst beobachten (Eigenes-Run-Pflicht 4.6); dokumentieren, dass bei #1283 jetzt das native Logs-Gate laeuft.
+REVIEW-Kontext wiederverwenden (AGENTS 4.7). END_CODE_READY an f49a3303 mit neuem head + promotable-Beweis. ornith, kein qwen-Bezug. Falls Punkt 1 eine Gate-Erweiterung ausserhalb des Write-Sets erfordern Wuerde: STOP + QUESTION an f49a3303, nichts eigenmaechtig verbreitern.

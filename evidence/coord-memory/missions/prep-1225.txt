@@ -1,0 +1,26 @@
+MISSION prep-1225 — Read-only-VORBEREITUNG des #1225-Umbaus auf 100% GitHub-hosted (NUR analysieren, NICHTS editieren/mergen)
+KONTEXT: PR #1225 (baseharbor, base develop, head 5060cb23, 26 Commits, files: .github/workflows/ci.yml +
+  podman-acceptance.yml + scripts/pr-check-runner.py + scripts/pr-gate-plan.py + scripts/test_pr_gate_plan.py) baute
+  die NATIVE Qualification auf SELF-HOSTED HA-Runnern (Commit-Titel nennen explizit "self-hosted HA runner",
+  "self-hosted qualification runner"). Das widerspricht der 100%-GitHub-hosted-Regel. Ziel dieses Auftrags: ein
+  SHA-genues, UMSETZBARES Rezept, wie genau diese Stellen auf die BEWIESEN funktionierenden GitHub-hosted nativen
+  Jobs umzubiegen sind, damit spaeter (nach Endpoint-Fix) die Integration mechanisch ist statt Raten.
+BEWIESENE Fakten (nutze sie als Ziel-Zustand):
+  - Docker: auf ubuntu-latest laeuft der SYSTEM(rootful) docker Daemon; rootless ist dort UNMOEGLICH (userns).
+  - Podman: auf ubuntu-latest/26.04 laeuft Podman ROOTFUL (nc PR #17 zeigt "transport·podman SUCCESS" = echtes
+    Beweisstuick); Fallback --cgroup-manager=cgroupfs. -> git -C baseharbor-node-connector show main:.github/workflows/source.yml als Referenz.
+  - Die GH-hosted nativen Jobs existieren schon in develop-ci.yml: "Targeted HA · docker" (ubuntu-latest) +
+    "Targeted HA · podman" (ubuntu-26.04), getriggert per push auf runtime-validation/ha/....
+VORGEHEN (read-only; gh api pulls/1225/files + diff + git log origin/develop..origin/pr1225):
+ 1. Identifiziere JEDE Stelle in den 26 Commits, die self-hosted erzwingt (runs-on, if:-Bedingungen, witness-/
+    qualification-Pfade in pr-gate-plan.py / pr-check-runner.py, die "self-hosted"/"baseharbor"-Label voraussetzen).
+    file:line + Zweck.
+ 2. Schreibe je Stelle die GENAUE GH-hosted-Aequivalent-Aenderung (z.B. "require self-hosted runner X" -> "require
+    GH-hosted job 'Targeted HA · docker' green on candidate SHA"). Respektiere: pr-gate-plan.py coverage-Status muss
+    durch echte GH-hosted native LAEUFDE aufgelöst werden (kein Dauer-SKIP, § Realitäts-/Fail-closed-Regel).
+ 3. Stelle fest, ob #1225 ueberhaupt noetig ist oder ob develop + die offenen PRs (#1239/#1238/#1243/podman-gh) die
+    Qualification bereits GH-hosted abdecken und #1225 als superseded schliessbar ist — das waere das beste Ergebnis.
+ERGEBNIS: baseharbor-plan/evidence/board-2026-10-31/prep-1225/RECIPE.md — Tabelle file:line|ist(self-hosted-Annahme)|
+  soll(GH-hosted)|Lane die es besitzen sollte; + klare Empfehlung {MECHANISCH UMBIEGBAR: <liste> | SUPERSEDED: #1225
+  schliessbar, Grund <ancestry-beleg>} + ROLLE:ANALYSE + Session/Modell/Zeit. NICHTS aendern/mergen.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE prep-1225: <MECHANISCH|SUPERSEDED> + N Stellen + Kernaussage"

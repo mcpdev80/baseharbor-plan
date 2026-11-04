@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w66). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 8, MECHANISCH).
+PR #1357, branch work/r27-ci-access-ab, basis head ea3e88e0. review-1357g: fake-remote-error korrekt,
+ABER zwei negative Check-Faelle (selfsigned + wrong-server-CA) asserten den ready-recorder nicht.
+Die letzten 6 runden sind JEWEILS an 1-2 uebersehenen faellen gescheitert — deshalb VOLLSTAENDIGKEITS-
+TABELLE statt punkt-flick.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-access-ab:refs/remotes/origin/work/r27-ci-access-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ls-remote==head WÖRTLICH; worktree add
+/tmp/opencode/w66-ci-access-h-wt work/r27-ci-access-ab.
+
+ARBEIT:
+1. ERZIELE eine TABELLE in evidence: jede testfunktion in client_test.go mit ihrem pfad (check/execute/
+   positiv/negativ) und den GESETZTEN flags (grep-beleg je funktion: readyz/execute recorder assert lines).
+   Regel: JEGER negative fall (beide wege) assertet ready==false UND execute==false; jeder positive
+   faellt die erreichte route true. Kein einziger fall ohne zeile in der tabelle.
+2. Implementiere die fehlenden asserts (voraussichtlich genau selfsigned-check + wrong-server-CA-check).
+3. SELBSTKONTROLLE-pflicht im END: zahl der negativen faelle N und zahl der ready==false-asserts M —
+   END enthällt "faelle=N asserts=M" mit N==M, sonst gilt die arbeit als unvollstaendig.
+REGELN: write-set NUR internal/runtimeexecutor/client_test.go; keine bestehende testfunktion loeschen;
+gofmt leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m
+gruen; merge develop drift rc=0; push FF; ls-remote==head. EIGENES-RUN: gh pr checks --watch bis terminal.
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-8.md (tabelle + zahlenspiel).
+END an f49a3303: "END_DONE w66-ci-access-h: head=<sha> faelle=N asserts=M (N==M) hosted=green(<id>) | <Satz>"

@@ -1,0 +1,43 @@
+ROLLE: Worker (Lane w121). Coord f49a3303. FELD: TEST-VM baha-podman (ssh-alias).
+OWNER-FREIGABE 2026-11-04 16:0x: die VM ist eine REINE TESTUMGEBUNG; vollständige Bereinigung und
+reproduzierbarer Neuaufbau sind ausdrücklich gewollt, auch für die geteilten Teststapel auf dieser VM.
+Proxmox-Hosts und produktive Dienste außerhalb bleiben unberührt.
+
+GRUND FÜR DICH (vor-Vorgänger w117 hatte denselben Fehler wie sein Docker-Pendant): er hat "nichts angefasst"
+gemeldet und die drei Wochen alten Shared-Stapel stehen lassen. Zusätzlich BEFUND: ~/.local/bin/baha auf diesem
+Host meldet BaseHarbor 0.4.23 und wurde heute 14:54 vom Setup-Skript so installiert — develop ist ecbb8854
+(v0.4.27-Linie). Ein Test gegen 0.4.23 ist kein Test.
+
+SCHRITTE:
+ 1) BESTAND aufnehmen: `podman ps -a` mit Namen/Status/Alter, `podman system df`, `df -h /`,
+    `~/.local/bin/baha --version`. Dreipunkteprüfung (aktive Runs? welche Stapel? Wiederherstellungsfolge)
+    als BEGRÜNDUNG FÜR DEN NEUAUFBAU in die evidence — nicht als Grund, nichts zu tun.
+ 2) NEUAUFBAU der compose-/setup-definierten Stapel (bh-backup-recovery-ci-shared-*,
+    bh-backup-recovery-ci-core-shared-keycloak-*): über die jeweilige Definition, nicht durch einzelnes
+    Container-Wegklatschen. Für den unhealthy broker-Stapel (bh-backup-recovery-ci-backup-cli-dev-broker):
+    erst Logs/Ursache notieren, dann neu aufbauen; bleibt er krank, melde Grund + nächsten Auslöser.
+ 3) VERSION KORRIGIEREN (PFLICHT): setup-skript so ändern, dass baha aus einer definierten QUELLREVISION gebaut
+    und installiert wird (`git -C <checkout> rev-parse HEAD` + `go build -o ... ./cmd/baha`), damit der
+    PATH-Eintrag die aktuelle Version zeigt. Beleg: `baha --version` UND die revidierung, aus der gebaut wurde,
+    woertlich in der evidence. Wenn das Skript eine released-version aus dem netz zieht: umstellen auf
+    quellbau, diff des skripts in die evidence.
+ 4) FUNKTIONSBEWEIS pro runtime: rootless `podman run --rm <lokal> true` rc=0, port-mapping-test rc=0,
+    ein build-/image-lauf aus dem quellbau. KEIN skip, KEIN "war schon so".
+ 5) AUFRÄUMPHASE: lane-eigene container/volumes/netz weg; END enthält wörtlich `podman ps -a` nachher +
+    df-zeile + anzahl neu aufgebauter stapel + die versionszeile aus schritt 3.
+GRENZE: KEINE .github-/workflow-änderung, KEIN runner-registrieren (GitHub stellt die geteilten Runner),
+KEIN Proxmox, KEINE produktiven Dienste, KEIN `podman system reset` ohne dokumentierte Dreipunkteprüfung.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-rebuild/podman-round-2.md (keine checkboxen).
+END an f49a3303: "END_DONE w121-podman-rebuild: stacks=<n neu> baha=<version aus revision ecbb...> broker=<gesund|blocker-text> laufend=<rc0-belege> cleaning=<bestaetigt> | <Satz>"
+
+
+VORBEFUNDE (aus dem OPS-Testlauf der zweiten Codex-Instanz, 15:4x, von coord auf platte nachgesehen):
+ - Der broker-containers ist auf baha-podman NICHT MEHR VORHANDEN (`podman ps -a | grep -a broker` => leer).
+   Er wurde im ersten Podman-Durchgang als lane-eigen eingestuft und entfernt. Seine definition (compose- oder
+   setup-objekt) muss wieder hochgebracht werden, sonst laufen backup-/recovery-tests ins leere.
+ - Fruehere logs des stapels: exit 137 (SIGKILL, auf diesem host plausibel OOM: 7.9 GB gesamt, ~2.4 GB verfuegbar
+   bei 5.5 GB belegt) und ein TLS-handshake OHNE clientzertifikat. Beide zeilen sind BEFUNDE, die du in deiner
+   evidence getrennt auffuehrst: (a) arbeitsspeicher-grenze der VM, (b) fehlendes clientzertifikat auf dem
+   Verbindungsweg — das zweite ist ein MOEGLICHER produktbefund, nicht dein fix, also nur melden mit beleg.
+ - `baha --version` meldet auf diesem host weiter 0.4.23 (revision 9514a768be). Auf baha-docker ist es schon
+   richtig (ecbb8854-quellbau). Genau diesen unterschied gleicht schritt 3 aus.

@@ -1,0 +1,31 @@
+ROLLE: Worker (Lane w9-authority-r5). Coord f49a3303. MIKRO-AUFGABE: 2 scharfe Code-Punkte PR #1348
+(t-20261018-r27-authority-contract). Basis = head 3c63e8e0bf auf branch w7-authority-r3-clean.
+
+ZUERST LESEN: review-1326c3.md befinde 1+2 (und die drei karten-notizen composition/revocation/wiring).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin w7-authority-r3-clean develop
+  git -C baseharbor worktree add /tmp/opencode/w9-authority-r5-wt w7-authority-r3-clean
+
+PUNKT 1 — EINZIGER WAHRHEITSKANAL (fresh.go :68-75):
+  Fresh/die prüfung ruft NUR RevokedStatus EINMAL und verzweigt vollständig:
+  revoked==true => ablehnung; err!=nil => ablehnung (fail-closed); unknown-status => ablehnung.
+  KEIN boolesches Revoked() mehr im prüfpfad (methode bleibt für abwärtskompatibilität erlaubt,
+  aber unverwandt hier). Test: fake mit status=(false,nil) dann (true,nil) ODER err => jede variante
+  abgewiesen; kein zustandsfenster zwischen zwei aufrufen (ein aufruf!).
+PUNKT 2 — ObservedIn Fresh:
+  installauthority.Fresh erhaelt parameter ObservedAt (time.Time) + maxAge/aktuelle zeit und
+  prueft selbst: zero=>fail, future=>fail, now-observedAt>bound=>fail; coreinstallation.ObservedState.Fresh
+  delegiert DARAUF (single source), wrapper (resolveManagementConnectionIssuer) liefert den
+  observationszeitpunkt seiner status-abfrage mit. Tests: positive mit frischem observedAt, negative
+  zero/future/stale je durch den WRAPPER-pfad (e2e), nicht nur helper.
+PUNKT 3 (klein, doku): lock-verlagerung ist NICHT nur ort-treue — lifecycle wrapper/platform-dateien
+  haben Änderungen: doku-satz in ADR/spec wo verhalten eq behauptet wird auf "behaviour-preserving
+  relocation with per-caller regression tests (stableid)" stellen (EN+DE).
+
+ANSENDE-PFLICHT: merge origin/develop; diff gegen develop = write-set (docs + coreinstallation +
+installauthority + serviceaccess glue + stableid + autorisierte cmd dateien); grep .github/scripts leer.
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid + wrapper-e2e.
+push FF auf w7-authority-r3-clean, ls-remote==head, keine run-logs, END an f49a3303.
+Evidence: .../authority-contract/fix-r5.md (plain bullets).
+STOP: 1 iteration je punkt, sonst END_BLOCKED; kein Merge; keine neuen cmd dateien; kein force-push.

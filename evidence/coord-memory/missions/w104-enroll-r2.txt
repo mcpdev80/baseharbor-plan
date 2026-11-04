@@ -1,0 +1,20 @@
+ROLLE: Worker (Lane w104). Coord f49a3303. KARTE: t-20261018-r27-device-enrollment, PR #1371 head fb701991
+(branch work/w96-production-wiring-f8ef4255 — du arbeitest darauf weiter, vorgaenger-lanes released).
+Luna review-1371a REJECT — vier rezepte (vollstaendig in der akte, vor coding lesen):
+(1) ROUTEN: production_handler.go — exakte pfade /api/v1/workstations/bootstrap und .../enroll muessen
+    ihre endpunkt-methoden ERREICHEN (submux/pfad-bewusster router); test der am selben pfad wie
+    registerOperatorAPI mounted und bootstrap/enroll NICHT 404 liefern. Gegenprobe vorher: aktuelle
+    route-404 wortlich belegen (rot-first auf dem kopf).
+(2) SCOPE-QUELLE: Resolve(ctx, req.Station) — station darf nicht aus dem request als scope-quelle
+    akzeptiert werden; authentifizierte policy-/ownership-nachschlage fuer station; installation bleibt
+    aus tenancy. REGRESSION: gueltig-aussehende aber UNBEWOHTE station => abweisung VOR store/issuer;
+    fremde installation ebenso.
+(3) REGISTRY-FAKT PFLICHT: type-assert + error- discard (production_handler.go:138-142) => fail-closed:
+    persistenz-fehler => KEIN erfolg-response; test auf registryErr-pfad.
+(4) PG-INTEGRATION WIRKLICH AUSFUEHREN: BASEHARBOR_TEST_DATABASE_URL gegen eine echte test-db (muster im
+    repo: vorhandene integration-helfer; db-raeumung nachher); fresh-pool replay + registry readback
+    beobachten; ausserdem PR-#1371-Tore (go-unit + PR Selected Checks) fuer GENAU diesen SHA terminal.
+basis develop Vorfahr halten; 0 tests geloescht; namespace-grenzen der karte + des umleitungsvermerks
+einhalten (targetenrollment/fremde register heilig). push; ls-remote==head; END.
+Evidence: device-enrollment/production-2.md (bullets).
+END: "END_DONE w104-enroll-r2: head=<sha10> r1=routen r2=policy-scope r3=failclosed r4=pg-live lsremote=<sha10> | <Satz>"

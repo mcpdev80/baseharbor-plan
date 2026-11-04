@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w43). Coord f49a3303. KARTE: t-20261022-r27-ci-access — karte VOLLSTAENDIG lesen
+(slices: profile-contract/codec, native-auth, protected-credentials, secure-export, device-*,
+connection-client, access-*, wizards). OWNER-DIREKTIVE 2026-11-03: produktseitige qualifikation JA;
+.github/** + scripts/** TABU (auch KEINE .py fixtures dort — das ist owner-CI, sache #1349).
+ERSTE AKTION: fetch origin "+refs/heads/develop:refs/remotes/origin/develop"; worktree
+/tmp/opencode/w43-ci-access-wt branch work/r27-ci-access-ab develop.
+LIEFERGUT: Go tests/fixtures in internal/** + cmd/baha TEST-dateien + testsupport/** die je slice
+auswahl+ausfuehrung+verifikation der AKZEPTIERTEN produktschnittstellen belegen; defekt => sichtbarer
+fail, kein skip. Alles was NUR ueb gate-/skript-dateien ginge: in evidence als owner-CI-punkt
+auflisten, nicht bauen.
+REGELN: write-set grep .github/scripts leer; merge develop bei drift + rc=0 ls-remote-SHA;
+TMPDIR=/tmp GOCACHE=/tmp/opencode/gc go build ./... + betroffene pakete; PR DRAFT; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/ci-access/qualify-1.md. END an f49a3303. STOP: slice nur mit
+gate-anderung qualifizierbar => als owner-punkt notieren und slice aussetzen (nicht blockieren lassen).

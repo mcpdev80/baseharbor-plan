@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna.
+OBJEKT: baseharbor PR #1373 head 0ce814d0 branch work/r27-execution-journal base develop 2a43984a (draft;
+gates terminal 2 pass / 0 fail / 14 skipping). KARTE t-20261018-r27-execution-journal (ihr vertrag: persistenz VOR
+wirkungen, doppelte anfrage mit geaendertem inhalt => abweisung, reconnect => dieselbe operation, gebundene
+retention ohne secrets/payloads, KEIN exactly-once-versprechen; handler/lifecycle-wiring ist SPAETERE karte).
+VORGESCHICHTE: der erste ansatz (kopf 03e401.../lane w112 "schon gemergt") wurde von coord ABGELEHNT mit
+file:line-beleg (store.go:102-130 indexierte nur nach execution id); w112 hat darauf die operationsIndex-loesung
+geliefert. PRUEFEN SHA-genau read-only: (1) doppelte operation-id mit ANDEREM inhalt wird typisiert
+abGEWIESEN, und die abweisung schreibt KEINE wirkung (gegenprobe: zaehlbare seiteneffekte bleiben null),
+(2) reconnect mit derselben operation id liefert dieselbe ausfuehrung zurueck (kein zweiter versuch, keine
+zweite journal-zeile), (3) persistenz findet VOR der wirkung statt (test beobachtet reihenfolge, nicht nur
+endzustand), (4) retention bleibt gebunden und eintrag ohne secrets/progress-payloads, (5) kein text/kommentar/
+test behauptet exactly-once ueber crashes, (6) kein griff in cmd/baha, internal/delivery, .github (diff
+name-only), (7) pakettests + build + gofmt + vet gruen. Urteil -> review-1373a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1373a: verdict=<X> open=<liste|none> | <Satz>"

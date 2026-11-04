@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w92). Coord f49a3303. KARTE: t-20261018-r27-team-auth — CLAIM GESETZT UND PUBLSHT.
+VOLLSTAENDIG: plan.py show + alle card sections + baseharbor/AGENTS.md.
+PRODUKTZIEL: verifizierte issuer+subject/group/app-role claims abbilden auf BESTEHENDE target/environment/
+resource-operation berechtigungen; KEIN zwingendes Keycloak, KEINE zweite benutzerverwaltung. WRITE-SET:
+internal/auth/, internal/identity/, internal/authorization/, internal/operatorauth/ bounded claim/policy files.
+ARBEITSWEISE: zweig work/r27-team-auth ab develop 3d08ef72; worktree /tmp/opencode/w92-teamauth-wt;
+GOCACHE=/tmp/opencode/gc TMPDIR=/tmp; rote-first am ECHTEN pfad: claim gueltig=>erlaubt; abgelaufen/fremder
+issuer=>abgewiesen; fehlende gruppe=>abgewiesen; scope-ueberschreitung=>abgewiesen; positiver nachweis im
+zustand/registry-fakt. KEINE secrets in logs/evidence. geteilte register/index-dateien NICHT editieren
+(gehoren public-surfaces-karte) — eigener namespace wo noetig, coordination-bedarf im END melden.
+kleinste gates (build/vet/gofmt + pakettests); PR DRAFT auf develop; letzter schritt: origin/develop Vorfahr
+pruefen, sonst merge rc=0 vor push; ls-remote==head. Evidence:
+baseharbor-plan/evidence/r27-welle4-2026-11-04/team-auth/slice-1.md (## PLAN als bullets, KEINE checkboxen).
+END an f49a3303: "END_DONE w92-team-auth: head=<sha10> pr=<n> faelle=4+1 rotfirst=belegt lsremote=<sha10> | <Satz>"

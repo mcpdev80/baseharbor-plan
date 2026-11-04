@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w8-delivery-r7). Coord f49a3303. MIKRO-AUFGABE: 2 letzte puntje PR #1333
+(t-20261018-r27-delivery-boundary). Basis = head 4e8e67d8 (develop Vorfahr).
+
+ZUERST LESEN: review-1333e2.md — PUNKT 2 (first-save conflict) + PUNKT 3 (DE rest-behauptung).
+ALLES andere ist bereits bestaetigt erfüllt (praferenzen-fix = fixed, tests ok).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C baseharbor worktree add /tmp/opencode/w8-delivery-r7-wt work/r27-delivery-boundary
+
+1 CONFLICT-SEMANTIK VOLLSTAENDIG: auch beim ERSTEN speicher (previousExists==false) darf der
+  caller-gelieferte Observed.Conflict NICHT zählen — semantik: conflict = previous.conflict ODER
+  store-eigene erkenntnis, caller-feld immer ignoriert. Test: first save mit caller conflict=true
+  => keine ablehnung daraus; previous=true + caller=false => ablehnung.
+2 DOKU: die DE (und EN) stelle die pauschal "verweigert apply/observation" sagen auf record-save
+  umfang + deferred-verweis (kartenamen) stellen; comment im code = dieselbe wahrheit.
+
+ANSENDE-PFLICHT: merge origin/develop; diff grep -E '^(\.github|scripts/|cmd/)' leer.
+Tests: TMPDIR=/tmp go test ./internal/deployment ./internal/delivery + build/vet. push FF, ls-remote, END an f49a3303.
+Evidence: .../delivery-boundary/fix-r5.md (plain bullets, keine checkboxes).
+STOP: max 1 iteration je punkt; kein Merge; keine neuen dateien.

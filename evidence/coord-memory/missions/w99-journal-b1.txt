@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w99). Coord f49a3303. KARTE: t-20261022-r27-ci-authority — B1-UMSETZUNG NACH
+OWNER-ENTSCHEID (PR #1354 kommentar 2026-11-04T10:26Z: OPTION 1 — 16MB-budget UNVERAENDERT, im test
+aeltere gross-buchungen in terminal/finished state laufen lassen, newest-per-id bleibt klein).
+Branch work/r27-ci-authority-ab head 6eb497a7 (basis develop f8ef4255 Vorfahr machen: fetch+merge rc=0,
+enthaelt owner-ci-commits + access-merge).
+UMBAU (testseite, store_retention.go produktauslegeordnung BLEIBT): round-7-faelle mit n=8x2.4MB all-running
+konstruieren wie bisher, aber die aelteren buchungen erreichen terminal/finished bevor der cap greift —
+musterbild: der bestehende succeed/helper-pfad des pakets; KEIN bypass, KEIN skip, 0 geloeschte tests.
+BEWEIS: (a) der old-faelle bleibt gruen (active-IDs unter cap erhalten — B1-gehalt aus review-1354g),
+(b) MUTATION: aeltere buchungen NICHT terminal werden lassen => cap-rejektion ROT muss sichtbar sein
+(belegt dass der test die huetche traegt), (c) alle vier Luna-contra-proben von r1354g/f auf dem neuen kopf
+gruen. go test ./internal/machinehttp -count=1 -timeout 8m; gofmt/vet; build ./...; push; ls-remote==head;
+PR #1354 gates TERMINAL beobachten. Evidence: ci-authority/durability-9.md (bullets).
+END: "END_DONE w99-journal-b1: head=<sha10> budget=16MB-unveraendert mutation-cap=rot lsremote=<sha10> | <Satz>"

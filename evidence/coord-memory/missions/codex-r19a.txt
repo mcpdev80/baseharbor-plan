@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna.
+OBJEKT: baseharbor-node-connector PR #19 head 764a2a4 branch work/r27-node-service (draft->ready durch coord).
+KARTE t-20261018-r27-node-service + ihr claim-vermerk. Gegenstand: duenner internal/nodeservice —
+install/start/restart/uninstall eines rootless systemd-user dienstes OHNE Go auf dem knoten, native
+XDG/systemd-user/lingering, explizite re-enrollment-regeln, geschuetzte lokale schluesselerzeugung, KEINE
+desired-state-/placement-autoritaet auf dem knoten; targetaccess wird wiederverwendet.
+PRUEFEN SHA-genau read-only: (1) lifecycle ist aufrufbar (paket-/install-/startpfad echt, kein unbenutzter
+adapter), (2) neustart == gleiches verhalten (test beobachtet echten restart, nicht nur funktionsaufruf),
+(3) re-enrollment zweimal => definierter zustand, kein stiller zweiter dienst, (4) fehlende authorization =>
+schutz greift bevor wirkungen eintreten, (5) schluessel-erzeugung ersetzt KEINE bestehende schuetzende datei
+(test mit vorhandenem schluessel), (6) PR#4-praezedenz: exact unique work erhalten (diff gegen den zweig von
+PR #4, keine silente erweiterung), (7) keins der verbote: desired-state/placement-authority auf dem knoten,
+(8) vet/build/fokussierte tests laut connector-AGENTS gruen. Urteil -> review-19a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r19a: verdict=<X> open=<liste|none> | <Satz>"

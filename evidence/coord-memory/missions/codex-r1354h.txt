@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS journal nach B1-ERLEDIGUNG.
+Hinweis: B1 war deine blockierung (review-1354g) — der Owner hat OPTION 1 genehmigt (PR #1354 comment
+10:26Z; kartenvermerk "Owner-Entscheid B1" in tasks/t-20261022-r27-ci-authority.md): budget bleibt 16MB,
+testseitig terminal-state fuer aeltere buchungen. Lane w99 setzt gerade um; WARTEN bis PR #1354 head
+weitergezogen hat (ls-remote zeigt neuen kopf != 6eb497a7) und gates terminal — pruefe das vor beginn,
+sonst END_BLOCKED "basis noch in arbeit". Dann: contra-proben 1-6 wie in 1354g + B1-spezifisch: (i) aktiver
+fall unter cap bleibt erhalten, (ii) mutierte version ohne terminal-states => cap-rot (belegt test traegt
+die huetche), (iii) budget-konstante 16MB im produkt unveraendert (konstanten-nachweis). go test ./internal/
+machinehttp -count=1 -timeout 8m, gofmt/vet. Urteil -> review-1354h.md.
+END an f49a3303: "END_DONE codex-r1354h: verdict=<X> open=<liste|none> | <Satz>"

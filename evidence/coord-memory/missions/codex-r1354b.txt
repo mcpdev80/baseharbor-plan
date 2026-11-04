@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde2 (r1354a befehligt, scope erweitert
+um journal-wiring-slice gemäss karte t-20261022-r27-ci-authority, coord-freigabe dokumentiert).
+OBJEKT: branch work/r27-ci-authority-ab head 99556b9a (159054c2 + append-journal persistence unter
+<state-root>/journal/ + EIN server_run uebergabe-punkt; develop Vorfahr JA; write-set internal/** nur;
+reopen-test + corrupt fail-closed + durable-transition gemeldet).
+PRUEFEN (SHA-genau, read-only): 1. persistence IST echt: mutation -> append-log; process-reopen test
+liest zustand zurück; corrupt log => fail-closed err, kein stiller reset. 2. wiring: New()/server_run
+uebergibt echten state-root (kein temp-only, kein test-only pfad); unknown-id verhalten unveraendert.
+3. r1354a offen-punkte (durable-journal, corrupt-produktionspfad, ci-selektion) abgearbeitet? 4. matrix
+=> ACCEPT|ACCEPT-WITH-DEFERRAL|REJECT. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/machinehttp -run 'Journal|Execution|Durab|Corrupt|Reopen' -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1354b.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1354b: verdict=<X> open=<liste|none> | <Satz>"

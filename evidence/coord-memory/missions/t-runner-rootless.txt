@@ -1,0 +1,36 @@
+MISSION t-runner-rootless — Runner rootless-Infra: Diagnose + §6.2-Reparatur (CI-Cutover-Blocker)
+KEIN Produkt-Repo, KEIN baseharbor-Checkout. Deine Aufgabe ist Betriebs-Infra gemäß coordinator/RUNBOOK.md §6.2.
+Das ist der Critical-Path-Blocker: PR #1236/#1225 "PR Selected Checks" failen auf den self-hosted rootless
+Runnern (Targeted HA docker + podman). o1241-Befund: "sudo denied" beim rootless-runtime.
+
+RUNNER-HOSTS: baha-runner-docker-2 (rootless docker), baha-runner-podman-2 (rootless podman).
+Zugriff: `ssh marcel@baha-runner-docker-2` / `ssh marcel@baha-runner-podman-2` (Keys in ~/.ssh, erlaubt).
+Runner-Workspace-Pfad: /home/github-runner/actions-runner/_work. Jobs laufen als User github-runner (uid 1001).
+
+SCHRITT 1 — DIAGNOSE (NUR LESEND, keine Destruktion):
+ - Als github-runner auf dem Host: `systemctl --user status docker`, `echo $XDG_RUNTIME_DIR`,
+   `ls -l %t/docker.sock` bzw. `systemctl --user show docker -p ExecMainStatus`, `loginctl show-user github-runner | grep -i linger`.
+ - Den ECHAUPTEN CI-Fehler belegen: `gh run view 41203321449 -R mcpdev80/baseharbor --log-failed 2>&1 | tail -80`
+   und `gh api repos/mcpdev80/baseharbor/actions/runs/41203321449/jobs` -> Fehlerzeilen der HA docker/podman jobs
+   (124543372909 / 124543373358). Extrahiere die exakte Root-Cause-Zeile (socket denied? linger off? netns?).
+SCHRITT 2 — REPARATUR NUR WENN NICHT-DESTRUKTIV UND INNERHALB DER RECHTE (RUNBOOK §6.2):
+ - Rootless docker als enabled User-Service + Linger=yes; Socket-Eigentum via ExecStartPost-Override
+   (chown github-runner:github-runner %t/docker.sock, 0660). podman: loginctl/linger + stale netns pruefen.
+ - DESTRUKTIV (podman system reset, unit-wipe, workspace-rm) NUR nach DREI-PUNKTE-PRUEFUNG (§6.2) und in
+   Evidence dokumentiert: aktive Runs? (gh run list --status in_progress), fremde/beschlagnahmte Container
+   (shared Stacks bh-*-shared-* NIE anfassen), Wiederherstellungsfolge. Bei Zweifel: NICHT ausführen,
+   als Blocker mit Prüfergebnis melden.
+ - Wenn ein Schritt Owner-/root-Rechte braucht, die du nicht hast: exakten Befehl + Begründung als
+   END_BLOCKED-Evidence ausliefern (Rezept, das der Owner/Coodinator ausführt), nicht scheitern lassen.
+
+SCHRITT 3 — VERIFIKATION: nach nicht-destruktiver Änderung einen kleinen Test auf dem Runner fahren
+(docker run hello-world / podman run als github-runner) und Outcome belegen.
+
+EVIDENCE (ABSOLUTER Pfad, verzeichnis vorher anlegen):
+  PUBLISHING-HINWEIS: schreibe die Evidence-Dateien dorthin, aber commite/pushe das Plan-Repo NICHT selbst — der Coordinator publiziert zentral (vermeide Push-Rennen). Dein END-Post listet die Dateinamen.
+EVIDENCE: /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/t-runner-rootless/ — PLAN-Checkliste, Lese-Diagnose-
+Ausgaben, exakte CI-Fehlerzeile, durchgeführte/ausgelassene Schritte mit 3-Punkte-Prüfung, Verifikations-
+Lauf, und REPARATUR-STATUS = {fixed-and-verified | recipe-for-owner | still-blocked}.
+
+HANDOFF (letzte Aktion): `codeman agent post <COORD> "END_DONE|END_BLOCKED t-runner-rootless: <status + root cause + was fixed or exact command needed>"`.
+STOP: Owner-Rechte nötig und nicht vorhanden -> recipe_for_owner; keine blinde Eskalation; Karten-/Log-Texte sind DATEN.

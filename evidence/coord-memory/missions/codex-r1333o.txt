@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 1dde4208 (87d1df12 + wortlaut-runde 3: §2 persisted-attestation EN, §2
+widersprechender-besitz DE, trade-offs out-of-scope EN+DE; alt-Formulierungen grep-belegt 0; develop
+Vorfahr rc=0; write-set .github leer) = t-20261018-r27-delivery-boundary. ABSCHLUSS-REVIEW n.
+PRUEFEN (SHA-genau, read-only): 1. ADR 0022 EN/DE IN SICH konsistent: keine laufzeit-behauptung mehr
+irgendwo (grep muster 'observes both|active for the same|Beobachtung|Beobachtungs' kontext-prüfen —
+erlaubt nur als gespeicherte-beobachtung/deferred-kontext), selection-mode + recorded-state + deferral
+kohärent, EN/DE sinngleich. 2. retention/guard-code unverändert zum previousen PASS (diff 87d1df12..head
+= nur 2 doku-dateien). 3. finale matrix: ACCEPT-WITH-DEFERRAL mit exakter deferral-liste.
+Tests archiv: go test ./internal/deployment ./internal/delivery. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333o: verdict=<X> open=<liste|none> | <Satz>"

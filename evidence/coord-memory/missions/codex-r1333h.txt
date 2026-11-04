@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 60eb3ed1 (develop Vorfahr) = t-20261018-r27-delivery-boundary. Nach review-1333g
+wurden GENAU die zwei Nebensatz-Inversionen korrigiert (diff 6df94554..60eb3ed1 = 2 ADR dateien).
+PRUEFEN (SHA-genau, read-only):
+1. DE+EN :33-39 logikgleich: ablehnung gilt wenn Eindeutigkeit nicht (mehr) erfüllt; kein "während/
+   while" mehr als Bedingung; ADR in sich widerspruchsfrei inkl. deferred-satz.
+2. sonst keine Änderung; tests im archiv grün (go test ./internal/deployment ./internal/delivery).
+3. finale matrix: alle klauseln erfüllt oder formal-deferred (karten-notizen) -> ACCEPT-WITH-DEFERRAL.
+Urteil -> review-1333h.md. KEIN Merge, KEINE run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333h: verdict=<X> | <Satz>"

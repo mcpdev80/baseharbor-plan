@@ -1,0 +1,26 @@
+ROLLE: Worker (Lane w30-stateowner-r9). Coord f49a3303. MIKRO-AUFGABE: GENAU EIN test-szenario
+PR #1347 (t-20261018-r27-state-owner). Basis = head 797bd811 branch work/r27-state-owner.
+Grundlage: review-1347h befund 1 rezept (befund 2 = gelobt, 3 = environment).
+
+ERSTE AKTION: eigenes worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin "+refs/heads/work/r27-state-owner:refs/remotes/origin/work/r27-state-owner" "+refs/heads/develop:refs/remotes/origin/develop"
+  git -C baseharbor worktree add /tmp/opencode/w30-stateowner-r9-wt work/r27-state-owner
+
+SZENARIO (deployment_owner_binding_test.go, OEFFENTLICHE seams, nicht VerifyDeploymentOwner direkt):
+  1) record mit gueltigem installation-owner anlegen (echter save-pfad).
+  2) installations-owner-material entfernen/leeren WAEHREND die record-datei unangetastet bleibt
+     (datei existiert weiter — genau der "missing owner MIT bestehendem record"-fall).
+  3) oeffentlich: LOAD => konkreter fehlender-owner fehler (ErrDeploymentOwnerMissing-klasse oder
+     die im main-source definierte), BYTE-NACHWEIS unveraendert; SAVE (nil-preferences) => ablehnung
+     + bytes unveraendert; LIST => konkrete semantik aus main-source (fehlender owner => kein
+     stillschweigendes anzeigen — lies contract, erfinde nichts).
+  4) der ALTE fall (target ohne datei) bleibt als leer-listing test daneben stehen.
+
+ANSENDE-PFLICHT: merge origin/develop; ancestry rc=0 ls-remote-SHA; write-set = nur die test-datei
+(grep produktcode/.github leer); TMPDIR=/tmp go test ./internal/deployment -count=1 + cmd/baha -run
+'Owner|List|Deployment' -count=1 (env-fails wie belegt tolerieren; bei disk-quota: GOCACHE=/tmp/opencode
+nutzen, NICHT /tmp root volllaufen lassen). PUSH ZIEL refs/heads/work/r27-state-owner (keine tmp-branch).
+END an f49a3303: "END_DONE w30-stateowner-r9: head=<sha> missing-owner-public=load+save+list bytes=same | <Satz>"
+Evidence: .../state-owner/fix-r9.md (plain bullets, Szenario + testnamen).
+STOP: NUR dieses szenario; keine produktcode-änderung; wenn load/save/list bei missing owner STILL
+durchlassen => END_BLOCKED mit ausgabe (dann echter product-befund).

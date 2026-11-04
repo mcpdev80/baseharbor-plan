@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w111). Coord f49a3303. KARTE: t-20261018-r27-state-owner (zweig work/r27-state-owner,
+PR #1347, kopf 03e4e01b — vorgaenger-lane w101 ist released, grundlage unveraendert: dein vorgaenger hat die
+boundary-korrektur (preserve != retire) bereits geliefert und die develop-basis ist Vorfahr).
+GRUND FÜR DICH: dein vorgaenger hat einen nebeneinander-beweis gefuehrt, aber DIE DATEI FEHLT AUF DER PLATTE
+(evidence/r27-welle4-2026-11-04/state-owner/adr22-fix-1.md existiert nicht, auch nicht im arbeitsbaum). Beweise
+ohne datei sind wertlos (owner-direktive 2026-10-28) — du wiederholst den beweis UND legst ihn ab.
+AUFGABE:
+(1) neutraler checkout origin/develop (bb9bc0ef oder aktueller) in /tmp/opencode/w111-dev-wt; dein kandidat in
+    /tmp/opencode/w111-seam-wt (zweig work/r27-state-owner, nichts aendern).
+(2) IDENTISCHE kommandozeile auf BEIDEN ausfuehren fuer die fünf streitigen faelle:
+    TestAppEditCommandCompleteProviderEditRunsRealLifecycle, TestAppBackupOwnedCoreCleanupAfterLaterAbort,
+    TestAppBackupOwnedCoreCleanupContextIsBounded, TestAppBackupOwnedCoreFixtureCleanupOnEveryExit,
+    TestAppBackupRestoreCLIRealDisasterRecovery — je zwei durchlaeufe, ausgang + fehlzeile notieren.
+(3) ergebnis-tabelle (fall, develop-ergebnis, kandidat-ergebnis, identisch ja/nein) in
+    baseharbor-plan/evidence/r27-welle4-2026-11-04/state-owner/adr22-fix-1.md schreiben (bullets + tabelle,
+    keine checkboxen), committen und pushen; datei muss VOR deinem END auf origin/main stehen (pruefe mit
+    git -C baseharbor-plan ls-tree origin/main -- <pfad>).
+(4) DArstellung, ob die 4 roten gehosteten checks (#1347) ausschliesslich aus denselben develop-gleichen
+    stellen kommen; wenn ein fall auf develop GRUEN und bei dir ROT ist: melde das als regression mit
+    datei:zeile, ABER aendere nichts am produkt ohne meinen freigabe-vermerk (kartenvertrag: boundary-fix).
+KEIN rerun der matrix, KEIN gh pr edit, keine .github-aenderung (owner-CI-feld).
+END an f49a3303: "END_DONE w111-state-owner-proof: faelle=5/5-abgelegt identisch=<n>/5 evidence-auf-main=<pfad> regression=<nein|liste> | <Satz>"

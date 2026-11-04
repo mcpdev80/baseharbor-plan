@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w75). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal-slice, korrekturen).
+Branch work/r27-ci-authority-ab head bfb75813 (basis develop 2cadfcee AKTUELL, gate-terrain GERADE geheilt —
+PR Selected Checks gruen auf 1354/1357, 20 pass/0 fail). Luna-REJECT review-1354g.md mit 3 rezepten (lesen!):
+B1 store_retention.go:149-164,194-280 — pending/running/unknown-IDs muessen beim total-cap IMMER erhalten
+   bleiben (active-records prevent compaction korrekt behandeln); grenzen als benannte constants.
+B2 store.go:476-519,606-619 — unterminated final JSONL fragment = corrupt/UNCERTAIN auch wenn bytes fuer sich
+   gueltiges JSON sind (replay-entscheidungen nicht auf gluecklichem parse).
+B3 store.go:310-323 — write+Sync+Close fehler VOR commit pruefen/returnen; bei persistentem fehler state
+  zurueckrollen und KEIN event veröffentlichen.
+REGELN: jeder befall erst ROT reproduzieren (contra-test), dann fix, dann gruen (red-first, mutation-kontrollen
+behalten ihre schaerfe). 0 geloeschte tests. retention-extrakt store_retention.go bleibt. Kein test-hook im
+produktcode. gofmt leer; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/machinehttp -count=1 -timeout 8m.
+NUR letzten stand develop als Vorfahr pruefen (fetch origin develop; merge-base --is-ancestor rc=0 erwarten;
+sonst merge origin/develop rc=0 VOR push). push; ls-remote==head; PR #1354 checks TERMINAL beobachten (eigenes-run).
+Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/ci-authority/durability-7.md (neu).
+END an f49a3303: "END_DONE w75-journal-r14: head=<sha10> rezepte=B1,B2,B3=gruen(rot->gruen je) tests=<n> lsremote=<sha10> | <Satz>"

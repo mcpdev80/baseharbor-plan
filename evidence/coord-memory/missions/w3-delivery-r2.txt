@@ -1,0 +1,35 @@
+ROLLE: Worker (Lane w3-delivery-r2). Coord f49a3303. MIKRO-AUFGABE: Korrekturrunde zu PR #1333 (task t-20261018-r27-delivery-boundary).
+
+ZUERST LESEN (Pflicht): baseharbor-plan/evidence/r27-night-2026-11-02/review-1333.md (REJECT, 4 Befunde mit Rezepten) + baseharbor-plan/tasks/t-20261018-r27-delivery-boundary.md.
+
+ERSTE AKTION (Regel): eigenes Worktree
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin work/r27-delivery-boundary develop
+  git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree add /tmp/opencode/w3-delivery-r2-wt work/r27-delivery-boundary
+Haupt-Checkout NICHT benutzen. Basis = head be6ce48f.
+
+SCHRITTE (klein, ergebnisorientiert):
+1 (B3, zuerst — mechanisch): Historie neu aufsetzen OHNE Authority-Commits:
+   git rebase --onto origin/develop <erster-nicht-develop-ancestor> — Ziel: git log origin/develop..HEAD enthaelt
+   KEIN 8a2aa75f und keine Removal-Reparatur-Commits, nur deinen Karteninhalt als 1-2 saubere Commits.
+   push --force-with-lease, ls-remote. (Index-Dateien bleiben enthalten; Ownership-Notiz macht der Coordinator.)
+2 (B4, Doku-Korrekturen): DE 'aufgehalten werden' -> korrekt 'erfasst/protokolliert'; und die falsche Behauptung
+   'empty owner wird abgelehnt' in EN+DE ersetzen durch die Echte: Selection.Normalize defaults empty owner
+   fuer direct mode — entweder Doku an Code anpassen (bevorzugt, klein) ODER Code+Test auf Karte ziehen
+   (nur wenn Kartenwortlaut das Ablehnen verlangt — belege die Stelle im Karten-Text in der Evidence).
+3 (B1, KERN, SCOPE-VORSICHT): One-Writer-Guard in den echten Produktionspfad (deployment storage apply/observe),
+   Konflikt-Erkennung zweier aktiver Writer + Verweigerung direkter Mutation bei aktivem externem Reconciler,
+   POSITIVE + negative Tests (conflicting-owner, unauthorized-mutation) mit fixtures.
+   STOP-REGEL: der Guard liegt vermutlich in internal/deployment/** — das ist NICHT dein Karten-Write-Set
+   (delivery-provider docs + internal/delivery + ADR 0022). Wenn du ohne fremde Dateien keinen echten
+   Produktionspfad-Guard bauen kannst: EIN kleiner Beweisversuch, dann END_BLOCKED mit exakter datei:line
+   Grenze — Coordinator klaert Ownership/Task-Vertrag. KEINEN Nebenpfad-Ersatz (isolierte Helper) erfinden.
+4 (B2): standards/feature-check-Klauseln in EN+DE auf konkret belegbare Qualifikationen zurueckfuehren oder
+   als "nicht qualifiziert" explizit markieren — keine Checks behaupten, die nichts pruefen.
+
+Tests: TMPDIR=/tmp go build ./... + go test ./internal/delivery ./internal/deployment (letzteres nur lesend/pruefend).
+DANN: push, ls-remote. KEINE CI-Auswertung (Owner-Kanal, nur Status unkommentiert notieren), Evidence
+baseharbor-plan/evidence/r27-night-2026-11-02/delivery-boundary/fix-r1.md.
+HANDOFF: codeman agent post f49a3303 "END_CODE_READY|END_BLOCKED w3-delivery-r2: head=<sha> step=<1-4 stand> | <Satz>"
+
+STOP-KRITERIEN: keine CI-Dateien; kein Merge/Release/Tag; keine Aenderungen an docs/spec/credential-access-v1.md
+oder coreinstallation/stableid (das ist Parallel-Lane-Territorium); zwei erfolglose identische Versuche => END_BLOCKED.

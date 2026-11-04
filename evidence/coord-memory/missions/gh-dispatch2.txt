@@ -1,0 +1,18 @@
+ARBEITSVERZEICHNIS (absolut): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/gh-dispatch2  Branch work/gh-dispatch2
+MISSION gh-dispatch2 — Runtime-/S3-/Broker-/Targeted-Workflows auf GitHub-hosted migrieren (100%-Regel)
+EXKLUSIVES WRITE-SET (nur diese .yml): .github/workflows/runtime-broker.yml, runtime-s3-acceptance.yml,
+  docker-runtime-acceptance.yml, targeted-integration.yml, targeted-demo-acceptance.yml.
+  NICHT ci.yml/nextjs (#1239), NICHT internal/runtime/* (Endpoint-Lane), NICHT scripts/*, NICHT *_test.go Code.
+WISSEN (von gh-ci-core belegt): rootless docker geht auf ubuntu-latest NICHT (userns blockiert); dort laeuft der
+  SYSTEM(rootful) docker Daemon. Das gemeinsame Setup-Skript scripts/ci-core-rootless-runtime.sh wird gerade von einer
+  anderen Lane auf System-Kontext umgebaut — du aenderst es NICHT, nur die runs-on deiner 5 Workflow-Dateien.
+SCHRITTE:
+ 1. Jedes `runs-on: [self-hosted,...]` -> `ubuntu-latest` in den 5 Dateien. Falls dort rootless-spezifische Setup-
+    Schritte (dockerd-rootless-setuptool, sysctl) IN DER WORKFLOW-DATEI stehen (nicht im Script): entfernen/ durch
+    "nutze System-docker" ersetzen; DOCKER_HOST nicht auf /run/user/1001 hartcrocodieren.
+ 2. actionlint + YAML-Check. Kein Gate/Timeout abschwachen.
+ 3. Wo moeglich validieren: workflow_dispatch eines deiner Jobs auf dem Branch (GH-hosted) und Run beobachten
+    (Eigenes-Run-Pflicht). Wenn der Job den Endpoint-Fix braucht und deshalb noch failt, das als Abhaengigkeit
+    vermerken (Lauf zeigt ubuntu-latest statt self-hosted = dein Scope-Fortschritt), NICHT am Script herumbauen.
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/gh-dispatch2/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_CODE_READY|END_BLOCKED gh-dispatch2: <SHA + runs-on je Workflow GH-hosted + dispatch-Run status>"

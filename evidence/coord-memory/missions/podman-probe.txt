@@ -1,0 +1,17 @@
+ARBEITSVERZEICHNIS: /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/podman-probe  (Repo baseharbor)
+MISSION podman-probe — BEWEISEN, dass der native PODMAN-Durchspiel-Lauf auf GitHub-hosted mit #1244 (rootful-podman-
+  setup) + #1239 (system-daemon-Skript) ECHT GRUEN wird. Analog zum laufenden Docker-Beweis, aber fuer Podman.
+GRUND: nc PR #17 hat rootful podman auf GH-hosted bewiesen (transport·podman SUCCESS). #1244 (work/podman-gh head
+  46bef235) stellt baseharbor-Podman-HA rootful bereit. 'Targeted HA · podman' laeuft auf ubuntu-26.04, getriggert
+  durch push auf refs/heads/runtime-validation/ha/<gruppe>/podman/<rest> (gruppe u.a. control-plane|identity).
+SCHRITTE:
+ 1. probe/pod0427 = develop, dann merge --no-ff origin/work/podman-gh (#1244 scripts/ci-podman-gh-runtime.sh + podman
+    HA-job prepare) und origin/work/gh-ci-core (#1239 system-daemon) — disjunkte Dateien, clean merge erwartet.
+ 2. push probe/pod0427:refs/heads/runtime-validation/ha/control-plane/podman/int0427
+ 3. Run beobachten (gh run list --branch runtime-validation/ha/control-plane/podman/int0427 ; gh run watch).
+    Job 'Targeted HA · podman' (ubuntu-26.04): GRUEN? Wenn rot: exakte Fehlerzeile (podman cannot execute? rootless
+    socket? userns?) + Komponente. Run-ID festhalten (Eigenes-Run-Pflicht).
+ 4. Nach terminalem Zustand: temp-Ref ruecken: git push origin :refs/heads/runtime-validation/ha/control-plane/podman/int0427
+EVIDENCE (absolut, kein '- [ ]'): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/podman-probe/
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE podman-probe: <GRUEN|ROT> + Run-ID + 'Targeted HA podman' status + Fehlerzeile/Komponente"
+Kein Produktcode aendern (nur Probe-Zweig + push). actionlint nicht noetig.

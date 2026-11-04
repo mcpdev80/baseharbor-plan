@@ -1,0 +1,5 @@
+Pflichtformat am Ende jedes Urteils-datei:
+## REZEPT
+Befund-1 | datei:zeile | genau Anderung | geforderter test (name+behauptung) | stop-kriterium
+Befund-2 | ...
+Kein Fliesstext-Rezept; eine zeile je befund, kopierbar in worker-mission ohne rueckparsen.

@@ -1,0 +1,10 @@
+ROLLE: Worker (Lane w89). Coord f49a3303. KARTE: t-20261018-r27-native-auth — CLAIM GESETZT UND PUBLSHT.
+VOLLSTAENDIG: plan.py show + card sections + baseharbor/AGENTS.md lesen.
+PRODUKTZIEL: vorhandene native authentifizierungs-quellen WIEDERVERWENDEN (git credential helper, ssh agent/
+config, registry-/native credential-referenzen, native kube-kontexte) statt eigenes prompting; cloud-credential-
+chain bleibt AUSSEN (contract-grenze der karte — nachlesen!). WRITE-SET: internal/credential bounded adapters+tests.
+ARBEITSWEISE: zweig work/r27-native-auth ab develop 3d08ef72; worktree /tmp/opencode/w89-auth-wt; rote-first:
+quelle vorhanden => kein prompt;quelle fehlt => dokumentierter fall; KEINE secrets in logs/evidence; integration
+nur ueber akzeptierte interfaces (profile-contract). Kleinste gates; PR DRAFT; basis-pruefung letzter schritt.
+Evidence: evidence/r27-welle4-2026-11-04/native-auth/slice-1.md (bullets statt checkboxen).
+END: "END_DONE w89-native-auth: head=<sha10> pr=<n> adapters=<n> rotfirst=belegt lsremote=<sha10> | <Satz>"

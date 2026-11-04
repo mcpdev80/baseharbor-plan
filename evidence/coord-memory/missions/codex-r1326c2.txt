@@ -1,0 +1,21 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1326 = autoritätskette, kandidat branch w7-authority-r3-clean HEAD 09f14ec8
+(develop Vorfahr, 27 dateien; PR-HEAD wird vom Coordinator auf diesen stand umgeleitet — pruefe den
+ls-remote-zeugen auf refs/heads/work/r27-authority-contract-doc-fix ODER pull/1326/head, beide sollen
+09f14ec8 sein; waehre umleitung kurz nach deiner pruefung, urteile nach inhalts-sha 09f14ec8).
+RE-REVIEW nach review-1326b2.md — rezepte waren: read-only revocation (Revoked statt Revoke,
+CRL-bytes-unchanged regression), echte production selection (resolveManagementConnectionIssuer wird
+aufgerufen), ObservedAt freshness (kein future-expiry in positiven tests), lock-paritaet regression
+(lifecycle_lock_regression_test.go da).
+Karten-Sektionen "composition wiring" + "revocation-authority" (openbao Revoked-praedikat autorisiert)
+sind der scope-massstab.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs):
+1. Kein Pfad der VALIDIERUNG mutiert revoke (LocalIssuer.Revoked read-only; regression beweist
+   revocations.pem bytes unchanged; revoked serial => ablehnung).
+2. Selektions-pfad ruft die authority entscheidung wirklich (call-site + test durch echten pfad).
+3. freshness now<=ExpiresAt mit observedAt-gebrauch; positive tests ohne future-expiry.
+4. stableid/lock parity tests + windows compile; develop lock-dateien unveraendert.
+5. doku claims = implementiert + autorisiert (0021 DE/EN, index, control-plane/target-access),
+   verbleibendes deferral benannt.
+Urteil -> review-1326c2.md (ROLLE: REVIEW, ACCEPT|ACCEPT-WITH-CLAUSE|REJECT + rezept). KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326c2: verdict=<X> open=<liste|none> | <Satz>"

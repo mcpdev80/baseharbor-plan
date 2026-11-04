@@ -1,0 +1,18 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. REZEPT-PFLICHT bei REJECT.
+ZWEI ZIELE, je eigene urteilsdatei + je ein END (read-only, SHA-genau; beide PRs DRAFT->READY durch coord
+bevor du anfängst — prüfe draft=false, sonst BLOCKED-meldung statt raten):
+
+ZIEL 1 native-auth: baseharbor PR #1362 head ed0c99b1 (karte t-20261018-r27-native-auth). gates terminal
+(2 pass/14 skipping/pfade disjunkt = routing-korrekt pruefen!). Contra-proben auf dem kopf: (1) git
+credential helper vorhanden => KEIN prompting im Quelltext der adapter (grep auf prompt-wege im fallback-
+zweig ist erlaubt, hauptpfad nicht); (2) ssh-agent nicht erreichbar => dokumentierter fall, kein absturz;
+(3) cloud credential chain wird NICHT angefasst (karte); (4) keine secrets im log-pfad. go test
+./internal/credential/... -count=1 gruen, gofmt/vet leer. Urteil -> review-1362a.md.
+END1: "END_DONE codex-r1362a: verdict=<X> open=<liste|none> | <Satz>"
+
+ZIEL 2 enrollment: baseharbor PR #1364 head 2a4df949 (karte t-20261018-r27-device-enrollment, CI
+41800237126 SUCCESS). Contra-proben: (1) einweg-token zweiter gebrauch => abweisung + protokollierter
+grund; (2) ablauf => abweisung; (3) fremdes ziel/scope => abweisung; (4) positiv => registry-fakt mit
+reichweite+zeit und SEPARATER geraete-identitaet; (5) KEINE node-enrollment dateien im diff; (6) eigener
+namespace, geteilte register unangetastet. go build ./... + pakettests gruen. Urteil -> review-1364a.md.
+END2 wie gemustert.

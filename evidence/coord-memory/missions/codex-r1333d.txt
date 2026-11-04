@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 122ec956 (branch work/r27-delivery-boundary, base develop, FF) =
+t-20261018-r27-delivery-boundary, RE-REVIEW nach review-1333c.md.
+Lane meldet: Store-Guard liest jetzt authoritativen persistierten Owner VOR Mutation; CLI-Hook
+entfernt (cmd/baha zurueck auf develop); Angreifer-Regression gruen; pt4 Historie nicht-blockierend.
+PRUEFEN (SHA-genau, read-only, keine CI-Run-Logs; ls-remote-Zeuge):
+1. SaveDeploymentRecord: Lesezugriff auf vorherigen persistierten Record liegt VOR refuseOneWriterMutation;
+   Observed-Felder kommen aus dem GELESENEN Record. Angreifer-Test (Caller setzt Observed.Owner fremd/leer)
+   faehrt den echten Apply-Pfad und wird verweigert; direct/delegated positiv gruen.
+2. ADR EN/DE: "detected before apply" jetzt wortlaublich erfuellte Realitaet? DE-Negationen.
+3. Write-Set: nur 0022+index+delivery-provider EN/DE+internal/delivery+internal/deployment (autorisiert);
+   cmd/baha NICHT mehr im Diff.
+4. go test ./internal/delivery ./internal/deployment auf isoliertem Kandidat archiv.
+Urteil -> review-1333d.md (ROLLE: REVIEW, ACCEPT|REJECT + Rezept). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1333d: verdict=<X> | <Satz>"

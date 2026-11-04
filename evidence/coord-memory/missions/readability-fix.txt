@@ -1,0 +1,23 @@
+FRISCHE Lane — hoechster Hebel: develop-CI wieder GRUEN (Owner P0). develop=b8b56bbc laeuft hosted,
+aber der Job 'validate' fails bei scripts/source-readability-audit.sh:
+  internal/application/shared_backends.go  Funktion ReconcileSharedBackends = 203 Zeilen (Limit 200,
+  baseline ratchet 0, NICHT grandfathered; verursacht durch 6989bcf1). validate failt -> alle
+  nachgelagerten Tests skippt -> JEDER PR gegen develop ist rot. Das ist der Kaskaden-Blocker.
+
+AUFGAB (nur internal/application/shared_backends.go + eine Regressionstest-Datei):
+1. Refactoriere ReconcileSharedBackends auf <=200 Zeilen, Verhalten EXAKT erhaltend: extrahiere
+   einen oder mehrere private helper fuer klar abgrenzbare Sub-Schritte (z.B. Backend-Iteration,
+   owner-identity bind, error/rollback). KEIN Verhaltenwechsel, KEIN Gate-Weakening, KEIN
+   baseline-/ratchet-Eintrag, KEIN Erhoehen des Limits.
+2. LOKAL verifizieren (Pflicht, nicht raten): bash scripts/source-readability-audit.sh -> exit 0.
+   Und go build ./... + go test ./internal/application/... (betreffende Tests) PASS.
+3. PR base develop. KEIN Edit an scripts/pr-gate-plan.py / ci.yml / register (andere Lane).
+   Qualifiziere hosted: validate (source readability + tests) muss auf deinem SHA GRUEN laufen
+   (Eigenes-Run-Pflicht: Run-IDs + labels + Farbe beobachten). Runner sind hosted (ubuntu-latest).
+STOP: Wenn die Funktion mit einem sauberen <=200-Schnitt nicht zerlegbar ist ohne Verhaltensrisiko,
+melde END_BLOCKED mit exakter Stelle (welcher Block laesst sich nicht trennen) — nicht Limit erhoehen.
+KEIN Merge durch dich.
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/readability-fix/evidence.md — ## PLAN, PR#,
+finaler Zeilen-Span der Funktion (<=200), audit_exit=0, go test Ergebnis, validate Run-ID+label+farbe.
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED readability-fix: pr=<#N> head=<sha> func_span=<n><=200 audit=<pass|fail> validate_green=<yes|no> | <Satz>"

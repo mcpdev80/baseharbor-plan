@@ -1,0 +1,33 @@
+ROLLE: CODEX-REVIEW dann CODEX-MERGE (BaseHarbor v0.4.27, Coordinator f49a3303)
+OBJEKT: PR #1286 (mcpdev80/baseharbor) base=develop head=ef6a5763 — EXAKT diesen SHA pruefen.
+
+INHALT DES KANDIDATEN: aendert scripts/pr-gate-plan.py (Trusted-Base-Gate-Classifier):
+  fuegt einen EXPLIZITEN Zweig fuer internal/logs/*.go hinzu, der auf die BESTEHENDE
+  fokussierte Validierung des logs-Pakets gemappt wird (logs-package-tests/vet/gofmt).
+  Zweck: PR #1283 (internal/logs/render.go) von coverage-unresolved befreien. PR-geaenderter
+  Classifier qualifiziert sich sonst nicht selbst (RUNBOOK 6.1); #1286 muss auf develop.
+
+SCHRITT 1 — ROLLE=REVIEW (SHA-genau, nur-lesend):
+- Diff gh pr diff 1286 (head ef6a5763) gegen develop: NUR scripts/pr-gate-plan.py + dessen
+  Classifier-Test? KEIN anderes File, KEIN invented gate, KEIN widening, fail-closed
+  Fallthrough fuer alle anderen Pfade bleibt erhalten, prefix-/name-Heuristik vermieden
+  (exakter Zweig analog internal/runtimebroker/*.go).
+- Hosted-Checks bestaetigen: PR Selected Checks SUCCESS auf ef6a5763 (gruen gemeldet).
+- Evidence des Kandidaten (baseharbor-plan/evidence/board-2026-11-02/logsmap/evidence.md)
+  gegen Vertrag pruefen.
+- VERDICT-DATEI evidence/board-2026-11-02/codex-1286/review.md mit ROLLE: REVIEW,
+  Session/Modell/Zeit/woertlichem Urteil (ACCEPT|REJECT) + ggf. Rezept.
+
+SCHRITT 2 — ROLLE=MERGE (NUR wenn REVIEW=ACCEPT; sonst stoppen + melden):
+- Regeln: kein Force-Push, kein Schutzregel-Bypass, squash-only, code-owner/last-push
+  approval gemaess Ruleset. gh pr checks 1286 final gruen vor Merge.
+- gh pr merge 1286 --squash --repo mcpdev80/baseharbor  (base develop).
+- Post-Merge: develop-Tipp per git ls-remote belegen (NEUER develop-SHA!), develop-Checks
+  beobachtet. Evidence evidence/board-2026-11-02/codex-1286/merge.md: SHA before/after (UTC).
+
+HANDOFF letzte Aktion (PFLICHT, an mich — NICHT an 35cdb02e):
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_DONE|END_BLOCKED codex-1286: verdict=<ACCEPT|REJECT> merged=<sha|none> develop=<newsha|-> | <Satz>"
+
+STOP: Wenn REVIEW nicht sauber passt -> NICHT mergen, END_BLOCKED mit Befund + Rezept.
+Release/Tag bleibt Owner — hier nur PR->develop-Merge (keine Owner-Freigabe-noetig laut
+AGENTS 2, da kein Receipt-Owner-Approval-Fall).

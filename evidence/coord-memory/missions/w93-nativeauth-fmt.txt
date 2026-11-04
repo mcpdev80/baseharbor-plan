@@ -1,0 +1,8 @@
+ROLLE: Worker (Lane w93). Coord f49a3303. MIKRO-KORREKTUR auf bestehender PR #1362 (branch
+work/r27-native-auth head 3c17b24): der einzige rote check ist "PR . Source format" (gofmt).
+Arbeitsweise: worktree add /tmp/opencode/w93-fmt-wt work/r27-native-auth; gofmt -l internal/credential/native
+(liste notieren), gofmt -w dieselben dateien, NUR formatierung — kein inhalt, keine umbenennung;
+go build ./... + go test ./internal/credential/... -count=1 gruen; git diffpruefen (nur whitespace/format);
+commit "style(credential): gofmt native adapters"; push; ls-remote==head; den source-format-check +
+geaenderte go-unit TERmonAL beobachten (eigenes-run). Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/
+native-auth/fmt-1.md (bullets). END: "END_DONE w93-nativauth-fmt: head=<sha10> gates=gruen lsremote=<sha10> | <Satz>"

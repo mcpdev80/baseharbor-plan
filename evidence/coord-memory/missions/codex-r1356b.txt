@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde2 (r1356a rezepte 1+2 umgesetzt).
+OBJEKT: PR #1356 head 1be411f6 (f1e9085a + woertliche rueckkehr von DefaultsLegacyState +
+RejectsUnknownProfile an develop-position; '^-func Test' diff leer belegt; develop Vorfahr JA; hosted
+19 pass 0 fail auf exaktem head). = t-20261022-r27-ci-runtime ABSCHLUSSrunde.
+PRUEFEN (SHA-genau, read-only): 1. alle develop-testnamen der datei vorhanden + die drei zusatztests von
+runde1; keine doppelregistrierung/konflikt. 2. neue tests pruefen echten fail-closed-pfad (kein
+stiller fallback). 3. slice-matrix: remote-docker-web slice bleibt owner-punkt (documentierte deferral).
+4. wenn alles traegt => ACCEPT-WITH-DEFERRAL. Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test
+./internal/deployment -run 'Runtime' -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1356b.md. KEIN Merge.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1356b: verdict=<X> open=<liste|none> | <Satz>"

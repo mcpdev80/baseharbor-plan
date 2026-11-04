@@ -1,0 +1,15 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1348 head 8f7ad334 (develop Vorfahr JA nach FF-transfer von tmp-branch; CRL-structure
+fail-closed: empty/null/{}-data/serials-null => malformed err, echtes [] => not-revoked; expiry auf
+coreinstallation-Ebene mit tests; single-source freshness-window; identity-cross-binding formal DEFERRED
+laut karten-note + coordinator-ruling karte Zeile ~58: issuer-reference=identity, foreign=>revocation)
+= t-20261018-r27-authority-contract. RE-REVIEW nach review-1326e.
+PRUEFEN (SHA-genau, read-only): 1. alle vier malformed-formen + empty[]-gegenprobe DURCH ECHTEN
+RevokedStatus-pruefpfad; ServiceIssuer/adapter ohne err->false-tilgung. 2. expiry-pruefung wirksam auf
+ihrer ebene (zero/past/future tests) und wrapper-delegation konsistent; maxAge-fenster 1h mit
+grenzregression; 30-min-past bleibt fresh. 3. deferral-formulierung in doku/evidence exakt wie
+karten-note (kein behauptetes cross-binding). 4. matrix: alle klauseln erfüllt ODER formal-deferred =>
+ACCEPT-WITH-DEFERRAL mit deferral-liste. Tests: TMPDIR=/tmp go test ./internal/openbao
+./internal/installauthority ./internal/coreinstallation ./internal/serviceaccess ./internal/stableid +
+go test ./cmd/baha -run '^TestResolveManagementConnectionIssuer'. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1326f: verdict=<X> open=<liste|none> | <Satz>"

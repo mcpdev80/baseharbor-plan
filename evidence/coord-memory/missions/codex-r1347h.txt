@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1347 head 797bd811 (e4af28c2 + tests-only 2 dateien: setup-record mit gueltigem scope vor
+korrumpierung + byte-vergleich save/load ErrUnavailable-kette; list/owner-faelle auf EXISTIERENDEM
+record: empty-semantik, ErrDeploymentOwnerForeign spezifisch, corrupt-owner public pfad) =
+t-20261018-r27-state-owner. RE-REVIEW nach review-1347g rezepte 1+2; produktcode UNVERAENDERT.
+PRUEFEN (SHA-genau, read-only): 1. tests fahren die ECHTEN pfade (kein helper-only), byte-vergleich
+mit vorab gespeichertem record, fehlender record fall separat. 2. list/owner-behauptungen konsistent
+mit main-source semantik (nichts neu erfunden). 3. matrix: alle klauseln erfüllt oder formal-deferred
+=> ACCEPT-WITH-DEFERRAL mit deferral-liste (ID-binding note). Tests: TMPDIR=/tmp go test
+./internal/deployment ./cmd/baha -run 'TenantScope|Negative|Deployment|Owner|List|Binding' -count=1.
+Urteil -> review-1347h.md. KEIN Merge, keine run-logs, environment-fails wie belegt tolerieren.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1347h: verdict=<X> open=<liste|none> | <Satz>"

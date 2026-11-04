@@ -1,0 +1,21 @@
+MISSION t-openbao-pgauth (Q2 Produkt-Fix: openbao<->postgres scram/mTLS Auth) — Teil von core-750/#1225 Native-Run
+Worktree (ausschliesslich hier arbeiten): /home/marcel/dev/baseharbor-ecosystem/workers/worktrees/t-openbao-pgauth   Branch work/o1249-openbao-pgauth (startet von develop cb6b7387). NICHT neues Worktree anlegen.
+FEHLER (deterministisch, von t-runner2 auf rootless podman reproduziert, run-belegt):
+  go test -run TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI ./cmd/baha  ->  FAIL 39.83s:
+  openbao->postgres: "failed SASL auth: FATAL: password authentication failed for user openbao (28P01)" +
+  "SSL: could not accept SSL connection: tls alert certificate unknown".
+  Beteiligte Stellen (aus Evidence; gegen Code pruefen): internal/.../stack.go:227 (pg_hba hostssl scram-sha-256),
+  internal/.../openbao_runtime_prepare.go:61 (connection_url sslmode=verify-full sslrootcert=/run/baseharbor/postgres-ca/ca.pem),
+  stack.go:284 renderSecureControlPlanePostgres (BASEHARBOR_OPENBAO_DB_PASSWORD + openbao-init.sh mount).
+ZIEL: openbao verbindet sich sauber gegen Postgres: Rolle+Passwort stimmen, scram-sha-256 Auth passiert,
+  TLS verify-full gegen das bereitgestellte CA-Pack (postgres-ca/ca.pem) validiert -> Test wird ECHT GRUEN.
+SCOPE (disjunkt, kein CI-File): nur die involved Go/Backend-Wiring-Dateien + dieser eine Integrationstest.
+  NICHT an ci.yml/scripts/pr-*.py (CI-Kette) und NICHT service_binding.go (#1229) — Kollisionsvermeiden.
+QUALITÄT: echter Fix, kein Test-Deaktivieren, kein sslmode=disable/scram->trust Abschwächen (wäre Security-Regression).
+  Wenn die Wurzel ein Secrets-/Fixture-Problem ist (Password-Mismatch), die Quelle korrigieren, nicht umgehen.
+TESTS: lokal go build/vet + der Ziel-Test gegen lokale docker/podman (falls Runtime auf VM-1); der BEWEIS-Grün
+  kommt ueber PR-CI "Targeted HA · podman" (podman-2 funktional). Eigenes-Run-Pflicht: gehosteten Run beobachten.
+EVIDENCE (absolut): /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan/evidence/board-2026-10-31/t-openbao-pgauth/
+  (PLAN ohne '- [ ]'-Checkbox, diff, Root-Cause, Run-id/Status). Plan-Repo NICHT selbst pushen.
+HANDOFF: codeman agent post 8c0f41e1-21b3-4d3e-9537-ec733a3c2d60 "END_DONE|END_BLOCKED t-openbao-pgauth: <SHA + podman-HA status>".
+STOP: wenn Fix rootless-docker-Q1-Env oder #1226-Contracts braucht (dann gem. waiting melden), Owner-Blocker.

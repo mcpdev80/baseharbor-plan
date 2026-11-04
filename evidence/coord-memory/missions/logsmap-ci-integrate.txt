@@ -1,0 +1,43 @@
+logsmap RUNDE 4 — KONSOLIDIERTE CI-INFRA-INTEGRATION ( Coordinator-Entscheidung gemaess Owner-P0/#1:
+der Coordinator fuehrt die vertrauenswuerdige Qualifizierung der CI-Infraenderungen; beendet die
+A/B/#1258/#1273-Ping-Pong-Spirale laut P0.6). Kein neues Feature, kein Architekturumbau — nur EIN
+zusammenhaengender develop-Kandidat statt mehrer sich gegenseitig blockierender.
+
+BEFUNDE aus codex-1286/review-r3.md (lies sie): PR-A allein = logs-Gate nicht registriert/ausfuehrbar,
+Register bound an ALTEN develop-head 9a93865a (enthaelt PR-B nicht), core752_reviewed_merge_chain nimmt
+einen normalen PR-B-Commit als Erstparent NICHT, und im 5-Dateien-Register fehlt WORKFLOW_SYNTAX_CHECKS/
+ci-actionlint (Abschwechung). => braucht EINEN qualifizierten Integrations-Head.
+
+AUFGAB: Erzeuge EINEN develop-Integrationskandidaten (ein PR), der vereint:
+1. #1258s GitHub-hosted Runner-Migration INHALT (alle 7 Workflows runs-on -> ubuntu-latest/geeignete
+   hosted; 0 self-hosted; native docker/podman/broker lifecycle + alle Required Checks ERHALTEN).
+   Nimm #1258-head 8c323acd (s1258 hat sauberes Rebase auf develop) als BASIS deiner Integration.
+2. PR-A Classifier: internal/logs/render.go EXAKT-Bindung + die engbegrenzte register-Aufloesung fuer
+   EXAKT {scripts/pr-check-runner.py, .github/workflows/ci.yml} -> require(CI_CHECKS), KEIN blanket,
+   KEIN Prefix. UND — WICHTIG codex-Punkt 3 — fuer ci.yml-Aenderungen zusaetzlich WORKFLOW_SYNTAX_CHECKS/
+   ci-actionlint beibehalten (wie workflow_files/pinbump_files). Keine Abschwachung.
+3. PR-B Handler: ci.yml `logs-package-tests)`-Case (openbao-Muster) + pr-check-runner.py VALIDATIONS-
+   Eintrag, ausfuehrbar, und der LOGS_REVIEWED_HEAD / Register-Eintrag bindet an den FINALen
+   Integrations-HEAD (diesen Kandidaten), nicht an 9a93865a. core752_reviewed_merge_chain muss den
+   Head als gueltigen reviewed candidate anerkennen — verifiziere das, nicht nur behaupten.
+4. Tests (test_pr_gate_plan.py): positiv+negativ fuer (a) die neue Register-Ausnahme auf gueltigem
+   reviewed head, (b) geaenderte/UNregistrierte CI-Pfade bleiben unresolved, (c) NICHT-vertrauenswuerdige
+   Heads (kein reviewed head) werden abgelehnt, (d) render.go EXAKT + neue/verschachtelte/gemischte
+   internal/logs unresolved. Die 21 bestehenden Register-/Bootstrap-Tests bleiben gruen.
+5. BEWEIS im neutralen Hosted-Lauf auf EXAKT dem finalen Integrations-SHA: Executor-Registrierung
+   laeuft, Workflow-Handler (logs-package-tests) trift, TATSAECHLICHES natives Logs-Go-Test-Ergebnis
+   wird produziert, und fail-closed wenn Gate fehlt/fehlschlaegt. Kommentare an tatsaechlichen Stand.
+
+NICHT in diesem Kandidaten: #1273 (runtime_start.go + provider_registry.go) Mapping — separater Schritt,
+beauftragt separat. Nur ein PR, base develop, SHA-gebunden, Fail-closed, echtes hosted, Receipt bleibt Pflicht.
+
+EVIDENCE: baseharbor-plan/evidence/board-2026-11-02/logsmap/evidence.md aktualisieren — ## PLAN ticks,
+ein PR#, finaler head, register-head-Bindung (bewiesen, nicht behauptet), actionlint erhalten, die 4
+Testgruppen, neutraler Hosted-Run-ID + native Logs-Ausfuehrung + fail-closed-Nachweis.
+
+STOP: Wenn reviewed-merge-chain den combined head trotzdem nicht als reviewed candidate nimmt, melde das
+EXAKT (welcher Pfad, file:line) als END_BLOCKED-Facts, damit ich den reviewed-head-Mechanismus anders
+setze — nicht raten, keine Gate-Abschwachung. KEIN Merge durch dich.
+
+HANDOFF letzte Aktion:
+codeman agent post f49a3303-e8bb-491b-9e2c-b629783c4e5f "END_CODE_READY|END_BLOCKED logsmap-CI: pr=<#N> head=<sha> self_hosted=0 logs_gate=<registered|blocked> actionlint=<kept|missing> reviewed_head_chain=<valid|invalid:file:line> | <Satz>"

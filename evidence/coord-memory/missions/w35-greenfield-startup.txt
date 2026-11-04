@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w35). Coord f49a3303. KARTE: core-815 (Tests: start all greenfield stacks on
+native runtimes) — LIES vollstaendig; remaining-scope-zeile der karte ist dein auftrag: Docker/Podman
+generated-application STARTUP + READY evidence fuer Go, Next.js, Python, Quarkus auf aktuellem
+candidate mit exakten inputs. repos: mcpdev80/baseharbor.
+ERSTE AKTION: fetch origin develop, worktree /tmp/opencode/w35-greenfield-wt branch work/r27-core815 ab develop.
+VORGABE: erst die bereits gelieferten teile belegen (PR #809/v0.4.23 referenzen, native template run
+hinweise der karte) — dann NUR die fehlenden startup/READY-belege erzeugen. Führe docker/podman lokal
+AUS wenn noetig (parallele gates erlaubt, §3.8); container-raeume sauber aufraeumen; falls ein stack
+echten produkt-fix braucht: kleiner fix im eigenen branch + regression, KEIN umbau.
+PFLICHTREGELN: write-set ohne .github/scripts (grep-leer — gate-dateien sind owner-territorium);
+merge origin/develop + ancestry rc=0 ls-remote-SHA; push FF eigener branch; PR DRAFT; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/core815/startup-evidence.md (je stack: exakter befehl, ausgang,
+READY-beleg; plain bullets). HANDOFF: END an f49a3303. STOP: docker daemon/quota-problem => END_BLOCKED
+mit meldung statt scheiterverschweigung.

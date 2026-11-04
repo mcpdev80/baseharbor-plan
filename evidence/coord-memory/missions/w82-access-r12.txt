@@ -1,0 +1,10 @@
+ROLLE: Worker (Lane w82). Coord f49a3303. KARTE: t-20261022-r27-ci-access (runde 12, letzter feinschliff).
+Branch work/r27-ci-access-ab head 1d39010d (alle 13 gates terminal gruen; luna REJECT nur 1 rezept).
+REZEPT r1357k (vollstaendig in review-1357k.md): client_test.go:1279-1573 — N==M zaehlt pro closure pauschal
++2 statt aus den TATSAECHLICH ausgefuehrten Check-/Execute-aufrufen. Umbau: echter zaehler an den
+wirklichen aufrufstellen (route-beobachtung erhoeht mit), N und M je pfad-getrennt; MUTATIONSKONTROLLE:
+(a) entferne einen execute-aufruf => N muss SINKEN und matrix muss ROT werden; (b) miswire-swap bleibt rot.
+Beide kontrrollen wortlich in evidence festhalten (kurze logs). handler.go diff=0 bleibt. 0 tests geloescht.
+basis develop Vorfahr; go test ./internal/runtimeexecutor -count=1 -timeout 8m gruen; gofmt leer; push;
+ls-remote==head; PR #1357 TERMINAL gruen beobachten. Evidence: .../ci-access/qualify-12.md (KEINE checkboxen).
+END: "END_DONE w82-access-r12: head=<sha10> zaehler=echt mutationen=a-b=rot lsremote=<sha10> | <Satz>"

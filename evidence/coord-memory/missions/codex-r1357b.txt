@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. RE-REVIEW runde2 (r1357a rezept 1 umgesetzt).
+OBJEKT: PR #1357 head 067274a1 (195886cc + echter mutual-TLS test-server: ClientCAs=test-CA +
+RequireAndVerifyClientCert, 5 negative handshake-faelle (selfsigned/fremde-CA/defekter-Key/CA-PEM/
+falsche-Server-CA) + positive execute/readyz; bestehende HTTPS/URL tests erhalten; develop Vorfahr JA;
+write-set internal/** nur). = t-20261022-r27-ci-access produktseitige qualifizierung.
+PRUEFEN (SHA-genau, read-only): 1. server-seitige verifikation ist TLS-SCHICHT (kein handler-only
+"any cert"); negative scheitern am handshake, nicht an nachtraeglicher pruefung — ein test muss zeigen
+dass der handler bei abweis NIE erreicht wird (z.B. handler-flag). 2. positive pfade fahren echten
+NewClient+Check+Execute. 3. slice-matrix karte => ACCEPT|ACCEPT-WITH-DEFERRAL (gate-slices = owner).
+Tests: GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go test ./internal/runtimeexecutor -count=1 -timeout 8m.
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1357b.md. KEIN Merge, keine run-logs.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1357b: verdict=<X> open=<liste|none> | <Satz>"

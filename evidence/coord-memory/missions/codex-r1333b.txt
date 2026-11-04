@@ -1,0 +1,18 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1333 head 512b18ad (base develop, 2 Commits sauber) = t-20261018-r27-delivery-boundary,
+RE-REVIEW nach review-1333.md REJECT. NEU im Kandidaten: one-writer guard in
+internal/deployment/deployment_store.go SaveDeploymentRecord (Coordinator-Ownership-Entscheid steht
+in der Task-Karte, Sektion "Coordinator ownership decision" — gegenlese und pruefen, ob der Guard
+tatsaechlich nur dort minimal haengt) + one_writer_guard_test.go + ADR 0022 EN/DE wiedervollstaendig
++ index entries + Doku-Ehrlichkeit (empty-owner default, DE-Negationen).
+PRUEFEN (SHA-genau, read-only):
+1. Guard verweigert echte Mutation bei aktivem fremdem Reconciler im PRODUKTIONS-PFAD (nicht nur
+   Helper-Ebene); positive direct/delegated + negative conflicting-owner/unauthorized Tests existieren
+   und laufen (TMPDIR=/tmp go test ./internal/delivery ./internal/deployment).
+2. Karten-Akzeptanz Klausel "conflict detected before apply/observation" erfuellbar/erfuelle?
+3. Write-Set: nur die 9 Diff-Dateien + autorisierte deployment_store.go Zeile; keine CI-/Fremddateien.
+4. Doku EN/DE konsistent mit Code (Normalize-default!), Negationen sinngleich.
+5. History: keine authority/owner-replan Commits (log origin/develop..head zeigt 2 Commits).
+Urteil -> baseharbor-plan/evidence/r27-night-2026-11-02/review-1333b.md (ROLLE: REVIEW, ACCEPT|REJECT +
+Rezept). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE|END_BLOCKED codex-r1333b: verdict=<A|R> | <Satz>"

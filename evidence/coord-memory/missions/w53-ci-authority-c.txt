@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w53). Coord f49a3303. KARTE: t-20261022-r27-ci-authority (journal-slice runde 3).
+Branch work/r27-ci-authority-ab head 99556b9a (PR #1354). Grundlage: review-1354b.md rezepte 1-5.
+
+ERSTE AKTION: fetch origin "+refs/heads/work/r27-ci-authority-ab:refs/remotes/origin/work/r27-ci-authority-ab"
+"+refs/heads/develop:refs/remotes/origin/develop"; ancestry WÖRTLICH in evidence; worktree add
+/tmp/opencode/w53-ci-authority-c-wt work/r27-ci-authority-ab.
+
+PUNKT 1 — ACCEPTED ÜBER LEBT NEUSTART: die create-mutation wird im selbigen aufruf ins journal
+ANGEHÄNGT bevor 202 zurückgeht (handler.go:186-197 zeitgleich); store.go:76-95: kein zweig der
+accepted-id nur in der map hält. test: create -> process-neustart (load) -> ID + zustand vorhanden.
+PUNKT 2 — SEMANTISCHE KORRUPTION + SCHREIBREIHENFOLGE: load prüft zustand gegen die ECHTE enum
+(store.go:248-253), bogus state => err; update (handler :180-182) HÄNGT ERST an und mutiert/
+benachrichtigt DANN — append-fehler => kein side effect, kein notify, err raus. je ein gegen-test.
+PUNKT 3 — KEIN STILLE-RÜCKFALL: neuer persisted-modus ohne konfigurierten operations-dir =>
+harter fehler beim NEW (newPersistedExecutionStore:54-56 darf NICHT in-memory zurückgeben wenn
+persistence verlangt ist; cmd/baha/serve.go:98 uebergibt den wert korrekt). counter-test.
+PUNKT 4 — RETENTION + REDAKTION: journal-wachstum begrenzen (kompaktierung/trim wie kartenwortlaut —
+KARTE LESEN: exacte grenze); Result/Progress/fehler-payloads werden NICHT ins journal geschrieben
+nur status+id+zeit; ein test beweist: kein result-text im log, retention begrenzt dateigroesse.
+PUNKT 5 — CI-HYGIENE: gofmt -l internal/machinehttp leer; PR #1354 auf DRAFT zuruecksetzen ist
+VERBOTEN-Regel-widrig — PR-STATUS NICHT anfassen (coord behandelt review-timing).
+
+REGELN: write-set internal/machinehttp/** + max cmd/baha serve uebergabe-zeile + server_run wiring;
+KEIN .github/scripts; GOCACHE=/tmp/opencode/gc TMPDIR=/tmp go build ./... + go test ./internal/
+machinehttp -count=1 -timeout 8m gruen; push FF; ls-remote==head.
+Evidence: .../r27-welle3-2026-11-03/ci-authority/durability-3.md (plain bullets je punkt + testnamen,
+NICHT deleten statt erweitern — keine bestehende testfunktion entfernen; diff '^-func Test' leer).
+END an f49a3303: "END_DONE w53-ci-authority-c: head=<sha> accepted-restart=ja semantik=ja nofallback=ja retention=<wert> | <Satz>"
+STOP: kartenwortlaut zur retention-grenze mehrdeutig => END_BLOCKED mit zeile der karte, nicht raten.

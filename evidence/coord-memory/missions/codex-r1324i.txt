@@ -1,0 +1,19 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303.
+OBJEKT: PR #1324 head faca47d6 (develop Vorfahr, 10 write-set dateien) = t-20261018-r27-profile-contract,
+RE-REVIEW nach review-1324h.md — NUR die 3 dortigen rezepte wurden bearbeitet (nonce-tests, witness-
+orchestrierung, doku-paritaet); alles andere war schon erfüllt.
+PRUEFEN (SHA-genau, read-only, keine CI-run-logs):
+1. nonce_crypto_test: valides baseline-profil erfuellt zuerst; echte negatives (alphabet, padding,
+   laenge), kanonische 16-zeichen varianten akzeptiert, AEAD roundtrip auf decoded golden — test
+   scheitert NICHT mehr aus dem falschen grund.
+2. import_witness_test: die drei fakes sind einem package-internen orchestrierungspunkt INJIZIERT
+   (nicht ignoriert); accepted fall => null side effects ODER dokumentiert erlaubte; jeder negative
+   fall => verweigert + zero effects (before/after snapshot); helper fails wenn validation stillhaelt.
+   Die orchestrierung ist test-seitig und NICHT als produktions-consumer behauptet (doku-pruefung!).
+3. EN/DE: keine present-tense claims mehr zu installation-ID-bind/anchor-validation; deferral-text
+   konsistent, links auf die folgekarten existieren; DE negationen.
+4. Gesamt: acceptance matrix final — alles entweder erfuellt oder EHRLICH deferred gem.
+   Karten-"Coordinator scope decision on profile integration depth". Wenn nur noch deferrals offen
+   sind: ACCEPT-WITH-DEFERRAL mit exakter clause-liste (das ist das signal fuer merge-Entry).
+Urteil -> review-1324i.md (ROLLE: REVIEW). KEIN Merge, KEIN Push.
+HANDOFF: codeman agent post f49a3303 "END_DONE codex-r1324i: verdict=<X> open=<liste|none> | <Satz>"
