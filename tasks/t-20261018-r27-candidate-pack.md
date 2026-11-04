@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w151)
-kanban_lane: active
+owner: coord-welle4 (Lane w151, freigegeben)
+kanban_lane: review
 kanban_summary: "Adapt existing native build-context/source-acquisition mechanisms for one selected local checkout, including honest dirty-source…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Sources: package an exact bounded deployment snapshot"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1381]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -22,20 +22,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-candidate-pack · Sources: package an exact bounded deployment snapshot #task #release/v0-4-27 #status/active #view/active #area/sources #kind/task
+- [ ] t-20261018-r27-candidate-pack · Sources: package an exact bounded deployment snapshot #task #release/v0-4-27 #status/review #view/review #area/sources #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w151) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w151, freigegeben) · **Priority:** normal  
+    **PR:** [baseharbor#1381](https://github.com/mcpdev80/baseharbor/pull/1381)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md)  
-**Owner:** coord-welle4 (Lane w151)  
+**Owner:** coord-welle4 (Lane w151, freigegeben)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1381](https://github.com/mcpdev80/baseharbor/pull/1381)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -62,3 +63,8 @@ Temporary repository tests for ignore negation, malicious paths/symlinks, monore
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Kandidat pruefbar 2026-11-05 (kopf f6a6ca44059)
+- Begrenzter Quellen-Schnappschuss-Packer fuer genau ein lokales Checkout, Wiederverwendung der nativen
+  Build-Kontext-Mechanismen; von mir gemessen: Vorfahr ja, nur eigener Commit, Querschnitt ohne Pflege-dateien,
+  gehosteter Lauf 41928560959 terminal erfolgreich.
