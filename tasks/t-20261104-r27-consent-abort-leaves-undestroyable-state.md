@@ -121,3 +121,11 @@ PR #1375 wird von ChatGPT unabhängig bereinigt. Bis zur Rückgabe gilt: keine W
 Zweig/PR, keine Korrekturrunde aus meinem Review-Kanal. Der Kandidat (Kopf 24c9ac5ceba, develop ist Vorfahr,
 Zerstörung rc=0, Regression auf Deiner Hauptlinie rot gemessen) bleibt unverändert liegen; meine
 Review-Mission r1375c ist auf HALD gestellt. Andere Lanes laufen unberührt weiter.
+
+## Owner-Abnahme und Merge 2026-11-04 (Abschluss-Handoff)
+
+- PR [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375) nach direkter Code- und Sicherheitsprüfung durch Owner/ChatGPT auf **develop squash-gemergt**, Merge-SHA `ea3fb38e8f372ab2da38c10d964f3ea452fb8561`.
+- Final geprüfter PR-Head: `58685dbd047df4f26f599a5c53ca41f835dd34f2`; [GitHub-hosted CI-Lauf 41917374377](https://github.com/mcpdev80/baseharbor/actions/runs/41917374377): alle ausgewählten Tests und PR Selected Checks grün.
+- Unabhängiges Review fand zusätzliche Risiken: Destroy ohne `--yes`, unbestätigte Owner-Identität und fehlende Unterscheidung zwischen nie ausgeliefertem und verlorenem Deployment-Record. Alle drei sind im finalen Head korrigiert; zusätzliche Regressionen für verlorenen Record und Destroy ohne `--yes` sind enthalten.
+- `#1371`-fremde Änderungen aus dem PR-Diff entfernt. Die vorherige Review-Halteanweisung ist durch den erfolgreichen Owner-Merge erledigt.
+- Die Karten-Metadaten/den generierten Status bei der nächsten regulären Planning-Render-Runde auf `closed / accepted` synchronisieren. Release- oder Docker-/Podman-Gesamtintegration wird durch diesen gezielten PR nicht behauptet.
