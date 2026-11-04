@@ -1011,8 +1011,52 @@ def render_coverage(vault):
     return "\n".join(lines)
 
 
+def roadmap_properties(vault, release):
+    """Generate read-only release card fields from the same model as roadmap/cards.md."""
+    planned = [r for r in sorted_releases(vault)
+               if r["kind"] in ("release", "series") and r["status"] == "planned"]
+    next_id = planned[0]["id"] if planned else None
+    status = release["status"]
+    lane = ("Delivered" if status in ("qualified", "published") else
+            "Current" if status in ACTIVE_RELEASE_STATUSES else
+            "Next" if release["id"] == next_id else "Later")
+    tasks = [t for t in vault.tasks.values() if t["release"] == release["id"]]
+    accepted = sum(vault.accepted(t["id"]) for t in tasks)
+    blocked = sum(t["status"] == "blocked" for t in tasks)
+    waiting = sum(derived_state(vault, t) == "waiting" for t in tasks)
+    return {
+        "roadmap_lane": lane,
+        "roadmap_title": release["id"] + " · " + release["title"],
+        "roadmap_progress": f"{accepted}/{len(tasks)} accepted · {blocked} blocked · {waiting} waiting",
+    }
+
+
+def update_roadmap_frontmatter(vault, release, content):
+    """Idempotently update derived properties while preserving release authority."""
+    wanted = roadmap_properties(vault, release)
+    if not content.startswith("---\n") or "\n---\n" not in content:
+        raise ValueError(f"invalid release frontmatter: {release['path']}")
+    end = content.index("\n---\n", 4)
+    front, rest = content[:end], content[end:]
+    for key, value in wanted.items():
+        line = key + ": " + dump_value(value)
+        if re.search(r"(?m)^" + key + r":.*$", front):
+            front = re.sub(r"(?m)^" + key + r":.*$", lambda _: line, front, count=1)
+        else:
+            front += "\n" + line
+    return front + rest
+
+
 def render(vault):
     changed = []
+    for release in vault.releases.values():
+        if release["kind"] not in ("release", "series"):
+            continue
+        original = release["path"].read_text(encoding="utf-8")
+        updated = update_roadmap_frontmatter(vault, release, original)
+        if updated != original:
+            release["path"].write_text(updated, encoding="utf-8")
+            changed.append(release["path"])
     for t in vault.tasks.values():
         text = t["path"].read_text(encoding="utf-8")
         head, body = text[:text.find("\n---\n", 4) + 5], text[text.find("\n---\n", 4) + 5:]
