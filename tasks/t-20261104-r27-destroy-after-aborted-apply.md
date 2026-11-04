@@ -5,9 +5,9 @@ areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord-welle4 (Lane w154)
+kanban_status: active
+kanban_lane: active
 kanban_summary: app destroy --yes ends with success and leaves no running instance and no project ownership when a provider-change apply aborted…
 kanban_title: "Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization"
 priority: high
@@ -20,18 +20,17 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
 ---
 
-- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/planned #view/ready #area/deployment #kind/task
+- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle4 (Lane w154) · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle4 (Lane w154)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
