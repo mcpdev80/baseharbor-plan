@@ -129,3 +129,14 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   (wieder im Hintergrund) macht die Prüfung nachweislich rot, zwanzig Wiederholungen und der
   Wettläufer-Nachweis sind grün.
 - Beweissammlung auf der Platte (teardown-1.md).
+
+## Handoff 2026-11-04 (Runde nach Basis-Verbindung, plattenfest nachgemessen)
+- Kandidat: PR #1373, Zweig work/r27-execution-journal, Kopf 0d89a13e63a (ls-remote == Kopf), develop 2ea2c6f1
+  ist Vorfahr; Prüfprotokoll des Kopfes: acht grün, null rot, zehn nach Auswahlregel übersprungen.
+- Der frühere Blocker (unterschiedliche Datenbankanschlüsse) ist durch die verbundene Hebelkarte entfallen;
+  der Eintrag ist retired.
+- Schreibgut bleibt auf die sechs Dateien des Protokollfeldes beschränkt.
+- Der Aufräumfehler war eine echte Abschlusslücke im Produkt, keine Umgebung: ein Hintergrundauftrag schrieb
+  das Protokoll nach der Rückgabe weiter. Die Zusage wird jetzt vor der Rückgabe erwartet; die Gegenprobe
+  (wieder im Hintergrund) macht die Prüfung nachweislich rot; zwanzig Wiederholungen und der
+  Wettläufer-Nachweis sind grün. Beweissammlung: teardown-1.md.
