@@ -16,7 +16,7 @@ The live state is generated from the task notes, so it is never maintained by ha
 - [views/epics.md](views/epics.md) — tasks per epic.
 - Command line: `python3 scripts/plan.py list --status active`, `--status blocked`, `--ready`.
 
-In Obsidian: CardBoard boards **Current · v0.4.26**, **v0.4.27**, **Next** and **Attention**. Current now has separate **Planned** (waiting for prerequisites) and **Ready** (available to assign) columns. Ready is generated from task dependencies and release status on every planning render; it is not a manually maintained list.
+In Obsidian: [BaseHarbor.base](BaseHarbor.base) provides **one native Kanban view per release** with Ready, Active, Review and Blocked cards; [Kanban release overview](views/kanban-dashboard.md) shows Backlog, Planned and Closed as counts alongside each embedded release board. Cards show task title, ID, owner and an authored 130-character summary. Ready is derived from the actual dependencies, not a manually assigned lifecycle status. Native Kanban does not support collapsed count-only columns.
 
 ## Navigation
 
