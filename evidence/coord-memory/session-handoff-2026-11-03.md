@@ -1513,3 +1513,18 @@ vm-integration-karte bleibt EXPLIZIT offen (kein 'teilweise gruen' als abschluss
 zustands-karte: w139 lieferte saubere basis (kopf 4decc28ecb7, develop Vorfahr, lauf 41898648858, datbank
 gruen), es bleibt GENAU EINE stelle (Tresordienst im pruefaufbau) — als klasse B auf der karte, entscheidung
 bei dir, nichts von mir daran geaendert.
+
+## ~12:20 VIER-ZELLEN-MESSUNG HAT DIE KARTE GERETTET (und meine vermutung widerlegt):
+zelle A = develop ALLEIN, isoliert: anwendung nicht ausgeliefert (wirkungspflicht), DANN zerstoeren rc=1
+"deployment.json fehlt". zelle C = kandidat, WOERTLICH IDENTISCH. B/D = in isolierter umgebung nicht
+ausfuehrbar, sauber als NICHT GEMESSEN markiert statt als beweis verbucht.
+=> das gemeldete verhalten ist ECHT und auf der Hauptlinie reproduzierbar; der kandidat aendert nichts daran;
+und die karte war nie eine stapel-eigenheit. der eigentums-ort ist von der lane selbst benannt:
+internal/application/shared_backends_state.go:15 + shared_core_sql.go:13 (eigentümer aus stapel-zustand,
+nicht aus deployment.json allein).
+FIX-AUFTRAG w138c raus: zerstoerer folgert eigentum aus dem stapel-zustand wenn die auslieferung abgelehnt
+wurde (rc0, keine neue wirkung, anschliessend wieder auslieferbar), schranke bleibt UNANGETASTET fail-closed,
+BASELINE FÜR ROT IST ZELLE A (develop) — nicht mehr ein toter commit. das ist exakt was §5.6 sollte: rot
+wird nachgerechnet, und wenn es keinen toten commit gibt, nimmt die messung die Hauptlinie.
+LEHRE FUER MICH: meine variante 'karte umtiteln wenn develop rc0' wäre falsch gewesen — gott sei Dank habe
+ich gemessen statt entschieden.

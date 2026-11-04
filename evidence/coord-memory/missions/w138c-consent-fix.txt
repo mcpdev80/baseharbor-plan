@@ -1,0 +1,47 @@
+ROLLE: Worker (Lane w138, dritter teil). Coord f49a3303. KARTE:
+t-20261104-r27-consent-abort-leaves-undestroyable-state (KORREKTUR — deine messung hat die karte gerettet).
+REPO: baseharbor. ZWEIG: w120-fix (PR #1375, head 59134bc8a323, develop e444ae11 ist Vorfahr).
+KEIN zweiter zweig, KEIN zweiter PR, KEIN Kraftuebertragen, KEIN merge.
+
+WAS DEINE VIER-ZELLEN-MESSUNG ERGEBEN HAT (classification-1.md, plattenfest):
+ A (develop allein, isoliert)  = anwendung nicht ausgeliefert (wirkung-pflicht-bestaetigung), DANN
+   zerstoerung rc=1 mit "deployment.json fehlt".
+ C (dein kandidat, isoliert)   = WOERTLICH IDENTISCH zu A.
+ B/D (geteiltes backend)       = in isolierter umgebung nicht ausfuehrbar, sauber als NICHT GEMESSEN markiert.
+ => das gemeldete verhalten ist ein ECHTER PRODUKTBEFUND, reproduzierbar auf der Hauptlinie, und der kandidat
+    aendert daran nichts. die karte war nie 'umgebung'.
+
+EIGENTUMS-ORT DEN DU SELBST BENANNT HAST: internal/application/shared_backends_state.go:15
+ (loadSharedBackendState) und internal/application/shared_core_sql.go:13
+ (verifySharedPostgresStateOwnership) — der eigentümer kommt aus dem stapel-zustand, NICHT aus
+ deployment.json allein. genau das ist die stelle, an der der zerstoerer nach ablehnung scheitert.
+
+AUFGABE (JETZT die korrektur, auf diesem ast):
+ (1) ZERSTOEREN NACH ABLEHNUNG MUSS GEHORCHEN: ist keine auslieferungs-datei geschrieben (weil die
+     auslieferung abgelehnt wurde), folgert der zerstoerer eigentum + wirkungsliste aus dem
+     STAPEL-ZUSTAND / der anwendungs-identitaet und beendet die anwendung mit rc=0 — ohne dass ein
+     zweiter zustand geschrieben wird, den es vorher nicht gab. KEIN "loesche was nicht da ist" als
+     erfolg; die wirklichkeits-pruefung bleibt: nachher ist keine laufende instanz und kein eigentum
+     des projekts uebrig.
+ (2) ABLEHNUNG SELBST bleibt unveraendert fail-closed (keine schreibwirkung, zustand nicht ausgeliefert)
+     — die andererung liegt im ZERSTOERUNGS-PFAD, nicht in der schranke. ausdruecklich: die schranke
+     NICHT anfangen zu lockern um den zerstoerer gluecklich zu machen.
+ (3) ROT-AUF-DEM-KRANKEN-STAND IST JETZT BELEG-BAR (das war der fehlende teil, den deine messung liefert):
+     die neue regression muss auf origin/develop (e444ae11, dein zellen-A-lauf) ROT sein — zelle A ist die
+    Baseline, nicht ein toter commit. rote ausgabe wortlich in die evidence (befehl + rc + zeile), gruene auf
+     deinem kopf daneben.
+ (4) Tests: eine permanente regression im isolierten lebenszyklus (anlegen, auslieferung ohne kennung
+     abgelehnt, zerstoeren rc=0, anschließend gleiche anwendung NEU ausliefern mit richtiger kennung =>
+     zustand=betriebsbereit). dazu: der fall 'zerstoeren ohne je ausgeliefert zu haben' (frisch angelegte
+     anwendung) bleibt sauber rc=0 — keine rueckwirkung auf den normalpfad.
+ (5) PFLICHTPRUEFUNGEN: go test ./cmd/baha -count=1, go test ./internal/application/... -count=1, build,
+     vet, gofmt; PR von DRAFT auf READY; gehostete laeufe deines kopfs bis TERMINAL (lauf-id + status je
+     job, Eigenes-Run-Pflicht); die docker-socket-grenze des breiten laufs separat und wortgetreu.
+ (6) BELEG: ls-remote == head woertlich; merge-base --is-ancestor origin/develop HEAD; name-only-diff gegen
+     develop (zerstoerungs-pfad + tests + ggf. die zwei benannten dateien).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE .github-/workflow-aenderung, KEIN zerstoeren/aendern
+geteilter stapel auf den rechnern, KEINE tests geloescht, KEIN rerun als ersatz fuer analyse, KEIN merge,
+scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c); bei schreibfehlern zuerst df -h /tmp.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/fix-1.md (zelle A als baseline,
+vorher/nachher wortlich, diff-uebersicht, lauf-iden; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w138-consent-fix: head=<sha10> zerstoeren_nach_ablehnung=<rc0> baseline_A=<rot belegt> neu_ausliefern=<betriebsbereit> lsremote=<sha10> | <Satz>"
