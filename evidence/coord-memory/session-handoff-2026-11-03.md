@@ -1478,3 +1478,14 @@ bei w138 den AUFTRAG ersetzt — die lane lieferte den merge, aber die Vier-Zell
 classification-1.md fehlt, nur slice/round-2/round-3 auf platte). nachgehalten mit klarer nachforderung:
 "die nachricht loescht keinen Auftrag, sie ergaenzt ihn" — wenn ich einer laufenden lane eine zweite anweisung
 gebe, muss die erste EXPLIZIT darin wieder auftauchen. steht ab jetzt so in meinen nachrichten.
+
+## ~11:20 SCOPE-ENTSCHEIDUNG fuer die docker-integration (variante B, begraenzt):
+positive zyklus gegen PRIVAT-AUSGELEGTE instanz, nur mit den definitionen DES REPOS, eigener praefix;
+geteilte staende bleiben unangetastet (nicht starten/stoppen/umkonfigurieren). DER SCHLUESSELSATZ im auftrag:
+wenn die definitionsdateien hart auf die geteilten diensten zeigen, ist das ERGEBNIS eine datei:zeile — ein
+echter befund (positiver nachweis ohne laeufer-eigentum nicht fuehrbar), daraus mache ich eine eigene karte.
+NICHT umdeuten in 'integration laeuft', NICHT die geteilten diensten anruehren um gruen zu bekommen.
+ZELL-E (6) gratis daneben: auf dem privaten stapel die zerstoerbarkeit NACH abgelehnter auslieferung
+BEOBACHTEN (wortliche ausgabe, kein reparieren) — das ist dieselbe frage wie auf der zustimmungskarte, nur
+aus einer anderen richtung gemessen. stand fuer den positiven teil: e444ae11 (mein bisher gelieferter rc=1-
+beweis bleibt mit seinem schnitt daneben stehen, keine stufen vermischen).

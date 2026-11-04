@@ -1,0 +1,33 @@
+ROLLE: Worker (Lane w142, fortsetzung). Coord f49a3303. KARTE: t-20261104-r27-vm-integration-runs (docker-seite).
+SCOPE-ENTSCHEIDUNG auf deine frage:Variante B, aber BEGRANZT — und dein bisheriger teil bleibt stehen.
+
+OFFENER AUFTRAG BLEIBT: der docker-seitige positive anwendungs-zyklus auf dem geprueften schnitt, plus die
+reste-liste danach (mission w142-docker-integration.txt, schritte 1-6).
+
+ENTSCHEIDUNG IM EINZELNEN:
+ (1) DEIN FAIL-CLOSED-BEWEIS IST ANGENOMMEN und bleibt in der evidence stehen (rc=1, kein schreibgut auf den
+     geteilten diensten, anwendung bleibt nicht ausgeliefert). das ist kein 'teil-erfolg', das ist zelle (4)
+     der karte — fertig.
+ (2) POSITIVER ZYKLUS: versuche ihn gegen eine PRIVAT-AUSGELEGTE instanz, ausschliesslich mit den EIGENEN
+     definitionen des repos (compose-/setup-dateien, die im projekt liegen), eigener projekt-/netz-/
+     volumen-praefix (w142-*), EIGENE datenbank- und schluessel/value-dienste. die geteilten staende
+     (runtime/bh-local-shared) bleiben wie sie sind: nicht starten, nicht stoppen, nicht umkonfigurieren.
+ (3) WENN (2) aus den definitionen des repos HERSTELLBAR ist => durchlauf wie befohlen (anlegen, ausliefern
+     mit richtiger kennung, zustand=betriebsbereit, inspektion gegen die echte instanz mit feld das den
+     laufenden traeger benennt, zerstoeren rc=0, dann reste-liste LEER).
+ (4) WENN (2) NICHT herstellbar ist, weil die definitionen hart auf die geteilten diensten zeigen, dann:
+     STOP + MELDEN mit datei:zeile und dem satz, was dort festgeschrieben ist. das ist dann ein ECHTER
+     befund (der positive nachweis ist ohne eigentum des laeufer-rechners nicht fuehrbar) und ich oeffne
+     dafuer eine eigene karte — NICHT umdeuten in 'integration laeuft', NICHT die geteilten diensten
+     anruehren um gruen zu bekommen.
+ (5) STAND-KLARHEIT: develop ist inzwischen e444ae11 (kodierung verbunden). fuer den POSITIVEN zyklus baust du
+     gegen e444ae11 (version + commizeit wie bisher belegen); deinen bisher gelieferten nachweis (rc=1)
+     laesst du auf dem was er ist und schreibst den schnitt daneben, damit niemand zwei stufen vermischt.
+ (6) ZUSATZ-ZELLE (billig, useful): pruefe auf dem privaten stapel, ob die ANWENDUNGSENDE-Steuerung nach
+     abgelehnter auslieferung ebenfalls rc=0 zerstoert (das ist die frage der anderen karte, aber hier mit
+     deinem eigenen stapel — nur BEOBACHTUNG, wortliche ausgabe, KEIN reparieren, KEINE aenderung).
+GRENZEN wie bisher: KEINE subagenten, KEIN Proxmox, KEINE .github-aenderung, KEIN zerstoeren fremder stapel,
+KEIN release/tag, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h (host + /tmp).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/vm-integration-runs/docker-1.md (ergaenzt um den
+privat-stapel-block: definition+datum, je schritt rc, reste-liste; und falls (4): die datei:zeile).
+END an f49a3303: "END_DONE w142-docker-integration: stand=<schnitt10> positiv=<rc0+betriebsbereit|STOP+datei:zeile> ablehnung=<rc0> zerstoerbar=<ja|befund> reste=<leer> | <Satz>"
