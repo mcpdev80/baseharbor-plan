@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w155). Coord f49a3303. KARTE: t-20261105-r27-test-wire-helper (RUNDE 1).
+REPO: baseharbor-node-connector, zweig work/r27-test-wire-helper von MAIN (zuerst fetch, ls-remote echt).
+KARTE VOLLSTAENDIG lesen (plan.py show). KERN: die existing newTestCA/newTestLeaf-artige zeremonie steckt in
+_test.go-dateien (nicht importierbar). ZIELEIN EINzigES: sie HINTER EINEM exportierten aufruf in einer
+NEUEN datei bereitstellen (testwire), sodass package-externe tests ein echtes handshake-paar bauen.
+HART: bestehende trust-/session-/zertifikats-dateien BLEIBEN BLOB-IDENTISCH (pruefe und zeige
+git diff --name-only origin/main..HEAD — nur neue datei + tests); produkt-api unveraendert; OpenSession
+veraendere NICHT. Wenn delegation bestehender tests zum helfer moeglich ist OHNE verhaltensaenderung: kurz
+delegieren (zeilenweise, in der evidence nennen); sonst tests unangetastet lassen.
+BELEG: smoke-test im CONNECTOR-paket, der das paar importiert und EINEN frame ueber die echte leitung
+roundtourt (wortliche ausgabe; das ist der rote->gruende beleg der karte); go test ./... + build + vet +
+gofmt; gehostete laeufe bis TERMINAL; name-only + log-zeile + ls-remote echt WORTLICH; KEINE .github/
+AGENTS.md, KEINE subagenten.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/node-streams/testwire-1.md
+END an f49a3303: "END_DONE w155-testwire: head=<sha10> blob=<trusted-dateien identisch belegt> smoke=<frame rc0> lauf=<id+status> lsremote=<sha10> | <Satz>"
