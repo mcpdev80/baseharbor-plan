@@ -41,6 +41,25 @@ Date: 2026-11-04
 
 - The late publication was caused by my local `origin` pointing at the LOCAL repo path `.../baseharbor`, whose local `develop` was stale because the spawner had no fetch — NOT my content fault; content (efadde8e) was correct and committed the whole time. Coordinator fixed the spawner fetch and updated local base branches; I then republished to real GitHub, opened draft PR #1379, and verified via ls-remote.
 
+## FIX — FOREIGN ENROLLMENT CONTENT REMOVED (coordinator f49a3303 2026-11-04)
+
+- The first publication's branch carried FOREIGN enrollment content (`cmd/baha/workstation_enrollment.go`, `contracts/workstationenrollment/v1/*`) — the w86 commits fb701991 + af05b198 (from the retired branch work/r27-ci-delivery that my stale local mirror showed as develop). This was a silent carry-over PR (AGENTS 3.8/4.2): enrollment would have crossed two chains. The fault was the coordinator's (spawner had no fetch), not my content — my switch (efadde8e) was correct throughout.
+- Correction (NO force-transfer, branch name preserved, content untouched):
+  1. `git branch -f tmp-private $(git rev-parse --verify origin/develop)` — clean branch from REAL develop (e444ae11), fetched first.
+  2. `git cherry-pick efadde8e` onto tmp-private — my switch + tests + placement only. No conflict with enrollment migration 0009.
+  3. Verified `git diff --name-only origin/develop HEAD` shows ONLY these 4 files (verified verbatim, NO enrollment/contracts files):
+     - internal/application/manifest.go
+     - internal/application/manifest_parse.go
+     - internal/application/provider_placement.go
+     - internal/application/r27_private_integration_test.go
+  4. Pre-force-push ancestry check: old remote head carried ONLY fb701991 + af05b198 + 1fc148ff + 6efee3a2 + efadde8e — no legitimate foreign work was lost (the enrollment commits were never meant to be on my branch).
+  5. `git push --force-with-lease origin HEAD:refs/heads/work/r27-private-integration` -> `+ efadde8e...52be57c9` (branch name unchanged, new clean head).
+  6. ls-remote witness (WOERTLICH): `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-private-integration` ->
+     `52be57c9893d2d824b8cfbcfec97ca4c7fb26ef9  refs/heads/work/r27-private-integration` == 52be57c9...
+  7. PR #1379 head re-pointed to 52be57c9 (still isDraft=true, base=develop, state=OPEN).
+  8. CI run to terminal: run-id 41913050087, `CI · PR #1379` (pull_request), status=completed, conclusion=success, headSha=52be57c9, createdAt 2026-11-04T21:07:13Z. (Finding: full required-check enforcement still disabled per baseharbor CI-repair note — run-state finding, not a claimed green gate.)
+  - merge-base --is-ancestor origin/develop HEAD: rc=0 against real base e444ae11. Branch clean (git status --short empty).
+
 ## (1) Cause — exact
 
 The load-app binding resolution routes to a COMMON (shared) bridge because of two coupled spots:
