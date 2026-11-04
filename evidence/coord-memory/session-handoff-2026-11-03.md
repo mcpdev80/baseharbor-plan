@@ -1070,3 +1070,13 @@ des checkbox-guards in EINEN KOMMENTAR verschluckt (seit ~19:0x lief der guard o
 auseandergezogen: strip -> add -- file -> commit -> pull --rebase -> push.
 LEHRE: ein auge reparieren heisst NICHT nur PATH — umfeld, rc0-stille und mein eigener patch muessen getestet
 werden (dafuer ist die env -i zeile jetzt der standard-test fuer jedes cron-auge).
+
+## ~22:35 drittes auge auch repariert (regex war zu eng): codex-ear suchte nur 'END_ codex-…' — die
+Codex-WORKER heissen cxNN-…, wurden also NIE gemeldet (cx02s fertig meldete sich erst nach dem fix). ausserdem:
+mein DRY-zweig hatte das ausgeben MIT unterdrueckt (der block wurde ueber die schreib-guard gezogen) — jetzt
+getrennt: DRY druckt, cron meldet. danach: FIRED 1 und die meldung kam in <1 minute an.
+cx02-abnahme der basis-auffrischung: beide zweige ohne konflikte auf ecbb8854 (815fdfb709 / 9faf95f331);
+#1362 go-unit-tests ROT (native-auth, lane w125 arbeitet genau dort), PR Selected Checks noch in der GitHub-
+warteschlange; #1369 war wegen draft nur skipped, nach meinem ready-flip 2 pass / 0 fail → Luna prueft jetzt
+team-auth (r1369a). cx02 neu angesetzt: codec doku-audit (cx03) — die zwei roten auf #1363 sind naemlich KEINE
+umgebungsklasse sondern spezifikations-unsimmenge aus runde 3.

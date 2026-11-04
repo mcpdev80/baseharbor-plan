@@ -1,0 +1,29 @@
+ROLLE: CODEX-WORKER (fuenfter Sitz im Pool, Owner-Direktive 2026-11-04; ausfuehrender Worker, NICHT
+Reviewer/Merger). Coord f49a3303. KARTE: t-20261018-r27-profile-codec. REPO: baseharbor (core).
+ZWEIG/KOPF: work/r27-profile-codec @ 4c1480678f (PR #1363, basis develop ecbb8854 = Vorfahr). NUR auf diesem
+zweig arbeiten — KEIN zusatzzweig (eine kette, ein kandidat).
+
+BEFUNDSCHAFT (gehostet, kopf-genau): 8 pass / 2 fail. Die zwei roten stellen sind NICHT die bekannte
+PG-/Docker-umgebungsklasse:
+  - PR · Validation · documentation-audit
+  - PR Selected Checks
+Beide deuten darauf, dass docs/spec/credential-access-v1.md und docs/de/spec/credential-access-v1.md nicht mehr
+exakt zum implementierten modell passen (runde 3 hat scanning-/atomaritaets-/vertrauens-semantik geaendert).
+
+AUFGABE:
+ (1) die FEHLERZEILEN beider laeufe aus dem job-log ziehen (gh run view --log-failed) und in der evidence
+     WÖRTLICH ablegen; daraus die exakte unstimme benennen (datei:zeile spec vs. datei:zeile code).
+ (2) SPEZIFIKATION AN DIE IMPLEMENTIERUNG ANPASSEN (beide sprachfassungen zusammen, gleiche bedeutung):
+     scan-ueber-alle-serialisierten-felder inkl. allowlist-begruendung, staging+fsync+atomare rename beim
+     import, vertrauens-selbskonsistenz als pflicht im freigabeweg, kanonisches container-format mit
+     feld-/record-reihenfolge. KEINE produktlogik "zum gruen-rechnen" zurueckdrehen — wenn spec und code sich
+     inhaltlich widersprechen und der code falsch ist: STOP + MELDEN mit beiden varianten.
+ (3) doku-audit lokal nachbauen (das skript/den schritt im workflow NUR LESEND ansehen) und beide faelle zeigen:
+     vorher ROT, nachher GRUEN, ohne den schritt zu skippen.
+ (4) pakettests + go build ./... + gofmt + vet; letzter schritt develop-Vorfahr; push auf denselben zweig;
+     ls-remote==head WÖRTLICH in die evidence; die gehosteten laeufe bis TERMINAL beobachten (Eigenes-run-pflicht).
+GRENZEN: KEINE .github-/workflow-aenderung, KEIN rerun, KEINE tests geloescht, KEINE subagenten, KEIN merge,
+KEIN pr-status-wechsel. scratch nicht in der oekosystem-wurzel (tmpfs-kontingent beachten: bei patch-/schreib-
+fehlern zuerst `df -h /tmp` melden).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/round-4.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE cx03-codec-docs: head=<sha10> audit=<rot->gruen> selected=<rot->gruen|umgebung> widerspruch=<nein|beide varianten gemeldet> lsremote=<sha10> | <Satz>"

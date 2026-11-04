@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS team-auth.
+OBJEKT: baseharbor PR #1369 head 815fdfb709 branch work/w92-team-auth-claim-mapping (ready durch coord;
+develop ecbb8854 = Vorfahr nach basis-auffrischung; gates terminal 2 pass / 0 fail / 14 skipping).
+KARTE t-20261018-r27-team-auth: externe SSO-ansprueche durchsetzen + scope-gebundene team-rechte.
+PRUEFEN SHA-genau read-only: (1) ansprueche werden NUR aus der signierten quelle gelesen (gegenprobe:
+request-seitige ansprueche/hearder fuehren NICHT zu recht), (2) keine stille eskalation: fehlende/leere
+rolle => abweisung statt default-erlaubnis, (3) scope-bindung: team-a gilt NICHT fuer team-b (echter
+test mit zwei teams), (4) abreis-/widerrufsfall: widerrufene ansprache trennt wirkung, fail-closed,
+(5) keine secrets/token im log/journal des pfads, (6) write-set der karte (diff name-only) ohne griffe in
+cmd/baha, internal/delivery, .github, (7) pakettests + build + gofmt + vet gruen, EN/DE spec-deckung.
+Urteil -> review-1369a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1369a: verdict=<X> open=<liste|none> | <Satz>"
