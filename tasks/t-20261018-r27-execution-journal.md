@@ -21,7 +21,7 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w107) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
@@ -29,7 +29,7 @@ evidence:
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -82,3 +82,14 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Correction round (lane w112) delivered head 0ce814d0, PR #1373 draft on develop 2a43984a: duplicate request
   with changed content is refused and reconnect returns the same operation, both added to store.create through an
   operations index with red-first tests; criteria 1, 4, 5 were already covered by the merged journal state.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1373a, verdict REJECT)
+- Die semantische Operationsauswahl wurde als Anfragen-Wiedererkennungsschlüssel benutzt; eine
+  anfragen-eigene Identität mit Nicht-Geheimnis-Verpflichtung über die ganze Anfrage fehlt.
+- Die Eingabe fehlt in der Verpflichtung; der Wiedererkennungsindex geht beim erneuten Öffnen verloren, weil
+  load() ihn nicht aus dem erhaltenen Protokoll aufbaut.
+- Doppel- und Wiedererkennungswege sind im Anfragepfad vom neu akzeptierten Lauf nicht unterscheidbar
+  (runExecution läuft erneut, typisierter Fehler als internal verpackt).
+- Es fehlt die Reihenfolge-Regression: Eintrag lesbar, bevor die erste Wirkung beginnt.
+- Formulierung "replayed once, never a second time" muss auf die gebundene Garantie verschlankt werden.
+- Korrekturrunde = Lane w119 auf demselben Zweig und PR #1373 (Kopf vorher 0ce814d0).
