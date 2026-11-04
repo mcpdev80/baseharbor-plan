@@ -54,11 +54,11 @@ Isolated fixture started for local verification only (diagnostic; not runner inf
 
 Individual runs:
 
-- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestIdentityTenantResolverUsesIdentityScopedRLS$' -count=1` => `ok github.com/mcpdev80/baseharbor/internal/database 0.268s`
-- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestTenantRLSIsolation$' -count=1` => `ok github.com/mcpdev80/baseharbor/internal/database 0.316s`
-- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestMigrationRollbackOwnsOnlyLatestChange$' -count=1` => FAIL (see section 6)
+- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestIdentityTenantResolverUsesIdentityScopedRLS$' -count=1` => **RED before fix**: `SQLSTATE 28000 ... 127.0.0.1:5432`; **GREEN after fix**: `ok ... 0.34s`.
+- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestTenantRLSIsolation$' -count=1` => **RED before fix**: `SQLSTATE 28000 ... 127.0.0.1:5432`; **GREEN after fix**: `ok ... 0.33s`.
+- `BASEHARBOR_TEST_DATABASE_URL="postgres://postgres:postgres@127.0.0.1:5434/baseharbor_test?sslmode=disable" go test ./internal/database/ -run '^TestMigrationRollbackOwnsOnlyLatestChange$' -count=1` => FAIL (see section 6 — genuine w96 migration 0009 regression; production-migration Owner field).
 
-Full package after the DSN fix: `go test ./internal/database/ -count=1` => `ok github.com/mcpdev80/baseharbor/internal/database 2.407s`. `go test ./contracts/...` => ok. `go test ./cmd/baha -run '^TestDoctor'` => ok.
+Full package after the DSN fix: `go test ./internal/database/ -count=1` => 12 PASS, 1 FAIL (`TestMigrationRollbackOwnsOnlyLatestChange` only). `go test ./contracts/...` => ok. `go test ./cmd/baha -run '^TestDoctor'` => ok. Red->green verified: same tests RED on host 5432 (SQLSTATE 28000), GREEN after the DSN change, no skip, no t.Setenv trick.
 
 ## 6. TestMigrationRollbackOwnsOnlyLatestChange — NEBENEINANDER on develop ecbb8854 vs PR #1371 9ac4e2c4
 
@@ -81,8 +81,15 @@ Full package after the DSN fix: `go test ./internal/database/ -count=1` => `ok g
 
 ## 8. CI result
 
-- Not reached: STOP + escalate on the migration-ordering regression (section 6), which is a production-code scope decision. No .github/** edit, no rerun, no push. Hosted checks not observed.
+- Not reached: STOP + escalate on the migration-ordering regression (section 6), which is a production-migration decision (Owner field). No .github/** edit, no rerun, no push. Hosted checks not observed.
+
+## 9. Partial success summary
+
+- Worker-field fix applied and proven red->green for the two hardcoded-5432 tests (resolver + tenant) against an isolated ephemeral Postgres: no skip, no env trick, dedicated-role assertions still run.
+- Root cause of the dial/role-fixture (ci.yml:802, no isolated DB) documented with file:line for the Owner to raise against ci.yml:802.
+- Genuine production regression (w96 migration 0009 breaking `TestMigrationRollbackOwnsOnlyLatestChange`, develop=PASS vs 9ac4e2c4=FAIL) documented with exact first-rollback target and both SHAs for the anmeldungs-kette.
+- .github/** untouched, no rerun, no push.
 
 ## END
 
-- Lane w122-ci-pg-fixture: BLOCKED on Owner scope decision (production migration 0009 vs test rollback-ordering). DSN-side fix applied and proven for the 2/3 tests; migration-rollback test is a genuine regression from the w96 migration that only an Owner/migration-design decision resolves. No .github/** edit, no rerun.
+- Lane w122-ci-pg-fixture: END_DONE (partial success). DSN fix applied + proven red->green for the 2/3 tests (no skip, no env trick). Root cause (ci.yml:802) and genuine w96 migration 0009 regression documented with evidence for the Owner/anmeldungs-kette. No .github/** edit, no rerun, no push.

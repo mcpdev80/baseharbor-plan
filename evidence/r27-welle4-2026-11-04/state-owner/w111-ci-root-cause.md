@@ -97,6 +97,30 @@ The fix makes the test self-verifying in the reverse direction too: if runtime/c
 - WHY: the OpenBao control-plane stack (compose-single.yaml defines openbao-admin at internal/runtime/assets/compose-single.yaml:177) is only STARTED by ensureAndStartRuntimeBrokerWithCore -> ensureAndStartRuntimeProviderExecutorWithCore -> (shared provider convergence calls runtime.UpProject, objectstorage/seaweedfs.go:EnsureSharedProviderAt:90) during a managed-service runtime-broker convergence. The test's baseline manifest is api-only (RequiresRuntimeBroker returns false at internal/application/runtime_identity_workload.go:53) so it never boots the OpenBao control-plane; the Edit's managed-service PKI preflight then tries to exec into a never-started openbao-admin container.
 - This is a REAL product boundary: in production the OpenBao manager credentials are written by Bootstrap during stack bootstrap, and the service is running. The test materializes the credentials FILE but not a running OpenBao control-plane. Seeding openbao-admin.env is a legitimate test-fixture fix for the "credentials not configured" boundary; a running openbao-admin service is a DEEPER fixture/bootstrap step (start the compose stack in test scope), which is a different kind of change and/or a product-finding candidate. STOP+MELDEN per directive 17:4x #4.
 
+## 7. Contra-probe beleg (Owner-Freigabe 17:4x, nachtrag): der zusammenhang ist pruefbar
+
+- Lane / role: w111-state-owner (coordinator f49a3303, CI field)
+- Date: 2026-11-04
+- Beide gegenproben sind deterministisch und wiederholbar (kein offener OpenBao noetig); sie belegen exakt, dass die fixture-stelle die richtige ist.
+
+### 7.1 Contra-probe 1a — WITHOUT runtime/openbao-admin.env
+- Setup: `bhruntime.Files{Env: <temp>/runtime.env}` (kein openbao-admin.env vorhanden).
+- Aufruf: `openbao.LoadAdminCredentials(files)`.
+- ERGEBNIS (wortlich): `ErrManagerNotConfigured` => "OpenBao manager credentials are not configured".
+- BELEG: dies ist EXACT derselbe fehlertext wie die ci-meldung am produkt-ziel `app_edit_apply_test.go:1090`. => die fixture-stelle (openbao-admin.env) ist die korrekte anlaufstelle.
+
+### 7.2 Contra-probe 1b — WITH runtime/openbao-admin.env
+- Setup: `os.WriteFile(<temp>/openbao-admin.env, "# test\nOPENBAO_ROLE_ID=rid\nOPENBAO_SECRET_ID=sid\n", 0o600)`.
+- Aufruf: `openbao.LoadAdminCredentials(files)`.
+- ERGEBNIS (wortlich): `RoleID="rid"`, `SecretID="sid"` geladen; pruefung der file-perm (0600) bestanden; 0644 => fails closed.
+- BELEG: die fixture schreibt exakt das format, das LoadAdminCredentials (bootstrap.go:447-482) voraussetzt (0600 + RoleID + SecretID). => die credentials-grenze ist mit der fixture sauber passiert.
+
+### 7.3 Herleitung der naechsten grenze (ohne skip, ohne server-nau)
+- Mit credentials geladen: PKI-preflight `ServiceCA` (service_pki.go:152) -> `managerToken` (service_pki.go:373) -> `loginManager` (bootstrap_auth.go:14) -> `ExecProjectInput(service="openbao-admin", ... "auth/approle/login" ...)`.
+- `Compose.ExecProjectInput` (compose.go:229) => `docker compose exec -T openbao-admin ...`.
+- Der api-only baseline-manifest ruft `ensureAndStartRuntimeBrokerWithCore` NICHT auf (`RequiresRuntimeBroker`=false, runtime_identity_workload.go:53) => der openbao-admin-container wird NIEMALS gestartet => docker compose exec => "service \"openbao-admin\" is not running".
+- Dies ist die Owner-grenze 17:4x #2: kein echter openbao-server, kein pki-nau, kein skip. Wenn das produkt einen laufenden openbao/ein produkt-testfenster verlangt, entscheidet Owner (zwei wege: CI-stellt openbao-fixture-dienst, oder-produkt-bekommt-dokumentiertes-testfenster).
+
 ## END
 
 END_DONE w111-state-owner (coordinator CI field): root-cause-fixed compose.yaml-missing at managed-service PKI preflight; fix=test-scope Core-runtime fixture materialization (no product, no .github). CODEX-REVIEW ACCEPT. PR #1374 CLOSED (superseded, comment id 6634103570 with diff-beleg: commit 069b02b5 = only cmd/baha/app_edit_apply_test.go +18/0). Fix landed on PR #1347 (work/r27-state-owner), merged develop ecbb8854 (Vorfahr-pflicht) -> merge head fd4980a1, pushed, ls-remote==head fd4980a1. ROOT CAUSE FIXED but CI run 41854714268 shows failure MOVED from "compose.yaml: no such file or directory" to "OpenBao manager credentials are not configured" (app_edit_apply_test.go:1090). STOP+MELDEN (directive 17:4x #4). CLEANUP per Owner 17:4x: .github ci.yml change unstaged+restored (belongs to Owner's 2a43984a PG-isolation, NOT my write-set); stray wt1347-fix worktree removed from ecosystem root and moved to /tmp/opencode/wt1347-fix (clean, fix intact, NOT pushed).
