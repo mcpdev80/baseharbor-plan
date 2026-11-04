@@ -13,7 +13,7 @@ prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "Integration offen: Core PR #1355 und Demo-Consent PR #128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo-SHAs fehlt. Gruene PR-CI allein ist kein Runtime-Nachweis."
+blocker: "Owner + ChatGPT uebernehmen dieses Thema ab 2026-11-04 16:3x; keine Coordinator-Lane, kein Coordinator-Review daran."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
 - [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/blocked #view/blocked #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w39) · **Priority:** critical  
-    **Blocker:** Integration offen: Core PR \#1355 und Demo-Consent PR \#128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo-SHAs fehlt. Gruene PR-CI allein ist kein Runtime-Nachweis.  
+    **Blocker:** Owner + ChatGPT uebernehmen dieses Thema ab 2026-11-04 16:3x; keine Coordinator-Lane, kein Coordinator-Review daran.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -98,3 +98,11 @@ The previous blocker referring to the isolated GitHub runner and baseline develo
 Verified on GitHub (2026-11-04): Core PR [#1355](https://github.com/mcpdev80/baseharbor/pull/1355) is open (head `ffe27712f25b75418a356ac37caec0bb9ae1fbdd`); Demo guided-consent PR [#128](https://github.com/mcpdev80/baseharbor-demo/pull/128) is open (head `5b1f6e92cbb352551dbb3d928edb2b142ca90c8d`). Core PR workflow `41834568460` was still running at inspection time; normal PR validation does **not** establish native cross-repository runtime compatibility.
 
 **Unblock criteria:** finish/merge the compatible consent change as appropriate, qualify the exact resulting Core and Demo revisions through genuine hosted Docker **and** Podman lifecycle checks (no skipped result or substituted PR-local test), and record the exact SHA/run/outcome. Then review and accept the candidate-contract task separately; no release/tag is implied. Development and unrelated PR merges must not be held up by this cross-repo acceptance pending state.
+
+## Owner takeover 2026-11-04 (coordinator f49a3303)
+- Owner and ChatGPT work this card from now on. Coordinator lanes do not edit, review, merge or re-base this
+  branch (work/r27-candidate-contract, PR #1355, head ffe27712 at the time of handover).
+- Withdrawn: the queued Codex final review mission for this candidate (kept in
+  coordinator/missions/archive/codex-r1355i.BEHALTEN-owneruebergabe.txt, not executed).
+- Board effect: the six cards waiting on this card stay waiting; their unblock trigger is the Owner merge, not a
+  coordinator action.
