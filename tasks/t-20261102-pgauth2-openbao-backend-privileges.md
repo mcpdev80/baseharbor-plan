@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: ornith (pgauth2)
+kanban_status: active
+kanban_title: "OpenBao: grant PG backend role legal connect on postgres/template1"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

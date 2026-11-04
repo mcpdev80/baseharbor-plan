@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: qualify
 parent: v0.4.26
 owner: ""
+kanban_status: closed
+kanban_title: "v0.4.26 · Pre-release: obtain complete authenticated approval"
 priority: normal
 depends_on: [t-20261017-release-0-4-26-prepare]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

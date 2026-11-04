@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.6
 parent: v0.8.x
 owner: ""
+kanban_status: planned
+kanban_title: "Kubernetes: verify production hardening and conformance"
 depends_on: [core-313, core-314, core-315, core-316, core-317, core-318, t-20261017-release-0-8-6-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_status: planned
+kanban_title: "Tests: verify platform conformance and support"
 depends_on: [core-821, core-822, core-884, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

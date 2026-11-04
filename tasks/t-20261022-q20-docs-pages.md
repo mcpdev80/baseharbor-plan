@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (reviewer)"
+kanban_status: closed
+kanban_title: "Docs: verify release-note surface for v0.4.26 prepare card"
 depends_on: [core-922]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1031", "mcpdev80/baseharbor#1041"]

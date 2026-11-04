@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: "ChatGPT (PR #984 source split implementation)"
+kanban_status: closed
+kanban_title: "Inspect: avoid false positives from comments and text"
 depends_on: [core-893, core-895, core-896, t-20261017-inspect-import-ci-coverage]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#984]

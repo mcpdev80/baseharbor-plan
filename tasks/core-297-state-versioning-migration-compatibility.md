@@ -6,6 +6,8 @@ release: v0.5.x
 version: v0.5.1
 parent: v0.5.x
 owner: ""
+kanban_status: planned
+kanban_title: "State: define versioning and migration compatibility"
 depends_on: [t-20261017-release-0-5-1-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

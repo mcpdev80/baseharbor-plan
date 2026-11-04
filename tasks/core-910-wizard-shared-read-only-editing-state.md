@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: mcpdev80 (session 2, preparatory implementation)
+kanban_status: closed
+kanban_title: "Wizard: provide shared read-only editing state"
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#934"]

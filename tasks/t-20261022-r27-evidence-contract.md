@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: flash-f71 (worker-1 contract+legacy-bootstrap)
+kanban_status: closed
+kanban_title: "Historical: Receipt schema and interface contract (PR1 scope)"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092]

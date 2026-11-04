@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: ""
 owner: o47
+kanban_status: closed
+kanban_title: "Release v0.4.26: selector Q-predecessor PR (qualification entries on trusted base)"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

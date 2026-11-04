@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (lane w90)
+kanban_status: active
+kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: []

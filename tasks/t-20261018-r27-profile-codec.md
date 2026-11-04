@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (lane w88)
+kanban_status: active
+kanban_title: "Profiles: import and export non-secret connection metadata"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1363"]

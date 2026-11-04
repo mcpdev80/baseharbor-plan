@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: codeman-coordinator (w1-profile lane)
+kanban_status: closed
+kanban_title: "Access: define portable connection and device profile records"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1324"]

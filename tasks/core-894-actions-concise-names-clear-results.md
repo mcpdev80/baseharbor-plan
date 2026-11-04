@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "ChatGPT (core-894 implementation correction)"
+kanban_status: closed
+kanban_title: "Actions: use concise names and clear results"
 depends_on: [core-893, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#982]

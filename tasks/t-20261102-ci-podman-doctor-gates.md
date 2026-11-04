@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_status: closed
+kanban_title: "ci(gate-map): bind podman-doctor CLI paths to lifecycle gates"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

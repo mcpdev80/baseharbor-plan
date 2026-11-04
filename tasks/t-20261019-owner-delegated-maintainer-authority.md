@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (Owner-authorized Maintainer policy)"
+kanban_status: closed
+kanban_title: Document Owner-delegated Maintainer merge authority
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

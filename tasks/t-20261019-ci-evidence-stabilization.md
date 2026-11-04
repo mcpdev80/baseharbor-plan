@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (Maintainer CI/evidence stabilization coordinator)"
+kanban_status: closed
+kanban_title: "Restore exact integration, retained evidence and reviewed-candidate completion"
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]

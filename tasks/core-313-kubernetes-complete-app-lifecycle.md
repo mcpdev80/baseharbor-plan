@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.0
 parent: v0.8.x
 owner: ""
+kanban_status: planned
+kanban_title: "Kubernetes: implement the complete app lifecycle"
 depends_on: [core-310, core-325, t-20261017-release-0-8-0-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

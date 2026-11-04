@@ -6,6 +6,8 @@ release: v0.7.x
 version: v0.7.7
 parent: v0.7.x
 owner: ""
+kanban_status: planned
+kanban_title: "Acceptance: verify Compose-to-Kubernetes portability"
 depends_on: [core-102, core-304, core-305, core-306, core-307, core-308, core-309, t-20261017-release-0-7-7-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -5,6 +5,8 @@ areas: [ci]
 release: v0.4.x
 parent: v0.4.x
 owner: "mcpdev80 (independent reviewed policy binding)"
+kanban_status: closed
+kanban_title: "Bind independent reviewed #991 and #982 candidates"
 priority: high
 depends_on: [t-20261017-inspect-import-ci-coverage]
 repos: [mcpdev80/baseharbor]

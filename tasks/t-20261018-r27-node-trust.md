@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
+kanban_status: planned
+kanban_title: "Connector: qualify rotation revocation and session recovery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-service, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: []

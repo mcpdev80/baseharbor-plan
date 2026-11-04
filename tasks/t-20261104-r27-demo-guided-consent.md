@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: w85-demo-consent
+kanban_status: active
+kanban_title: "Demo: guided up supplies candidate consent (feature-detected)"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-demo]
 prs: []

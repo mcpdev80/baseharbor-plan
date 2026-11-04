@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
+kanban_status: planned
+kanban_title: "Integration: register the accepted CLI JSON MCP HTTP operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-wizard, t-20261018-r27-delegated-handoff, t-20261018-r27-maintenance-client, t-20261018-r27-management-host, t-20261018-r27-node-cli, t-20261018-r27-onboarding-wizard, t-20261018-r27-promote, t-20261018-r27-remote-podman-web, t-20261018-r27-remote-rollout, t-20261018-r27-version-view, t-20261022-r27-ci-access, t-20261022-r27-ci-authority, t-20261022-r27-ci-delivery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
 prs: []

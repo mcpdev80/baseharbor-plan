@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_status: closed
+kanban_title: "fix(secrets): grant OpenBao postgres backend the right privileges"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

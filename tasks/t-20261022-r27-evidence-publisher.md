@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: w2-lane (W2 writer package)
+kanban_status: closed
+kanban_title: "Historical: W2: automatic receipt, plan and task publication"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151, mcpdev80/baseharbor#1213]

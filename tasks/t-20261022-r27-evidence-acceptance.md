@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: flash-coordinator + o145 (W5 independent)
+kanban_status: closed
+kanban_title: "Historical: Accept the automatic receipt chain, not partial jobs"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151]

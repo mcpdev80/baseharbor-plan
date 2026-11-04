@@ -5,6 +5,8 @@ areas: [ci]
 release: v0.4.26
 parent: v0.4.26
 owner: "mcpdev80 (scoped XDG reset review)"
+kanban_status: closed
+kanban_title: Scoped runtime reset must retain unrelated XDG state
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

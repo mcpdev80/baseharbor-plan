@@ -7,6 +7,8 @@ version: v0.8.2
 release_stage: cleanup
 parent: v0.8.x
 owner: ""
+kanban_status: planned
+kanban_title: "v0.8.2 · Release start: reconcile old PRs, tasks and branches"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

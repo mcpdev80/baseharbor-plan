@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: core-818
 owner: ""
+kanban_status: backlog
+kanban_title: "macOS: signing and notarization"
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []

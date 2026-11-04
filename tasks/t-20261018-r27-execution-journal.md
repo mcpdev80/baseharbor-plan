@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (lane w107)
+kanban_status: active
+kanban_title: "Operations: persist execution identity and terminal outcomes"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1373"]

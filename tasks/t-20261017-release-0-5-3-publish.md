@@ -7,6 +7,8 @@ version: v0.5.3
 release_stage: publish
 parent: v0.5.x
 owner: ""
+kanban_status: planned
+kanban_title: "v0.5.3 · Release: promote the validated candidate and deliver exact tagging commands"
 priority: normal
 depends_on: [t-20261017-release-0-5-3-qualify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

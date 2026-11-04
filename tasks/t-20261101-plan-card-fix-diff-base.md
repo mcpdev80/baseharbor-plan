@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: ""
 owner: worker-ornith (session 35cdb02e)
+kanban_status: closed
+kanban_title: "Regenerate diff-base planning card to valid schema (mechanical, no content rewrite)"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

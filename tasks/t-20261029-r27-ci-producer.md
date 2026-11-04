@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "q202 (a71d5cd0, qwen)"
+kanban_status: closed
+kanban_title: "CI: qualify a real public-contracts producer"
 early: true
 priority: high
 depends_on: []

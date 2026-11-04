@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (Maintainer dependency repair)"
+kanban_status: closed
+kanban_title: "Provider choice: preserve workload identity in requirement projections"
 priority: high
 depends_on: [core-913]
 repos: [mcpdev80/baseharbor]

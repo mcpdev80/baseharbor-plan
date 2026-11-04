@@ -6,6 +6,8 @@ release: v0.8.x
 version: v0.8.5
 parent: v0.8.x
 owner: ""
+kanban_status: planned
+kanban_title: "Kubernetes: establish CLI, agent and developer parity"
 depends_on: [core-313, core-315, core-316, core-317, t-20261017-release-0-8-5-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

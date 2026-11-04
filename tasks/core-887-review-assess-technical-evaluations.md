@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: ""
 owner: ""
+kanban_status: backlog
+kanban_title: "Review: assess technical project evaluations"
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []

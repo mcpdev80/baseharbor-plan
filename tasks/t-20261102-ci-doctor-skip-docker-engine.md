@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_status: closed
+kanban_title: "fix(doctor): skip Docker-engine check for non-Docker runtime providers"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

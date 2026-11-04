@@ -7,6 +7,8 @@ version: v0.5.4
 release_stage: prepare
 parent: v0.5.x
 owner: ""
+kanban_status: planned
+kanban_title: "v0.5.4 · Pre-release: complete ecosystem readiness and candidate preparation"
 priority: normal
 depends_on: [t-20261017-release-0-5-4-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

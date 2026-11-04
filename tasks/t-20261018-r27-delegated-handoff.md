@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: ""
+kanban_status: planned
+kanban_title: "GitOps: preserve external desired state and hand off native changes"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-delivery-boundary, t-20261018-r27-stage-versions, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: []

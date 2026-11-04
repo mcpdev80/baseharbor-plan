@@ -6,6 +6,8 @@ release: v0.7.x
 version: v0.7.1
 parent: v0.7.x
 owner: ""
+kanban_status: planned
+kanban_title: "Kubernetes: implement security, identity and networking"
 depends_on: [core-102, t-20261017-release-0-7-1-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

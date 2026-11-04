@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: verify
 parent: v0.4.26
 owner: "Codex (Owner-authorized publication verification)"
+kanban_status: closed
+kanban_title: "v0.4.26 · Release: verify publication, artifacts, Pages and closeout"
 priority: normal
 depends_on: [t-20261017-release-0-4-26-publish]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

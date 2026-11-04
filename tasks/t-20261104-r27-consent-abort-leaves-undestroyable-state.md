@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: coord-welle4 (lane w120)
+kanban_status: active
+kanban_title: "Deployment: refused candidate apply must leave destroyable state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
 prs: []

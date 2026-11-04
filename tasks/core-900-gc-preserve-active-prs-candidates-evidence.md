@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80 (session 2)
+kanban_status: closed
+kanban_title: "GC: preserve active PRs, candidates and evidence origins"
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#931"]

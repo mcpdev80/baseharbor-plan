@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_status: planned
+kanban_title: "Linux: integrate host adapters and verify regressions"
 depends_on: [core-819, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

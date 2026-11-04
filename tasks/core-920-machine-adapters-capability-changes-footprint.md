@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-920)"
+kanban_status: closed
+kanban_title: "Machine adapters: reuse capability changes and footprint"
 depends_on: [core-910, core-911, core-919]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#970"]

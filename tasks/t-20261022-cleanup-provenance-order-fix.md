@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: ""
 owner: Codeman (o23 demo cleanup fix)
+kanban_status: closed
+kanban_title: "Demo: cleanup-provenance ordering fixes owned-container snapshot before teardown"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor-demo]

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (CI completion 2026-11-03)"
+kanban_status: closed
+kanban_title: "CI: deploy receipt authentication on trusted main and recover missing records"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

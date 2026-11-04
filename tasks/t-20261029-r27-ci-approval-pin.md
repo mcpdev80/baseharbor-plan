@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "f60 (29879f0e, flash)"
+kanban_status: closed
+kanban_title: "Historical: CI: repair approval trusted source pins"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]

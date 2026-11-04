@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: Flash (codeman w1-baseharbor)
+kanban_status: closed
+kanban_title: "MCP: classify expected preconditions correctly"
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#985]

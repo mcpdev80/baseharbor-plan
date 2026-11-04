@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Codex (comment-guideline session)"
+kanban_status: closed
+kanban_title: "Docs: require clear and concise code comments"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

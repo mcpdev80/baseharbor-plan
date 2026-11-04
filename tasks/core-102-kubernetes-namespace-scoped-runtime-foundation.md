@@ -6,6 +6,8 @@ release: v0.7.x
 version: v0.7.0
 parent: v0.7.x
 owner: ""
+kanban_status: planned
+kanban_title: "Kubernetes: establish a namespace-scoped runtime foundation"
 depends_on: [t-20261017-release-0-7-0-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

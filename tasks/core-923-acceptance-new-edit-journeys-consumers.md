@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Codex session 2 native acceptance (d48643e22049)
+kanban_status: closed
+kanban_title: "Acceptance: verify New/Edit journeys and ecosystem consumers"
 depends_on: [core-921, core-922, core-900]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: ["mcpdev80/baseharbor#1085", "mcpdev80/baseharbor#1084", "mcpdev80/baseharbor-demo#124", "mcpdev80/baseharbor#1083", "mcpdev80/baseharbor#1077", "mcpdev80/baseharbor#1082", "mcpdev80/baseharbor#1076", "mcpdev80/baseharbor#1075", "mcpdev80/baseharbor#1074", "mcpdev80/baseharbor-node-connector#16", "mcpdev80/baseharbor-console#15", "mcpdev80/baseharbor-demo#123", "mcpdev80/baseharbor#1073", "mcpdev80/baseharbor#1072", "mcpdev80/baseharbor#1071", "mcpdev80/baseharbor-console#13", "mcpdev80/baseharbor-console#12", "mcpdev80/baseharbor-node-connector#13", "mcpdev80/baseharbor-console#11", "mcpdev80/baseharbor-node-connector#12", "mcpdev80/baseharbor-demo#121", "mcpdev80/baseharbor-demo#122", "mcpdev80/baseharbor-console#9", "mcpdev80/baseharbor-console#10", "mcpdev80/baseharbor-node-connector#10", "mcpdev80/baseharbor-node-connector#11"]

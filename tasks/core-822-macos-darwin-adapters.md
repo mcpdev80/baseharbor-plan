@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
+kanban_status: planned
+kanban_title: "macOS: implement and qualify Darwin adapters"
 depends_on: [core-820, core-883, core-884, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

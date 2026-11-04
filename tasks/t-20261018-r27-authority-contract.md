@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: w1-authority (lane)
+kanban_status: closed
+kanban_title: "Authority: define one installation owner for local and remote work"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1348"]

@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-912 implementation)"
+kanban_status: closed
+kanban_title: "Wizard: present a compact needs-first selection"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#963]

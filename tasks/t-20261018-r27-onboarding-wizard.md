@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_status: planned
+kanban_title: "Onboarding: attach a workstation with minimal questions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-profile-codec, t-20261018-r27-secure-export, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: []

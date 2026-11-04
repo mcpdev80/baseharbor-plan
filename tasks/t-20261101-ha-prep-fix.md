@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "ha-prep-fix worker (ornith1.5)"
+kanban_status: active
+kanban_title: "targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix)"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

@@ -6,6 +6,8 @@ release: v0.5.x
 version: v0.5.4
 parent: v0.5.x
 owner: ""
+kanban_status: planned
+kanban_title: "Acceptance: verify portability and compatibility"
 depends_on: [core-297, core-298, core-299, t-20261017-release-0-5-4-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

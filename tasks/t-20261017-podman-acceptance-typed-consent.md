@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (Podman acceptance consent)"
+kanban_status: closed
+kanban_title: "Podman acceptance: honor fresh typed provider consent"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

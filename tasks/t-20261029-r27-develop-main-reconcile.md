@@ -6,6 +6,8 @@ release: v0.4.27
 status: closed
 parent: v0.4.27
 owner: "o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C)"
+kanban_status: closed
+kanban_title: "CI: forward-port main-only hardening back to develop"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
