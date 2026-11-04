@@ -1194,3 +1194,9 @@ evidence-baum und der neue kopf taucht in KEINER datei auf (grep = leer). nachli
 commit), abnahmeauftrag r1363d vorgemerkt fuer Luna sobald der kanal frei ist. rezept 7 (produktions-
 konsument) ist eigentumsseitig public-surfaces zugeordnet und in der abnahme nur als grenzbeleg gefuehrt.
 w125 released (native-auth -> review mit plattenbeweis an allen vier stellen), w131 consent-abort runde 2 laeuft.
+
+## ~03:05 codec runde 5 IST PRUEFBAR: kopf 064ba01820b, basis ecbb8854 (merge-base rc=0, woertlich in
+round-5.md), schreibgut 7 dateien im vertragsordner, evidence NAOGELIEFERT (118 zeilen, je rezept ein
+wortlicher block) — ich hatte die erste meldung zurueckgewiesen weil die datei fehlte, nicht weil der inhalt
+fehlte. abnahme laeuft (r1363d). w129 released, w132 (geregelter rueckbau, karte device-enrollment) besetzt.
+pool-doppelbuchung w131 bereinigt (zwei reservationen auf einen sitz).
