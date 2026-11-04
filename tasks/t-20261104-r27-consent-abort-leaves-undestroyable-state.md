@@ -19,14 +19,14 @@ aliases: []
 early: false
 blocker: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1375 https://github.com/mcpdev80/baseharbor/commit/ea3fb38e8f372ab2da38c10d964f3ea452f"]
+evidence: [https://github.com/mcpdev80/baseharbor/pull/1375, https://github.com/mcpdev80/baseharbor/commit/ea3fb38e8f372ab2da38c10d964f3ea452fb8561, https://github.com/mcpdev80/baseharbor/actions/runs/41917374377]
 ---
 
 - [x] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #kind/bug
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (Übergabe 2026-11-04, Direktive) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1375 https://github.com/mcpdev80/baseharbor/commit/ea3fb38e8f372ab2da38c10d964f3ea452f)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1375), [proof 2](https://github.com/mcpdev80/baseharbor/commit/ea3fb38e8f372ab2da38c10d964f3ea452fb8561), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/41917374377)  
     <!-- /generated:card -->
 
 <!-- w120 fix (2026-11-04): refused candidate apply now fails closed before any on-disk record write; prior record survives so `destroy` re-resolves and a consented re-apply reaches the choke point and READY. Fix committed `c24a6c7c` on `w120-fix`; draft PR #1375 (base develop). Owner redirect to non-draft for gate run; CODEX-MERGE on owner approval. Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/slice-1.md -->
