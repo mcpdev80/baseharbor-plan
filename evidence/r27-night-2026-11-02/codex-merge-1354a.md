@@ -21,7 +21,7 @@
 
 ## Post-merge automation
 
-- The repository's [minimal CI receipt policy](../../../baseharbor/docs/development/minimal-ci-receipts.md) says ordinary pushes do not launch Source & Quality; a develop merge writes the canonical receipt without duplicating that CI run. No Actions check runs or statuses were attached to the merge commit itself (status API: zero statuses; check-runs API: empty). No extra workflow was dispatched.
+- The repository's [minimal CI receipt policy](https://github.com/mcpdev80/baseharbor/blob/develop/docs/development/minimal-ci-receipts.md) says ordinary pushes do not launch Source & Quality; a develop merge writes the canonical receipt without duplicating that CI run. No Actions check runs or statuses were attached to the merge commit itself (status API: zero statuses; check-runs API: empty). No extra workflow was dispatched.
 - Expected post-merge workflow `Receipt · Commit` run `41826588891` (`pull_request_target`) reached terminal `completed/success` at `2026-11-04T12:07:56Z`.
 - The Planning receipt is present at `evidence/receipts/commits/bb9bc0ef1b419e06e153c9b95bfef47b24347108.json`, content `{"commit":"bb9bc0ef1b419e06e153c9b95bfef47b24347108","pull_request":1354}`. This is the repository's merge record, not a post-merge test run.
 - The journal slice merged; parent task `t-20261022-r27-ci-authority` remains active and owned by `coord-welle3`. No task completion state was asserted.
