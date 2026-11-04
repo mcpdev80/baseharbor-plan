@@ -1424,3 +1424,8 @@ ihre aussage, keiner wird weichgespuelen;(found-only-core bleibt explizit assert
 commit. die lane hat den widerstreit SELBST gefunden und statt einer quick-fix-variente gefragt — genau richtig.
 verbindungskapsel runde 5 (w141) ist geschrEIBEN: substring-eigentum und verschluckter aktivierungsfehler sind
 zwei echte produktluecken, die Luna mit marker-kollisionen belegt hat; karte -> active.
+
+## ~09:40 stand: 6 karten in pruefung (kodierung, anmeldung, protokoll, umgebungs-fehlerstellen,
+team-auth, zustimmung), 4 in arbeit, 1 blockiert. Luna ist LEER und hat vier urteile vor sich — ich gebe ihr
+die kette in einer sitzung, der arbeitersitz hat die verbindungskapsel-runde 5 uebernommen (eigene
+lieferung wird von ihm nicht geprueft, die kuer war w141 -> cx09, weil alle vier worker-sitze besetzt sind).
