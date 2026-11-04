@@ -1601,3 +1601,12 @@ ABER im evidence-baum nennt KEINE datei den kopf 848d9512 — die beiden neueren
 basisfix) gehoeren zu ed0c99b1 / 0958107f von heute früh. nachlieferung verlangt (ohne commit), karte bleibt
 bis dahin active. das ist genau die regel, die heute nacht das erste mal greifen musste — sie gilt auch wenn
 der inhalt schon bewiesen ist, denn das naechste gedaechnis findet nur die datei.
+
+## ~15:00 EIN ECHTER BLOCKER, KEIN arbeitsthema: DIE VERBINDUNG VON PR #19 (ACCEPT, kopf 9913ce4770363)
+scheitert ZWEIMAL an der freigabepolitik des pruefkanals — 'MCP tool call requires approval, but approval
+policy is never'. inhalt ist geprueft und freigegeben, main steht auf 2a02a9a5, der zweig ist geloescht-
+bereit. der kanal hat RICHTIGStopped statt zu schauspielern. das ist eine freigabe-direktive von dir
+(gpt-6: erlaubnis fuer gh pr merge in der pruefsitzung) oder ein auftrag an eine lane mit erlaubnis —
+NICHT etwas, das ich durch Selbstverbindung loese (AGENTS 5.2).
+auge ist scharf gemacht: 'STOP:'-zeilen im kanal feuern jetzt ebenfalls (vorher nur END_*), der fall haette
+mich sonst 2 h blind gelassen.
