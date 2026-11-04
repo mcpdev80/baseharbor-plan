@@ -29,9 +29,9 @@ Coordination session: f49a3303-e8bb-491b-9e2c-b629783c4e5f.
 
 ## END line (evidence)
 
-- END an f49a3303: `END_DONE w92-team-auth: head=<sha10> pr=<n> faelle=4+1 rotfirst=belegt lsremote=<sha10> | <Satz>`
-- Status: active (implementation + tests in progress), handoff pending.
+- END an f49a3303: `END_DONE w92-team-auth: head=1043d12d3e pr=1369 faelle=4+1 rotfirst=belegt lsremote=1043d12d3e | <Satz>`
+- Status: active -> review candidate (DRAFT PR #1369 base develop); handoff to coord f49a3303.
 
-## END_PENDING
+## END_DONE
 
-w92-team-auth: head= IN PROGRESS pr= pending faelle=4+1 rotfirst= in progress lsremote=3d08ef72 | mapping verified issuer+subject/group/app-role claims onto existing Target/env/resource-operation permissions; implementation + red-family unit tests in progress.
+w92-team-auth: head=1043d12d3e pr=1369 (DRAFT base develop) faelle=4+1 rotfirst=belegt (claim gueltig=>erlaubt via tenancy.Resolve+rbac.Allowed registriert; abgelaufen/fremder issuer=>abgewiesen; fehlende gruppe=>abgewiesen; scope-ueberschreitung=>abgewiesen) lsremote=1043d12d3e (remote==head) | verified issuer+subject/group/app-role SSO claims mapped onto existing Target/env/resource-operation permissions WITHOUT second identity store or Keycloak: principal.go Groups/AppRoles+IssuerVerified+ClaimSets(); oidc.go extractClaimStringSet (group/groups/roles/app_role/app-role, fail-closed, no material leaked); operatorauth bridges claims onto tenancy.Resolve->rbac via caller-supplied MembershipProvider (ErrClaimsNotVerified/ErrNoClaimMembership/policy-deny). go build -buildvcs=false ./... rc=0, go vet rc=0, gofmt clean, 5 package tests green incl 8 new; branch work/w92-team-auth-claim-mapping @ 1043d12d; DRAFT PR #1369 on develop, awaiting coord review.
