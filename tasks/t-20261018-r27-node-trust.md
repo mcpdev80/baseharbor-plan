@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: "Reconcile existing implementation, then close actual token/mTLS/CA overlap/revocation/reconnect gaps against immutable Core…"
-kanban_status: active
+kanban_status: closed
 kanban_title: "Connector: qualify rotation revocation and session recovery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-service, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-node-connector/commit/346e5ae77ffa929e771ecf1b1322b78fb65bc165", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924876155", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924886585"]
 ---
 
-- [ ] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [x] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-node-connector/commit/346e5ae77ffa929e771ecf1b1322b78fb65bc165), [proof 2](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924876155), [proof 3](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924886585)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md)  
@@ -94,3 +95,12 @@ release-0-4-27-updates) bleiben auf dieser Seite gesperrt bis bestätigter Merge
 - Quality [41922887021](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41922887021) and Source Conformance [41922886851](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41922886851) passed.
 - Encrypted transport [41922999207](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41922999207) passed Docker and Podman; managed OpenBao/Core enrollment, local-key renewal, CA overlap/retirement and persisted revocation [41923296647](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41923296647) passed Docker and Podman, with final logs confirming native `TestNativeOpenBaoManagedCoreAndNodeCSRRotation` PASS on both.
 - These native qualification workflows use the frozen Core source `9f28af642345a126a75cd3183969973fc93d7f39`. Current develop-Core compatibility / exact-current-HEAD cross-repository gate is not yet proven; keep the task active rather than misrepresenting full acceptance. No additional CI receipt or approval chain is required.
+
+## Final current-Core qualification — 2026-11-04
+
+- Production Connector main commit `346e5ae77ffa929e771ecf1b1322b78fb65bc165` from merged [PR #20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20).
+- Actual Core develop commit `ea3fb38e8f372ab2da38c10d964f3ea452fb8561` checked out and SHA-asserted in independent validation branches, without changing main workflows. The only validation-workflow change was the exact pinned Core SHA from `9f28af642345a126a75cd3183969973fc93d7f39` to this develop head.
+- [Current-Core transport run 41924876155](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924876155): source, actual encrypted transport Docker, actual encrypted transport Podman all SUCCESS.
+- [Current-Core native enrollment run 41924886585](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924886585): source, managed native enrollment/rotation Docker, managed native enrollment/rotation Podman all SUCCESS.
+- Both native suites used built Connector code at its merged main content plus the exact Core develop SHA; all required selected runtime gates executed (other mutually exclusive matrix selections are legitimately skipped). No release-wide application journey claimed.
+- Acceptance scoped to node-trust task; follow-on node CLI, streams and rollout remain separate tasks. This record is not a CI approval receipt or additional authority chain.
