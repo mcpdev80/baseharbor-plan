@@ -1307,3 +1307,13 @@ mutations-beleg zurueck auf goroutine muss rot.
 GLEICHZEITIG: karten -> review fuer consent-abort (edd38d31,develop Vorfahr) und codec runde 6 (ac6a048e,
 develop Vorfahr); Luna prueft consent-abort, der arbeitersitz triagiert read-only die drei roten checks von
 #1369 (eigene Lieferung -> kein eigenturteil); w136 (connector runde 4) sitzt auf dem freien laptop-platz.
+
+## ~06:25 team-auth IST PRUEFBAR (runde 2, plattenfest): kopf f9507ff6ee0 (ls-remote==head), develop 2ea2c6f1
+IST VORFAHR, schreibgut bereinigt auf 13 dateien — die codec-dateien sind WIRKLICH raus (grep zaehlt 0), ich
+hatte das in der letzten runde als scope-verletzung zurueckgewiesen. karte -> review. die beiden roten
+laufrand-stellen (laeufer-docker / bezugsschnitt) klaert cx07 mit read-only triage, BEVOR jemand darüber
+urteilt — eine lane-meldung "ist umgebung" reicht mir nicht mehr, siehe journal-fall von heute nacht.
+w127 released, w135 (native-auth auf neue basis) sitzt auf dem freien laptop-platz.
+W134-DIALOG war ein falsch-positiver wachler-hinweis ("AWAITING-ANSWER" während eines zeitueberschreitenden
+pak-laufs): das pane zeigt einen LAUFENDEN -race-durchlauf, keine frage.hinweis: vor einer antwort immer
+capture-pane pruefen — sonst schicke ich Enter in einen laufenden befehl.
