@@ -5,7 +5,7 @@
 - Reviewed head: `0ce814d0a9bce5f6ff66f4688c1af8590bcf90fc`
 - PR base: `develop` `2a43984a34d59c35cc4f23986d550a8b7cd319ee`; head and branch refs match. Remote `develop` has advanced to `ecbb88545f96473986f8f41394cffce58b97d2df` since this draft base.
 - PR is OPEN, draft; GitHub run `41840321504` has Workflow policy and PR · Source format SUCCESS, with 14 jobs SKIPPED including PR Selected Checks. Current workflow conditions intentionally skip selected jobs for drafts; this is not selected-check success.
-- Exact candidate diff is three allowed files: `internal/machinehttp/store.go`, `execution_duplicate_reject_test.go`, and `execution_reconnect_test.go`. `git diff --check` is clean. Existing unrelated dirty `profile-codec-rt2` work and `baha` in the local checkout were preserved; verification ran from an archive of the reviewed SHA.
+- Exact candidate diff is three allowed files: `internal/machinehttp/store.go`, `execution_duplicate_reject_test.go`, and `execution_reconnect_test.go`. `git diff --check` is clean. At review start the shared checkout was on unrelated branch `work/r27-profile-codec-rt2` with other modifications; I made no checkout writes and ran verification from an archive of the reviewed SHA. Final checkout status shows the preexisting untracked `baha` only.
 
 ## Seven review points
 

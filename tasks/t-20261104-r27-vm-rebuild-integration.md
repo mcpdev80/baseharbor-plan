@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 owner: "coord-welle4 (lanes w116, w117)"
 priority: critical
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -19,13 +19,13 @@ evidence: []
 - [ ] t-20261104-r27-vm-rebuild-integration · Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lanes w116, w117) · **Priority:** critical  
-    **Needs:** [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
 **Owner:** coord-welle4 (lanes w116, w117)  
 **Priority:** critical  
 **PRs:** none  
@@ -86,3 +86,9 @@ references, so release qualification rests on executed runs rather than skipped 
   blocker with cause and next trigger; it is not owned by this card.
 - Docker host: lane w116 is executing the same rebuild now.
 - Integration phase (core, demo, console, connector against a functional host) starts after w116 reports.
+
+## Scope split 2026-11-04
+- This card is the host phase only: rebuild both test hosts from their setup scripts and prove each runtime
+  works. It does not depend on feature cards.
+- The executed cross-repo integration runs live in t-20261104-r27-vm-integration-runs, which carries the feature
+  dependencies.

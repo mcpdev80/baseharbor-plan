@@ -15,7 +15,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | blocked | 0 |
 | ready | 3 |
 | queued | 26 |
-| waiting | 207 |
+| waiting | 208 |
 | backlog | 7 |
 | closed | 110 |
 
@@ -33,7 +33,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261104-r27-demo-guided-consent](../tasks/t-20261104-r27-demo-guided-consent.md) | Demo: guided up supplies candidate consent (feature-detected) | active | high | w85-demo-consent | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md) (open), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) (open) | — |
+| [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
 
@@ -59,7 +59,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 59 open, 46 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 60 open, 46 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
