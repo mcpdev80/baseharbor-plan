@@ -48,4 +48,4 @@ Record-before-mutation is made truly rollback-free: the candidate consent gate i
 
 ## END
 
-END_DONE w120-consent-abort: head=<sha> pr=<n> repro=rot->gruen destroy=nach-abweisung-rc0 lsremote=<sha> | refused candidate apply now leaves prior record untouched; destroy rc=0, consented re-apply reaches READY.
+END_DONE w120-consent-abort: head=c24a6c7c pr=1375(draft) repro=rot->gruen destroy=nach-abweisung-rc0 lsremote=c24a6c7c | refused candidate apply now fails closed before any on-disk record write; prior record survives, destroy re-resolves, consented re-apply reaches choke point + READY. Fix committed c24a6c7c on w120-fix, draft PR #1375 base develop. CI gates (Workflow policy + Source format) pending on shared-runner backlog (4 PRs queued) — runner scheduling, not product; owner redirect draft->non-draft for gate run, CODEX-MERGE on owner approval.
