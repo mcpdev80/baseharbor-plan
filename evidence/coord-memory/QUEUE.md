@@ -70,7 +70,8 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   sleep-freie Tests (Luna review-1373c REJECT, drei Rezepte). Auslöser: erster freier Sitz.
 - Basis-Refresh LAEUFT als w148 (alle drei Äste auf develop ea3fb38e).
   develop e444ae11 heben, Exakt-SHA-Reviews danach neu. Auslöser: zweiter freier Sitz.
-- w149-base-refresh2.txt — LAEUFT (zweitewelle: #1378 jetzt, #1373 nach w147-lieferung).
+- w149-base-refresh2.txt — ERLEDIGT-TEIL: #1378=760c104a6c4 (lauf 41922518146 in arbeit, Beobachtung ist
+  jetzt BEI MIR, Uebergabe dokumentiert); #1373-Basis macht w147 mit seiner eigener lieferung.
 - SPERRVERMERK (Direktive): alle connector-seitigen Aufgaben (node-trust-Scope: Zertifikatsrotation,
   Widerruf, mTLS-Vertrauen, Session-Wiederherstellung, Reconnect) liegen bei ChatGPT. Keine Reservierung,
   kein Dispatch, keine Abnahme. Abhängige Karten erst nach deren bestätigtem Merge + Plan-Abschluss.
