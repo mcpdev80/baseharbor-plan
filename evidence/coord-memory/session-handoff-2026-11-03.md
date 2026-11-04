@@ -1465,3 +1465,10 @@ public-surfaces stehen, damit die Annahme nicht als 'komplette funktion' gelesen
 MEHRERE SITZE GLEICHZEITIG: w142 (docker-integration auf dem NEUEN schnitt) sitzt, cx09 (kapsel runde 5),
 w138 (vier-zellen-messung), w135/w139 (basis-auffrischungen) laufen; Luna ist nach der verbindung wieder leer
 -> naechste urteile (Geräteregelung, Protokoll, Umgebungsstellen, Zustimmung).
+
+## ~10:55 nchste DRIFT-WELLE (normal nach jeder verbindung, §4.9): sechs äste hinter develop e444ae1171.
+Regel die ich jetzt SELBST enger fasse: urteile gelten gegen den gemessenen kopf, aber ein angenommenes
+urteil muss ich UNVERZUEGLICH verbinden — sonst sammelt sich drift und die naechste runde prueft einen ast,
+der laengst ueberholt ist. darum: Luna bekommt die weiteren ACCEPTS in derselben sitzung direkt zum
+verbinden, und die laufenden lanes kriegen nur die kurz-anweisung (merge eigene basis, konflikt =
+develop-inhalt, sonst STOP+melden).
