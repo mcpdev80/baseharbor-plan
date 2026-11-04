@@ -1,0 +1,17 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS consent-abort.
+OBJEKT: baseharbor PR #1375 head c24a6c7c77 branch w120-fix base develop ecbb8854 (DRAFT; gates terminal
+2 pass / 0 fail / 14 skipping). KARTE t-20261104-r27-consent-abort-leaves-undestroyable-state.
+VERTRAG (kartenwortlaut): eine vom Kandidaten-Consent-Tor abgewiesene `app apply` darf KEINEN zustand
+hinterlassen, der spaetere operationen blockiert — `app destroy` auf derselben umgebung muss gelingen und ein
+folge-apply mit gueltigem consent muss READY erreichen ohne manuelle nachhilfe. Bisher: unvollstaendige
+deployment.json ohne eigentrueger, destroy --yes fehlschlagt, umgebung unrettbar.
+PRUEFEN SHA-genau read-only: (1) EIGENE gegenprobe: apply mit falschem/fehlendem --confirm-candidate =>
+abweisung, DANN destroy rc=0 auf derselben umgebung (test fuehrt das wirklich, nicht nur zustands-behauptung),
+(2) folge-apply mit gueltigem digest erreicht READY ohne aufraeumen, (3) der fix sitzt am record-before-
+mutation-punkt (cmd/baha/deployment_record.go) und macht KEINE consent-semantik weicher — fehlerhafter digest
+weist weiter ab und schreibt KEINEN als erfolg gemerkten zustand, (4) rueckbau-pfad ist fail-closed: wenn das
+zurueckdrehen selbst fehlschlaegt, gibt es einen typisierten fehler statt stillem erfolg, (5) keine neue
+gene­ric evidence-engine, keine .github-aenderung (diff name-only), (6) pakettests ./cmd/baha + build + gofmt +
+vet gruen, (7) spec EN/DE falls beruehrt stimmen mit dem verhalten ueberein.
+Urteil -> review-1375a.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1375a: verdict=<X> open=<liste|none> | <Satz>"

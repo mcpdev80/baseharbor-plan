@@ -1,0 +1,23 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS profil-codec (runde 4).
+OBJEKT: baseharbor PR #1363 head 952299b5a7 branch work/r27-profile-codec (ready; develop ecbb8854 = Vorfahr;
+gates TERMINAL 10 pass / 0 fail / 10 skipping — documentation-audit und PR Selected Checks sind nach dem
+spec-lauf gruen). KARTE t-20261018-r27-profile-codec.
+GESCHICHTE: review-1363a REJECT (sechs rezepte) -> runde 2 (review-1363b REJECT: secret-scan unvollstaendig,
+import nicht atomar, vertrauensbindung nur bedingt, rundlauf unvollstaendig) -> runde 3 (code fixes, aber
+zwei rote spec/gate-punkte) -> runde 4 (nur EN/DE-spezifikationsangleich, cx02/cx03, keine produkt-logik).
+PRUEFEN SHA-genau read-only (gegen DEINE eigenen rezepte, nicht gegen die lane-meldung):
+ (1) geheimer canary UNABHAENGIG in jeder serialisierten feld-kategorie => ExportToContainer weist zurueck,
+     BEVOR bytes entstehen; assertion, dass kein secret in export-bytes landet (kein leerer test),
+ (2) unbekanntes feld (auch verschachtelt) => typisierte ablehnung ODER verlustfreie erhaltung nach
+     dokumentierter regel,
+ (3) falsche record-version / fremde installation / falscher empfaenger / falscher scope => abweisung VOR
+     nebenwirkung; vertrauens-selbstkonsistenz ist PFLICHT (nicht an einen schalter geknüpft),
+ (4) kanonischer rundlauf: feld-/record-reihenfolge fest + goldenes fixture folgt dem format,
+ (5) import ist atomar: staging + fsync + rename; deterministische short-write-/commit-fehler-injektion
+     hinterlaesst weder partielle datei noch temp-artefakt; conflict-replace prueft das ersetzt-ALTRE record,
+ (6) EN- UND DE-spezifikation stimmen mit dem implementierten verhalten EXAKT ueberein (beide dateien,
+     gleiche bedeutung; kein punkt, den nur eine sprachfassung beschreibt),
+ (7) write-set: diff name-only gegen die karte (keine griffe in .github, cmd/baha, internal/delivery),
+     pakettests + build + gofmt + vet gruen.
+Urteil -> review-1363c.md, REZEPT-pflicht bei REJECT.
+END an f49a3303: "END_DONE codex-r1363c: verdict=<X> open=<liste|none> | <Satz>"

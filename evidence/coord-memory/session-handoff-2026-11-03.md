@@ -1094,3 +1094,29 @@ nur in tenancy.Resolve belegt statt auf freigabe-ebene; UND der PR schleppt cont
 mit — das ist profil-codec-territorium (dort laeuft runde 4). karte -> active, mission w127 geschrEIBEN und
 auf queue-platz 0; zusatzklausel: entweder herausloesen mit diff-beleg oder STOP mit begruendung, damit die
 kette keinen mitnahme-pr behaelt (AGENTS 4.2).
+
+## ~23:25 w125 wollte SCOPE-entscheidung ("kein caller in cmd/baha") — von mir nachgemessen und WIDERLEGT: der
+caller ist cmd/baha/app_apply.go:249 promptAndStoreMissingRequiredSecrets, der verdeckte read an zeile 287, die
+hook-variable an zeile 23 (genau die nutzt app_apply_secret_prompt_test.go:36 schon als testpunkt). mein erster
+name (app_init_prompts) war der wizard-pfad, nicht der kredenz-pfad — korrigiert, mit datei:zeile in die karte
+(gelöscht: kein rätselraten über den einbauort). schreibfeld: app_apply.go minimal + internal/credential/** +
+tests; PR #1362 bleibt ein kandidat.
+
+## ~23:40 OWNER-EINSCHAETZUNG umgesetzt (parallelitaet statt warten):
+- Luna prueft JETZT #1375 (gruen + bisher unbeurteilt) statt auf andere laeufe zu warten — mission r1375a.
+- karte t-20261022-r27-ci-delivery claimed + aktiv gesetzt (hebelkarte fuer 12 nachfolger); mission cx04
+  geschrEIBEN: teil 1 = Go-/Docker-/DB-ursache EINGRENZEN (bestand aller roten/uebersprungenen checks ueber
+  8 kandidaten, wortliche fehlzeilen, dreispaltige klassifikation produkt/umgebung/reihenfolge,
+  minimalbeispiel je ursache, workflow-zeile nur MELDEN mit datei:zeile), teil 2 = die test-seite
+  selbststrendend aus einer quelle (kein hartkodierter port) + trennungsnachweis dass echte produktfehler
+  trotzdem rot bleiben.
+- wartung der 46: 16 karten haben GENAU EINEN fehlenden vorgaenger; hebel dort: public-surfaces (2),
+  state-owner (2), ci-delivery (2), dazu die drei release-lifecycle-karten (qualify/prepare/publish).
+- release-quali bleibt verpflichtend uber core+demo+connector+betroffene console-flaechen (karte
+  t-20261104-r27-vm-integration-runs), und die beiden VM-aufbau-laeufe laufen bereits.
+
+## ~00:10 profil-codec IST WIEDER PRUEFBAR: kopf 952299b5a7 (ls-remote==head, develop Vorfahr), gates terminal
+10/0/10 — die beiden roten waren reine spec-unsimmenge, jetzt behoben ohne produkt-logik zu drehen. karte ->
+review (card-status.py), abnahme-mission r1363c geschrEIBEN und laeuft sobald der kanal frei ist (prueft gerade
+#1375). team-auth runde 2 (w127) neu angesetzt; w126 released; w121 hat teardown-decision (compose-down statt
+anwendungs-destroy; blockierter destroy = zusaetzter beweis fuer consent-abort-Karte).

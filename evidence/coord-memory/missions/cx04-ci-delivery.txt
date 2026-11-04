@@ -1,0 +1,41 @@
+ROLLE: CODEX-WORKER (fuenfter Pool-Sitz, Owner-Direktive 2026-11-04; ausfuehrender Worker, NICHT Reviewer/Merger).
+Coord f49a3303. KARTE: t-20261022-r27-ci-delivery — CLAIM PUBLSHT, aktiv. REPO: baseharbor (core).
+OWNER-MASSNAHME 2026-11-04: "die gemeinsame Go-/Docker-/Datenbank-Testursache sauber eingrenzen" und dabei die
+unabhaengig geprueften aenderungen zuegig integrieren; NICHT auf alle offenen CI-laeufe warten.
+
+TEIL 1 — URSACHE EIN.GRENZEN (das ist der auftrag, nicht 'repariere alles'):
+ (1a) BESTANDSAUFNAHME: alle roten ODER dauerhaft uebersprungenen gehosteten pruefungen ueber die offenen
+      kandidaten hinweg einsammeln (baseharbor #1347 #1362 #1363 #1371 #1373 #1375, connector #19, demo #128):
+      je PR pruefname, job-log-fehlerzeile WÖRTLICH, lauf-id, kopf-SHA. read-only (gh pr checks / gh run view
+      --log-failed), KEIN rerun, KEIN workflow_dispatch, KEINE .github-aenderung.
+ (1b) KLASSIFIKATION in drei kolonnen mit je einem satz begruendung:
+      (A) PRODUKTFEHLER im kandidaten (gehoert auf die feature-karte — nenne die karte),
+      (B) GEMEINSAME TESTURSACHE (Go-testumgebung: docker-endpoint, PostgreSQL-PORT/rolle, OpenBao-Zugangs-
+          datei, compose-fixtur) — diese zeile ist DEIN arbeitsfeld,
+      (C) REIHENFOLGE-/BASISPROBLEM (zweig nicht auf develop, checks haengen an altem base).
+ (1c) MINIMALBEISPIEL je (B)-ursache: ein einziger befehl auf einem sauberen checkout, der die ursache zeigt
+      (rot) und nach der minimalen herstellung der bedingung gruen wird. Ohne dieses beispiel gilt die
+      eingrenzung nicht als erbracht.
+ (1d) WENN eine (B)-ursache nur durch eine .github/workflows-änderung behebar ist (bekannt: die go-unit-tests
+      laufen ohne isolierte DB; stelle prüfen, zeile in ci.yml): die zeile NICHT ändern, sondern mit
+      datei:zeile + exaktem vorschlag (diff-zeile im klartext) in der evidence melden — ich hole die
+      Owner-Freigabe dafuer ein.
+
+TEIL 2 — WIRKSAMKEIT DER Readiness (karteninhalt lesen und umsetzen, soweit OHNE workflow-datei moeglich):
+ (2a) die betroffene test-helfer-/skript-seite SELBSTSTRENDEND machen, damit PR-laeufe nicht von einer
+      von-hand-aufgebauten umgebung abhaengen: skripte/pr-unit-database.sh (und was die tests an port/rolle
+      erwarten) aus EINER quelle speisen — dietests duerfen nirgends 5432/5433 hartkodieren, wenn die
+      umgebung die adresse setzt.
+ (2b) NUR test-/skript-seitige dateien im write-set der karte; KEIN produktcode, KEIN .github, KEINE tests
+      geloescht, KEIN skip/t.Setenv-trick der einen fall zum schweigen bringt.
+ (2c) PR DRAFT auf develop, letzter schritt develop-Vorfahr (aktuell: fetch + merge), ls-remote==head
+      WÖRTLICH, die gehosteten laeufe dieses PR bis TERMINAL beobachten (Eigenes-Run-Pflicht).
+ (2d) TRENNUNGS-NACHWEIS: fuer jede (B)-zeile die gegenprobe, dass ein ECHTER produktfehler dort trotzdem ROT
+      bliebe (mutierte erwartung => rot), damit niemand "kuenstlich gruen" unterstellen kann.
+
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN merge, KEIN PR-kommando das anderen zustand gibt als deinen
+eigenen draft, KEIN zugriff auf proxmox/produktive dienste, scratch nie in der oekosystem-wurzel; bei
+patch-/schreibfehlern zuerst `df -h /tmp` melden (tmpfs-Kontingent, RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/ci-delivery/boundary-1.md (tabelle 1b, protokollzeilen
+1a, minimalbeispiele 1c, workflow-vorschlag 1d, trennungsnachweis 2d; keine markdown-checkboxen).
+END an f49a3303: "END_DONE cx04-ci-delivery: klassifikation=<A:n B:n C:n> minimal=<n/n> workflow_halt=<keine|datei:zeile> pr=<n draft|kein pr> lsremote=<sha10> | <Satz>"

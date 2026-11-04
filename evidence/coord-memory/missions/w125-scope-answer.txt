@@ -1,0 +1,48 @@
+SCOPE-ENTSCHEID FÜR w125 (coord f49a3303, 2026-11-04 23:5x) —这两个 fragen sind entschieden; diese datei ist die freigabe, lies sie vor jeder änderung.
+
+(0) DEIN EINWAND IST RICHTIG, MEIN ERSTER EINBAUORT WAR FALSCH.
+    cmd/baha/app_apply.go:23/249/287 arbeitet mit anwendungsbezogenen OpenBao-SCHLÜSSELNAMEN
+    (loadApplicationCredentials / loginApplication gegen den anwendungs-scope). Der geprüfte Broker löst
+    Rechner-Kredenz (git-credential-helper / ssh-agent für https://host). An dieser Stelle gibt es keinen
+    Rechnernamen. -> Diese Stelle bleibt UNVERÄNDERT, nicht damit anfangen.
+
+(1) RICHTIGE STELLEN (host-Kredenz; belegt: im Repo existiert heute KEIN GIT_TERMINAL_PROMPT-Schutz, dort
+    kann also eine echte nachfrage entstehen):
+      - cmd/baha/app_inspect_remote.go:33            (git clone)
+      - cmd/baha/app_update.go:252                   (git fetch)
+      - internal/development/workspace_git.go:201     (git fetch)
+      - internal/orgconfig/source.go:123              (git clone)
+    FREIGEGEBENES SCHREIBFELD: genau diese vier stellen (minimal) + internal/credential/native/** + tests.
+    Kein weiterer Bereich, keine .github-/workflow-datei.
+
+    FORM DES ANSCHLUSSES (ein schmaler helfer, kein Umbau):
+      a) host aus url-/remote-angabe gewinnen (existiert schon in internal/credential/native/host.go —
+         wiederverwenden, nicht nachbauen),
+      b) den BESTEHENDEN Broker fragen, ob eine native quelle diesen host bedienen kann,
+      c) bei JA: den git-aufruf NICHT-INTERAKTIV starten (GIT_TERMINAL_PROMPT=0 + credential-helper-pfad aus
+         dem native-Quellpfad), sodass keine nachfrage möglich ist,
+      d) bei NEIN: exakt das bisherige verhalten, unverändert.
+
+(2) WERTVERTRAG: den Broker NICHT auf wert-liefernd umstellen. Das leere credential.Data ist bewusste
+    sicherheitslage der karte ("never returns secret material to the caller", Broker-Doku). Der befund aus
+    review-1362b ("gefunden ohne inhalt = erfolg") wird anders behoben: das found-ergebnis ist ausschließlich
+    eine VORENTSCHEIDUNG über interaktivität — NIE eine meldung, dass authentifiziert wurde. Keine stelle darf
+    aus found-only folgern, dass die anmeldung gelungen ist; erfolg oder misserfolg entscheidet git selbst.
+
+(3) PFLICHT-BEWEISE (aufrufer-ebene, nicht nur paket-intern):
+      -fake-/echter git-zähler: bei nativem treffer wird 0-mal nachgefragt,
+      -bei fehltreffer bleibt der bisherige weg (nachfrage möglich, verhalten wie vor deinem patch),
+      -bewusst kaputter native-source führt NICHT zu "angemeldet" (typisierter ausgang, keine wirkung),
+      -keine secrets in fehlern oder logs,
+      -rote-first: diese drei fälle ZUERST rot auf dem aktuellen kopf zeigen, dann grün.
+
+(4) BASIS UND ZEUGEN: develop ecbb8854 als Vorfahr (letzter schritt), push auf work/r27-native-auth
+    (PR #1362 bleibt der einzige kandidat), ls-remote==head WÖRTLICH in die evidence, gehostete laeufe bis
+    TERMINAL beobachten. KEINE subagenten, KEIN merge, KEIN PR-status-wechsel.
+
+(5) STOP-KLAUSEL: wenn an einer der vier stellen ein anderer themen-eigentümer erkennbar ist (kommentar oder
+    vertrag) oder die nicht-interaktive umstellung ein produktverhalten in einem anderen thema änder muss,
+    STOP + MELDEN mit datei:zeile statt eigenmacht.
+
+Evidence-Ort: baseharbor-plan/evidence/r27-welle4-2026-11-04/native-auth/round-4.md (keine markdown-checkboxen).
+END-ZEILE wie befohlen: "END_DONE w125-native-auth-r4: head=<sha10> broker=<in den vier git-stellen> empty=kein-erfolg geg enprobe=<belegt> lsremote=<sha10> | <Satz>"
