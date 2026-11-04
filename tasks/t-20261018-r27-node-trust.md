@@ -80,3 +80,10 @@ release-0-4-27-updates) bleiben auf dieser Seite gesperrt bis bestätigter Merge
 - Added fail-closed parsing for malformed revocation serials and zero-padded revoked serial matching.
 - Added regression tests for CA overlap/retirement, certificate/key reload and reconnect timing; verification of final candidate in progress.
 - Existing source checks and hosted selected tests do not replace the required real current-Core rotation/reconnect qualification. Card remains active, not accepted.
+
+## Transport verification 2026-11-04
+
+- Candidate: `c87f562e1d09f7b0f61f2e4b5d8841f9cb9d5a91`; PR [#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20).
+- Quality [41922887021](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41922887021) SUCCESS; Source Conformance [41922886851](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41922886851) SUCCESS.
+- Actual encrypted transport [41922999207](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41922999207) SUCCESS for both Docker and Podman; `TestConnectorRuntimeTransport` passed in each live runtime. Transport fixture uses pinned public Core `9f28af642345a126a75cd3183969973fc93d7f39`, test CA/registry; not production enrollment.
+- Native OpenBao / Core enrollment and certificate rotation: [41923296647](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41923296647); pending final runtime verdict as of this handoff. Do not mark complete until acceptance evidence is real.
