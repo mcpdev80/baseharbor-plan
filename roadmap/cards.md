@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 45/106 · **Blocked:** 2 · **Waiting:** 46  
+    **Accepted tasks:** 46/106 · **Blocked:** 2 · **Waiting:** 46  
     **Blocker:** [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md) — Abnahme durch review-1373b abgelehnt, aber NICHT wegen des PR-codes: zwei datenbank-integrationstests und das PR-Datenbank-Fixture nutzen unterschiedliche port…  
     **Blocker:** [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md) — CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app\_edit\_apply\_test.go:109…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)

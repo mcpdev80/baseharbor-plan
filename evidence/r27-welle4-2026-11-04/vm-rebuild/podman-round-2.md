@@ -10,6 +10,38 @@ Review-Typ: Betriebs-/Smoke-Auftrag, kein Produktcode, keine Produkt-Änderung. 
 - 4) FUNKTIONSBEWEIS pro runtime: rc=0 belege (run true, port-mapping, build/image)
 - 5) AUFRÄUMPHASE: lane-eigene weg; END mit podman ps -a nachher + df + Anzahl + versionszeile
 
+## 5. AUERAUMPHASE (rc0, lane-eigen weg)
+- Lane-eigene Container (w121-*): keine verbleiben (`podman ps -a --filter name=w121` leer).
+- Lane-eigene Build-Artefakte: `/tmp/opencode/w121/baha-verify-check` entfernt; Source-Clone `bh-ecbb`, Go-Toolchain,
+  setup-skript `setup-baha-podman-source.sh` unter `/tmp/opencode/w121` (VM-persistent), Original als
+  `setup-baha-podman.sh.orig` bewahrt.
+- Shared-Stapel UNBERUERT (25 Container, alle `bh-*shared*`): bh-backup-recovery-ci-shared(6, Up 2w) +
+  bh-backup-recovery-ci-core-shared(2, Up 2w) + bh-podman-test-shared(6, Up 3h) +
+  bh-podman-test-core-shared(11, Up 3h, keycloak-1/2/3 healthy).
+- `podman ps -a` NACHHER: 25 Container, alle external `bh-*shared*` (s.o.).
+- `df -h /` NACHHER: `/dev/sda1 96G 53G 44G 55% /`.
+- Neu aufgebauter podman-test-Core: **0** (sql_failed, kein deploytes Ziel).
+- VERSION-Zeile (Schritt 3): `BaseHarbor ecbb8854` / `commit ecbb88545f96473986f8f41394cffce58b97d2df` / rc=0.
+
+## 6. BLOCKER + NACHSTER AUSLOESER
+- BLOCKER: `podman-test`-Core in `sql_failed` OHNE deployte Container; Teardown ueber compose-Definition scheitert an
+  geteilten Netzen (`baseharbor-podman-test-default/-secrets`, `baseharbor-identity-core-podman-test(-internal)` belegt
+  von shared bh-podman-test-* Stapeln); `podman network remove` => Gefahr fuer shared Stapel => OUT OF SCOPE.
+- Nachster Ausloeser: (a) PR #1375 (t-20261104-r27-consent-abort) muss den ownership-geschuetzten destroy so aendern,
+  dass er bei fehlendem ownership-verweis den Core-Zielzustand sauber loeschen kann; (b) dann `podman-test` neu bootstrappen
+  ueber Quellbau-Skript; danach Core-Ready-Verifikation.
+- BEFUND VERKNUEPFUNG: diese Kette ist echter Zusatzbeleg fuer den #1375-Schutzauftrag (ownership-nicht-inferiert ->
+  runtime-mutation blockiert, Core Identity bleibt FAILED).
+
+## END
+END_BLOCKED w121-podman-rebuild: VERSION=ecbb8854-quellbau installiert+belegt (baha --version rc0, go build aus checkout ecbb8854), Funkt.nachweise rc0 (baha --version/ecbb8854 | go build ./cmd/baha | podman run --rm alpine true | port-mapping 127.0.0.1:54322->5432/tcp), 25 Shared-Stapel bh-*shared* ungetastet (Up 2w/3h, keycloak-1/2/3 healthy), lane-eigen aufgeraeumt (w121-* keine, verify-check removed, Original-Skript .orig bewahrt) | BLOCKIERT: podman-test-Core in sql_failed OHNE deployte Container (0 com.baseharbor-Cont), compose-down hat kein Ziel, geteilte Netze baseharbor-podman-test-default/secrets + identity-core-podman-test belegt von shared Stapeln -> podman network remove OUT OF SCOPE; CLI destroy blockiert (ownership-nicht-inferiert) | Next-Ausloeser: PR #1375 consent-abort ownership-fix + dann podman-test neu bootstrappen ueber Quellbau-Skript | END w121-podman-rebuild: stacks=0 neu (podman-test-Core blockiert) baha=ecbb8854 (commit ecbb88545f96473986f8f41394cffce58b97d2df) broker=n/a (nicht vorhanden, externer backup-recovery-ci-Teil) laufend=rc0-belege cleaning=bestaetigt (podman ps -a 25 shared Cont, df 55%) | <Ende: VERSION korrigiert + Funkt.nachweise rc0; Core-Bootstrap podman-test blockiert an ownership-geschuetztem sql_failed-Zustand + geteilten Netzen; belegt als Zusatzbeleg fuer #1375 consent-abort.>
+
+## 4. FUNKTIONSBEWEIS (rc0) — durchgefuehrt
+- `baha --version` => `BaseHarbor ecbb8854` / `commit ecbb88545f96473986f8f41394cffce58b97d2df` / rc=0.
+- Quellbau-Verify: `go build -o baha-verify-check ./cmd/baha` aus `/tmp/opencode/w121/bh-ecbb` (checkout ecbb8854) => rc=0.
+- `podman run --rm alpine true` => rc=0 (rootless, kein sudo).
+- Port-Mapping: `podman run -d -p 127.0.0.1:54322:5432 alpine sleep 20` => rc=0; `127.0.0.1:54322->5432/tcp`; `rm -f` rc=0.
+
 ## 3. VERSION KORRIGIEREN — SOURCE BUILD (ecbb8854) — durchgefuehrt
 
 ### Beleg: build aus definierter Revision
