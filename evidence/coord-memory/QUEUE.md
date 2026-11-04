@@ -77,3 +77,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   kein Dispatch, keine Abnahme. Abhängige Karten erst nach deren bestätigtem Merge + Plan-Abschluss.
 - w150-vm-integration.txt — LAEUFT (laptop-Sitz 2/2): beide Test-VMs aus setup-Skripten auf develop
   ea3fb38e neu + echter Integrationslauf inkl. Zerstörungsfall. Lücke war ein Dispatch-Versäumnis von mir.
+- w151-candidate-pack.txt — LAEUFT (ornith): bounded source-snapshot packer, fünf Pflichtfallgruppen.
+- w152-neutral-probe.txt — LAEUFT (ornith): neutrale Positivzelle mit freiem Port für #1378 (review war
+  BLOCKED durch sandbox-Port, nicht durch Produktbefund; gehosteter Lauf inzwischen terminal success).
+- t-20261018-r27-ci-lanes — NICHT dispatchen: Arbeitsanweisung liegt bei CODEMAN-START.md (Owner-Feld).

@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w151). Coord f49a3303. KARTE: t-20261018-r27-candidate-pack (Runde 1).
+REPO: baseharbor. NEUER zweig work/r27-candidate-pack von develop (zuerst fetch; ls-remote echte adresse).
+KARTE VOR dem coding VOLLSTAENDIG lesen (python3 scripts/plan.py show t-20261018-r27-candidate-pack) —
+Outcome, Inputs/output, Ownership, Required checks, Standards boundary.
+
+KERN: ein bounded source-snapshot packer fuer GENAU EIN ausgewaehltes lokales checkout, WIEDERVERWENDUNG
+der vorhandenen nativen build-context-/source-acquisition-mechanismen (keine eigene pipeline-Erfindung,
+KEINE edits an app_workload_build.go, keine neuen shared index/registry-dateien — die hoeren der
+public-surfaces-kette). Include ehrlicher dirty-source information.
+
+PFLECHTFaelle (jeder mit echtem test, KEIN ueberspringen, KEIN t.skip bei abwesenheit — das war heute der
+grundwurz): ignore-negation, boesartige pfade/symlinks (escape-versuch), monorepo-komponenten,
+dirty-situation und INHALTSWECHSEL WAHREND des lesens (konkurrenz-schreibender datei), grossen-/limits-faelle.
+GRENZEN: KEINE .github, KEIN AGENTS.md, KEINE subagenten, KEIN zweiter PR, scratch nur im lane-pfad,
+GOCACHE/GOMODCACHE/TMPDIR dorthin (§6.2d), bei schreibfehlern df -h /tmp (§6.2b).
+PROVENIENZ-PFLICHT bei lieferung: name-only-diff (nur packer/tests-feld), log --oneline origin/develop..HEAD
+(NUR eigene commits), ls-remote echt == head WOERTLICH, ancestor rc=0, PFLICHTPRUEFUNGEN (die vier test-
+gruppen + pakettests + build + vet + gofmt) und GEHOSTETE LAEUFE DEINES KOPFS BIS TERMINAL (lauf-id +
+status — Eigenes-Run-Pflicht; runners sind langsam, beobachten statt rerunen).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/candidate-pack/round-1.md (faelle mit auszuegen,
+keine markdown-checkboxen).
+END an f49a3303: "END_DONE w151-candidate-pack: head=<sha10> faelle=<negation|escape|monorepo|dirty|limits ok> diff=<feld> lauf=<id+status> lsremote=<sha10> | <Satz>"

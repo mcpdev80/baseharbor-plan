@@ -1737,3 +1737,10 @@ branch-fetch — mein pauschales fetch hatte den tracking-ref NICHT erneuert, de
 regel: nach branch-push immer refspec-exakt fetchen, auditiert). #1373 bleibt bei w147 (die merge selbst).
 w149 freigegeben. r1378b gegen neuen kopf beauftragt — prüfkanal hat jetzt vier urteilsauftraege.
 LEHRE: 'ancestor: NEIN' gegen einen lokalen tracking-ref ist oft NUR mein fetch-fenster, nicht die lane.
+
+## ~23:55 VIER VIER VIER: sitze wieder voll (w147,w150 laptop; w151,w152 ornith). owner-frage 'warum nur 2'
+hatte einen wahren kern: ich hatte die letzten zwei freien sitze NICHT belegt, weil ich die zwei verfuegbaren
+karten (haengerliste nach abhaengigkeits-closure) nicht durchgerechnet hatte — ein berechnungs-fehler, kein
+kapazitaets-fehler. ab jetzt Teil des ticks: 'welche karten haben ALLE abhaengigen geschlossen?' steht als
+AKTION in coord-state, wenn ein sitz frei ist und die antwort nicht leer ist. flash-kanal war 0/0 (existiert
+nicht mehr seit 2026-11-02) — spawn mit --flash ist damit ein fehlerpfad; notiert.

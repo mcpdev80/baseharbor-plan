@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w152). Coord f49a3303. KARTE: t-20261104-r27-db-skip-sites. AUFTRAG: NEUTRALE
+GEGENPROBE, kein einziges product- oder test-file wird geaendert.
+
+GRUND: review-1378b (Luna) = BLOCKED, nicht REJECT: ihre positive Datenbankzelle fiel auf einen BELEGTEN
+PORT in ihrer sandbox, und der gehostete lauf war zu dem zeitpunkt noch nicht terminal. Der lauf ist jetzt
+terminal SUCCESS (41922518146 auf 760c104a6c4, von mir abgerufen) — es fehlt nur die isolierte Positivzelle
+mit FREIEM port, auf einem neutralen pfad (RUNBOOK §6.7/§5.3: befunde aus pruefer-sandboxen gegen den
+produktionspfad nachmessen).
+
+SCHRITTE:
+(1) worktree auf exakt 760c104a6c499dc2baf6c30ad002bb6141bb7d83 (fetch, ls-remote wortlich in die evidence).
+(2) FREIEN port ermitteln und NENNEN: ss -ltn | awk '...' — port X in die evidence; pr-unit-database.sh
+    (oder dessen ENV-hinweis) mit gebundenem freien port; dann: BASEHARBOR_TEST_DATABASE_URL=... 
+    go test ./internal/database -count=1 -v => POSITIVZELLE wortlich (gruen, kein skip, zaehlbare tests).
+(3) NEGATIVZELLE: ohne BASEHARBOR_TEST_DATABASE_URL => go test ./internal/database -count=1 -run Rollback
+    -v (oder die skip-statt-fail stelle) muss FEHLERHAFT enden (rc!=0) — wortlich.
+(4) Wenn eine zelle auf NEUTRALEM boden rot wird, die aber auf dem gehosteten lauf gruen war: STOP +
+    MELDEN mit ausgabe — keine umschreibung, keine rechtfertigung.
+GRENZEN: KEINE datei-aenderung im repo (read-only + testausfuehrung), KEINE subagenten, KEIN PR,
+GOCACHE/TMPDIR im lane-pfad.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/db-skip-sites/neutral-1.md (beide zellen, port,
+ls-remote, kopf-exaktheit; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w152-neutral-probe: positiv=<gruen port=<X> > negativ=<rc1> lsremote=760c104a6c4 | <Satz>"
