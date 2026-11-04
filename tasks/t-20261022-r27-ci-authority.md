@@ -13,12 +13,13 @@ prs: []
 sources: []
 blocker: ""
 resolution: accepted
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1354h.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/codex-merge-1354a.md"]
 ---
 
 - [x] t-20261022-r27-ci-authority · Deferred trusted CI readiness: authority #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w41) · **Priority:** critical  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/review-1354h.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-night-2026-11-02/codex-merge-1354a.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
