@@ -1,0 +1,26 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS native-auth (runde 5).
+OBJEKT: baseharbor PR #1362 head 848d9512728 branch work/r27-native-auth base develop e444ae11 (Vorfahr von
+mir nachgerechnet; gates terminal 14 pass / 0 fail / 10 skipping). KARTE t-20261018-r27-native-auth.
+VORGESCHICHTE: 1362a/b REJECT, runde 4/5 basis- und umgebungsarbeit; die DESIGENTSCHEIDUNG dieses
+koordinators: Umweltpruefung NUR auf dem echten pfad (runner == nil), eingesetzter pruefer entscheidet
+unabhaengig davon ob ein socket-pfad zufaellig existiert (begruendung: eine umgebungsabhaengige entscheidung
+ist ein ueberspringen in anderer form, AGENTS 5.4/RUNBOOK 6.7).
+PRUEFEN SHA-genau read-only:
+ (1) write-set: diff name-only gegen develop = cmd/baha + internal/credential/native + internal/development
+     + internal/orgconfig, KEINE .github-/migrations-/codec-datei,
+ (2) die trennung ist WIRKLICH da (sshagent.go): Runner == nil => Available()/Umwelt, Runner gesetzt =>
+     aufruf des gegebenen pruefers. EIGENE gegenprobe: test mit eingesetztpruefer + SSH_AUTH_SOCK auf
+     NICHT-existierenden pfad => verhaelt sich identisch zum fall ohne variable (beweis: die variable
+     entscheidet im test-zweig nicht mehr),
+ (3) TREFFER IST KEINE ANMELDUNG: ein nativer fund meldet 'gefunden', fuehrt aber zu KEINER
+     authentifizierung/keinem schreibzugriff — EIGENE gegenprobe, datei:zeile. genau das ist der kern der
+     karte, und er war der grund warum der erste hook (app_apply.go) abgelehnt wurde,
+ (4) die VIER aufrufstellen tragen die anbindung (app_inspect_remote.go, app_update.go,
+     internal/development/workspace_git.go, internal/orgconfig/source.go) — je datei:zeile + was bei treffer/
+     bei fehltreffer passiert (stumme abfrage ohne nachfrage, kein leake von vorverhalten),
+ (5) der BROKER bleibt WERTFREI (found-only, kein weitergeben von credentials) — grep-beleg,
+ (6) EIGENE rot-auf-baseline-messung auf ad0ea646 (vor dem fix) fuer den zusatzfall, wortlich,
+ (7) pakettests ./internal/credential/native ./internal/orgconfig ./internal/development + cmd/baha-counter-
+     probe, build, vet, gofmt; ls-remote == head; gates terminal.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/native-auth/review-1362c.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1362c: verdict=<X> open=<liste|none> | <Satz>"

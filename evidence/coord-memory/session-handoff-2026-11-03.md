@@ -1615,3 +1615,11 @@ mich sonst 2 h blind gelassen.
 (§2.4: vor zwei stunden waren zwei auftraege 'gesendet' aber niegelandet, weil das pane leer lief).
 wenn einer der drei aeste durch den merge MEHR dateien zeigt als vorher: STOP + meldung, das waere eine
 unbemerkte mitnahme. die drei urteile/laeufe danach sind auf identischer basis messbar.
+
+## ~15:35 sechs karten im bild, drei davon NEU in arbeit:
+- geräteregelung -> review (kopf f4ec625f801, 16 gruen, namensfestschreibung WIRKLICH raus — von mir per grep
+  nachgesehen, keine skipped-reste in den drei datbank-dateien). abnahmeauftrag r1371c laeuft auf dem
+  arbeitersitz; Luna prueft parallel die native anmeldung (r1362c).
+- verbindungs-client -> active (w145, frisch von develop, schreibgut auf das verbindungs-feld + use_target.go
+  begrenzt; drei mutationen + determinismus-aeuferung -count=10 sind die kerznachweise).
+- vier karten warten auf urteile, zwei auf sitze.

@@ -1,0 +1,22 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS device-enrollment (runde 4).
+OBJEKT: baseharbor PR #1371 head f4ec625f801 branch work/w96-production-wiring-f8ef4255 base develop
+e444ae11 (Vorfahr von mir nachgerechnet; gates terminal 16 pass / 0 fail / 10 skipping). KARTE
+t-20261018-r27-device-enrollment. VORGESCHICHTE: 1371a REJECT (vier rezepte) -> runde 2/3 basis + rueckbau ->
+1371b REJECT (ueberspringen ohne verbindung + NAMENS-FESTSCHREIBUNG, letztere war ein fehler im
+KOORDINATOR-AUFTRAG) -> runde 4: regelableitung, drei stellen ohne skip.
+PRUEFEN SHA-genau read-only:
+ (1) write-set: diff name-only gegen develop, nur anmeldungs-/datbank-/verdrahtungsfeld, KEIN .github,
+ (2) KEINE namens-festschreibung mehr (grep auf HasPrefix/=='0009...'), hoechste stufe kommt aus der
+     GEORDNETEN LISTE; die ausnahme 0007/0008-policy-stufen bleibt nur wo der vertrag sie ausdruecklich nennt,
+     mit begruendungssatz im code — pruefe ob diese begruendung da ist,
+ (3) EIGENE MUTATION: in einer wegwerf-kopie zwei stufennummern vertauschen => die prüfung muss der liste
+     folgen, die gewaehlte stufe rueckgaengig machen und die fruheren artefakte lassen (wortlich),
+ (4) die drei datbank-pruefungen (migration_rollback, workstation_enrollment, station_policy_resolver):
+     EIGENE messung ohne variable => ROT; mit skript-verbindung => ausgefuehrt GRUEN (-v mit laufzeit);
+     station_policy_resolver liest ihre verbindung aus DEMSELBEN variable (kein fest kodierter anschluss),
+ (5) inhalte 1371a weiterhin erfuellt: rute erreichbar (kein 404), anspruch->mitgliedschaft aus POLICT statt
+     anfragefeld, register-fakten fail-closed, echte datbank-integration mit neu-pool und ruecklesen,
+ (6) EIGENER vergleich auf 2ea2c6f1 / e444ae11 / kandidatenkopf mit demselben befehl (drei results, woertlich),
+ (7) pakettests + build + vet + gofmt; ls-remote == head; gates terminal.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/device-enrollment/review-1371c.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1371c: verdict=<X> open=<liste|none> | <Satz>"

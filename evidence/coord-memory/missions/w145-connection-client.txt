@@ -1,0 +1,39 @@
+ROLLE: Worker (Lane w145). Coord f49a3303. KARTE: t-20261018-r27-connection-client (Welle 4, erste runde).
+REPO: baseharbor. ZWEIG: NEU work/r27-connection-client ab origin/develop (e444ae11 oder frischer — fetch,
+merge-base --is-ancestor als BELEG im END, name-only-diff in der evidence). KEIN ast von einem anderen
+kandidaten abschneiden (AGENTS 4.3/3.8 — ein Integrationskandidat pro kette).
+
+KARTENVERTRAG (baseharbor-plan/tasks/t-20261018-r27-connection-client.md, vollstaendig lesen):
+ Die Verwaltungs-VERBINDUNG bleibt getrennt von der Platzierungs-ZIELANGABE. Eine ausdrueckliche Auswahl
+ gewinnt deterministisch; installation-identitaet des servers, gepinftes vertrauen und entdeckung werden
+ gebunden; ohne ausdrueckliche auswahl entscheidet die dokumentierte regel, NICHT die reihenfolge.
+
+ERLAUBTES SCHREIBGUT (begrenzt, wie auf der karte reserviert):
+ - das verbindungs-/client-paket selbst (begrenzt),
+ - cmd/baha/use_target.go als auswahl-helfer,
+ - keine Wurzel-Register-Umlage, KEINE .github-/workflow-datei, KEINE migrations, KEINE datenbank-tests
+   (das ist fremdes feld: #1378 und #1371 arbeiten dort).
+
+AUFGABE:
+ (1) VERBINDUNG GETRENT VOM ZIEL: fuehre die beiden begriffe im code trennscharf (typen/felder), sodass ein
+     ziel ohne Verbindung nicht stillschweigend eine verbindung erfindet, und umgekehrt. BELEG: eine
+     Wiedergabe, die ein ziel ohne verbindung setzt => typische ablehnung mit klarer meldung.
+ (2) AUSDRUECKLICHE AUSWAHL GEWINNT DETERMINISTISCH: gegenprobe mit WIDERSPRUECHLICHER umgebung/entdeckung =>
+     die ausdrueckliche angabe entscheidet, und zwei laeufe mit denselben eingaben liefern denselben ausgang
+     (wiederhole -count=10).
+ (3) BINDUNGEN SIND WIRKSAM: installations-identitaet des servers, gepinftes vertrauen, entdeckung — je eine
+     MUTATION (falsche installation / fremder pin / discovery-ergebnis vertauscht) => ablehnung VOR jeder
+     wirkung, kein netz-/schreibgriff.
+ (4) KEIN RUECKGRITT AUF REIHENFOLGE/UMGEBUNG: wo ohne auswahl mehrere kandidaten da sind, gilt die
+     dokumentierte regel (datei:zeile der regel in der evidence); wenn die regel im vertrag fehlt: STOP +
+     MELDEN statt sie im code zu erfinden.
+ (5) tests: fokussierte pakettests + die auswahl-Wiedergabe in cmd/baha; build, vet, gofmt; gehostete laeufe
+     deines kopfs bis TERMINAL (lauf-id + status, Eigenes-Run-Pflicht). PR DRAFT (ich leite zusammen mit der
+     pruefung um); ls-remote == head WOERTLICH.
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN merge, KEINE tests geloescht, KEIN rerun als ersatz fuer
+analyse, KEIN zweiter PR fuer dieselbe kette, scratch nie in der oekosystem-wurzel (RUNBOOK §4.9/§6.2c);
+bei patch-/schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b); GOCACHE/GOMODCACHE/TMPDIR in deinen eigenen
+Lane-Pfad, nie ins produktverzeichnis (§6.2d — dort liegt bereits ein fremder cache, nicht anfassen).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/connection-client/own-1.md (je schritt befehl + rc +
+wortliche zeile, die drei mutationen, ls-remote, name-only-diff; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w145-connection-client: head=<sha10> trennung=<belegt> auswahl=<deterministisch count=10> bindungen=<3x abgewiesen> regel=<datei:zeile|STOP-melden> lsremote=<sha10> | <Satz>"
