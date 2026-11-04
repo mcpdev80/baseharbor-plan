@@ -145,6 +145,25 @@ class PlanTests(unittest.TestCase):
         self.assertEqual(out.strip(), "")
         self.assertEqual(before, {p: p.read_text() for p in f.dir.rglob("*.md")})
 
+    def test_kanban_property_drives_card_status(self):
+        f = self.fixture()
+        text = task_note("core-1", "Native status", extra="worker").replace(
+            "blocker:", 'kanban_status: active\nkanban_title: "Native status"\nblocker:')
+        f.add_task("core-1", text)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        self.assertIn("#status/active", (f.dir / "tasks/core-1-x.md").read_text())
+
+    def test_kanban_close_requires_proof(self):
+        f = self.fixture()
+        text = task_note("core-1", "Native close").replace("blocker:", "kanban_status: closed\nblocker:")
+        f.add_task("core-1", text)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 1, out)
+        self.assertIn("requires evidence", out)
+
     def test_duplicate_id_is_rejected(self):
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "Area: first"))

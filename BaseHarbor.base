@@ -1,0 +1,70 @@
+filters:
+  and:
+    - 'file.inFolder("tasks")'
+    - 'file.ext == "md"'
+    - 'kanban_status != null'
+properties:
+  kanban_title:
+    displayName: Aufgabe
+  kanban_status:
+    displayName: Status
+  priority:
+    displayName: Prioritaet
+  owner:
+    displayName: Owner
+  release:
+    displayName: Release
+views:
+  - type: kanban
+    name: "Alle Aufgaben"
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - backlog
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+      - owner
+      - release
+  - type: kanban
+    name: "v0.4.27"
+    filters:
+      and:
+        - 'release == "v0.4.27"'
+    groupBy:
+      property: note.kanban_status
+      direction: ASC
+    groupOrder:
+      - planned
+      - active
+      - review
+      - blocked
+      - closed
+    order:
+      - kanban_title
+      - priority
+      - owner
+  - type: table
+    name: "Ready"
+    filters:
+      and:
+        - 'file.hasTag("view/ready")'
+    order:
+      - kanban_title
+      - owner
+      - priority
+      - release
+  - type: table
+    name: "Details"
+    order:
+      - kanban_title
+      - kanban_status
+      - priority
+      - owner
+      - release

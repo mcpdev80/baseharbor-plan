@@ -6,6 +6,8 @@ release: {{release}}
 version: ""
 parent: ""
 owner: ""
+kanban_status: {{status}}
+kanban_title: "{{title}}"
 priority: ""
 depends_on: []
 repos: [{{repo}}]
