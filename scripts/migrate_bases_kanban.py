@@ -10,17 +10,21 @@ def migrate(root=ROOT):
         path = task["path"]
         original = path.read_text(encoding="utf-8")
         insert = []
+        if not re.search(r"(?m)^kanban_status:", original):
+            insert.append("kanban_status: " + task["status"])
+        if not re.search(r"(?m)^kanban_title:", original):
+            insert.append("kanban_title: " + dump_value(task["title"]))
         if not re.search(r"(?m)^kanban_lane:", original):
             insert.append("kanban_lane: " + view_state(vault, task))
         if not re.search(r"(?m)^kanban_summary:", original):
             insert.append("kanban_summary: " + dump_value(kanban_summary(task)))
         if not insert:
             continue
-        result = re.sub(r"(?m)^(kanban_status:.*)$",
+        result = re.sub(r"(?m)^(owner:.*)$",
                         lambda m: m.group(1) + "\n" + "\n".join(insert),
                         original, count=1)
         if result == original:
-            raise ValueError(f"missing kanban_status in {path}")
+            raise ValueError(f"missing owner frontmatter in {path}")
         path.write_text(result, encoding="utf-8")
         changed.append(str(path.relative_to(root)))
     print(f"migrated {len(changed)} tasks with native Ready lanes and summaries")
