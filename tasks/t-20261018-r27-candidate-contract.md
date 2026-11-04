@@ -13,7 +13,7 @@ prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "extern: docker/podman Selected-Runtime lifecycle-Gates failen identisch auf clean develop 2cadfcee (hosted run 41723792774; baha-demo provisioniert im isolierten CI-Runner nicht) — Owner-Territorium CI-Infra. 29/32 Gates gruen auf 1662ebcb."
+blocker: "Integration offen: Core PR #1355 und Demo-Consent PR #128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo-SHAs fehlt. Gruene PR-CI allein ist kein Runtime-Nachweis."
 resolution: ""
 evidence: []
 ---
@@ -21,7 +21,7 @@ evidence: []
 - [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/blocked #view/blocked #area/architecture #kind/architecture
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w39) · **Priority:** critical  
-    **Blocker:** extern: docker/podman Selected-Runtime lifecycle-Gates failen identisch auf clean develop 2cadfcee (hosted run 41723792774; baha-demo provisioniert im isolierten CI-Runner nicht) — Owner-Territorium CI-Infra. 29/32 Gates gruen auf 1662ebcb.  
+    **Blocker:** Integration offen: Core PR #1355 und Demo-Consent PR #128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo-SHAs fehlt. Gruene PR-CI allein ist kein Runtime-Nachweis.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -90,3 +90,11 @@ dieser Punkte; alles Weitere bleibt Karten-scope.
   route wie app apply (kein zweiter gate, keine neue semantik). Digest-pfad-abhaengigkeit bleibt als
   neutraler fakt in der evidence der lane; sollte der fingerprint die befehlroute enthalten, ist das
   nachpruefungswuerdig gegenueber "canonical submission fingerprint" (vermerk, kein verdict).
+
+## Status correction (2026-11-04, Owner verification)
+
+The previous blocker referring to the isolated GitHub runner and baseline develop `2cadfcee` was stale and has been replaced; it is historical, not a current CI defect.
+
+Verified on GitHub (2026-11-04): Core PR [#1355](https://github.com/mcpdev80/baseharbor/pull/1355) is open (head `ffe27712f25b75418a356ac37caec0bb9ae1fbdd`); Demo guided-consent PR [#128](https://github.com/mcpdev80/baseharbor-demo/pull/128) is open (head `5b1f6e92cbb352551dbb3d928edb2b142ca90c8d`). Core PR workflow `41834568460` was still running at inspection time; normal PR validation does **not** establish native cross-repository runtime compatibility.
+
+**Unblock criteria:** finish/merge the compatible consent change as appropriate, qualify the exact resulting Core and Demo revisions through genuine hosted Docker **and** Podman lifecycle checks (no skipped result or substituted PR-local test), and record the exact SHA/run/outcome. Then review and accept the candidate-contract task separately; no release/tag is implied. Development and unrelated PR merges must not be held up by this cross-repo acceptance pending state.
