@@ -7,20 +7,35 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: planned
-kanban_summary: "Destroying an application whose provider-change apply aborted after recording the intent but before materializing the runtime environment succeeds cleanly instead of failing with a missing runtime.env read error."
+kanban_lane: ready
+kanban_summary: app destroy --yes ends with success and leaves no running instance and no project ownership when a provider-change apply aborted…
 kanban_title: "Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization"
 priority: high
 depends_on: [t-20261104-r27-consent-abort-leaves-undestroyable-state]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: [w150-vm-integration]
+sources: []
 blocker: ""
 resolution: ""
 evidence: [evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
 ---
 
-- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/planned #view/planned #board/planned #area/deployment #kind/bug
+- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/planned #view/ready #area/deployment #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
