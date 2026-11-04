@@ -3,6 +3,7 @@
 Frei wird ein Platz, sobald eine Lane plattenfest abgeliefert und released ist. Eintrag löschen, sobald die
 Lane dispatcht wurde. Der Audit-Punkt "POOL" zeigt beim Tick, ob ein Platz frei ist.
 
+| 0 | coordinator/missions/w127-team-auth-r2.txt | Pool 5/5 | Team-Anmeldung Runde 2 (review-1369a REJECT: kein Fail-closed ohne Anbieter, Produktionsanbieter fehlt,schreibfeld-fremde dateien) |
 | # | Mission | Warum noch nicht dispatcht | Nächster Auslöser |
 | --- | --- | --- | --- |
 | 1 | coordinator/missions/w125-native-auth-r4.txt | Pool 5/5 | native-auth runde 4 (review-1362b REJECT: broker nicht im pfad, leer-treffer == erfolg) |

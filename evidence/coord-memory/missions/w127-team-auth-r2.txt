@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w127). Coord f49a3303. KARTE: t-20261018-r27-team-auth. REPO: baseharbor (core).
+ZWEIG/PR: work/w92-team-auth-claim-mapping, PR #1369, kopf 815fdfb709 (develop ecbb8854 = Vorfahr). Du arbeitest
+auf demselben zweig weiter — KEIN zusatzzweig, KEIN zweiter PR.
+
+Luna review-1369a verdict=REJECT (akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-1369a.md, VOR dem
+coding vollstaendig lesen). Vier pflichtpunkte:
+
+(1) FAIL-CLOSED OHNE PROVIDER: internal/operatorauth/authorization.go faellt ohne installierten
+    MembershipProvider auf den "verifizierter Akteur"-erlaubnispfad zurueck. Genau das muss zu ABWEISUNG
+    werden fuer team-/verwaltete anfragen. Gegenprobe: verifizierter SSO-principal OHNE provider/ohne gruppe
+    => abweisung, KEINzugriff.
+(2) PRODUKTIONS-PROVIDER EINBAUEN: ein echter provider, der AUSSCHLIESSLICH gepruefte issuer+subject+group/
+    app-role-ansprueche auf AKTUELLE konkrete tenant-zugehoerigkeiten und AKTUELLEN widerrufsstatus abbildet.
+    Bestehende tenant-/rollenpruefen bleiben erhalten (nicht ersetzen).
+(3) ZWEI-TEAM-nachweis auf FUNKTIONS-EBENE: ein test mit team-a-anspruch gegen team-b-wirkung => abweisung;
+    und ein widerrufs-fall (anspruch oder zuhoerigkeit zurueckgezogen) => abweisung OHNE wirkung. Bisher ist
+    beides nur in tenancy.Resolve belegt, nicht auf der ebene der freigabeentscheidung.
+(4) SCHREIBFELD SAEBERN: der PR enthaelt zusaendliche aenderungen an contracts/managementaccess/v1/* — die
+    hoeren NICHT zu dieser karte (sie sind das feld der profil-codec-kette, dort laeuft bereits runde 4).
+    ENTWEDER aus dem zweig herausloesen (revert-commit, begruendung + diff-beleg in der evidence) ODER, wenn
+    sie inhaltlich fuer diesen pfad noetig sind: STOP + MELDEN mit begruendung, dann kläre ich die
+    freigabe — NICHT einfach drin lassen.
+(5) SPEC-DECKUNG: docs/spec + docs/de/spec (zustaendige datei laut akte) so dass anspruchabbildung,
+    teamgrenze und widerruenszeitraum dem implementierten verhalten EXAKT entsprechen.
+
+PFLICHTPRUEFUNGEN am korrigierten kopf: neue regressionen in authorization_claims_test.go, pakettests
+./internal/operatorauth ./internal/auth ./internal/tenancy, go build ./..., gofmt, vet; letzter schritt
+develop-Vorfahr; push; ls-remote==head WOERTLICH; PR bleibt READY (draft=false), gates bis TERMINAL beobachten
+(Eigenes-Run-Pflicht; kein gate als gruen melden ohne beobachteten lauf).
+GRENZEN: KEINE .github-/workflow-aenderung, KEIN rerun, KEINE tests geloescht, KEINE subagenten, KEIN merge.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/team-auth/round-2.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE w127-team-auth-r2: head=<sha10> ohne_provider=abweisung provider=<eingebaut> zweier_teams=<belegt> widerruf=<belegt> write_set=<gesaeubert|STOP-melden> lsremote=<sha10> | <Satz>"

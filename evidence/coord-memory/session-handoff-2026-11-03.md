@@ -1080,3 +1080,17 @@ cx02-abnahme der basis-auffrischung: beide zweige ohne konflikte auf ecbb8854 (8
 warteschlange; #1369 war wegen draft nur skipped, nach meinem ready-flip 2 pass / 0 fail → Luna prueft jetzt
 team-auth (r1369a). cx02 neu angesetzt: codec doku-audit (cx03) — die zwei roten auf #1363 sind naemlich KEINE
 umgebungsklasse sondern spezifikations-unsimmenge aus runde 3.
+
+## ~22:55 scope-entscheidung w125 (A statt B): native broker hat NULLEN produkt-aufrufer — Luna verlangt den
+anschluss in den echten abfragefluss VOR dem prompt, und "standalone unused adapter ist nicht komplett" (karten-
+wortlaut). freigegeben wird (A) MIT engem zusatz-schreibfeld: nur cmd/baha/app_init_prompts.go an der
+secret-prompt-stelle (+ noetige registrierung), sonst nichts. konflikt-klausel: anderer eigentuemer in der
+zeile => STOP. erweiterung steht auf der karte (card-status.py), damit die abnahme sie gegen den vertrag prueft.
+grep-beleg: app_init_prompts taucht in KEINER anderen karte auf (nur native-auth) -> kein eigentuemskonflikt.
+
+## ~23:10 review-1369a REJECT (team-auth, 815fdfb709): ohne memberships-provider faellt die freigabe auf den
+erlaubnispfad des verifizierten akteurs statt abzulehnen; produktionsprovider fehlt ganz; zwei-team und widerruf
+nur in tenancy.Resolve belegt statt auf freigabe-ebene; UND der PR schleppt contracts/managementaccess/v1/*
+mit — das ist profil-codec-territorium (dort laeuft runde 4). karte -> active, mission w127 geschrEIBEN und
+auf queue-platz 0; zusatzklausel: entweder herausloesen mit diff-beleg oder STOP mit begruendung, damit die
+kette keinen mitnahme-pr behaelt (AGENTS 4.2).
