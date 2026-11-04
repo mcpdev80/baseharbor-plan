@@ -30,14 +30,33 @@
 
 ## Work
 
-(plain bullets, filled as work proceeds)
+- Reviewed all 8 recipe probes; fixed r1-r4.
+- r1 systemd.go: real rootless systemd-user lifecycle. Install writes the validated `.service` unit to the XDG systemd-user dir, daemon-reload, start. Remove stops/disables/removes own unit only (idempotent-clean when already gone). Artifact basename translated to derived `.service`. Lingering via `[Install] WantedBy=default.target`. Never touches a foreign/Core unit.
+- r3 nodeservice.go: `Authorizer` interface + `WithAuthorizer` seam + `authorizeEnforced` gating every lifecycle op (install/start/restart/enable/disable/uninstall) and `authorizeMetadata` gating the re-enroll persist. `ErrUnauthorized` now actually fires (was declared-but-unused). `ConnectorOwnerAuthorizer` fails closed on non-self-owned unit.
+- r4 nodeservice_test.go: restart records actual native calls and compares to start (no-op restart would leave sequence empty); duplicate install -> no second unit; missing-auth mutation -> ZERO manager calls and ZERO store writes; re-enroll driver does not run without auth; protected-key regression kept.
+- r2 main.go: `service` subcommand wires install/start/restart/uninstall to an executable path, owner-scoped to the connector's own unit; rejects foreign unit / missing op / missing state-root before any lifecycle runs.
+- Fixed a pre-existing protected-state integrity-tag bug (multi-line JSON payload fragmented the tag); verify/strip now split on the stateTagPrefix, digest hex-encoded, constant-time compare.
+- Native smoke: `TestNativeSystemdUserLifecycleSmoke` drives install->start->restart->uninstall against a REAL systemd user manager on this host; skips when no user manager reachable.
+
+## Local checks (all green)
+
+- `go vet ./...` -> exit 0
+- `go build ./...` -> exit 0
+- `go test ./...` -> all packages ok (cmd, capability, connector, execx, fssecure, health, nodeservice, runtime, compose, container, quadlet, targetaccess)
+- `TestNativeSystemdUserLifecycleSmoke` -> PASS on real systemd user host (is-system-running=running, XDG_RUNTIME_DIR=/run/user/1000)
+
+## Commit / push / PR
+
+- Commit 78b3c4f3c3a5ee046555445834a6350674dd2593 on branch work/r27-node-service
+- Pushed origin/work/r27-node-service; remote head == commit
+- PR #19 (open, head 78b3c4f, base main 2a02a9a) points at corrected candidate; left non-draft for coord to retarget (mission: PR stays draft until coord retargets; no GitHub auth in this lane to flip draft)
 
 ## STOP-clauses
 
-- unauthorized lifecycle call causes any unit/metadata effect => STOP
-- restart behavior not observed => STOP
-- CLI cannot invoke the lifecycle => STOP
+- unauthorized lifecycle call causes any unit/metadata effect => STOP  (met: mutation test proves zero effects)
+- restart behavior not observed => STOP  (met: restart records actual native call + compares to start)
+- CLI cannot invoke the lifecycle => STOP  (met: `service` subcommand wires install/start/restart/uninstall executable)
 
 ## END
 
-END w110-node-service-r2: <in progress>
+END_DONE w110-node-service-r2: head=78b3c4f r1=unit-echt r2=cli-pfad r3=auth-vor-wirkung r4=restart-belegt native-smoke=ja(host) lsremote=78b3c4f | r27 node-service lifecycle real: rootless systemd-user unit install/remove/restart/enable + lingering, explicit auth before every lifecycle/metadata effect, restart observed vs start, bounded native systemd-user smoke green on real user host; PR #19 at corrected head, coord to retarget.
