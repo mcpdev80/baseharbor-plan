@@ -90,3 +90,12 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 - Gegenprobe auf Aufrufer-Ebene ist Pflicht: bei gesetztem nativem Treffer wird der echte Prompt nullmal
   gerufen und die Auflösung läuft über den geschützten In-Memory-Vertrag; Fehltreffer hält den fail-closed
   Fallback.
+
+## Einbauort präzisiert 2026-11-04 (Coordinator, nach eigenem Quellennachweis)
+- Der interaktive Geheimnislese im Produktionspfad liegt in cmd/baha/app_apply.go: Zeile 23 definiert die
+  auswechselbare Lese-Funktion, Zeile 249 beginnt promptAndStoreMissingRequiredSecrets, Zeile 287 liest pro
+  fehlendem Pflichtgeheimnis verdeckt. Dort — nicht im Einrichtungs-Assistenten — muss die native Abfrage vorher
+  einsetzen.
+- Erwartetes Verhalten: Treffer mit Inhalt reicht die Auflösung über den geschützten In-Memory-Vertrag weiter und
+  ruft den Prompt nullmal; Treffer ohne Inhalt ist kein Erfolg; Fehltreffer hält den dokumentierten Fallback
+  und der Nichteingabe-Pfad bleibt unverändert.
