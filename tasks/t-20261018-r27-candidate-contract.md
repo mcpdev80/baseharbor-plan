@@ -6,33 +6,34 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: critical
-owner: coord-welle3 (lane w39)
+owner: Owner + ChatGPT
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1355"]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "Owner + ChatGPT uebernehmen dieses Thema ab 2026-11-04 16:3x; keine Coordinator-Lane, kein Coordinator-Review daran."
-resolution: ""
-evidence: []
+blocker: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/41834568460", "https://github.com/mcpdev80/baseharbor/pull/1355", "https://github.com/mcpdev80/baseharbor-demo/actions/runs/41842881810", "https://github.com/mcpdev80/baseharbor-demo/pull/128"]
 ---
 
-- [ ] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/blocked #view/blocked #area/architecture #kind/architecture
+- [x] t-20261018-r27-candidate-contract · Deployment: define immutable source and image submission #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/architecture #kind/architecture
     <!-- generated:card -->
-    **Owner:** coord-welle3 (lane w39) · **Priority:** critical  
-    **Blocker:** Owner + ChatGPT uebernehmen dieses Thema ab 2026-11-04 16:3x; keine Coordinator-Lane, kein Coordinator-Review daran.  
+    **Owner:** Owner + ChatGPT · **Priority:** critical  
+    **PR:** [baseharbor#1355](https://github.com/mcpdev80/baseharbor/pull/1355)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/41834568460), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1355), [proof 3](https://github.com/mcpdev80/baseharbor-demo/actions/runs/41842881810), [proof 4](https://github.com/mcpdev80/baseharbor-demo/pull/128)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md)  
 **Required by:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
-**Owner:** coord-welle3 (lane w39)  
+**Owner:** Owner + ChatGPT  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1355](https://github.com/mcpdev80/baseharbor/pull/1355)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -106,3 +107,12 @@ Verified on GitHub (2026-11-04): Core PR [#1355](https://github.com/mcpdev80/bas
   coordinator/missions/archive/codex-r1355i.BEHALTEN-owneruebergabe.txt, not executed).
 - Board effect: the six cards waiting on this card stay waiting; their unblock trigger is the Owner merge, not a
   coordinator action.
+
+## Owner acceptance (2026-11-04)
+
+**Accepted as the self-contained candidate submission contract** (not a release approval):
+- Core candidate/consent PR [#1355](https://github.com/mcpdev80/baseharbor/pull/1355) merged into develop at `ecbb88545f96473986f8f41394cffce58b97d2df`; current-head trusted PR CI [41834568460](https://github.com/mcpdev80/baseharbor/actions/runs/41834568460) passed.
+- Demo consent consumer PR [#128](https://github.com/mcpdev80/baseharbor-demo/pull/128) merged into main at `c355d2a15f5b6b67ec665e8d9e1be863f4090831`; the exact-source hosted demo test [41842881810](https://github.com/mcpdev80/baseharbor-demo/actions/runs/41842881810) passed after fixing fake-Core fixture counter isolation (4 fixture tests plus 11 fail-closed guided decision-path tests).
+- Demo `baseharbor-core.ref` now pins the actual merged Core `ecbb88545f96473986f8f41394cffce58b97d2df` rather than the superseded branch commit.
+- **Not claimed:** native Docker/Podman lifecycle success, OpenBao runtime readiness, Console/Connector compatibility, or release qualification. Those remain develop/release integration acceptance, and cannot retroactively hold the independently validated candidate-contract prerequisite blocked. Do not treat ordinary green PR CI as native runtime evidence.
+- Supersedes the stale historical blocker and the outdated 2026-11-04 pre-merge status notes above. The Maintainer authorizes closing this product contract prerequisite only.
