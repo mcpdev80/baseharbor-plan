@@ -52,5 +52,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Prüfschwerpunkt: Rückbau folgt der Stufenliste, Überspringen ohne Verbindung ist kein Scheingrün mehr.
 
 ## Einstweilen (2026-11-04, ~07:25)
-- w138-consent-abort-r3.txt — Runde 3 für PR #1375 (review-1375b REJECT): echte Lebenszyklusprüfungen, die auf
-  dem kranken Stand ROT werden; zuerst Archäologie des kranken Commits. Nächster Auslöser: freier Sitz.
+- w138-consent-abort-r3.txt — läuft seit ~07:40 auf Lane w138 (PR #1375, Runde 3).

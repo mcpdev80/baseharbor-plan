@@ -1,0 +1,23 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS node-service (runde 4).
+OBJEKT: baseharbor-node-connector PR #19 head 2fe4aef3757 branch work/r27-node-service base main (Vorfahr von
+mir nachgerechnet; gates terminal 2 pass / 0 fail / 2 skipping). KARTE t-20261018-r27-node-service.
+VORGESCHICHTE: 19a REJECT (keine echte unit) -> HOST-AUSREDE von coord widerlegt -> 19b REJECT (ExecStart nicht
+ausfuehrbar, einheit deaktiviert) -> runde 4 beide luecken mit eigenem befehl belegt.
+PRUEFEN SHA-genau read-only (gegen DEIN recept aus 19b, nicht gegen die lane-meldung):
+ (1) write-set: diff name-only gegen main = nur cmd/baseharbor-node-connector + internal/nodeservice,
+ (2) das eigentumsmerkmal ist WIRKLICH eingebaut: parseConfig registriert es, der startpfad liest es, und die
+     ABWEISUNG eines fremden/widerspruechlichen werts ist geprueft (kein stiller akzeptierter mismatch),
+ (3) die VOM PRODUKT gerenderte einheit startet den ANMELDER (nicht sleep): eigener lauf auf echtem
+     user-manager, nachweis ueber prozess-identitaet (pid + programmname/comm), danach sauber gestoppt,
+ (4) aktivieren: `systemctl --user is-enabled` = enabled nach install; disabled VOR her (red-first-beleg);
+     lingering ist entweder gesetzt (mit dokumentierter zustimmung) oder ausdruecklich ALS NICHT-UNTERNOMMEN
+     benannt — kommentar/text/VERHALTEN duerfen sich nicht widersprechen,
+ (5) fehlende autorisierung als MUTATION => typisierter fehler + NULLEFFEKTE (keine datei, kein reload,
+     keine einheit, kein netz),
+ (6) keine zweite einheit bei doppeltem install/erneuter anmeldung; geschuetzter schluessel bleibt erhalten,
+ (7) pakettests + build + vet + `gofmt -l cmd internal` LEER; gates terminal; ls-remote == head.
+ (8) ZUSAETZLICH (formale pflicht, lehre aus dieser schicht): die regressionen muesen auf dem KRANKEN commit
+     ROT sein — pruefe den in der evidence benannten commit nach (diff gegen deinen kopf zeigt echte
+     Verhaltensaenderung, nicht nur kommentare). Finde keine echte rot-auf-alt-belegstelle: RECEPT-pflicht.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/node-service/review-19c.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r19c: verdict=<X> open=<liste|none> | <Satz>"

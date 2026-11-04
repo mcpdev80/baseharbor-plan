@@ -1358,3 +1358,11 @@ auf grund der lane-meldung angenommen. dazu identischer blob an der schranke (ae
 BEIDE faelle heute (rueckbau + zustimmung) sind dieselbe lehre: "test exists" != "test is red on the bug".
 Deshalb neue Regel im auftragstext: rot-auf-dem-kranken-commit wird NACHGERECHNET (commit wird benannt),
 nicht als Behauptung akzeptiert. karte -> active, mission w138 geschrieben (archaeologie-first).
+
+## ~07:40 verbindungkapsel runde 4 IST PRUEFBAR (kopf 2fe4aef3757, plattenfest von mir nachgesehen):
+das eigentumsmerkmal ist wirklich eingebaut (Eingabelesung main.go:282, ausgabe zeile 146), und der
+einschaltvorgang wird nach dem einrichten tatsaechlich aufgerufen (systemd.go:284). im Protokollauszug steht
+die ECHTE vorgangnummer des anmelders unter dem dienstverwalter — keine synthetische schlafeinheit. karte ->
+review, abnahmeauftrag r19c laeuft auf Luna (mit der NEUEN pflichtpunkt 8: rot-auf-dem-kranken-commit wird
+NACHGERECHNET, nicht geglaubt — lehre aus rueckbau + zustimmung in dieser schicht).
+w136 released, w138 (consent-abort runde 3, archaeologie-first) sitzt auf dem freien platz.
