@@ -71,3 +71,7 @@ is based on executed runs instead of skipped gates.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- Lage 2026-11-04 (Koordinator, plattenfest): der NEGATIVE nachweis ist auf der Rechnerseite erfuellt
+  (Ablehnung ohne wirkung, anwendung bleibt nicht ausgeliefert, rueckgabewert eins), der POSITIVE zyklus ist
+  ohne den gemeinsamen stapel derzeit NICHT herstellbar. grundlage und folgenarbeit stehen auf
+  t-20261104-r27-private-integration-path. diese karte bleibt offen, bis dieser pfad existiert.
