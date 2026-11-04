@@ -112,3 +112,10 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   operation index rebuilt from the retained journal, distinguishable duplicate/reconnect outcomes, and an
   ordering regression proving the record is readable before the first effect. Wording narrowed to the bounded
   guarantee. Evidence: evidence/r27-welle4-2026-11-04/execution-journal/round-2.md.
+
+## Auflösungspfad 2026-11-04 (Coordinator)
+- Der Grund, warum dieses Prüfstück rot bleibt, ist nicht dieser Kandidat, sondern die gemeinsame
+  Testumgebungsursache. Deren Behebung läuft als eigene Karte t-20261022-r27-ci-delivery mit PR #1377
+  (Zweig work/r27-ci-delivery-dsn, Kopf 029e3ddd522): die Datenbankprüfungen lesen die Verbindung jetzt aus
+  einer Quelle. Ist diese Karte angenommen, wird #1373 auf demselben Kopf neu geprüft; bis dahin bleibt der
+  Blocker mit diesem Auslöser stehen.
