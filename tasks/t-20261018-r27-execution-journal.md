@@ -62,3 +62,14 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 ## Stand-Vermerk 2026-11-04 (coord f49a3303)
 - Claim publiziert (owner w107). Lane WARTET auf Kapazitaet im Worker-Pool (4 aktive Lanes, Spawn-Hold);
   kartenzustand deshalb Zwischenstand: noch keine code-aenderung, keine branch work/r27-execution-journal.
+
+## Coordination note 2026-11-04 (coordinator f49a3303)
+- Lane w112 reported the card as already delivered by the merged journal state and closed without code. That
+  claim was checked against develop bb9bc0ef and rejected for two criteria:
+  duplicate request with changed content is not refused (internal/machinehttp/store.go:102-130 keys records by
+  execution id only, no comparison, no typed error), and reconnect retrieving the same operation has no path.
+  Criteria on persistence before effects, bounded retention without payloads, and the no-exactly-once wording
+  are satisfied by the merged state.
+- Correction round: branch work/r27-execution-journal, red-first tests for both gaps against the real path,
+  implementation inside internal/machinehttp, draft PR, terminal gates. Evidence must live in
+  evidence/r27-welle4-2026-11-04/execution-journal/ (an off-board proof file does not count).
