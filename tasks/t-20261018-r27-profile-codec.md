@@ -81,3 +81,14 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   remote — branch work/r27-profile-codec still points at 0eb8f231 and the lane had built a separate branch
   instead of continuing the candidate. Order given: merge current develop 2a43984a, push onto the candidate
   branch, record the ls-remote witness, keep the PR draft until the coordinator flips it with the review.
+
+## Review-Rueckruf 2026-11-04 (Codex review-1363b, verdict REJECT)
+- Secret-Prüfung deckt nicht alle serialisierten Felder: Export verwendet den Container-Scan, der ZielPfad und
+  Empfänger sieht, aber nicht die übrigen Textfelder (store.go:405-411, 443-458, 783-790); der Test behauptet
+  nur eine spätere Import-Ablehnung (store_test.go:291-312).
+- Import-Festschreibung ist nicht atomar: direktes `os.WriteFile` auf den Zielpfad, kein Nachweis gegen
+  Kurzschreiben (store.go:738-747, store_test.go:470-492).
+- Vertrauens-Selbstkonsistenz ist an eine Bedingung geknüpft und damit nicht erzwungen (store.go:76-79, 679-682).
+- Kanonischer Rundlauf vergleicht nur ausgewählte Felder statt vollständiger Datensätze plus Neukodierung.
+- Gehostete Gate auf diesem Kandidaten rot (Lauf 41849617084: Documentation-Audit und PR Selected Checks).
+- Korrekturrunde = Lane w123 auf demselben Zweig/PR #1363 (Kopf vorher e45e85ed5f).
