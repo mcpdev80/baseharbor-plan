@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle4 (lane w105)
-kanban_lane: review
+owner: coord-welle4 (Lane w130)
+kanban_lane: active
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Connector: reconcile enrollment service and restart behavior"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
-prs: ["mcpdev80/baseharbor-node-connector#19"]
+prs: [mcpdev80/baseharbor-node-connector#19]
 sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
@@ -22,18 +22,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w105) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w130) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (lane w105)  
+**Owner:** coord-welle4 (Lane w130)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -89,3 +89,11 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Hosted connector CI on this head: 1 pass, 2 skipping, 1 FAIL = job "source", step "Verify exact candidate
   source formatting". Formatting round is commissioned (lane w118, queued behind pool capacity); no review on a
   red head.
+
+## Review-Rueckruf 2026-11-04 (Codex review-19a, verdict REJECT)
+- Der Quellformat-Prüfer ist berechtigt rot: zwei Dateien des Antrags sind nicht formatiert (gofmt -l nennt
+  cmd/baseharbor-node-connector/main.go und internal/nodeservice/nodeservice.go).
+- Inhaltlich fehlt die echte wurzellose Benutzer-Einheit: Installation meldete Erfolg nach bloßer Manager-Probe,
+  Entfernen nutzte keine unterstützten Vorgänge, der Produktionspfad konnte den Lebenszyklus nicht aufrufen,
+  die Prüfung vor der Wirkung war nicht erzwungen.
+- Korrekturrunde = Lane w130 auf demselben Zweig (Kein zweiter Antrag), mit nativem Rauchtest Nachweispflicht.
