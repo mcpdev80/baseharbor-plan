@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: critical
-owner: coord-welle4 (Lane w138)
+owner: Owner/ChatGPT (Übergabe 2026-11-04, Direktive)
 kanban_lane: review
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261104-r27-consent-abort-leaves-undestroyable-state · Deployment: refused candidate apply must leave destroyable state #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/bug
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w138) · **Priority:** critical  
+    **Owner:** Owner/ChatGPT (Übergabe 2026-11-04, Direktive) · **Priority:** critical  
     **PR:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
-**Owner:** coord-welle4 (Lane w138)  
+**Owner:** Owner/ChatGPT (Übergabe 2026-11-04, Direktive)  
 **Priority:** critical  
 **PRs:** [baseharbor#1375](https://github.com/mcpdev80/baseharbor/pull/1375)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -115,3 +115,9 @@ Raised 2026-11-04 by coordinator from lane w80 finding (evidence: baseharbor-pla
   unangetastet fail-closed, und die neue Regression ist auf Deiner Hauptlinie ROT (Zustandsdatei fehlt) und auf
   dem Kandidaten grün — die Grundlinie ist also gemessen, nicht behauptet.
 - Antrag ist zur Prüfung freigegeben; Lauf 41908789544 beobachtet.
+
+## Eigentümer-Übergabe 2026-11-04 (Direktive, bindend)
+PR #1375 wird von ChatGPT unabhängig bereinigt. Bis zur Rückgabe gilt: keine Worker-Änderungen an diesem
+Zweig/PR, keine Korrekturrunde aus meinem Review-Kanal. Der Kandidat (Kopf 24c9ac5ceba, develop ist Vorfahr,
+Zerstörung rc=0, Regression auf Deiner Hauptlinie rot gemessen) bleibt unverändert liegen; meine
+Review-Mission r1375c ist auf HALD gestellt. Andere Lanes laufen unberührt weiter.
