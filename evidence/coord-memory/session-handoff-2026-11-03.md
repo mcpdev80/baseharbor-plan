@@ -1366,3 +1366,10 @@ die ECHTE vorgangnummer des anmelders unter dem dienstverwalter — keine synthe
 review, abnahmeauftrag r19c laeuft auf Luna (mit der NEUEN pflichtpunkt 8: rot-auf-dem-kranken-commit wird
 NACHGERECHNET, nicht geglaubt — lehre aus rueckbau + zustimmung in dieser schicht).
 w136 released, w138 (consent-abort runde 3, archaeologie-first) sitzt auf dem freien platz.
+
+## ~07:55 native-auth nach basis-merge: 12 gruen, 1 ECHTE fehlstelle statt 4 (kopf 7abcc441e5, develop
+Vorfahr). die eine stelle ist KEINE umgebung, wie der test selbst zeigt: er setzt den ssh-schluessel ueber
+den eingespritzten pruefer (preinteractive_test.go:63-67) und bekommt trotzdem nativeHit=false (zeile 73).
+entweder liest der produktzweig die Umwelt statt des pruefers (dann ist die injektion wertlos — echter
+produktbefund auf DER karte, die "gefunden heisst nicht angemeldet" garantieren soll), oder der
+beispiel-schluessel ist unvollstaendig. befehl an w135 mit der rot-auf-alt-pflicht.
