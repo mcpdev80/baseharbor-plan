@@ -1439,3 +1439,12 @@ mit kodierung runde 6), arbeitersitz hat die verbindungskapsel runde 5.
 ls-remote == ac6a048e290, develop 2ea2c6f1 ist Vorfahr, gates terminal 10 gruen / 0 rot, mergeable CLEAN.
 verbindungsauftrag m1363 raus (squash; weil squash keine ancestorschaft hinterlaesst, ist der pflichtbeweis
 der INHALTSDIFF gegen develop — leer — nicht der vorfahr-test. das war bei der hebelkarte genauso).
+
+## ~10:15 ZUSTIMMUNGSKARTE: LANE HAT RICHTIG GESTOPPT (kein kranker commit_belegbar, blob identisch, beide
+verlangten tests GRUEN auf c24a6c7c bei echtem CLI-lauf). statt zu entscheiden wie ich will, lasse ich
+MESSEN: vier zellen (develop/kandidat × isoliert/shared-stapel). die entscheidungsregel steht im auftrag:
+develop+isoliert rc0 UND shared-stapel != rc0 => karte wird UMGETITELT (zerstoerung eines fremden stapels ist
+kein anwendungs-zerstoerer-fehler) — nicht still als 'funktioniert doch' abgelegt. develop+isoliert != rc0 =>
+echte luecke im zerstoerungs-pfad, dann rot-auf-dem-ausgangsstand DIESES astes statt auf einem toten commit.
+genau dafuer habe ich die rot-auf-alt-regel (§5.6): sie verhindert betrug UND verhindert, dass eine echte
+luecke unter 'kann man nicht reproduzieren' begraben wird.
