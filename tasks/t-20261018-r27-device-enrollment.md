@@ -110,3 +110,8 @@ ls-remote==head.
   four review-1371a recipes addressed (route suffix, policy-sourced station scope, fail-closed registry fact,
   PostgreSQL integration executed against a real database). Base refresh onto develop bb9bc0ef is in flight
   (lane w108); Codex final review follows on the refreshed head only.
+
+- 2026-11-04 (CI): develop advanced to 2a43984a (self-contained PostgreSQL for selected PR Go unit tests).
+  PR #1371 is red on go-unit-tests because its base predates that fix (station policy resolver integration
+  test dials 127.0.0.1:5433). Task to bring #1371 onto 2a43984a and re-verify real PR CI is commissioned as
+  lane w115 (mission queued behind pool capacity: 4 lanes busy).

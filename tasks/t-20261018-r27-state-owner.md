@@ -124,3 +124,11 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
 - Hosted #1347 gates: 16 pass / 4 fail (PR Selected Checks, cli-package-tests, go-unit-tests,
   wizard-app-edit-tests). Reported cause is a docker-endpoint-dependent test that fails identically on develop;
   pending the written proof above. No rerun, no CI changes from lanes (owner-owned CI field).
+
+## CI cause on this candidate 2026-11-04 (owner handed CI back to coordinator)
+- Side-by-side proof is on main (evidence/r27-welle4-2026-11-04/state-owner/adr22-fix-1.md): all five disputed
+  cases behave identically on develop and on the candidate; locally the app-edit case stops at a Docker
+  endpoint preflight that is absent on this host. No product regression from the boundary fix.
+- Hosted red on PR #1347 is therefore an environment cause, named by the Owner: the core lifecycle/PKI fixture
+  lacks runtime/compose.yaml. Lane w111 is making that fixture self-contained (no skip, no bypass, no .github
+  edits); if a workflow change is required the lane stops and reports, and I clear it with the Owner.
