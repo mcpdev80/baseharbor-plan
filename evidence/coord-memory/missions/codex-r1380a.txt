@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-connection-client.
+OBJEKT: baseharbor PR #1380 head f1f3551291c branch work/r27-connection-client base develop (e444ae11+).
+PRUEFEN SHA-genau read-only:
+ (1) write-set: name-only gegen develop — nur cmd/baha + internal/coreinstallation/verdrahtung + tests,
+     KEINE .github, KEIN AGENTS.md; log origin/develop..HEAD nur eigener commit; ls-remote==head echt.
+ (2) VERTRAG: reused boundary internal/coreinstallation/authority.go (option B, keine zweite Wahrheit);
+     verbindung≠ziel explizit, ausdrueckliche auswahl gewinnt, fehlende/fehlerhafte bindung => fail-closed.
+ (3) BASELINE-PFLICHT (§5.6): die lane nennt TestRepositoryComposeWorkloadOnlyLifecycleInCI PRE-EXISTING
+     rot. MIES SELBST auf develop: gleicher test, gleicher fall — wortliche ausgabe develop (krank? name
+     des commits) vs kandidatenkopf. Wenn develop GRAU ist, ist die behauptung falsch => REJECT mit rezept.
+ (4) pakettests + build + vet + gofmt terminal; eigene wiederholung der datbank-paarung.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/connection-client/review-1380a.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1380a: verdict=<X> baseline=<develop rot|gruen mit ausgabe> | <Satz>"
