@@ -89,3 +89,11 @@ evidence/r27-night-2026-11-02/verify-cli-1347.md (Branch- und develop-Seitig ide
 ABER Merge zurückgestellt: gehosteter Lauf 41632606424 auf Head be00b1c8 zeigt 4 Fehlschläge im
 source-contracts-Job (internal/application/preferences + cmd/baha Doctor/AppEdit — Fixture-Seed ist
 HOME-abhängig). Korrekturrunde w52 läuft; Merge erst nach grünem Lauf auf neuem Head.
+
+
+## Coordinator-Block-Vermerk 2026-11-04 (w95 runde 3, formel+optionen urkundlich)
+- Counter-beleg: ProtectedStateOwner verwirft docker-mount 0755 backend-dir; happy-path braucht core
+  (owner-binding), core loest ADR-0022 retire-check aus — kein test-only ausweg (drei sonden, alle clean
+  zurueckgesetzt, siehe evidence/state-owner/round3.md abschnitt 5+7).
+- Owner-stoff: option 1 retire-check erweiterung (ScopeShared), 2 tenant-owner-pfad docker-dev,
+  3 tenant-grant-fixture. Empfehlung lane: option 1 NACH ADR-freigabe. Karte blocked bis entscheidung.
