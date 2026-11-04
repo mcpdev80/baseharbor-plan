@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (lane w107)
+owner: codex-heavy-wk (cx01, Codex als Worker per Owner-Direktive 2026-11-04)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1373"]
@@ -93,3 +93,9 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Es fehlt die Reihenfolge-Regression: Eintrag lesbar, bevor die erste Wirkung beginnt.
 - Formulierung "replayed once, never a second time" muss auf die gebundene Garantie verschlankt werden.
 - Korrekturrunde = Lane w119 auf demselben Zweig und PR #1373 (Kopf vorher 0ce814d0).
+
+## Ownership transition 2026-11-04 (coordinator, documented handoff)
+- The card line previously named lane w107, which never started; lane w112 (session released) delivered the
+  candidate now on PR #1373 head 0ce814d0. Sole owner for the correction round is the Codex worker instance
+  `codex-heavy-wk` executing mission coordinator/missions/cx01-journal-r2.txt. No other session writes this
+  branch; you have an explicit handover, so stop-condition "unclear ownership" is cleared.
