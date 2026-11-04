@@ -5,35 +5,35 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord-welle4 (Lane w155, bleibt bereit)
+kanban_status: review
+kanban_lane: review
 kanban_summary: internal/targetaccess exposes one small test-only helper package (or exported constructor) that yields a handshake-bearing mTLS…
 kanban_title: "Testing: export a minimal real-handshake test wire for cross-package evidence"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust]
 repos: [mcpdev80/baseharbor-node-connector]
-prs: []
+prs: [mcpdev80/baseharbor-node-connector#21]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261105-r27-test-wire-helper · Testing: export a minimal real-handshake test wire for cross-package evidence #task #release/v0-4-27 #status/planned #view/ready #area/platform #kind/task
+- [ ] t-20261105-r27-test-wire-helper · Testing: export a minimal real-handshake test wire for cross-package evidence #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle4 (Lane w155, bleibt bereit) · **Priority:** high  
+    **PR:** [baseharbor-node-connector#21](https://github.com/mcpdev80/baseharbor-node-connector/pull/21)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md)  
 **Required by:** [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle4 (Lane w155, bleibt bereit)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor-node-connector#21](https://github.com/mcpdev80/baseharbor-node-connector/pull/21)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -72,3 +72,8 @@ the connector package.
 
 Born 2026-11-05 from lane w153's dialog escalation on t-20261018-r27-node-streams (case-b evidence path).
 Coordinator owns sequencing: w153 waits; helper lane delivers; w153 resumes with the import.
+
+## Kandidat pruefbar 2026-11-05 (kopf e3afb49a8f2)
+- Genau zwei neue Dateien (exportierter Test-Draht + Smoke-Test), alle bestehenden Vertrauens-/Sitzungs-
+  dateien blob-identisch (name-only belegt), main ist Vorfahr, Smoke-Rahmen rc=0, gehosteter Lauf terminal
+  erfolgreich. Weckt die Knoten-Stroeme-Lane erst nach Merge — Import aus main, nicht aus einem fremden Zweig.

@@ -11,9 +11,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 10 |
-| review | 6 |
+| review | 7 |
 | blocked | 1 |
-| ready | 3 |
+| ready | 2 |
 | queued | 26 |
 | waiting | 203 |
 | backlog | 7 |
@@ -44,6 +44,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md) | Credentials: reuse native authentication before prompting | review | high | coord-welle4 (Lane w135) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 | [t-20261104-r27-private-integration-path](../tasks/t-20261104-r27-private-integration-path.md) | Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen | review | not set | coord-welle4 (Lane w144, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379) |
+| [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | Testing: export a minimal real-handshake test wire for cross-package evidence | review | high | coord-welle4 (Lane w155, bleibt bereit) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md) | [baseharbor-node-connector#21](https://github.com/mcpdev80/baseharbor-node-connector/pull/21) |
 
 ## Blocked
 
@@ -57,7 +58,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | Testing: export a minimal real-handshake test wire for cross-package evidence | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md) | — |
 
 ## By release
 
