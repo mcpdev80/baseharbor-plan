@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle4 (Codex-Worker cx09)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Connector: reconcile enrollment service and restart behavior"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -18,19 +18,19 @@ sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md", "https://github.com/mcpdev80/baseharbor-node-connector/commit/816720c4480d2ded55b9029fa711b843ef5bfdac", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41920428445", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41920428585"]
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [x] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Codex-Worker cx09) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md), [proof 2](https://github.com/mcpdev80/baseharbor-node-connector/commit/816720c4480d2ded55b9029fa711b843ef5bfdac), [proof 3](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41920428445), [proof 4](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41920428585)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
@@ -154,3 +154,9 @@ Round 4 (lane w136): --self-owned-unit ExecStart now executable + unit enabled a
   Beweissammlung) statt behauptet.
 - Die Meldung kam über die Ablagespur an, weil das Senden einer Freigabegrenze begegnete; beide Wege sind
   protokolliert.
+
+## ChatGPT owner acceptance 2026-11-04
+
+- Connector PR [#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19) merged into main at [816720c4480d](https://github.com/mcpdev80/baseharbor-node-connector/commit/816720c4480d2ded55b9029fa711b843ef5bfdac).
+- Final head 807d92d3eb0128f25e4610f90f076c0b5b3c5882 passed quality [41920428445](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41920428445) and source conformance [41920428585](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41920428585).
+- Reenrollment preserves installed unit; Start/Restart propagate persistence failures. Regression tests added. Native enrollment and encrypted transport jobs were selected SKIPPED; earlier native smoke proof remains in round-5.
