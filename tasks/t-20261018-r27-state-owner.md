@@ -150,4 +150,10 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
   aber nicht runtime/openbao-admin.env, das die Produktion beim Bootstrap schreibt.
 - PR #1374 wurde mit Supersession-Beleg geschlossen (Kommentar 6634103570), damit die Kette genau einen
   Kandidaten behält.
-- Umgebungsbefund 2026-11-04 (Koordinator): Der vollständige Anwendungsänderungs-Durchlauf schlägt in der Prüfumgebung mit dem nicht laufenden Tresordienst fehl (service openbao-admin is not running); das ist unabhängig von der Datenbankverbindungsumstellung und bleibt ein eigenständiger Produktbefund dieser Karte (Klassifikation A, boundary-1.md).
+- Umgebungsbefund 2026-11-04 (Koordinator): Der vollständige Anwendungsänderungs-Durchlauf schlägt in der
+  Prüfumgebung mit dem nicht laufenden Tresordienst fehl (service openbao-admin is not running), unabhängig
+  von der Datenbankverbindungsumstellung.
+- Einordnung 2026-11-04 (unabhängig nachgemessen, class-a-verification.md Zeile 2): Klasse B, keine A —
+  der Prüfungsaufbau stellt nur die Datenbank her, der Produktionspfad verlangt absichtlich den
+  verwalteten Tresordienst und lehnt ohne ihn geschlossen ab. Nächster Auslöser: Prüfaufbau mit
+  Tresordienst herstellen und genau diese Prüfung erneut laufen; erst ihr Ausgabeergebnis entscheidet.
