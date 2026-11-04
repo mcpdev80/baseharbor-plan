@@ -1668,3 +1668,14 @@ aufgeholt (main + vier alte), (c) laufende baeume wurden verschont, (d) nachlief
 adresse befohlen. RUNBOOK §6.2g.
 LEHRE FUER MICH: 'ls-remote == head' als beweis reicht nur, wenn der ursprung selbst die wahrheit ist. ab
 jetzt pruefe ich lieferungen gegen die echte url, nicht gegen den spiegel.
+
+## ~18:05 ZWEI abschluesse in einem turn:
+(1) PLAN-REPO HISTORIE SAEUBERT (auf anweisung des eigentuemrs, 'so das es nie drin gelandet ist'):
+    filter-branch ueber das fenster in einem KLON AUF ECHTER SCHEIBE (der erste versuch in /tmp fiel auf den
+    selben tmpfs-volllauf), SICHERHEITSBELEG VOR dem push: diff alter<->neuer tip ohne cache-pfade = LEER,
+    dateizahl 1663 == 1663. dann push --force-with-lease, im leitwerk reset --mixed (laufende lane-editierungen
+    blieben erhalten), reflog expire + gc. .git 158M -> 7,6M. GRENZE die ich nennen muss: auf GitHub selbst
+    bleiben die alten blobs bis eine server-seitige bereinigung liegt — aus Sicht jedes checkout ist raus.
+(2) ZUSTIMMUNGSRUNDE 3 IST PRUEFBAR (kopf 24c9ac5c, develop Vorfahr): zerstoerung einer nie ausgelieferten
+    anwendung rc=0, schranke unangetastet, und die regression ist auf DEINER Hauptlinie rot — die
+    grundlinie ist damit GEMESSEN (genau das war der fehler in runde 1 und 2). abnahmeauftrag r1375c raus.

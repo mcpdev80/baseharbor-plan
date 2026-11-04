@@ -1,0 +1,25 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS consent-abort (runde 3).
+OBJEKT: baseharbor PR #1375 head 24c9ac5ceba branch w120-fix base develop e444ae11 (Vorfahr von mir
+nachgerechnet). KARTE t-20261104-r27-consent-abort-leaves-undestroyable-state.
+VORGESCHICHTE: 1375a REJECT (lebenszyklus-nachweise fehlten) -> 1375b REJECT (eingecheckte tests blieben auf
+c24a6c7c GRUEN, also kein rot-auf-alt; schranken-code war blob-identisch) -> VIER-ZELLEN-MESSUNG (classification-1.md)
+ergab: develop allein, isoliert, zerstoeren rc=1 'deployment.json fehlt' => ECHTER produktbefund, kandidat
+aenderte nichts -> runde 3 repariert den ZERSTOERUNGS-pfad (nicht die schranke).
+PRUEFEN SHA-genau read-only (nicht gegen die lane-meldung):
+ (1) write-set: diff name-only gegen develop = zerstoerungs-pfad + tests, KEINE .github-datei, KEINE
+     schrancken-aenderung (deployment_record.go blob VORHER/NACHHER vergleichen — wenn aenderung, muss sie
+     begruendet sein; die schranke darf NICHT geloedert worden sein),
+ (2) EIGENE messung auf develop e444ae11: anlage, auslieferung OHEN kennung abgelehnt, echter
+     `app destroy --yes` => rc MUSTER GLEICH 1 mit 'deployment.json fehlt' (wortlich, das ist die baseline),
+ (3) EIGENE messung auf kandidatenkopf 24c9ac5c: derselbe ablauf => rc=0, und NACHHER ist keine laufende
+     instanz + kein eigentum des projekts uebrig (liste, nicht behauptung),
+ (4) NEUAUSLIEFERUNG danach: mit korrekter kennung bis zustand=betriebsbereit rc=0, OHNE manuelles
+     nachraeumen zwischen den schritten,
+ (5) unveraenderte faelle: anwendung, die NIE ausgeliefert wurde, ist ebenfalls zerstoerbar (rc0); normale
+     auslieferung + zerstoerung unveraendert (kein rueckwirkung auf den gluckpfad) — je ein test/beleg,
+ (6) schranke bleibt fail-closed vor dem speichern (blob/diff-pruefung + ein test dass ungueltige
+     zustimmung NICHT gespeichert wird),
+ (7) pakettests ./cmd/baha + ./internal/deployment, build, vet, gofmt; gates terminal (lauf 41908789544 +
+     deine eigene wiederholung der datbank-paarung), ls-remote == head.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/consent-abort/review-1375c.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1375c: verdict=<X> open=<liste|none> | <Satz>"
