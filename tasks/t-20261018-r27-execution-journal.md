@@ -58,3 +58,7 @@ Focused disk/reopen/corruption/concurrent admission/retention tests, secret scan
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Stand-Vermerk 2026-11-04 (coord f49a3303)
+- Claim publiziert (owner w107). Lane WARTET auf Kapazitaet im Worker-Pool (4 aktive Lanes, Spawn-Hold);
+  kartenzustand deshalb Zwischenstand: noch keine code-aenderung, keine branch work/r27-execution-journal.
