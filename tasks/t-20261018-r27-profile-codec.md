@@ -9,7 +9,7 @@ priority: normal
 owner: coord-welle4 (lane w88)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1363"]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -21,6 +21,7 @@ evidence: []
 - [ ] t-20261018-r27-profile-codec · Profiles: import and export non-secret connection metadata #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w88) · **Priority:** normal  
+    **PR:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -31,7 +32,7 @@ evidence: []
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
 **Owner:** coord-welle4 (lane w88)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1363](https://github.com/mcpdev80/baseharbor/pull/1363)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
