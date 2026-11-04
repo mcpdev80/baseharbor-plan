@@ -1772,3 +1772,9 @@ drumzubiegen — korrekt. entscheidung A: synchroner terminal-commit (mutantenfe
 sichtbarer persist-fehler OHNE HTTP-bedeutungs-aenderung, docs unbetroffen. LEHRE FUER MICH: vor
 response-semantik-anweisungen immer die spec-datei der flaechen-contracts pruefen (machine-http-v1.md war
 mir als akte bekannt, die 104-zeile nicht). Der dialog-kanal hat den fehler gefangen — genau dafuer ist er da.
+
+## 00:5x PRUEFKANAL VOR UEBRASCHUNG: tmpfs-quota (derselbe moderator-fehler, drittes auftreten heute).
+Ursache WURzel: tmp-sweep kannte /tmp/opencode und den tmpfs-root NICHT — toter-lane-scratch haefte sich an.
+Behoben: sweep hat jetzt tmpfs-auge (leiche nach lebenden praefixes verschont, 4h-regel fuer review-caches),
+9.7G->6.xG frei, luna-retry angeordnet mit auflage 'quota-STOP nur mit df-beleg'. LEHRE: ein kanal der
+mehrmals am tag auf derselben ursache liegt, ist ein FEHLENDER KRONE, nichtpeinliche wiederholung.
