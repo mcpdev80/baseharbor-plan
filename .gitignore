@@ -22,3 +22,11 @@ __pycache__/
 !.obsidian/snippets/
 .obsidian/snippets/*
 !.obsidian/snippets/baseharbor-board.css
+
+# Lane-Ablage: nur SKRIPTE unter evidence/**/scripts/, niemals build-caches.
+# Ein `git add -A` hat am 2026-11-04 376 MB Go-Modul-/Build-Caches in das Plan-Repo geholt.
+**/scripts/gocache/
+**/scripts/gomodcache/
+**/scripts/*-gopath/
+**/scripts/go-build*/
+**/scripts/tmp/
