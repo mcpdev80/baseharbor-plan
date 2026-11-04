@@ -1120,3 +1120,14 @@ tests; PR #1362 bleibt ein kandidat.
 review (card-status.py), abnahme-mission r1363c geschrEIBEN und laeuft sobald der kanal frei ist (prueft gerade
 #1375). team-auth runde 2 (w127) neu angesetzt; w126 released; w121 hat teardown-decision (compose-down statt
 anwendungs-destroy; blockierter destroy = zusaetzter beweis fuer consent-abort-Karte).
+
+## ~00:35 OWNER-MASSNAHME UEBERSETZT — die "gemeinsame testursache" ist KEIN workflow-thema:
+develop:.github/workflows/ci.yml:802 ruft fuer go-unit-tests bereits `bash scripts/pr-unit-database.sh`, der
+isolierte lauf wird also gestartet. Die fehlertexte zeigen verbindung-abgelehnt auf 127.0.0.1:5432 — die
+betroffenen tests lesen also eine FEST KODIERTE adresse statt der vom skript gesetzten verbindung. behebbar
+test-seitig, ohne deine datei anzufassen. zwei saetze dazu, wer wo dran arbeitet: w128 (3b5a5132) macht die
+abfrage aus EINER quelle + die mutations-gegenprobe (falscher port muss ROT mit klarer meldung werden, sonst
+ist die eingrenzung nicht belegt) und die klassifikations-tabelle ueber alle offenen kandidaten; parallel
+grenzt cx04 (codex-sitz) die Readiness-karte ci-delivery ein. w111 released: sein fixture-commit 95533a788d
+(nur app_edit_apply_test.go +19/0, ls-remote==head) ist angenommen; der OpenBao-rest bleibt als befund auf der
+state-owner-karte stehen.

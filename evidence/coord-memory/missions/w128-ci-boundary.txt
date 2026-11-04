@@ -1,0 +1,37 @@
+ROLLE: Worker (Lane w128). Coord f49a3303. KARTE: t-20261022-r27-ci-delivery — die Hebelkarte (12 nachfolgende
+Aufgaben hangen daran). REPO: baseharbor (core), zweig NEU: work/r27-ci-delivery ab develop (aktuell: fetch,
+letzter schritt Vorfahr-Pflicht).
+
+BEWIESENE AUSGANGSLAGE (coord, auf platte nachgesehen):
+ - .github/workflows/ci.yml:802 ruft fuer go-unit-tests bereits `bash scripts/pr-unit-database.sh` — die
+   isolierte datenbank wird also gestartet. Die ursache liegt NICHT in der workflow-datei.
+ - Die fehlertexte der betroffenen kandidaten zeigen aber verbindung auf 127.0.0.1:5432 ABGEWIESEN
+   (internal/database: identity_tenant_resolver_integration_test.go, tenant_integration_test.go sowie der
+   anmeldungs-pfad station_policy_resolver_integration_test.go). Die tests sind also auf eine fest kodierte
+   adresse statt auf die vom skript aufgebaute verbindung gekoppelt.
+ - Gegenreferenz: lane w122 hat dieselben tests mit anderer port-angabe GRUEN bekommen (resolver+tenant ok auf
+   5434).
+
+AUFGABE (nur test-/skript-seitig, exakt diese trennung):
+ (1) HERSTELLEN, dass die tests die adresse aus EINER quelle lesen, die der lauf setzt: lies
+     scripts/pr-unit-database.sh und die dort gesetzte umgebungsvariable (BASEHARBOR_TEST_DATABASE_URL), und
+     mache die oben genannten tests davon abhaengig — KEIN hartkodierter port, KEIN fallback auf 5432, wenn
+     nichts gesetzt ist: dann typisierter fehler "testumgebung nicht hergestellt" statt stillem connection-
+     refused (das ist der unterschied zwischen einer echten pruefung und einem scheingruenen lauf).
+ (2) MINIMALBEISPIEL je betroffener stelle (drei): befehl + ausgang, (a) vorher rot mit der ablehnung,
+     (b) nach deiner aenderung gruen, (c) MUTATION: absichtlich falscher port in der variable => der test muss
+     ROT werden mit der klaren meldung. Ohne (c) gilt die eingrenzung nicht als belegt.
+ (3) KLASSE TRENNEN: in der evidence eine tabelle je bisher roten gehosteten pruefung ueber die offenen
+     kandidaten (#1347 #1362 #1363 #1369 #1371 #1373 #1375, connector #19): check-name, wortliche fehlzeile,
+     lauf-id, kopf, und klasse (A produktfehler -> kartenname, B testumgebung -> dein feld, C basis/
+     reihenfolge). read-only, KEIN rerun, KEIN workflow_dispatch, KEINE .github-aenderung.
+ (4) PR DRAFT auf develop, ls-remote==head WOERTLICH, die gehosteten laeufe deines PR bis TERMINAL beobachten.
+ (5) Wenn eine stelle nur durch eine workflow-anderung heilbar waere: STOP + MELDEN mit datei:zeile — der
+     laufende stand zeigt aber, dass es die zeile nicht braucht; pruefe das zuerst.
+
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN produktcode ausser test-helfer, KEINE tests geloescht oder
+uebersprungen, KEIN merge, KEIN .github/. scratch nicht in der oekosystem-wurzel; bei patch-/schreibfehlern
+zuerst `df -h /tmp` melden (tmpfs-Kontingent, RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/ci-delivery/boundary-1.md (tabelle 1a/3,
+minimalbeispiele 2, ls-remote 4; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w128-ci-boundary: head=<sha10> pr=<n> adresse=<eine quelle> mutation=<rot belegt> klassifikation=<A:n B:n C:n> lsremote=<sha10> | <Satz>"
