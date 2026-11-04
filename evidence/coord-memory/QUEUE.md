@@ -36,3 +36,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w132-enroll-rollback.txt — product regression behind the enrollment candidate (migration rollback drops more
   than the last change). Next trigger: first free worker seat. Prerequisite noted: do NOT touch the DSN fix
   (belongs to PR #1377).
+- w133-codec-r6.txt — Runde 6 für PR #1363 (review-1363d REJECT): doppelter Schreibvorgang im atomaren
+  Abschluss muss weg, Kurzschreib-Beweis mit n<len-Wert, Vertrauen ohne Schalter, Rundlauf mit vollständigem
+  Datensatz plus goldenen Bytes, Canary je Kategorie, Aufräumfehler typisiert, EN/DE parallel.
+  Nächster Auslöser: erster freier Worker-Sitz (der_codec-Kopf 064ba01820b bleibt bis dahin in review).

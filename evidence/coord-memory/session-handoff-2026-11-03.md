@@ -1211,3 +1211,18 @@ geschrieben, daemon-reload, start-rc=0, is-active=active,cat zeigt die datei, st
 BLOCKED-Aussage ueber die umgebung muss eine reine HOST-probe OHNE den eigenen code enthalten, die auf
 demselben befehlspfad fehlschlaegt. w130 laeuft auf demselben zweig weiter (kopfung 84cf6475ab9 bleibt,
 alle gehosteten checks dort gruen, gofmt behoben).
+
+## ~03:45 DREI UEBERFAELLIGE URTEILE, EIN AUGE-DEFEKT, ZWEI BERICHIGUNGEN:
+- urteile lagen auf PLATTE aber waren UNBEMERKT (r1363d REJECT 18:48, class-a-verification 18:41): das
+  pane-auge sieht nur die letzten 600 zeilen, und die waren inzwischen weg — scrollback ist KEIN bezev.
+  NEUES PLAN-AUGE in codex-ear.sh: git-log ueber baseharbor-plan seit letztem verarbeiteten commit, nur
+  evidence/**/review-*.md, urteilszeile aus der datei, dedupe im ledger, marker codex-ear.plan-sha.
+  TROCKEN getestet: findet review-1363d. Damit ist kein urteil mehr von gluemkucken abhaengig.
+- BERICHIGUNG (ehrlich, eigene meldung zurueckgenommen): (a) migrationsrueckbau = NICHT REPRODUIZIERBAR auf
+  develop und auf dem anmeldungs-zweig in frischen isolierten laeufen — meine klasse A war uerhoeht; w132
+  bekommt den auftrag reproduzier-oder-schliess-mit-beweis, KEIN produkt-umbau ohne reproduzierten fehler.
+  (b) app-edit/offener tresordienst = klasse B (pruefaufbau stellt nur die datbank her; der produktionspfad
+  verlangt den dienst absichtlich), kein produktbefund. beide karten sind berichtigt.
+  (c) connector-gofmt = klasse A BESTAETIGT ( zwei dateien, rein formatierung), inzwischen behoben.
+- codec runde 6 mission w133 geschrEIBEN (HAUPTBEFUND: eine unbedingte zweite f.Write-stelle macht den
+  kurzschreib-beweis wertlos); laeuft sobald ein sitz frei ist.

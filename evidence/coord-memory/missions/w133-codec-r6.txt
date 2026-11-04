@@ -1,0 +1,37 @@
+ROLLE: Worker (Lane w133). Coord f49a3303. KARTE: t-20261018-r27-profile-codec (Welle 4, Runde 6).
+REPO: baseharbor. ZWEIG: work/r27-profile-codec, PR #1363, kopf 064ba01820b. KEIN zweiter zweig, KEIN zweiter PR.
+
+Luna review-1363d verdict=REJECT (akte: baseharbor-plan/evidence/r27-night-2026-11-02/review-1363d.md, VOR dem
+coding vollstaendig lesen). Runde 5 war inhaltlich weit; es bleiben sieben scharfe punkte:
+
+(1) EIN SCHREIBVORGANG im atomaren Abschluss: in store.go atomicCommit genau EIN write durch eine injizierbare
+    writer-/fehler-naht; die NAHT muss eine KURZE schreibe (n < angefordert) liefern KOENNEN und der zweig
+    muss n < len(daten) VOR sync/rename behandeln. Die bestehende unbedingte zweite f.Write(data)-stelle
+    MUSS WEG (sie macht den kurzschreib-beweis wertlos — das ist der hauptbefund).
+    GEGENPROBE: injizierter kurzschreib => typisierter fehler, KEINE finale datei, KEIN temp-artefakt;
+    beweis dass die naht tatsaechlich einen n<len-Wert geliefert hat (wert in der assertion, nicht nur
+    "kein fehler").
+(2) VERTRAUENSVALIDIERUNG MIT TrustSelfConsistent=false muss Ablehnung erzeugen (unbedingt, kein schalter).
+(3) RUNDLAUF VERGLEICHT DEN VOLLSTAENDIGEN serialisierten datensatz einschliesslich nicht-leerer
+    export-beschreibung (import -> export), nicht teilfelder; und die feld-/record-reihenfolge ist fest —
+    goldene bytes gegen das erklaerte kanonische format (assertion, nicht dokumentation).
+(4) CANARY-JE-KATEGORIE VOLLSTAENDIG: zusaetzlich ziel-/ablagepfad, verschachtelte speicherzeichenketten und
+    export-beschreibungstexte (soweit schema-gueltig) — je eigenstaendig, mit ablehnung BEVOR bytes das
+    haus verlassen, und assertion dass kein canary in den export-bytes erscheint.
+(5) ERSETZEN-AUFRÄUMEN: rueckbau-fehler des ersetzten alt-datensatzes ueber eine deterministische naht
+    ausloesen => typisierter fehler + EINDEUTIGER zustand auf platte (belegt, nicht behauptet).
+(6) EN- UND DE-spezifikation (docs/spec/credential-access-v1.md + docs/de/spec/credential-access-v1.md)
+    PARALLEL auf das implementierte verhalten angleichen: kanonische version pflicht, empfaengerbindung
+    pflicht, atomarer schreibvorgang — gleiche bedeutung, keine punkt den nur eine sprachfassung kennt.
+(7) SCHREIBGUT: contracts/managementaccess/v1 + die beiden spezdateien. KEINE griffe in .github, cmd/baha,
+    internal/delivery. Der produktions-konsument bleibt auf t-20261018-r27-public-surfaces (von mir geklaert) —
+    ein grep-grenzbeleg in der evidence genuegt, kein versuch, fremdes feld zu verdrahten.
+
+PFLICHTPRUEFUNGEN am neuen kopf: pakettests ./contracts/managementaccess/v1 -count=1, go build ./..., go vet,
+gofmt; gates bis TERMINAL beobachten (lauf-id + status, Eigenes-Run-Pflicht); ls-remote == head WOERTLICH;
+merge-base --is-ancestor origin/develop HEAD; name-only-diff wortlich in die evidence.
+Evidence-DATEI ist lieferpflichtig UND muss den kopf nennen (runde 5 fehlte sie zuerst — AGENTS 5.3).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEINE tests geloescht, KEIN rerun als ersatz fuer analyse, KEIN
+merge, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/profile-codec/round-6.md (keine markdown-checkboxen).
+END an f49a3303: "END_DONE w133-codec-r6: head=<sha10> einzelschreib=<belegt> kurzschreib=<n<len bewiesen> vertrauen=<unbedingt> rundlauf=<vollstaendig+golden> canary=<je kategorie> aufräumen=<typisiert> spec=<EN=DE> lsremote=<sha10> | <Satz>"
