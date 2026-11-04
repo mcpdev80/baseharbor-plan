@@ -1587,3 +1587,9 @@ terminal) — also kein neuer befund, nur warten.
     spaeter falsche stops erzeugt.
 (2) die native-zeugnahme (w145) konnte deshalb nicht auf eine bahn; sie laeuft jetzt auf dem arbeitersitz.
 STAND: 4 worker + 1 arbeiter + Luna-pruefkanal.
+
+## ~14:25 zwei auftraege waren 'gesendet' aber NIEGELANDET (pane war leerlaufend, paste verpufft):
+die verbindung der kapsel (m19) und die native zeugnahme (w145) — PR #19 war weiterhin OPEN, das
+zeugnahme-protokoll fehlte. nach resend mit statuspruefung (`isWorking` ueber die API) laufen BEIDE.
+NEUE regel §2.4: zustellung an einen Codex-Kanal gilt erst mit arbeitsstatus-beleg, nicht mit paste-rc.
+grund: in diesem kanal gibt es kein zustellprotokoll (kein post zurueck), 'accepted' kenne ich nur von lanes.
