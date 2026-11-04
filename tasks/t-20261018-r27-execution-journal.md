@@ -9,29 +9,34 @@ priority: normal
 owner: coord-welle4 (lane w107)
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1373"]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
 resolution: ""
-evidence: []
+evidence:
+  - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md"
+  - "https://github.com/mcpdev80/baseharbor/pull/1373"
+  - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w107) · **Priority:** normal  
+    **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
 **Owner:** coord-welle4 (lane w107)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -73,3 +78,7 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Correction round: branch work/r27-execution-journal, red-first tests for both gaps against the real path,
   implementation inside internal/machinehttp, draft PR, terminal gates. Evidence must live in
   evidence/r27-welle4-2026-11-04/execution-journal/ (an off-board proof file does not count).
+
+- Correction round (lane w112) delivered head 0ce814d0, PR #1373 draft on develop 2a43984a: duplicate request
+  with changed content is refused and reconnect returns the same operation, both added to store.create through an
+  operations index with red-first tests; criteria 1, 4, 5 were already covered by the merged journal state.

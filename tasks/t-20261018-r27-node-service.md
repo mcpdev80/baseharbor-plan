@@ -18,17 +18,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lane w105) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
-**Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
+**Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Owner:** coord-welle4 (lane w105)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
@@ -77,3 +77,11 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   nicht als Mutation mit NIL-Wirkungen belegt; zwei nativ uebersprungene Hosted-Jobs wurden nicht ausgefuehrt.
 - Korrekturrunde = Lane w110 auf demselben Zweig/PR #19 (draft bis Umleitung durch coord). PR-Kopf vorher
   764a2a4.
+
+## Round 2 2026-11-04 (lane w110, coord f49a3303)
+- Head 78b3c4f on work/r27-node-service / PR #19: real rootless systemd-user unit install/remove/restart/enable
+  plus lingering, authorization checked before every lifecycle or metadata effect, restart behaviour compared
+  against start from recorded calls, native smoke run executed on a real user host.
+- Hosted connector CI on this head: 1 pass, 2 skipping, 1 FAIL = job "source", step "Verify exact candidate
+  source formatting". Formatting round is commissioned (lane w118, queued behind pool capacity); no review on a
+  red head.

@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 44/104 · **Blocked:** 1 · **Waiting:** 47  
+    **Accepted tasks:** 44/105 · **Blocked:** 1 · **Waiting:** 47  
     **Blocker:** [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md) — Integration offen: Core PR \#1355 und Demo-Consent PR \#128 sind noch nicht gemergt; echte Docker- und Podman-Lifecycle-Abnahme mit kompatiblen exakten Core/Demo…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
