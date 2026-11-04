@@ -1380,3 +1380,19 @@ zuordnungstraegers). gates: 14 gruen / 3 laufend / 0 rot, develop ist Vorfahr. d
 spaeter ins postfach als das werk schon lief (cx07 A:2 B:0 C:1) — beide klassifikation-A-stellen sind damit
 adressiert, eine davon durch DIESEN commit, die zweite (rueckbau) durch die angemeldung-kette.
 kein abnahmeverdacht: ich pruefe den kopf gegen die triage-akten, bevor ich die karte auf review setze.
+
+## ~08:20 PROTOKOLL-KARTE IST PRUEFBAR (kopf 0d89a13e63a, 8 gruen/0 rot, develop Vorfahr, write-set 6 dateien):
+der raeum-fehler war eine echte abschlussluecke — ein hintergrundauftrag schrieb weiter, nachdem die antwort
+schon zurueck war; jetzt wird die zusage VOR der rueckgabe erwartet (handler.go runExecution), zwanzig
+wiederholungen + wettlaeufer gruen, und die RUECKBAU-gegenprobe (wieder im hintergrund) macht sie rot. das ist
+der fall, wo eine urspruenglich als "zeitgeber-patch" verdaechtige korrektur die richtige war — nur musste sie
+am vertrag hngen (verpflichtung vor den wirkungen), nicht am test.
+SCHUTZWARUNG DES SCHEMAS HAT GETRAGEN: card-status verweigerte den wechsel auf review, weil die karte noch
+einen BLOCKER-TEXT trug (der mit der HEBELKARTE laengst entfallene anschluss-streit). erst retired (eigener
+commit), dann review — `plan.py check` haette das sonst als fehlerhafte karte publiziert.
+w134 released. beide codex-sitze besetzt (Luna prueft verbindungskapsel, arbeiter prueft anmeldung),
+abnahmeauftrag r1373c ist in der warteschlange.
+
+## ~08:35 brettstand: 5 in pruefung, 6 in arbeit, 1 blockiert, 44 warten. alle sechs sitze besetzt
+(w135 anmeldung-unterschrift, w137 uebersprungsstellen, w138 zustimmung runde 3, w139 zustands-traeger
+auf neuer basis + cx08 team-auth runde 3 + Luna verbindungskapsel).

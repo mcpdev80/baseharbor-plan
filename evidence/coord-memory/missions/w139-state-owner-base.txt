@@ -1,0 +1,37 @@
+ROLLE: Worker (Lane w139). Coord f49a3303. KARTE: t-20261018-r27-state-owner (Basis-Auffrischung +
+ehrliche Rest-Klassifikation). REPO: baseharbor. ZWEIG: work/r27-state-owner (PR #1347, head 95533a788d).
+KEIN zweiter zweig, KEIN zweiter PR, KEIN Kraftuebertragen, KEIN merge.
+
+LAGE (plattenfest von mir): develop ist 2ea2c6f1 — die datbank-verbindung kommt jetzt aus EINER quelle und
+fehlt sie, SCHLAEGT die pruefung FEHL statt zu ueberspringen. Dein ast ist aelter, deshalb sind auf PR #1347
+VIER stellen rot, und die karte traegt zusaetzlich einen offenen produktbefund (anwendungs-pfad braucht
+Tresor-Anmeldedaten, die der testaufbau nicht liefert — befund steht auf der karte).
+
+AUFGABE IN DIESER REIHENFOLGE:
+ (1) git fetch origin; merge-base --is-ancestor origin/develop HEAD pruefen; ist develop NICHT Vorfahr,
+     origin/develop in den EIGENEN ast mergen (kein umschreiben der geschichte),
+ (2) KONFLIKTFALL in den zwei datbank-pruefungen (identity_tenant_resolver_integration_test.go,
+     tenant_integration_test.go): develop-inhalt uebernehmen (die loesung ist dort ANGENOMMEN), in der
+     evidence benennen,
+ (3) NEU AUSZAEHLEN nach dem merge: welche stellen sind auf DEMSELBEN kopf noch rot? je stelle: lauf-id,
+     pruefname, wortliche fehlzeile, klasse (A produkt / B umgebung / C basis-reihenfolge), und ob die
+     identische stelle auf develop 2ea2c6f1 GRUEN ist (kontrollvergleich — gleiche beiden laeufe, sonst
+     ist die klassifikation wertlos). erwaertung nach der nachmessung von heute: die datbank-paarung wird
+     gruen, es bleibt der anwendungs-aenderungsdurchlauf, der den verwalteten tresordienst verlangt
+     (klasse B, karte t-20261018-r27-state-owner, naechster ausloeser = einsetzstelle des dienstes im
+     testaufbau).
+ (4) DER REST BEI DIR: wenn eine stelle NUR durch eine aenderung an .github ODER an einer
+     test-aufbau-skriptdatei heilbar waere — STOP + MELDEN mit datei:zeile und dem einen satz, was dort
+     fehlen wuerde. die workflow-datei ist NICHT dein feld (eigentum: absprache mit dem eigentuemer), und ein
+     skript, das den tresordienst startet, ist eine zustands-aenderung am pruefaufbau — die entscheide ich,
+     nicht du im voruebergehen.
+ (5) KEINE tests geloescht, KEIN ueberspringen eingebaut, KEIN verhalten 'erwartet fehler' umgeschrieben.
+ (6) BELEG: ls-remote == head WOERTLICH; merge-base --is-ancestor origin/develop HEAD rc=0;
+     git diff origin/develop...HEAD --name-only wortlich (nur dein feld: zustands-träger/anmeldedaten-
+     umschluessel, keine codec-/workflow-/anmeldungs-fremden dateien); gehostete laeufe deines kopfs bis
+     TERMINAL beobachten (lauf-id + status je job, Eigenes-Run-Pflicht).
+GRENZEN: KEINE subagenten (AGENTS §4.8), KEIN rerun als ersatz fuer analyse, KEIN merge, KEINE
+.github-aenderung, scratch nie in der oekosystem-wurzel; bei schreibfehlern zuerst df -h /tmp (RUNBOOK §6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-04/state-owner/base-refresh-1.md (tabelle mit
+kontrollvergleich develop vs. kandidat, woertliche fehlzeilen; keine markdown-checkboxen).
+END an f49a3303: "END_DONE w139-state-owner-base: head=<sha10> basis=<develop sha10> db-paarung=<gruen> rest=<klasse+n|STOP+datei:zeile> lsremote=<sha10> | <Satz>"

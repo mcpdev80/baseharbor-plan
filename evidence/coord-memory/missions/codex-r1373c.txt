@@ -1,0 +1,23 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: GPT-6 Luna. ABSCHLUSS execution-journal (runde 3).
+OBJEKT: baseharbor PR #1373 head 0d89a13e63a branch work/r27-execution-journal base develop 2ea2c6f1 (Vorfahr
+von mir nachgerechnet; gates terminal 8 pass / 0 fail / 10 skipping). KARTE t-20261018-r27-execution-journal.
+VORGESCHICHTE: review-1373b REJECT (doppelte ablehnung + ablauf-nachweis) -> basis auf 2ea2c6f1 ->
+raeum-fehler als ECHTE abschlussluecke erkannt (protokoll-schreiber im hintergrund).
+PRUEFEN SHA-genau read-only (nicht gegen die lane-meldung):
+ (1) write-set: diff name-only gegen develop = nur internal/machinehttp (sechs dateien), kein .github,
+ (2) der VERPFLICHTENDE teil (zusage/akzeptanz + endzustand) wird SYNCHRON vor der rückgabe des ausführenden
+     aufrufs geschrieben — datei:zeile des expectations belegen; asynchron darf nur bleiben, was keine zusage
+     traegt, und das muss im code benannt sein,
+ (3) KARTENPFLICHTEN sind weiterhin erfüllt (nicht zurueckgebaut): doppelte anfrage mit gleichem inhalt =>
+     abweisung mit gleicher wirkung; doppelte anfrage MIT GEÄNDERTEM inhalt => abweisung OHNE neue wirkung;
+     widerruf/erneuerungsfall; keine manuelle zustandsreparatur im test,
+ (4) EIGENE wiederholung: -race -count=20 auf den betroffenen stellen gruen, und EIGENE rueckbau-gegenprobe:
+     die synchrone stelle zurueck auf hintergrund => der originale test MUSS rot werden (beweis dass die
+     korrektur die ursache trifft, nicht den zeitgeber) — eigene ausgabe in der akte,
+ (5) KEIN sleep-flicken, KEIN waiting im test als ersatz (diff der testkoerper gegen develop),
+ (6) protokoll-dateien: begrenzte groesse/alterung + geheimer Inhalt NICHT im protokoll (kernanforderung der
+     karte) — kann-pruefung mit wortlicher ausgabe,
+ (7) pakettests ./internal/machinehttp -count=1 + ./cmd/baha, build, vet, gofmt, gates terminal,
+     ls-remote == head woertlich.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/review-1373c.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1373c: verdict=<X> open=<liste|none> | <Satz>"
