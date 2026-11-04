@@ -1,12 +1,12 @@
 # w78-seam-isolation — 11/11 isolated (r27-state-owner, branch work/r27-state-owner)
 
 Worker lane w78. Coord f49a3303. Card t-20261018-r27-state-owner.
-Branch head: `63d7ea51` (FF from develop 2cadfcee). CI job 41761149975 (go-unit).
+Branch head: `d9a48d42` (FF from develop 2cadfcee). CI jobs 41774178200 + 41776994532 (go-unit).
 
 ## Status
-- 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
-- 11th case (app-edit ADR-0022) split into two clear subtasks per coord directive
-- happy-path (fix #1) converges green on CI; this host blocked by postgres topology
+- [x] 10 host-env artifacts isolated (test-only, no prod code, no delete, no skip)
+- [x] Fix #2 (inverted-mode ADR-0022 proof) committed, red-first
+- [ ] Fix #1 (happy-path) — reverted to hard-coded rootful (matches develop); CI go-unit fails at `app_edit_apply_test.go:1022` with `partial` (SQL-consumer verification, not mode)
 
 ## The 10 host-env artifacts (isolated, committed 63d7ea51)
 1. recovery(5) — `TestRecoveryFileForRepositoryUp*`: shared `~/.local/share/baseharbor-recovery` collision. Fix: per-test `t.Setenv("HOME", t.TempDir())` + `t.Setenv("XDG_CONFIG_HOME", t.TempDir())`.
@@ -15,6 +15,19 @@ Branch head: `63d7ea51` (FF from develop 2cadfcee). CI job 41761149975 (go-unit)
 4. podman(2) — quadlet retirement: podman ownership env. Fix: `TestMain` umask 022.
 
 All verified red-first → green under `umask 022`. No production code touched.
+
+### Fix #1 (happy-path mode) — reverted to hard-coded rootful (matches develop / wt-ci-access)
+The probe-based fix #1 (`probeTargetDockerMode`) cannot converge on CI: on the
+GitHub runner the rootful socket `unix:///var/run/docker.sock` is not reachable
+from the unprivileged test process, so the probe falls back to the rootless
+socket and binds `rootless`, which mismatches the rootful daemon and fail-closes
+at baseline (`…IS ROOTFUL, but Target requires rootless`). The CI log shows the
+happy-path stopping at `app_edit_apply_test.go:1022: real Edit lifecycle did not
+converge: application machine: partial` even with the mode correct — the blocker
+is the SQL-consumer verification, not the mode. Reverted the happy-path to the
+original hard-coded `DockerMode="rootful"` / `DockerEndpoint="unix:///var/run/docker.sock"`
+(so it is byte-identical to develop's happy-path, which is the wt-ci-access converge
+path). `probeTargetDockerMode` is kept because Fix #2 depends on it.
 
 ## The 11th case: TestAppEditCommandCompleteProviderEditRunsRealLifecycle
 
@@ -84,12 +97,30 @@ New `TestAppEditInvertedDockerModeFailsClosedAd0022`:
 - No production code changed. No test deleted. No skip.
 
 ## Still pending
-- Happy-path (fix #1) converge green on CI (watch PR #1347 go-unit job).
-- Final report after merge/acceptance.
+- [ ] Happy-path (fix #1) converge green on CI — blocked on the shared-postgres backend (see END_BLOCKED).
 
-## END_BLOCKED (host-limited happy-path, per mission STOP rule)
-The happy-path converges on CI (proven) but cannot converge on this lane because
-the shared-postgres topology is down (`bh-local-shared-postgres-init-1 Exited (1)`)
-and fails identically against a rootful daemon via sudo. This is an external
-host precondition, not a test defect. Fix #1 (mode-adaptive) and Fix #2 (ADR-0022
-proof) are implemented, red-first, and committed at `63d7ea51`.
+## END_BLOCKED (happy-path SQL-consumer verification, per mission STOP rule)
+The happy-path stops at `app_edit_apply_test.go:1022: real Edit lifecycle did not
+converge: application machine: partial` with the mode correct (hard-coded
+`rootful`), so the failure is NOT the daemon mode. The failing plan is
+`Scenario:provider-changed`: the Edit's SQL-consumer RESUME cannot verify its
+postgres backend (`ObserveSQLConsumerInventory`, runtime_postgres.go:179 →
+`SQL consumer identity/database inventory unavailable`). This is the documented
+ADR-0022 fail-closed boundary, triggered by the application-scoped postgres
+consumer that the baseline binds but never realizes into a verifiable backend.
+
+Evidence:
+- CI go-unit 41774178200 (branch head `dc157b5c`): the ONLY go-unit failure is
+  `TestAppEditCommandCompleteProviderEditRunsRealLifecycle (20.59s)` → `partial`
+  (line 1022); all other cmd/baha tests pass.
+- This host fails identically under rootless (native) AND rootful (sudo): the
+  reachable-postgres precondition is absent, not the mode.
+- The probe-based fix #1 (mode-adaptive) cannot converge on CI either: the
+  unprivileged test cannot reach the runner's rootful socket, falls back to
+  rootless, mismatches the daemon, and fails closed — so the probe was reverted.
+
+Fix #2 (inverted-mode ADR-0022 proof, `TestAppEditInvertedDockerModeFailsClosedAd0022`)
+is delivered, red-first, and committed at `dc157b5c`. The happy-path converges only
+where a verifiable postgres backend is available (a proper Core/backend on the
+executing lane or CI runner); it is blocked on this lane because the shared Core
+backend cannot be reinitialized here. Fix #1 is the remaining blocker; see §3.
