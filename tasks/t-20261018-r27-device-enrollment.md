@@ -58,3 +58,26 @@ Issue/consume/replay/expiry/wrong-recipient/wrong-installation/certificate negat
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+### Delivery — 2026-11-04 (worker w90, lane w90)
+Option A (Owner scope decision 2026-11-04): delivered a NEW bounded workstation-enrollment slice in
+its own namespace, distinct from node/connector enrollment (internal/targetenrollment untouched).
+
+- Branch `work/r27-workstation-enrollment` @ `2a4df949` (feat `299f8143` + evidence `53f17b93`),
+  PR **#1364** (draft), base develop `3d08ef72`.
+- `contracts/workstationenrollment/v1/` — portable wire contract: `Record` + fail-closed
+  `ValidateKindEnforcement` + `EnrollDevice` + draft-2020-12 schema.
+- `internal/workstationenrollment/` — installation-scoped `Scope` (SPIFFE
+  `spiffe://baseharbor/workstations/<tenant>/<station>`, not Core connector), one-use `Store`,
+  `Authority.Enroll` validate-then-consume (SignCSR → TrustBundle → ValidateSignedCSR → RevokedStatus,
+  all fail-closed), reusing accepted `internal/serviceaccess` issuer boundary.
+- `internal/workstationenrollment/http/` — one-use bootstrap/enroll adapter at the management boundary;
+  registry-fakt records scope+time; no private key returned.
+- Rote-first (RED) cases pass: second-use, elapsed window, foreign recipient/scope, malformed leaf;
+  plus positive (single use issues a leaf with scope+time in the registry-fakt) and HTTP end-to-end.
+- Local: go build / go test / go vet green; gofmt clean; source-readability-audit PASS.
+  Draft CI 41800237126 terminal SUCCESS (Workflow policy + Source format).
+- Write-set: ONLY new files (1417 insertions, 0 deletions vs develop); no shared register/registration
+  files touched (Owner scope decision — reported as none needed).
+- Awaiting Maintainer acceptance + CODEX-REVIEW against evidence; CODEX-MERGE only if it passes. No
+  release/tag/deploy authorized by this delivery.
