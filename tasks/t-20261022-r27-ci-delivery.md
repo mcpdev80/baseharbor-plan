@@ -6,33 +6,34 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: critical
-owner: coord-welle4 (Codex-Worker-Sitz, Mission cx04)
-kanban_lane: active
+owner: coord-welle4 (Lane w128)
+kanban_lane: review
 kanban_summary: ""
-kanban_status: active
+kanban_status: review
 kanban_title: "Deferred trusted CI readiness: delivery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1377]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [ ] t-20261022-r27-ci-delivery · Deferred trusted CI readiness: delivery #task #release/v0-4-27 #status/review #view/review #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Codex-Worker-Sitz, Mission cx04) · **Priority:** critical  
+    **Owner:** coord-welle4 (Lane w128) · **Priority:** critical  
+    **PR:** [baseharbor#1377](https://github.com/mcpdev80/baseharbor/pull/1377)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle4 (Codex-Worker-Sitz, Mission cx04)  
+**Owner:** coord-welle4 (Lane w128)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1377](https://github.com/mcpdev80/baseharbor/pull/1377)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -77,3 +78,14 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
   sie wartet nicht auf die übrigen offenen CI-Läufe.
 - Dazu wird die gemeinsame Go-/Docker-/Datenbank-Testursache als eigenständiges Arbeitspaket abgegrenzt:
   Ursache, betroffene Gates, Minimalbeispiel und die saubere Trennung von Produktfehler gegen Umgebungsfehler.
+
+## Handoff 2026-11-04 (Lane w128, Korrekturrunde nach Provenanz-Befund)
+- Kandidat: PR #1377, Zweig work/r27-ci-delivery-dsn, Kopf 029e3ddd522, develop ecbb8854 ist Vorfahr.
+- Geänderte Dateien exakt zwei Integrationstests (internal/database/identity_tenant_resolver_integration_test.go,
+  internal/database/tenant_integration_test.go): sie lesen die Verbindung jetzt aus BASEHARBOR_TEST_DATABASE_URL
+  statt einer fest kodierten Adresse; ohne gesetzte Variable gibt es einen klaren Hinweis auf die fehlende
+  Testumgebung statt eines stillen Verbindungverweigerungsfehlers.
+- Mutationsgegenprobe belegt: absichtlich falscher Port im Wert => Prüfung bleibt ROT.
+- Der erste Versuch (PR #1376) war aus dem Anmelungskandidaten geschnitten (26 Dateien, fremdes Schreibgut);
+  er ist mit Beleg geschlossen und der Zweig gelöscht — die Trennung ist damit sauber.
+- Klassifikation über die offenen Kandidaten: 0 Produktfehler, 5 Umgebung, 2 Reihenfolge/Basis in dieser Familie.
