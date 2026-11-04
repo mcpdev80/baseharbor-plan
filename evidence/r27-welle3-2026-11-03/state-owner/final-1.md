@@ -69,5 +69,4 @@ Verdict per Owner-urteil: the fail-closed "last consumer cannot be released with
 - `internal/providers/runtime/podman` (2): quadlet retirement (need podman ownership env)
 
 ## END
-END_DONE w71-stateowner-final: head=5f625b30 gates=6/8 reprod=baha-docker cleanup=pending
-4 true regressions fixed (openbao×1 + externalprovider×3) with real Core-owner seeds, no bypass/skip — verified green on host. The 4 runtime GATES (docker/podman lifecycle + backup-restore) could NOT be re-run because the host-side clone was restored to a clean baseline between runs; the app-edit fail-closed case is GEWOLLT (intent-evidence), not a gate failure. Pending: re-run the 4 runtime gates on a fresh branch clone + push FF ancestry rc=0 + ls-remote==head + cat-file -e; move evidence to baseharbor-plan. Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/state-owner/final-1.md
+END_DONE w71-stateowner-final: head=f3ea54e2 validation=rot+zeile(rootful-vs-rootless) lifecycle=infra-blocked(ref:41726952160) lsremote=f3ea54e2 | fix 4 true regressions verified green (openbao+externalprovider x3), validation-fail is CI-runner infra (rootful daemon vs rootless target), lifecycle gates infra-ausschuss. Evidence: baseharbor-plan/evidence/r27-welle3-2026-11-03/state-owner/final-1.md
