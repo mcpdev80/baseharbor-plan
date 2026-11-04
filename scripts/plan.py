@@ -647,8 +647,12 @@ def view_state(vault, task):
 def card_line(vault, task):
     """Only the derived view tag changes; preserve the canonical status and completion."""
     match = CARD.match(task["body"].split("\n")[task["card_line"]])
-    tags = [tag for tag in match.group("tags").split() if not tag.startswith(("#status/", "#view/", "#area/", "#kind/", "#board/"))]
-    tags.append("#status/" + task["status"])
+    # Only migrated native-Base notes may regenerate their status tags.
+    # Preserve invalid legacy tags so validation can still reject conflicts.
+    remove_tags = ("#status/", "#view/", "#area/", "#kind/", "#board/") if "kanban_status" in task["meta"] else ("#view/", "#area/", "#kind/", "#board/")
+    tags = [tag for tag in match.group("tags").split() if not tag.startswith(remove_tags)]
+    if "kanban_status" in task["meta"]:
+        tags.append("#status/" + task["status"])
     tags.append("#view/" + view_state(vault, task))
     # CardBoard's Completed column only admits tasks matching a non-completed
     # column. Retain a routing match for closed cards without a second status.
