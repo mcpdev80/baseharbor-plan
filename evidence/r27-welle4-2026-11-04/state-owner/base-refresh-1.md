@@ -50,18 +50,20 @@ Date: 2026-11-04
 ## STEP 3 — honest rest-classification (control pair: develop 2ea2c6f1 vs candidate bc7d55fc)
 
 ### Spot 1 — TestIdentityTenantResolverUsesIdentityScopedRLS (internal/database)
-- Hosted CI: run 41864610432, job 126695587191 (PR · Validation · go-unit-tests), sha 95533a788d
+- Hosted CI run A (41864610432, job 126695587191, go-unit-tests, sha 95533a788d):
   - Verbatim failing line: `identity_tenant_resolver_integration_test.go:101: failed to connect to user=baseharbor_resolver_ci database=baseharbor_test: 127.0.0.1:5432: dial tcp 127.0.0.1:5432: connect: connection refused`
+- Hosted CI run B (41896386216, job 126807027854, go-unit-tests, sha 035d720f): `ok internal/database` — the test now PASSES on the refreshed head.
 - Locally on candidate bc7d55fc: `identity_tenant_resolver_integration_test.go:18: testumgebung nicht hergestellt: BASEHARBOR_TEST_DATABASE_URL fehlt` (no live PG on this host)
 - Locally on develop 2ea2c6f1 (control): IDENTICAL failing line at identity_tenant_resolver_integration_test.go:18, same message
-- Class: C (base-reihenfolge / environment) — integration test that needs a live PostgreSQL; the DB pairing is now green on develop, these gate on the runner DSN. Not green, not red — environment-gated.
+- Class: C (base-reihenfolge / environment) — integration test that needs a live PostgreSQL; gated on the runner DSN. RED on old head (95533a788d), GREEN on refreshed head (035d720f) once the w111 fixture materialized runtime/openbao-admin.env and the DSN gate resolved.
 
 ### Spot 2 — TestTenantRLSIsolation (internal/database)
-- Hosted CI: run 41864610432, job 126695587191, sha 95533a788d
+- Hosted CI run A (41864610432, job 126695587191, sha 95533a788d):
   - Verbatim failing line: `tenant_integration_test.go:87: failed to connect to user=baseharbor_runtime_ci database=baseharbor_test: 127.0.0.1:5432: dial tcp 127.0.0.1:5432: connect: connection refused`
+- Hosted CI run B (41896386216, sha 035d720f): `ok internal/database` — now PASSES.
 - Locally candidate: `tenant_integration_test.go:18: testumgebung nicht hergestellt: BASEHARBOR_TEST_DATABASE_URL fehlt`
 - Locally develop 2ea2c6f1 (control): identical failing line at tenant_integration_test.go:18, same message
-- Class: C (base-reihenfolge / environment) — identical to Spot 1, same DSN gate.
+- Class: C (base-reihenfolge / environment) — identical to Spot 1. RED on old head, GREEN on refreshed head.
 
 ### Spot 3 — TestAppEditCommandCompleteProviderEditRunsRealLifecycle (cmd/baha)
 - Hosted CI: run 41864610432, job 126695587191 (go-unit-tests) AND job 126695587228 (cli-package-tests), sha 95533a788d
@@ -117,6 +119,12 @@ Date: 2026-11-04
   - wizard-app-edit-tests (job 126695587393): failure (Spot3 app-edit)
   - PR Selected Checks (job 126695589649): failure (Spot3 app-edit)
   - all other jobs: success or skipped. go-build/go-vet/source-contracts/deployment-package-tests/openbao-package-tests: success.
+- Hosted CI run B watched to terminal (run 41896386216, sha 035d720f, triggered by my push of the base refresh):
+  - go-unit-tests (job 126807027854): `ok internal/database` — Spots 1+2 now GREEN; 1 FAIL only = Spot3 (app-edit):
+    - `app_edit_apply_test.go:1094: ... application preflight failed: managed service PKI preflight: authenticate OpenBao manager for service PKI: OpenBao AppRole login failed: ... service "openbao-admin" is not running`
+  - cli-package-tests, wizard-app-edit-tests, PR Selected Checks: failure (all Spot3 app-edit, class B, OpenBao service not running)
+  - All other jobs success/skipped. go-build, go-vet, source-contracts, deployment-package-tests, openbao-package-tests: success.
+  - The only remaining red spot (Spot3) fails because the managed OpenBao vault service (`openbao-admin` compose service) is not running — a test-setup state the w111 fixture (runtime/openbao-admin.env) prepared the credentials for but cannot start. This is the Owner-owned Prüfaufbau change (class B), not a .github/CI-file fix and not a product regression.
 - Local: `go build ./...` RC=0; two DB integration tests fail with identical DSN-gate message on both candidate and develop (control pair confirmed).
 
 ## END

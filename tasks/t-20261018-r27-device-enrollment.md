@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w132)
-kanban_lane: review
+owner: coord-welle4 (Lane w143)
+kanban_lane: active
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w132) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w143) · **Priority:** normal  
     **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle4 (Lane w132)  
+**Owner:** coord-welle4 (Lane w143)  
 **Priority:** normal  
 **PRs:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -141,3 +141,12 @@ ls-remote==head.
   jetzt folgt sie der Stufenliste (mit Namensprüfung der höchsten Stufe); damit ist die drei Wochen alte
   Frage, warum sie auf der Hauptlinie grün und auf dem Zweig rot war, beantwortet.
 - Beweissammlung auf der Platte (rollback-1.md).
+
+## Review-Rueckruf 2026-11-04 (Codex review-1371b, verdict REJECT trotz zwölf grüner Prüfpunkte)
+- Die Prüfung ist qualitätsseitig richtig, aber drei Datenbankprüfungen überspringen ohne gesetzte Verbindung
+  noch statt zu fehl schlagen, und die Rückbaustufe wird namentlich festgeschrieben.
+- BERICHTIGUNG AN MIR SELBST: die Namensfestschreibung war mein eigener Auftragstext (höchste Stufe aus der
+  Liste UND zusätzlich der Name). Die Namensprüfung ist genau die Schwäche, die das Urteil beanstandet; sie
+  fliegt raus, die Regel ableitung bleibt.
+- Korrekturrunde = Lane w143 auf demselben Ast; die Überspringung in den drei Dateien gehört zu diesem Feld,
+  alle anderen Überspringstellen bleiben bei der eigenen Karte (PR #1378), damit keine Doppelung entsteht.
