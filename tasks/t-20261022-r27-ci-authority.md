@@ -70,3 +70,8 @@ The Owner retires the evidence and receipt approval chain. This task supplies on
 - head c0febdd1: B2+B3 GELIEFERT und gruen (fragment=uncertain; sync/close-fehler => rollback, kein event).
 - B1 (retention-budget vs. alle-aktiven-unter-cap) = OWNER-ENTSCHEIDUNG ausstehend (optionen 1/2/3 im
   schichtprotokoll 23:20). Lane released; nach entscheidung frische korrektur-lane.
+
+
+## Owner-Entscheid B1 2026-11-04 (PR #1354 comment 10:26Z): OPTION 1 genehmigt
+- 16-MB-budget UNVERAENDERT; im test aeltere gross-buchungen in terminal/finished state laufen lassen
+  (newest-per-id bleibt klein). Umsetzung: neue lane auf work/r27-ci-authority-ab, danach luna abschluss.
