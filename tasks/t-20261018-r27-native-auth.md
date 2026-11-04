@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: coord-welle4 (lane w125)
-kanban_lane: active
+owner: coord-welle4 (Lane w125)
+kanban_lane: review
 kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Credentials: reuse native authentication before prompting"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w125) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w125) · **Priority:** high  
     **PR:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
-**Owner:** coord-welle4 (lane w125)  
+**Owner:** coord-welle4 (Lane w125)  
 **Priority:** high  
 **PRs:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -110,3 +110,16 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 - Wertevertrag: der Broker bleibt bewusst wertfrei. Aus einem Treffer ohne Inhalt darf nirgends
   'authentifiziert' gefolgert werden; die einzige Wirkung ist, dass der Git-Lauf nicht-interaktiv startet, und
   Erfolg oder Misserfolg entscheidet Git selbst.
+
+## Handoff 2026-11-04 (Runde 4, Kandidatenstand, plattenfest nachgemessen)
+- Kandidat: PR #1362, Zweig work/r27-native-auth, Kopf 0a67092ca31 (ls-remote == Kopf), develop ist Vorfahr.
+- Die vier echten Git-Aufrufstellen tragen die Anbindung wirklich (von mir im Zweig nachgesehen):
+  cmd/baha/app_inspect_remote.go, cmd/baha/app_update.go, internal/development/workspace_git.go,
+  internal/orgconfig/source.go — je mit Rechnername-Gewinnung, Stummschaltung der interaktiven
+  Passwortabfrage und dem Wertaustausch-Helfer; der Tresorvermittler bleibt wertfrei (found-only).
+- Geänderte Dateien: 16, alle in cmd/baha und internal/{credential/native,development,orgconfig};
+  keine Workflow-, keine Migrationsdatei.
+- Lokales Bild der Lane: build, vet, gofmt und die vier Paketttests grün, Gegenprobe über den Aufrufer.
+- Der gemeldete Runner-Stand war ungenau: die Läufe sind nicht ausgefallen, sie stehen in der gemeinsamen
+  Warteschlange (mein Nachmesser: Läufe 17:20 / 17:23 / 17:30 wartend, ältere Läufe fertig). Das ist ein
+  Warten, kein Blocker; die Prüfung läuft trotzdem gegen den Kopf.

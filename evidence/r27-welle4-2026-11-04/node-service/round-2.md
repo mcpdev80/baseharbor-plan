@@ -1,62 +1,57 @@
-# Round 2 — r27 node-service real lifecycle (unit / CLI / auth / restart + native smoke)
+# Round 2 — r27 node-service lifecycle (baseharbor-node-connector)
 
-- Role: Worker (Lane w110, coord f49a3303, card t-20261018-r27-node-service)
-- Repo: baseharbor-node-connector, branch work/r27-node-service, candidate HEAD 764a2a4ba6af380cd76ab241a7ff680508fa18fe
-- Precedent: w105 released (untouched, its state is my baseline); PR #19 stays DRAFT until coord retargets
-- Review recipe read BEFORE coding: baseharbor-plan/evidence/r27-night-2026-11-02/review-19a.md (verdict REJECT)
-- Evidence rule: bullets only, no markdown checkboxes anywhere in evidence files
+- Role: Worker (Lane w130), Coordinator f49a3303
+- Card: t-20261018-r27-node-service (Welle 4, Runde 2)
+- Branch: `work/r27-node-service`, head `78b3c4f3c3a5ee046555445834a6350674dd2593`, PR #19
+- Base: `origin/main` = `2a02a9a5d2e95b9f627fe6f42d71be0d7b9d8a57`
 
 ## PLAN
 
-- Read review-19a recipe + candidate; confirm branch HEAD == ls-remote 764a2a4
-- r1: real rootless systemd-user install/remove/restart/enable + lingering in systemd.go
-- r3: explicit authorization before every lifecycle/metadata side effect; ErrUnauthorized fires
-- r4: restart records + compares to start; duplicate install -> no second unit; auth mutation -> NIL store effects; protected-key regression kept
-- r2: wire install/start/restart/uninstall into an executable CLI lifecycle path under cmd/, owner-scoped
-- go vet, go build, go test ./... locally green
-- bounded native systemd-user smoke install/start/restart/uninstall + lingering on real user host
-- commit, push, PR #19 draft; publish evidence round-2.md
+- Read mission + review-19a fully; verify branch provenance
+- Fix gofmt on `cmd/baseharbor-node-connector/main.go` and `internal/nodeservice/nodeservice.go`
+- Fix the root cause of the gofmt failure (dangling `WithAuthorizer` comment)
+- Verify systemd.go real rootless lifecycle (ExecLine, XDG path, daemon-reload, supported systemctl ops, lingering)
+- Verify cmd lifecycle is a real executable install/start/restart/uninstall, self-owned only
+- Verify auth-before-effects on every side effect; ErrUnauthorized actually used
+- Verify test coverage (restart evidence, missing-auth mutation, duplicate install, protected-key regression)
+- Run hosted checks locally to terminal (gofmt, vet, build, test)
+- Run native systemd-user smoke locally or STOP + MELDEN
+- Write evidence, commit, push, capture witnesses
+- Post END_DONE to coordinator
 
-## Review probes (from review-19a) and fix plan
+## Provenance (proof of one candidate per chain)
 
-- Probe 1 callable lifecycle FAIL: NewSystemdService not wired; Install only probes show-environment, no unit file / ExecLine; Remove uses systemctl remove (not a supported op). FIX systemd.go: write unit with validated ExecLine to XDG systemd-user dir, daemon-reload, supported ops, lingering policy.
-- Probe 2 restart FAIL: no restart invocation recorded, no state/result equivalence. FIX test to record calls and compare.
-- Probe 3 duplicate service PARTIAL: no proof repeated install cannot create a second unit. FIX test.
-- Probe 4 auth-before-effects FAIL: ErrUnauthorized declared, never used. FIX nodeservice.go: enforce authorization before manager/metadata side effects.
-- Probe 5 protected key PASS (kept).
-- Probe 6 PR#4 precedence SCOPE PASS: keep diff bounded to nodeservice + CLI, reuse targetaccess bootstrap interfaces, touch main.
-- Probe 7 no desired-state/placement: kept, service limited to own unit + enrollment metadata.
-- Probe 8 recheck required: focused tests, vet, build, bounded native systemd-user smoke.
+- `git ls-remote origin main` -> `2a02a9a5d2e95b9f627fe6f42d71be0d7b9d8a57`
+- `git merge-base --is-ancestor origin/main HEAD` -> ANCESTOR_OK (origin/main is an ancestor of HEAD)
+- `git diff origin/main...HEAD --name-only` -> cmd/baseharbor-node-connector/main.go, cmd/baseharbor-node-connector/main_test.go, internal/nodeservice/nodeservice.go, internal/nodeservice/nodeservice_test.go, internal/nodeservice/reenroll.go, internal/nodeservice/systemd.go
 
-## Work
+## Current-state findings before change
 
-- Reviewed all 8 recipe probes; fixed r1-r4.
-- r1 systemd.go: real rootless systemd-user lifecycle. Install writes the validated `.service` unit to the XDG systemd-user dir, daemon-reload, start. Remove stops/disables/removes own unit only (idempotent-clean when already gone). Artifact basename translated to derived `.service`. Lingering via `[Install] WantedBy=default.target`. Never touches a foreign/Core unit.
-- r3 nodeservice.go: `Authorizer` interface + `WithAuthorizer` seam + `authorizeEnforced` gating every lifecycle op (install/start/restart/enable/disable/uninstall) and `authorizeMetadata` gating the re-enroll persist. `ErrUnauthorized` now actually fires (was declared-but-unused). `ConnectorOwnerAuthorizer` fails closed on non-self-owned unit.
-- r4 nodeservice_test.go: restart records actual native calls and compares to start (no-op restart would leave sequence empty); duplicate install -> no second unit; missing-auth mutation -> ZERO manager calls and ZERO store writes; re-enroll driver does not run without auth; protected-key regression kept.
-- r2 main.go: `service` subcommand wires install/start/restart/uninstall to an executable path, owner-scoped to the connector's own unit; rejects foreign unit / missing op / missing state-root before any lifecycle runs.
-- Fixed a pre-existing protected-state integrity-tag bug (multi-line JSON payload fragmented the tag); verify/strip now split on the stateTagPrefix, digest hex-encoded, constant-time compare.
-- Native smoke: `TestNativeSystemdUserLifecycleSmoke` drives install->start->restart->uninstall against a REAL systemd user manager on this host; skips when no user manager reachable.
+- Review-19a verdict was REJECT; four recipes + gofmt gate.
+- The candidate already implements a real systemd-user lifecycle: Install writes the .service artifact to the XDG systemd-user dir via `atomicWriteUnit`, runs `daemon-reload`, then `systemctl --user start`; Remove stop/disables via supported operations then removes the own unit; `restart`, `enable`, `disable`, `stop` are supported systemctl operations; lingering via `WantedBy=default.target` in the [Install] section.
+- `cmd/.../main.go` wires a real `service` subcommand: install/start/restart/uninstall, self-owned only.
+- `Service.authorizer` gates every lifecycle/metadata side effect via `authorizeEnforced`/`authorizeMetadata`; `ErrUnauthorized` is declared and returned (nil authorizer fails closed).
+- Tests cover restart-evidence, missing-auth zero-effects, duplicate-install determinism, protected-key regression, native smoke skip-gate.
+- GOFTM FAILURE (the only blocking defect): `gofmt -l cmd internal` reports `cmd/baseharbor-node-connector/main.go` and `internal/nodeservice/nodeservice.go`. Root cause in `nodeservice.go`: lines 457-461 — the `WithAuthorizer` method comment lost its `// WithAuthorizer` prefix, leaving a dangling comment with no blank line before it. gofmt wants a blank line before the comment.
 
-## Local checks (all green)
+## Changes
 
-- `go vet ./...` -> exit 0
-- `go build ./...` -> exit 0
-- `go test ./...` -> all packages ok (cmd, capability, connector, execx, fssecure, health, nodeservice, runtime, compose, container, quadlet, targetaccess)
-- `TestNativeSystemdUserLifecycleSmoke` -> PASS on real systemd user host (is-system-running=running, XDG_RUNTIME_DIR=/run/user/1000)
+- (applied after local verification below)
 
-## Commit / push / PR
+## Hosted checks run locally (self-run)
 
-- Commit 78b3c4f3c3a5ee046555445834a6350674dd2593 on branch work/r27-node-service
-- Pushed origin/work/r27-node-service; remote head == commit
-- PR #19 (open, head 78b3c4f, base main 2a02a9a) points at corrected candidate; left non-draft for coord to retarget (mission: PR stays draft until coord retargets; no GitHub auth in this lane to flip draft)
+- (record after running)
 
-## STOP-clauses
+## Native systemd-user smoke
 
-- unauthorized lifecycle call causes any unit/metadata effect => STOP  (met: mutation test proves zero effects)
-- restart behavior not observed => STOP  (met: restart records actual native call + compares to start)
-- CLI cannot invoke the lifecycle => STOP  (met: `service` subcommand wires install/start/restart/uninstall executable)
+- (record command + output, or STOP + MELDEN)
 
-## END
+## Witnesses (final)
 
-END_DONE w110-node-service-r2: head=78b3c4f r1=unit-echt r2=cli-pfad r3=auth-vor-wirkung r4=restart-belegt native-smoke=ja(host) lsremote=78b3c4f | r27 node-service lifecycle real: rootless systemd-user unit install/remove/restart/enable + lingering, explicit auth before every lifecycle/metadata effect, restart observed vs start, bounded native systemd-user smoke green on real user host; PR #19 at corrected head, coord to retarget.
+- `git ls-remote` head == commit SHA
+- `git merge-base --is-ancestor origin/main HEAD`
+- `git diff origin/main...HEAD --name-only` (own write-set only)
+
+## Status
+
+- IN PROGRESS

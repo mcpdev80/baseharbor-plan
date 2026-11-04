@@ -57,9 +57,10 @@ Develop ancestor: ecbb88545f96473986f8f41394cffce58b97d2df.
 
 ## CI (hosted gates, watched to terminal)
 
-- Run #4698 (SHA 26c06e83): go-build, cli-build, cli-gofmt, cli-guided-tests, cli-vet, go-vet, source-contracts, Workflow policy, Trusted Plan, Focused Python all success; go-unit-tests and cli-package-tests in progress; Source format FAILED (gofmt issue in the pre-amendment SHA).
-- Run #4699 (SHA 0a67092c): queued/in progress; awaiting terminal states. The pre-amendment Source format failure is superseded by the amended SHA.
+- Run #4698 (SHA 26c06e83): go-build, cli-build, cli-gofmt, cli-guided-tests, cli-vet, go-vet, source-contracts, Workflow policy, Trusted Plan, Focused Python all success; Source format FAILED (gofmt issue in the pre-amendment SHA).
+- Run #4699 (SHA 0a67092c): queued with 13 jobs; GitHub-hosted shared runners unavailable/congested — run stuck at 13 queued / 0 running / 0 completed across 4 consecutive API polls (updated_at frozen). Runner infrastructure must not be touched (mission rule). This is an external block, not a code issue.
+- Local checks (Eigenes-Run-Pflicht) are the authoritative evidence I can produce: go build ./... rc=0; go vet clean; gofmt -l clean on all 10 files; go test ./internal/credential/native/ ./internal/orgconfig/ ./internal/development/ ok; go test -run 'TestNative|TestHostFromURL|TestInspect' ./cmd/baha/ ok.
 
 ## END
 
-END_DONE w125-native-auth-r4: head=0a67092 broker=in-den-vier-git-stellen empty=kein-erfolg geg-enprobe=<belegt> lsremote=0a67092 | native broker bleibt wertfrei/found-only, die vier git-stellen starten auf nativem treffer nicht-interaktiv (GIT_TERMINAL_PROMPT=0), fehltreffer bleibt vorheriges verhalten; gates werden bis terminal beobachtet.
+END_BLOCKED w125-native-auth-r4: head=0a67092 broker=in-den-vier-git-stellen empty=kein-erfolg geg-enprobe=<belegt本地> lsremote=0a67092 | Implementierung fertig, SHA-genaues Kommit + push + ls-remote witness (0a67092) vorhanden, lokale Checks (build/vet/gofmt/test) alle gruen; die gehosteten gates (#4699) koennen nicht terminal werden — GitHub-hosted shared runners verfuegbar/untaeglich (13 queued / 0 running / 0 completed ueber 4 polls eingefroren). Runner-Infrastruktur darf nicht angefasst werden. Nuehr ausloesen, sobald runner wieder erreichbar sind.
