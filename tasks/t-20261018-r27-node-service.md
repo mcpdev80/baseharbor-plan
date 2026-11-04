@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle4 (Lane w141)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Connector: reconcile enrollment service and restart behavior"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -19,18 +19,18 @@ aliases: []
 early: false
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md"]
 ---
 
-- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [ ] t-20261018-r27-node-service · Connector: reconcile enrollment service and restart behavior #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w141) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#19](https://github.com/mcpdev80/baseharbor-node-connector/pull/19)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-4.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-service/round-5.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
@@ -135,3 +135,10 @@ Round 4 (lane w136): --self-owned-unit ExecStart now executable + unit enabled a
 - Korrekturrunde = Lane w141 auf demselben Zweig: Bindung an den kanonischen Namensraum bzw. die erwartete
   Einheitsidentität mit geschlossener Abweisung, Aktivierungsfehler muss als Einrichtungsfehler zurückkommen,
   und die Rot-auf-dem-kranken-Stand-Pflicht wird auf fcca9c4a nachgerechnet.
+
+## Handoff 2026-11-04 (Round 5, Lane w141)
+- Candidate: PR #19, branch `work/r27-node-service`, head `9913ce4770363cead7cc95726816acd4269c0358`; `ls-remote` matches and `origin/main` is an ancestor. PR remains OPEN/READY; no merge or PR status change.
+- Replaced substring ownership matching with exact canonical identity; five counterexamples cover foreign prefix, suffix, marker collision, and conflicting identity. Enable failure now returns as a typed setup error; the test checks the remaining unit file and disabled state.
+- New tests failed on `fcca9c4a295625062827343263de5b2ddaff4d62` and passed on this candidate. `go test ./... -count=1`, `go vet ./...`, `go build ./...`, `gofmt -l cmd internal` (empty), and `git diff --check` passed.
+- Hosted runs reached terminal: Quality `41900064640` SUCCESS / job `126819771900` PASS; Source Conformance `41900064793` SUCCESS / job `126819771878` PASS. Native enrollment and encrypted transport were terminal SKIPPED, not counted as green.
+- Full red-on-old output, run evidence, diff, and repo-rule compliance: `evidence/r27-welle4-2026-11-04/node-service/round-5.md`.

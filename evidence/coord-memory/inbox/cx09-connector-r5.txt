@@ -1,0 +1,1 @@
+END_DONE w141-connector-r5: head=9913ce4770363cead7cc95726816acd4269c0358 ownership=exact-identity+5-cases activation=typed-setup-error red-on-old=fcca9c4a proven local-tests=pass hosted=41900064640,41900064793 terminal ls-remote=head ancestor=origin/main evidence=evidence/r27-welle4-2026-11-04/node-service/round-5.md
