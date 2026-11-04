@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-welle3 (lane w35)
+kanban_status: active
+kanban_title: "Tests: start all greenfield stacks on native runtimes"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []

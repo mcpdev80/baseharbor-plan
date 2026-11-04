@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-913 implementation)"
+kanban_status: closed
+kanban_title: "Wizard: offer compatible providers in the same view"
 depends_on: [core-910, core-912]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#966]

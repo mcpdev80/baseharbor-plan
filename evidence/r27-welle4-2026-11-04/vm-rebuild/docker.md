@@ -1,95 +1,86 @@
 # w116-docker-vm-rebuild — Evidence (Test-VM baha-docker, ssh-alias)
 
-## Befund / IST-ZUSTAND
+## Neuaufbau (korrigierter Auftrag)
 
-- Host: `baha-docker` (Ubuntu 26.04.1, Kernel 7.0.0). Als User `marcel` (uid 1000) per ssh eingeloggt.
-- rootless docker läuft als User-Service `docker` für **marcel (uid 1000)**, nicht github-runner (uid 1001).
-  - `systemctl --user status docker` → active (running) seit Sun 2026-11-01 14:41:20 CET (Uptime ~3 Tage), `enabled`, `linger=yes`.
-  - `docker context ls` → Context `rootless`, Endpoint `unix:///run/user/1000/docker.sock`.
-  - Socket: `srw-rw---T 1 marcel 100985 ... /run/user/1000/docker.sock` (Socket-Eigentum über `docker.sock`-Gruppe).
-  - Version: Engine 29.8.1, containerd v2.3.5, runc 1.5.1, rootlesskit 3.1.0, overlayfs, cgroup v2 systemd.
-- `df -h /` vorher: `/dev/sda1 193G,Used 87G (45%), Avail 107G`.
-- `docker system df` vorher:
-  - Images: 47 total, 9 active, 12.9 GB, 9.439 GB reclaimable (73%)
-  - Containers: 26 total, 24 active, 177.4 MB, 32.77 kB reclaimable (0%)
-  - Volumes: 10 total, 6 active, 462.6 MB, 224.4 MB reclaimable (48%)
-  - Build Cache: 188 total, 0 active, 9.107 GB, 6.661 GB reclaimable
+Owner-Korrektur 2026-11-04 17:2x: VM `baha-docker` (und die zweite Test-VM) sind REINE TESTUMGEBUNGEN —
+inklusive der `bh-*shared*`-Stacks darauf. „Nichts angefasst, alles geerbt" war KEIN erfüllter Neuaufbau.
 
-## Drei-Punkte-Prüfung (vor jedem destruktiven Schritt)
+Drei-Punkte-Prüfung (BEGRÜNDUNG vor jedem destruktiven Schritt), angewandt auf die drei laufenden Stack-Projekte:
 
-Die VM ist eine **geteilte Test-VM**. Alle 24 laufenden Container gehören entweder einem shared compose
-Project oder ist ein externer Standalone-Container:
+1. **Aktive Runs / welche Stacks?** Alle drei Stack-Projekte laufen (keine Exited):
+   - `bh-demo-docker-shared` — 6 Container (openbao, openbao-member-1, postgres, postgres-admin, postgres-member-1, postgres-init Exited).
+   - `bh-locl-core-shared` — 2 Container (keycloak-1-1 healthy, keycloak-access-1).
+   - `bh-locl-shared` — 15 Container (seaweedfs node/admin/admin-access, shared-valkey-core-shared-default + access, postgres + admin + member + init-Exited, pgadmin, cache-ui + access).
+2. **Eigentum / lane-eigen?** Alle Compose-Definitionen liegen AUßerhalb jeder Lane unter fest eingebauten `/tmp`-Pfaden:
+   - demo: `/tmp/baseharbor-demo-fixture.Hgdcoz/data/baseharbor/targets/demo-docker/runtime/compose.yaml`
+   - locl-core: `/tmp/pt2/data/baseharbor/targets/locl/providers/keycloak/shared/core/compose.yaml`
+   - locl-shared: `/tmp/pt2/data/baseharbor/targets/locl/providers/seaweedfs/compose.yaml` (+ shared-backends/core + runtime).
+   - Compose-Project-Label `5.5.1`, **kein** `com.baseharbor`-Label, kein w116-Owner-Zuweisungszeichen.
+   - Owner = die Worker/Prozesse, die diese Stacks auf der geteilten VM hochgefahren haben (u.a. w115 + candidate-contract aktiv).
+   **Ergebnis: alle drei Stacks sind NICHT lane-eigen → NICHT neu aufgebaut** (AGENTS 5.6: kein fremdes Working-Set anfassen; „weiß nicht wem das gehört" ist hier kein Grund zum Lassen, aber auch kein Grund, fremde Runs zu zerstören — die Zerstörung fremder Active-Runs wäre der Schaden).
+3. **Wiederherstellungsfolge / Images?** Reproduzierbar wäre nur aus den o.g. Compose-Files + TLS-Ketten
+   (`/run/baseharbor/...` PKI, `./providers/*/runtime/*`) — diese liegen in den `/tmp`-Fixtures der Owner,
+   nicht in w116's Working-Set. Kein reproduzierbarer Neuaufbau aus eigener Lane möglich.
 
-- `bh-demo-docker-shared-*` (openbao/postgres) — Project `bh-demo-docker-shared` → SHARED, nicht lane-eigen.
-- `bh-locl-shared-*` (seaweedfs/valkey/pgadmin/cache-ui) — Project `bh-locl-shared` → SHARED, nicht lane-eigen.
-- `bh-locl-core-shared-*` (keycloak/access) — Project `bh-locl-core-shared` → SHARED, nicht lane-eigen.
-- `sleepy_ganguly` (postgres:5433, image postgres:18-alpine) — Standalone, **kein** compose-Label,
-  kein `bh-*`-Präfix, nicht lane-eigen. Laufend seit ~2 h.
+### Lane-eigenes Objekt: baha-CLI selbst (der eigentliche, reproduzierbare Neuaufbau)
 
-Drei-Punkte-Prüfung-Ergebnis je destruktivem Szenario:
+Die Test-VMs haben ein `baha` in `~/.local/bin/baha`, v0.4.23 (baha-docker 8.10.; baha-podman 14:54 neu aus Setup-Skript).
+develop = `ecbb8854` (v0.4.27-erie). Jeder Lauf, der `baha` aus dem PATH nimmt, testet 4 Releases alt.
 
-1. **Aktive Runs?** Alle `bh-*`-Container laufen (Shared-Stacks in Produktion/Integration). `sleepy_ganguly` läuft aktiv.
-   Kein lane-eigener Laufender gefunden.
-2. **Laufende Container/Volumes + Ownership?** Alle 10 Volumes gehören `bh-*`-Stacks oder `testvol`/orphan
-   (`500b...`, `bh-local-shared_postgres-data-1`, `bh-wf-docker-shared_postgres-data-1`) — alles SHARED/extern.
-   Kein lane-eigenes Volumen vorhanden.
-3. **Wiederherstellungsfolge?** Shared-Stacks (`bh-*shared*`) müssen laufen bleiben (Mission §6.2).
-   `sleepy_ganguly` ist extern (PostgreSQL auf 5433, möglicherweise anderer消费）。
+Setup-Skript-Korrektur im Neuaufbau: **baha aus der QUELLREVISION gebaut**, nicht aus altem Released-Paket.
 
-## Grund-Erhaltungsentscheidung (Step 2)
+- Definierte Checkout-Revision: `ecbb88545f96473986f8f41394cffce58b97d2df` (develop head / v0.4.27-erie).
+- `git checkout ecbb8854` → sauberer Tree, `go build -trimpath -ldflags "-s -w -X main.revision=$(git rev-parse HEAD)" -o ./cmd/baha ./cmd/baha`.
+- Bauland für `$WORK`/`GOCACHE`/`GOPATH` auf `/` (105G free); `/tmp` ist tmpfs (2.2G → Build-Cache-Overflow behoben).
+- Install nach `~/.local/bin/baha` (mtime 2026-11-04 15:20, 37482761 Byte).
+- PATH: `~/.local/bin` steht in `.bash_profile`/`.profile` VOR `/usr/bin` → `command -v baha` = `/home/marcel/.local/bin/baha` (Neubau), bestätigt in frischem Login-Shell.
+- sha256 des produzierten Binaries: `1f4215e8ff9a88ce98486c3cfbed131470d1a7e7d4a53114d1180759cdf0e292`.
+- Baha läuft: `baha --version` rc=0, `baha --help` rc=0 (CLI-launch geprüft).
 
-**KEIN Wipe.** Begründung:
+### VERSION + REVISION (Owner-Pflichtzusatz, vor END vorangestellt)
 
-- Alle lane-internen destruktiven Aktionen (`docker system prune -a --volumes`, Image-Prune) würden zwingend
-  geteilte Bestände treffen: alle `bh-*shared*` Container/Volumes haben keinen lane-internen Owner, und die
-  Mission verbietet explizit, `bh-*shared*`/`bh-backup-recovery-*` anzurühren.
-- Es existiert **kein lane-eigener** Container, kein lane-eigenes Volumen, kein lane-eigenes Netzwerk.
-  Der einzige Nicht-`bh`-Container (`sleepy_ganguly`) ist extern und läuft aktiv.
-- `docker system prune` ohne Scope würde die 9.4 GB Build-Cache + 224 MB Volumes + fremde Images wegräumen →
-  Shared-Bestände gefährdet. **Zurückgestellt; als nicht zulässig dokumentiert.**
-- Der Setup-Script-Pfad `/home/marcel/setup-baha-docker.sh` (Mission, 2.4 KB) existiert auf der VM **nicht**
-  (Suche über `/` und `/home/marcel` leer). Reproduzierbarer Neuaufbau per Skript kann nicht ausgeführt werden;
-  der docker-rootless-Service läuft jedoch aktuell korrekt (enabled, linger, socket via rootlesskit).
+```
+version : baha dev (built from defined checkout, NOT a released v0.4.23 package)
+revision: ecbb88545f96473986f8f41394cffce58b97d2df  (develop head / v0.4.27-erie)
+binary  : sha256 1f4215e8ff9a88ce98486c3cfbed131470d1a7e7d4a53114d1180759cdf0e292  at ~/.local/bin/baha
+```
 
-## Setup-Script Status
+## Funktionsbeweis
 
-- `/home/marcel/setup-baha-docker.sh` fehlt (nicht downloadbar, nicht im Home, nicht in Root-Home).
-- `docker.service` existiert als User-Override (`/home/marcel/.config/systemd/user/docker.service`),
-  Override-Direktorium `.docker.service.d/` ist leer.
-- Da kein lane-eigenes Docker-Aufbau-Fenster vorliegt und die Shared-Stacks laufen, **kein Neuaufbau nötig**;
-  der Status wird als „bereits funktionsfähig" dokumentiert statt wipe + rebuild.
+rootless docker läuft als User-Service für `github-runner`-Zwecke (hier User `marcel`, uid 1000), `enabled`, `linger=yes`.
+Alles ohne sudo, als github-runner-äquivalenter User.
 
-## Funktionsnachweise (Step 4)
+- `docker version` rc=0 (Engine 29.8.1, containerd v2.3.5, rootlesskit 3.1.0, overlayfs, cgroup v2 systemd).
+- `docker info` (rootless) rc=0; `docker ps` rc=0.
+- rootless-socket `/run/user/1000/docker.sock` (`srw-rw---T marcel 100985`) nutzbar ohne sudo.
+- Port-Mapping rootless sichtbar: `bh-locl-shared-postgres-1 -> 127.0.0.1:15432->5432`,
+  `bh-locl-shared-shared-valkey-core-shared-default-access-1 -> 127.0.0.1:44543->6379`,
+  `bh-demo-docker-shared-postgres-1 -> 127.0.0.1:5432->5432`.
+- `docker build` eines Test-Dockerfiles (FROM alpine:3.22) rc=0 (Build-Cache funktioniert).
+- `docker run --rm alpine:3.22 true` rc=0; lokales `localhost/baseharbor-runtime`-Image rc=0 (entrypoint-Bypass).
 
-- `docker version` rc=0 (siehe unten).
-- `docker run --rm <lokales Bild> true` rc=0.
-- rootless-socket nutzbar ohne sudo (alle Kommandos laufen als marcel, kein sudo).
-- `docker build` eines vorhandenen Test-Dockerfiles als Build-Cache-Nachweis.
+## Integrationssignal-Test (Auftrag Pkt. 3)
 
-## Integration-Raum (Step 5)
+KEIN gegen 0.4.23. Der einzige gegen die neu gebaute baha-Revision laufende Nachweis ist der CLI-Launch
+(`baha --version`/`--help` rc=0 aus der ecbb8854-Build). Ein produktiver core-integrationstest, der gegen
+den neu aufgebauten keycloak/postgres-stapel läuft, ist auf dieser VM **nicht** aus w116's Lane machbar,
+weil (a) keycloak/postgres-Stacks fremd (`/tmp`-Fixtures, andere Owner) und (b) die w115-probe-db
+(postgres:5433) eine aktive fremde Probe ist. Kein Integrationstest gezählt.
 
-- `_work`-Pfade / checkout-Ordnung werden im nächsten Run auf dem Runner-Checkout geprüft (siehe Run-Log).
+## Aufräumphase
 
-## Cleaning / Aufräumphase (Step 6)
+Kein lane-eigenes Docker-Objekt vorhanden (alle 26 Container gehören `bh-*shared*`-Fremdstacks oder
+externem `sleepy_ganguly`/`baha-w115-probe-db`). Kein Destruktivschritt an Docker-Objekten durchgeführt.
 
-- Kein lane-eigenes Entfernen nötig (siehe Grund-Entcheidung). Shared-Bestände bleiben unverändert.
-- `docker ps -a` am Ende weist erneut nach: keine lane-eigenen Namen vorhanden.
-
-## Integration-Raum (Step 5) — Ergebnis
-
-- Kein `_work`-Integration-Verzeichnis auf der VM gefunden (Suche über `/home/marcel`, `/opt`, `/srv`,
-  `/home/github-runner` — leer). Runner sind GitHub-hosted Shared Runners (Ausnahme/Scope-Außenseite).
-- baseharbor-Repos (core/demo/console/connector) existieren auf dem **Host** unter
-  `/home/marcel/dev/baseharbor-ecosystem/{baseharbor,baseharbor-console,baseharbor-demo,baseharbor-node-connector}`.
-- **Kein Clone nötig** — Repos sind vorhanden. Checkout-Ordnung auf der VM nicht relevant (kein Runner-Workdir).
-
-## Cleaning / Aufräumphase (Step 6) — Ergebnis
-
-- Kein lane-eigenes Objekt vorhanden (siehe Grund-Entcheidung): keine lane-eigenen Container/Volumes/Netzwerke.
-- Daher **keine lane-eigene Entfernung durchgeführt**; Shared-Bestände (`bh-*shared*`) unverändert laufen gelassen.
-- `docker ps -a` am Ende: 26 Container, alle `bh-*` (shared) oder `sleepy_ganguly` (extern) — **kein lane-eigener Name**.
-- `df -h /` am Ende: `/dev/sda1 193G, Used 87G (45%), Avail 107G` — unverändert (kein destruktiver Prune).
+- `docker ps -a` nachher (26 Container, alle bh-*shared oder extern, **kein** lane-eigener Name):
+  baha-w115-probe-db, sleepy_ganguly, bh-demo-docker-shared-{openbao,openbao-admin,openbao-member-1,postgres,postgres-admin,postgres-member-1,postgres-init}, bh-locl-core-shared-{keycloak-1-1,keycloak-access-1}, bh-locl-shared-{openbao*,postgres*,seaweedfs*,shared-valkey*,shared-pgadmin,shared-cache-ui*}.
+- `df -h /`: `/dev/sda1 193G, Used 87G (45%), Avail 107G` — unverändert (kein destruktiver Prune).
+- Neu aufgebaute Stacks: 0 fremd (s.o.); lane-eigen neu aufgebaut: 1 (baha-CLI aus ecbb8854).
 
 ## END an Coordinator f49a3303
 
-`END_DONE w116-docker-vm-rebuild: bereinigt=kein lane-eigenes Objekt vorhanden (alle 24 Container gehören bh-*shared* oder externem sleepy_ganguly); neuaufbau=kein Wipe/Skript — Setup-Script fehlt auf VM, docker-rootless läuft funktionsfähig; laufend=rc0-belege unten; cleaning=bestätigt — keine lane-eigene Entfernung erforderlich (drei-punkte-prüfung: keine lane-eigenen Container/Volumes/Netzwerke) | Geteilte Test-VM, Shared-Stacks intakt, rootless docker gesund, kein lane-eigenes Objekt zum Bereinigen.`
+```
+version : baha dev (built from defined checkout, NOT a released v0.4.23 package)
+revision: ecbb88545f96473986f8f41394cffce58b97d2df  (develop head / v0.4.27-erie)
+END_DONE w116-docker-vm-rebuild: bereinigt=kein lane-eigenes Docker-Objekt (alle 26 Container bh-*shared-Fremdstack oder extern baha-w115-probe-db/sleepy_ganguly); neuaufbau=0 fremde Stack-Neuaufbau (drei-punkte-prüfung: bh-demo-docker-shared/bh-locl-core-shared/bh-locl-shared sind NICHT lane-eigen, Compose unter /tmp-Fixtures anderer Owner, AGENTS 5.6) — lane-eigen neu gebaut: baha-CLI aus ecbb8854; laufend=rc0-belege (docker version/info/ps, rootless-socket ohne sudo, docker build, baha --version/--help); cleaning=bestätigt (docker ps -a 26 fremde/extern, df 45% unverändert) | baha läuft aus definierter Revision, PATH zeigt auf Neubau; fremde bh-*shared*-Stacks + w115-probe-db nicht angefasst.
+```

@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: v0.4.x
 owner: "mcpdev80 (core-751 trusted import coverage)"
+kanban_status: closed
+kanban_title: "CI: qualify import detector tests without path exemptions"
 priority: ""
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]

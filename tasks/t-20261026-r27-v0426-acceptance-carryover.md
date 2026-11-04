@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: coord-welle3 (lane w34)
+kanban_status: closed
+kanban_title: Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor#1089]

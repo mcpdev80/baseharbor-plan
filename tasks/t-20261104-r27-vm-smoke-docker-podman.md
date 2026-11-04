@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
+kanban_status: planned
+kanban_title: "Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]

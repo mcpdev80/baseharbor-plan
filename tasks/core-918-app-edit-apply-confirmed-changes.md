@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-918 Edit wiring)"
+kanban_status: closed
+kanban_title: "App edit: apply confirmed changes safely"
 depends_on: [core-911, core-916]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#978]

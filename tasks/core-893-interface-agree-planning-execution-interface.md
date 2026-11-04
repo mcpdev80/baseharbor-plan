@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: mcpdev80 (session 1)
+kanban_status: closed
+kanban_title: "CI: agree the planning/execution interface for runner isolation"
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#930"]

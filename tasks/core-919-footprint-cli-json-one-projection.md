@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-919)"
+kanban_status: closed
+kanban_title: "Footprint: serve CLI and JSON from one projection"
 depends_on: [core-910, core-914]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#965"]

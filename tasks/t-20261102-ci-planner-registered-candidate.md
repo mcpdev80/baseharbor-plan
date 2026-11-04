@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_status: closed
+kanban_title: "pr-planner: exact reviewed candidate for PR #1272 registration-mixed fix"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

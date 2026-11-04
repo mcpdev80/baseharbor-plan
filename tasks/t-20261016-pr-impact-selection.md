@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: mcpdev80 (session 2)
+kanban_status: closed
+kanban_title: "CI: correct PR impact selection and unresolved coverage"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

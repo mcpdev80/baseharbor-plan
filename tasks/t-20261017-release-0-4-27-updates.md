@@ -7,6 +7,8 @@ version: v0.4.27
 release_stage: updates
 parent: v0.4.27
 owner: "o267-base (coordinator, owner-authorized)"
+kanban_status: closed
+kanban_title: "v0.4.27 · Release start: integrate Renovate updates before feature work"
 priority: high
 depends_on: [t-20261017-release-0-4-27-cleanup]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

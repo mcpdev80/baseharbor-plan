@@ -6,6 +6,8 @@ release: v0.7.x
 version: v0.7.8
 parent: v0.7.x
 owner: ""
+kanban_status: planned
+kanban_title: "Delivery: support delegated deployment and GitOps"
 depends_on: [core-310, t-20261017-release-0-7-8-updates, t-20261018-r27-delegated-handoff, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
 prs: []

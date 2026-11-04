@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Flash (codeman w1-baseharbor)
+kanban_status: closed
+kanban_title: "Podman recovery: resolve existing Core/OpenBao state without Compose assumptions"
 priority: high
 depends_on: [t-20261017-podman-backup-guided-runtime, t-20261018-podman-recovery-bootstrap-cleanup]
 repos: [mcpdev80/baseharbor]

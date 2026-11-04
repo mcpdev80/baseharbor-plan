@@ -6,6 +6,8 @@ release: v0.4.31
 version: ""
 parent: v0.4.31
 owner: ""
+kanban_status: planned
+kanban_title: "Quality: staticcheck, govulncheck and risk-focused tests"
 depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

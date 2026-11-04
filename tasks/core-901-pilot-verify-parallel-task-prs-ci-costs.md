@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "mcpdev80 (core-901)"
+kanban_status: closed
+kanban_title: "Pilot: verify parallel task PRs and CI costs"
 depends_on: [core-893, core-895, core-896, core-900]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#958"]

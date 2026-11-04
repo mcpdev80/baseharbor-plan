@@ -6,6 +6,8 @@ release: v0.5.x
 version: v0.5.3
 parent: v0.5.x
 owner: ""
+kanban_status: planned
+kanban_title: "Lifecycle: secure upgrades, recovery and deprecation"
 depends_on: [core-297, core-298, t-20261017-release-0-5-3-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

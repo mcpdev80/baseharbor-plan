@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "coord-welle4 (lanes w116, w117)"
+kanban_status: active
+kanban_title: "Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-node-connector]

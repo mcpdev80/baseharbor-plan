@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: mcpdev80
+kanban_status: closed
+kanban_title: "Inspect: reconcile default instances unambiguously"
 depends_on: [core-893, core-895, core-896]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#935", "mcpdev80/baseharbor#953", "mcpdev80/baseharbor#955"]

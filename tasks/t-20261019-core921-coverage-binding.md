@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: ""
 owner: Flash (codeman w1-baseharbor)
+kanban_status: closed
+kanban_title: "CI: bind reviewed core-921 registration coverage"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

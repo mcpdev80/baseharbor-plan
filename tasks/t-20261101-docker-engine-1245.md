@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: worker-ornith-1245 (Ornith; session 35cdb02e)
+kanban_status: closed
+kanban_title: resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

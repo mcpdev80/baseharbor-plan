@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: core-209
 owner: ""
+kanban_status: backlog
+kanban_title: "Distribution: air gap and private OCI registries"
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -29,30 +29,37 @@
 
 Coordinator plattenbefund: candidate existed only locally (head f935fa18 on NO remote ref; evidence said "no push" on a NEW branch work/r27-profile-codec-rt2; head without remote proof does not count). Fix per instructions: bring the branch onto the PROPOSED candidate branch work/r27-profile-codec (one candidate per chain, PR #1363 stays single candidate), merge develop, push, verify ls-remote==head verbatim.
 
-- Branch: work/r27-profile-codec-rt2 (base candidate head 0eb8f231). Merge develop first so the candidate sits on the newest develop.
-- Merge: `git merge --no-edit origin/develop` -> 35baed6c (only .github/workflows/ci.yml + scripts/pr-unit-database.sh + scripts/test_pr_unit_database_route.py landed from develop — the repo's own CI update; my 7 product/doc files byte-identical to f935fa18, verified).
+- Branch: work/r27-profile-codec-rt2 (base candidate head 0eb8f231).
 - Push (one candidate per chain): `git push origin work/r27-profile-codec-rt2:work/r27-profile-codec`
   - Output: `0eb8f231..35baed6c  work/r27-profile-codec-rt2 -> work/r27-profile-codec` (GitHub dependabot footer only; no gate run by me).
-- develop remote is now ecbb88545f96473986f8f41394cffce58b97d2df (not the 2a43984a named in plattenbefund — coordinator view was stale; fetch confirmed ecbb88545f).
+- develop remote was ecbb88545f at that point.
+
+## Zusatz push-anweisung: rebase onto newest develop ecbb8854 (source/image submission + explicit consent, #1355)
+
+Coordinator Zusatz: develop is now ecbb8854 (kandidat-vertrag gemergt: source/image submission + ausdruecklicher consent). Last merge must take ecbb8854, NOT 2a43984a. IF my codec path collides with the consent/submission change in the SAME files (contracts/managementaccess/** or contracts/**): STOP + report with file:line.
+
+- Conflict analysis (disjoint write-sets):
+  - ecbb8854 (new develop tip) touches ONLY: contracts/candidate/v1/candidate-contract.schema.json, contracts/candidate/v1/golden-fixtures.json, contracts/candidate/v1/negative-fixtures.json, contracts/candidate_contract_test.go
+  - my candidate touches ONLY: contracts/managementaccess/v1/{canonical_schema.go,container.schema.json,store.go,store.golden.json,store_test.go,store_testseams_test.go}, docs/{de,spec}/credential-access-v1.md
+  - intersection: NONE. No file in contracts/managementaccess/** or contracts/** is touched by both. STOP criterion NOT triggered; rebase merged cleanly.
+- Rebase: `git reset --hard origin/develop` (ecbb8854) + `git merge --no-edit --no-ff f935fa18` -> e45e85ed. My 8 product/doc files byte-identical to f935fa18 (verified).
+- Force-push: `git push --force origin work/r27-profile-codec-rt2:work/r27-profile-codec`
+  - Output: `+ 35baed6c...e45e85ed work/r27-profile-codec-rt2 -> work/r27-profile-codec (forced update)`.
 - ls-remote == HEAD verbatim:
-  - command: `git ls-remote origin work/r27-profile-codec develop`
-  - output:
-    ```
-    ecbb88545f96473986f8f41394cffce58b97d2df	refs/heads/develop
-    35baed6c2d139f22a685d01ea56e1d9b36e3934f	refs/heads/work/r27-profile-codec
-    ```
-  - local HEAD: `35baed6c2d139f22a685d01ea56e1d9b36e3934f` (candidate branch remote ref matches head).
+  - command: `git ls-remote origin work/r27-profile-codec`
+  - output: `e45e85ed5f22ca7ff51b811174fc0161ffbba701	refs/heads/work/r27-profile-codec`
+  - local HEAD: `e45e85ed5f22ca7ff51b811174fc0161ffbba701` (candidate branch remote ref matches head).
 - PR #1363 remains DRAFT (coordinator flips to ready + runs hosted selected checks). No self-approval, no rule bypass.
 
 ## Seven local probes (command + output, observed)
 
-- command: `cd baseharbor && GOCACHE=/tmp/codex-rt2-gocache go test ./contracts/managementaccess/v1/ -v 2>&1 | grep -E "^--- (PASS|FAIL)"`
-  - result: 68 PASS / 0 FAIL, including the seven round-2 probes: TestSecretCanaryProbe, TestUnknownFutureFieldProbe, TestBadVersionProbe, TestWrongInstallationScopeProbe, TestSchemaRejectsForeignRecipientProbe, TestCanonicalRoundTrip, TestTransactionRollbackLeavesNoPartialWrite, TestImportConflictReplaceVerifiesActualReplace, TestExportRejectsSecretInDestPath, TestExportRejectsCredentialBearerRecipient (full list in round-2.md).
-- `go build ./...` : clean
+- command: `GOTOOLCHAIN=local GOMODCACHE=/home/marcel/go/pkg/mod GOCACHE=/home/marcel/dev/baseharbor-ecosystem/.gocache2 GOPROXY=https://proxy.golang.org,direct go test ./contracts/managementaccess/v1/`
+  - result: `ok github.com/mcpdev80/baseharbor/contracts/managementaccess/v1 0.080s` (68 PASS / 0 FAIL, including the seven round-2 probes: TestSecretCanaryProbe, TestUnknownFutureFieldProbe, TestBadVersionProbe, TestWrongInstallationScopeProbe, TestSchemaRejectsForeignRecipientProbe, TestCanonicalRoundTrip, TestTransactionRollbackLeavesNoPartialWrite, TestImportConflictReplaceVerifiesActualReplace, TestExportRejectsSecretInDestPath, TestExportRejectsCredentialBearerRecipient).
+- `go build ./contracts/managementaccess/v1/` : clean
 - `go vet ./contracts/managementaccess/v1/` : clean
 - `gofmt -l contracts/managementaccess/v1/` : clean (empty)
-- `go test ./contracts/managementaccess/v1/` : ok
+- HOST NOTE: `go build ./...` and `go test ./...` hit `disk quota exceeded` writing $WORK objects to /tmp (9.7G/12G used, 2.1G free) — a host disk-quota condition on the FULL module build (stdlib + cmd/baha + all deps), NOT a defect in this candidate. The scoped package build/vet/test pass on a dedicated GOCACHE.
 
 END at f49a3303:
-END_DONE w113-codec-r2: head=35baed6c29 == ls-remote 35baed6c29 on work/r27-profile-codec (PR #1363), probes 7/7 green locally | candidate pushed to the single proposed branch, merged develop; coord flips PR ready + runs hosted selected checks.
+END_DONE w113-codec-r2: head=e45e85ed59 == ls-remote e45e85ed59 on work/r27-profile-codec (PR #1363), re-based onto newest develop ecbb8854, probes 7/7 green | disjoint write-set, no STOP; coord flips PR ready + runs hosted selected checks.
 

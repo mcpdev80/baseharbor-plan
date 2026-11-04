@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_status: closed
+kanban_title: "fix(baha): emit podman/quadlet readiness checks for Podman-target doctor"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

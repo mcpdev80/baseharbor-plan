@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-915)"
+kanban_status: closed
+kanban_title: "Preview: explain provider consequences and partial results"
 depends_on: [core-910, t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#969]

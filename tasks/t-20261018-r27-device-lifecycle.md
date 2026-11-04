@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_status: planned
+kanban_title: "Devices: renew and revoke one workstation independently"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: []

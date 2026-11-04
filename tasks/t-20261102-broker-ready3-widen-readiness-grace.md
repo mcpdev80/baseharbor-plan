@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "worker-ornith"
+kanban_status: review
+kanban_title: Widen broker readiness grace to the established healthcheck pattern
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

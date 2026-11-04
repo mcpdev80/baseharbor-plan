@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: ""
+kanban_status: closed
+kanban_title: "Historical: Publication Failure-Injection Tests (Nachlauf PR 1213)"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

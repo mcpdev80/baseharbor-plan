@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: publish
 parent: v0.4.26
 owner: Codex (Owner-authorized v0.4.26 publication)
+kanban_status: closed
+kanban_title: "v0.4.26 · Release: promote the approved candidate and deliver exact tagging commands"
 priority: normal
 depends_on: [t-20261017-release-0-4-26-qualify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

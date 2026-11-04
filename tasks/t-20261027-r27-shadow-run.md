@@ -7,6 +7,8 @@ status: closed
 parent: v0.4.27
 priority: critical
 owner: coordinator-lane (r27 board-up)
+kanban_status: closed
+kanban_title: "Historical: Prove one automatic contributor receipt chain"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1151"]

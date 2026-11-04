@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: ""
+kanban_status: closed
+kanban_title: "Historical: CI: add required contract test — producer artifact must carry every extract_facts field"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

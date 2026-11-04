@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: core-209
 owner: ""
+kanban_status: backlog
+kanban_title: "Access: operator RBAC and just-in-time access"
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []

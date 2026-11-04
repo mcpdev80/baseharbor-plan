@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: Codex (session 1 CI implementation and integration)
+kanban_status: closed
+kanban_title: "CI: finish serialized v0.4.26 qualification and integration"
 priority: critical
 depends_on: []
 repos: [mcpdev80/baseharbor]

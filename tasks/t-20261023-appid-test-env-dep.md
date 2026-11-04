@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle3 (lane w38)
+kanban_status: closed
+kanban_title: "Defect: external provider registry test unverifiable-ownership outside CI runners"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

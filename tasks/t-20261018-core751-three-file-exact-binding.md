@@ -5,6 +5,8 @@ areas: [ci, inspect]
 release: v0.4.x
 parent: v0.4.x
 owner: "mcpdev80 (independent reviewed source binding)"
+kanban_status: closed
+kanban_title: "Reviewed #984 three-file immutable Inspect coverage"
 priority: high
 depends_on: [t-20261018-reviewed-policy-991-982-binding]
 repos: [mcpdev80/baseharbor]

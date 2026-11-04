@@ -7,6 +7,8 @@ version: v0.7.6
 release_stage: verify
 parent: v0.7.x
 owner: ""
+kanban_status: planned
+kanban_title: "v0.7.6 · Release: verify publication, artifacts, Pages and closeout"
 priority: normal
 depends_on: [t-20261017-release-0-7-6-publish]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

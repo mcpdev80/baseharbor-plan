@@ -7,6 +7,8 @@ version: v0.4.29
 release_stage: qualify
 parent: v0.4.29
 owner: ""
+kanban_status: planned
+kanban_title: "v0.4.29 · Pre-release: complete required candidate checks"
 priority: normal
 depends_on: [t-20261017-release-0-4-29-prepare]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

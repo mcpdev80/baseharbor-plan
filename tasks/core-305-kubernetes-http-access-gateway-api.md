@@ -6,6 +6,8 @@ release: v0.7.x
 version: v0.7.2
 parent: v0.7.x
 owner: ""
+kanban_status: planned
+kanban_title: "Kubernetes: provide HTTP access through Gateway API"
 depends_on: [core-102, core-304, t-20261017-release-0-7-2-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

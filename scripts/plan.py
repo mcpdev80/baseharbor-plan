@@ -270,9 +270,14 @@ class Vault:
         status_tags = [t[len("#status/"):] for t in tags if t.startswith("#status/")]
         release_tags = [t[len("#release/"):] for t in tags if t.startswith("#release/")]
         done = m.group("done") != " "
+        kanban_status = as_str(meta.get("kanban_status"))
+        if kanban_status:
+            if kanban_status not in STATUSES + [CLOSED]:
+                self.err(path, f"invalid kanban_status {kanban_status!r}")
+            done = kanban_status == CLOSED
         item = {
             "id": tid, "path": path, "title": m.group("title").strip(), "done": done,
-            "status": status_tags[0] if len(status_tags) == 1 else "",
+            "status": kanban_status or (status_tags[0] if len(status_tags) == 1 else ""),
             "card_line": idx, "body": body, "meta": meta,
             "type": as_str(meta.get("type")) or "task",
             "release": as_str(meta.get("release")), "version": as_str(meta.get("version")),
@@ -503,8 +508,9 @@ class Vault:
             self.err(inv_path, f"open issue {src} is not accounted for by any destination")
 
     def check_cardboard(self):
+        # Legacy CardBoard is optional: native Bases no longer needs this plugin.
+        # Validate a retained rollback configuration only when it exists.
         if not CARDBOARD_SETTINGS.exists():
-            self.err(CARDBOARD_SETTINGS, "missing CardBoard settings")
             return
         for problem in validate_cardboard(json.loads(CARDBOARD_SETTINGS.read_text(encoding="utf-8")),
                                           {release_tag(r) for r in self.releases}):
@@ -642,7 +648,12 @@ def view_state(vault, task):
 def card_line(vault, task):
     """Only the derived view tag changes; preserve the canonical status and completion."""
     match = CARD.match(task["body"].split("\n")[task["card_line"]])
-    tags = [tag for tag in match.group("tags").split() if not tag.startswith(("#view/", "#area/", "#kind/", "#board/"))]
+    # Only migrated native-Base notes may regenerate their status tags.
+    # Preserve invalid legacy tags so validation can still reject conflicts.
+    remove_tags = ("#status/", "#view/", "#area/", "#kind/", "#board/") if "kanban_status" in task["meta"] else ("#view/", "#area/", "#kind/", "#board/")
+    tags = [tag for tag in match.group("tags").split() if not tag.startswith(remove_tags)]
+    if "kanban_status" in task["meta"]:
+        tags.append("#status/" + task["status"])
     tags.append("#view/" + view_state(vault, task))
     # CardBoard's Completed column only admits tasks matching a non-completed
     # column. Retain a routing match for closed cards without a second status.
@@ -650,8 +661,8 @@ def card_line(vault, task):
         tags.append("#board/planned")
     tags += ["#area/" + a for a in sorted(task.get("areas", []))]
     tags.append("#kind/" + task["type"])
-    return (f"- [{match.group('done')}] {task['id']} · {task['title']} "
-            + " ".join(tags) + (match.group("completed") or ""))
+    return (f"- [{'x' if task['done'] else ' '}] {task['id']} · {task['title']} "
+            + " ".join(tags) + ((match.group("completed") or "") if task["done"] else ""))
 
 
 def card_text(value, limit=None):
@@ -956,6 +967,8 @@ def render(vault):
     for t in vault.tasks.values():
         text = t["path"].read_text(encoding="utf-8")
         head, body = text[:text.find("\n---\n", 4) + 5], text[text.find("\n---\n", 4) + 5:]
+        if "kanban_title" in t["meta"]:
+            head = re.sub(r"(?m)^kanban_title:.*$", "kanban_title: " + dump_value(t["title"]), head, count=1)
         new = head + apply_card(vault, t, apply_block(body, links_block(vault, t)))
         if new != text:
             t["path"].write_text(new, encoding="utf-8")
@@ -1048,6 +1061,8 @@ def cmd_claim(root, args):
     text = t["path"].read_text(encoding="utf-8")
     text = re.sub(r"(?m)^owner:.*$", "owner: " + dump_value(args.owner), text, count=1)
     text = re.sub(r"(?m)^blocker:.*$", 'blocker: ""', text, count=1)
+    if "kanban_status" in t["meta"]:
+        text = re.sub(r"(?m)^kanban_status:.*$", "kanban_status: active", text, count=1)
     lines = text.split("\n")
     for i, l in enumerate(lines):
         if CARD.match(l):

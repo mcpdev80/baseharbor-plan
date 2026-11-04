@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: critical
 owner: Owner + ChatGPT
+kanban_status: closed
+kanban_title: "Deployment: define immutable source and image submission"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1355"]

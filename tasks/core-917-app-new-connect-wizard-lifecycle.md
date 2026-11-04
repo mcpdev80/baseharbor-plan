@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-917 New wiring)"
+kanban_status: closed
+kanban_title: "App new: connect the compact wizard to the existing lifecycle"
 depends_on: [core-916]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#975, mcpdev80/baseharbor#980]

@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "mcpdev80 (CI readiness session)"
+kanban_status: closed
+kanban_title: "CI: prepare autonomous wizard task verification"
 priority: ""
 depends_on: [core-893, core-895, core-896, core-910]
 repos: [mcpdev80/baseharbor]

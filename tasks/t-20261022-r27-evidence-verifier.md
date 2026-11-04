@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: critical
 owner: w3-lane (W3 verifier package)
+kanban_status: closed
+kanban_title: "Historical: W3: genuine Owner approval and live/offline verification"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151]

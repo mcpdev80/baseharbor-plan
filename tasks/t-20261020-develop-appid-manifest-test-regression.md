@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "Flash (codeman w1-baseharbor)"
+kanban_status: closed
+kanban_title: "Docker: prove the accepted app.id fixture on the native develop lifecycle"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

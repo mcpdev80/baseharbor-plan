@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (CI completion 2026-11-03)"
+kanban_status: closed
+kanban_title: "CI: execute authority and stable-ID package checks for their real Go changes"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261103-ci-receipt-source-recovery]
 repos: [mcpdev80/baseharbor]

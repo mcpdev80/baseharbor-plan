@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: "ChatGPT (isolated v0.4.27 prototype)"
+kanban_status: closed
+kanban_title: "Historical: Deferred explicit candidate-trigger policy (after skeleton)"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1055]

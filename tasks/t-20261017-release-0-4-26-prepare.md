@@ -7,6 +7,8 @@ version: v0.4.26
 release_stage: prepare
 parent: v0.4.26
 owner: Codex (Maintainer release completion)
+kanban_status: closed
+kanban_title: "v0.4.26 · Pre-release: complete ecosystem readiness and candidate preparation"
 priority: normal
 depends_on: [core-752, core-893, core-893-interface, core-894, core-895, core-896, core-900, core-901, core-910, core-911, core-912, core-913, core-914, core-915, core-916, core-917, core-918, core-919, core-920, core-921, core-922, core-923, t-20261016-pr-impact-selection, t-20261016-registration-ci-readiness, t-20261016-wizard-task-ci-readiness, t-20261017-concise-code-comments, t-20261017-podman-acceptance-typed-consent, t-20261017-podman-backup-guided-runtime, t-20261017-provider-projection-workload, t-20261018-podman-recovery-bootstrap-cleanup, t-20261018-podman-recovery-core-state-owner, t-20261018-scoped-runtime-reset-xdg-ownership, t-20261019-ci-evidence-stabilization, t-20261019-core921-coverage-binding, t-20261019-owner-delegated-maintainer-authority, t-20261019-v0426-complete-defect-audit, t-20261020-develop-appid-manifest-test-regression, t-20261022-cleanup-provenance-order-fix, t-20261022-q20-docs-pages, t-20261023-selector-q-predecessor, t-20261024-v0426-ci-integration-closeout, t-20261026-v0426-owner-publication-closeout]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

@@ -1,5 +1,10 @@
 # Planning workflow
 
+## Native Obsidian Bases board (current source of truth)
+
+See [BaseHarbor.base](BaseHarbor.base) and [BASES-KANBAN.md](BASES-KANBAN.md). All `tasks/*.md` have editable `kanban_status` and derived `kanban_title` in YAML frontmatter. The native Kanban drag/drop changes `kanban_status`, not the original checkbox. For migrated notes, `#status/...`, checkbox and `#view/...` are generated compatibility projections; **do not edit them manually**. Re-render and validate after changing a task, and commit/push. Existing lifecycle, owner, blocker, dependency and evidence guards still apply. Any older CardBoard instructions below are historical and overridden by this section.
+
+
 How tasks are written, claimed, handed off and closed in this repository. Product engineering rules (branching, review, CI, release gates) stay in the product repository: [DEVELOPMENT_GUIDELINES](https://github.com/mcpdev80/baseharbor/blob/develop/docs/DEVELOPMENT_GUIDELINES.md), [CONTRIBUTING](https://github.com/mcpdev80/baseharbor/blob/develop/CONTRIBUTING.md), [release audit](https://github.com/mcpdev80/baseharbor/blob/develop/docs/internal/pre-release-documentation-audit.md). This file does not repeat them.
 
 > Planning authority is this repository from the activation commit on `main` ([migration/README.md](migration/README.md)). Source GitHub issues are historical/discussion references, not a second task-status authority.

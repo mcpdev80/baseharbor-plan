@@ -7,6 +7,8 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
+kanban_status: planned
+kanban_title: "Images: resolve existing artifacts or an explicit builder"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-ingress, t-20261018-r27-image-transfer, t-20261018-r27-native-auth, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "Codex (CI routing audit 2026-11-03)"
+kanban_status: closed
+kanban_title: "CI: conservative routing, ready-PR cadence and reliable test execution"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]

@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: ""
+kanban_status: closed
+kanban_title: "Historical: CI: writer selftest job — validate plan.zip against extract_facts before any publication"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

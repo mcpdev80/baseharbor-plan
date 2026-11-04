@@ -7,6 +7,8 @@ version: ""
 parent: v0.4.26
 priority: high
 owner: "Codex (Owner-authorized release closeout)"
+kanban_status: closed
+kanban_title: Close v0.4.26 Owner-directed publication
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor#1089]

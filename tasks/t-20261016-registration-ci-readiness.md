@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: core-888
 owner: "mcpdev80 (registration-ci-readiness)"
+kanban_status: closed
+kanban_title: "CI: qualify shared command and MCP registration checks"
 priority: ""
 depends_on: [t-20261016-wizard-task-ci-readiness]
 repos: [mcpdev80/baseharbor]

@@ -6,6 +6,8 @@ release: backlog
 version: ""
 parent: backlog
 owner: ""
+kanban_status: backlog
+kanban_title: "CLI: assess package decomposition after the contract freeze"
 priority: low
 depends_on: []
 repos: [mcpdev80/baseharbor]

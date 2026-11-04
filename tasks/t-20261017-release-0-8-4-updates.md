@@ -7,6 +7,8 @@ version: v0.8.4
 release_stage: updates
 parent: v0.8.x
 owner: ""
+kanban_status: planned
+kanban_title: "v0.8.4 · Release start: integrate Renovate updates before feature work"
 priority: high
 depends_on: [t-20261017-release-0-8-4-cleanup]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

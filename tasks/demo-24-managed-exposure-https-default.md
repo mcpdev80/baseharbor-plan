@@ -6,6 +6,8 @@ release: triage
 version: ""
 parent: ""
 owner: ""
+kanban_status: backlog
+kanban_title: "Demo: BaseHarbor-managed exposure is HTTPS by default via managed PKI"
 depends_on: []
 repos: [mcpdev80/baseharbor-demo, mcpdev80/baseharbor]
 prs: []

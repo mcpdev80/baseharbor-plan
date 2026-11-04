@@ -6,6 +6,8 @@ release: v0.4.26
 version: ""
 parent: v0.4.26
 owner: "mcpdev80 (core-916 controller)"
+kanban_status: closed
+kanban_title: "Wizard: handle back, cancel and EOF without side effects"
 depends_on: [core-912, core-913, core-914, core-915]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#972]

@@ -6,6 +6,8 @@ release: v0.4.29
 version: ""
 parent: v0.4.29
 owner: ""
+kanban_status: planned
+kanban_title: "Audit: verify host portability and architecture"
 depends_on: [core-823, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

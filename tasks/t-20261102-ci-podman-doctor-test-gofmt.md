@@ -6,6 +6,8 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: "boardup (ci)"
+kanban_status: closed
+kanban_title: "style: gofmt podman_doctor_checks_test.go"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

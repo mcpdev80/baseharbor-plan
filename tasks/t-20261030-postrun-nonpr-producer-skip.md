@@ -6,6 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: q260
+kanban_status: closed
+kanban_title: "Historical: Receipt Post-Run fails on non-PR producer runs (runtime-validation pushes) instead of clean skip"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
