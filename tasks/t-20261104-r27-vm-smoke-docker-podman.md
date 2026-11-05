@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "A workstation enrolls once against a real BaseHarbor installation and the node service installs, starts, restarts and is removed…"
 kanban_status: planned
 kanban_title: "Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts"
@@ -20,15 +20,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/platform #kind/task
+- [ ] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/planned #view/ready #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
 **Owner:** unassigned  
