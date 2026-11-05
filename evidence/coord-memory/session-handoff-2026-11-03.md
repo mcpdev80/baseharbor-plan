@@ -2015,3 +2015,7 @@ w176-sitz liefert runde-4-Akte nach (busy nach zuestellung). mutation-lock-confl
 owner-wort 'nutze einmalig ein worker flash': der COST_CONTROL-stop gilt CODEX-implementierung; worker-flash
 ist ein lokales modell — genau die richtung, in die der stop die arbeit weist. w184 (flash) besetzt, mission
 unveraendert; karte zurueck auf active.
+
+## 16:0x FUENFTE UEBERNAHME: journal/#1373 -> Owner+ChatGPT (nur MARKIERT; karte blieb review, ihr kopf war
+von uns verifiziert pruefbar). Luna-1373g abbestellt, kanal auf streams-r4 (22d) umgeleitet. w176
+freigegeben NACH ls-tree-beweis round-4.md (reihenfolge haelt). Pool: laptop frei.

@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-node-streams.
+OBJEKT: connector PR #22 head cce09a86a59 (runde 4 nach deiner 22c-anregung: A/B durch echte
+NewHandshakePair+ServeLogStream-kette, D abbruch VOR terminal, harness CWD-dicht + invoke-log je harness in
+t.TempDir, execx-klärungs punkt laut round-4.md). PRUEFE SHA-genau: (1) faelle A-D SELBST im gemischten
+ensemble -race -count=20 (isolation alone reicht nicht — das war deine eigene lehre), (2) vier mutanten
+(frist-kurz / dup-allow / stale-guard aus / age-gat aus) => alle ROT einzellauf, (3) execx/executor.go:
+zurueck-gefuehrt ODER in der akte zwingend begruendet (blob-check gegen main), (4) trust/session-dateien
+blob-identisch, (5) zwei laeufe terminal am kopf, ls-remote echt==head, name-only. Akte ->
+evidence/r27-welle4-2026-11-05/node-streams/review-22d.md.
+END pane: "END_DONE codex-r22d: verdict=<X> ensemble=<selbst gruen> mutanten=<4/4 rot> execx=<dicht> blobs=<identisch> | <Satz>"
