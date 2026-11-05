@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (Lane w192)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle5 (Lane w192, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
 kanban_title: "Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI)"
 priority: high
@@ -20,18 +20,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md"]
 ---
 
-- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w192) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w192, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
-**Owner:** coord-welle5 (Lane w192)  
+**Owner:** coord-welle5 (Lane w192, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
 **Source:** 
@@ -123,3 +123,9 @@ round-4 (w189): defense in depth. EREIGNIS barrier fixed to real os.Lstat mid-wa
 ## Runde 4 pruefbar 2026-11-05 (kopf d21badc6f4): WARMEURSACHE gefunden und benannt — die ereignis-barre\nverglich ein totes entry.Info() statt echter Lstat-inspektion mitten im lauf (das war der runde-3-rest-flake).\nEndcheck (verifyFinalBaseline) wieder drin; race50+quiet20 gruen, beide mutanten benannt rot, hosted am kopf.\n1387c-punkt damit adressiert + tiefer. round-4.md auf main.
 
 ## Rueckruf (1387d REJECT, ein punkt nach urteil): race-verzahnung der late-mutation fehlt —\nendcheck-entfernt-mutante blieb GRUEN (test prueft endcheck nicht). lstat + beide schutzschichten bleiben.\nWahrheit zur kette: runde 4 brachte die WARMEURSACHE (totes entry.Info) und endcheck-rueckkehr; die\nbarre-mutante ist rot, die endcheck-mutante war's noch nicht.
+
+## Runde 5 pruefbar 2026-11-05 (kopf 0298871895c1)
+Nachgemessen: ls-remote echt==head, develop 3d8fc207 VORFAHR (rc=0, beide attestate in der akte), lauf
+42106254196 TERMINAL SUCCESS am exakten kopf, akte round-5.md auf main. END-zeile der lane nannte
+veraltet den zwischenkopf 07108f0847 — messe gilt (praeszedenz w185). Beide mutanten benannt rot, race50+
+quiet20 gruen, wahre ursache (totes entry.Info) behoben, endcheck wieder drin.
