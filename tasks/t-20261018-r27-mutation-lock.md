@@ -80,3 +80,5 @@ Nachgemessen: ls-remote echt==head, gehosteter lauf terminal SUCCESS am kopf; zw
 + wörtlich, klienten-inventar 21 vor/nach identisch, beide mutanten rot; develop-stand bei schnitt a53c10a7
 (weiterer drift 10e8d646 = merge-zweig-notiz). round-1.md auf main, übergabe der flash-rest-kette
 dokumentiert (05bb5a25 → w184c).
+
+## ACCEPT 2026-11-05 (1390a): merge-MISION UNTERWEGS (Luna, SHA c8c8810f017); karte bleibt review bis gemergter develop-beleg vorliegt.
