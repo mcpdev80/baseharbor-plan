@@ -113,3 +113,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w172-boundary-r2.txt — p1 Warteschlange; w173-journal-r6.txt — p2. (beide missions-dateien fertig).
 - t-20261105-r27-snapshot-change-guard-deterministic — NEU (p1 nach laufenden ends): same-head flake
   belegt (41981861515 gruen vs 41983173186 rot, 0.01s), determinischer hook noetig; entpoisoned die gates.
+- w172-boundary-r2.txt — LAEUFT (laptop). w173-journal-r6 — p1 Warteschlange.
