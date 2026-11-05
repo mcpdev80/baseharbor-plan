@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w151, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Adapt existing native build-context/source-acquisition mechanisms for one selected local checkout, including honest dirty-source…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Sources: package an exact bounded deployment snapshot"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/c762022e7596f90c529593538717d7413867a93b", "https://github.com/mcpdev80/baseharbor/actions/runs/41928560959"]
 ---
 
-- [ ] t-20261018-r27-candidate-pack · Sources: package an exact bounded deployment snapshot #task #release/v0-4-27 #status/review #view/review #area/sources #kind/task
+- [x] t-20261018-r27-candidate-pack · Sources: package an exact bounded deployment snapshot #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/sources #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w151, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1381](https://github.com/mcpdev80/baseharbor/pull/1381)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/c762022e7596f90c529593538717d7413867a93b), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/41928560959)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
@@ -68,3 +69,8 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Begrenzter Quellen-Schnappschuss-Packer fuer genau ein lokales Checkout, Wiederverwendung der nativen
   Build-Kontext-Mechanismen; von mir gemessen: Vorfahr ja, nur eigener Commit, Querschnitt ohne Pflege-dateien,
   gehosteter Lauf 41928560959 terminal erfolgreich.
+
+## Merge-Abschluss 2026-11-05
+
+- [PR #1381](https://github.com/mcpdev80/baseharbor/pull/1381) nach develop per Squash gemergt: [c762022e7596f90c529593538717d7413867a93b](https://github.com/mcpdev80/baseharbor/commit/c762022e7596f90c529593538717d7413867a93b).
+- Zugehörige selektierte Tests/Builds im GitHub-Run [41928560959](https://github.com/mcpdev80/baseharbor/actions/runs/41928560959) erfolgreich. Nicht gewählte Gates nicht als ausgeführt bewertet.
