@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261104-r27-destroy-after-aborted-apply.
+OBJEKT: PR #1382 head 3691173821 (runde 2). VORGESCHICHTE: 1382a REJECT wegen geteiltem nachsichtigem leser;
+rezept-punkte: telemetrie zurueckgesetzt (blob abbb5bb6 = develop, gemessen), isolierung im zerstoerungspfad.
+PRUEFEN: (1) aufrufstellen von internal/application/runtime_owner_write.go — NUR zerstoerungs-/zurueckziehungs-
+pfad, nie shared reader/writer des normalbetriebs (grep-beleg in der urteilsakte), (2) EIGENE messung der
+kranken zelle auf develop (rc=1 wortlich) und auf head (rc=0, keine reste), (3) #1375-zelle + glueckpfad +
+schranke blob (deployment_record.go) unveraendert, (4) gegenprobe frisches-apply-nach-retire, (5) gates
+terminal am neuen kopf ( falls noch keiner laeuft: PR-comment/event pruefen, KEIN rerun erfinden — wenn
+kein lauf existiert: BLOCKED mit grund), ls-remote echt==head, name-only ohne pflege-dateien.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-05/destroy-aborted-apply/review-1382b.md.
+END an f49a3303: "END_DONE codex-r1382b: verdict=<X> aufrufer=<nur-destroy belegt|fremd> lauf=<id+status|keiner> | <Satz>"

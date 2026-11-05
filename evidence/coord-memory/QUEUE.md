@@ -91,3 +91,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   tests + Panic-Wortlaut; Entscheidung Grundlage fuer #1373-runde-5 oder Vor-Bestand-Karte.
 - t-20261105-r27-compose-host-isolation — Hebelkarte (gemessen, cross-branch). Erste freie Bahn:
   Gegenprobe mit absichtlich verseuchtem shared state + isolierte pro-test daemon-leitung.
+- w156-destroy-r2.txt — ERLEDIGT: runde 2 head 3691173821 in pruefung (r1382b).
