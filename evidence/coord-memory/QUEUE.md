@@ -107,3 +107,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w159-compose-iso.txt — GRUND-ERHALTEN: basis-drift + isolierungszelle unentschieden, lane klaert beide
   punkte vor der prüfung (zustimmung fix = nachgewiesen, isolierung = evtl. nicht reproduzierbar).
 - w169-compose-r2.txt — Warteschlange p1 (isolierung offen), w170-credentials-r2.txt — p2 (doppel-write).
+- w171-streams-r3.txt — Warteschlange p1 (zwei mutantenluecken C/D). w169-compose-r2 p2, w170-credentials-r2 p3.

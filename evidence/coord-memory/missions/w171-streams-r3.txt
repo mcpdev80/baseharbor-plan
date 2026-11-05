@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w171). Coord f49a3303. KARTE: t-20261018-r27-node-streams (RUNDE 3).
+ZWEIG: work/r27-node-streams (PR #22, head d934fa7c522) — DERSOLBE zweig/PR. AKTE: review-22b.md (VOLL).
+Faelle A+B sind DURCH (mutante rot). Deine zwei punkte, sonst nichts:
+ (C) die frist-zelle akzeptiert weiter ein VORZEITIGES ende: verlange ausdrucklich das StreamEnd-EREIGNIS
+     NACH abgelaufener frist — ein kanal-EOF/frueher fehler muss den test brechen (beweis: mutante die das
+     fruehe ende liefert => ROT; die alte zelle lies es durch => genau das war der mangel).
+ (D) die abbruch-zelle prueft nicht dass die WIEDERAUFNAHME abgelehnt wird: nach dem synchronen ablösungs-
+     signal muss der resume-versuch auf die abbediente leitung mit der DOKUMENTIERTEN ablehnung enden
+     (wortlicher fehler/tren-code), nicht bloss 'irgendein fehl'; kein geist, keine stumme wiederaufnahme.
+PROTOKOLL: develop/main-drift pruefen und einpflegen (merge, konflikt=>STOP), ls-remote echt==neuer kopf
+WORTLICH, log-zeile eigene commits, name-only (nur harness/test-dateien, trust-/session-blobs identisch
+wie bisher), die vier faelle + zwei neuen mutanten (C fruehes ende => rot, D falsch-adressierte wiederaufnahme => rot)
+mit wortlichen ausgaben, go test ./internal/connector -count=2 + race, build vet gofmt, gehostete laeufe
+BIS GRUEN TERMINAL (nach deiner letzten falsch-gruen-meldung gilt: kein END ohne abgerufenen gruenen run).
+KEINE .github, keine subagenten, scratch echter scheibe.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/node-streams/round-3.md
+END an f49a3303: "END_DONE w171-streams-r3: head=<sha10> C=<fruehes ende bricht + mutante rot> D=<ablehnung dokumentiert + mutante rot> lauf=<id+status GRUEN abgerufen> lsremote=<sha10> | <Satz>"
