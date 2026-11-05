@@ -133,3 +133,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   stage-versions/state-recovery/management-host weiter gesperrt (planned vorginger: device-lifecycle,
   journal-wiring, candidate-ingress, app-binding).
 - w180-compose-r3.txt — p1 Warteschlange (bootstrap-scope + kontaminiertes ensemble). mutation-lock p2.
+- w181-credentials-r4.txt — p1 (produktiver CAS-pfad + option-mutante). mutation-lock p2.
