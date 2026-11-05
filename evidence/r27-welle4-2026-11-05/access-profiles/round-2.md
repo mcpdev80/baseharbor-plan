@@ -162,11 +162,13 @@ Befund (not a fix, my write-set is orgconfig/policy/cmd/baha/policy.go — inter
 
 ## END an f49a3303 (2026-11-05)
 
-POSTED: END_QUESTION w167-profiles-r2: head=3bb95cc7 faelle=6/6 (assignment/revoke/ambiguous/stale/
+POSTED: END_BLOCKED w167-profiles-r2: head=3bb95cc7 faelle=6/6 (assignment/revoke/ambiguous/stale/
 foreign/no-escalation) mutanten=abcd rot belegt autoritaet=policy.Aggregate (policy/model.go:49) +
-orgconfig Manager.Owner (orgconfig/profiles.go:234) adapter dumb->ResolveFinding; lauf=41981861515
-workflow+format PASS Selected Checks SKIPPING (draft, needs ready) lsremote=3bb95cc7 | PR #1384
-round-2 integrated into one candidate chain; need your go to make the draft ready so selected checks
-run to terminal (bounded write-set only, no self-qualification).
-
-AWAITING coordinator decision to make draft #1384 ready so PR Selected Checks run to terminal.
+orgconfig Manager.Owner (orgconfig/profiles.go:234) adapter dumb->ResolveFinding; lauf=41983173186
+TERMINAL=FAIL: go-unit-tests -> internal/development TestSourceSnapshotDetectsChangeDuringRead
+(source_snapshot_test.go:224, change-during-read guard) — flaky timing guard in a foreign package
+(not my write-set); my pkg green (orgconfig/policy ok, go-build/vet/cli-build/cli-vet/source-contracts/
+Focused Python PASS); Selected Checks terminal FAILURE. lsremote=3bb95cc7 | PR #1384 round-2
+integrated; STATE + STOP per Owner directive 2026-11-04 (no self-qualification, no rerun).
+Befund: the gate fails on an unrelated flake; my candidate's packages are green. Needs Owner call
+(rerun allowance for the flake, or triage source_snapshot_test.go) to continue.
