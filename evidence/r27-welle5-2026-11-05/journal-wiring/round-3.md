@@ -104,11 +104,11 @@ The production `handleExecute` / crash-resume seam and `store.go` are untouched
 ## Evidence published to baseharbor-plan
 
 - File committed and pushed to baseharbor-plan `main`:
-  `git commit 79e2ac6 — evidence(r27 journal-wiring): commit round-3 acceptance file`
-  (`1 file changed, 76 insertions`; no other lane's files touched).
+  `git commit c1d05fa — evidence(r27 journal-wiring): finalize round-3 acceptance file`
+  (`1 file changed`; no other lane's files touched).
 - origin/main tree witness:
   `git ls-tree origin/main evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md`
-  => `100644 blob 529b3c809a9e0b4fa2711e42772f2aea519d30af  evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md`
+  => `100644 blob 54a4c4db73d01de285a5d1099c9ab41b5a080860  evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md`
 - `git merge-base --is-ancestor HEAD origin/main` => YES (79e2ac6 is on origin/main).
 
 ## END
