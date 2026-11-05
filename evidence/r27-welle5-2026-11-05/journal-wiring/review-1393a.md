@@ -36,3 +36,7 @@ Ergebnis: `ok ... 43.872s`. Der wiederholte Lauf kann die fehlende Parallelität
 4. Ergebnisse und exakte Testausgaben für beide Kontrollen und beide Mutanten sichern; bei geändertem Kandidaten die geforderten lokalen und Hosted-Checks am finalen SHA belegen und neue SHA-genaue Abnahme anfordern.
 
 Keine Produktdatei geändert, kein PR-Review-/Merge-Klick und keine sonstige PR-Aktion ausgeführt.
+
+## origin/main witness
+
+- `git ls-tree origin/main evidence/r27-welle5-2026-11-05/journal-wiring/review-1393a.md` (after first publication): `100644 blob 5fb75674dbff0eb6489b75d4b46f01d458d819d8 evidence/r27-welle5-2026-11-05/journal-wiring/review-1393a.md`.
