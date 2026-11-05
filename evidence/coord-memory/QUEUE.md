@@ -106,3 +106,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   #1380 wieder an (warnung "connection-client active mit offener abhaengigkeit" ist gewollt und ehrlich).
 - w159-compose-iso.txt — GRUND-ERHALTEN: basis-drift + isolierungszelle unentschieden, lane klaert beide
   punkte vor der prüfung (zustimmung fix = nachgewiesen, isolierung = evtl. nicht reproduzierbar).
+- w169-compose-r2.txt — Warteschlange p1 (isolierung offen), w170-credentials-r2.txt — p2 (doppel-write).

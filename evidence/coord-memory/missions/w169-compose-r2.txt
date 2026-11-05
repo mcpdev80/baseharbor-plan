@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w169). Coord f49a3303. KARTE: t-20261105-r27-compose-host-isolation (RUNDE 2).
+ZWEIG: work/r27-compose-isolation (PR #1383, head 9bf29c89846) — DERSOLBE zweig/PR. AKTE: review-1383a.md
+(VOLL lesen). Zustimmungs-seite ist ERLEDIGT und bleibt; dein rest: ISOLIERUNG ist offen — der fixture
+nutzt den ambienten daemon, am verseuchten kandidaten bleibt die schranke ROT.
+REZEPT (bindend): cmd/baha/repository_runtime_fixture_test.go + die schmal gewrappte fixturebekleidung:
+JEDEM lebenszyklus-test ein EIGENER daemon/socket- oder gleichwertiger isolierter laufzeit-namespace,
+OHNE dass resetten/loeschen von shared state (das waere ein anderer fehler). BEWEIS: die vier tests
+ZWEIMAL auf dem exakten kopf — sauber: gruen; absichtlich verseucht (fremder core laeuft): WEITER gruen
+(weil isolation wirkt, nicht weil state geloescht wurde — zeige dass der fremde core DANNOCH lebt).
+STOP: wenn isolation ohne清除 shared state nicht gelingt: END_BLOCKED mit mechanismus-beweis, dann
+entscheide ich (runner-modelle sind owner-feld, nicht dein auftrag).
+GATES: basis aktuell halten (develop einpflegen, konflikt=>STOP), name-only (nur harness), ls-remote echt
+wortlich, selected-checks NICHT skipped, go test der vier -count=2 zweimal, race, build vet gofmt. KEINE
+.github, KEINE subagenten. Evidence: evidence/r27-welle4-2026-11-05/compose-host-isolation/round-2.md
+END an f49a3303: "END_DONE w169-compose-r2: head=<sha10> sauber=<4/4 gruen zweimal> verseucht=<4/4 gruen UND fremd-core lebt> reset=<nein belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"
