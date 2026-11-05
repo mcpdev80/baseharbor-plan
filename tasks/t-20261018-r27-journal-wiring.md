@@ -79,3 +79,7 @@ round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green; eviden
 Nachgemessen: ls-remote echt==head, develop 3d8fc207de VORFAHR (rc=0 nach korrektur-runde), gehosteter
 lauf 42101103524 TERMINAL SUCCESS am exakten kopf, akte round-1.md auf main. Produktion=echter
 anwendungs-pfad, crash-wiederanlauf gruen, zweiprozess-ordnung gruen, beide mutanten rot.
+
+## Befund doppel-PR: lane legte nach korrektur einen zweiten PR an (#1393), gh schloss #1392 automatisch.
+Ein kandidat, ein zweig 3fa46bc299b — PR-verweis berichtigt, doppelanlegung als feier notiert (wiederholung
+=> rotationsrunde).
