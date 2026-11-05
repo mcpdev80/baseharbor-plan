@@ -90,3 +90,5 @@ Erstseedung über die bestehende Ablage-Autorität, vorhandener Wert gewinnt (ei
 ablauf heilt nachweislich bis zum Schritt durch, CAS-Mutante macht die Konfliktzelle rot.
 
 Round 3: create-only CAS seed (SetManagedCredentialIfAbsent, -if-not-exists) over existing OpenBao authority; existing managed value wins (1 Get 0 overwrite Set on conflict); race test fixed (initial Get NOT-FOUND, concurrent injected between Exists and seed, seed no-ops winner wins) + mutant RED cell. PR #1385 head b3c3c1c1; hosted CI #4790 success.
+
+Round 3: create-only CAS seed (SetManagedCredentialIfAbsent, -if-not-exists) over existing OpenBao authority; existing managed value wins (1 Get 0 overwrite Set on conflict); race test fixed (initial Get NOT-FOUND, concurrent injected between Exists and seed, seed no-ops winner wins) + mutant RED cell. PR #1385 head b3c3c1c1; hosted CI #4790 success.
