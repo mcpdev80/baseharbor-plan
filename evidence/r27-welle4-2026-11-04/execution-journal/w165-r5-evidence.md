@@ -46,7 +46,7 @@ In an isolated throwaway worktree (`git worktree add` on the named branch) I (1)
 
 The mutation was confined to the throwaway worktree and removed; the candidate branch diff is clean (only the intended 12/12 test-comment change).
 
-## CI witness
+## CI witness (initial head)
 
 PR #1373 head on GitHub = `ae53e628016d84830007ef9a0b91e7d815f3c0f0` (PR #1373, open).
 CI run `41980078748` (hosted GitHub shared runner; this lane set no auth/tokens):
@@ -61,6 +61,43 @@ CI run `41980078748` (hosted GitHub shared runner; this lane set no auth/tokens)
 - Targeted HA podman/docker: skipped
 - validate / Release Source Preflight: skipped
 
+## Base refresh into develop (Owner directive 2026-11-05, KOORD-LETZTER SCHRITT)
+
+Develop head `24c7d0492f34e58c2a6be505ba80b8bdfb151cb7` was NOT an ancestor of my
+pre-merge head `ae53e628` (my PR base was an older merge `52e972fd`). Finalized per
+coordination: `git merge origin/develop` into `work/r27-execution-journal`.
+
+- Merge commit: `2b997f3c19e8677a019265fe1a74132d3024ead6` ("Merge remote-tracking
+  branch 'origin/develop' into work/r27-execution-journal"), parents
+  `ae53e628016d84830007ef9a0b91e7d815f3c0f0` and `24c7d0492f34e58c2a6be505ba80b8bdfb151cb7`.
+- Ancestry witnesses:
+  - `git merge-base --is-ancestor 24c7d049… HEAD` → rc=0 (develop is an ancestor of the merge).
+  - `git merge-base --is-ancestor ae53e628… HEAD` → rc=0 (my fix carried into the merge).
+  - `git log --oneline origin/develop..HEAD` lists ONLY my own commit `ae53e628` on top of
+    develop (all other entries are pre-existing candidate history) — no foreign candidate carried on top.
+- Clean auto-merge, no conflicts (`git diff --name-only --diff-filter=U` empty).
+- New GitHub head (literal `git ls-remote origin work/r27-execution-journal`):
+  `2b997f3c19e8677a019265fe1a74132d3024ead6`.
+
+Re-verification on the merge head:
+
+- `go test ./internal/machinehttp/ -count=1` → `ok 36.252s`.
+- Focused `-race -count=20` → `ok 61.061s`.
+- Fix still present after merge: `read it directly, no poll` at `execution_request_identity_test.go:245`.
+
+CI run `41981442440` on new head `2b997f3c` (hosted GitHub shared runner; no auth/tokens set by this lane):
+
+- PR · Validation · go-build: success
+- PR · Validation · go-vet: success
+- PR · Validation · go-unit-tests: success
+- PR · Source format: success
+- Workflow policy: success
+- PR · Trusted Plan: success
+- PR · Focused Python: success
+- PR · Selected Runtime / Public Contracts / Exact Candidate / Consumer Pins / Demo Pin / Runner Interface: skipped
+- Targeted HA podman/docker: skipped
+- validate / Release Source Preflight: skipped
+
 ## END
 
-DONE — w165-journal-r5: sleep removed from the terminal end-state test; `-race -count=20` green; mutation probe fails 20/20 (discriminator intact); CI 41980078748 go-build/vet/unit-tests green on PR #1373 head ae53e628.
+DONE — w165-journal-r5: sleep removed from the terminal end-state test; `-race -count=20` green; mutation probe fails 20/20 (discriminator intact); CI 41980078748 (head ae53e628) build/vet/unit-tests green; base refreshed into develop (merge 2b997f3c, develop 24c7d049 ancestor rc=0, only my commit ae53e628 on top), CI 41981442440 green on new head.
