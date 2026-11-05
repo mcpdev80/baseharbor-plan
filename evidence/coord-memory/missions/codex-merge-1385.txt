@@ -1,0 +1,9 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert durch Direktive 2026-11-05 'fertig heißt mergen'; AGENTS 2/5.2).
+Coord f49a3303. KARTE/PR: t-20261018-r27-protected-credentials / mcpdev80/baseharbor#1385, akzeptierter
+kopf 0e2b4803736 (urteil review-1385d.md ACCEPT, race-selbstsonde gruen, mutante rot, blobs ruhig).
+AKTION: (1) ls-remote PR-head == 0e2b4803736 verifizieren (sonst STOP+MELDEN, kein merge auf fremden stand);
+(2) develop a53c10a7 in den zweig mergen (mechanischer merge, keine inhalt-änderung; bei KONFLIKT in den
+drei kaspar-dateien: STOP+MELDEN — dann entscheidet die kette, nicht der kanal), (3) push, PR-head neu
+bezeugen, (4) gh pr merge --merge (kein force,kein bypass), (5) develop-ls-remote nach dem merge + merge-
+commit-sha ins pane. Danach NICHTS an der karte — der coordinator schliesst.
+END pane: "END_DONE codex-merge-1385: merged=<sha10> develop=<sha10> head-vor-merge=0e2b4803736 | <Satz>"
