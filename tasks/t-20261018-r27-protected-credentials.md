@@ -101,7 +101,7 @@ Wiederherstellungsschritt (vorher vorzeitig endend — jetzt belegt), CAS-Mutant
 begruendet in der akte (Sentiment-Heimat fuer beide aufrufer) — blob-probe obliegt der pruefung.
 Basis 24c7d0492f3, develop-merge dem merge-zweig.
 
-## Rueckruf (1385c REJECT, ein punkt): test仿真 vs produktiver pfad
-Der konkurranz-test faehrt eine simulierte liste statt den echten SetManagedCredentialIfAbsent-adapter —
+## Rueckruf (1385c REJECT, ein punkt): simulation statt produktiver pfad
+Der Konkurrenz-Test faehrt eine simulierte Liste statt den echten SetManagedCredentialIfAbsent-adapter —
 die '-if-not-exists entfernt'-Mutante bleibt GRUEN. Runde 4: produktiver adapterpfad durch gesteuerten
 executor (echte create-only-atomik), option-mutante muss einzellauf-rot, echte goroutine-barrieren.
