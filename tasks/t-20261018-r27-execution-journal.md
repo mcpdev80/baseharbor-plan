@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
-kanban_status: accepted
+kanban_status: closed
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: accepted
+kanban_lane: closed
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,14 +18,14 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: "PR #1373 merged to develop as 77511c8a6672f34faf0d5ac543ba126485f05c41; exact-head PR CI 42031707838 success."
+resolution: accepted
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md"
   - "https://github.com/mcpdev80/baseharbor/pull/1373"
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [x] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/accepted #view/accepted #area/state #kind/task
+- [x] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/state #kind/task
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  

@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md)  
+    **Needs:** [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
