@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: high
 owner: coord-welle4 (Lane w179, freigegeben)
-kanban_lane: review
+kanban_lane: accepted
 kanban_summary: Server allocates IDs; explicitly create a new app or attach to a permitted existing app. Two distinct checkout paths can resolve…
-kanban_status: review
+kanban_status: accepted
 kanban_title: "Identity: attach fresh checkouts to a registered application"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,18 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
+resolution: "PR #1388 merged into develop at a34903a230bab7ad75270cf9dec9ac5683af6ac2; exact-head selected CI run 42020006887 successful."
 evidence: []
 ---
 
-- [ ] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/review #view/review #area/identity #kind/task
+- [x] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/accepted #view/accepted #area/identity #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w179, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1388](https://github.com/mcpdev80/baseharbor/pull/1388)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -73,3 +73,10 @@ dokumentiert; lauf 42020006887 terminal + akte round-1.md auf main.
 ## ACCEPT 2026-11-05 (r1388a): merge-reif fuer die Owner-Runde
 Kopf 4e4a23e89bd unveraendert; zwei-homes-zelle selbstonde (IDs verschieden, race-20 konvergiert), beide
 mutanten rot, echter CLI-pfad, uebrige store-pfade unveraendert. Akte review-1388a.md.
+
+
+## Owner-Abschluss 2026-11-05
+
+- PR [#1388](https://github.com/mcpdev80/baseharbor/pull/1388) nach `develop` gemerged, Squash-Commit `a34903a230bab7ad75270cf9dec9ac5683af6ac2`.
+- Pflicht-CI [Run 42020006887](https://github.com/mcpdev80/baseharbor/actions/runs/42020006887) auf dem vor Merge verifizierten PR-Head abgeschlossen: `success`, einschließlich `PR Selected Checks`.
+- Historische Review-Rückrufe und Korrekturen bleiben als Nachweis erhalten. Fachliche Abnahme gemäß letzter ACCEPT-Bewertung; separate Release-/Cross-Repo-Qualifizierung dadurch nicht vorweggenommen.
