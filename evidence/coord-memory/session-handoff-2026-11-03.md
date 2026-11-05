@@ -1845,3 +1845,8 @@ bei konflikt STOP (dann haengt der resolver womentlich an der #1380-verdrahtung 
 ketten als planungs-frage, nicht als ast-frage). LEHRE FUER MISSIONEN: "zweig von develop" reicht nicht als
 text — die spawner-seitige grundlagen-zeile (ls-remote develop SHA VOR schnitt in die evidence) wird
 Auftrags-pflicht in jedem neuen mission-text.
+
+## 07:5x COMPOSE-R2 DIALOG-FUND: der BASEHARBOR_TARGET-schalter (die ganze Isolierungs-hoffnung) war in
+testenv.go:17 UNSETZT — code-seitig neutralisiert, daher wirkte jede "isolierung" nie. w159/x waren dem nie
+auf die schliche gekommen. entscheidung A (target je test in der fixture, code-garantie statt umgebung-zufall),
+quelle des neutralisierenden commits wird in der akte genannt (befund fuer uns: wer hat wann warum abgestellt).
