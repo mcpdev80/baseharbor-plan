@@ -1920,3 +1920,6 @@ der 45-min-gate-lauf ist QUEUED — lane sitzt die Eigenes-Run-Pflicht mit gh-ru
 nicht in baseharbor); ubi9-openjdk kommt in keinem unserer produkte/baeume vor (grep uber develop leer).
 Bewertung: fremder/feed-repo-bot (Red-Hat-artige image-version-automation), kein oekoetz-system-objekt,
 keine aktion unsererseits — falls owner einen bestimmten repo-namen nennt, schaue ich gezielt hin.
+
+## 10:5x PROFILES ACCEPT (1384c, 50b99c4625e): dritter merge-reifer antrag der owner-runde (#1379, #1386,
+#1384). Korrekturbogen r1->r3: adapter-tot->produktion gefaltet, >=->!=, ghost-messung->refspec-exakt.
