@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w181)
-kanban_lane: active
+owner: coord-welle4 (Lane w181, freigegeben)
+kanban_lane: review
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: active
+kanban_status: review
 kanban_title: "Credentials: retain and recover opted-in local credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md"]
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w181) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w181, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Lane w181)  
+**Owner:** coord-welle4 (Lane w181, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -105,3 +105,11 @@ Basis 24c7d0492f3, develop-merge dem merge-zweig.
 Der Konkurrenz-Test faehrt eine simulierte Liste statt den echten SetManagedCredentialIfAbsent-adapter —
 die '-if-not-exists entfernt'-Mutante bleibt GRUEN. Runde 4: produktiver adapterpfad durch gesteuerten
 executor (echte create-only-atomik), option-mutante muss einzellauf-rot, echte goroutine-barrieren.
+
+## Runde 4 pruefbar 2026-11-05 (kopf 0e2b4803736)
+Nachgemessen: ls-remote echt==head, develop 77511c8a in den zweig gemergt (merge-commit oben), lauf
+42043134426 terminal SUCCESS am exakten kopf (selected checks + openbao-package + alle basis-tore),
+round-4.md auf main (fac87ea). SEITDEM ist develop weitergelaufen (a53c10a7, die 4er-owner-runde) —
+zusatz-drift ist NOTIZ fuers merge-zweig, kein rueckschritt der kette. Inhalte laut akte: produktiver
+SetManagedCredentialIfAbsent-pfad in der race-zelle, -if-not-exists-mutante ROT einzellauf doppel-barrier,
+1 Get 0 Set im konflikt.
