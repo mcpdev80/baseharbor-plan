@@ -1,11 +1,8 @@
-ROLLE: CODEX-REVIEW (read-only, kein Merge — owner-runde). Coord f49a3303. KANAL: Luna.
-KARTE: t-20261018-r27-node-streams. OBJEKT: connector PR #22 head d934fa7c522 (drei eigene commits; zwei
-laeufe terminal success am kopf, ls-remote+ancestor von mir gemessen). VORGESCHICHTE: 22a REJECT (faelle
-unzureichend); runde 2 behauptet: A echte grenze+mutante, B geordnete folgen+exakte zaehlung, C frist+
-StreamEnd verlangt, D abbau-synchron (race fix), alle über importierten draht aus main.
-PRUEFE SHA-genau gegen 22a-rezept: jedes der vier faelle NACHFAHREN oder testbeleg wortlich; mutante je
-fall (behauptete abschaltung => muss rot); blob-pruefung dass KEIN produkt/trust-file geaendert ist und die
-zeremonie nicht kopiert wurde (nur import); write-set name-only; ls-remote echt==head; gates selected-
-checks nicht skipped. Akte -> evidence/r27-welle4-2026-11-05/node-streams/review-22b.md, ACCEPT=>vermerk
-owner-runde, REJECT=>rezept.
-END pane-zeile: "END_DONE codex-r22b: verdict=<X> faelle=<4/4> mutanten=<n/4 rot> blobs=<identisch> | <Satz>"
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-node-streams.
+OBJEKT: connector PR #22 head dc63758f37 (runde 3 nach deiner 22b-ahnlichen 22a; rezept: fall C volle-frist
+deadline-end + fall D frische handshake-leitung/echter resume => cursor-expiry-ablehnung). PRUEFE SHA-genau:
+(1) faelle C+D SELBST nachfahren (keine helper-direct-kopie; production-pfad: echter stream-weg), (2) beide
+mutanten (frist-kuerze / age-gat entfernt) => ROT, (3) trust/session-dateien blob-identisch zu main,
+(4) NewHandshakePair aus MAIN importiert (keine zeremonie-kopie), (5) name-only, zwei laeufe terminal am
+kopf, ls-remote echt==head. Akte -> evidence/r27-welle4-2026-11-05/node-streams/review-22c.md.
+END pane: "END_DONE codex-r22c: verdict=<X> faelle=<C+D selbstonde> mutanten=<2/2 rot> blobs=<identisch> | <Satz>"
