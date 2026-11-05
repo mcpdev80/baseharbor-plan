@@ -1982,3 +1982,8 @@ Beauftragt: compose down GENAU dieser namen (vorher/nachher im protokoll), then 
 (bh-local, tctest) unangetastet. Wenn weiter voll -> owner: daemon.json default-address-pools + restart.
 BETRIEBSLEHRE (kommt ins pool-hygiene-stueck): jede lane die auf den VMs compose-projekte hinterlaesst,
 muss beim END ihr projekt downfahren — bis jetzt war nur die arbeitsplatte geregelt.
+
+## 15:0x GATE-FALL ABGESCHLOSSEN (fuer uns): karte blocked mit cause/trigger, akte gate-vm-1.md (266 zln)
+aus dem haupt-checkout gehoben und publiziert — der disk-vor-rm-check war gefuehrt aber LUECKENDICH
+(ls-tree origin/main ja, lokale untracked datei NEIN — korpus in coord-state: 'verwaisste datei Zaehlung
+geht in den rm-pfad ein'). Owner-punkt: daemon.json default-address-pools auf docker-VM + restart.
