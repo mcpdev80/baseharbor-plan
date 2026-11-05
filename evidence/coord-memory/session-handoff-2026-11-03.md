@@ -2056,3 +2056,10 @@ ACCEPT-karte DIREKT in eine CODEX-MERGE-mission (kein warten auf gesammelte owne
 closed, abhaengige sofort entriegelt+besetzt. Hintergrund des aerfers: die 4-karten-close-chain hing 25min
 an schema-reparatur (ihr 'accepted'-wert + fehlende evidence-felder = 12 check-fehler blockierten jeden
 push-pfad) statt am merge selbst. Alle vier jetzt closed, board 0/0, journal-reihe inklusive.
+
+## 17:30 PRUEFKANAL-SCHREIBDEFEKT URSAECHLICH GEFUNDEN+BEHOBEN: zwei akten-verluste (1373g, 22d/1385d-blockade)
+hatten eine ursache: der reborn-sitz lief mit cwd workers/ — project baseharbor-plan hat trust ABER kein
+sandbox_mode, workspace-write macht die plan-werkstatt von dort READ-ONLY. Luna neu gebunden mit cwd
+oekosystem-wurzel (project hat danger-full-access) = ab08e19f, watch registriert, nachtruuf der fehlenden
+akten 1385d/1387b aufgetragen. Regel fur rebinding: immer cwd=wurzel, nie workers/ — in diesem auftragstext
+steht es jetzt auch (Luhn-augen-pruefung bei naechster mission-formulierung).
