@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w173, freigegeben)
-kanban_status: review
+owner: coord-welle4 (w177, wartet auf Sitz)
+kanban_status: active
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: review
+kanban_lane: active
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -25,20 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w173, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle4 (w177, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w173, freigegeben)  
+**Owner:** coord-welle4 (w177, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -173,3 +173,8 @@ Fern nachgemessen: ls-remote==d691c3cd242, GENAU ein eigener commit, time.Sleep 
 NULL Treffer (vorher 3) — Rezept 1373e erfuellt; lauf 41998165081 terminal SUCCESS am exakten kopf
 (Selected Checks/unit/build/vet/format/workflow-policy/trusted-plan gruen, docker/podman-HA skipped wie
 vorgesehen). Develop ist seit schnitt auf 42bfcb1cb4 weitergelaufen — base-refresh obliegt dem merge-zweig.
+
+## Rueckruf (1373f REJECT): Mutant ueberlebt den EINZELLAUF
+Race-20 und sleep-freiheit bestaetigt; aber eine einzelne end-state-aussage kann noch durchrutschen — die
+synchronisation wartet auf wiederholung, nicht auf das EREIGNIS terminal-commit. Runde 7: steuerbare
+barriere + einzellauf-rot-pflicht (3x wörtlich) + diesmal develop-42bfcb1cb4 in den zweig mergen.
