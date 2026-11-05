@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: high
 owner: coord-welle4 (Lane w179, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Server allocates IDs; explicitly create a new app or attach to a permitted existing app. Two distinct checkout paths can resolve…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Identity: attach fresh checkouts to a registered application"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,14 +18,15 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: "PR #1388 merged into develop at a34903a230bab7ad75270cf9dec9ac5683af6ac2; exact-head selected CI run 42020006887 successful."
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1388"]
 ---
 
-- [ ] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/accepted #view/accepted #area/identity #kind/task
+- [x] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/identity #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w179, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1388](https://github.com/mcpdev80/baseharbor/pull/1388)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1388)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

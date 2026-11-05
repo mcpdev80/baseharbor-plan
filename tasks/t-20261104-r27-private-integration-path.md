@@ -6,8 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle4 (Lane w166, freigegeben)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen"
 priority: ""
@@ -16,14 +16,15 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1379]
 sources: []
 blocker: ""
-resolution: "PR #1379 merged into develop at a53c10a787277c7d82b8ae5e04f4cdfd6501e3b3; exact-head selected CI run 41978410480 successful."
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1379"]
 ---
 
-- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/accepted #view/accepted #kind/task
+- [x] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w166, freigegeben)  
     **PR:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1379)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
