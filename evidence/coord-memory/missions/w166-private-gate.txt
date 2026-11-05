@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w166). Coord f49a3303. KARTE: t-20261104-r27-private-integration-path.
+ZWEIG: work/r27-private-integration (PR #1379, DRAFT, head 52be57c9893). AKTE:
+baseharbor-plan/evidence/r27-welle4-2026-11-04/private-integration-path/review-1379.md. INHALT IST OK
+(umschalter + beide gegenproben bestanden). Einziger punkt: der lauf am exakten kopf hat das job-PAAR
+'PR Selected Checks' UEBERSPRUNGEN statt ausgefuehrt — vermutlich weil der PR auf draft steht. AUFGAB,
+strikt klein: (1) PR #1379 von draft auf ready stellen (gh pr ready 1379 -R mcpdev80/baseharbor),
+(2) den NEUEN ausloesten lauf bis TERMINAL beobachten (lauf-id + der named check mit status — KEIN
+rerun-ratte), (3) beide modus-zellen (geteilt vs privat) am neuen kopf per ls-remote/lauf belegen statt
+nur lokal. KEINE inhalts-aenderung, KEIN base-merge (drift ist nur gelistet, basis-merge macht die
+naechste runde falls noetig), KEINE .github-datei anfassen — NUR der draft-schalter + beobachtung.
+Wenn nach ready der named check IMMER NOCH skipped: END mit exakter workflow-datei-zeile (read-only
+gelesen) als befund fuer den owner, nichts anderes tun.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/private-integration/gate-1.md
+END an f49a3303: "END_DONE w166-private-gate: head=52be57c9 ready=<ja> lauf=<id + selected-checks status> zellen=<belegt|skipped-befund datei:zeile> | <Satz>"

@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane wNNN). Coord f49a3303. KARTE: t-20261018-r27-connection-client (RUNDE 2).
+REPO baseharbor. ZWEIG: work/r27-connection-client (PR #1380, draft, head f1f3551291c) — DERSOLBE zweig/PR.
+AKTE: baseharbor-plan/evidence/r27-welle4-2026-11-04/connection-client/review-1380a.md (VOLL lesen; die
+develop-vs-kandidat baseline ist bereits GEGENPRUEFT und IDENTISCH — die Baseline-rot-klage ist damit
+erledigt, sie ist VORBESTAND der compose-familie, nicht dein feind).
+
+DEIN EINZIGER FEHLER, den du behebst (rezept): die neue Autoritaetspruefung ist NICHT mit dem
+PRODUKTionspfad verbunden. cmd/baha/use_target.go ruft coreinstallation.ConnectionSelection.Resolve nicht
+tatsaechlich in der echten ziel-aktivierung. AUFGAB: echten pfad anschliessen (use/activate durch
+Resolve mit verifizierter installation + live-autoritaet), kommando-ebene tests in cmd/baha die den
+ECHTEN CLI-pfad fahren (kein fake-application-context — wenn ohne ihn nicht anders: STOP+MELDEN mit
+datei:zeile, dann entscheide ICH die stelle). Nachweise: ausdrueckliche auswahl gewinnt; lebende
+autoritaet erlaubt/verweigert korrekt; fehlende/widerspruechliche bindung fail-closed — je ein test mit
+wortlicher ausgabe. Beweise-stil: mutanten-gegenprobe pro behauptung (leitung kappen => test muss rot).
+
+PROVENIENZ+GATES wie gehabt: name-only (nur cmd/baha + coreinstallation-verdrahtung + tests), log-zeile
+NUR eigene commits, ls-remote echte adresse==head WORTLICH, ancestor rc=0 gegen develop 24c7d049+,
+go test ./cmd/baha ./internal/coreinstallation -count=1 + race-count=20 deiner neuen tests, build vet
+gofmt leer, gehostete laeufe TERMINAL inkl. PR Selected Checks NICHT uebersprungen (falls skipped: END mit
+vermerk, das ist dann mein owner-thema). KEINE .github, KEIN AGENTS.md, KEINE subagenten.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/connection-client/round-2.md
+END an f49a3303: "END_DONE wNNN-conn-r2: head=<sha10> pfadecht=<use/activate durch Resolve belegt + mutante rot> faelle=<auswahl|autoritaet|failclosed> diff=<feld> lauf=<id+status> lsremote=<sha10> | <Satz>"

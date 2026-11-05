@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w165). Coord f49a3303. KARTE: t-20261018-r27-execution-journal (RUNDE 5).
+REPO baseharbor. ZWEIG: work/r27-execution-journal (PR #1373, head 52e972fdbd2) — DERSOLBE zweig/PR.
+AKTE: baseharbor-plan/evidence/r27-welle4-2026-11-04/execution-journal/review-1373d.md (VOLL lesen;
+mutantenfestigkeit UND persist-durchreichung sind BESTATIGT — genau EIN ding fehlt).
+DEIN FEHLER (rezept): der neue endzustands-test nutzt weiter time.Sleep-polling-helfer
+(waitForCondition). Mach eine KANAL-/EREIGNIS-reihenfolge daraus, die executor-fertig + terminal-commit
+VOR der rueckgabe belegt; -race -count=20 muss wiederholt gruen sein; im wegwerf-baum die
+`go h.runExecution(...)`-mutante erneut fahren => dein test MUSS rot (wortlich). STOP-falle: eine
+hintergrund-ausfuehrung besteht den endtest, oder eine aussage schlaeft noch — dann nicht liefern.
+ (Lane wNNN). Coord f49a3303. KARTE: t-20261018-r27-connection-client (RUNDE 2).
+REPO baseharbor. ZWEIG: work/r27-connection-client (PR #1380, draft, head f1f3551291c) — DERSOLBE zweig/PR.
+AKTE: baseharbor-plan/evidence/r27-welle4-2026-11-04/connection-client/review-1380a.md (VOLL lesen; die
+develop-vs-kandidat baseline ist bereits GEGENPRUEFT und IDENTISCH — die Baseline-rot-klage ist damit
+erledigt, sie ist VORBESTAND der compose-familie, nicht dein feind).
+
+ (gelten sinngemäss: nur internal/machinehttp, drift gegen develop 24c7d049+ einpflegen, alle gates).

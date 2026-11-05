@@ -96,3 +96,7 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w159-compose-isolation.txt — LAEUFT (desktop): Hebelkarte gegen Compose-Verseuchung, Gegenproben-pflicht.
 - w161-device-lifecycle.txt — wartet auf ersten freien sitz (ornith voll, w160/w159 arbeiten).
 - w162/w163 LAEUFT (laptop x2). ruhe: #1373/#1379/#1380 urteile (read-only) an luna uebergeben.
+- w164-connection-r2.txt — Warteschlange (prioritaet 1 beim naechsten freien sitz): rezept 1380a = echte
+  CLI-Pfad-Verbindung zu ConnectionSelection.Resolve.
+- w165-journal-r5.txt — Warteschlange (p2): sleep-Polling raus, kanal-ordnung, race-20, mutante.
+- w166-private-gate.txt — Warteschlange (p3, klein): PR #1379 ready machen + Selected Checks beobachten.
