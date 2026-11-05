@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w203). Coord 841e7734. KARTE: t-20261018-r27-registry-access (RUNDE 2).
+ZWEIG: work/r27-registry-access (PR #1395, head c2ada69cd33) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1395a.md (punkte 1-3,5 BESTAETIGT — finger weg von adapter/credentials/fail-closed tests).
+EINZIGER PUNKT (punkt 4): ANSCHLUSS an den echten anwendungs-lebenszyklus: die produktionsstelle, die ein
+release/ein bild aufloest, muss RegistrySource.Resolve aufrufen (kein nur-testaufrufer). Zelle: echter
+anwendungs-pfad (up/apply oder was die karte benennt) faehrt den endpunkt通过 RegistrySource — nachweisbar
+am CALL-GRAPH (grep production caller in akte) + einer ENDE-ZU-ENDE-zelle. MUTANTE: caller wieder ausbauen
+=> die zelle muss ROT werden (diskriminierung), gegenprobe ohne mutation gruen.
+GATES: race-20, develop-merge falls drift + ancestor rc=0, hosted TERMINAL am neuen kopf (id+status in akte),
+ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE .github/
+subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/registry-access/round-2.md
+END an 841e7734: "END_DONE w203-registry-access-r2: head=<sha10> caller=<produktions-grep+e2e zelle> mutante=<rot+gegenprobe gruen> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

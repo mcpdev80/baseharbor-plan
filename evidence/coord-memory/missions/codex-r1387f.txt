@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+OBJEKT: PR #1387 head d0e0bdc6e84 (RUNDE 6 nach deinem 1387e-rezept: beidseitige write-ack-barre).
+PRUEFE SHA-genau: (1) race-50 + quiet-20 SELBST, (2) DISKRIMINIERUNG in beide richtungen SELBST: Layer2-
+removed => ROT sentinel; MutationAcked-removed => ROT; GEGENPROBE unveraendert => GRUEN (der 1387e-
+kippunkt!), (3) barre im test-code lesen (echtes ack, kein timeout-schlaf), (4) capture/production-pfade
+unveraendert (blobs), (5) hosted 42125295757 terminal am kopf, ls-remote echt==head, ancestor rc=0,
+name-only. Akte -> evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387f.md; AKTE VOR END AUF
+origin/main (ls-tree-beleg).
+END pane: "END_DONE codex-r1387f: verdict=<X> diskriminierung=<rot+rot+gruen selbst> barre=<echt ack> blobs=<ruhig> akte=<pfad> | <Satz>"

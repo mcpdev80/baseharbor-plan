@@ -1,0 +1,8 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert 2026-11-05 'fertig heißt mergen'). Coord 841e7734.
+KARTE/PR: t-20261018-r27-device-lifecycle / mcpdev80/baseharbor#1394, akzeptierter kopf fee055bffc5b
+(urteil review-1394c.md ACCEPT auf origin/main). AKTIONEN WIE IMMER: ls-remote head==fee055bffc5b (sonst STOP),
+develop AKTUELL konfliktfrei in den zweig mergen (konflikt => STOP+MELDEN), push, NEUER hosted-lauf bis
+TERMINAL GRUEN (fremder snapshot-flake-rot EINMAL rerunen, dann same-head-praezedenz-MELDUNG), dann
+gh pr merge --merge (kein bypass/force), develop-ls-remote + merge-sha ins pane. Karte schliesst der
+coordinator. Keine compose/docker-aktion auf baha-runner-docker-2.
+END pane: "END_DONE codex-merge-1394: merged=<sha10> develop=<sha10> head-vor-merge=fee055bffc5b | <Satz>"

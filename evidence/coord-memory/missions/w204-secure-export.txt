@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w204). Coord 841e7734. KARTE: t-20261018-r27-secure-export (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-secure-export -> PR, basis develop AKTUELL (ls-remote vor
+schnitt in die akte + ancestor rc=0).
+KARTE VOLL LESEN (outcome: explizit ausgewaehlter lokaler credential-export VERSCHLUESSELT; write-set:
+begrenzter secure-profile archive adapter/tests; internal/applicationbackup/crypto.go NUR uber bestehende
+API wiederverwenden, keine migration der krypto). Bedarf fremder datei => STOP+MELDEN.
+LIEFERPFLICHTEN: (1) export ohne ausdrueckliche auswahl leer/verweigert (keine stillen bereiche), (2)
+verschluesselung nachweisbar: dateiinhalt ohne passwort unlesbar, mit korrekt lesbar (zelle), (3)
+fehlerpfad: falsches passwort => deterministischer fehler, kein halber zustand (mutante: tolerant =>
+ROT wörtlich + gegenprobe gruen), (4) zusammenbau durch echten pfad (dauerklausel), (5) red-first auf
+unveraendertem develop.
+GATES: race-20, build/vet/gofmt, hosted TERMINAL am kopf, ls-remote echt==head WORTLICH, name-only,
+akte VOR END auf origin/main (ls-tree-beleg), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo,
+KEIN compose auf diesem host.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/secure-export/round-1.md
+END an 841e7734: "END_DONE w204-secure-export: head=<sha10> auswahl=<fail-closed> verschluesselung=<zelle> toleranz=<mutante rot+gegenprobe> zusammenbau=<echt> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

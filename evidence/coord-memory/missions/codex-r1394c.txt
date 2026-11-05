@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-device-lifecycle.
+OBJEKT: PR #1394 head fee055bffc5b (RUNDE 3 nach deinem 1394b-punkt 5: persistenz nach echtem restart).
+PUNKTE 1-4,6-7 Waren BESTAETIGT — pruefe NUR den nachgezogenen punkt mit, plus integritaet: (1) ECHTER
+restart: frischer pgx-pool/aechter store auf demSELBEN datenverzeichnis nach renew, CurrentSerial==neu;
+GEGENPROBE ohne renew == alt (diskriminierung); lies die testquelle: kein in-memory-double mehr. (2) KEINE
+ Regression zu 1394b: nahte/blobs/hosted (42122669499 terminal success am kopf), ls-remote echt==head,
+name-only, develop-ancestor rc=0. Akte -> evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394c.md;
+AKTE VOR END AUF origin/main (ls-tree-beleg).
+END pane: "END_DONE codex-r1394c: verdict=<X> restart=<echt belegt> gegenprobe=<alt bleibt> regressions=<keine> akte=<pfad> | <Satz>"

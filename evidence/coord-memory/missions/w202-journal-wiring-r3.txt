@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w202). Coord 841e7734. KARTE: t-20261018-r27-journal-wiring (RUNDE 3).
+ZWEIG: work/r27-journal-wiring (PR #1393, head ecae5f0d877b) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1393a.md VOLL (die punkte 1+5 waren BESTAETIGT — crash/handleExecute-naht nicht anfassen).
+PFLICHTEN (nur die zwei befundeten): (1) ORDNUNGSZELLE ECHT KONKURRENT: beide kindprozesse gleichzeitig
+lebend auf demSELBEN persistenten journalpfad (barrier: beide warten auf freigabe, dann los;kein warten
+auf prozess-1-ende); ergebnis: geordnete provenance ohne verlust/duplikat; (2) MUTANTE B als ECHTER
+write-verlust im dateisystem/pfad (kein in-memory-slice-edit) => ordnungszelle ROT; Gegenprobe unveraendert
+=> GRUEN (diskriminierung). (3) mutante A darf bleiben wie bestaetigt, falls read-only-chmod weiter
+einziger weg ist — begruendung in akte.
+GATES: race-20, develop-merge falls drift + ancestor rc=0, hosted TERMINAL am neuen kopf (id in akte),
+ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE .github/
+subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md
+END an 841e7734: "END_DONE w202-journal-wiring-r3: head=<sha10> konkurrenz=<gleichzeitig+barriere> mutanteB=<echt+gegenprobe gruen> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

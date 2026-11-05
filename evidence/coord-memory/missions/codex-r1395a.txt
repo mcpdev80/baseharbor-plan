@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-registry-access.
+OBJEKT: PR #1395 head c2ada69cd33. PRUEFE SHA-genau: (1) endpunkt KOMMT AUS KONFIGURATION (zelle: andere
+konfig => anderer endpunkt, kein hartcodierter fallback), (2) native credentials: aufruf des vorgesehenen
+helper/CLI belegt, KEIN eigener token-speicher (grep alle neuen dateien), (3) fail-closed: unrechtraessiger
+endpunkt => deterministischer fehler; fallback-mutante (docker.io rein) => ROT, gegenprobe => gruen, (4)
+zusammenbau echter lebenszyklus-pfad (dauerklausel), (5) hosted 42120843177 terminal am kopf, ls-remote
+echt==head, name-only, develop-ancestor rc=0. Akte -> evidence/r27-welle5-2026-11-05/registry-access/
+review-1395a.md; AKTE VOR END AUF origin/main (ls-tree-beleg).
+END pane: "END_DONE codex-r1395a: verdict=<X> endpunkt=<konfig belegt> credentials=<native> failclosed=<mutante rot+gegenprobe gruen> zusammenbau=<echt> akte=<pfad> | <Satz>"
