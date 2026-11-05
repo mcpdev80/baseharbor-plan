@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-protected-credentials.
+OBJEKT: PR #1385 head b3c3c1c1405 (runde 3 nach deiner 1385b; rezept: create-only/CAS-Erstseedung ueber die
+BESTEHENDE Ablage-Autoritaet, im Konflikt vorhandener wert gewinnt (1 Get 0 Set), race-test laeuft BIS zum
+Wiederherstellungsschritt — der alte endete davor, CAS-Mutante => konfliktzelle ROT).
+PRUEFE SHA-genau: (1) die KONKURRANZ-SONDE SELBST fahren (zwei gleiche anmelde-pfade parallel, vorhandener
+wert ueberlebt, wuetende schreibzaehlung im konfliktpfad = null), (2) CAS-MUTANTE zurueckgebaut => muss ROT
+(EINZELLAUF), (3) testablauf-heilung: wörtliche zeile dass die wiederherstellung den ihrigen schritt ERREICHT
+(kein vorzeitiger ausstieg — vergleiche mit deinem 1385b-befund), (4) operator_auth.go: nur der benannte
+sentinel, keine side-effects (blob-read), (5) name-only, lauf 41998291745 terminal am kopf, ls-remote echt==head.
+Akte -> evidence/r27-welle4-2026-11-05/protected-credentials/review-1385c.md.
+END pane: "END_DONE codex-r1385c: verdict=<X> konkurrenz=<selbstsonde bestanden> mutante=<rot einzellauf> heilung=<belegt> | <Satz>"
