@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w162, freigegeben)
-kanban_lane: review
+owner: coord-welle4 (w170, wartet auf sitz)
+kanban_lane: active
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: review
+kanban_status: active
 kanban_title: "Credentials: retain and recover opted-in local credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md"]
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w162, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle4 (w170, wartet auf sitz) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Lane w162, freigegeben)  
+**Owner:** coord-welle4 (w170, wartet auf sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -70,3 +70,8 @@ w162: device-rebind recovery for opt-in local developer credentials (commit 74a7
 ## Kandidat pruefbar 2026-11-05 (kopf 74a74e49fdc)
 devaccess-erweiterung (rebind + verdrahtung des bestehenden bao-pfads), vier wiederherstellungszellen,
 fail-closed-zelle namentlich rot belegt, selected-checks gruen am kopf. Kein neuer geheimnis-speicher.
+
+## Rueckruf 2026-11-05 (1385a REJECT: zellen 4/4 ok, aber wiederholung kann OpenBao zweimal
+beschreiben und kaemt mit konkurrierendem eintrag)
+Runde 2: eine Set pro pfad (abgeleitet aus der bestehenden reconcile-naht), rueckgabe des wiedergewonnenen
+wertes, zaehlung der Get/Set-paare DURCH den echten produktionspfad; kein neuer speicher.
