@@ -30,3 +30,8 @@
 3. Repeat race-50 and quiet-20, restore the unmutated candidate, and verify terminal hosted success at the resulting exact SHA.
 
 The review used isolated worktrees for both mutations and the no-write control. Candidate source and PR were not changed. No PR action was performed.
+
+## Remote publication witness
+
+- Before this receipt amendment, `git ls-tree origin/main -- evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387e.md` returned `100644 blob 226790c80ed44be6f0fbe705e27ff39a53dcb1d2 evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387e.md` at `origin/main` `fdbd402e80af7131d321e36f84b5cb40a0b6a5d0`.
+- The receipt amendment was committed and pushed; final `fetch origin main` and `ls-tree origin/main` verified the updated akte path on the remote.
