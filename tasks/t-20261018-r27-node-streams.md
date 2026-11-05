@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle4 (Lane w171, freigegeben)
-kanban_lane: review
+owner: coord-welle4 (w176, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Connector: bound log replay and terminal cancellation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime, t-20261105-r27-test-wire-helper]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -22,18 +22,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w171, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle4 (w176, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
-**Owner:** coord-welle4 (Lane w171, freigegeben)  
+**Owner:** coord-welle4 (w176, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -84,3 +84,8 @@ Nachgemessen: ls-remote echt==head, main Vorfahr, vier eigene commits, write-set
 trust/session-blobs unveraendert; laeufe 41989934411+41989934361 terminal SUCCESS am exakten kopf. Fall C
 frist-ende brueht (mutante rot), fall D cursor-ablauf-weisung mit frischer importierter handshake-leitung
 (alter weg removed, ghost mutante rot). Akte round-3.md publiziert (1d52f32).
+
+## Rueckruf (22c REJECT, vier punkte): A/B umgehen die echte Kette
+A und B rufen den replay-Helfer DIREKT statt ueber frische NewHandshakePair+ServeLogStream; D wartet das
+natuerliche Terminal ab statt frueh ab zubrechen; execx/executor.go liegt ausserhalb der Write-Reservierung
+(zurueck oder begruenden); und der kartengeforderte begrenzte ECHTE log/PTY-SMOKE fehlt bisher ganz.
