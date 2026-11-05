@@ -1946,3 +1946,7 @@ API-luege, nicht meine). Der tick-once script hat jetzt PANE-EYE ALS AUTHORITATI
 letzten 8 zeilen => busy, sonst idle; API nur fallback wenn pane unerreichbar). Beweispflicht: NAechSTER
 echter idle-slot innerhalb 2 min => FIRED-zeile + prompt im pane + due-marker weg. Wenn das ausbleibt:
 API-isWorking-regression separat melden (codeman-bug-klasse).
+
+## 11:55 OWNER-DIREKTIVE UMGESETZT: tick-nachricht ist jetzt EIN ZEILER (tmux-sicher), der vollständige
+pflichttext (punkte 0–7 inkl. pool-soll + queueanweisung) lebt versioniert in coordinator/TICK-DUTIES.md.
+Inhalt gleich, uebermittlung kuerzer. Erste kurze version laeuft ab dem naechsten FIRED.
