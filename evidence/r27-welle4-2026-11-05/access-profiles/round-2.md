@@ -141,11 +141,13 @@ necessary, not coincidentally green.
 - No failing check. If any check fails, it is recorded here as STATE (check name + failing log
   line) and the lane stops per Owner directive 2026-11-04; no .github edit, no rerun/workflow_dispatch.
 
-## END an f49a3303
+## END an f49a3303 (2026-11-05)
 
-END_QUESTION w167-profiles-r2: head=3bb95cc7 faelle=6/6 (assignment/revoke/ambiguous/stale/
-foreign/no-escalation) mutanten=abcd rot belegt autoritaet=policy.Aggregate (internal/policy/model.go:49)
-+ orgconfig Manager.Owner (internal/orgconfig/profiles.go:234) adapter dumb -> ResolveFinding (assignment.go)
-lauf=41981861515 workflow+format PASS, Selected Checks SKIPPING (draft, needs ready) lsremote=3bb95cc7 |
-PR #1384 round-2 integrated; need your go to make the draft ready so selected checks run to terminal
-(bounded write-set only, no self-qualification).
+POSTED: END_QUESTION w167-profiles-r2: head=3bb95cc7 faelle=6/6 (assignment/revoke/ambiguous/stale/
+foreign/no-escalation) mutanten=abcd rot belegt autoritaet=policy.Aggregate (policy/model.go:49) +
+orgconfig Manager.Owner (orgconfig/profiles.go:234) adapter dumb->ResolveFinding; lauf=41981861515
+workflow+format PASS Selected Checks SKIPPING (draft, needs ready) lsremote=3bb95cc7 | PR #1384
+round-2 integrated into one candidate chain; need your go to make the draft ready so selected checks
+run to terminal (bounded write-set only, no self-qualification).
+
+AWAITING coordinator decision to make draft #1384 ready so PR Selected Checks run to terminal.
