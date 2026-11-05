@@ -2044,3 +2044,9 @@ einzige weg. Befund rueckwirkend: streams (connector-CI, andere workflow-logik) 
 fuhrt die tests REAL, nur die runtime-zellen fehlten) geprueft: kein zweiter fall dieser klasse gefunden.
 Welle-4 protokoll-regel: bei 'skipped' in selected-checks immer ZELLNAME gegen die betroffenen tests
 abgleichen — skip einer GATE-FAMILIE ist nur dann neutral, wenn kein akzeptanz-kriterium darin liegt.
+
+## 16:55 OWNER-MERGE-RUNDE ANGEKUENDIGT (4): #1386 (verbindungs-grenze->client frei), #1384 (profile),
+#1388 (anmeldung bestehender anwendungen), #1379 (privatmodus). Schliesspfade vorbereitet: pro PR status
++ develop-landung + karte closed mit merge-sha, danach verbindung-client besetzen (konfliktcheck gegen
+laufende: core machinehttp/coreinstallation — w181 openbao/devaccess, w184 application-lifecycle-locks,
+w185 connector — getrennte dateiraeme, passt).
