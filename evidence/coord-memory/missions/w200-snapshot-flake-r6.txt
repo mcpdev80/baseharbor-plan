@@ -5,7 +5,7 @@ PFLICHT: BEIDSEITIGE BARRE im late-mutation-test: writer meldet start (hat er sc
 (tatsächliche änderung bestaetigt, z.B. geschriebene bytes/identitaet bevor CaptureSource aus dem
 consumed-path-ereignis weiterlaufen KANN). NACHWEIS DER DISKRIMINIERUNG: endcheck-raus-mutante muss NUR
 bei echter dateiaenderung rot werden — fuere zusaetzlich die GEGENPROBE: ohne any mutation muss der test
-GRUEN bleiben AUCH mit mutante (控制zelle: gleicher testpfad, keine schreibaktion => gruen). Hook-raus
+GRUEN bleiben AUCH mit GEGENPROBE-zelle: gleicher testpfad, keine schreibaktion => gruen. Hook-raus
 bleibt wie belegt rot.
 PROBE in der akte: beide richtungen WÖRTLICH (mutante+mutable=rot, mutante+statisch=gruen).
 GATES: race-50 + quiet-20, develop-merge falls drift + ancestor rc=0, hosted TERMINAL am neuen kopf,
