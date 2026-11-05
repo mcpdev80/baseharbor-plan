@@ -5,9 +5,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (w166, wartet auf sitz)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w166, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen"
 priority: ""
@@ -20,17 +20,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w166, wartet auf sitz)  
+    **Owner:** coord-welle4 (Lane w166, freigegeben)  
     **PR:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (w166, wartet auf sitz)  
+**Owner:** coord-welle4 (Lane w166, freigegeben)  
 **Priority:** not set  
 **PRs:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
 **Source:** 
@@ -99,3 +99,9 @@ der negative Nachweis (Ablehnung ohne Wirkung, Zerstörbarkeit) bleibt gültig.
 Inhalt (Umschaltung + beide Gegenproben) bestanden. Der Lauf am exakten Kopf uebersprang den Job 'Selected
 Checks' — vermutlich draft-schalter. Kleinauftrag: PR auf ready, neuen Lauf terminal beobachten, beide
 Modus-Zellen am lauf belegen; bleibt der skip: Befund mit Workflow-zeile an den Owner, keine Gewalt.
+
+## Gate-Nachweis geliefert — wieder pruefbar (kopf unveraendert 52be57c9893)
+PR ist auf ready gestellt, der ausgewiesene Pflichtlauf 'PR Selected Checks' ist am exakten Kopf terminal
+ERFOLGREICH (lauf 41978410480, von mir abgerufen; beide Modus-Zellen in der Akte belegt). Der einzige
+Ablehnungspunkt der Prüfung (uebersprungener Gate-Job) ist damit ausgeraeumt — Inhalt war schon vorher
+bestanden. Merge-obliegt der Owner-Runde.
