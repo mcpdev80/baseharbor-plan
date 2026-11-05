@@ -1,5 +1,5 @@
 ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-journal-wiring.
-OBJEKT: PR #1392 head 3fa46bc299b (anwendungs-tagebuch im echten ausfuehrungs-pfad; persist-before-publish;
+OBJEKT: PR #1393 (ehemals #1392, gh-auto-closed durch doppelanleg) head 3fa46bc299b (anwendungs-tagebuch im echten ausfuehrungs-pfad; persist-before-publish;
 wiederanlauf; zweiprozess-ordnung). PRUEFE SHA-genau: (1) PRODUKTIONSNAHT SELBST lesen: handleExecute ->
 createRequest commit + runExecution (kein test nur-helper), (2) crash-wiederanlauf ZELLE selbst fahren
 (running/uncertain + reissue reconciles), (3) zweiprozess-ordnung SELBST nachbauen (reale prozesse, keine
