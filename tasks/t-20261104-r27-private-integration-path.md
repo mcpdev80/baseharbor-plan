@@ -105,3 +105,7 @@ PR ist auf ready gestellt, der ausgewiesene Pflichtlauf 'PR Selected Checks' ist
 ERFOLGREICH (lauf 41978410480, von mir abgerufen; beide Modus-Zellen in der Akte belegt). Der einzige
 Ablehnungspunkt der Prüfung (uebersprungener Gate-Job) ist damit ausgeraeumt — Inhalt war schon vorher
 bestanden. Merge-obliegt der Owner-Runde.
+
+## ACCEPT 2026-11-05 (r1379b, Gate-Punkt geschlossen)
+Kopf unveraendert 52be57c9893; 'PR Selected Checks' terminal erfolgreich + die zwei modus-zellen belegt —
+der einzige ablehnungspunkt der runde 1379 ist ausgeraeumt. MERGE-REIF fuer die Owner-Runde.
