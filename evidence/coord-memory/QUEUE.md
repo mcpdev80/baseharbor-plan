@@ -127,3 +127,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   basis ist jetzt 42bfcb1cb4 fuer ALLE neuen schnitte (missionstexte beim naechsten dispatch anpassen).
 - w176-streams-r4.txt — LAEUFT (laptop). Journal r6 im pruefkanal (1373f). p: snapshot-flake, neue 5er-Welle.
 - w177-journal-r7.txt — p1 (einzellauf-mutante + basis-42bfcb1cb4). snapshot-flake + 5er-welle dahinter.
+- w177-journal-r7.txt — LAEUFT (ornith). Profiles r3 im pruefkanal (1384c).

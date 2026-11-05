@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-access-profiles.
+OBJEKT: PR #1384 head 50b99c4625e (runde 3 nach deiner 1384b; rezept-punkte: produktionspfad-adapter MIT
+echter owned-zuweisung im zusammenwurf + revisions-gleichheit != mit 3 zellen). PRUEFE SHA-genau: (1) den
+zusammenstellungs-test SELBST fahren und den beigetragenen befund bis policy.Aggregate verfolgen (kein
+leerer manager, kein stiller drop), (2) revisions-matrix klein/gleich/groesser nachfahren + MUTANTE
+(>= statt !=) => zukunftszelle ROT, (3) die sechs r2-falle behalten (stichprobe), (4) blobs der mitgliedschafts-
+kette identisch, name-only, ancestor develop 42bfcb1cb4 JA, lauf 41999836846 terminal am kopf, ls-remote
+echt==head. Akte -> evidence/r27-welle4-2026-11-05/access-profiles/review-1384c.md.
+END pane: "END_DONE codex-r1384c: verdict=<X> zusammenbau=<echt belegt> revision=<3 zellen+mutante rot> faelle=<6/6> | <Satz>"
