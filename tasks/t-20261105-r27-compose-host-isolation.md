@@ -5,34 +5,35 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w159)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w159, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1383]
 sources: []
 blocker: ""
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w159) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w159, freigegeben) · **Priority:** high  
+    **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (Lane w159)  
+**Owner:** coord-welle4 (Lane w159, freigegeben)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -74,3 +75,8 @@ flips the runtime gate red for unrelated candidates).
 - `go test ./cmd/baha -run 'TestRepository(WorkflowRealLifecycle|Compose|BuildWorkload)' -count=2` under
   (a) clean state, (b) deliberately polluted shared state — transcripts in evidence.
 - go build, vet, gofmt; hosted runs of the exact head to terminal.
+
+## Kandidat pruefbar 2026-11-05 (kopf 9bf29c89846, basis-auffrischung drin)
+Zellenstand nach dem nachtrag: zustimmungs-ursache fixiert, verseuchter develop JETZT rot gemessen (war
+zuerst gruen — grund war die aeltere basis), head gruen; isolierungs-frage wird im urteil als eigener
+abschnitt gefuehrt.
