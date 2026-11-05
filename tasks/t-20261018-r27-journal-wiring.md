@@ -7,35 +7,37 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle5 (Lane w191)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
-kanban_status: active
+kanban_status: review
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1392]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md","https://github.com/mcpdev80/baseharbor/pull/1392","https://github.com/mcpdev80/baseharbor/actions/runs/42097435724"]
 ---
 
-- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w191) · **Priority:** normal  
+    **PR:** [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1392), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/42097435724)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
 **Owner:** coord-welle5 (Lane w191)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -62,3 +64,13 @@ Actual HTTP handler restart/lost-response/event-cursor integration with fake bou
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+round 1 candidate PR #1392 head 3a5ce89011, hosted CI 42097435724 green (go-build/vet/unit-tests), evidence round-1.md
+
+round 1 candidate PR #1392 head 3a5ce89011, hosted CI 42097435724 green (go-build/vet/unit-tests), evidence round-1.md
+
+round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green; evidence round-1.md
+
+round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green (go-build/vet/unit-tests); evidence round-1.md
+
+round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green; evidence round-1.md
