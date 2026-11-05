@@ -1866,3 +1866,7 @@ zusammenstellungs-test-auftrag (echter pfad, nicht helper-direct). ergaenzt: rev
 Test aufgebaut, der vor dem Wiederherstellungsschritt abbrach. Lehre für alle künftigen Race-Aufträge:
 END-Pflicht verlangt die wörtliche Zeile dass der Konflikt SICHTBAR innerhalb des Tests erzeugt wurde
 (NICHT nur „Race gelaufen"). Mission r3 mit CAS-Seed + heilendem Testablauf + Mutantenzelle fertig.
+
+## 08:5x BOUNDARY ACCEPT (r1386b, head aa62518c6a6): merge-reif owner. Damit #1380abhaengigkeit nur noch
+nach merge-vollzug frei. Owner-Runden-Antrag aktuell: #1379 + #1386 (beide ACCEPT), Korrektur-Endspuren:
+#1384/#1385/#22/#1383/#1373r6/w175.
