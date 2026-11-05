@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (read-only, KEIN Merge — Owner-Runde laeuft). Coord f49a3303. KANAL: Luna.
+KARTE: t-20261018-r27-access-profiles. OBJEKT: baseharbor PR #1384 head 06479fe0 branch work/access-profiles
+draft, base develop 24c7d049+ (ancestor JA, lauf 41970216583 success, zwei eigene commits — von mir gemessen).
+PRUEFEN SHA-genau gegen die karte (profile verwalten: anlegen/aendern/entzug auf bestehender
+mitgliedschafts-autoritaet): (1) write-set name-only, keine fremden ketten-dateien (machinehttp/credential-
+native/devaccess NICHT angefasst — blob-stichproben), (2) die sechs gemeldeten faelle SELBST nachfahren
+oder ihre tests wortlich pruefen: zuweisung gueltig, widerruf wirksam, mehrdeutigkeit => fehlgeschlossen,
+veraltete revision => abgewiesen, fremder tenant => abgewiesen, keine eskalation durch profil-edition,
+(3) ADAPTER-FRAGE: der zweite commit nennt 'policy assignment adapter' — pruefe dass er nur VERMITTELT und
+keine zweite entscheidungs-autoritaet wird (ein决策-pfad pro frage, grep+aufrufkette), (4) gates am head,
+ls-remote echt==head. Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-05/access-profiles/review-1384a.md
+mit ACCEPT/REJECT + rezept bei REJECT; bei ACCEPT vermerk 'merge-reif owner-runde'.
+END per pane-zeile: "END_DONE codex-r1384a: verdict=<X> faelle=<n/6> adapter=<einzige-wahrheit|zweite-wahrheit> | <Satz>"
