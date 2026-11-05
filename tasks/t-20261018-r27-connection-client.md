@@ -26,7 +26,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w164) · **Priority:** normal  
     **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
-    **Needs:** [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

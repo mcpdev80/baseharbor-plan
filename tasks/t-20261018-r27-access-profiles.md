@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w174, freigegeben)
-kanban_lane: accepted
+kanban_lane: closed
 kanban_summary: Create/update/revoke named profiles for selected Targets/operations/scopes/environments with existing policy authority. Profiles…
-kanban_status: accepted
+kanban_status: closed
 kanban_title: "Access: manage scoped team profiles and owned assignments"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-team-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -18,11 +18,11 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: "PR #1384 merged into develop at a7253eca61b18c660cecd0fa597f02f0a350557e; exact-head selected CI run 41999836846 successful."
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4-2026-11-05/access-profiles/round-1.md"]
 ---
 
-- [x] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/accepted #view/accepted #area/access #kind/task
+- [x] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w174, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  

@@ -6,8 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle4 (Lane w172, freigegeben)
-kanban_status: accepted
-kanban_lane: accepted
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
 kanban_title: "Authority: target-scoped live-connection resolution without an application context"
 priority: high
@@ -16,11 +16,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1386]
 sources: []
 blocker: ""
-resolution: "PR #1386 merged into develop at b4f649500b4bea6774b7a8d36842ea6897e39a54; exact-head selected CI run 41988118382 successful."
+resolution: accepted
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md]
 ---
 
-- [x] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/accepted #view/accepted #area/platform #kind/task
+- [x] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w172, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
