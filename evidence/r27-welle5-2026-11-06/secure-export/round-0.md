@@ -23,3 +23,8 @@ The interfaces the task assumes (profile-codec connection/store, protected-crede
 
 ## END
 END_BLOCKED w204-secure-export: BLOCKED — scope decision: predecessor interfaces (profile-codec connection/store, protected-credentials local export authority) not delivered on develop (develop=3d8fc207, secure-export branch absent), local repo on wrong branch, stray untracked coordinator/ in product repo. Need Owner call.
+
+## Workspace hygiene
+- NO branch cut, NO product code touched, NO gate/rerun triggered.
+- Product repo baseharbor dirty state (M cmd/baha/app_broker.go, M cmd/baha/application_registry_source.go, ?? .tmp/, ?? coordinator/) belongs to a DIFFERENT lane (work/r27-registry-access) — left untouched. My commit footprint in baseharbor is empty.
+- Evidence only in baseharbor-plan, on origin/main: ls-tree 100644 blob d036904601a81bb6f3bc5638ab5684087cd0f160 evidence/r27-welle5-2026-11-06/secure-export/round-0.md.
