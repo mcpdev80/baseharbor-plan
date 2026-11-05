@@ -119,3 +119,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   mutation-lock-Kette) erst nach deren bestaetigtem Abschluss.
 - w174-profiles-r3.txt — p1 Warteschlange (produktion-plus-zukunftsrevision); w173-journal-r6 p2.
 - w175-credentials-r3.txt — p1 Warteschlange (CAS-Seed + heilender Race-Test); w174 läuft, w173 p2.
+- w175-credentials-r3.txt — LAEUFT. w173-journal-r6 — p1 Warteschlange. Boundary r2 im pruefkanal (1386b).

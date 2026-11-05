@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261105-r27-connection-authority-boundary.
+OBJEKT: PR #1386 head aa62518c6a6 (runde 2 nach deiner 1386a; rezept: resolution strikt LESSEND, fehlende/
+unvollstaendige autoritaet => benannter fehler, zwei neue sonden). PRUEFE SHA-genau: (1) kein Pfad im
+resolver-erzeugnis der EnsureLocalIssuer oder sonstiges material-erzeugen aufruft (grep + code-read),
+(2) alle vier sonden selbst nachfahren (verifizierte installation fehlt / fremder target / fehlendes
+verzeichnis / leere issuer-datei => jeweils benannter fail, KEIN material), (3) fehlgeburts-MUTANTE:
+erzeugung zurueck-gebaut => probe muss ROT, (4) blobs sonst unveraendert, name-only, ls-remote echt==head,
+lauf 41988118382 terminal am head. Akte -> evidence/r27-welle4-2026-11-05/connection-authority/review-1386b.md.
+END pane: "END_DONE codex-r1386b: verdict=<X> probes=<4/4 selbstonde> mutante=<rot> | <Satz>"
