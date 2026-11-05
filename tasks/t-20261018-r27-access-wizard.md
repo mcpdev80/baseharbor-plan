@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md)  
+    **Needs:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

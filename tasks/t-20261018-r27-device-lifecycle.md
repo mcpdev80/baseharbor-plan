@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle5 (Lane w201, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Revoke A without affecting B, apps or platform; bound stale sessions and active connections. Reconnect/renew require valid…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Devices: renew and revoke one workstation independently"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1394"]
 ---
 
-- [ ] t-20261018-r27-device-lifecycle · Devices: renew and revoke one workstation independently #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [x] t-20261018-r27-device-lifecycle · Devices: renew and revoke one workstation independently #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w201, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1394](https://github.com/mcpdev80/baseharbor/pull/1394)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1394)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -118,3 +119,7 @@ bestand), serie nach restart == erneuert, gegenprobe unveraendert, race-20 db+ws
 ## Merge-BLOCK 2026-11-06 (1394): endlauf 42122669499 ROT am FREMDEN snapshot-flake
 (TestSourceSnapshotDetectsChangeDuringRead :224) — owner-praeczedenz: kein merge, warten auf den flake-fix
 (#1387 runde 6, laeuft zur abnahme). KEIN code-felder in dieser kette; retry nach flake-merge.
+
+## Gemerged 2026-11-06 (CODEX-MERGE KETTE nach 1394c ACCEPT): develop jetzt 21d8d05cf1a, PR MERGED
+bestaetigt; der fruehere flake-block war das einzige hindernis, geheilt durch den vorangegangenen 1387-merge.
+Erneuern/Widerruf einzelner arbeitsplaetze inkl. neustart-persistenz DAMIT ECHT.
