@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: ""
-kanban_lane: ready
+owner: coord-welle5 (Lane w204)
+kanban_lane: active
 kanban_summary: Opt-in local eligible credentials only; authenticated encryption/version/KDF using existing reviewed primitives. Password never…
-kanban_status: planned
+kanban_status: active
 kanban_title: "Profiles: encrypt explicitly selected local credential export"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-codec, t-20261018-r27-protected-credentials, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/planned #view/ready #area/access #kind/task
+- [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle5 (Lane w204) · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (Lane w204)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
