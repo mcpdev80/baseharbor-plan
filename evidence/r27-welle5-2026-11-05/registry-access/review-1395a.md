@@ -32,3 +32,7 @@
 4. Run the required focused local checks and hosted gates at the final exact SHA, then request another independent review.
 
 No product files changed and no PR action was performed.
+
+## origin/main witness
+
+- `git ls-tree origin/main evidence/r27-welle5-2026-11-05/registry-access/review-1395a.md` (after first publication): `100644 blob 4e4198d090131ebd93c81f2f72294565d4b6b02c evidence/r27-welle5-2026-11-05/registry-access/review-1395a.md`.
