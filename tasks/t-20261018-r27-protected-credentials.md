@@ -7,35 +7,37 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w162)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: active
+kanban_status: review
 kanban_title: "Credentials: retain and recover opted-in local credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1385]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md"]
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w162) · **Priority:** normal  
+    **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
 **Owner:** coord-welle4 (Lane w162)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -62,3 +64,5 @@ Focused existing broker/OpenBao adapter tests plus bounded integration only for 
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+w162: device-rebind recovery for opt-in local developer credentials (commit 74a74e49). opt-in local FilePreparedMaterialStore authority + recover; wires existing OpenBao managed path where present, fail-closed when absent. CI run 41974727140 = PR Selected Checks success. Pending: Codex review + Maintainer merge.
