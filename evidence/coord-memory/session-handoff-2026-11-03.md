@@ -2050,3 +2050,9 @@ abgleichen — skip einer GATE-FAMILIE ist nur dann neutral, wenn kein akzeptanz
 + develop-landung + karte closed mit merge-sha, danach verbindung-client besetzen (konfliktcheck gegen
 laufende: core machinehttp/coreinstallation — w181 openbao/devaccess, w184 application-lifecycle-locks,
 w185 connector — getrennte dateiraeme, passt).
+
+## 17:1x OWNER-KORREKTUR 'NICHT WARTEN, SOFORT MERGEN' umgesetzt: ab jetzt faehrt jede bestätigte
+ACCEPT-karte DIREKT in eine CODEX-MERGE-mission (kein warten auf gesammelte owner-runde); karte sofort
+closed, abhaengige sofort entriegelt+besetzt. Hintergrund des aerfers: die 4-karten-close-chain hing 25min
+an schema-reparatur (ihr 'accepted'-wert + fehlende evidence-felder = 12 check-fehler blockierten jeden
+push-pfad) statt am merge selbst. Alle vier jetzt closed, board 0/0, journal-reihe inklusive.
