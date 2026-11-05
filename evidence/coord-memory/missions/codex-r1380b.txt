@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-connection-client.
+Objekt: PR #1380 head 02b2e65e7c5 (basis-erneuert nach deines-1380a-rezept; placement-target != admin
+connection, drei Autoritaeten getrennt, 1386-resolver nur gelesen). PRUEFE SHA-genau: (1) drei-Autoritaeten-
+trennung SELBST nachgefahren (zelle je richtung), (2) use-ohne-app-kontextpfad reaches aussteller NUR ueber
+1386-leser (code-read + zelle), (3) resolver-skipped + ObservedAt mutanten einzellauf ROT benannt, (4) authority.go
+blob unveraendert (hash gegen develop), (5) lauf 42055518849 terminal SUCCESS am kopf, ls-remote echt==head,
+name-only. Akte -> evidence/r27-welle5-2026-11-05/connection-client/review-1380b.md (SCHREIBPFLICHT).
+END pane: "END_DONE codex-r1380b: verdict=<X> trennung=<selbst> pfad=<1386er> mutanten=<2/2 rot> blob=<ruhig> akte=<pfad> | <Satz>"

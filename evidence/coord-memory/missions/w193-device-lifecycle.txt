@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w193). Coord 841e7734. KARTE: t-20261018-r27-device-lifecycle (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-device-lifecycle -> PR, basis develop AKTUELL (ls-remote vor
+schnitt in die akte + ancestor rc=0; heute viel gemergt, letzter gemergter stand pruefen).
+KARTE VOLL LESEN (outcome: erneuerung UND wideruf eines arbeitsplatzes UNABHAENGIG vom rest-geraet;
+write-set: bounded workstation identity renewal/revocation owner/tests — NICHTS weiter; bedarf fremde
+datei => STOP+MELDEN).
+LIEFERPFLICHTEN: (1) erneuerung an einem geraet laesst andere geraete unangetastet (matrix-zelle), (2)
+wideruf macht genau DIESES geraet wirkungslos — nachherige handlungen damit scheitern deterministisch
+mutante: wideruf-pruefung raus => sicherheits-zelle ROT (wörtlich), (3) erneuerung+nach wideruf: expliziter
+fehlerzustand, kein schweigen, (4) zusammenbau durch echten lebenszyklus-pfad (dauerklausel, kein helper),
+(5) red-first auf unveraendertem develop.
+GATES: focused go tests + race-20, build/vet/gofmt, hosted lauf TERMINAL am kopf (selected-checks nicht
+skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only, KEINE .github/subagenten/zweiter
+PR/akten-ins-produktrepo, compose-projekte down vor END.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/device-lifecycle/round-1.md
+END an 841e7734: "END_DONE w193-device-lifecycle: head=<sha10> unabhaengigkeit=<zelle gruen> wideruf=<deterministisch + mutante rot> zusammenbau=<echt> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"

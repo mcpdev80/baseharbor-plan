@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w192). Coord 841e7734. KARTE: t-20261105-r27-snapshot-change-guard-deterministic (RUNDE 5).
+ZWEIG: work/r27-snapshot-flake (PR #1387, head d21badc6f4a) — DERSOLBE zweig/PR. AKTE: review-1387d.md (VOLL LESEN).
+EINZIGER PUNKT (REJECT-rezept): die late-mutation-regression Synchronisiert den writer nicht — darum bleibt
+die endcheck-entfernt-mutante GRUEN (0/1 rot). Masse: die regression muss konfliktfrei mit dem walk-ende
+synchronisieren (writer wartet bis der walk die basispfade gelesen hat, oder mutiert eine FRUEH-im-walk
+geaenderte bestehende datei, die verifyFinalBaseline prueft), damit endcheck-entfernt => BENANNTE zelle ROT.
+Lstat-korrektur und BEIDE schutzschichten bleiben unveraendert (1387d: richtig gelassen).
+PROBE: endcheck-raus-MUTANTE SELBST einzellauf ROT wörtlich + hook-raus-MUTANTE bleibt rot (3x), race-50 +
+quiet-20 gruen, hosted lauf TERMINAL GRUEN am neuen kopf (hauptkriterium).
+GATES/BASIS: develop AKTUELL in den zweig mergen + ancestor rc=0, ls-remote echt==head WORTLICH, name-only,
+KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, compose down vor END.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/snapshot-flake/round-5.md
+END an 841e7734: "END_DONE w192-snapshot-flake-r5: head=<sha10> endcheckmutante=<ROT wörtlich> hookmutante=<rot> race50=<gruen> hosted=<id TERMINAL SUCCESS> lsremote=<sha10> | <Satz>"
