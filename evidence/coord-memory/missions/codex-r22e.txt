@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna (oder die neue session-uebernahme,
+siehe BOOT-2026-11-05.md falls diese session tot ist). KARTE: t-20261018-r27-node-streams.
+OBJEKT: connector PR #22 head 52db6dc1c64 (runde 5 nach deiner 22d: A/B jetzt ueber frische
+NewHandshakePair+ServeLogStream-wire-resume, helper-direct NULL, vier mutanten gemeldet rot).
+PRUEFE SHA-genau: (1) gemischtes A-D ensemble -race -count=20 SELBST, (2) vier mutanten SELBST einzellauf
+(stale-guard/dup-allow/frist-kurz/age-gat aus => je ROT wörtlich), (3) A/B fuhren die echte kette (grep
+NULL + code-read der zellen), (4) blobs der trust/session-dateien, execx io.EOF-only, (5) laeufe
+42058515798/42058515839 terminal am kopf, ls-remote echt==head, name-only. Akte ->
+evidence/r27-welle4-2026-11-05/node-streams/review-22e.md (schreibpflicht).
+END pane: "END_DONE codex-r22e: verdict=<X> ensemble=<selbst gruen> mutanten=<4/4 rot> kette=<echt belegt> blobs=<ruhig> akte=<pfad> | <Satz>"
