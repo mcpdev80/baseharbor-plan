@@ -102,3 +102,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w166-private-gate.txt — Warteschlange (p3, klein): PR #1379 ready machen + Selected Checks beobachten.
 - w167-profiles-r2.txt — Warteschlange (p1): access-profiles korrektur nach 1384a (zweite wahrheit -> eine).
 - w165-journal-r5.txt — Warteschlange (p2). w166-private-gate.txt — Warteschlange (p3).
+- w168-authority-boundary.txt — LAEUFT: ziel-stufige live-verbindung in der bestehenden grenze; naehert
+  #1380 wieder an (warnung "connection-client active mit offener abhaengigkeit" ist gewollt und ehrlich).

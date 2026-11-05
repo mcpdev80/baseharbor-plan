@@ -1,0 +1,22 @@
+ROLLE: Worker (Lane w168). Coord f49a3303. KARTE: t-20261105-r27-connection-authority-boundary (RUNDE 1).
+REPO baseharbor, zweig work/r27-connection-authority von develop (fetch, ls-remote echte adresse).
+KARTE VOLL lesen — sie traegt die GEMESSENE aufrufkette des blockers (w164) als begruendung.
+
+KERN (genau EIN neues exportiertes resolver-verfahren in internal/coreinstallation/authority.go ODER
+neue datei dort): eingabe = verifizierte INSTALLATION + TARGET-fakten (identitaet/zustand, die die
+grenze bereits besitzt), ausgabe = das live-material das ConnectionSelection.Resolve zur pruefung braucht.
+HART: KEINE änderung an resolveApplication, resolveApplicationServiceIssuer, resolveManagementConnectionIssuer,
+application_service_issuer.go, cmd/baha/target.go, use_target.go, wizard-dateien — BLOB-LISTE der
+unbertroffenen dateien (hash vorher/nacher) in die evidence; keine zweite entscheidungsautoritaet — dein
+resolver LEITET nur her, er FUellt keine entscheidung.
+
+NACHWEISE: (1) boundary-test: resolver liefert material aus installation+target OHNE fabrizierten
+app-context; (2) fail-closed zellen: unverifizierbare installation => benannter fehler; fremder target =>
+benannter fehler; kein stilles leer; (3) rueckwirkungsfrei-heits-beleg: alle bestehenden coreinstallation-
++ cmd/baha tests gruen unveraendert (count=1 + race 20 der grenz-tests); (4) rote grundlinie: zeige dass
+der CONSUMER (ConnectionSelection.Resolve pruefpfad) das material HEUTE nicht ohne app-context bekommt —
+kleiner beweis-test der scheitert bis dein resolver existiert (rot auf develop, gruen auf head).
+GATES: go test ./internal/coreinstallation -count=1 + ./cmd/baha, build vet gofmt leer; gehostete laeufe
+TERMINAL am head; name-only + log-zeile + ls-remote echt WORTLICH; KEINE .github/AGENTS.md, keine
+subagenten, kein zweiter PR; scratch echter scheibe lane-pfad.
+END an f49a3303: "END_DONE w168-authority-boundary: head=<sha10> resolver=<ok ohne app-context> failclosed=<2 zellen> blobs=<liste identisch> grundlinie=<rot develop gruen head> lauf=<id+status> lsremote=<sha10> | <Satz>"
