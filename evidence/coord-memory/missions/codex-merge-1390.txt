@@ -1,0 +1,8 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert 2026-11-05 'fertig heißt mergen'). Coord f49a3303.
+KARTE/PR: t-20261018-r27-mutation-lock / mcpdev80/baseharbor#1390, akzeptierter kopf c8c8810f017 (urteil
+review-1390a.md ACCEPT, test-only kandidat). AKTIONEN WIE IMMER: ls-remote head==c8c8810f017 (sonst STOP),
+develop-aktuell konfliktfrei in den zweig mergen (konflikt in lock/authority-dateien => STOP+MELDEN), push,
+NEUER hosted-lauf bis TERMINAL GRUEN (gh run watch; fremder snapshot-flake-rot EINMAL rerunen, dann
+same-head-praezedenz-MELDUNG statt drehen), dann gh pr merge --merge (kein bypass/force), develop-ls-remote
++ merge-sha ins pane. Karte schliesst der coordinator.
+END pane: "END_DONE codex-merge-1390: merged=<sha10> develop=<sha10> head-vor-merge=c8c8810f017 | <Satz>"
