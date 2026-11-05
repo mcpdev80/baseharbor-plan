@@ -13,5 +13,13 @@ wie bisher), die vier faelle + zwei neuen mutanten (C fruehes ende => rot, D fal
 mit wortlichen ausgaben, go test ./internal/connector -count=2 + race, build vet gofmt, gehostete laeufe
 BIS GRUEN TERMINAL (nach deiner letzten falsch-gruen-meldung gilt: kein END ohne abgerufenen gruenen run).
 KEINE .github, keine subagenten, scratch echter scheibe.
+
+ERGAENZUNG aus der vollen akte (rezept geht ueber C/D hinaus — A/B betrift es auch): die faelle A und B
+muessenmit FRISCHEM NewHandshakePair-paar DURCH DEN PRODUKTIONS-pfad ServeLogStream laufen (nicht die
+register-ebene abkuerzung). stopkriterium der pruefung wortlich: "reject while C can pass on a pre-deadline
+runtime exit, D can pass without exercising resume rejection, A/B bypass the production path". je fall eine
+unterscheidende mutante (ablaufwache entfernen; wiedervorlage-duplikat/-verlust; laufzeit-fruehexit).
+HINWEIS eigentum: fuer irgendwelche produkt-aenderungen an internal/execx/executor.go erst mich fragen
+(STOP+MELDEN), der auftrag bleibt harness-only wenn moeglich.
 Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/node-streams/round-3.md
 END an f49a3303: "END_DONE w171-streams-r3: head=<sha10> C=<fruehes ende bricht + mutante rot> D=<ablehnung dokumentiert + mutante rot> lauf=<id+status GRUEN abgerufen> lsremote=<sha10> | <Satz>"
