@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w195). Coord 841e7734. KARTE: t-20261018-r27-registry-access (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-registry-access -> PR, basis develop AKTUELL (ls-remote vor
+schnitt in die akte + ancestor rc=0).
+KARTE VOLL LESEN (outcome: konfigurierte enterprise-registry-endpunkte + native credentials; write-set:
+cmd/baha/application_registry_source.go + passende tests; bestehende credential-APIs sind EINGAENGE, kein
+zweiter credential-speicher!). Bedarf einer fremden datei => STOP+MELDEN.
+LIEFERPFLICHTEN: (1) endpunkt wird aus KONFIGURATION gelesen, nicht hartcodiert (zelle: andere konfig =>
+anderer endpunkt belegt), (2) native credential-nutzung: der pfad ruft das vorgesehene helper/CLI, kein
+token-cloning in eigene dateien, (3) fehlerfaelle: endpunkt nicht erreichbar => deterministischer fehler,
+kein stiller fallback auf docker.io (mutante: fallback-rein => zelle ROT wörtlich), (4) zusammenbau durch
+echten lebenszyklus-pfad (dauerklausel), (5) red-first auf unveraendertem develop.
+GATES: focused go tests + race-20, build/vet/gofmt, hosted lauf TERMINAL am kopf (selected-checks nicht
+skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only, KEINE .github/subagenten/zweiter
+PR/akten-ins-produktrepo, KEIN docker/compose auf diesem host (Tests nur per SSH auf baha-docker/baha-podman).
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/registry-access/round-1.md
+END an 841e7734: "END_DONE w195-registry-access: head=<sha10> endpunkt=<konfig-zelle> credentials=<native belegt> fallback=<mutante rot> zusammenbau=<echt> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"
