@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-journal-wiring.
+OBJEKT: PR #1393 head ecae5f0d877b (RUNDE 2 nach deinem 1392a-rezept: echte handleExecute-naht, kindprozess-
+SIGKILL, zweiprozess-ordnung, beide mutanten). PRUEFE SHA-genau: (1) crash-zelle SELBST nachfahren (kind-
+prozess wird MID-APPLY getoetet, reopen zeigt running/uncertain, reissue reconciles — kein temp-double),
+(2) ordnung: zwei echte prozesse am selben on-disk journal, keine verluste/duplikate (-race -count=20),
+(3) mutanten SELBST: write unterdrueckt => crash-zelle ROT; write-verlust => ordnungs-zelle ROT; GEGENPROBE
+ohne mutation => gruen (diskriminierung), (4) #1373-journal-blobs unveraendert, hosted 42116653735 terminal
+am kopf, ls-remote echt==head, name-only. Akte -> evidence/r27-welle5-2026-11-05/journal-wiring/review-
+1393a.md; AKTE VOR END AUF origin/main (ls-tree-beleg in die akte).
+END pane: "END_DONE codex-r1393a: verdict=<X> crash=<selbst> ordnung=<selbst> mutanten=<2/2 rot+gegenprobe gruen> blobs=<ruhig> akte=<pfad> | <Satz>"

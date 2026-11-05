@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w201). Coord 841e7734. KARTE: t-20261018-r27-device-lifecycle (RUNDE 3).
+ZWEIG: work/r27-device-lifecycle (PR #1394, head 70acac6b226) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1394b.md (punkt 5; die punkte 1-4,7 waren BESTAETIGT — nicht umbauen).
+EINZIGER PUNKT: renew-persistenz NACH RESTART DURCH DEN ECHTEN durable store beweisen — zelle: renew im
+lebenden pfad, dann ECHTER restart (neuer prozess/store-instanz auf demSELBEN datenverzeichnis, kein
+in-memory-double), seriennummer dort == neu. Gegenprobe: ohne renew bleibt alt (diskriminierung).
+GATES: race-20 der zelle, develop-merge falls drift + ancestor rc=0, hosted TERMINAL am neuen kopf (ID in
+akte), ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE
+.github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/device-lifecycle/round-3.md
+END an 841e7734: "END_DONE w201-device-lifecycle-r3: head=<sha10> restart=<echt+neu belegt> gegenprobe=<alt bleibt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
