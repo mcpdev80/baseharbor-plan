@@ -52,7 +52,7 @@
 
 ## END
 
-- END to 841e7734: "END_DONE w193-device-lifecycle: head=a9c45f70 unabhaengigkeit=<zelle gruen> wideruf=<deterministisch + mutante rot> zusammenbau=<echt> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"
+- END to 841e7734: "END_DONE w193-device-lifecycle: head=a9c45f70 unabhaengigkeit=<zelle gruen> wideruf=<deterministisch + mutante rot> zusammenbau=<echt> redfirst=<belegt> lauf=42104328912=success lsremote=a9c45f70 | <Satz>"
 
 ## Status (round 1 — COMPLETE)
 
@@ -88,4 +88,4 @@
 - Watch method: `gh run view 42104328912 --repo mcpdev80/baseharbor --json status,conclusion` polled to terminal, then `--json jobs` listing all job conclusions.
 
 ### Evidence file
-- This file written, added, and pushed to `baseharbor-plan` plan-main (commit <sha>), HEAD `02c872fd` -> <sha>. `ls-tree HEAD --name-only` includes `evidence/r27-welle5-2026-11-05/device-lifecycle/round-1.md` (witnessed via `git ls-files`).
+- This file written, added, and pushed to `baseharbor-plan` plan-main (commit `9a47c2633b8aa6f749ab964837f0f5b7914977f1`, HEAD `02c872fd` -> `9a47c26`). `git ls-files` includes `evidence/r27-welle5-2026-11-05/device-lifecycle/round-1.md` (witnessed).
