@@ -69,3 +69,7 @@ Nachgemessen: ls-remote echt==head, develop Vorfahr (frischer schnitt 42bfcb1cb4
 commit, write-set in den karten-grenzaten (binding+identity+store-naht); zwei frische homes parallel
 konvergieren (race-20), server-seitige id-vergabe belegt, beide verweigerungs-mutanten rot, red-first
 dokumentiert; lauf 42020006887 terminal + akte round-1.md auf main.
+
+## ACCEPT 2026-11-05 (r1388a): merge-reif fuer die Owner-Runde
+Kopf 4e4a23e89bd unveraendert; zwei-homes-zelle selbstonde (IDs verschieden, race-20 konvergiert), beide
+mutanten rot, echter CLI-pfad, uebrige store-pfade unveraendert. Akte review-1388a.md.
