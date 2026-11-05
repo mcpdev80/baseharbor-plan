@@ -94,3 +94,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w156-destroy-r2.txt — ERLEDIGT: runde 2 head 3691173821 in pruefung (r1382b).
 - w158-destroy-r3.txt — ERLEDIGT: runde 3 head d1f4eada327, r1382c beauftragt (ACCEPT => merge).
 - w159-compose-isolation.txt — LAEUFT (desktop): Hebelkarte gegen Compose-Verseuchung, Gegenproben-pflicht.
+- w161-device-lifecycle.txt — wartet auf ersten freien sitz (ornith voll, w160/w159 arbeiten).
+- w162/w163 LAEUFT (laptop x2). ruhe: #1373/#1379/#1380 urteile (read-only) an luna uebergeben.
