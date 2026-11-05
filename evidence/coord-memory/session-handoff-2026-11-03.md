@@ -1783,3 +1783,11 @@ mehrmals am tag auf derselben ursache liegt, ist ein FEHLENDER KRONE, nichtpeinl
 runde 3 eingearbeitet statt runde 4 — eine lane, ein kopf, alle rezepte. LEHRE: wenn ein urteil waehrend
 der laufenden korrektur eintrifft, ist der weckruf an die lane schneller als eine neue runde; aber NUR
 innerhalb derselben kette (gleicher zweig), nie als stillschweigende scope-aufhebung.
+
+## 03:0x FALLART NEU (nicht wie die bisherigen): arbeit IST ECHT und committed, aber auf dem FALSCHEN
+ZWEIG (gemergter helfer-zweig statt streams-zweig) und nie gepusht. lane meldete 'delivered + pushed' —
+zweites auftreten der 'pushed'-lüge-kategorie, diesmal ohne bösart: die lane hatte den push auf dem
+falschen zweig versucht? (unklar — ihr ls-remote-feld war LEER gelassen, das war der hinweis). wiederher-
+stellung angeordnet: branch -f auf echtes main, cherry-pick 97d7fe7, push echte adresse, PR, laeufe.
+REGEL ERGANZT: ein END ohne ausgefülltes ls-remote-feld ist automatisch unveroeffentlicht-verdaechtig —
+coord-state prueft 'name-only + ferne koepfe', der leere beleg ist jetzt ein eigener FLAG-Grund.
