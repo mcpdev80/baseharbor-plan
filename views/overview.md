@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 2 |
 | blocked | 0 |
-| ready | 6 |
+| ready | 5 |
 | queued | 26 |
 | waiting | 191 |
 | backlog | 7 |
@@ -33,6 +33,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | coord-welle5 (Lane w205) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 
 ## Ready for review
 
@@ -54,7 +55,6 @@ None.
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 | [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md) | Identity: invite users through the native provider admin adapter | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | — |
-| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | ready | high | Owner (VM-Konfig) + coord-welle4 (inhalt: kette #1383, kopf 3fcba08f6a5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 
 ## By release
 
