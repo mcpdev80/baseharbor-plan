@@ -1954,3 +1954,6 @@ Inhalt gleich, uebermittlung kuerzer. Erste kurze version laeuft ab dem naechste
 ## 12:2x TICK-ZU-SCHNELL (owner-fang, zweiter echter fehler im selben system): das 600s-intervall war
 im if nur KOMMENTIERT, nie geprueft — mit */2-sampling pingte jeder idle-treff. FIX: 'age>=INTERVAL' als
 hartes gate + 'hold idle-but-fresh' protokollzeile.采样 bleibt */2 (idle-kante <2min verpasst), takt >=10min.
+
+## 12:3x APP-BINDING ACCEPT im ERSTANLAUF (r1388a) — erste Welle-5-karte durch; vier merge-reif:
+#1379 #1384 #1386 #1388. (race-20-convergenz + 2 mutanten + echter CLI-pfad — die dauerklauseln wirken.)
