@@ -1912,3 +1912,11 @@ verschluckt (lane rm vor evidence-check, datei nirgends auf platte) — Akte aus
 Coordinator rekonstruiert und publiziert (round-6.md, coordinator-recorded) + RUNBOOK 2.1 auf die
 reihenfolge fixiert: ERST ls-tree origin/main, DANN agent rm. Watch-liste war in ordnung (4 aktive,
 self-prune ok) — kein weiterer schaden.
+
+## 10:4x DISPOSITION COMPOSE r2: konten ist geschnitten und gemeldet (789ae14655b auf der kette, basis noch
+24c7d049 — ancestor NEIN gegen develop 42bfcb1cb4 WIRD beim pruef-paket mit notiert, merge-zweig traegt das);
+der 45-min-gate-lauf ist QUEUED — lane sitzt die Eigenes-Run-Pflicht mit gh-run-watch aus, dann END.
+# central-build-bot-paste des owners: KEIN commit davon in einem mcpdev80-repo (sha-Suche leer, 158fc826
+nicht in baseharbor); ubi9-openjdk kommt in keinem unserer produkte/baeume vor (grep uber develop leer).
+Bewertung: fremder/feed-repo-bot (Red-Hat-artige image-version-automation), kein oekoetz-system-objekt,
+keine aktion unsererseits — falls owner einen bestimmten repo-namen nennt, schaue ich gezielt hin.
