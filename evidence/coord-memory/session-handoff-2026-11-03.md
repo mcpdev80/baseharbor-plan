@@ -1778,3 +1778,8 @@ Ursache WURzel: tmp-sweep kannte /tmp/opencode und den tmpfs-root NICHT — tote
 Behoben: sweep hat jetzt tmpfs-auge (leiche nach lebenden praefixes verschont, 4h-regel fuer review-caches),
 9.7G->6.xG frei, luna-retry angeordnet mit auflage 'quota-STOP nur mit df-beleg'. LEHRE: ein kanal der
 mehrmals am tag auf derselben ursache liegt, ist ein FEHLENDER KRONE, nichtpeinliche wiederholung.
+
+## 01:1x 1382b REJECT (aufrufer der neuen eigentumsdatei = auch backup/tls/restore) NACHTRAEGLICH in
+runde 3 eingearbeitet statt runde 4 — eine lane, ein kopf, alle rezepte. LEHRE: wenn ein urteil waehrend
+der laufenden korrektur eintrifft, ist der weckruf an die lane schneller als eine neue runde; aber NUR
+innerhalb derselben kette (gleicher zweig), nie als stillschweigende scope-aufhebung.
