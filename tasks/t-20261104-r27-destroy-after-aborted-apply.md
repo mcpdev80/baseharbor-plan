@@ -5,9 +5,9 @@ areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w158)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w158, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: app destroy --yes ends with success and leaves no running instance and no project ownership when a provider-change apply aborted…
 kanban_title: "Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization"
 priority: high
@@ -20,18 +20,18 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
 ---
 
-- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
+- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w158) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w158, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1382](https://github.com/mcpdev80/baseharbor/pull/1382)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
-**Owner:** coord-welle4 (Lane w158)  
+**Owner:** coord-welle4 (Lane w158, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1382](https://github.com/mcpdev80/baseharbor/pull/1382)  
 **Source:** 
@@ -101,3 +101,10 @@ gruen. Prueffrage an den Kanal: wer ruft runtime_owner_write.go auf (nur Zerstoe
 Der Lauf am Runde-2-Kopf ist in Source-Format, cli-gofmt und den Unit-Jobs rot (gofmt-Absage an cmd/baha,
 Wortlaut aus dem Runner-Job). Runde 3 stellt Form und Unit-Ernst her; Compose-Vorbestand bleibt separiert
 (Hebelkarte). Der Inhaltliche Rezeptpunkt (Telemetrie rueckgesetzt, blob gemessen) gilt weiterhin.
+
+## Runde 3 pruefbar 2026-11-05 (kopf d1f4eada327)
+- Rezept 1382b in Verhalten gefasst (kein Refactoring um des Refactorings willen): gemeinsamer Stopp-Pfad
+  endet bei degeneratem Zustand FEHLERHAFT (fail-closed, Vorher/Nachher gemessen); der Erfolg rc=0 lebt in
+  zerstoerungs-eigenen Helfer-Dateien; drei Mutations-Zellen (sichern/TLS/ordinärer Stopp) beweisen die
+  Abgrenzung. Erledigt ausserdem: mein Format-Befund aus dem Runner (gofmt-Liste leer), vier formerly-red
+  Jobs gruen in lauf 41951027459 terminal.
