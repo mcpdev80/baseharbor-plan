@@ -5,35 +5,36 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w168)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w168, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
 kanban_title: "Authority: target-scoped live-connection resolution without an application context"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1386]
 sources: []
 blocker: ""
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md]
 ---
 
-- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w168) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w168, freigegeben) · **Priority:** high  
+    **PR:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
-**Owner:** coord-welle4 (Lane w168)  
+**Owner:** coord-welle4 (Lane w168, freigegeben)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -72,3 +73,10 @@ explicit-selection verification on the real `use`/`target activate` production p
 
 Coordinator decision 2026-11-05 after lane w164 honored the STOP clause with a full call-chain witness.
 Consuming candidate: PR #1380 (connection-client), which resumes on a free seat once this lands.
+
+w168 IMPLEMENTATION DONE 2026-11-05: ResolverForTargetSelection in internal/coreinstallation/authority.go (a14bac06, branch work/r27-connection-authority cut from connection-client head). Derives live CA issuer from verified install+target state via serviceaccess.Issuer, no app-context; fail-closed ErrUnverifiableInstallation/ErrForeignTarget. coreinstall green; cmd/baha green (1 pre-existing Docker-socket flaky on pristine HEAD). name-only=2 files; log=own commit only; lsremote a14bac06. Ready for integration into consumer PR #1380 (w164) — no second PR/rerun/.github edits per scope split.
+
+## Kandidat pruefbar 2026-11-05 (kopf b730243cbe1, zweiter Schnitt)
+Nach der Basis-Korrektur gemessen: develop ist Vorfahr, EIN eigener Commit, Querschnitt nur Autoritaet +
+Sondendatei (die #1380-eigenen Dateien sind korrekt draußen), Lauf 41981375241 terminal erfolgreich.
+Fail-closed-Zellen + Grundlinien-Umschaltbeleg in der Akte.
