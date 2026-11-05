@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: ""
-kanban_lane: ready
+owner: coord-welle5 (Lane w190)
+kanban_lane: active
 kanban_summary: "Persist desired, last applied and observed release/component references independently for application identity + selected Target…"
-kanban_status: planned
+kanban_status: active
 kanban_title: "Deployments: isolate version and configuration per stage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/planned #view/ready #area/state #kind/task
+- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle5 (Lane w190) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (Lane w190)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
