@@ -1,0 +1,25 @@
+# w178 — mutant proof: deactivated ChangeHook makes the change-during-read test red
+
+Command (three single runs, 15s test timeout each):
+
+```
+$ go test ./internal/development/ -run TestSourceSnapshotDetectsChangeDuringRead -count=1 -timeout 15s
+```
+
+Mutant: `internal/development/source_snapshot.go` guard changed from
+`if opts.ChangeHook != nil {` to `if false && opts.ChangeHook != nil {`
+(the seam is present in the test but never fires).
+
+Observed (identical across runs 1–3):
+
+```
+goroutine 8 [chan receive]:
+  .../source_snapshot_test.go:239  <-done
+goroutine 9 [chan receive]:
+  .../source_snapshot_test.go:262  <-observed
+FAIL	github.com/mcpdev80/baseharbor/internal/development	15.008s
+```
+
+The writer goroutine blocks on `-observed` (the guard never fires the hook on
+the mutated path), so the test cannot pass without the seam. Red deterministically;
+with the seam live the same test is green under `-race -count=50`.
