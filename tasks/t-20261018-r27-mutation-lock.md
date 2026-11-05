@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Codex-Worker w184)
-kanban_lane: active
+owner: coord-welle4 (wartet auf Owner-Klarstellung COST_CONTROL)
+kanban_lane: blocked
 kanban_summary: All clients use the existing owner lock. Bind application and provider changes to current revision and exact consent;…
-kanban_status: active
+kanban_status: blocked
 kanban_title: "Lifecycle: reject concurrent or stale shared changes"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -17,23 +17,24 @@ prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: ""
+blocker: "Konflikt altem Stop gegen neuer Direktive: COST_CONTROL.md (2026-10-18, configpfad, wird von Codex-Sessions gelesen) verbietet NEUE Codex-Implementierungs-Sessions; die AGENTS-Fassung 2026-11-05 macht den Codex-Sitz zum 5. Worker. w184 hat korrekt angehalten (nichts geaendert, nichts getestet). Naechster Ausloeser: Owner-Zeile, ob der Kost-Stop von 2026-10-18 fuer Codex-Worker-Sitze weiter gilt (dann bleibt platz 5 lokal/leer) oder als ueberholt gilt (dann w184 sofort wieder besetzbar, karte war bereits bereit)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/blocked #view/blocked #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Codex-Worker w184) · **Priority:** normal  
+    **Owner:** coord-welle4 (wartet auf Owner-Klarstellung COST\_CONTROL) · **Priority:** normal  
+    **Blocker:** Konflikt altem Stop gegen neuer Direktive: COST\_CONTROL.md (2026-10-18, configpfad, wird von Codex-Sessions gelesen) verbietet NEUE Codex-Implementierungs-Sessions; die AGENTS-Fassung 2026-11-05 macht den Codex-Sitz zum 5. Worker. w184 hat…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
-**Owner:** coord-welle4 (Codex-Worker w184)  
+**Owner:** coord-welle4 (wartet auf Owner-Klarstellung COST_CONTROL)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -62,3 +63,8 @@ Real two-process filesystem lock tests; stale revision/consent and shared-consum
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Angehalten an bindingem Dokument, nicht an Technik
+Der Kandidat ist ungeroestet: kein commit, kein test, kein zweig — die lane hat den COST_CONTROL-stop korrekt
+als handlungsblockierend erkannt und gemeldet. Mutation-lock selbst ist voll abhaengig frei (state-owner +
+ci-authority + updates geschlossen).
