@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
 kanban_status: planned
 kanban_title: "Credentials: retain and recover opted-in local credentials"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/planned #view/ready #area/access #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
