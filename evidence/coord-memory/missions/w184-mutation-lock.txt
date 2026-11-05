@@ -23,3 +23,9 @@ GATES: focused go tests + race-count=20 der konflikt-paare, build/vet/gofmt; hos
 (selected-checks nicht skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only.
 Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/mutation-lock/round-1.md
 END an f49a3303: "END_DONE w184-mutation-lock: head=<sha10> zweiprozess=<echt+wortlich> klienten=<liste vor/nach dicht> produktion=<zelle> mutanten=<rot> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"
+FORTSETZUNG (lane w184c, ornith): der Flash-Versuch ist abgebrochen (Ausnahme zurückgenommen) — PR #1390
+EXISTIERT bereits auf zweig work/r27-mutation-lock (kopf 05bb5a25efe, eigene commits eines toten sitzes).
+ARBEITE DARAUF WEITER (derselbe zweig/PR, kein zweiter PR, DERSOLBE kette): zustand pruefen (ls-remote,
+name-only, log-line), board-datei + akte anlegen, dann die missionsschritte 1-10 abarbeiten; fremde
+COMMMITS in der kette? die 05bb5a2-commits stammen aus der freigegebenen flash-session derselben karte —
+als ketten-eigen akzeptieren, in der akte benennen (übergabe dokumentiert).
