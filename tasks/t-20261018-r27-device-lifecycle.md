@@ -112,3 +112,5 @@ echten durable store nach einem restart. Rezept in review-1394b.md punkt 5.
 Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42122669499 TERMINAL SUCCESS am exakten kopf,
 akte round-3.md auf main. 1394b-punkt 5 geschlossen: echter restart (frischer pgx-pool, gleicher daten-
 bestand), serie nach restart == erneuert, gegenprobe unveraendert, race-20 db+ws gruen.
+
+## ACCEPT 2026-11-06 (1394c): merge-MISION UNTERWEGS (Luna, SHA fee055bffc5b); karte bleibt review bis gemergter develop-beleg vorliegt.
