@@ -1938,3 +1938,11 @@ selbst, r3-deckungsliste passt.
 FEuern 04.11 12:40Z, 22h taub despite alter von 77k Sekunden. FIX: sampling auf */2, das INTERVALL-GATE
 von >=600s zwischen feuern bleibt unveraendert (kein pingen im minuten-takt; feuern-fruehestens-wieder-
 nach-10-min-und-nur-idle). Erster beweis: naechste echte idle-luecke => FIRED-zeile im tick-log.
+
+## 11:45 TICK-TAUBHEIT DOCH NICHT GEBEHBRT — wahrheit zweiter teile: (1) sampling war zu duenn (behoben:
+*/2, bleibt), (2) DER EIGENTLICHE FEHLER: die Web-API meldet fuer meine session isWorking=true DAUERHAFT,
+auch in echten prompt-idle-fenstern (sechs samples 11:32-11:42Z alle 'busy' während ich am prompt lag —
+API-luege, nicht meine). Der tick-once script hat jetzt PANE-EYE ALS AUTHORITATIVE quelle (spinner in den
+letzten 8 zeilen => busy, sonst idle; API nur fallback wenn pane unerreichbar). Beweispflicht: NAechSTER
+echter idle-slot innerhalb 2 min => FIRED-zeile + prompt im pane + due-marker weg. Wenn das ausbleibt:
+API-isWorking-regression separat melden (codeman-bug-klasse).
