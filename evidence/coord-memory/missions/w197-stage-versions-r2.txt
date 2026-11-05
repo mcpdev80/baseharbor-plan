@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w197). Coord 841e7734. KARTE: t-20261018-r27-stage-versions (RUNDE 2).
+ZWEIG: work/r27-stage-versions (PR #1391, head 13192efa5d5) — DERSOLBE zweig/PR, KEIN zweiter PR.
+AKTE: review-1391a.md VOLL LESEN (produkt-defekt zuerst!).
+PFLICHTEN: (1) FIX: der lebenszyklus-pfad muss beim erzeugen neuer referenz-maps applied/intended MITNEHMEN
+(heute verworfen — das ist ein echter datenverlust im produktionspfad, zelle: up->apply->neue map => drei
+werte erhalten); (2) matrix-zellen je richtung mit race-20 ECHT gefahren (nicht read-only-installation:
+umgebung in /tmp/opencode/<lane>-wt, quota-hinweis in akte); (3) beide mutanten einzellauf ROT wörtlich
+(felder zusammengelegt; toleranz aus); (4) down-sql punkt: urteil sagt nicht-anwendbar — pruef-entweder-
+kein-schema-oder-eigener-ableiter, begruendung in akte; (5) develop-merge falls drift + ancestor rc=0.
+GATES: hosted lauf TERMINAL am neuen kopf, ls-remote echt==head WORTLICH, name-only, KEINE .github/
+subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host, disk-umgebung nach weisung.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/stage-versions/round-2.md
+END an 841e7734: "END_DONE w197-stage-versions-r2: head=<sha10> mitnahme=<zelle gruen> matrix=<selbst gefahren> mutanten=<2/2 rot> downsql=<entschieden begruendet> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

@@ -7,7 +7,7 @@ Lane dispatcht wurde. Der Audit-Punkt "POOL" zeigt beim Tick, ob ein Platz frei 
 
 | # | Mission | Warum noch nicht dispatcht | Nächster Auslöser |
 | --- | --- | --- | --- |
-| 2 | secure-export (t-20261018-r27-secure-export, ready) | Sitzbelegung | missionstext folgt bei bedarf |
+| 4 | coordinator/missions/w197-stage-versions-r2.txt | alle sitze besetzt | naechster freie sitz (1391a: produkt-defekt mitnahme + echte matrix) |
 | 2 | ~~w121-podman-rebuild~~ | ERLEDIGT-DURCH-ANDEREN | Podman-Host läuft jetzt in codex-ops-podman (zweite Codex-Instanz, Owner-Direktive 17:5x). w121 bleibt als Fallback-Mission, wird NICHT doppelt dispatcht (ein Host, ein Bearbeiter). |
 | 4 | ~~w119-journal-r2~~ | ERLEDIGT | wurde von cx01 (Codex-Worker) geliefert: head 11ed442e, Karte auf review, Luna prueft | Pool 4/4 | Ausführungstagebuch-Runde 2 (Codex review-1373a REJECT, fünf Rezepte) |
 
@@ -145,3 +145,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - credentials r4 reviewable (1385d hinter 1387b in Luna-queue). connection-client LAEUFT (w186, ornith).
 - w187-snapshot-flake-r3.txt — p1 (hosted-rot als treiber; ereignis-barre statt mtime). mutation-lock w184c
   in korrektur (develop-merge + hosted-lauf). Luna: kein neuer flake-auftrag bis r3-lieferung.
+| 5 | secure-export (t-20261018-r27-secure-export, ready) | Sitzbelegung | missionstext bei bedarf |
