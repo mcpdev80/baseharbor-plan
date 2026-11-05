@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (w169, wartet auf sitz)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w169, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon"
 priority: high
@@ -20,18 +20,18 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w169, wartet auf sitz) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w169, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (w169, wartet auf sitz)  
+**Owner:** coord-welle4 (Lane w169, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -85,3 +85,9 @@ abschnitt gefuehrt.
 Der fixture-harness nutzt den Umgebungs-Daemon; am verseuchten kandidaten bleibt die schranke rot. Runde 2:
 pro lebenszyklus-test eigener daemon/socket- oder gleichwertiger namespace OHNE shared state zu loeschen;
 beweis: vier tests zweimal, sauber + absichtlich verseucht, am exakten kopf.
+
+## Runde 2 pruefbar 2026-11-05 (kopf 789ae14655b)
+Nachgemessen: ls-remote echt==head, eigener test-commit auf der kette, lauf 42002171842 terminal SUCCESS
+am exakten kopf (frische shared runner = neutraler beweis der wiederhergestellten isolation), akte
+round-2.md publiziert. Basis noch develop 24c7d0492f3 (ancestor gegen 42bfcb1cb4 NEIN) — develop-merge
+obliegt dem merge-zweig, wie in der akte vermerkt.
