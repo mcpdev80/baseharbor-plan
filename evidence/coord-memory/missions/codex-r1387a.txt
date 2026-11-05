@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+OBJEKT: PR #1387 head fa4067e3f40 (flake-kur: aenderung-waehrend-lesen guard endet jetzt ueber bewiesenen
+ChangeHook statt timing; basis develop 42bfcb1cb4, ein commit, zwei dateien internal/development).
+PRUEFE SHA-genau: (1) race-count=50 der zwei benannten tests SELBST (gruen wiederholbar), (2) EINZELLAUF-
+MUTANTE hook-deaktiviert: wird derzeit ueber DEADLOCK+timeout rot — bewerte und fordere ggf. (rezeptpunkt)
+einen SAUBEREN assertiven fehlschlag statt haenge-tod (klare meldung, bounded), (3) quiet-begleiter behaelt
+garantien (kein abort, race-20), (4) oeffentliches capture-verhalten unveraendert (kein verhalten-换 in der
+guard-loesung, blob der anderen capture-pfade), (5) laeufe 41981861515/41983173186 als red-baseline zitiert,
+(6) name-only, ls-remote echt==head, lauf 42010882741 terminal. Akte ->
+evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387a.md.
+END pane: "END_DONE codex-r1387a: verdict=<X> race50=<selbst gruen> mutante=<assertiv|deadlock-bewertung> quiet=<gruen> blobs=<identisch> | <Satz>"
