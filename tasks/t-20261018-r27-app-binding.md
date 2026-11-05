@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: coord-welle4 (Lane w179)
-kanban_lane: active
+owner: coord-welle4 (Lane w179, freigegeben)
+kanban_lane: review
 kanban_summary: Server allocates IDs; explicitly create a new app or attach to a permitted existing app. Two distinct checkout paths can resolve…
-kanban_status: active
+kanban_status: review
 kanban_title: "Identity: attach fresh checkouts to a registered application"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1388]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -22,20 +22,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/active #view/active #area/identity #kind/task
+- [ ] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/review #view/review #area/identity #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w179) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w179, freigegeben) · **Priority:** high  
+    **PR:** [baseharbor#1388](https://github.com/mcpdev80/baseharbor/pull/1388)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle4 (Lane w179)  
+**Owner:** coord-welle4 (Lane w179, freigegeben)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1388](https://github.com/mcpdev80/baseharbor/pull/1388)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -62,3 +63,9 @@ Focused registration/identity tests with two fresh homes/checkouts and simultane
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Runde 1 pruefbar 2026-11-05 (kopf 4e4a23e89bd)
+Nachgemessen: ls-remote echt==head, develop Vorfahr (frischer schnitt 42bfcb1cb4), genau ein eigener
+commit, write-set in den karten-grenzaten (binding+identity+store-naht); zwei frische homes parallel
+konvergieren (race-20), server-seitige id-vergabe belegt, beide verweigerungs-mutanten rot, red-first
+dokumentiert; lauf 42020006887 terminal + akte round-1.md auf main.
