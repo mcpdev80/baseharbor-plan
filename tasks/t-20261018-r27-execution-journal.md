@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
-kanban_status: review
+kanban_status: accepted
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: review
+kanban_lane: accepted
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,14 +18,14 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
+resolution: "PR #1373 merged to develop as 77511c8a6672f34faf0d5ac543ba126485f05c41; exact-head PR CI 42031707838 success."
 evidence:
   - "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md"
   - "https://github.com/mcpdev80/baseharbor/pull/1373"
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [x] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/accepted #view/accepted #area/state #kind/task
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
@@ -33,7 +33,7 @@ evidence:
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -212,3 +212,10 @@ satz ist nur der abnahme-befund unserer seite ins protokoll.
 ## Korrektur zum vorrigen vermerk: die 1373g-URTEILSDATEI existiert nicht auf plan-main (nur pane-zeile gemessen)
 Der abnahme-befund gilt als pane-beleg (END_DONE 5ec1339c mit feldern), die schritt-akte wurde durch die
 abbestellung nicht mehr geschrieben. Fuer die owner-seite: keine datei referenzieren, dieakte existiert nicht.
+
+## Abschluss 2026-11-05 – Owner/ChatGPT
+
+- PR [#1373](https://github.com/mcpdev80/baseharbor/pull/1373) merged into `develop` as `77511c8a6672f34faf0d5ac543ba126485f05c41` (squash).
+- Exact PR head `a896bf61c5c359cbdff47e26f4958b4ffc6c3282` matched [CI run 42031707838](https://github.com/mcpdev80/baseharbor/actions/runs/42031707838), completed success. Workflow policy, source format, trusted plan, go-unit-tests, go-vet, go-build, focused Python and selected checks all passed; `validate` and separate cross-repo gates were skipped by the selected PR policy, not treated as executed successes.
+- Round-7 evidence: [deterministic terminal event barrier and single-call mutant, race-20](../evidence/r27-welle4-2026-11-05/execution-journal/round-7.md); independent reviewer recorded ACCEPT on this exact head. Duplicate/reconnect request identity and terminal persistence are integrated; no unrelated CI or cross-repo qualification is claimed.
+- Previous review hold cleared; the downstream journal-wiring card may proceed. Release qualification remains separate.
