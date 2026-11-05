@@ -1808,3 +1808,10 @@ eine kapazitaets-frage flussaufwaerts. Naechstes mal zuerst: PR-states + urteils
 meldung, DANN sitz-rechnung. OWNER-PUNKT: dieselbe approval-grenze die schon #19-merge blockierte, blockiert
 jetzt MELDUNGEN — eine richtlinien-aenderung an der stelle (send_message_to_thread erlauben ODER mein
 auge-genuegt-dir-pfad festlegen) ist die dauerhafte korrektur; ich behelfe mir, entscheiden tust du.
+
+## 05:0x OWNER-RUNDE BERUEHRT #1362: neuer kopf f37cda334b0 traegt einen INHALTLICHEN owner-fix (fetch only
+once, app_update.go) auf dem geprüften 2209436c — develop noch nicht eingepflegt (ancestor NEIN). r1362d war
+technisch CLEAN auf dem alten kopf. Recheck r1362e beauftragt als echten inhalt-kandidaten mit owner-commit-
+erlaubnis in der log-zeile (begruuendet, kein mitnahme-befund) und drift-nur-listung. LERNZUSTAND FUER MICH:
+waehrend der owner-runde sind kopf-bewegungen von IHR normal — meine 'artfremder commit'-regel bekommt eine
+ausnahme-Klausel NUR fuer laeuende owner-runden, dokumentiert an der akte, nicht an der regel.
