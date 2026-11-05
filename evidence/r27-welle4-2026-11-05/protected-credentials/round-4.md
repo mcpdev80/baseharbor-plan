@@ -117,6 +117,29 @@ dependent. Verified red across three consecutive runs.
   no data race).
 - Mutation cell: RED deterministically (x3), captured as above.
 
+## CI (hosted run on the merged head)
+
+Run `42043134426` on head `0e2b4803736dffb3e374b9526c30fb1fe211f337` (the new head after
+the develop merge), event `pull_request`, branch `work/r27-protected-credentials`:
+
+- conclusion: `success`
+- Selected-checks terminal job `PR Selected Checks`: success.
+- Selected-checks jobs all `success`:
+  `PR · Trusted Plan`, `PR · Source format`, `PR · Focused Python`, `PR · Validation ·
+  deployment-package-tests`, `PR · Validation · cli-gofmt`, `PR · Validation · go-vet`,
+  `PR · Validation · cli-build`, `PR · Validation · go-build`, `PR · Validation ·
+  openbao-package-tests`, `PR · Validation · cli-package-tests`, `PR · Validation ·
+  cli-vet`, `PR · Validation · cli-guided-tests`, `PR · Validation · source-contracts`,
+  `PR · Validation · go-unit-tests`.
+- `Workflow policy`: success (no `.github` surface touched).
+- Skipped (not run, not required for this change): `Release Source Preflight`, `validate`,
+  `Targeted HA · podman`, `Targeted HA · docker`, `PR · Demo Pin`, `PR · Exact Candidate`,
+  `PR · Consumer Pins`, `PR · Runner Interface`, `PR · Selected Runtime`,
+  `PR · Public Contracts`.
+- Coordinator's earlier in-progress run `42042110901` was at the pre-merge head
+  `f518b5f5`; the Eigenes-Run-Pflicht for the new merged head is covered by run
+  `42043134426` above.
+
 ## Repo-rule compliance
 
 - Wrote only inside the product repo, only the new test file. No `.github` touched.
