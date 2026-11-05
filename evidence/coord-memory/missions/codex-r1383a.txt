@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge — owner-runde). Coord f49a3303. KARTE: t-20261105-r27-compose-host-isolation.
+OBJEKT: baseharbor PR #1383 head 9bf29c89846 (develop 24c7d049+ eingepflegt; zwei ursachen: zustimmungs-
+anpassung der fixtures IST bewiesen — verseucht-develop nun ROT gemessen, head gruen). PRUEFE SHA-genau:
+(1) name-only = nur harness/test-dateien (keine produktdatei, keine .github), (2) die zwei zellen nachfahren:
+verseuchter develop => rot an DER schranke/gate (wortlich), head => gruen; zustimmungs-zelle: ohne flag rot
+mit flag gruen, (3) keine assertion entfernt (diff gegen develop-test-dateien: zaehlungen/asserten gezehlt
+gegenuebergestellt), (4) gates: selected-checks NICHT skipped am head + ls-remote echt==head. Urteil ob die
+ISOLIERURSACHE damit belegt oder offen bleibt ALS EIGENER ABSCHNITT (karte verlangt die scheidung). Akte ->
+evidence/r27-welle4-2026-11-05/compose-host-isolation/review-1383a.md. ACCEPT=>vermerk owner-runde.
+END pane-zeile: "END_DONE codex-r1383a: verdict=<X> zellen=<rot/gruen+flag belegt> isolierung=<belegt|offen> | <Satz>"

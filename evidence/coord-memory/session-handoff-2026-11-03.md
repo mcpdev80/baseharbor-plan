@@ -1823,3 +1823,9 @@ ohne neue karte: (A) frische runners eroeffnen die isolierungs-zelle selbst — 
 (B) zustimmungs-fix bleibt ihr inhalt, (C) rootless-daemon-faehigkeit fuer UNSERE vm-hosts = mein VM-feld
 (slirp4netns provisionieren, keine product-aenderung). LEHRE: 'product gap' melden ist richtig — aber vor
 der karte erst pruefen, ob der grund im betriebs-modell (runner/VM) liegt, dann ist es keins.
+
+## 06:3x WELLE VERARBEITET: w159 (compose: nach zwei nachtragen — basis drin, verseucht JETZT rot, war
+zuerst gruen wegen aelterer basis — die lanes lernen die zellen-logik), w162 (credentials: devaccess-pfad
+statt zweiter ablage, vier zellen, fail-closed namentlich), w160 noch ohne END (idle-flag — pane pruefen
+waehrend naechster kette). Beide kaerten review + zwei read-only urteilsauftraege an luna; zwei laptops
+sofort neu besetzt: w167 profile-runde2 + w165 journal-runde5. Sitzpfad: 4/4 arbeitend, queue: w166 gate.

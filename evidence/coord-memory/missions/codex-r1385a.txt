@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KARTE: t-20261018-r27-protected-credentials.
+OBJEKT: PR #1385 head 74a74e49fdc (lauf 41974727140 selected-checks success, ancestor von mir gemessen).
+PRUEFE SHA-genau: (1) write-set: internal/devaccess (rebind) + cmd/baha/dev_access.go verdrahtung + tests;
+KEINE neue store-datei, KEIN internal/credential zubau (reservierung nur found-only reuse), blob-liste der
+bao/app-pfade unbetroffen, (2) die vier wiederherstellungszellen nachfahren: opt-in vorhanden => erholt;
+managed vorhanden => bao-pfad OHNE duplikat; NICHTS opt-in => fail-closed rot (ihr namentlich test);
+fremder geraeterebind => nur ueber bestehende reconcile-funktion, (3) kein remote->workstation rueckfall
+(grep-beleg), (4) ls-remote echt==head, gates terminal. Akte -> evidence/r27-welle4-2026-11-05/protected-credentials/review-1385a.md.
+END pane-zeile: "END_DONE codex-r1385a: verdict=<X> zellen=<4/4|liste> zweite-wahrheit=<nein belegt|ja> | <Satz>"
