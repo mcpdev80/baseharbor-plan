@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Revoke A without affecting B, apps or platform; bound stale sessions and active connections. Reconnect/renew require valid…"
 kanban_status: planned
 kanban_title: "Devices: renew and revoke one workstation independently"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-lifecycle · Devices: renew and revoke one workstation independently #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/access #kind/task
+- [ ] t-20261018-r27-device-lifecycle · Devices: renew and revoke one workstation independently #task #release/v0-4-27 #status/planned #view/ready #area/access #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
