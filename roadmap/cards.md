@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 62/113 · **Blocked:** 1 · **Waiting:** 33  
+    **Accepted tasks:** 64/113 · **Blocked:** 1 · **Waiting:** 31  
     **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — VM baha-runner-docker-2: Docker-Standardpools 172.17-172.30 sind fuer gleichzeitigen Lane-Betrieb zu klein ('all predefined address pools fully subnetted', 12/…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
