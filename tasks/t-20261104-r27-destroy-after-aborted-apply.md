@@ -5,9 +5,9 @@ areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w156)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w156, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: app destroy --yes ends with success and leaves no running instance and no project ownership when a provider-change apply aborted…
 kanban_title: "Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization"
 priority: high
@@ -20,18 +20,18 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md]
 ---
 
-- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
+- [ ] t-20261104-r27-destroy-after-aborted-apply · Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w156) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w156, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1382](https://github.com/mcpdev80/baseharbor/pull/1382)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/vm-integration/rebuild-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-consent-abort-leaves-undestroyable-state](t-20261104-r27-consent-abort-leaves-undestroyable-state.md)  
-**Owner:** coord-welle4 (Lane w156)  
+**Owner:** coord-welle4 (Lane w156, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1382](https://github.com/mcpdev80/baseharbor/pull/1382)  
 **Source:** 
@@ -91,3 +91,8 @@ Der Zerstörungs-Fix selbst ist anerkannt und bleibt. Aber die zusätzliche Tele
 GEMEINSAM gelesenen Datei-Leser nachsichtig (fehlende Datei => leere Liste fuer alle Aufrufer) — das
 unterdrueckt echte Bindeungs-Fehler im normalen Betrieb. Runde 2 setzt die Datei auf deinen Stand zurueck
 und haelt die Nachsicht strikt im Zerstoerungspfad mit Eigentumsnachweis.
+
+## Runde 2 pruefbar 2026-11-05 (kopf 3691173821)
+Rezept ausgefuehrt: Telemetrie-Rücksetzung blob-identisch zu develop (abbb5bb6, von mir gemessen),
+Nachsicht jetzt im Zerstoerungspfad mit neuer Eigentumsdatei; Zelle rc=0, #1375-Zelle und Glueckpfad
+gruen. Prueffrage an den Kanal: wer ruft runtime_owner_write.go auf (nur Zerstoerungspfad?).
