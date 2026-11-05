@@ -3,7 +3,10 @@ ZWEIG: work/access-profiles (PR #1384) — DERSOLBE zweig/PR. AKTE: review-1384b
 ZWEI PUNKTE, beide nachweislich (6/6 faelle + mutanten waren OK, aber):
  (1) PRODUKTIONSPFAD: der adapter liefert im echten zusammenbau KEINEN profilbeitrag — dieselbe Klasse wie
      1380a: tests gruen, weg durch die echte CLI-/auth-orbitur ohne wirkung. Schliesse denbeitrag an den
-     echten pfad und zeige ihn dort (test der die echte zusammenstellung faehrt, nicht den adapter direkt).
+     echten pfad (cmd/baha/policy.go + orgconfig profile source/manager laut rezept): ECHTE owning
+     zuweisung + echte operation hineingeben — KEIN leerer manager, KEIN unterdrueckter adapter-fehler
+     (stiller drop ist stop-kriterium), und ein zusammenstellungs-test beweist dass der befund im
+     zusammenwurf ankommt.
  (2) ZUKUNFTSREVISION: update akzeptiert eine abweichende ZUKUNFTSrevision — fassungspruefung muss
      GLEICHHEIT verlangen: kleiner (veraltet) ODER groesser (zukunft) => abweis; genau gleich => erlaubt.
      Gegenprobe: update mit revision+1 muss jetzt rot abweisen (vorher gruen durchgelassen = dokumentierter

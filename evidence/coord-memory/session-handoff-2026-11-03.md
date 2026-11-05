@@ -1855,3 +1855,8 @@ quelle des neutralisierenden commits wird in der akte genannt (befund fuer uns: 
 blocked bleibt als historischer grund), keine lane von uns in die dateien, abhaengige bleiben gesperrt.
 Muster bisher: #1375/#19/node-trust/#1347 = vier externe eingriffe, null konflikt weil jeweils NUR
 besitzerfeld+notiz geändert wurde, nie inhalt/zweig.
+
+## 08:2x MUSTER-BEFUND (zwei faelle, eine klasse): tests-gruen/produktionsleitung-tot. rezepte 1380a+1384b
+identische struktur. dauermassnahme: jeder missions-text fuer PRUEFBARE liefere enthaelt ab jetzt einen
+zusammenstellungs-test-auftrag (echter pfad, nicht helper-direct). ergaenzt: revisions-gleichheitsregel
+(zukunft != erlaubt) als Standard-praezisierung wo fassungen verglichen werden.
