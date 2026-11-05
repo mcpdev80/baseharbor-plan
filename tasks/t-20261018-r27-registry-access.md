@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (Lane w195, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w203, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: Resolve explicitly configured app-scoped OCI registry/artifact endpoints including GitLab/GHCR/Harbor/Quay/Artifactory/Nexus…
-kanban_status: review
+kanban_status: active
 kanban_title: "Registries: use configured enterprise endpoints and native credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-native-auth, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-registry-access · Registries: use configured enterprise endpoints and native credentials #task #release/v0-4-27 #status/review #view/review #area/artifacts #kind/task
+- [ ] t-20261018-r27-registry-access · Registries: use configured enterprise endpoints and native credentials #task #release/v0-4-27 #status/active #view/active #area/artifacts #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w195, freigegeben) · **Priority:** high  
+    **Owner:** coord-welle5 (w203, wartet auf Sitz) · **Priority:** high  
     **PR:** [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle5 (Lane w195, freigegeben)  
+**Owner:** coord-welle5 (w203, wartet auf Sitz)  
 **Priority:** high  
 **PRs:** [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395)  
 **Source:** 
@@ -66,3 +66,7 @@ Planned/unassigned, 2026-10-18. Maintainer requested native standards, real stag
 Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42120843177 TERMINAL SUCCESS (14 selected checks
 gruen), akte round-1.md auf main. Konfig-getriebener endpunkt, native credentials, fail-closed mutante rot,
 zusammenbau echt, red-first belegt.
+
+## Rueckruf (1395a REJECT, ein punkt): adapter+tests gut (endpunkt aus konfig, oras native, fail-closed
+belegt) aber NICHT an den anwendungs-lebenszyklus angeschlossen — kein produktionsaufrufer von RegistrySource/
+Resolve. Rezept punkt 4 in review-1395a.md: die echte release/anwendungsauswahl muss darueber laufen.
