@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-stage-versions.
+OBJEKT: PR #1391 head 13192efa5d5 (desired/last-applied/observed referenzen UNABHAENGIG persistiert;
+state-owner-erweiterung). PRUEFE SHA-genau: (1) drei-referenz-matrix SELBST fahren (zelle je richtung,
+race-20), (2) zusammenbau durch ECHTEN lebenszyklus-pfad lesen+nachfahren (kein helper-direct), (3) beide
+mutanten SELBST einzellauf (felder zusammengelegt => getrennheit ROT; observer-toleranz aus => stale ROT,
+wörtlich), (4) migrationsfall: down-SQL aus eigenem down-ableiter (praeszedenz db-skip-sites), (5) state-
+owner-schnittstelle unveraendert (blob gegen develop), hosted 42103327299 terminal am kopf, ls-remote
+echt==head, name-only. Akte -> evidence/r27-welle5-2026-11-05/stage-versions/review-1391a.md (SCHREIBPFLICHT).
+END pane: "END_DONE codex-r1391a: verdict=<X> matrix=<selbst> zusammenbau=<echt> mutanten=<2/2 rot> downsql=<eigener ableiter> blobs=<ruhig> akte=<pfad> | <Satz>"
