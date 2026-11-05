@@ -1926,3 +1926,8 @@ keine aktion unsererseits — falls owner einen bestimmten repo-namen nennt, sch
 
 ## 10:5x OWNER-KLARSTELLUNG: der central-build-bot-paste war ein miss-tell — kein auftrag, kein objekt.
 Unsere messung (nicht uns, keine aktion) bleibt als doku stehen, thema ist erledigt.
+
+## 11:0x 1383b-echo verbucht; gegenprobe-des-autors Hinweis "live nicht sicher gefahren" ist im r3-auftrag
+bereits PFLICHT (kontaminiertes ensemble real, ort+zeit). testenv.go im kandidaten NICHT geaendert
+(Diff = genau vier cmd/baha-testdateien) — die historisch geteilte hilfs-naht sitzt in den vier dateien
+selbst, r3-deckungsliste passt.
