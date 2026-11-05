@@ -1,0 +1,30 @@
+# w182 round-2 — mutant proof: guard-disabled makes the change-during-read test
+# fail FAST with a NAMED error inside the test-local bound (not the generic
+# 10-minute timeout that was the only red signal in round-1).
+
+Command:
+
+```
+$ go test ./internal/development/ -run TestSourceSnapshotDetectsChangeDuringRead -count=1
+```
+
+Mutant (temporary, then restored to byte-identical fa4067e3): the guard's
+mid-walk return is disabled so the capture silently accepts the change.
+
+Observed:
+
+```
+=== RUN   TestSourceSnapshotDetectsChangeDuringRead
+    source_snapshot_test.go:252: expected change-during-read guard to abort the capture
+--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.00s)
+FAIL
+github.com/mcpdev80/baseharbor/internal/development	0.007s
+```
+
+- Failure at 0.007s (NOT a 10-minute timeout).
+- Named failing line: `source_snapshot_test.go:252: expected change-during-read
+  guard to abort the capture`.
+- With the guard live the same test is green under `-race -count=50`.
+
+Round-1 round-1 mutant (round-1.md / mutant-proof.txt) hung to the generic
+timeout (20s deadlock on <-observed); round-2's bounded wait closes that gap.
