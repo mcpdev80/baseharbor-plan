@@ -59,6 +59,30 @@ Two-device stateful tests incl active-session revocation, restart, expiry and pr
 
 [Native delivery and stages](../decisions/2026-10-18-r27-native-delivery-and-stages.md) constrains this slice: reuse native tools/owners, no private release/registry/build/pipeline/controller framework; no default CI or GitOps prerequisite for local work. Runtime-specific unsupported behavior remains explicit.
 
+## Runde 2026-11-05 (Lane w193, gerundete Entscheidung 2026-11-05)
+
+Begründete Entscheidung (Owner-Antwort 2026-11-05, Koordinationsauftrag w193):
+
+- Write-Set bleibt auf die NEUEN lifecycle-Einträge beschränkt, die Enrollment-Interna werden nicht angefasst.
+- (a) `internal/workstationenrollment/Authority.go`: drei neue Owner-Methoden auf dem bestehenden
+  `Authority` (own nur `ws.State` + den bestehenden `serviceaccess.CSRIssuer`):
+  - `Renew(ctx, scope, request) (Result, error)` — renewt NUR den Umfang A; B, Apps und Plattform
+    bleiben unangetastet (Matrixzelle). Nutzt `issuer.Renew`; verifiziert das neue Blatt gegen das
+    Vertrauen und den tri-state `RevokedStatus`.
+  - `Revoke(ctx, scope) error` — fügt den Serial des aktuellen Blatts von A in die CRL des Issuers
+    (`issuer.Revoke(serial)`) ein, so NUR A ungültig wird; B bleibt gültig. Post-Revokation scheitert
+    jede Handlung gegen A deterministisch.
+  - `RenewAfterRevoked(ctx, scope) (state, error)` — expliziter Fehlerzustand, kein Schweigen: ein
+    Umfang, dessen aktuelle Revokationsstatus true ist, schlägt fehl, statt still neu auszustellen.
+- (b) begrenzter neuer `contracts/workstationlifecycle/v1`-Eingang parallel zu `EnrollDevice`: ein
+  Lifecycle-Schema (`RecordKindWorkstationLifecycle`) + `RenewDevice`/`RevokeDevice`, die den
+  Lifecycle-Zustand gegen `Authority` prüfen (fais closed auf unbekannt/revoked).
+- Revokation läuft über den bestehenden `issuer.Revoke(serial)`/`RevokedStatus` (LocalIssuer CRL);
+  Renew über `issuer.Renew`. Kein eigener PKI-Handler, kein standalone Adapter außerhalb des
+  Namespaces (Dauerklausel: nur der echte Lebenszyklus-Pfad).
+- Docker/compose: NIET lokal auf dem Session-Host (codeman-server baha-runner-docker-2). Reine
+  Docker-/Podman-Tests nur per SSH auf baha-docker bzw. baha-podman, nie hier.
+
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
