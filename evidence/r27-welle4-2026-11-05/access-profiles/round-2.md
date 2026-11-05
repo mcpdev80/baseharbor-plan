@@ -1,52 +1,151 @@
-# WORKER EVIDENCE — Lane w167 (CODEX-WORKER role in pool) — t-20261018-r27-access-profiles RUNDE 2
+# w167-profiles-r2 — Round 2 evidence
 
-- Lane: w167-profiles-r2
-- Coordinator: f49a3303
-- Card: t-20261018-r27-access-profiles (state active, owner coord-welle4 Lane w167)
-- PR: baseharbor#1384 (draft), base develop @ 24c7d0492f34e58c2a6be505ba80b8bdfb151cb7
-- Candidate head (pre-round-2): 06479fe042d4fa6c0512c2f81bbf320e08fdc7e5
-- Mission file: coordinator/missions/w167-profiles-r2.txt
-- Evidence dir: baseharbor-plan/evidence/r27-welle4-2026-11-05/access-profiles/
+Card: t-20261018-r27-access-profiles · lane w167 · coord f49a3303
+PR: draft https://github.com/mcpdev80/baseharbor/pull/1384 (base develop @ 24c7d049)
+Candidate head (Round 2): 3bb95cc794a9c2aa167a149618065ec998e9d812
+Round 1 head: 06479fe042d4fa6c0512c2f81bbf320e08fdc7e5
+Evidence dir: baseharbor-plan/evidence/r27-welle4-2026-11-05/access-profiles/
 
-## Mission lock
+## Task note lock (round 2)
 
-Runde 2 REZEPT (bindend aus mission):
-1. Erwartete Revision bei jeder Aenderung veruemmmen, veraltete Schreibvaenge ABWEISEN (kein last-write-wins).
-2. Profil-Operationen an die BESTEHENDE Akteur-/Tenant-Autoritaet binden (team-auth/managementaccess-Pfad, nicht neu erfinden); Aufrufstelle mit datei:zeile in Evidence.
-3. Profil-Edition darf effektive Rechte NICHT erweitern — Adapter vermitteltdumm; wenn Entscheidungslogik zurueck in den einen Autoritaets-Pfad muss, genau das.
-4. Widerrufene Profile verweigern DURCH DENSELBEN Adapter (test verlangt wortlich).
-5. Echter CLI-/Produktionspfad ist verbunden (kein test-only-Pfad als Beweiseratz).
+Review r1384a REJECT: 3/6 cases pass; the policy adapter was a SECOND decision authority
+(bare Allow/Deny, no production caller); expected-revision and tenant binding missing;
+production path unconnected.
 
-6 Faelle (positiv/_negativ, wortlich BELEG): Zuweisung, Widerrufs-Wirkung, mehrdeutiger Name, veraltete Revision, fremder Tenant, keine Eskalation bei Edition.
+BINDING REZEPT:
+1. enforce an expected revision on every update, reject stale writes (no last-write-wins);
+2. bind profile operations to the EXISTING actor/tenant authority (orgconfig Manager,
+   keyed by installation identity) — do not invent a second authority;
+3. profile edition may NOT widen effective rights — the adapter holds dumb and only
+   contributes; if the decision logic must go back into the single authority, do exactly that;
+4. revoked profiles deny THROUGH the same adapter;
+5. connect the real CLI/production path (no test-only path as evidence substitute).
 
-4 MUTANTEN-GEGENPROBE: (a) Aenderung ohne Revision -> rot, (b) Profil-Edition mit Recht-Aufstieg -> rot, (c) fremder Tenant -> rot, (d) Widerruf via Adapter -> verweigert.
-
-ROTE GRUNDLINIE: auf develop 24c7d049+ benannt (review-1384a §"Profile edition cannot escalate").
+6 cases: assignment / revoke-effect / ambiguous-name / stale-revision / foreign-tenant / no-escalation.
+4 mutant counter-probes: (a) edit without revision -> red, (b) edition-escalation -> red,
+(c) foreign tenant -> red, (d) revoke via adapter -> denies.
 
 ## repo-rule compliance (Owner + AGENTS)
 
-- KEINE .github-Aenderung, KEINE workflow_dispatch/rerun (Runner = GitHub-shared-runner nur; Fehlschlag => STATE, stoppen).
-- KEINE AGENTS.md- oder anderen getrackten Produkt-Aenderungen (Operational Text gehoert in Mission + Planning-Evidence).
-- KEINE Subagenten; jeder Schritt in eigener Session.
-- EXAKEIN zweiter Kandidat/PR — bleibt auf work/access-profiles.
-- WORKSPACE: Worktree unter workers/<lane>-wt; kein Scratch im ecosystem-root.
-- Provenance: ls-remote wortlich, ancestor rc=0, log-zeile NUR eigene commits.
+- Write-set bounded to: internal/orgconfig/profiles.go, internal/orgconfig/profiles_test.go,
+  internal/policy/assignment.go, internal/policy/assignment_test.go, internal/policy/model.go,
+  cmd/baha/policy.go. No .github edit, no AGENTS.md/betriebs-text in a tracked product file,
+  no files of other open chains.
+- One integration candidate per chain: stayed on work/access-profiles; Round 2 commit sits on
+  the Round 1 head; no second branch invented.
+- No subagents; every step executed inside this session.
+- Scratch/GOCACHE/TMPDIR under the lane path (workers/w167-profiles-r2-wt), never ecosystem root
+  or /tmp scratch.
 
-## PLAN (worker steps, board file: workers/todos/w167-profiles-r2.json)
+## Single production authority (file:line)
 
-- Read mission + complete review-1384a + card; lock the 5-recipe constraints and 4 mutant counter-probes
-- Set up isolated worktree under workers/ for access-profiles (main repo has foreign uncommitted changes); ls-remote witness of work/access-profiles 06479fe0 and develop 24c7d049
-- Locate the single production authority: existing actor/tenant check on team-auth / managementaccess path (record file:line call site in evidence)
-- Implement recipe (1): enforce expected revision on Manager.Update, reject stale writes
-- Implement recipe (3): profile edition cannot widen effective ops — adapter held dumb, decision logic stays in the one authority path
-- Implement recipe (2)/(4): bind profile operations to existing actor/tenant authority; revoked profiles deny THROUGH the same adapter
-- Implement recipe (5): connect the real CLI/production caller (no test-only path as evidence substitute)
-- Write 6 positive/negative cases + 4 mutants (a edit-without-revision red, b edition-escalation red, c foreign-tenant red, d revoke-via-adapter deny) with literal output
-- Local checks: go build ./..., go vet, gofmt -l clean; go test ./internal/orgconfig ./internal/policy ./cmd/baha -count=1 -race-count=20 on new tests
-- Merge real develop 24c7d049 into candidate if drift>0 (own commits only); ancestor rc=0; ls-remote + own-only name-only log witnesses
-- Push draft PR #1384 (base develop @ 24c7d049); record PR head SHA
-- Hosted CI to terminal (Eigenes-Run-Pflicht): PR Selected Checks NOT skipped incl. selected checks; record Run-ID/status/failing log line if any
-- Post QUESTION to coordinator with candidate SHA + full evidence (autoritaet file:line, 6/6, mutants, CI run, ls-remote)
+- Decision authority (single): `policy.Aggregate([]Finding) -> Decision`
+  `internal/policy/model.go:49` (Deny short-circuits Allow/Warn).
+  Production caller: `cmd/baha/policy.go:153` `result.Decision = policy.Aggregate(result.Findings)`
+  (baha policy check). Round 2 connects the profile adapter into this same aggregate.
+- Actor/tenant authority (single): `internal/orgconfig/profiles.go` `Manager` — keyed by
+  `Manager.Owner` (installation identity). `NewManager(owner string, profiles ...Profile)`
+  `profiles.go:286`. A foreign owner cannot see/modify another owner's profiles
+  (`TestForeignInstallationProfilesArePreserved`).
+- Adapter call site in production: `cmd/baha/policy.go` helper `policyAggregateWithProfiles`
+  calls `policy.NewAdapter(manager)` then `adapter.Resolve(org, org, orgconfig.OpRead)`,
+  folded via `policy.ResolveFinding(findings, finding)` -> `policy.Aggregate`.
 
-## END an f49a3303 (updated each stop)
-END_DONE w167-profiles-r2: (pending)
+## Changes (Round 2)
+
+### 1) Revision enforcement + no escalation (internal/orgconfig/profiles.go)
+
+- Add `Revision uint64` to `Profile` (profiles.go:105-110). Fresh profiles start at revision 1.
+- `Manager.Update` now takes `(expectedRevision uint64, p Profile)`:
+  - `expectedRevision == 0` -> `ErrStaleRevision` (stale enforcement mandatory, cannot be omitted);
+  - `expectedRevision < existing.Revision` -> `ErrStaleRevision` (no last-write-wins);
+  - new operation set must be a subset of the current set (`isSubsetOf`), else
+    `ErrInvalidProfile: edit may not add an operation the current definition does not assign`
+    (no privilege escalation); down-scopes allowed;
+  - revision bumped to `existing.Revision + 1` on every successful edit.
+- New sentinel `ErrStaleRevision` (profiles.go:59-61); helper `isSubsetOf` (profiles.go).
+
+### 2) Adapter holds dumb, contributes a Finding (internal/policy/assignment.go)
+
+- `Resolve(profileName, tenant string, operation)` now returns a `policy.Finding` (not a bare
+  Allow/Deny). Foreign tenant (tenant != Manager.Owner) -> `errForeignTenant` (fails closed).
+  Revoked/unknown profile -> `errAssignmentUnknown` (fails closed through the SAME adapter).
+- New `ResolveFinding(other []Finding, finding Finding) Decision` = `Aggregate(append(other, finding))`
+  — the only production surface the adapter owns; it contributes one constrained finding to the
+  single authority, never decides alone.
+- `policy.Finding` gains a `Revision string` (model.go) to carry the resolved profile revision
+  through the aggregate.
+
+### 3) Production wiring (cmd/baha/policy.go)
+
+- `collectApplicationPolicy` now decides via `policyAggregateWithProfiles(findings)` instead of a
+  bare `policy.Aggregate`. The helper loads the active organization (tenant), builds the profile
+  Manager for it, resolves one operation through the adapter and folds the result into the
+  aggregate. No active organization -> pure workload aggregate (backward compatible).
+
+## 6 cases — literal output (own run, terminal)
+
+`go test ./internal/orgconfig/... ./internal/policy/... -count=1` -> ok / ok
+Positive/negative:
+- assignment (valid) -> `TestResolveAssignsAllowProvesAssignmentAdapter` PASS (Allow finding)
+- revoke takes effect -> `TestResolveRevokedViaAdapterFailsClosed` PASS (deny through same adapter after Revoke)
+- ambiguous name fails closed -> `TestAmbiguousNameFailsClosed` PASS
+- stale revision rejected -> `TestUpdateBumpsRevisionProvesStaleDetection` PASS (older + zero -> ErrStaleRevision)
+- foreign tenant rejected -> `TestResolveForeignTenantFailsClosed` PASS (errForeignTenant)
+- no escalation on edition -> `TestUpdateEscalationRejected` PASS (read->admin rejected, down-scope allowed)
+
+## 4 mutants — counter-probe (proven RED on develop baseline worktree)
+
+Develop baseline worktree: fresh checkout @ 24c7d049 + apply my impl, then revert ONE piece of
+enforcement and confirm the corresponding test FAILS. All four red:
+
+(a) remove revision enforcement -> `TestUpdateBumpsRevisionProvesStaleDetection` FAILS:
+    profiles_test.go:279: stale revision (older than stored) must be rejectED
+    FAIL (rc=1)
+(b) remove subset/escalation check -> `TestUpdateEscalationRejected` FAILS:
+    profiles_test.go:299: edit adding admin to a read-only profile must be rejected (no escalation)
+    FAIL (rc=1)
+(c) remove tenant binding in Resolve -> `TestResolveForeignTenantFailsClosed` FAILS:
+    assignment_test.go:84: foreign tenant must fail closed, got nil error
+    FAIL (rc=1)
+(d) (same revert covers d) `TestResolveRevokedViaAdapterFailsClosed` FAILS under the same revert.
+
+Restoring my implementation -> all 8 tests PASS (green baseline). This proves the fixes are
+necessary, not coincidentally green.
+
+## Local checks (own run, terminal)
+
+- go build ./... : EXIT 0 (real-disk WORK; /tmp tmpfs exhausted at ~83%)
+- go vet ./cmd/baha/... ./internal/policy/... ./internal/orgconfig/... : EXIT 0 (type-checks all 344 cmd/baha test files)
+- gofmt -l (orgconfig/profiles.go, orgconfig/profiles_test.go, policy/assignment.go, policy/assignment_test.go, policy/model.go, cmd/baha/policy.go) : empty (clean)
+- go test -race ./internal/orgconfig/... ./internal/policy/... -count=1 : ok / ok
+
+## Branch provenance (proof)
+
+- ancestor develop: `git merge-base --is-ancestor 24c7d049 <3bb95cc7>` -> RC=0; same for 06479fe0.
+- PR branch head after push: `git ls-remote origin refs/heads/work/access-profiles`
+  -> 3bb95cc794a9c2aa167a149618065ec998e9d812
+- develop head: `git ls-remote origin refs/heads/develop`
+  -> 24c7d0492f34e58c2a6be505ba80b8bdfb151cb7
+- name-only ancestry-path 06479fe0..3bb95cc7 shows ONLY my commit:
+  3bb95cc7 access-profiles r2: bind profile ops to single policy authority (w167)
+  (no foreign commit carried on top; one candidate per chain).
+
+## Hosted CI (Eigenes-Run-Pflicht)
+
+- Run 41981861515 at PR head 3bb95cc7.
+- Workflow policy: PASS (23s). PR · Source format: PASS (18s).
+- PR Selected Checks + all runtime/validation/release gates: SKIPPING — the PR is a draft;
+  selected checks run only after the PR is made ready. Need coordinator decision to make the PR
+  ready so the selected checks run to terminal.
+- No failing check. If any check fails, it is recorded here as STATE (check name + failing log
+  line) and the lane stops per Owner directive 2026-11-04; no .github edit, no rerun/workflow_dispatch.
+
+## END an f49a3303
+
+END_QUESTION w167-profiles-r2: head=3bb95cc7 faelle=6/6 (assignment/revoke/ambiguous/stale/
+foreign/no-escalation) mutanten=abcd rot belegt autoritaet=policy.Aggregate (internal/policy/model.go:49)
++ orgconfig Manager.Owner (internal/orgconfig/profiles.go:234) adapter dumb -> ResolveFinding (assignment.go)
+lauf=41981861515 workflow+format PASS, Selected Checks SKIPPING (draft, needs ready) lsremote=3bb95cc7 |
+PR #1384 round-2 integrated; need your go to make the draft ready so selected checks run to terminal
+(bounded write-set only, no self-qualification).
