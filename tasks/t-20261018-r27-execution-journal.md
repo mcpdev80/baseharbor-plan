@@ -208,3 +208,7 @@ pruefkanal) ist hinfällig geworden und wird nicht weiter verfolgt.
 Einzellauf dreifach bestanden, mutante 3x rot (hosted-sonde gruen), race-20 gruen, PR-Gate terminal SUCCESS
 am exakten kopf — akte review-1373g.md. Merge und abschluss liegen bei Owner+ChatGPT (übernahme), dieser
 satz ist nur der abnahme-befund unserer seite ins protokoll.
+
+## Korrektur zum vorrigen vermerk: die 1373g-URTEILSDATEI existiert nicht auf plan-main (nur pane-zeile gemessen)
+Der abnahme-befund gilt als pane-beleg (END_DONE 5ec1339c mit feldern), die schritt-akte wurde durch die
+abbestellung nicht mehr geschrieben. Fuer die owner-seite: keine datei referenzieren, dieakte existiert nicht.
