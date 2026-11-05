@@ -138,3 +138,8 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
 
 - [PR #1362](https://github.com/mcpdev80/baseharbor/pull/1362) nach develop per Squash gemergt: [0476164a96d7e8bccdacf4ffc1f2179a6b73f70e](https://github.com/mcpdev80/baseharbor/commit/0476164a96d7e8bccdacf4ffc1f2179a6b73f70e).
 - Zugehörige selektierte Tests/Builds im GitHub-Run [41963065275](https://github.com/mcpdev80/baseharbor/actions/runs/41963065275) erfolgreich. Nicht gewählte Gates nicht als ausgeführt bewertet.
+
+## Recheck r1362e 2026-11-05
+ACCEPT am Owner-seitigen kopf f37cda334b0 (delta zum geprueften 2209436c =
+inhaltlicher Owner-fix fetch-only-once, blobs der credential-kette intakt, gates am kopf).
+Merge-obliegt der Owner-Runde — kein Channel-Merge (Direktive 04:4x).
