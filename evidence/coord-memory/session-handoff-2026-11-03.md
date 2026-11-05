@@ -1970,3 +1970,8 @@ der alten linie. Lane traegt akte jetzt ans richtigen ort nach (angewiesen). Dis
 ergaenzt: EVIDENCE NUR in baseharbor-plan, .evidence/ in Produktrepos verboten, main-schreibverbot explizit.
 Wichtig fuer uns selbst: ls-remote-HEAD-Pruefung (beide zweige) geaendert — main==42er? nein: main zeigt
 wieder auf promo-stand. Pruefen beim naechsten vollzug.
+
+## 14:0x TOR-LANE BLOCKED (ehrlich, mit stufenplan zurueck): VM-raeumung wirkt (37->28 container,
+48->32 volumes, wörtlich), aber daemon-IPAM pools 172.17-172.30 voll = netzwerke toter versuche belegen
+raum. Stufenplan network prune/disconnect; wenns nicht hebt: owner-decision default-address-pools in
+daemon.json (VM-Aenderung, nicht lane-sache). Einzelzelle war gruen — muster passt.
