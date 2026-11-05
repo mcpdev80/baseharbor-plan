@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w196)
-kanban_lane: active
+owner: coord-welle5 (Lane w196, freigegeben)
+kanban_lane: review
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
-kanban_status: active
+kanban_status: review
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md","https://github.com/mcpdev80/baseharbor/pull/1393","https://github.com/mcpdev80/baseharbor/actions/runs/42101103524"]
 ---
 
-- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w196) · **Priority:** normal  
+    **Owner:** coord-welle5 (Lane w196, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1393), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/42101103524)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle5 (Lane w196)  
+**Owner:** coord-welle5 (Lane w196, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -87,3 +87,8 @@ Ein kandidat, ein zweig 3fa46bc299b — PR-verweis berichtigt, doppelanlegung al
 ## Rueckruf (1392a REJECT): crash-Zellen laufen NICHT durch die echte HTTP-handleExecute-naht mit
 abgebrochenem kindprozess, und mutante A oeffnet nur einen unabhaengigen leeren temp-root (beweist nichts).
 Rezept in review-1392a.md zeile 27ff. Scope/write-set waren gut.
+
+## Runde 2 pruefbar 2026-11-05 (kopf ecae5f0d877)
+Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42116653735 TERMINAL SUCCESS am exakten kopf,
+akte round-2.md auf main (commits b5fb91a+c0119f4). 1392a-punkte alle gesetzt: echte handleExecute-naht mit
+kindprozess-SIGKILL, zweiprozess-ordnung, mutanten 2/2 ROT woertlich.
