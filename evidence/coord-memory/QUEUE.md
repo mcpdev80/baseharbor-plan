@@ -87,3 +87,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   parallel; basis main 816720c+ frisch fetchen.
 - w154-destroy-aborted-apply.txt — LAEUFT (ornith): neue bug-karte aus VM-reproduktion (zerstoerung nach
   abgebrochenem provider-wechsel). #1378c ACCEPT → merge befohlen; candidate-pack #1381 in pruefung.
+- w157-compose-baseline.txt — LAEUFT (laptop): Matrix develop-512 vs journal-52e fuer die vier Compose-
+  tests + Panic-Wortlaut; Entscheidung Grundlage fuer #1373-runde-5 oder Vor-Bestand-Karte.

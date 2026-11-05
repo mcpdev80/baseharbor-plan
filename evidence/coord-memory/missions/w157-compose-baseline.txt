@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w157). Coord f49a3303. AUFTRAG: MESSEN, NICHTS AENDERN. KARTE-KONTEXT:
+t-20261018-r27-execution-journal (PR #1373, kopf 52e972fd faellt in gehostetem 'validate' an vier
+composetests, develop-push laesst diese tests nie). ZIEL: zuordnung VOR-BESTAND vs regression, gemessen.
+REPO baseharbor (nur lesen + bauen + testen), KEIN commit, KEIN push, KEIN PR, KEINE datei-aenderung.
+SCHRITTE:
+ (1) worktree A auf develop 512dcd72, worktree B auf 52e972fd (fetch, beide ls-remote wortlich in evidence).
+ (2) PANIC-WORTLICH aus dem runner-job extrahieren (gh api jobs/<id> logs, der block um
+     deployment_record.go:140 + app_apply.go:165 — komplette panic-zeile + testname), laeuft das auch auf A?
+ (3) in BEIDEN baemen dieselben tests ausfuehren, einzeln und mit -count=2, je mit zeitstempel:
+     TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,
+     TestRepositoryComposeWorkloadOnlyLifecycleInCI, TestRepositoryBuildWorkloadRebuildsSourceChangesInCI
+     (die vier aus dem fehlerton; +pakeft anme rkung wenn ein funfter naam fehlt). Umgebungs-notiz: docker
+     vorhanden? diese tests brauchen den runtime-kontext des workflow-headers — lies ZUERST ihren
+     skip-/modus-schalter in den test-dateien (was macht 'InCI' anders, welche env braucht es) und setze
+     ihn korrektnach; lokale unmoeglichkeit eines tests => beide baeme identisch unmoeglich = kein
+     beweiswert, vermerk stattdessen.
+ (4) URTEILSMATRIX in die evidence: test x (A gruen/rot, B gruen/rot, panic ja/nein). Ein test, der in A
+     ROT und in B ROT ist = vor-bestehend (karte/owner-pfad). In A GRUEN und B ROT = REGRESSION der
+     journal-aenderung — dann STOP+MELDEN mit minimalem ablauf (welcher ihrer own-schritte es ausloest).
+GRENZEN: read-only + testlaeufe, KEINE .github, keine subagenten, GOCACHE/TMPDIR im lane-pfad, scratch
+NIE in der oekosystem-wurzel, bei schreibfehlern df -h /tmp (§6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md
+END an f49a3303: "END_DONE w157-compose-baseline: matrix=<name=A:status/B:status;..> panic=<wortlich abgelegt> zuordnung=<vor-bestehend|regression|teilvermischt> | <Satz>"
