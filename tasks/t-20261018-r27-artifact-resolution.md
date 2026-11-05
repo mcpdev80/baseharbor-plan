@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
+    **Needs:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
