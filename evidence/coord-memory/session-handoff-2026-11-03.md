@@ -1797,3 +1797,14 @@ vier lifecycle-tests an der #1355-zustimmungs-schranke (--confirm-candidate fehl
 an isolierung allein, sondern ZWEI ursachen: shared-state-verseuchung UND test-fixture-verbatim-alt. das
 erklaert die ganze woche "nicht reproduzierbar/rot im runner". entscheidung option 1: beides im harness,
 schranke unangetastet (blob-beleg), zwei getrennte zellen-belege, product-gap => STOP+eigene karte.
+
+## 04:35 RUHE-URSACHE GEFOUNDEN (warum 'nur 2' liefen): der pruefkanal war seit ~03:20 BLOCKIERT DURCH
+EIGENE MELDE-GRENZE — codex_tui.send_message_to_thread FAERT gegen 'approval policy is never', ihr END an
+mich war tot, also blieb die ganze urteils-schlange (r1382c, 1362d, 1369d, 1371d, 1380a) liegen und mit ihr
+sieben offene PRs und damit ALLE nachgelagerten karten. Umgestellt auf PANE-MELDUNG (text reicht, mein auge
+holt die akten vom repo), schlange reaktiviert — sie arbeitet wieder, zuerst 1382c dann der rest.
+DIAGNOSE-MUSTER FUER MICH: 'warum laufen nur N worker' ist zumeist eine STAU-FRAGE flussabwaerts, nicht
+eine kapazitaets-frage flussaufwaerts. Naechstes mal zuerst: PR-states + urteils-datei-age + kanal-letzte-
+meldung, DANN sitz-rechnung. OWNER-PUNKT: dieselbe approval-grenze die schon #19-merge blockierte, blockiert
+jetzt MELDUNGEN — eine richtlinien-aenderung an der stelle (send_message_to_thread erlauben ODER mein
+auge-genuegt-dir-pfad festlegen) ist die dauerhafte korrektur; ich behelfe mir, entscheiden tust du.
