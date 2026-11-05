@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w168, freigegeben)
-kanban_status: review
-kanban_lane: review
+owner: coord-welle4 (w172, wartet auf sitz)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
 kanban_title: "Authority: target-scoped live-connection resolution without an application context"
 priority: high
@@ -20,19 +20,19 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md]
 ---
 
-- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
+- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w168, freigegeben) · **Priority:** high  
+    **Owner:** coord-welle4 (w172, wartet auf sitz) · **Priority:** high  
     **PR:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
-**Owner:** coord-welle4 (Lane w168, freigegeben)  
+**Owner:** coord-welle4 (w172, wartet auf sitz)  
 **Priority:** high  
 **PRs:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
 **Source:** 
@@ -80,3 +80,8 @@ w168 IMPLEMENTATION DONE 2026-11-05: ResolverForTargetSelection in internal/core
 Nach der Basis-Korrektur gemessen: develop ist Vorfahr, EIN eigener Commit, Querschnitt nur Autoritaet +
 Sondendatei (die #1380-eigenen Dateien sind korrekt draußen), Lauf 41981375241 terminal erfolgreich.
 Fail-closed-Zellen + Grundlinien-Umschaltbeleg in der Akte.
+
+## Rueckruf (1386a REJECT): lesend statt erzeugend
+Der Resolver zieht bei fehlender Autorität eine neue CA hoch (EnsureLocalIssuer) — das macht die Pruefung
+zur Implikation. Runde 2: rein lesende Beobachtung + zwei neue Sonden-Zellen (fehlendes Verzeichnis, leere
+Issuer-Datei); Stopkriterium: je erzeugtes Material.
