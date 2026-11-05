@@ -1975,3 +1975,10 @@ wieder auf promo-stand. Pruefen beim naechsten vollzug.
 48->32 volumes, wörtlich), aber daemon-IPAM pools 172.17-172.30 voll = netzwerke toter versuche belegen
 raum. Stufenplan network prune/disconnect; wenns nicht hebt: owner-decision default-address-pools in
 daemon.json (VM-Aenderung, nicht lane-sache). Einzelzelle war gruen — muster passt.
+
+## 14:3x GATE-STUFE-2-HAEFTE: prune half (34->31), disconnect nicht moeglich weil die bridge-pools von
+LAUFENDEN ruinen besetzt sind — drei davon nachweisbare tote-lane-projekte (w169-ci-bootstrap-x3).
+Beauftragt: compose down GENAU dieser namen (vorher/nachher im protokoll), then zellen erneut; reste
+(bh-local, tctest) unangetastet. Wenn weiter voll -> owner: daemon.json default-address-pools + restart.
+BETRIEBSLEHRE (kommt ins pool-hygiene-stueck): jede lane die auf den VMs compose-projekte hinterlaesst,
+muss beim END ihr projekt downfahren — bis jetzt war nur die arbeitsplatte geregelt.
