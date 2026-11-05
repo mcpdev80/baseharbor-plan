@@ -1,17 +1,16 @@
-ROLLE: Worker (Lane w190). Coord f49a3303. KARTE: t-20261018-r27-stage-versions (RUNDE 1, Welle 5).
+ROLLE: Worker (Lane w190). Coord 841e7734. KARTE: t-20261018-r27-stage-versions (RUNDE 1, Welle 5).
 REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-stage-versions -> PR, basis develop AKTUELL (ls-remote vor
-schnitt in die akte + ancestor rc=0; heute mehrfach gemergt, hole dir den letzten stand).
-KARTE VOLL LESEN (outcome: desired / last-applied / observed referenzen UNABHAENGIG persistiert fuer
-anwendungs-identitaet; echte erweiterung des deployment-release/config-zustands, kein presenter).
-WRITE-SET (karte): internal/application/environment.go + bounded deployment release-selection/revision
-dateien + tests unter internal/deployment (mehr nicht; beibedarf fremde datei => STOP+MELDEN).
-LIEFERPFLICHTEN: (1) dreiFaellige persistence-matrix: jede der drei referenzen unabhaengig schreibbar/
-ablesbar, eine aendert die andere NICHT (zelle je richtung); (2) zusammenstellungs-test durch echten
-anwendungs-lebenszyklus (up/apply-pfad, dauerklausel); (3) mutanten: zusammenlegung zweier felder =>
-getrennheits-zelle ROT, fehlertoleranz am observer => stale-erkennungs-zelle ROT (wörtlich); (4) red-first
-auf unveraendertem develop; (5) KEIN migrationsschema-roulette: neue spalte nur wenn down-SQL aus dem
-eigenen down-ableiter stammt (praezedenz db-skip-sites/migrations-rollback-regel).
-GATES: focused go tests + race-20 der matrix-zellen, build/vet/gofmt, hosted lauf terminal am kopf
-(selected-checks nicht skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only, KEINE
-.github/subagenten/zweiter PR/akten-ins-produktrepo. Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/stage-versions/round-1.md
-END an f49a3303: "END_DONE w190-stage-versions: head=<sha10> matrix=<3x unabhaengigkeit belegt> trennung=<mutante rot> zusammenbau=<echt> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"
+schnitt in die akte + ancestor rc=0).
+KARTE VOLL LESEN (outcome: desired / last-applied / observed referenzen UNABHAENGIG persistiert; echte
+erweiterung des deployment-release/config-zustands, kein presenter). WRITE-SET DER KARTE exakt einhalten —
+bedarf einer fremden datei => STOP+MELDEN.
+LIEFERPFLICHTEN: (1) drei-referenzen-matrix: jede unabhaengig schreibbar/ablesbar, eine aendert die andere
+NICHT (zelle je richtung); (2) zusammenbau durch echten anwendungs-lebenszyklus (up/apply-pfad, dauerklausel);
+(3) mutanten: zusammenlegung zweier felder => getrennheits-zelle ROT; observer-fehertoleranz aus =>
+stale-erkennungs-zelle ROT (wörtlich); (4) red-first auf unveraendertem develop; (5) neue migration nur mit
+aus dem eigenen down-ableiter stammender down-SQL (praeszedenz db-skip-sites).
+GATES: focused go tests + race-20 der matrix, build/vet/gofmt, hosted lauf TERMINAL am kopf (selected-checks
+nicht skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only, KEINE .github/subagenten/
+zweiter PR/akten-ins-produktrepo, compose-projekte down vor END.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/stage-versions/round-1.md
+END an 841e7734: "END_DONE w190-stage-versions: head=<sha10> matrix=<3x unabhaengigkeit> trennung=<mutante rot> stale=<mutante rot> zusammenbau=<echt> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"

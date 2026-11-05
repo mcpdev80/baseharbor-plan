@@ -1,18 +1,14 @@
 # Vorgemerkte Missionen (Warteschlange, durch Tick zu prüfen)
 
+<!-- STAND 2026-11-05 19:1xZ: welle-4-einträge alle geliefert/gemergt; entries 0,00,1,2,3,4,9 geloescht (erledigt ausser plan-bereinigung). -->
+
 Frei wird ein Platz, sobald eine Lane plattenfest abgeliefert und released ist. Eintrag löschen, sobald die
 Lane dispatcht wurde. Der Audit-Punkt "POOL" zeigt beim Tick, ob ein Platz frei ist.
 
-| 0 | coordinator/missions/w127-team-auth-r2.txt | Pool 5/5 | Team-Anmeldung Runde 2 (review-1369a REJECT: kein Fail-closed ohne Anbieter, Produktionsanbieter fehlt,schreibfeld-fremde dateien) |
-| 00 | coordinator/missions/cx04-ci-delivery.txt | Codex-Worker-Sitz belegt (cx02) | Owner-Massnahme: Go/Docker/DB-Testursache eingrenzen (Hebel fuer 12 nachfolgende aufgaben) |
 | # | Mission | Warum noch nicht dispatcht | Nächster Auslöser |
 | --- | --- | --- | --- |
-| 1 | coordinator/missions/w125-native-auth-r4.txt | Pool 5/5 | native-auth runde 4 (review-1362b REJECT: broker nicht im pfad, leer-treffer == erfolg) |
-| 2 | coordinator/missions/w123-codec-r3.txt | Pool 5/5 belegt | Profil-Kodierung Runde 3 (review-1363b REJECT: secret-felder, atomarer commit, vertrauenspflicht, vollständiger rundlauf, gates) |
 | 2 | ~~w121-podman-rebuild~~ | ERLEDIGT-DURCH-ANDEREN | Podman-Host läuft jetzt in codex-ops-podman (zweite Codex-Instanz, Owner-Direktive 17:5x). w121 bleibt als Fallback-Mission, wird NICHT doppelt dispatcht (ein Host, ein Bearbeiter). |
-| 3 | VM-Folgeauftrag Docker-Host: keycloak-stapel crasht in schleife (datenbankzertifikat wird stapeluebergreifend falsch aufgeloest) — down/up mit berichtigter zertifikatsangabe, definition liegt vor | Pool 5/5 belegt | naechster freier ornith-sitz |
 | 4 | ~~w119-journal-r2~~ | ERLEDIGT | wurde von cx01 (Codex-Worker) geliefert: head 11ed442e, Karte auf review, Luna prueft | Pool 4/4 | Ausführungstagebuch-Runde 2 (Codex review-1373a REJECT, fünf Rezepte) |
-| 4 | coordinator/missions/w118-connector-fmt.txt | Pool 4/4 | Connectort-Antrag #19 hat nur den roten Source-Format-Job |
 
 ## Tor vor der Integrationsphase
 
@@ -27,7 +23,6 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - `codex-pod-ops` (a0ce49b3, zweite Instanz, Owner-Direktive 2026-11-04): OPS-Auftrag Podman-Host.
   Rollenhygiene: dieser Kanal führt einen ausdrucklich als OPS gekennzeichneten Auftrag aus — er schreibt kein
   Review-Urteil und merged nichts; die Revisions- und Versionsnachweise legt er als Evidence ab.
-| 9 | coordinator/missions/w126-gate-watch.txt | Pool 5/5 | vier kandidaten haben nicht-terminale gehostete laeufe; abnahme braucht das terminal-bild + klassifikation |
 
 ## Einstweilen (2026-11-04, ~02:20)
 - w131-consent-abort-r2.txt — Runde 2 für PR #1375 (Abnahme review-1375a REJECT): echter destroy-Durchlauf mit
