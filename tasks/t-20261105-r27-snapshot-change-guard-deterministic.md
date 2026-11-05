@@ -5,7 +5,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: Marcel
+owner: coord-welle4 (Lane w189, freigegeben)
 kanban_status: review
 kanban_lane: review
 kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
@@ -22,7 +22,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** Marcel · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w189, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md)  
     <!-- /generated:card -->
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
-**Owner:** Marcel  
+**Owner:** coord-welle4 (Lane w189, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
 **Source:** 
@@ -119,3 +119,5 @@ round-4: defense in depth. EREIGNIS barrier fixed to real os.Lstat mid-walk re-s
 round-4 (w189): defense in depth. EREIGNIS barrier fixed to real os.Lstat mid-walk re-stat (root cause of round-3 flake); final baseline-path verification restored as Layer 2; late-mutation regression pinned deterministically. Hosted 42083071514 @ d21badc6 terminal SUCCESS (PR Selected Checks green). Evidence: round-4.md.
 
 round-4 (w189): defense in depth. EREIGNIS barrier fixed to real os.Lstat mid-walk re-stat (root cause of round-3 flake); final baseline-path verification restored as Layer 2; late-mutation regression pinned deterministically. Hosted 42083071514 @ d21badc6 terminal SUCCESS (PR Selected Checks green). Evidence: round-4.md.
+
+## Runde 4 pruefbar 2026-11-05 (kopf d21badc6f4): WARMEURSACHE gefunden und benannt — die ereignis-barre\nverglich ein totes entry.Info() statt echter Lstat-inspektion mitten im lauf (das war der runde-3-rest-flake).\nEndcheck (verifyFinalBaseline) wieder drin; race50+quiet20 gruen, beide mutanten benannt rot, hosted am kopf.\n1387c-punkt damit adressiert + tiefer. round-4.md auf main.
