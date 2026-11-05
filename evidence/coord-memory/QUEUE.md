@@ -142,3 +142,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   w181 credentials-r4 LAEUFT. mutation-lock p1 Warteschlange.
 - AGENTS-ÄNDERUNG 2026-11-05: pool=5 (2+2+1 CODEX-WORKER). w184-mutation-lock als erster codex-worker LAEUFT
   (session-getrennt von der abnahme; mission traegt ROLLE: CODEX-WORKER). TICK-DUTIES punkt 7 angepasst.
+- SPERRVERMERK: #1373 journal an Owner+ChatGPT (Direktive 15:5x). Keine Lane in machinehttp-journal-pfade;
+  1373g-abnahme abbestellt; journal-wiring-abhaengige bleiben warten.
