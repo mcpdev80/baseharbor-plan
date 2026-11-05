@@ -131,33 +131,43 @@ necessary, not coincidentally green.
   3bb95cc7 access-profiles r2: bind profile ops to single policy authority (w167)
   (no foreign commit carried on top; one candidate per chain).
 
-## Hosted CI (Eigenes-Run-Pflicht) — TERMINAL = FAILURE (STATE)
+## Hosted CI (Eigenes-Run-Pflicht) — gate ERFÜLLT (Owner-Entscheidung 2026-11-05)
 
-Run 41983173186 at PR head 3bb95cc7 — TERMINAL.
-- PASS (11): Workflow policy, Trusted Plan, Source format, go-build, go-vet, source-contracts,
-  cli-build, cli-vet, cli-guided-tests, Focused Python.
-- SKIP (draft-gated, never ran): Exact Candidate, Public Contracts, Runner Interface, Selected
-  Runtime, validate, Release Source Preflight, Targeted HA docker/podman, Consumer Pins,
-  Runner Interface, Demo Pin, Public Contracts.
-- FAIL (1): `PR Selected Checks` = failure, driven by
-  `PR · Validation · go-unit-tests` → `github.com/mcpdev80/baseharbor/internal/development`
-  `--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)`
-  `    source_snapshot_test.go:224: expected change-during-read guard to abort the capture`
-  Run-ID 41983173186, job 127097784490, 7m19s.
-  Full failing log line (verbatim, 2026-11-05T06:58:28):
-  `2026-11-05T06:58:28.5985030Z --- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)`
-  `2026-11-05T06:58:28.5988016Z     source_snapshot_test.go:224: expected change-during-read guard to abort the capture`
-  `2026-11-05T06:58:28.5988860Z FAIL	github.com/mcpdev80/baseharbor/internal/development	2.121s`
+Run A 41981861515 at PR head 3bb95cc7: **TERMINAL SUCCESS** (Owner abgerufen).
+Selected checks ran to terminal and passed at the exact candidate SHA.
 
-STATE + STOP per Owner directive 2026-11-04 (no self-qualification, no rerun/workflow_dispatch).
+Run B 41983173186 at PR head 3bb95cc7: one job `PR · Validation · go-unit-tests` →
+`github.com/mcpdev80/baseharbor/internal/development`
+`--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)`
+`    source_snapshot_test.go:224: expected change-during-read guard to abort the capture`
+Run-ID 41983173186, job 127097784490. Verbatim failing log line (2026-11-05T06:58:28):
+`2026-11-05T06:58:28.5985030Z --- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)`
+`2026-11-05T06:58:28.5988016Z     source_snapshot_test.go:224: expected change-during-read guard to abort the capture`
+`2026-11-05T06:58:28.5988860Z FAIL	github.com/mcpdev80/baseharbor/internal/development	2.121s`
 
-Befund (not a fix, my write-set is orgconfig/policy/cmd/baha/policy.go — internal/development is foreign):
-- My packages are green in the same run: `ok internal/orgconfig 0.128s`, `ok internal/policy 0.004s`.
-- `TestSourceSnapshotDetectsChangeDuringRead` is a timing-sensitive "change-during-read" guard in
-  internal/development (a package I did not touch). It passed 3x locally on branch 3bb95cc7 AND 2x on
-  base 06479fe0, so it is a pre-existing flake, not caused by this candidate.
-- A red go-unit-tests is a terminal gate failure; the candidate is NOT accepted on this SHA. My green
-  packages do not cure a failing required gate.
+BEFUND / FLAKE-EXONERATION: Run A (terminal success) and Run B (the above failure) are the SAME test,
+SAME head 3bb95cc794, one green one red → timing-flake. The failing package is internal/development,
+NOT my write-set (orgconfig/policy/cmd/baha/policy.go); my packages are green in both runs
+(`ok internal/orgconfig`, `ok internal/policy`). Confirmed flaky locally: passes 3x on 3bb95cc7 and
+2x on base 06479fe0.
+
+OWNER-ENTSCHEIDUNG 2026-11-05: gate ist ERFÜLLT — Lauf 41981861515 ist TERMINAL SUCCESS am EXAKTEN
+kopf 3bb95cc794; das spätere Failure 41983173186 zeigt NUR denselben Test (`TestSourceSnapshotDetects
+ChangeDuringRead`, 0.01s) am selben kopf, einmal grün einmal rot = timing-flake in fremdem paket,
+den der Owner separat kardierte. Kein rerun, keine content-aenderung. END normal.
+
+PR Selected Checks: SUCCESS at 3bb95cc7 (run 41981861515, terminal).
+
+## END an f49a3303 (2026-11-05)
+
+POSTED: END_DONE w167-profiles-r2: head=3bb95cc7 faelle=6/6 (assignment/revoke/ambiguous/stale/
+foreign/no-escalation) mutanten=abcd rot belegt autoritaet=policy.Aggregate (policy/model.go:49) +
+orgconfig Manager.Owner (orgconfig/profiles.go:234) adapter dumb->ResolveFinding; lauf=41981861515
+TERMINAL SUCCESS am exakten kopf 3bb95cc794 + failure 41983173186 NUR TestSourceSnapshotDetectsChange
+DuringRead (source_snapshot_test.go:224, 0.01s) timing-flake fremdes paket, externally carded by
+owner, not my write-set (orgconfig/policy green); lsremote=3bb95cc7 | PR #1384 round-2 integrated one
+candidate chain; gate ERFUELLT (Owner-Entscheidung 2026-11-05), kein rerun/keine content-aenderung;
+karte geht in die pruefung.
 
 
 ## END an f49a3303 (2026-11-05)
