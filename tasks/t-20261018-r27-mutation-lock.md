@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (w184c, laptop)
-kanban_lane: active
+owner: coord-welle4 (Lane w184c, freigegeben)
+kanban_lane: review
 kanban_summary: All clients use the existing owner lock. Bind application and provider changes to current revision and exact consent;…
-kanban_status: active
+kanban_status: review
 kanban_title: "Lifecycle: reject concurrent or stale shared changes"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w184c, laptop) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w184c, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1390](https://github.com/mcpdev80/baseharbor/pull/1390)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
-**Owner:** coord-welle4 (w184c, laptop)  
+**Owner:** coord-welle4 (Lane w184c, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1390](https://github.com/mcpdev80/baseharbor/pull/1390)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -74,3 +74,9 @@ COST_CONTROL.md (2026-10-18) verbietet CODEX-implementierungs-Sessions und weist
 LOKALEN modellen zu. Owner-Anweisung 2026-11-05: 'nutze einmalig ein worker flash' — w184 laeuft auf dem
 worker-flash-kanal (AgentGateway, kein codex). Kein verstoss gegen den stop; AGENTS 2026-11-04 pool
 bleibt fuers protokoll notiert, flash-sitz gilt als einmalige ausnahme dieser schicht.
+
+## Runde 2 pruefbar 2026-11-05 (kopf c8c8810f017)
+Nachgemessen: ls-remote echt==head, gehosteter lauf terminal SUCCESS am kopf; zweiprozess-locktest echt
++ wörtlich, klienten-inventar 21 vor/nach identisch, beide mutanten rot; develop-stand bei schnitt a53c10a7
+(weiterer drift 10e8d646 = merge-zweig-notiz). round-1.md auf main, übergabe der flash-rest-kette
+dokumentiert (05bb5a25 → w184c).
