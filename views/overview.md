@@ -38,7 +38,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md) | Operations: reconnect and reconcile interrupted executions | review | normal | coord-welle5 (Lane w191) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](../tasks/t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392) |
+| [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md) | Operations: reconnect and reconcile interrupted executions | review | normal | coord-welle5 (Lane w191) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](../tasks/t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 
 ## Blocked
