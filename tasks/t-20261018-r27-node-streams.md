@@ -7,13 +7,13 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle4 (Lane w153)
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Connector: bound log replay and terminal cancellation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime, t-20261105-r27-test-wire-helper]
 repos: [mcpdev80/baseharbor-node-connector]
-prs: []
+prs: ["mcpdev80/baseharbor-node-connector#22"]
 sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
@@ -22,19 +22,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
+- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w153) · **Priority:** normal  
+    **PR:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
 **Owner:** coord-welle4 (Lane w153)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
 <!-- /generated:links -->
 
@@ -60,4 +61,6 @@ Focused stream/protocol tests plus one bounded real log/PTY smoke; no repeated f
 
 ## Handoff
 
-Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+Delivered 2026-11-05 (Lane w153) for Codex REVIEW. Four cases prove cursor expiry (loss-free replay), at-least-once resume at cursor boundary, terminal deadline clean end, and client cancellation with no ghost session — against the real `ServeLogStream` chain via the exported `targetaccess.NewHandshakePair` over a real `net.Pipe` mTLS line; chain driven through a fake `docker` on PATH, **no product code changed** (name-only). Required checks green locally; hosted CI on PR #22 observed to terminal (Test·Vet·Build + source SUCCESS; runtime matrix SKIPPED). Evidence: round-2.md.
+
+First push landed on the helper branch `work/r27-test-wire-helper` (97d7fe7) by a dispatch/context error, not a content defect; the identical one-file diff was re-delivered on `work/r27-node-streams` (6b498a8, cherry-pick of 97d7fe7, byte-identical diff). PR #22 is a draft until Maintainer acceptance; acceptance/merge is the Maintainer's (or owner-delegated Codex MERGE) decision — no self-qualification.
