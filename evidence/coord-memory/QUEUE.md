@@ -111,3 +111,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w171-streams-r3.txt — LAEUFT (ornith). w170-credentials-r2 — p1 Warteschlange. w169-compose-r2 laeuft.
 - w170-credentials-r2.txt — LAEUFT (ornith). w171 streams-r3 laeuft (laptop). Compose w169, Profile w167 laufen.
 - w172-boundary-r2.txt — p1 Warteschlange; w173-journal-r6.txt — p2. (beide missions-dateien fertig).
+- t-20261105-r27-snapshot-change-guard-deterministic — NEU (p1 nach laufenden ends): same-head flake
+  belegt (41981861515 gruen vs 41983173186 rot, 0.01s), determinischer hook noetig; entpoisoned die gates.
