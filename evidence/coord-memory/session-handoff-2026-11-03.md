@@ -2004,3 +2004,8 @@ Nebenbefund (selbstverschuldet, behoben-pflichtig): mein /tmp/codex-* sweep traf
 codex-app-server-daemons -> control-socket weg, kein neuer codex-sitz startbar (w184 crash 2x). Daemon war
 tot-ähnlich (pid lebt, socket fehlt); neustart eingeleitet — nach der rueckkehr w184 neu besetzen.
 Regel-Ergaenzung tmp-sweep: /tmp/codex-daemon-* ist HEILIG (socket-des-daemons), nie in masken.
+
+## 15:2x FOLGE DES SOCKET-FALLS ERLEDIGT: Luna-Pane war tot (isoliert nach meinem app-server-sweep-schaden,
+vermutlich identischer connect-fehler wie bei w184 damals). Neu gebunden: codex-luna-ch = session 5ec1339c,
+GPT-6-Luna bestaetigt, mission 1373g zugestellt, watch neu eingetragen. w181x-geisterspawnt (fehlerteufel
+aus meiner befehlkette) wurde nie beauftragt und ist geloescht — pool wieder 5/5 echt.

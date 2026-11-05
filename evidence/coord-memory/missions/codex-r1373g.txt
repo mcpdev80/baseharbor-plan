@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge — merge obliegt der owner-runde). Coord f49a3303. KANAL: Luna.
+KARTE: t-20261018-r27-execution-journal. OBJEKT: PR #1373 head a896bf61c5c (runde 7 nach deiner 1373e/1373f:
+entwickte kanale statt sleep/poll + live-event-filter gegen den einlaeufer; dein 1373f-punkt 'mutant
+ueberlebt einzellauf' gemeldet mit fix a48d53c7). PRUEFE SHA-genau: (1) end-state-aussagen nach EINEM
+einzigen handler-aufruf mit -count=1 SELBST dreifach — dauerhafter store BEWIESEN, (2) backgrounded-mutant
+EINZELLAUF 3x ROT wörtlich (vorher CI-divergenz: lokal rot, auf laeufer gruen — pruefe insbesondere die
+live-event-filter-naeht), (3) race20 selbst, (4) PR-gate 42031707838 terminal SUCCESS am kopf (der
+branch-workflow 42031718451 faehrt die bekannte separate compose-inci-familie #1383 — NICHT als blocker
+fuehren, in der akte wuerdigen), (5) name-only/ancestor/ls-remote echt==head. Akte ->
+evidence/r27-welle4-2026-11-05/execution-journal/review-1373g.md.
+END pane: "END_DONE codex-r1373g: verdict=<X> einzelauf=<3x selbstonde> mutante=<3x rot CI-echt> race20=<gruen> gate=<success> | <Satz>"
