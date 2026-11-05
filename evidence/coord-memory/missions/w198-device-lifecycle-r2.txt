@@ -1,0 +1,13 @@
+ROLLE: Worker (Lane w198). Coord 841e7734. KARTE: t-20261018-r27-device-lifecycle (RUNDE 2).
+ZWEIG: work/r27-device-lifecycle (PR #1394, head a9c45f7004d) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1394a.md VOLL LESEN.
+PFLICHTEN (urteilspunkte, einzeln): (1) PRODUKTIONSNAHT: renewal/revoke an den ECHTEN http/contract-eingang
+anschliessen (handleX-basierter pfad, kein nur-interes API) — zelle fahrt den pfad END-zu-END; (2) RENEW
+PERSISTIERT neue seriennummer (nach renew == beobachtete serie aktualisiert — zelle vor/nach, blob-read
+der persistenz); (3) mutantenlauf TATSÄCHLICH ausfuehren: revoke-pruefung raus => ROT wörtlich, heilung
+revoke->erneuerung = expliziter fehler (zelle); (4) matrix-richtnung die fehlte vervollstaendigen; (5)
+develop-merge falls drift + ancestor rc=0, hosted TERMINAL am neuen kopf.
+GATES: ls-remote echt==head WORTLICH, name-only, KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo,
+KEIN compose auf diesem host, disk-umgebung /tmp/opencode/<lane>-wt.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/device-lifecycle/round-2.md
+END an 841e7734: "END_DONE w198-device-lifecycle-r2: head=<sha10> naht=<echt e2e> renewserie=<persistiert belegt> mutanten=<ROT wörtlich> matrix=<voll> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
