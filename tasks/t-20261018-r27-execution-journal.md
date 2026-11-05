@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w177, korrektur-laeuft)
-kanban_status: active
+owner: coord-welle4 (Lane w177, freigegeben)
+kanban_status: review
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -25,20 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w177, korrektur-laeuft) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w177, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w177, korrektur-laeuft)  
+**Owner:** coord-welle4 (Lane w177, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -187,3 +187,12 @@ ueberdies den lauf des FALSCHEN zweigs (flake-kur). 2) ancestor develop 42bfcb1c
 3) round-7.md am falschen ort (workers/evidence statt plan-repo). Korrektur befohlen: mutanten-zelle im
 CI-pfad mit race flags ausstatten oder nachweis warum sie dort nicht laeuft + develop-merge + terminaler
 neuer lauf + akte an rechten ort. Karte bleibt active.
+
+## Runde 7 pruefbar 2026-11-05 (kopf a896bf61c5c)
+Nachgemessen: ls-remote echt==head, develop 42bfcb1cb4 VORFAHR (merge drin), eigene commits 13e3e046+a48d53c7;
+PR-GATE 'CI · PR #1373' terminal SUCCESS am exakten kopf (selected checks gruen, validate laut PR-Regel
+skipped). Der daneben fehlgeschlagene BRANCH-workflow enthaelt die COMPOSE-inci-familie — das ist die
+bekannte, separat kardierte Compose-Kette (#1383, dort blocked auf VM-Tor), KEIN tagebuch-defekt.
+Einzellauf-Mutante per live-event-filter fix geschlossen (rot, wörtlich in akte), race20 gruen 125s.
+Akte round-7.md von mir aus falschem ordner in den schichtordner gehoben. Freigabewege: MERGE obliegt der
+Owner-Runde, die lane wartet auf nichts.
