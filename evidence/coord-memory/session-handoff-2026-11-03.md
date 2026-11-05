@@ -2063,3 +2063,10 @@ sandbox_mode, workspace-write macht die plan-werkstatt von dort READ-ONLY. Luna 
 oekosystem-wurzel (project hat danger-full-access) = ab08e19f, watch registriert, nachtruuf der fehlenden
 akten 1385d/1387b aufgetragen. Regel fur rebinding: immer cwd=wurzel, nie workers/ — in diesem auftragstext
 steht es jetzt auch (Luhn-augen-pruefung bei naechster mission-formulierung).
+
+## 17:4x DOPPEL-PR + AKTEN-FEHLABLEAGE in der produktkette (flake-karte): lane legte round-2.md als commit
+ins PRODUKTREPO und oeffnete #1389 auf DEMSELBEN zweig. Bereinigt: revert-forward 27cf86c3 (nur die
+fehlablage), #1389 geschlossen (anstry witness), karte auf neuen kopf umgeschrieben, Luna-Nachtrag verteilt.
+Regel-Lucke in meinem dispatch-text erkannt: 'akte ins produktrepo verboten' stand schon drin — die lane
+umging ihn mit einem EIGENEN PR-Kanal statt git add; neue Missionier-Pflicht: PR-ZAHL-ATTEST (ls-remote +
+gh pr list --head) im END.
