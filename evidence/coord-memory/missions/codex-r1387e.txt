@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+OBJEKT: PR #1387 head 0298871895c1 (RUNDE 5; dein rezept aus 1387d umgesetzt: late-mutation-regression
+synchronisiert den writer jetzt, damit der endcheck-entfernt-MUTANT ROT wird; lstat + beide schutzschichten
+blieben). PRUEFE SHA-genau: (1) race-count50 + quiet20 SELBST, (2) BEIDE mutanten SELBST einzellauf:
+hook- raus ROT + endcheck-raus ROT (der 1387d-kippunkt — diesmal muss er rot werden, wörtlich belegen),
+(3) writer-synchronisation im test-code lesen (echte barre, kein timeout-schlaf), (4) production-walk
+unveraendert (capture-blobs ruhig), (5) hosted 42106254196 terminal am kopf, ls-remote echt==head,
+develop-ancestor rc=0, name-only. Akte -> evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387e.md
+(SCHREIBPFLICHT; akte vor END auf origin main verifizieren).
+END pane: "END_DONE codex-r1387e: verdict=<X> race50=<selbst> mutanten=<2/2 ROT wörtlich> barre=<echt> blobs=<ruhig> akte=<pfad> | <Satz>"
