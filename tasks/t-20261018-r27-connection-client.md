@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w164)
+owner: coord-welle4 (Lane w186)
 kanban_lane: active
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w164) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w186) · **Priority:** normal  
     **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md)  
-**Owner:** coord-welle4 (Lane w164)  
+**Owner:** coord-welle4 (Lane w186)  
 **Priority:** normal  
 **PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
