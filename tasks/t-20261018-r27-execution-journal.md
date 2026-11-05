@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (w165, wartet auf sitz)
+owner: coord-welle4 (Lane w165)
 kanban_status: active
 kanban_title: "Operations: persist execution identity and terminal outcomes"
 kanban_lane: active
@@ -27,7 +27,7 @@ evidence:
 
 - [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w165, wartet auf sitz) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w165) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
@@ -38,7 +38,7 @@ evidence:
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (w165, wartet auf sitz)  
+**Owner:** coord-welle4 (Lane w165)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
