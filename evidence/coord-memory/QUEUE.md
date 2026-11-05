@@ -132,3 +132,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - Welle-5 eroeffnet: app-binding LAEUFT (laptop), mutation-lock = p1 naechste (dependencies all closed),
   stage-versions/state-recovery/management-host weiter gesperrt (planned vorginger: device-lifecycle,
   journal-wiring, candidate-ingress, app-binding).
+- w180-compose-r3.txt — p1 Warteschlange (bootstrap-scope + kontaminiertes ensemble). mutation-lock p2.

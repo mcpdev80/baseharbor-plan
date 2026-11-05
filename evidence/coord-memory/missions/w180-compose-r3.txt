@@ -1,0 +1,20 @@
+ROLLE: Worker (Lane w180). Coord f49a3303. KARTE: t-20261105-r27-compose-host-isolation (RUNDE 3).
+ZWEIG: work/r27-compose-isolation (PR #1383, head 789ae14655b) — DERSOLBE zweig/PR. AKTE: review-1383b.md
+(VOLL lesen). BEFUND: deine r2-target-ueberschreibung wirkt, aber die BOOTSTRAP-Auswahl bleibt als
+fallback fuer die lebenszyklus-tests stehen — ein test OHNE eigenen scope kann den geteilten bootstrap-core
+erwischn; und das CONTAMINATED ensemble wurde nie sicher gefahren.
+PFLICHTEN (drei dateien der akte: runtime_integration_test_support_test.go, app_repository_integration_test.go,
+app_workload_integration..._test.go — namenspraezisierung aus der akte):
+ (1) bootstrap-auswahl stays inside bootstrap setup; lebenszyklus-tests koennen sie NICHT als fallback
+     erben — scope je test so weit faechendechern wie die akte verlangt.
+ (2) ANGEFUTTERTES ensemble: die vier tests zweimal aus sauberem zustand + zweimal mit FREMDBESITZENDEN
+     lebenden core daneben — auf SICHERER isolierter maschine (host-last-fall von r2 nicht wiederholen;
+     wenn lokal zu knapp: gefundener zustand WORTLICH + gehosteter lauf als beweis, aber die
+     kontaminations-zelle BRAUCHT eine reale durchfuehrung, dokumentiere ort+zeit).
+ (3) MUTANTE: ueberschreibung entfernt => kein test darf den geteilten bootstrap-core erwischen (rot an
+     der schranke); STILL-SCHALTER fester bestandteil der doku.
+GATES/BASIS: ls-remote develop (aktuell) VOR merge-in + ancestor rc=0 — DIESMAL develop in den zweig
+mergen (basis 24c7d0492f3 haengt), name-only, race-freie wiederholbarkeit der zellen, selected-checks
+terminal nicht skipped am neuen kopf, ls-remote echt==head WORTLICH. KEINE .github/subagenten/zweiter PR.
+Evidence: compose-host-isolation/round-3.md (ordner r27-welle4-2026-11-05)
+END an f49a3303: "END_DONE w180-compose-r3: head=<sha10> bootstrap=<scope-dicht belegt> ensemble=<2x sauber + 2x verseucht, ort> mutante=<rot> lauf=<id+status> lsremote=<sha10> | <Satz>"
