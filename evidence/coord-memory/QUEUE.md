@@ -138,3 +138,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w182 LAEUFT (laptop). app-binding r1 im pruefkanal (1388a). naechste: w181-credentials-r4, mutation-lock.
 - w183-compose-gate.txt — p1 (VM-raeumen + vier-zellen + mutante; inhalt des PRs unveraendert). flake-r2/
   journal r7/streams r4 laufen. credentials-r4 p2.
+- COMPOSE-GATE: OWNER-BLOCKER (daemon.json default-address-pools, VM baha-runner-docker-2; nachweis gate-vm-1.md).
+  w181 credentials-r4 LAEUFT. mutation-lock p1 Warteschlange.
