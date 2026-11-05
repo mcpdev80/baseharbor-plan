@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w163)
+owner: coord-welle4 (Lane w163, freigegeben)
 kanban_lane: review
 kanban_summary: Create/update/revoke named profiles for selected Targets/operations/scopes/environments with existing policy authority. Profiles…
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4
 
 - [ ] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w163) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w163, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4-2026-11-05/access-profiles/round-1.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md)  
-**Owner:** coord-welle4 (Lane w163)  
+**Owner:** coord-welle4 (Lane w163, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -64,3 +64,8 @@ Domain tests for grants/revoke/ambiguous names/stale selections/foreign installa
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Kandidat pruefbar 2026-11-05 (kopf 06479fe0, zwei eigene commits, draft)
+Von mir gemessen: Vorfahr ja, Pflege-dateien frei, lauf 41970216583 terminal erfolgreich am exakten kopf.
+Karte meldet rote Grundlinie auf develop belegt + fall-satz (zuweisung, widerruf, mehrdeutig, veraltet,
+fremd, eskalation).

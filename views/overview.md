@@ -40,7 +40,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md) | Access: manage scoped team profiles and owned assignments | review | normal | coord-welle4 (Lane w163) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384) |
+| [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md) | Access: manage scoped team profiles and owned assignments | review | normal | coord-welle4 (Lane w163, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 
 ## Blocked
