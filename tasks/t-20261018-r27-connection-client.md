@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle5 (Lane w186, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Client: resolve trusted local or remote management connections"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access, t-20261105-r27-connection-authority-boundary]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 ---
 
-- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
+- [x] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w186, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
@@ -86,3 +87,7 @@ pfad, mit STOP-recht falls dafuer ein fake-context noetig waere.
 Nachgemessen: ls-remote echt==head, develop a53c10a7 drin (ancestor rc=0), gehosteter lauf 42055518849
 TERMINAL SUCCESS am exakten kopf. Mutanten benannt rot, 1386-resolver nur gelesen (authority.go blob
 unveraendert), fails-closed belegt. round-1.md (welle5) auf main.
+
+## Gemerged 2026-11-05 (CODEX-MERGE nach 1380b ACCEPT): develop 3d8fc207de, merge-zweig 560945201e
+(develop-abgleich a53c10a7+drin), same-head flake-rerun 42093092814 attempt2 SUCCESS, merge ohne bypass.
+Drei-Autoritaeten-trennung + fails-closed pfad damit ECHT im zweig.

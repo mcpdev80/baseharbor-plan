@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md)  
+    **Needs:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
