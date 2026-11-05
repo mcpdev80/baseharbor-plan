@@ -1,0 +1,30 @@
+# CODEX-REVIEW — device lifecycle, PR #1394
+
+- Datum: 2026-11-05
+- Verdict: **REJECT** — lifecycle behavior is not reachable from the production boundary, and a successful renewal does not update the durable current-serial owner.
+- Kandidat: `a9c45f7004d2db58cd56262ac5d8c6a7aed2bd98`
+- Basis: `develop` `3d8fc207deabc2840bcfd888f46d2394cc5a7d36`
+- PR #1394: open, branch `work/r27-device-lifecycle`, exact head above. PR files show the own commit plus the develop integration commit.
+- Remote witness: `git ls-remote origin refs/heads/work/r27-device-lifecycle` returned the exact candidate SHA.
+- Hosted CI: [Run 42104328912](https://github.com/mcpdev80/baseharbor/actions/runs/42104328912) is `completed / success` at the exact candidate SHA.
+- Name-only diff has 12 paths, bounded to `cmd/baha/workstation_enrollment.go`, the new `contracts/workstationlifecycle/v1/` package, `internal/serviceaccess/local_issuer.go`, `internal/workstationenrollment/{authority.go,authority_test.go,lifecycle_owner_test.go,lifecycle_test.go,request.go}`, and two existing HTTP test files. No enrollment-store or HTTP-handler implementation file is changed.
+
+## Acceptance criteria
+
+1. **Renew independence matrix: partial.** Independently ran `go test -race -count=20 ./internal/workstationenrollment -run '^(TestRenewMatrixDoesNotTouchB|TestRenewIssuesFreshSerial|TestRevokePositiveMakesAInvalidBUntouched|TestRevokeMatrixDoesNotTouchB|TestRenewAfterRevokedRefusesRevokedScope|TestRenewAfterRevokedMissingScopeFailsClosed)$'`; result: package `ok` in 25.722s. The cells exercise a real CRL-backed `LocalIssuer` for revoke and real certificate signing for renew. The renewal matrix verifies A vs B only; there is no third C identity in the matrix, and the Owner used by these tests is in-memory, not the production durable registry. Thus the specified A/B/C independence proof is incomplete.
+2. **Revoke effect / deterministic refusal: code present, required cell incomplete.** `Authority.Revoke` adds the current serial to the issuer CRL; `TestRevokePositiveMakesAInvalidBUntouched` confirms A is revoked and B is not. `Authority.Renew` checks `RevokedStatus` before signing, and `RenewAfterRevokedRefusesRevokedScope` checks the explicit refusal path. However the tests do not call an actual production lifecycle endpoint after revoke, and do not test `Renew` itself after revocation. The HTTP handler registers only `/bootstrap` and `/enroll` (`internal/workstationenrollment/http/http_handler.go`); no renew/revoke routes or production caller of `contracts/workstationlifecycle/v1` exists in the diff or repository search.
+3. **Renew-after-revoke explicit error: unit behavior only.** `RenewAfterRevoked` returns an error on revoked/unreadable state. `contracts/workstationlifecycle/v1` exposes renew/revoke functions, but its `Lifecycle` interface also requires `RevokedState`; no production adapter implements that interface and the package is not imported by production code. The record/contract tests use mocks.
+4. **Real lifecycle assembly: fails.** The new tests call `Authority.Renew`/`Revoke` directly with a memory owner and test issuer; they do not exercise `WorkstationEnrollmentHTTP`, the durable SQL registry bridge, or a real contract request path. Production `wsProductionEnrollmentBridge` provides `CurrentSerial` by reading `ReadRegistryFact`, but no writer updates that registry fact after `Renew` returns a fresh serial. `Authority.Renew` only returns the new certificate/serial. Consequently a later revoke/re-renew remains anchored to the old enrolled serial, and revoking after renewal would not revoke the new current certificate. No production renew/revoke route currently calls these methods.
+5. **Enrollment internals / authority hashes:** unchanged predecessor files have identical develop/candidate blobs: `internal/workstationenrollment/store.go` `3885afe56432ba3b767429bfddf63f4a8a7455db`; `scope.go` `cca602b838016506ea5e3f8b66b30c2c0debb855`; HTTP `http_handler.go` `8fa38b8387b58c8597717a00cd5ec347005bb755`, `production_handler.go` `c709fa91f95f4be7d72e07b00c0081f24a216754`; `internal/serviceaccess/authority.go` `a69559e01f9b4bd7a6c3df38d9eb3f757cfe0dca`. The legacy Create/Enroll implementation in `internal/workstationenrollment/authority.go` was read; changes there add the Owner seam and new lifecycle methods, not an edit to its Create/Enroll operation bodies. `local_issuer.go` is intentionally changed to add `SignCSR`.
+6. **Mutation evidence: not demonstrated.** `RenewStrippedRevocationAcceptsRevokedScope` is a helper, not a `Test...` function. `MutantSecurityCellRED` also lacks the Go `Test` prefix and has no caller (`rg` found only its declaration). Thus `go test` does not execute the purported mutant red cell, and there is no terminal red result from a mutation run. Required result is **0/1 mutation runs evidenced**.
+7. **Contract package:** independently ran `go test ./contracts/workstationlifecycle/v1 -count=1`; result `ok`.
+
+## Correction recipe
+
+- Connect renew/revoke to a production lifecycle boundary that is authenticated and scope-bound like enrollment; use `workstationlifecycle/v1` in that boundary or document the accepted callable production entry point. Ensure revoke status is queried through that actual path.
+- After a successful renewal, atomically persist the new current serial to the durable registry before reporting success; ensure subsequent renew/revoke reads that new serial. Add an integration test that enrolls, renews, verifies the durable serial changed, revokes, and proves the renewed leaf is rejected while another device remains valid.
+- Extend the independence matrix to distinct A/B/C devices and verify the non-target serials, application bindings, and platform state are unchanged.
+- Turn the mutation check into an executed test/run: remove the production `RevokedStatus` check in an isolated mutation and capture the exact security assertion failing (literal red output); restore the source and show the baseline passes.
+- Re-run focused tests and hosted CI on the corrected final SHA.
+
+Read-only review. No product files changed and no PR action performed.
