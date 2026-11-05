@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w170, freigegeben)
-kanban_lane: review
+owner: coord-welle4 (w175, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: review
+kanban_status: active
 kanban_title: "Credentials: retain and recover opted-in local credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md"]
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w170, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle4 (w175, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Lane w170, freigegeben)  
+**Owner:** coord-welle4 (w175, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -82,3 +82,9 @@ round-2 fix pushed (e295127e), CI Selected Checks 41985472620 success, card to r
 Gemessen: Vorfahr ja, zwei eigene commits, Querschnitt devaccess+befehlsverdrahtung. Rezeptpunkt erfuellt
 meldet die Lane: genau EIN Schreibvorgang pro frischem Geraet, NULL bei vorhandenem Bestand, Wettlauf:
 vorhandener Wert gewinnt, alles ueber die bestehende Vergleichs-Naht.
+
+## Rückruf (1385b REJECT): Wettlauf-Sonde der Prüfung erwischt Überschreiben
+Der eigene Race-Nachweis der Lane war unvollständig: der Test brach vor dem Wiederherstellungsschritt ab,
+dahir blieb das Überschreiben eines konkurrierend erzeugten Werts unentdeckt. Runde 3: create-only/CAS-
+Erstseedung über die bestehende Ablage-Autorität, vorhandener Wert gewinnt (ein Get, null Set), der Test-
+ablauf heilt nachweislich bis zum Schritt durch, CAS-Mutante macht die Konfliktzelle rot.
