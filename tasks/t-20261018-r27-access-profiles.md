@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w174, freigegeben)
-kanban_lane: review
+kanban_lane: accepted
 kanban_summary: Create/update/revoke named profiles for selected Targets/operations/scopes/environments with existing policy authority. Profiles…
-kanban_status: review
+kanban_status: accepted
 kanban_title: "Access: manage scoped team profiles and owned assignments"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-team-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -18,11 +18,11 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
+resolution: "PR #1384 merged into develop at a7253eca61b18c660cecd0fa597f02f0a350557e; exact-head selected CI run 41999836846 successful."
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4-2026-11-05/access-profiles/round-1.md"]
 ---
 
-- [ ] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [x] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/accepted #view/accepted #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w174, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -97,3 +97,10 @@ veralteter tracking-ref — nach widerlegter erstmeldung sauber nachgeliefert.)
 Kopf 50b99c4625e (entwicklungs-pfad + develop 42bfcb1cb4, ancestor JA). Produktionspfad gefaltet (echte
 zuweisung -> policy.Aggregate), revisions-gleichheit mit 3-zellen-matrix + mutante rot, sechs r2-falle
 behalten, blobs identisch — nach der widerlegten erstmeldung (ghost-RC=0) sauber nachgeliefert.
+
+
+## Owner-Abschluss 2026-11-05
+
+- PR [#1384](https://github.com/mcpdev80/baseharbor/pull/1384) nach `develop` gemerged, Squash-Commit `a7253eca61b18c660cecd0fa597f02f0a350557e`.
+- Pflicht-CI [Run 41999836846](https://github.com/mcpdev80/baseharbor/actions/runs/41999836846) auf dem vor Merge verifizierten PR-Head abgeschlossen: `success`, einschließlich `PR Selected Checks`.
+- Historische Review-Rückrufe und Korrekturen bleiben als Nachweis erhalten. Fachliche Abnahme gemäß letzter ACCEPT-Bewertung; separate Release-/Cross-Repo-Qualifizierung dadurch nicht vorweggenommen.
