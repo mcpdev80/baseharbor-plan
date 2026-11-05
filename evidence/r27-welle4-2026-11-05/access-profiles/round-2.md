@@ -131,15 +131,34 @@ necessary, not coincidentally green.
   3bb95cc7 access-profiles r2: bind profile ops to single policy authority (w167)
   (no foreign commit carried on top; one candidate per chain).
 
-## Hosted CI (Eigenes-Run-Pflicht)
+## Hosted CI (Eigenes-Run-Pflicht) — TERMINAL = FAILURE (STATE)
 
-- Run 41981861515 at PR head 3bb95cc7.
-- Workflow policy: PASS (23s). PR · Source format: PASS (18s).
-- PR Selected Checks + all runtime/validation/release gates: SKIPPING — the PR is a draft;
-  selected checks run only after the PR is made ready. Need coordinator decision to make the PR
-  ready so the selected checks run to terminal.
-- No failing check. If any check fails, it is recorded here as STATE (check name + failing log
-  line) and the lane stops per Owner directive 2026-11-04; no .github edit, no rerun/workflow_dispatch.
+Run 41983173186 at PR head 3bb95cc7 — TERMINAL.
+- PASS (11): Workflow policy, Trusted Plan, Source format, go-build, go-vet, source-contracts,
+  cli-build, cli-vet, cli-guided-tests, Focused Python.
+- SKIP (draft-gated, never ran): Exact Candidate, Public Contracts, Runner Interface, Selected
+  Runtime, validate, Release Source Preflight, Targeted HA docker/podman, Consumer Pins,
+  Runner Interface, Demo Pin, Public Contracts.
+- FAIL (1): `PR Selected Checks` = failure, driven by
+  `PR · Validation · go-unit-tests` → `github.com/mcpdev80/baseharbor/internal/development`
+  `--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)`
+  `    source_snapshot_test.go:224: expected change-during-read guard to abort the capture`
+  Run-ID 41983173186, job 127097784490, 7m19s.
+  Full failing log line (verbatim, 2026-11-05T06:58:28):
+  `2026-11-05T06:58:28.5985030Z --- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)`
+  `2026-11-05T06:58:28.5988016Z     source_snapshot_test.go:224: expected change-during-read guard to abort the capture`
+  `2026-11-05T06:58:28.5988860Z FAIL	github.com/mcpdev80/baseharbor/internal/development	2.121s`
+
+STATE + STOP per Owner directive 2026-11-04 (no self-qualification, no rerun/workflow_dispatch).
+
+Befund (not a fix, my write-set is orgconfig/policy/cmd/baha/policy.go — internal/development is foreign):
+- My packages are green in the same run: `ok internal/orgconfig 0.128s`, `ok internal/policy 0.004s`.
+- `TestSourceSnapshotDetectsChangeDuringRead` is a timing-sensitive "change-during-read" guard in
+  internal/development (a package I did not touch). It passed 3x locally on branch 3bb95cc7 AND 2x on
+  base 06479fe0, so it is a pre-existing flake, not caused by this candidate.
+- A red go-unit-tests is a terminal gate failure; the candidate is NOT accepted on this SHA. My green
+  packages do not cure a failing required gate.
+
 
 ## END an f49a3303 (2026-11-05)
 
