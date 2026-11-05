@@ -1,0 +1,20 @@
+ROLLE: Worker (Lane w199). Coord 841e7734. KARTE: t-20261104-r27-vm-smoke-docker-podman (RUNDE 1).
+ART: OPERATIVER echt-VM-smoke — KEIN produkt-code-write-set (evidence + wenige test-skripte nur im
+evidence/.../scripts/-pfad). ZWEIG: baseharbor-plan direkt fuer die akte; falls das produkt-repo
+versions-aenderungen verlangt => STOP+MELDEN (kein ungeplanter core-patch).
+KARTE VOLL LESEN (outcome: geraete-anmeldung + knoten-dienst aufDOCKER- UND PODMAN-host echte smoke-laeufe).
+PFLICHTEN: (1) auf baha-docker per SSH: frischer stack, geraet anmelden, dienst beobachten — befehle+WORTLAUT
+der ausgaben in die akte (keine simulation auf dem coordinator-host, dort ist es VERBOTEN); (2) ebenso auf
+baha-podman; (3) ALTER BESTAND WEG (OWNER-DIREKTIVE): auf BEIDEN hosts vorhandene baha-installationen KOMPLETT loeschen
+(de-/installieren + binary + datenverzeichnisse), dann NEU aus der geprüften quellrevision bauen/installieren;
+`baha --version`-beleg aus neuem build vor dem smoke in die akte. ENDE-RAUMLIBERUNG (OWNER-DIREKTIVE):
+nach beendigung sind beide VMs WIEDER WIE EIN NEUER RECHNER zu hinterlassen: KEIN installiertes baha, keine
+lane-eigenen container/volumes/images/workverzeichnisse, keine dienst-unit — raumbeleg je host: `baha --version`
+=> not found, ps/df-zeile, und unit-listing OHNE baseharbor-eintrag.
+(torregel: 0.4.23 zaehlt nicht — wenn kein passendes baha installiert ist, MELDE als ersten punkt und nutze
+den build-pfad der karte/notes); (4) rauemeigene container/volumes auf beiden hosts, ps-beleg frei von
+lane-eigenen namen + df-zeile in die akte; (5) negative probe: abgemeldetes geraet wirktungslos auf beiden
+hosts (verweist auf geraete-widerruf, der noch laeuft — nur smoke-tiefe, kein ersatz fuer die karte).
+STOP: VM nicht erreichbar, version nicht hinbekommbar, oder_confekt mit anderer lane auf dem host.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
+END an 841e7734: "END_DONE w199-vm-smoke: docker=<id+version ok> podman=<id+version ok> anmeldung=<echt belegt> widerruf=<smoke ok> rauem=<ps+df belegt> | <Satz>"

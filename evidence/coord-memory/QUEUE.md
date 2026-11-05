@@ -145,4 +145,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w187-snapshot-flake-r3.txt — p1 (hosted-rot als treiber; ereignis-barre statt mtime). mutation-lock w184c
   in korrektur (develop-merge + hosted-lauf). Luna: kein neuer flake-auftrag bis r3-lieferung.
 | 5 | secure-export (t-20261018-r27-secure-export, ready) | Sitzbelegung | missionstext bei bedarf |
-| 6 | coordinator/missions/w198-device-lifecycle-r2.txt | alle sitze besetzt | naechster freie sitz (1394a: echte naht + renew-persistenz + mutantenlauf) |
+| 6 | coordinator/missions/w198-device-lifecycle-r2.txt | alle sitze besetzt | naechster freie sitz (1394a-rezept) |
+| 7 | coordinator/missions/w199-vm-smoke.txt | flash-sitz belegt (w194) | OWNER-DIREKTIVE: auf dem worker-flash-SITZ als naechstes (spawn --flash), sobald w194 entlassen ist |
