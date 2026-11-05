@@ -1,0 +1,14 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261104-r27-destroy-after-aborted-apply.
+OBJEKT: baseharbor PR #1382 head 942e3cc562b base develop (kopf der laeufe: 512dcd72+). PRUEFEN SHA-genau:
+ (1) EIGENE messung der KRANKEN ZELLE auf develop: provider-change-abort (applic-akten present, runtime.env
+     nie angelegt) => app destroy rc=1 'runtime.env: no such file' (wortlich); auf kandidatenkopf => rc=0
+     + KEIN laufende instanz + KEIN eigentum (liste).
+ (2) rueckwirkungsfrei: #1375-zelle (akten fehlen ganz) bleibt rc=0; normale kette unveraendert; schranke
+     deployment_record.go blob-identisch.
+ (3) BEGRUENDETE PRUEFUNG der datei internal/application/telemetry_authorization.go: WARUM liegt sie im
+     schnitt eines zerstoerungsfix? aufrufkette zeigen (destroy -> ?) oder REJECT mit rezept (raus/re-card).
+ (4) gegenprobe der lane nachfahren: frisches apply nach retire schafft betriebsbereit ohne händische hilfe.
+ (5) gates terminal (lauf 41937967623 + eigene wiederholung datbank-paarung), ls-remote echt==head,
+     write-set name-only (keine .github/AGENTS.md), log-zeile nur eigener commit.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-05/destroy-aborted-apply/review-1382a.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r1382a: verdict=<X> zelle=<rot develop + gruen head belegt> telemetrie=<begruendet|raus> | <Satz>"
