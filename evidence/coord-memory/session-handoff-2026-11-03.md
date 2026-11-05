@@ -1837,3 +1837,11 @@ doppelter lauf noetig, keine karte ohne korrektur. ZWISCHENSTAND ANZAHL: 7 offen
 7 zugeordneten korrektur-auftraegen — die schicht ist jetzt VOLLSTAENDIG in korrektur-schleife, nichts
 verwaist. Hausputz: 5 verschollene arbeitsbaeume toter lanen entfernt (einer mit nur cache-schmutz
 forciert — begruendet, kein werkverlust), board 0 verwaisst.
+
+## 07:1x DRITTER FALL "richtiger inhalt, falsche basis": grenz-lane schnitt ihren zweig auf den UNMERGED
+kopf #1380 (f1f35512) statt develop — dadurch traegt die grenzkarte die verbindungskette mit und ihr diff
+zeigt fremde cmd/baha-zeilen. korrektur angeordnet: neu schneiden auf 24c7d049, cherry-pick a14bac06,
+bei konflikt STOP (dann haengt der resolver womentlich an der #1380-verdrahtung — dann trenne ich die
+ketten als planungs-frage, nicht als ast-frage). LEHRE FUER MISSIONEN: "zweig von develop" reicht nicht als
+text — die spawner-seitige grundlagen-zeile (ls-remote develop SHA VOR schnitt in die evidence) wird
+Auftrags-pflicht in jedem neuen mission-text.
