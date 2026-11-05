@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-device-lifecycle.
+OBJEKT: PR #1394 head 70acac6b226 (RUNDE 2 nach deinem 1394a-rezept: echte naht + persistenz + mutantenlauf).
+PRUEFE SHA-genau: (1) E2E-PFAD SELBST nachfahren (renew/revoke durch den echten http-eingang, kein
+direct-api-kurzschluss — lies die testquelle), (2) renew-PERSISTENZ: neue serie in durable registry nach
+restart noch da (zelle), (3) revoke nach revoke-wirkungslos + erneuerung nach revoke = expliziter fehler,
+(4) MUTANTENLAUF SELBST: revoke-pruefung raus => ROT; Gegenprobe ohne mutation => GRUEN (diskriminierung!),
+(5) enrollment/authority-blobs unveraendert, hosted 42115737016 terminal am kopf, ls-remote echt==head,
+name-only. Akte -> evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394b.md; AKTE VOR END AUF
+origin/main (commit+push, ls-tree-beleg in die akte).
+END pane: "END_DONE codex-r1394b: verdict=<X> e2e=<selbst> persistenz=<restart> mutante=<rot+gegenprobe gruen> blobs=<ruhig> akte=<pfad> | <Satz>"
