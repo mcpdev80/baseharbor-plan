@@ -1899,3 +1899,9 @@ Konflikt zwischen ihrem pull und meinem close-vorschlag Aufgeloest durch --their
 wortlich: resolution + exact-head CI-lauf 41991822834 + PR-link), dann card-status.py closed/accepted als
 einziger erlaubter pfad. Board wieder 0 errors. Lehre fuer abhaengige-entriegelung nach uebernahmen:
 ERST origin/main lesen (die andere seite publiziert oft schon), DANN markieren — naechste mal so.
+
+## 10:0x GEIST-MESSUNG JETZT AUCH ANDERER RICHTUNG: w174 meldete "RC=0 ancestor" an veralteter
+tracking-ref, waehrend fern develop=42bfcb1cb4 laengst ueber dem kandidaten lag (mein audit hatte es
+korrekt als NEIN gemeldet — der fall war also NUR die lane, mein auge traf zuerst). END zurueckgewiesen
+per dialog-eigenantwort (nicht option 1!), base-refresh auf den zweig befohlen wie im zusatz-text.
+Regel bleibt: beide seiten messen refspec-exakt gegen das ECHTE ls-remote, nie gegen refs/remotes ohne fetch.
