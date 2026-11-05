@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: high
 owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
-kanban_lane: blocked
+kanban_lane: closed
 kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
-kanban_status: blocked
+kanban_status: closed
 kanban_title: "State: enforce installation-owned deployment storage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,19 +18,20 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: "CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app_edit_apply_test.go:1090, application_service_issuer.go:20 -> internal/openbao/bootstrap.go, AdminCredentialsPath runtime/openbao-admin.env). Naechster Ausloeser: Fixtur-Ergaenzung von lane w111 schreibt runtime/openbao-admin.env test-only, dann neue Beobachtung."
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1347"]
 ---
 
-- [ ] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/blocked #view/blocked #area/state #kind/task
+- [x] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/state #kind/task
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
     **Blocker:** CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app\_edit\_apply\_test.go:1090, application\_service\_issuer.go:20 -\> internal/openbao/bootstrap.go, AdminCrede…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1347)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -176,3 +177,9 @@ PR #1347 (Kopf 76d4df9ef2) inkl. Fixture-Frage (openbao-admin Umgebungsdatei) li
 Implementierung, CI, Review, Merge und Planning-Abschluss. Keine Lane von dieser Seite aendert an den
 State-Owner-Dateien; abhaengige Karten bleiben bis zurueckgemeldetem Abschluss gesperrt. Bisheriger
 Blocker-Text bleibt als Historie stehen, seine Bearbeitung liegt jetzt bei der Uebernahme.
+
+## Abschluss 2026-11-05 — gemerged laut Owner-Meldung, von mir nachgemessen
+Squash 42bfcb1cb4 auf develop ('fix: enforce state owner and complete app edit lifecycle', #1347);
+develop-ls-remote==42bfcb1cb4. Externe Uebernahme (Owner+ChatGPT fuehrten Implementierung, Abnahme und
+Merge); dieser Absatz dokumentiert nur den bestaetigten Abschluss und entriegelt die fuenf abhaengigen
+Karten (app-binding, management-host, mutation-lock, stage-versions, state-recovery — alle planned).

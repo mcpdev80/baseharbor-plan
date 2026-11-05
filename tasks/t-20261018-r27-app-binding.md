@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: high
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: Server allocates IDs; explicitly create a new app or attach to a permitted existing app. Two distinct checkout paths can resolve…
 kanban_status: planned
 kanban_title: "Identity: attach fresh checkouts to a registered application"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/identity #kind/task
+- [ ] t-20261018-r27-app-binding · Identity: attach fresh checkouts to a registered application #task #release/v0-4-27 #status/planned #view/ready #area/identity #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  

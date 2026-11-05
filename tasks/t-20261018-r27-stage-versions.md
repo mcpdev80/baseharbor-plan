@@ -25,7 +25,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md)  
+    **Needs:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
