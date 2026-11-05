@@ -2009,3 +2009,9 @@ Regel-Ergaenzung tmp-sweep: /tmp/codex-daemon-* ist HEILIG (socket-des-daemons),
 vermutlich identischer connect-fehler wie bei w184 damals). Neu gebunden: codex-luna-ch = session 5ec1339c,
 GPT-6-Luna bestaetigt, mission 1373g zugestellt, watch neu eingetragen. w181x-geisterspawnt (fehlerteufel
 aus meiner befehlkette) wurde nie beauftragt und ist geloescht — pool wieder 5/5 echt.
+
+## 15:5x Server-neustart-mitte-kette: w182-lane war schon geloescht (karte review, akte auf main, laeuft),
+w176-sitz liefert runde-4-Akte nach (busy nach zuestellung). mutation-lock-conflict AUFGELOEST durch
+owner-wort 'nutze einmalig ein worker flash': der COST_CONTROL-stop gilt CODEX-implementierung; worker-flash
+ist ein lokales modell — genau die richtung, in die der stop die arbeit weist. w184 (flash) besetzt, mission
+unveraendert; karte zurueck auf active.
