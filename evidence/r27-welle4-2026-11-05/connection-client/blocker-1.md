@@ -1,0 +1,3 @@
+# w164 blocker transcript (END_BLOCKED woertlich)
+
+END_BLOCKED> w164-connection-r2: head=f1f3551291c2e71d23741818f25c27e578db8680 aufrufkette: use(use_target.go:19)->target activate.Run(target.go:241)/guidedTargetActivation(target_activate_wizard.go:15)->kein issuer; live-issuer NUR ueber resolveManagementConnectionIssuer(application_service_issuer.go:89)->resolveApplicationServiceIssuer(application_service_issuer.go:20)->resolveApplicationCoreRuntime, alle resolvedApplication+bhruntime.RuntimeProvider; use/activate baut resolvedApplication{} NIEMAL; Owner-entscheidung (issuer workload-only => END_BLOCKED) erfuellt; resolveApplication/apply/plan/destroy NICHT aendern; grenz-erweiterung als eigene karte kardieren | ls-remote verbatim==head

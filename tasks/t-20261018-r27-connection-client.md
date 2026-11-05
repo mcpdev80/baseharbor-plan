@@ -11,7 +11,7 @@ kanban_lane: active
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
 kanban_status: active
 kanban_title: "Client: resolve trusted local or remote management connections"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access, t-20261105-r27-connection-authority-boundary]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1380]
 sources: ["mcpdev80/baseharbor#777"]
@@ -26,13 +26,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w164) · **Priority:** normal  
     **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
+    **Needs:** [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md)  
 **Owner:** coord-welle4 (Lane w164)  
 **Priority:** normal  
