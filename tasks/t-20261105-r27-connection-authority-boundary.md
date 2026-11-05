@@ -6,8 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle4 (Lane w172, freigegeben)
-kanban_status: review
-kanban_lane: review
+kanban_status: accepted
+kanban_lane: accepted
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
 kanban_title: "Authority: target-scoped live-connection resolution without an application context"
 priority: high
@@ -16,11 +16,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1386]
 sources: []
 blocker: ""
-resolution: ""
+resolution: "PR #1386 merged into develop at b4f649500b4bea6774b7a8d36842ea6897e39a54; exact-head selected CI run 41988118382 successful."
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md]
 ---
 
-- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
+- [x] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/accepted #view/accepted #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w172, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
@@ -28,7 +28,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-we
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
@@ -95,3 +95,10 @@ round-2.md publiziert (b998131).
 ## ACCEPT 2026-11-05 (r1386b): merge-reif fuer die Owner-Runde
 Kopf aa62518c6a6; alle vier Sonden selbstonde bestaetigt, Fehlgeburts-Mutante rot, Resolver bleibt lesend —
 fehlende/unvollstaendige Autoritaet schlaegt fail-closed fehl. Verbindungs-Karte (#1380) wird nach Merge frei.
+
+
+## Owner-Abschluss 2026-11-05
+
+- PR [#1386](https://github.com/mcpdev80/baseharbor/pull/1386) nach `develop` gemerged, Squash-Commit `b4f649500b4bea6774b7a8d36842ea6897e39a54`.
+- Pflicht-CI [Run 41988118382](https://github.com/mcpdev80/baseharbor/actions/runs/41988118382) auf dem vor Merge verifizierten PR-Head abgeschlossen: `success`, einschließlich `PR Selected Checks`.
+- Historische Review-Rückrufe und Korrekturen bleiben als Nachweis erhalten. Fachliche Abnahme gemäß letzter ACCEPT-Bewertung; separate Release-/Cross-Repo-Qualifizierung dadurch nicht vorweggenommen.
