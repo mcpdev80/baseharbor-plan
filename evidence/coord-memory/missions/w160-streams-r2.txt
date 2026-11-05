@@ -1,0 +1,32 @@
+ROLLE: Worker (Lane w160). Coord f49a3303. KARTE: t-20261018-r27-node-streams (RUNDE 2).
+REPO: baseharbor-node-connector. ZWEIG: work/r27-node-streams (PR #22, draft, head 6b498a8cf3b) —
+DERSOLBE zweig/PR, kein neu-schnitt, kein kraft, kein rebase.
+AKTE VOR DEM CODING: baseharbor-plan/evidence/r27-welle4-2026-11-05/node-streams/review-22a.md (voll
+lesen; REZEPT = bindender auftrag).
+
+VIER PUNKTE, alle in internal/connector/stream_evidence_test.go (fake runtime bleibt als deterministische
+quelle erlaubt, die leitung bleibt das importierte NewHandshakePair aus main):
+ (A) ECHTE ABLAUFGRENZE: mehr als die Retention-Grenze des registries produzieren (grenze Lies selbst:
+     stream_replay.go, standard 512) ODER andere echte retention-grenze durch die produktions-pfade,
+     WIEDERAUFNAHME mit cursor STRIKT ÄLTER als die erste vorgehaltene folge, und die DOKUMENTIERTE
+     ablehnung exakt behaupten (nicht nur "irgendein fehl").
+ (B) EXAKTE ABRECHNUNG: geordnete folgenummern + exakte ZEILEN-zählung bei ERSTLIEFERUNG und bei
+     RÜCKSPIELUNG — verlust und verdopplung sind ZAHLBELEGT, nicht adjektivisch.
+ (C) FRIST WIE BEHANDELT: frist notieren, dann VERLANGEN: abgelaufene frist + ausdrückliches erwartetes
+     StreamEnd; frühes EOF, StreamError oder transport-schliessung MÜSSEN den test brechen (nicht durchlassen).
+ (D) ABBRUCH-SYNCHRON: vor dem wiederaufnehmen ein DETERMINISTISCHES server-seitiges abbruch-/ablösungs-
+     signal oder beobachtbaren inaktiven/geschlossenen zustand abwarten; behaupte die ablehnung wegen der
+     ABGEDIENSTEN leitung, nicht wegen einer noch hängenden guard.
+
+BELEG-PFLICHT: `go test ./internal/connector/ -run 'TestServeLogStream' -count=1 -v` WORTLICH (beide
+richtungen: faelle gruen; und eine ZEILE gegenprobe je fall — assertion absichtlich verschaerfen/kurz
+deaktivieren zeigt ROT? nein: stattdessen MUTATION wie bei journal: an einer hilfs-zeile grenze auf 0
+setzen => A bleibt gruen nur wenn er die grenze nicht wirklich testet — melde solche mutanten-Ergebnisse
+wortlich; das ist der beweis-stil den die pruefung sehen will). NEUER kopf: ls-remote echte adresse
+WORTLICH, ancestor rc=0, log origin/main..HEAD = eigene commits, name-only diff = NUR test-datei (oder
+mit begruendung eine zeile mehr), gehostete laeufe bis TERMINAL.
+GRENZEN: KEINE produkt-aenderung (blobs der lib-dateien unveraendert — diff-beleg), KEINE .github/AGENTS.md,
+KEINE subagenten, KEIN zweiter PR, scratch/GOCACHE im lane-pfad (§6.2d; NICHT in /tmp — der pruefkanal
+braucht luft), bei schreibfehlern df -h /tmp (§6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/node-streams/round-2.md
+END an f49a3303: "END_DONE w160-streams-r2: head=<sha10> A=<echte grenze+mutante> B=<zaehlung> C=<frist+StreamEnd verlangt> D=<synchron> diff=<nur-test> lauf=<id+status> lsremote=<sha10> | <Satz>"
