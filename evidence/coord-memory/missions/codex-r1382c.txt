@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261104-r27-destroy-after-aborted-apply.
+OBJEKT: PR #1382 head d1f4eada327 (runde 3, alle drei rezept-punkte + gofmt/unit behauptet behoben; lauf
+41951027459 terminal success an head gemessen von mir). PRUEFEN SHA-genau, gegen DEIN eigenes 1382b-rezept:
+ (1) shared stopRepositoryWorkload: EIGENE probe degenerater zustand => fehlerhaft (fail-closed), wortlich;
+     kein zweig-pfad der anderen caller schluckt fehlendes eigentum (grep der aufrufer + je eine zelle),
+ (2) destroy-only helfer: rc=0 in der kranken zelle NUR ueber den zerstoerungs-pfad; inventur-beleg vor
+     erfolg (liste statt unsicherheit), (3) deine drei mutations-faelle selbst nachgefahren (backup bei
+     laufender instanz blockiert, TLS kein stiller erfolg, retire nach check), (4) W154 x3 + W138 +
+     glueckpfad gruen, schranke blob (deployment_record.go), telemetrie blob = develop, (5) gates: alle
+     formerly-red jobs gruen am head, ls-remote echt==head, write-set name-only (keine pflege-dateien),
+     log origin/develop..HEAD = drei eigene commits + keine artfremden. ACCEPT = merge-reif.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-05/destroy-aborted-apply/review-1382c.md.
+END an f49a3303: "END_DONE codex-r1382c: verdict=<X> shared=<fail-closed belegt> mutation=<3/3> | <Satz>"
