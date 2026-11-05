@@ -70,3 +70,9 @@ zusammenbau echt, red-first belegt.
 ## Rueckruf (1395a REJECT, ein punkt): adapter+tests gut (endpunkt aus konfig, oras native, fail-closed
 belegt) aber NICHT an den anwendungs-lebenszyklus angeschlossen — kein produktionsaufrufer von RegistrySource/
 Resolve. Rezept punkt 4 in review-1395a.md: die echte release/anwendungsauswahl muss darueber laufen.
+
+## Coordinator-scope-call 2026-11-06 (w203 QUESTION): production-caller-Naht erLAUBT als
+begrenzte ausnahme zum write-set-text — GENAU app_broker.go:58 compose.PullImage ueber RegistrySource.
+Begruendung: karten-outcome (enterprise-endpunkt in echt BENUTZT) ist sonst nicht erfuellbar; 1395a-punkt 4
+fordert genau diesen caller; alternativen Karten (artifact-resolution) sind nicht angenommen. Keine weitere
+fremde datei. Gegenprobe+mutant als absicherung; reviewerprueft call-graph.
