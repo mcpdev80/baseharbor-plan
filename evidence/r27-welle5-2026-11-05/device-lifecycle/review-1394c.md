@@ -30,3 +30,7 @@ The round-3 act `round-3.md` records:
 I inspected the candidate diff, restart test, `ProductionHandler.ServeRenew`, `Authority.Renew`, production bridge and database `CurrentSerial`/`ReadRegistryFact`. I could not rerun local commands in the previous session because shell startup failed before command execution on a `/tmp` quota error. The worker's recorded local run is not presented as my own run; the exact-source checks and hosted run were independently inspected.
 
 No product files changed. No PR action was performed.
+
+## origin/main witness
+
+- `git ls-tree origin/main evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394c.md` (after first publication): `100644 blob d506b445cb28a702b3db1326a69c1f256ec2a608 evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394c.md`.
