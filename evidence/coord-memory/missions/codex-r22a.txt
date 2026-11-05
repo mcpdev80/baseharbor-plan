@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-node-streams.
+OBJEKT: connector PR #22 head 6b498a8cf3b draft base main (ancestor JA; two hosted runs terminal success).
+VORGESCHICHTE: vierte faelle sollten an der ECHTEN leitung bewiesen werden; der erste schnitt landete irrtuemlich
+auf dem helfer-zweig, wiederhergestellt per cherry-pick (eigentum geklaert in round-2.md). PRUEFEN SHA-genau:
+ (1) write-set name-only = test-datei(en) + NUR die grenzfall-testpfade der karte; KEINE aenderung an
+     bestehender produkt-logik (blob-vergleich der session-/trust-dateien), (2) die vier faelle in der
+     ACTION nachfahren: cursor-ablauf dokumentiert, at-least-once zaehlung (verlustfrei, doppel sichtbar),
+     frist/grenze terminal sauber, client-abbruch ohne geister-session — jeder mit wortlicher ausgabe aus
+     deiner eigenen ausfuehrung, (3) kein t.skip/kein umweg um die leitung (import des helfers aus main,
+     kein kopierter zeremonie-code — grep-beleg), (4) draft: laeufer-terminal + ls-remote echt==head,
+     log origin/main..HEAD = ein eigener commit.
+Urteil -> baseharbor-plan/evidence/r27-welle4-2026-11-05/node-streams/review-22a.md, REZEPT bei REJECT.
+END an f49a3303: "END_DONE codex-r22a: verdict=<X> faelle=<zahl/zaehlung/frist/geist ok> blobs=<frei> | <Satz>"
