@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
-| review | 6 |
+| active | 9 |
+| review | 7 |
 | blocked | 2 |
 | ready | 5 |
 | queued | 26 |
@@ -32,7 +32,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261105-r27-snapshot-change-guard-deterministic](../tasks/t-20261105-r27-snapshot-change-guard-deterministic.md) | Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) | active | high | coord-welle4 (Lane w182) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387) |
 
 ## Ready for review
 
@@ -44,6 +43,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 | [t-20261104-r27-private-integration-path](../tasks/t-20261104-r27-private-integration-path.md) | Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen | review | not set | coord-welle4 (Lane w166, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379) |
 | [t-20261105-r27-connection-authority-boundary](../tasks/t-20261105-r27-connection-authority-boundary.md) | Authority: target-scoped live-connection resolution without an application context | review | high | coord-welle4 (Lane w172, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386) |
+| [t-20261105-r27-snapshot-change-guard-deterministic](../tasks/t-20261105-r27-snapshot-change-guard-deterministic.md) | Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) | review | high | coord-welle4 (Lane w182, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387) |
 
 ## Blocked
 
