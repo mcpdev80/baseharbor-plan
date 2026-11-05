@@ -91,3 +91,7 @@ Nachgemessen: ls-remote echt==head, develop Vorfahr, zwei eigene commits, write-
 Dateien der Akte; code-gelesen: observeLocalIssuer strictly read-only, kein EnsureLocalIssuer-Aufruf im
 Resolver; lauf 41988118382 terminal SUCCESS am exakten Kopf (Selected Checks nicht skipped). Akte
 round-2.md publiziert (b998131).
+
+## ACCEPT 2026-11-05 (r1386b): merge-reif fuer die Owner-Runde
+Kopf aa62518c6a6; alle vier Sonden selbstonde bestaetigt, Fehlgeburts-Mutante rot, Resolver bleibt lesend —
+fehlende/unvollstaendige Autoritaet schlaegt fail-closed fehl. Verbindungs-Karte (#1380) wird nach Merge frei.
