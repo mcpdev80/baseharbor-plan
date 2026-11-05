@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 14 |
-| review | 1 |
+| active | 13 |
+| review | 2 |
 | blocked | 1 |
 | ready | 5 |
 | queued | 26 |
@@ -27,7 +27,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md) | Access: manage scoped team profiles and owned assignments | active | normal | coord-welle4 (Lane w167) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384) |
 | [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | Client: resolve trusted local or remote management connections | active | normal | coord-welle4 (Lane w164) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](../tasks/t-20261105-r27-connection-authority-boundary.md) (open) | [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380) |
 | [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md) | Operations: persist execution identity and terminal outcomes | active | normal | coord-welle4 (Lane w165) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373) |
-| [t-20261018-r27-node-streams](../tasks/t-20261018-r27-node-streams.md) | Connector: bound log replay and terminal cancellation | active | normal | coord-welle4 (Lane w160) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22) |
 | [t-20261018-r27-protected-credentials](../tasks/t-20261018-r27-protected-credentials.md) | Credentials: retain and recover opted-in local credentials | active | normal | coord-welle4 (w170, wartet auf sitz) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385) |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
 | [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
@@ -42,6 +41,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261018-r27-node-streams](../tasks/t-20261018-r27-node-streams.md) | Connector: bound log replay and terminal cancellation | review | normal | coord-welle4 (Lane w160, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 
 ## Blocked
