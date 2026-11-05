@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: high
 owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
-kanban_lane: accepted
+kanban_lane: closed
 kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
-kanban_status: accepted
+kanban_status: closed
 kanban_title: "State: enforce installation-owned deployment storage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,15 +18,15 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: "PR #1347 merged to develop as 42bfcb1cb481c9e37ecd6ce30580e27829284113; exact-head PR CI 41991822834 passed."
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/41991822834", "https://github.com/mcpdev80/baseharbor/pull/1347"]
 ---
 
-- [x] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/accepted #view/accepted #area/state #kind/task
+- [x] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/state #kind/task
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
-    **Blocker:** CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app\_edit\_apply\_test.go:1090, application\_service\_issuer.go:20 -\> internal/openbao/bootstrap.go, AdminCrede…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/41991822834), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1347)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
