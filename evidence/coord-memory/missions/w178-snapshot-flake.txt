@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w178). Coord f49a3303. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+REPO: mcpdev80/baseharbor, zweig NEU work/r27-snapshot-flake auf PR (develop 42bfcb1cb4 — JETZiger kopf,
+ls-remote-attest VOR schnitt + ancestor rc=0).
+BEWIESENE GRUNDLAGE: TestSourceSnapshotDetectsChangeDuringRead flakt am SELBEN kopf (lauf 41981861515
+gruen vs 41983173186 rot, "--- FAIL ... (0.01s)"), internal/development/source_snapshot_test.go ~215-226:
+der schreib-gee wird ueber channel-close + timing erzeugt, die_capture_observiert_die_aenderung_nur_
+ZUFALLS. AUFGABE (karte VOLL lesen):
+ (1) DETERMINISTISCHER HOOK im capture-pfad: CaptureSource erhaelt eine testbare, production-geteilte
+     beachtungs-naht (z.B. callback/atomic hook im walk, der die aenderung BEWEIST statt erhofft) —
+     oeffentliches verhalten des captures BLEIBT identisch (out of scope laut karte).
+ (2) TEST-seitige kanal-/ereignis-synchronisation exakt wie beim tagebuch-muster (t-20261018-r27-
+     execution-journal): kein timing-hoffen; race-count=50 der zwei benannten tests GRUEN wiederholbar.
+ (3) MUTANTE: guard-hook entfernt/deaktiviert => der aenderungstest MUSS ROT im EINZELLAUF (-count=1,
+     3x, wörtliche zeilen in die akte). Quiet-tree-begleittest behaelt seine garantien (kein abort).
+ (4) RED-FIRST-DOKU: die two-run-same-head-tabelle der karte als baseline zitieren + ein LOCAL
+     reproduktionsversuch (count=200 oder aehnlich) mit wörtlicher Ausgabe.
+GATES: go test ./internal/development -count=1 + race-50 der zwei tests, build/vet/gofmt, hosted lauf
+terminal am kopf (selected-checks nicht skipped; PR draft => einmalig ready stellen + beobachten),
+ls-remote echt==head WORTLICH, name-only, KEINE .github/AGENTS.md, KEINE subagenten, EIN PR.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md
+END an f49a3303: "END_DONE w178-snapshot-flake: head=<sha10> hook=<naht benannt+produktiv> race50=<gruen> einzellauf-mutante=<3x rot> quiet=<garantiert> lauf=<id+status> lsremote=<sha10> | <Satz>"

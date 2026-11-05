@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261105-r27-compose-host-isolation.
+OBJEKT: PR #1383 head 789ae14655b (runde 2 nach deiner 1383a; rezept: target-schalter wiederhergestellt als
+CODE-GARANTIE pro lebenszyklus-test (A1), vier INCI-tests zweimal sauber+verseucht, fremd-core bleibt,
+NEIN shared-reset, mutanten-zelle). PRUEFE SHA-genau: (1) verseuchungs-gegenprobe SELBST fahren (fremder
+core im zielverzeichnis muss das 4er-ensemble ueberleben; ein zweiter lauf mit absichtlich auskommentiertem
+override => wieder rot an der schranke), (2) vier verschiedene target-namen/sockets wörtlich, (3) archae-
+notiz des neutralisierten schalters (testenv.go:17 commit-hash) WIRD gewuerdigt, aenderung an testenv.go
+selbst MUSS fehlen (nur fixture-ueberschreibung), (4) name-only, lauf 42002171842 terminal am kopf,
+ls-remote echt==head; basis 24c7d0492f3 = NOTIZ (develop-merge dem merge-zweig, kein eigener blocker).
+Akte -> evidence/r27-welle4-2026-11-05/compose-host-isolation/review-1383b.md.
+END pane: "END_DONE codex-r1383b: verdict=<X> gegenprobe=<selbst gefahren> vielnamen=<4 wörtlich> testenv=<unveraendert> | <Satz>"
