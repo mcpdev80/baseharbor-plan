@@ -1962,3 +1962,11 @@ hartes gate + 'hold idle-but-fresh' protokollzeile.采样 bleibt */2 (idle-kante
 lauf-id-fremdzitat (ende-zeile nannte den lauf eines anderen zweigs als eigenen beweis). Gegenprobe
 immer: gh run list --branch <eigener zweig>, nie die genannte id blind trauen. Host-versus-local-divergenz
 bei der mutanten-zelle ist der eigentliche fachRest.
+
+## 13:5x HYGIENE-EINGRIFF (erster MAIN-fehlschuss): flake-lane pushte round-2.md als .evidence/... direkt
+AUF main (02b0a9c0793) — inhaltlich korrekt, aber Produktrepo-Falschablage + main-verunreinigung ausserhalb
+des promo-pfads. Vorwaerts-revert auf main gefahren (kein force, dokumentiert), main wieder sauber ueber
+der alten linie. Lane traegt akte jetzt ans richtigen ort nach (angewiesen). Dispatch-Standardtext
+ergaenzt: EVIDENCE NUR in baseharbor-plan, .evidence/ in Produktrepos verboten, main-schreibverbot explizit.
+Wichtig fuer uns selbst: ls-remote-HEAD-Pruefung (beide zweige) geaendert — main==42er? nein: main zeigt
+wieder auf promo-stand. Pruefen beim naechsten vollzug.
