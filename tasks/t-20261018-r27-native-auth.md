@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: high
 owner: coord-welle4 (Lane w135)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Credentials: reuse native authentication before prompting"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/0476164a96d7e8bccdacf4ffc1f2179a6b73f70e", "https://github.com/mcpdev80/baseharbor/actions/runs/41963065275"]
 ---
 
-- [ ] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [x] t-20261018-r27-native-auth · Credentials: reuse native authentication before prompting #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w135) · **Priority:** high  
     **PR:** [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/0476164a96d7e8bccdacf4ffc1f2179a6b73f70e), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/41963065275)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -132,3 +133,8 @@ Production round delivered on PR #1362 (branch work/r27-native-auth, exact head 
   Beide bisherigen Aussagen bleiben unverändert, der Zusatzfall (Prüfer gesetzt, Ziel nicht vorhanden) belegt
   die Trennung, und der Fehlschlag vorher ist auf dem Ausgangskopf ad0ea646 gesichert.
 - Beweissammlung auf der Platte (round-5.md, 3252 Byte).
+
+## Merge-Abschluss 2026-11-05
+
+- [PR #1362](https://github.com/mcpdev80/baseharbor/pull/1362) nach develop per Squash gemergt: [0476164a96d7e8bccdacf4ffc1f2179a6b73f70e](https://github.com/mcpdev80/baseharbor/commit/0476164a96d7e8bccdacf4ffc1f2179a6b73f70e).
+- Zugehörige selektierte Tests/Builds im GitHub-Run [41963065275](https://github.com/mcpdev80/baseharbor/actions/runs/41963065275) erfolgreich. Nicht gewählte Gates nicht als ausgeführt bewertet.
