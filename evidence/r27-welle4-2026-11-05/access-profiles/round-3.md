@@ -79,19 +79,21 @@ Round-2 candidate `3bb95cc7` passed 6/6 cases but CODEX-REVIEW REJECTED on two f
 
 ## Branch provenance (proof)
 
-- ancestor develop: `git merge-base --is-ancestor 24c7d049 <3e672a24>` -> RC=0; same for 3bb95cc7.
-- commit: 3e672a24cf276c5d5c873a877b4adbe8a0a36070 fix(access-profiles): fold real owned profile into policy aggregate + enforce exact revision (r3, w174).
-- push: `git push --force-with-lease origin round3:work/access-profiles` -> 3bb95cc7..3e672a24.
-- verbatim `git ls-remote origin refs/heads/work/access-profiles` -> 3e672a24cf276c5d5c873a877b4adbe8a0a36070.
+- develop advanced to 42bfcb1cb481 (state-owner #1347) after my base cut. Fetched with explicit refspec; with the current remote develop is NOT an ancestor of my branch (common ancestor only 24c7d049).
+- Merged `origin/develop` into `work/access-profiles` with NO content change: `git merge --no-ff origin/develop` -> 50b99c4625e1a268acbf5e51f61b6d83fd555012. Merge touched 52 files (develop test files) plus my 7 round-3 files; git reported zero conflicts; my round-3 content intact (verified after merge).
+- name-only `merge^2..merge` (my commit): cmd/baha/policy.go, internal/orgconfig/effective.go, internal/orgconfig/model.go, internal/orgconfig/profiles.go, internal/orgconfig/profiles_test.go, internal/policy/assignment.go, internal/policy/assignment_test.go (7 files). No foreign commit carried; one merge + my commit.
+- commit 3e672a24cf276c5d5c873a877b4adbe8a0a36070 fix(access-profiles): fold real owned profile into policy aggregate + enforce exact revision (r3, w174).
+- push: `git push origin HEAD:work/access-profiles --force-with-lease` -> 3e672a24..50b99c46.
+- verbatim `git ls-remote origin refs/heads/work/access-profiles` -> 50b99c4625e1a268acbf5e51f61b6d83fd555012.
 - verbatim `git ls-remote origin refs/heads/develop` -> 42bfcb1cb481c9e37ecd6ce30580e27829284113.
 - name-only diff for this commit's files only: cmd/baha/policy.go, internal/orgconfig/effective.go, internal/orgconfig/model.go, internal/orgconfig/profiles.go, internal/orgconfig/profiles_test.go, internal/policy/assignment.go, internal/policy/assignment_test.go (7 files; go.mod reverted to upstream).
 
 ## Hosted CI (Eigenes-Run-Pflicht) — gate ERFÜLLT
 
-- Run 41997453807 at PR head 3e672a24cf276c5d5c873a877b4adbe8a0a36070: **TERMINAL SUCCESS**.
+- Run 41999836846 at PR head 50b99c4625e1a268acbf5e51f61b6d83fd555012: **TERMINAL SUCCESS**.
 - Jobs: PR Selected Checks = success; PR · Validation · go-unit-tests = success; go-build, cli-build, go-vet, cli-vet, source-contracts, cli-guided-tests = success. docker/podman runtime gates = skipped (isolated native, not triggered by this Go-only write set).
-- Run-ID 41997453807; terminal at 2026-11-05. No failing line.
+- Run-ID 41999836846; terminal 2026-11-05. No failing line.
 
 ## END an f49a3303
 
-POSTED: END_DONE w174-profiles-r3: head=3e672a24 fix=2 (real owned profile folded into policy aggregate via ResolveAll/ManagerFromActive; revision guard tightened to expectedRevision != existing.Revision) faellen=25 (6/6 round-2 cases retained + 2 production + 4-cell matrix) mutanten=red belegt lauf=41997453807 TERMINAL SUCCESS am exakten kopf 3e672a24 PR Selected Checks+go-unit-tests success | lsremote=3e672a24 | PR #1384 round-3 integrated one candidate chain; gate ERFUELLT; no rerun; karte geht in die pruefung.
+POSTED: END_DONE w174-profiles-r3: head=50b99c46 merge=3e672a24 produktion=3e672a24 real owned profile via ResolveAll/ManagerFromActive folded into policy.Aggregate (no empty manager, no hardcoded OpRead, adapter error->Deny) revision=3-cell matrix + mutant(red) exact-match guard(!=) lauf=41999836846 terminal SUCCESS am kopf 50b99c46 PR Selected Checks + go-unit-tests green | lsremote=50b99c4625e1a268acbf5e51f61b6d83fd555012 | merge develop=42bfcb1c state-owner no-content-change; PR #1384 round-3 integrated one candidate chain on work/access-profiles; both round-2 review findings closed; 25 tests green (6/6 retained + 2 production + 4-cell matrix), race -count=20 clean, build/vet/gofmt clean; karte geht in die pruefung.
