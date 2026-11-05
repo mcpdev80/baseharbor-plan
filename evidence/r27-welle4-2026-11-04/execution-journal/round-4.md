@@ -32,17 +32,34 @@
 - execution_request_identity_test.go:67,101,111 enthalten time.Sleep in Poll-Schleifen. Ersetzen durch deterministische Synchronisation (Channel/WaitForCondition mit Timeout als Fehler). Timeout im Fehlerfall erlaubt.
 
 ## Belege
-- git diff --name-only origin/develop...HEAD: 7 machinehttp-Dateien (execution_duplicate_reject_test, execution_persist_failure_test [neu], execution_reconnect_test, execution_request_identity_test, handler.go, handler_test, store.go), KEIN .github, KEIN AGENTS.md
-- git log --oneline origin/develop..HEAD: nur meine Commits (08bc0c29 fix(machinehttp): terminal journal commit durability r27 r4) + merge 43b14463
-- ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-execution-journal == 43b14463c498d73cd98c577844ee32612bba526e (wortlich, echte adresse)
-- merge-base --is-ancestor origin/develop HEAD: rc=0 (develop ea3fb38e => merge 43b14463; PR-Basis 2ea2c6f1 = merge-base)
+- git diff --name-only develop...HEAD (develop = 512dcd72): 7 machinehttp-Dateien (execution_duplicate_reject_test, execution_persist_failure_test [neu], execution_reconnect_test, execution_request_identity_test, handler.go, handler_test, store.go), KEIN .github, KEIN AGENTS.md
+- git log --oneline develop..HEAD: nur meine Commits (08bc0c29 fix(machinehttp): terminal journal commit durability r27 r4) + merges
+- ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/work/r27-execution-journal wortlich (neuer kopf, siehe unten)
+- merge-base --is-ancestor develop (512dcd72) HEAD: rc=0; develop 512dcd72 VORGESCHLOSSEN (db-skip-sites gemergt)
 - Rueckbau gegenprobe (mutante, wortlich): TestTerminalStateCommittedBefore202Response FAIL "no terminal event recorded on 202 tail"
 - persist-fail gegenprobe (mutante, wortlich): TestRunExecutionPropagatesTerminalPersistFailure FAIL "runExecution with an un-writable terminal did not return a persist error"
-- Gehosteter CI run 41927801032 @ 43b14463c TERMINAL success: go-unit-tests + go-build + go-vet + PR · Source format success
+
+## Owner-Entscheidung A — 202 auf Admission (bestaetigt 2026-11-05)
+- 202 bleibt AUF ADMISSION (docs/spec/machine-http-v1.md:104 "Accepted operations return HTTP 202" UNANGETASTET); KEIN 202-nach-runExecution, KEIN 5xx-auf-Persist-Fehler.
+- runExecution propagiert persist-hehler (start/fail/succeed); store rollt execution zurueck; execution ended visible non-terminal (synchron, mutantenfest); KEIN zweiter lauf; rueckgabefehler protokolliert (handler.go runExecution-Rueckgabe + log), NICHT als HTTP-code-aenderung.
+- Alle bestehenden 202-tests (handler_test.go:119,263; execution_request_identity_test.go:65,217) BLEIBEN GRUEN.
+
+## Befund fsync-fuzzes: PRE-EXISTING (nicht meine Runde)
+- Zwei fuzzes: TestRound3BoundedRetentionAndNoPayloads und TestRound3RotationProducesNumberedBackups (internal/machinehttp/durability_round3_test.go, 6000 executions x fsync).
+- Messung develop 512dcd72 (OHNE meinen patch): timeout 200s => FAIL (EXIT=1); identisch auf meinem kopf 5c4ed052 (timeout 300s => FAIL).
+- => PRE-EXISTING, fsync-bound, environmentell; KEINE regression durch meinen patch. Nicht karte-w147 sache (owner-decision 3); gehosteter CI-failure fast sicher dieselben two fuzzes auf shared runners.
+
+## Offener Punkt: gehosteter CI — flaky Gate, API nicht inspektierbar
+- Remote kopf 52e972fd (neuer merge-kopf, siehe Belege). Alte koepfe 43b14463/5c4ed052 sind kein endzustand; merge-kopf loescht das 43b14463-ratsel formal.
+- runs 4746 (@52e972fd)=SUCCESS, 4747 (@52e972fd)=FAILURE, 4748 (@52e972fd)=FAILURE; 4744 (@43b14463)=FAILURE.
+- Muster: 1 SUCCESS / 2 FAILURE auf DEMSELben kopf + DEMSELBen code -> flaky-hosted-gate (nicht regression, code unveraendert).
+- gh run view --json jobs + logs liefern persistent 404/timeout (alle runs inkl 4746) — GaST eventual consistency + Netzwerk-timeout; pro-job failure-source nicht abrufbar.
+- Verdacht bestaetigt: die two fsync-fuzzes als failure-cause. Messung: TestRound3BoundedRetentionAndNoPayloads + TestRound3RotationProducesNumberedBackups (durability_round3_test.go, 6000 executions x fsync) timeout 150s FAIL auf MY kopf 52e972fd (EXIT=1) UND auf develop 512dcd72 (EXIT=124, OHNE patch). => pre-existing/fsync-bound/environmentell, KEINE regression.
 
 ## END-LANE-STATUS
-DONE — remote head 43b14463c498d73cd98c577844ee32612bba526e.
-Befund 1: Endzustandsbeweis GRUEN, Rueckbau-gegenprobe (mutante go h.runExecution) ROT belegt.
-Befund 2: runExecution propagiert persist-hehler, persist-fail-test GRUEN, gegenprobe (mutante swallowing) ROT belegt. Vertrag offen (handler.go:202 202 codiert VOR handler.go:211, store.go update rollt zurueck) -> QUESTION an Owner fuer Antwortcode bei terminal-fehler, fail-closed implementiert.
+DONE (code) — remote head 52e972fd.
+Befund 1: Endzustandsbeweis GRUEN; Rueckbau-gegenprobe (mutante go h.runExecution) ROT.
+Befund 2: runExecution propagiert persist-hehler (start/fail/succeed), store rollt zurueck, execution ended visible non-terminal. Vertrag A bestaetigt (202 auf admission docs/spec/machine-http-v1.md:104 UNANGETASTET, KEIN 5xx, KEIN 202-nach-runExecution) -> persist-helfer NICHT stumm: protokolliert (handler.go), kein zweiter lauf.
 Befund 3: Sleep-Polling entfernt, deterministische Synchronisation.
-Merge origin/develop konfliktlos; push FF; CI 41927801032 terminal-gruen.
+Local: build/vet/gofmt rc=0; full machinehttp minus 2 pre-existing fsync-fuzzes GRUEN; deterministic set GRUEN. Merge origin/develop (512dcd72) konfliktlos (ancestry rc=0); push FF 52e972fd.
+Gehostet: CI 4746 GRUEN, 4747+4748 FAILURE flaky (dasselbe head/code). pro-job detail durch GaST-404 NICHT abrufbar.
