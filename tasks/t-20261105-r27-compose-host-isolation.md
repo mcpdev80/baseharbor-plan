@@ -5,7 +5,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w180)
+owner: coord-welle4 (w183 gate-lane, wartet auf Sitz)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
@@ -22,7 +22,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-we
 
 - [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w180) · **Priority:** high  
+    **Owner:** coord-welle4 (w183 gate-lane, wartet auf Sitz) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
@@ -31,7 +31,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-we
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (Lane w180)  
+**Owner:** coord-welle4 (w183 gate-lane, wartet auf Sitz)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -97,3 +97,9 @@ Die bootstrap-auswahl bleibt als fallback in den lebenszyklus-tests stehen (targ
 naht nicht — ein test ohne eigenen scope erwischt den geteilten bootstrap-core), und das kontaminierte
 ensemble wurde nie real gefahren. Runde 3: scope-entraeucherung der bootstrap-naht + 2x sauber/2x verseucht
 mit ort+zeit, mutanten-pflicht, dazu develop-merge in den zweig.
+
+## Runde 3 inhaltlich geliefert, zwei nachweise OFFEN (deshalb NICHT pruefbar gemeldet)
+Kopf 3fcba08f6a5: bootstrap-scope dicht, develop integriert (ancestor JA), lauf terminal SUCCESS — aber
+das gruen-ensemble UND die ueberschreibungsmutante liefen noch NIRGENDWO: host war erschöpft (befund in
+round-3.md), der gehostete lauf ueberspringt die runtime-gates bei test-only PR. Darum: eigene GATE-LANE
+mit VM-raumraeumung + vier zellen + mutante (mission fertig). Kein scheingruen.
