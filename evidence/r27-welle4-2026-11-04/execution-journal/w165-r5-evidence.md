@@ -1,27 +1,66 @@
 # w165 Execution-Journal R5 Evidence — sleep-free terminal end-state test
 
 Lane w165 (worker). Coordinator f49a3303. Card t-20261018-r27-execution-journal, RUNDE 5.
-Repo baseharbor. Branch work/r27-execution-journal, PR #1373.
+Repo baseharbor. Branch work/r27-execution-journal, PR #1373. Evidence base r27-welle4-2026-11-04.
 
 ## PLAN
 
 - Confirm branch/worktree HEAD 52e972fdbd2 matches PR #1373
-- Read execution_request_identity_test.go waitForCondition helper
-- Design channel/event ordering proving executor completion + terminal journal persist before 202 return (no time.Sleep polling in required path)
-- Implement in own throwaway worktree; write-set stays on internal/machinehttp test files
-- Run focused tests -race -count=20 -> must all pass
-- Mutation probe (throwaway worktree): go h.runExecution(...) => end-state test fails x20; restore clean diff
-- Commit + push on named branch; update PR #1373 head
+- Read execution_request_identity_test.go waitForCondition helper (lines 22-50, 243-249)
+- Design channel/event ordering proving executor completion + terminal journal persist before 202 return (no time.Sleep polling)
+- Implement in own worktree; write-set stays on internal/machinehttp test files
+- Run focused tests -race -count=20 -> all pass
+- Mutation probe (throwaway worktree): go h.runExecution(...) => end-state test fails 20/20; restore clean diff
+- Commit + push on named branch work/r27-execution-journal; update PR #1373 head
 - Verify PR-gated hosted CI on new head (own-run duty); capture Run-ID + status; never touch .github workflows
-- Write final evidence with SHA, test output, mutation witness, CI witness; post codeman agent post END_DONE
+- Final evidence with SHA, test output, mutation witness, CI witness; post codeman agent post END_DONE
 
 ## Repo-rule compliance
 
-- Write-set restricted to internal/machinehttp/ test files (task scope). No .github, no workflow, no product non-test file touched.
-- One integration candidate per chain: working only on work/r27-execution-journal, never a second branch.
-- Hosted run: auth tokens/pins/ENV from system/owner, never set by this lane.
+- Write-set restricted to ONE file: `internal/machinehttp/execution_request_identity_test.go` (task scope). No `.github`, no workflow, no product non-test file touched.
+- Branch provenance: commit `ae53e628` is a direct child of PR head `52e972fd` (its only parent). `git ls-remote origin work/r27-execution-journal` = `ae53e628016d84830007ef9a0b91e7d815f3c0f0`. Only my single commit is in `git log origin/52e972fd..HEAD` (only my own commits; no foreign candidate carried on top). One integration candidate per chain — no second branch invented.
+- Hosted run: auth tokens/pins/ENV from system/owner; this lane set none. CI run `41980078748` was observed terminal, not self-triggered via workflow_dispatch (mission scope split: `.github` untouched, no rerun dispatched).
 - No subagents used; every step executed inside this session.
+- Stray untracked files (`.gopath/`, `.w152/`, `internal/coreinstallation/selection.go`, `selection_test.go`, `w168_boundary_probe_test.go`) belong to other lanes; left untouched (AGENTS 5.6).
+
+## What changed
+
+The terminal end-state test read the terminal journal line inside a `waitForCondition` `time.Sleep(time.Millisecond)` poll loop (lines 243-249). The store commits persist-before-publish under its lock (`store.go` `update()`): `succeed()`/`fail()` write the journal line via `appendJournalLocked` (persist) and THEN append the terminal event to `record.events` (`emitLocked`) — all synchronously before `runExecution` returns. So the terminal event can appear in the history returned by `subscribe()` only after the journal line is durably written.
+
+Fix (12 insertions / 12 deletions in one file): replaced the poll block with a single direct `os.ReadFile` of the journal after the terminal event is already proven present in history. Comment block updated to state the persist-before-publish proof. No `time.Sleep` remains in the terminal verification path.
+
+## Test requirement (verified)
+
+- Focused tests, `-race -count=20`, all PASS:
+  `go test ./internal/machinehttp/ -run 'TestTerminalStateCommittedBefore202Response|TestTerminalStateBackgroundMutationFails|TestRunExecutionPropagatesTerminalPersistFailure|TestRequestIdentityIndexSurvivesJournalReopen|TestRequestIdentityBindsFullInputAndAllowsFreshSemanticRequest' -race -count=20` -> `ok github.com/mcpdev80/baseharbor/internal/machinehttp 15.443s`
+- Full package non-race: `go test ./internal/machinehttp/ -count=1` -> `ok 29.201s`. (Full `-race` on the whole package is a very slow cold compile on this host; the focused `-race -count=20` above is the definitive race proof on the affected tests and passed.)
+- No `time.Sleep` in the terminal path: `grep -n "time.Sleep" internal/machinehttp/execution_request_identity_test.go` returns only the helper's own doc line + the helper body (still used legitimately by `TestRequestIdentityBindsFullInputAndAllowsFreshSemanticRequest` and `TestRequestIdentityIndexSurvivesJournalReopen` for executor-start/reconnect waits, NOT the terminal end-state path).
+
+## Mutation witness (stop-trip counter-probe)
+
+In an isolated throwaway worktree (`git worktree add` on the named branch) I (1) copied the fixed `execution_request_identity_test.go` in and (2) mutated `handler.go` line 215 from `runErr := h.runExecution(...)` to `go h.runExecution(...)` with the now-unused `log` import removed. Result:
+
+- `TestTerminalStateCommittedBefore202Response` FAILS 20/20 runs with:
+  `execution_request_identity_test.go:243: no terminal event recorded on 202 tail (terminal state not durably committed)`
+- 0 PASS. The backgrounded goroutine cannot place the terminal event in `record.events` synchronously before the check, exactly the stop condition.
+
+The mutation was confined to the throwaway worktree and removed; the candidate branch diff is clean (only the intended 12/12 test-comment change).
+
+## CI witness
+
+PR #1373 head on GitHub = `ae53e628016d84830007ef9a0b91e7d815f3c0f0` (PR #1373, open).
+CI run `41980078748` (hosted GitHub shared runner; this lane set no auth/tokens):
+
+- PR · Validation · go-build: success
+- PR · Validation · go-vet: success
+- PR · Validation · go-unit-tests: success
+- PR · Source format: success
+- Workflow policy: success
+- PR · Trusted Plan: success
+- PR · Selected Runtime / Public Contracts / Exact Candidate / Consumer Pins / Demo Pin / Runner Interface: skipped (not triggered for this path)
+- Targeted HA podman/docker: skipped
+- validate / Release Source Preflight: skipped
 
 ## END
 
-BLOCKED — see blocker below (mutation witness did not reproduce red).
+DONE — w165-journal-r5: sleep removed from the terminal end-state test; `-race -count=20` green; mutation probe fails 20/20 (discriminator intact); CI 41980078748 go-build/vet/unit-tests green on PR #1373 head ae53e628.
