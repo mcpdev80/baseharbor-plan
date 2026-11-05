@@ -2027,3 +2027,11 @@ seite stehen; übernahme-inhalt (merge/abschluss) liegt bei owner+chatgpt. Kanal
 traf ein, bevor die datei geschrieben war. Regel 'END ohne datei = wertlos' gilt auch fuer uns: karte
 korrigiert, urteil nur als pane-beleg notiert. Wenn owner-seite ein schriftliches urteil will: mission
 1373g neu fahren (read-only, 15 minuten lane-zeit) — sag kurz, sonst laesst es uns so stehen.
+
+## 16:1x JOURNAL-ABSCHLUSS VON DER OWNER-SEITE verifiziert: develop==77511c8a667 (squash 'persist and
+replay execution journal safely'), karte accepted mit resolution+lauf-42031707838-verweis auf plan-main.
+Unsere take-over-markierung bleibt stehen (inhaltlich nichts geaendert). NEUER BETRIEBSBEFUND: der
+Pruefkanal-schreibt NICHT MEHR in die plan-werkstatt (zwei fehlerklassen: quota, dann read-only-fs) —
+22d-akte vom coordinator transkribiert und als coordinator-recorded gekennZEICHNET (regel: urteil ohne
+datei = wertlos, beide faelle). Ursache traechtig: project-trust/writable-root des NEUEN codex-daemons
+pruefen (config.toml), sonst verliert die abnahme ihr schreibrecht und die aktenkette reisst ab.

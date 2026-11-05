@@ -144,3 +144,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   (session-getrennt von der abnahme; mission traegt ROLLE: CODEX-WORKER). TICK-DUTIES punkt 7 angepasst.
 - SPERRVERMERK: #1373 journal an Owner+ChatGPT (Direktive 15:5x). Keine Lane in machinehttp-journal-pfade;
   1373g-abnahme abbestellt; journal-wiring-abhaengige bleiben warten.
+- JOURNAL GEMERGT (owner 16:1x, develop 77511c8a667, karte accepted). journal-wiring wartet nur noch auf
+  mutation-lock (w184 laeuft). streams r5 besetzt (w185). credentials-nachlieferung laeuft (w181).

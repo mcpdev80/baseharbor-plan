@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane w185). Coord f49a3303. KARTE: t-20261018-r27-node-streams (RUNDE 5).
+ZWEIG: work/r27-node-streams (connector PR #22, head cce09a86a59) — DERSOLBE zweig/PR. AKTE: review-22d.md
+(coordinator-recorded, pane-befunde der prueferin + grep-belege).
+KERNBEFUND (dritte runde fuer diesen einen punkt — jetzt wörtlich abarbeiten): die A-/B-assertions rufen
+IMMER NOCH h.access.streams.replay DIREKT (grep-beleg: stream_evidence_test.go zeilen 615/627/701 am
+gepushten kopf). C/D sind echt ueber die kette; A/B nicht.
+PFLICHT:
+ (1) A (ablauf-frist) und B (exakte wiederholung) BEIDE mit frisch importierter NewHandshakePair-VERBINDUNG
+     gegen ServeLogStream — dieselbe zeremonie wie C/D; KEIN einziger testschritt darf streams.replay
+     direkt aufrufen (grep-zeile 'h.access.streams.replay(' muss in den betroffenen tests NULL sein,
+     beleg-zeile in die akte).
+ (2) die VIER mutanten (stale-guard aus / dup-allow / frist-kurz / age-gat aus) SELBST einzellauf fahren,
+     jede ROT mit wörtlicher FEHLERZEILE (die prueferin konnte sie wegen sandbox-fehler nicht fahren —
+     sie sind OFFEN, nicht bestanden).
+ (3) execx/io.EOF bleibt (begruendet), aber der stream-ende-pfad muss in den A-D-zellen ueber die echte
+     kette gebunden bleiben (zusammenstellungs-nachweis).
+GATES/BASIS: main ls-remote VOR merge-in + develop-stand der CORE-42er irrelevant — hier connector-MAIN,
+aktuell; connector main in den zweig mergen, ancestor rc=0, name-only, race-count=20 des gemischten
+ensembles, zwei laeufe terminal am NEUEN kopf (draft=>einmalig ready), ls-remote echt==head WORTLICH.
+KEINE .github/subagenten/zweiter PR. Evidence: node-streams/round-5.md (r27-welle4-2026-11-05)
+END an f49a3303: "END_DONE w185-streams-r5: head=<sha10> helper-calls=<NULL grep-belegt> mutanten=<4/4 rot wörtlich> zusammenbau=<echt> laeufe=<ids terminal> lsremote=<sha10> | <Satz>"
