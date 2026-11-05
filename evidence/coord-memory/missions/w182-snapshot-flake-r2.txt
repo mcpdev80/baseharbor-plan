@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w182). Coord f49a3303. KARTE: t-20261105-r27-snapshot-change-guard-deterministic (RUNDE 2).
+ZWEIG: work/r27-snapshot-flake (PR #1387, head fa4067e3f40) — DERSOLBE zweig/PR. AKTE: review-1387a.md.
+BEFUND: kur wirkt (race-50 gruen, blobs ruhig) ABER die hook-aus-MUTANTE haengt bis zum GENERISCHEN
+paket-timeout statt sauber zu scheitern — die wartende seite im test hat keine eigene grenze.
+PFLICHT (nur source_snapshot_test.go, writer + die zwei benannten tests):
+ (1) warte-auf-'observed'-stelle des writers MIT EXPLIZITER TEST-SEITIGER FRIST (short bounded wait),
+     rueckgabe ein TYPISIERtes signal/fehler an den test statt blockierender channel-close hoffnung.
+ (2) hook-deaktiviert-MUTANTE => FAIL FAST mit BENANNTEM fehler innerhalb der lokalen grenze
+     (-count=1, wörtliche FEHLERZEILE in die akte; generisches 'test timed out after 10m' ist DER
+     BLOCKER dieser runde, er darf nicht mehr das einzige rot-signal sein).
+ (3) unveraenderter kopf: -race -count=50 beide tests gruen; quiet-begleiter -race -count=20 gruen.
+GATES/BASIS: develop-ancestor bleibt belegt (kopf sitzt auf 42bfcb1cb4), ls-remote echt==head WORTLICH,
+name-only, selected-checks terminal am neuen kopf, KEINE .github/subagenten/zweiter PR. scratch echter
+scheibe. Evidence: snapshot-flake/round-2.md (ordner r27-welle4-2026-11-05)
+END an f49a3303: "END_DONE w182-snapshot-flake-r2: head=<sha10> frist=<bounded+typisiert> mutante=<fail-fast benannter fehler wörtlich> race50=<gruen> quiet=<gruen> lauf=<id+status> lsremote=<sha10> | <Satz>"

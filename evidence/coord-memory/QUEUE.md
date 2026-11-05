@@ -134,3 +134,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   journal-wiring, candidate-ingress, app-binding).
 - w180-compose-r3.txt — p1 Warteschlange (bootstrap-scope + kontaminiertes ensemble). mutation-lock p2.
 - w181-credentials-r4.txt — p1 (produktiver CAS-pfad + option-mutante). mutation-lock p2.
+- w182-snapshot-flake-r2.txt — p1 (fail-fast statt timeout-deadlock). w181-credentials-r4 p2, mutation-lock p3.
