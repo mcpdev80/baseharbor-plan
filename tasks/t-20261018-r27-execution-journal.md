@@ -203,3 +203,8 @@ Abnahme, Merge und Planning-Abschluss liegen ab jetzt bei Owner+ChatGPT. Keine L
 machinehttp-dateien der kette an; abhaengige (management-host, state-recovery via journal-wiring) bleiben
 bis zurueckgemeldetem Abschluss dieser Seite gesperrt gemessen. Die laufende wiederabnahme (1373g im
 pruefkanal) ist hinfällig geworden und wird nicht weiter verfolgt.
+
+## Vermerk zur Übernahme: unsere wiederabnahme (1373g) sagt ACCEPT auf a896bf61c5c
+Einzellauf dreifach bestanden, mutante 3x rot (hosted-sonde gruen), race-20 gruen, PR-Gate terminal SUCCESS
+am exakten kopf — akte review-1373g.md. Merge und abschluss liegen bei Owner+ChatGPT (übernahme), dieser
+satz ist nur der abnahme-befund unserer seite ins protokoll.
