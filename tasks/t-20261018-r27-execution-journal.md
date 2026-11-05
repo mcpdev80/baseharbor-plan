@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w147, freigegeben)
-kanban_status: review
+owner: coord-welle4 (w165, wartet auf sitz)
+kanban_status: active
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: review
+kanban_lane: active
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -25,20 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w147, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle4 (w165, wartet auf sitz) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w147, freigegeben)  
+**Owner:** coord-welle4 (w165, wartet auf sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -153,3 +153,8 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 - Endzustands-Beweis ist mutantenfest (Rückbau auf Hintergrundlauf => Test rot, wörtlich belegt);
   Schlaf-Schleifen raus; Speicherfehler enden sichtbar ohne Antwort-Semantik-Änderung (Spec-Stelle 104
   unangetastet). Querschnitt nur sieben Maskin-HTTP-Dateien, Log-Zeile nur eigene Commits.
+
+## Review-Rueckruf 2026-11-05 (r1373d REJECT, EIN punkt)
+Mutantenfestigkeit und Durchreichen der Speicherfehler sind BESTAETIGT. Einziger Rest: der neue
+Endzustands-Test wartet weiter per sleep-Schleife statt ereignisfest. Runde 5 = kanal-ordnung + race-20 +
+erneute Mutantenprobe.
