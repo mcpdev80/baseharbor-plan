@@ -24,3 +24,8 @@
 - Keep the current production guard. Re-run these cells, the mutation red/control pair and hosted gates at the final exact SHA.
 
 No candidate files changed. Temporary reviewer probe and mutation were isolated and removed. No PR action was performed.
+
+## Remote publication witness
+
+- After the initial evidence commit, `git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394b.md` returned `100644 blob f78b37e3790e8906222d8ea550a80f4179283001 evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394b.md` at `origin/main` `5838e11597cff7883bd6da3ab21e1a32874ac2d3`.
+- This witness was added to the akte and pushed in a receipt commit; final fetch and `ls-tree origin/main` verified the updated file entry.
