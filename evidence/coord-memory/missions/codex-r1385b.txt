@@ -1,0 +1,6 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-protected-credentials.
+OBJEKT: PR #1385 head e295127e45b (runde 2 nach deiner 1385a; rezept-punkte: 1 set fresh, 0 set existing,
+wettlauf gewinnt, reconcile-naht statt neuem speicher). PRUEFE SHA-genau: zaehlungen SELBST nachziehen
+(injection-zaehler test), blob der bao-pfade, zwei commits eigene, name-only im feld, selected-checks
+terminal nicht skipped am head, ls-remote echt==head. Akte -> evidence/r27-welle4-2026-11-05/protected-credentials/review-1385b.md.
+END pane: "END_DONE codex-r1385b: verdict=<X> zaehlungen=<1/0+Race belegt> | <Satz>"
