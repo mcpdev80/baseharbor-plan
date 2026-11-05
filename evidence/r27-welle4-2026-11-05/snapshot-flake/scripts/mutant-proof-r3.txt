@@ -1,0 +1,28 @@
+# w187 round-3 mutant + race witnesses
+
+## Race -count=50 detection (live proof)
+$ go test ./internal/development/ -run 'TestSourceSnapshotDetectsChangeDuringRead' -race -count=50
+ok  	github.com/mcpdev80/baseharbor/internal/development	1.464s
+
+## Race -count=20 quiet leader (live proof)
+$ go test ./internal/development/ -run 'TestSourceSnapshotNoGuardAbortWhenQuiet' -race -count=20
+ok  	github.com/mcpdev80/baseharbor/internal/development	1.063s
+
+## Whole package + module
+$ go test ./internal/development/
+ok  	...	15.651s
+$ go vet ./...   -> rc=0
+$ go build -buildvcs=false ./...  -> rc=0
+
+## Mutant (proof disabled: divergence condition -> false), 3x single-run, named fail-fast
+$ go test ./internal/development/ -run 'TestSourceSnapshotDetectsChangeDuringRead' -count=1
+--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (5.00s)
+    source_snapshot_test.go:247: change-during-read hook never fired within the local bound
+FAIL
+FAIL	github.com/mcpdev80/baseharbor/internal/development	5.009s
+(runs 2 and 3 identical: named sentinel errSnapshotHookDidNotFire at 5.00s each)
+
+Production file restored after mutant run; live proof PASS (0.007s), grep -c MUTANT == 0.
+
+Note: -race build runs against /tmp tmpfs; GOTMPDIR set to /home/marcel/dev/baseharbor-ecosystem/.gotmp
+when /tmpfs is pressure (disk quota exceeded on the linker output mapping).
