@@ -1905,3 +1905,10 @@ tracking-ref, waehrend fern develop=42bfcb1cb4 laengst ueber dem kandidaten lag 
 korrekt als NEIN gemeldet — der fall war also NUR die lane, mein auge traf zuerst). END zurueckgewiesen
 per dialog-eigenantwort (nicht option 1!), base-refresh auf den zweig befohlen wie im zusatz-text.
 Regel bleibt: beide seiten messen refspec-exakt gegen das ECHTE ls-remote, nie gegen refs/remotes ohne fetch.
+
+## 10:2x JOURNAL r6 im feld bestaetigt (d691c3cd242, ein commit, sleep-ferne NULL, lauf 41998165081
+terminal gruen) -> KARTE review + 1373f verteilt. ABER: unsere Freigabe-Reihenfolge hat die runde Akte
+verschluckt (lane rm vor evidence-check, datei nirgends auf platte) — Akte aus Neutral-Messungen vom
+Coordinator rekonstruiert und publiziert (round-6.md, coordinator-recorded) + RUNBOOK 2.1 auf die
+reihenfolge fixiert: ERST ls-tree origin/main, DANN agent rm. Watch-liste war in ordnung (4 aktive,
+self-prune ok) — kein weiterer schaden.
