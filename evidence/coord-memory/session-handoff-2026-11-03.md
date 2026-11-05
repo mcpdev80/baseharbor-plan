@@ -1892,3 +1892,10 @@ Karte closed/accepted mit PR-link; 5 abhaengige KARTEN planned-entriegelt. Devel
 basis fuer alle KUENFTIGEN schnitte; laufende kandidaten behalten ihre provisorische basis bis zum
 merge-zweig der owner-runde (ein kandidat pro kette, kein scheit-auftrag fuer base-refresh allein).
 POOL-Konflikt gelöst nach neuerer Direktive: 4 Sitze + Luna (RUNBOOK ABEND-2026-11-04 schlägt AGENTS-Tabelle).
+
+## 09:5x #1347-abschluss konkret: die Uebernahme-Seite HATTE die karte schon selbst auf main gestellt
+(remote commit 779cc5d, status='accepted' — im plan-schema kein gueltiger spaltenwert, 4 check-FEHLER).
+Konflikt zwischen ihrem pull und meinem close-vorschlag Aufgeloest durch --theirs (ihr inhalt bleibt
+wortlich: resolution + exact-head CI-lauf 41991822834 + PR-link), dann card-status.py closed/accepted als
+einziger erlaubter pfad. Board wieder 0 errors. Lehre fuer abhaengige-entriegelung nach uebernahmen:
+ERST origin/main lesen (die andere seite publiziert oft schon), DANN markieren — naechste mal so.
