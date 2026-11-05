@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/c762022e7596f90c529593
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
-**Required by:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md)  
+**Required by:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261105-r27-snapshot-change-guard-deterministic](t-20261105-r27-snapshot-change-guard-deterministic.md)  
 **Owner:** coord-welle4 (Lane w151, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1381](https://github.com/mcpdev80/baseharbor/pull/1381)  

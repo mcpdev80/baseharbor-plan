@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w167)
-kanban_lane: active
+owner: coord-welle4 (Lane w167, freigegeben)
+kanban_lane: review
 kanban_summary: Create/update/revoke named profiles for selected Targets/operations/scopes/environments with existing policy authority. Profiles…
-kanban_status: active
+kanban_status: review
 kanban_title: "Access: manage scoped team profiles and owned assignments"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-team-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4-2026-11-05/access-profiles/round-1.md"]
 ---
 
-- [ ] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w167) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w167, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4-2026-11-05/access-profiles/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md)  
-**Owner:** coord-welle4 (Lane w167)  
+**Owner:** coord-welle4 (Lane w167, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -74,3 +74,9 @@ fremd, eskalation).
 Profil-aenderungen konnten rechte aufsteigend erweitern; erwartete revision und tenant-binung fehlen;
 produktionspfad nicht verbunden. Runde 2: adapter duemm (vermittelt nur), revision + akteur-binung in der
 BESTEHENDEN autoritaet, widerruf durch denselben pfad, vier mutantenproben als gegenbeweis.
+
+## Runde 2 pruefbar 2026-11-05 (kopf 3bb95cc794)
+Alle sechs faelle mit mutanten a-d rot belegt; autoritaet liegt bei policy.Aggregate + orgconfig.Manager.Owner,
+adapter nur ResolveFinding (duemm). Gate: lauf 41981861515 terminal SUCCESS am EXAKTEN kopf; der spaetere
+ausfall 41983173186 ist ein fremder Timing-flake (t-20261105-r27-snapshot-change-guard-deterministic) mit
+beiden laufen in der akte. Von mir nachgemessen.
