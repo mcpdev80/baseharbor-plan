@@ -1829,3 +1829,11 @@ zuerst gruen wegen aelterer basis — die lanes lernen die zellen-logik), w162 (
 statt zweiter ablage, vier zellen, fail-closed namentlich), w160 noch ohne END (idle-flag — pane pruefen
 waehrend naechster kette). Beide kaerten review + zwei read-only urteilsauftraege an luna; zwei laptops
 sofort neu besetzt: w167 profile-runde2 + w165 journal-runde5. Sitzpfad: 4/4 arbeitend, queue: w166 gate.
+
+## 06:55 SAMMEL-ECHO: sieben ablehnungs-akten auf einmal im auge — alle waren bereits verarbeitet (pane-
+echoes kamen zuerst; dateien hinterher). Zuordnung: 1380→grenzkarte w168 (blockert#1380 sauber), 1373→w165
+laeuft, 1379→w166 laeuft, 1384→w167 laeuft, 1383→w169 wartet, 22→w171 wartet, 1385→w170 wartet. Kein
+doppelter lauf noetig, keine karte ohne korrektur. ZWISCHENSTAND ANZAHL: 7 offene PRs mit REJECT-Akten und
+7 zugeordneten korrektur-auftraegen — die schicht ist jetzt VOLLSTAENDIG in korrektur-schleife, nichts
+verwaist. Hausputz: 5 verschollene arbeitsbaeume toter lanen entfernt (einer mit nur cache-schmutz
+forciert — begruendet, kein werkverlust), board 0 verwaisst.
