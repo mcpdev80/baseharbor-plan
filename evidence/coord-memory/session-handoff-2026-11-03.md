@@ -1850,3 +1850,8 @@ Auftrags-pflicht in jedem neuen mission-text.
 testenv.go:17 UNSETZT — code-seitig neutralisiert, daher wirkte jede "isolierung" nie. w159/x waren dem nie
 auf die schliche gekommen. entscheidung A (target je test in der fixture, code-garantie statt umgebung-zufall),
 quelle des neutralisierenden commits wird in der akte genannt (befund fuer uns: wer hat wann warum abgestellt).
+
+## 08:0x VIERTE UEBERNAHME: state-owner/#1347 -> Owner+ChatGPT. karte nur MARKIERT (owner-feld, zustand
+blocked bleibt als historischer grund), keine lane von uns in die dateien, abhaengige bleiben gesperrt.
+Muster bisher: #1375/#19/node-trust/#1347 = vier externe eingriffe, null konflikt weil jeweils NUR
+besitzerfeld+notiz geändert wurde, nie inhalt/zweig.
