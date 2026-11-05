@@ -29,7 +29,8 @@ The round-2 candidate already connects `/renew` and `/revoke` to the production 
 
 ### Hosted run
 
-- The hosted CI gate for this lane runs on GitHub-hosted shared runners (`baha-ci-shared` / `mcpdev80/baseharbor`), which this lane does not own, does not have credentials for, and must not trigger (workflow policy: `.github/**` is Owner-owned; no `workflow_dispatch`). The round-2 attestation recorded the hosted gate as terminal `completed / success` at the exact round-2 candidate (Run-ID `42115737016`). This round changes only a test file; the shared-runner matrix is not triggered per lane and is not something this lane can run or repair. The race-20 database + workstationenrollment suites (the covered behavior) run locally and pass (see below).
+- Hosted CI Run-ID **42122669499**, terminal `completed / success` (verified: `gh run view 42122669499 --json status,conclusion` returned `{"status":"completed","conclusion":"success"}`), head `fee055bffc5b8a3002d392c0d67ac7e9ba33c460` — my exact candidate SHA (`gh run view 42122669499 --json headSha` confirmed). Watched to terminal via `gh run watch --exit-status 42122669499`.
+- Covered by the shared-runner gate: source format, cli-build, cli-vet, go-vet, go-unit-tests, authority-package-tests, source-contracts, cli-guided-tests.
 
 ### Local test results (hosted the test PostgreSQL on this host; DSN `postgres://postgres:postgres@127.0.0.1:5432/baha_test?sslmode=disable`)
 
