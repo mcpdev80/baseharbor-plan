@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w176). Coord f49a3303. KARTE: t-20261018-r27-node-streams (RUNDE 4).
+ZWEIG: work/r27-node-streams (connector PR #22, head dc63758f37) — DERSOLBE zweig/PR. AKTE: review-22c.md
+(VOLL lesen; deine r3-punkte C-frist und D-ghost bleiben, ABER vier rezeptpunkte):
+ (1) FALL A und B FUHREN DURCH DEN ECHTEN PFAD: frisch importierte NewHandshakePair-VERBINDUNG +
+     ServeLogStream-Kette — NICHT h.access.streams.replay direkt (bypass = stop-kriterium).
+ (2) FALL D: abbruch/fruehes client-close BEFORE natuerliches terminal — der ghost-weg muss sich beim
+     abbruch zeigen, nicht erst nach 600-zeilen-drain; cursor-expiry-fehler NICHT als erfolg akzeptieren.
+ (3) WRITE-SET: internal/execx/executor.go liegt AUSSERHALB der karten-reservierung — entweder zurueck
+     auf main-stand ODER in round-4.md BEGRUENDET (welche C/D-zeile braucht ihn zwingend); ungeklaert
+     behalten = scope-verstoss.
+ (4) DER KARTE FEHLT DER Begrenzte ECHTE log/PTY-SMOKE (fake docker + net.Pipe reichen nicht als
+     rauchtest-pflicht der karte): ein zellen-grosserlauf mit ECHTEM kind-prozess + echtem log-stream
+     durch ServeLogStream, kurze laufzeit, in round-4.md mit wörtlicher ausgabe.
+GATES/BASIS-BELEG (main-SHA VOR schnitt/merge + ancestor rc=0), ls-remote echt==head WORTLICH, name-only,
+race-count=20 A–D, beide mutanten-paare (A: stale-guard aus / B: dup-allow / C: frist-kurz / D: age-gat aus)
+=> je ROT, laeufe terminal am kopf. KEINE .github/subagenten/zweiter PR. Evidence: node-streams/round-4.md
+END an f49a3303: "END_DONE w176-streams-r4: head=<sha10> A/B=<echte-Kette> D=<abbruch-vor-terminal> execx=<zurueck|begruendet> smoke=<echt+wortlich> mutanten=<4/4 rot> lauf=<id+status> lsremote=<sha10> | <Satz>"
