@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w177, freigegeben)
+owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
 kanban_status: review
 kanban_title: "Operations: persist execution identity and terminal outcomes"
 kanban_lane: review
@@ -27,7 +27,7 @@ evidence:
 
 - [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w177, freigegeben) · **Priority:** normal  
+    **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
@@ -38,7 +38,7 @@ evidence:
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w177, freigegeben)  
+**Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -196,3 +196,10 @@ bekannte, separat kardierte Compose-Kette (#1383, dort blocked auf VM-Tor), KEIN
 Einzellauf-Mutante per live-event-filter fix geschlossen (rot, wörtlich in akte), race20 gruen 125s.
 Akte round-7.md von mir aus falschem ordner in den schichtordner gehoben. Freigabewege: MERGE obliegt der
 Owner-Runde, die lane wartet auf nichts.
+
+## Externe Übernahme — durch Coordinator nur markiert, nicht bearbeitet
+PR #1373 (kopf a896bf61c5c, unsrerseits PRUEFBAR gemeldet, gate terminal gruen am kopf): Implementierung,
+Abnahme, Merge und Planning-Abschluss liegen ab jetzt bei Owner+ChatGPT. Keine Lane dieser Seite fasst
+machinehttp-dateien der kette an; abhaengige (management-host, state-recovery via journal-wiring) bleiben
+bis zurueckgemeldetem Abschluss dieser Seite gesperrt gemessen. Die laufende wiederabnahme (1373g im
+pruefkanal) ist hinfällig geworden und wird nicht weiter verfolgt.
