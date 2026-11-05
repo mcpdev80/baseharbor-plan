@@ -1994,3 +1994,13 @@ spawn --mode codex) auf mutation-lock (fertig frei: alle drei vorgaenger geschlo
 14-UHR-notiz 'codex nur review/merge' ist damit UEBERHOLT — neuere direktive gewinnt; TICK-DUTIES p7 +
 pool-soll-text umgeschrieben. cfg-luecke: worker-laueuft mit globalem ~/.codex/config.toml (identitaet
 session-getrennt, modellgleich mit der abnahme-sitzung — Rollen-Trennung ausdrucklich ok laut AGENTS).
+
+## 14:35 RAM-FALL (owner-frage, 23G host): 18Gi belegt = 8,2G tmpfs(/tmp=RAM) + 6 KEYCLOAK-JAVA's (4,7G)
+aus verwaisten bh-w169-ci-bootstrap compose-projekten auf DEM HIER host (rootless docker), + session-process.
+Aufgeraeumt: 37 container entfernt, 22 netze, /tmp altlast -> 13Gi used / 10Gi available. NEUER BEFUND:
+die bootstrap-projekte liefen AUF DEM COORDINATOR-HOST, nicht nur auf den VMs — die compose-lanes haben den
+Lokaldaemon gemietet; lane-VK muss auch HOST-seitige projekte downfahren (dispatch-klausel gilt sinngemäss).
+Nebenbefund (selbstverschuldet, behoben-pflichtig): mein /tmp/codex-* sweep traf den ordner des LENDEN
+codex-app-server-daemons -> control-socket weg, kein neuer codex-sitz startbar (w184 crash 2x). Daemon war
+tot-ähnlich (pid lebt, socket fehlt); neustart eingeleitet — nach der rueckkehr w184 neu besetzen.
+Regel-Ergaenzung tmp-sweep: /tmp/codex-daemon-* ist HEILIG (socket-des-daemons), nie in masken.
