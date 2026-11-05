@@ -6,8 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle4 (Lane w166, freigegeben)
-kanban_status: review
-kanban_lane: review
+kanban_status: accepted
+kanban_lane: accepted
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen"
 priority: ""
@@ -16,18 +16,18 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1379]
 sources: []
 blocker: ""
-resolution: ""
+resolution: "PR #1379 merged into develop at a53c10a787277c7d82b8ae5e04f4cdfd6501e3b3; exact-head selected CI run 41978410480 successful."
 evidence: []
 ---
 
-- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/review #view/review #kind/task
+- [x] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/accepted #view/accepted #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w166, freigegeben)  
     **PR:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-welle4 (Lane w166, freigegeben)  
@@ -109,3 +109,10 @@ bestanden. Merge-obliegt der Owner-Runde.
 ## ACCEPT 2026-11-05 (r1379b, Gate-Punkt geschlossen)
 Kopf unveraendert 52be57c9893; 'PR Selected Checks' terminal erfolgreich + die zwei modus-zellen belegt —
 der einzige ablehnungspunkt der runde 1379 ist ausgeraeumt. MERGE-REIF fuer die Owner-Runde.
+
+
+## Owner-Abschluss 2026-11-05
+
+- PR [#1379](https://github.com/mcpdev80/baseharbor/pull/1379) nach `develop` gemerged, Squash-Commit `a53c10a787277c7d82b8ae5e04f4cdfd6501e3b3`.
+- Pflicht-CI [Run 41978410480](https://github.com/mcpdev80/baseharbor/actions/runs/41978410480) auf dem vor Merge verifizierten PR-Head abgeschlossen: `success`, einschließlich `PR Selected Checks`.
+- Historische Review-Rückrufe und Korrekturen bleiben als Nachweis erhalten. Fachliche Abnahme gemäß letzter ACCEPT-Bewertung; separate Release-/Cross-Repo-Qualifizierung dadurch nicht vorweggenommen.
