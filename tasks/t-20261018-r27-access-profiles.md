@@ -92,3 +92,8 @@ Nachgemessen: ls-remote echt==head, name-only (eigene kette + merge ohne inhalt-
 gemeldet: echter zusammenbau faltet owned profil in policy.Aggregate, revisions-gleichheit (!=) mit
 drei zellen + mutante rot. Akte round-3.md auf main bestaetigt. (Zwischenfall: lane meldete zuvor RC=0 an
 veralteter tracking-ref — nach widerlegter erstmeldung sauber nachgeliefert.)
+
+## ACCEPT 2026-11-05 (r1384c): merge-reif fuer die Owner-Runde
+Kopf 50b99c4625e (entwicklungs-pfad + develop 42bfcb1cb4, ancestor JA). Produktionspfad gefaltet (echte
+zuweisung -> policy.Aggregate), revisions-gleichheit mit 3-zellen-matrix + mutante rot, sechs r2-falle
+behalten, blobs identisch — nach der widerlegten erstmeldung (ghost-RC=0) sauber nachgeliefert.
