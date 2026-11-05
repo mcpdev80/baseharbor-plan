@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w177). Coord f49a3303. KARTE: t-20261018-r27-execution-journal (RUNDE 7).
+ZWEIG: work/r27-execution-journal (PR #1373, head d691c3cd242) — DERSOLBE zweig/PR. AKTE: review-1373f.md
+(VOLL lesen). BEFUND: race-20 gruen, keine test-polls mehr — aber der Hintergrunde-MUTANTE UEBERLEBT den
+EINZELLAUF: eine einzelne end-state-aussage kann noch durch Timing durchrutschen.
+REZEPT (nur interne/machinehttp, hauptsaechlich execution_request_identity_test.go + seine helper):
+ (1) STEUERBARE BARRIERE: makle den uebergang (handler -> hintergrund-ausfuehrer -> journal-write) mit
+     einem expliziten sync-punkt (channel/atomic barrier IM TEST-PFAD ueberschreibbar): die end-state-
+     aussage wartet auf das EREIGNIS 'terminal-commit gesehen', nie auf wiederauftreten.
+ (2) DER background-execution-MUTANTE (handler asynchron gemacht) MUSS im EINZELLAUF rot werden
+     (-count=1, dreillaufig ausgefuehrt, alle drei male rot, wörtliche zeile je lauf in die akte),
+     NICHT erst ueber count=20-haeufigkeit.
+ (3) unveraenderter kopf: -race -count=20 gruen.
+STOP: ein einzellauf des mutanten besteht, oder eine aussage haengt noch an wiederholungs-timing.
+GATES: basis-beleg (develop 42bfcb1cb4 ls-remote VOR merge-in + ancestor rc=0 — DIESMAL develop in den
+zweig mergen, der alte stand 24c7d0492f3 reicht nicht), lauf terminal am neuen kopf (selected-checks nicht
+skipped), ls-remote echt==head WORTLICH, name-only. KEINE .github/subagenten/zweiter PR. scratch echter
+scheibe. Evidence: execution-journal/round-7.md
+END an f49a3303: "END_DONE w177-journal-r7: head=<sha10> einzellauf-mutante=<3x rot wörtlich> race20=<gruen> barrier=<ereignis-name> lauf=<id+status> lsremote=<sha10> | <Satz>"
