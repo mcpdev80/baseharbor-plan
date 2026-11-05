@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w191)
+owner: coord-welle5 (Lane w191, freigegeben)
 kanban_lane: review
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
 kanban_status: review
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1393]
+prs: [mcpdev80/baseharbor#1393, mcpdev80/baseharbor#1392]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -24,8 +24,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w191) · **Priority:** normal  
-    **PR:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393)  
+    **Owner:** coord-welle5 (Lane w191, freigegeben) · **Priority:** normal  
+    **PR:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1393), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/42101103524)  
     <!-- /generated:card -->
 
@@ -35,9 +35,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle5 (Lane w191)  
+**Owner:** coord-welle5 (Lane w191, freigegeben)  
 **Priority:** normal  
-**PRs:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393)  
+**PRs:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -74,3 +74,8 @@ round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green; eviden
 round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green (go-build/vet/unit-tests); evidence round-1.md
 
 round 1 candidate; PR #1392 head 3a5ce89011; hosted CI 42097435724 green; evidence round-1.md
+
+## Runde 1 pruefbar 2026-11-05 (kopf 3fa46bc299b)
+Nachgemessen: ls-remote echt==head, develop 3d8fc207de VORFAHR (rc=0 nach korrektur-runde), gehosteter
+lauf 42101103524 TERMINAL SUCCESS am exakten kopf, akte round-1.md auf main. Produktion=echter
+anwendungs-pfad, crash-wiederanlauf gruen, zweiprozess-ordnung gruen, beide mutanten rot.
