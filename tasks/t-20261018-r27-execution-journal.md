@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w165)
-kanban_status: active
+owner: coord-welle4 (Lane w165, freigegeben)
+kanban_status: review
 kanban_title: "Operations: persist execution identity and terminal outcomes"
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -25,20 +25,20 @@ evidence:
   - "https://github.com/mcpdev80/baseharbor/commit/0ce814d0"
 ---
 
-- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w165) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w165, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w165)  
+**Owner:** coord-welle4 (Lane w165, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -158,3 +158,8 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 Mutantenfestigkeit und Durchreichen der Speicherfehler sind BESTAETIGT. Einziger Rest: der neue
 Endzustands-Test wartet weiter per sleep-Schleife statt ereignisfest. Runde 5 = kanal-ordnung + race-20 +
 erneute Mutantenprobe.
+
+## Runde 5 pruefbar 2026-11-05 (kopf 2b997f3c19e, basis auf develop 24c7d049)
+Schlaf-Polling raus (Kanal-Ordnung), race-count=20 grün, Rückbau-Mutante 20/20 rot gemessen, alle
+gehosteten Jobs am Merged-Kopf terminal erfolgreich (41981442440, von mir abgerufen). Damit sind alle drei
+Punkte der dritten Prüfung abgearbeitet; Merge obliegt der Owner-Runde.
