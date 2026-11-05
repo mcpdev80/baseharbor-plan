@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w172)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle4 (Lane w172, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
 kanban_title: "Authority: target-scoped live-connection resolution without an application context"
 priority: high
@@ -20,19 +20,19 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md]
 ---
 
-- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w172) · **Priority:** high  
+    **Owner:** coord-welle4 (Lane w172, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
-**Owner:** coord-welle4 (Lane w172)  
+**Owner:** coord-welle4 (Lane w172, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1386](https://github.com/mcpdev80/baseharbor/pull/1386)  
 **Source:** 
@@ -85,3 +85,9 @@ Fail-closed-Zellen + Grundlinien-Umschaltbeleg in der Akte.
 Der Resolver zieht bei fehlender Autorität eine neue CA hoch (EnsureLocalIssuer) — das macht die Pruefung
 zur Implikation. Runde 2: rein lesende Beobachtung + zwei neue Sonden-Zellen (fehlendes Verzeichnis, leere
 Issuer-Datei); Stopkriterium: je erzeugtes Material.
+
+## Runde 2 pruefbar 2026-11-05 (kopf aa62518c6a6)
+Nachgemessen: ls-remote echt==head, develop Vorfahr, zwei eigene commits, write-set genau die zwei
+Dateien der Akte; code-gelesen: observeLocalIssuer strictly read-only, kein EnsureLocalIssuer-Aufruf im
+Resolver; lauf 41988118382 terminal SUCCESS am exakten Kopf (Selected Checks nicht skipped). Akte
+round-2.md publiziert (b998131).
