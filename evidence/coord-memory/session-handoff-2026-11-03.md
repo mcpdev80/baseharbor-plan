@@ -1931,3 +1931,10 @@ Unsere messung (nicht uns, keine aktion) bleibt als doku stehen, thema ist erled
 bereits PFLICHT (kontaminiertes ensemble real, ort+zeit). testenv.go im kandidaten NICHT geaendert
 (Diff = genau vier cmd/baha-testdateien) — die historisch geteilte hilfs-naht sitzt in den vier dateien
 selbst, r3-deckungsliste passt.
+
+## 11:2x TICK-TAUBHEIT BEHOBEN (owner-hinweis danke): der tick feuert NUR bei idle (idle-only direktive
+2026-10-31, bleibt!), aber cron samplte alle 10 MIN — in einer ereignisdichten shift bin ich an jedem
+10er-slot busy, jede kurze idle-luecke (<10 min) wurde am sample-punkt vorbeigelaufen: letztes echtes
+FEuern 04.11 12:40Z, 22h taub despite alter von 77k Sekunden. FIX: sampling auf */2, das INTERVALL-GATE
+von >=600s zwischen feuern bleibt unveraendert (kein pingen im minuten-takt; feuern-fruehestens-wieder-
+nach-10-min-und-nur-idle). Erster beweis: naechste echte idle-luecke => FIRED-zeile im tick-log.
