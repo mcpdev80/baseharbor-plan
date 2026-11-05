@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (w174, wartet auf sitz)
+owner: coord-welle4 (Lane w174)
 kanban_lane: active
 kanban_summary: Create/update/revoke named profiles for selected Targets/operations/scopes/environments with existing policy authority. Profiles…
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4
 
 - [ ] t-20261018-r27-access-profiles · Access: manage scoped team profiles and owned assignments #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w174, wartet auf sitz) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w174) · **Priority:** normal  
     **PR:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4-2026-11-05/access-profiles/round-1.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/evidence/r27-welle4
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md)  
-**Owner:** coord-welle4 (w174, wartet auf sitz)  
+**Owner:** coord-welle4 (Lane w174)  
 **Priority:** normal  
 **PRs:** [baseharbor#1384](https://github.com/mcpdev80/baseharbor/pull/1384)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
