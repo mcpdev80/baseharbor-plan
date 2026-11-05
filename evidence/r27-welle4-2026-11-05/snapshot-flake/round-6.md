@@ -59,7 +59,7 @@
 
 ## Evidence publication witness
 
-- `git ls-tree origin/main -- evidence/r27-welle4-2026-11-05/snapshot-flake/round-6.md` returned `100644 blob <sha> evidence/r27-welle4-2026-11-05/snapshot-flake/round-6.md` on origin/main (verified before END; exact SHA recorded below in the END line).
+- `git ls-tree origin/main -- evidence/r27-welle4-2026-11-05/snapshot-flake/round-6.md` returned `100644 blob bdd7c50518e49124fd000d52a3c961c2614b31cd evidence/r27-welle4-2026-11-05/snapshot-flake/round-6.md` on origin/main `6ff118997b82a76fe431100c784aa139b0a65122` (verified after commit+push).
 
 ## RESULT
 
