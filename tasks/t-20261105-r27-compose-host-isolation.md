@@ -110,3 +110,11 @@ Kopf 3fcba08f6a5 bleibt pruefbar gebaut (hostete laeufe gruen); die zwei restlic
 ensemble + mutante) liegen an der VM-Pool-Erschöpfung, protokoliert in gate-vm-1.md (266 zeilen:
 prune/disconnect/freigabe-namentlich/down wörtlich + nachher-zeilen + inspect). Akte nachtraeglich von
 mir publiziert — lane war schon freigegeben, disk-check vor rm war LUECKENDICH; protokolliert.
+
+## Zusatz-befund 2026-11-05 (aus w180s verifizierungs-akt, veröffentlicht):
+Der Gehostete beweis-Pfad scheidet fuer DIESEN PR-Typ aus: validate ist an Nicht-PR-ereignisse gebunden
+(ci.yml:256), Selected Runtime benoetigt runtime-required=true im PR-plan (ci.yml:913) — test-only Aenderungen
+bekommen das flag nie. Damit war meine fruehere 'tor erfuellt durch gruenen lauf'-bewertung fuer compose-zellen
+FALSCH-GRUEN (die tests liefen in keinem der laeufe). Zwei wege raus: (a) VM-IPAM-Entscheidung des owners
+(aktueller blocker), (b) PR-plan-mapping korrigieren lassen (ci-impact hoheit des owners, befund notiert).
+Rueckwirkend zu pruefen: ob aehnliche test-only-ketten (streams? flake?) dieselbe skip-klischee traf.
