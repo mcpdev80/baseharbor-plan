@@ -1950,3 +1950,7 @@ API-isWorking-regression separat melden (codeman-bug-klasse).
 ## 11:55 OWNER-DIREKTIVE UMGESETZT: tick-nachricht ist jetzt EIN ZEILER (tmux-sicher), der vollständige
 pflichttext (punkte 0–7 inkl. pool-soll + queueanweisung) lebt versioniert in coordinator/TICK-DUTIES.md.
 Inhalt gleich, uebermittlung kuerzer. Erste kurze version laeuft ab dem naechsten FIRED.
+
+## 12:2x TICK-ZU-SCHNELL (owner-fang, zweiter echter fehler im selben system): das 600s-intervall war
+im if nur KOMMENTIERT, nie geprueft — mit */2-sampling pingte jeder idle-treff. FIX: 'age>=INTERVAL' als
+hartes gate + 'hold idle-but-fresh' protokollzeile.采样 bleibt */2 (idle-kante <2min verpasst), takt >=10min.
