@@ -1,0 +1,14 @@
+ROLLE: Worker (Lane w196). Coord 841e7734. KARTE: t-20261018-r27-journal-wiring (RUNDE 2).
+ZWEIG: work/r27-journal-wiring (PR #1393, head 3fa46bc299b) — DERSOLBE zweig/PR (KEIN zweiter PR, je).
+AKTE: review-1392a.md VOLL LESEN (rezept ab zeile 22ff).
+PFLICHTEN NUR DIE PUNKTE DES URTEILS: (1) crash-wiederanlauf durch die ECHTE HTTP-handleExecute-PRODUKTIONSNAHT,
+laufenden Apply in KINDPROZESS taetzlich abbrechen (kein temp-root-replikat), wiederanlauf reconciles; (2)
+konurrenz-ordnung ZELLE-prozessnah (zwei echte prozesse am selben root); (3) MUTANTEN beweisend: journal-write
+unterdruecken => crash-zelle ROT; write-verlust => ordnungs-zelle ROT (beide einzellauf, wörtlich, kein
+unabhaengiger leerer temp-root — mutante muss denSELBEN pfad treffen); (4) DISK-QUOTA: laeufe in /tmp/opencode
+oder eigenem workspace-dir, nicht auf dem quota-vollen standardpfad (vorbehalt protokollieren).
+UEBRIGE punkte (persist-before-publish, scope) waren gut — nicht umbauen.
+GATES: develop-merge falls drift, hosted lauf TERMINAL am neuen kopf, ls-remote echt==head WORTLICH, name-only,
+KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/journal-wiring/round-2.md
+END an 841e7734: "END_DONE w196-journal-wiring-r2: head=<sha10> crash=<echte naht+kindprozess> ordnung=<zwei prozesse> mutanten=<2/2 ROT wörtlich> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
