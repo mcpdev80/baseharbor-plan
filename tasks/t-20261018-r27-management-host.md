@@ -64,3 +64,5 @@ Focused server-config/auth/startup/ownership/restart tests; one isolated service
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Entriegelt 2026-11-06: alle vorlaeufer (geraete-lebenszyklus, tagebuch-kette ausnahme: laeuft noch runde-3-basisRefresh) gemergt. Claimbereit.
