@@ -1,0 +1,20 @@
+ROLLE: Worker (Lane w187). Coord f49a3303. KARTE: t-20261105-r27-snapshot-change-guard-deterministic (RUNDE 3).
+ZWEIG: work/r27-snapshot-flake (PR #1387, kopf 27cf86c3396) — DERSOLBE zweig/PR. BEWIESER GRUND DIESE RUNDE:
+gehosteter lauf 42050483534 terminal FAILURE am kopf: 'TestSourceSnapshotDetectsChangeDuringRead (5.01s)' —
+der mtime-delta-beweis des hooks FEUERT auf CI-dateisystem/nicht, die neue 5s-schranke laeuft selbst als
+fehler auf. Das ist der eigentliche sinn der karte zurueck: der guard muss den wechsel BEWEIST sehen
+(EREIGNIS-barre), nicht 'mtime hat sich seit walk-start geaendert'.
+PFLICHT:
+ (1) hook-beobachtung umbauen auf EREIGNIS-SEMANTIK wie im tagebuch-muster (t-20261018-r27-execution-journal,
+     gemergt 77511c8a — derselbe ansatz): der capture-pfad meldet die festgestellte aenderung SELBST
+     (callback auf tatsaechlicher观察), der test wartet geboundet auf DAS ereignis — mtime-vergleich nur
+     als zusaetzliche ebene, nie als einziger beweis.
+ (2) BEIDE laeufer: lokal -race -count=50 gruen UND GEHOSTETER lauf bis TERMINAL GRUEN am neuen kopf
+     (diesmal ist der hosted-lauf das akzeptanz-kriterium, nicht der lokal-beweis — d5ff-lektion).
+ (3) einzellauf-mutante hook-aus => fail-fast benannter fehler 3x rot; quiet-begleiter race-20 gruen.
+ (4) blobs: capture-verhalten unveraendert; die zwei karten-dateien als write-set.
+GATES/BASIS: develop a53c10a7 in den zweig mergen (drift ist NOTIZ, ancestor rc=0 nach merge), ls-remote
+echt==head WORTLICH, name-only (deine kette + merges, PR#1389-episode bleibt Geschichte), selected-checks
+terminal am neuen kopf. KEINE .github/subagenten/zweiter PR/zweiter commit-Aktenkanal ins produktrepo.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/snapshot-flake/round-3.md
+END an f49a3303: "END_DONE w187-snapshot-flake-r3: head=<sha10> hook=<ereignis-barre benannt> hosted=<lauf-id TERMINAL SUCCESS> race50=<gruen> mutante=<3x rot> quiet=<gruen> lsremote=<sha10> | <Satz>"

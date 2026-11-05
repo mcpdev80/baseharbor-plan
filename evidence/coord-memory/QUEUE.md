@@ -147,3 +147,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - JOURNAL GEMERGT (owner 16:1x, develop 77511c8a667, karte accepted). journal-wiring wartet nur noch auf
   mutation-lock (w184 laeuft). streams r5 besetzt (w185). credentials-nachlieferung laeuft (w181).
 - credentials r4 reviewable (1385d hinter 1387b in Luna-queue). connection-client LAEUFT (w186, ornith).
+- w187-snapshot-flake-r3.txt — p1 (hosted-rot als treiber; ereignis-barre statt mtime). mutation-lock w184c
+  in korrektur (develop-merge + hosted-lauf). Luna: kein neuer flake-auftrag bis r3-lieferung.
