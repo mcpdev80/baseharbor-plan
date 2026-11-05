@@ -1,0 +1,33 @@
+ROLLE: Worker (Lane w156). Coord f49a3303. KARTE: t-20261104-r27-destroy-after-aborted-apply (RUNDE 2).
+REPO baseharbor. ZWEIG: work/r27-destroy-aborted-apply (PR #1382, kopf 942e3cc562b) — DERSOLBE zweig,
+DERSSELBE PR. KEIN zweiter PR, KEIN neu schneiden, KEIN rebase, KEIN kraft.
+
+Luna review-1382a verdict=REJECT (akte baseharbor-plan/evidence/r27-welle4-2026-11-05/destroy-aborted-apply/
+review-1382a.md — VOLLSTAENDIG lesen; dein zerstoerungs-fix in app_workload.go ist ausdruklich ANERKANNT und
+BLEIBT SO, inklusive der W154-tests). Genau EINE änderung wird verlangt:
+
+SCHRITT: internal/application/telemetry_authorization.go RAUS aus dem verhalten — die bedingungslose
+"im-nicht-OTLP-fall os.ErrNotExist => leere-map" absorbtion in readWorkloadRuntimeEnv ist ein geteilter
+leser und unterdrueckt jetzt fehlende runtime-bindungen fuer ALLE workload-aufrufer. Das ist scope-
+verbreiterung, nicht fix. LOESUNG WIE VON DER PRUEFUNG VORGEGEBEN:
+ (1) telemetry_authorization.go auf develop-stand ZURUECKSETZEN (git checkout origin/develop -- die datei;
+     blob-identitaet belegen),
+ (2) das fehlende runtime.env in DEINEM zustand wird ausschliesslich im zerstoerungs-/zurueckziehungs-pfad
+     behandelt — dort wo DU schon die eigentums-pruefung (runtime-VERZEICHNIS eigentum) hast; der shared
+     leser bleibt streng,
+ (3) falls auf dem zerstoerungs-pfad ein fall bleibt (runtime-verzeichnis EXISTIEREND aber runtime.env
+     fehlend) der ohne shared-leser-aenderung nicht rc=0 wird: Loesung INSERHALB des destroy-pfads mit
+     eigentumsnachweis in einem comment-satz + test; geteilte leser bleiben HEILIG.
+
+BELEG-PFLICHTEN (wie runde 1, neu gemessen): kranke zelle auf develop woeertlich rc=1 (name des kranken
+commits — develop kann inzwischen weiter sein, dann dort messen); kandidatenkopf rc=0 + keine laufende
+instanz + kein eigentum; #1375-zelle und glueckpfad-regressionen UNVERAENDERT gruen; schranke blob-identisch;
+NEU: git diff origin/develop...HEAD --name-only zeigt telemetry_authorization.go NICHT MEHR;
+ls-remote https://github.com/mcpdev80/baseharbor.git == dein NEUER kopf WORTLICH; log --oneline
+origin/develop..HEAD = deine commits (runde1+runde2), kein artfremder; go test ./cmd/baha ./internal/application
+-count=1 + ./internal/database (skript-verbindung), build, vet, gofmt; gehostete laeufe des neuen kopfs bis
+TERMINAL (Eigenes-Run-Pflicht).
+GRENZEN: KEINE .github, KEIN AGENTS.md, KEINE subagenten, KEIN zweiter PR, scratch im lane-pfad, GOCACHE/
+TMPDIR dorthin; bei schreibfehlern df -h /tmp (§6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/destroy-aborted-apply/round-2.md
+END an f49a3303: "END_DONE w156-destroy-r2: head=<sha10> telemetrie=<zurueckgesetzt blob-id belegt> zelle=<rc0+keine reste> shared=<streng belegt> diff=<datei raus> lauf=<id+status> lsremote=<sha10> | <Satz>"
