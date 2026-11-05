@@ -1,0 +1,24 @@
+ROLLE: Worker (Lane w158). Coord f49a3303. KARTE: t-20261104-r27-destroy-after-aborted-apply (RUNDE 3).
+ZWEIG: work/r27-destroy-aborted-apply (PR #1382, kopf 3691173821). DERSOLBE zweig/PR, kein neu-schnitt.
+
+AUSGANG (von MIR gemessen, nicht von einer lane gemeldet): lauf 41945163860 am neuen kopf ist in DREI
+jobs ROT: 'PR · Source format', 'cli-gofmt' (test -z "$(gofmt -l cmd/baha)" => exit 1 — eine oder mehrere
+cmd/baha-dateien deines schnitts sind NICHT gofmt-geformt, trotz anderer meldung im letzten END) und
+'cli-package-tests' + 'go-unit-tests'. VOR JEDER änderung: dieselbe testloesung wie der runner LOKALES
+gegen 3691173821 ausfuehren und die rotliste WORTLICH festhalten (gofmt -l; go test ./cmd/baha -count=1;
+die package-test-zeile des workflows nachfahren — nicht raten, nachbauen).
+
+DANN: (1) gofmt -w NUR die betroffenen dateien deines schnitts, (2) die package-/unit-fehler reparieren ODER
+als fremd/belegt-abtrennen: faellt ein fehlgenannter composetest (TestRepositoryCompose/BuildWorkload/
+WorkflowRealLifecycle) erneut rot, pruefe gegen develop 512dcd72 GLEICHER jobGLEICHE ausgabe (vor-bestand ist
+dokumentiert in t-20261105-r27-compose-host-isolation baseline-1.md; ein vor-bestand ist KEIN reparaturauftrag
+von dir — melde ihn nur mit ausgabe A/B). Alle ANDERN unit-fehler sind DEIN feld: gezielte korrektur, KEINE
+semantik-ànderung am zerstoerungs-fix (eigentumsdatei runtime_owner_write.go und app_workload.go verhalten
+bleibt; nur form/reparatur), (3) PFLICHT vor END: gofmt -l cmd/baha internal/application => LEER (wortlich),
+go test ./cmd/baha ./internal/application ./internal/database -count=1 (skript-verbindung) gruen, build vet
+gofmt gruen, (4) gehosteter lauf deines NEUEN kopfs bis TERMINAL mit ALLEN drei formerly-roten jobs gruen
+oder mit dokumentiertem vor-bestand-beleg. name-only + log-zeile + ls-remote echt WORTLICH.
+GRENZEN: KEINE .github/AGENTS.md, KEINE subagenten, KEIN zweiter PR, KEIN rerun-wettlauf (beobachte den
+einen neuen), scratch im lane-pfad, df -h /tmp bei schreibfehlern (§6.2b).
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/destroy-aborted-apply/round-3.md
+END an f49a3303: "END_DONE w158-destroy-r3: head=<sha10> gofmt=<leer belegt> unit=<gruen|vor-bestand A=B belegt> lauf=<id + 3 job-statusse> lsremote=<sha10> | <Satz>"
