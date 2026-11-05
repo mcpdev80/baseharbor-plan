@@ -1,0 +1,30 @@
+# Review 22a — baseharbor-node-connector PR #22
+
+- Role: CODEX-REVIEW; no merge performed.
+- Candidate: `6b498a8cf3bd9d1fe38c1402c1fd43adbf992be5` (`work/r27-node-streams`), base `main` at `0643d51cc8e934f174fdf6ba875624c112f69235`.
+- Live PR: [#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22), OPEN, draft, base `main`, exact head above, mergeable.
+- `git ls-remote origin refs/heads/main refs/heads/work/r27-node-streams` returned those exact base/head SHAs. `git log origin/main..HEAD` contains only `6b498a8` (one own commit).
+- Name-only diff is exactly `internal/connector/stream_evidence_test.go`. There are no changes to existing trust/session/product files; the test imports `targetaccess.NewHandshakePair` at line 96. The helper ceremony is not copied (`newTestCA`/`newTestLeaf` do not occur in the candidate test), and no `t.Skip`, `SkipNow`, or `Skipf` occurs there.
+- Hosted runs on the exact head were terminal: CI · Node Connector Quality run [41952342103](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41952342103) SUCCESS; Connector Source Conformance run [41952341830](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41952341830) SUCCESS. Its two runtime jobs are SKIPPED, as expected for this test-only diff according to the handoff.
+- I attempted the required local test command, `go test ./internal/connector/ -run 'TestServeLogStream' -count=1 -v`, with an isolated cache and again with the existing cache. Both attempts failed before tests ran because the sandbox returned `disk quota exceeded` while writing Go build artifacts. This is an environment limitation, not a test failure; I do not claim an own successful run. The handoff's prior local output is not a substitute for my own run.
+
+## Findings
+
+1. **REJECT — cursor-expiry case does not exercise expiry.** In `internal/connector/stream_evidence_test.go:212-269`, the finite fake command produces only Ready/Data/End, and the test resumes at cursor 1 and cursor 3. It never requests a cursor older than retained history. The production registry's default retention is 512 events (`stream_replay.go:11,55-56`); `resume` rejects an expired cursor only when `after+1 < first` (`stream_replay.go:78-82`). Thus the test's name and prose claim “cursor expiry” without causing expiration or asserting the documented rejection. The required cursor-expiry behavior remains unproven.
+
+2. **REJECT — deadline case treats arbitrary disconnect as a passing terminal result.** At `stream_evidence_test.go:345-360`, the test passes when the event channel closes (`ok == false`) without requiring a `StreamEnd` or checking that the requested deadline elapsed. A premature transport/session failure therefore passes as a successful deadline termination. The test must establish the deadline boundary and require the expected terminal event/result, distinguishing it from unrelated EOF/error.
+
+3. **REJECT — cancellation case can pass before cancellation is observed.** At `stream_evidence_test.go:378-394`, after closing the client connection the loop's `default` branch immediately calls `resume` and treats any error as proof of no ghost session. `resume` itself returns an error while the stream is still `active` (`stream_replay.go:75-76`), so this assertion can succeed before the disconnect handler detaches or retires the session. It does not prove the post-cancel state. Synchronize on the server-side detach/retire condition (or poll until the specific inactive/closed state) and separately assert that resume is rejected for the intended no-ghost reason.
+
+4. **REJECT — the at-least-once case does not count/identify duplicate replay.** In `stream_evidence_test.go:272-315`, both fresh and resumed payload checks use `strings.Contains`; no exact occurrence counts or sequence assertions are made on the resumed event. The assertions prove presence, but cannot detect duplicate/missing repeated lines as claimed in the comment (“duplicates ... visible”) and do not fully establish loss-free at-least-once accounting.
+
+## REZEPT
+
+- **Datei:** `internal/connector/stream_evidence_test.go`.
+- **Änderung:** Make case A produce more than the registry's retained-event limit (or otherwise drive a real retained-history boundary through the production stream path), resume with a cursor strictly older than the first retained sequence, and assert the exact documented rejection. In case C, record the deadline and require elapsed deadline plus an explicit expected `StreamEnd`; fail on early EOF, `StreamError`, or transport closure. In case D, wait for a deterministic server-side cancellation/detach signal or observable inactive/closed state before resuming; assert the rejection is due to the retired stream, not the still-attached guard. In case B, assert ordered sequence numbers and exact per-line occurrence counts on first delivery and replay, so loss and duplication are measurable.
+- **Testanforderung:** Re-run the four cases through `ServeLogStream` using the imported `NewHandshakePair` over the real test wire; retain the fake runtime only as the deterministic command source. Run `go test ./internal/connector/ -run 'TestServeLogStream' -count=1 -v` and report the literal results; ensure the new expiry, terminal-state, cancellation synchronization, and exact accounting assertions are exercised.
+- **Stop-Kriterium:** Stop and keep REJECT if any case passes on a premature EOF/session-close, if the expired cursor is not demonstrably older than retained history, if cancellation can pass while still attached, or if exact payload/sequence accounting does not distinguish loss from duplication. Do not merge until corrected evidence is reviewed on the exact new head and the required tests are green.
+
+## Verdict
+
+**REJECT** — the write-set, imported helper, no-skip condition, exact remote head, single-own-commit provenance, and hosted CI states check out. The four requested behavior proofs are incomplete/false-positive-prone as detailed above, and the independent local execution was blocked before compilation completed by the sandbox disk quota. No merge or card closure is authorized by this review.
