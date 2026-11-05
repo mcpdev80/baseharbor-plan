@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord-welle4 (Lane w168)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
 kanban_title: "Authority: target-scoped live-connection resolution without an application context"
 priority: high
@@ -20,19 +20,18 @@ resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md]
 ---
 
-- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/planned #view/ready #area/platform #kind/task
+- [ ] t-20261105-r27-connection-authority-boundary · Authority: target-scoped live-connection resolution without an application context #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle4 (Lane w168) · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/connection-client/blocker-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle4 (Lane w168)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 

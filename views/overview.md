@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
+| active | 14 |
 | review | 1 |
 | blocked | 1 |
-| ready | 6 |
+| ready | 5 |
 | queued | 26 |
 | waiting | 198 |
 | backlog | 7 |
@@ -36,6 +36,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261104-r27-private-integration-path](../tasks/t-20261104-r27-private-integration-path.md) | Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen | active | not set | coord-welle4 (w166, wartet auf sitz) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | coord-welle4 (Lane w159) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261105-r27-connection-authority-boundary](../tasks/t-20261105-r27-connection-authority-boundary.md) | Authority: target-scoped live-connection resolution without an application context | active | high | coord-welle4 (Lane w168) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
 
@@ -58,7 +59,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md) | Devices: renew and revoke one workstation independently | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md) | Registries: use configured enterprise endpoints and native credentials | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 | [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | — |
-| [t-20261105-r27-connection-authority-boundary](../tasks/t-20261105-r27-connection-authority-boundary.md) | Authority: target-scoped live-connection resolution without an application context | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 
