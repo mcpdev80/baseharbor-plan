@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 10 |
 | review | 4 |
 | blocked | 1 |
-| ready | 6 |
+| ready | 5 |
 | queued | 26 |
 | waiting | 198 |
 | backlog | 7 |
@@ -24,6 +24,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
+| [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md) | Access: manage scoped team profiles and owned assignments | active | normal | coord-welle4 (Lane w163) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-node-streams](../tasks/t-20261018-r27-node-streams.md) | Connector: bound log replay and terminal cancellation | active | normal | coord-welle4 (Lane w160) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22) |
 | [t-20261018-r27-protected-credentials](../tasks/t-20261018-r27-protected-credentials.md) | Credentials: retain and recover opted-in local credentials | active | normal | coord-welle4 (Lane w162) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
@@ -53,7 +54,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
-| [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md) | Access: manage scoped team profiles and owned assignments | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 | [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md) | Devices: renew and revoke one workstation independently | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md) | Registries: use configured enterprise endpoints and native credentials | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
