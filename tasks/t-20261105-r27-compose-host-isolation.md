@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (w183 gate-lane, wartet auf Sitz)
-kanban_status: active
-kanban_lane: active
+owner: Owner (VM-Konfig) + coord-welle4 (inhalt: kette #1383, kopf 3fcba08f6a5)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon"
 priority: high
@@ -15,23 +15,24 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1383]
 sources: []
-blocker: ""
+blocker: "VM baha-runner-docker-2: Docker-Standardpools 172.17-172.30 sind fuer gleichzeitigen Lane-Betrieb zu klein ('all predefined address pools fully subnetted', 12/12 Zellen, build+vet clean). Naechster Ausloeser: Owner setzt default-address-pools in /etc/docker/daemon.json auf 172.40.0.0/16 + Daemon-Neustart; danach faehrt eine Tor-Lane die 12 Zellen + Mutante."
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w183 gate-lane, wartet auf Sitz) · **Priority:** high  
+    **Owner:** Owner (VM-Konfig) + coord-welle4 (inhalt: kette \#1383, kopf 3fcba08f6a5) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Blocker:** VM baha-runner-docker-2: Docker-Standardpools 172.17-172.30 sind fuer gleichzeitigen Lane-Betrieb zu klein ('all predefined address pools fully subnetted', 12/12 Zellen, build+vet clean). Naechster Ausloeser: Owner setzt default-address-po…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (w183 gate-lane, wartet auf Sitz)  
+**Owner:** Owner (VM-Konfig) + coord-welle4 (inhalt: kette #1383, kopf 3fcba08f6a5)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -103,3 +104,9 @@ Kopf 3fcba08f6a5: bootstrap-scope dicht, develop integriert (ancestor JA), lauf 
 das gruen-ensemble UND die ueberschreibungsmutante liefen noch NIRGENDWO: host war erschöpft (befund in
 round-3.md), der gehostete lauf ueberspringt die runtime-gates bei test-only PR. Darum: eigene GATE-LANE
 mit VM-raumraeumung + vier zellen + mutante (mission fertig). Kein scheingruen.
+
+## Umgebungsblocker dokumentiert, inhalt untouched
+Kopf 3fcba08f6a5 bleibt pruefbar gebaut (hostete laeufe gruen); die zwei restlichen Zellen (verseuchtes
+ensemble + mutante) liegen an der VM-Pool-Erschöpfung, protokoliert in gate-vm-1.md (266 zeilen:
+prune/disconnect/freigabe-namentlich/down wörtlich + nachher-zeilen + inspect). Akte nachtraeglich von
+mir publiziert — lane war schon freigegeben, disk-check vor rm war LUECKENDICH; protokolliert.
