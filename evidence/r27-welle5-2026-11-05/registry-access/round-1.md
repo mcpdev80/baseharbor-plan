@@ -90,3 +90,8 @@ It is wired through the real application artifact-resolution lifecycle path so i
   Focused Python: pass, Source format: pass, Trusted Plan: pass, Workflow policy: pass
 - Docker/managed-runtime gates (Targeted HA · docker, Selected Runtime): skipping — no native registry
   runtime selected for this change (native registry smoke belongs on the named SSH runners, not this host)
+
+## Evidence committed (round-1.md on baseharbor-plan)
+
+- Commit: `ee3e0bc388912ec00531d89dc7c28df0aeb8fb01` (main), pushed
+- ls-tree witness: `100644 blob c1d6f1465ccb9d7581b71e7c296e43f020af2ebe  evidence/r27-welle5-2026-11-05/registry-access/round-1.md`
