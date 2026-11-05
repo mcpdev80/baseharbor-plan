@@ -100,3 +100,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   CLI-Pfad-Verbindung zu ConnectionSelection.Resolve.
 - w165-journal-r5.txt — Warteschlange (p2): sleep-Polling raus, kanal-ordnung, race-20, mutante.
 - w166-private-gate.txt — Warteschlange (p3, klein): PR #1379 ready machen + Selected Checks beobachten.
+- w167-profiles-r2.txt — Warteschlange (p1): access-profiles korrektur nach 1384a (zweite wahrheit -> eine).
+- w165-journal-r5.txt — Warteschlange (p2). w166-private-gate.txt — Warteschlange (p3).

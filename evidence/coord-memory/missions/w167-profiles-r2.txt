@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w167). Coord f49a3303. KARTE: t-20261018-r27-access-profiles (RUNDE 2).
+REPO baseharbor. ZWEIG: work/access-profiles (PR #1384, head 06479fe0) — DERSOLBE zweig/PR.
+AKTE: baseharbor-plan/evidence/r27-welle4-2026-11-05/access-profiles/review-1384a.md (VOLL lesen).
+
+BEFUND DER PRUEFUNG: 3 von 6 faellen durch, und der policy-assignment-adapter ist eine ZWEITE
+entscheidungs-autoritaet geworden: profil-aenderungen koennen read=>admin erweitern; revision- und
+tenant-pruefung fehlen; produktionspfad nicht verbunden.
+
+REZEPT (bindend, dateien der akte):
+ (1) ERWARTETE REVISION bei jeder aenderung verfuemmen, veraltete schreibvorgaenge ABWEISEN (kein
+     last-write-wins),
+ (2) profil-operationen an die BESTEHENDE akteur-/tenant-autoritaet binden (team-auth/managementaccess-
+     pfad — nicht neu erfinden; aufrufstelle mit datei:zeile in der evidence),
+ (3) profil-edition darf effektive rechte NICHT erweitern — der adapter VERMITTELT nur; wenn dafuer die
+     entscheidungslogik zurueck in den einen autoritaets-pfad muss: genau das tun, adapter duemm halten,
+ (4) widerrufene profile verweigern DURCH DENSELBEN adapter (test verlangt das wortlich),
+ (5) der echte CLI-/produktionspfad ist verbunden (kein test-only-pfad als beweisersatz).
+
+BELEG-STIL: alle sechs faelle positiv/_negativ mit wortlicher ausgabe; MUTANTEN-GEGENPROBE je kritik:
+ (a) aenderung ohne revision => muss rot werden, (b) profil-edition mit recht-aufstieg => rot, (c) fremder
+     tenant => rot, (d) widerruf via adapter => verweigert. Rote grundlinie auf develop 24c7d049+ benannt.
+PROVENIENZ+GATES: name-only (orgconfig+policy+verdrahtung+tests, KEINE maschinenhttp-/credential-/devaccess-
+dateien), log-zeile NUR eigene commits, ls-remote echt WORTLICH, ancestor rc=0 (develop-EINPFLEGEN wenn
+drift > 0 — dann merge, konflikt => STOP), go test ./internal/orgconfig ./internal/policy ./cmd/baha
+-count=1 + race-count=20 der neuen tests, build vet gofmt leer, gehostete laeufe TERMINAL inkl. selected-
+checks NICHT skipped. KEINE .github, KEIN AGENTS.md, KEINE subagenten, KEIN zweiter PR, scratch echter
+scheibe lane-pfad.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/access-profiles/round-2.md
+END an f49a3303: "END_DONE w167-profiles-r2: head=<sha10> faelle=<6/6> mutanten=<abcd rot belegt> autoritaet=<einziger pfad + datei:zeile> lauf=<id+status> lsremote=<sha10> | <Satz>"
