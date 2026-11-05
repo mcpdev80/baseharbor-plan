@@ -2019,3 +2019,6 @@ unveraendert; karte zurueck auf active.
 ## 16:0x FUENFTE UEBERNAHME: journal/#1373 -> Owner+ChatGPT (nur MARKIERT; karte blieb review, ihr kopf war
 von uns verifiziert pruefbar). Luna-1373g abbestellt, kanal auf streams-r4 (22d) umgeleitet. w176
 freigegeben NACH ls-tree-beweis round-4.md (reihenfolge haelt). Pool: laptop frei.
+
+## 16:2x 1373g war vor der abbestellung fertig (ACCEPT) — passt ins bild, akte bleibt als befund unserer
+seite stehen; übernahme-inhalt (merge/abschluss) liegt bei owner+chatgpt. Kanalkapazität jetzt bei 22d.
