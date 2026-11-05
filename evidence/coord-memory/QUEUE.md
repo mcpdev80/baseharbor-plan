@@ -104,3 +104,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w165-journal-r5.txt — Warteschlange (p2). w166-private-gate.txt — Warteschlange (p3).
 - w168-authority-boundary.txt — LAEUFT: ziel-stufige live-verbindung in der bestehenden grenze; naehert
   #1380 wieder an (warnung "connection-client active mit offener abhaengigkeit" ist gewollt und ehrlich).
+- w159-compose-iso.txt — GRUND-ERHALTEN: basis-drift + isolierungszelle unentschieden, lane klaert beide
+  punkte vor der prüfung (zustimmung fix = nachgewiesen, isolierung = evtl. nicht reproduzierbar).
