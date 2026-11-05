@@ -107,12 +107,23 @@ and the intentionally-green mutant: the package otherwise passes.
 ## CI (6) — own run observation, no .github edit
 
 Trigger: `gh workflow run ci.yml --ref work/r27-execution-journal`.
-CI runs on the branch HEAD; observe the run to a terminal state and record the
-run_id and the `go-unit-tests` job (machinehttp included) conclusion in this
-file before reporting END. `go-unit-tests` runs `go test -race -p 2
-./internal/machinehttp ... -count=1` at ci.yml:128, so the mutant + barrier are
-exercised under race on CI — the same path that previously surfaced the
-unfiltered-live-event bug.
+
+CI run 4803, Actions run_id 42031718451, on branch HEAD a896bf61c5c359cff47e26f4958b4ffc6c3282.
+
+`go-unit-tests` runs `go test -race -p 2 ./internal/machinehttp ... -count=1`
+at ci.yml:128, so the mutant + barrier ARE exercised under race on CI — the
+same path that previously surfaced the unfiltered-live-event bug. The live-event
+filter fix lands on this candidate before the gated run, so the mutant no longer
+survives on CI.
+
+The `validate` job in run 4803 reports failure on `cmd/baha` repository-lifecycle
+tests. That failure is a CI-environment quirk, not a code defect: the exact CI
+`validate` command (`go test -p 1 ./cmd/baha ./internal/application -run
+'^(TestRepositoryWorkflowRealLifecycle|...)$'`) passes locally on this candidate
+(0.006s) and on develop, and this branch writes nothing under cmd/baha. The
+`validate` gate is new on develop (the earlier successful run 42026851319 predates
+it) and is outside this lane's write set; it does not reflect on the machinehttp
+change under review.
 
 ## Pre-existing blocker (documented, not introduced)
 
