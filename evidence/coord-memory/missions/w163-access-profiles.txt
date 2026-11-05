@@ -1,0 +1,21 @@
+ROLLE: Worker (Lane wNNN). Coord f49a3303. KARTE: (siehe zeile unten, VOR dem coding VOLLSTAENDIG lesen
+per python3 scripts/plan.py show <id> + die kardatierten aktenpfade).
+ARBEITSVORLAGEN (bindend, identisch zu den已成功 liefen dieser schicht):
+- repo baseharbor, NEUER zweig work/<slug> von develop (fetch zuerst; ls-remote gegen die ECHTE adresse
+  https://github.com/mcpdev80/baseharbor.git, nie gegen den lokalen spiegel).
+- grundlinie-pflicht (§5.6): die neue regression muss auf dem ENTWEDER gemessenen develop ROT und auf
+  deinem kopf GRUEN sein — wuerf ausgabe + kranker commit-name in die evidence; wo nichts rot sein kann,
+  bringe die mutanten-gegenprobe (baustein abschalten => test muss rot werden).
+- write-set: NUR das feld der karte; KEINE .github, KEIN AGENTS.md/betriebs-text im produktrepo, KEINE
+  dateien der anderen offenen ketten (machinehttp ist in pruefung, application/manifest+placement ist
+  privater-betrieb #1379, credential/native ist gemergert) — unklare dateizugehoerigkeit: STOP+MELDEN.
+- probes: go test der betroffenen pakete -count=1 (mit scripts/pr-unit-database.sh), build, vet, gofmt -l
+  leer; gehostete laeifes deines kopfs bis TERMINAL (Eigenes-Run-Pflicht); name-only + log-zeile
+  (NUR eigene commits) + ls-remote==head WORTLICH.
+- grenzen: KEINE subagenten, KEIN zweiter PR, KEIN rerun als analyseersatz, scratch/GOCACHE/TMPDIR im
+  lane-pfad auf ECHTER scheibe (nie /tmp, nie oekosystem-wurzel), df -h /tmp bei schreibfehlern.
+- evidence unter baseharbor-plan/evidence/r27-welle4-2026-11-05/<slug>/round-1.md (keine markdown-checkboxen).
+END an f49a3303 im formular: "END_DONE wNNN-<slug>: head=<sha10> zelle=<rot/guen belegt> faelle=<liste ok> diff=<feld> lauf=<id+status> lsremote=<sha10> | <Satz>"
+
+DEINE KARTE: t-20261018-r27-access-profiles — slug access-profiles.
+Kern laut karte: skopierte team-profile und eigene zuweisungen VERWALTEN (anlegen/aendern/entzug) auf der bestehenden mitgliedschafts-autoritaet — kein zweiter berechtigungs-pfad.
