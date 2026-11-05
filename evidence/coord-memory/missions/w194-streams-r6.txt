@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w194). Coord 841e7734. KARTE: t-20261018-r27-node-streams (RUNDE 6).
+REPO: mcpdev80/baseharbor-node-connector. ZWEIG: work/r27-node-streams (PR #22, head 52db6dc1c64) — DERSOLBE.
+AKTE: review-22e.md (VOLL LESEN; rezept-punkt 1 von 2, urteil sonst gut).
+EINZIGER PUNKT: case A resumt erst NACH terminalem ende des follow-streams — der still-attached-guard hat
+keinen beweiskraftigen mutant. Baue case A um: follow-stream bleibt LIVE, resume erfolgt auf frischer mTLS-
+leitung VOR dem ende, exakte still-attached-ablehnung wird asserted, mit DETERMINISTISCHER barre (ereignis,
+kein timeout-schlaf). BEWEIS: guard-entfernt-MUTANTE => case A ROT (wörtlich, benannt), wie die drei andern.
+UEBRIGE punkte der mission (race-20 ensemble, laeufe, blobs) bleiben wie belegt; nichtsumbaen.
+GATES: develop-stand bei schnitt in akte, hosted laeufe TERMINAL am neuen kopf, ls-remote echt==head WORTLICH,
+name-only, KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, compose down vor END.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/node-streams/round-6.md
+END an 841e7734: "END_DONE w194-streams-r6: head=<sha10> caseA=<live+barre> guardmutante=<ROT benannt> ensemble=<race20 gruen> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
