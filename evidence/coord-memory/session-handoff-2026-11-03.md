@@ -2035,3 +2035,12 @@ Pruefkanal-schreibt NICHT MEHR in die plan-werkstatt (zwei fehlerklassen: quota,
 22d-akte vom coordinator transkribiert und als coordinator-recorded gekennZEICHNET (regel: urteil ohne
 datei = wertlos, beide faelle). Ursache traechtig: project-trust/writable-root des NEUEN codex-daemons
 pruefen (config.toml), sonst verliert die abnahme ihr schreibrecht und die aktenkette reisst ab.
+
+## 16:4x FALSCH-GRUEN KLASSE ERWEITERT: 'skipped != geschlagen' galt bei uns schon fuer einzelne zellen —
+jetzt der ORCHESTRATIONS-fall: test-only PRs koennen die runtime-gates strukturell nie fahren (ci.yml:256
+bindet validate an Nicht-PR, :913 braucht runtime-required-flag). Meine tor-erfuellt-bewertungen fur compose
+(42002171842 + 42022452393) waren damit gegenstandslos — korrektur auf der karte, VM/owner-pfad bleibt der
+einzige weg. Befund rueckwirkend: streams (connector-CI, andere workflow-logik) und flake (go-unit-tests
+fuhrt die tests REAL, nur die runtime-zellen fehlten) geprueft: kein zweiter fall dieser klasse gefunden.
+Welle-4 protokoll-regel: bei 'skipped' in selected-checks immer ZELLNAME gegen die betroffenen tests
+abgleichen — skip einer GATE-FAMILIE ist nur dann neutral, wenn kein akzeptanz-kriterium darin liegt.
