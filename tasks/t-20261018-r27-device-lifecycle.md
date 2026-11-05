@@ -114,3 +114,7 @@ akte round-3.md auf main. 1394b-punkt 5 geschlossen: echter restart (frischer pg
 bestand), serie nach restart == erneuert, gegenprobe unveraendert, race-20 db+ws gruen.
 
 ## ACCEPT 2026-11-06 (1394c): merge-MISION UNTERWEGS (Luna, SHA fee055bffc5b); karte bleibt review bis gemergter develop-beleg vorliegt.
+
+## Merge-BLOCK 2026-11-06 (1394): endlauf 42122669499 ROT am FREMDEN snapshot-flake
+(TestSourceSnapshotDetectsChangeDuringRead :224) — owner-praeczedenz: kein merge, warten auf den flake-fix
+(#1387 runde 6, laeuft zur abnahme). KEIN code-felder in dieser kette; retry nach flake-merge.
