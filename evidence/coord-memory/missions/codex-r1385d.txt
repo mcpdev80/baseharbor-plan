@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-protected-credentials.
+OBJEKT: PR #1385 head 0e2b4803736 (runde 4 nach deiner 1385c; rezept-punkt produktiv statt simulation JETZT
+mit echtem SetManagedCredentialIfAbsent in der race-zelle, -if-not-exists-mutante behauptet ROT einzellauf).
+PRUEFE SHA-genau: (1) race-zelle SELBST: zwei parallele same-path-anmeldungen, vorhandener wert gewinnt,
+zaehlung 1 Get 0 Set im konfliktpfad, (2) MUTANTE option-entfernt am PRODUKTIONSBEFEHL => ROT einzellauf
+(wörtlich; das war dein 1385c-blocker), (3) read-back/recovery-pfad unveraendert fail-closed (stichprobe),
+(4) develop-merge 77511c8a drin (ancestor rc=0; zustetz-drift a53c10a7 = NOTIZ, kein blocker), (5) blobs der
+uebrigen openbao-pfade, name-only, lauf 42043134426 terminal am kopf, ls-remote echt==head, AKTE AUF PLATTE
+(read-only-defekt der letzten runden: wenn dein schreibversuch scheitert, sofort 'AKTE BLOCKIERT' ins pane,
+END ohne datei zahl nicht). Akte -> evidence/r27-welle4-2026-11-05/protected-credentials/review-1385d.md.
+END pane: "END_DONE codex-r1385d: verdict=<X> race=<selbstsonde> mutante=<rot einzellauf belegt> blobs=<ruhig> akte=<pfad> | <Satz>"

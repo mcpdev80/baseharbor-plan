@@ -146,3 +146,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   1373g-abnahme abbestellt; journal-wiring-abhaengige bleiben warten.
 - JOURNAL GEMERGT (owner 16:1x, develop 77511c8a667, karte accepted). journal-wiring wartet nur noch auf
   mutation-lock (w184 laeuft). streams r5 besetzt (w185). credentials-nachlieferung laeuft (w181).
+- credentials r4 reviewable (1385d hinter 1387b in Luna-queue). connection-client LAEUFT (w186, ornith).

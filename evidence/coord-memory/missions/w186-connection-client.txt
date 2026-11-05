@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w186). Coord f49a3303. KARTE: t-20261018-r27-connection-client (RUNDE 1, frei seit
+#1386 gemergt ist, develop-stand a53c10a7872).
+ZWEIG: work/r27-connection-client (PR #1380, aktueller head f1f3551291) — DERSOLBE zweig/PR; der altstand
+war auf develop 24c7d0492f3 geschnitten. SCHRITT 0 VOR ALLEM ANDEREN: refspec-exakt fetchen, develop
+a53c10a7872 in den zweig mergen (ls-remote-attest beider shas in die akte), name-only-pruefung der
+log-line (keine fremden kandidaten obenauf), bei inhaltlichem KONFLIKT in coreinstallation/machinehttp:
+STOP+MELDEN (die grenz-logik ist frisch gemergt — nutze sie, baue nichts zweites).
+KARTE VOLL LESEN. ZIEL: verwaltungs-verbindung getrennt von der platzierungs-AUSWAHL; ausdrueckliche
+auswahl gewinnt deterministisch; bindet sicher, ohne anwendungszusammenhang die aussteller-naht zu ver-
+fehlen (die grenzkarte #1386 liefert den LESSENDEN resolver — consumer sei, erzeuge keine paralelle
+aufloesung). WRITE-SET: bounded management connection/client paket + cmd/baha/use_target.go halfern
+(no root rewrite laut karte).
+LIEFERPFLICHTEN:
+ (1) PRODUKTIONSRAUM: die echte CLI-auswahl-orbitur (use/target-pfad) faehrt die verbindung — zusammen-
+     stellungs-zelle, nicht helper-direct (dauerklausel).
+ (2) DETERMINISMUS-ZELLE: explizite auswahl gegen kontext-vermutung — immer ersteres, wörtlich belegt.
+ (3) TRENNUNG: platzierungs-target != verwaltungs-connection (zwei zustands-zeilen, keine vermischung);
+     use ohne anwendungs-kontext erreicht den aussteller NICHT (die 1386-grenze gilt, abhaengigkeits-punkt
+     der karte — verweise in der akte auf den gemergten resolver, blob der authority-dateien UNVERAENDERT).
+ (4) MUTANTEN: resolver-aufruf zurueck auf eigene verbindungsherstellung => grenz-zelle ROT; bindung
+     ohne prüfung => zelle ROT (wörtlich).
+ (5) RED-FIRST: die neuen zellen auf dem LOKALEN altstand (vor develop-merge) rot, dann gruen — beide
+     auszüge wörtlich.
+GATES: focused go tests + race-20 der auswahl-paare, build/vet/gofmt; hosted lauf terminal am NEUEN kopf
+(selected-checks nicht skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only, KEINE
+.github/AGENTS.md, KEINE subagenten, EIN PR (#1380). Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/connection-client/round-1.md
+END an f49a3303: "END_DONE w186-connection-client: head=<sha10> merge=<develop a53c10a7 drin, ancestor rc=0> trennung=<zelle> determinismus=<belegt> grenze=<resolver nur gelesen, blob unveraendert> mutanten=<rot wörtlich> lauf=<id+status> lsremote=<sha10> | <Satz>"
