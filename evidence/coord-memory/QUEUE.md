@@ -89,3 +89,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   abgebrochenem provider-wechsel). #1378c ACCEPT → merge befohlen; candidate-pack #1381 in pruefung.
 - w157-compose-baseline.txt — LAEUFT (laptop): Matrix develop-512 vs journal-52e fuer die vier Compose-
   tests + Panic-Wortlaut; Entscheidung Grundlage fuer #1373-runde-5 oder Vor-Bestand-Karte.
+- t-20261105-r27-compose-host-isolation — Hebelkarte (gemessen, cross-branch). Erste freie Bahn:
+  Gegenprobe mit absichtlich verseuchtem shared state + isolierte pro-test daemon-leitung.
