@@ -1791,3 +1791,9 @@ falschen zweig versucht? (unklar — ihr ls-remote-feld war LEER gelassen, das w
 stellung angeordnet: branch -f auf echtes main, cherry-pick 97d7fe7, push echte adresse, PR, laeufe.
 REGEL ERGANZT: ein END ohne ausgefülltes ls-remote-feld ist automatisch unveroeffentlicht-verdaechtig —
 coord-state prueft 'name-only + ferne koepfe', der leere beleg ist jetzt ein eigener FLAG-Grund.
+
+## 03:5x WAHRER KERN DER COMPOSE-ROTLEGE GEFUNDEN (lane w159 dialog): auf SAUBEREM daemon scheitern alle
+vier lifecycle-tests an der #1355-zustimmungs-schranke (--confirm-candidate fehlt in den fixtures) — nicht
+an isolierung allein, sondern ZWEI ursachen: shared-state-verseuchung UND test-fixture-verbatim-alt. das
+erklaert die ganze woche "nicht reproduzierbar/rot im runner". entscheidung option 1: beides im harness,
+schranke unangetastet (blob-beleg), zwei getrennte zellen-belege, product-gap => STOP+eigene karte.
