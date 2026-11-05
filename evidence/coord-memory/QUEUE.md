@@ -110,3 +110,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w171-streams-r3.txt — Warteschlange p1 (zwei mutantenluecken C/D). w169-compose-r2 p2, w170-credentials-r2 p3.
 - w171-streams-r3.txt — LAEUFT (ornith). w170-credentials-r2 — p1 Warteschlange. w169-compose-r2 laeuft.
 - w170-credentials-r2.txt — LAEUFT (ornith). w171 streams-r3 laeuft (laptop). Compose w169, Profile w167 laufen.
+- w172-boundary-r2.txt — p1 Warteschlange; w173-journal-r6.txt — p2. (beide missions-dateien fertig).

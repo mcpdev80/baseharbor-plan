@@ -1,0 +1,11 @@
+ROLLE: Worker (Lane w172). Coord f49a3303. KARTE: t-20261105-r27-connection-authority-boundary (RUNDE 2).
+ZWEIG: work/r27-connection-authority (PR #1386, head b730243cbe1) — DERSOLBE zweig/PR. AKTE: review-1386a.md.
+BEFUND: der resolver ERZEUGT bei der pruefung eine neue CA (EnsureLocalIssuer) statt fehlende autoritaet
+fail-closed zu behandeln. REZEPT: resolution strikt LESSEND — existierenden issuer beobachten, fehlend/
+unvollstaendig => benannter fehler; probes: verifizierte installation fehlt / fremder target (beibehalten)
+NEU fehlendes verzeichnis + leere issuer-datei; STOP-falle: ein erzeugtes material oder material bei
+fehlender/fremder autoritaet. Nur die zwei dateien der akte anfassen. Basis-attest (ls-remote develop SHA
+VOR schnitt/merge + ancestor rc=0), gates: selected-checks NICHT skipped (PR steht auf ready — falls draft,
+einmalig ready stellen und terminal beobachten), ls-remote==head WORTLICH, name-only, race-count=20 der
+proben. KEINE .github/subagenten/zweiter PR. Evidence: connection-authority/round-2.md
+END an f49a3303: "END_DONE w172-boundary-r2: head=<sha10> lesend=<kein EnsureLocalIssuer + 4 probes gruen> fehlgeburts-mutante=<rot> lauf=<id+status> lsremote=<sha10> | <Satz>"

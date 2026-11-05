@@ -1,0 +1,10 @@
+ROLLE: Worker (Lane w173). Coord f49a3303. KARTE: t-20261018-r27-execution-journal (RUNDE 6).
+ZWEIG: work/r27-execution-journal (PR #1373, head 2b997f3c19e) — DERSOLBE zweig/PR. AKTE: review-1373e.md.
+BEFUND: race-20 und Hintergrunde-Mutante BESTANDEN; aber time.Sleep bleibt in der synchronisation (ein
+helper/pfad wurde uebersehen — akte zeigt stelle). REZEPT: alle verbleibenden sleep/poll-stellen der
+betroffenen tests durch explizite kanal-/ereignis-synchronisation ersetzen, die GENAU den executor- oder
+journal-uebergang signalisiert; -race -count=20 neu; Mutante (Hintergrundausfuehrung) erneut — end-state-
+test MUSS rot. STOP: eine aussage haengt noch an zeit-schwelligem timing. Nur internal/machinehttp dateien.
+Basis-attest + gates (selected-checks nicht skipped; falls draft: ready + terminal beobachten) + ls-remote
+WORTLICH + name-only. KEINE .github/subagenten/zweiter PR. Evidence: execution-journal/round-6.md
+END an f49a3303: "END_DONE w173-journal-r6: head=<sha10> sleeps=<null im feld grep-beleg> race20=<gruen> mutante=<rot> lauf=<id+status> lsremote=<sha10> | <Satz>"
