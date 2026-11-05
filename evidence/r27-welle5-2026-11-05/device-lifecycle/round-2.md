@@ -64,9 +64,20 @@
   - internal/database integration tests fail at the BASEHARBOR_TEST_DATABASE_URL gate (no test Postgres available in this env) — pre-existing native integration tests, not caused by this change; CurrentSerial is covered by the build + the http renew-persist witness.
 - Not done: hosted CI run at the new SHA (needs the PR push), develop-merge (see below).
 
+## Hosted CI run (self-run, watched to terminal)
+
+- Run: **PR #1394 · CI run 4834** (workflow_run `42115737016`), head `70acac6b226f6a84d958f0c47c10353610ed6c4d`, event pull_request.
+- Overall: status=completed, conclusion=**success**.
+- Selected jobs (via `gh api .../runs/42115737016/jobs`): go-unit-tests=success, source-contracts=success, cli-build=success, authority-package-tests=success, go-vet=success, go-build=success, cli-vet=success, cli-guided-tests=success, Source format=success, Trusted Plan=success, Focused Python=success, PR Selected Checks=success. Skipped as expected for this PR state: Targeted HA (podman/docker), Release Source Preflight, Consumer Pins, Exact Candidate, Runner Interface, Public Contracts, Demo Pin, Selected Runtime.
+- Watch method: `gh run list --repo ... --branch work/r27-device-lifecycle` polled to `status=completed, conclusion=success` (run 4834 at head 70acac6b); job conclusions read from the workflow-run jobs endpoint.
+
 ## Status
 
-- Implementation complete and locally verified. Awaiting commit + push to work/r27-device-lifecycle, evidence to origin/main, and hosted terminal run at the new SHA.
+- COMPLETE and verified. Implementation committed on work/r27-device-lifecycle (70acac6b), pushed (remote head == 70acac6b via ls-remote), evidence on origin/main (b5a0f9b, ls-files witness), hosted CI success at new head.
+
+## Develop-merge / drift note
+
+- No develop-merge applied. The branch stays anchored to round-1 head a9c45f70 (confirmed ancestor of my commit 70acac6b); a fresh develop-merge would change the PR base and is only warranted if drift broke the candidate. Round 2's tests and production wiring are self-contained on the workstation-enrollment + contracts surface; CI is green at the un-merged head, so a merge was unnecessary. If the Owner requires a develop-merge before merge, that is a separate candidate-integration commit on this named branch with ancestor rc=0 and a fresh hosted terminal.
 
 ## Develop-merge / drift note
 
