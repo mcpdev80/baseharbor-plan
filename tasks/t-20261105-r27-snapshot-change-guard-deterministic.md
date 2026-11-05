@@ -87,3 +87,10 @@ Nachgemessen: ls-remote echt==head, develop Vorfahr, eigene commits, write-set =
 fail-fast mutante mit benanntem sentinel (0,007s statt 10min-hang), race-50 + quiet-20 gemeldet gruen,
 lauf 42026851319 terminal SUCCESS am exakten kopf, round-2.md auf main (ad9...). Die zeit-basierte
 gruen/rueckfall-klasse der karte ist damit behoben — entpoisoned alle PR-tore.
+
+## Kopf-Wechsel 2026-11-05 (17:4x): kandidat ist jetzt 27cf86c3396
+Die fertige Lane hatte ihre Runden-Akte versehentlich ALS COMMIT ins Produkt-Repo gelegt (92958471) und
+zusaetzlich einen zweiten PR #1389 auf demselben zweig geoeffnet — beide Regelbrueche von mir bereinigt:
+Doppel-PR geschlossen (nachweis: gleicher zweig), content-only-fehlablage VORWAERTS zurueckgenommen
+(revert 27cf86c3, loescht NUR .evidence/snapshot-flake/round-2.md; die akte liegt korrekt im plan-repo).
+Code-identitaet zu d5ff9bc7 bleibt, gate-lauf am neuen kopf laeuft. Abnahme 1387b gilt dem neuen kopf.
