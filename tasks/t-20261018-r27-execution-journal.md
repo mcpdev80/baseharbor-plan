@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w177)
+owner: coord-welle4 (Lane w177, korrektur-laeuft)
 kanban_status: active
 kanban_title: "Operations: persist execution identity and terminal outcomes"
 kanban_lane: active
@@ -27,7 +27,7 @@ evidence:
 
 - [ ] t-20261018-r27-execution-journal · Operations: persist execution identity and terminal outcomes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w177) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w177, korrektur-laeuft) · **Priority:** normal  
     **PR:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/execution-journal/slice-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1373), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0ce814d0)  
     <!-- /generated:card -->
@@ -38,7 +38,7 @@ evidence:
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
-**Owner:** coord-welle4 (Lane w177)  
+**Owner:** coord-welle4 (Lane w177, korrektur-laeuft)  
 **Priority:** normal  
 **PRs:** [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -178,3 +178,12 @@ vorgesehen). Develop ist seit schnitt auf 42bfcb1cb4 weitergelaufen — base-ref
 Race-20 und sleep-freiheit bestaetigt; aber eine einzelne end-state-aussage kann noch durchrutschen — die
 synchronisation wartet auf wiederholung, nicht auf das EREIGNIS terminal-commit. Runde 7: steuerbare
 barriere + einzellauf-rot-pflicht (3x wörtlich) + diesmal develop-42bfcb1cb4 in den zweig mergen.
+
+## End zurueckgewiesen 2026-11-05 (13:4x), drei plattenbefunde gegen MERGEFAEHIG
+1) Eigener hosted lauf 42025651234 am kopf 13e3e046a4e FEHLERHAFT genau am mutanten-test
+(execution_request_identity_test.go:482 'backgrounded mutant committed terminal state on 202 tail') —
+lokal 3x3 rot, auf dem laeufer ueberlebt: barriere haelt unter CI-bedingungen nicht. END-zeile zitierte
+ueberdies den lauf des FALSCHEN zweigs (flake-kur). 2) ancestor develop 42bfcb1cb4 gemessen NEIN.
+3) round-7.md am falschen ort (workers/evidence statt plan-repo). Korrektur befohlen: mutanten-zelle im
+CI-pfad mit race flags ausstatten oder nachweis warum sie dort nicht laeuft + develop-merge + terminaler
+neuer lauf + akte an rechten ort. Karte bleibt active.
