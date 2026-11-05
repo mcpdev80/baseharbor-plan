@@ -1815,3 +1815,11 @@ technisch CLEAN auf dem alten kopf. Recheck r1362e beauftragt als echten inhalt-
 erlaubnis in der log-zeile (begruuendet, kein mitnahme-befund) und drift-nur-listung. LERNZUSTAND FUER MICH:
 waehrend der owner-runde sind kopf-bewegungen von IHR normal — meine 'artfremder commit'-regel bekommt eine
 ausnahme-Klausel NUR fuer laeuende owner-runden, dokumentiert an der akte, nicht an der regel.
+
+## 05:3x Tick-demo-pass KOMPLETT abgearbeitet (8 aktionen): cursors 61, orphans 4 committet, 1362e=ACCEPT
+(merge-reif-vermerk fuer owner-runde, kein channel-merge), 1369d=REJECT GEGENSTANDSLOS (PR war 04:38 schon
+gemerged — akte sagt es selbst), worktrees geproont (13), develop=24c7d049. COMPOSE-LANE STOP-PUNKT auf geloest
+ohne neue karte: (A) frische runners eroeffnen die isolierungs-zelle selbst — nachweis am gehosteten lauf,
+(B) zustimmungs-fix bleibt ihr inhalt, (C) rootless-daemon-faehigkeit fuer UNSERE vm-hosts = mein VM-feld
+(slirp4netns provisionieren, keine product-aenderung). LEHRE: 'product gap' melden ist richtig — aber vor
+der karte erst pruefen, ob der grund im betriebs-modell (runner/VM) liegt, dann ist es keins.
