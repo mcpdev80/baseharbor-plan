@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w200). Coord 841e7734. KARTE: t-20261105-r27-snapshot-change-guard-deterministic (RUNDE 6).
+ZWEIG: work/r27-snapshot-flake (PR #1387, head 0298871895c1) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1387e.md VOLL LESEN (ein rezeptpunkt).
+PFLICHT: BEIDSEITIGE BARRE im late-mutation-test: writer meldet start (hat er schon) UND write-ACK
+(tatsächliche änderung bestaetigt, z.B. geschriebene bytes/identitaet bevor CaptureSource aus dem
+consumed-path-ereignis weiterlaufen KANN). NACHWEIS DER DISKRIMINIERUNG: endcheck-raus-mutante muss NUR
+bei echter dateiaenderung rot werden — fuere zusaetzlich die GEGENPROBE: ohne any mutation muss der test
+GRUEN bleiben AUCH mit mutante (控制zelle: gleicher testpfad, keine schreibaktion => gruen). Hook-raus
+bleibt wie belegt rot.
+PROBE in der akte: beide richtungen WÖRTLICH (mutante+mutable=rot, mutante+statisch=gruen).
+GATES: race-50 + quiet-20, develop-merge falls drift + ancestor rc=0, hosted TERMINAL am neuen kopf,
+ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main verifizieren (ls-tree beleg in die
+akte), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/snapshot-flake/round-6.md
+END an 841e7734: "END_DONE w200-snapshot-flake-r6: head=<sha10> barre=<beidseitig+ack> diskriminierung=<rot+gruen gegenprobe wörtlich> race50=<gruen> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
