@@ -1,0 +1,8 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-execution-journal.
+OBJEKT: PR #1373 head d691c3cd242 (runde 6 nach deiner 1373e; rezept: kanale statt sleep/poll — REMOTE
+time.Sleep in machinehttp ist jetzt null, ein eigener commit auf 2b997f3c19e). PRUEFE SHA-genau: (1) die
+betroffenen identity-/end-state-tests SELBST mit -race -count=20 fahren, (2) hintergrund-ausfuehrungs-
+MUTANTE erneut: end-state-test MUSS rot (war dein stop-kriterium), (3) kein schlaf/poll-timing mehr in
+irgendeiner aussage des feldes (grep + read), (4) lauf 41998165081 terminal am kopf, ls-remote echt==head,
+name-only. Akte -> evidence/r27-welle4-2026-11-05/execution-journal/review-1373f.md.
+END pane: "END_DONE codex-r1373f: verdict=<X> race20=<selbst gefahren gruen> mutante=<rot> sleeps=<null belegt> | <Satz>"

@@ -125,3 +125,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - ENTRIEGELT 2026-11-05: #1347 gemerged (develop 42bfcb1cb4). Fuenf abhaengige Welle-4-Karten geplant frei:
   app-binding, management-host, mutation-lock, stage-versions, state-recovery — Besetzung nach Kapazitaet,
   basis ist jetzt 42bfcb1cb4 fuer ALLE neuen schnitte (missionstexte beim naechsten dispatch anpassen).
+- w176-streams-r4.txt — LAEUFT (laptop). Journal r6 im pruefkanal (1373f). p: snapshot-flake, neue 5er-Welle.
