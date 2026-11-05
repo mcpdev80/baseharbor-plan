@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
+    **Needs:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
