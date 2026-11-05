@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w182, freigegeben)
-kanban_status: review
-kanban_lane: review
+owner: coord-welle4 (w187, wartet auf Sitz)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
 kanban_title: "Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI)"
 priority: high
@@ -20,18 +20,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md"]
 ---
 
-- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
+- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w182, freigegeben) · **Priority:** high  
+    **Owner:** coord-welle4 (w187, wartet auf Sitz) · **Priority:** high  
     **PR:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
-**Owner:** coord-welle4 (Lane w182, freigegeben)  
+**Owner:** coord-welle4 (w187, wartet auf Sitz)  
 **Priority:** high  
 **PRs:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
 **Source:** 
@@ -94,3 +94,11 @@ zusaetzlich einen zweiten PR #1389 auf demselben zweig geoeffnet — beide Regel
 Doppel-PR geschlossen (nachweis: gleicher zweig), content-only-fehlablage VORWAERTS zurueckgenommen
 (revert 27cf86c3, loescht NUR .evidence/snapshot-flake/round-2.md; die akte liegt korrekt im plan-repo).
 Code-identitaet zu d5ff9bc7 bleibt, gate-lauf am neuen kopf laeuft. Abnahme 1387b gilt dem neuen kopf.
+
+## Rueckruf 2026-11-05: der fixed guard ist auf GEHOSTETEM lauf ROT — nicht mehr per timing, per EIGENER schranke
+lauf 42050483534 am kopf 27cf86c3396 (docs-bereinigung, code=d5ff9bc): '--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (5.01s)'
+= die neue 5s-SENTINEL grenze laeuft auf, der hook wird auf dem CI-dateisystem/unter last NICHT FEUERBAR
+beobachtet (mtime-delta-beweis trift dort nicht ein). Lunas BLOCKED-urteil war richtig: die historischen
+belege zaehlen nicht gegen diesen realen ausfall. Runde 3: nachweis-BARRE statt mtime-hoffnung (dieselbe
+klasse wie tagebuch: ereignis-naht, die den wechsel BEWEIST — nicht 'mtime hat sich seit walk-start
+geaendert'), danach race50 + einzellauf-mutante + NEUER hosted lauf bis terminal.
