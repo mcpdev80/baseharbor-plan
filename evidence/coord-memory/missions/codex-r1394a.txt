@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-device-lifecycle.
+OBJEKT: PR #1394 head a9c45f7004d (Renew/Revoke/RenewAfterRevoked + LocalIssuer.SignCSR +
+contracts/workstationlifecycle/v1; envelope nach urteils-vorbild von #1373a). PRUEFE SHA-genau: (1)
+UNABHAENGIGKEITS-matrix SELBST (erneuerung geraet A laesst B/C unangetastet — zelle je richtung), (2)
+wideruf WIRKLICH wirkungslos: handlung nach revoke scheitert deterministisch (zelle + mutante: revoke-
+pruefung raus => ROT wörtlich), (3) wideruf->erneuerung = expliziter fehlerzustand (keine stille heilung),
+(4) zusammenbau durch ECHTEN lebenszyklus (nicht helper-direct), (5) enrollment-interna + authority blobs
+unveraendert (hashes gegen develop), (6) hosted 42104328912 terminal am kopf, ls-remote echt==head,
+name-only. Akte -> evidence/r27-welle5-2026-11-05/device-lifecycle/review-1394a.md (SCHREIBPFLICHT).
+END pane: "END_DONE codex-r1394a: verdict=<X> matrix=<selbst gruen> revoke=<deterministisch+mutante rot> heilung=<keine> blobs=<ruhig> akte=<pfad> | <Satz>"
