@@ -1923,3 +1923,6 @@ keine aktion unsererseits — falls owner einen bestimmten repo-namen nennt, sch
 
 ## 10:5x PROFILES ACCEPT (1384c, 50b99c4625e): dritter merge-reifer antrag der owner-runde (#1379, #1386,
 #1384). Korrekturbogen r1->r3: adapter-tot->produktion gefaltet, >=->!=, ghost-messung->refspec-exakt.
+
+## 10:5x OWNER-KLARSTELLUNG: der central-build-bot-paste war ein miss-tell — kein auftrag, kein objekt.
+Unsere messung (nicht uns, keine aktion) bleibt als doku stehen, thema ist erledigt.
