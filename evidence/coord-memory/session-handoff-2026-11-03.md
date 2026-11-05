@@ -1870,3 +1870,18 @@ END-Pflicht verlangt die wörtliche Zeile dass der Konflikt SICHTBAR innerhalb d
 ## 08:5x BOUNDARY ACCEPT (r1386b, head aa62518c6a6): merge-reif owner. Damit #1380abhaengigkeit nur noch
 nach merge-vollzug frei. Owner-Runden-Antrag aktuell: #1379 + #1386 (beide ACCEPT), Korrektur-Endspuren:
 #1384/#1385/#22/#1383/#1373r6/w175.
+
+## 09:0x BETRIEBSSTOERUNG BEHOBEN: workers/.models/{ornith,laptop}/opencode.json waren SPURLOS verschwunden
+(lanes laufen, aber jeder NEUE spawn haette hart fehler — spawn-lane prueft die datei). Wiederhergestellt
+aus RUNBOOK-Modell-IDs; identitaetspruef-pflicht nach spawn gilt weiter (pane zeigt exaktes modell). URSACHE
+unklar — akte: die model-dirs sind gleichzeitig spawn-working-dirs, dort sammelt sich scratch; ein cleanup
+dagegen hat vermutlich die datei mit weggeraeumt. MASSNAHME-HINWEIS fuer spaeter: spawn-dirs von
+lane-arbeitsverzeichnissen trennen (eigene carte blanche nur wenn owner will; bis dahin: nach JEDEM sweep
+beide dateien pruefen — coord-state-flag dafuer folgt).
+
+## 09:2x KONFLIKT-DOKUMENTATION (AGENTS.md vs RUNBOOK): die AGENTS-Tabelle (2026-11-04, pool=2+2+1
+codex-worker) ist UEBERHOLT durch dieRUNBOOK-Zeile 'ABEND 2026-11-04 (Owner-Direktive, Codex wieder als
+Worker ENTFERNT)'. Neuere ausdrueckliche Direktive gewinnt (AGENTS 1. Absatz Ende). Betrieb bleibt: 4
+Kanal-Sitze + Luna nur REVIEW/MERGE. Kein codex-worker-sitz, keine codex-heavy-missionen.
+## 09:2x BETRIEBSREP: coord-state.py hat jetzt MODELCFG-flag (model-pin-dateien in den spawn-dirs sind
+loesch-opfer von sweeps; fehlende datei = spawn-GATE, wiederholen falls verschwunden).
