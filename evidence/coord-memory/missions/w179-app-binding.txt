@@ -1,0 +1,25 @@
+ROLLE: Worker (Lane w179). Coord f49a3303. KARTE: t-20261018-r27-app-binding (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-app-binding -> PR, basis develop 42bfcb1cb4 (ls-remote-attest
+VOR schnitt in die akte + ancestor rc=0 auf deinen ersten commit).
+KARTE VOLL LESEN (plan.py show + Task-Note + epics/core-777 + decisions/2026-10-18-r27-native-delivery-and-stages.md).
+ZIEL ( Outcome ): Server vergibt die IDs; ein checkout kann AUSDRUECKLICH eine neue app erstellen ODER an
+eine erlaubte bestehende app ANGEBUNDEN werden. Zwei verschiedene checkout-homes gleichzeitig = zwei
+korrekte bindings ohne gegenseitige zerstoerung.
+WRITE-SET (Karte): cmd/baha/app_repository_identity.go, internal/application/identity_resolution.go,
+bounded registration binding unter internal/ — mehr nicht. SPERRKLAGE: interne dateien der laufen-den
+ketten NICHT anfassen: internal/machinehttp/** (Tagebuch laeuft), internal/devaccess+openbao (Credentials),
+internal/orgconfig+policy (Profile gemergt-ready) — beruehrung noetig => STOP+MELDEN.
+LIEFERPFLICHTEN:
+ (1) Produktionspfad-test (Dauerklausel): die echte CLI-/registrierungs-orbitur fahrt das binding, nicht
+     der helper direkt — zusammenstellungs-beleg in der akte.
+ (2) Zwei-frische-homes-zelle + gleichzeitige registrierung (parallellauf, race-count=20), bindings
+     unabhaengig, keine kreuzueberschreibung; id-vergabeServer-seitig belegt (client kann keine id setzen).
+ (3) attach-verweigerungen: fremde/nicht erlaubte app => benannter fehler fail-closed; mutanten: erlaubnis-
+     pruefung aus => ROT, server-id-ueberschreibbar => ROT (wörtliche zeilen).
+ (4) RED-FIRST: die neuen zellen auf UNVERAENDERTEM develop zuerst ROT (wörtliche ausgabe), dann gruen.
+GATES: focused go test + race-20, build/vet/gofmt; hosted lauf terminal am kopf (selected-checks nicht
+skipped, draft=>einmalig ready+beobachten), ls-remote echt==head WORTLICH, name-only (develop..HEAD nur
+eigene commits), KEINE .github/AGENTS.md, KEINE subagenten, EIN PR, scratch echter scheibe (t.TempDir,
+kein /tmp-dauerpfad).
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/app-binding/round-1.md
+END an f49a3303: "END_DONE w179-app-binding: head=<sha10> homes=<2/2 parallel> ids=<server-seitig belegt> verweigerungen=<mutanten 2/2 rot> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"

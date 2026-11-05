@@ -129,3 +129,6 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w177-journal-r7.txt — p1 (einzellauf-mutante + basis-42bfcb1cb4). snapshot-flake + 5er-welle dahinter.
 - w177-journal-r7.txt — LAEUFT (ornith). Profiles r3 im pruefkanal (1384c).
 - Compose r2 + Credentials r3 im pruefkanal (1383b verteilt, 1385c folgt). w178 snapshot-flake LAEUFT.
+- Welle-5 eroeffnet: app-binding LAEUFT (laptop), mutation-lock = p1 naechste (dependencies all closed),
+  stage-versions/state-recovery/management-host weiter gesperrt (planned vorginger: device-lifecycle,
+  journal-wiring, candidate-ingress, app-binding).
