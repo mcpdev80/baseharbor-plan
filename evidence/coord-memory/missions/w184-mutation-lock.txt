@@ -1,0 +1,25 @@
+ROLLE: CODEX-WORKER (Lane w184). Coord f49a3303. KARTE: t-20261018-r27-mutation-lock (RUNDE 1).
+Keine Selbstabnahme: dein kandidat geht an die GETRENNTE abnahme-sitzung (review-kanal), niemals an dich.
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-mutation-lock -> PR, basis develop 42bfcb1cb4 (ls-remote-attest
+VOR schnitt in die akte + ancestor rc=0 auf ersten commit).
+KARTE VOLL LESEN (plan.py show t-20261018-r27-mutation-lock + epics core-777 + release-plan; predecessor
+state-owner interfaces sind GEMERGT (42bfcb1cb4) — nutze nur die akzeptierten schnitte, keine eigenen
+neben-landschaften).
+ZIEL (Outcome): ALLE klienten verwenden den BESTEHENDEN besitzer-lock; anwendungs- UND provider-aenderungen
+sind an aktuelle FASSUNG + exakten kandidaten-ref gebunden; geteilte consumer konfligieren korrekt.
+WRITE-SET (karte): cmd/baha/application_lifecycle_lock.go, internal/coreinstallation/lifecycle_lock.go
+und die lock-implementierungen; dazu deren tests. Kein .github, keine AGENTS.md, KEINE subagenten (§4.8).
+LIEFERPFLICHTEN:
+ (1) ECHTER ZWEI-PROZESS-LOCKTEST: zwei separate prozesse (nicht goroutines) auf der echten dateisystem-
+     naht, wörtliche ausgabe; stale-revision- und stale-consent-abweisung je zelle; shared-consumer-konflikt.
+ (2) PRODUKTIONSPFAD (dauerklausel): der lock wirkt im echten anwendungs-lebenszyklus-pfad (up/apply/
+     destroy-orbitur), nicht nur in der helper-einheit — zusammenstellungs-zelle.
+ (3) CLIENT-VOLLSTAENDIGKEIT: zähle ALLE klienten der lock-naht (grep-beleg der aufrufstellen in der akte);
+     jeder klient ohne lock ist eine LUECKE die diese karte schliesst — liste vor/nach.
+ (4) MUTANTEN: lock-pruefung auskommentiert => die zwei-konflikt-zellen ROT (wörtlich); revision-bindung
+     aus => stale-zelle ROT.
+ (5) RED-FIRST: die neuen zellen auf unveraendertem develop ROT (wörtliche ausgabe) bevor sie gruen werden.
+GATES: focused go tests + race-count=20 der konflikt-paare, build/vet/gofmt; hosted lauf terminal am kopf
+(selected-checks nicht skipped; draft=>einmalig ready), ls-remote echt==head WORTLICH, name-only.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/mutation-lock/round-1.md
+END an f49a3303: "END_DONE w184-mutation-lock: head=<sha10> zweiprozess=<echt+wortlich> klienten=<liste vor/nach dicht> produktion=<zelle> mutanten=<rot> redfirst=<belegt> lauf=<id+status> lsremote=<sha10> | <Satz>"

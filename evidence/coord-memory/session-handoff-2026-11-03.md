@@ -1987,3 +1987,10 @@ muss beim END ihr projekt downfahren — bis jetzt war nur die arbeitsplatte ger
 aus dem haupt-checkout gehoben und publiziert — der disk-vor-rm-check war gefuehrt aber LUECKENDICH
 (ls-tree origin/main ja, lokale untracked datei NEIN — korpus in coord-state: 'verwaisste datei Zaehlung
 geht in den rm-pfad ein'). Owner-punkt: daemon.json default-address-pools auf docker-VM + restart.
+
+## 15:2x DIREKTIV-WECHSEL (AGENTS.md-diff, owner, 2026-11-05): 5. sitz = CODEX-WORKER (schweres; NIE
+selbstabnahme; abnahme bleibt bei der getrennten session). Erster besetzung: w184 (session 19ce128a,
+spawn --mode codex) auf mutation-lock (fertig frei: alle drei vorgaenger geschlossen). Meine
+14-UHR-notiz 'codex nur review/merge' ist damit UEBERHOLT — neuere direktive gewinnt; TICK-DUTIES p7 +
+pool-soll-text umgeschrieben. cfg-luecke: worker-laueuft mit globalem ~/.codex/config.toml (identitaet
+session-getrennt, modellgleich mit der abnahme-sitzung — Rollen-Trennung ausdrucklich ok laut AGENTS).
