@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w184c, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: All clients use the existing owner lock. Bind application and provider changes to current revision and exact consent;…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Lifecycle: reject concurrent or stale shared changes"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: 
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1390"]
 ---
 
-- [ ] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [x] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/state #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w184c, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1390](https://github.com/mcpdev80/baseharbor/pull/1390)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1390)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -82,3 +83,5 @@ Nachgemessen: ls-remote echt==head, gehosteter lauf terminal SUCCESS am kopf; zw
 dokumentiert (05bb5a25 → w184c).
 
 ## ACCEPT 2026-11-05 (1390a): merge-MISION UNTERWEGS (Luna, SHA c8c8810f017); karte bleibt review bis gemergter develop-beleg vorliegt.
+
+## Gemerged 2026-11-05 (CODEX-MERGE nach 1390a ACCEPT): develop 2301ad0f10, merge-zweig ab382be70d,\ngehosteter lauf 42070352204 terminal success am kopf, gh pr merge --merge ohne bypass. Abhängige\ndamit entriegelt (journal-wiring, management-host — nur NOTIZ).

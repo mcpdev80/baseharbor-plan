@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
 kanban_status: planned
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/remote #kind/task
+- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/planned #view/ready #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
