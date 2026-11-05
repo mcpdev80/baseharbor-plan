@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w174). Coord f49a3303. KARTE: t-20261018-r27-access-profiles (RUNDE 3).
+ZWEIG: work/access-profiles (PR #1384) — DERSOLBE zweig/PR. AKTE: review-1384b.md (VOLL lesen).
+ZWEI PUNKTE, beide nachweislich (6/6 faelle + mutanten waren OK, aber):
+ (1) PRODUKTIONSPFAD: der adapter liefert im echten zusammenbau KEINEN profilbeitrag — dieselbe Klasse wie
+     1380a: tests gruen, weg durch die echte CLI-/auth-orbitur ohne wirkung. Schliesse denbeitrag an den
+     echten pfad und zeige ihn dort (test der die echte zusammenstellung faehrt, nicht den adapter direkt).
+ (2) ZUKUNFTSREVISION: update akzeptiert eine abweichende ZUKUNFTSrevision — fassungspruefung muss
+     GLEICHHEIT verlangen: kleiner (veraltet) ODER groesser (zukunft) => abweis; genau gleich => erlaubt.
+     Gegenprobe: update mit revision+1 muss jetzt rot abweisen (vorher gruen durchgelassen = dokumentierter
+     mangel), revision unveraendert gruen, revision-1 rot — drei zellen, mutante (gleichheits-pruefung auf
+     >= gestellt) => zell zukunft wird rot.
+PROVENIENZ/GATES/BASIS-BELEG (develop-SHA VOR schnitt/merge in die akte, ancestor rc=0), selected-checks
+NICHT skipped (falls draft: einmalig ready + terminal beobachten), ls-remote echt WORTLICH, name-only im
+feld (orgconfig/policy + echte zusammenstellung), race-count=20 der neuen zellen. KEINE .github/AGENTS.md,
+KEINE subagenten, KEIN zweiter PR. Evidence: access-profiles/round-3.md
+END an f49a3303: "END_DONE w174-profiles-r3: head=<sha10> produktion=<beitrag im echten pfad belegt> revision=<3 zellen + mutante> lauf=<id+status> lsremote=<sha10> | <Satz>"

@@ -117,3 +117,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - SPERRVERMERK: #1347 state-owner komplett an Owner+ChatGPT (Direktive 08:0x). Keine Lane dieser Seite in
   internal/application state-owner-Pfade; Abhaengige (u.a. podman-recovery-bootstrap-cleanup,
   mutation-lock-Kette) erst nach deren bestaetigtem Abschluss.
+- w174-profiles-r3.txt — p1 Warteschlange (produktion-plus-zukunftsrevision); w173-journal-r6 p2.
