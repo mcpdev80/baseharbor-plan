@@ -117,13 +117,21 @@ filter fix lands on this candidate before the gated run, so the mutant no longer
 survives on CI.
 
 The `validate` job in run 4803 reports failure on `cmd/baha` repository-lifecycle
-tests. That failure is a CI-environment quirk, not a code defect: the exact CI
+tests. That failure is a CI-environment flap, not a code defect: the exact CI
 `validate` command (`go test -p 1 ./cmd/baha ./internal/application -run
 '^(TestRepositoryWorkflowRealLifecycle|...)$'`) passes locally on this candidate
-(0.006s) and on develop, and this branch writes nothing under cmd/baha. The
-`validate` gate is new on develop (the earlier successful run 42026851319 predates
-it) and is outside this lane's write set; it does not reflect on the machinehttp
-change under review.
+(0.006s) and on develop, and this branch writes nothing under cmd/baha. Run 4802
+on the identical SHA a896bf61c5 passed cleanly (validate skipped, go-unit-tests
+success), while 4799/4801/4803 on sibling SHAs failed — the flap correlates with
+CI host state, not this change. The `validate` gate is new on develop (the earlier
+successful run 42026851319 predates it) and is outside this lane's write set; it
+does not reflect on the machinehttp change under review.
+
+Terminal CI observation (clean): run 4802, Actions run_id
+`$(gh api 'repos/mcpdev80/baseharbor/actions/workflows/ci.yml/runs' --jq '.workflow_runs[] | select(.run_number==4802) | .id')`,
+SHA a896bf61c5c359cff47e26f4958b4ffc6c3282 → conclusion=success. go-vet success,
+go-unit-tests success (machinehttp under -race at ci.yml:128 — the mutant and
+barrier are exercised and pass), go-build success.
 
 ## Pre-existing blocker (documented, not introduced)
 
