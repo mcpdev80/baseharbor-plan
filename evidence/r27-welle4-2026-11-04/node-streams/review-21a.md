@@ -96,12 +96,16 @@ PASS
 ok   github.com/mcpdev80/baseharbor-node-connector/internal/connector 0.094s
 ```
 
+Red-first on the predecessor was also reproduced in a temporary detached worktree at base `346e5ae77ffa929e771ecf1b1322b78fb65bc165`: I copied only the candidate smoke test into that worktree and ran the same targeted command. It failed to compile with `testwire_smoke_test.go:28:23: undefined: targetaccess.NewHandshakePair` (exit 1). The temporary worktree was removed; the candidate and base source trees were not changed.
+
 ## Hosted checks
 
 Both runs are terminal-success on the exact head:
 
-- [CI · Node Connector Quality, run 41934807383](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807383): `completed/success`; PR check `Test · Vet · Build` passed.
-- [Connector Source Conformance, run 41934807440](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807440): `completed/success`; `source` passed. Two unrelated native matrix jobs were skipped by workflow selection; the required test/build/vet/source checks passed.
+- [CI · Node Connector Quality, run 41934807383](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807383): `completed/success`, GitHub Actions app `15368`; PR check `Test · Vet · Build` passed.
+- [Connector Source Conformance, run 41934807440](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807440): `completed/success`, GitHub Actions app `15368`; `source` passed. The two native matrix jobs were skipped by workflow selection; the required test/build/vet/source checks passed.
+
+Independent review provenance: reviewer was Codex in the dedicated `codex-r21a` review session; this work was not dispatched as a Horde task. Reviewed base, head and complete two-file diff are recorded above.
 
 ## Verdict
 
