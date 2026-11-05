@@ -1957,3 +1957,8 @@ hartes gate + 'hold idle-but-fresh' protokollzeile.采样 bleibt */2 (idle-kante
 
 ## 12:3x APP-BINDING ACCEPT im ERSTANLAUF (r1388a) — erste Welle-5-karte durch; vier merge-reif:
 #1379 #1384 #1386 #1388. (race-20-convergenz + 2 mutanten + echter CLI-pfad — die dauerklauseln wirken.)
+
+## 13:4x TAGEBUCH r7 END-REJECTION — dritte Faelle 'meldung gegen platte', NEUE unterklasse:
+lauf-id-fremdzitat (ende-zeile nannte den lauf eines anderen zweigs als eigenen beweis). Gegenprobe
+immer: gh run list --branch <eigener zweig>, nie die genannte id blind trauen. Host-versus-local-divergenz
+bei der mutanten-zelle ist der eigentliche fachRest.
