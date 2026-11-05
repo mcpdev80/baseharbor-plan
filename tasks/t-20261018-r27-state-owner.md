@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: high
-owner: coord-welle4 (lane w111)
+owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
 kanban_lane: blocked
 kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
 kanban_status: blocked
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/blocked #view/blocked #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (lane w111) · **Priority:** high  
+    **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
     **Blocker:** CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app\_edit\_apply\_test.go:1090, application\_service\_issuer.go:20 -\> internal/openbao/bootstrap.go, AdminCrede…  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle4 (lane w111)  
+**Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)  
 **Priority:** high  
 **PRs:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -170,3 +170,9 @@ Owner authorizes a **narrow product correction** of the App Edit / provider-reti
 - `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`: managed-service PKI scheitert am echten `openbao-admin`-Dienst (nicht gestartet). Die derzeitige test-only `openbao-admin.env` enthält ausdrücklich nur Platzhalter, die sich niemals am echten OpenBao anmelden können. Erforderlich ist ein **wirklich gestarteter und gebootstrappter OpenBao-Core** mit gültiger Manageridentität im isolierten Testaufbau; kein Mock, kein Skip und keine Abschwächung des produktiven PKI-Fail-Closed.
 - Weitere sieben regressierende Tests in `cmd/baha`: vier `TestW138*`-Lifecycle/Destory-Fälle und drei `TestStopRepositoryWorkload*`/`TestDestroyRepositoryWorkloadStop*`-Fälle. Konkreter Fehler: `ErrDeploymentOwnerMissing`, weil die neue produktive Storage-Seam eine Core-Installation verlangt, während diese lokalen Testfälle ohne Core-Installation angelegt werden. Vor einem Testfixture-Fix die **fachliche Local/Coreless-Semantik** prüfen: die Release-Grenze verspricht weiterhin lokale Nutzung ohne zwangsweise laufenden Core. Ein künstlich installierter Core in allen Local-Tests würde die Regression möglicherweise nur verdecken.
 - Nächster fachlicher Schritt: Local-Owner-Vertrag explizit abgrenzen (lokaler eigenständiger Zustand vs. managed Core-Target), mit negativen Fremd-Owner-Tests und realen lokalen Lifecycle-Gegenproben. Separat OpenBao-Integration auf GitHub-hosted Docker mit echter Bootstrap-Identität qualifizieren. Erst wenn alle gewählten CI-Checks auf dem exakten PR-Head erfolgreich sind, mergen.
+
+## Externe Übernahme — durch Coordinator nur markiert, nicht bearbeitet
+PR #1347 (Kopf 76d4df9ef2) inkl. Fixture-Frage (openbao-admin Umgebungsdatei) liegen bei Owner+ChatGPT:
+Implementierung, CI, Review, Merge und Planning-Abschluss. Keine Lane von dieser Seite aendert an den
+State-Owner-Dateien; abhaengige Karten bleiben bis zurueckgemeldetem Abschluss gesperrt. Bisheriger
+Blocker-Text bleibt als Historie stehen, seine Bearbeitung liegt jetzt bei der Uebernahme.

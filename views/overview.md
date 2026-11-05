@@ -48,7 +48,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md) | State: enforce installation-owned deployment storage | blocked | high | coord-welle4 (lane w111) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347) |
+| [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md) | State: enforce installation-owned deployment storage | blocked | high | Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347) |
 
 ## Ready to assign
 
