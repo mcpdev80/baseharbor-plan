@@ -1860,3 +1860,9 @@ besitzerfeld+notiz geändert wurde, nie inhalt/zweig.
 identische struktur. dauermassnahme: jeder missions-text fuer PRUEFBARE liefere enthaelt ab jetzt einen
 zusammenstellungs-test-auftrag (echter pfad, nicht helper-direct). ergaenzt: revisions-gleichheitsregel
 (zukunft != erlaubt) als Standard-praezisierung wo fassungen verglichen werden.
+
+## 08:4xCredentials-R2 REJECT (1385b): die Prüfinstanz fuhr die Wettlauf-SonDE SELBST und fand das
+Überschreiben eines konkurrierend angelegten Werts — die Lane-Meldung „vorhandener gewinnt" war auf einem
+Test aufgebaut, der vor dem Wiederherstellungsschritt abbrach. Lehre für alle künftigen Race-Aufträge:
+END-Pflicht verlangt die wörtliche Zeile dass der Konflikt SICHTBAR innerhalb des Tests erzeugt wurde
+(NICHT nur „Race gelaufen"). Mission r3 mit CAS-Seed + heilendem Testablauf + Mutantenzelle fertig.
