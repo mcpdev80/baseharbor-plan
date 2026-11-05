@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge — owner-runde). Coord f49a3303. KANAL: Luna.
+KARTE: t-20261018-r27-node-streams. OBJEKT: connector PR #22 head d934fa7c522 (drei eigene commits; zwei
+laeufe terminal success am kopf, ls-remote+ancestor von mir gemessen). VORGESCHICHTE: 22a REJECT (faelle
+unzureichend); runde 2 behauptet: A echte grenze+mutante, B geordnete folgen+exakte zaehlung, C frist+
+StreamEnd verlangt, D abbau-synchron (race fix), alle über importierten draht aus main.
+PRUEFE SHA-genau gegen 22a-rezept: jedes der vier faelle NACHFAHREN oder testbeleg wortlich; mutante je
+fall (behauptete abschaltung => muss rot); blob-pruefung dass KEIN produkt/trust-file geaendert ist und die
+zeremonie nicht kopiert wurde (nur import); write-set name-only; ls-remote echt==head; gates selected-
+checks nicht skipped. Akte -> evidence/r27-welle4-2026-11-05/node-streams/review-22b.md, ACCEPT=>vermerk
+owner-runde, REJECT=>rezept.
+END pane-zeile: "END_DONE codex-r22b: verdict=<X> faelle=<4/4> mutanten=<n/4 rot> blobs=<identisch> | <Satz>"
