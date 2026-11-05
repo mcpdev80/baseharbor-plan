@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (w184c, ornith; flash-einmal-Ausnahme verbraucht und zurueckgenommen)
+owner: coord-welle4 (w184c, laptop)
 kanban_lane: active
 kanban_summary: All clients use the existing owner lock. Bind application and provider changes to current revision and exact consent;…
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-mutation-lock · Lifecycle: reject concurrent or stale shared changes #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (w184c, ornith; flash-einmal-Ausnahme verbraucht und zurueckgenommen) · **Priority:** normal  
+    **Owner:** coord-welle4 (w184c, laptop) · **Priority:** normal  
     **PR:** [baseharbor#1390](https://github.com/mcpdev80/baseharbor/pull/1390)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
-**Owner:** coord-welle4 (w184c, ornith; flash-einmal-Ausnahme verbraucht und zurueckgenommen)  
+**Owner:** coord-welle4 (w184c, laptop)  
 **Priority:** normal  
 **PRs:** [baseharbor#1390](https://github.com/mcpdev80/baseharbor/pull/1390)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
