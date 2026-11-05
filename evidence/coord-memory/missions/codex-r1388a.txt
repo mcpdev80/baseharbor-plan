@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-app-binding.
+OBJEKT: PR #1388 head 4e4a23e89bd (runde 1; karte: server-vergebene IDs, neues app ODER angebundene
+erlaubte bestehende app, zwei homes parallel). PRUEFE SHA-genau: (1) zwei-frische-homes-zelle SELBST
+nachfahren + gleichzeitige registrierung race-20 (konvergenz, keine kreuzueberschreibung), (2) beide
+mutanten einzellauf: owner-name-check raus => ROT; atomarer-create/retry raus => ROT (wörtlich),
+(3) production-pfad: echte CLI-registrierungs-orbitur, nicht helper-direct (zusammenstellungs-test),
+(4) store.go-anderung = nur die bounded binding-naht (blob der uebrigen store-pfade), (5) name-only,
+ancestor develop 42bfcb1cb4, lauf 42020006887 terminal am kopf, ls-remote echt==head. Akte ->
+evidence/r27-welle5-2026-11-05/app-binding/review-1388a.md.
+END pane: "END_DONE codex-r1388a: verdict=<X> homes=<selbstonde 2/2> mutanten=<2/2 rot> zusammenbau=<echt> store=<dicht> | <Satz>"
