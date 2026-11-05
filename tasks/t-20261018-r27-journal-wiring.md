@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w196, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w202, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
-kanban_status: review
+kanban_status: active
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -22,20 +22,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md","https://github.com/mcpdev80/baseharbor/pull/1393","https://github.com/mcpdev80/baseharbor/actions/runs/42101103524"]
 ---
 
-- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
+- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w196, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle5 (w202, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1393), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/42101103524)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle5 (Lane w196, freigegeben)  
+**Owner:** coord-welle5 (w202, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -92,3 +92,7 @@ Rezept in review-1392a.md zeile 27ff. Scope/write-set waren gut.
 Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42116653735 TERMINAL SUCCESS am exakten kopf,
 akte round-2.md auf main (commits b5fb91a+c0119f4). 1392a-punkte alle gesetzt: echte handleExecute-naht mit
 kindprozess-SIGKILL, zweiprozess-ordnung, mutanten 2/2 ROT woertlich.
+
+## Rueckruf (1393a REJECT, zwei punkte): (1) die 'zwei prozesse' zelle laeuft SERIELL (wartet prozess1
+zu ende) statt gleichzeitig am selben persistenten journal; (2) mutante B editiert eine IN-MEMORY-slice statt
+echtem write-verlust. Produktionsnaht+crash+remote waren BESTAETIGT. Rezept ab zeile 'Change' in review-1393a.md.
