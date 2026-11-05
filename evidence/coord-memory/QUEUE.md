@@ -64,9 +64,9 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   (CI, Review, Merge, Planning-Abschluss). Kein Prüfkanal-Auftrag r19d mehr, keine Zeugnahme, keine
   Kartenschließung durch uns. Missionen codex-r19*.txt und w*-connector*.txt sind Makulatur.
 - cx10-base-refresh.txt — läuft auf dem Arbeitersitz (drei Äste auf develop e444ae11).
-- w146-enroll-r5.txt — LAEUFT auf sitz (ornith desktop).
+- ~~w146-enroll-r5.txt~~ — erledigt (lieferung gemessen, karte im fluss).
   Ruecknamedatei, AGENTS.md aus dem Antrag. Ausloeser: erster freier Sitz (ornith/laptop voll).
-- w147-journal-r4.txt — LAEUFT auf sitz (ornith laptop).
+- ~~w147-journal-r4.txt~~ — erledigt (lieferung gemessen, karte im fluss).
   sleep-freie Tests (Luna review-1373c REJECT, drei Rezepte). Auslöser: erster freier Sitz.
 - Basis-Refresh LAEUFT als w148 (alle drei Äste auf develop ea3fb38e).
   develop e444ae11 heben, Exakt-SHA-Reviews danach neu. Auslöser: zweiter freier Sitz.
