@@ -122,3 +122,6 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w175-credentials-r3.txt — LAEUFT. w173-journal-r6 — p1 Warteschlange. Boundary r2 im pruefkanal (1386b).
 - w173-journal-r6.txt — LAEUFT (laptop, von w171). Streams im pruefkanal (22c). p-Warteschlange: snapshot-flake.
 - w176-streams-r4.txt — p1 (A/B echter Pfad, D-Abbruch, execx-CLAERUNG, echter Smoke). snapshot-flake p2.
+- ENTRIEGELT 2026-11-05: #1347 gemerged (develop 42bfcb1cb4). Fuenf abhaengige Welle-4-Karten geplant frei:
+  app-binding, management-host, mutation-lock, stage-versions, state-recovery — Besetzung nach Kapazitaet,
+  basis ist jetzt 42bfcb1cb4 fuer ALLE neuen schnitte (missionstexte beim naechsten dispatch anpassen).

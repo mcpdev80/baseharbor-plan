@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: high
 owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
-kanban_lane: closed
+kanban_lane: accepted
 kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
-kanban_status: closed
+kanban_status: accepted
 kanban_title: "State: enforce installation-owned deployment storage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -17,17 +17,16 @@ prs: [mcpdev80/baseharbor#1347]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app_edit_apply_test.go:1090, application_service_issuer.go:20 -> internal/openbao/bootstrap.go, AdminCredentialsPath runtime/openbao-admin.env). Naechster Ausloeser: Fixtur-Ergaenzung von lane w111 schreibt runtime/openbao-admin.env test-only, dann neue Beobachtung."
-resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1347"]
+blocker: ""
+resolution: "PR #1347 merged to develop as 42bfcb1cb481c9e37ecd6ce30580e27829284113; exact-head PR CI 41991822834 passed."
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/41991822834", "https://github.com/mcpdev80/baseharbor/pull/1347"]
 ---
 
-- [x] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/state #kind/task
+- [x] t-20261018-r27-state-owner · State: enforce installation-owned deployment storage #task #release/v0-4-27 #status/accepted #view/accepted #area/state #kind/task
     <!-- generated:card -->
     **Owner:** Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive) · **Priority:** high  
     **PR:** [baseharbor#1347](https://github.com/mcpdev80/baseharbor/pull/1347)  
     **Blocker:** CI-Umgebung der Test-Fixtur: Fehlschlag ist von 'compose.yaml fehlt' auf 'OpenBao-Managerzugang nicht konfiguriert' weitergewandert (app\_edit\_apply\_test.go:1090, application\_service\_issuer.go:20 -\> internal/openbao/bootstrap.go, AdminCrede…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1347)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -178,8 +177,10 @@ Implementierung, CI, Review, Merge und Planning-Abschluss. Keine Lane von dieser
 State-Owner-Dateien; abhaengige Karten bleiben bis zurueckgemeldetem Abschluss gesperrt. Bisheriger
 Blocker-Text bleibt als Historie stehen, seine Bearbeitung liegt jetzt bei der Uebernahme.
 
-## Abschluss 2026-11-05 — gemerged laut Owner-Meldung, von mir nachgemessen
-Squash 42bfcb1cb4 auf develop ('fix: enforce state owner and complete app edit lifecycle', #1347);
-develop-ls-remote==42bfcb1cb4. Externe Uebernahme (Owner+ChatGPT fuehrten Implementierung, Abnahme und
-Merge); dieser Absatz dokumentiert nur den bestaetigten Abschluss und entriegelt die fuenf abhaengigen
-Karten (app-binding, management-host, mutation-lock, stage-versions, state-recovery — alle planned).
+
+## Abschluss 2026-11-05 – Owner/ChatGPT
+
+- PR [#1347](https://github.com/mcpdev80/baseharbor/pull/1347) merged into `develop`, squash commit `42bfcb1cb481c9e37ecd6ce30580e27829284113`.
+- Final source head `4a5f45e5bbe089e0baf50b9584f3d9c0b01b8df2` verified against [Actions #41991822834](https://github.com/mcpdev80/baseharbor/actions/runs/41991822834): completed / success, all selected jobs successful.
+- Verified real Core/OpenBao bootstrap and manager authentication, App Edit SQL provider resume, local never-delivered destroy with one-shot proof, explicit fail-closed foreign/retained owner cases; full CLI package and Go unit tests passed.
+- Former blocker resolved; no new CI policy or runtime bypass. Downstream dependencies may now use merged state-owner seam. No assertion here that post-merge receipt publication or release qualification has completed.

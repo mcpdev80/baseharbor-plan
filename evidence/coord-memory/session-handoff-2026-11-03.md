@@ -1885,3 +1885,10 @@ Worker ENTFERNT)'. Neuere ausdrueckliche Direktive gewinnt (AGENTS 1. Absatz End
 Kanal-Sitze + Luna nur REVIEW/MERGE. Kein codex-worker-sitz, keine codex-heavy-missionen.
 ## 09:2x BETRIEBSREP: coord-state.py hat jetzt MODELCFG-flag (model-pin-dateien in den spawn-dirs sind
 loesch-opfer von sweeps; fehlende datei = spawn-GATE, wiederholen falls verschwunden).
+
+## 09:4x DRITTE UEBERNAHME ABGESCHLOSSEN: #1347 state-owner gemerged (squash 42bfcb1cb4, ls-remote
+nachgemessen; merged um 08:13Z, Meldung des owners kam spaeter — doku-zeitversatz nur hier, kein befund).
+Karte closed/accepted mit PR-link; 5 abhaengige KARTEN planned-entriegelt. Develop-neuerkopf 42bfcb1cb4 =
+basis fuer alle KUENFTIGEN schnitte; laufende kandidaten behalten ihre provisorische basis bis zum
+merge-zweig der owner-runde (ein kandidat pro kette, kein scheit-auftrag fuer base-refresh allein).
+POOL-Konflikt gelöst nach neuerer Direktive: 4 Sitze + Luna (RUNBOOK ABEND-2026-11-04 schlägt AGENTS-Tabelle).
