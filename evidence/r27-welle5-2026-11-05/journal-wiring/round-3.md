@@ -34,7 +34,7 @@ The production `handleExecute` / crash-resume seam and `store.go` are untouched
 - Base ref cut from `develop`: `3d8fc207deabc2840bcfd888f46d2394cc5a7d36` (short `3d8fc207`)
 - `origin/develop` (3d8fc207) is an ancestor of HEAD (verified with `git merge-base --is-ancestor`); the exact merge-base of develop and the candidate is `3d8fc207`, i.e. the candidate develops directly on develop.
 - Remote witness BEFORE changes: `git ls-remote origin refs/heads/work/r27-journal-wiring` == `ecae5f0d877bd8ad76b83c6fe9cfe430ec416170` (== round-2 head, the current PR head).
-- Remote witness AFTER changes (push): `git ls-remote origin refs/heads/work/r27-journal-wiring` == `e1ea3c6f854c651c1eeb19cee1de5f3de571b55c` (verbatim, == new head).
+- Remote witness AFTER develop-merge (push): `git ls-remote origin refs/heads/work/r27-journal-wiring` == `67efc581614a8af89bd4245204604bc70e528c13` (verbatim, == new head after merge).
 
 ## Scope
 
@@ -65,21 +65,28 @@ The production `handleExecute` / crash-resume seam and `store.go` are untouched
 
 ## GATES
 
-- develop-merge: deferred (round 1 PR #1393 already open; merge/acceptance is a separate
-  Maintainer action — not performed here).
+- develop-merge: BLOCKED by coordinator — develop (flake-KUR) advanced to `a0441838`
+  and is no longer an ancestor of the branch; merge into `work/r27-journal-wiring` required.
+- develop-merge: DONE (coordinator directive). `git merge origin/develop` clean (no conflict
+  in journal/snapshot files). New head `b3f49d54` carries round-3 on top of the develop merge.
 - hosted run TERMINAL at the new head: DONE. Check-runs for head
-  `e1ea3c6f854c651c1eeb19cee1de5f3de571b55c` (PR #1393, `work/r27-journal-wiring`) are
-  terminal: 18 jobs, 0 failures, 0 timeouts. Selected jobs all `success`: PR Selected
-  Checks, PR · Focused Python, PR · Validation · go-build, PR · Validation · go-vet,
-  PR · Validation · go-unit-tests, PR · Trusted Plan, PR · Source format, PR · Workflow
-  policy. Docker/Podman runtime gates (Targeted HA · docker / podman) were `skipped`
-  (not enabled for this candidate) — a pass, not a failure. No .github edit or
-  workflow_dispatch was made; CI was picked up automatically by the push to the PR branch.
+  `67efc581614a8af89bd4245204604bc70e528c13` (PR #1393, `work/r27-journal-wiring`) are
+  terminal (per-job authoritative query): 17 jobs, 0 failures, 0 timeouts. Selected jobs
+  all `success`: PR Selected Checks, PR · Focused Python, PR · Validation · go-build,
+  PR · Validation · go-vet, PR · Validation · go-unit-tests (completed_at 2026-11-05T23:09:59Z),
+  PR · Trusted Plan, PR · Source format, PR · Workflow policy. Docker/Podman runtime gates
+  (Targeted HA · docker / podman) were `skipped` (not enabled for this candidate) — a pass,
+  not a failure. No .github edit or workflow_dispatch was made; CI was picked up automatically
+  by the push to the PR branch. CI run: 42126262700.
 - `git ls-remote origin refs/heads/work/r27-journal-wiring`:
   `e1ea3c6f854c651c1eeb19cee1de5f3de571b55c` (verbatim, after push) — == new head.
-- `git log --name-only develop..e1ea3c6f` lists ONLY my own commits on the branch
-  (round-1 `3fa46bc2` + round-2 `ecae5f0d` + round-3 `e1ea3c6f`); no foreign commit carried
-  on top.
+- `git ls-remote origin refs/heads/work/r27-journal-wiring`:
+  `67efc581614a8af89bd4245204604bc70e528c13` (verbatim, after push) — == new head.
+- `git log --name-only origin/develop..67efc581` lists ONLY my own commits on the branch
+  (round-1 `3fa46bc2` + round-2 `ecae5f0d` + round-3 `e1ea3c6f` + develop-merge `67efc581`);
+  no foreign commit carried on top (the merge brings only develop's flake-KUR snapshot files).
+- `git merge-base --is-ancestor origin/develop 67efc581` rc=0: develop (`a0441838`, the flake-KUR
+  merge) is an ancestor of the current head after the develop-merge.
 
 ## Regressions
 
@@ -98,8 +105,8 @@ The production `handleExecute` / crash-resume seam and `store.go` are untouched
 ## Provenance
 
 - Branch: `work/r27-journal-wiring` (PR #1393). Same branch/PR as round 1 — no second PR.
-- Round-3 commit: `e1ea3c6f854c651c1eeb19cee1de5f3de571b55c` on top of round-2 `ecae5f0d` on top of round-1 `3fa46bc2`.
-- `origin/develop` (`3d8fc207...`) is an ancestor of `e1ea3c6f` (verified with `git merge-base --is-ancestor`). No branch cut from another candidate.
+- Round-3 commit: `e1ea3c6f854c651c1eeb19cee1de5f3de571b55c` on top of round-2 `ecae5f0d` on top of round-1 `3fa46bc2`; develop-merge `67efc581614a8af89bd4245204604bc70e528c13` on top (carries develop `a0441838`, the flake-KUR merge).
+- `origin/develop` (`a0441838` after merge) is an ancestor of `67efc581` (verified with `git merge-base --is-ancestor` rc=0). No branch cut from another candidate.
 
 ## Evidence published to baseharbor-plan
 
@@ -108,9 +115,9 @@ The production `handleExecute` / crash-resume seam and `store.go` are untouched
   (`1 file changed`; no other lane's files touched).
 - origin/main tree witness:
   `git ls-tree origin/main evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md`
-  => `100644 blob 54a4c4db73d01de285a5d1099c9ab41b5a080860  evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md`
-- `git merge-base --is-ancestor HEAD origin/main` => YES (79e2ac6 is on origin/main).
+  => `100644 blob 620a7aaac82d930725d95b5234048d9d94d3faac  evidence/r27-welle5-2026-11-05/journal-wiring/round-3.md`
+- `git merge-base --is-ancestor HEAD origin/main` => YES (c1d05fa is on origin/main).
 
 ## END
 
-END_DONE w202-journal-wiring-r3: head=e1ea3c6f854c konkurrenz=beide kinder vor barrieren-freigabe gleichzeitig auf demselben persistenten journalpfad (p1.Wait() vor p2.Start entfernt) mutanteB=echt auf dateisystem/pfad (journal.jsonl ohne writer-B-zeile neu geschrieben + store neu geladen) gegenprobe gruen lauf=e1ea3c6f854c CI=18 jobs 0 failures go-build/vet/unit-tests success lsremote=e1ea3c6f854c651c1eeb19cee1de5f3de571b55c | round-3 fix verified green locally + -race -count=20 clean + hosted CI terminal-success, committed and pushed to work/r27-journal-wiring (same branch/PR #1393, no second PR), evidence published to origin/main; ready for CODEX acceptance + Maintainer merge (merge/acceptance not performed here).
+END_DONE w202-journal-wiring-r3: head=67efc581614a konkurrenz=beide kinder vor barrieren-freigabe gleichzeitig auf demselben persistenten journalpfad (p1.Wait() vor p2.Start entfernt) mutanteB=echt auf dateisystem/pfad (journal.jsonl ohne writer-B-zeile neu geschrieben + store neu geladen) gegenprobe gruen lauf=67efc581614a8 CI=17 jobs 0 failures go-build/vet/unit-tests success lsremote=67efc581614a8af89bd4245204604bc70e528c13 ancestor(origin/develop a0441838,67efc581)=rc0 | develop-merge (origin/develop a0441838 flake-KUR) clean, push, hosted CI terminal-success on new head; round-3 fix verified green locally + -race -count=20 clean, committed/pushed to work/r27-journal-wiring (same branch/PR #1393, no second PR), evidence published to origin/main; ready for CODEX acceptance + Maintainer merge (merge/acceptance not performed here).
