@@ -1,0 +1,27 @@
+ROLLE: Worker (Lane w159). Coord f49a3303. KARTE: t-20261105-r27-compose-host-isolation (RUNDE 1).
+REPO baseharbor. ZWEIG: work/r27-compose-isolation von develop (fetch zuerst, ls-remote echte adresse).
+KARTE VOLLSTAENDIG lesen — sie traegt die gemessene baseline-1.md matrix und die abgrenzung (was NICHT
+dein auftrag ist: workflow-/.github-dateien, der apply-panic-pfad, product-verhalten).
+
+KERN: die vier benannten lifecycle-/compose-pruefungen (TestRepositoryWorkflowRealLifecycle,
+TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI, TestRepositoryComposeWorkloadOnlyLifecycleInCI,
+TestRepositoryBuildWorkloadRebuildsSourceChangesInCI) duerfen NICHTS共享 mit einem fremden lebenden
+container-/core-zustand: JEDE pruefung braucht ihren EIGENEN isolierten zustands-raum (eigener
+daemon-socket/state-dir/container-name-raum — wie die tests heute schon benennen, lies ihren 'InCI'-schalter
+ZUERST und baue darauf, erfinde keinen zweiten pfad). FEHLENDE FaEHIGKEIT bleibt fail-closed mit
+NAMHAFTER meldung (skip-verbot gilt, karte db-skip-sites ist closed/accepted).
+
+PROZEDUR: (1) GEGENPROBE zuerst (§6.7): auf develop mit absichtlich verseuchtem shared zustand (eine
+fremde laufende instanz auf dem daemon) einen der vier tests fahren => rot, wortlich. DAS ist der kranke
+commit-beleg. (2) fix im test-harness (und nur dort): isolation, (3) neue gegenprobe: derselbe versuchte
+zustand + dein patch => der test bleibt GRUEN (isolation wirkt), (4) die vier tests auf develop-ohne
+verseuchung gruen (unveraenderte semantik!), (5) KEINE expectations schwaechen: zaehlungen/asserten
+wortlich vergleichen (diff gegen develop zeigt was du am test änderst; jede wegfallende aussage brauch
+einen ersatz-beleg).
+GRENZEN: KEINE .github, KEIN AGENTS.md, KEINE produkt-dateien (nur internal/…test-harness-dateien und
+tests), KEINE subagenten, KEIN zweiter PR, kein rerun als analyseersatz. PFLICHTPRUEFUNGEN: die vier tests
+-count=2 zweimal hintereinander (kein flattern), go build ./…, vet, gofmt -l leer; gehostete laeufe deines
+kopfs bis TERMINAL (lauf-id + die jobs mit den vier tests, status — Eigenes-Run-Pflicht).
+PROVENIENZ: name-only + log-zeile + ls-remote echt WORTLICH + ancestor rc=0.
+Evidence: baseharbor-plan/evidence/r27-welle4-2026-11-05/compose-host-isolation/round-1.md
+END an f49a3303: "END_DONE w159-compose-iso: head=<sha10> verseucht-develop=<rot> verseucht-head=<gruen> sauber-develop=<gruen vier> diff=<nur-harness> lauf=<id+status> lsremote=<sha10> | <Satz>"

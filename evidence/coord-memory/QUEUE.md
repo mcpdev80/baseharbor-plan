@@ -93,3 +93,4 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   Gegenprobe mit absichtlich verseuchtem shared state + isolierte pro-test daemon-leitung.
 - w156-destroy-r2.txt — ERLEDIGT: runde 2 head 3691173821 in pruefung (r1382b).
 - w158-destroy-r3.txt — ERLEDIGT: runde 3 head d1f4eada327, r1382c beauftragt (ACCEPT => merge).
+- w159-compose-isolation.txt — LAEUFT (desktop): Hebelkarte gegen Compose-Verseuchung, Gegenproben-pflicht.
