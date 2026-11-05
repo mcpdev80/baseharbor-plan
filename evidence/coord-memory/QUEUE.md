@@ -136,3 +136,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - w181-credentials-r4.txt — p1 (produktiver CAS-pfad + option-mutante). mutation-lock p2.
 - w182-snapshot-flake-r2.txt — p1 (fail-fast statt timeout-deadlock). w181-credentials-r4 p2, mutation-lock p3.
 - w182 LAEUFT (laptop). app-binding r1 im pruefkanal (1388a). naechste: w181-credentials-r4, mutation-lock.
+- w183-compose-gate.txt — p1 (VM-raeumen + vier-zellen + mutante; inhalt des PRs unveraendert). flake-r2/
+  journal r7/streams r4 laufen. credentials-r4 p2.

@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w183, GATE-LANE). Coord f49a3303. KARTE: t-20261105-r27-compose-host-isolation (RUNDE 3, GATE-ZELLE).
+ZWEIG: work/r27-compose-isolation (PR #1383, head 3fcba08f6a5) — KEIN neuer commit am inhalt, du FAHRST die
+offenen nachweise auf der DOCKER-TESTVM und schreibst NUR evidence. Owner-Freigabe liegt vor: die Docker-/
+Podman-VMs sind reine testumgebungen, container-raeume der VMs gehoeren aufgeraeumt wenn fremde reste
+blockieren (RUNBOOK 6.x), und docker/podman-gates werden als eigene lanes dispatched (3.8).
+SCHRITTE:
+ (1) IST-ZUSTAND WORTLICH: docker ps -a zahl + die baseharbor-bezogenen container namen/alter (das ist der
+     Betriebsbefund, den w180 meldete: ~47 container, /16 erschöpft), VOR jedem eingriff.
+ (2) AUERAEUMEN: BaseHarbor-fremde? NEIN — nur BaseHarbor-eigene reste toter lanes LOESCHEN (container +
+     volume + netz, die aus frueheren lane-laeufen stammen); pruefe vor jedem loeschschritt mit name-label;
+     systemfremde container bleiben unangetastet und werden nur notiert. ls/netz-status NACHHER ebenfalls
+     wörtlich. Subnetz-erschöpfung: wenn nach dem raeumen noch erschöpft: 'docker network prune' einmal,
+     zustand notieren; wenn weiter blockiert => STOP+MELDEN mit der fehlerzeile.
+ (3) VIER ZELLEN AUF DER VM am exakten head 3fcba08f6a5 (checkout im arbeitsverzeichnis der lane):
+     die vier InCI-lebenszyklus-tests ZWEIMAL aus sauberem zustand (gruen erwartet) + ZWEIMAL mit
+     FREMDBESITZENDEM core daneben (absichtlich hochgezogene isolierte test-instanz; gruen erwartet WEIL
+     scope-dicht, der fremd-core lebt danach noch — letztes mit port-/socket-zeile BELEGEN).
+ (4) MUTANTE: target-override/selector-zeile TEMPORAR auskommentiert im test-worktree (NIEMALS committen)
+     => exakt die betroffenen zellen werden ROT, wörtliche fehlerzeile; revert mit git diff --stat leer.
+ (5) EVIDENCE baseharbor-plan/evidence/r27-welle4-2026-11-05/compose-host-isolation/gate-vm-1.md: alle
+     befehle+auszuege, VM-name, uhrzeit, head-sha ls-remote-zeile. KEIN push an den zweig, KEIN .github,
+     KEINE subagenten.
+END an f49a3303: "END_DONE w183-compose-gate: head=3fcba08f6a5 ensemble=<2x sauber + 2x verseucht auf VM, ort+zeit> fremdcore=<lebt belegt> mutante=<rot, revert leer> raeumung=<vor/nach wörtlich> | <Satz>"
