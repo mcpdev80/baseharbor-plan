@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w201)
-kanban_lane: active
+owner: coord-welle5 (Lane w201, freigegeben)
+kanban_lane: review
 kanban_summary: "Revoke A without affecting B, apps or platform; bound stale sessions and active connections. Reconnect/renew require valid…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Devices: renew and revoke one workstation independently"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-device-lifecycle · Devices: renew and revoke one workstation independently #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-device-lifecycle · Devices: renew and revoke one workstation independently #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w201) · **Priority:** normal  
+    **Owner:** coord-welle5 (Lane w201, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1394](https://github.com/mcpdev80/baseharbor/pull/1394)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle5 (Lane w201)  
+**Owner:** coord-welle5 (Lane w201, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1394](https://github.com/mcpdev80/baseharbor/pull/1394)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -107,3 +107,8 @@ voll. Saebere vorbildliche korrektur.
 ## Rueckruf (1394b REJECT, EIN punkt): alle nahte/mutanten/blobs bestaetigt — nur die renew-
 SERIENNUMMER-PERSISTENZ NACH RESTART ist nicht bewiesen: der test liest ein in-memory-double, nicht den
 echten durable store nach einem restart. Rezept in review-1394b.md punkt 5.
+
+## Runde 3 pruefbar 2026-11-05 (kopf fee055bffc5b)
+Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42122669499 TERMINAL SUCCESS am exakten kopf,
+akte round-3.md auf main. 1394b-punkt 5 geschlossen: echter restart (frischer pgx-pool, gleicher daten-
+bestand), serie nach restart == erneuert, gegenprobe unveraendert, race-20 db+ws gruen.
