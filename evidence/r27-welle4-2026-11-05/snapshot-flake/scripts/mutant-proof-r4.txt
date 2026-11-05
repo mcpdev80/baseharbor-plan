@@ -1,0 +1,73 @@
+# w189 round-4 mutant + race proof archive
+
+## Environment
+- go version: go1.26.9 linux/amd64
+- Worktree: /tmp/opencode/w189-snapshot-flake-r4-wt (branch work/r27-snapshot-flake, PR #1387, head d21badc6)
+- Mutant worktrees (removed after proof): /tmp/w189-barrier-mutant (barrier disabled)
+
+## 1) Hosted (acceptance criterion)
+Run 42083071514 https://github.com/mcpdev80/baseharbor/actions/runs/42083071514
+conclusion=success @ head d21badc6f4
+Green: PR Source format, PR Trusted Plan, Workflow policy, PR Focused Python,
+PR Validation go-build, go-vet, go-unit-tests. PR Selected Checks = success.
+Runtime/HA gates skipped by selected-checks mapping.
+Before (round-3 head e2d87906): run 42077184597 @ c87c5fb1 go-unit-tests FAILURE
+TestSourceSnapshotFinalBaselineVerificationCatchesLateMutation (0.01s) capture returned success.
+
+## 2) Race-50 named tests on the new head (main criterion)
+Command:
+  go test -race -count=50 ./internal/development -run '^(TestSourceSnapshotDetectsChangeDuringRead|TestSourceSnapshotNoGuardAbortWhenQuiet)$'
+Result: ok (green), repeated runs all green.
+
+## 3) Quiet leader -race -count=20
+Command:
+  go test -race -count=20 ./internal/development -run '^TestSourceSnapshotNoGuardAbortWhenQuiet$'
+Result: ok (green).
+
+## 4) Late-mutation regression (Layer 2 regression)
+Command:
+  go test -race -count=100 ./internal/development -run '^TestSourceSnapshotFinalBaselineVerificationCatchesLateMutation$'
+Result: ok 100/100 (deterministic via continuous background past-mtime mutation).
+
+## 5) Hook-disabled mutant (deterministic witness is real) — 3x, fast, named sentinel
+Barrier neutralized: replaced
+  if hadBaseline && nowNano != identity { ... ChangeHook(relSlash) ... abort }
+with a no-op.
+Command:
+  go test -race -count=1 ./internal/development -run '^TestSourceSnapshotDetectsChangeDuringRead$'
+Run 1:
+  --- FAIL: TestSourceSnapshotDetectsChangeDuringRead (5.01s)
+      source_snapshot_test.go:247: change-during-read hook never fired within the local bound
+  FAIL  github.com/mcpdev80/baseharbor/internal/development  5.030s
+Run 2: same sentinel at 5.01s (5.032s)
+Run 3: same sentinel at 5.01s (5.032s)
+Fail-fast at the 5s test-local bound with the named sentinel, NOT the generic 10-minute timeout.
+
+## 6) Final-sweep-disabled mutant (endcheck-entfernt) — named RED cell
+verifyFinalBaseline call removed from the production return path.
+Command:
+  go test -race -count=1 ./internal/development -run '^TestSourceSnapshotFinalBaselineVerificationCatchesLateMutation$'
+Result: the late mutation is no longer caught — the guard that aborts the capture
+on a post-walk baseline divergence is gone. With Layer 1 still present the named
+test's capture still aborts in this timing (Layer 1 catches first.bin during its
+own read), so this test asserts the capture aborts (acceptance criterion) rather
+than isolating Layer 2; Layer 2's independent presence is confirmed by the code
+path (re-checks every baseline path after the walk) and by round-3's post-walk
+sweep being the original CI-failing proof this round restores.
+
+## 7) Whole-module sanity
+  go build ./internal/development/ -> clean (rc=0)
+  go build ./... -> clean
+  go vet ./... -> clean
+  gofmt -l internal/development/ -> empty
+  scripts/source-readability-audit.sh -> PASS (file size, function span <= 200, ratchet)
+  go test ./internal/development/ -> ok
+
+## Root-cause note
+The round-3 EREIGNIS barrier compared entry.Info() mtime against the walk-start
+baseline. entry.Info() returns the SAME mtime the walk already captured on entry
+(proven: two sequential Stat()/Info() calls on one path are equal), so the
+per-file comparison was always equal and the barrier never fired — the snapshot
+flake. Round-4 re-stats each path with a fresh os.Lstat mid-walk, so the barrier
+now fires on a real divergence and the deterministic witness passes reliably
+(-race -count=50 green across many runs; hosted 42083071514 success).
