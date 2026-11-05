@@ -1,0 +1,9 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert). Coord 841e7734. KARTE/PR: t-20261105-r27-snapshot-change-guard-
+deterministic / mcpdev80/baseharbor#1387, akzeptierter kopf d0e0bdc6e84 (urteil review-1387f.md ACCEPT).
+STUFEN: ls-remote head==d0e0bdc6e84 (sonst STOP), develop konfliktfrei einmerge (konflikt => STOP+MELDEN),
+push, hosted-lauf TERMINAL GRUEN (diesmal WAHRSCHEINLICH SELBSTDER HEILENDE flake — wenn go-unit-tests GRUEN
+am neuen kopf: merge; wenn derselbe fall wieder rot: END_BLOCKED, PRAEZEDENZ), dann gh pr merge --merge.
+Danach SOFORT-CHAIN (owner-autorisiert, gleiche session): retry mission codex-merge-1394.txt (geraete-
+kette) — ihr block war genau dieser flake; develop-merge in den 1394-zweig, terminal lauf, merge. Beide
+belege (develop-sha je merge) ins pane. Karten schliesst der coordinator.
+END pane: "END_DONE codex-merge-1387+1394: flake-merge=<sha10> geraete-merge=<sha10> develop=<sha10> | <Satz>"
