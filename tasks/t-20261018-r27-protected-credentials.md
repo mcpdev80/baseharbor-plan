@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w175)
+owner: coord-welle4 (Lane w175, freigegeben)
 kanban_lane: review
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
 kanban_status: review
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
 
 - [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w175) · **Priority:** normal  
+    **Owner:** coord-welle4 (Lane w175, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Lane w175)  
+**Owner:** coord-welle4 (Lane w175, freigegeben)  
 **Priority:** normal  
 **PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -92,3 +92,11 @@ ablauf heilt nachweislich bis zum Schritt durch, CAS-Mutante macht die Konfliktz
 Round 3: create-only CAS seed (SetManagedCredentialIfAbsent, -if-not-exists) over existing OpenBao authority; existing managed value wins (1 Get 0 overwrite Set on conflict); race test fixed (initial Get NOT-FOUND, concurrent injected between Exists and seed, seed no-ops winner wins) + mutant RED cell. PR #1385 head b3c3c1c1; hosted CI #4790 success.
 
 Round 3: create-only CAS seed (SetManagedCredentialIfAbsent, -if-not-exists) over existing OpenBao authority; existing managed value wins (1 Get 0 overwrite Set on conflict); race test fixed (initial Get NOT-FOUND, concurrent injected between Exists and seed, seed no-ops winner wins) + mutant RED cell. PR #1385 head b3c3c1c1; hosted CI #4790 success.
+
+## Runde 3 pruefbar 2026-11-05 (kopf b3c3c1c1405)
+Nachgemessen: ls-remote echt==head, drei ketten-commits eigene, lauf 41998291745 terminal SUCCESS am
+exakten kopf, round-3.md auf main. Rezept 1385b erfuellet: create-only CAS-Saat ueber bestehende
+Ablage-Autoritaet, vorhandener Wert gewinnt (ein Get, null Set),竞 race-test laeuft jetzt BIS zum
+Wiederherstellungsschritt (vorher vorzeitig endend — jetzt belegt), CAS-Mutante rot. operator_auth.go
+begruendet in der akte (Sentiment-Heimat fuer beide aufrufer) — blob-probe obliegt der pruefung.
+Basis 24c7d0492f3, develop-merge dem merge-zweig.
