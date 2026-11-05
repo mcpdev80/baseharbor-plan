@@ -25,7 +25,6 @@ evidence: []
 - [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w153) · **Priority:** normal  
-    **Needs:** [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

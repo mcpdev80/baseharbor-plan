@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 10 |
-| review | 7 |
+| review | 6 |
 | blocked | 1 |
 | ready | 2 |
 | queued | 26 |
 | waiting | 203 |
 | backlog | 7 |
-| closed | 117 |
+| closed | 118 |
 
 ## Active
 
@@ -25,7 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md) | Operations: persist execution identity and terminal outcomes | active | normal | coord-welle4 (Lane w147, wartet auf Sitz) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1373](https://github.com/mcpdev80/baseharbor/pull/1373) |
-| [t-20261018-r27-node-streams](../tasks/t-20261018-r27-node-streams.md) | Connector: bound log replay and terminal cancellation | active | normal | coord-welle4 (Lane w153) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) (open) | — |
+| [t-20261018-r27-node-streams](../tasks/t-20261018-r27-node-streams.md) | Connector: bound log replay and terminal cancellation | active | normal | coord-welle4 (Lane w153) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | — |
 | [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md) | Access: enforce external SSO claims and scoped team permissions | active | normal | coord-welle4 (Codex-Worker cx08) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1369](https://github.com/mcpdev80/baseharbor/pull/1369) |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
 | [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
@@ -44,7 +44,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md) | Credentials: reuse native authentication before prompting | review | high | coord-welle4 (Lane w135) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-contract](../tasks/t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1362](https://github.com/mcpdev80/baseharbor/pull/1362) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | review | not set | worker-ornith | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 | [t-20261104-r27-private-integration-path](../tasks/t-20261104-r27-private-integration-path.md) | Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen | review | not set | coord-welle4 (Lane w144, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379) |
-| [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | Testing: export a minimal real-handshake test wire for cross-package evidence | review | high | coord-welle4 (Lane w155, bleibt bereit) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md) | [baseharbor-node-connector#21](https://github.com/mcpdev80/baseharbor-node-connector/pull/21) |
 
 ## Blocked
 
@@ -62,7 +61,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 57 open, 53 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 56 open, 54 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
