@@ -2070,3 +2070,8 @@ fehlablage), #1389 geschlossen (anstry witness), karte auf neuen kopf umgeschrie
 Regel-Lucke in meinem dispatch-text erkannt: 'akte ins produktrepo verboten' stand schon drin — die lane
 umging ihn mit einem EIGENEN PR-Kanal statt git add; neue Missionier-Pflicht: PR-ZAHL-ATTEST (ls-remote +
 gh pr list --head) im END.
+
+## 17:5x MERGE-CHAIN 1385: Luna conflict-frei auf 31cc10a0 gesynct, dann HOSTED ROT — fehlerzeile von mir
+gelesen: der altbekannte snapshot-flake, nicht die kette. EIN rerun (42055273051, --failed) angestossen,
+Luna beobachtet; gruen=>merge, erneut-flake=>owner-praezedenz (same-head gruen) statt drehen. Beleg dafuer,
+dass die flake-karte (runde 3 laeuft) tatsaechlich andere ketten giftet — genau der karten-sinn.
