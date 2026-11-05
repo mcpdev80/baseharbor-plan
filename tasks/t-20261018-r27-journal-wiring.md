@@ -103,3 +103,5 @@ Basis: enthaelt develop a0441838de (flake-kur drin), die 6 develop-schritte DER 
 (geraete-kette) noch nicht — praeszedenz 1394: basisabgleich ist STUFE der merge-mission, konflikt in
 machinehttp-/journal-dateien => STOP+MELDEN. 1393a-punkte beide geschlossen: echte gleichzeitigkeit (barriere)
 + mutante B auf echtem pfad, gegenprobe gruen.
+
+## ACCEPT 2026-11-06 (1393b): merge-MISION UNTERWEGS (SHA 67efc581614a); schliesst bei develop-beleg.
