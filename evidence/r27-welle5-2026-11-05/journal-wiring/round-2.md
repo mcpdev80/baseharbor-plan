@@ -97,3 +97,14 @@ verifies the changed risks.
 ## END
 
 END_DONE w196-journal-wiring-r2: head=ecae5f0d877b crash=real handleExecute seam + child SIGKILL mid-Apply ordering=two concurrent child processes on same on-disk journal mutants=2/2 RED verbatim run=42116653735 TERMINAL success lsremote=ecae5f0d877bd8ad76b83c6fe9cfe430ec416170 | round-2 rewrite verified green locally, committed and pushed to work/r27-journal-wiring, hosted CI (go-unit-tests/build/vet) terminal-success at new head; ready for CODEX acceptance + Maintainer merge (merge/acceptance not performed here).
+
+## Evidence published to baseharbor-plan (2026-11-05, round-2 final step per coordinator)
+
+- File committed and pushed to baseharbor-plan `main`:
+  `git commit b5fb91a — evidence(r27 journal-wiring): commit round-2 acceptance file`
+  (`1 file changed, 99 insertions`; no other lane's files touched).
+- origin/main tree witness:
+  `git ls-tree origin/main evidence/r27-welle5-2026-11-05/journal-wiring/round-2.md`
+  => `100644 blob 4d2f9d2b3db7d64adb51ab4a9ad434dc5d8325c3  evidence/r27-welle5-2026-11-05/journal-wiring/round-2.md`
+- `git merge-base --is-ancestor HEAD origin/main` => YES (b5fb91a is on origin/main).
+- No product code, no PR, no second commit needed.
