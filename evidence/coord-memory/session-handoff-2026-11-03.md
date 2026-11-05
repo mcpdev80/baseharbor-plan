@@ -2022,3 +2022,8 @@ freigegeben NACH ls-tree-beweis round-4.md (reihenfolge haelt). Pool: laptop fre
 
 ## 16:2x 1373g war vor der abbestellung fertig (ACCEPT) — passt ins bild, akte bleibt als befund unserer
 seite stehen; übernahme-inhalt (merge/abschluss) liegt bei owner+chatgpt. Kanalkapazität jetzt bei 22d.
+
+## 16:25 genau hinsehen: EAR-echo zeigte verdict, aber ls-tree zeigt KEINE review-1373g.md — die abbestellung
+traf ein, bevor die datei geschrieben war. Regel 'END ohne datei = wertlos' gilt auch fuer uns: karte
+korrigiert, urteil nur als pane-beleg notiert. Wenn owner-seite ein schriftliches urteil will: mission
+1373g neu fahren (read-only, 15 minuten lane-zeit) — sag kurz, sonst laesst es uns so stehen.
