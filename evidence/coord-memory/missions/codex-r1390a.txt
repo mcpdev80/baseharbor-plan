@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261018-r27-mutation-lock.
+OBJEKT: PR #1390 head c8c8810f017 (kette: flash-rest 05bb5a25 + w184c-arbeit; zweiprozess-owner-lock,
+stale-revision/stale-consent-abweisung, shared-consumer-konflikt). PRUEFE SHA-genau: (1) ZWEI-PROZESS-test
+SELBST nachfahren (echte prozesse, echte dateisystem-naht; wörtliche ausgabe), (2) klienten-inventar der
+lock-naht SELBST zaehlen (grep alle aufrufstellen; 21 behauptet — jeder klient ohne lock = RECEPT-PUNKT),
+(3) beide mutanten einzellauf rot (lock-pruefung aus / revision-bindung aus), (4) PRODUKTIONSPFAD-zelle
+(echter up/apply-pfad mit lock, nicht helper), (5) hosted lauf terminal am kopf, name-only, ls-remote
+echt==head. Akte -> evidence/r27-welle5-2026-11-05/mutation-lock/review-1390a.md (schreibpflicht).
+END pane: "END_DONE codex-r1390a: verdict=<X> zweiprozess=<selbst> klienten=<nachgezaehlt> mutanten=<2/2 rot> produktion=<echt> akte=<pfad> | <Satz>"

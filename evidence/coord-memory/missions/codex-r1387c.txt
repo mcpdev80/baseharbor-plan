@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+OBJEKT: PR #1387 head e2d87906a510 (runde 3; EREIGNIS-barre im production-walk statt mtime-vergleich —
+dein 1387a-punkt fail-fast + der hosted-rot-beweis 42050483534 als treiber). PRUEFE SHA-genau: (1) die zwei
+tests SELBST -race -count=50 (wiederholbar gruen), (2) hosteter nachweis 42057573429 terminal am kopf,
+(3) hook-aus-mutante: fail-fast BENANNTER sentinel, einzellauf 3x rot (kein timeout als einziges rot),
+(4) quiet-begleiter race-20, (5) capture-verhalten unveraendert (blobs + read-only review der capture-pfade),
+(6) name-only + kettensaeuberung akzeptieren (ein commit auf 27cf86c-basis + develop-merge). Akte ->
+evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387c.md (SCHREIBPFLICHT, pfad ist von diesem cwd aus
+full-access). END pane: "END_DONE codex-r1387c: verdict=<X> race50=<selbst> hosted=<success am kopf> mutante=<3x benannt> blobs=<ruhig> akte=<pfad> | <Satz>"
