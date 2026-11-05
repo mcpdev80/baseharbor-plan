@@ -139,3 +139,5 @@ Rezept: beidseitige barre + identitätsnachweis der geschriebenen datei.
 Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42125295757 TERMINAL SUCCESS am exakten kopf,
 akte round-6.md auf main. 1387e-punkt geschlossen: BEIDSEITIGE write-ACK-barre, beide richtungen ROT mit
 sentinel, GEGENPROBE ohne mutation GRUEN (diskriminierung bewiesen), race-50 gruen.
+
+## ACCEPT 2026-11-06 (1387f): merge UNTERWEGS inkl. geräte-ketten-retry; karte bleibt review bis develop-beleg da ist.
