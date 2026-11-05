@@ -5,9 +5,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle4 (Lane w144, freigegeben)
-kanban_status: review
-kanban_lane: review
+owner: coord-welle4 (w166, wartet auf sitz)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: "Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen"
 priority: ""
@@ -20,17 +20,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/review #view/review #kind/task
+- [ ] t-20261104-r27-private-integration-path · Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w144, freigegeben)  
+    **Owner:** coord-welle4 (w166, wartet auf sitz)  
     **PR:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle4 (Lane w144, freigegeben)  
+**Owner:** coord-welle4 (w166, wartet auf sitz)  
 **Priority:** not set  
 **PRs:** [baseharbor#1379](https://github.com/mcpdev80/baseharbor/pull/1379)  
 **Source:** 
@@ -94,3 +94,8 @@ der negative Nachweis (Ablehnung ohne Wirkung, Zerstörbarkeit) bleibt gültig.
   mein verjaerter Spiegel untergeschoben hatte, sind nachgewiesen raus (name-only ohne contracts/).
 - Gehosteter Lauf 41913050087 auf genau diesem Kopf: abgeschlossen/erfolgreich (von der Lane beobachtet, von
   mir mit eigener gh-run-Abruf bestaetigt). Draft-PR, basis develop.
+
+## Review-Rueckruf 2026-11-05 (r1379 REJECT, NUR das gate)
+Inhalt (Umschaltung + beide Gegenproben) bestanden. Der Lauf am exakten Kopf uebersprang den Job 'Selected
+Checks' — vermutlich draft-schalter. Kleinauftrag: PR auf ready, neuen Lauf terminal beobachten, beide
+Modus-Zellen am lauf belegen; bleibt der skip: Befund mit Workflow-zeile an den Owner, keine Gewalt.
