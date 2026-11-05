@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). Coord f49a3303. KANAL: Luna. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+OBJEKT: PR #1387 head d5ff9bc7b599 (runde 2 nach deiner 1387a; dein punkt: fail-fast statt timeout-haengen —
+jetzt bounded 5s hook-wait + typisierter sentinel errSnapshotHookDidNotFire). PRUEFE SHA-genau: (1) die zwei
+benannten tests SELBST mit -race -count=50 (gruen wiederholbar), (2) hook-aus-MUTANTE: FAIL FAST im
+EINZELLAUF mit BENANNTEM fehler innerhalb der lokalen grenze — generisches 'test timed out' als einziges rot
+= REJECT (wörtliche zeile), (3) quiet-begleiter race-20 gruen, (4) capture-verhalten unveraendert (blobs),
+(5) lauf 42026851319 terminal + selected-checks, ls-remote echt==head, name-only. Akte ->
+evidence/r27-welle4-2026-11-05/snapshot-flake/review-1387b.md — SCHREIBPFLICHT: datei in die plan-werkstatt
+(share-pfad, wie in runde 22d verloren gegangen — wenn read-only: sofort pane-meldung 'AKTE BLOCKIERT', kein
+END ohne datei). END pane: "END_DONE codex-r1387b: verdict=<X> race50=<selbst> mutante=<failfast benannt> quiet=<gruen> blobs=<ruhig> akte=<pfad> | <Satz>"
