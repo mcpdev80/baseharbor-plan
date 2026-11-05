@@ -1,0 +1,71 @@
+---
+id: t-20261105-r27-snapshot-change-guard-deterministic
+type: task
+areas: [platform]
+release: v0.4.27
+version: ""
+parent: ""
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
+kanban_title: "Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI)"
+priority: high
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-pack]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+resolution: ""
+evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md]
+---
+
+- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/planned #view/ready #area/platform #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Goal
+
+The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have
+been observed (hook/event), not because the writer happened to land between two reads. One CI minute can
+produce both green and red for the same commit today; that poisons every other chain's gate.
+
+## Measured flake (2026-11-05, coordinator-run evidence)
+
+- Head `3bb95cc794` run 41981861515: terminal SUCCESS (all jobs).
+- Same head, run 41983173186 ~20 min later: terminal FAILURE, sole failing test
+  `--- FAIL: TestSourceSnapshotDetectsChangeDuringRead (0.01s)` in `internal/development`
+  (guard assertion at source_snapshot_test.go ~215-226; writer goroutine + close(started)/release channels).
+
+## Scope
+
+- In scope: `internal/development` snapshot capture/guard + its test synchronization (deterministic hook
+  in the capture path, test-side channel/event — the same pattern that retired sleep-polling in
+  `t-20261018-r27-execution-journal`).
+- Out of scope: the capture's public behavior, other candidate-pack tests, `.github`.
+
+## Acceptance
+
+- The guard test passes with `-race -count=50` (repeatable), and a mutation that disables the guard hook
+  makes it RED deterministically (literal output, mutant commit named).
+- The quiet-tree companion test (`...NoGuardAbortWhenQuiet`) keeps its guarantees (no abort on still tree).
+- Red-first: the -race -count=50 instability shown on the pre-fix head (this card's flake evidence above
+  counts as the red baseline; add one local reproduction if timing allows).
+
+## Required checks
+
+- go test ./internal/development -count=1 + race-count=50 of the two named tests, build, vet, gofmt;
+  hosted runs of the exact head to terminal, PR Selected Checks not skipped.
