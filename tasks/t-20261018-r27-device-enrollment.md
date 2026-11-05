@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle4 (Lane w146, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Devices: issue and validate scoped workstation enrollment"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/24c7d0492f34e58c2a6be505ba80b8bdfb151cb7", "https://github.com/mcpdev80/baseharbor/actions/runs/41964458878"]
 ---
 
-- [ ] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [x] t-20261018-r27-device-enrollment · Devices: issue and validate scoped workstation enrollment #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w146, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1371](https://github.com/mcpdev80/baseharbor/pull/1371)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/24c7d0492f34e58c2a6be505ba80b8bdfb151cb7), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/41964458878)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-contract](t-20261018-r27-profile-contract.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -181,3 +182,9 @@ ls-remote==head.
   Zahlentausch von 0008/0009 ist als Gegenprobe gemessen.
 - Betriebsfehler bereinigt: AGENTS.md ist aus dem Antrag raus, der Querschnitt zeigt nur Anmeldungs-,
   Datenbank- und Verdrahtungsfeld. Lauf 41921792984 auf dem neuen Kopf: erfolgreich (von mir gemessen).
+
+## Merge-Abschluss 2026-11-05
+
+- [PR #1371](https://github.com/mcpdev80/baseharbor/pull/1371) wurde bei konfliktfreiem GitHub-Head `8badcbd24f9a1be3d59f75233c39294d8876d38a` nach develop gemergt.
+- Squash-Commit: [24c7d0492f34e58c2a6be505ba80b8bdfb151cb7](https://github.com/mcpdev80/baseharbor/commit/24c7d0492f34e58c2a6be505ba80b8bdfb151cb7).
+- [CI-Lauf #41964458878](https://github.com/mcpdev80/baseharbor/actions/runs/41964458878) erfolgreich; nur tatsächlich ausgeführte Jobs zählen als Testnachweis.
