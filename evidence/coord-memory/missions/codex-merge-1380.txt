@@ -1,0 +1,9 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert 2026-11-05 'fertig heißt mergen'). Coord 841e7734.
+KARTE/PR: t-20261018-r27-connection-client / mcpdev80/baseharbor#1380, akzeptierter kopf 02b2e65e7c5
+(urteil review-1380b.md ACCEPT). AKTIONEN WIE IMMER: ls-remote head==02b2e65e7c5 (sonst STOP), develop
+AKTUELL konfliktfrei in den zweig mergen (konflikt in verbindung/authority-dateien => STOP+MELDEN), push,
+NEUER hosted-lauf bis TERMINAL GRUEN (gh run watch; fremder snapshot-flake-rot EINMAL rerunen, dann
+same-head-praezedenz-MELDUNG statt drehen), dann gh pr merge --merge (kein bypass/force), develop-ls-remote
++ merge-sha ins pane. Karte schliesst der coordinator. HINWEIS HOST-HYGIENE: keine compose/docker-aktion auf
+baha-runner-docker-2 (codeman-server); dich betrifft das nicht — du agierst nur per gh/git.
+END pane: "END_DONE codex-merge-1380: merged=<sha10> develop=<sha10> head-vor-merge=<sha10> | <Satz>"
