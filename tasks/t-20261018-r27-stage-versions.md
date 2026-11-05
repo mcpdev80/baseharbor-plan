@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (Lane w190)
-kanban_lane: active
+owner: coord-welle5 (Lane w190, freigegeben)
+kanban_lane: review
 kanban_summary: "Persist desired, last applied and observed release/component references independently for application identity + selected Target…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Deployments: isolate version and configuration per stage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1391]
 sources: []
 early: false
 blocker: ""
@@ -21,19 +21,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w190) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w190, freigegeben) · **Priority:** high  
+    **PR:** [baseharbor#1391](https://github.com/mcpdev80/baseharbor/pull/1391)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle5 (Lane w190)  
+**Owner:** coord-welle5 (Lane w190, freigegeben)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1391](https://github.com/mcpdev80/baseharbor/pull/1391)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -62,3 +63,8 @@ Three-version state/reopen tests, same-target two-environment isolation, differe
 ## Handoff
 
 Planned/unassigned, 2026-10-18. Maintainer requested native standards, real stage/version operation, existing registries/CI/GitOps and a thin promotion operation. No product implementation or release action started.
+
+## Runde 1 pruefbar 2026-11-05 (kopf 13192efa5d5)
+Nachgemessen: ls-remote echt==head, develop VORFAHR (rc=0), lauf 42103327299 TERMINAL SUCCESS am exakten
+kopf, akte round-1.md auf main (nach nachforderung — urspruenglich ungecommittet gelassen, beleg-pflicht
+wirkt). Matrix 3x unabhaengigkeit, beide trennungs-/stale-mutanten rot, zusammenbau echter lebenszyklus.
