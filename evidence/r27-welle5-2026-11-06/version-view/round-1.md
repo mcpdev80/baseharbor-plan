@@ -107,6 +107,11 @@ $ codeman agent post 841e7734 "END_DONE w226-version-view: head=57cf82a0cfc3 get
 ✓ posted to 841e7734 (47 pending, 1 unseen)
 ```
 
+```
+$ codeman agent post 841e7734 "END_DONE w226-version-view: head=57cf82a0cfc3 getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42194394030-TERMINAL-SUCCESS lsremote=57cf82a0cfc3 | Readable wanted/applied/observed version view with strictly separated cells and UNCLEAR fallback delivered via PR #1403 (ready, hosted CI success on head); akte published on baseharbor-plan origin/main with ls-tree witness."
+✓ posted to 841e7734 (46 pending, 1 unseen)
+```
+
 ## Push-Zeuge (origin/main)
 
 `git ls-tree -r --name-only origin/main | grep version-view` (nach push, wörtlich):
@@ -120,8 +125,9 @@ tasks/t-20261018-r27-version-view.md
 Push: `e1e2bb8..d82005a  main -> main` (nur diese Akte committet; die
 unverfeuerten Anderungen anderer Lanes in `releases/v0.4.27.md`,
 `roadmap/cards.md` und `evidence/.../vm-smoke/` wurden nicht angefasst).
-Folge-Commits: `942692b` erganzt die wortliche END_DONE-Ausgabe, `3bdd269`
-den erneut verifizierten ls-tree-Zeuge (jeweils nur diese Akte; die
-unverfeuerten Anderungen anderer Lanes in `releases/v0.4.27.md`,
-`roadmap/cards.md` und `evidence/.../vm-smoke/` wurden nicht angefasst).
+Folge-Commits (jeweils nur diese Akte): `942692b` END_DONE-Ausgabe,
+`3bdd269`/`b7286d3` ls-tree-Zeuge, `91c5d98` finale END_DONE-Ausgabe.
+Die unverfeuerten Anderungen anderer Lanes (`releases/v0.4.27.md`,
+`roadmap/cards.md`, `evidence/.../vm-smoke/`, `evidence/.../image-transfer/round-1.md`)
+wurden nie gestaged oder committet.
 
