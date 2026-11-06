@@ -196,23 +196,21 @@ Zweig (ein Antrag).
 
 ## Push-Zeuge (origin/main)
 
-Vor dem Push, wörtlich:
+Vor dem Push, wörtlich (finaler Stand nach dem letzten Akten-Commit `988a234`):
 
 ```
-$ git fetch origin main && git rev-parse HEAD && git merge-base --is-ancestor HEAD origin/main && echo HEAD-IN-MAIN && git ls-tree -r --name-only origin/main | grep version-view
-64aaa6a evidence(r27 version-view round 2): terminal hosted run witness, compliance selfcheck, END line
-90852855d57d69b77403be0084fbda86fa2f462e
-HEAD-IN-MAIN
+$ git push origin main && git fetch origin main && git ls-tree -r --name-only origin/main | grep version-view && git rev-parse origin/main
+   9085285..988a234  main -> main
 evidence/coord-memory/missions/w226-version-view.txt
 evidence/r27-welle5-2026-11-06/version-view/act-1403b.md
 evidence/r27-welle5-2026-11-06/version-view/round-1.md
 evidence/r27-welle5-2026-11-06/version-view/round-2.md
 tasks/t-20261018-r27-version-view.md
+988a2341055e6cd21e70615cdb8945b3a26dc0cf
 ```
 
-Die Akten-Commits dieser Lane (`d90620f`, gefolgt von den Folgeschuessen, am Ende linear
-auf `origin/main` = `90852855d57d…` rebasiert als `64aaa6a`) sind auf origin/main verifiziert;
-round-1.md und round-2.md liegen dort.
+Die Akten-Commits dieser Lane sind auf origin/main verifiziert (`origin/main` =
+`988a2341055e…`, ls-tree-Zeuge oben); round-1.md (berichtigt) und round-2.md liegen dort.
 
 ## END
 
