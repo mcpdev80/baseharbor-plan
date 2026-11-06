@@ -152,3 +152,14 @@ Proven pre-existing: `application_artifact_resolution.go` exists in no develop r
 END_DONE w270-artifact-registry-prio: head=9ee857387c prio_zelle=ROT->GRUEN mutante=65809f4f/a70aa9bc lauf=42297344340 TERMINAL lsremote=9ee857387c akte=evidence/r27-welle5-folge-2026-11-06/artifact-resolution/round-2.md main | Registry-artefakt hat Prio vor der Build-Deklaration; echte Mehrdeutigkeit bleibt fail-closed; develop 8bda98c1cd3 gemerged; 56 gruene Zellen am neuen Kopf.
 
 ## Evidence push witness
+
+    $ git push origin main   (baseharbor-plan)
+    To https://github.com/mcpdev80/baseharbor-plan.git
+       4bf6a084..a244e2b0  main -> main
+
+    $ git ls-tree origin/main --name-only evidence/r27-welle5-folge-2026-11-06/artifact-resolution/
+    evidence/r27-welle5-folge-2026-11-06/artifact-resolution/round-2.md
+
+## VM/compose hygiene
+
+No VMs named by this mission; no docker/podman/compose projects started anywhere by this lane (scripted in-process fakes only) => nothing to bring down; ps-witness not applicable.
