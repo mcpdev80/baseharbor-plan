@@ -75,8 +75,8 @@ is based on executed runs instead of skipped gates.
   ohne den gemeinsamen stapel derzeit NICHT herstellbar. grundlage und folgenarbeit stehen auf
   t-20261104-r27-private-integration-path. diese karte bleibt offen, bis dieser pfad existiert.
 
-## Release-Gate: SINGLE Default / HA Opt-in (Owner 2026-11-06)
+## Release gate: SINGLE default / explicit HA opt-in (Owner, 2026-11-06)
 
-- Referenzvertrag: `t-20261106-r27-control-plane-single-default`. Die Docker- und Podman-Integration muss den unveraenderten produktiven Default-Start nachweisen: EINE Control-Plane-Instanz je Dienst, keine impliziten HA-Mitglieder oder Balancer.
-- Zusaetzlich realer, ausdruecklich selektierter HA-Positivlauf je Runtime. Beide Topologien und Health/Restart, gerenderte Compose-Datei, Containerliste, Produkt-SHAs und Befehle als verifizierbare Transkripte archivieren.
-- Fail-closed: Ein HA-Default, eine ungepruefte Topologie oder ein SKIP gilt als FAIL/BLOCKED und darf die Release-Qualifikation nicht bestehen lassen. Keine Testausfuehrung auf dem Codeman-Server `baha-runner-docker-2`.
+- Governing contract: `t-20261106-r27-control-plane-single-default`. The Docker and Podman integration runs must demonstrate that an unmodified production default startup creates ONE instance per required control-plane service, with no implicit HA members or load balancers.
+- Additionally execute an explicitly selected HA positive run on each runtime. Archive both topologies, health and restart results, rendered Compose configuration, container inventory, product SHA, and verifiable command transcripts.
+- Fail closed: implicit HA in the default, an unverified topology, or SKIP means FAIL/BLOCKED and must not qualify the release. Never execute these tests on the Codeman server `baha-runner-docker-2`.
