@@ -225,11 +225,11 @@ No docker/podman COMPOSE project started by this lane beyond quadlet systemd uni
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git log --oneline -1 origin/main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-14984d5 evidence(w243): final Befund chain - dev-role bundle excludes operator API (ADR 0021), compose-owner drift blocks lifecycle mutation, teardown witnesses
-100644 blob 7147c0f971ea2d075ac187c5310e6de63568d60e	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+d592285 evidence(w243): corrected attribution - node-add gate is dev-role no-login design (ADR 0021); compose-pin drift documented as destroy blocker
+100644 blob 50f10f0f690fd837f5ba3b3a98ff1630b4d5a60e	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
 ```
 
-Base attestation: branchless direct commits onto origin/main pulled --ff-only at `3b7e5dc` (w242 evidence head, verified ancestor chain 3b7e5dc -> efa15ce -> 14984d5 via first-parent log); zero product-repo writes.
+Base attestation: commits landed on origin/main with `--ff-only` pulls (ancestry 3b7e5dc -> efa15ce -> 14984d5 -> d592285, first-parent); zero product-repo writes; worktree scratch under /tmp/opencode/w243* only.
 
 ## END
 
