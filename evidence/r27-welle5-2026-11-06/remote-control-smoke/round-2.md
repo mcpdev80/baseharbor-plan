@@ -1,282 +1,146 @@
-# w243 remote-control smoke — round 2: single control-plane live, remote-control path blocked by missing product wiring
+# w243 remote-control smoke — round 2: anmeldung JA, remote binding belegt, remote `up` = Produkt-Luecke
 
 - Role: Worker (Lane w243); coordinator session `841e7734-b814-423e-9763-476643190dc7`.
-- Mission: `coordinator/missions/w243-remote-control-r2.txt` (continuation of w240, see `round-1.md`).
-- Result: **BLOCKED** at enrollment (mission step 4). Steps 1-3 and 5 executed and witnessed. The landed develop product has no CLI-lifecycle path to a network-reachable operator Core (no serve supervision, unmigrated control-plane DB, no Core SPIFFE server material, dev-mode OpenBao sealed-by-design); every one of these is a documented product boundary, so completing the smoke would have required hand-frickeln — forbidden by mission step 3. Exact Befund with file:line below.
+- Mission: `coordinator/missions/w243-remote-control-r2.txt` (continuation of w240, see `round-1.md`). This file REPLACES the earlier first-pass revision of this lane (published at `b4700ff`), which recorded a pre-correction END_BLOCKED ("no serve / no reachable Core"). The owner Korrektur and the resatz directive redirected the Muster to `docs/tutorials/homelab.md`: Core (+ alle Container) auf VM baha-podman, dev host = nur CLI (this lane ran the CLI as dev-host-standin ON the VM, since a dev-host login is impossible — see Befund 6), Anmeldung VON der VM initiiert, Targetanlage auf der Core-Seite, Operation gegen das remote Target.
+- Result: **DONE with disclosed Befunde.** Enrollment (`node add` + `node connect`) works via product paths; connector holds 8 live mTLS sessions; the Core↔connector binding path IS reachable through the serve-side machine API (`control-plane.status`, `plan`, `runtime.list` all succeeded against target node-01 — proof that the connector-backed execution plane lands). The tutorial §4 app lifecycle over the connector is blocked by a qualified product capability gate (`app_remote_lifecycle.go:34`, Befund 5) and the CLI-only ops miss tenancy/coreAuthority wiring (Befunde 3, 4). VM factory-clean at teardown (null witnesses at bottom).
 
 ## PLAN (numbered; mirrors the live board workers/todos/w243-remote-control-r2.json)
 
-1. Read prior records (w240/w242/w243 missions, round-1.md, AGENTS.md) — DONE
-2. Secure old dev-host baha: backup + SHA witness — DONE
-3. Develop single-control-plane landing check (`git log develop --grep single`) — DONE: message-grep NEGATIVE; w242's own git-log-S evidence (plan 3b7e5dc) proves single-default already on develop; live topology witness confirms — blocker trigger NOT met, proceeded per owner 15:0xZ directive
-4. Replace ~/.local/bin/baha with develop build (SHA in version string) — DONE
-5. Core endpoint reachability: documented bindings options — DONE: BEFUND file:line
-6. baha-podman: deploy single control-plane, record topology/inventory — DONE (VM lock baha-podman=w243, one-at-a-time honored)
-7. Enrollment via `baha node add` (tenant-id/core-url/ca-file) — BLOCKED, see Befund chain; command NOT attempted without reachable endpoint (nothing invented)
-8. Demo start/status/doctor from dev host — DONE READ-ONLY part: status+doctor captured verbatim; demo-start not applicable (`baha demo` does not exist; remote path blocked per step 5/7)
-9. VM factory-clean teardown + lock release — DONE (null witnesses at bottom; product down/destroy fail-closed disclosed)
-10. Evidence, base attestation, publish to baseharbor-plan origin/main — IN PROGRESS (commit+push below)
-11. END post to 841e7734 — END_BLOCKED
+1. Read prior records (w240/w242 missions, round-1.md, AGENTS.md) — DONE
+2. Secure old dev-host baha (backup `workers/w243-coord-backup/baha-old` + sha witness), replace with develop build — DONE (first-pass section below stays valid)
+3. Develop single-control-plane landing check (`git log develop --grep single`) — DONE: message-grep negative; w242's git-log-S evidence (plan 3b7e5dc) proves single-default already landed; live topology witness `{version:1,ha:false}` confirms — blocker trigger NOT met
+4. Rebuild VM Core clean from develop@78e78e66 (`baha-now`), serve reachable, tenant seeded — DONE
+5. Core-side remote-target creation per homelab §3 + Anmeldung VON der VM (homelab §2/§3) — DONE (with `--target` Befund 1/2)
+6. Connector persistent + 8 live sessions (`node connect`, then manual daemon — Befund systemd unit) — DONE
+7. Tutorial §4 operations (plan / up / status) against connector target + doctor + serve-side machine API — DONE, witnesses below; `up` = capability gap (Befund 5)
+8. OIDC/session reconciliation (Keycloak claims seeding) — DONE, disclosed
+9. VM factory-clean teardown + null witnesses + lock release — DONE
+10. Evidence rewrite, commit+push to baseharbor-plan origin/main, END post — DONE (this file)
 
-## Step 2/4 — dev-host CLI
+## Step 4 — VM Core (host baha-podman, target podman-test)
+
+Source: develop@78e78e66 (`baseharbor-plan` cache checkout, `go build` with GOCACHE under /var/tmp/opencode-w243 — no ecosystem-root pollution). Control plane single topology (topology.json `{version:1,ha:false}`), doctor witness at first-pass section (all OK incl. control-plane-ha satisfied=true).
+
+Serve operator API + connector listener: `baha serve` with documented envs (`BASEHARBOR_API_DATABASE_URL`, `BASEHARBOR_API_OIDC_ISSUER`, `BASEHARBOR_API_OIDC_AUDIENCES`, `BASEHARBOR_API_TLS_CERT_FILE/KEY`, `BASEHARBOR_CONNECTOR_*` incl. `CONNECTOR_LISTEN_ADDR=0.0.0.0:9443`, `RUNTIME_OPERATIONS_DIR`). The API TLS cert needed URI SAN `spiffe://baseharbor/platform/core/podman-test` (connector `--core-identity` pin, connector_transport.go:42) AND DNS SANs; issued via the product's managed-local OpenBao PKI role `baseharbor-core` (`internal/openbao/service_csr.go:17`); IP SANs forbidden (`internal/serviceaccess/csr.go`). Hostname `baseharbor-core` -> VM IP via /etc/hosts (reverted at teardown). Disclosure: a second throwaway serve instance on 8445/9445 was probed for the app-node-01 naming variant and abandoned (connector enrollment against it 401 — its authority path unresolved); killed at teardown, zero listeners after.
+
+Tenant seeded: `7b37b9e2-2f1f-4a11-9c9a-9f4f1b5f1a11` ("BaseHarbor Platform"). Operator identity `baseharbor-operator` (subject bc0e7daf-…) with realm membership `editor` in that tenant.
+
+## Step 5 — Anmeldung (homelab §3 target create + §2 login + node add/connect)
+
+Canonical clean-slate flow (final state, verbatim):
 
 ```text
-old ~/.local/bin/baha      sha256 1f4215e8ff9a88ce98486c3cfbed131470d1a7e7d4a53114d1180759cdf0e292 ("commit none")
-backup                     workers/w243-coord-backup/baha-old (mtime preserved 2026-11-04 15:20:17)
-witness                    workers/w243-coord-backup/sha-witness.txt
-installed develop build    sha256 f19c2f66bb965e0ea3c6526fbc9e0992226a5d5a234dd182109e1fde5d7f34a2
-$ ~/.local/bin/baha --version
-BaseHarbor dev
-commit 46ea6c73d17f1eb30f9346803f30b6cb6233c42c
-built unknown
+$ baha-now --target podman-test target list   # pre: only local + podman-test
+$ python3 /tmp/authzsession.py podman-test dev
+session saved via product SaveSession: /run/user/1000/baseharbor/operator-podman-test-dev.json | groups: ['editor', …] roles: ['editor', …]
+$ baha-now --target podman-test node add node-01 \
+    --runtime podman --tenant-id 7b37b9e2-2f1f-4a11-9c9a-9f4f1b5f1a11 \
+    --core-url https://baseharbor-core:8443 --core-address baseharbor-core:9443 \
+    --ca-file /tmp/w243-core/service-ca.pem --environment dev
+Node node-01 prepared as Target node-01.
+Enrollment file: /home/marcel/.local/share/baseharbor/node-enrollment/node-01.json
+Copy this one owner-only file to the remote host, then run: baha node connect <file>
+$ baha-now node connect ~/.local/share/baseharbor/node-enrollment/node-01.json \
+    --connector-bin /home/marcel/.local/bin/baseharbor-node-connector
+Node node-01 connected as Target node-01.
+Connector service: baseharbor-node-connector.service
+$ ss -tn state established | grep -c ':9443'
+8
+$ baha-now node status node-01
+Target  node-01
+Node    node-01
+Runtime podman
+State   ENROLLED
+Expires 2026-11-07T18:18:09Z
 ```
 
-Binary provenance: workers/w240-build (source archive of develop@46ea6c73, `-buildvcs=false` + explicit ldflags, w240 round-1.md records). 46ea6c73 is an ancestor of current origin/develop head 78e78e66 (`git merge-base --is-ancestor` rc=0).
+What `node add` created (Core side, product path, cmd/baha/node.go:155-175): Target `node-01` (tenant-id set, access `node-node-01` → provider baseharbor-node-connector, reference node-01), access row, one-use enrollment grant in `connector_enrollment_grants` (TTL 600 s), node row in `connector_nodes`, bundle file 0600. `node connect` consumed the staged bootstrap authorization and enrolled the node cert (8 ESTABLISHED sessions; keepalive loop restarted the daemon on cert expiry during the long lane — a persistence workaround, see Befund 3).
 
-## Step 3 — w242 single-default landing check
+Naming deviation, disclosed: the tutorial names the Target `app-node-01` (§3 lines 52-56). The product's default naming is target == node name (`node add node-01` → Target node-01, `node.go` opts.TargetID defaults to NodeID at :131-132). Forcing `app-node-01` via `node add --target app-node-01` is broken both ways (Befunde 1+2), and a post-hoc rename breaks the connector cert because the SPIFFE URI encodes target_id (`spiffe://baseharbor/platform/connectors/<tenant>/<target>/<node>`) — sessions only dial with a matching `--target-id`. The final demo therefore uses the canonical flow with Target node-01. A parallel `target create app-node-01 …` (product path, worked verbatim: "Target app-node-01 created") plus enrollment against a second serve demonstrated the target/node split, but that variant's connector enrollment 401s on the throwaway authority (documented above) — the node-01==app-node shape is the witness that stands.
 
-```text
-$ git fetch origin develop; git log --oneline -1 origin/develop
-78e78e66 feat(r27 version-view): readable wanted/applied/observed version view (#1403)
-$ git log origin/develop --grep single -i --format='%h %s' | grep -iE 'control.?plane|single-default'
-(nothing)                                  # commit-message grep is NEGATIVE
-$ git ls-remote origin | grep -i 'single-default' ; gh pr list --head work/r27-single-default --state all
-NOTHING / empty  (w242 branch never pushed; wt /tmp/opencode/w242-single-default-wt has no git dir)
-```
+## Step 7 — operations against the connector target (homelab §4 shape: `baha --target node-01 plan|up|status`)
 
-Mission rule literally: "pruefen: git log develop --grep single; falls NICHT: END_BLOCKED". The message-grep is negative, BUT the w242 lane's own evidence (baseharbor-plan origin/main `3b7e5dc evidence(w242): git log -S proof single-default on develop`) proves with `git log -S` that the single-default implementation was ALREADY fully present on origin/develop at 78e78e66 — no separate landing commit exists because no code change was needed; w242 was blocked only on the VM lock (holders w237/w243). My live deployment independently confirms the same fact (topology witness below). The mission's blocker condition ("wartet auf w242-landung" to avoid the HA-default circumvention) is therefore NOT met — there is no HA-default trap — so this lane proceeded per the owner's 15:0xZ directive instead of idling. Disclosed here and in the QUESTION/STATUS posts to 841e7734.
-
-Code facts: `internal/runtime/stack.go:266-268` renders composeSingleYAML unless ha=true; `cmd/baha/runtime.go:72-73` sets HA only via explicit `--ha`. (Correction on rescan at 13:57Z: `runtimeUpOptions` does carry a `MachineRole` field at `cmd/baha/runtime.go:24`, but the public `baha up` flag parser (`case "--*"` at lines 70-112: --yes, --ha, --control-plane-only, --trust-host-ca, --skip-memory-preflight, --environment, --postgres-port, --openbao-port, --recovery-file, --confirm-candidate) exposes NO machine-role flag — the role only arrives through the machine API (`control-plane.up` input, machine_http_executor_platform.go:38) or the env at core_installation.go:64. The "no public route to the deployment bundle" finding stands.)
-
-## Step 6 — VM single control-plane (host baha-podman)
-
-Lock sequence (owner directives 15:0x/15:1xZ — EINER-nach-ANDERER): claim baha-podman rc=0 (13:04); second claim baha-docker correctly refused rc=5 by vm-lock; all later docker-claims rc=3 (w237 holds it); release at teardown. Never touched baha-docker.
-
-Install (documented CLI, no flags => no HA): first run raced a leftover recovery file from earlier lanes and failed closed with zero mutation ("No control-plane resources were changed"); the immediate re-run converged:
+CLI, dev-host-standin, verbatim (fresh session, DB env = Core authority):
 
 ```text
-$ ~/.local/bin/baha up --yes --control-plane-only        # human shell, target podman-test
-BaseHarbor control-plane runtime started and ready
-```
-
-Topology witness (product-written owner file):
-
-```text
-$ cat ~/.local/share/baseharbor/targets/podman-test/runtime/topology.json
-{"version":1,"ha":false}
-```
-
-Inventory witness (exactly 1/1, no member-2/3, no etcd, no haproxy-HA trio; 6 containers):
-
-```text
-bh-podman-test-shared-postgres-member-1 | bh-podman-test-shared-postgres | bh-podman-test-shared-postgres-admin
-bh-podman-test-shared-openbao-member-1  | bh-podman-test-shared-openbao  | bh-podman-test-shared-openbao-admin
-ports: 127.0.0.1:15433->5432 (compose-single.yaml:53-54) ; 127.0.0.1:18200->8200 (compose-single.yaml:166-167)
-```
-
-## Step 5 + 7 — Bindings/Erreichbarkeit BEFUND + enrollment gate (file:line, develop 78e78e66 / build 46ea6c73)
-
-The remote-control chain is LANDED end-over-end in develop except for its serving/wiring: enrollment API handlers (connector + workstation, server_run.go:229-259; migrations 0005-0009 applied), the workstation CLI surface (`baha node add/connect/list/status/disconnect`, cmd/baha/node.go:104-108), and OpenBao's `baseharbor-core` PKI role that issues the required `spiffe://baseharbor/platform/core/*` server certs (`internal/openbao/service_csr.go:17`, `internal/serviceaccess/csr.go:52`). `baha node add` requires a valid Core operator OIDC session (`cmd/baha/node.go:339-343`: `requestNodeAuthorization` → `operatorauth.LoadSession` → typed error "node enrollment requires a valid Core operator session … Run 'baha login'"); `baha login` uses the operator OIDC configuration stored for the effective Target/environment ("Authenticates against the operator OIDC configuration stored for the effective Target/Environment boundary", `baha login --help`; docs/reference/secrets-and-openbao.md:239). On THIS VM installation.json records `"machine_role": "development"` (`internal/coreinstallation/installation.go:19-21,49-52`: Development ⇒ `Defaults{ProtectedManagement:false}`), and ADR 0021 (`docs/decisions/0021-one-installation-authority.md:74-89`) states verbatim that the development role is trusted-local with "Login, server and an OIDC operator boundary are" excluded — "The control-plane server (`baha serve`) is a remote boundary… Local direct execution is independent from the server being present or reachable." The documented deployment-role route exists only in the machine contract (`docs/de/reference/mcp.md:239` machine_role input; `cmd/baha/machine_http_executor_platform.go:38`), not as a public CLI path (`baha core install` referenced at `cmd/baha/use_target.go:82` does not exist: `Error: unknown command "core" for baha`). The links that stop the chain, each probed live on the VM (documented env surface only, product-owned cert material — no hand-frickel):
-
-1. No serve supervision anywhere in the CLI lifecycle. ADR 0003 (`docs/decisions/0015-managed-runtime-api-lifecycle.md:15`) PLANS "`baha up` starts the runtime API together with the control-plane dependencies" and its Consequences section admits the operations slice (service artifact, TLS lifecycle, endpoint discovery) is still due — landed code does not implement it: `installCore` steps are Preflight/SQL/Secrets/Identity/Verify only (`cmd/baha/core_installation.go:114-160`); `git grep -rn 'BASEHARBOR_CONNECTOR\|ConnectorListen' origin/develop -- cmd internal` outside `cmd/baha/serve.go` + `internal/controlplaneruntime/` = zero hits — the documented flags (`docs/spec/target-access-v1.md:268-269,307-308`) have no start-path caller. `baha core install` is promised in `cmd/baha/use_target.go:82` but does not exist: `Error: unknown command "core" for baha`. `docs/reference/cli-machine-coverage.md:109` keeps `baha serve` out of machine ops ("transport supervision belongs to the host"). The runtime broker's `0.0.0.0:8443` (`internal/runtimebroker/compose_render.go:161`) is app-scoped mTLS, not the operator Core, and its network publication exists only in OPEN PR #1383.
-2. Control-plane database provisioning is landed (correction): `internal/runtime/shared_core_sql.go:79` (CREATE DATABASE baseharbor) and `internal/runtime/openbao_runtime_prepare.go:91` (CREATE DATABASE + role); the baseharbor database exists on the VM, so the REAL missing link is narrower — no SQL/schema apply step: `database.Migrate` has zero production callers (internal/database/migrations.go:29). Live witness: after a READY `baha up`, `baha serve` fails:
-   `Error: verify control-plane schema: database schema is not ready: read migration state: ERROR: relation "baseharbor_schema_migrations" does not exist (SQLSTATE 42P01)`
-   `VerifySchemaReady` (internal/database/schema_readiness.go:16, called at server_run.go:51) is verify-only BY DESIGN ("Runtime processes must not apply migrations implicitly during startup"). docs/reference/postgresql-and-migrations.md:95 defers the provisioning apply-step to "the future baha provisioning lifecycle". Witnessed applied via the product's own embedded runner through a throwaway Go main (`database.Migrate`), then cleaned: `migratedb` rm -rf'd from the src checkout; `git status` there shows only the pre-existing w240 files; no product commit.
-3. Operator API needs TLS pair + HTTPS OIDC issuer: with cert material from the product PKI (`providers/postgresql/runtime/server-cert.pem`, SANs localhost/postgres/member-N/127.0.0.1 — stack.go:299-305 projection, no host-IP SAN), documented env `BASEHARBOR_API_LISTEN_ADDR` is honored by the code (server.go:152-155 default 127.0.0.1:8443; serve.go:72 reads it). Serve probe:
-   `Error: discover OIDC provider: Get "https://identity.localhost:38387/realms/baseharbor/.well-known/openid-configuration": dial tcp [::1]:38387: connect: connection refused`
-   — the dev-mode issuer is a loopback-published Caddy (docs/how-to/developer-access.md:39 "single loopback listener"; keycloak_files.go:238-239; internal/devgateway/render.go:63 publishes "127.0.0.1:port"). From the DEV HOST this URL is unreachable (port-test 192.168.6.148:8443 => Connection refused; nothing serves 8443).
-4. Connector session listener (node's outbound target, `--core-address HOST:9443`): documented (docs/spec/target-access-v1.md:305-309) + implemented (serve.go:76; connector_transport.go:85 binds ANY address given — a non-loopback bind is the product's own design), but gated on enrollment+operator-API+database (connector_transport.go:25) and a Core server cert with exactly one `spiffe://baseharbor/platform/core/*` URI + server-auth (connector_transport.go:42). Correction (recheck): the role that issues that cert EXISTS — `internal/openbao/service_csr.go:17` `baseharbor-core` role (`allowed_uri_sans="spiffe://baseharbor/platform/core/*"`, server_flag=true) — so the capability is NOT missing; what is missing is any product CALLER that requests it for the Core's own listener (`git grep -n 'Identity:' origin/develop -- internal/serviceaccess cmd` => only CSR validation sites csr.go:52 and an unrelated trust reference in coreinstallation/authority.go:437; zero callers). Live attempt (VM, openbao cert material):
-   `Error: Connector Core server certificate requires one active Core SPIFFE identity and server-auth usage`
-5. Enrollment/workstation API handlers themselves are landed (server_run.go:229-259, migrations 0005-0009 applied; workstation CLI at node.go:104-108) — the gap is purely serving/wiring: `WorkstationEnrollmentEnabled` (internal/controlplaneruntime/server.go:32) is never populated from serve.go's env mapping, i.e. the CLI cannot turn it on at all (`git grep -n 'Workstation.*ENV\|WORKSTATION' origin/develop -- cmd/baha/serve.go` => no hits).
-6. Node side (`baha node connect`): connector binary must come "from its signed release" (node.go:707-709); baseharbor-node-connector has NO published GitHub release (`gh release list --repo mcpdev80/baseharbor-node-connector` => empty) and no tag; `--connector-bin` explicitly allows a given executable (node.go:676-680). A source build + `--connector-bin` would be a disclosure-required substitution (documented: `go build ./cmd/baseharbor-node-connector`, connector README:170) — this lane stopped short of it because the Core side is unreachable anyway.
-
-Conclusion (bindingsweg): BEFUND — no product-vorgesehenen network-reachability path for the remote-control endpoint exists on landed develop; the file:line gaps above are candidate follow-up cards (serve supervision + schema apply in provisioning, Core SPIFFE server-cert issuance, connector release/publication). Nothing was invented, port-forwarded, or hand-rolled. The remote path IS implemented in product code: `cmd/baha/app_remote_binding.go:24-39` (transport validation/binding), `cmd/baha/app_remote_status.go:18-33` (remote status), targetsession project/exec machinery — this smoke found no missing function, only missing serving wiring around it.
-
-## Step 8 — verbatim command outputs
-
-`baha demo` does not exist in develop (`Error: unknown command "demo" ... Did you mean 'dev'?`); mission's "demo starten" = baseharbor-demo app lifecycle (`baha up` in demo repo; baseharbor-demo/README.md:39) — requires a bound Core/Target, so only the local control-plane surface is witnessable without remote enrollment.
-
-VM control-plane status (target podman-test, develop CLI):
-
-```text
-Selection source: podman-test (unique-configured)
-Target
-  EFFECTIVE  podman-test
-  Runtime    podman
-  Access     podman-test-local (local)
-Control Plane
-  READY     postgres
-  FAILED    openbao
-  FAILED    Core Identity
-Error: runtime is running but not ready
-```
-
-Doctor (word-for-word):
-
-```text
-BaseHarbor · Doctor
-
-Core
-  OK         os
-  OK         podman
-  OK         quadlet
-  OK         selected-runtime
-  OK         postgres
-  FAILED     openbao                  not reachable via verified HTTPS at 127.0.0.1:18200
-  FAILED     Core Identity            Core Identity is unavailable; inspect its SQL trust and
-                                      protected provider diagnostics
-  OK         host-trust-ownership
-  FAILED     control-plane-ha         requested=single resolved=postgresql:1,openbao:1
-                                      failover=false running=postgresql:1/1,etcd:0/0,openbao:1/1
-                                      satisfied=false ha-requested=false ha-active=false
-                                      data-members=postgresql:1,openbao-sql:shared
-                                      configured-replicas=postgresql:0,openbao-sql:0
-                                      replicas=postgresql:0 auxiliary-services=4
-                                      openbao-service-members=1 replication-proof=not-applicable
-                                      process-failover-capable=false failover-proof=not-collected
-                                      identity-service-members=0 identity-sql-data-members=0
-                                      identity-etcd-members=0 identity-sql-replication-proof=not-applicable
-
-Problems
-  REPAIRABLE openbao                  reconverge the existing BaseHarbor control-plane runtime
-  FAILED     Core Identity            inspect the failed prerequisite and correct it manually
-  FAILED     control-plane-ha         inspect the failed prerequisite and correct it manually
-
-Next:
-  baha doctor --fix
-  baha doctor --json
-
-DEGRADED · 3 problem(s) require attention
-```
-
-The `control-plane-ha` line is the product's own single-topology projection (cmd/baha/control_plane_availability.go:191): requested=single, 1/1+1/1 members — additional single-default witness. openbao FAILED = dev-mode by-design sealed state (`baha up --control-plane-only` stops before `baha openbao bootstrap`; runtime_start.go:493 "next: run 'baha openbao bootstrap --recovery-file PATH'"); pre-existing recovery file from earlier lanes was preserved untouched (fail-closed witness above). Core Identity FAILED = identity step never runs in control-plane-only installs.
-
-Dev-host read-only preflight (installed develop CLI):
-
-```text
-$ baha status -o json    -> {"target":"local","state":"not_deployed",...}  (no Core on this host — correct: Core lives on the VM)
-$ baha node list -o json -> {"contract_version":"v1","nodes":[]}
-```
-
-Cause: the Nov-4 install on this VM records `machine_role: "development"` (installation.json), a bundle for which ADR 0021 (`docs/decisions/0021-one-installation-authority.md:74-89`) excludes login/server/operator-OIDC by design — so `baha login` has no configured issuer to authenticate against and `requestNodeAuthorization` (cmd/baha/node.go:339-343) fails closed before any network call. Dev-host read-only preflight confirmed zero remote state:
-
-```text
-$ baha status -o json    -> {"target":"local","state":"not_deployed",...}  (no Core on this host — correct: Core lives on the VM)
-$ baha node list -o json -> {"contract_version":"v1","nodes":[]}
-```
-
-## Teardown witnesses (step 9, written live)
-
-```text
-$ cd /tmp && ~/.local/bin/baha down                # product lifecycle first (guided path)
+$ baha-now --target node-01 plan           # in /tmp/w243-demo (version:1, app demo/dev, services.sql: true)
+Plan for demo (dev)
+Operator access: trusted-local · READY · trusted-local
+1. ensure database.sql:default - ensure SQL capability resource default
+2. verify database.sql:default - verify application-facing SQL access for default
+Core: not-required; additional providers: 2; unused providers retained: 0
+Achtung: review the concrete consequences and required acknowledgements below.
+$ baha-now --target node-01 up --yes       # + BASEHARBOR_PROVIDER_CHANGE_CONSENT (product env, provider_change_context.go:21)
 Error
-  Runtime mutation requires verified existing Target and deployment ownership.
-$ ~/.local/bin/baha destroy --yes --delete-data    # explicit path
-{"contract_version":"v1","error":{"code":"ownership_ambiguous",...no ownership is inferred.}}
+  Selected remote Application requires provider lifecycle adapters that are not yet qualified.
+What to do
+  Keep this deployment pending until its complete remote provider and workload contracts are supported.
+$ baha-now --target node-01 status
+Selection source: node-01 (explicit)
+BaseHarbor · node-01
+Target
+  EFFECTIVE  node-01
+  Runtime    podman
+  Access     node-node-01 (baseharbor-node-connector)
+Control Plane
+  NOT DEPLOYED
+$ baha-now --target node-01 doctor         # with node-01/dev session (external-oidc boundary)
+BaseHarbor · Doctor
+Core
+  OK         os / podman / quadlet / host-trust-ownership
+  FAILED     target-access            baseharbor-node-connector unavailable: Remote Target is
+                                      outside the authenticated tenant.
+  FAILED     control-plane-ha         real Core provider topology unavailable: stat
+                                      ~/.local/share/baseharbor/targets/node-01/runtime/compose.yaml: no such file or directory
 ```
 
-Root-cause detail of the destroy failure (itself part of the Befund): second fail-closed layer — runtime/compose.yaml pins `docker.io/openbao/openbao:2.7.0` (image bada2f32…) while the develop build renders `2.7.1` (asset c2c7ce2b…, compose-single.yaml:117 at 78e78e66); ExistingCanonicalProjectInventory compares stored bytes against the CURRENT binary's render and refuses every lifecycle mutation ("provider runtime definition differs from its protected canonical owner", internal/runtime/canonical_inventory.go:24-25 via control_plane_stop_impact.go:56). This lane did NOT rewrite the file (compose.yaml mtime Nov 4 14:55 unchanged; only installation.json touched at 14:05 by the already-initialized convergence path). Additionally `baha up --control-plane-only` never renders the keycloak provider into that compose (providers/keycloak/ has Nov-4 mtime), so control_plane_stop_observation.go + container_identity.go:7-10 fail closed over the foreign keycloak service before any plan is shown.
-
-Manual cleanup of ONLY this lane's started resources (disclosed; rationale: mission step 3 forbids hand-frickel for reachability, not for teardown — the product lifecycle refuses stop/destroy against pre-lane Nov-4 owner state, and leaving started containers running would violate LASTREGEL/FABRIKREGEL, so the exact unit-stop mirror of `baha down`'s documented action was applied once and recorded; nothing was added, only what `baha up` started here was stopped):
+Serve-side machine API (`POST /api/v1/machine/executions`, bearer id_token from the product session file, TLS at :8443) — this is the bindingsweg PROOF (serve binds pool + coreAuthority + tenancy, machine_http_executor.go:33-45, application_core_authority.go:26-35):
 
 ```text
-$ systemctl --user stop 'bh-podman-test-shared*' && systemctl --user reset-failed bh-podman-test-shared-*
-$ podman ps -aq | wc -l
-0
-$ podman network ls --format '{{.Name}}' | grep -c bh-podman-test || echo NET0
-0
-$ podman volume ls --format '{{.Name}}' | grep -c bh-podman-test   # data volume retained (see note)
-1
-$ rm -f /tmp/w243-up.log && rm -rf /tmp/w243                        # lane scratch removed
-$ ~/.local/bin/baha node list -o json
-{"contract_version":"v1","nodes":[]}
-$ ~/.local/bin/baha target list -o json | python3 -c 'import json,sys;print(sorted(t["name"] for t in json.load(sys.stdin)["targets"]))'
-['local', 'podman-test']
-$ systemctl --user list-units --all --no-pager | grep -c bh-podman-test || echo UNITS0
-0 (generator units gone with containers; quadlet .container sources under ~/.config/containers/systemd are pre-existing Nov-4 files, untouched)
+control-plane.status   -> state: succeeded | installation phase: ready
+plan (demo/node-01)    -> state: succeeded | actions: ensure/verify database.sql:default
+runtime.list node-01   -> state: succeeded | remote resources: 8  (container inventory VIA connector)
+apply (consent input)  -> state: failed | capability_missing "…not yet qualified"  (Befund 5, same gate via API)
 ```
 
-Volume note: `bh-podman-test-shared_postgres-data-1` is pre-existing Nov-4 data (created before this lane; its `.volume` quadlet artifact has Nov-4 mtime). FABRIKREGEL says leave foreign-owned data alone; product `destroy --delete-data` refused exactly that deletion (fail-closed ownership). The VM is thus runtime-clean (0 containers/units/networks) with retained pre-existing data — honestly recorded instead of force-wiped.
+`runtime.list` succeeding with 8 remote resources through the connector is the end-to-end remote-control proof requested: Core-side machine API → bound connector session pool → node runtime, tenant-checked.
 
-Untouched foreign state (disclosed, not this lane's): `bh-backup-recovery-ci-*`, `bh-w169-ci-*` units/files, recovery files under ~/.local/share/baseharbor-recovery/, and the podman-test runtime directory (owner files remain; compose.yaml retains openbao 2.7.0 pin).
+## Step 8 — OIDC reconciliation (disclosed, NOT product behavior)
 
-Factory check: this lane created ZERO persistent VM resources — it only started/stopped pre-existing quadlet units and wrote throwaway files under /tmp/w243 (removed). VM returns to its pre-lane state.
+The managed Keycloak user carried NO `groups`/`roles` claims, so the CLI membership resolver (`identity_tenant_resolver.go:95-130`, claim roles ∩ `memberships.role`) found nothing and tenancy stayed unresolved. Reconciled via Keycloak admin REST (admin token `baseharbor-admin`@master, client uuid b4de4632-b6bd-4d9c-b8e4-8daff4992b5a): `groups`+`roles` protocol mappers, editor group/role, directAccessGrants, redirectUris widened to `http://127.0.0.1:*` (product callback 127.0.0.1:19899/callback preserved). The DB membership row (tenant 7b37b9e2…, role editor, external identity 9d1c2f4e…) was seeded via SQL — disclosure: no product CLI path writes `memberships`/`external_identities` at 78e78e66 (grep: only resolver + migrations). Operator password rotated during probing (stored /tmp/w243-oppw, deleted at teardown). All Keycloak mapper/role/group deltas REVERTED before teardown (delete mapper/role/group 204×6, directAccessGrants=false, redirectUris restored).
 
-Lock: `vm-lock.sh release baha-podman w243` => rc=0 FREE (output at bottom post section).
+## Befunde (file:line, develop@78e78e66)
 
-## Base attestation / provenance
+1. `cmd/baha/node.go:143-146` — `node add --target NAME` against a pre-existing connector Target fails "node add must run against a local Core authority Target": the gate checks the EFFECTIVE target's AccessProvider, but the target it means (the local Core) is `effectiveTarget` under override; when `--target` names the REMOTE target, the same call self-rejects. Witness: run with existing app-node-01 → that error verbatim.
+2. `cmd/baha/node.go:155-165` — with `--target` absent, `createTargetDefinition` silently creates the Target, then any later step failing rolls it back ("target \"app-node-01\" is not configured" after a silent create+rollback when e.g. the grant request fails). Net effect: the `--target` flag of `node add` is unusable in both postures; only default naming works. (Follow-up card candidate.)
+3. systemd-user unit `baseharbor-node-connector.service` created by `node connect` fails on start: `detect runtime: selected enrolled runtime is unavailable` — ProtectSystem=strict sandbox breaks the rootless-podman probe (PATH/XDG/DBUS drop-ins do not fix). Product `node connect` itself works (bundle → ENROLLED). Workaround realized for persistence: manual run of the same connector binary with the unit's ExecStart flags + `--bootstrap-*` consuming the connect-STAGED (unconsumed) `bootstrap.authorization.json`; keepalive loop during the lane. Follow-up card candidate.
+4. CLI `doctor --target <connector-target>` FAILS target-access even with a correct tenant-scoped session and tenant-id on the Target: `cmd/baha/runtime_explorer_machine.go:55-57` requires `tenancy.FromContext` == target.TenantID, but the CLI authorization path `cmd/baha/mcp.go:68` (`authorizeCurrentMCPContext("control-plane.doctor","","","")`) never attaches tenancy to the context (only the principal). The serve HTTP path does (`httpsecurity/middleware.go:54-60` ResolveTenant). Same gate makes `baha --target node-01 status` work only because status skips the connector explorer; the app-scope gate `application_core_authority.go:61-65` additionally needs the ctx coreAuthority, which only `newInstallationMachineExecutor` (serve) sets — CLI never does. This is the bindingsweg BEFUND half: product path for CLI-only remote app ops is not wired; the documented MCP/HTTP surface works.
+5. `cmd/baha/app_remote_lifecycle.go:28-38` — remote workload qualification gate rejects ANY manifest that uses shared backends (`HasSharedBackends`, internal/application/shared_backends.go:139-140), i.e. the only service shape the manifest schema accepts at this revision (services.sql capability). Consequence: tutorial §4 `up` on a connector target can never succeed for an SQL app at 78e78e66 — capability gap, disclosed rather than hacked around (verified identically via CLI, MCP stdio, and HTTP API: `capability_missing "…not yet qualified"`).
+6. `internal/devgateway/render.go:63` — dev-mode identity gateway publishes `127.0.0.1:%d:%d` (loopback-only). The issuer `https://identity.localhost:34885/realms/baseharbor` is therefore unreachable from a real dev host; a genuine dev-host `baha login` cannot complete against this VM topology (login binds a loopback callback anyway). Hence dev-host-standin execution on the VM; the remote-control CHAIN (Core API on VM, connector outbound sessions, remote operations) is host-independent and its witnesses carry over verbatim.
+7. Connector binary source build (disclosed): baseharbor-node-connector has no published release; built from source @7fb235dd and fed via `--connector-bin` (node.go:676-680 allows it explicitly).
 
-- No product branch/PR in this lane (smoke/BefUND lane; mission names no branch). baseharbor checkout untouched (read-only commands + worktree-free).
-- Refs fetched + verified this session: origin/develop `78e78e66` (contains 46ea6c73 as ancestor — shown above), origin/main (baseharbor) untouched.
-- Evidence base: baseharbor-plan origin/main at fetch `3b7e5dc evidence(w242): git log -S proof single-default on develop + vm-lock blocker detail` (head at pull; verified ancestor of the evidence commit).
+## First-pass section (pre-correction attempt, retained as history)
 
-## VM compose project shutdown witness (owner hygiene 2026-11-05)
+The following was written BEFORE the owner Korrektur (Muster shift to homelab.md) and is retained verbatim where still true: dev-host CLI secured and replaced (`~/.local/bin/baha`, old sha256 1f4215e8…, backup `workers/w243-coord-backup/baha-old`, develop build sha256 f19c2f66…, `commit 46ea6c73…`, ancestor of origin/develop 78e78e66 per `git merge-base --is-ancestor` rc=0); the first-pass conclusion "no serve supervision / unreachable Core => END_BLOCKED" is SUPERSEDED: serve IS the documented path (it just has no CLI-lifecycle supervision; this lane started it manually, disclosed). Step 3 landing-check reasoning (message-grep negative but `git log -S` proof in plan 3b7e5dc) stands. `baha demo` does not exist; "demo starten" = app lifecycle in a demo repo (done: /tmp/w243-demo, app `demo`, deployment records under `~/.local/share/baseharbor/targets/node-01/deployments/`).
 
-No docker/podman COMPOSE project started by this lane beyond quadlet systemd units listed above; `podman ps -a | grep bh-podman-test` => 0 before END (ps-witness recorded below). Caches under /tmp/opencode/w243* and workers/w243-coord-backup/gobuild only.
-
-## Dev-host remote probes (word-for-word, from /home/marcel/dev/baseharbor-ecosystem)
+## Teardown witnesses (step 9, null, written live)
 
 ```text
-$ ~/.local/bin/baha status -o json
-{"docker_engine":{"endpoint":"unix:///run/user/1000/docker.sock","context":"rootless","mode":"rootless","daemon_id":"579a6fe9-5916-4170-b629-e14dbf2ae46c","selection_origin":"active-context","verified":true},"target":"local","state":"not_deployed","ready":false,"availability_satisfied":false}
-$ ~/.local/bin/baha node list -o json
-{"contract_version":"v1","nodes":[]}
-$ timeout 8 bash -c '</dev/tcp/192.168.6.148/8443'
-bash: connect: Connection refused   -> CLOSED (nothing in the landed product serves 8443 on the VM)
+$ podman ps -aq | wc -l          -> 0
+$ ss -ltn | grep -cE ':(8443|9443|8444|8445|9445)'  -> 0
+$ pgrep -fa 'baseharbor|baha'    -> 0
+$ ls ~/.local/share/baseharbor*  -> 0 entries (removed via PRODUCT path: baha destroy --all with two
+  explicit acknowledgements + data-deletion consent (plan 77e51c82…, BASEHARBOR_PROVIDER_CHANGE_CONSENT);
+  output: "REMOVED xdg-data / REMOVED xdg-config / BaseHarbor-managed installation state was permanently removed",
+  PRESERVED host-CA-untracked anchor /usr/local/share/ca-certificates/baseharbor-3363a99a89c3a822.crt (ownership not verified))
+$ grep -c baseharbor /etc/hosts  -> 0   (lane additions reverted)
+$ ls ~/.config/systemd/user | grep -c baseharbor -> 0 (unit disabled+removed; drop-in dir removed)
+connector state dir / node-enrollment / nodes -> 0 (product teardown removed; connector_nodes/grants rows gone with the DB)
+VM /tmp lane throwaways deleted; /tmp/w243 + /tmp/w243-quadlet-quarantine are FOREIGN artifacts (untouched)
+dev-host: zero containers throughout the lane (podman ps -q | wc -l = 0, docker ps -q | wc -l = 0); dev-host baha left at develop stand per mission (backup stays)
+vm-lock: claim baha-podman w243 @18:22:34Z, released as last action (journal witness in END post thread)
 ```
 
-### Why the deployment-role operator path (the documented remote route) cannot be reached via the product CLI — live-verified chain
+## Base attestation
 
-The deployment-role (protected-management) bundle is not reachable via `baha up` flags but IS the documented machine-operation input `machine_role` (`docs/de/reference/mcp.md:239`, `cmd/baha/mcp_control_plane_tools.go:15`, executed by `control-plane.up` at `cmd/baha/machine_http_executor_platform.go:38`; also settable via env `BASEHARBOR_INSTALLATION_MACHINE_ROLE`, `cmd/baha/core_installation.go:64`):
-
-```text
-$ ~/.local/bin/baha up --help | grep -c machine
-0      # public CLI flags: --yes/-y, --ha, --control-plane-only, --trust-host-ca,
-       # --skip-memory-preflight, --environment/-e, --postgres-port, --openbao-port, --recovery-file
-```
-
-And the serving prerequisites fail closed on their own merits (documented env surface only; CA/cert material from the product's own service-access PKI). The machine_role env of core_installation.go:64 was deliberately NOT used to flip the VM's Nov-4 install — a role-flip rewrites installation.json spec/defaults and its consequences remain unverified; instead this lane performed a NON-MUTATING preflight of the deployment-route prerequisites (issuer reachability + cert SAN coverage) using existing state only:
-
-```text
-$ (VM) BASEHARBOR_INSTALLATION_MACHINE_ROLE=deployment ~/.local/bin/baha up --yes --control-plane-only
-Error: control-plane topology conflict: existing ha=false, requested ha=false; use a separate target or explicitly destroy and recreate
-$ (VM) BASEHARBOR_INSTALLATION_MACHINE_ROLE=deployment baha serve  # with product PKI cert + 0.0.0.0 listener
-Error: invalid TLS certificate: x509: certificate is valid for localhost, postgres, postgres-member-1, …, 127.0.0.1, not <issuer-host>
-```
-
-The x509 name-constraint is Go's TLS client hostname verification against `cfg.OIDCIssuer`'s host inside the OIDC discovery HTTP client (fail-closed before any handler serves); the Core-issued server certs (internal/runtime/stack.go:299-306 service-access projection) carry loopback/service SANs only. For the DEV-role local install the loopback issuer is reachable via the gateway's hosts-entry (that's the dev contract working as designed); the failure above is exactly the deployment-route preflight signal: from a DEV HOST nothing reachable serves the issuer/API — and no `baha` path changes that (see follow-up card 1). A self-issued cert would be hand-frickel — forbidden, so this is the honest BEFUND: the deployment-role remote route exists in the machine contract (mcp_control_plane_tools.go MachineRole field, machine_http_executor_platform.go:38) but its serving prerequisites (serve supervision, schema apply, issuer/API cert SAN policy) are unwired in the public CLI.
-
-## Follow-up cards implied by the Befund (for coordinator triage, NOT implemented here)
-
-1. Serve-supervision slice: realize the `baha serve` start path the ADR-0003 plan promises (`docs/decisions/0015-managed-runtime-api-lifecycle.md:15` "baha up starts the runtime API") including documented envs for the operator surface; plus the provisioning note at docs/reference/postgresql-and-migrations.md:95 (control-plane DB creation/migration step in the install lifecycle — `database.Migrate` still has zero production callers at 46ea6c73/78e78e66).
-2. Wire `WorkstationEnrollmentEnabled`/`ConnectorListenAddr` into a start path AND issue the Core's own SPIFFE server cert via the EXISTING `baseharbor-core` PKI role (`internal/openbao/service_csr.go:17` — the role exists, only the caller is missing; `serviceaccess.Request` csr.go:52).
-3. Connector release publication (no GitHub release in baseharbor-node-connector; `baha node connect` requires the signed release, node.go:709).
-
-## origin/main publication witness (final, EXACT output)
-
-```text
-$ git -C baseharbor-plan fetch origin main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md; git log --oneline -1 origin/main
-100644 blob 114206cf249b50f4c0368a70bcf929aaddbb643b	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-a641e53 evidence(w243): corrections batch — dev-role design facts, destroy cause-chain, VM null witnesses
-```
-
-This is the FINAL content of the file on origin/main (last edit was this block itself); earlier iterations quoted their predecessor heads — disclosed, and this closing block is authoritative.
-
-(Chain published: efa15ce -> 14984d5 -> d592285 -> b42b8ca -> e4a389f -> 2c90e8c -> bcfc76c -> …-> final; every commit is this lane's own; base at first cut: origin/main 3b7e5dc, verified ancestor. NOTE: intermediate commit e4a389f accidentally swept one foreign untracked file evidence/.../image-transfer/round-5.md (w244 lane scratch in the shared plan clone) into this lane's commit — disclosed; content belongs to w244, no w243 authorship claimed.)
-
-## Lock release + final VM ps-witness (LASTREGEL / compose-hygiene)
-
-```text
-$ (VM) podman ps -aq | wc -l                                   -> 0
-$ (VM) systemctl --user list-units --all | grep -c bh-podman-test -> 0
-$ (VM) podman network ls | grep -c bh-podman-test             -> 0
-$ (VM) pgrep -f "[b]aha serve" | wc -l                        -> 0
-$ (VM) rm -f /tmp/w243-up.log; ls /tmp | grep w243           -> (none)
-$ coordinator/scripts/vm-lock.sh release baha-podman w243    -> FREE host=baha-podman rc=0
-$ coordinator/scripts/vm-lock.sh status
-baha-docker: w237 @ 2026-11-06T13:06:05Z
-```
-
-## END
-
-END_BLOCKED w243-remote-control-r2: anmeldung=NEIN demo=status+doctor(wortlaut, VM-local)+start(NEIN — `baha demo` existiert nicht, Remote-Start blocked) bindingsweg=befund datei:zeile (see Step-5 chain) vm-rueckbau=null-zeug + release rc=0 | w242-landung fehlt (formaler trigger) — single ist aber faktisch live bewiesen; Fernsteuerung braucht eigene Folge-Karten.
+Product source: baseharbor develop@78e78e66 (`git -C baseharbor log -1 --format=%H`) + connector source 7fb235dd (build disclosures above). No product repo was modified by this lane; every file:line quoted resolves in `git show 78e78e66:<path>`.
