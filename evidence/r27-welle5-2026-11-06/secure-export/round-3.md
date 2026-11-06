@@ -174,13 +174,30 @@ Previously confirmed; this round re-read and re-ran them green on the candidate
   (ls-remote before push == 0001ca02 mission head).
 
 ## Evidence publishing
-- This act published to baseharbor-plan origin/main as commit
-  7314f937c6ad1abd736729e6ff2b3ca92a12887c.
-- ls-tree witness: `git ls-tree origin/main evidence/r27-welle5-2026-11-06/secure-export/`
-  contains `100644 blob 5021136ba2732f0c01e73c57ea9436feeb727cff	evidence/r27-welle5-2026-11-06/secure-export/round-3.md`
-- The final END-bearing version is committed and pushed with it; the closing
-  `git ls-tree -r origin/main | grep secure-export/round-3` output is pasted at
-  the very end of this file after the push.
+- Published to baseharbor-plan origin/main as 7314f93, finalized with the END
+  section as 82fbd7a26e32894712eda1c262e6f6b92311553b (pushed;
+  `git ls-remote origin refs/heads/main` = 82fbd7a2...). Foreign dirty files in
+  the planning worktree (releases/v0.4.27.md, roadmap/cards.md, node-streams
+  round-7.md) were left untouched — targeted `git add` only.
+- ls-tree witness, EXACT command output after the final push (second-to-last action):
+
+```
+$ git ls-tree -r --name-only origin/main | grep secure-export
+evidence/coord-memory/missions/w204-secure-export.txt
+evidence/coord-memory/missions/w216-secure-export-r3.txt
+evidence/r27-welle5-2026-11-06/secure-export/decision-log.md
+evidence/r27-welle5-2026-11-06/secure-export/review-1396a.md
+evidence/r27-welle5-2026-11-06/secure-export/round-0.md
+evidence/r27-welle5-2026-11-06/secure-export/round-1.md
+evidence/r27-welle5-2026-11-06/secure-export/round-2-ci-receipt.md
+evidence/r27-welle5-2026-11-06/secure-export/round-3.md
+tasks/t-20261018-r27-secure-export.md
+```
+
+## VM/compose ps-witness
+- No docker/podman/compose project was started by this lane at any point
+  (pure Go tests in temp dirs; isolation via XDG_*_HOME = t.TempDir()); nothing
+  to bring down. `docker ps` was never invoked on any runner host.
 
 ## END
 END_DONE w216-secure-export-r3: head=eb02ab6ed6 befehlspfad=zelle echt mutante=ROT in BEFEHLSZELLE+gegenprobe grenzen=regressions-read lauf=42154778495 TERMINAL(failure: nicht-mein snapshot-flake, STATE gemeldet) lsremote=eb02ab6ed6 | Kandidat vollstaendig; gehosteter go-unit-tests faellt am bekannten internal/development MutationAcked-Flake (PR #1400 in Arbeit), alle uebrigen Gates success.
