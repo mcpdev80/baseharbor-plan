@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
-| review | 1 |
+| active | 8 |
+| review | 2 |
 | blocked | 6 |
 | ready | 2 |
 | queued | 26 |
@@ -24,20 +24,20 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
-| [t-20261018-r27-image-transfer](../tasks/t-20261018-r27-image-transfer.md) | Images: reuse native registry and local-store transports | active | high | coord-welle5 (Lane w225) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
+| [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md) | Versions: show release components source and running state | active | normal | coord-welle5 (w229) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1403](https://github.com/mcpdev80/baseharbor/pull/1403) |
 | [t-20261101-ha-prep-fix](../tasks/t-20261101-ha-prep-fix.md) | targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) | active | not set | ha-prep-fix worker (ornith1.5) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254) |
 | [t-20261101-pr-inventory-2026-11](../tasks/t-20261101-pr-inventory-2026-11.md) | pr-inventory: triage 20 open PRs — supersede/duplicate close, blocked-on-#1258, #1160 ready-to-merge | active | low | Ornith-Worker (lane pr-inventory) | — | [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254), [baseharbor#1160](https://github.com/mcpdev80/baseharbor/pull/1160) |
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts | active | high | coord-welle5 (Lane w227) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | — |
-| [t-20261105-r27-snapshot-change-guard-deterministic](../tasks/t-20261105-r27-snapshot-change-guard-deterministic.md) | Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) | active | high | coord-welle5 (w223, dispatch folgt) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md) | Versions: show release components source and running state | review | normal | coord-welle5 (Lane w226, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1403](https://github.com/mcpdev80/baseharbor/pull/1403) |
+| [t-20261018-r27-image-transfer](../tasks/t-20261018-r27-image-transfer.md) | Images: reuse native registry and local-store transports | review | high | coord-welle5 (Lane w225, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1402](https://github.com/mcpdev80/baseharbor/pull/1402) |
+| [t-20261105-r27-snapshot-change-guard-deterministic](../tasks/t-20261105-r27-snapshot-change-guard-deterministic.md) | Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) | review | high | coord-welle5 (Lane w223, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400) |
 
 ## Blocked
 

@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle5 (Lane w226, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w229)
+kanban_lane: active
 kanban_summary: "Readable release names/tags and component versions are the primary UI. Show each app/service image repository/tag, resolved…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Versions: show release components source and running state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261018-r27-stage-versions, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-version-view · Versions: show release components source and running state #task #release/v0-4-27 #status/review #view/review #area/cli #kind/task
+- [ ] t-20261018-r27-version-view · Versions: show release components source and running state #task #release/v0-4-27 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w226, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle5 (w229) · **Priority:** normal  
     **PR:** [baseharbor#1403](https://github.com/mcpdev80/baseharbor/pull/1403)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** coord-welle5 (Lane w226, freigegeben)  
+**Owner:** coord-welle5 (w229)  
 **Priority:** normal  
 **PRs:** [baseharbor#1403](https://github.com/mcpdev80/baseharbor/pull/1403)  
 **Source:** 

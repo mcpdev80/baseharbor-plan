@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (w223, dispatch folgt)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle5 (Lane w223, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
 kanban_title: "Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI)"
 priority: high
@@ -20,18 +20,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md", "https://github.com/mcpdev80/baseharbor/pull/1387"]
 ---
 
-- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w223, dispatch folgt) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w223, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1387)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
-**Owner:** coord-welle5 (w223, dispatch folgt)  
+**Owner:** coord-welle5 (Lane w223, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400)  
 **Source:** 
