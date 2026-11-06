@@ -5,9 +5,9 @@ areas: [platform, runtime, testing]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: w242
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Die develop-Kontrollebene faehrt im Default als Einzel-Instanzen (ein Postgres, ein OpenBao), weil die Entwickler-Umgebung laut…"
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: critical
@@ -20,17 +20,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/planned #view/ready #area/platform #area/runtime #area/testing #kind/task
+- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/active #view/active #area/platform #area/runtime #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** w242 · **Priority:** critical  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** w242  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 

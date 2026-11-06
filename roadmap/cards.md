@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 77/114 · **Blocked:** 0 · **Waiting:** 23  
+    **Accepted tasks:** 77/114 · **Blocked:** 1 · **Waiting:** 23  
+    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — Umwelt-Beweisdossier fertig (round-4.md, 3 wortliche Zeugnisse): die vier Abnahme-Zellen scheitern an der 2/3-min-Testfrist gegenueber 4-min-Readiness des HA-E…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
