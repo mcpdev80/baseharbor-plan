@@ -12,8 +12,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 83/117 · **Blocked:** 2 · **Waiting:** 22  
-    **Blocker:** [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md) — Branch work/r27-management-host wurde 21:45:33Z per Kraft-Drueck auf den abgelehnten Stand cd336cf7 zurueckgesetzt (Kraft-push-Event, absender-system mcpdev80)…  
     **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — VM-Matrix faellt auf bootstrap-timeout zurueck, der an der single-default-landung (\#1404) haengt; kandidat b11eec12 selbst korrekt + akte round-6-w259 auf main…  
+    **Blocker:** [t-20261106-r27-control-plane-single-default](../tasks/t-20261106-r27-control-plane-single-default.md) — abstimmungsfrage am gleichlautenden kandidat: forensik (round-8) kann pre-reset-datenlage nicht belegen — akte sagt 'auswirkung unbekannt'. option a: merge der…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
