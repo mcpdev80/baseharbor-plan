@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w204, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w216, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: Opt-in local eligible credentials only; authenticated encryption/version/KDF using existing reviewed primitives. Password never…
-kanban_status: review
+kanban_status: active
 kanban_title: "Profiles: encrypt explicitly selected local credential export"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-codec, t-20261018-r27-protected-credentials, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/review #view/review #area/access #kind/task
+- [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w204, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle5 (w216, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
-**Owner:** coord-welle5 (Lane w204, freigegeben)  
+**Owner:** coord-welle5 (w216, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -73,3 +73,7 @@ adapter ohne kommando = tote technik (1395a-lehre). E2E-zelle + anbindungs-mutan
 Nachgemessen: ls-remote echt==head, develop f01d2fb VORFAHR (rc=0), lauf 42147787627 TERMINAL SUCCESS am
 exakten kopf, akte round-2-ci-receipt.md + decision-log.md auf origin/main (coord-record). Zusammenbau
 echt (registrier-zeile, koord-freigabe B), mutante rot + gegenprobe gruen, race ok.
+
+## Rueckruf (1396a REJECT): die zusammenbau-Zelle ruft den adapter DIREKT (eigene manifeste),
+nie rootCommand->secureProfileExportCommand; der registrier-mutant rot war ein doku-sync-Tor, kein
+zusammenbau-beweis. Rezept zeilen 74-101: echte befehlspfad-zelle die durch den mutant rot wird.
