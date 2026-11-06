@@ -56,3 +56,5 @@ No product files, branches, PRs, tests, VM services, containers, or connector st
 ## origin/main publication witness
 
 Pending publication; record the exact `ls-tree` output after pushing this evidence.
+
+Initial publication witness: `100644 blob 5447cadb4aaf3e529eb2c2ab28ac833ad2572390 evidence/r27-welle5-2026-11-06/remote-control-smoke/round-1.md`.
