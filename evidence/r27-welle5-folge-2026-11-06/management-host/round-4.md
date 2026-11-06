@@ -68,3 +68,16 @@
   - L0 == L2 (exact restoration confirmed).
 - Focused tests: go build ./... OK; go vet ./cmd/baha/ ./internal/coreinstallation/ clean; gofmt -l clean; go test ./internal/coreinstallation/ OK; go test ./cmd/baha/ -run 'TestServeManagementHost|TestServeCommandManagementHost' OK.
 - Disk note: the shared /tmp tmpfs (12G) was near-full from OTHER lanes' stale go caches (w274-gocache 2.7G, w226-cache 3.9G, a 12G .w239-smoke-build gocache); cleaned go build caches to complete the build/vet/tests. No other lane's worktree was modified.
+
+## STEP 7 PUSH + HOSTED CI (terminal) + EVIDENCE
+
+- Candidate: single commit 3a80ed0402adfd235cc9ce0fc920024d35475c9b on work/r27-management-host, parent 64d93e94 (round-3), develop 5e4fde71 an ancestor. No foreign commit carried (git log --oneline -3 shows only the r3 head and my single fix).
+- Push: 64d93e94..3a80ed04 to refs/heads/work/r27-management-host (fast-forward, no --force). Remote tip AFTER = 3a80ed04.
+- PR #1405 head = 3a80ed04, state OPEN, not draft, MERGEABLE.
+- Hosted CI: run 42313020650, head 3a80ed04, conclusion success. 25 checks total: 15 SUCCESS, 10 SKIPPED (HA/docker, HA/podman, consumer/demo/exact-candidate/runtime/validate — not on the Go-only changed path), 0 FAIL. Rollup "PR Selected Checks" = SUCCESS. Notable SUCCESS: go-build, go-vet, cli-build, cli-vet, cli-gofmt, cli-package-tests, cli-guided-tests, authority-package-tests, source-contracts. No .github/** in write set, no workflow_dispatch/rerun.
+- Write set: internal/coreinstallation/management_host.go, internal/coreinstallation/management_host_test.go, cmd/baha/serve_command_resolve_error_test.go. No .github/**.
+
+## EVIDENCE PROVENANCE (second-to-last action)
+
+- baseharbor-plan origin/main before push: <to be filled by ls-tree after commit>
+- evidence files committed and pushed to origin/main: evidence/r27-welle5-folge-2026-11-06/management-host/round-4.md and evidence/r27-welle5-folge-2026-11-06/management-host/scripts/mutation_mgmt_host.sh
