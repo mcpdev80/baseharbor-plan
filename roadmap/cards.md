@@ -11,9 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 69/113 · **Blocked:** 2 · **Waiting:** 28  
-    **Blocker:** [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) — Infra: baha-podman nicht erreichbar (SSH-banner-timeout, coord-nachmessung deckt sich mit lane + compose-befund 11-06); docker-half ok (kein baha installiert).…  
-    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — Host-Infra: baha-podman nicht erreichbar (SSH-timeout, VM festgefahren; coord nachgemessen 02:2xZ) und baha-docker traegt nur einen rootlosen daemon (beide con…  
+    **Accepted tasks:** 73/113 · **Blocked:** 5 · **Waiting:** 25  
+    **Blocker:** [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md) — Abhaengigkeit intern: kur-r8 muss in develop landen (PR \#1400, laeuft auf sitz w223). Trigger: merge-1400 END + develop-beleg. Kein eigener arbeitsplatz belegt.  
+    **Blocker:** [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md) — Abhaengigkeit intern: kur-r8 muss in develop landen (PR \#1400, laeuft auf sitz w223). Trigger: merge-1400 END + develop-beleg. Kein eigener arbeitsplatz belegt.  
+    Plus 3 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
