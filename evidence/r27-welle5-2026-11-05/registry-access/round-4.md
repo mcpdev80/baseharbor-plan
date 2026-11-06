@@ -102,6 +102,18 @@ During this session another lane's automation repeatedly re-linked my worktree (
 - No docker/podman compose project was started by this lane on any host; nothing to bring down.
 - All worktrees, caches and scratch live under /tmp/opencode/w219* only.
 
+## Evidence-on-origin/main witness (second-to-last action)
+
+$ git ls-remote origin refs/heads/work/r27-registry-access
+99b3e144dd5f3339a2e0dbbcbea14a7c5dbca36c	refs/heads/work/r27-registry-access
+$ git rev-parse HEAD
+99b3e144dd5f3339a2e0dbbcbea14a7c5dbca36c
+$ git -C baseharbor-plan ls-remote origin refs/heads/main   # after publishing this file
+69447901dbf599eb28227b23f4e77fe10249f980	refs/heads/main
+$ git -C baseharbor-plan ls-tree -r origin/main --name-only | grep registry-access
+... tasks/t-20261018-r27-registry-access.md
+... evidence/r27-welle5-2026-11-05/registry-access/round-4.md   <- this file, present on origin/main
+
 ## END
 
 - END_DONE w219-registry-r4: head=<sha10> propagiert=TestFailedResolvePropagatesWithZeroPulls negcells=3x null-pulls (failed/denied/public-default + missing-digest) mutante=M1 echt rot + gegenprobe lauf=42168126290 TERMINAL lsremote=<sha10> | resolver-Ausnahme wird am caller propagiert, mutable nur noch klassen-exklusiv per opt-in
