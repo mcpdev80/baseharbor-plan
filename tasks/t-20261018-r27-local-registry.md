@@ -7,27 +7,30 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle5 (codex-worker, entlassen)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "For topologies that actually need a shared endpoint, explicitly opt into one existing OCI Distribution-compatible registry…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Artifacts: optionally provision an existing OCI registry implementation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1401]
 sources: []
 early: false
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1401"]
+blocker: ""
+
 ---
 
-- [ ] t-20261018-r27-local-registry · Artifacts: optionally provision an existing OCI registry implementation #task #release/v0-4-27 #status/review #view/review #area/artifacts #kind/task
+- [x] t-20261018-r27-local-registry · Artifacts: optionally provision an existing OCI registry implementation #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/artifacts #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (codex-worker, entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1401](https://github.com/mcpdev80/baseharbor/pull/1401)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1401)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
