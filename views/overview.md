@@ -12,8 +12,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | ---: |
 | active | 9 |
 | review | 1 |
-| blocked | 2 |
-| ready | 4 |
+| blocked | 3 |
+| ready | 3 |
 | queued | 26 |
 | waiting | 184 |
 | backlog | 7 |
@@ -43,6 +43,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md) | Recovery: restore the installation state and reconcile owned targets | blocked | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](../tasks/t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | blocked | not set | coord-welle4-rest (wartet Owner) | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | blocked | high | coord-welle5 (w236, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 
@@ -53,7 +54,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-artifact-resolution](../tasks/t-20261018-r27-artifact-resolution.md) | Images: resolve existing artifacts or an explicit builder | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](../tasks/t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md) | Recovery: restore the installation state and reconcile owned targets | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](../tasks/t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 
 ## By release
 
