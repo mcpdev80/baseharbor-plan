@@ -71,3 +71,7 @@ A workstation enrolls once against a real BaseHarbor installation and the node s
 
 - Predecessors: t-20261018-r27-device-enrollment and t-20261018-r27-node-service must have a reviewable candidate each; this card runs against those candidate builds.
 - Owner directive 2026-11-04: real VM smoke test required for this feature pair; execution belongs to a worker lane. SSH host access is provided by the owner environment and is never configured by the lane itself.
+
+## Trigger teilerfuellt 2026-11-06 (owner-neustart, coord-nachmessung: BEIDE hosts alive, podman
+up 4min). Offen: daemon-aufstellung baha-docker (rootful-Frage, compose-befund) + restauflung der
+Altstaapel (waere owner-freiraeumen). Naechster schritt: vm-smoke-lane beim ersten freien sitz.
