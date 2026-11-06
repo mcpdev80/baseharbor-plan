@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
+    **Needs:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

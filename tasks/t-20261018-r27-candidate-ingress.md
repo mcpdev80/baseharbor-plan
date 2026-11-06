@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle5 (Lane w213, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Accept and retain minimal authorized app/revision/consent metadata and the exact native input/reference for an operation. Reuse…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Sources: persist authorized immutable deployment candidates"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-pack, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1398"]
 ---
 
-- [ ] t-20261018-r27-candidate-ingress · Sources: persist authorized immutable deployment candidates #task #release/v0-4-27 #status/review #view/review #area/sources #kind/task
+- [x] t-20261018-r27-candidate-ingress · Sources: persist authorized immutable deployment candidates #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/sources #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w213, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor#1398](https://github.com/mcpdev80/baseharbor/pull/1398)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1398)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -73,3 +74,6 @@ Nachgemessen: ls-remote echt==head, develop VORFAHR (rc=0), lauf 42156133078 TER
 kopf, akte round-1.md auf origin/main. Discriminator auf Observed.State==ready geschaerft (verifizierter
 zustand geschuetzt, legitime pending-retrys bleiben gruen — 2 retry-zellen rot/gruen belegt), authoris
 ierungszelle + zusammenbau echt, mutante echte quellcode-mutation mit gegenprobe, red-first uebernommen.
+
+## Gemerged 2026-11-06 (CODEX-MERGE nach 1398a ACCEPT): kandidat 9fc32d4a1f9, uebernahme
+w208->w213 vollendet, ready-diskriminator beide richtungen belegt.

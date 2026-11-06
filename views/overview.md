@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 12 |
-| review | 2 |
+| review | 1 |
 | blocked | 3 |
 | ready | 2 |
 | queued | 26 |
 | waiting | 190 |
 | backlog | 7 |
-| closed | 134 |
+| closed | 135 |
 
 ## Active
 
@@ -40,7 +40,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md) | Sources: persist authorized immutable deployment candidates | review | normal | coord-welle5 (Lane w213, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](../tasks/t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1398](https://github.com/mcpdev80/baseharbor/pull/1398) |
 | [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md) | GitOps: preserve external desired state and hand off native changes | review | high | coord-welle5 (Lane w221, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399) |
 
 ## Blocked
@@ -61,7 +60,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 43 open, 70 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 42 open, 71 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
