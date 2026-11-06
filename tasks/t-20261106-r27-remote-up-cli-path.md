@@ -26,6 +26,7 @@ blocker: ""
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
+**Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
 **Owner:** coord-welle5 (w274+w273 dispatched)  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  

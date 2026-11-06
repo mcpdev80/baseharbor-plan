@@ -13,7 +13,7 @@ prs: []
 repos: [mcpdev80/baseharbor]
 ---
 
-- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0.4-27 #status/planned #view/waiting #board/planned #area/cli #area/remote #kind/bug
+- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/cli #area/remote #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
