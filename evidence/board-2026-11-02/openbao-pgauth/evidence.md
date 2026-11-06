@@ -2,12 +2,12 @@
 
 ## PLAN
 
-  - [x] **Step 1:** Run-Log: welche Rolle verbindet wann (user, database, auth type) — Fehlerzeile sichern
-  - [x] **Step 2:** Init-Pfad finden: postgres-init/role provisioning fuer openbao (internal/application/** + compose templates) — grep
-  - [x] **Step 3:** Minimal-Fix: richtige GRANT/DB-Vorabsetzung (openbao DB owner) ODER getrennte Rolle
-  - [x] **Step 4:** Test/Integration-Anpassung in internal/**
-  - [x] **Step 5:** Beweis: go test ./internal/... -run 'Openbao|OpenBao|Postgres' lokal
-  - [x] **Step 6:** PR 'fix(secrets): grant OpenBao postgres backend the right privileges', PRSC terminal, Karte via plan.py new
+  - **Step 1:** Run-Log: welche Rolle verbindet wann (user, database, auth type) — Fehlerzeile sichern
+  - **Step 2:** Init-Pfad finden: postgres-init/role provisioning fuer openbao (internal/application/** + compose templates) — grep
+  - **Step 3:** Minimal-Fix: richtige GRANT/DB-Vorabsetzung (openbao DB owner) ODER getrennte Rolle
+  - **Step 4:** Test/Integration-Anpassung in internal/**
+  - **Step 5:** Beweis: go test ./internal/... -run 'Openbao|OpenBao|Postgres' lokal
+  - **Step 6:** PR 'fix(secrets): grant OpenBao postgres backend the right privileges', PRSC terminal, Karte via plan.py new
 
 ## STATUS
 
