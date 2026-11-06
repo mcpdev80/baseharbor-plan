@@ -242,8 +242,8 @@ bash: connect: Connection refused   -> CLOSED (nothing in the landed product ser
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git log --oneline -1 origin/main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-3f1a1c0 evidence(w243): final self-consistent publication witness
-100644 blob 1234567890abcdef1234567890abcdef12345678	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+fd2ca87 evidence(w243): final self-consistent publication witness
+100644 blob e328315fb1660c5ef73af4c8dda9dfa7fa68ae10	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
 ```
 
 (Chain published: efa15ce -> 14984d5 -> d592285 -> b42b8ca -> e4a389f -> 2c90e8c -> bcfc76c -> …-> final; every commit is this lane's own; base at first cut: origin/main 3b7e5dc, verified ancestor. NOTE: intermediate commit e4a389f accidentally swept one foreign untracked file evidence/.../image-transfer/round-5.md (w244 lane scratch in the shared plan clone) into this lane's commit — disclosed; content belongs to w244, no w243 authorship claimed.)
