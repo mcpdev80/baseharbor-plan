@@ -8,7 +8,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "Die develop-Kontrollebene faehrt im Default als Einzel-Instanzen (ein Postgres, ein OpenBao), weil die Entwickler-Umgebung laut…"
+kanban_summary: "Default deploys exactly one instance per control-plane service; HA is explicit opt-in only. Actual Docker and Podman startup, regression, restart, and negative/positive HA tests are mandatory."
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -38,51 +38,42 @@ evidence: []
 
 ## Goal
 
-Die develop-Kontrollebene faehrt im Default als Einzel-Instanzen (ein Postgres, ein OpenBao),
-weil die Entwickler-Umgebung laut Owner genau so gemeint ist. Heute zeigt der Auslieferungs-Standard ein
-HA-Ensemble (3 OpenBao-Mitglieder + Balancer). Die Einzel-Form wird Default; HA bleibt als
-explizit waehlbares Profil erhalten.
+The default BaseHarbor developer/control-plane deployment MUST use a single instance per required service. Currently the shipped Compose template starts an HA ensemble without an explicit request. SINGLE becomes the default, while HA remains available only as an explicit opt-in.
 
 ## Scope
 
-- In scope: Ausgelieferte Compose-Assets, Default-Profilwahl, wirksamer Startpfad (`baha up` und devenv), Postgres/etcd, OpenBao, Keycloak, HAProxy und zugehoerige Initialisierung, Endpunkte, Persistenz und Profil-Validierung. Default darf keine zusaetzlichen HA-Mitglieder, Balancer oder Quorum-Abhaengigkeit starten.
-- In scope: Explizite HA-Wahl mit korrekter vollstaendiger Clusterkonfiguration und sichtbarer Auswahl; Bestand darf nicht durch ein Upgrade oder erneutes `up` unbemerkt zwischen SINGLE und HA wechseln.
-- Out of scope: Produktive Bestandsumgebungen automatisch abbauen, unabhaengige Anwendungs-Workloads veraendern oder HA ersatzlos entfernen.
+- In scope: shipped Compose assets, effective default profile selection, actual `baha up` and development-environment startup paths, PostgreSQL/etcd, OpenBao, Keycloak, HAProxy, and related initialization, endpoints, persistence, and profile validation. The default must not start extra HA members, load balancers, or require a cluster quorum.
+- In scope: explicit HA opt-in with a complete, healthy cluster and visible selection. Repeated `up` or upgrades must not silently switch existing installations between SINGLE and HA.
+- Out of scope: destructive automatic migration of existing installations, unrelated application workloads, or eliminating HA support.
 
-## Proof / Befund (coord-Nachmessung 2026-11-06 14:1xZ, origin/main develop)
+## Verified defect (coordinator observation, 2026-11-06)
 
-- Owner-Direktive woertlich: "openbao ist da insgesamt 4 mal zu sehen ist der aufbau als ha das
-  waere komplett falsch es sollte default sein das nichts ha ist sondern einzeln".
-- Produktbeleg: internal/runtime/assets/compose.yaml definiert offenbao-member-1/2/3 (Zeilen
-  268/297/326) + haproxy (356) + postgres-etcd 1-3 (Zeilen 10/23/36) — das mitgelieferte
-  Standard-Template IST das HA-Ensemble.
-- Go-Seite kennt bereits beide Formen: internal/runtime/control_plane_profile.go
-  (OpenBaoMembers 68-73, validateSingleControlPlane 75) — Einzel-Pfad existiert, ist aber nicht
-  der Default des Assets.
-- Live-Zeuge: baha-docker `docker ps` nach devenv-smoke-Aufbau: bh-local-shared-openbao-member-1/2/3
-  + -admin + haproxy = 4-5 Tresor-Container; identisch bh-w169-ci-ctxa (CI-Kontext).
+- Owner requirement: the default must be non-HA, with one instance of each service.
+- Product evidence: `internal/runtime/assets/compose.yaml` declares `openbao-member-1/2/3` at lines 268/297/326, HAProxy at line 356, and `postgres-etcd-1/2/3` at lines 10/23/36, without HA-only profiles. The shipped template therefore starts an HA ensemble by default.
+- Existing Go code supports both profiles: `internal/runtime/control_plane_profile.go` includes `OpenBaoMembers` and `validateSingleControlPlane`, but the shipped default asset does not follow the SINGLE path.
+- Live observation on `baha-docker`: `bh-local-shared-openbao-member-1/2/3`, an admin instance and HAProxy ran in the development smoke setup; the same topology appeared in the CI context.
 
-## Acceptance (verbindliche Owner-Abnahme, keine Ausnahme durch gruenen Build)
+## Acceptance criteria (mandatory)
 
-- Frischer unveraenderter Standard-Start (`baha up` ohne HA-Flags/Profiles/Overrides) erzeugt exakt EINE aktive Instanz je erforderlichem Control-Plane-Dienst auf Docker UND Podman. Insbesondere genau ein OpenBao und ein PostgreSQL; keine OpenBao-Mitglieder 2/3, kein HAProxy-HA-Balancer, keine dreifache etcd-/Keycloak-Kontrollebene und keine erzwungene Cluster-Quorum-Bedingung.
-- Der ausgelieferte DEFAULT ist SINGLE auch ohne CLI-Optionen: gerendertes `docker compose config` bzw. Podman-Aequivalent zeigt die richtige Topologie; Test der *tatsaechlichen* Startpfade weist per Containerinventar und Service-Health dieselbe Topologie nach. Separate `validateSingleControlPlane`-Unit-Tests allein sind unzureichend.
-- HA ist ausschliesslich nach einer ausdruecklich dokumentierten Opt-in-Auswahl aktiv; mit Opt-in startet das vollstaendige gewaehlte Ensemble gesund, einschliesslich Cluster-Mitgliedschaft/Endpunkte. Ohne Opt-in duerfen keine HA-Services im gerenderten Aktivprofil auftauchen.
-- SINGLE und HA funktionieren nach Neustart und `up` erneut; Konfiguration, PKI/Initialisierung, Ports und Persistenz entsprechen dem gewaehlten Modus. Bestehende HA-Installationen werden nicht stillschweigend umgebaut oder geloescht; bei Moduswechsel ist eine bewusste, sichere Entscheidung erforderlich.
-- Red-first: Regressionstest wird gegen den bisherigen DEFAULT nachweislich ROT und nach dem Fix GRUEN. Zweite negative Zelle: HA wird ohne Opt-in abgelehnt/nicht gestartet. Positive HA-Zelle: explizites Opt-in startet das richtige Ensemble. Eine Quellcode-Mutante, die HA ungefragt aktiviert, macht den Test ROT.
-- Alle Belege enthalten exakten Produkt-SHA, Host/Runtime, Befehle, Compose-Konfigurationsausgabe, Container-/Service-Liste, Health-Zustaende und eindeutige PASS/FAIL-Zeilen; keine SKIP-Zelle ist PASS. Gehostete CI allein ersetzt reale Docker-/Podman-Nachweise nicht.
-- Vor Merge: Reviewer prueft Code UND echte ausgefuehrte DEFAULT-/HA-Pfade gegen diesen Vertrag. Fehlende oder uebergangene Laufzellen = BLOCKED.
+- Fresh, unmodified `baha up`, without HA flags/profiles/overrides, starts exactly ONE active instance per required control-plane service on BOTH Docker and Podman. In particular, one OpenBao and one PostgreSQL, no additional OpenBao members, no HAProxy HA load balancer, no three-node etcd/Keycloak control plane, and no mandatory cluster quorum.
+- The shipped DEFAULT is SINGLE without any CLI options. Rendered `docker compose config` and the Podman equivalent show the correct topology; the actual startup paths are verified using the running container inventory and health checks. Unit tests of `validateSingleControlPlane` alone do not count.
+- HA requires explicitly documented opt-in. With opt-in, the complete chosen ensemble starts healthy, including cluster membership and endpoints. Without opt-in, HA services must not appear in the active rendered configuration.
+- SINGLE and HA continue to work after restart and repeated `up`. Configuration, PKI/initialization, ports, and persistence match the selected mode. Existing HA installations are neither silently rebuilt nor deleted; switching modes requires a deliberate, safe decision.
+- Red-first regression: the test FAILS on the old incorrect default and PASSES on the fix. Additional negative test: HA is not implicitly enabled. Positive test: explicit opt-in starts the correct HA ensemble. A source mutant that enables HA without opt-in makes the regression test FAIL.
+- Every evidence record includes the exact product SHA, host/runtime, commands, rendered Compose configuration, container/service inventory, health, and explicit PASS/FAIL lines. SKIP is never PASS. Green hosted CI does not replace actual Docker/Podman evidence.
+- Before merge, a reviewer verifies both the code and the executed default/HA paths. Missing or skipped runtime cells mean BLOCKED.
 
-## Required checks
+## Required tests
 
-- Deterministische Tests fuer Default-Profil, Compose-Render-Ergebnis, CLI/Devenv-Startpfad, Single-Control-Plane-Validierung und HA-Opt-in; Red-first und Mutanten-Gegenprobe dokumentieren.
-- Echte isolierte Smoke-Matrix auf `baha-docker` und `baha-podman`: je Runtime (1) Default-SINGLE mit exakter Instanzanzahl und Health, (2) explizites HA mit Cluster-Health, (3) Restart/Idempotenz und persistente Daten. Autorisierte Test-VMs nutzen; KEINE Testlaeufe auf dem Codeman-/Coordinator-Host `baha-runner-docker-2`.
-- Gezielte Go-Tests, Build, Vet, Format und GitHub Selected Checks am finalen SHA sowie reale Run-Transkripte im Planning-Repo. Gruene uebersprungene Runtime-Gates zaehlen nicht.
+- Deterministic tests for default profile, Compose-rendered topology, actual CLI/devenv entrypoint, SINGLE validation, and HA opt-in; document red-first and mutation control.
+- Real isolated smoke matrix on `baha-docker` and `baha-podman`: per runtime (1) default SINGLE with exact instance counts and health, (2) explicit HA with cluster health, (3) restart/idempotency and persisted state. Never execute tests on the Codeman/coordinator host `baha-runner-docker-2`.
+- Targeted Go tests, build, vet, formatting, and GitHub Selected Checks at the final SHA, plus real runtime transcripts committed to the planning repository. Skipped runtime gates do not count.
 
 ## Dependencies and file ownership
 
-- Federfuehrende Aenderung an `internal/runtime/assets/compose.yaml`, der Control-Plane-Profilwahl und den Startpfaden. Vor Aenderung andere aktive Besitzer der betroffenen Dateien pruefen und koordinieren; keine konkurrierenden Edits.
-- Abnahme-Verknuepfung mit `core-815`, `t-20261105-r27-compose-host-isolation` und `t-20261104-r27-vm-integration-runs`. Der Default-Vertrag muss vor der abschliessenden Release-Qualifikation erfuellt sein.
+- Main product scope: `internal/runtime/assets/compose.yaml`, control-plane profile selection, and actual startup paths. Coordinate any files already owned by active tasks before editing; no overlapping concurrent writes.
+- Acceptance linkage: `core-815`, `t-20261105-r27-compose-host-isolation`, and `t-20261104-r27-vm-integration-runs`. The default contract must pass before final release qualification.
 
 ## Handoff
 
-- Current state, branch, PR and evidence links. Newest first.
+- Ready for an implementation lane. The defect is verified; no product fix or new test execution is asserted by this card.
