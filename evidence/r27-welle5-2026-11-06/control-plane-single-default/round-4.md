@@ -110,6 +110,16 @@ Ziel: auf BEIDEN Familien an einer bestehenden SINGLE-Installation nachweisen (a
 - Keine secrets in evidence; consent-env nur plan_id + stufen, keine werte.
 - evidence-r27-welle5-2026-11-06/control-plane-single-default/round-4.md liegt in baseharbor-plan (nicht im produkt-repo).
 
+## origin/main publication witness
+
+Commit `0f489cf` (message: `evidence: w266-sd-switch-cells round-4 switch cells (no silent SINGLE->HA) docker-2 + podman-2 at ed98ed1dde7`) is on origin/main.
+
+Exact `git ls-remote origin main` output (captured AFTER push):
+
+    0f489cf70e9c292bd2f37ee3c78389c177f5b4e0	refs/heads/main
+
+Base before commit was `daa888c1572c50c2b36c3ab29604762326408de1`; `git merge-base --is-ancestor daa888c1 HEAD` => rc 0 (base is an ancestor of the commit). Commit carries only the single evidence file; no foreign commit on top.
+
 ## END
 
 END_DONE w266-sd-switch-cells: zellen=1|2|3 gruen je auf BEIDEN; switch_failclosed=docker:ja podman:ja; host_clean=docker-2 own=0/0 (fremde bh-local 9 intakt), podman-2 own=0/0 (w251-leftovers intakt) | SINGLE default => 1 Openbao + 1 Postgres, doctor READY, ha=false; repeat-up idempotent (already READY, member-2/3=0); baha up --ha auf bestehender SINGLE => FAIL-CLOSED "Core selection conflicts with the owned installation; no replacement performed", ha=false unveraendert, member-2/3=0; kopf=ed98ed1dde79fe91cfde11b8d5dfa738f802992f lsremote=ed98ed1dde79fe91cfde11b8d5dfa738f802992f develop=5e4fde7177ea020de39b117f6d89cfa8f7c62be2 origin/main=2b11f762f611697e8be9be0d6853653df2fec025 | akte=evidence/r27-welle5-2026-11-06/control-plane-single-default/round-4.md
