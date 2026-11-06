@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w206, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w209, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: "Optional managed Identity path: discover/invite owned users through least-privilege native API; IdP owns…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Identity: invite users through the native provider admin adapter"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-managed-users · Identity: invite users through the native provider admin adapter #task #release/v0-4-27 #status/review #view/review #area/identity #kind/task
+- [ ] t-20261018-r27-managed-users · Identity: invite users through the native provider admin adapter #task #release/v0-4-27 #status/active #view/active #area/identity #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w206, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle5 (w209, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md)  
-**Owner:** coord-welle5 (Lane w206, freigegeben)  
+**Owner:** coord-welle5 (w209, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -68,3 +68,7 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 Nachgemessen: ls-remote echt==head, develop VORFAHR, lauf 42137459404 TERMINAL SUCCESS, akte round-1.md auf
 main. Echter provider-admin-aufruf (kein pwd-griff), idempotenz+ambiguity wie kartentext, mutante rot +
 gegenprobe gruen, zusammenbau echt, red-first belegt.
+
+## Rueckruf (1397a REJECT, zwei punkte): (1) ECHTER DEFKT — create-fallback kann fremdes/unverifiziertes
+KONTO aktivieren (lookup-leer-zweig); (2) der eingreichte 'mutante' war keine echte quellcode-mutation.
+Rezept in review-1397a.md zeilen 21-22.
