@@ -101,5 +101,15 @@ Veroeffentlichungs-Zeuge (zweitletzte Aktion, Befehl + exakte Ausgabe):
 
 ```
 $ git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
-<paste after push>
+100644 blob 1c27a143fbbd9babb5b29ae212e03417fd7aea2f	evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
+```
+
+Push-Zeuge: `368133f..67d47d0  main -> main`; `git ls-remote origin refs/heads/main` ->
+`67d47d0afc80f44fd4701cfc518735266edacbb6`.
+
+Letzter Erreichbarkeits-Check vor END (baha-podman, unveraendert tot):
+
+```
+$ ssh -o ConnectTimeout=18 baha-podman 'echo OK-podman; hostname'
+Connection to 192.168.6.148 port 22 timed out
 ```
