@@ -154,10 +154,12 @@ END_DONE w270-artifact-registry-prio: head=9ee857387c prio_zelle=ROT->GRUEN muta
 
     $ git push origin main   (baseharbor-plan)
     To https://github.com/mcpdev80/baseharbor-plan.git
-       4bf6a084..a244e2b0  main -> main
+       a244e2b0..7c885c73  main -> main
+    To https://github.com/mcpdev80/baseharbor-plan.git
+       e1cece88..43f2419f  main -> main
 
-    $ git ls-tree origin/main --name-only evidence/r27-welle5-folge-2026-11-06/artifact-resolution/
-    evidence/r27-welle5-folge-2026-11-06/artifact-resolution/round-2.md
+    $ git ls-tree -r origin/main --name-only | grep -c 'artifact-resolution/round-2.md'
+    1
 
 ## VM/compose hygiene
 
