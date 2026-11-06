@@ -123,4 +123,10 @@ evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md
 
 ## END (diese Lane, Runde 2)
 
-END_DONE w226-version-view: head=65ed48d60f77 getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42211122594-TERMINAL-SUCCESS lsremote=65ed48d60f77 | Lane w226: base-drift behandelt (9a14fa80, hosted 42206284877 success), Rezept act-1403b Punkte 1+2 wurden von w229 auf demselben Zweig geliefert (ef9464ef); diese Lane hat kollisionsfrei ff-only auf 65ed48d6 geholt und unabhaengig verifiziert (build/vet/gofmt rc=0, race-20 PASS, beide Produkt-Mutanten ROT an der Gegenprobe, hosted 42211122594 completed/success); Punkte 3+4 als QUESTION offen bei 841e7734. Akte: evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md.
+Nachtrag (base drift #2): develop bewegte sich erneut auf `5f8b2985` (PR #1401). Lane hat
+`origin/develop` per merge-commit `9e76da5a` in den Zweig integriert (ancestry rc=0, keine
+Konflikte, keine Lane-Dateien betroffen; Gates build/vet/gofmt rc=0 + race-20 PASS am neuen
+Kopf) und gepusht; hosted 42213229059 feuerte automatisch am neuen Kopf, Beobachtung bis
+TERMINAL (kein rerun/dispatch).
+
+END_DONE w226-version-view: head=9e76da5adafa getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42213229059-TERMINAL lsremote=9e76da5adafa | Lane w226 Runde 2: base-drift zweimal behandelt (9a14fa80/42206284877 success; 9e76da5a/42213229059), w229-Rezeptfix (ef9464ef) kollisionsfrei uebernommen und unabhaengig verifiziert (beide Produkt-Mutanten ROT an der Gegenprobe, race-20 PASS); Punkte 3+4 als QUESTION offen bei 841e7734. Akte: evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md.
