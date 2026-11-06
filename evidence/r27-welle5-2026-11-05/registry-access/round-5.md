@@ -179,11 +179,25 @@ Scratch-Dateien im Ecosystem-Root, kein Produkt-Branch-Commit durch diese Runde.
 
 ## Evidence-on-origin/main witness (zweitletzte Aktion)
 
-$ git ls-remote origin refs/heads/work/r27-registry-access
-99b3e144dd5f3339a2e0dbbcbea14a7c5dbca36c	refs/heads/work/r27-registry-access
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main
+17f362ca59e4cb25c993eb0ad72b47020ce86644	refs/heads/main
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r origin/main --name-only | grep registry-access
-(PUSH-NACHLESE HIER EINFUEGEN, WORTLICH)
+evidence/coord-memory/missions/w195-registry-access.txt
+evidence/coord-memory/missions/w203-registry-access-r2.txt
+evidence/r27-welle5-2026-11-05/registry-access/review-1395a.md
+evidence/r27-welle5-2026-11-05/registry-access/review-1395b.md
+evidence/r27-welle5-2026-11-05/registry-access/review-1395c.md
+evidence/r27-welle5-2026-11-05/registry-access/review-1395d.md
+evidence/r27-welle5-2026-11-05/registry-access/round-1.md
+evidence/r27-welle5-2026-11-05/registry-access/round-2.md
+evidence/r27-welle5-2026-11-05/registry-access/round-3.md
+evidence/r27-welle5-2026-11-05/registry-access/round-4.md
+evidence/r27-welle5-2026-11-05/registry-access/round-5.md   <- diese Datei, Praesenz auf origin/main belegt
+tasks/t-20261018-r27-registry-access.md
+$ git ls-remote origin refs/heads/work/r27-registry-access   (baseharbor, Produkt-Kopf, unveraendert)
+99b3e144dd5f3339a2e0dbbcbea14a7c5dbca36c	refs/heads/work/r27-registry-access
 
 ## END
 
-- END_LINE: (wird als letzte Aktion gesetzt, Format: END_DONE w222-registry-r5: head=99b3e144dd matrix=4 zellen je-schicht rot+gegenprobe andering=akte lauf=42168126290/TERMINAL lsremote=99b3e144dd | ...)
+- END_DONE w222-registry-r5: head=99b3e144dd matrix=4 zellen je-schicht rot+gegenprobe andering=akte lauf=42168126290/TERMINAL lsremote=99b3e144dd | public-default-zelle haelt ihren eigenen schicht-mutanten M7 (rot, gegenprobe gruen); M1 bleibt 3/4-rot wie 1395d gemessen, matrix in round-5.md auf origin/main (17f362c)
+
