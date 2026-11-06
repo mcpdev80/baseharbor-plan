@@ -168,6 +168,6 @@ three intended files changed.
 END_DONE w256-mu-payload-array: head=fa2acd228e body=["VERIFY_EMAIL","UPDATE_PASSWORD"] versionbindung=26.8.x fest (fail-closed) lauf=42263917253 TERMINAL SUCCESS (8 success, 10 skipped test-only diff, 0 failed) lsremote=fa2acd228e akte=evidence/r27-welle5-2026-11-06/managed-users/round-6.md | Runde 6: execute-actions-email Body von {to,requiredActions}-Objekt auf dokumentierten Keycloak-26.8.0-Stringarray gesetzt (Empfänger = user-id-Path), Fixture assertiert exakte actions-array + password-ganz-abwesend, contract-check an Version 26.8.x gebunden; kaler RED/GREEN-Routen-Beweis auf echter Quellzeile; PR #1397 CI terminal success (run 42263917253) am exakten Kopf fa2acd22; evidence zu origin/main; SHA fixiert.
 
 ### ls-tree witness (evidence on origin/main BEFORE END post)
-- `git ls-tree origin/main -- <path>`:
-  - <blob line>
-- Evidence commit on origin/main: <sha>
+- `git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/managed-users/round-6.md`:
+  - `100644 blob 97cd8a7d417b2a6cfc2d1b5d0db12875c950b68e  evidence/r27-welle5-2026-11-06/managed-users/round-6.md`
+- Evidence commit on origin/main: `c13172c` (origin/main HEAD `cecb40c`).
