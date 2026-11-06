@@ -53,4 +53,4 @@ The work was limited to integrating current develop into the assigned existing b
 
 ## origin/main publication witness
 
-Pending final evidence commit. Record its exact `git ls-tree origin/main` blob and `git ls-remote origin refs/heads/main` SHA after publication.
+This round records only the assigned base refresh. The separate Docker/Podman runtime acceptance matrix remains outstanding as noted in the concurrent coordinator update to the task card; this mission prohibited VM access and does not claim those cells. The evidence file's exact `origin/main` blob and `main` ref are reported in the END transcript after publication.
