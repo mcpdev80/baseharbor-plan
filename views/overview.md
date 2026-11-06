@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 1 |
+| active | 9 |
+| review | 0 |
 | blocked | 2 |
 | ready | 5 |
 | queued | 26 |
@@ -31,12 +31,11 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts | active | high | coord-welle5 (Lane w227) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md) | — |
+| [t-20261106-r27-control-plane-single-default](../tasks/t-20261106-r27-control-plane-single-default.md) | Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in | active | critical | Codex Worker (w248-sd-baserefresh) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404) |
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261106-r27-control-plane-single-default](../tasks/t-20261106-r27-control-plane-single-default.md) | Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in | review | critical | coord-welle5 (w242, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404) |
+None.
 
 ## Blocked
 
