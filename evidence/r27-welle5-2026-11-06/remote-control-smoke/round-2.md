@@ -165,7 +165,7 @@ $ baha status -o json    -> {"target":"local","state":"not_deployed",...}  (no C
 $ baha node list -o json -> {"contract_version":"v1","nodes":[]}
 ```
 
-Cause chain (documented dev-mode reality): the pre-existing Nov-4 install records `machine_role: "development"` (installation.json; `internal/coreinstallation/installation.go:49-52` maps it to `Defaults{LocalWorkspaces:true, ProtectedManagement:false}`), for which ADR 0021 (`docs/decisions/0021-one-installation-authority.md:74-89`) deliberately excludes the login/server/OIDC operator surface — hence no schema-migrated control-plane DB and no serving endpoint. The second fail-closed layer is the compose-owner check: runtime/compose.yaml pins `docker.io/openbao/openbao:2.7.0` (image bada2f32…) while the develop build renders `2.7.1` (asset c2c7ce2b…, compose-single.yaml:117 at 78e78e66); ExistingCanonicalProjectInventory compares stored bytes against the CURRENT binary's render and refuses every lifecycle mutation ("provider runtime definition differs from its protected canonical owner", internal/runtime/canonical_inventory.go:24-25 via control_plane_stop_impact.go:56). This lane did NOT rewrite the file (compose.yaml mtime Nov 4 14:55 unchanged; only installation.json touched at 14:05 by the already-initialized convergence path). Dev-host read-only preflight confirmed zero remote state:
+Cause: the Nov-4 install on this VM records `machine_role: "development"` (installation.json), a bundle for which ADR 0021 (`docs/decisions/0021-one-installation-authority.md:74-89`) excludes login/server/operator-OIDC by design — so `baha login` has no configured issuer to authenticate against and `requestNodeAuthorization` (cmd/baha/node.go:339-343) fails closed before any network call. Dev-host read-only preflight confirmed zero remote state:
 
 ```text
 $ baha status -o json    -> {"target":"local","state":"not_deployed",...}  (no Core on this host — correct: Core lives on the VM)
@@ -182,7 +182,7 @@ $ ~/.local/bin/baha destroy --yes --delete-data    # explicit path
 {"contract_version":"v1","error":{"code":"ownership_ambiguous",...no ownership is inferred.}}
 ```
 
-Root-cause detail of the destroy failure (itself part of the Befund): the pre-existing Nov-4 state carries compose.yaml with `docker.io/openbao/openbao:2.7.0` (image sha256 bada2f32…) while the develop build renders `2.7.1` (asset sha256 c2c7ce2b…, `internal/runtime/assets/compose-single.yaml:117` at 78e78e66); the canonical-owner check compares rendered vs stored bytes and fails closed (internal/runtime/canonical_inventory.go:24-25 via control_plane_stop_impact.go:56). This lane did NOT rewrite the file — runtime/compose.yaml mtime stayed Nov 4 14:55 while lane-era installation.json shows 14:05 (the already-initialized path preserved it). `baha up --control-plane-only` also never renders the keycloak provider into that compose (its state lives under providers/keycloak/, Nov-4 mtime), so control_plane_stop_observation.go + container_identity.go:7-10 fail closed over the foreign keycloak service before any plan is shown.
+Root-cause detail of the destroy failure (itself part of the Befund): second fail-closed layer — runtime/compose.yaml pins `docker.io/openbao/openbao:2.7.0` (image bada2f32…) while the develop build renders `2.7.1` (asset c2c7ce2b…, compose-single.yaml:117 at 78e78e66); ExistingCanonicalProjectInventory compares stored bytes against the CURRENT binary's render and refuses every lifecycle mutation ("provider runtime definition differs from its protected canonical owner", internal/runtime/canonical_inventory.go:24-25 via control_plane_stop_impact.go:56). This lane did NOT rewrite the file (compose.yaml mtime Nov 4 14:55 unchanged; only installation.json touched at 14:05 by the already-initialized convergence path). Additionally `baha up --control-plane-only` never renders the keycloak provider into that compose (providers/keycloak/ has Nov-4 mtime), so control_plane_stop_observation.go + container_identity.go:7-10 fail closed over the foreign keycloak service before any plan is shown.
 
 Manual cleanup of ONLY this lane's started resources (disclosed; rationale: mission step 3 forbids hand-frickel for reachability, not for teardown — the product lifecycle refuses stop/destroy against pre-lane Nov-4 owner state, and leaving started containers running would violate LASTREGEL/FABRIKREGEL, so the exact unit-stop mirror of `baha down`'s documented action was applied once and recorded; nothing was added, only what `baha up` started here was stopped):
 
@@ -221,14 +221,15 @@ Lock: `vm-lock.sh release baha-podman w243` => rc=0 FREE (output at bottom post 
 
 No docker/podman COMPOSE project started by this lane beyond quadlet systemd units listed above; `podman ps -a | grep bh-podman-test` => 0 before END (ps-witness recorded below). Caches under /tmp/opencode/w243* and workers/w243-coord-backup/gobuild only.
 
-## origin/main publication witness (second-to-last action)
+## origin/main publication witness (second-to-last action, EXACT)
 
 ```text
-$ git -C baseharbor-plan log --oneline -1 origin/main   # after push
-efa15ce evidence(w243): remote-control round-2 — single control-plane live on baha-podman, enrollment BLOCKED by serve-wiring Befund (file:line), VM factory-clean
-$ git ls-tree -r origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-100644 blob d1e048217dad763e05c24a874d9741b433f79cbf	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+$ git -C baseharbor-plan fetch origin main; git log --oneline -1 origin/main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+14984d5 evidence(w243): final Befund chain - dev-role bundle excludes operator API (ADR 0021), compose-owner drift blocks lifecycle mutation, teardown witnesses
+100644 blob 7147c0f971ea2d075ac187c5310e6de63568d60e	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
 ```
+
+Base attestation: branchless direct commits onto origin/main pulled --ff-only at `3b7e5dc` (w242 evidence head, verified ancestor chain 3b7e5dc -> efa15ce -> 14984d5 via first-parent log); zero product-repo writes.
 
 ## END
 
