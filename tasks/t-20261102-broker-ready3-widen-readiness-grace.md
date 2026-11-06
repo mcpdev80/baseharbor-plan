@@ -16,20 +16,19 @@ repos: ["mcpdev80/baseharbor"]
 prs: [mcpdev80/baseharbor#1287]
 sources: []
 blocker: ""
-resolution: "Owner rejected proposed change; PR #1287 closed unmerged; no implementation."
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff"]
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff", "https://github.com/mcpdev80/baseharbor/issues/1287"]
 ---
 
-- [ ] t-20261102-broker-ready3-widen-readiness-grace · Widen broker readiness grace to the established healthcheck pattern #task #release/v0-4-x #status/closed #view/closed #kind/task
+- [x] t-20261102-broker-ready3-widen-readiness-grace · Widen broker readiness grace to the established healthcheck pattern #task #release/v0-4-x #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4-rest (wartet Owner)  
     **PR:** [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287)  
-
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff), [proof 2](https://github.com/mcpdev80/baseharbor/issues/1287)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** dropped  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** none  
 **Owner:** coord-welle4-rest (wartet Owner)  

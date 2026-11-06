@@ -5,7 +5,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (zellen-lane folgt)
+owner: coord-welle5 (w282 dispatched)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
@@ -23,9 +23,8 @@ blocker: ""
 
 - [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w259, entlassen) · **Priority:** high  
+    **Owner:** coord-welle5 (w282 dispatched) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
@@ -33,7 +32,7 @@ blocker: ""
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle5 (w259, entlassen)  
+**Owner:** coord-welle5 (w282 dispatched)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
