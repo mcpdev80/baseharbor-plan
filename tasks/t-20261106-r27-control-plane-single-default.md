@@ -6,8 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle5 (w277, entlassen)
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: The default BaseHarbor developer/control-plane deployment MUST use a single instance per required service. Currently the shipped…
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: critical
@@ -16,11 +16,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1404]
 sources: []
 blocker: ""
-resolution: ""
+resolution: "Accepted by Owner with documented historical host-evidence limitation; PR #1404 merged into develop at f3db942859c68e78fe2e7c0a339be7eb0e380acb."
 evidence: []
 ---
 
-- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/review #view/review #area/platform #area/runtime #area/testing #kind/task
+- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/closed #view/closed #area/platform #area/runtime #area/testing #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w277, entlassen) · **Priority:** critical  
     **PR:** [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404)  
@@ -28,7 +28,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-welle5 (w277, entlassen)  
@@ -84,3 +84,11 @@ The default BaseHarbor developer/control-plane deployment MUST use a single inst
 ## Owner decision — 2026-11-07
 
 **Option A approved.** No further `podman system reset`, Podman-2 rebuild, or replay solely to reconstruct historical pre-reset evidence. The pre-reset volume state remains **unknown** and must never be reported as proven safe. If a clean environment is needed in the future, rebuild it from scratch rather than resetting shared test-host state. Preserve all existing functional evidence. Refresh the exact candidate against develop, verify required checks and code review, then merge #1404 if qualified. Do not weaken the functional acceptance criteria.
+
+## Merge record — 2026-11-07
+
+- PR #1404 merged into `develop`, merge SHA `f3db942859c68e78fe2e7c0a339be7eb0e380acb`.
+- Exact candidate head: `ed98ed1dde79fe91cfde11b8d5dfa738f802992f`.
+- Hosted CI run 42237544020: completed / success.
+- Owner accepted the historical unknown pre-reset volume state without further reset or VM rebuild; this is not evidence that old resources were untouched.
+- Downstream compose-isolation task #1383 can now run final integration qualification against merged develop.
