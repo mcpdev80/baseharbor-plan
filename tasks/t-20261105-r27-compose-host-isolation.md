@@ -23,8 +23,9 @@ blocker: ""
 
 - [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (zellen-lane folgt) · **Priority:** high  
+    **Owner:** coord-welle5 (w259, entlassen) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
@@ -32,7 +33,7 @@ blocker: ""
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle5 (zellen-lane folgt)  
+**Owner:** coord-welle5 (w259, entlassen)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -161,3 +162,7 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 - The per-test setup now installs a randomized, intentionally unconfigured isolation sentinel before `isolateRuntimeForTest` assigns the real target. If that isolation call is omitted, target resolution fails closed rather than falling back to the bootstrap/default Core.
 - `TestMissingRuntimeIsolationCannotFallBackToBootstrap` verifies precedence of the isolation sentinel over a preconfigured bootstrap default and rejects resolution of the unconfigured sentinel.
 - Hosted run `42244245719` was in progress at the time of recording; do not mark successful until terminal conclusion on the exact head. The approved Docker/Podman clean/polluted integration matrix, omission mutation live run and full runtime qualification remain NOT EXECUTED by this connector. No merge authorization is inferred.
+
+## Owner decision — 2026-11-07
+
+**Unblocked; resume work now.** Do not keep this task in `blocked` merely because #1404 has not merged. Prepare and run independent isolation test cells now on approved test hosts, with actual clean/polluted Docker and Podman runtime observations, omitted-isolation mutation RED, restored GREEN, and exact-SHA evidence. Any final default-SINGLE integration cells that require #1404 must be executed against the merged product baseline before final acceptance. Do not claim a skipped runtime test as PASS. No reset of shared Podman hosts.
