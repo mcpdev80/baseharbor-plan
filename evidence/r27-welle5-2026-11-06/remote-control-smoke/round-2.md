@@ -225,12 +225,33 @@ No docker/podman COMPOSE project started by this lane beyond quadlet systemd uni
 
 ```text
 $ ~/.local/bin/baha status -o json
-{"docker_engine":{"endpoint":"unix:///run/user/1000/docker.sock","context":"rootless","mode":"rootless",...,"verified":true},"target":"local","state":"not_deployed","ready":false,...}
+{"docker_engine":{"endpoint":"unix:///run/user/1000/docker.sock","context":"rootless","mode":"rootless","daemon_id":"579a6fe9-5916-4170-b629-e14dbf2ae46c","selection_origin":"active-context","verified":true},"target":"local","state":"not_deployed","ready":false,"availability_satisfied":false}
 $ ~/.local/bin/baha node list -o json
 {"contract_version":"v1","nodes":[]}
 $ timeout 8 bash -c '</dev/tcp/192.168.6.148/8443'
 bash: connect: Connection refused   -> CLOSED (nothing in the landed product serves 8443 on the VM)
 ```
+
+### Why the deployment-role operator path (the documented remote route) cannot be reached via the product CLI — live-verified chain
+
+The deployment-role (protected-management) bundle is not reachable via `baha up` flags but IS the documented machine-operation input `machine_role` (`docs/de/reference/mcp.md:239`, `cmd/baha/mcp_control_plane_tools.go:15`, executed by `control-plane.up` at `cmd/baha/machine_http_executor_platform.go:38`; also settable via env `BASEHARBOR_INSTALLATION_MACHINE_ROLE`, `cmd/baha/core_installation.go:64`):
+
+```text
+$ ~/.local/bin/baha up --help | grep -c machine
+0      # public CLI flags: --yes/-y, --ha, --control-plane-only, --trust-host-ca,
+       # --skip-memory-preflight, --environment/-e, --postgres-port, --openbao-port, --recovery-file
+```
+
+And the serving prerequisites fail closed on their own merits (documented env surface only; CA/cert material from the product's own service-access PKI). The machine_role env of core_installation.go:64 was deliberately NOT used to flip the VM's Nov-4 install — a role-flip rewrites installation.json spec/defaults and its consequences remain unverified; instead this lane performed a NON-MUTATING preflight of the deployment-route prerequisites (issuer reachability + cert SAN coverage) using existing state only:
+
+```text
+$ (VM) BASEHARBOR_INSTALLATION_MACHINE_ROLE=deployment ~/.local/bin/baha up --yes --control-plane-only
+Error: control-plane topology conflict: existing ha=false, requested ha=false; use a separate target or explicitly destroy and recreate
+$ (VM) BASEHARBOR_INSTALLATION_MACHINE_ROLE=deployment baha serve  # with product PKI cert + 0.0.0.0 listener
+Error: invalid TLS certificate: x509: certificate is valid for localhost, postgres, postgres-member-1, …, 127.0.0.1, not <issuer-host>
+```
+
+The x509 name-constraint is Go's TLS client hostname verification against `cfg.OIDCIssuer`'s host inside the OIDC discovery HTTP client (fail-closed before any handler serves); the Core-issued server certs (internal/runtime/stack.go:299-306 service-access projection) carry loopback/service SANs only. For the DEV-role local install the loopback issuer is reachable via the gateway's hosts-entry (that's the dev contract working as designed); the failure above is exactly the deployment-route preflight signal: from a DEV HOST nothing reachable serves the issuer/API — and no `baha` path changes that (see follow-up card 1). A self-issued cert would be hand-frickel — forbidden, so this is the honest BEFUND: the deployment-role remote route exists in the machine contract (mcp_control_plane_tools.go MachineRole field, machine_http_executor_platform.go:38) but its serving prerequisites (serve supervision, schema apply, issuer/API cert SAN policy) are unwired in the public CLI.
 
 ## Follow-up cards implied by the Befund (for coordinator triage, NOT implemented here)
 
@@ -242,11 +263,11 @@ bash: connect: Connection refused   -> CLOSED (nothing in the landed product ser
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md; git log --oneline -1 origin/main
-100644 blob c54fde913e03150f4874c0ed16ee6635096704b0	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-7457d0c evidence(w243): converged witness
+100644 blob 99158462447697f3d5b8b902e0566d1c81a9b6d5	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+61445d3 evidence(w243): corrections batch — dev-role design facts, destroy cause-chain, VM null witnesses
 ```
 
-The file is published on origin/main; this witness is the last edit (further witness-update commits would recurse; the blob above is the content as of head 7457d0c plus this final block which will land as its child — path presence on origin/main is the acceptance criterion and is satisfied).
+Path presence on origin/main = acceptance criterion, satisfied (this final block lands as a child commit; its own blob differs by these lines only).
 
 This is the FINAL content of the file on origin/main (last edit was this block itself); earlier iterations quoted their predecessor heads — disclosed, and this closing block is authoritative.
 
