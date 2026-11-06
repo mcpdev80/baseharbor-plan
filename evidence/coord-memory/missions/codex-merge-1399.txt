@@ -1,0 +1,7 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert). Coord 841e7734. KARTE/PR: t-20261018-r27-delegated-handoff /
+mcpdev80/baseharbor#1399, akzeptierter kopf 5074b69ea03 (review-1399c.md ACCEPT). STUFEN: ls-remote
+head==5074b69ea03 (sonst STOP), develop AKTUELL konfliktfrei einmerge (vorgaenger-merges koennen
+gelaufen sein — kur-r7, 1398), push, hosted lauf bis TERMINAL GRUEN am vereinten kopf SELBST
+beobachten, gh pr merge --merge (kein bypass/force), develop-sha+merge-sha ins pane. Karte schliesst
+coordinator. KEIN compose/docker auf diesem host.
+END pane: "END_DONE codex-merge-1399: merged=<sha10> develop=<sha10> head-vor-merge=5074b69ea03 | <Satz>"
