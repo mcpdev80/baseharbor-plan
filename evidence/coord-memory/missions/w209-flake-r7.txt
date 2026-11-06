@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w209, ACHTUNG: nicht die nutzer-einladungen r2 — andere karte, anderer zweig). Coord 841e7734.
+KARTE: t-20261105-r27-snapshot-change-guard-deterministic (RUNDE 7 — letzter zeh).
+ZWEIG NEU work/r27-flake-r7 -> PR (der alte zweig work/r27-snapshot-flake ist GEMERGTE kur-base; du baust DARAUF).
+BEFUND (gemessen, w207-repro + CI-zeugen): am integrations-kopf efa1600c sind ALLE kur- UND journal-zellen
+LOKAL gruen, aber GEHOSTET scheitert source_snapshot_test.go:247 "MutationAcked never fired" TERMINAL twice
+(rerun inbegriffen). Diese eine stelle haengt also an einem ZEITGEBUNGENEN wait unter runner-last — die kur
+war noch nicht vollständig ereignis-scharf. AUFGAB: den MutationAcked-pfad SO festlegen, dass kein
+zeitlimit decides: die ack-veroefentlichung muss VOR jeder weiterschau-barriere liegen (kausal, nicht
+konkurrent), warte-bound nur als fehler-anzeige (fail-fast sentinel wie bisher).
+PROBE: -race -count=50 + GEHOSTET als entscheidendes kriterium (zwei laeufe hintereinander auf dem push-kopf
+beobachten, beide TERMINAL GRUEN); lokale zellen bleiben gruen (4+2 coexist).
+GATES: develop (=kur-base) VORFAHR rc=0, ls-remote echt==head WORTLICH, name-only, akte VOR END auf
+origin/main (ls-tree-beleg), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf
+diesem host, root-checkout verboten.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/snapshot-flake/round-7.md
+END an 841e7734: "END_DONE w209-flake-r7: head=<sha10> kausalitaet=<ack vor barriere> race50=<gruen> hosted=<2x TERMINAL GRUEN ids> lsremote=<sha10> | <Satz>"

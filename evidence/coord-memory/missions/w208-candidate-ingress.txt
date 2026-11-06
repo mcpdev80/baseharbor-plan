@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w208). Coord 841e7734. KARTE: t-20261018-r27-candidate-ingress (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-candidate-ingress -> PR, basis develop AKTUELL (ls-remote +
+ancestor rc=0 in die akte).
+KARTE VOLL LESEN (outcome: autorisierte, UNABAENDERLICHE deployment-kandidaten persistieren; write-set:
+bounded server candidate ingress/store/handler dateien + immutable source-selection adapter; KEINE edits an
+generischen lifecycle-handlern — und KONFLIKTFREI zu w207: die machinehttp-execution/journal-dateien sind
+DEREN feld, quer-schreiben => STOP+MELDEN).
+LIEFERPFLICHTEN: (1) authorisierung NOTWENDIG zum anlegen (mutante: pruefung raus => ROT, gegenprobe gruen),
+(2) UNABAENDERLICH: nochmaliges schreiben auf gleichek kandidat => expliziter fehler (zelle + mutante), (3)
+immutable source selection: ausgewaehlte referenz aendert sich NICHT durch spaetere trunk-bewegung (zelle),
+(4) zusammenbau echten pfad (dauerklausel), (5) red-first auf unveraendertem develop.
+GATES: race-20, build/vet/gofmt, hosted TERMINAL am kopf, ls-remote echt==head WORTLICH, name-only, akte
+VOR END auf origin/main (ls-tree-beleg), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN
+compose auf diesem host, caches NUR unter /tmp/opencode/<lane>*, root-checkout NICHT benutzen (querverbund-
+praeszedenz von heute nacht).
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/candidate-ingress/round-1.md
+END an 841e7734: "END_DONE w208-candidate-ingress: head=<sha10> authorisierung=<mutante rot+gegenprobe> unveraenderlich=<zelle+mutante> selection=<immutable> zusammenbau=<echt> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
