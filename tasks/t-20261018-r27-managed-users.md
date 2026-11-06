@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (w254, entlassen)
+owner: coord-welle5 (w256, entlassen)
 kanban_lane: review
 kanban_summary: "Optional managed Identity path: discover/invite owned users through least-privilege native API; IdP owns…"
 kanban_status: review
@@ -25,7 +25,7 @@ blocker: ""
 
 - [ ] t-20261018-r27-managed-users · Identity: invite users through the native provider admin adapter #task #release/v0-4-27 #status/review #view/review #area/identity #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w254, entlassen) · **Priority:** normal  
+    **Owner:** coord-welle5 (w256, entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ blocker: ""
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md)  
-**Owner:** coord-welle5 (w254, entlassen)  
+**Owner:** coord-welle5 (w256, entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
