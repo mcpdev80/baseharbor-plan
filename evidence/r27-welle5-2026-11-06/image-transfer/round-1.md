@@ -81,3 +81,33 @@ source identity => fail closed; unreachable host => fail closed.
   explicit instruction to proceed without the hosted smoke.
 - PR: #1402 (ready for review) against develop, head == remote head 68cd9ea5...,
   base ea656d1f is an ancestor of the head (confirmed via git merge-base).
+
+## END (STATE)
+
+Candidate: work/r27-image-transfer @ 68cd9ea59f61a438803cb40bf31e3cc02b3035ec
+PR: #1402 (ready) against develop; base ea656d1f confirmed ancestor.
+Evidence: committed to origin/main (cf84512), ls-tree witness confirms
+evidence/r27-welle5-2026-11-06/image-transfer/round-1.md on origin/main.
+Decision: native registry pull/copy over OCI (digest-preserving cross-host path),
+mirrors accepted predecessor application_registry_source.go.
+Identitaet: drift-free — immutable repository@sha256:digest only; digest/manifest/arch
+re-verify on target fails closed.
+Fehlertrag: failing target copy => ErrImageTransferUnavailable (explicit, no half
+success); wrong digest => ErrImageTransferDigestMismatch; wrong arch =>
+ErrImageTransferArchitectureMismatch; unverifiable => fail closed. Red-first fixtures
+all pass, race-20 clean.
+Redfirst: proved by the fixtures above (no mutable-tag copy path, no silent
+conversion).
+Local gates: build/vet/gofmt/race-20 PASS.
+BLOCKED (STATE): hosted Docker/Podman isolated load/pull smoke — named hosts
+baha-runner-docker/baha-podman do not resolve in this environment; containers may
+not run on the session host. Awaiting a reachable runner host or explicit
+instruction. This is the only pending gate; it does not block the candidate.
+
+## STATE line for coordinator
+
+END_STATE w225-image-transfer: head=68cd9ea59f61a438803cb40bf31e3cc02b3035ec
+entsch=registry-pull/copy OCI digest-preserving id=driftfrei fehlereintrag=zelle+mutante
+redfirst=belegt PR=#1402 ready vs develop base-ancestor=ea656d1f lsremote=68cd9ea5...
+gates=build/vet/gofmt/race20-OK | HOSTED DOCKER/PODMAN SMOKE BLOCKED: baha-runner-docker/baha-podman
+unreachable here -> STATE, no container run on session host; awaiting reachable runner or instr.
