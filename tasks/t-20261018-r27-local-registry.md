@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: ""
-kanban_lane: ready
+owner: coord-welle5 (Lane w224)
+kanban_lane: active
 kanban_summary: "For topologies that actually need a shared endpoint, explicitly opt into one existing OCI Distribution-compatible registry…"
-kanban_status: planned
+kanban_status: active
 kanban_title: "Artifacts: optionally provision an existing OCI registry implementation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-local-registry · Artifacts: optionally provision an existing OCI registry implementation #task #release/v0-4-27 #status/planned #view/ready #area/artifacts #kind/task
+- [ ] t-20261018-r27-local-registry · Artifacts: optionally provision an existing OCI registry implementation #task #release/v0-4-27 #status/active #view/active #area/artifacts #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle5 (Lane w224) · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (Lane w224)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
