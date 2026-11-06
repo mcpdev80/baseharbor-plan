@@ -1,0 +1,159 @@
+# t-20261018-r27-version-view · Runde 2 · Lane w229
+
+Karte: t-20261018-r27-version-view (v0.4.27, Welle 5). Mission:
+`coordinator/missions/w229-version-view-r2.txt`. Coord: 841e7734.
+Repo: mcpdev80/baseharbor · Zweig `work/r27-version-view` → PR #1403 gegen `develop`.
+Vorlage: REJECT-Akte `act-1403b.md` (Luna) — Blocker war die nicht-kausale
+Rotgegenprobe in `TestStagesViewMutationAgainstSeparationLine`.
+
+## PLAN
+
+1. Mission + Akten (act-1403b.md, round-1.md) lesen; Board-Datei und diesen PLAN anlegen
+2. Basis-Attest: ls-remote develop/candidate, Ancestor-Test, eigene Commits belegen
+3. Gegenprobe umbauen: echter Produkt-Mutant über Schnittstelle/Parameter (release.go), keine Mapper-Kopie im Testfile
+4. Mutantenzeugnis A: Dimension-Mutant (release.go:13) lokal, rückgängig — Zelle failt
+5. Mutantenzeugnis B: Kind-Mutant (release.go:190) lokal, rückgängig — Zelle failt
+6. round-1.md Mechanismus-Beschreibung berichtigen (Luna-Befund)
+7. Tore: gofmt/vet/build, race count=10 targetiert
+8. Push auf demselben Zweig (ein PR), ls-remote echt==head, Hosted-Lauf bis TERMINAL beobachten
+9. Akte auf baseharbor-plan origin/main veröffentlichen (ls-tree-Zeuge), END an 841e7734
+10. AGENTS-Compliance-Selfcheck + Arbeitsplatten-Cleanup
+
+Status: Schritte 1–8 ausgeführt, 9 läuft, 10 am Ende. END-LINE am Dateiende.
+
+## Basis-Attest
+
+- Cut-Punkt dieser Lane: exakt der bisherige Kandidatenkopf `57cf82a0cfc334d510f2b727d7d8bd46e6dfb46a`
+  (`git worktree add … 57cf82a0…`; kein Schnitt von einem anderen PR-Kopf).
+- Vor dem Push: `origin/develop` = `7c393b0dd842e7fca23d4f431c6c2f69c3f197b1` (develop hat sich seit
+  Runde 1 von `ea656d1f` nach vorne bewegt). Der Remote-Zweig war zwischenzeitlich per
+  Base-Refresh-Merge `9a14fa80` (anderer Lane, Maintainer-Fluss) auf develop aktualisiert worden;
+  `57cf82a0` ist Vorfahre von `9a14fa80` (Prüfung rc=0), also kein Schnittverlust. Diese Lane hat
+  ihren Commit `ef9464ef` auf `9a14fa80` aufgesetzt und den Base auf den aktuellen develop
+  `7c393b0d` aufgefrischt (Merge `65ed48d6`), wie von AGENTS verlangt (ferne Änderungen vor dem
+  Push integrieren).
+- Ancestor-Test am Endkopf: `git merge-base --is-ancestor origin/develop HEAD` → rc=0
+  (`7c393b0d` ist Vorfahre von `65ed48d6`).
+- `git log --oneline origin/develop..HEAD --no-merges --first-parent` (wörtlich, nur eigene Commits):
+
+```
+ef9464ef test(r27 version-view): bind the separation regression causally to the shipped mapper
+57cf82a0 docs(r27 version-view): regenerate human EN/DE command index from the shipped command tree
+df3ded33 feat(r27 version-view): readable wanted/applied/observed version view as separated cells
+```
+
+- Write-Set gegen develop (`git diff --name-only 7c393b0d HEAD`): exakt die 19 Dateien von Runde 1,
+  keine neuen Dateien, kein `.github/**`, keine Fremd-Lane-Datei. Der PR-Files-API-Zähler
+  (`changed_files = 19`) deckt sich damit.
+
+## (1) Gegenprobe jetzt kausal — Mechanismus
+
+- Produktseite (`internal/machinereadmodels/release.go`): die Dreier-Zuordnung des ausgelieferten
+  Mappers wohnt jetzt in einer produktsichtigen, dokumentierten Tabelle
+  `releaseViewStageKinds` (Zeile 13), ist über `ReleaseViewStageKinds()` (Zeile 17-23)
+  ablesbar und wird von `ReleaseViewFromRecord` (Zeile 116-118) an die neue, explizite
+  Parameter-Form `ReleaseViewFromRecordWithStageKinds(record, kinds)` (Zeile 126) weitergegeben.
+  Die Parameter-Form IST der ausgelieferte Mapping-Code (Identität, kein Alias: die
+  Gegenprobe ruft dieselbe Funktion mit genau der ausgelieferten Tabelle auf).
+- Testseite (`cmd/baha/app_version_view_test.go`): die zweite Mapper-Kopie `referenceCell` ist
+  gelöscht (überprift: `grep -n "referenceCell" cmd/baha/*.go` → keine Treffer).
+  `TestStagesViewMutationAgainstSeparationLine` (Zeile 311) fährt beide Zweige durch
+  `ReleaseViewFromRecordWithStageKinds`:
+  - GRÜN-Gegenprobe: `shipped := ReleaseViewFromRecordWithStageKinds(record, shippedReleaseViewStageKinds())`
+    — Kopie der ausgelieferten Tabelle über das Produkt (`ReleaseViewStageKinds()`), roter Zweig
+    bleibt grün.
+  - ROT-Mutant 1 (Dimension, recipe 1b): `mutantKinds[2] = mutantKinds[1]` — dieselbe
+    Produktfunktion, derselbe Record, nur die übergebene Zuordnungstabelle vertauscht;
+    genau eine Verletzung, `t.Fatal` bei 0 Verletzungen.
+  - ROT-Mutant 2 (Provenienz/Kind-Klasse, recipe 1a-Hälfte): die Zelle trägt eine fremde
+    Dimensions-Aufschrift; die Linie prüft Kind gegen die Soll-Dimension, damit der in der
+    Akte gemessene blinde Fleck (release.go Kind-Loop) nicht nochmal durchrutscht.
+- Kausalität: jede Mutation an `release.go` (Tabelle, Parameter-Durchgabe oder Zellen-Kind)
+  färbt direkt auf die Zelle durch — nachgemessen in den beiden Zeugnissen unten.
+
+## Mutantenzeugnis A — echter Produkt-Mutant Dimension (release.go:13, lokal, rückgängig)
+
+Mutation: `var releaseViewStageKinds = [3]string{referenceIntended, referenceApplied, referenceObserved}`
+→ `…, referenceApplied}` (observed-Slot liest die applied-Dimension), Zelle unverändert, danach
+Restore (`git diff` leer auf Zeile 13, Tests wieder grün). Auszug, wörtlich:
+
+```
+--- FAIL: TestReleaseViewExampleShapeKeepsEveryCellReadable (0.00s)
+    release_test.go:47: missing dimensions must read UNCLEAR: {Wanted:0x3b62e0ec8200 Applied:0x3b62e0ec8240 Observed:0x3b62e0ec8280}
+FAIL	github.com/mcpdev80/baseharbor/internal/machinereadmodels	0.009s
+--- FAIL: TestVersionViewThreeCellsAlwaysSeparated (0.00s)
+    app_version_view_test.go:66: cell 2 reads dimension "applied", want "observed"
+--- FAIL: TestVersionViewMissingDimensionIsUnclear (0.00s)
+    app_version_view_test.go:89: unrecorded dimension must be marked missing-data
+--- FAIL: TestVersionViewDimensionIsolation (0.00s)
+    app_version_view_test.go:123: observed must not be copied from applied, got "applied-only"
+--- FAIL: TestRenderAppVersionHumanUnclearCells (0.00s)
+    app_version_view_test.go:209: human view must contain "UNCLEAR", got:
+--- FAIL: TestAppVersionCommandCallable (0.00s)
+    app_version_view_test.go:285: the cleared observed cell must read UNCLEAR, got "sha256:applied-only"
+--- FAIL: TestStagesViewMutationAgainstSeparationLine (0.00s)
+    app_version_view_test.go:338: the shipped mapper must satisfy the separation line, got [observed cell does not read the observed dimension]
+--- FAIL: TestAppVersionsCommandCallable (0.00s)
+    app_version_view_test.go:439: an unrecorded observation must read UNCLEAR, got "sha256:applied-only"
+FAIL	github.com/mcpdev80/baseharbor/cmd/baha	0.026s
+```
+
+Die Gegenprobenzelle selbst failt am Produkt-Mutanten (Zeile 338) — exakt der Nachweis,
+den die Akte forderte; zusätzlich failen 7 echte Behavioral-Zellen mit.
+
+## Mutantenzeugnis B — echter Produkt-Mutant Kind (release.go:190, lokal, rückgängig)
+
+Mutation: `cell := &ViewStageCell{Kind: kind}` → `cell := &ViewStageCell{Kind: referenceApplied}`
+(stillschweigende Dimensions-Aufschrift in der ausgelieferten Zellen-Funktion), danach Restore
+(Zeile 190 wieder `Kind: kind`, Tests wieder grün). Auszug, wörtlich:
+
+```
+ok  	github.com/mcpdev80/baseharbor/internal/machinereadmodels	0.004s
+--- FAIL: TestVersionViewThreeCellsAlwaysSeparated (0.00s)
+    app_version_view_test.go:66: cell 0 reads dimension "applied", want "intended"
+--- FAIL: TestStagesViewMutationAgainstSeparationLine (0.00s)
+    app_version_view_test.go:338: the shipped mapper must satisfy the separation line, got [wanted cell does not read the intended dimension observed cell does not read the observed dimension]
+FAIL	github.com/mcpdev80/baseharbor/cmd/baha	0.026s
+```
+
+Beide Zeugnisse zeigen: die veröffentlichte Zelle hängt jetzt kausal von
+`internal/machinereadmodels/release.go` ab; kein Testfile-Mapper mehr beteiligt.
+
+## (2) round-1.md berichtigt
+
+`evidence/r27-welle5-2026-11-06/version-view/round-1.md`, Abschnitt "mutante": die
+faktisch falsche Mechanismus-Beschreibung ("gegen denselben Fixture-Felderzugriff wie der
+ausgelieferte Mapper") ist durch die Berichtigung mit Luna-Verweis und dem runde-2-Mechanismus
+ersetzt. Diff nur diese Datei in diesem Commit.
+
+## (3) PR und Lauf
+
+- PR #1403 bleibt EIN Antrag auf `work/r27-version-view`; kein zweiter PR, kein zweiter Zweig
+  (`git branch --list` in dieser Lane: nur der Namenszweig; ls-remote-Zeugen unten).
+- Kopf nach Push: `65ed48d60f779621ce32c4e5b1546f3e10f9af1d`.
+
+```
+$ git ls-remote origin refs/heads/work/r27-version-view refs/heads/develop refs/pull/1403/head
+7c393b0dd842e7fca23d4f431c6c2f69c3f197b1	refs/heads/develop
+65ed48d60f779621ce32c4e5b1546f3e10f9af1d	refs/heads/work/r27-version-view
+65ed48d60f779621ce32c4e5b1546f3e10f9af1d	refs/pull/1403/head
+```
+
+`ls-remote` echt == head: `refs/heads/work/r27-version-view` == `refs/pull/1403/head` ==
+`65ed48d60f779621ce32c4e5b1546f3e10f9af1d` == lokaler Kopf. Der PR zeigt auf denselben einen
+Zweig (ein Antrag).
+
+## Lokale Tore am Kandidaten
+
+- `gofmt -l cmd internal` leer · `go vet ./cmd/baha/ ./internal/machinereadmodels/` rc=0 (nach
+  Restore beider Mutanten) · `go build ./...` rc=0.
+- `go test -race -count=10 ./cmd/baha -run 'TestVersionView|TestAppVersion|TestRenderAppVersion|
+  TestStagesViewMutation|TestSplitImageReference'` → ok 2.165s;
+  `go test -race -count=10 ./internal/machinereadmodels -run TestReleaseView` → ok 1.021s.
+- Wizard-Registration-Zellmenge (die der Doku-Drift in Runde 1 gerissen hat): ok 0.071s.
+- Arbeitsplatte: Scratch unter `/home/marcel/dev/baseharbor-ecosystem/workers/w229-wt`,
+  Caches `/dev/shm/w229-*` und `/tmp/opencode/w229*` (Mission: caches /tmp/opencode/w229*;
+  /tmp hatte zur Lane-Zeit ein per-user-Quota-Erschöpfungsfenster, deshalb der
+  Build-Cache-Ausweichort /dev/shm/w229-gocache; wird am Ende gelöscht).
+- Kein Container/compose/VM gestartet (Mission nennt keinen VM-Smoke-Test);
+  keine `.github/**`-Änderung; kein rerun/workflow_dispatch; keine Subagenten.
