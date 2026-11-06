@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-managed-users.
+OBJEKT: PR #1397 head b3cb622a2e2. PRUEFE SHA-genau: (1) provider-aufruf ECHT (updateEmail-PUT, kein
+passwort-Zugriff — Lies den adapter), (2) idempotenz-Zelle (owned+enabled+verified repeat) + ambiguity
+refused + foreign/unverified denied — SELBST nachfahren, (3) toleranz-MUTANTE selbst (guard raus =>
+ambiguity akzeptiert ROT) + GEGENPROBE gruen, (4) zusammenbau EnsureManagedUserInvite->OIDC echter pfad,
+(5) write-set nur identityprovider+bounded adapter (name-only), blobs der vorgaenger ruhig, hosted
+42137459404 terminal am kopf, ls-remote echt==head, ancestor rc=0. Akte -> evidence/r27-welle5-2026-11-06/
+managed-users/review-1397a.md; AKTE VOR END AUF origin/main (ls-tree-beleg).
+END pane: "END_done codex-r1397a: verdict=<X> aufruf=<echt> grenzen=<selbst belegt> mutante=<rot+gegenprobe> akte=<pfad> | <Satz>"
