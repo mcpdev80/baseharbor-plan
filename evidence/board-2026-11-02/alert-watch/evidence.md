@@ -1,10 +1,10 @@
 # alert-watch: 3 go-jose Dependabot-Alerts — Statusklaerung OHNE Gewalt nach Merge a567ff46
 
 ## PLAN
-  - [x] 1. gh api dependabot/alerts — fuer jede Alert: severity, affected_range, first_seen/updated, auto-closes mit welcher Version
-  - [x] 2. Pruefen: liegt develop go.mod (4.1.6) in jeder affected_range? Wenn range bis >=4.1.6 reicht, ist hoeherer Patch noetig — dann PR 'chore(deps): go-jose -> <sicherste>' + build/test + PRSC terminal
-  - [x] 3. Wenn 4.1.6 ausreichend: BELEG dass Schliessen am Re-Scan haengt (API-Feld), notieren WANN Dependabot neu scannt (PR #1252 Praezedenz)
-  - [x] 4. evidence.md schreiben, END posted
+  - 1. gh api dependabot/alerts — fuer jede Alert: severity, affected_range, first_seen/updated, auto-closes mit welcher Version
+  - 2. Pruefen: liegt develop go.mod (4.1.6) in jeder affected_range? Wenn range bis >=4.1.6 reicht, ist hoeherer Patch noetig — dann PR 'chore(deps): go-jose -> <sicherste>' + build/test + PRSC terminal
+  - 3. Wenn 4.1.6 ausreichend: BELEG dass Schliessen am Re-Scan haengt (API-Feld), notieren WANN Dependabot neu scannt (PR #1252 Praezedenz)
+  - 4. evidence.md schreiben, END posted
 
 ---
 
