@@ -1,3 +1,5 @@
+# KORREKTUR RUNDE 7 (w272, 2026-11-06): die `baseharbor-podman-local*`-netzwerke waren UM GLOESCHT durch den reset, nicht unangetastet.
+# Berichtigt: diese Zeile behauptet "fremde leftovers (podman-local2) intakt" im rollback. Per Podman-Definition loescht `podman system reset --force` ALLE netzwerke; die vorgehenden w251-leftover-netzwerke existierten zum reset-timing (round-4 listet sie). Sie sind GLOESCHT, nicht erhalten. Details + verlust-bewertung (nur definition, kein datenverlust): evidence/r27-welle5-2026-11-06/control-plane-single-default/round-7.md.
 # Round 5 Evidence — podman-2 lock provenance + unmodified repeat/fail-closed cells re-run at head ed98ed1dde7 (provenance gap from act-1404f closed)
 
 - Lane: w268-sd-podman-provenance (Worker). Coordinator: ec2254ac. Mission: missions/w268-sd-podman-provenance.txt.

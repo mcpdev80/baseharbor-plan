@@ -1,3 +1,5 @@
+# KORREKTUR RUNDE 7 (w272, 2026-11-06): "beim reset waren keine fremden netzwerke" ist BERICHTIGT/NICHT MEHR HALTBAR.
+# Diese zeile schliesst aus post-reset/container-only beweisen, dass keine fremden netzwerke beim reset vorhanden waren. Tatsaechlich existierten die w251-leftover `baseharbor-podman-local*`-netzwerke zum reset-timing (round-4 listet sie als leftover); podman reset loescht per semantik ALLE netzwerke. Sie sind GLOESCHT. Rund-7 akte: evidence/r27-welle5-2026-11-06/control-plane-single-default/round-7.md.
 # Round 6 Evidence — Podman storage-reset provenance (did `podman system reset --force` on baha-podman-2 delete foreign resources?)
 
 - Lane: w271-sd-hostledger (Worker). Coordinator: ec2254ac. Mission: missions/w271-sd-hostledger.txt.
