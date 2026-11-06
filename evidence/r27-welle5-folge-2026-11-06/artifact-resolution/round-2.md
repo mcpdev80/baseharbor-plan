@@ -137,8 +137,7 @@ Proven pre-existing: `application_artifact_resolution.go` exists in no develop r
 
 - The local branch name work/r27-artifact-resolution-new from round 1 exists only in this host's root checkout as another worktree's checked-out name; it was never pushed, touched or extended by this lane (remote sweep above proves count 1).
 - Diff vs develop (git diff --shortstat origin/develop...HEAD): 4 files changed, 1533 insertions, 0 deletions — the same 4 files as round 1 (act-1406a finding 4 confirmed the write-set).
-- Run 42297344340 "CI · PR #1406", pull_request, head 9ee857387c333131ec9e1c0f42839736314bab4b — TERMINAL completed/success. Canonical: https://github.com/mcpdev80/baseharbor/actions/runs/42297344340
-- `gh pr checks 1406`: `PR Selected Checks` pass (job 128170168872); remaining lanes pass or skipping (runtime/HA/release lanes not selected for this diff); 0 failing. PR OPEN, MERGEABLE at head 9ee857387c3. No reruns or dispatches were triggered by this lane.
+- Run 42297344340 "CI · PR #1406", pull_request, head 9ee857387c333131ec9e1c0f42839736314bab4b — TERMINAL completed/success. Canonical: https://github.com/mcpdev80/baseharbor/actions/runs/42297344340- `gh pr checks 1406`: `PR Selected Checks` pass (job 128170168872); remaining lanes pass or skipping (runtime/HA/release lanes not selected for this diff); 0 failing. PR OPEN, MERGEABLE at head 9ee857387c3. No reruns or dispatches were triggered by this lane.
 
 ## repo-rule compliance
 
@@ -162,4 +161,8 @@ END_DONE w270-artifact-registry-prio: head=9ee857387c prio_zelle=ROT->GRUEN muta
 
 ## VM/compose hygiene
 
-No VMs named by this mission; no docker/podman/compose projects started anywhere by this lane (scripted in-process fakes only) => nothing to bring down; ps-witness not applicable.
+No VMs named by this mission; no docker/podman/compose projects started anywhere by this lane (scripted in-process fakes only) => nothing to bring down. ps-witness at END:
+
+    $ docker ps -q | wc -l
+    0
+    (PS-WITNESS: 0 containers on this host; lane started none)
