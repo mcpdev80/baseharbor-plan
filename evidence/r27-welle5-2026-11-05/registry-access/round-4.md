@@ -116,4 +116,4 @@ $ git -C baseharbor-plan ls-tree -r origin/main --name-only | grep registry-acce
 
 ## END
 
-- END_DONE w219-registry-r4: head=<sha10> propagiert=TestFailedResolvePropagatesWithZeroPulls negcells=3x null-pulls (failed/denied/public-default + missing-digest) mutante=M1 echt rot + gegenprobe lauf=42168126290 TERMINAL lsremote=<sha10> | resolver-Ausnahme wird am caller propagiert, mutable nur noch klassen-exklusiv per opt-in
+- END_DONE w219-registry-r4: head=99b3e144dd propagiert=TestFailedResolvePropagatesWithZeroPulls negcells=3x null-pulls (failed/denied/public-default + missing-digest) mutante=M1 echt rot+gegenprobe lauf=42168126290 completed/success lsremote=99b3e144dd | resolver-Ausnahme wird am caller propagiert, mutable nur noch klassen-exklusiv per opt-in
