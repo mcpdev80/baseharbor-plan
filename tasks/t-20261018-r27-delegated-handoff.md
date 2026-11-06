@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (w218, wartet auf Sitz)
+owner: coord-welle5 (Lane w218)
 kanban_lane: active
 kanban_summary: "Preserve existing delegated-delivery boundary: Argo CD/GitOps owns its Git/Helm/Kustomize desired resources and reconciliation.…"
 kanban_status: active
@@ -23,7 +23,7 @@ evidence: []
 
 - [ ] t-20261018-r27-delegated-handoff · GitOps: preserve external desired state and hand off native changes #task #release/v0-4-27 #status/active #view/active #area/delivery #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w218, wartet auf Sitz) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w218) · **Priority:** high  
     **PR:** [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399)  
     <!-- /generated:card -->
 
@@ -32,7 +32,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** coord-welle5 (w218, wartet auf Sitz)  
+**Owner:** coord-welle5 (Lane w218)  
 **Priority:** high  
 **PRs:** [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399)  
 **Source:** 
