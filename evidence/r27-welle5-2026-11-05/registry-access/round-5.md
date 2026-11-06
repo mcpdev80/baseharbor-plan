@@ -180,7 +180,7 @@ Scratch-Dateien im Ecosystem-Root, kein Produkt-Branch-Commit durch diese Runde.
 ## Evidence-on-origin/main witness (zweitletzte Aktion)
 
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main
-17f362ca59e4cb25c993eb0ad72b47020ce86644	refs/heads/main
+1c3ec133791aeda5261af6467b35a5886387b0d1	refs/heads/main
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r origin/main --name-only | grep registry-access
 evidence/coord-memory/missions/w195-registry-access.txt
 evidence/coord-memory/missions/w203-registry-access-r2.txt
