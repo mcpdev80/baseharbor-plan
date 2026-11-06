@@ -18,7 +18,7 @@ Hinweis Format: diese Akte enthaelt absichtlich KEINE Markdown-Checkboxes; der P
 - Step 5: Diskriminierungs-Matrix Zelle x Mutant x Ergebnis in dieser Akte + Berichtigungszeile. DONE (unten).
 - Step 6: Akte auf origin/main pushen, ls-tree-Witness WORTLICH. DONE (unten).
 - Step 7: Gates: develop VORFAHR rc=0 vor ls-remote-Pflicht, bestehender Lauf 42168126290 TERMINAL am gleichen Kopf benannt, ls-remote echt==head WORTLICH. DONE (unten).
-- Step 8: END an 841e7734. PENDING (setze ich nach Push + ls-tree-Witness).
+- Step 8: END an 841e7734. DONE (Letzte Aktion, Wortlaut im END-Abschnitt).
 
 ## Missions-Zeile (Pflichttext)
 
