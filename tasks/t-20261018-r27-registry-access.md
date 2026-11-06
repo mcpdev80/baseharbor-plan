@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (Lane w203, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w210, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: Resolve explicitly configured app-scoped OCI registry/artifact endpoints including GitLab/GHCR/Harbor/Quay/Artifactory/Nexus…
-kanban_status: review
+kanban_status: active
 kanban_title: "Registries: use configured enterprise endpoints and native credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-native-auth, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-registry-access · Registries: use configured enterprise endpoints and native credentials #task #release/v0-4-27 #status/review #view/review #area/artifacts #kind/task
+- [ ] t-20261018-r27-registry-access · Registries: use configured enterprise endpoints and native credentials #task #release/v0-4-27 #status/active #view/active #area/artifacts #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w203, freigegeben) · **Priority:** high  
+    **Owner:** coord-welle5 (w210, wartet auf Sitz) · **Priority:** high  
     **PR:** [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle5 (Lane w203, freigegeben)  
+**Owner:** coord-welle5 (w210, wartet auf Sitz)  
 **Priority:** high  
 **PRs:** [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395)  
 **Source:** 
@@ -95,3 +95,7 @@ akte round-2.md auf origin/main.
 Nachgemessen: ls-remote echt==head, develop VORFAHR (rc=0), lauf 42132438226 TERMINAL SUCCESS (14 gruen),
 akte round-2.md auf main (538eb62). 1395a-punkt 4 ERFUELLT: productions-caller app_broker.go:58 ueber
 RegistrySource.Resolve, mutante caller-entfernt ROT, gegenprobe GRUEN (diskriminierung belegt).
+
+## Rueckruf (1395b REJECT, drei punkte): lauf gruen, ABER (1) develop f01d2fb kein vorfahr
+(alter basis-punkt), (2) caller-zelle ohne diskriminierung — echter caller-entfernung bleibt gruen,
+(3) diff-hinweis app_broker_registry_p*. Akte folgt von Luna (quota-nachlieferung). Rezept steht (w210).
