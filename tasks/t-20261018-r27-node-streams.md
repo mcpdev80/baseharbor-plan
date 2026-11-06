@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle5 (Lane w194, freigegeben)
-kanban_lane: review
+owner: coord-welle5 (w215, wartet auf Sitz)
+kanban_lane: active
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
-kanban_status: review
+kanban_status: active
 kanban_title: "Connector: bound log replay and terminal cancellation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime, t-20261105-r27-test-wire-helper]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -22,18 +22,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w194, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle5 (w215, wartet auf Sitz) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
-**Owner:** coord-welle5 (Lane w194, freigegeben)  
+**Owner:** coord-welle5 (w215, wartet auf Sitz)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
@@ -115,3 +115,7 @@ mutanten rot, zusammenbau echt. round-5.md auf main.
 Nachgemessen: ls-remote echt==head, main VORFAHR (rc=0), laeufe 42146364305+42146364376 BEIDE TERMINAL
 SUCCESS am exakten kopf, akte round-6.md auf origin/main. Case-A live+barriere, guard-mutante dreht A
 benannt ROT (B/C/D gruen), race20 ensemble gruen 1319.7s, harness-hang (net.Pipe-park) diagonal geheilt.
+
+## Rueckruf (22f REJECT, 22e war durch): BLOCKING — kind-Fehler werden als sauberer strom-end
+(io.EOF) gemeldet statt als fehler. Rezept in review-22f.md zeilen 77ff/106ff: io.EOF nur bei context-
+abbruch; echte kindfehler durchreichen + neue zelle beide richtungen + echte mutante.
