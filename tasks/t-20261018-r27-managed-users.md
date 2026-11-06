@@ -25,7 +25,7 @@ blocker: ""
 
 - [ ] t-20261018-r27-managed-users · Identity: invite users through the native provider admin adapter #task #release/v0-4-27 #status/active #view/active #area/identity #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w247) · **Priority:** normal  
+    **Owner:** coord-welle5 (w254-codex) · **Priority:** normal  
     **PR:** [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ blocker: ""
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md)  
-**Owner:** coord-welle5 (w247)  
+**Owner:** coord-welle5 (w254-codex)  
 **Priority:** normal  
 **PRs:** [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
