@@ -6,8 +6,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: coord-welle5 (w277, entlassen)
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: review
+kanban_lane: review
 kanban_summary: The default BaseHarbor developer/control-plane deployment MUST use a single instance per required service. Currently the shipped…
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: critical
@@ -15,20 +15,20 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1404]
 sources: []
-blocker: "abstimmungsfrage am gleichlautenden kandidat: forensik (round-8) kann pre-reset-datenlage nicht belegen — akte sagt 'auswirkung unbekannt'. option a: merge der funktionell belegten zellen mit bekannter rueckenluecke im protokoll. option b: podman-2 rebuild + vollstaendiger zellen-repeat am aktuellen kopf. warte auf owner-entscheidung A|B."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #area/runtime #area/testing #kind/task
+- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/review #view/review #area/platform #area/runtime #area/testing #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w277, entlassen) · **Priority:** critical  
     **PR:** [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404)  
-    **Blocker:** abstimmungsfrage am gleichlautenden kandidat: forensik (round-8) kann pre-reset-datenlage nicht belegen — akte sagt 'auswirkung unbekannt'. option a: merge der funktionell belegten zellen mit bekannter rueckenluecke im protokoll. option b:…  
+
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-welle5 (w277, entlassen)  
@@ -80,3 +80,7 @@ The default BaseHarbor developer/control-plane deployment MUST use a single inst
 - Ready for an implementation lane. The defect is verified; no product fix or new test execution is asserted by this card.
 
 2026-11-06 w248 base refresh assigned by Owner. Scope: merge current develop into existing PR branch without content changes, run the resulting hosted gates to terminal, and publish round-2 base-refresh evidence.
+
+## Owner decision — 2026-11-07
+
+**Option A approved.** No further `podman system reset`, Podman-2 rebuild, or replay solely to reconstruct historical pre-reset evidence. The pre-reset volume state remains **unknown** and must never be reported as proven safe. If a clean environment is needed in the future, rebuild it from scratch rather than resetting shared test-host state. Preserve all existing functional evidence. Refresh the exact candidate against develop, verify required checks and code review, then merge #1404 if qualified. Do not weaken the functional acceptance criteria.
