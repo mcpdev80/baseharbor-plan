@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-stage-versions.
+OBJEKT: PR #1391 head 60d5896c9c4 (RUNDE 2 nach deinem 1391a: load-merge-refs fix gegen den datenverlust
++ echte matrix). PRUEFE SHA-genau: (1) fix-read: merge der ref maps erhaelt alle drei dimensionen ( Lies
+die diff + die neue zelle), (2) matrix SELBST -race -count=20, (3) beide mutanten SELBST (zusammenlegung;
+drop-applied) ROT + je GEGENPROBE gruen (diskriminierung — dein 1391a-kippunkt), (4) down-sql-punkt:
+nicht-anwendbar begruendung JSON-only akzeptieren NUR wenn kein migrationsschema im diff (grep), (5)
+state-owner blobs ruhig, hosted 42131821530 terminal am kopf, ls-remote echt==head, ancestor rc=0,
+name-only. Akte -> evidence/r27-welle5-2026-11-05/stage-versions/review-1391b.md; AKTE VOR END AUF
+origin/main (ls-tree-beleg).
+END pane: "END_DONE codex-r1391b: verdict=<X> fix=<read+zelle> matrix=<selbst> mutanten=<rot+gegenproben gruen> downsql=<entschieden> akte=<pfad> | <Satz>"

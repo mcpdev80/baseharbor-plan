@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w207). Coord 841e7734. KARTE: t-20261018-r27-journal-wiring (RUNDE 4 — integration-defekt).
+ZWEIG: work/r27-journal-wiring (PR #1393, zweig-head efa1600c7537 = develop-merge-integration) — DERSOLBE
+zweig, KEIN zweiter PR.
+BEFUND (gemessen, auf karte): am INTEGRATIONS-kopf scheitern go-unit-tests TERMINAL + rerun mit
+TestSourceSnapshotDetectSchangeDuringRead source_snapshot_test.go:247 "MutationAcked never fired on the
+mutated path" — deine journal-verdrahtung im production-walk store die frische write-ack-barre der
+geheilten kur (timing/eingriff). DIE kur funktioniert: sie faengt deinen fehler, kein zurickdrehen der kur!
+AUFGAB: (1) reproduziere den fall LOKAL am exakten integration-head (develop in eigenen wt + zweig-merge),
+(2) finfoerde den INTERAKTIONS-punkt (dein ChangeHook-/read-pfad vs. MutationAcked-hook der kur — beide
+muessen koexistieren: eigene hooks einhaengen statt ueberschreiben, oder reihenfolge), (3) FIX in DEINEM
+write-set (machinehttp-/journal-dateien), kur-dateien (source_snapshot*) bleiben UNANGETASTET, (4) beweis:
+die vier kur-zellen + deine zwei zellen GRAUEN gemeinsam am integration-head, mutante (hook-reihenfolge
+vertauscht) ROT, (5) develop bleibt VORFAHR (rc=0), neuer hosted lauf TERMINAL GRUEN.
+GATES: ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE
+.github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN compose auf diesem host, caches in /tmp/opencode.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/journal-wiring/round-4.md
+END an 841e7734: "END_DONE w207-journal-wiring-r4: head=<sha10> reproduktion=<lokal am integ-head> interaktion=<benannt gefixt> kur-zellen=<4/4 gruen> eigene=<2/2 gruen> mutante=<rot> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
