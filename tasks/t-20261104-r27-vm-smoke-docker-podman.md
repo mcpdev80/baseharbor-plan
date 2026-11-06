@@ -5,10 +5,10 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: coord-welle5 (Lane w227)
-kanban_lane: active
+owner: coord-welle5 (wartet Sitz)
+kanban_lane: blocked
 kanban_summary: "A workstation enrolls once against a real BaseHarbor installation and the node service installs, starts, restarts and is removed…"
-kanban_status: active
+kanban_status: blocked
 kanban_title: "Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
@@ -17,18 +17,21 @@ prs: []
 sources: []
 resolution: ""
 evidence: []
+blocker: "Kein freier sitz im pool (4 reservationen + grundspur belegt, nachgemessen). Mission steht, fuehrt aus beim ersten freien platz: VMs blank + rootless-neueinrichtung auf dem Docker-Rechner (owner-direktive 11-06)."
+
 ---
 
-- [ ] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w227) · **Priority:** high  
+    **Owner:** coord-welle5 (wartet Sitz) · **Priority:** high  
+    **Blocker:** Kein freier sitz im pool (4 reservationen + grundspur belegt, nachgemessen). Mission steht, fuehrt aus beim ersten freien platz: VMs blank + rootless-neueinrichtung auf dem Docker-Rechner (owner-direktive 11-06).  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
-**Owner:** coord-welle5 (Lane w227)  
+**Owner:** coord-welle5 (wartet Sitz)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
