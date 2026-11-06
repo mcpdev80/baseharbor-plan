@@ -5,10 +5,10 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_lane: waiting
+owner: coord-welle5 (w269 dispatched)
+kanban_lane: active
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: planned
+kanban_status: active
 kanban_title: "Operations: real Docker and Podman integration runs with core, demo, console and connector"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
@@ -20,18 +20,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** coord-welle5 (w269 dispatched) · **Priority:** high  
     **Needs:** [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (w269 dispatched)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
