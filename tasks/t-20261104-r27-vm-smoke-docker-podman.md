@@ -5,32 +5,30 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: coord-welle5 (Lane w212, freigegeben)
-kanban_lane: blocked
+owner: coord-welle5 (Lane w227)
+kanban_lane: active
 kanban_summary: "A workstation enrolls once against a real BaseHarbor installation and the node service installs, starts, restarts and is removed…"
-kanban_status: blocked
+kanban_status: active
 kanban_title: "Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
-blocker: "Infra: baha-podman nicht erreichbar (SSH-banner-timeout, coord-nachmessung deckt sich mit lane + compose-befund 11-06); docker-half ok (kein baha installiert). Mission-Zeile 'baha-runner-*' stammte aus lane-lektuere, datei nennt korrekt baha-docker/baha-podman. Trigger: podman-VM wiederherstellung (owner-infra)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
+- [ ] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w212, freigegeben) · **Priority:** high  
-    **Blocker:** Infra: baha-podman nicht erreichbar (SSH-banner-timeout, coord-nachmessung deckt sich mit lane + compose-befund 11-06); docker-half ok (kein baha installiert). Mission-Zeile 'baha-runner-\*' stammte aus lane-lektuere, datei nennt korrekt ba…  
+    **Owner:** coord-welle5 (Lane w227) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
-**Owner:** coord-welle5 (Lane w212, freigegeben)  
+**Owner:** coord-welle5 (Lane w227)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
