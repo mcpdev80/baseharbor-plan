@@ -29,7 +29,7 @@ erwartung berichtigt nach 1395d: je-schicht-diskriminierung statt ein-mutant-fue
 1395d meldete "drei rot, die vierte (public-default) haengt an einer anderen Guard-Schicht". Ich habe M1
 zweimal als volle Batterie am exakten Kopf persoenlich nachgemessen — die 3/4-Zaehlung ist REPRODUZIERT:
 
-M1-Lauf #2 (Wortprotokoll):
+M1-Lauf #2 und #4 (Wortprotokoll, identisch reproduziert in zwei unabhaengigen Laeufen):
 ```
 --- FAIL: TestFailedResolvePropagatesWithZeroPulls
 --- FAIL: TestDeniedEndpointResolveCausesNoPull
