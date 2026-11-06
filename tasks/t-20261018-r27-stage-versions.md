@@ -77,3 +77,5 @@ in review-1391a.md.
 Nachgemessen: ls-remote echt==head, develop 21d8d05cf1a VORFAHR (rc=0), lauf 42131821530 TERMINAL SUCCESS
 am exakten kopf, akte round-2.md traegt jetzt die finalen zeugen (END-zeile blieb alt — messe gilt,
 praeszedenz w185). Datenverlust-fix load-merge-refs drin, matrix+beide mutanten rot belegt.
+
+## ACCEPT 2026-11-06 (1391b + head-followup): merge UNTERWEGS (ac51c8819c9); schliesst bei develop-beleg.
