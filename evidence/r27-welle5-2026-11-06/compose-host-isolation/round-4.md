@@ -276,6 +276,19 @@ No orphaned daemon/compose project left behind on either host.
 - Evidence lives only in baseharbor-plan; no `.evidence/` in a product repo; no
   main-branch write in a product repo.
 
+## Evidence publish (origin/main witness)
+
+`git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep <evidence-path>`:
+
+```
+* branch            main       -> FETCH_HEAD
+evidence/r27-welle5-2026-11-06/compose-host-isolation/round-4.md
+```
+
+Evidence path `evidence/r27-welle5-2026-11-06/compose-host-isolation/round-4.md`
+confirmed present on `origin/main` (HEAD `1723fd8ab36230c1979a2220d7da56c00cb9a191`;
+my evidence commit `6cadcfc` is an ancestor of HEAD).
+
 ## END
 
 END_BLOCKED w236-compose-r4-verify: head=1b02e8866dd4 branch=work/r27-compose-isolation (PR #1383, OPEN, base develop 7c393b0d) four-InCI-tests FAIL at bootstrap Core-identity "context deadline exceeded" (docker 120s / podman 180s) — root-caused to test 2min/3min ctx < 4min identity-readiness window (keycloak_driver.go:664 identityEndpointReadyTimeout=4m); witness1 ctxA docker 2min ctx -> CONTEXT_DEADLINE after 2m exit42; witness2 ctxP fresh podman 10min ctx -> "BaseHarbor Core READY: SQL + Secrets + Identity" P_EXIT=0 cleanup 0/0; witness3 docker 10min ctx past identity -> IPAM "all predefined address pools have been fully subnetted" (ambient bh-local 18-core) | mutant=RED-unreachable-behind-bootstrap-gate (code red-first correct) | gates=PR #1383 OPEN; CI #42210404583 SUCCESS; validate/Selected-Runtime SKIP by test-only PR design | both hosts ps-witness 0 my-containers | evidence path baseharbor-plan/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-4.md | Owner-answered OPTION-A: no source change; witnesses are external-case for new card t-20261106-r27-control-plane-single-default (HA-ensemble default compose.yaml:268/297/326/356 + etcd 10/23/36; single-instance default shortens readiness window below test deadline)
