@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: coord-welle5 (w245-codex, entlassen)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Choose registry pull/copy, existing target-native image store, or supported native save/load/OCI layout/archive transfer. Use…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Images: reuse native registry and local-store transports"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -17,18 +17,19 @@ prs: [mcpdev80/baseharbor#1402]
 sources: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1402", "https://github.com/mcpdev80/baseharbor/commit/5e4fde7177ea020de39b117f6d89cfa8f7c62be2", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/image-transfer/act-1402f.md"]
 ---
 
-- [ ] t-20261018-r27-image-transfer · Images: reuse native registry and local-store transports #task #release/v0-4-27 #status/review #view/review #area/artifacts #kind/task
+- [x] t-20261018-r27-image-transfer · Images: reuse native registry and local-store transports #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/artifacts #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w245-codex, entlassen) · **Priority:** high  
     **PR:** [baseharbor#1402](https://github.com/mcpdev80/baseharbor/pull/1402)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1402), [proof 2](https://github.com/mcpdev80/baseharbor/commit/5e4fde7177ea020de39b117f6d89cfa8f7c62be2), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/image-transfer/act-1402f.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
@@ -60,4 +61,4 @@ Transport selection, hostile/truncated archive, wrong digest/architecture, tag d
 
 ## Handoff
 
-Planned/unassigned, 2026-10-18. Maintainer requested native standards, real stage/version operation, existing registries/CI/GitOps and a thin promotion operation. No product implementation or release action started.
+Merged 2026-11-06: PR #1402 candidate `1c024d11bd6d0c82062902b7066305bf1d582be5` was independently accepted in act-1402f and squash-merged to `develop` as `5e4fde7177ea020de39b117f6d89cfa8f7c62be2`. Run 42226452453 completed successfully; `PR Selected Checks` from integration 15368 passed. Adapter source and test blobs match the accepted candidate. No release or deployment was performed.

@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: Use existing OCI images/releases first when selected; verify artifact availability through image-transfer. For current-checkout…
 kanban_status: planned
 kanban_title: "Images: resolve existing artifacts or an explicit builder"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-artifact-resolution · Images: resolve existing artifacts or an explicit builder #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/build #kind/task
+- [ ] t-20261018-r27-artifact-resolution · Images: resolve existing artifacts or an explicit builder #task #release/v0-4-27 #status/planned #view/ready #area/build #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
