@@ -20,15 +20,14 @@ resolution: "Accepted by Owner with documented historical host-evidence limitati
 evidence: []
 ---
 
-- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/closed #view/closed #area/platform #area/runtime #area/testing #kind/task
+- [x] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #area/runtime #area/testing #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w277, entlassen) · **Priority:** critical  
     **PR:** [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404)  
-
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** Accepted by Owner with documented historical host-evidence limitation; PR #1404 merged into develop at f3db942859c68e78fe2e7c0a339be7eb0e380acb.  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-welle5 (w277, entlassen)  

@@ -11,9 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 83/117 · **Blocked:** 2 · **Waiting:** 22  
-    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — VM-Matrix faellt auf bootstrap-timeout zurueck, der an der single-default-landung (\#1404) haengt; kandidat b11eec12 selbst korrekt + akte round-6-w259 auf main…  
-    **Blocker:** [t-20261106-r27-control-plane-single-default](../tasks/t-20261106-r27-control-plane-single-default.md) — abstimmungsfrage am gleichlautenden kandidat: forensik (round-8) kann pre-reset-datenlage nicht belegen — akte sagt 'auswirkung unbekannt'. option a: merge der…  
+    **Accepted tasks:** 83/117 · **Blocked:** 0 · **Waiting:** 22  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
@@ -38,8 +36,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 16/19 · **Blocked:** 1 · **Waiting:** 0  
-    **Blocker:** [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) — Owner-entscheid aus stehender kette: PR\#1287 geschlossen ohne grundnotiz (coord-nachmessung 11-06), kandidat 6ddef0ff nur auf zweig, nicht in develop/\#1264. Tr…  
+    **Accepted tasks:** 16/19 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.x.md) · [Tasks](../views/releases/v0.4.x.md)
 
 - [ ] v0.5.x · Contract freeze and compatibility #roadmap #roadmap-state/later
