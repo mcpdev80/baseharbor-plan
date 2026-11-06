@@ -55,4 +55,15 @@
 ## End status
 - Draft-stage CI on PR #1397 (run 42137046299, pull_request, draft) COMPLETED SUCCESS: Workflow policy SUCCESS, PR · Source format SUCCESS; full matrix SKIPPED (draft). Run: https://github.com/mcpdev80/baseharbor/actions/runs/42137046299
 - PR marked ready (non-draft) per coordinator direction 2026-11-06; full terminal matrix triggered. Run: 42137459404 (pull_request, head work/r27-managed-users, https://github.com/mcpdev80/baseharbor/actions/runs/42137459404).
-- DONE (terminal CI): run 42137459404 COMPLETED success at PR head b3cb622a2e2ad8488c543f983ccebb8ecad5800b. Jobs: PR · Source format SUCCESS, Workflow policy SUCCESS, PR · Trusted Plan SUCCESS, PR · Focused Python SUCCESS, PR · Validation · go-unit-tests SUCCESS, go-vet SUCCESS, go-build SUCCESS, PR Selected Checks SUCCESS. runtime-provider-package grep (go-unit-tests) → `ok github.com/mcpdev80/baseharbor/internal/identityprovider 8.611s`, no FAIL. Run: https://github.com/mcpdev80/baseharbor/actions/runs/42137459404
+- DONE (terminal CI): run 42137459404 COMPLETED success at PR head b3cb622a2e2ad8488c543f983ccebb8ecad5800b. Jobs: PR · Source format SUCCESS, Workflow policy SUCCESS, PR · Trusted Plan SUCCESS, PR · Focused Python SUCCESS, PR · Validation · go-unit-tests SUCCESS, go-vet SUCCESS, go-build SUCCESS, PR Selected Checks SUCCESS. go-unit-tests log → `ok github.com/mcpdev80/baseharbor/internal/identityprovider 8.611s`, no FAIL.
+
+## Final verification (pre-END)
+- Branch: work/r27-managed-users. Base attestation: origin/develop = 21d8d05cf1acf04729077e05eb350fcd3bb018ed; `git merge-base --is-ancestor origin/develop HEAD` rc=0 (ancestor YES); fresh cut, no prior origin branch existed.
+- PR: #1397 vs develop, draft=false, head=b3cb622a.
+- ls-remote echt==head (name-only): `b3cb622a2e2ad8488c543f983ccebb8ecad5800b refs/heads/work/r27-managed-users`.
+- PR head (gh) == commit == ls-remote == b3cb622a.
+- log-only-mine: `git log origin/develop..HEAD` lists exactly one commit (mine); no foreign commit carried on top.
+- Evidence on origin/main: blob `724b74ba161d67d5dee5352f631ab76bcfa0ae9b` at evidence/r27-welle5-2026-11-06/managed-users/round-1.md (ls-tree witness). Commit 0639811.
+- No compose/docker started on this host; no stacks to bring down; no daemon pools consumed.
+- Caches under /tmp/opencode/w206-* (removed worktree).
+- Repo-rule compliance: only internal/identityprovider/ bounded files (operator.go + managed_user_invite.go + two test files). No .github/, no shared registration, no credentials in fixtures.
