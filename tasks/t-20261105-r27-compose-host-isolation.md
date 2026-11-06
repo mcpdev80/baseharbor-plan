@@ -154,3 +154,11 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 - PR #1383 commit `872ff11a941f86a659e182a0ce48796a69569e50` restores `BASEHARBOR_TARGET` after all trust-plane bootstrap outcomes, including pre-initialized OpenBao and early errors. Previously the initialized branch returned before selection cleanup and could contaminate subsequent lifecycle tests.
 - Prior head `3a355e328fb6196ee9c2cea862750d9456fff71a` completed hosted CI run `42238659990` successfully (runtime gates skipped). A follow-up format error was corrected; latest run `42243498584` was pending at last inspection.
 - The clean/polluted Docker+Podman matrix, omission mutant and exact active-configuration proof remain mandatory and not yet verified. This card must not be accepted or merged solely on hosted PR-CI.
+
+## Isolation-guard regression continuation (2026-11-06)
+
+- Current PR #1383 head: `88d725e4b19f343e5b8deaff503677a5e89fe7f8`.
+- Bootstrap selector restoration runs on every exit, including already-initialized OpenBao and failures, instead of leaking `BASEHARBOR_TARGET` into later tests.
+- The per-test setup now installs a randomized, intentionally unconfigured isolation sentinel before `isolateRuntimeForTest` assigns the real target. If that isolation call is omitted, target resolution fails closed rather than falling back to the bootstrap/default Core.
+- `TestMissingRuntimeIsolationCannotFallBackToBootstrap` verifies precedence of the isolation sentinel over a preconfigured bootstrap default and rejects resolution of the unconfigured sentinel.
+- Hosted run `42244245719` was in progress at the time of recording; do not mark successful until terminal conclusion on the exact head. The approved Docker/Podman clean/polluted integration matrix, omission mutation live run and full runtime qualification remain NOT EXECUTED by this connector. No merge authorization is inferred.
