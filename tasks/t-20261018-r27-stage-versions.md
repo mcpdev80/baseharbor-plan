@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: coord-welle5 (Lane w197, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Persist desired, last applied and observed release/component references independently for application identity + selected Target…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Deployments: isolate version and configuration per stage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -17,18 +17,19 @@ prs: [mcpdev80/baseharbor#1391]
 sources: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1391"]
 ---
 
-- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
+- [x] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/state #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w197, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1391](https://github.com/mcpdev80/baseharbor/pull/1391)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1391)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
@@ -79,3 +80,7 @@ am exakten kopf, akte round-2.md traegt jetzt die finalen zeugen (END-zeile blie
 praeszedenz w185). Datenverlust-fix load-merge-refs drin, matrix+beide mutanten rot belegt.
 
 ## ACCEPT 2026-11-06 (1391b + head-followup): merge UNTERWEGS (ac51c8819c9); schliesst bei develop-beleg.
+
+## Gemerged 2026-11-06 (CODEX-MERGE nach 1391b+followup ACCEPT): develop f01d2fbdea6, kanditat
+ac51c8819c9 (nach vorwaerts-revert des querverbund-commits). Gewuenschte/angewandte/beobachtete referenzen
+getrennt haltbar + datenverlust-fix. Abhaengige (version-view, maintenance-client) pruefen bereitchaft.

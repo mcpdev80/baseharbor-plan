@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Preserve existing delegated-delivery boundary: Argo CD/GitOps owns its Git/Helm/Kustomize desired resources and reconciliation.…"
 kanban_status: planned
 kanban_title: "GitOps: preserve external desired state and hand off native changes"
@@ -21,15 +21,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-delegated-handoff · GitOps: preserve external desired state and hand off native changes #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/delivery #kind/task
+- [ ] t-20261018-r27-delegated-handoff · GitOps: preserve external desired state and hand off native changes #task #release/v0-4-27 #status/planned #view/ready #area/delivery #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
