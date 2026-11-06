@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
+    **Needs:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

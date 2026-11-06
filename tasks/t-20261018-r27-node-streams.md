@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: coord-welle5 (Lane w215, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "Connector: bound log replay and terminal cancellation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime, t-20261105-r27-test-wire-helper]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-node-connector/pull/22"]
 ---
 
-- [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/review #view/review #area/connector #kind/task
+- [x] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w215, freigegeben) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
@@ -127,3 +128,6 @@ aenderungen — umzug vollzogen). Kindfehler => streamError statt EOF (isContext
 EOF bleibt dort), Case E beide richtungen, mutante echt rot + gegenprobe, race20 gruen.
 
 ## ACCEPT 2026-11-06 (22g): merge UNTERWEGS (kopf 2e285a771ed); schliesst bei main-beleg.
+
+## Gemerged 2026-11-06 (CODEX-MERGE nach 22g ACCEPT): kopf 2e285a771ed, connector-main
+7fb235dd2f6. Kindfehler meldet jetzt fehler statt sauberem strom-end; EOF nur bei context-abbruch.
