@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 1 |
+| active | 14 |
+| review | 0 |
 | blocked | 3 |
 | ready | 2 |
 | queued | 26 |
@@ -25,6 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md) | Sources: persist authorized immutable deployment candidates | active | normal | coord-welle5 (Lane w213, uebernahme w208) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](../tasks/t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
+| [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md) | GitOps: preserve external desired state and hand off native changes | active | high | coord-welle5 (w218, wartet auf Sitz) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399) |
 | [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md) | Operations: reconnect and reconcile interrupted executions | active | normal | coord-welle5 (Lane w207) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](../tasks/t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392) |
 | [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md) | Identity: invite users through the native provider admin adapter | active | normal | coord-welle5 (Lane w211) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397) |
 | [t-20261018-r27-node-streams](../tasks/t-20261018-r27-node-streams.md) | Connector: bound log replay and terminal cancellation | active | normal | coord-welle5 (Lane w215) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](../tasks/t-20261105-r27-test-wire-helper.md) | [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22) |
@@ -39,9 +40,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md) | GitOps: preserve external desired state and hand off native changes | review | high | coord-welle5 (Lane w214, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399) |
+None.
 
 ## Blocked
 
