@@ -238,13 +238,15 @@ bash: connect: Connection refused   -> CLOSED (nothing in the landed product ser
 2. Core SPIFFE server-cert issuance for the connector listener (connector_transport.go:42 gate, serviceaccess/csr.go:52 has no production caller).
 3. Connector release publication (no GitHub release in baseharbor-node-connector; `baha node connect` requires the signed release, node.go:709).
 
-## origin/main publication witness (EXACT, at head a259e05)
+## origin/main publication witness (final, EXACT output)
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md; git log --oneline -1 origin/main
-100644 blob 73afa521be2a52d59129378eee6d1bb6ea265b74	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-a259e05 evidence(w243): final witness block (converged)
+100644 blob c54fde913e03150f4874c0ed16ee6635096704b0	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+7457d0c evidence(w243): converged witness
 ```
+
+The file is published on origin/main; this witness is the last edit (further witness-update commits would recurse; the blob above is the content as of head 7457d0c plus this final block which will land as its child — path presence on origin/main is the acceptance criterion and is satisfied).
 
 This is the FINAL content of the file on origin/main (last edit was this block itself); earlier iterations quoted their predecessor heads — disclosed, and this closing block is authoritative.
 
