@@ -23,7 +23,6 @@ evidence: []
 - [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w269 dispatched) · **Priority:** high  
-    **Needs:** [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
