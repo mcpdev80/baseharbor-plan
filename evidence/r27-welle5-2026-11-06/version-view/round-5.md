@@ -99,9 +99,12 @@ temporaere develop-Vergleichs-Worktree `w238-devchk` ist entfernt.
 ## Base-Zeuge (wortliche Ausgabe, direkt vor dem Evidence-Push)
 
 ```
-$ git ls-remote origin refs/heads/work/r27-version-view
+$ cd /home/marcel/dev/baseharbor-ecosystem/baseharbor && git ls-remote origin refs/heads/work/r27-version-view
 f89cf7a5e6ece67c494422c156c4c160f4af9db4	refs/heads/work/r27-version-view
 ```
+
+Evidence-Push-Zeuge (baseharbor-plan): `877e10a..b3e1d2f HEAD -> main`;
+`git ls-tree -r origin/main` enthaelt `evidence/r27-welle5-2026-11-06/version-view/round-5.md`.
 
 ## Selbstcheck
 
