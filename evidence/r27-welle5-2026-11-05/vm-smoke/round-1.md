@@ -104,12 +104,19 @@ $ git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
 100644 blob 1c27a143fbbd9babb5b29ae212e03417fd7aea2f	evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
 ```
 
-Push-Zeuge: `67d47d0..ef1c125  main -> main`; nach dem Push verifiziert:
-`git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md` ->
-`100644 blob 85660139b42dd65eb194776500ce87c9a72170f2  evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md`
-(Referenz ist der lokale Remote-Tracking-Stand nach erfolgreichem Push; direktes `ls-remote` scheitert an
-zeitweiligem GitHub-443-Ausfall von diesem Host, der auch den ersten Push-Versuch betraf — der Push selbst
-ging in Versuch 1 der Wiederholungsschleife als `main -> main` durch.)
+Push-Zeuge (zweite Korrektur, maßgeblich): Push `ef1c125..7130e1c  main -> main`; danach Fetch-Netzfehler
+(GitHub 443 instabil von diesem Host), aber der erfolgreiche Push aktualisierte den Tracking-Ref, verifiziert:
+
+```
+$ git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
+100644 blob 43518ff4bb2f32ddc1917cf050cec990d9daa505	evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
+$ git log --oneline -1 origin/main
+7130e1c evidence(r27 vm-smoke round 1): corrected push witness wording
+```
+
+Direktes `git ls-remote origin refs/heads/main` scheiterte in dem Fenster an `Failed to connect to github.com
+port 443` (wiederholt, siehe Versuchsliste); der Push selbst ging als `main -> main` durch und der Akte-Pfad
+ist damit auf origin/main (blob 43518ff4).
 
 Letzter Erreichbarkeits-Check vor END (baha-podman, unveraendert tot):
 
