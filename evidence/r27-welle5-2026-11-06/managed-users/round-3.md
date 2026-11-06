@@ -68,6 +68,11 @@ change. The r2 reds were the time-limiting scheduler race; kur-r7 healed it.
   TMPDIR under work/.tmp because the /tmp tmpfs has ~2.2 GB free; the race build
   does not fit there.)
 
+## END
+- END line posted to coordinator 841e7734:
+  END_DONE w217-managed-users-r3: head=759bffcd5d37c1aa8c2fb7eb7c5e4a7ca9439007 kur-in-develop=JA lauf=42206976432 TERMINAL SUCCESS (PR run #4897, go-unit-tests green) lsremote=759bffcd
+- Same branch work/r27-managed-users (PR #1397). No second candidate PR. Evidence on origin/main (766ccc6).
+
 ## Repo-rule compliance
 - Same branch work/r27-managed-users (PR #1397); no second candidate PR.
 - No product-file content changed; the rebase replays the two r2 commits verbatim
