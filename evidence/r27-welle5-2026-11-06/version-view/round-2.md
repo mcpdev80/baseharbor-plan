@@ -19,7 +19,7 @@ Rotgegenprobe in `TestStagesViewMutationAgainstSeparationLine`.
 9. Akte auf baseharbor-plan origin/main veröffentlichen (ls-tree-Zeuge), END an 841e7734
 10. AGENTS-Compliance-Selfcheck + Arbeitsplatten-Cleanup
 
-Status: Schritte 1–8 ausgeführt, 9 läuft, 10 am Ende. END-LINE am Dateiende.
+Status: alle Schritte ausgeführt; END-LINE am Dateiende.
 
 ## Basis-Attest
 
@@ -138,6 +138,19 @@ ersetzt. Diff nur diese Datei in diesem Commit.
   Worktree-Erzeugung kurzlebiger lokaler Helper-Branch `work/r27-version-view-checkout` (nur
   lokal, nie gepusht; `git ls-remote origin 'refs/heads/work/*version-view*'` zeigt nur den
   einen Kandidatenzweig) wurde vor dem END gelöscht.
+- Hosted-Lauf am FINAL-KOPF, selbst bis TERMINAL beobachtet (Poll 1..11, kein rerun,
+  kein workflow_dispatch):
+
+```
+$ gh api repos/mcpdev80/baseharbor/actions/runs/42211122594 --jq '{status,conclusion,head_sha,event,run_started_at,updated_at,html_url}'
+{"conclusion":"success","event":"pull_request","head_sha":"65ed48d60f779621ce32c4e5b1546f3e10f9af1d","html_url":"https://github.com/mcpdev80/baseharbor/actions/runs/42211122594","run_started_at":"2026-11-06T11:33:22Z","status":"completed","updated_at":"2026-11-06T11:41:45Z"}
+```
+
+  Run 42211122594 = "CI · PR #1403", `head_sha` exakt der Endkopf `65ed48d6…`,
+  `status=completed`, `conclusion=success` → TERMINAL SUCCESS. Jobs: 19 success, 10 skipped,
+  0 failure, 0 cancelled (`gh run view … --json jobs` Gruppierung, wörtlich
+  `{"skipped":10,"success":19}`; Fail/Cancel-Liste leer `[]`).
+
 - Kopf nach Push: `65ed48d60f779621ce32c4e5b1546f3e10f9af1d`.
 
 ```
@@ -165,3 +178,22 @@ Zweig (ein Antrag).
   Build-Cache-Ausweichort /dev/shm/w229-gocache; wird am Ende gelöscht).
 - Kein Container/compose/VM gestartet (Mission nennt keinen VM-Smoke-Test);
   keine `.github/**`-Änderung; kein rerun/workflow_dispatch; keine Subagenten.
+
+## AGENTS-Compliance-Selfcheck
+
+- Read before acting: workers/AGENTS.md + baseharbor-plan/AGENTS.md + task note + both akten gelesen.
+- Product repo schreibt nur auf dem einen Karten-Zweig; kein root-checkout-Commit
+  (der Workers-Checkout wurde auf `--detach` gestellt, alle Commits im Lane-Worktree).
+- Kein `.github/**`, kein rerun/workflow_dispatch, keine Subagenten, kein root-Scratch im
+  Oekosystem-Root; Scratch/Caches unter `workers/w229-wt` + `/dev/shm/w229-*` + `/tmp/opencode/w229*`.
+- Keine Markdown-Checkboxes in dieser Akte und keinem Akten-Theater im Produktrepo:
+  `grep -c '^[[:space:]]*- \['` in round-2.md und round-1.md = 0.
+- CI-Discipline: ein Push, ein eigener Hosted-Lauf am Endkopf, bis TERMINAL selbst beobachtet;
+  lokale Vorpruefung (build/vet/gofmt/race count=10/wizard-Zellmenge/doku-audit/readability)
+  vor dem Push.
+- Name-only disjunkt: Write-Set == die 19 Dateien von Runde 1, nur `release.go` und
+  `app_version_view_test.go` in dieser Runde veraendert (`git diff 9a14fa80 HEAD --name-only`).
+
+## END
+
+END_DONE w229-version-view-r2: head=65ed48d60f gegenprobe-kausal=JA+2 mutantenbelege lauf=42211122594 TERMINAL-SUCCESS lsremote=65ed48d60f | Gegenprobe laeuft jetzt durch den ausgelieferten Mapper (releaseViewStageKinds-Tabelle + ReleaseViewFromRecordWithStageKinds), Testfile-Kopie referenceCell geloescht; Dimension- (release.go:13) und Kind-Mutant (release.go:190) failen die Zelle je lokal und sind rueckgaengig; round-1.md berichtigt; PR #1403 bleibt EIN Antrag, ein Push, ein terminal gruener Hosted-Lauf am Endkopf.
