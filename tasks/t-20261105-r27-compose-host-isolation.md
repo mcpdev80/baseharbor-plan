@@ -139,3 +139,12 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 - Each test now creates a collision-resistant target name and verifies the actually persisted target through `deployment.LoadConfig`, `selectedTargetName`, and `Config.ResolveTarget` (name, runtime provider, access provider). The former environment-only and synthetic network-name claims were removed.
 - **Not accepted yet:** configuration resolution does not prove daemon/socket-level isolation. Actual clean/polluted Docker+Podman cells, the omitted-isolation mutant, per-runtime single-default and explicit-HA checks, and final-SHA hosted CI still require recorded successful execution. No skipped runtime gate counts as success. Do not merge solely on PR Selected Checks.
 - No change to Docker daemon settings and no tests on `baha-runner-docker-2` (Codeman host). Use only approved isolated test VMs with owner coordination.
+
+## Owner implementation continuation (2026-11-06, exact PR #1383)
+
+- Current candidate commit: `3a355e328fb6196ee9c2cea862750d9456fff71a` on the existing branch `work/r27-compose-isolation`. Changes remain restricted to the integration harness and its test cases.
+- The per-test target is now unique per invocation; runtime selection honors `BASEHARBOR_TEST_RUNTIME` (Docker by default or Podman explicitly), and persisted target identity/provider/access are checked via the real deployment configuration and resolver.
+- The control-plane/bootstrap phase uses a separate bounded 10-minute context, while each lifecycle test starts its own shorter timeout only after bootstrap. This corrects the measured 2-/3-minute test budget versus 4-minute Identity readiness mismatch.
+- Missing runtime capability now FAILS rather than SKIPS the real repository lifecycle test. A unit regression covers the default Docker and explicit Podman provider selection. Go-format regression detected by GitHub was fixed.
+- **Still required before ACCEPT/merge**: exact-HEAD hosted success plus observed runtime four-cell matrix on Docker and Podman, clean and polluted ambient core, isolation omission mutant RED and restored GREEN, actual resolved socket/network/runtime checks, SINGLE default and explicit HA checks, cleanup and evidence publication. These are not claimed to have run. Test-only PR CI currently marks `validate` and Selected Runtime SKIPPED by policy; those are not substitutes for executed VM cells.
+- Only approved Docker and Podman test VMs may execute runtime workloads; `baha-runner-docker-2` is the Codeman server and is prohibited for these tests.
