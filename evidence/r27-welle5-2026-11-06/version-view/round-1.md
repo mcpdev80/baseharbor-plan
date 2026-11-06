@@ -95,11 +95,16 @@ Repo: mcpdev80/baseharbor · Zweig `work/r27-version-view` → PR #1403 gegen `d
 
 ## Koordination
 
-Letzter Post an 841e7734 (wörtliche Ausgabe):
+Letzte Posts an 841e7734 (wörtliche Ausgaben):
 
 ```
 $ codeman agent post 841e7734 "END_DONE w226-version-view: head=57cf82a0cfc3 getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42194394030-TERMINAL-SUCCESS lsremote=57cf82a0cfc3 | Readable version view as strictly separated wanted/applied/observed cells with UNCLEAR fallback, delivered via PR #1403 (ready, hosted CI green on head); base develop ea656d1f untouched by this lane."
 ✓ posted to 841e7734 (46 pending, 1 unseen)
+```
+
+```
+$ codeman agent post 841e7734 "END_DONE w226-version-view: head=57cf82a0cfc3 getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42194394030-TERMINAL-SUCCESS lsremote=57cf82a0cfc3 | Readable wanted/applied/observed version view with separated cells and UNCLEAR fallback delivered; PR #1403 ready with green hosted CI on head, akte on baseharbor-plan main (4082f00, ls-tree-Zeuge in der Akte)."
+✓ posted to 841e7734 (47 pending, 1 unseen)
 ```
 
 ## Push-Zeuge (origin/main)
@@ -113,6 +118,10 @@ tasks/t-20261018-r27-version-view.md
 ```
 
 Push: `e1e2bb8..d82005a  main -> main` (nur diese Akte committet; die
+unverfeuerten Anderungen anderer Lanes in `releases/v0.4.27.md`,
+`roadmap/cards.md` und `evidence/.../vm-smoke/` wurden nicht angefasst).
+Folge-Commits: `942692b` erganzt die wortliche END_DONE-Ausgabe, `3bdd269`
+den erneut verifizierten ls-tree-Zeuge (jeweils nur diese Akte; die
 unverfeuerten Anderungen anderer Lanes in `releases/v0.4.27.md`,
 `roadmap/cards.md` und `evidence/.../vm-smoke/` wurden nicht angefasst).
 
