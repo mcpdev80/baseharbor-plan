@@ -125,3 +125,5 @@ Nachgemessen: ls-remote echt==head, main VORFAHR rc=0, BEIDE laeufe 42159456055+
 SUCCESS am exakten kopf, akte round-7.md auf origin/main, root-checkout geraeumt (coord-nachmessung: 0
 aenderungen — umzug vollzogen). Kindfehler => streamError statt EOF (isContextKilled grenzt ctx-kill ab,
 EOF bleibt dort), Case E beide richtungen, mutante echt rot + gegenprobe, race20 gruen.
+
+## ACCEPT 2026-11-06 (22g): merge UNTERWEGS (kopf 2e285a771ed); schliesst bei main-beleg.
