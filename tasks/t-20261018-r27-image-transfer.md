@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (w244)
+owner: coord-welle5 (w245-codex)
 kanban_lane: active
 kanban_summary: "Choose registry pull/copy, existing target-native image store, or supported native save/load/OCI layout/archive transfer. Use…"
 kanban_status: active
@@ -23,7 +23,7 @@ evidence: []
 
 - [ ] t-20261018-r27-image-transfer · Images: reuse native registry and local-store transports #task #release/v0-4-27 #status/active #view/active #area/artifacts #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w244) · **Priority:** high  
+    **Owner:** coord-welle5 (w245-codex) · **Priority:** high  
     **PR:** [baseharbor#1402](https://github.com/mcpdev80/baseharbor/pull/1402)  
     <!-- /generated:card -->
 
@@ -32,7 +32,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  
-**Owner:** coord-welle5 (w244)  
+**Owner:** coord-welle5 (w245-codex)  
 **Priority:** high  
 **PRs:** [baseharbor#1402](https://github.com/mcpdev80/baseharbor/pull/1402)  
 **Source:** 
