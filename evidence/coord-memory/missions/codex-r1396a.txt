@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-secure-export.
+REPO: mcpdev80/baseharbor. OBJEKT: PR #1396 head 0001ca02d19 (runde 2: zusammenbau + basis-refresh nach
+coord-halt; aktentaschen round-2-ci-receipt.md + decision-log.md auf main).
+PRUEFE SHA-genau: (1) zusammenbau ECHT: commands.go-registrierzeile ruft den export-adapter im
+produktiven pfad — Lies diff + zelle, toter-adapter-falle (1395a-lehre) darf nicht mehr offen sein,
+(2) mutante SELBST: registrierzeile raus => zusammenbau-zelle ROT, gegenprobe zurueck gruen (echte
+quellcode-mutation, git-diff-beleg im mutanten-worktree, rueckgabe), (3) exporter-adapter-grenzen aus
+runde-1-urteil als regressions-read (waren bestaetigt), (4) hosted 42147787627 TERMINAL am exakten kopf,
+develop f01d2fb VORFAHR (rc=0), ls-remote echt==head, name-only, blobs der vorgaenger ruhig.
+Akte -> evidence/r27-welle5-2026-11-06/secure-export/review-1396a.md; bei write-block: AKTE> inbox-post
+wie registry (voller text, koordinat pfadzeile erster satz).
+END pane: "END_DONE codex-r1396a: verdict=<X> zusammenbau=<echt> mutante=<rot+gegenprobe> akte=<pfad> | <Satz>"

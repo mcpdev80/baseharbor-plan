@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w214). Coord 841e7734. KARTE: t-20261018-r27-delegated-handoff (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-delegated-handoff -> PR, basis develop AKTUELL (ls-remote +
+ancestor rc=0 in die akte; alle vier vorgaenger-karten sind closed — abhaengigkeiten erfuellt).
+KARTE VOLL LESEN (outcome: GitOps/Argo behaelt seine desired resources + reconciliation; direkte up/down
+pfade bewahren fremde tracking-Metadaten; KEIN Kubernetes runtime/controller im scope).
+WRITE-SET: internal/delivery/handoff.go + owner/render fixtures + zugehoerige bounded read-model tests.
+LIEFERPFLICHTEN: (1) fixtures BEIDE richtungen: direct UND delegated, mit promote/apply/repair/destroy
+zellen, (2) fremde tracking-Metadaten bleiben beim weiterreichen ERHALTEN (zelle + mutante: loeschen der
+erhalt-zeile => ROT, gegenprobe gruen — echte quellcode-mutation, isolierter worktree, git-diff-beleg),
+(3) external drift fuehrt NICHT zu stillem fallback (zelle), (4) red-first auf unveraendertem develop.
+GATES: race-20, build/vet/gofmt, hosted TERMINAL am kopf SELBST beobachten, ls-remote echt==head WORTLICH,
+name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE subagenten/zweiter PR/.github/akten-ins-
+produktrepo, KEIN compose/root-checkout, caches NUR /tmp/opencode/w214*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/delegated-handoff/round-1.md
+END an 841e7734: "END_DONE w214-delegated-handoff: head=<sha10> fixtures=<beide+4 aktionen> metadaten=<erhalt+zelle+mutante> drift=<kein-stiller-fallback> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

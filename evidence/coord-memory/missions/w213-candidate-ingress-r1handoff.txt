@@ -1,0 +1,23 @@
+ROLLE: Worker (Lane w213, UEBERNahme von w208 — deren session war degraded (tool-call-leck), kandidat und
+akte liegen aber echt auf platte). Coord 841e7734. KARTE: t-20261018-r27-candidate-ingress (RUNDE 1).
+REPO: mcpdev80/baseharbor. ZWEIG: work/r27-candidate-ingress (PR #1398, head feffde2d5d5) — DERSOLBE
+zweig, KEIN zweiter PR, KEIN neu aufrollen: erst SELBST lesen was w208 gebaut hat (git log 21d8d05c..head,
+name-only, diff), dann VOLLSTENDIG machen was fehlt.
+AKTE: evidence/r27-welle5-2026-11-06/candidate-ingress/round-1.md (END-abschnitt leer — die fehlt dir).
+PFLICHTEN (aus karte + zwei coord-seam-entscheidungen, beide in der akte-entscheider-notiz zu nennen):
+(1) store-guard option C + discriminator OPTION 2 (stille stilluberschreibung verifizierter kandidat =>
+expliziter fehler; frischer confirm-digest => erlaubt) — pruefe den bestehenden code GEGEN diese zeile,
+korrigiere nur wo er abweicht;
+(2) zellen: quer-apply re-record ohne digest => ROT; gleicher-apply retry => gruen; mit digest => gruen;
+immutable source selection (kein drift durch spaetere trunk-bewegung) => gruen;
+(3) ECHTE quellcode-mutation am store-guard => zusammenbau-zelle ROT + gegenprobe gruen, git-diff-beleg,
+isolierter worktree, rueckgabe;
+(4) authorisierung NOTWENDIG (guard raus => ROT);
+(5) hosted lauf: PR #1398 scheint NOCH KEINEN lauf zu haben (gemessen leer) — wenn nach deinem ersten push
+kein lauf startet, workflow_dispatch NUR fuer das regulana tor, andernfalls MELDE es; lauf bis TERMINAL am
+exakten kopf SELBST beobachten.
+GATES: race-20, build/vet/gofmt, develop AKTUELL VORFAHR (rc=0, ls-remote vorher — fallback: merge),
+ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE
+subagenten/zweiter PR/.github/akten-ins-produktrepo, KEIN compose/root-checkout, caches /tmp/opencode/w213*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/candidate-ingress/round-1.md (auffuellen)
+END an 841e7734: "END_DONE w213-candidate-ingress-r1: head=<sha10> guard=<C+digest-zellen> mutante=<echt rot+gegenprobe> authorisierung=<zelle> zusammenbau=<echt> redfirst=<w208-uebernommen|neu> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
