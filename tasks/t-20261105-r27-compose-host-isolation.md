@@ -132,3 +132,10 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 - Each of the four runtime test cells must additionally verify the actual selected profile, rendered Compose configuration, and isolated running container inventory. The default must be SINGLE; an HA ensemble may start only with recorded explicit opt-in.
 - Provide a red-first reproduction of the incorrect default on the unchanged prior template, a green-after result on the candidate, and an independent explicit HA positive test on Docker and Podman; record exact SHA and run transcripts. Green `PR Selected Checks` with skipped `validate`/runtime steps are NOT sufficient.
 - Existing acceptance criteria for per-test daemon, socket, and state isolation remain fully binding. Never run tests on the Codeman host `baha-runner-docker-2`.
+
+## Owner takeover: provider and target resolution fix (2026-11-06)
+
+- PR #1383 retains its existing branch `work/r27-compose-isolation`. Product commit `7e419c2280a4faa8ff3a582d1689f07ca738f9f7` adds a regression test and replaces the per-test hard-coded Docker target with the explicitly selected Docker/Podman runtime provider.
+- Each test now creates a collision-resistant target name and verifies the actually persisted target through `deployment.LoadConfig`, `selectedTargetName`, and `Config.ResolveTarget` (name, runtime provider, access provider). The former environment-only and synthetic network-name claims were removed.
+- **Not accepted yet:** configuration resolution does not prove daemon/socket-level isolation. Actual clean/polluted Docker+Podman cells, the omitted-isolation mutant, per-runtime single-default and explicit-HA checks, and final-SHA hosted CI still require recorded successful execution. No skipped runtime gate counts as success. Do not merge solely on PR Selected Checks.
+- No change to Docker daemon settings and no tests on `baha-runner-docker-2` (Codeman host). Use only approved isolated test VMs with owner coordination.
