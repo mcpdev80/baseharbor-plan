@@ -130,6 +130,100 @@ up when the test reached apply, so the apply lifecycle hits the consent guard / 
   recorded, not counted).
 - I did NOT push a second candidate (coordinator 2026-11-06: "dein zweiter lauf zaehlt NICHT als gruen").
 
+## WORKER CONTEXT SNAPSHOT (save before compact — coord directive, 60% context)
+
+- Task: t-20261105-r27-snapshot-change-guard-deterministic, lane w206, model Ornith
+- Branch: `work/r27-flake-r7`, PR #1400. My head SHA = `058f6c388a8842bf9e6451c3c8e41dfe807b774f`
+- PR base = develop `f01d2fbdea6b93af6e06ca6297d04065b6acf701` (clean). develop has since DRIFTED to `af3491889ec689812b8b08d4ff379f56d82d2a49`; branch merged up-to-date on current develop.
+- My 2 files: `internal/development/source_snapshot.go` (+causal MutationPending/waitForMutation/mtimeNow/afterMutationWait nil-guard) + `internal/development/source_snapshot_test.go` (+buffered ack). Commit 058f6c38 = 3 commits total.
+- CI token: REDACTED (gh OAuth token; never in commits — used locally from .gh_token)
+- CI job-logs API: https://api.github.com/repos/mcpdev80/baseharbor/actions/jobs/{id}/logs
+
+### DECISIVE GATE (mission): 2x hosted CI TERMINAL GRUEN, SAME head 058f6c388a
+- Run #4876 (id 42160458024, `pull_request` event): SUCCESS 18/18, validate SKIPPED (ci.yml:256 event!=pull_request), go test ./... passed, internal/development 2.247s. THIS IS the representative PR-gate GRUEN.
+- Run #4877 (id 42161633215, `workflow_dispatch`): FAILURE — forced `validate` to run; fails on pre-existing integration precondition (`recordDeploymentBeforeMutation` panic / trust-plane bootstrap). ALSO fails clean develop #4477 (`No migration path exists`). NOT counted as my green.
+- CI file-gate: `validate` job runs ONLY on non-pull_request events (ci.yml:256). Every PR run skips validate by workflow definition.
+- To trigger a 2nd GRUEN: I must run the PR-gate path (validate skipped) OR accept a dispatch run that forces validate (which fails pre-existing). Need coordinator decision on what counts.
+
+### LOCAL DECISIVE GATES (all green)
+- `go test ./internal/development/ -race -count=50` → ok 2.2s (was 18x red); `-count=100` → ok 0.8s
+- `go vet ./...` clean, `go build ./...` clean, `scripts/source-readability-audit.sh` PASS (799≤800, 187≤200)
+
+### 4 FAILING CELLS (cmd/baha integration, need live Docker/Postgres + --confirm-candidate)
+- TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI, TestRepositoryComposeWorkloadOnlyLifecycleInCI, TestRepositoryBuildWorkloadRebuildsSourceChangesInCI
+- Local repro (BASEHARBOR_CI_RUNTIME_INTEGRATION=1, no runtime): fail at "Core sql failed: existing native network lacks a protected Core or shared backend owner" (0.8-3.6s); the real-lifecycle one times out 2m.
+- Cross-effect: NONE — neither test file imports internal/development (verified). My change not on their call path.
+- Evidence already published: ls-remote 3eff10f7e8c0badc9d8fde322b02bfd6f7a88a21 on branch codex/publish-r22g (baseharbor-plan canonical store).
+
+## COORDINATOR'S THIRD MEASUREMENT — FULL ANALYSIS (strategiewechsel 3.6)
+
+### The coordinator's question
+At run #4882 (head d306db54, same four cells) there is NO panic — clean FAIL of the four
+real-lifecycle/workload cells — while my diff carries ONLY the two source_snapshot files
+(name-only 199+/55-). Is my changed snapshot-semantics (dockerignore / mtime / capture-path)
+breaking exactly the cells that build real workloads?
+
+### ANSWER: NO. My diff is semantically the pure wait-seam; the failure is develop-side.
+
+#### (1) My diff is NOT a dockerignore/mtime/capture-path change
+`git diff f01d2fbd..HEAD -- internal/development/source_snapshot.go internal/development/source_snapshot_test.go`,
+all NON-comment added lines are ONLY:
+- `MutationPending func(path string) <-chan struct{}` (new CaptureOptions field)
+- `afterMutationWait(...)` call site in the in-walk barrier
+- `verifyFinalBaseline(..., MutationPending)` threading
+- `waitForMutation(...)`, `afterMutationWait(...)`, `mtimeNow(...)` helpers
+- nil-guard `if MutationPending == nil { return identity, false }`
+ZERO changes to dockerignore handling, mtime capture, or the capture path. The `mtimeNow`/`afterMutationWait`
+only ADD a bounded wait seam; they do not change which mtime is recorded or how paths are captured.
+
+#### (2) The four cells fail identically on CLEAN DEVELOP (control, head af3491889)
+- Local repro (both heads, no runtime): `Core sql failed: existing native network lacks a protected Core or shared backend owner` — IDENTICAL on develop and my head. Both fail at trust-plane bootstrap locally.
+- CI #4882 (my head): four cells hit `recordDeploymentBeforeMutation` (deployment_record.go:209) → `errConsentRequiredForCandidateSubmission`, then `app_apply.go:165` → FAIL.
+- CI #4477 (develop, Nov 3): four cells fail on a DIFFERENT develop-side symptom ("No migration path exists") — proving the develop harness itself is failing these cells, not my change.
+
+#### (3) Root cause is a develop-side test-harness behavior, provable from source
+- `errConsentRequiredForCandidateSubmission = errors.New(...)` — a PLAIN error, NOT a `machine.Error` with `Code == ErrorApprovalRequired` / `CauseCode == "impact-confirmation-required"`.
+- Fixture retry condition (`repository_runtime_fixture_test.go:62`):
+  `if !errors.As(err, &failure) || failure.Code != machine.ErrorApprovalRequired || failure.CauseCode != "impact-confirmation-required" { return err }`
+  For a plain error, `errors.As(err, &failure)` == false → the fixture RETURNS the error directly → the cell FAILS.
+- This is IDENTICAL on develop (same plain `errors.New`, same retry condition at deploy tip af3491889). So develop's own harness fails these four cells the same way. It is NOT my snapshot change.
+
+#### (4) My change is not even on the deployment-source-digest path
+- `internal/deployment/deployment.go` does NOT import `internal/development`. The deploy guard's candidate source digest is computed by the deployment layer, which never calls my snapshot packer. So my causal-wait seam cannot alter the candidate digest that the guard compares.
+
+#### VERDICT
+The four cells fail at the deploy-consent guard on BOTH develop and my head — a pre-existing develop-side
+test-harness behavior (plain consent-required error + fixture retry that rejects it). My snapshot wait-seam:
+- does not change dockerignore/mtime/capture semantics,
+- is not on the deployment-source-digest path,
+- produces identical local failure on develop.
+This is NOT a cross-effect of my change. The `validate` job needs a live runtime + a fixture-consent path that
+accepts the plain consent-required error — a develop-side deploy/harness fix, outside my write-set.
+
+## LIVE RUN STATE v2 (save before compact — coord directive)
+
+- HEAD now `d306db54726a27b009d60cfc633780f25d24e439` (pushed, ls-remote verbatim). PR #1400 head=d306db54, base=af3491889, 2 changed files.
+- #4879 (id 42166096180, pull_request, head 6aa763639): **SUCCESS 18/18, 0 failed** — validate skipped, go-unit-tests ok (internal/development 2.75s). GRUEN #1.
+- #4880 (id 42166149773, workflow_dispatch, head 6aa763639): FAILURE validate — same pre-existing --confirm-candidate consent guard + "No migration path exists" (== clean develop #4477). Not my code.
+- NEW runs at head d306db54 (pushed 2nd commit = doc-comment tighten, logic identical):
+  - #4881 (id 42167410256, pull_request): 16/17 terminal 0-failed, go-unit-tests in prog (wedged runner).
+  - #4882 (id 42167430306, workflow_dispatch): 15/16 terminal 0-failed, validate in prog (wedged runner).
+- CI token: (redacted — never log OAuth tokens; stored in .gh_token locally only)
+
+## LIVE RUN STATE (save before compact — coord directive, context was climbing)
+
+- MERGED HEAD (pushed, ls-remote verbatim): `6aa763639f54b7379f8e8348f693ab0c0bdab102` on `work/r27-flake-r7`
+- PR #1400: head `6aa763639`, base now `af3491889ec689812b8b08d4ff379f56d82d2a49` (current develop), 4 commits, **2 changed files**
+- Root cause of coordinator's measurement: old head `058f6c388a8` was cut at develop `f01d2fbdea6` (6+ commits behind). It LACKED develop's incremental deploy-guard landings (`cmd/baha/deployment_record.go` +35, `cmd/baha/app_candidate_consent_test.go` +95 from bf8bd49d/31345e47). Merged current develop → merge-base now af3491889 (fully merged).
+- The 4 cells failed deterministically at old head = old head was incomplete w.r.t. deploy-guard chain. Merge fixes ancestry.
+- RACE GATE still green on merged head: `go test ./internal/development/ -race -count=30` → ok 1.7s.
+
+### TWO RUNS AT NEW HEAD 6aa763639 (both count, same head)
+- #4879 (id 42166096180, `pull_request`): representative PR-gate. validate SKIPPED. go-unit-tests = decisive race gate.
+- #4880 (id 42166149773, `workflow_dispatch`): forces validate — tests deploy-guard on merged head (was FAIL deterministically at 058f6c388a).
+- At 05:07Z: #4879 16/17 terminal 0-failed (go-unit-tests in prog); #4880 15/16 terminal 0-failed (validate in prog). Both runners wedged on final job (known pattern).
+- CI token: REDACTED (gh OAuth token; never in commits — used locally from .gh_token)
+
 ## VERDICT → END_BLOCKED
 
 The flake fix (causal happened-before for MutationAcked) is complete, in my write-set, and the decisive
