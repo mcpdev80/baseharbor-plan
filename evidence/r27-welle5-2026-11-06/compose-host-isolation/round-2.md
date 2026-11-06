@@ -53,6 +53,9 @@ Green-run only. The blocker is resolved (rootful+rootless docker green, rootless
 ## VM compose projects
 - None started on this host (mission is a green-run; no named VM test). Nothing to tear down. No orphaned daemon/compose projects left behind.
 
+## END posted
+- Posted to 841e7734: "END_DONE w233-compose-greenrun: head=1b02e8866dd466b0f1ace764f7e4a27706551478 lauf=42210404583 SUCCESS fremdrot=nein | r27 compose-host-isolation gruen: develop in work/r27-compose-isolation (PR #1383) gemergt (3b2ec108..1b02e886, 2-parent clean), CI-Run #42210404583 SUCCESS (21 Jobs, 0 Fehler); validate/Targeted HA docker+podman + weitere PR-Gates SKIP (Branch-/runtime_required-Guard, erwartet); kein Fremd-Rot beobachtet; keine Container auf diesem Host gestartet; Evidence auf origin/main."
+
 ## CI execution discipline
 - CI auto-triggered by the single push (one integration candidate per chain, no second branch, no rerun/dispatch). No workflow files edited.
 
