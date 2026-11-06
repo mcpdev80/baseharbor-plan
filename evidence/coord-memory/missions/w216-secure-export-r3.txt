@@ -1,0 +1,19 @@
+ROLLE: Worker (Lane w216). Coord 841e7734. KARTE: t-20261018-r27-secure-export (RUNDE 3).
+REPO: mcpdev80/baseharbor. ZWEIG: work/r27-secure-export (PR #1396, head 0001ca02d19) — DERSOLBE
+zweig, KEIN zweiter PR. AKTE: review-1396a.md zeilen 74-101 SELBST LESEN.
+BEFUND: die als zusammenbau verkaufte Zelle ruft NUR den adapter direkt (manifest+entries selbst
+gebaut, writeSecureProfileExport, decrypt) — rootCommand/secureProfileExportCommand/
+executeSecureProfileExport/devaccess.Load kommen DARIN nie vor. Der registrier-mutant rot war ein
+DOKU-SYNC-TOR, kein beweis des zusammenbaus.
+PFLICHT: ECHTE befehlspfad-zelle: rootCommand bauen -> secureProfileExportCommand aufrufen ->
+test-anwendung loesen -> lokale credentials via devaccess.Load -> datei schreiben + entchuesseln.
+Der MUTANTE (registrierzeile in commands.go raus) muss DIESE zelle ROT machen (nicht nur die
+doku-pruefung), gegenprobe mit zeile wieder drin => gruen. Echte quellcode-mutation, isolierter
+worktree, git-diff-beleg, rueckgabe. Uebrige grenzen (fail-closed empty/invalid/wrong-password/
+tamper/truncation) waren bestaetigt — nur regressions-read.
+GATES: race-20, develop(f01d2fb oder neuer) VORFAHR rc=0, hosted TERMINAL am neuen kopf SELBST
+beobachtet, ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (round-3.md,
+ls-tree-beleg), KEINE subagenten/zweiter PR/.github/akten-ins-produktrepo, KEIN compose/root-checkout,
+caches /tmp/opencode/w216*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/secure-export/round-3.md
+END an 841e7734: "END_DONE w216-secure-export-r3: head=<sha10> befehlspfad=<zelle echt> mutante=<ROT in BEFEHLSZELLE+gegenprobe> grenzen=<regressions-read> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

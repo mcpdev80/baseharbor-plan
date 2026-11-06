@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-delegated-handoff.
+REPO: mcpdev80/baseharbor. OBJEKT: PR #1399 head 88cee2b21d7 (RUNDE 1).
+PRUEFE SHA-genau: (1) fixtures BEIDE richtungen (direct + delegated) mit promote/apply/repair/destroy —
+Lies die zellen, (2) fremde tracking-Metadaten bleiben ERHALTEN: mutante SELBST (erhalt-zeile raus =>
+ROT, echte quellcode-mutation, git-diff, rueckgabe) + gegenprobe gruen, (3) external drift => KEIN stiller
+fallback (zelle), (4) red-first auf develop 485133f... gem. akte, (5) GitOps- Grenze: kein kubernetes-
+runtime/controller im diff (name-only), hosted 42150874541 TERMINAL am kopf, develop VORFAHR rc=0,
+ls-remote echt==head. Akte -> evidence/r27-welle5-2026-11-06/delegated-handoff/review-1399a.md; bei
+write-block: AKTE> inbox-post (pfad erster satz + volltext).
+END pane: "END_DONE codex-r1399a: verdict=<X> fixtures=<beide> mutante=<echt> drift=<zelle> akte=<pfad> | <Satz>"

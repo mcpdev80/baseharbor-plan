@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-registry-access.
+OBJEKT: PR #1395 head 2f073f5149b (RUNDE 3 nach deinem 1395b: diskriminator + basis-refresh).
+PRUEFE SHA-genau: (1) caller-zelle haelt den ECHTEN produktiven caller fest (app_broker.go:58 seam) —
+ Lies zelle + diff, (2) MUTANTE SELBST: caller-entfernung => zelle ROT; gegenprobe gruen (dein
+1395b-kippunkt, jetzt mit git-diff-beleg in der akte), (3) scope name-only: cmd/baha + adapter, keine
+.github, keine lifecycle-handler-edits, (4) develop f01d2fb VORFAHR rc=0, hosted 42152771162 TERMINAL
+am kopf, ls-remote echt==head, blobs vorgaenger ruhig. Akte -> evidence/r27-welle5-2026-11-05/
+registry-access/review-1395c.md; bei write-block: AKTE> inbox-post (pfad erster satz + volltext).
+END pane: "END_DONE codex-r1395c: verdict=<X> caller=<echt> mutante=<rot+gegenprobe> akte=<pfad> | <Satz>"

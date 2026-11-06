@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w218). Coord 841e7734. KARTE: t-20261018-r27-delegated-handoff (RUNDE 2).
+ZWEIG: work/r27-delegated-handoff (PR #1399, head 88cee2b21d7) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1399a.md zeilen 54-79 SELBST LESEN.
+BEFUND: existing validate() auf DriftObservation wird von HandOff/request-validierung NIE gerufen;
+delegated-pfad kopiert Synced/Healthy unvalidiert durch (zero-digest + leere evidence + true => als
+beobachteter erfolg gemeldet); drift-pfad zeilen 201-202 ebenso. FALSCH-ERFOLG-KLASSE.
+PFLICHT: (1) fail-closed: statusflag NUR mit vollstaendiger externer beobachtung (beide digeste +
+evidence), validate() TATSAECHLICH im pfad aufrufen; (2) drift => synced/healthy NIE true;
+(3) NEGE-zellen: flag ohne evidence => FEHLER; digest-mismatch + true-flag => FEHLER; drift+true-flag
+=> FEHLER; positivzelle mit echten zeugen bleibt gruen; (4) MUTANTE: validate-aufruf raus => die drei
+nege-zellen ROT (gegenprobe gruen; echte mutation, git-diff, rueckgabe); (5) bestehende fixtures/
+metadaten-zellen bleiben gruen (regressions-read).
+GATES: race-20, develop AKTUELL VORFAHR rc=0 (ls-remote vorher), hosted TERMINAL am neuen kopf SELBST,
+ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main (round-2.md, ls-tree-beleg),
+KEINE subagenten/zweiter PR/.github-ins-produktrepo, KEIN compose/root-checkout, caches /tmp/opencode/w218*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/delegated-handoff/round-2.md
+END an 841e7734: "END_DONE w218-delegated-handoff-r2: head=<sha10> validate=<im pfad> drift=<flags false> nege=<3 zellen> mutante=<echt rot+gegenprobe> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w217). Coord 841e7734. KARTE: t-20261018-r27-managed-users (RUNDE 3, NUR nach
+kur-r7-landung in develop — pruefe das zuerst: git merge-base --is-ancestor muss die kur-r7-Commits
+zeigen; wenn NICHT: sofort END_BLOCKED 'kur-r7 nicht in develop', nicht warten, nicht rebasen auf alt).
+ZWEIG: work/r27-managed-users (PR #1397, head 44e18f1b43d) — derselbe zweig.
+EINZIGE AUFGABE: develop(NEU mit kur-r7) einmerge/rebase, konfliktfrei (write-set identityprovider,
+fremde dateien nicht anfassen), KEINE inhalt-aenderung (wenn eine noetig scheint: STOP+MELDEN), dann
+hosted lauf bis TERMINAL GRUEN am neuen kopf SELBST beobachten. ls-remote echt==head, akte round-3.md
+mit den zwei alten FAIL-zeugen + dem neuen GRUEN-lauf als vergleichstabelle (identische stelle, drei
+koepfe: fa30c0d1 :363 rot / 44e18f1b :247 rot / NEUER kopf gruen — das ist der wirkungsnachweis der kur).
+GATES: race-20 lokal, name-only, akte VOR END auf origin/main (ls-tree), KEINE subagenten/zweiter PR/
+root-checkout/compose, caches /tmp/opencode/w217*.
+END an 841e7734: "END_DONE w217-managed-users-r3: head=<sha10> kur-in-develop=<JA> lauf=<id TERMINAL GRUEN> lsremote=<sha10> | <Satz>"

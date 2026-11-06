@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w215). Coord 841e7734. KARTE: t-20261018-r27-node-streams (RUNDE 7).
+REPO: mcpdev80/baseharbor-node-connector. ZWEIG: work/r27-node-streams (PR #22, head 25a24667ebf) —
+DERSOLBE zweig, KEIN zweiter PR.
+BEFUND (review-22f.md, ZEILE 77ff+106ff SELBST LESEN — punkt ist ernst): BLOCKING — "child failures
+become successful stream ends": ein kind-Fehler wird als saeuberer strom-end (io.EOF) melden statt als
+fehler. REZEPT DES REVIEWERS sinngemaess: io.EOF NUR wenn der stream-context abgebrochen/abgelaufen war;
+echte kind-Fehler muessen ALS FEHLER durchkommen.
+PFLICHTEN: (1) fix am mapping-pfad, (2) NEUE zelle: kind scheitert => strom endet MIT FEHLER (nicht EOF);
+kontext-abbruch => EOF wie bisher (beide richtungen bewiesen), (3) MUTANTE als echte quellcode-mutation
+(isolierter worktree, git-diff, rueckgabe): EOF-mapping zurueck setzen => neue zelle ROT, (4) Case A/B/C/D
++ ensemble -race -count=20 bleiben gruen, (5) develop(main!) aktuell, ls-remote echt==neuer head.
+GATES: hosted laeufe BEIDER toere am neuen kopf bis TERMINAL SELBST beobachten, name-only, akte VOR END
+auf origin/main (ls-tree-beleg), KEINE subagenten/zweiter PR/.github-ins-produktrepo, KEIN compose/
+root-checkout, caches /tmp/opencode/w215*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/node-streams/round-7.md
+END an 841e7734: "END_DONE w215-streams-r7: head=<sha10> kindfehler=<zelle fehler statt EOF> abbruch=<EOF bleibt> mutante=<echt rot+gegenprobe> ensemble=<race20 gruen> lauf=<ids TERMINAL> lsremote=<sha10> | <Satz>"
