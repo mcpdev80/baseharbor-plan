@@ -221,6 +221,23 @@ Lock: `vm-lock.sh release baha-podman w243` => rc=0 FREE (output at bottom post 
 
 No docker/podman COMPOSE project started by this lane beyond quadlet systemd units listed above; `podman ps -a | grep bh-podman-test` => 0 before END (ps-witness recorded below). Caches under /tmp/opencode/w243* and workers/w243-coord-backup/gobuild only.
 
+## Dev-host remote probes (word-for-word, from /home/marcel/dev/baseharbor-ecosystem)
+
+```text
+$ ~/.local/bin/baha status -o json
+{"docker_engine":{"endpoint":"unix:///run/user/1000/docker.sock","context":"rootless","mode":"rootless",...,"verified":true},"target":"local","state":"not_deployed","ready":false,...}
+$ ~/.local/bin/baha node list -o json
+{"contract_version":"v1","nodes":[]}
+$ timeout 8 bash -c '</dev/tcp/192.168.6.148/8443'
+bash: connect: Connection refused   -> CLOSED (nothing in the landed product serves 8443 on the VM)
+```
+
+## Follow-up cards implied by the Befund (for coordinator triage, NOT implemented here)
+
+1. Serve-supervision slice: realize the `baha serve` start path the ADR-0003 plan promises (`docs/decisions/0015-managed-runtime-api-lifecycle.md:15` "baha up starts the runtime API") including documented envs for the operator surface; plus the provisioning note at docs/reference/postgresql-and-migrations.md:95 (control-plane DB creation/migration step in the install lifecycle — `database.Migrate` still has zero production callers at 46ea6c73/78e78e66).
+2. Core SPIFFE server-cert issuance for the connector listener (connector_transport.go:42 gate, serviceaccess/csr.go:52 has no production caller).
+3. Connector release publication (no GitHub release in baseharbor-node-connector; `baha node connect` requires the signed release, node.go:709).
+
 ## origin/main publication witness (second-to-last action, EXACT)
 
 ```text
