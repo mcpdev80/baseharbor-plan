@@ -80,4 +80,11 @@ No VM work without an acquired `vm-lock`; no foreign lock was released. Changes 
 
 ## Publication witness
 
-Pending `origin/main` `ls-tree` witness.
+Initial publication on `origin/main` at commit `f17b21c57b052d4a0a50e392f9ef89070b6cc062`:
+
+```text
+100644 blob c31ebeea16e7d17e37ed20dde1aeaed79f9855ce evidence/r27-welle5-2026-11-06/image-transfer/round-5.md
+100644 blob 0479750dfa331112feaefe8ee303c6593c685d38 evidence/r27-welle5-2026-11-06/image-transfer/scripts/host_smoke_test.go
+```
+
+The final post-witness version is pushed separately; its `origin/main` `ls-tree` line is included in the END message.
