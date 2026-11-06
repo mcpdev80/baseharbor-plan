@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w221). Coord 841e7734. KARTE: t-20261018-r27-delegated-handoff (RUNDE 3).
+ZWEIG: work/r27-delegated-handoff (PR #1399, head bf8bd49da8f) — derselbe zweig, KEIN zweiter PR.
+AKTE: review-1399b.md zeilen 52-84 SELBST LESEN.
+BEFUND: deine drei negetivzellen werden NICHT von validate() getragen — sie scheitern schon an der
+AEELTEREN partial-digest/evidence-pruefung; neutralisiert man nur den validate-aufruf (ein-zeilen
+mutante), bleiben ALLE drei gruen. Die zusammenbau-behauptung "validate im pfad" ist damit nicht
+diskriminiert.
+PFLICHT: (1) NEUE zelle genau nach rezept: Synced:true (und/oder Healthy:true) bei LEEREN digesten und
+LEERER evidence — die aeltere wache geht ins leere, NUR validate() kann hier stoppen; (2) dieselbe zelle
+am ein-zeilen mutanten (validate-aufruf raus) => ROT durch gerenderte true-status; wiederhergestellt =>
+gruen; git-diff-beleg der mutante, isolierter worktree, rueckgabe; (3) bestehende zellen bleiben gruen
+(regressions-read, kein test-umbau ohne grund), (4) in der akte: die DISKRIMINIERUNGS-TABELLE der
+reviewerin aufgreifen und deine neue zelle dort ECHT rot zeigend belegen.
+GATES: race-20, develop VORFAHR rc=0 (ls-remote vorher), hosted TERMINAL am neuen kopf SELBST, ls-remote
+echt==head WORTLICH, name-only, akte VOR END auf origin/main (round-3.md, ls-tree-beleg), KEINE
+subagenten/zweiter PR/.github-ins-produktrepo, KEIN compose/root-checkout, caches /tmp/opencode/w221*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/delegated-handoff/round-3.md
+END an 841e7734: "END_DONE w221-delegated-handoff-r3: head=<sha10> statuszelle=<leer+true=>fehler> mutante=<NUR-diese zelle ROT> regressions=<gruen> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

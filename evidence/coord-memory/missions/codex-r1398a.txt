@@ -1,0 +1,13 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-candidate-ingress.
+REPO: mcpdev80/baseharbor. OBJEKT: PR #1398 head 9fc32d4a1f9 (uebernahme w208->w213, beide
+coord-seam-entscheidungen C+digest/state auf der karte notiert).
+PRUEFE SHA-genau: (1) store-guard: verifizierter kandidat + ANDERES apply + OHNE bestaetigung =>
+expliziter fehler — Lies den pfad, (2) discriminator-begruendung: ready-zustand als schwelle — pruefe
+gegen kartentext (unabaenderLICHkeit darf NICHT ausgerechnet beim unterbrochenen retry klemmen; die zwei
+retry-zellen selbst SELBST fahren), (3) MUTANTE: guard-zeile raus => Quer-apply-zelle ROT + gegenprobe
+gruen (echte mutation, git-diff, rueckgabe), (4) authorisierung NOTWENDIG (zelle), (5) immutable source
+selection (kein trunk-drift in der ausgewaehlten referenz), (6) KEINE edits an generischen
+lifecycle-handlern (name-only! die maschinehttp-/execution-dateien sind NICHT in diesem diff — wenn doch:
+BLOCKER), hosted 42156133078 TERMINAL am kopf, develop VORFAHR rc=0, ls-remote echt==head. Akte ->
+evidence/r27-welle5-2026-11-06/candidate-ingress/review-1398a.md; bei write-block: AKTE> post.
+END pane: "END_DONE codex-r1398a: verdict=<X> guard=<pfad> retries=<selbst> mutante=<echt> seite=<lifecycle-frei> akte=<pfad> | <Satz>"
