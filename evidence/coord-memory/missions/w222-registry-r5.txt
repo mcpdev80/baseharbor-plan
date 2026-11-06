@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w222). Coord 841e7734. KARTE: t-20261018-r27-registry-access (RUNDE 5, kleine stufe).
+ZWEIG: work/r27-registry-access (PR #1395, head 99b3e144dd5) — derselbe zweig, KEIN zweiter PR.
+BEFUND (review-1395d): implementierung + alle vier null-pull-zellen BESTANDEN; einziger punkt: die
+mission hatte "alle vier rot am M1-fallback-mutanten" verlangt, gemessen wurden DREI rot — die vierte
+(public-default docker hub) haengt an einer ANDEREN guard-schicht, die M1 nicht beruehrt.
+PFLICHT (nur dies): die DISKRIMINIERUNGS-MATRIX in der akte fuehren je zelle IHREN mutant vor: die drei
+resolver-faelle bleiben am M1 rot (wie gemessen); die public-default-zelle faehrt den mutanten ihrer
+eigenen schicht (die zeile die den oeffentlichen default durchlaesst => zelle ROT, gegenprobe gruen,
+echte quellcode-mutation, git-diff, rueckgabe). KEIN umbau der implementierung, KEIN zusammenlegen der
+guard-schichten. In der akte: tabelle zelle x mutant x ergebnis, dazu mission-zeile 'erwartung berichtigt
+nach 1395d: je-schicht-diskriminierung statt ein-mutant-fuer-alle — KOORD 2026-11-06'.
+GATES: develop VORFAHR rc=0 (ls-remote vorher), hosted TERMINAL am evtl. neuen kopf SELBST (wenn du
+nur die akte aenderst: gleicher kopf + bestehender lauf 42168126290 reicht, das in der akte benennen),
+ls-remote echt==head WORTLICH, akte VOR END auf origin/main (round-5.md, ls-tree), KEINE subagenten/
+zweiter PR/root-checkout/compose, caches /tmp/opencode/w222*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/registry-access/round-5.md
+END an 841e7734: "END_DONE w222-registry-r5: head=<sha10> matrix=<4 zellen je-schicht rot+gegenprobe> andering=<akte|akte+code> lauf=<id/TERMINAL> lsremote=<sha10> | <Satz>"

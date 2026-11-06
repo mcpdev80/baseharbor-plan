@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-registry-access.
+OBJEKT: PR #1395 head 99b3e144dd5 (RUNDE 5 — code wie in 1395d angenommen, NEU ist die je-schicht-
+diskriminierungstabelle in round-5.md).
+PRUEFE SHA-genau: (1) M1 an den drei resolver-zellen SELBST nachfahren (rot) + gegenprobe, (2) M7 an der
+public-default-zelle SELBST (opt-in gate zeile ~337 class-gate raus => zelle ROT mit pull=docker.io/...,
+rueckgabe gruen, git-diff), (3) matrix in round-5.md gegen deine messungen wortgleich?, (4) reste aus
+1395d waren bestaetigt (propagierung, null-pulls, opt-in dichtheit) — regressions-read, (5) hosted
+42168126290 TERMINAL am kopf, develop VORFAHR, ls-remote echt==head, name-only. Akte -> evidence/
+r27-welle5-2026-11-05/registry-access/review-1395e.md; bei write-block: AKTE> post.
+END pane: "END_DONE codex-r1395e: verdict=<X> M1=<selbst 3x> M7=<selbst> matrix=<wortgleich> akte=<pfad> | <Satz>"
