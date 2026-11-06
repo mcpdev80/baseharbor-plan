@@ -76,3 +76,17 @@ begrenzte ausnahme zum write-set-text — GENAU app_broker.go:58 compose.PullIma
 Begruendung: karten-outcome (enterprise-endpunkt in echt BENUTZT) ist sonst nicht erfuellbar; 1395a-punkt 4
 fordert genau diesen caller; alternativen Karten (artifact-resolution) sind nicht angenommen. Keine weitere
 fremde datei. Gegenprobe+mutant als absicherung; reviewerprueft call-graph.
+
+## Runde 2 pruefbar 2026-11-06 (kopf ef0120aa) — ENDGULTIG
+
+PUNKT 4 ERFUELLT. Produktionsnaht: app_broker.go:58 fuehrt compose.PullImage ueber
+RegistrySource.Resolve (adapter-detour, write-set-intern; app_up_noop/operational_errors
+RUHE). resolveRegistrySource seam (application_registry_source.go) lost die konfigurierte
+image-loc auf repository@digest und zieht die pin gezogen; pullResolvedRuntimeImage ist die
+einzelne pull-stelle. Fix: getaggte BASEHARBOR_RUNTIME_IMAGE wird in repo+tag getrennt, so
+oras resolve nicht doppelt getaggtet wird. BEWEIS: e2e-zelle
+(TestPullResolvedRuntimeImagePinsImmutableDigest) loest am echten caller auf konfiguriertem
+endpunkt auf; MUTANTE caller-entfernt => ROT (zieht :edge:edge), gegenprobe => GRUEN
+(zieht repository@sha256:...). Lauf 42132438226 TERMINAL 14 gruen / 10 skip / 0 rot am kopf
+ef0120aa; ls-remote echt==head; develop VORFAHR rc=0 (drift aus #1394 ueber merge aufgelost);
+akte round-2.md auf origin/main.
