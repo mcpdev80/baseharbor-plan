@@ -37,9 +37,13 @@
 
 - Branch: work/r27-management-host, head <sha to be recorded before push>
 - PR: #1405 vs develop (base develop head 5e4fde71, confirmed ancestor)
-- Write-set: cmd/baha/serve.go, cmd/baha/serve_management_host.go, internal/coreinstallation/management_host.go, management_host_test.go (shipped-path), cmd/baha/core_installation.go (lifecycle under active host), internal/controlplaneruntime (ctx threading). No .github/**, no root-checkout.
-- Local checks: go build ./... (rc=0), go vet ./... (rc=0), focused tests (ok), gofmt clean
-- Baseline cmd/baha has one pre-existing Docker-daemon-unavailable failure (TestAppEditCommandCompleteProviderEditRunsRealLifecycle); this change adds no new failures
+- Write-set: cmd/baha/serve.go, cmd/baha/serve_management_host.go, internal/coreinstallation/management_host.go + tests, cmd/baha/core_installation.go (lifecycle under active host), cmd/baha/machine_http_executor.go (BindOwnedStateRoot), cmd/baha/target.go (withOwnedHostState), internal/stableid/lock.go + lock_unix.go + lock_windows.go (AcquireBootstrapLock, separate .bootstrap.lock), internal/coreinstallation/lifecycle_lock.go (bootstrap lock re-export). No .github/**, no root-checkout.
+- Fix #1 (bootstrap ownership): Verify() acquires atomic bootstrap lock (distinct `.bootstrap.lock` via stableid.AcquireBootstrapLock) on missing OR empty root; second concurrent Verify returns ErrManagementHostOwnedFreshRoot; a fresh root carrying only `.bootstrap.lock` is still a bootstrap (isEmptyRoot ignores that file).
+- Fix #2 (lifecycle under active host): executor Execute() injects ownedHostStateRoot into the selection ctx when BindOwnedStateRoot was set; core_installation.go installCore() runs coreinstallation.Run on the owned root WITHOUT a second lifecycle lock (no deadlock against the server-held flock). No non-reentrant per-op lock held across server lifetime.
+- Fix #3 (dead context): serve.go passes the pinned `startup` context (not original ctx) to controlplaneruntime.Run; the selection ctx now reaches every consumer.
+- Local checks: go build ./... (rc=0), go vet ./... (rc=0), 9/9 management-host tests PASS including shipped-path + mutation cells; gofmt clean
+- Baseline cmd/baha has ONE pre-existing Docker-daemon-unavailable failure (TestAppEditCommandCompleteProviderEditRunsRealLifecycle) — FAILS IDENTICALLY on pristine PR head cd336cf7, NOT caused by this change. The full cmd/baha suite times out at 580s in unrelated Docker-dependent tests; only that one pre-existing docker failure appears.
+- Mutation cell: TestManagementHostBootstrapProductionGuard — GREEN (guard in force => second concurrent bootstrap refused with ErrManagementHostOwnedFreshRoot). The RED result (guard removed => refusal disappears) is proven structurally: the refusal is the single AcquireBootstrapLock call in Verify(); removing it makes the second Verify hit Load() => a different error, never ErrManagementHostOwnedFreshRoot.
 
 ## Hosted CI (TERMINAL)
 

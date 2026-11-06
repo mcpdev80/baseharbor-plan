@@ -155,3 +155,19 @@ $ coordinator/scripts/vm-lock.sh release baha-podman w243   -> (output pasted be
 $ coordinator/scripts/vm-lock.sh status                     -> (output pasted below)
 $ git -C baseharbor-plan fetch origin main && git log --oneline origin/main..HEAD && git push origin main && git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-3.md   -> (EXACT outputs pasted below)
 ```
+
+Exact output of the publication witness commands (second-to-last action; the baseharbor-plan push fast-forwarded from 3a722d3 — an intervening non-w243 commit — to this lane's single commit d25bc4d; `git log --oneline origin/main..HEAD` before push listed ONLY d25bc4d, i.e. exactly one own commit, no foreign candidate carried):
+
+```text
+$ git log --oneline origin/main..HEAD
+d25bc4d evidence(w243): remote-control round 3 - reality check, foreign live ENROLLED chain witnessed, foreign full-teardown disclosure, BEFUND re-verified at 5e4fde71
+$ git push origin main
+To https://github.com/mcpdev80/baseharbor-plan.git
+   3a722d3..d25bc4d  main -> main
+$ git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-3.md
+100644 blob acc6de6b5ae6328bf49617284984a08f93bf5498	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-3.md
+$ git log --oneline -1 origin/main
+d25bc4d evidence(w243): remote-control round 3 - reality check, foreign live ENROLLED chain witnessed, foreign full-teardown disclosure, BEFUND re-verified at 5e4fde71
+```
+
+Lock witnesses (this shift): claim rc=0 `OWN host=baha-podman lane=w243` @18:22:34Z (journal line 2026-11-06T18:22:34Z claim baha-podman w243); release rc=0 `FREE host=baha-podman` @18:37Z; final `vm-lock.sh status` shows baha-podman absent (baha-docker=w259, baha-docker-2=w257 untouched by this lane).
