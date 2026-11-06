@@ -61,3 +61,11 @@
 - CI · Node Connector Quality · 22/merge — run `42159456055` run#65 — `completed / success`, job `Test · Vet · Build`: success. First run failed with a flake in round-6 Case A (`stream_evidence_test.go:1214: case a: resume at cursor 1 must be rejected, got nil error over 510 wire events`) — round-6 code, NOT my change.
 - Connector Source Conformance — run `42159456071` — `completed / success`, job `source` success; runtime matrix legs skipped by path rules (matches review-22f).
 - Local regression of the flake: `TestServeLogStreamCase[ABCD]` x3 = ok (190s); full ensemble incl Case E x3 = ok (193s); Case A x2 isolation = ok (120s). My change does not touch Case A. Re-ran the failed CI Quality run; rerun `42159456055` = success.
+
+## END
+
+- END posted to coord 841e7734: `END_DONE w215-streams-r7: head=2e285a771e ...`.
+- Branch work/r27-node-streams head (PR #22): 2e285a771ed8adc30ccea8b4842cafad28815dd9 (verified via ls-remote against real URL).
+- Base round-6 25a24667ebf ancestor of round-7 commit (1 commit only, no foreign candidate).
+- Evidence on baseharbor-plan origin/main 4617c3f (ls-tree witness present).
+- Hosted gates terminal green on 2e285a7: CI Quality 42159456055 success (after flaky re-run), Source Conformance 42159456071 success.
