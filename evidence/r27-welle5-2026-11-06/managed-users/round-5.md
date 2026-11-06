@@ -90,3 +90,8 @@ $ go build ./...
 
 ## END
 END_DONE w254-managed-users-actionemail: head=aa36af7324 endpunkt=execute-actions-email aktion=VERIFY_EMAIL+UPDATE_PASSWORD lauf=4922 lsremote=aa36af7324 akte=evidence/r27-welle5-2026-11-06/managed-users/round-5.md | round-5 REJECT-beheben: undocumented updateEmail durch dokumentierten execute-actions-email-Pfad (requiredActions VERIFY_EMAIL+UPDATE_PASSWORD) ersetzt; kein Passwort im Payload; Fixtures + provider-version contract check (Keycloak 26.8.0) + kaler RED/GREEN-Routen-Beweis; PR #1397 CI terminal success (run 4922) am exakten Kopf aa36af73; evidence zu origin/main; SHA fixiert.
+
+### ls-tree witness (evidence on origin/main BEFORE END post)
+- `git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/managed-users/round-5.md`:
+  - `100644 blob 451841b8c4e01cbdc7a35833a966a7142b794c97  evidence/r27-welle5-2026-11-06/managed-users/round-5.md`
+- Evidence commit on origin/main: `afdd3bf` (main HEAD).
