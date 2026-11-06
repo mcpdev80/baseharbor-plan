@@ -126,9 +126,9 @@ wo Tests per Owner-Direktive verboten sind). Nach tilt (10 container + 57 volume
 pool dort wieder frei; testausfuehrung liegt jetzt fest auf baha-docker/baha-podman per SSH (dispatch-
 klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte Core pro lebenszyklus-test).
 
-## Zusatz-Abnahme: echter Default-SINGLE statt bisheriger HA-Vorlage (Owner 2026-11-06)
+## Additional acceptance: real default SINGLE topology (Owner, 2026-11-06)
 
-- Referenzvertrag: `t-20261106-r27-control-plane-single-default`; die Compose-Isolationsproben duerfen weder das HA-Ensemble als unausgesprochenen Standard voraussetzen noch durch explizites Test-HA den falschen Default verdecken.
-- Jede der vier Runtime-Testzellen prueft zusaetzlich das auf dem Host tatsaechlich verwendete Profil/gerenderte Compose und den isolierten Containerbestand. Standard muss SINGLE sein; ein HA-Ensemble darf nur bei dokumentiertem Opt-in starten.
-- Red-first Default-Fehler auf unveraendertem Alt-Template, Green-after auf Kandidat und separater positiver HA-Test auf Docker/Podman, jeweils mit exaktem SHA und Lauftranskript. Gruener `PR Selected Checks` mit `validate`/Runtime-SKIP genuegt NICHT.
-- Bestehende Abnahmekriterien fuer eigene Daemon-/Socket-/State-Isolation bleiben vollstaendig bestehen. Keine Tests auf dem Codeman-Host `baha-runner-docker-2`.
+- Governing contract: `t-20261106-r27-control-plane-single-default`. Compose isolation tests MUST NOT implicitly assume the existing HA ensemble is the default, nor conceal an incorrect default through explicitly enabled HA in fixtures.
+- Each of the four runtime test cells must additionally verify the actual selected profile, rendered Compose configuration, and isolated running container inventory. The default must be SINGLE; an HA ensemble may start only with recorded explicit opt-in.
+- Provide a red-first reproduction of the incorrect default on the unchanged prior template, a green-after result on the candidate, and an independent explicit HA positive test on Docker and Podman; record exact SHA and run transcripts. Green `PR Selected Checks` with skipped `validate`/runtime steps are NOT sufficient.
+- Existing acceptance criteria for per-test daemon, socket, and state isolation remain fully binding. Never run tests on the Codeman host `baha-runner-docker-2`.
