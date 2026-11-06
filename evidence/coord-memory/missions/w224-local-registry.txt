@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w224). Coord 841e7734. KARTE: t-20261018-r27-local-registry (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-local-registry -> PR gegen develop AKTUELL (ls-remote +
+ancestor rc=0 in akte).
+KARTE VOLL LESEN (opt-in-registry nur fuer topologien die echten geteilten endpoint brauchen; ein
+bestehender OCI-Distribution-kompatibler registry wird explizit ausgewaehlt, KEIN neuer default-zwang).
+SCHREIBFELDER (disjunkt zu w225/w226): registry-opt-in konfiguration + resolver-ankopplung NUR in den
+dateien der karte. QUER-LASSEN: cmd/baha/app_broker*.go, internal/development/source_snapshot*,
+internal/deployment/stage_versions* — andere lanes/landungen beruehren dort, konflikt => STOP+MELDEN.
+LIEFERPFLICHTEN: (1) opt-in wahrhaftig: ohne konfiguration bleibt verhalten EXAKT wie heute (zelle gegen
+develop-baseline), (2) mit opt-in: pull-pfad nutzt den geteilten endpoint (zelle), (3) unreicherbarer
+endpoint => expliziter fehler, KEIN stiller fallback (zelle; praeszedenz registry-access 1395c — gleiche
+klasse, dort geheilt, nicht neu erfinden), (4) red-first auf develop.
+GATES: race-20, build/vet/gofmt, hosted TERMINAL am kopf SELBST beobachten (ACHTUNG: PR draft -> gh pr
+ready selbst, praeszedenz w206), ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main
+(ls-tree), KEINE subagenten/zweiter PR/.github/akten-ins-produktrepo, KEIN compose/root-checkout, caches
+/tmp/opencode/w224*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/local-registry/round-1.md
+END an 841e7734: "END_DONE w224-local-registry: head=<sha10> ohne-optin=<baseline-zelle> mit-optin=<zelle> unreachable=<kein-fallback+mutante> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

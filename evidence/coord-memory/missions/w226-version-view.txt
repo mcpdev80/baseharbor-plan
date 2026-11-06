@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w226). Coord 841e7734. KARTE: t-20261018-r27-version-view (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-version-view -> PR gegen develop AKTUELL (ls-remote +
+ancestor rc=0 in akte).
+KARTE VOLL LESEN (lesbare release-/komponenten-versionen als primäre ansicht; image repo/tag je dienst;
+zustand der versionssourcen).
+SCHREIBFELDER: read-model/ansicht der karte. QUER-LASSEN: cmd/baha/app_broker*.go, source_snapshot*,
+stage_versions.go SELBST (nur LESender consumer, kein edit), registry-optin/transfer-pfade (w224/w225)
+— konflikt => STOP+MELDEN.
+LIEFERPFLICHTEN: (1) ansicht zeigt gewuenschte/angewendete/beobachtete referenzen GETRENNT (zellen;
+datenquelle = die gemergten versionsstufen, nicht duplizieren), (2) fehlende version => lesbarer
+unklar-zustand statt leer (zelle), (3) mutante echt gegen die trennungs-zeile (veraenderung vermischt
+spalten => ROT), (4) red-first.
+GATES: race-20, build/vet/gofmt, hosted TERMINAL SELBST (draft->ready selbst), ls-remote echt==head,
+name-only, akte VOR END auf origin/main (ls-tree), KEINE subagenten/zweiter PR/.github, KEIN
+compose/root-checkout, caches /tmp/opencode/w226*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/version-view/round-1.md
+END an 841e7734: "END_DONE w226-version-view: head=<sha10> getrennt=<3 spalten zellen> unklar=<zelle> mutante=<echt rot+gegenprobe> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

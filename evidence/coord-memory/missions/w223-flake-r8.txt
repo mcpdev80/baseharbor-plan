@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w223, NICHT die registry-lane — andere karte, anderer zweig). Coord 841e7734.
+KARTE: t-20261105-r27-snapshot-change-guard-deterministic (RUNDE 8 — letzter stein).
+ZWEIG: work/r27-flake-r7 (PR #1400, head 1c84f5fe43c) — derselbe zweig, KEIN zweiter PR, KEIN zweiter
+zweig-name. AKTE: review-1400a.md zeilen 44-61 SELBST LESEN.
+PFLICHTEN (genau zwei + gates):
+(1) NIL-HOOK-OVERWRITE heilen: der frische per-file os.Lstat wert (source_snapshot.go ~328-330) muss
+ERHALTEN bleiben wenn der hook nil ist oder nil zurückgibt — die kausale barriere darf ihn erst nach
+eigener gueltiger re-stat ersetzen. REGRESSIONSZELLE: baseline-pfad am per-file-barriere veraendern bei
+MutationPending=nil => capture muss den geaenderten baum VERWERFEN (Layer-1-beobachtung traegt wieder).
+(2) develop AKTUELL einmerge (ls-remote vorher: develop ist weiter als 1c84f5 — ancestor rc=0 am ende).
+(3) matrix: race-20 der :247 familie + nil-pforte + die neue regression — alle lokal gruen; die zwei
+gehosteten gruenlaeufe des alten kopfes GELTEN NICHT MEHR (anderer inhalt): ZWEI terminaere gruen-
+beobachtungen am NEUEN kopf selbst beobachten (attempt-rerun erlaubt, same head).
+GATES: ls-remote echt==head WORTLICH, name-only (zwei dateien), akte VOR END auf origin/main
+(round-8.md, ls-tree-beleg), KEINE subagenten/zweiter PR/.github/akten-ins-produktrepo, KEIN
+compose/root-checkout, caches /tmp/opencode/w223*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/snapshot-flake/round-8.md
+END an 841e7734: "END_DONE w223-flake-r8: head=<sha10> nilpfad=<Lstat erhalten+zelle> entwicklungsstand=<rc0> hosted=<2x TERMINAL GRUEN ids attempt> race20=<gruen> lsremote=<sha10> | <Satz>"

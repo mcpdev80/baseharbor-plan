@@ -1,0 +1,17 @@
+ROLLE: Worker (Lane w225). Coord 841e7734. KARTE: t-20261018-r27-image-transfer (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-image-transfer -> PR gegen develop AKTUELL (ls-remote +
+ancestor rc=0 in akte).
+KARTE VOLL LESEN (entscheidung registry-pull/copy vs ziel-natives image-store vs native save/load/OCI-
+layout/archive; begruendete entscheidung + alternative in die akte).
+SCHREIBFELDER: transfer-/store-adapter der karte. QUER-LASSEN: cmd/baha/app_broker*.go,
+internal/development/source_snapshot*, internal/deployment/stage_versions*, registry-optin-pfad von w224
+— konflikt => STOP+MELDEN.
+LIEFERPFLICHTEN: (1) gewaehlter pfad implementiert MIT begruendung, (2) unveraenderliche quell-referenz
+(keine trunk-drift in uebertragener identitaet — zelle; praeszedenz candidate-ingress 1398), (3) fehler
+des transferziels => expliziter fehler, KEIN halbvoll-erfolg (zelle + mutante echt, git-diff, rueckgabe),
+(4) red-first.
+GATES: race-20, build/vet/gofmt, hosted TERMINAL SELBST (draft->ready selbst, w206-praeszedenz),
+ls-remote echt==head, name-only, akte VOR END auf origin/main (ls-tree), KEINE subagenten/zweiter PR/
+.github-ins-produktrepo, KEIN compose/root-checkout, caches /tmp/opencode/w225*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/image-transfer/round-1.md
+END an 841e7734: "END_DONE w225-image-transfer: head=<sha10> entscheidung=<pfad+begruendung> identitaet=<drift-frei> fehlereintrag=<zelle+mutante> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

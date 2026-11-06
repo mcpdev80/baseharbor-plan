@@ -1,0 +1,7 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert). Coord 841e7734. KARTE/PR: t-20261105-r27-snapshot-change-guard-deterministic /
+mcpdev80/baseharbor#1400, akzeptierter kopf 1c84f5fe43c (review-1400b.md ACCEPT, nil-hook-zeile als
+vermerkter randfall nicht-blockierend). STUFEN: ls-remote head==1c84f5fe43c (sonst STOP), develop AKTUELL
+konfliktfrei einmerge, push, hosted lauf bis TERMINAL GRUEN am vereinten kopf SELBST beobachten, gh pr
+merge --merge (kein bypass/force), develop-sha+merge-sha ins pane. Karte schliesst coordinator. KEIN
+compose/docker auf diesem host.
+END pane: "END_DONE codex-merge-1400: merged=<sha10> develop=<sha10> head-vor-merge=1c84f5fe43c | <Satz>"

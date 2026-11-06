@@ -1,0 +1,12 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261105-r27-snapshot-change-guard-deterministic.
+OBJEKT: PR #1400 head 1c84f5fe43c (RUNDE 7, kausale ack-barriere statt zeitlimit).
+PRUEFE SHA-genau: (1) kausalitaet: ack-Veroeffentlichung liegt VOR jeder weiterschau-barriere — Lies den
+diff source_snapshot.go gegen develop (name-only NUR zwei dateien? pruefe), (2) die urspruenglichen
+versager-zellen (:247 familie) SELBST -race -count=20, (3) nil-pforte: options-feld leer => kein panic
+(zelle), (4) fail-fast-sentinel unveraendert als fehler-anzeige (keine zeit-entscheidung), (5) beide
+gehosteten gruen-belege (lauf 42172734295 attempt1+attempt2, job 127749031811) gegen deine api-abfrage,
+(6) develop VORFAHR rc=0, ls-remote echt==head, blobs anderer dateien ruhig (der validate-befund der
+compose-familie ist FREMD und nicht gegen diese karte zu werten — akte round-7.md Abschnitt 'fremder
+defekt' zur kenntnis). Akte -> evidence/r27-welle5-2026-11-06/snapshot-flake/review-1400a.md; bei
+write-block: AKTE> post.
+END pane: "END_DONE codex-r1400a: verdict=<X> kausalitaet=<read> zellen=<selbst> pforte=<zelle> gruenlaeufe=<belegt> akte=<pfad> | <Satz>"
