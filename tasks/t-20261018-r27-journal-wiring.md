@@ -111,3 +111,6 @@ efa1600c7537 faellt TERMINAL + rerun: TestSourceSnapshotDetectsChangeDuringRead 
 fired on the mutated path' — die journal-verdrahtung stoert die neue write-ack-barre der geheilten kur
 (zeitlicher/eingriffseffekt im production-walk). Die kur selbst funktioniert: sie faengt genau diesen fall.
 Merge bleibt block bis gruen; PR #1393 offener kanditat auf gleichem zweig.
+
+## Stand r4 (w207): write-set eigen 10x race gruen, coexist mit kur lokal gruen; GEHOSTET blockiert
+durch kur-r7-rest (zeitlimitscher ack-wait, nicht dieser zweig). Merge wartet kur-r7.
