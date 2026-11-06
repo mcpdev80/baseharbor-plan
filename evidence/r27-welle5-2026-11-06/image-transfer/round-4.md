@@ -45,3 +45,5 @@ No subagents, product edits, branch updates, PR actions, tests, or VM mutations 
 ## origin/main publication witness
 
 Pending publication; record the exact `ls-tree` output after pushing this evidence.
+
+Initial origin/main witness: `100644 blob 6c795f102da6cbdb2ab690ee60b010651f84bc19 evidence/r27-welle5-2026-11-06/image-transfer/round-4.md`.
