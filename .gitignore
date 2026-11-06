@@ -30,3 +30,4 @@ __pycache__/
 **/scripts/*-gopath/
 **/scripts/go-build*/
 **/scripts/tmp/
+/workers
