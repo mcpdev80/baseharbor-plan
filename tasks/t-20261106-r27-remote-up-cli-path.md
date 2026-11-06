@@ -1,0 +1,28 @@
+---
+id: t-20261106-r27-remote-up-cli-path
+title: "Remote app up: CLI start path for provider-bound remote apps"
+release: v0.4.27
+priority: normal
+type: task
+areas: [cli, remote]
+owner: ""
+kanban_status: planned
+kanban_lane: backlog
+depends_on: [t-20261104-r27-vm-smoke-docker-podman]
+prs: []
+sources: ["mcpdev80/baseharbor#777"]
+---
+
+## Purpose
+
+Ferngesteuerte Apps lassen sich anlegen/planen/prüfen (plan/status/doctor belegt), aber der
+Start-Pfad (`baha app up`) ist über die Remote-Schiene nicht vollständig bedient: Befund-
+dateien app_remote_lifecycle.go:34 (Gate) und runtime_explorer_machine.go:55; dev-seitig
+fehlt der CLI-Startpfad für bindings-ferne Apps (round-3-Akte, w243/w262 Zeugnisse
+evidence/r27-welle5-2026-11-06/remote-control-smoke/round-3.md).
+
+## Acceptance
+
+- `baha app up` (und --confirm-candidate-Pfad) funktioniert gegen eine per Connector gebundene
+  App auf Docker UND Podman; doctor meldet danach health OK ohne Befundzeile für den Up-Gap.
+- Tests: rote-first-Zelle gegen aktuellen Stand; echte VM-Transkripte (vm-lock, einer-nach-anderer).
