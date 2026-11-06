@@ -201,3 +201,9 @@ Worker w224 | evidence(w260): round-7 managed users bodyguard ...
 ```
 
 Disclosure: the shared plan clone's git identity is set to `Worker w224` (left over from an earlier lane's config in this checkout), so my first three commits (d25bc4d/9ddf4b1/c78214f) carry that author string — the COMMIT MESSAGES and all content are unambiguously this w243 lane's; the final two commits are correctly authored `Worker w243`. No foreign candidate commit is carried on top of mine (w260's commit below is coordinator-side, pre-existing in origin/main between my pushes — visible in the list as the LAST line only because of ordering; it is not part of `origin/main..HEAD` at any of my push moments). The misattribution is a clone-config artifact, disclosed here rather than rewritten (main is append-only for this lane).
+
+Corrected END post (final action): the pre-correction END_BLOCKED that reached the wake-spool at 19:42Z is SUPERSEDED by this END_DONE line, spooled after Postscript 2:
+
+```text
+END_DONE w243-remote-control-r2: anmeldung=JA (round-2 rev 3a722d3: node add/connect, 8 mTLS sessions; vom dev-host NEIN - loopback-issuer+dev-login Befund) demo=plan+status OK, up=app_remote_lifecycle.go:34 gate, doctor=Befund | bindingsweg=befund datei:zeile (serve.go env-map, connector_transport.go:41-43, devgateway/render.go:63; CLI-start-path fehlt=Karte1) vm-rueckbau=null-zeug 0/0/0 procs0 listeners0, lock released rc=0 | SELBSTKORREKTUR: 'fremde Kette' war round-2 eigene arbeit; akte round-3.md origin/main 44b70a0
+```

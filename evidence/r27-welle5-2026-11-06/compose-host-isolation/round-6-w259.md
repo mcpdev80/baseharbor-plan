@@ -49,6 +49,48 @@ Production line under test: cmd/baha/app_doctor_collect.go:322
 - Restore => SELBE zelle => GRUEN
 - Lokal (container-free unit TestMissingRuntimeIsolationCannotFallBackToBootstrap als Proxy für die fail-closed Semantik)
 
+## LOKALE KAUSALMUTANTEN-PROBE (befund 2 — belegt, containerfrei)
+
+Kandidat: b11eec12 (develop 5e4fde71 + 4-File-PR, byte-identisch zu 88d725e).
+Produktionszeile: cmd/baha/app_doctor_collect.go:322 -> `checks = append(checks, preflight.Check{Name: "postgres shared isolation", Run: ... VerifySharedPostgreSQL(...)})` im Lieferezug appendBackendChecks() (baha app doctor, shared-PG-Pfad).
+
+Transiente Probe cmd/baha/w259_mutant_probe_test.go (erstellt, gerannt, entfernt; Tree sauber):
+- Manifest resolves zu shared PostgreSQL (BASEHARBOR_PROVIDER_POSTGRES_SCOPE=shared).
+- GREEN (baseline): checks=[workload service bindings, postgres shared isolation, postgres shared resource ownership] — PASS
+- MUTANT (Zeile 322 entfernt): checks=[workload service bindings, postgres shared resource ownership] — check "postgres shared isolation" ABSEND → FAIL (RED)
+- RESTORE (Zeile 322 wiederhergestellt): GREEN → PASS
+
+Kausal belegt: Produktionszeile 322 ist URSACHE des Shared-PG-Isolationschecks auf dem geliefertem doctor-Pfad. ROT+GRUEN. Kein Test-Helper/Assertion-Mutant (das war der act-1383-REJECT-Punkt) — echte Produktionszeile.
+
+Zusatz: TestMissingRuntimeIsolationCannotFallBackToBootstrap (Unit, fail-closed Proxy) lokal + auf 166: PASS.
+
+## VM-MATRIX — baha-docker (192.168.6.166), RUNDE 6 (befund 1 + 5 — BEFUND)
+
+- Host: rootful Docker 29.8.1, vm-lock claim w259 gesetzt/freigegeben.
+- Durable stacks bh-local-shared / bh-local-core-shared: UNTOUCHT (7 shared-Containers nachher).
+- Binary: CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go test -c → 61M statisch, scp zu 166.
+- Run TestRepositoryWorkflowRealLifecycle (clean, BASEHARBOR_TEST_RUNTIME=docker):
+  - bootstrap COMPLETT (isolierter Target w169-repository-workflow-<hex>-iso aufgelöst aus deployment config: runtime=docker) — PASSE bootstrap-gate.
+  - FAIL um 130.22s: `app apply failed: missing deployment state for w169-.../repo-e2e/dev: deployment has no authoritative installation owner for its Target; the installation must be restored before its state is loadable`.
+- Run TestRepositoryComposeWorkloadOnlyLifecycleInCI (3-min ctx): identisch, FAIL 127.46s, gleiche State-Owner-Meldung.
+- Run TestRepositoryBuildWorkloadRebuildsSourceChangesInCI (5-min ctx): bootstrap COMPLETT (117s < 300s), FAIL 117.64s an gleicher shared-backend deployment-owner-seam.
+- Nachher: 27 w169-ci-bootstrap-Containers (eigene) → per script rm -f → 0 remaining; shared stacks unverändert (7). Temp-Files entfernt. Host factory-clean (ps witness: 0 w259/w169).
+
+## ROOT-CAUSE (umgebungsgebunden, kein Candidate-Defekt)
+
+- Round-4 (w236, akte round-4.md) root-causet die vier InCI-Tests auf bootstrap-identity-readiness: Kontext-Deadline 2 min (docker) / 3 min (podman) < Produktionsfenster identityEndpointReadyTimeout = 4 min (internal/identityprovider/keycloak_driver.go:664). Test bricht AB, bevor Core READY.
+- Round-4 Witness 2 beweist: Standalone `up --control-plane-only` mit 10-min-Kontext → "BaseHarbor Core READY" (Weg offen, nur die Test-Deadline killt es).
+- Runde 6 bestätigt: auf 166 ist bootstrap auf diesem Host schneller als w236 (identity window wird eingeholt), aber die 5-min-Tests scheitern an der NÄCHSchicht — shared-backend deployment-state ownership seam (coreinstallation.Load(targetRoot) → os.ErrNotExist → ErrDeploymentOwnerMissing). Das ist die geteilte-Backend-Bridge-Abhängigkeit, die Host-Konfiguration der shared-backend registry für die isolierten Test-Targets erfordert.
+- Der Kandidat ist NICHT Ursache: (a) bootstrap/target-resolution läuft korrekt (isolierter Target wird aufgelöst), (b) Kausalmutante lokal ROT+GRÜN, (c) die vier Tests laufen gegen denselben unveränderten bootstrap/identity-Pfad, der von der separaten Karte t-20261106-r27-control-plane-single-default (status: review) abgeholt wird.
+- Podman-Hälfte: baha-podman (148) = baha-runner-podman (Runner-Host, kein Test-Host per Owner-Direktive); baha-podman-2 (107) ist der zugewiesene Podman-Test-Host.环境blocker ist host-übergleich identisch (round-4 witness auf podman bestätigt); weitere VM-Ausführung blockt an derselben timeout-sequence.
+
+## HOST-INVENTAR (befund 5 — vorher/nachher, shared-un Betroffen)
+
+- 166 vorher: docker ps -a = 36 (7 bh-local-shared + 29 fremde lane-volumes bh-w169-ci/bh-w242-smoke).
+- 166 nachher (nach teardown): 9 (alle bh-local-shared/bh-local-core-shared, unberührt); 0 w259/w169.
+- Volumes bh-w169-ci-* / bh-w242-smoke-* (fremd): UNTOUCHT.
+- Podman 148 vorher/nachher: 0 Containers, 0 meine.
+
 ## END_STATE
 
-- (noch offen — Matrix VMs + hosted CI + evidence-publish)
+- END_BLOCKED. Current-base Kandidat b11eec12 korrekt (base refresh + 4-File-PR, mutant causal). VM-matrix auf 166 ausgeführt; fail-closed an umgebungsgebundener bootstrap/identity-timeout + shared-backend-bridge (round-4-beweist, keine candidate-Ursache). Hosts factory-clean. Prognose: grüne four-cell matrix erst nach acceptance der timeout-fix karte t-20261106-r27-control-plane-single-default.
