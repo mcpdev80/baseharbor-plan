@@ -96,4 +96,4 @@ Host: baha-podman, uid 1000 marcel, podman 5.7.0 (rootless, pasta net, overlay s
 
 ## END status
 
-- END_BLOCKED. The candidate is correct (clean build/vet/gofmt), the podman harness gap is fixed and pushed (3b2ec108 on origin/work/r27-compose-isolation), and the four green cells are unproven only because of the two environmental blockers above. No skip was reported as pass anywhere.
+- END_BLOCKED (posted to 841e7734, 2026-11-06). The candidate is correct (clean build/vet/gofmt), the podman harness gap is fixed and pushed (3b2ec108 on origin/work/r27-compose-isolation), evidence is on origin/main, and no stray containers/workdirs remain on the coordinator host or baha-docker. The four green cells are unproven only because of the two environmental blockers above (rootful docker on baha-docker; wedged podman host after OpenBao bootstrap timeout). No skip was reported as pass anywhere. Next trigger: Owner provides a rootless docker for baha-docker (uid 1000) or a rootless-docker host, frees baha-podman's stuck systemd user unit, and re-commissions the four-cell ensemble.
