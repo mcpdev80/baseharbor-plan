@@ -6,34 +6,32 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle5 (Lane w224, freigegeben)
-kanban_lane: blocked
+owner: coord-welle5 (codex-worker, entlassen)
+kanban_lane: review
 kanban_summary: "For topologies that actually need a shared endpoint, explicitly opt into one existing OCI Distribution-compatible registry…"
-kanban_status: blocked
+kanban_status: review
 kanban_title: "Artifacts: optionally provision an existing OCI registry implementation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1401]
 sources: []
 early: false
-blocker: "Fremd-rot am develop-kopf (snapshot-flake, internal/development — kur-r8 laeuft genau dafuer; akte round-1.md + w224-zeugen belegen alle orgconfig-zellen gruen, name-only disjunkt). Trigger: kur-r8 in develop, dann EIN gruenlauf am aktuellen kopf (mission w228)."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-local-registry · Artifacts: optionally provision an existing OCI registry implementation #task #release/v0-4-27 #status/blocked #view/blocked #area/artifacts #kind/task
+- [ ] t-20261018-r27-local-registry · Artifacts: optionally provision an existing OCI registry implementation #task #release/v0-4-27 #status/review #view/review #area/artifacts #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w224, freigegeben) · **Priority:** normal  
+    **Owner:** coord-welle5 (codex-worker, entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1401](https://github.com/mcpdev80/baseharbor/pull/1401)  
-    **Blocker:** Fremd-rot am develop-kopf (snapshot-flake, internal/development — kur-r8 laeuft genau dafuer; akte round-1.md + w224-zeugen belegen alle orgconfig-zellen gruen, name-only disjunkt). Trigger: kur-r8 in develop, dann EIN gruenlauf am aktuell…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** coord-welle5 (Lane w224, freigegeben)  
+**Owner:** coord-welle5 (codex-worker, entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1401](https://github.com/mcpdev80/baseharbor/pull/1401)  
 **Source:** 
