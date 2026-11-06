@@ -62,6 +62,20 @@
 - focused tests PASS: TestPullResolvedRuntimeImagePinsImmutableDigest, TestResolve*, TestCanonicalArtifactRepository, TestExecArtifact, TestRuntimeBroker*, TestBroker*, TestSelfUpdateRelease*
 - full cmd/baha suite cannot complete locally (gated tests need a live Docker daemon); no native registry smoke locally (oras not installed) — native smoke belongs on the named SSH runners, not this host
 
+## Hosted gate (run 42132438226 — TERMINAL, new head ef0120aa)
+
+- Run: https://github.com/mcpdev80/baseharbor/actions/runs/42132438226 — 24 jobs: 14 success, 10 skipped, 0 failure
+- Selected checks pass: go-build, go-vet, go-unit-tests, cli-build, cli-vet, cli-package-tests, cli-guided-tests, cli-gofmt, source-contracts, Focused Python, Source format, Trusted Plan, Workflow policy
+- Docker/managed-runtime gates (Targeted HA · docker, Selected Runtime, etc.): skipping — no native registry runtime selected for this change (native registry smoke belongs on the named SSH runners, not this host)
+- ls-remote real == head (WORDLICH): `ef0120aa3d738f333dd9bd8fbed385bd1d92fa05 refs/heads/work/r27-registry-access`
+- develop ancestor: `git merge-base --is-ancestor origin/develop HEAD` rc=0 (drift from unrelated PR #1394 device-lifecycle merged into develop, resolved via merge rc=0)
+- My branch beyond develop touches only: cmd/baha/app_broker.go, cmd/baha/application_registry_source.go, cmd/baha/app_broker_registry_pull_test.go (+ round-1's application_registry_source_test.go)
+- No foreign commit carried in first-parent history
+
+## Evidence committed
+
+- akte round-2.md committed to baseharbor-plan main, pushed, ls-tree witness on origin/main: `538eb62ab0a3094976acd0efc7a8d7f68e8d426d evidence/r27-welle5-2026-11-05/registry-access/round-2.md`
+
 ## Status
 
 - State: active — committed locally on work/r27-registry-access at 010a6792 (root + worktree identical). Awaiting push + hosted gate.
