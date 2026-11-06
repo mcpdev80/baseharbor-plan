@@ -146,4 +146,3 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
   in korrektur (develop-merge + hosted-lauf). Luna: kein neuer flake-auftrag bis r3-lieferung.
 | 7 | coordinator/missions/w199-vm-smoke.txt | flash-sitz belegt (w194) | OWNER-DIREKTIVE: auf dem worker-flash-SITZ als naechstes (spawn --flash), sobald w194 entlassen ist |
 | 13 | coordinator/missions/w209-managed-users-r2.txt | alle sitze besetzt | naechster freie sitz (1397a: create-fallback-defekt + echte mutante) |
-| 14 | coordinator/missions/w209-flake-r7.txt | alle sitze besetzt | naechster freie sitz — HÖCHSTE PRIORITÄT (blockiert #1393-merge) |
