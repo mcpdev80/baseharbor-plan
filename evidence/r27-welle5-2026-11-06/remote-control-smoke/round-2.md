@@ -225,11 +225,22 @@ No docker/podman COMPOSE project started by this lane beyond quadlet systemd uni
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git log --oneline -1 origin/main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-d592285 evidence(w243): corrected attribution - node-add gate is dev-role no-login design (ADR 0021); compose-pin drift documented as destroy blocker
-100644 blob 50f10f0f690fd837f5ba3b3a98ff1630b4d5a60e	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+9e3c1f0 evidence(w243): final teardown witnesses - VM all-null + lock release rc=0
+100644 blob 2b3090916b8221635285844272212a70c14b9969	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
 ```
 
-Base attestation: commits landed on origin/main with `--ff-only` pulls (ancestry 3b7e5dc -> efa15ce -> 14984d5 -> d592285, first-parent); zero product-repo writes; worktree scratch under /tmp/opencode/w243* only.
+## Lock release + final VM ps-witness (LASTREGEL / compose-hygiene)
+
+```text
+$ (VM) podman ps -aq | wc -l                                   -> 0
+$ (VM) systemctl --user list-units --all | grep -c bh-podman-test -> 0
+$ (VM) podman network ls | grep -c bh-podman-test             -> 0
+$ (VM) pgrep -f "[b]aha serve" | wc -l                        -> 0
+$ (VM) rm -f /tmp/w243-up.log; ls /tmp | grep w243           -> (none)
+$ coordinator/scripts/vm-lock.sh release baha-podman w243    -> FREE host=baha-podman rc=0
+$ coordinator/scripts/vm-lock.sh status
+baha-docker: w237 @ 2026-11-06T13:06:05Z
+```
 
 ## END
 
