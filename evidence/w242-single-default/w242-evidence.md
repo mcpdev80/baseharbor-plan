@@ -71,6 +71,20 @@ installation.json spec.ha = false. PASS on the single-default contract.
 
 Cleanup: all bh-w242-smoke containers and baseharbor-w242* networks removed (ps-witness: 0 containers, 0 networks remain).
 
+## git log -S proof: single-default already on develop (R3 requirement)
+
+`git log --oneline -S "member-2" -- internal/runtime/assets/compose.yaml` on origin/develop:
+  45b96656 sync: main and released v0.4.21 into develop
+(member-2 in the HA compose.yaml dates to the v0.4.21 sync; it is the HA ensemble used for
+opt-in, NOT the default.)
+
+Default renderer on origin/develop (internal/runtime/stack.go renderComposeForProfile):
+    asset := composeSingleYAML      <- single instances (openbao-member-1, postgres-member-1)
+    if ha { asset = composeYAML }   <- HA ensemble (openbao-member-1/2/3, etcd-1/2/3, haproxy) only when ha=true
+=> The current develop default renders SINGLE instances. The card is essentially done; only the
+mandatory SSH Docker/Podman qualification (both runtimes, single count + health, HA opt-in cell)
+remains. No product code change was required on work/r27-single-default.
+
 ## vm-lock blocker (current)
 
 coordinator/scripts/vm-lock.sh status shows:
@@ -79,7 +93,8 @@ coordinator/scripts/vm-lock.sh status shows:
 Both hosts are held by active lanes with missions (w237-devenv-smoke, w243-remote-control-r2).
 The lane cannot acquire a host lock to complete the mandatory SSH-based Docker/Podman
 qualification (single instance count + health on BOTH runtimes, HA opt-in cell). Per owner
-directive: do not wait, escalate via QUESTION.
+directive R3, the lane keeps retrying vm-lock claim with 90s waits between attempts; escalate via
+QUESTION if a host frees within a bounded time.
 
 ## END status
 BLOCKED — SSH-based Docker/Podman qualification blocked on vm-lock (both hosts held by active lanes).
