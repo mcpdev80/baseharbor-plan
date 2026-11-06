@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (w259 ausstehend)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle5 (w259, entlassen)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon"
 priority: high
@@ -17,22 +17,23 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
-blocker: ""
+blocker: "VM-Matrix faellt auf bootstrap-timeout zurueck, der an der single-default-landung (#1404) haengt; kandidat b11eec12 selbst korrekt + akte round-6-w259 auf main. Trigger: #1404 gemerged -> zellen nachziehen."
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w259 ausstehend) · **Priority:** high  
+    **Owner:** coord-welle5 (w259, entlassen) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Blocker:** VM-Matrix faellt auf bootstrap-timeout zurueck, der an der single-default-landung (\#1404) haengt; kandidat b11eec12 selbst korrekt + akte round-6-w259 auf main. Trigger: \#1404 gemerged -\> zellen nachziehen.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle5 (w259 ausstehend)  
+**Owner:** coord-welle5 (w259, entlassen)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
