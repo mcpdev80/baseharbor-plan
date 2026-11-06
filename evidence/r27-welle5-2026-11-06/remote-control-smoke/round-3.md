@@ -171,3 +171,7 @@ d25bc4d evidence(w243): remote-control round 3 - reality check, foreign live ENR
 ```
 
 Lock witnesses (this shift): claim rc=0 `OWN host=baha-podman lane=w243` @18:22:34Z (journal line 2026-11-06T18:22:34Z claim baha-podman w243); release rc=0 `FREE host=baha-podman` @18:37Z; final `vm-lock.sh status` shows baha-podman absent (baha-docker=w259, baha-docker-2=w257 untouched by this lane).
+
+Delivery postscript (END-post witness): `codeman agent post 841e7734` returned NOT_FOUND — coordinator session 841e7734-b814-423e-9763-476643190dc7 DIED at the tmux incident (session-lifecycle.jsonl: mux_died + stale_cleaned @18:16:12Z) and no pane `codeman-841e7734` exists; the identical END_BLOCKED line was therefore delivered through the sanctioned fallback `coordinator/scripts/wake.sh 841e7734`, which spooled it to `coordinator/.wake-spool` (19:42Z) for the tick-eye to drain to the coord pane. Identity disclosure: this executing session is 696b6281 (pane name "w262-remote-control-r3", spawned 19:20:27Z) running THIS w243 mission file — consistent with the coord note "fernsteuerung w243 war ghost".
+
+Final ps-witness (LASTREGEL, after all above): `(VM) podman ps -aq | wc -l` => 0; connector/serve procs => 0; no compose project started by this lane at any point this shift.
