@@ -39,5 +39,29 @@ State: active (implementation round)
 - Pushed work/r27-secure-export to origin; ls-remote witness: 4668a59347d9c1811995165c3384f8be3ed65a03 == local head. Base develop 3d8fc207 confirmed ancestor of the commit; single own commit.
 - NEXT: PR to develop to trigger hosted terminal gate. The CI workflow (.github/**) is Owner scope — do not edit workflow files or trigger workflow_dispatch; report a failing check as STATE (check name + failing log line) and stop there.
 
+## Round-2 progress (implementation complete, local gates green)
+- Adapter written at internal/applicationbackup/secureprofile.go (package applicationbackup, reuses crypto.go encryptPayload/decryptPayload through the existing same-package API — no crypto migration, no edit of crypto.go).
+- Fail-closed: BuildExport rejects empty selection (ErrEmptySelection), incomplete manifest (ErrInvalidExportManifest), empty password (ErrEmptyExportPassword), traversal/invalid entry names; OpenExport rejects wrong password / tampered ciphertext / truncated envelope via authenticated decryption before any plaintext.
+- 11 tests pass locally with -race: empty/incomplete/empty-password/traversal fail-closed; unreadable without password; round-trip readable with password; wrong-password fails closed; tolerant-mutant RED probe (TestExportTolerantMutantFailsRed); tamper/truncation fail-closed. No regression to the existing applicationbackup suite.
+- gofmt clean, go vet clean, full `go build ./...` clean.
+- Pushed work/r27-secure-export to origin; ls-remote witness: 4668a59347d9c1811995165c3384f8be3ed65a03 == local head. Base develop 3d8fc207 confirmed ancestor of the commit; single own commit.
+- PR #1396 opened against develop (event base 3d8fc207).
+
+## Round-3: hosted gate (CI receipt)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1396 (base develop 3d8fc207, head work/r27-secure-export 4668a593).
+- Hosted CI run 42132046377 TERMINAL = success.
+- Job breakdown (all applicable gates):
+  - PR Selected Checks: success
+  - PR · Validation · go-build: success
+  - PR · Validation · go-unit-tests: success  (full `go test ./...`, covers this adapter)
+  - PR · Validation · go-vet: success
+  - PR · Source format: success
+  - PR · Trusted Plan: success  (CI immutable-input base policy verified; base 3d8fc207 is ancestor of 4668a593)
+  - Workflow policy: success
+  - PR · Selected Runtime: skipped (runtime_required=false for a pure Go adapter; no runtime provider files touched) — correctly skipped, not a failure
+  - PR · Exact Candidate: skipped (requires runtime_required==true AND owner-authored PR; this is a bot-authored adapter PR) — correctly skipped
+- BASE ATTESTATION: branch cut from origin/develop 3d8fc207deabc2840bcfd888f46d2394cc5a7d36 (ls-remote at cut == this); 3d8fc207 is an ancestor of commit 4668a59347d9c1811995165c3384f8be3ed65a03; single own commit. develop has since moved to 21d8d05c (other lanes); irrelevant to this PR's event base.
+- Write-set verified bounded to internal/applicationbackup/secureprofile.go (+ its test) and the PR; no edit of crypto.go, no .github file, no other slice's files, no shared CLI registration (commands.go owned by t-20261018-r27-public-surfaces).
+
 ## END
 (continued next round)
