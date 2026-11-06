@@ -104,8 +104,12 @@ $ git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
 100644 blob 1c27a143fbbd9babb5b29ae212e03417fd7aea2f	evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
 ```
 
-Push-Zeuge: `368133f..67d47d0  main -> main`; `git ls-remote origin refs/heads/main` ->
-`67d47d0afc80f44fd4701cfc518735266edacbb6`.
+Push-Zeuge: `67d47d0..ef1c125  main -> main`; nach dem Push verifiziert:
+`git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md` ->
+`100644 blob 85660139b42dd65eb194776500ce87c9a72170f2  evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md`
+(Referenz ist der lokale Remote-Tracking-Stand nach erfolgreichem Push; direktes `ls-remote` scheitert an
+zeitweiligem GitHub-443-Ausfall von diesem Host, der auch den ersten Push-Versuch betraf — der Push selbst
+ging in Versuch 1 der Wiederholungsschleife als `main -> main` durch.)
 
 Letzter Erreichbarkeits-Check vor END (baha-podman, unveraendert tot):
 
