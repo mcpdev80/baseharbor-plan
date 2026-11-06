@@ -11,7 +11,7 @@ kanban_lane: ready
 kanban_summary: "Die develop-Kontrollebene faehrt im Default als Einzel-Instanzen (ein Postgres, ein OpenBao), weil die Entwickler-Umgebung laut…"
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -29,7 +29,7 @@ evidence: []
 <!-- generated:links -->
 **State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
