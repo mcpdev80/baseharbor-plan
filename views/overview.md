@@ -11,8 +11,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 11 |
-| review | 2 |
-| blocked | 2 |
+| review | 3 |
+| blocked | 1 |
 | ready | 2 |
 | queued | 26 |
 | waiting | 187 |
@@ -41,12 +41,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-local-registry](../tasks/t-20261018-r27-local-registry.md) | Artifacts: optionally provision an existing OCI registry implementation | review | normal | coord-welle5 (codex-worker, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1401](https://github.com/mcpdev80/baseharbor/pull/1401) |
 | [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md) | Identity: invite users through the native provider admin adapter | review | normal | coord-welle5 (Lane w230, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397) |
+| [t-20261018-r27-secure-export](../tasks/t-20261018-r27-secure-export.md) | Profiles: encrypt explicitly selected local credential export | review | normal | coord-welle5 (codex-worker, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261018-r27-protected-credentials](../tasks/t-20261018-r27-protected-credentials.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396) |
 
 ## Blocked
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-secure-export](../tasks/t-20261018-r27-secure-export.md) | Profiles: encrypt explicitly selected local credential export | blocked | normal | coord-welle5 (wartet Lane) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261018-r27-protected-credentials](../tasks/t-20261018-r27-protected-credentials.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396) |
 | [t-20261102-broker-ready3-widen-readiness-grace](../tasks/t-20261102-broker-ready3-widen-readiness-grace.md) | Widen broker readiness grace to the established healthcheck pattern | blocked | not set | coord-welle4-rest (wartet Owner) | — | [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287) |
 
 ## Ready to assign
