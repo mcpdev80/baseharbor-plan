@@ -1,11 +1,11 @@
 # deps-alerts: 3 Dependabot-Alerts nach go-jose-Bump (#1160, PR 1260 gemergelt a567ff46 auf 4.1.6) raumen
 
 ## PLAN
-  - [x] 1. dependabot alerts API-Zeugnisse sammeln (3 alerts: GHSA-mgcc-cww5-fp2q/CVE-2026-116587, GHSA-4w3g-jfj2-cw2q/CVE-2026-116585, GHSA-vvm8-gf78-28g4/CVE-2026-116586)
-  - [x] 2. go.mod prüfen: liegt innerhalb affected-range der go-jose Alerts? — go.mod enthält bereits v4.1.6 auf develop (f2e43b0a)
-  - [x] 3. go.mod auf neueste sichere go-jose-Version bumpen, go build ./... + go test ./... lokal — build OK, test failures pre-existing (telemetry)
-  - [x] 4. PR 'chore(deps): ...' erstellen, PRSC terminal warten — kein neuer PR nötig, PR #1160 (a567ff46) bereits gemergt auf develop
-  - [x] 5. Alert 1,2,3 status: open (warten auf Dependabot-Re-Scan nach Merge a567ff46) — END_DONE posted
+  - 1. dependabot alerts API-Zeugnisse sammeln (3 alerts: GHSA-mgcc-cww5-fp2q/CVE-2026-116587, GHSA-4w3g-jfj2-cw2q/CVE-2026-116585, GHSA-vvm8-gf78-28g4/CVE-2026-116586)
+  - 2. go.mod prüfen: liegt innerhalb affected-range der go-jose Alerts? — go.mod enthält bereits v4.1.6 auf develop (f2e43b0a)
+  - 3. go.mod auf neueste sichere go-jose-Version bumpen, go build ./... + go test ./... lokal — build OK, test failures pre-existing (telemetry)
+  - 4. PR 'chore(deps): ...' erstellen, PRSC terminal warten — kein neuer PR nötig, PR #1160 (a567ff46) bereits gemergt auf develop
+  - 5. Alert 1,2,3 status: open (warten auf Dependabot-Re-Scan nach Merge a567ff46) — END_DONE posted
 
 ---
 
