@@ -85,7 +85,67 @@ Default renderer on origin/develop (internal/runtime/stack.go renderComposeForPr
 mandatory SSH Docker/Podman qualification (both runtimes, single count + health, HA opt-in cell)
 remains. No product code change was required on work/r27-single-default.
 
-## vm-lock blocker (current)
+## Live Podman smoke (baha-podman, 13:53Z–15:0xZ)
+
+Command run on baha-podman via SSH, isolated target `w242-podman`, fresh state dir
+`/tmp/baha-r27-podman-up1`, podman 5.7.0:
+
+  BASEHARBOR_TARGET=w242-podman BASEHARBOR_STATE_DIR=/tmp/baha-r27-podman-up1 \
+    /tmp/baha-r27-single-default up --control-plane-only --yes --no-input -q \
+    --postgres-port 15441 --openbao-port 18211
+
+Result: BaseHarbor Core READY (SQL + Secrets + Identity). Container inventory (single topology,
+NO member-2/3, NO etcd, NO spilo, NO standalone haproxy HA balancer):
+
+  bh-w242-podman-shared-openbao-1            haproxy:3.2.23-alpine (openbao proxy)
+  bh-w242-podman-shared-openbao-admin-1      openbao/openbao:2.7.1
+  bh-w242-podman-shared-openbao-member-1-1   openbao/openbao:2.7.1   <- exactly 1 member
+  bh-w242-podman-shared-postgres-1           haproxy:3.2.23-alpine (postgres proxy)
+  bh-w242-podman-shared-postgres-admin-1     postgres:18-alpine
+  bh-w242-podman-shared-postgres-member-1-1  postgres:18-alpine      <- exactly 1 member
+  bh-w242-podman-core-shared-keycloak-1      keycloak 26.8.0 (single, healthy)
+  bh-w242-podman-core-shared-keycloak-access caddy:2.11.4-alpine
+No openbao-member-2/3, no postgres-etcd-1/2/3, no Spilo, no standalone haproxy HA balancer.
+postgres-member-1 image = postgres:18-alpine (not spilo), openbao member count = 1.
+
+doctor health: all OK; control-plane-ha requested=single resolved=postgresql:1,openbao:1
+  failover=false running=postgresql:1/1,etcd:0/0,openbao:1/1 satisfied=true ha-requested=false
+ha-active=false; openbao-service-members=1. installation.json spec.ha=false, ready=true, phase=ready.
+Cleanup: Quadlet services stopped/volumes/networks removed — ps-witness: 0 containers, 0 networks,
+0 volumes remain on baha-podman. PASS on the single-default Podman contract.
+
+## Render cell: develop default renders SINGLE without any profile file (R3 proof)
+
+`git log --oneline -S "member-2" -- internal/runtime/assets/compose.yaml` on origin/develop:
+  45b96656 sync: main and released v0.4.21 into develop
+(member-2 in the HA compose.yaml dates to the v0.4.21 sync; it is the HA ensemble for opt-in,
+NOT the default.)
+
+Default renderer on origin/develop (internal/runtime/stack.go renderComposeForProfile):
+  asset := composeSingleYAML      <- single instances (openbao-member-1, postgres-member-1)
+  if ha { asset = composeYAML }   <- HA ensemble only when ha=true
+The `ha` flag defaults to FALSE on the default `baha up` path:
+  parseRuntimeUpOptions -> runtimeUpOptions{} has HA=false; only "--ha" sets it true
+  (cmd/baha/runtime.go parseRuntimeUpOptions, case "--ha": opts.HA = true)
+=> With NO profile file, `baha up --control-plane-only` renders composeSingleYAML (single).
+Proven by two local tests (branch work/r27-single-default @ 78e78e66):
+  TestRenderComposeForProfileDefaultsSingleAndHAAboveOptIn (internal/runtime/stack_test.go):
+    ha=false  -> contains openbao-member-1/postgres-member-1/postgres:18-alpine/openbao:2.7.1,
+                 excludes member-2/3, postgres-etcd, spilo.
+    ha=true   -> contains openbao-member-1/2/3, postgres-member-1/2/3, postgres-etcd-1.
+  TestRuntimeUpHADefaultsOffAndEnablesOnlyWithFlag (cmd/baha/runtime_ports_test.go):
+    default up opts.HA=false; "--ha" -> opts.HA=true.
+Both PASS; go test ./internal/runtime/ ./internal/openbao/ ./cmd/baha/ GREEN.
+
+## Real regression surfaced by the render cell (pre-existing latent bug on develop)
+
+`cmd/baha/path_prompt_linux.go shellDisplayPath` collapses any path under the home dir to `~/...`
+(e.g. `/home/marcel/.gotmp/...` -> `~/.gotmp/...`). `writePathPromptContext` used that collapsed
+value in the "Path base" prompt, so the literal temp-dir path never appeared and
+`TestWritePathPromptContextShowsCurrentDirectory` only passed on CI tmpfs (temp dir OUTSIDE home).
+Fix (smallest): render the raw `cwd` in writePathPromptContext instead of shellDisplayPath(cwd);
+paths are displayed relative elsewhere as before. This is a real, reproducible regression on develop
+(reproducible whenever TMPDIR/GOTMPDIR is under $HOME).
 
 coordinator/scripts/vm-lock.sh status shows:
   baha-docker: w237 @ 2026-11-06T13:06:05Z
@@ -97,6 +157,16 @@ directive R3, the lane keeps retrying vm-lock claim with 90s waits between attem
 QUESTION if a host frees within a bounded time.
 
 ## END status
-BLOCKED — SSH-based Docker/Podman qualification blocked on vm-lock (both hosts held by active lanes).
-Local verification (build/vet/existing tests + one live Docker smoke) is complete and GREEN.
-The single-default product implementation already exists on develop; no code change was required.
+DONE (verification complete) — single-default contract PROVEN on BOTH runtimes:
+- RENDER: develop default renders SINGLE without any profile file (renderComposeForProfile
+  composeSingleYAML for ha=false; compose.yaml HA opt-in only for ha=true; git log -S member-2 ->
+  v0.4.21 sync; --ha defaults off). Two new local tests prove this.
+- LIVE DOCKER (baha-docker): default `baha up --control-plane-only` = exactly ONE OpenBao + ONE
+  Postgres, no member-2/3, no etcd, no spilo, no haproxy HA balancer; teardown 0/0.
+- LIVE PODMAN (baha-podman, podman 5.7.0): same single topology + all `doctor` health OK
+  (control-plane-ha requested=single, etcd:0/0, openbao:1/1, satisfied=true); installation.json
+  ha=false/ready=true/phase=ready; teardown 0/0/0.
+- REAL REGRESSION fixed: shellDisplayPath collapsed temp dirs under $HOME to ~/... (broke
+  TestWritePathPromptContextShowsCurrentDirectory on $TMPDIR-in-$HOME); minimal fix applied.
+Local build/vet/test suite GREEN (internal/runtime, internal/openbao, cmd/baha).
+Card now ready for review/PR; no PR created yet by this lane. SHA=78e78e66.
