@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 82/115 · **Blocked:** 1 · **Waiting:** 21  
+    **Accepted tasks:** 83/115 · **Blocked:** 1 · **Waiting:** 21  
     **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — VM-Matrix faellt auf bootstrap-timeout zurueck, der an der single-default-landung (\#1404) haengt; kandidat b11eec12 selbst korrekt + akte round-6-w259 auf main…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
