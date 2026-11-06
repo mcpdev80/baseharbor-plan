@@ -8,7 +8,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "Default deploys exactly one instance per control-plane service; HA is explicit opt-in only. Actual Docker and Podman startup, regression, restart, and negative/positive HA tests are mandatory."
+kanban_summary: The default BaseHarbor developer/control-plane deployment MUST use a single instance per required service. Currently the shipped…
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
