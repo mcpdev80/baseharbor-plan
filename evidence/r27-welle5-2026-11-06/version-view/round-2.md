@@ -194,6 +194,26 @@ Zweig (ein Antrag).
 - Name-only disjunkt: Write-Set == die 19 Dateien von Runde 1, nur `release.go` und
   `app_version_view_test.go` in dieser Runde veraendert (`git diff 9a14fa80 HEAD --name-only`).
 
+## Push-Zeuge (origin/main)
+
+Vor dem Push, wörtlich:
+
+```
+$ git fetch origin main && git rev-parse HEAD && git merge-base --is-ancestor HEAD origin/main && echo HEAD-IN-MAIN && git ls-tree -r --name-only origin/main | grep version-view
+64aaa6a evidence(r27 version-view round 2): terminal hosted run witness, compliance selfcheck, END line
+90852855d57d69b77403be0084fbda86fa2f462e
+HEAD-IN-MAIN
+evidence/coord-memory/missions/w226-version-view.txt
+evidence/r27-welle5-2026-11-06/version-view/act-1403b.md
+evidence/r27-welle5-2026-11-06/version-view/round-1.md
+evidence/r27-welle5-2026-11-06/version-view/round-2.md
+tasks/t-20261018-r27-version-view.md
+```
+
+Die Akten-Commits dieser Lane (`d90620f`, gefolgt von den Folgeschuessen, am Ende linear
+auf `origin/main` = `90852855d57d…` rebasiert als `64aaa6a`) sind auf origin/main verifiziert;
+round-1.md und round-2.md liegen dort.
+
 ## END
 
 END_DONE w229-version-view-r2: head=65ed48d60f gegenprobe-kausal=JA+2 mutantenbelege lauf=42211122594 TERMINAL-SUCCESS lsremote=65ed48d60f | Gegenprobe laeuft jetzt durch den ausgelieferten Mapper (releaseViewStageKinds-Tabelle + ReleaseViewFromRecordWithStageKinds), Testfile-Kopie referenceCell geloescht; Dimension- (release.go:13) und Kind-Mutant (release.go:190) failen die Zelle je lokal und sind rueckgaengig; round-1.md berichtigt; PR #1403 bleibt EIN Antrag, ein Push, ein terminal gruener Hosted-Lauf am Endkopf.
