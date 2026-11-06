@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w213, uebernahme w208)
-kanban_lane: active
+owner: coord-welle5 (Lane w213, freigegeben)
+kanban_lane: review
 kanban_summary: Accept and retain minimal authorized app/revision/consent metadata and the exact native input/reference for an operation. Reuse…
-kanban_status: active
+kanban_status: review
 kanban_title: "Sources: persist authorized immutable deployment candidates"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-pack, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1398]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -22,20 +22,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-candidate-ingress · Sources: persist authorized immutable deployment candidates #task #release/v0-4-27 #status/active #view/active #area/sources #kind/task
+- [ ] t-20261018-r27-candidate-ingress · Sources: persist authorized immutable deployment candidates #task #release/v0-4-27 #status/review #view/review #area/sources #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w213, uebernahme w208) · **Priority:** normal  
+    **Owner:** coord-welle5 (Lane w213, freigegeben) · **Priority:** normal  
+    **PR:** [baseharbor#1398](https://github.com/mcpdev80/baseharbor/pull/1398)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle5 (Lane w213, uebernahme w208)  
+**Owner:** coord-welle5 (Lane w213, freigegeben)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1398](https://github.com/mcpdev80/baseharbor/pull/1398)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -66,3 +67,9 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 ## Uebergabe 2026-11-06: w208-session degraded (tool-call-leck nach 1h28m), aber kandidat echt:
 PR#1398 head feffde2d5d5 auf platte gemessen, akte round-1.md vorhanden (END-abschnitt leer), hosted lauf
 fehlt noch (gemessen leer). w213 macht Runde 1 fertig gegen die beiden seam-entscheidungen (C, digest).
+
+## Runde 1 pruefbar 2026-11-06 (kopf 9fc32d4a1f9, uebernahme w208 von w213 vollendet)
+Nachgemessen: ls-remote echt==head, develop VORFAHR (rc=0), lauf 42156133078 TERMINAL SUCCESS am exakten
+kopf, akte round-1.md auf origin/main. Discriminator auf Observed.State==ready geschaerft (verifizierter
+zustand geschuetzt, legitime pending-retrys bleiben gruen — 2 retry-zellen rot/gruen belegt), authoris
+ierungszelle + zusammenbau echt, mutante echte quellcode-mutation mit gegenprobe, red-first uebernommen.
