@@ -7,14 +7,27 @@ type: task
 areas: [platform, ops]
 owner: ""
 kanban_status: planned
-kanban_lane: waiting
+kanban_lane: ready
 depends_on: [t-20261017-release-0-4-27-updates]
 prs: []
 repos: [mcpdev80/baseharbor]
-sources: ["w269 QUESTION 2026-11-06"]
 ---
 
-- [ ] t-20261106-r27-docker2-shared-stack-drift · Ops: reconcile baha-docker-2 shared stack (running containers, missing compose.yaml, sql_failed phase) #task #release/v0-4-27 #status/waiting #view/waiting #area/platform #kind/task
+- [ ] t-20261106-r27-docker2-shared-stack-drift · Ops: reconcile baha-docker-2 shared stack (running containers, missing compose.yaml, sql_failed phase) #task #release/v0-4-27 #status/planned #view/ready #area/ops #area/platform #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Purpose
 
