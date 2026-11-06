@@ -79,5 +79,5 @@
 
 ## EVIDENCE PROVENANCE (second-to-last action)
 
-- baseharbor-plan origin/main before push: <to be filled by ls-tree after commit>
-- evidence files committed and pushed to origin/main: evidence/r27-welle5-folge-2026-11-06/management-host/round-4.md and evidence/r27-welle5-folge-2026-11-06/management-host/scripts/mutation_mgmt_host.sh
+- baseharbor-plan origin/main before push: 9ed5a4104744dd032240edf331acaa1a5b68ca92 (origin/main advanced while working; merged remote main carrying my commit 5a022247)
+- evidence committed in baseharbor-plan commit 5a022247 (merge with origin/main preserving my prior evidence) and pushed to origin/main HEAD 432e2e48; `git ls-tree -r --name-only origin/main | grep management-host/round-4.md` = evidence/r27-welle5-folge-2026-11-06/management-host/round-4.md and evidence/r27-welle5-folge-2026-11-06/management-host/scripts/mutation_mgmt_host.sh
