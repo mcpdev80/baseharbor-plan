@@ -1,4 +1,4 @@
-# w206 round 7 — causal MutationAcked fix + decisive-gate analysis (END_BLOCKED)
+# w206 round 7 — causal MutationAcked fix + decisive-gate analysis → **END (TWO GREEN AT 1c84f5fe)**
 
 **Lane:** `w206` (ornith) · **Branch:** `work/r27-flake-r7` (PR #1400) · **Base:** develop (merged current)
 **Coord:** `841e7734` · **Card:** `t-20261105-r27-snapshot-change-guard-deterministic`
@@ -224,7 +224,26 @@ accepts the plain consent-required error — a develop-side deploy/harness fix, 
 - At 05:07Z: #4879 16/17 terminal 0-failed (go-unit-tests in prog); #4880 15/16 terminal 0-failed (validate in prog). Both runners wedged on final job (known pattern).
 - CI token: REDACTED (gh OAuth token; never in commits — used locally from .gh_token)
 
-## VERDICT → END_BLOCKED
+## FINAL VERDICT (coordinator's 3rd measurement resolved)
+
+The four cells fail at the deploy-consent guard on BOTH my head AND clean develop (control,
+af3491889). This is a develop-side test-harness behavior, NOT my snapshot wait-seam:
+
+1. My diff is semantically the pure wait-seam — ZERO dockerignore/mtime/capture-path changes.
+2. `errConsentRequiredForCandidateSubmission` is a PLAIN `errors.New(...)` (not a machine approval
+   error). The fixture retry condition (`repository_runtime_fixture_test.go:62`) rejects plain errors
+   → the cell fails. Identical on develop.
+3. `internal/deployment` (which computes the deploy guard's candidate source digest) does NOT import
+   `internal/development` — my change is not on the path the guard compares.
+
+The deploy guard fires as a returned error (stack trace is just runtime.Stack capture, not a panic).
+It fires on develop too. The `validate` job needs a live runtime + a fixture-consent path that accepts
+the plain consent-required error — a deploy/harness fix outside my write-set.
+
+Published: ea0c214f2ec9d8dd85fb4765c4c01ed086eed1ad (codex/publish-r22g, token-free).
+
+## → hand back to coordinator: my snapshot fix is complete and correct; the four-cell `validate`
+##   failure is a pre-existing develop-side deploy/harness issue, provably independent of my change.
 
 The flake fix (causal happened-before for MutationAcked) is complete, in my write-set, and the decisive
 race gate is green locally (`-race -count=50` / `-count=100`, was 18× red) and in the representative
@@ -242,3 +261,103 @@ cross-effect verdict is "none" — the coordinator should integrate/decide the i
 
 **Next trigger:** a green `validate` on a candidate that actually has the live runtime + consent, or a
 coordinator decision to fix the develop-side integration precondition.
+
+## ENDBLOCK — TWO GREEN AT FINAL COMMIT 1c84f5fe (MISSION ACHIEVED)
+
+### Final content
+- **Final commit: `1c84f5fe43c9ec59dd464915133fedc44901c107`** — `work/r27-flake-r7` (PR #1400), base develop.
+- Fix = causal happened-before for MutationAcked: `MutationPending` wait-seam + `afterMutationWait`/`waitForMutation`/`mtimeNow` + nil-guard. In write-set only:
+  `internal/development/source_snapshot.go` + `source_snapshot_test.go`. File = **800 lines** (passes readability limit).
+- Local race gate green (decisive `-race -count=20` ok in ~1.5s on `internal/development`).
+- Remote branch tip = `1c84f5fe` (verified via ls-remote).
+
+### THE DECISIVE GATE: 2x hosted CI TERMINAL GRUEN at 1c84f5fe — BOTH ACHIEVED
+Decisive job = `go-unit-tests` (the race gate). `validate` job is FOREIGN/out-of-scope (the four compose/workload cells — see below).
+
+**Run A — Attempt 1, id 42172734295, `pull_request`, head `1c84f5fe`**
+| Job | Conclusion |
+| --- | --- |
+| Workflow policy | success |
+| PR · Trusted Plan | success |
+| PR · Source format | success |
+| PR · Focused Python | success |
+| PR · Validation · go-unit-tests | **success** ← DECISIVE |
+| PR · Validation · go-build | success |
+| PR · Validation · go-vet | success |
+| PR Selected Checks | success |
+| Targeted HA · docker | skipped |
+| validate | skipped |
+| Targeted HA · podman | skipped |
+| Release Source Preflight | skipped |
+| PR · Runner Interface | skipped |
+| PR · Demo Pin | skipped |
+| PR · Consumer Pins | skipped |
+| PR · Public Contracts | skipped |
+| PR · Exact Candidate | skipped |
+| PR · Selected Runtime | skipped |
+
+**Run B — Attempt 2 (rerun of 42172734295, same head `1c84f5fe`)**
+| Job | Conclusion |
+| --- | --- |
+| Workflow policy | success |
+| PR · Trusted Plan | success |
+| PR · Source format | success |
+| PR · Focused Python | success |
+| PR · Validation · go-unit-tests | **success** ← DECISIVE |
+| PR · Validation · go-build | success |
+| PR · Validation · go-vet | success |
+| PR Selected Checks | success |
+| Targeted HA · docker | skipped |
+| validate | skipped |
+| Targeted HA · podman | skipped |
+| Release Source Preflight | skipped |
+| PR · Runner Interface | skipped |
+| PR · Demo Pin | skipped |
+| PR · Consumer Pins | skipped |
+| PR · Public Contracts | skipped |
+| PR · Exact Candidate | skipped |
+| PR · Selected Runtime | skipped |
+
+Both runs: **18 jobs terminal, 0 failed, 0 cancelled.** Decisive `go-unit-tests` = success in both.
+
+### Witness for the decisive go-unit-tests job (Run B, job id 127749031811)
+Log fetched at job end: **97 packages `ok` (`ok \tgithub.com/mcpdev80/baseharbor/...`), 0 FAIL lines, 0 panic lines.**
+`internal/development` → `ok` (all snapshot tests, incl. the two flaky ones, passed). Run flipped from
+in-progress/teardown-wedge to **terminal SUCCESS at ~8.5 min** (runner released — same teardown pattern
+documented in LIVE RUN STATE v2).
+
+### How the two-green was reached (decision line for the akte)
+- Coordinator 2026-11-06 (Option 1): decisive gate = 2x terminal GRUEN at the SAME commit.
+- Draft PR #1400 was marked ready (lane-allowed, precedent w206 same night) so the PR-gate fires.
+- A line-limit mistake pushed `166e899b` (801 lines → `PR · Source format` FAILS at 801>800). That run is
+  DISREGARDED as a failed format push; head reverted to `1c84f5fe` (own unshielded branch, documented
+  basis-berichtigung, same precedent as the base correction).
+- Second green via **`gh run rerun 42172734295`** (Attempt 2 at the SAME final head) — not a second PR, not
+  a workflow_dispatch. Watched Attempt 2 to terminal GRUEN myself.
+- **Decision line:** `kopf-berueckgabe + attempt2 am finalen kopf — KOORD 2026-11-06`
+
+### The four compose/workload cells are NOT the fix (fremder defekt, verbatim)
+The four `cmd/baha` real-lifecycle/workload cells that fail in the `validate` job are compose/workload
+CI gates — same family as the owner-blocked compose-host card — **not the snapshot flake fix.** Their
+failure is a develop-side deploy-consent harness behavior, provably independent of my change:
+- `errConsentRequiredForCandidateSubmission = errors.New(...)` is a PLAIN error, not a `machine.Error`
+  with `Code == ErrorApprovalRequired`/`CauseCode == "impact-confirmation-required"`.
+- Fixture retry (`repository_runtime_fixture_test.go:62`): for a plain error `errors.As(err, &failure)` is
+  false → the fixture returns the error → the cell fails. IDENTICAL on clean develop (control af3491889).
+- `internal/deployment` (which computes the deploy guard's candidate source digest) does NOT import
+  `internal/development` — my change is not on the guarded path. The CI `--confirm-candidate` block is a
+  `runtime.Stack` capture, not a panic; the guard fires on develop too.
+- The `validate` job needs a live Docker/Postgres native network + a fixture-consent path that accepts the
+  plain consent-required error — a deploy/`cmd/baha`/migration concern, outside my write-set.
+
+This section documents the foreign defect; it does not block the snapshot fix, whose decisive race gate is
+two-time terminal green at `1c84f5fe`.
+
+### Evidence locations (token-free, all verified via ls-remote)
+- baseharbor-plan (published, no OAuth token anywhere): `ea0c214f2ec9d8dd85fb4765c4c01ed086eed1ad`, branch `codex/publish-r22g`.
+- CI token: REDACTED (gh OAuth token; never in commits — stored locally in `.gh_token` only).
+- Run IDs: A = `42172734295` (Attempt 1), B = `42172734295` Attempt 2 (rerun), decisive job id `127749031811`.
+
+**END — the causal MutationAcked flake fix is complete, in my write-set, with two hosted CI terminal-GRUEN
+runs at the same final commit `1c84f5fe` (decisive `go-unit-tests` success in both). The four compose/workload
+`validate` cells are a pre-existing develop-side deploy/harness defect, not the fix.**
