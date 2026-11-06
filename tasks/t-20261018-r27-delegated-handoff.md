@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (Lane w221)
-kanban_lane: active
+owner: coord-welle5 (Lane w221, freigegeben)
+kanban_lane: review
 kanban_summary: "Preserve existing delegated-delivery boundary: Argo CD/GitOps owns its Git/Helm/Kustomize desired resources and reconciliation.…"
-kanban_status: active
+kanban_status: review
 kanban_title: "GitOps: preserve external desired state and hand off native changes"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-delivery-boundary, t-20261018-r27-stage-versions, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-delegated-handoff · GitOps: preserve external desired state and hand off native changes #task #release/v0-4-27 #status/active #view/active #area/delivery #kind/task
+- [ ] t-20261018-r27-delegated-handoff · GitOps: preserve external desired state and hand off native changes #task #release/v0-4-27 #status/review #view/review #area/delivery #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w221) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w221, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [core-325](core-325-delivery-delegated-deployment-gitops.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** coord-welle5 (Lane w221)  
+**Owner:** coord-welle5 (Lane w221, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1399](https://github.com/mcpdev80/baseharbor/pull/1399)  
 **Source:** 
@@ -80,3 +80,9 @@ echt rot mit gegenprobe.
 ## Rueckruf (1399b REJECT): validate-aufruf NICHT diskriminiert — neutralisiert bleibt ALLES
 gruen, die drei negetivzellen haengen an der aelteren digest-wache. Rezept 75ff: neue statuszelle (leere
 digeste+evidence, true-flag) die NUR validate() stoppen kann + ein-zeilen-mutante als scheibe.
+
+## Runde 3 pruefbar 2026-11-06 (kopf 5074b69ea03)
+Nachgemessen: ls-remote echt==head, develop f01d2fbd VORFAHR (rc=0), lauf 42158027211 TERMINAL SUCCESS am
+exakten kopf, akte round-3.md auf origin/main. Neue statuszelle (leere digeste+leere evidence bei
+true-flag) diskriminiert den validate-aufruf SELBST: ein-zeilen-mutante => NUR diese zelle rot (+42
+diff-beleg), gegenprobe gruen, regressionen gruen.
