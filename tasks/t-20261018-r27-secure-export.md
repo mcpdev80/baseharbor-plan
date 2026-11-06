@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w216)
+owner: coord-welle5 (w220, wartet auf kur-r7+platz)
 kanban_lane: active
 kanban_summary: Opt-in local eligible credentials only; authenticated encryption/version/KDF using existing reviewed primitives. Password never…
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w216) · **Priority:** normal  
+    **Owner:** coord-welle5 (w220, wartet auf kur-r7+platz) · **Priority:** normal  
     **PR:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
-**Owner:** coord-welle5 (Lane w216)  
+**Owner:** coord-welle5 (w220, wartet auf kur-r7+platz)  
 **Priority:** normal  
 **PRs:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -77,3 +77,8 @@ echt (registrier-zeile, koord-freigabe B), mutante rot + gegenprobe gruen, race 
 ## Rueckruf (1396a REJECT): die zusammenbau-Zelle ruft den adapter DIREKT (eigene manifeste),
 nie rootCommand->secureProfileExportCommand; der registrier-mutant rot war ein doku-sync-Tor, kein
 zusammenbau-beweis. Rezept zeilen 74-101: echte befehlspfad-zelle die durch den mutant rot wird.
+
+## Stand r3 (w216): inhalt fertig, befehlspfad-zelle ECHT (rootCommand->...->entschluesseln),
+mutante ROT in der BEFEHLSZELLE + gegenprobe, base-0001ca02-lauf war success. Finaler lauf 42154778495
+TERMINAL FAILURE an EXAKT der kur-zeile (MutationAcked, internal/development byte-identical) —
+w207/w211-gleichbehandlung: parkt bis kur-r7 in develop, dann rebasis + EIN gruenlauf (mission w220).
