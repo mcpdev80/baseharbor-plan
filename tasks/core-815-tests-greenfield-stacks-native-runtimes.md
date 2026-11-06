@@ -68,8 +68,8 @@ Every shipped built-in greenfield stack satisfies `baha app new … → generate
 
 - Build part delivered; startup acceptance outstanding (pre-freeze acceptance under v0.4.31).
 
-## Zusatz-Abnahme: Control-Plane-Default (Owner 2026-11-06)
+## Additional acceptance: control-plane default (Owner, 2026-11-06)
 
-- Referenzvertrag: `t-20261106-r27-control-plane-single-default`. Jeder frische `baha up`-Standardfall der vier Greenfield-Stacks muss die tatsaechlich gestartete Control Plane als SINGLE beweisen (je Dienst genau eine Instanz; keine HA-Mitglieder/Balancer). `READY` allein genuegt nicht.
-- Auf `baha-docker` UND `baha-podman` pro Testlauf Produkt-SHA, Standard-Compose-Konfiguration, Containeranzahl/-namen, Service-Health und exakte Startbefehle protokollieren; kein stiller HA-Opt-in oder Override in Fixtures.
-- Separater expliziter HA-Positivfall und Default-HA-Negativfall aus der Referenzkarte sind vor Abschluss dieser Acceptance nachzuweisen. Fruehere gruenen HA-Default-Läufe qualifizieren diesen Vertrag nicht.
+- Governing contract: `t-20261106-r27-control-plane-single-default`. Every fresh, unmodified `baha up` default path for all four greenfield stacks MUST demonstrate the actual SINGLE control-plane topology (exactly one instance per required service, no HA members or load balancer). Reaching `READY` alone is insufficient.
+- On BOTH `baha-docker` and `baha-podman`, record product SHA, rendered default Compose configuration, container count/names, service health, and exact startup commands. Fixtures must not silently enable HA or override the default.
+- Before accepting this card, demonstrate both an explicit HA positive scenario and a default-HA negative scenario from the governing contract. Older green HA-default runs do not qualify this requirement.
