@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: high
-owner: coord-welle5 (Lane w197)
-kanban_lane: active
+owner: coord-welle5 (Lane w197, freigegeben)
+kanban_lane: review
 kanban_summary: "Persist desired, last applied and observed release/component references independently for application identity + selected Target…"
-kanban_status: active
+kanban_status: review
 kanban_title: "Deployments: isolate version and configuration per stage"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -21,18 +21,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/active #view/active #area/state #kind/task
+- [ ] t-20261018-r27-stage-versions · Deployments: isolate version and configuration per stage #task #release/v0-4-27 #status/review #view/review #area/state #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w197) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w197, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1391](https://github.com/mcpdev80/baseharbor/pull/1391)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
-**Owner:** coord-welle5 (Lane w197)  
+**Owner:** coord-welle5 (Lane w197, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1391](https://github.com/mcpdev80/baseharbor/pull/1391)  
 **Source:** 
@@ -72,3 +72,8 @@ wirkt). Matrix 3x unabhaengigkeit, beide trennungs-/stale-mutanten rot, zusammen
 ## Rueckruf (1391a REJECT): der ECHTE lebenszyklus-pfad verwirft applied/intended beim erzeugen
 neuer referenz-maps — produkt-defekt, nicht nur testluecke. Matrix- und mutantennachweise fehlen. Rezept
 in review-1391a.md.
+
+## Runde 2 pruefbar 2026-11-06 (kopf 60d5896c9c4)
+Nachgemessen: ls-remote echt==head, develop 21d8d05cf1a VORFAHR (rc=0), lauf 42131821530 TERMINAL SUCCESS
+am exakten kopf, akte round-2.md traegt jetzt die finalen zeugen (END-zeile blieb alt — messe gilt,
+praeszedenz w185). Datenverlust-fix load-merge-refs drin, matrix+beide mutanten rot belegt.
