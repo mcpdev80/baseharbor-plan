@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-node-streams.
+REPO: mcpdev80/baseharbor-node-connector. OBJEKT: PR #22 head 25a24667ebf (RUNDE 6 nach review-22e).
+PRUEFE SHA-genau: (1) Case-A live+barriere: resume auf frischer mTLS-leitung VOR terminalem ende mit
+exakter still-attached-ablehnung — Lies die diff + die barriere-zelle, (2) guard-MUTANTE selbst fahren:
+dreht sie Case A BENANNT rot und lasst B/C/D gruen (diskriminierung), (3) ensemble SELBST -race -count=20
+(timeout 25m, GOTMPDIR /tmp/opencode/<lane>*, VM-/compose-pfade verboten), (4) harness-hang-heilung
+(net.Pipe-park diagonal) als echten fix lesen, nicht workaround, (5) state-owner blobs ruhig, hosted
+42146364305+42146364376 TERMINAL am kopf, ls-remote echt==head, main vorfahr (rc=0), name-only.
+Akte -> evidence/r27-welle5-2026-11-05/node-streams/review-22f.md; AKTE VOR END AUF origin/main
+(ls-tree-beleg); wenn dein write-block bleibt: AKTE per inbox-post wie besprochen (AKTE> <pfad> + volltext).
+END pane: "END_done codex-r22f: verdict=<X> caseA=<live+barriere> mutante=<A rot BCD gruen> ensemble=<selbst> hangfix=<echt> akte=<pfad> | <Satz>"
