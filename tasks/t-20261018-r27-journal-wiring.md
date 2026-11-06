@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (w235)
-kanban_lane: active
+owner: coord-welle5 (w235, entlassen)
+kanban_lane: review
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
-kanban_status: active
+kanban_status: review
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -19,22 +19,24 @@ aliases: []
 early: false
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md","https://github.com/mcpdev80/baseharbor/pull/1393","https://github.com/mcpdev80/baseharbor/actions/runs/42101103524"]
+blocker: ""
+
 ---
 
-- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w235) · **Priority:** normal  
+    **Owner:** coord-welle5 (w235, entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1393), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/42101103524)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** coord-welle5 (w235)  
+**Owner:** coord-welle5 (w235, entlassen)  
 **Priority:** normal  
 **PRs:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
