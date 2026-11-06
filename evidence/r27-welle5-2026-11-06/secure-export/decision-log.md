@@ -36,3 +36,19 @@ Mandatory gates the worker satisfied before END:
 
 After this: END, no further back-and-forth. Merge and merge approval remain the
 Coordinator / Codex-MERGE / Owner channel, not this worker.
+
+## Basis refresh 2026-11-06 (KOORD-ZURUECK)
+
+develop moved to f01d2fbdea6b93af6e06ca6297d04065b6acf701 (stage-versions merge),
+no longer an ancestor of head 179b91b1 (precedence-truth gate: registry-r2 was
+rejected for exactly this). One step: merged current develop into the branch.
+ls-remote develop before merge: f01d2fbdea6b93af6e06ca6297d04065b6acf701.
+Merge commit 0001ca02 (ort, no conflict; commands.go untouched by develop, line
+intact). `git merge-base --is-ancestor f01d2fb HEAD` rc=0. Targeted
+`git add` of the merged files; ls-tree confirms
+internal/deployment/stage_versions.go, internal/deployment/stage_versions_matrix_test.go,
+internal/deployment/deployment_store.go, cmd/baha/deployment_record.go,
+cmd/baha/stage_versions_lifecycle_test.go tracked at new HEAD.
+New head 0001ca02d19fe9edd69d79c94633377dc3f09260 == ls-remote verbatim.
+CI run 42147787627 (pull_request) = success on the new head (all executed jobs
+green; runtime/pin gates skipped).

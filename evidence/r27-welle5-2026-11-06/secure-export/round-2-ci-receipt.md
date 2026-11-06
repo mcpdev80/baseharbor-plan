@@ -96,3 +96,9 @@ Skipped (gated on other lanes / not required this PR):
 - PR #1396 head == 179b91b1 == ls-remote HEAD; develop (21d8d05c) is an ancestor.
 - Merge + merge approval and Planning close-out remain the Coordinator/Owner
   channel (Codex-MERGE / Owner-approval), not this worker.
+
+## Basis refresh (KOORD-ZURUECK)
+
+develop moved to f01d2fb (stage-versions merge). New head 0001ca02
+(develop merge, no conflict, commands.go line intact); ls-remote verbatim;
+f01d2fb ancestor rc=0. CI run 42147787627 = success on the new head.
