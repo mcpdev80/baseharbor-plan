@@ -110,5 +110,5 @@ END_DONE w265-mu-emptybody-fix: head=47a10ab056a5 fixture_reicht_aktivierung_err
 ### ls-tree witness (evidence auf origin/main BEFORE END post)
 
 - `git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/managed-users/round-8.md`:
-  - (wird mit commit in baseharbor-plan belegt; path = managed-users/ unter evidence/r27-welle5-2026-11-06/, parent-dir bereits auf origin/main present, rounds 1-7).
-- origin/main HEAD: `daa888c1572c50c2b36c3ab29604762326408de1`.
+  - `100644 blob 64e6789e77383dd7a7738e5403a5fa99ce3698cb  evidence/r27-welle5-2026-11-06/managed-users/round-8.md`
+- origin/main HEAD: `daa888c1572c50c2b36c3ab29604762326408de1`; my evidence commit `08c9307` pushed.
