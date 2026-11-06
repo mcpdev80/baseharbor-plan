@@ -48,6 +48,11 @@ df3ded33 feat(r27 version-view): readable wanted/applied/observed version view a
 
 ## (1) Gegenprobe jetzt kausal — Mechanismus
 
+- Vergleich Base: `cmd/baha/app_version_view_test.go` existiert an develop `7c393b0d` nicht
+  (`git log --oneline -2 -- cmd/baha/app_version_view_test.go` am Base-Checkout: leer) — der
+  ganze Test wohnt ausschließlich auf diesem Kandidatenzweig; die Gegenprobe vergleicht
+  develop gegen den Kandidaten, nicht zwei Kandidaten.
+
 - Produktseite (`internal/machinereadmodels/release.go`): die Dreier-Zuordnung des ausgelieferten
   Mappers wohnt jetzt in einer produktsichtigen, dokumentierten Tabelle
   `releaseViewStageKinds` (Zeile 13), ist über `ReleaseViewStageKinds()` (Zeile 17-23)
@@ -129,7 +134,10 @@ ersetzt. Diff nur diese Datei in diesem Commit.
 ## (3) PR und Lauf
 
 - PR #1403 bleibt EIN Antrag auf `work/r27-version-view`; kein zweiter PR, kein zweiter Zweig
-  (`git branch --list` in dieser Lane: nur der Namenszweig; ls-remote-Zeugen unten).
+  (`git branch --list` in dieser Lane: nur der Namenszweig; ls-remote-Zeugen unten). Ein bei der
+  Worktree-Erzeugung kurzlebiger lokaler Helper-Branch `work/r27-version-view-checkout` (nur
+  lokal, nie gepusht; `git ls-remote origin 'refs/heads/work/*version-view*'` zeigt nur den
+  einen Kandidatenzweig) wurde vor dem END gelöscht.
 - Kopf nach Push: `65ed48d60f779621ce32c4e5b1546f3e10f9af1d`.
 
 ```
