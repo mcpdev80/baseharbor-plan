@@ -11,9 +11,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 7 |
-| review | 1 |
+| review | 2 |
 | blocked | 2 |
-| ready | 6 |
+| ready | 5 |
 | queued | 26 |
 | waiting | 184 |
 | backlog | 7 |
@@ -36,6 +36,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md) | Identity: invite users through the native provider admin adapter | review | normal | coord-welle5 (Lane w230, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397) |
+| [t-20261106-r27-control-plane-single-default](../tasks/t-20261106-r27-control-plane-single-default.md) | Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in | review | critical | coord-welle5 (w242, entlassen) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404) |
 
 ## Blocked
 
@@ -53,7 +54,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 | [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md) | Management: run one durable minimal authority on the selected host | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
 | [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md) | Recovery: restore the installation state and reconcile owned targets | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](../tasks/t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261106-r27-control-plane-single-default](../tasks/t-20261106-r27-control-plane-single-default.md) | Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 

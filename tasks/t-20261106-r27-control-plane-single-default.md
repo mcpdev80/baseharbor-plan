@@ -5,34 +5,34 @@ areas: [platform, runtime, testing]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord-welle5 (w242, entlassen)
+kanban_status: review
+kanban_lane: review
 kanban_summary: The default BaseHarbor developer/control-plane deployment MUST use a single instance per required service. Currently the shipped…
 kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1404]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/planned #view/ready #area/platform #area/runtime #area/testing #kind/task
+- [ ] t-20261106-r27-control-plane-single-default · Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in #task #release/v0-4-27 #status/review #view/review #area/platform #area/runtime #area/testing #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle5 (w242, entlassen) · **Priority:** critical  
+    **PR:** [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (w242, entlassen)  
 **Priority:** critical  
-**PRs:** none  
+**PRs:** [baseharbor#1404](https://github.com/mcpdev80/baseharbor/pull/1404)  
 **Source:** 
 <!-- /generated:links -->
 
