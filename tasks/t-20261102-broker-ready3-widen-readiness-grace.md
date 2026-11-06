@@ -6,30 +6,30 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: coord-welle4-rest (wartet Owner)
-kanban_lane: blocked
+kanban_lane: closed
 kanban_summary: "The runtime-broker Compose container reaches readiness in time: app apply's /readyz wait no longer times out because the broker…"
-kanban_status: blocked
+kanban_status: closed
 kanban_title: Widen broker readiness grace to the established healthcheck pattern
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]
 prs: [mcpdev80/baseharbor#1287]
 sources: []
-blocker: "Owner-entscheid aus stehender kette: PR#1287 geschlossen ohne grundnotiz (coord-nachmessung 11-06), kandidat 6ddef0ff nur auf zweig, nicht in develop/#1264. Trigger: A wiedereroeffnen+abnahme, oder B als verworfen schliessen."
-resolution: ""
+blocker: ""
+resolution: "Owner rejected proposed change; PR #1287 closed unmerged; no implementation."
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff"]
 ---
 
-- [ ] t-20261102-broker-ready3-widen-readiness-grace · Widen broker readiness grace to the established healthcheck pattern #task #release/v0-4-x #status/blocked #view/blocked #kind/task
+- [ ] t-20261102-broker-ready3-widen-readiness-grace · Widen broker readiness grace to the established healthcheck pattern #task #release/v0-4-x #status/closed #view/closed #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4-rest (wartet Owner)  
     **PR:** [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287)  
-    **Blocker:** Owner-entscheid aus stehender kette: PR\#1287 geschlossen ohne grundnotiz (coord-nachmessung 11-06), kandidat 6ddef0ff nur auf zweig, nicht in develop/\#1264. Trigger: A wiedereroeffnen+abnahme, oder B als verworfen schliessen.  
+
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** closed  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** none  
 **Owner:** coord-welle4-rest (wartet Owner)  
@@ -69,3 +69,7 @@ The runtime-broker Compose container reaches readiness in time: app apply's `/re
 
 - 2026-11-02: Worker completed the product fix on branch `work/broker-ready3-startperiod-grace` (commit 6ddef0ff), opened PR #1287, watched CI to terminal (all gates pass, mergeStateStatus CLEAN). Local tests + pr-gate-plan suite pass. Ready for CODEX-REVIEW/CODEX-MERGE.
 - Candidate SHA: 6ddef0ff2b575e9a9a3c4ee1a7bb988a5d1acd86
+
+## Owner decision — 2026-11-07
+
+**Rejected / not planned.** Do not reopen, implement, cherry-pick, or merge PR #1287. It is already closed unmerged. Close this planning task as not planned; the proposed broker readiness timing change is deliberately not accepted. No additional work on this candidate.
