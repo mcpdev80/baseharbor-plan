@@ -743,6 +743,11 @@
           "path": "tasks/t-20261104-r27-demo-guided-consent.md",
           "kind": "task",
           "role": "primary"
+        },
+        {
+          "path": "tasks/t-20261106-r27-remote-up-cli-path.md",
+          "kind": "task",
+          "role": "primary"
         }
       ]
     },

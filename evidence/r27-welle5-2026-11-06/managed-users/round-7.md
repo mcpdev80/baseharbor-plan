@@ -19,14 +19,14 @@ LANE: w260-mu-bodyguard  ·  COORD: 841e7734  ·  ROLL: Worker  ·  RUNDE 7 (REJ
 
 ## Arbeits-Schritte
 
-- [1] Fixtures-Härtung: aktivierungs-fixture body leer => sofort FAIL vor decode
-- [2] Regression: leerer body wird abgelehnt (fail-closed)
-- [3] Kausale Mutanten-Doktrin in isolierter kopie neutralisieren + hashes
-- [4] Exakte quelle zurueck => GRUEN aus derselben zelle
-- [5] fokussierte identityprovider-checks
-- [6] hosted PR Selected Checks am FINAL-kopf terminal beobachten
-- [7] commits auf benanntem zweig, push, lsremote
-- [8] compose projects down (falls gestartet)
+  1. Fixtures-Härtung: aktivierungs-fixture body leer => sofort FAIL vor decode
+  2. Regression: leerer body wird abgelehnt (fail-closed)
+  3. Kausale Mutanten-Doktrin in isolierter kopie neutralisieren + hashes
+  4. Exakte quelle zurueck => GRUEN aus derselben zelle
+  5. fokussierte identityprovider-checks
+  6. hosted PR Selected Checks am FINAL-kopf terminal beobachten
+  7. commits auf benanntem zweig, push, lsremote
+  8. compose projects down (falls gestartet)
 
 ## Repo-Rule-Compliance
 

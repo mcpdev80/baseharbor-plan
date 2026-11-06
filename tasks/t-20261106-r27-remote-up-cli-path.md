@@ -6,22 +6,24 @@ priority: normal
 type: task
 areas: [cli, remote]
 owner: ""
-kanban_status: backlog
-kanban_lane: backlog
-depends_on: [t-20261104-r27-vm-smoke-docker-podman]
+kanban_status: planned
+kanban_lane: ready
+depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
+repos: [mcpdev80/baseharbor]
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/backlog #view/backlog #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** backlog  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
