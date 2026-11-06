@@ -7,7 +7,7 @@ version: ""
 parent: core-777
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: Expose the same existing lifecycle executor on a protected management host with one durable state root and active-writer…
 kanban_status: planned
 kanban_title: "Management: run one durable minimal authority on the selected host"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-management-host · Management: run one durable minimal authority on the selected host #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/remote #kind/task
+- [ ] t-20261018-r27-management-host · Management: run one durable minimal authority on the selected host #task #release/v0-4-27 #status/planned #view/ready #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  

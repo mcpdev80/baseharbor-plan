@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Consistent backup of installation identity, deployments/provider ownership, accepted candidates, required protected snapshots…"
 kanban_status: planned
 kanban_title: "Recovery: restore the installation state and reconcile owned targets"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-state-recovery · Recovery: restore the installation state and reconcile owned targets #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/recovery #kind/task
+- [ ] t-20261018-r27-state-recovery · Recovery: restore the installation state and reconcile owned targets #task #release/v0-4-27 #status/planned #view/ready #area/recovery #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  

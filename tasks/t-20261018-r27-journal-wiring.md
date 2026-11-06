@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle5 (w235, entlassen)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Operations: reconnect and reconcile interrupted executions"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -17,13 +17,13 @@ prs: [mcpdev80/baseharbor#1393, mcpdev80/baseharbor#1392]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md","https://github.com/mcpdev80/baseharbor/pull/1393","https://github.com/mcpdev80/baseharbor/actions/runs/42101103524"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-05/journal-wiring/round-1.md", "https://github.com/mcpdev80/baseharbor/pull/1393", "https://github.com/mcpdev80/baseharbor/actions/runs/42101103524"]
 blocker: ""
 
 ---
 
-- [ ] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
+- [x] t-20261018-r27-journal-wiring · Operations: reconnect and reconcile interrupted executions #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w235, entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392)  
@@ -31,7 +31,7 @@ blocker: ""
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
