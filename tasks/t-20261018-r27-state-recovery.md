@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: ""
-kanban_lane: blocked
+owner: coord-welle5 (w252, zelle5 auf docker-2 laeuft)
+kanban_lane: active
 kanban_summary: "Consistent backup of installation identity, deployments/provider ownership, accepted candidates, required protected snapshots…"
-kanban_status: blocked
+kanban_status: active
 kanban_title: "Recovery: restore the installation state and reconcile owned targets"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-ingress, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -17,23 +17,22 @@ prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "zelle 5 braucht pruefmaschine (beide Hosts belegt); zellen 1-4 gruen gemessen, akte round-2.md"
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-state-recovery · Recovery: restore the installation state and reconcile owned targets #task #release/v0-4-27 #status/blocked #view/blocked #area/recovery #kind/task
+- [ ] t-20261018-r27-state-recovery · Recovery: restore the installation state and reconcile owned targets #task #release/v0-4-27 #status/active #view/active #area/recovery #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Blocker:** zelle 5 braucht pruefmaschine (beide Hosts belegt); zellen 1-4 gruen gemessen, akte round-2.md  
+    **Owner:** coord-welle5 (w252, zelle5 auf docker-2 laeuft) · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (w252, zelle5 auf docker-2 laeuft)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
