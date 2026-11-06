@@ -66,7 +66,7 @@ Bewertung: keine `baseharbor-*`-netzwerke mehr auf 107 — genau das, was round-
 - committed wird als einzelner evidence-file-commit auf main.
 - ls-remote vor commit (main): `8ad1d4891601d97457c73d2175d75e3b2be254ce`.
 - base vor commit: `8ad1d4891601d97457c73d2175d75e3b2be254ce`; `git merge-base --is-ancestor 8ad1d489 HEAD` => rc 0 (base ist ancestor des commits). commit traegt nur die single evidence-file; kein foreign commit darauf.
-- ls-remote nach push: (in der push-transkription).
+- ls-remote nach push (main): `bf762132bc2b6068e0ee203d7491a4820b0fb3cb`. Commit traegt nur die single evidence-file; kein foreign commit darauf.
 
 ## END
 
