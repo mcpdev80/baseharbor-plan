@@ -74,9 +74,16 @@ bh-podman-test-shared-openbao-member-1  | bh-podman-test-shared-openbao  | bh-po
 ports: 127.0.0.1:15433->5432 (compose-single.yaml:53-54) ; 127.0.0.1:18200->8200 (compose-single.yaml:166-167)
 ```
 
-## Step 5 — Bindings/Erreichbarkeit BEFUND (file:line, develop 78e78e66 / build 46ea6c73)
+## Step 5 + 7 — Bindings/Erreichbarkeit BEFUND + enrollment gate (file:line, develop 78e78e66 / build 46ea6c73)
 
-Chain required by `baha node add` (documented inputs: `--tenant-id`, `--core-url`, `--core-address`, `--ca-file`; cmd/baha/node.go:124,301-308) and where the LANDED product stops it, each link probed live on the VM:
+## Step 7 — why enrollment was NOT attempted (the decisive gate, plus live probes)
+
+`baha node add` requires a valid **Core operator OIDC session** (`cmd/baha/node.go:339-343`: `requestNodeAuthorization` → `operatorauth.LoadSession` → typed error "node enrollment requires a valid Core operator session … Run 'baha login'"). `baha login` authenticates against the **operator OIDC configuration stored for the Core** ("Authenticates against the operator OIDC configuration stored for the effective Target/Environment boundary", `baha login --help`; docs/reference/secrets-and-openbao.md:239, docs/spec/control-plane-runtime.md:30). That operator OIDC/API surface belongs to the protected-management bundle: installation.json on this VM records `"machine_role": "development"` (`internal/coreinstallation/installation.go:19-21,49-52`: Development ⇒ `Defaults{ProtectedManagement:false}`), and ADR 0021 (`docs/decisions/0021-one-installation-authority.md:74-89`) states verbatim: the development role's management path is verified-LOCAL — "Login, server and an OIDC operator boundary are" excluded; "The control-plane server (`baha serve`) is a remote boundary… Local direct execution is independent from the server being present or reachable." So the documented, LANDED path to enrollment runs through the serve/operator surface (protected management), which develop does not ship as an installable CLI surface:
+
+- `baha core install` is referenced in `cmd/baha/use_target.go:82` but does not exist: `Error: unknown command "core" for baha`
+- the serving image (`deploy/control-plane/Dockerfile:22 CMD ["serve"]`) has no documented launch path in any EN docs file (grep 'BASEHARBOR_CONNECTOR' across docs/ = only spec descriptions).
+
+The serve probes below (documented env surface only; CA/cert material from the product's own service-access PKI) confirm each gate live rather than by inference:
 
 1. No serve supervision anywhere in the CLI lifecycle. ADR 0003 (`docs/decisions/0015-managed-runtime-api-lifecycle.md:15`) PLANS "`baha up` starts the runtime API together with the control-plane dependencies" and its Consequences section admits the operations slice (service artifact, TLS lifecycle, endpoint discovery) is still due — landed code does not implement it: `installCore` steps are Preflight/SQL/Secrets/Identity/Verify only (`cmd/baha/core_installation.go:114-160`); `git grep -rn 'BASEHARBOR_CONNECTOR\|ConnectorListen' origin/develop -- cmd internal` outside `cmd/baha/serve.go` + `internal/controlplaneruntime/` = zero hits — the documented flags (`docs/spec/target-access-v1.md:268-269,307-308`) have no start-path caller. `baha core install` is promised in `cmd/baha/use_target.go:82` but does not exist: `Error: unknown command "core" for baha`. `docs/reference/cli-machine-coverage.md:109` keeps `baha serve` out of machine ops ("transport supervision belongs to the host"). The runtime broker's `0.0.0.0:8443` (`internal/runtimebroker/compose_render.go:161`) is app-scoped mTLS, not the operator Core, and its network publication exists only in OPEN PR #1383.
 2. Control-plane schema never migrated by the landed lifecycle: `baha serve` (documented env contract docs/spec/control-plane-runtime.md:20-30) fails:
@@ -158,16 +165,26 @@ $ baha status -o json    -> {"target":"local","state":"not_deployed",...}  (no C
 $ baha node list -o json -> {"contract_version":"v1","nodes":[]}
 ```
 
+Cause chain (documented dev-mode reality): the pre-existing Nov-4 install records `machine_role: "development"` (installation.json; `internal/coreinstallation/installation.go:49-52` maps it to `Defaults{LocalWorkspaces:true, ProtectedManagement:false}`), for which ADR 0021 (`docs/decisions/0021-one-installation-authority.md:74-89`) deliberately excludes the login/server/OIDC operator surface — hence no schema-migrated control-plane DB and no serving endpoint. The second fail-closed layer is the compose-owner check: runtime/compose.yaml pins `docker.io/openbao/openbao:2.7.0` (image bada2f32…) while the develop build renders `2.7.1` (asset c2c7ce2b…, compose-single.yaml:117 at 78e78e66); ExistingCanonicalProjectInventory compares stored bytes against the CURRENT binary's render and refuses every lifecycle mutation ("provider runtime definition differs from its protected canonical owner", internal/runtime/canonical_inventory.go:24-25 via control_plane_stop_impact.go:56). This lane did NOT rewrite the file (compose.yaml mtime Nov 4 14:55 unchanged; only installation.json touched at 14:05 by the already-initialized convergence path). Dev-host read-only preflight confirmed zero remote state:
+
+```text
+$ baha status -o json    -> {"target":"local","state":"not_deployed",...}  (no Core on this host — correct: Core lives on the VM)
+$ baha node list -o json -> {"contract_version":"v1","nodes":[]}
+```
+
 ## Teardown witnesses (step 9, written live)
 
 ```text
-$ ~/.local/bin/baha destroy --yes --delete-data     # product lifecycle first — FAILED CLOSED, see below
-Error code ownership_ambiguous: "Runtime mutation requires verified existing Target and deployment ownership."
+$ cd /tmp && ~/.local/bin/baha down                # product lifecycle first (guided path)
+Error
+  Runtime mutation requires verified existing Target and deployment ownership.
+$ ~/.local/bin/baha destroy --yes --delete-data    # explicit path
+{"contract_version":"v1","error":{"code":"ownership_ambiguous",...no ownership is inferred.}}
 ```
 
 Root-cause detail of the destroy failure (itself part of the Befund): the pre-existing Nov-4 state carries compose.yaml with `docker.io/openbao/openbao:2.7.0` (image sha256 bada2f32…) while the develop build renders `2.7.1` (asset sha256 c2c7ce2b…, `internal/runtime/assets/compose-single.yaml:117` at 78e78e66); the canonical-owner check compares rendered vs stored bytes and fails closed (internal/runtime/canonical_inventory.go:24-25 via control_plane_stop_impact.go:56). This lane did NOT rewrite the file — runtime/compose.yaml mtime stayed Nov 4 14:55 while lane-era installation.json shows 14:05 (the already-initialized path preserved it). `baha up --control-plane-only` also never renders the keycloak provider into that compose (its state lives under providers/keycloak/, Nov-4 mtime), so control_plane_stop_observation.go + container_identity.go:7-10 fail closed over the foreign keycloak service before any plan is shown.
 
-Manual cleanup of ONLY this lane's started resources (disclosed: product down/destroy blocked by the owner-shape drift above; the quadlet units were started by this lane via the product's `baha up`, so their stop mirrors exactly what the product lifecycle would retire; data volume kept because product destroy with `--delete-data` was never admitted — see decision note):
+Manual cleanup of ONLY this lane's started resources (disclosed; rationale: mission step 3 forbids hand-frickel for reachability, not for teardown — the product lifecycle refuses stop/destroy against pre-lane Nov-4 owner state, and leaving started containers running would violate LASTREGEL/FABRIKREGEL, so the exact unit-stop mirror of `baha down`'s documented action was applied once and recorded; nothing was added, only what `baha up` started here was stopped):
 
 ```text
 $ systemctl --user stop 'bh-podman-test-shared*' && systemctl --user reset-failed bh-podman-test-shared-*
@@ -198,12 +215,21 @@ Lock: `vm-lock.sh release baha-podman w243` => rc=0 FREE (output at bottom post 
 
 - No product branch/PR in this lane (smoke/BefUND lane; mission names no branch). baseharbor checkout untouched (read-only commands + worktree-free).
 - Refs fetched + verified this session: origin/develop `78e78e66` (contains 46ea6c73 as ancestor — shown above), origin/main (baseharbor) untouched.
-- Evidence base: baseharbor-plan origin/main at fetch `5dfa692 docs: include origin main witness in w244 blocker`; this file committed on top after `git pull --ff-only origin main` => "Already up to date" with 5dfa692, first-parent lineage to origin/main head; exact `ls-tree` witness after push recorded below.
+- Evidence base: baseharbor-plan origin/main at fetch `3b7e5dc evidence(w242): git log -S proof single-default on develop + vm-lock blocker detail` (head at pull; verified ancestor of the evidence commit).
 
 ## VM compose project shutdown witness (owner hygiene 2026-11-05)
 
 No docker/podman COMPOSE project started by this lane beyond quadlet systemd units listed above; `podman ps -a | grep bh-podman-test` => 0 before END (ps-witness recorded below). Caches under /tmp/opencode/w243* and workers/w243-coord-backup/gobuild only.
 
+## origin/main publication witness (second-to-last action)
+
+```text
+$ git -C baseharbor-plan log --oneline -1 origin/main   # after push
+efa15ce evidence(w243): remote-control round-2 — single control-plane live on baha-podman, enrollment BLOCKED by serve-wiring Befund (file:line), VM factory-clean
+$ git ls-tree -r origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+100644 blob d1e048217dad763e05c24a874d9741b433f79cbf	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+```
+
 ## END
 
-END_BLOCKED w243-remote-control-r2: anmeldung=NEIN demo=status+doctor(wortlaut)+start(NEIN, kein demo-command surface) bindingsweg=befund datei:zeile (server- supervision, schema-apply, core-spiffe-cert, connector-release — siehe Step-5) vm-rueckbau=null-zeug + release rc=0 | w242-landung fehlt (formaler trigger) — single ist aber faktisch live bewiesen; Fernsteuerung braucht eigene Folge-Karten.
+END_BLOCKED w243-remote-control-r2: anmeldung=NEIN demo=status+doctor(wortlaut, VM-local)+start(NEIN — `baha demo` existiert nicht, Remote-Start blocked) bindingsweg=befund datei:zeile (see Step-5 chain) vm-rueckbau=null-zeug + release rc=0 | w242-landung fehlt (formaler trigger) — single ist aber faktisch live bewiesen; Fernsteuerung braucht eigene Folge-Karten.
