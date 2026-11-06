@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 10 |
-| review | 1 |
+| review | 0 |
 | blocked | 3 |
-| ready | 2 |
+| ready | 5 |
 | queued | 26 |
-| waiting | 190 |
+| waiting | 187 |
 | backlog | 7 |
-| closed | 137 |
+| closed | 138 |
 
 ## Active
 
@@ -36,9 +36,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md) | Registries: use configured enterprise endpoints and native credentials | review | high | coord-welle5 (Lane w222, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395) |
+None.
 
 ## Blocked
 
@@ -54,11 +52,14 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261018-r27-image-transfer](../tasks/t-20261018-r27-image-transfer.md) | Images: reuse native registry and local-store transports | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
+| [t-20261018-r27-local-registry](../tasks/t-20261018-r27-local-registry.md) | Artifacts: optionally provision an existing OCI registry implementation | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
+| [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md) | Versions: show release components source and running state | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 40 open, 73 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 39 open, 74 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

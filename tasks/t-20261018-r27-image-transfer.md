@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: "Choose registry pull/copy, existing target-native image store, or supported native save/load/OCI layout/archive transfer. Use…"
 kanban_status: planned
 kanban_title: "Images: reuse native registry and local-store transports"
@@ -21,15 +21,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-image-transfer · Images: reuse native registry and local-store transports #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/artifacts #kind/task
+- [ ] t-20261018-r27-image-transfer · Images: reuse native registry and local-store transports #task #release/v0-4-27 #status/planned #view/ready #area/artifacts #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-promote](t-20261018-r27-promote.md)  

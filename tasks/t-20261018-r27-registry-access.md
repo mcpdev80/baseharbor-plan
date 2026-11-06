@@ -7,9 +7,9 @@ version: ""
 parent: v0.4.27
 priority: high
 owner: coord-welle5 (Lane w222, freigegeben)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Resolve explicitly configured app-scoped OCI registry/artifact endpoints including GitLab/GHCR/Harbor/Quay/Artifactory/Nexus…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Registries: use configured enterprise endpoints and native credentials"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-native-auth, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -17,18 +17,19 @@ prs: [mcpdev80/baseharbor#1395]
 sources: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1395"]
 ---
 
-- [ ] t-20261018-r27-registry-access · Registries: use configured enterprise endpoints and native credentials #task #release/v0-4-27 #status/review #view/review #area/artifacts #kind/task
+- [x] t-20261018-r27-registry-access · Registries: use configured enterprise endpoints and native credentials #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/artifacts #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w222, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1395)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md)  
@@ -129,3 +130,7 @@ pull-liste rot, rueckgabe+gegenprobe gruen, git-diff in akte). Berichtigungszeil
 drin (KOORD 2026-11-06).
 
 ## ACCEPT 2026-11-06 (1395e je-schicht-matrix bestaetigt): merge UNTERWEGS (kopf 99b3e144dd5); schliesst bei develop-beleg.
+
+## Gemerged 2026-11-06 (CODEX-MERGE nach 1395e ACCEPT): kopf 99b3e144dd5, develop ea656d1fcfc.
+Dritte Runde naechste stufe: diskriminierungsmatrix je schicht statt ein-mutant-fuer-alle; beide mutanten
+(M1/M7) von der pruefinstanz selbst nachgebaut.
