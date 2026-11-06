@@ -91,6 +91,13 @@ END_BLOCKED w199-vm-smoke: podman-host=unreachable (ssh-banner-timeout 192.168.6
 docker-host baha-docker ok (Docker 29.8.1, kein baha installiert) | nichts installiert/veraendert,
 STOP-Kriterium "VM nicht erreichbar" + Hostnamens-Dissonanz gemeldet
 
+Letzte Korrektur: Evidence-Pfad auf origin/main verifiziert, letzter Stand:
+
+```
+$ git ls-tree origin/main -- evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
+100644 blob 9d7ce1172edcd74f7f4866bda16f54eb894a4f42	evidence/r27-welle5-2026-11-05/vm-smoke/round-1.md
+```
+
 ## Erganzung: Basis-Attestation und Veroeffentlichungs-Zeuge
 
 Basis-Attestation (kein Branch noetig — Evidence-only-Akt direkt auf main, kein Produkt-Write-Set):
