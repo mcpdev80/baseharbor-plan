@@ -6,14 +6,14 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w250)
+owner: coord-welle5 (w255 ausstehend)
 kanban_lane: active
 kanban_summary: Expose the same existing lifecycle executor on a protected management host with one durable state root and active-writer…
 kanban_status: active
 kanban_title: "Management: run one durable minimal authority on the selected host"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1405]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -24,7 +24,8 @@ evidence: []
 
 - [ ] t-20261018-r27-management-host · Management: run one durable minimal authority on the selected host #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w250) · **Priority:** normal  
+    **Owner:** coord-welle5 (w255 ausstehend) · **Priority:** normal  
+    **PR:** [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -33,9 +34,9 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** coord-welle5 (Lane w250)  
+**Owner:** coord-welle5 (w255 ausstehend)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
