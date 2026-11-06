@@ -225,8 +225,8 @@ No docker/podman COMPOSE project started by this lane beyond quadlet systemd uni
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git log --oneline -1 origin/main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-9e3c1f0 evidence(w243): final teardown witnesses - VM all-null + lock release rc=0
-100644 blob 2b3090916b8221635285844272212a70c14b9969	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+b42b8ca evidence(w243): final teardown witnesses - VM all-null + lock release rc=0
+100644 blob edeac78354473c118c0f9d45d9295bacf08c74ea	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
 ```
 
 ## Lock release + final VM ps-witness (LASTREGEL / compose-hygiene)
