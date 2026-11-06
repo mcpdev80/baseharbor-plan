@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: ""
-kanban_lane: ready
+owner: coord-welle5 (Lane w208)
+kanban_lane: active
 kanban_summary: Accept and retain minimal authorized app/revision/consent metadata and the exact native input/reference for an operation. Reuse…
-kanban_status: planned
+kanban_status: active
 kanban_title: "Sources: persist authorized immutable deployment candidates"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-pack, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-candidate-ingress · Sources: persist authorized immutable deployment candidates #task #release/v0-4-27 #status/planned #view/ready #area/sources #kind/task
+- [ ] t-20261018-r27-candidate-ingress · Sources: persist authorized immutable deployment candidates #task #release/v0-4-27 #status/active #view/active #area/sources #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord-welle5 (Lane w208) · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md)  
-**Owner:** unassigned  
+**Owner:** coord-welle5 (Lane w208)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
