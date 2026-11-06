@@ -36,11 +36,14 @@
 
 ## Test evidence (local, decisive gates)
 - `go vet ./internal/development/` -> clean.
-- `-race -count=50` (decisive local gate) -> ok.
-- `-count=100` (the run that previously failed 18x) -> ok.
-- `-race -count=100` on the three change-during-read cells -> ok.
-- Full package `go test ./internal/development/ -count=3` -> ok.
-- Control cell green in all of the above.
+- `-race -count=50` on the two flaky change-during-read cells -> ok (2.7s; previously `MutationAcked never fired`).
+- `-count=100` on the two flaky cells -> ok (2.0s; previously 18x red).
+- Local repro confirmed: on unmodified develop (HEAD f01d2fbd) the two cells FAIL identically "MutationAcked never fired" (5.0s) then panic at 90s; after applying my commit 12e3c3fe's 2 files locally they are green.
+- Full-package `-count` and control-cell witnesses pending re-run on the applied tree (local gates superseded by hosted CI as the decisive criterion per mission).
+
+## Local state at END-of-shift
+- Local workers/baseharbor clone is on clean develop HEAD f01d2fbd; my commit 12e3c3fe is NOT merged into it (my local clone is not this lane's branch — the branch lives at origin only, remote 12e3c3fe). I applied my 2 files to the develop tree only for a local green witness, not as a candidate.
+- Remote branch work/r27-flake-r7 = 12e3c3fe6c6e83a6a3fb0b35e6eb4a5d9fec9ad3 (unchanged, my clean commit). PR #1400 head = 12e3c3fe (unchanged).
 
 ## Repo-rule compliance
 - Write-set: only internal/development/source_snapshot.go and internal/development/source_snapshot_test.go (test seam). No .github/** edits, no workflow dispatch/rerun, no second PR, no product-repo evidence, no compose on this host.
