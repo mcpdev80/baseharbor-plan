@@ -110,5 +110,5 @@ END_DONE w265-mu-emptybody-fix: head=47a10ab056a5 fixture_reicht_aktivierung_err
 ### ls-tree witness (evidence auf origin/main BEFORE END post)
 
 - `git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/managed-users/round-8.md`:
-  - `100644 blob 22c75060c094e77cbfe22526151eee55d57b89c9  evidence/r27-welle5-2026-11-06/managed-users/round-8.md`
-- origin/main HEAD: `daa888c1572c50c2b36c3ab29604762326408de1`; my evidence commits `08c9307` + `1b1c46e` pushed.
+  - `100644 blob 4018595589a956e145d74cfc471f976755965810  evidence/r27-welle5-2026-11-06/managed-users/round-8.md`
+- origin/main HEAD: `daa888c1572c50c2b36c3ab29604762326408de1`; my evidence commits `08c9307` + `1b1c46e` + `767cc36` pushed.
