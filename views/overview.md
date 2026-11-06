@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 12 |
 | review | 2 |
 | blocked | 3 |
-| ready | 3 |
+| ready | 2 |
 | queued | 26 |
 | waiting | 190 |
 | backlog | 7 |
@@ -25,6 +25,7 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md) | Sources: persist authorized immutable deployment candidates | active | normal | coord-welle5 (Lane w213, uebernahme w208) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-app-binding](../tasks/t-20261018-r27-app-binding.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
+| [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md) | GitOps: preserve external desired state and hand off native changes | active | high | coord-welle5 (Lane w214) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 | [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md) | Operations: reconnect and reconcile interrupted executions | active | normal | coord-welle5 (Lane w207) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-execution-journal](../tasks/t-20261018-r27-execution-journal.md), [t-20261018-r27-mutation-lock](../tasks/t-20261018-r27-mutation-lock.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1393](https://github.com/mcpdev80/baseharbor/pull/1393), [baseharbor#1392](https://github.com/mcpdev80/baseharbor/pull/1392) |
 | [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md) | Identity: invite users through the native provider admin adapter | active | normal | coord-welle5 (Lane w211) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1397](https://github.com/mcpdev80/baseharbor/pull/1397) |
 | [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md) | Registries: use configured enterprise endpoints and native credentials | active | high | coord-welle5 (Lane w210) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](../tasks/t-20261018-r27-candidate-contract.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1395](https://github.com/mcpdev80/baseharbor/pull/1395) |
@@ -56,7 +57,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | ready | normal | o66 (coordinator, r27 board-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md) | GitOps: preserve external desired state and hand off native changes | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-delivery-boundary](../tasks/t-20261018-r27-delivery-boundary.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 
 ## By release
 
