@@ -44,11 +44,27 @@ Repo: mcpdev80/baseharbor · Zweig `work/r27-version-view` → PR #1403 gegen `d
   die persistierte observed-Dimension via `deployment.ClearReference` und
   verlangt danach die UNCLEAR-Zelle (`TestAppVersionsCommandCallable`).
 - **mutante (echt rot + Gegenprobe):** `TestStagesViewMutationAgainstSeparationLine`
-  (:306) baut den echten Spaltenmisch-Mutanten (observed liest die
-  applied-Dimension) gegen denselben Fixture-Felderzugriff wie der ausgelieferte
-  Mapper; der Mutant verletzt genau eine Zelle (ROT erzwungen, `t.Fatal` bei
-  0 Verletzungen), die ehrliche ausgelieferte Map-Funktion ist die
-  Gegenprobe auf exakt demselben Fixture.
+  (:306) baute in Runde 1 den Spaltenmisch-Mutanten auf einer zweiten,
+  fehlkonfigurierten Mapper-Kopie im Testfile (`referenceCell`); ihr Grün hing
+  nicht kausal von `internal/machinereadmodels/release.go` ab — der Luna-Befund
+  in `act-1403b.md` ist zutreffend, und die ursprüngliche Beschreibung "gegen
+  denselben Fixture-Felderzugriff wie der ausgelieferte Mapper" war faktisch
+  falsch und wird hiermit berichtigt. RUNDE 2 liefert den echten Mechanismus:
+  Der ausgelieferte Mapper `ReleaseViewFromRecord` deklariert seine
+  wanted/applied/observed-Zuordnung in der produktsichtigen Tabelle
+  `releaseViewStageKinds` (lesbar über `ReleaseViewStageKinds()`) und delegiert
+  an `ReleaseViewFromRecordWithStageKinds(record, kinds)`. Die Zelle fährt
+  denselben ausgelieferten Codepfad zweimal: Gegenprobe mit der ausgelieferten
+  Tabelle (GRÜN), Mutant mit derselben Funktion, demselben Record und nur einem
+  getauschten Slot in der übergebenen Tabelle (observed liest die
+  applied-Dimension) — ROT, genau eine Verletzung.
+  Ein zweiter Zweig prüft die Zellen-Provenienzaufschrift (Kind) gegen die
+  Klassenmutation des stillschweigenden Dimensionswechsels — der in Runde 1
+  unsichtbare Fall, gemessen an `release.go:165` = `stageCell`-Kind-Zuweisung im
+  damaligen Stand; nach dem Umbau Zeile 190. Zeugnisse der zwei lokalen
+  Produkt-Mutanten (Dimension `release.go:13` und Kind `release.go:190`, je
+  lokal, rückgängig):
+  `evidence/r27-welle5-2026-11-06/version-view/round-2.md`.
 - **redfirst (belegt):** Die Dateien `cmd/baha/app_version_view.go`,
   `cmd/baha/app_versions_command.go`, `internal/machinereadmodels/release.go(+_test.go)`
   existieren auf origin/develop nicht (`git ls-tree -r origin/develop` → rc=1);
