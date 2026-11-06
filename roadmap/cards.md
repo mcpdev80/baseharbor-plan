@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 69/113 · **Blocked:** 0 · **Waiting:** 28  
+    **Accepted tasks:** 69/113 · **Blocked:** 1 · **Waiting:** 28  
+    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — Host-Infra: baha-podman nicht erreichbar (SSH-timeout, VM festgefahren; coord nachgemessen 02:2xZ) und baha-docker traegt nur einen rootlosen daemon (beide con…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

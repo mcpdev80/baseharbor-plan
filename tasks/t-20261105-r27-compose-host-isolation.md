@@ -5,9 +5,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (Lane w205)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle5 (Lane w205, freigegeben)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon"
 priority: high
@@ -15,23 +15,24 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1383]
 sources: []
-blocker: ""
+blocker: "Host-Infra: baha-podman nicht erreichbar (SSH-timeout, VM festgefahren; coord nachgemessen 02:2xZ) und baha-docker traegt nur einen rootlosen daemon (beide contexts gleich; coord nachgemessen) — Kandidat braucht rootful+rootless. Harness-fix 3b2ec108 auf PR-Zweig. Trigger: VM-Erholung bzw. Owner-Infra-Entscheid."
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w205) · **Priority:** high  
+    **Owner:** coord-welle5 (Lane w205, freigegeben) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Blocker:** Host-Infra: baha-podman nicht erreichbar (SSH-timeout, VM festgefahren; coord nachgemessen 02:2xZ) und baha-docker traegt nur einen rootlosen daemon (beide contexts gleich; coord nachgemessen) — Kandidat braucht rootful+rootless. Harness-f…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle5 (Lane w205)  
+**Owner:** coord-welle5 (Lane w205, freigegeben)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
