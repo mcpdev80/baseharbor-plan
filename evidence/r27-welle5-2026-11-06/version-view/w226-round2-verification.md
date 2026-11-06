@@ -126,7 +126,11 @@ evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md
 Nachtrag (base drift #2): develop bewegte sich erneut auf `5f8b2985` (PR #1401). Lane hat
 `origin/develop` per merge-commit `9e76da5a` in den Zweig integriert (ancestry rc=0, keine
 Konflikte, keine Lane-Dateien betroffen; Gates build/vet/gofmt rc=0 + race-20 PASS am neuen
-Kopf) und gepusht; hosted 42213229059 feuerte automatisch am neuen Kopf, Beobachtung bis
-TERMINAL (kein rerun/dispatch).
+Kopf) und gepusht; hosted 42213229059 feuerte automatisch am neuen Kopf und ist
+`completed success` (TERMINAL, wörtlich: `completed success` — beobachtet, kein rerun/dispatch).
+Vollsuite am Kopf 9e76da5a: 89 failing tests, identisch zur Baseline `ea656d1f`
+(comm-Diff: 0 NEW / 0 GONE). Red-first-Zeuge am aktualisierten develop `bc8670c1`:
+`git ls-tree -r --name-only origin/develop cmd/baha internal/machinereadmodels | grep -cE
+'version_view|versions_command|machinereadmodels/release'` → 0 (rc=1); am Branch-Kopf 5 Dateien.
 
-END_DONE w226-version-view: head=9e76da5adafa getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42213229059-TERMINAL lsremote=9e76da5adafa | Lane w226 Runde 2: base-drift zweimal behandelt (9a14fa80/42206284877 success; 9e76da5a/42213229059), w229-Rezeptfix (ef9464ef) kollisionsfrei uebernommen und unabhaengig verifiziert (beide Produkt-Mutanten ROT an der Gegenprobe, race-20 PASS); Punkte 3+4 als QUESTION offen bei 841e7734. Akte: evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md.
+END_DONE w226-version-view: head=9e76da5adafa getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42213229059-TERMINAL-SUCCESS lsremote=9e76da5adafa | Lane w226 Runde 2: base-drift zweimal behandelt (9a14fa80/42206284877 success; 9e76da5a/42213229059), w229-Rezeptfix (ef9464ef) kollisionsfrei uebernommen und unabhaengig verifiziert (beide Produkt-Mutanten ROT an der Gegenprobe, race-20 PASS); Punkte 3+4 als QUESTION offen bei 841e7734. Akte: evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md.
