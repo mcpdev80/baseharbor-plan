@@ -155,4 +155,7 @@ public-surfaces' owned writes). Write-set stays:
 
 ## END
 
+- PROCESS_LOG note: no PROCESS_LOG.md exists anywhere in baseharbor-plan or the ecosystem
+  (searched origin/main tree + working tree + full-text); recording the absence as a finding.
+
 END_DONE w214-delegated-handoff: head=88cee2b21d fixtures=beide+4 aktionen metadaten=erhalt+zelle+mutante drift=kein-stiller-fallback redfirst=belegt lauf=42150874541 TERMINAL success lsremote=88cee2b21d | PR #1399 gegen develop f01d2fbd, race-20/build/vet/gofmt gruen, mutant RED/gegenprobe GREEN
