@@ -182,8 +182,12 @@ eigenen Nachlese-Eigelaende in baseharbor-plan main; ihre Endfassung ist die ls-
 
 ## Evidence-on-origin/main witness (zweitletzte Aktion)
 
+Die Endfassung der Akte auf origin/main lautet wie folgt; die Push-Nachlese (git ls-tree) stammt vom letzten
+Push (main == 0f302046c3f6cac38e497b74e13bc7af7b8be0fe, ls-remote WORTLICH unten) und ueberprueft den
+Vorlauf dieser Datei an ihrem Pfad:
+
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main
-1c3ec133791aeda5261af6467b35a5886387b0d1	refs/heads/main
+0f302046c3f6cac38e497b74e13bc7af7b8be0fe	refs/heads/main
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r origin/main --name-only | grep registry-access
 evidence/coord-memory/missions/w195-registry-access.txt
 evidence/coord-memory/missions/w203-registry-access-r2.txt
