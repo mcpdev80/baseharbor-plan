@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-registry-access.
+OBJEKT: PR #1395 head 99b3e144dd5 (RUNDE 4 nach deinem 1395c: propagierung + negetivzellen).
+PRUEFE SHA-genau: (1) resolveRegistrySourceImpl propagiert ErrRegistrySourceUnavailable JETZT ( Lies den
+pfad — der 1395c-befund darf nirgends reinkriechen), (2) die VIER zellen selbst fahren: failed/denied/
+public-default/missing-digest => NULL pulls (zaehlung in den zellen pruefen, nicht nur abwesenheit),
+(3) MUTANTE M1 selbst: fallback-zeile zurueck => die vier zellen ROT, gegenprobe gruen (echte mutation,
+git-diff, rueckgabe), (4) opt-in-pfad: legacy mutable NUR explizit und KANN endpoint-/public-rejections
+nicht umgehen (zelle), (5) caller-zelle r3 bleibt gruen, hosted 42168126290 TERMINAL am kopf, develop
+VORFAHR rc=0, ls-remote echt==head, name-only cmd/baha+adapter, blobs ruhig. Akte -> evidence/
+r27-welle5-2026-11-05/registry-access/review-1395d.md; bei write-block: AKTE> post.
+END pane: "END_DONE codex-r1395d: verdict=<X> propagierung=<selbst> negcells=<4x null-pulls> mutante=<echt> optin=<dicht> akte=<pfad> | <Satz>"

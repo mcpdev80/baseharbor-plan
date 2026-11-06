@@ -1,0 +1,11 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-node-streams.
+REPO: mcpdev80/baseharbor-node-connector. OBJEKT: PR #22 head 2e285a771ed (RUNDE 7 nach deinem 22f:
+kindfehler-maskierung behoben).
+PRUEFE SHA-genau: (1) dein 22f-befund ist der massstab: ein kind-Fehler OHNE context-abbruch muss den
+strom als FEHLER beenden ( Lies executor.go diff gegen 25a2466 + case-E zelle), (2) ctx-kill pfad endet
+weiterhin mit sauberem EOF (zelle), (3) MUTANTE selbst: EOF-mapping zurueck => kindfehler-zelle ROT
+(gegenprobe gruen, echte mutation, rueckgabe), (4) Case A-D regressions-read (waren bestaetigt), (5)
+ensemble SELBST -race -count=20 (timeout 25m, GOTMPDIR /tmp/opencode/<lane>*), (6) beide laeufe
+42159456055/71 TERMINAL am kopf, ls-remote echt==head, main vorfahr rc=0, name-only, blobs ruhig.
+Akte -> evidence/r27-welle5-2026-11-05/node-streams/review-22g.md; bei write-block: AKTE> post.
+END pane: "END_DONE codex-r22g: verdict=<X> kindfehler=<selbst> abbruch=<EOF> mutante=<echt> ensemble=<selbst> akte=<pfad> | <Satz>"

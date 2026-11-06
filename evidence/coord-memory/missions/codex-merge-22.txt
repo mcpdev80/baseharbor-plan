@@ -1,0 +1,7 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert). Coord 841e7734. KARTE/PR: t-20261018-r27-node-streams /
+mcpdev80/baseharbor-node-connector#22, akzeptierter kopf 2e285a771ed (review-22g.md ACCEPT). STUFEN:
+ls-remote head==2e285a771ed (sonst STOP), main AKTUELL konfliktfrei einmerge, push, hosted lauf bis
+TERMINAL GRUEN am vereinten kopf selbst beobachten, gh pr merge --merge (kein bypass/force),
+main-sha+merge-sha ins pane. Karte schliesst coordinator. KEIN compose/docker auf diesem host, keine
+VM-Laeufe.
+END pane: "END_DONE codex-merge-22: merged=<sha10> main=<sha10> head-vor-merge=2e285a771ed | <Satz>"
