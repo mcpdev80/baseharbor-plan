@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: coord-welle5 (w215, wartet auf Sitz)
+owner: coord-welle5 (Lane w215)
 kanban_lane: active
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261018-r27-node-streams · Connector: bound log replay and terminal cancellation #task #release/v0-4-27 #status/active #view/active #area/connector #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w215, wartet auf Sitz) · **Priority:** normal  
+    **Owner:** coord-welle5 (Lane w215) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
-**Owner:** coord-welle5 (w215, wartet auf Sitz)  
+**Owner:** coord-welle5 (Lane w215)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#22](https://github.com/mcpdev80/baseharbor-node-connector/pull/22)  
 **Source:** [baseharbor-node-connector#3](https://github.com/mcpdev80/baseharbor-node-connector/issues/3)
