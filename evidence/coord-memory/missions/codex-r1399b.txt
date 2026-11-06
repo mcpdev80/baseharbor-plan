@@ -1,0 +1,10 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-delegated-handoff.
+OBJEKT: PR #1399 head bf8bd49da8f (RUNDE 2 nach deinem 1399a: validate-leichen-fix + negetivzellen).
+PRUEFE SHA-genau: (1) validate() wird im PRODUKTIVEN pfad gerufen ( Lies handoff.go stelle + diff gegen
+88cee2b21d7), (2) die DREI negetivzellen SELBST fahren: flag ohne evidence => fehler; digest-mismatch +
+true => fehler; drift + true => keine true-flags, (3) MUTANTE selbst: validate-aufruf raus => nege-zellen
+ROT (echte mutation, git-diff, rueckgabe), gegenprobe gruen, (4) positivzelle mit echten zeugen bleibt
+gruen, (5) fixtures/metadaten regressions-read, hosted 42155242740 TERMINAL am kopf, develop VORFAHR
+rc=0, ls-remote echt==head, name-only, blobs ruhig. Akte -> evidence/r27-welle5-2026-11-06/
+delegated-handoff/review-1399b.md; bei write-block: AKTE> inbox-post (pfad erster satz + volltext).
+END pane: "END_DONE codex-r1399b: verdict=<X> pfad=<gerufen> nege=<3x selbst> mutante=<echt> akte=<pfad> | <Satz>"
