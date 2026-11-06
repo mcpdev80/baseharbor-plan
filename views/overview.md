@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
-| review | 1 |
+| active | 10 |
+| review | 0 |
 | blocked | 3 |
 | ready | 5 |
 | queued | 26 |
@@ -32,12 +32,11 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261102-pgauth2-openbao-backend-privileges](../tasks/t-20261102-pgauth2-openbao-backend-privileges.md) | OpenBao: grant PG backend role legal connect on postgres/template1 | active | not set | ornith (pgauth2) | — | [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269) |
 | [t-20261102-rcptlink-1272](../tasks/t-20261102-rcptlink-1272.md) | MCP authoring Workload.Compose optional in intent schema | active | not set | ornith (rcptlink) | — | [baseharbor#1272](https://github.com/mcpdev80/baseharbor/pull/1272) |
 | [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs | active | critical | coord-welle4 (lanes w116, w117) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261105-r27-snapshot-change-guard-deterministic](../tasks/t-20261105-r27-snapshot-change-guard-deterministic.md) | Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) | active | high | coord-welle5 (w223, dispatch folgt) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400) |
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261105-r27-snapshot-change-guard-deterministic](../tasks/t-20261105-r27-snapshot-change-guard-deterministic.md) | Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) | review | high | coord-welle5 (Lane w209, freigegeben) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](../tasks/t-20261018-r27-candidate-pack.md) | [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400) |
+None.
 
 ## Blocked
 
