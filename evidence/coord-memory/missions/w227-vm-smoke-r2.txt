@@ -1,0 +1,29 @@
+ROLLE: Worker (Lane w227). Coord 841e7734. KARTE: t-20261104-r27-vm-smoke-docker-podman (RUNDE 2).
+BEIDE hosts sind FRISCH GERAEMT (coord-nachmessung 2026-11-06: container=0, ram-frei >4.9G/5.7G, last
+niedrig, nur ALT-BAHA unter ~/.local/bin — das ist der zu ersetzende bestand).
+ABLAUF PRO HOST (baha-docker, baha-podman — NUR per SSH, nie auf diesem koordinations-rechner):
+(1) VOR-PRUEFUNG woertlich in die akte: containerzahl=0, keine laufenden baha-prozesse, letzte zeile des
+    alten baha version (altbestand benennen),
+(2) ALT WEG (OWNER-DIREKTIVE): altes baha-Programm + alle baha-daten/-konfiguration/-cache-pfade des
+    alten launders vom host entfernen (nur baha-pfade, niemals systemdateien; liste des entfernten in
+    die akte),
+(2.5) OWNER-DIREKTIVE 2026-11-06 — baha-docker: ROOTLESS docker EINRICHTEN (neben rootful, beide sollen
+    laufen): dockerd-rootless-setuptool.sh install fuer user marcel (subuid vorbedungen, gemessen:
+    marcel:100000:65536), systemctl --user enable --now docker, ~/.docker/run/docker.sock; daemon.json
+    storage-driver vfs NICHT vergessen wenn overlay am user-mode scheitert (praeszedenz alt-protokolle);
+    NACHHER: docker context create rootless + beide sockets mit je einem HELLO-BEHALTER testen
+    (rootful sudo docker run --rm hello-world + rootless docker run --rm hello-world), ausgaben woertlich.
+    baha-podman bleibt rootless podman (unveraendert pruefen). ERST dann weiter mit (3).
+(3) NEU: aktuellest develop (ls-remote refs/heads/develop, NACH deinem build der source-kopf des binaries
+    == dieser SHA sein — nachpruefen per baha version!) bauen (source in /tmp/opencode/w227-src, GOTMPDIR
+    darunter), install nach ~/.local/bin/baha,
+(4) SMOKE je host: geraet anmelden, dienst beobachten, status/version/audit-zeile — BEFEHL + AUSGABE
+    WORTLICH pro schritt (beide richtungen: docker-pfade auf docker-host, podman auf podman-host),
+(5) NACH SMOKE wieder KOMPLETT WEG (owner-direktive: test-system, fabrikfrischer zustand): dieselbe
+    entfernliste wie (2) + verifiziere mit derselben containerzahl=0-pruefung und 'baha: nicht installiert',
+(6) KEIN Ueberlagern: nach jedem schritt prozess-zahl pruefen, bei anzeichen von druck (load >4) PAUSE
+    und nochmal messen statt weiterbolzen.
+GATES: akte VOR END auf origin/main (ls-tree-beleg), KEINE subagenten/PR noetig (reine betriebstat —
+KEIN produktzweig, KEIN commit im produktrepo, KEIN compose/root-checkout), 
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/vm-smoke/round-2.md
+END an 841e7734: "END_DONE w227-vm-smoke-r2: docker=<anmeldung+beobachtung gruen, fabrik> podman=<ebenso, fabrik> altbestand=<entfernt, liste in akte> version=<develop-sha10 belegt> raumzustand=<0 container beide> | <Satz>"

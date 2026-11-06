@@ -85,8 +85,5 @@ installiert. Läufe gegen 0.4.23 zählen nicht als Test.
 - SPERRVERMERK: #1373 journal an Owner+ChatGPT (Direktive 15:5x). Keine Lane in machinehttp-journal-pfade;
   1373g-abnahme abbestellt; journal-wiring-abhaengige bleiben warten.
 - JOURNAL GEMERGT (owner 16:1x, develop 77511c8a667, karte accepted). journal-wiring wartet nur noch auf
-| 18 | coordinator/missions/w217-managed-users-r3-rebase.txt | ABHÄNGIG: kur-r7 muss zuerst in develop | dann naechster freier sitz |
-| 21 | coordinator/missions/w220-secure-export-r4-greenrun.txt | ABHÄNGIG: kur-r7 in develop | dann naechster flash/laptop sitz |
-| 24 | coordinator/missions/w224-local-registry.txt | soeben dispatched (laptop) | entfaellt bei END |
-| 25 | coordinator/missions/w225-image-transfer.txt | soeben dispatched (desktop) | entfaellt bei END |
-| 26 | coordinator/missions/w226-version-view.txt | soeben dispatched (flash) | entfaellt bei END |
+| 18 | coordinator/missions/w217-managed-users-r3-rebase.txt | ABHÄNGIG: kur-r8 muss zuerst in develop (r7 wurde in 1400a abgelehnt, r8 laeuft) | dann naechster freier sitz |
+| 21 | coordinator/missions/w220-secure-export-r4-greenrun.txt | ABHÄNGIG: kur-r8 in develop (r7 abgelehnt, r8 laeuft) | dann naechster flash/laptop sitz |
