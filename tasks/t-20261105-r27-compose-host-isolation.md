@@ -17,7 +17,7 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
-blocker: "Umwelt-Beweisdossier fertig (round-4.md, 3 wortliche Zeugnisse): die vier Abnahme-Zellen scheitern an der 2/3-min-Testfrist gegenueber 4-min-Readiness des HA-Ensembles (keycloak_driver.go:664). Wurzel = Produkt-Default, eigene karte t-20261106-r27-control-plane-single-default. Trigger: Einzel-Default landet in develop, dann EIN gruenlauf am aktuellen kopf (mission w241-artig)."
+blocker: "Owner-Bewertung 2026-11-06: CI gruen, keine konflikte — fachliche abnahme OFFEN: echte Isolationstests auf baha-docker UND baha-podman inkl. MUTANTENPROBE, erst danach merge (#1383). Naechster trigger: 1404-landung setzt die gruenlauf+isolations-kette in gang"
 
 ---
 
@@ -25,7 +25,7 @@ blocker: "Umwelt-Beweisdossier fertig (round-4.md, 3 wortliche Zeugnisse): die v
     <!-- generated:card -->
     **Owner:** coord-welle5 (w236, entlassen) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-    **Blocker:** Umwelt-Beweisdossier fertig (round-4.md, 3 wortliche Zeugnisse): die vier Abnahme-Zellen scheitern an der 2/3-min-Testfrist gegenueber 4-min-Readiness des HA-Ensembles (keycloak\_driver.go:664). Wurzel = Produkt-Default, eigene karte t-2026…  
+    **Blocker:** Owner-Bewertung 2026-11-06: CI gruen, keine konflikte — fachliche abnahme OFFEN: echte Isolationstests auf baha-docker UND baha-podman inkl. MUTANTENPROBE, erst danach merge (\#1383). Naechster trigger: 1404-landung setzt die gruenlauf+isol…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
     <!-- /generated:card -->
 
