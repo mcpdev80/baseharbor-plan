@@ -65,8 +65,20 @@ Koordinator: 841e7734.
 - vm-lock baha-podman: inhaber=w243.
 - erst nach release von w243: claim als w246, smoke (rootless podman + baha), rueckbau, release.
 
+## 2026-11-06 16:0xZ — UEBERGABE-VERMERK podman (Koordinator 841e7734)
+- baha-podman bleibt bei w243 (8 bh-podman-test-shared Container, nicht meins, NICHT loeschen).
+- DRITTE Pruefmaschine eingerichtet: **baha-podman-2**, IP 192.168.6.107 (owner eingetragen, credentials geprueft,
+  container=0, podman 5.7.0 laeuft).
+- Podman-Haelfe der Mission (r27 vm-smoke) wird als EIGENE mission **w251** auf baha-podman-2 nachgeliefert.
+- Uebergabe: w243 gibt baha-podman-Release an w251 (nicht an mich w246). w246 endet hier mit END_STATE
+  'docker gruen, podman an w251 (baha-podman-2) uebergeben'.
+- vm-lock baha-docker: RELEASED (w246). Keine offenen Claims von w246.
+
 ## END_STATE
-- docker: GRUEN — control-plane READY, app apply gruen (PostgreSQL SELECT), status/doctor READY, rootless docker hello-world, fabrikregel rueckgebaut.
-- podman: WARTET AUF W243-FREISABE — 8 shared-container unveraendert, claim bei w243.
-- raumzustand docker: 0 Container meiner Lane; 9 gemeinsame control-plane (R4-gemaess unveraendert).
-- vm-lock baha-docker: RELEASED (w246). baha-podman bleibt bei w243.
+- docker: GRUEN — control-plane READY, baha app apply gruen (PostgreSQL authenticated SELECT) via
+  BASEHARBOR_PROVIDER_CHANGE_CONSENT + --confirm-candidate, status/doctor READY, rootless docker hello-world
+  (rootful+rootless), fabrikregel rueckgebaut (0 Container meiner Lane; 9 gemeinsame bh-*-shared/-control-plane
+  per R4 unveraendert; baha in path: 'nicht installiert'; keine baha-Prozesse).
+- podman: AN W251 UEBERGEBEN (baha-podman-2, 192.168.6.107) — Nachlieferung als mission w251.
+- raumzustand docker: 0 Container meiner Lane. vm-lock baha-docker RELEASED.
+- Evidence: evidence/r27-welle5-2026-11-06/vm-smoke/round-3.md auf origin/main (ls-tree belegt).
