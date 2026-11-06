@@ -5,9 +5,9 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: coord-welle5 (w264, entlassen)
-kanban_status: review
-kanban_lane: review
+owner: coord-welle5 (w273 dispatched)
+kanban_status: active
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
@@ -16,17 +16,17 @@ blocker: ""
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/review #view/review #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w264, entlassen) · **Priority:** normal  
+    **Owner:** coord-welle5 (w273 dispatched) · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
-**Owner:** coord-welle5 (w264, entlassen)  
+**Owner:** coord-welle5 (w273 dispatched)  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
