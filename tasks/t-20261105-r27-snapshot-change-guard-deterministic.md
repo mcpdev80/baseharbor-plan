@@ -5,35 +5,35 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (Lane w209-r7)
-kanban_status: active
-kanban_lane: active
+owner: coord-welle5 (Lane w209, freigegeben)
+kanban_status: review
+kanban_lane: review
 kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
 kanban_title: "Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI)"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-pack]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1387]
+prs: [mcpdev80/baseharbor#1387, mcpdev80/baseharbor#1400]
 sources: []
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md", "https://github.com/mcpdev80/baseharbor/pull/1387"]
 ---
 
-- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-snapshot-change-guard-deterministic · Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI) #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w209-r7) · **Priority:** high  
-    **PR:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
+    **Owner:** coord-welle5 (Lane w209, freigegeben) · **Priority:** high  
+    **PR:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/candidate-pack/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/snapshot-flake/round-4.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1387)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-pack](t-20261018-r27-candidate-pack.md)  
-**Owner:** coord-welle5 (Lane w209-r7)  
+**Owner:** coord-welle5 (Lane w209, freigegeben)  
 **Priority:** high  
-**PRs:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387)  
+**PRs:** [baseharbor#1387](https://github.com/mcpdev80/baseharbor/pull/1387), [baseharbor#1400](https://github.com/mcpdev80/baseharbor/pull/1400)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -149,3 +149,9 @@ sentinel, GEGENPROBE ohne mutation GRUEN (diskriminierung bewiesen), race-50 gru
 ## Runde 7 noetig (w207-befund, nicht journal-defekt): am integrationskopf efa1600c lokal 4+2 gruen,
 GEHOSTET twice TERMINAL ROT an :247 'MutationAcked never fired' — der ack-wait haelt einem ZEITLIMIT unter
 runner-last, nicht einer kausalen barre. Mission w209-flake-r7 steht; journal-#1393-merge wartet darauf.
+
+## Runde 7 pruefbar 2026-11-06 (kopf 1c84f5fe43c, PR #1400)
+Nachgemessen: ls-remote echt==head, develop VORFAHR rc=0, ZWEI terminale GRUEN-Beobachtungen am selben
+kopf (lauf 42172734295 + Attempt-2-rerun, job 127749031811), akte round-7.md auf origin/main (coord-record
+aus publish-zweig der lane, merge-uebernahme). Kausale ack-barriere statt zeitlimit; nil-pforte drin;
+fremder validate-befund (4 compose/workload-zellen) separat dokumentiert -> compose-karten-notiz.
