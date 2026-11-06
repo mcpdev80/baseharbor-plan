@@ -1,0 +1,7 @@
+ROLLE: CODEX-MERGE (Owner-autorisiert). Coord 841e7734. KARTE/PR: t-20261018-r27-journal-wiring /
+mcpdev80/baseharbor#1393, akzeptierter kopf 67efc581614a (urteil review-1393b.md ACCEPT). STUFEN: ls-remote
+head==67efc581614a (sonst STOP), develop AKTUELL (21d8d05cf1a+) konfliktfrei einmerge — KONFLIKTGEFAHR:
+die 6 fehlenden enthalte die geraete-kette (machinehttp schnitt) => bei konflikt in machinehttp-*/journal-
+dateien: STOP+MELDEN mit dateiname+conflict-zeile, NICHT selbst aufloesen. Sonst: push, hosted lauf bis
+TERMINAL GRUEN, gh pr merge --merge, develop-ls-remote + merge-sha ins pane. Karte schliesst coordinator.
+END pane: "END_DONE codex-merge-1393: merged=<sha10> develop=<sha10> head-vor-merge=67efc581614a | <Satz>"

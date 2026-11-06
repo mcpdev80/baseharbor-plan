@@ -1,0 +1,9 @@
+ROLLE: CODEX-REVIEW (read-only, kein Merge). KANAL: Luna. KARTE: t-20261018-r27-registry-access.
+OBJEKT: PR #1395 head ef0120aa3d7 (RUNDE 2 nach deinem 1395a-punkt 4 + meinem dokumentierten scope-call
+fuer die eine zeile app_broker.go:58). PRUEFE: (1) SCOPE: diff name-only == write-set + GENAU app_broker.go
+(meine erlaubnis auf der karte, pruefe die karte), keine dritte datei; (2) e2e: echter up-pfad loest ueber
+konfigurierten endpunkt auf (zelle lies+faehr), (3) MUTANT caller-entfernt => ROT, GEGENPROBE => gruen,
+(4) fail-closed + credentials wie bestaetigt (nur vorzeichen-read, kein neu-drehen), (5) hosted 42132438226
+terminal am kopf, ls-remote echt==head, ancestor rc=0, name-only. Akte -> evidence/r27-welle5-2026-11-05/
+registry-access/review-1395b.md; AKTE VOR END AUF origin/main (ls-tree-beleg).
+END pane: "END_DONE codex-r1395b: verdict=<X> scope=<erlaubnis gedeckt> e2e=<echt> diskriminierung=<rot+gruen> akte=<pfad> | <Satz>"

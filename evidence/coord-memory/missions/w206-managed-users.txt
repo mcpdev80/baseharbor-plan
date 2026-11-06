@@ -1,0 +1,16 @@
+ROLLE: Worker (Lane w206). Coord 841e7734. KARTE: t-20261018-r27-managed-users (RUNDE 1, Welle 5).
+REPO: mcpdev80/baseharbor. ZWEIG NEU work/r27-managed-users -> PR, basis develop AKTUELL (ls-remote +
+ancestor rc=0 in die akte; der zweig ist mehrmalig weitergelaufen — hole dir den letzten stand).
+KARTE VOLL LESEN (outcome: einladungen via native provider admin adapter; write-set:
+internal/identityprovider/developer_user_profile.go + begrenter managed-user admin adapter/tests — bounded
+reservate, fremde beduerfnisse => STOP+MELDEN).
+LIEFERPFLICHTEN: (1) einladung fuehrt ECHTEN provider-admin-aufruf (kein echo-only), fehler des providers
+=> deterministischer fehler + kein halb angelegter user (zelle + mutante: toleranz rein => ROT, gegenprobe
+gruen), (2) double-invite identischer mail = idempotent ODER expliziter konflikt — KARTENTEXT entscheidet,
+begruendung in akte, (3) zusammenbau echten pfad (dauerklausel), (4) red-first auf unveraendertem develop,
+(5) keine credentials in source/test- fixtures (praeszedenz protected-credentials).
+GATES: race-20, build/vet/gofmt, hosted TERMINAL am kopf, ls-remote echt==head WORTLICH, name-only, akte
+VOR END auf origin/main (ls-tree-beleg), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo, KEIN
+compose auf diesem host, eigene caches unter /tmp/opencode/<lane>*, NICHT im produktverzeichnis.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/managed-users/round-1.md
+END an 841e7734: "END_DONE w206-managed-users: head=<sha10> adminaufruf=<echt> toleranz=<mutante rot+gegenprobe> double=<entschieden begruendet> zusammenbau=<echt> redfirst=<belegt> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

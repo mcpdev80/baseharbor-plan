@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w205). Coord 841e7734. KARTE: t-20261105-r27-compose-host-isolation (RUNDE 2, vorher
+IPAM-block ist GELÖST: orphan-stapel auf dem coordinator-host wurden getilgt; owner-direktive: docker/compose
+TESTS AUSCHLIESSLICH per SSH auf baha-docker/baha-podman, NIE auf diesem host).
+REPO: mcpdev80/baseharbor (harness dateien). ZWEIG NEU work/r27-compose-isolation -> PR, basis develop
+AKTUELL (ls-remote + ancestor rc=0 in die akte).
+KARTE VOLL LESEN. DESIGN (coord-liberamt festgelegt, praemienz compose-design A1): jeder lebenszyklus-test
+bekommt seine FRISCHE ISOLIERTE Core-instanz (eigener state dir/socket/compose projektname mit lane-suffix)
+statt geteiltem daemon-zustand — code-保证, kein runner-glueck. Die vier named tests + shared harness.
+LIEFERPFLICHTEN: (1) die vier zellen laufen auf baha-docker per SSH ECHT und GRUEN (kein skip — skip ist
+nicht pass, praezedenz db-skip-sites), (2) zwei zellen GLEICHZEITIG auf dem host beweisen unabhaengigkeit
+(keine gegenseitige zustandsvergiftung; ps-beleg getrennte projektname), (3) RAUMPHASE: jedes projekt wird
+down'ed, ps -a frei von lane-namen + df-zeile in die akte, (4) red-first auf unveraendertem zustand wo
+moglich, (5) mutante: isolation aus => mindestens eine zelle ROT (wörtlich).
+STOP: VM nicht erreichbar / konflikt mit anderer lane auf baha-docker (w204 fuehrt dort nichts — pruefe ps).
+GATES: hosted lauf TERMINAL am kopf, ls-remote echt==head WORTLICH, name-only, akte VOR END auf origin/main
+(ls-tree-beleg), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/compose-isolation/round-1.md
+END an 841e7734: "END_DONE w205-compose-isolation: head=<sha10> zellen=4/4 gruen auf baha-docker parallel=<belegt> rauem=<ps+df> mutante=<rot> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
