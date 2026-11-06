@@ -5,33 +5,34 @@ areas: []
 release: v0.4.x
 version: ""
 parent: ""
-owner: "worker-ornith"
-kanban_lane: review
+owner: coord-welle4-rest (wartet Owner)
+kanban_lane: blocked
 kanban_summary: "The runtime-broker Compose container reaches readiness in time: app apply's /readyz wait no longer times out because the broker…"
-kanban_status: review
+kanban_status: blocked
 kanban_title: Widen broker readiness grace to the established healthcheck pattern
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]
-prs: ["mcpdev80/baseharbor#1287"]
+prs: [mcpdev80/baseharbor#1287]
 sources: []
-blocker: ""
+blocker: "Owner-entscheid aus stehender kette: PR#1287 geschlossen ohne grundnotiz (coord-nachmessung 11-06), kandidat 6ddef0ff nur auf zweig, nicht in develop/#1264. Trigger: A wiedereroeffnen+abnahme, oder B als verworfen schliessen."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff"]
 ---
 
-- [ ] t-20261102-broker-ready3-widen-readiness-grace · Widen broker readiness grace to the established healthcheck pattern #task #release/v0-4-x #status/review #view/review #kind/task
+- [ ] t-20261102-broker-ready3-widen-readiness-grace · Widen broker readiness grace to the established healthcheck pattern #task #release/v0-4-x #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
-    **Owner:** worker-ornith  
+    **Owner:** coord-welle4-rest (wartet Owner)  
     **PR:** [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287)  
+    **Blocker:** Owner-entscheid aus stehender kette: PR\#1287 geschlossen ohne grundnotiz (coord-nachmessung 11-06), kandidat 6ddef0ff nur auf zweig, nicht in develop/\#1264. Trigger: A wiedereroeffnen+abnahme, oder B als verworfen schliessen.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1287/merge@6ddef0ff)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** none  
-**Owner:** worker-ornith  
+**Owner:** coord-welle4-rest (wartet Owner)  
 **Priority:** not set  
 **PRs:** [baseharbor#1287](https://github.com/mcpdev80/baseharbor/pull/1287)  
 **Source:** 
