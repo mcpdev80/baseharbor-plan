@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (w220, wartet auf kur-r7+platz)
-kanban_lane: active
+owner: coord-welle5 (wartet Lane)
+kanban_lane: blocked
 kanban_summary: Opt-in local eligible credentials only; authenticated encryption/version/KDF using existing reviewed primitives. Password never…
-kanban_status: active
+kanban_status: blocked
 kanban_title: "Profiles: encrypt explicitly selected local credential export"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-codec, t-20261018-r27-protected-credentials, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -17,24 +17,25 @@ prs: [mcpdev80/baseharbor#1396]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: ""
+blocker: "Abhaengigkeit intern: kur-r8 muss in develop landen (PR #1400, laeuft auf sitz w223). Trigger: merge-1400 END + develop-beleg. Kein eigener arbeitsplatz belegt."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-secure-export · Profiles: encrypt explicitly selected local credential export #task #release/v0-4-27 #status/blocked #view/blocked #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w220, wartet auf kur-r7+platz) · **Priority:** normal  
+    **Owner:** coord-welle5 (wartet Lane) · **Priority:** normal  
     **PR:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
+    **Blocker:** Abhaengigkeit intern: kur-r8 muss in develop landen (PR \#1400, laeuft auf sitz w223). Trigger: merge-1400 END + develop-beleg. Kein eigener arbeitsplatz belegt.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
-**Owner:** coord-welle5 (w220, wartet auf kur-r7+platz)  
+**Owner:** coord-welle5 (wartet Lane)  
 **Priority:** normal  
 **PRs:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
