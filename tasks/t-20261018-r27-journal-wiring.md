@@ -114,3 +114,7 @@ Merge bleibt block bis gruen; PR #1393 offener kanditat auf gleichem zweig.
 
 ## Stand r4 (w207): write-set eigen 10x race gruen, coexist mit kur lokal gruen; GEHOSTET blockiert
 durch kur-r7-rest (zeitlimitscher ack-wait, nicht dieser zweig). Merge wartet kur-r7.
+
+## r4 END verifiziert 2026-11-06: head efa1600c7537 ls-remote echt, akte round-4.md auf main,
+write-set eigen 10x race gruen, coexist belegt, CI-zeile woertlich. Lane freigegeben. Merge #1393 wartet
+ausschliesslich kur-r7 (kausal-barriere, laeuft jetzt auf ihrem sitz).
