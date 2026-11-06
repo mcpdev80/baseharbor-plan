@@ -146,7 +146,7 @@ Factory-clean cannot be fully claimed: the pre-Nov-6 podman-test installation (N
 
 ## END
 
-END_BLOCKED w243-remote-control-r2: anmeldung=JA (round-2 revision 3a722d3: VM-side node add+connect, 8 mTLS sessions; vom DEV-HOST NEIN — loopback-issuer Befund 6 + dev-login short-circuit) demo=plan+status OK remote, up=capability-gate app_remote_lifecycle.go:34, doctor=Befund (round-2 akte) bindingsweg=befund datei:zeile (serve.go env-map + connector_transport.go:41-43 + devgateway/render.go:63; hand-assembled serve supervision, keine CLI-start-path) vm-rueckbau=null-zeug | round-3 reality check: round-2 war bereits DONE+gemountet (3a722d3), meine Fremd-Inkulpation hiermit zurückgenommen, VM now fully null (0/0/0/procs0/listeners0), lock released rc=0, no new product branch (smoke lane; candidate=plan origin/main HEAD).
+END_LINE w243-remote-control-r2: anmeldung=JA (round-2 revision 3a722d3: VM-side node add+connect, 8 mTLS sessions; vom DEV-HOST NEIN — loopback-issuer Befund 6 + dev-login short-circuit) demo=plan+status OK remote, up=capability-gate app_remote_lifecycle.go:34, doctor=Befund (round-2 akte) bindingsweg=befund datei:zeile (serve.go env-map + connector_transport.go:41-43 + devgateway/render.go:63; hand-assembled serve supervision, keine CLI-start-path) vm-rueckbau=null-zeug | round-3 reality check: round-2 war bereits DONE+gemountet (3a722d3), meine Fremd-Inkulpation hiermit zurückgenommen, VM now fully null (0/0/0/procs0/listeners0), lock released rc=0, no new product branch (smoke lane; candidate=plan origin/main HEAD).
 
 ## Lock release + publication witness (written live, this lane's final actions)
 
