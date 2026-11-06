@@ -1,0 +1,18 @@
+ROLLE: Worker (Lane w219). Coord 841e7734. KARTE: t-20261018-r27-registry-access (RUNDE 4).
+ZWEIG: work/r27-registry-access (PR #1395, head 2f073f5149b) — derselbe zweig, KEIN zweiter PR.
+AKTE: review-1395c.md zeilen 59-85 SELBST LESEN.
+BEFUND: resolveRegistrySourceImpl fängt ErrRegistrySourceUnavailable und gibt bei FEHLER die MUTABLE
+URSPRUNGS-REFERENCE mit nil zurueck — pullResolvedRuntimeImage zieht dann un-gepinnt, trotz verweigertem
+oder oeffentlichem endpoint. Der fail-closed resolver wird am produktiven caller AUSGEHEBELT; die
+bestehende caller-zelle prueft nur den erfolg-pfad.
+PFLICHT: (1) propagiere den Auflösungsfehler am caller (kein mutable fallback bei denied/unreachable/
+missing-digest/public-default docker hub), (2) falls ein legacy-mutable development-pfad bleiben muss:
+NUR als expliziten opt-in, der die endpoint-/public-rejections NICHT umgehen kann, (3) NEUE caller-
+NEGETIVZELLEN: failed resolve => NULL pulls (zaehle die pull-aufrufe in der zelle); denied => kein pull;
+public-default => kein pull; erfolgs-pfad bleibt gruen, (4) MUTANTE: fallback-zeile zurueck setzen =>
+NEGETIVZELLEN ROT (echte mutation, git-diff, rueckgabe), (5) bestehende zellen als regressions-read.
+GATES: race-20, develop VORFAHR rc=0 (ls-remote vorher), hosted TERMINAL am neuen kopf SELBST, ls-remote
+echt==head WORTLICH, name-only (cmd/baha + adapter), akte VOR END auf origin/main (round-4.md, ls-tree),
+KEINE subagenten/zweiter PR/.github-ins-produktrepo, KEIN compose/root-checkout, caches /tmp/opencode/w219*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/registry-access/round-4.md
+END an 841e7734: "END_DONE w219-registry-r4: head=<sha10> propagiert=<zelle> negcells=<3x null-pulls> mutante=<echt rot+gegenprobe> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

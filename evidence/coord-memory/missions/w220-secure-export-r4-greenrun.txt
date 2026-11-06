@@ -1,0 +1,12 @@
+ROLLE: Worker (Lane w220). Coord 841e7734. KARTE: t-20261018-r27-secure-export (RUNDE 4, NUR nach
+kur-r7-landung — zuerst pruefen: enthaelt develop die kur-r7 commints (git log --grep, ls-remote);
+wenn NEIN: sofort END_BLOCKED 'kur-r7 nicht in develop'.
+ZWEIG: work/r27-secure-export (PR #1396, head eb02ab6ed6f) — derselbe zweig, KEIN inhalt-wechsel,
+KEIN zweiter PR.
+EINZIGE AUFGABE: develop(NEU) einmerge, konfliktfrei; hosted lauf bis TERMINAL GRUEN am neuen kopf
+SELBST beobachten (headSha==ls-remote wortlich in der akte); falls dieselbe kur-zeile zweimal ROT am
+selben neuen kopf: END_BLOCKED mit beiden zeugen, dann bin ich am zug.
+GATES: ls-remote echt==head WORTLICH, ancestor rc=0, name-only, akte VOR END auf origin/main
+(round-4.md: drei-kopf-tabelle 0001ca02 success / eb02ab6e kur-rot / NEU gruen — wirkungsnachweis),
+KEINE subagenten/zweiter PR/root-checkout/compose, caches /tmp/opencode/w220*.
+END an 841e7734: "END_DONE w220-secure-export-r4: head=<sha10> kur-in-develop=<JA> lauf=<id TERMINAL GRUEN> lsremote=<sha10> | <Satz>"
