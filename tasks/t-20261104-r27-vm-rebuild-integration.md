@@ -6,9 +6,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "coord-welle4 (lanes w116, w117)"
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: "Both test hosts are rebuilt from their own setup scripts instead of patched by hand, and afterwards the real Docker and Podman…"
-kanban_status: active
+kanban_status: closed
 kanban_title: "Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -16,17 +16,20 @@ repos: [mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261104-r27-vm-integration-runs.md"]
+superseded_by: t-20261104-r27-vm-integration-runs
+
 ---
 
-- [ ] t-20261104-r27-vm-rebuild-integration · Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [x] t-20261104-r27-vm-rebuild-integration · Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (lanes w116, w117) · **Priority:** critical  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/tasks/t-20261104-r27-vm-integration-runs.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
