@@ -48,9 +48,17 @@
 - No subagents: every step executed in session 9b0d9512.
 - Concurrency note: this shift ran on work/r27-candidate-ingress first (a live second lane) and its working tree was being reset concurrently, which reverted my incremental edits; I cut a clean isolated branch work/r27-flake-r7 from efa1600c and committed there to stop the reverts. Documented for the Owner.
 
-## NEXT
-- Push work/r27-flake-r7 to origin, open PR, show efa1600c ancestor + name-only ls-remote (my 2 files only).
+## CRITICAL FINDING — PR #1400 base is contaminated (blocking decisive gate)
+- **My commit `12e3c3fe` is the PR #1400 tip and touches ONLY the 2 in-scope files.** Commit integrity confirmed: parent = `efa1600c` (worker w203 merge commit), message "causal happened-before for MutationAcked", 246 insertions / 19 deletions across `internal/development/source_snapshot.go` (+147/13) and `internal/development/source_snapshot_test.go` (+118/6).
+- **PROBLEM: PR #1400 base is NOT clean develop.** The PR shows "6 commits into develop" and its base is the foreign merge commit `efa1600c` (which pulled in 5 journal-wiring commits from OTHER lanes: 3fa46bc2 w180, ecae5f0d worker/w196, e1ea3c6f w163, 67efc581 w163 merge, efa1600c w203). Confirmed: journal-wiring commit 3fa46bc2 is NOT in origin/develop (foreign).
+- **Consequence: PR-vs-develop diff = +1132/−19 includes 3 foreign machinehttp files** (internal/machinehttp/execution_crash_resume_test.go, execution_mutants_test.go, execution_ordered_journal_test.go) — scope contamination. My actual contribution = only the 246/19 2-file diff. This VIOLATES the round-7 contract ("commit must be clean squashed single commit touching ONLY my 2 files").
+- **Decisive CI run #42154942158 (head 12e3c3fe, #4869) ALREADY FAILED**: `PR · Source format` → "Process completed with exit code 1" (Nov 6 03:10). That run ran against the contaminated base, so the failure is **inconclusive for my scope** — it is not the "2x TERMINAL GRUEN" decisive gate. Run is still in progress (other jobs queued) but cannot be my gate.
+- **REQUIRED FIX (Coordinator action, not mine):** re-point PR #1400 base to clean origin/develop (so the PR diff = my 2 files only), or the 2-file diff is not what CI validates. Do NOT layer foreign commits on top of my clean squashed commit. A second PR is forbidden by mission; the fix is to correct the base of THIS PR, not open another.
+
+## NEXT (post-fix)
+- After Coordinator re-points PR #1400 to clean develop: confirm PR-vs-develop diff = ONLY my 2 files (name-only), PR #1400 base = develop, efa1600c ancestor + 21d8d05c merge-base.
 - Push evidence to origin/main (ls-tree proof) before END.
+- Decisive gate = 2x hosted CI TERMINAL GRUEN on the clean 2-file PR #1400 (head stays 12e3c3fe). Then post END_DONE.
 - Compose ps-witness: none started this shift (no containers).
 
 ## END
