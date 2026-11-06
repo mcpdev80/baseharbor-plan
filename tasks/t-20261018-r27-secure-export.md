@@ -62,3 +62,8 @@ Archive tamper/wrong-password/truncation/cleanup/destination-store round-trip te
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Coordinator-scope-call 2026-11-06 (w204 QUESTION, praeszedenz registry-kette selben tags):
+command-registrierung/dispatch in cmd/baha/commands.go erLAUBT als begrenzte ausnahme — nur anhaengen,
+fremde zeilen unangetastet, keine dritte datei. Begrundung: karten-outcome verlangt benutzbaren export;
+adapter ohne kommando = tote technik (1395a-lehre). E2E-zelle + anbindungs-mutante als nachweis.
