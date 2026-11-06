@@ -25,7 +25,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md)  
+    **Needs:** [core-310](core-310-acceptance-compose-to-kubernetes-portability.md), [t-20261017-release-0-7-8-updates](t-20261017-release-0-7-8-updates.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
