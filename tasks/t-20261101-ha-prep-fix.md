@@ -6,9 +6,9 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: "ha-prep-fix worker (ornith1.5)"
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: The Targeted runtime job of .github/workflows/targeted-integration.yml is the only heavy job without a Prepare verified rootless…
-kanban_status: active
+kanban_status: closed
 kanban_title: "targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix)"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -16,11 +16,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1254]
 sources: [mcpdev80/baseharbor#1254]
 blocker: ""
-resolution: ""
+resolution: superseded
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1254", "https://github.com/mcpdev80/baseharbor/actions/runs/41321042904", "https://github.com/mcpdev80/baseharbor/actions/runs/41320875840", "https://github.com/mcpdev80/baseharbor/commit/a6e79c768215b5a36a20e88f688d06aa46fe155c"]
 ---
 
-- [ ] t-20261101-ha-prep-fix · targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) #task #release/v0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261101-ha-prep-fix · targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) #task #release/v0-4-27 #status/closed #view/closed #kind/task
     <!-- generated:card -->
     **Owner:** ha-prep-fix worker (ornith1.5)  
     **PR:** [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254)  
@@ -28,7 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1254", "https://github.c
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** ha-prep-fix worker (ornith1.5)  
@@ -72,3 +72,7 @@ The `Targeted runtime` job of `.github/workflows/targeted-integration.yml` is th
 - Run 2 proof: run 41321042904 (workflow_dispatch, gate=shared-postgres) — docker leg now runs `ci-core-rootless-runtime.sh`, rootless `dockerd` up, `DOCKER_HOST=unix:///run/user/1001/docker.sock` set; 0.39s FAIL gone. Job `failure` only on pre-existing Go production test (also fails on clean base).
 - Run 1: run 41320875840 — environmental `address already in use` on host port 5432 (shared runner), not the fix.
 - **Merge decision = Coordinator/Owner.**
+
+## Reconciliation 2026-11-07
+
+PR #1254 is closed unmerged. Successor PR #1257 is also closed unmerged; no delivered fix is inferred. This historical lane is concluded, with any remaining runtime-parity work requiring a new current task.

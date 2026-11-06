@@ -6,9 +6,9 @@ release: v0.4.x
 version: ""
 parent: ""
 owner: ornith (pgauth2)
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: "OpenBao's PostgreSQL storage backend must start legally under the MCP/hosted lifecycle sweep instead of failing with FATAL:…"
-kanban_status: active
+kanban_status: closed
 kanban_title: "OpenBao: grant PG backend role legal connect on postgres/template1"
 priority: ""
 depends_on: []
@@ -16,18 +16,18 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1269"]
 sources: []
 blocker: ""
-resolution: ""
+resolution: accepted
 evidence: []
 ---
 
-- [ ] t-20261102-pgauth2-openbao-backend-privileges · OpenBao: grant PG backend role legal connect on postgres/template1 #task #release/v0-4-x #status/active #view/active #kind/task
+- [ ] t-20261102-pgauth2-openbao-backend-privileges · OpenBao: grant PG backend role legal connect on postgres/template1 #task #release/v0-4-x #status/closed #view/closed #kind/task
     <!-- generated:card -->
     **Owner:** ornith (pgauth2)  
     **PR:** [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** closed  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** none  
 **Owner:** ornith (pgauth2)  
