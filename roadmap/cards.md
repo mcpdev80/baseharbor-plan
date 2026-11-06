@@ -11,10 +11,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 74/113 · **Blocked:** 3 · **Waiting:** 25  
+    **Accepted tasks:** 74/113 · **Blocked:** 2 · **Waiting:** 25  
     **Blocker:** [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md) — Abhaengigkeit intern: kur-r8 muss in develop landen (PR \#1400, laeuft auf sitz w223). Trigger: merge-1400 END + develop-beleg. Kein eigener arbeitsplatz belegt.  
     **Blocker:** [t-20261018-r27-secure-export](../tasks/t-20261018-r27-secure-export.md) — Abhaengigkeit intern: kur-r8 muss in develop landen (PR \#1400, laeuft auf sitz w223). Trigger: merge-1400 END + develop-beleg. Kein eigener arbeitsplatz belegt.  
-    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
