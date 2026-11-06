@@ -263,11 +263,9 @@ The x509 name-constraint is Go's TLS client hostname verification against `cfg.O
 
 ```text
 $ git -C baseharbor-plan fetch origin main; git ls-tree origin/main -- evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md; git log --oneline -1 origin/main
-100644 blob 99158462447697f3d5b8b902e0566d1c81a9b6d5	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
-61445d3 evidence(w243): corrections batch — dev-role design facts, destroy cause-chain, VM null witnesses
+100644 blob 114206cf249b50f4c0368a70bcf929aaddbb643b	evidence/r27-welle5-2026-11-06/remote-control-smoke/round-2.md
+a641e53 evidence(w243): corrections batch — dev-role design facts, destroy cause-chain, VM null witnesses
 ```
-
-Path presence on origin/main = acceptance criterion, satisfied (this final block lands as a child commit; its own blob differs by these lines only).
 
 This is the FINAL content of the file on origin/main (last edit was this block itself); earlier iterations quoted their predecessor heads — disclosed, and this closing block is authoritative.
 
