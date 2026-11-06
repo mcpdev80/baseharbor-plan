@@ -1,4 +1,4 @@
-ROLLE: Worker (Lane w209). Coord 841e7734. KARTE: t-20261018-r27-managed-users (RUNDE 2).
+ROLLE: Worker (Lane w211). Coord 841e7734. KARTE: t-20261018-r27-managed-users (RUNDE 2).
 ZWEIG: work/r27-managed-users (PR #1397, head b3cb622a2e2) — DERSOLBE zweig, KEIN zweiter PR.
 AKTE: review-1397a.md zeilen 21ff (beide punkte).
 PFLICHTEN: (1) FIX des echten defekts: im create-fallback-zweig darf KEIN fremdes/unverifiziertes konto
@@ -11,4 +11,4 @@ GATES: race-20, develop-merge falls drift + ancestor rc=0, hosted TERMINAL am ne
 echt==head WORTLICH, name-only, akte VOR END auf origin/main (ls-tree-beleg), KEINE .github/subagenten/
 zweiter PR/akten-ins-produktrepo, KEIN root-checkout (querverbund-praeszedenz), caches /tmp/opencode/<lane>*.
 Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-06/managed-users/round-2.md
-END an 841e7734: "END_DONE w209-managed-users-r2: head=<sha10> fallback=<fail-closed zelle> mutante=<echt+diff-beleg> regressions=<read ok> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
+END an 841e7734: "END_DONE w211-managed-users-r2: head=<sha10> fallback=<fail-closed zelle> mutante=<echt+diff-beleg> regressions=<read ok> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"

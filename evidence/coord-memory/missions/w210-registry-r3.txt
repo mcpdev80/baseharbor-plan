@@ -1,0 +1,15 @@
+ROLLE: Worker (Lane w210). Coord 841e7734. KARTE: t-20261018-r27-registry-access (RUNDE 3).
+ZWEIG: work/r27-registry-access (PR #1395, head ef0120aa3d7) — DERSOLBE zweig, KEIN zweiter PR.
+AKTE: review-1395b.md (dreipunkte-befund). PFLICHTEN:
+(1) develop AKTUELL einmerge (f01d2fb oder neuer — ls-remote vor arbeit), ancestor rc=0 in akte;
+(2) DISKRIMINIERUNG der caller-zelle ECHT machen: entfernung/neutralisierung des PRODUKTIVEN callers
+    (app_broker.go seam) muss die zelle ROT machen — MUTANTE als echte quellcode-mutation im isolierten
+    arbeitsverzeichnis, git-diff-beleg + rueckgabe (kur-praeszedenz); eine zelle die nur den adapter-prueft
+    ohne den zusammenbau zu erzwingen, reicht NICHT;
+(3) scope: diff-hinweis aus dem urteil aufgreifen — app_broker_registry_p*.go nur wenn im write-set der
+    karte gedeckt (name-only liste in die akte, sonst in adapter-dateien zurueckziehen).
+GATES: race-20, build/vet/gofmt, hosted TERMINAL am NEUEN kopf, ls-remote echt==head WORTLICH, name-only,
+akte VOR END auf origin/main (ls-tree-beleg), KEINE .github/subagenten/zweiter PR/akten-ins-produktrepo,
+KEIN compose/root-checkout auf diesem host, caches /tmp/opencode/<lane>*.
+Evidence: baseharbor-plan/evidence/r27-welle5-2026-11-05/registry-access/round-3.md
+END an 841e7734: "END_DONE w210-registry-r3: head=<sha10> ancestor=<rc0> mutante=<echt+diff+rot, gegenprobe gruen> scope=<name-only sauber> lauf=<id TERMINAL> lsremote=<sha10> | <Satz>"
