@@ -5,7 +5,7 @@
 - Karte: w253 — zweite DOCKER-PRUEFVM provisionieren (reine Infrastruktur, kein Produktkarte)
 - Zielhost: baha-docker-2 = 192.168.6.205 (hostname baha-runner-docker-2, user marcel, sudo nopasswd, Ubuntu 26.04 resolute amd64, git 2.53)
 - Zielbild: docker-ce 29.x aus download.docker.com-Repo, containerd, buildx, docker-compose-plugin, daemon active, marcel in docker-gruppe. Rootless NICHT noetig.
-- Status: DONE
+- Status: DONE (round-2: rootless stack ergaenzet, zielbild jetzt rootful UND rootless — match baha-docker/166)
 
 ## PLAN
 
@@ -64,6 +64,59 @@
 - ausgabe: Docker version 29.9.3, build 5457199
 - befehl: ps -C dockerd -o pid,user,cmd
 - ausgabe: PID 29825 root /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+## Round-2 KORREKTURRUNDE: Docker rootless (Mission w253b)
+
+- kontext: w253b-docker2-rootless (KORREKTURRUNDE derselben arbeit; KEIN neuer PR/Zweig, derselbe Branch/VM baha-docker-2)
+- coord-fehler (den worker nicht anzulasten): rootless war in w253 als 'nicht noetig' markiert — IST ABI PFLICHT. beide VMs muessen das GLEICHE zielbild haben (beide runtime-pfade docker-rootful UND docker-rootless sind testgrund).
+- ausgangslage vor round-2: rootful lief, aber rootless stack komplett fehlend.
+
+### Befund vor round-2
+
+- docker-ce-rootless-extras / uidmap / slirp4netns: NICHT installiert
+- docker context: nur `default`, kein `rootless`
+- /etc/subuid /etc/subgid: leer (leere dateien, marcel nicht eingetragen)
+- dockerd-rootless-setuptool.sh: MISSING
+- systemctl --user docker: inactive; linger nicht aktiviert
+- `/run/user/1000` existierte, `/run/user/1000/docker.sock` nicht vorhanden
+
+### Vorbild (baha-docker/166, working)
+
+- kontexte: default (/var/run/docker.sock) + rootless (/run/user/1000/docker.sock)
+- docker-ce-rootless-extras installiert; dockerd-rootless-setuptool.sh vorhanden
+- subuid/subgid marcel:100000:65536; `docker --context rootless run --rm alpine => OK`
+
+### Vorgehen (skript scp-en, kein verschachtelter heredoc)
+
+- befehl: sudo apt-get update && sudo apt-get install -y docker-ce-rootless-extras uidmap slirp4netns
+- ausgabe: install docker-ce-rootless-extras 5:29.9.3, slirp4netns 1.3.3, uidmap 1:4.17.4
+- befehl: sudo bash -c 'echo marcel:100000:65536 > /etc/subuid'; sudo bash -c 'echo marcel:100000:65536 > /etc/subgid'
+- ausgabe: subuid => marcel:100000:65536 ; subgid => marcel:100000:65536
+  (hinweis: getent subuid/subgid meldete "Unknown database" — libnss-user ist auf ubuntu 26.04 in libc6 integriert; die /etc/sub{uid,gid}-dateien genügen dem setuptool)
+- befehl (als marcel, NICHT sudo): sudo loginctl enable-linger marcel  THEN  export XDG_RUNTIME_DIR=/run/user/1000 && dockerd-rootless-setuptool.sh install --force
+- ausgabe: setuptool rc=0; created context "rootless" at unix:///run/user/1000/docker.sock; docker.service enabled+active
+  (setuptool hat default-context auf "rootless" geschaltet => docker context use default gesetzt)
+- befehl: systemctl --user enable --now docker.service
+- ausgabe: docker.service => active
+- hinweis: rootless nutzt NUR docker.service, KEIN docker.socket (Unit existiert nicht) — der mission-auftrag "docker.socket" war für rootless unzutreffend; nur docker.service aktiviert.
+
+### Nachweis am ENDE (NEUER ssh-login, marcel OHNE sudo, linger macht rootless ohne aktiven login nutzbar)
+
+- befehl: docker run --rm hello-world
+- ausgabe: `Hello from Docker!` (rootful, /var/run/docker.sock)
+- befehl: docker --context rootless run --rm hello-world
+- ausgabe: `Hello from Docker!` (rootless, /run/user/1000/docker.sock) — proof linger works
+- befehl: systemctl --user is-active docker.service
+- ausgabe: active
+- befehl: docker context ls
+- ausgabe: default (unix:///var/run/docker.sock) + rootless (unix:///run/user/1000/docker.sock), beide ohne ERROR
+- befehl: loginctl show-user marcel | grep linger ; test -f /var/lib/systemd/linger/marcel
+- ausgabe: Linger=yes ; /var/lib/systemd/linger/marcel vorhanden
+
+### Offener / dokumentierter befund
+
+- rootless verwendet docker.service statt docker.socket (socket-unit existiert nicht in rootless-extras)
+- getent subuid/subgid liefert "Unknown database" trotz gültiger /etc/sub{uid,gid}-dateien (libc6-integriertes nss) — kein blockender befault, setuptool + rootless-lauf funktionieren.
 
 ## VM-Hygiene
 
