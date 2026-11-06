@@ -6,7 +6,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (w247)
+owner: coord-welle5 (w254-codex)
 kanban_lane: active
 kanban_summary: "Optional managed Identity path: discover/invite owned users through least-privilege native API; IdP owns…"
 kanban_status: active
