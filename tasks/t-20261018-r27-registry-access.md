@@ -127,3 +127,5 @@ akte round-5.md auf origin/main (commit 3b4cf51). 1395d-punkt erledigt durch JE-
 resolver-faelle 3x rot, public-default-zelle fuehrt ihren eigenen schicht-mutanten M7 (opt-in gate :337,
 pull-liste rot, rueckgabe+gegenprobe gruen, git-diff in akte). Berichtigungszeile missions-erwartung
 drin (KOORD 2026-11-06).
+
+## ACCEPT 2026-11-06 (1395e je-schicht-matrix bestaetigt): merge UNTERWEGS (kopf 99b3e144dd5); schliesst bei develop-beleg.
