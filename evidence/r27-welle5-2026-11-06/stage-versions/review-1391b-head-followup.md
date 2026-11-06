@@ -2,6 +2,7 @@
 
 - Review date: 2026-11-06.
 - Reviewed PR head: `ac51c8819c96ac67ef8446a74f65cc853025050c`.
+- Verdict: **ACCEPT** at `ac51c8819c96ac67ef8446a74f65cc853025050c`; name-only confirms only the six in-scope stage-version files remain, and its tree is byte-identical to the previously reviewed head with terminal green run 42131821530.
 - PR #1391 remains OPEN against `develop`; remote branch `work/r27-stage-versions` points to this exact head.
 
 The prior review of `ab8f3036b1ed` rejected that head solely because its `.gitignore` replacement was outside scope and removed existing ignore rules. The new head is a revert of that commit. The name-only diff against `develop` contains only the six stage-version paths: `cmd/baha/app.go`, `cmd/baha/deployment_record.go`, `cmd/baha/stage_versions_lifecycle_test.go`, `internal/deployment/deployment_store.go`, `internal/deployment/stage_versions.go`, and `internal/deployment/stage_versions_matrix_test.go`. `.gitignore` is absent from the diff; its blob equals `develop` (`f221e9e8f8bdac1605aefb923c1c914cfed08572`).
