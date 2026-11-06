@@ -11,9 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 79/114 · **Blocked:** 2 · **Waiting:** 22  
+    **Accepted tasks:** 79/114 · **Blocked:** 1 · **Waiting:** 22  
     **Blocker:** [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md) — zelle 5 braucht pruefmaschine (beide Hosts belegt); zellen 1-4 gruen gemessen, akte round-2.md  
-    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — Owner-Bewertung 2026-11-06: CI gruen, keine konflikte — fachliche abnahme OFFEN: echte Isolationstests auf baha-docker UND baha-podman inkl. MUTANTENPROBE, ers…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
