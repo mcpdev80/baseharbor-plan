@@ -98,3 +98,9 @@ Proven pre-existing: the same test fails identically on a pristine 5e4fde71 work
 ## Status
 
 END_DONE w258-artifact-resolution: head=746afe6d89 pr=1406 lauf=42293297231 TERMINAL success lsremote=746afe6d89 akte=evidence/r27-welle5-folge-2026-11-06/artifact-resolution/round-1.md main | Artifact-Resolution ist implementiert und verdrahtet: Quell-/Versionsauswahl loest sich in ein konkretes unveraenderliches Artefakt, Mehrdeutigkeit fail-closed, 55 grune Zellen, hosted CI successful on final head.
+
+## Evidence push witness
+
+    $ git push origin main   (baseharbor-plan)
+    To https://github.com/mcpdev80/baseharbor-plan.git
+       09caf2f6..d752d31e  main -> main
