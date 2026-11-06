@@ -72,9 +72,17 @@
 ## Decision note (Owner 2026-11-06)
 
 - KOORD variante 2: my write-set (orgconfig) is green, proven by me. The red is ANKANNED FOREIGN (a different lane's round-7/8 snapshot flake) and already has its own running fix — round-8 CI is executing on the same commit (d0e0bdc6) as a separate lane. I must NOT touch `internal/development`.
+- Decision line KOORDvariante2:Owner KOORD 2026-11-06 variante 2 (PR offen lassen, session beim Landing freigeben, neuanlauf beim naechsten Trigger gegen refreshes develop-kopf), praeszedenz w207/w211 (identischer fall, identische anwort).
 - Action: PR #1401 stays OPEN vs the current develop HEAD. Session will be freed at the landing event (round-8 lands), not by me — the card note carries the trigger. After round-8 lands, ONE green run at the current head with the next trigger.
 
 ## Next trigger
 
 - Wait for the foreign round-8 CI to land on develop; then re-run CI at the current develop head with PR #1401 and record the green result before END.
+
+## Branch head witness
+
+- Branch: work/r27-local-registry
+- Branch head (local + remote ls-remote, real): e520ed6096d7dc47ae3e2e7d004bf15483b0e56a
+- Base origin/develop ea656d1fcfce9ee14145a8dfaffb9e993fd29497 is an ancestor (git merge-base --is-ancestor rc=0)
+- PR #1401 against develop, READY, head e520ed6096, no foreign commit carried in (git log shows only my commit on top of the develop base)
 
