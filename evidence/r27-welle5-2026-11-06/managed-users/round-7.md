@@ -54,4 +54,4 @@ LANE: w260-mu-bodyguard  ·  COORD: 841e7734  ·  ROLL: Worker  ·  RUNDE 7 (REJ
   - runtime gates skipped (live runtime = späterer access-gate, kartenwort; nicht jetzt simuliert)
 
 ## EN-Befehl an 841e7734
-"END_DONE w260-mu-bodyguard: head=b880f91e leerbody=<FAIL-regression drin> mutante=<produktions-route ROT 0c6aa777 + GRUEN 8812f40b aus zelle> lauf=42271039673 TERMINAL/success lsremote=b880f91e akte=evidence/r27-welle5-2026-11-06/managed-users/round-7.md main | Runde 7 bodyguard erledigt: fixtures hardened + kausale mutanten-doktrin belegt + CI green"8ee
+"END_DONE w260-mu-bodyguard: head=b880f91e leerbody=<FAIL-regression drin> mutante=<produktions-route ROT 0c6aa777 + GRUEN 8812f40b aus zelle> lauf=42271039673 TERMINAL/success lsremote=b880f91e akte=evidence/r27-welle5-2026-11-06/managed-users/round-7.md main | Runde 7 bodyguard erledigt: fixtures hardened + kausale mutanten-doktrin belegt + CI green"
