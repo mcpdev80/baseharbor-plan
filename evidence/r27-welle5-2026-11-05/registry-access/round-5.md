@@ -170,6 +170,9 @@ $ md5sum cmd/baha/application_registry_source.go
 ```
 Alle Probe-/Mutationsartefakte lagen unter /tmp/opencode/w222* und workers/w222-r5-{tmp,cache}; keine
 Scratch-Dateien im Ecosystem-Root, kein Produkt-Branch-Commit durch diese Runde.
+Der Produkt-Arbeitsbaum endet CLEAN: `git status --porcelain` leer + `git diff --quiet` rc=0 + md5
+12fdc3116f28eb380cadb06cdd2435e9 == pristine (Witness oben). Die Akte erhaelt nach diesem Witness nur ihre
+eigenen Nachlese-Eigelaende in baseharbor-plan main; ihre Endfassung ist die ls-tree-Zeile unten.
 
 ## Hygiene
 
