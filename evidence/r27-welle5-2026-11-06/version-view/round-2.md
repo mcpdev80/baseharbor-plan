@@ -179,6 +179,17 @@ Zweig (ein Antrag).
 - Kein Container/compose/VM gestartet (Mission nennt keinen VM-Smoke-Test);
   keine `.github/**`-Änderung; kein rerun/workflow_dispatch; keine Subagenten.
 
+## Compose-/Container-Zeuge (Owner-Hygiene 2026-11-05)
+
+Diese Lane hat keinen Container und kein compose-Projekt gestartet und keine VM
+angesprochen (Mission nennt keinen VM-Smoke-Test); Docker wurde nur lesend
+abgefragt. Die dort sichtbaren `bh-local-*`/`bh-smoke-*`-Projekte gehoeren anderen
+Lanes und wurden von dieser Lane nicht angefasst, gestartet oder gestoppt.
+Cleanup am Ende: Lane-Caches und Scratch unter `/dev/shm/w229-*`,
+`/tmp/opencode/w229*` und `workers/w229-cache` geloescht (`ls -d` liefert keine
+Treffer); der Lane-Worktree `workers/w229-wt` bleibt als Arbeitstbaum des
+Kandidaten bestehen und enthaelt nur den einen Zweig.
+
 ## AGENTS-Compliance-Selfcheck
 
 - Read before acting: workers/AGENTS.md + baseharbor-plan/AGENTS.md + task note + both akten gelesen.
