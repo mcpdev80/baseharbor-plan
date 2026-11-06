@@ -148,3 +148,9 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 - Missing runtime capability now FAILS rather than SKIPS the real repository lifecycle test. A unit regression covers the default Docker and explicit Podman provider selection. Go-format regression detected by GitHub was fixed.
 - **Still required before ACCEPT/merge**: exact-HEAD hosted success plus observed runtime four-cell matrix on Docker and Podman, clean and polluted ambient core, isolation omission mutant RED and restored GREEN, actual resolved socket/network/runtime checks, SINGLE default and explicit HA checks, cleanup and evidence publication. These are not claimed to have run. Test-only PR CI currently marks `validate` and Selected Runtime SKIPPED by policy; those are not substitutes for executed VM cells.
 - Only approved Docker and Podman test VMs may execute runtime workloads; `baha-runner-docker-2` is the Codeman server and is prohibited for these tests.
+
+## Bootstrap target cleanup follow-up (2026-11-06)
+
+- PR #1383 commit `872ff11a941f86a659e182a0ce48796a69569e50` restores `BASEHARBOR_TARGET` after all trust-plane bootstrap outcomes, including pre-initialized OpenBao and early errors. Previously the initialized branch returned before selection cleanup and could contaminate subsequent lifecycle tests.
+- Prior head `3a355e328fb6196ee9c2cea862750d9456fff71a` completed hosted CI run `42238659990` successfully (runtime gates skipped). A follow-up format error was corrected; latest run `42243498584` was pending at last inspection.
+- The clean/polluted Docker+Podman matrix, omission mutant and exact active-configuration proof remain mandatory and not yet verified. This card must not be accepted or merged solely on hosted PR-CI.
