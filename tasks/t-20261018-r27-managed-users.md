@@ -72,3 +72,9 @@ gegenprobe gruen, zusammenbau echt, red-first belegt.
 ## Rueckruf (1397a REJECT, zwei punkte): (1) ECHTER DEFKT — create-fallback kann fremdes/unverifiziertes
 KONTO aktivieren (lookup-leer-zweig); (2) der eingreichte 'mutante' war keine echte quellcode-mutation.
 Rezept in review-1397a.md zeilen 21-22.
+
+## Stand r2 (w211): inhalt fertig + basis-refresh gemessen (head 44e18f1b43d, vorfahr rc=0, akte
+auf main). HOSTED zweimal ROT an ANDEREN zeilen (:363 am alten, :247 am neuen kopf), lokal alles gruen,
+identityprovider- paket in BEIDEN laeufen gruen, internal/development byte-identical — dieselbe
+zeitlimitierte kur-erkrankung, die kur-r7 gerade heilt (praeszedenz w207-gleichbehandlung). REZEPT NACH
+kur-r7-LANDEUNG: rebasis auf develop-mit-r7 + EIN eigener gruenlauf, dann abnahme. Lane freigegeben.
