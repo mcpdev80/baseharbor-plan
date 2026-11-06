@@ -226,3 +226,10 @@ Die Akten-Commits dieser Lane sind auf origin/main verifiziert (`origin/main` =
 ## END
 
 END_DONE w229-version-view-r2: head=65ed48d60f gegenprobe-kausal=JA+2 mutantenbelege lauf=42211122594 TERMINAL-SUCCESS lsremote=65ed48d60f | Gegenprobe laeuft jetzt durch den ausgelieferten Mapper (releaseViewStageKinds-Tabelle + ReleaseViewFromRecordWithStageKinds), Testfile-Kopie referenceCell geloescht; Dimension- (release.go:13) und Kind-Mutant (release.go:190) failen die Zelle je lokal und sind rueckgaengig; round-1.md berichtigt; PR #1403 bleibt EIN Antrag, ein Push, ein terminal gruener Hosted-Lauf am Endkopf.
+
+Wörtliche Ausgabe des END-Posts an 841e7734 (letzte Aktion dieser Lane):
+
+```
+$ codeman agent post 841e7734 "END_DONE w229-version-view-r2: head=65ed48d60f gegenprobe-kausal=JA+2 mutantenbelege (Dimension release.go:13 + Kind release.go:190, je lokal+rueckgaengig, Zelle failt; referenceCell-Kopie geloescht) lauf=42211122594 TERMINAL-SUCCESS lsremote=65ed48d60f | PR #1403 bleibt EIN Antrag; Gegenprobe laeuft jetzt durch den ausgelieferten Mapper via ReleaseViewFromRecordWithStageKinds; round-1.md berichtigt; akte evidence/r27-welle5-2026-11-06/version-view/round-2.md auf origin/main (1a14bfd)."
+✓ posted to 841e7734 (163 pending, 1 unseen)
+```

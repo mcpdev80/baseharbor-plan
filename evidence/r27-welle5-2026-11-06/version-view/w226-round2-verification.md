@@ -105,3 +105,22 @@ $ codeman agent post 841e7734 "ACK w226-version-view: Rezept act-1403b Punkte 1+
 - baseharbor-plan: nur diese Datei committet; die unbefeuerten Aenderungen anderer
   Lanes (`releases/v0.4.27.md`, `roadmap/cards.md`, `evidence/.../image-transfer/`,
   `evidence/.../vm-smoke/`) bleiben unangetastet.
+
+## Push-Zeuge (origin/main)
+
+Push dieser Akte: Commits `9bf1e30` (INITIAL) → final `504e2d0` (ein Commit, nur diese
+Datei; ein `--force-with-lease` Amend fuegt den folgenden ls-tree-Zeugen an — andere
+Lanes hatten zwischenzeitlich auf origin/main geschrieben, deshalb die Lineage-Update).
+Nach dem letzten Push, wörtlich:
+
+```
+$ git ls-tree -r --name-only origin/main evidence/r27-welle5-2026-11-06/version-view/
+evidence/r27-welle5-2026-11-06/version-view/act-1403b.md
+evidence/r27-welle5-2026-11-06/version-view/round-1.md
+evidence/r27-welle5-2026-11-06/version-view/round-2.md
+evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md
+```
+
+## END (diese Lane, Runde 2)
+
+END_DONE w226-version-view: head=65ed48d60f77 getrennt=3-spalten-zellen unklar=zelle mutante=echt-rot+gegenprobe redfirst=belegt lauf=42211122594-TERMINAL-SUCCESS lsremote=65ed48d60f77 | Lane w226: base-drift behandelt (9a14fa80, hosted 42206284877 success), Rezept act-1403b Punkte 1+2 wurden von w229 auf demselben Zweig geliefert (ef9464ef); diese Lane hat kollisionsfrei ff-only auf 65ed48d6 geholt und unabhaengig verifiziert (build/vet/gofmt rc=0, race-20 PASS, beide Produkt-Mutanten ROT an der Gegenprobe, hosted 42211122594 completed/success); Punkte 3+4 als QUESTION offen bei 841e7734. Akte: evidence/r27-welle5-2026-11-06/version-view/w226-round2-verification.md.
