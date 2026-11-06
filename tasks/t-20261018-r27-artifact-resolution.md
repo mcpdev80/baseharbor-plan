@@ -6,10 +6,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (w279, entlassen)
-kanban_lane: review
+owner: coord-welle5 (w281 dispatched)
+kanban_lane: active
 kanban_summary: Use existing OCI images/releases first when selected; verify artifact availability through image-transfer. For current-checkout…
-kanban_status: review
+kanban_status: active
 kanban_title: "Images: resolve existing artifacts or an explicit builder"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-ingress, t-20261018-r27-image-transfer, t-20261018-r27-native-auth, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-artifact-resolution · Images: resolve existing artifacts or an explicit builder #task #release/v0-4-27 #status/review #view/review #area/build #kind/task
+- [ ] t-20261018-r27-artifact-resolution · Images: resolve existing artifacts or an explicit builder #task #release/v0-4-27 #status/active #view/active #area/build #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w279, entlassen) · **Priority:** normal  
+    **Owner:** coord-welle5 (w281 dispatched) · **Priority:** normal  
     **PR:** [baseharbor#1406](https://github.com/mcpdev80/baseharbor/pull/1406)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
-**Owner:** coord-welle5 (w279, entlassen)  
+**Owner:** coord-welle5 (w281 dispatched)  
 **Priority:** normal  
 **PRs:** [baseharbor#1406](https://github.com/mcpdev80/baseharbor/pull/1406)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
