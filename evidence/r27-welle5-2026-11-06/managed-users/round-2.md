@@ -4,7 +4,8 @@
 - Task: t-20261018-r27-managed-users (Runde 2).
 - Branch (DERSOLBE): `work/r27-managed-users`. PR #1397.
 - Base attest (cut from): `b3cb622a2e2ad8488c543f983ccebb8ecad5800b` (the PR head = develop-embedded base, parent of the new commit). `git merge-base --is-ancestor b3cb622a ... fa30c0d1` rc=0 confirmed.
-- Corrected head: `fa30c0d148589accecf5ab18a70937d9fc36dc86`.
+- Base refresh (KOORD-ZURUECK): develop advanced from `21d8d05c` to `f01d2fbd`. Rebased my two commits onto `origin/develop` (conflict-free). New head `44e18f1b43d2ccff2ecb1b2af08e7a3b159ae871`; `git merge-base --is-ancestor origin/develop HEAD` rc=0 confirmed. Write-set isolated to `internal/identityprovider` (4 files, 650 insertions). Pushed `fa30c0d1...44e18f1b`.
+- Corrected head (current): `44e18f1b43d2ccff2ecb1b2af08e7a3b159ae871`.
 - Review applied: `review-1397a.md` lines 21ff (finding 2 = create-fallback defect; finding 3 = mutant must be an ECHTE source mutation).
 
 ## What was built / fixed (product language)
@@ -44,15 +45,23 @@ if !owned {
 - `go build ./...` rc=0
 - Full package `internal/identityprovider`: `ok ... 7.948s`
 
-## Hosted run (TERMINAL)
+## Hosted run (both attempts, TERMINAL)
 
-- Run-ID: `42146815729` (PR Selected Checks, GitHub-hosted shared runner, Ubuntu 26.04, eastus). SHA `fa30c0d148589accecf5ab18a70937d9fc36dc86`.
-- Job `127660251112` (PR · Validation · go-unit-tests): completed, conclusion **failure**.
-- `internal/identityprovider`: `ok ... 9.134s` — my package passed on the hosted run.
-- Only failing test: `TestSourceSnapshotFinalBaselineVerificationCatchesLateMutation` in `internal/development`.
-- Failing log line: `source_snapshot_test.go:363: change-during-read MutationAcked never fired on the mutated path within the local bound`.
-- This is a pre-existing timing/timing-bound concurrency test in a package that is **byte-identical** between base `b3cb622a` and head `fa30c0d1` (`git diff b3cb622a fa30c0d1 -- internal/development/` is empty; blob hashes unchanged). My fix cannot affect it. Ran the test 5x locally: all PASS. Diagnosis = flaky/shared-runner scheduling, not a regression.
-- Per mission rules (no `.github` edits, no reruns/workflow_dispatch): the failing check is reported as STATE and left as-is. No rerun triggered.
+Run 1 — Run-ID `42146815729`, SHA `fa30c0d148589accecf5ab18a70937d9fc36dc86` (pre-refresh):
+- Job `127660251112` (go-unit-tests): completed, conclusion failure.
+- `internal/identityprovider`: `ok ... 9.134s` — my package passed.
+- Failing: `source_snapshot_test.go:363: change-during-read MutationAcked never fired on the mutated path within the local bound` (`TestSourceSnapshotFinalBaselineVerificationCatchesLateMutation`).
+
+Run 2 — Run-ID `42148884595`, SHA `44e18f1b43d2ccff2ecb1b2af08e7a3b159ae871` (post-develop-refresh):
+- Job `127667029179` (go-unit-tests): completed, conclusion failure.
+- `internal/identityprovider`: `ok ... 8.592s` — my package passed.
+- Failing: `source_snapshot_test.go:247: change-during-read MutationAcked never fired on the mutated path within the local bound` (`TestSourceSnapshotDetectsChangeDuringRead`).
+
+Diagnosis: TWO DIFFERENT timing-sensitive tests, on TWO DIFFERENT runs, at TWO DIFFERENT heads, both fail; BOTH pass consistently locally. `internal/development` is byte-identical between base `b3cb622a` and both heads. This is shared-runner scheduling flakiness (`MutationAcked` fires via a `select`/`default` local-bound seam that misses under runner load), NOT a regression from my identityprovider fix.
+
+Local repro (my head `44e18f1b`): full `internal/development` package 3x → all `ok` (~0.9s each); the specific mutation test 5x → all `ok` (~0.008s each).
+
+Coordinator instruction (KOORD-ZURUECK): END_BLOCKED only if the SAME snapshot line fails twice red at the SAME head. Not met — different lines, different heads. Reruns forbidden by mission rules (no `.github` edits / no `workflow_dispatch`). Reported as STATE for coordinator decision; `kur-r7` may address the snapshot seam.
 
 ## Repo-rule compliance
 
@@ -63,4 +72,4 @@ if !owned {
 
 ## END summary
 
-head=fa30c0d14858 fallback=fail-closed: fallback GET must return managedUserOwnedIdentity (username+email match, enabled, baseharbor.scope=managed-invite, no credentials; NOT emailVerified) else refuse, no activation mutante=ECHTE source mutation in isolated worktrees: guard removed -> TestInviteManagedUserFallbackForeignAccountIsRefused RED/FAIL; guard present -> GREEN/PASS; git diff witnesses both regressions=read ok (all 7 invite tests + vet + build green locally) lauf=42146815729 TERMINAL: internal/identityprovider ok 9.134s; only fail = pre-existing flaky TestSourceSnapshotFinalBaselineVerificationCatchesLateMutation in byte-identical internal/development (STATE, no rerun per mission rules) lsremote=fa30c0d14858 PR#1397 head==fa30c0d1 via gh --json headRefOid
+head=44e18f1b43d2ccff2ecb1b2af08e7a3b159ae871 (base-refreshed onto develop f01d2fbd; origin/develop ancestor rc=0) fallback=fail-closed: fallback GET must return managedUserOwnedIdentity (username+email match, enabled, baseharbor.scope=managed-invite, no credentials; NOT emailVerified) else refuse, no activation mutante=ECHTE source mutation in isolated worktrees: guard removed -> TestInviteManagedUserFallbackForeignAccountIsRefused RED/FAIL; guard present -> GREEN/PASS; git diff witnesses both regressions=read ok (7 invite tests + vet + build + full development pkg 3x green locally) lauf=42148884595 (HEAD 44e18f1b) & 42146815729 (fa30c0d1) BOTH TERMINAL: internal/identityprovider ok (8.59s, 9.134s); fail=two DIFFERENT snapshot timing tests (line 363 @fa30c0d1, line 247 @44e18f1b) in byte-identical internal/development, both green local => shared-runner flake not my regression; same-line-twice condition NOT met => STATE not BLOCKED (no rerun per mission rules, kur-r7 may address) lsremote=44e18f1b43d2 PR#1397 head==44e18f1b via gh --json headRefOid | WAITING coordinator decision on snapshot flake; fix complete and isolated
