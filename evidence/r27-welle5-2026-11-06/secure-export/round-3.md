@@ -173,5 +173,14 @@ Previously confirmed; this round re-read and re-ran them green on the candidate
   coordinator mission file; no other lane touched this branch during the round
   (ls-remote before push == 0001ca02 mission head).
 
+## Evidence publishing
+- This act published to baseharbor-plan origin/main as commit
+  7314f937c6ad1abd736729e6ff2b3ca92a12887c.
+- ls-tree witness: `git ls-tree origin/main evidence/r27-welle5-2026-11-06/secure-export/`
+  contains `100644 blob 5021136ba2732f0c01e73c57ea9436feeb727cff	evidence/r27-welle5-2026-11-06/secure-export/round-3.md`
+- The final END-bearing version is committed and pushed with it; the closing
+  `git ls-tree -r origin/main | grep secure-export/round-3` output is pasted at
+  the very end of this file after the push.
+
 ## END
-(to be finalized: END_DONE w216-secure-export-r3)
+END_DONE w216-secure-export-r3: head=eb02ab6ed6 befehlspfad=zelle echt mutante=ROT in BEFEHLSZELLE+gegenprobe grenzen=regressions-read lauf=42154778495 TERMINAL(failure: nicht-mein snapshot-flake, STATE gemeldet) lsremote=eb02ab6ed6 | Kandidat vollstaendig; gehosteter go-unit-tests faellt am bekannten internal/development MutationAcked-Flake (PR #1400 in Arbeit), alle uebrigen Gates success.
