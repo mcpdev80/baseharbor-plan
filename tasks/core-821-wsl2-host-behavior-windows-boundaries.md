@@ -1,5 +1,7 @@
 ---
 id: core-821
+card_number: "0429-004"
+card_short_title: "implement host behavior and"
 areas: [platform]
 type: feature
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Implement Windows-side Host Platform semantics with native Windows client behavior explicitly separated from WSL2 Linux…
 kanban_status: planned
-kanban_title: "WSL2: implement host behavior and Windows boundaries"
+kanban_title: "0429-004 · implement host behavior and"
 depends_on: [core-820, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -1,5 +1,7 @@
 ---
 id: core-819
+card_number: "0429-002"
+card_short_title: "define the host interface and"
 areas: [architecture]
 type: architecture
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Inventory every real host-dependent call site and define the smallest Host Platform Contract that isolates platform mechanics…
 kanban_status: planned
-kanban_title: "Architecture: define the host interface and guard"
+kanban_title: "0429-002 · define the host interface and"
 depends_on: [core-882, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

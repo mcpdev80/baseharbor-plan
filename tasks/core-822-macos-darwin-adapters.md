@@ -1,5 +1,7 @@
 ---
 id: core-822
+card_number: "0429-005"
+card_short_title: "implement and qualify Darwin"
 areas: [platform]
 type: feature
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Implement and qualify the native macOS/Darwin Host Platform adapter and the macOS Dev Local journey without claiming runtime…
 kanban_status: planned
-kanban_title: "macOS: implement and qualify Darwin adapters"
+kanban_title: "0429-005 · implement and qualify Darwin"
 depends_on: [core-820, core-883, core-884, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
