@@ -5,16 +5,16 @@
 
 ## PLAN
 
-- [x] Read mission + prior context, establish remote truth via git ls-remote
-- [x] Establish base: candidate be620d2b1 on work/r27-client-commands, develop beb923fe6, ancestor proof
-- [x] Analyze BYPASS in TestClientCommandsTwoHomesRealCoreOverTLS + empty-store roundtrip
-- [x] Remove assumeVerifiedCoreForSourceTest BYPASS from core-integration test (0 calls remain; real requireApplicationCore path runs)
-- [x] Rewrite TestClientCommandsStatusRestoreRoundtripInProcess into a real roundtrip (populated store Create, Load restore, compare)
-- [x] TestClientCommandsTwoHomesRealCoreOverTLS stays gated on BASEHARBOR_CI_RUNTIME_INTEGRATION against real core
-- [x] Ran affected local tests with BASEHARBOR_CI_RUNTIME_INTEGRATION=1: all 11 TestClientCommands* PASS
-- [x] Report CI-include gap as BEFUND (ci.yml validate if != pull_request + runtime_integration allowlist) file:line, not edited
-- [x] Committed delta test-only, ancestor shown, git log only own commits on top
-- [x] Pushed, remote HEAD verified, affected tests re-run against pushed ref
+- Read mission + prior context, establish remote truth via git ls-remote
+- Establish base: candidate be620d2b1 on work/r27-client-commands, develop beb923fe6, ancestor proof
+- Analyze BYPASS in TestClientCommandsTwoHomesRealCoreOverTLS + empty-store roundtrip
+- Remove assumeVerifiedCoreForSourceTest BYPASS from core-integration test (0 calls remain; real requireApplicationCore path runs)
+- Rewrite TestClientCommandsStatusRestoreRoundtripInProcess into a real roundtrip (populated store Create, Load restore, compare)
+- TestClientCommandsTwoHomesRealCoreOverTLS stays gated on BASEHARBOR_CI_RUNTIME_INTEGRATION against real core
+- Ran affected local tests with BASEHARBOR_CI_RUNTIME_INTEGRATION=1: all 11 TestClientCommands* PASS
+- Report CI-include gap as BEFUND (ci.yml validate if != pull_request + runtime_integration allowlist) file:line, not edited
+- Committed delta test-only, ancestor shown, git log only own commits on top
+- Pushed, remote HEAD verified, affected tests re-run against pushed ref
 
 ## Base / branch provenance
 
