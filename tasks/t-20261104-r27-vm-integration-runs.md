@@ -7,7 +7,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: w288-pr1407-vm-matrix-podman
+owner: 0427-107-docker-podman
 kanban_lane: active
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
 kanban_status: active
@@ -24,7 +24,7 @@ evidence: []
 
 - [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** w288-pr1407-vm-matrix-podman · **Priority:** high  
+    **Owner:** 0427-107-docker-podman · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -32,7 +32,7 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** w288-pr1407-vm-matrix-podman  
+**Owner:** 0427-107-docker-podman  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -89,3 +89,5 @@ wieder active gesetzt: w288 faehrt gerade die podman-seite der matrix (0/4 war d
 owner-freigabe 05:0xZ: zwei-rechner-ausnahme fuer die fertigstellende bahn — w288 haelt baha-podman + baha-docker-2 gleichzeitig und uebernimmt damit auch die demo-provisionierung (bisher als externer blocker gemeldet). status gruende damit beseitigt: connector-zelle = ausgehend freigeben, demo-zelle = einrichtung teil dieses auftrags.
 
 kein blocker mehr: braucht ein nachweis mehrere Maschinen, werden mehrere bereitgestellt (owner-regel 05:2xZ, RUNBOOK R2). w288 haelt baha-podman + baha-docker-2 und faehrt: podman-matrix (4 zellen) -> demo-einrichtung auf docker-2 (r27-w150-demo-repo + managed backend sql/redis/s3) -> connector-zelle im zwei-rechner-ablauf. bisherige zeugen: docker-seite 2/4 gruen (core+console PASS, akte round-1.md + docker-2-finding.md auf main).
+
+bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
