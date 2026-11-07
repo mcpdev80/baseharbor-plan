@@ -59,4 +59,5 @@ Forbidden paths untouched: cmd/baha/commands.go, .github/**, accesswizard/**, no
 ## Hosted CI
 
 - PR: #1435, head SHA 4d430eeaa862b1ab66ca20372ca8ba2e3bd5b2c0.
-- (run ids and terminal statuses appended below by this lane after watching to terminal.)
+- Run: https://github.com/mcpdev80/baseharbor/actions/runs/42396708507 — watched to terminal by this lane: status completed, conclusion success.
+- Selected checks (all pass): Workflow policy, PR · Source format, PR · Trusted Plan, PR · Focused Python, PR · Validation · go-vet, PR · Validation · go-build, PR · Validation · cli-gofmt, PR · Validation · go-unit-tests (9m9s, includes the new TestOnboarding* regressions in ./cmd/baha and ./internal/onboardingwizard), PR Selected Checks aggregate. Runtime/HA/consumer jobs report "skipping" (not selected for this change surface, per CI selection rules).
