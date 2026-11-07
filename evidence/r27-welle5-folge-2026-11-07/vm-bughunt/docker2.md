@@ -93,6 +93,19 @@
 - 0 blocker-frei: up mit --confirm-candidate funktioniert, app inspect/ READY sauber
 - host-intact: quarkfield + ghisolated cores live und healthy
 
+## HOST-CLEANLINESS (OWNER-PFLICHT 2026-11-08)
+
+BEFORE: 18 bh-* containers, 8 bh-* volumes, 2 bh-* images.
+CLEANUP: docker stop/rm $(ps -aq --filter name=^bh-); docker volume rm $(volume ls -q --filter name=^bh-).
+  - MEINE container (ghisolated core): 18 -> 0
+  - MEINE volumes (ghisolated): 0 (bereits bei container-entfernung weg)
+  - verbleibende bh-* volumes (6): gehören ANDEREN lanes (quarkfield/nextfield/w169-ci/w266dn) — NICHT gelöscht (fremde arbeit)
+  - verbleibendes bh-* image (1): bh-nextfield-nextapp-dev-app = andere lane — NICHT gelöscht
+  - 2 anon-systemvolumes (com.docker.volume.anonymous): pre-existing, nicht meins — belassen
+AFTER: container=0, volumes(mine)=0, df=15% used (/dev/sda1 96G 14G used 82G free)
+cleanliness: 0 container, 0 volumes(mine), df 15%
+host /home/marcel/bahtest/* scratch: alle entfernt (baha, baha2, ptydriver, scripts, greenfield dirs)
+
 ## NÄCHSTER TRIGGER für nachfolger
 - BF2: down machine-consent kante prüfen (existiert --confirm-candidate analog?); down-hang fixen
 - BF3: isolierter greenfield-aufsetz auf docker2 — target-binding + core-bootstrap dokumentieren
