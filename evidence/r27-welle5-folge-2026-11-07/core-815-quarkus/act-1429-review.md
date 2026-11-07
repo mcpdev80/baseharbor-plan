@@ -67,3 +67,9 @@ The shared planning checkout contained an unrelated unpublished coordinator comm
 ## END
 
 END_BLOCKED 0427-003-quarkus-review: REQUEST-CHANGES; candidate 0743011cfa5d9bd260d4a347ab94a6049ce960a2 is ancestry-clean with hosted unit CI green, but the test proves generated URL text only and the exact run skipped Docker and Podman runtime gates.
+
+Remote publication witness from `git ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/core-815-quarkus/act-1429-review\.md$'`:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/core-815-quarkus/act-1429-review.md
+```
