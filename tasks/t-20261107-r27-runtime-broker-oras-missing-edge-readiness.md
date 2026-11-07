@@ -90,3 +90,8 @@ docker-phase matrix:
 owner-direktive #5 zugewiesen; zwei gaps (oras registry-resolution source_oci.go+application_registry_source.go fail-closed; edge-runtime /readyz not_ready broker bug). volle READY-validierung haengt an vm-integration-runs+oras-host (coord ops); produktfix+runnable tests jetzt. write-set dateidisjunkt zu 117/022/021.
 
 CODEX request-changes: /readyz default 503 ohne executor-URL (nur env-waiver) + unverified OCI mutable-fallback bei opt-in=true. korrektur in FRISCHE lane (alte frei).
+
+## Owner-Merge — 2026-11-07
+
+- **PR #1425 gemergt** nach gruenem CI-Lauf [42374471424](https://github.com/mcpdev80/baseharbor/actions/runs/42374471424) auf `baseharbor/develop`, Merge-SHA `a1cb141bf3db9a49783ccd1c56588287a59d4158`.
+- Produktfix fuer klassifizierten `oras`-Fehler, unverifizierbares OCI und Broker-Readiness integriert. Dies bestaetigt noch **keine** externe Demo-App-READY-Abnahme gegen das aktuelle Core/Image auf Docker und Podman; Karte bleibt **review**, bis der beschriebene reale Matrix-Nachweis akzeptiert ist.
