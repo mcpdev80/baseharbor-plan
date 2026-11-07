@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: ""
-kanban_lane: ready
+owner: lane-0427-access-wizard
+kanban_lane: active
 kanban_summary: "Name->search/select Targets->rights->review; preserve selections across pagination/back, show effective scope. Distinguish…"
-kanban_status: planned
+kanban_status: active
 kanban_title: "0427-013 · guide profile assignment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-managed-users, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -24,19 +24,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/planned #view/ready #area/wizard #kind/task
+- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0427-access-wizard · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** unassigned  
+**Owner:** lane-0427-access-wizard  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
