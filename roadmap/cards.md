@@ -11,8 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 84/117 · **Blocked:** 1 · **Waiting:** 22  
-    **Blocker:** [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) — urteil 1407b REJECT: karten-acceptance verlangt lauffaehige zellen auf BEIDEN familien; podman-seite haelt am befund ErrDeploymentOwnerMissing (eigene karte t-…  
+    **Accepted tasks:** 85/117 · **Blocked:** 0 · **Waiting:** 21  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

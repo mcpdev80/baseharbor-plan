@@ -26,7 +26,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
+    **Needs:** [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

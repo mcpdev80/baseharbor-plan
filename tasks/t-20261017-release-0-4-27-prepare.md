@@ -52,6 +52,12 @@ Prepare the v0.4.27 ecosystem release-readiness dossier while implementation pro
 - Freeze actual immutable ecosystem SHAs, candidate tree, gate requirements and required test inputs. Verify all required targeted checks, runtime/platform gates and consumer test execution; missing/failed/skipped/unverified requirements block readiness.
 - Deliver a reviewable readiness dossier and exact authorized-run plan. Preparation does not authorize full pre-release, promotion, tag, publication or public Pages deployment.
 
+## Mandatory CI test-routing audit (Owner decision 2026-11-07)
+
+Before declaring preparation complete, require a test-to-check-to-trigger matrix for every new or modified v0.4.27 regression, including already accepted Core, Demo, Console and Node Connector cards. The matrix must establish actual package discovery, native Docker and rootless Podman/Quadlet execution where supported, real external prerequisites, and explicit develop-acceptance or release gate registration. A new test with no executable CI route or a silent skip blocks qualification. Use [the current audit](../evidence/v0.4.27-ci-test-routing-audit-2026-11-07.md); coordinate implementation with the assigned [CI-lanes owner](t-20261018-r27-ci-lanes.md). Do not modify that worker's files from this release-preparation task.
+
+The candidate release catalog presently lacks v0.4.27 registration; prepare the mapping without assuming publication. This card authorizes no release workflow execution, tag, promotion or publication.
+
 ## Required checks
 
 Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/build/security and affected native/consumer gates. Run the actual affected checks directly; no CI evidence verifier or manifest reuse.
