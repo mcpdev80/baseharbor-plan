@@ -7,10 +7,10 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-003 (keine aktive bahn)
-kanban_lane: wait
+owner: lane-0427-003-podman2-bughunt
+kanban_lane: active
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
-kanban_status: wait
+kanban_status: active
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
@@ -21,22 +21,21 @@ labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
 blocker: ""
 resolution: ""
 evidence: []
-wait_reason: "docker-seite + quarkus erledigt (#1429/#1432); podman-seite der 4 stacks wartet normal auf #110 podman cells (KEIN alarm/blocker, guide-gemaess wait nicht blocked)"
+wait_reason: ""
 
 ---
 
-- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/wait #view/wait #area/testing #kind/acceptance
+- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** lane-0427-003 (keine aktive bahn)  
+    **Owner:** lane-0427-003-podman2-bughunt  
     **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
-    **Waiting:** docker-seite + quarkus erledigt (\#1429/\#1432); podman-seite der 4 stacks wartet normal auf \#110 podman cells (KEIN alarm/blocker, guide-gemaess wait nicht blocked)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
-**Owner:** lane-0427-003 (keine aktive bahn)  
+**Owner:** lane-0427-003-podman2-bughunt  
 **Priority:** not set  
 **PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
@@ -109,3 +108,5 @@ DOCKER-SEITE + QUARKUS-FERTIG: Go/py/nextjs READY+single-default belegt, quarkus
 ## Mitarbeit / Assignment-Abgleich — 2026-11-07
 
 - **Mitwirkender:** ChatGPT (CI/Owner-Unterstützung). Implementiert PR [#1432](https://github.com/mcpdev80/baseharbor/pull/1432), Native Docker/Podman Matrix 8/8 auf SHA `6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b` geprüft und Kanban/Evidence aktualisiert. Der bestehende `owner` bleibt die Implementierungs-Lane; ChatGPT betreut CI-Integration/Abnahme. Status **active** bis vollständiger SINGLE-/HA-Nachweis und Merge.
+
+podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleiche direktive: greenfield/brownfield/wizards, KEIN HA, nur befundung. lane 486b2d02.
