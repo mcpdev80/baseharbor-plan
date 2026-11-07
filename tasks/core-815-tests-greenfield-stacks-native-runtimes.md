@@ -96,3 +96,9 @@ DOCKER-SEITE + QUARKUS-FERTIG: Go/py/nextjs READY+single-default belegt, quarkus
 - Actual [native run 42390908119](https://github.com/mcpdev80/baseharbor/actions/runs/42390908119), exact candidate `7065690f130fd2718c4e6852824bf0d2915ff724`: **Next.js / Docker PASS**, including real `baha app new`, Core bootstrap, scoped non-destructive provider consent, `baha up`, status + doctor and cleanup. Other seven matrix cells were not yet all terminal at this snapshot. Do not generalize that one PASS into an eight-cell acceptance.
 - [PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) now adds a stronger typed JSON `ready=true`, workload and per-service readiness verification and the explicit v0.4.27 pre-release gate; validate on newer exact-source [run 42391107321](https://github.com/mcpdev80/baseharbor/actions/runs/42391107321).
 - Keep 0427-003 **active** pending eight native successes, default-SINGLE + explicit HA and negative topology evidence; source PR is not merged.
+
+## Native 8/8 qualification — 2026-11-07
+
+- [Greenfield Native Stack E2E #42391107321](https://github.com/mcpdev80/baseharbor/actions/runs/42391107321) completed **SUCCESS** on exact candidate `6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b`. All **8 required native matrix jobs** completed SUCCESS: Go, Next.js, Python, Quarkus each on Docker and Podman. Legacy Next.js Docker E2E also SUCCESS.
+- [PR #1432 CI #42391093788](https://github.com/mcpdev80/baseharbor/actions/runs/42391093788) completed SUCCESS on the **same SHA**. No skipped required Greenfield matrix job in the native run.
+- **Do not mark card accepted yet:** exact SINGLE default topology container counts plus explicitly enabled HA positive and default-HA negative scenario remain required by the governing card. This native application READY matrix is not proof of those topology assertions. PR #1432 remains open pending those acceptance details.
