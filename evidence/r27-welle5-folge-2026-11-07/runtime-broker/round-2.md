@@ -211,11 +211,18 @@ over. That is the designed replacement, not a diagnosis-driven re-run.
 
 Terminal observation of run 42374471424 (head 393a1969d, event pull_request)
 via `gh run watch` + `gh run view --json status,conclusion,jobs` (this lane):
-    Jobs completed so far on 42374471424: Workflow policy, PR · Source format,
-    PR · Trusted Plan, go-build, go-vet, cli-gofmt, Focused Python => success;
-    Exact Candidate / Selected Runtime / consumer pins => skipped (gates);
-    go-unit-tests => the covering suite, in progress at evidence-commit time;
-    terminal state recorded in the follow-up evidence commit on main.
+    status=completed conclusion=SUCCESS, headSha 393a1969de2f5413920c5c1e3c2878f3c61cb93c.
+    go-unit-tests (job 128409286768) => success; its log's package lines prove
+    the new cells ran on the hosted runner:
+      ok github.com/mcpdev80/baseharbor/cmd/baha 472.585s
+      ok github.com/mcpdev80/baseharbor/internal/controlplaneruntime 0.884s
+      ok github.com/mcpdev80/baseharbor/internal/orgconfig 0.140s
+    Other executed jobs success (Source format, Trusted Plan, Workflow policy,
+    go-build, go-vet, cli-gofmt, Focused Python, PR Selected Checks); the
+    push/dispatch/consent-gated jobs (validate, Release Source Preflight, HA
+    gates, Exact Candidate, consumer/demo/contracts/runtime pins) skipped by
+    their own gates — PR-time Go coverage is carried by go-unit-tests as
+    documented above. No failing log line anywhere in the run.
 
 Local regression roster on the candidate (this lane, `go test -v`, candidate
 tree 393a1969d, all PASS):
@@ -254,17 +261,17 @@ tree 393a1969d, all PASS):
 
 ## END
 
-State at this END post: run 42374471424 (head 393a1969d) was still executing
-its covering job PR · Validation · go-unit-tests, so the END line below is
-QUESTION (the lane stays accountable and the run keeps being watched) instead
-of idling unrecorded. When the watcher reports the terminal state, the record
-is appended here and END_DONE is posted.
+The earlier QUESTION (posted while run 42374471424 was still in its covering
+job) is resolved: the run finished GREEN-terminal, recorded above. Coordinator
+direction (this lane's mission thread): observe to terminal, record run-id+
+status, then regular END_DONE — done here.
 
-QUESTION 0427-118-r2-correct: round-2 fixes shipped on PR #1425 candidate
-393a1969d (readyz default READY mount-derived, waiver removed; unverifiable OCI
-never qualifies the mutable fallback; ErrNotFound identity preserved);
-red/green regressions in the tree, awaiting my run 42374471424 go-unit-tests
-terminal state.
+END_DONE 0427-118-r2-correct: both CODEX gaps closed on PR #1425 candidate
+393a1969d (readyz default READY mount-derived, env-waiver removed; unverifiable
+OCI never qualifies the mutable fallback; ErrNotFound identity preserved
+errors.Is-capable); red/green regressions in the tree, CI-collected and green
+on hosted run 42374471424 (go-unit-tests success on head 393a1969d); develop
+beb923fe6 verified ancestor; evidence on origin/main.
 
 - Candidate: 393a1969d on lane/0427-118-runtime-broker (PR #1425).
 - Write-set honored: cmd/baha/* + internal/{controlplaneruntime,orgconfig,runtimeexecutor}/*;
