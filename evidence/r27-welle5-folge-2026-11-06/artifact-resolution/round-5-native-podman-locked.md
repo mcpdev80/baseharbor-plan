@@ -117,6 +117,8 @@ Lock (vm-lock.sh, journal line):
 
 ps-witness at END: podman host 148 — 9 images / 0 containers / 0 owned w281 images; harness + oras shim + Dockerfile removed.
 
+Final post-push host-clean ps-witness (independent re-read, baha-podman 148): running containers=0, images=9 (baseline, unchanged), w281-owned images=0, no /tmp/w281* temp files; pre-existing permanent images untouched.
+
 ## journal deletions (own section)
 
 The form-defect that triggered this redo (w276 round-3 had no claim/release in the vm-lock journal) is now closed: this lane's claim and release are both present as dated journal lines above (vm-lock.sh appends them to coordinator/.vm-locks/journal.log on each call). The prior round-3-native-smoke.md carried no such lines; round-5 does.
