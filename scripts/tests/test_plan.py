@@ -586,9 +586,6 @@ class RealVaultTest(unittest.TestCase):
         self.assertEqual(code, 0, out.getvalue())
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 class ReleaseCardNumberTests(unittest.TestCase):
     def fixture(self):
         f = Fixture()
@@ -623,3 +620,7 @@ class ReleaseCardNumberTests(unittest.TestCase):
                     "CI: composed InCI tests must run against an isolated runtime state"]
         for example in examples:
             self.assertLessEqual(len(plan.compact_card_title(example)), 30)
+
+
+if __name__ == "__main__":
+    unittest.main()

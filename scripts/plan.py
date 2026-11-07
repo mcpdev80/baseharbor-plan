@@ -144,8 +144,8 @@ def quote(value):
 
 
 CARD_NUMBER = re.compile(r"^[0-9]{4}-[0-9]{3}$")
-VERSION_NUMBER = re.compile(r"^v([0-9]+)\\.([0-9]+)\\.([0-9]+)$")
-SERIES_NUMBER = re.compile(r"^v([0-9]+)\\.([0-9]+)\\.x$")
+VERSION_NUMBER = re.compile(r"^v([0-9]+)\.([0-9]+)\.([0-9]+)$")
+SERIES_NUMBER = re.compile(r"^v([0-9]+)\.([0-9]+)\.x$")
 
 
 def card_release_prefix(meta):
@@ -172,9 +172,9 @@ def card_release_prefix(meta):
 
 def compact_card_title(title):
     # The full title remains untouched in the checkbox and metadata.
-    value = re.sub(r"^((?:fix|feat|ci|docs|test|chore|refactor)\\([^)]*\\)|(?:fix|feat|ci|docs|test|chore)):\\s*", "", title, flags=re.I)
-    value = re.sub(r"\\s*\\([^)]*\\)", "", value)
-    value = re.sub(r"\\s+", " ", value).strip()
+    value = re.sub(r"^((?:fix|feat|ci|docs|test|chore|refactor)\([^)]*\)|(?:fix|feat|ci|docs|test|chore)):\s*", "", title, flags=re.I)
+    value = re.sub(r"\s*\([^)]*\)", "", value)
+    value = re.sub(r"\s+", " ", value).strip()
     if ":" in value:
         value = value.split(":", 1)[-1].strip()
     substitutions = {"Configuration": "Conf", "Integration": "Integr", "Compatibility": "Compat",
@@ -183,7 +183,7 @@ def compact_card_title(title):
                      "Deployment": "Deploy", "Acceptance": "Accept", "Validation": "Validate",
                      "Provider": "Prov", "Connection": "Conn"}
     for long, short in substitutions.items():
-        value = re.sub(r"\\b" + re.escape(long) + r"\\b", short, value, flags=re.I)
+        value = re.sub(r"\b" + re.escape(long) + r"\b", short, value, flags=re.I)
     if len(value) <= 30:
         return value
     words = value.split()
@@ -1214,7 +1214,7 @@ def cmd_new(root, args):
     template = (root / "templates" / "task.md").read_text(encoding="utf-8")
     status = "backlog" if args.release in ("backlog", "triage") else "planned"
     existing = Vault(root).load()
-    prefix = card_release_prefix({"release": args.release, "version": ""})
+    prefix = card_release_prefix({"release": args.release, "version": args.version or ""})
     number = ""
     if prefix:
         used = [int(as_str(x["meta"].get("card_number")).split("-")[1])
@@ -1229,6 +1229,7 @@ def cmd_new(root, args):
     text = (template.replace("{{card_number}}", number)
             .replace("{{card_short_title}}", compact_card_title(args.title) if number else "")
             .replace("{{id}}", tid).replace("{{title}}", args.title)
+            .replace("version: \"\"", "version: " + dump_value(args.version or ""), 1)
             .replace("{{release}}", args.release).replace("{{release_tag}}", release_tag(args.release))
             .replace("{{status}}", status).replace("{{repo}}", REPO_PREFIX[args.repo]))
     path.write_text(text, encoding="utf-8")
@@ -1291,6 +1292,7 @@ def main(argv=None):
     p.add_argument("--slug", required=True)
     p.add_argument("--title", required=True)
     p.add_argument("--release", required=True)
+    p.add_argument("--version", help="concrete patch version for a release series (e.g. v0.5.1)")
     p = sub.add_parser("claim")
     p.add_argument("id")
     p.add_argument("--owner", required=True)
