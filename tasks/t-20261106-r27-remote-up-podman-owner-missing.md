@@ -8,25 +8,28 @@ priority: high
 type: bug
 areas: [cli, remote]
 owner: mcpdev80
-kanban_status: review
+kanban_status: closed
 kanban_title: "0427-117 · podman-family Deploy owner"
-kanban_lane: review
+kanban_lane: closed
 depends_on: [t-20261017-release-0-4-27-updates, t-20261106-r27-remote-up-cli-path]
 prs: [mcpdev80/baseharbor#1419]
 repos: [mcpdev80/baseharbor]
 blocker: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-7.md"]
 
 ---
 
-- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/review #view/review #area/cli #area/remote #kind/bug
+- [x] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/cli #area/remote #kind/bug
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** high  
     **PR:** [baseharbor#1419](https://github.com/mcpdev80/baseharbor/pull/1419)  
     **Needs:** [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
 **Owner:** mcpdev80  
@@ -68,3 +71,5 @@ r6 geliefert+verifiziert: head f69f2a6c auf eee11d50 (ancestor rc0), MERGEABLE, 
 codex act-1419d REJECT (eng/konvergent): delta ok, code accepted-correct, nur die regression ruft record... DIREKT statt echtem lifecycle (deployment_owner_loan_regression_test.go:381-390). rezept=runApplicationApplyLifecycle/executeApplicationApplyLifecycle durchlaufen + persisted owner-record assertieren. bahn 0812eb78 r7 re-woken. jede runde enger (marker->code->seam-test->write-func->jetzt lifecycle-runner), konvergiert.
 
 r7 disk-verifiziert: PR #1419 head 5c08ed6be echter product-owner-fix + opt2 test, hosted CI GRUEN, develop ancestor. CODEX-REVIEW laeuft.
+
+MERGED 11:33:39Z develop beb923fe6. CODEX approve+merge, kein force. Worker freigegeben. #116 damit entblockt (wartete auf diesen landing).
