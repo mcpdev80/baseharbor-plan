@@ -4,4 +4,8 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261108-bughunt-0427-core-destroy-keycloak-orphan](../tasks/t-20261108-bughunt-0427-core-destroy-keycloak-orphan.md) | Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-0427-debug-dump-app-init-flags](../tasks/t-20261108-bughunt-0427-debug-dump-app-init-flags.md) | Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) | Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
