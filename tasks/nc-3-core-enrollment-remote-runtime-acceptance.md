@@ -1,5 +1,7 @@
 ---
 id: nc-3
+card_number: "0427-004"
+card_short_title: "Core-compatible enrollment and"
 areas: [connector]
 type: task
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "The Node Connector integrates with real Core enrollment and sessions, and real remote Docker Compose and rootless Podman Quadlet…"
 kanban_status: planned
-kanban_title: "Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance"
+kanban_title: "0427-004 · Core-compatible enrollment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-cli, t-20261018-r27-node-service, t-20261018-r27-node-streams, t-20261018-r27-node-trust, t-20261018-r27-remote-podman-web, t-20261018-r27-remote-rollout]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: []
