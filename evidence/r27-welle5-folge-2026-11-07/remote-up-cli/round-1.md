@@ -72,8 +72,33 @@ Result: ok github.com/mcpdev80/baseharbor/internal/application 2.992s
   that is a CI-group trigger finding to report to Owner 021 with file:line — NOT
   edited here. (Currently both packages run under the default unit-test groups.)
 
-## Local verification pending
-- go vet ./... and full cmd/baha suite (background run in progress).
+## Local verification (final)
+- go vet ./internal/application/ ./cmd/baha/ = clean (exit 0)
+- go build ./cmd/baha/ = success (/tmp/baha_test_bin)
+- go test ./internal/application/ = ok (2.992s) — includes both new cells
+- go test ./cmd/baha/ -run 'TestRemote' = ok (all remote lifecycle cells incl. my strengthened cell)
+- The sole cmd/baha suite failure TestAppEditCommandCompleteProviderEditRunsRealLifecycle
+  (a heavy real-isolated-Core lifecycle test) is a PRE-EXISTING environmental
+  failure on this shared host: it fails in ISOLATION and fails identically on the
+  clean remote head 86f990a (my change stashed). NOT caused by this lane's change.
+  CI excludes the local Core/network from the unit-group; CI's own real-runtime
+  gates (Targeted HA docker/podman) cover the real-Core path on isolated runners.
+
+## Candidate pushed + CI
+- Candidate branch work/r27-remote-up-cli: 86f990a69..0b3608987 (ls-remote witness 0b3608987).
+  Base 86f990a69 == remote head == merge commit that bakes develop 934be499 (rc0).
+- CI run #5012 (actions/runs/42372888866) started 2026-11-07 12:31, terminal:
+  **Status = Success** (total 9m 36s).
+- go-unit-tests job (#128404512208) succeeded Nov 7 2026, 9m 12s: runs
+  `go test ./contracts/... ./internal/... ./spec/...` + `go test ./cmd/baha` +
+  `go vet ./...` — covers both changed packages (internal/application +
+  cmd/baha). PR Selected Checks job (#128406510311) completed.
+- End-state of the unit-cell evidence on CI: the go-unit-tests job passed with
+  my new success + fail-closed cells committed at 0b3608987. The pre-existing
+  environmental TestAppEditCommandCompleteProviderEditRunsRealLifecycle failure
+  is a local-host real-Core/network artifact (fails in isolation and on the
+  clean remote head); it does not run in the CI unit group and is unrelated to
+  this lane's change.
 
 ## END
 - Lane still active.
