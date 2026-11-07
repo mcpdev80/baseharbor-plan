@@ -7,7 +7,7 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-003 (docker+quarkus anteil fertig/review; podman-seite ausstehend)
+owner: lane-0427-003 (quarkus korrektur + podman-seite ausstehend)
 kanban_lane: active
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
 kanban_status: active
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** lane-0427-003 (docker+quarkus anteil fertig/review; podman-seite ausstehend)  
+    **Owner:** lane-0427-003 (quarkus korrektur + podman-seite ausstehend)  
     **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
-**Owner:** lane-0427-003 (docker+quarkus anteil fertig/review; podman-seite ausstehend)  
+**Owner:** lane-0427-003 (quarkus korrektur + podman-seite ausstehend)  
 **Priority:** not set  
 **PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429)  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
