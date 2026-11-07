@@ -1,78 +1,84 @@
-# 0427-access-wizard — round 4 evidence (drift-clear + #1433 offboard corrections)
+# 0427-access-wizard — round 4 evidence (finding #4: fail-closed offboarding kinds)
 
-Card: `t-20261018-r27-access-wizard` (0427-013). Mission `0427-access-wizard-r2.txt`, lane `df554d91`.
+Card: `t-20261018-r27-access-wizard` (0427-013). Mission `0427-access-r4.txt`, lane `496759eb` (ornith, FRISCH).
 Self-run. No subagents (directive 4.8).
 
 ## ## PLAN (checklist — AGENTS 4.4)
-- Read mission (r2) + drift-clearing directive; confirm candidate PR#1430 head, develop 8a3f58da9 (#119 merged after my base)
-- Fix the 3 registration fails: classify baha access assign/offboard, regenerate command-index from registry
-- Mirror new access literals into German machine-coverage page (fix DE technical-integrity)
-- Push first candidate b93836ac; hosted CI #5054 terminal green (wizard-registration-tests + documentation-audit + go-vet/build/unit/gofmt)
-- Drift-clear: fetch origin develop, merge origin/develop; delta now only wizard/accesswizard files
-- Cherry-pick #1433 corrections (person/target-boundary offboard fix + tests) onto lane; gofmt fix
-- New candidate 4c9bf21a -> e651cb1c; build/vet/gofmt clean; targeted Go suite PASS (skip 2 native-runtime)
-- Push final candidate SHA, self-run hosted PR-check #5063 to terminal (run-id + status); ls-remote witness
-- Update board + evidence ## PLAN to true state, publish handoff, card -> review, END
+
+- Read mission + binding `act-1430-review.md` (commit `20810abd` on origin/main) and confirm remote truth via `git ls-remote` (PR#1430 head `5ccb81472`, develop `8a3f58da9`).
+- Reconcile candidate #1430 head `5ccb81472` against the 4 findings; run existing Go wizard suite.
+- Implement finding #4 only (findings #1-3 already merged in #1430): fail-closed routing for unimplemented offboarding kinds; no cross-card write.
+- Add a regression proving each unimplemented `RemoveKind` fails closed and leaves the store byte-identical.
+- gofmt/build/vet clean; full accesswizard + cmd/baha wizard suites PASS.
+- Push named candidate branch `work/r27-access-wizard`, ls-remote witness, base-ancestor proof, own-commits-only log.
+- Evidence to baseharbor-plan origin/main (ls-remote witness before END); publish handoff, card -> review, END.
 
 ## Base attestation
-- develop tip now `8a3f58da905fad52327d33466fde1d9568092519` (#119 merged in after my base).
-- My lane base merge-base with develop: `812c99c88` (#1383 compose-isolation merge) — a develop ancestor.
-- `8a3f58da9` IS an ancestor of my HEAD `e651cb1c` (confirm via `git merge-base --is-ancestor 8a3f58da9 e651cb1c`).
 
-## Drift-clearing (node-r3 pattern)
-- The OCI files in the access-wizard diff (#1430/#1433) are NOT a #119 collision: #119 merged into develop `8a3f58da9` AFTER my lane base point, so my lane had drifted.
-- `git fetch origin develop; git merge origin/develop` → clean 4-file merge (`application_registry_pull_error_test.go`, `application_registry_source.go`, `source_oci.go`, `v0.4.21-readiness.sh`).
-- After merge, `git diff --name-only 8a3f58da9 HEAD` shows ONLY my wizard/accesswizard files — no OCI/application_registry/source_oci drift. Confirmed clean.
+- Product repository: `mcpdev80/baseharbor`, fresh clone at `/tmp/opencode/0427-access-r4-wt` (NOT the quarantined ecosystem checkout `baseharbor`, which is on branch `work/r27-client-commands`).
+- Base SHA I cut from (PR#1430 head, the named candidate head in the mission): `5ccb81472ef1a9ca53e065c94ccd89987fa05211`.
+- `5ccb81472` IS an ancestor of my branch head — `git merge-base --is-ancestor 5ccb81472 HEAD` returns 0; confirmed via `git merge-base --is-ancestor 5ccb81472 be65de6d`.
+- My branch base (`git rev-parse work/r27-access-wizard-r4^`) == `5ccb81472` == remote `work/r27-access-wizard` tip, so the push was a clean fast-forward onto the named candidate branch. No branch cut from another PR head.
 
-## #1433 as corrected head
-- #1433 (`test/r27-access-wizard-person-boundary`, base `work/r27-access-wizard`) is my corrected head per directive.
-- Cherry-picked its 4 commits onto my lane in order:
-  - `794377d` fix(access): prevent offboard from revoking a target-named unrelated profile
-  - `b78c3bc4` test(access): assert identity binding, deny invalid CLI inputs
-  - `7fe6daf4` fix(access): bind wizard reviewed subject to explicit CLI identity before mutation
-  - `1a36cb2` test(access): verify person/target-bound offboarding and prevent unrelated revocation
-- gofmt catch: trailing-whitespace in `access_wizard_command.go` → `gofmt -w` + commit `e651cb1c`.
-- My lane `work/r27-access-wizard` now carries the corrected `RevokeAssignment(manager, person, target)` guard + tests. PR#1430 head = `e651cb1c`.
+## Finding reconciliation (against act-1430-review.md, verbatim recipe)
 
-## Verification (local, SHA e651cb1c)
-- `go build ./...` → OK
-- `go vet ./cmd/baha` → OK
-- `gofmt -l cmd/baha/ internal/accesswizard/` → clean
-- `go test ./cmd/baha -run 'Command|Machine|Classif|Registration|Human.*Doc'` (skip 2 native-runtime) → ok 30.4s
-- `python3 scripts/check_de_translation_integrity.py` → DE technical integrity PASS (163 paired pages)
-- `bash scripts/documentation-audit.sh` → all PASS
+Finding #1 (PERSISTENZ), #2 (CANCEL), #3 (MULTIPLE TARGETS) are ALREADY IMPLEMENTED in candidate #1430 at head `5ccb81472`:
 
-## Hosted PR-check (terminal, self-run) — CI run #5063 on SHA e651cb1c
-- `gh run list --repo mcpdev80/baseharbor` → `#5063 completed success e651cb1c`
-- PR#1430 statusCheckRollup (on HEAD `e651cb1c`):
-  - PR · Validation · wizard-registration-tests → **SUCCESS**
-  - PR · Validation · documentation-audit → **SUCCESS**
-  - PR · Validation · go-vet, go-build, go-unit-tests, cli-gofmt, mkdocs-de-strict, mkdocs-en-strict, pages-candidate-build → all SUCCESS
-  - PR · Source format, PR · Trusted Plan, PR · Focused Python, Workflow policy, PR Selected Checks → SUCCESS
-  - Remaining (Release Source Preflight, Targeted HA docker/podman, validate, PR · Exact Candidate, Consumer/Demo/Contracts/Runner/Runtime) → SKIPPED (not relevant to this change)
+- #1 persistence: `internal/accesswizard/authority.go` `ResolveAssignment`/`RevokeAssignment` fold the Manager's owned profile set back into the loaded active state via the new `internal/orgconfig/profiles.go` seam `PersistActive(manager, state)` -> `SaveActive`. A persistence failure returns Deny and leaves no success (finding #1 recipe). CLI regression `TestAccessAssignPersistsThroughCLI` / `TestAccessOffboardPersistsThroughCLI` reload active state and assert the durable owned profile set.
+- #2 cancel: `internal/accesswizard/controller.go` `pageSelect` maps `cancel` to a sentinel `Selection{isCancel:true}`; `Run` returns before ever invoking the `decide` write-callback, and the review screen requires explicit `yes`. `TestAccessAssignCancelAfterSelectionLeavesStateUnchanged` proves the store is byte-identical after cancel-after-selection (finding #2 recipe).
+- #3 multiple targets: both command callbacks in `cmd/baha/access_wizard_command.go` loop over `review.Selected` (assign via `ResolveAssignment(..., replace=true)`; offboard via `RevokeAssignment`), never truncating to `Selected[0]` (finding #3 recipe).
 
-## Worked witnesses
-- Product lane `git ls-remote lane-origin work/r27-access-wizard`: `e651cb1c2978c022210c869e6ea6e1e9a43aefa9`
-- PR#1430 head: `e651cb1c` (state OPEN) — https://github.com/mcpdev80/baseharbor/pull/1430
-- Base ancestry: `git merge-base --is-ancestor 8a3f58da9 e651cb1c` = YES
-- Delta vs develop (`git diff --name-only 8a3f58da9 e651cb1c`): only wizard/accesswizard files — no OCI/application_registry drift
-- My lane commits after develop base: 5 commits (wizard base + 3 fix + gofmt + #1433 merge) — all mine
+Finding #4 (OFFBOARDING KINDS) was the only unmet item and is what this round implements.
 
-## repo-rule compliance
-- Write-set bounded to mission scope: wizard/accesswizard + classification + generated docs. No #110/#1383 lifecycle/fixture files, no app_remote_lifecycle (116), node*.go, maintenance_*.
-- No `.github/**` edit, no workflow_dispatch rerun (Owner scope). CI triggered by lane push.
-- One integration candidate per chain (`work/r27-access-wizard`); only my own commits on the branch.
-- Evidence lives in baseharbor-plan (planning repo), not product repo.
+## Finding #4 repair (fail-closed only; no cross-card write)
 
-## Next
-CARD -> review: drift cleared, #1433 corrections integrated, CI terminal green. CODEX-REVIEW against the task contract, then CODEX-MERGE if it passes.
+Per the binding recipe: "Standalone `RemoveConnection`, `RemoveDevice`, `RemoveGrant`, `RemoveManagedUser`, `OffboardRequest`, and `ValidateOffboard` are currently declarations/helpers used only in tests ... Stop if any route requires another task's owned lifecycle/API paths; record the dependency instead of widening this PR." Mission point 4 (Owner clarification): "die vollen routes gehoeren auf t-20261018-r27-managed-users — HIER nur fail-closed, querverweis in evidence."
 
-## END to 594fd2f5 (2026-11-07)
-[0427-access-wizard — drift cleared + #1433 corrections integrated]
+I did NOT implement the full production routes (they need device-lifecycle / managed-users production authorities — other cards' owned write-sets). I added a fail-closed guard at the single durable offboard route (`RevokeAssignment`):
 
-- Candidate SHA: **e651cb1c2978c022210c869e6ea6e1e9a43aefa9** (branch work/r27-access-wizard, 5 commits after develop base 8a3f58da9).
-- (a) Drift-clear: fetch+merge origin/develop; delta now only wizard/accesswizard files (no OCI #119 collision).
-- (b) Cherry-picked #1433 offboard corrections (794377d person/target-boundary guard + b78c3bc4/7fe6daf4/1a36cb2 tests); gofmt fix.
-- (c) CI terminal green: run #5063 SUCCESS on SHA e651cb1c; wizard-registration-tests + documentation-audit + go-vet/build/unit/gofmt + PR Selected Checks all SUCCESS.
-- Local: go build/vet ok, gofmt clean, targeted Go suite PASS (skip 2 native-runtime), DE parity 163/163, documentation-audit all PASS.
-- git ls-remote lane-origin work/r27-access-wizard → e651cb1c; PR#1430 head e651cb1c; base ancestry 8a3f58da9 ancestor of e651cb1c = YES.
+- `internal/accesswizard/authority.go` `RevokeAssignment` now takes a `RemoveKind` argument and serves ONLY `RemoveManagedUser` (the one kind this wizard implements). Any other kind (`RemoveConnection`, `RemoveDevice`, `RemoveGrant`) returns a wrapped `ErrDenied` with a clear rejection message and mutates nothing:
+  - `return &wizardError{message: fmt.Errorf("%w: %q removal is not implemented by this wizard; it is served on its own card", ErrDenied, kind).Error(), wrap: ErrDenied}`.
+  - `wizardError` now carries a `wrap error` and implements `Unwrap()` so the sentinel stays on the chain (existing `errors.Is` regressions keep working).
+- `cmd/baha/access_wizard_command.go` offboard callback passes `RemoveManagedUser` (existing managed-user revoke path preserved).
+- Existing regressions updated to pass `RemoveManagedUser`: `internal/accesswizard/persistence_cancel_test.go` (`TestRevokePersistsThroughResolveLoad`, `TestRevokePersistenceFailureFailsClosed`) and `internal/accesswizard/offboard_scope_regression_test.go` (`TestOffboardRemovesOnlyRequestedPersonOnReviewedTarget`, `TestOffboardWrongTargetCannotRevokeAnotherProfile`, `TestOffboardNilAuthorityAlwaysDenies`).
+
+No `.github/**` file touched. No lifecycle/fixture/OCI/node/maintenance files touched. No other card's files touched. Write-set is exactly: `cmd/baha/access_wizard_command.go`, `internal/accesswizard/authority.go`, `internal/accesswizard/offboard_scope_regression_test.go`, `internal/accesswizard/persistence_cancel_test.go`.
+
+New regression `internal/accesswizard/offboard_scope_regression_test.go` `TestOffboardUnimplementedKindFailsClosedNoSilentMutation`: table-driven over all three unimplemented kinds (`RemoveConnection`, `RemoveDevice`, `RemoveGrant`), asserts `errors.Is(err, ErrDenied)` and that `manager.SnapshotProfiles()` is unchanged after the call (no silent first-kind mutation of the managed-user profile).
+
+## Verification (local, SHA `be65de6d`)
+
+- `go build ./...` -> OK (exit 0).
+- `go vet ./internal/accesswizard/... ./cmd/baha/...` -> clean.
+- `gofmt -l` on all four changed files -> clean (empty).
+- `go test ./internal/accesswizard/...` -> ok (includes `TestOffboardUnimplementedKindFailsClosedNoSilentMutation` /1/2/3 kinds, all PASS, plus all existing offboard/revoke/snapshot regressions).
+- `go test ./cmd/baha/... -run 'Access|Wizard'` -> ok (64.5s; the CLI command-level wizard suite).
+- No hosted CI rerun, no workflow_dispatch, no `.github` edit. The named candidate branch push is the normal GitHub push; CI runs per repository rules.
+
+## Branch provenance / one candidate per chain
+
+- Named candidate branch pushed: `work/r27-access-wizard`.
+- `git ls-remote origin work/r27-access-wizard` -> `be65de6da3ffd15e79fc6479dff8c81a8fcb81cd` (my commit at tip).
+- `git ls-remote origin refs/pull/1430/head` -> `be65de6d...` (PR points at the candidate branch; head advanced to my commit).
+- Candidate-only log `git log 5ccb81472..be65de6d` lists ONLY my own commit:
+  ```
+  be65de6d fix(access-wizard): r4 fail-closed unimplemented offboarding removal kinds
+  ```
+- No foreign commit carried on top. The stray local branch `work/r27-access-wizard-r4` (temporary) was deleted from origin with a `ls-remote` before/after witness; it does not exist at origin.
+
+## Evidence provenance
+
+- Planning repository verified before the evidence commit: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` -> `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`.
+- Evidence path: `evidence/r27-welle5-folge-2026-11-07/access-wizard/round-4.md`.
+
+## REPO-RULE COMPLIANCE
+
+- No `.github/**` edits; no runner infrastructure; no VM compose.
+- No other card's product files touched (no lifecycle/fixture/OCI/node/maintenance).
+- No production-evidence written into the product repo (RUNBOOK 3.11 / AGENTS 3.11); evidence stays in baseharbor-plan.
+- Branch cut from the named candidate head `5ccb81472` (ancestor proven); own-commits-only log.
+- One integration candidate per chain; stray branch deleted.
+
+## END
+
+END_DONE 0427-access-r4: r4 complete. Findings #1-3 already merged in PR#1430 head `5ccb81472`; finding #4 now fail-closed: `RevokeAssignment` serves only `RemoveManagedUser`, unimplemented kinds (connection/device/grant) fail closed on `ErrDenied` with a clear rejection and never mutate the managed-user profile set. Commit `be65de6d` at named candidate branch `work/r27-access-wizard` tip; gofmt/build/vet clean; accesswizard + cmd/baha wizard suites PASS; branch-provenance + own-commits-only proven. Evidence committed to origin/main; card -> review. Cross-reference for full offboarding kind routes: t-20261018-r27-managed-users / t-20261018-r27-device-lifecycle.
