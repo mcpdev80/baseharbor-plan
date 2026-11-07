@@ -36,5 +36,33 @@
 - clone: 0
 - doku: 0
 
+## BEFUNDE
+
+### BF-1 (UX, blocker-faellig): app new endet mit widerspruechigem Exit "Created X" + "Error: installation must be restored"
+- Schwereklasse: ux (hoch) — der wizarddruckt ERFOLG ("Created gfapp, Location: ~/gfapp, Stack: go, Validation: SATISFIED") UND GLEICHZEITIG EINE ERROR ("project created but Target preference registration incomplete: deployment has no authoritative installation owner for its Target; the installation must be restored before its state is loadable").
+- Repro: `$B app new` interaktiv (name=gfapp, stack=Enter, mode=create-only, confirm=y) mit BASEHARBOR_TARGET=w268 auf baha-podman-2 (Coreless tenant target, keine Core-Installation vorhanden).
+- Befund: Projekt-DATEIEN werden angelegt (baseharbor.yaml etc. existieren, inspect moeglich), aber der wizard verlaesst den prozess mit einem Zustand, der eine restoration verlangt — ohne dass ein wiederherstellungs-pfad fuer den user sichtbar ist. Exit-code nicht erfasst (probe-schnitt). Konsistenzproblem: erfolgsmeldung + fehler in EINEM aufruf.
+- Minimal repro (produktseitig): Target ohne installierte Core-Installation (Coreless) + `baha app new`/`baha up` -> Error ErrDeploymentOwnerMissing (internal/deployment/deployment_store.go:25), abgefangen in cmd/baha/app_new_wizard.go appNewCreateFromWizardDecision -> finishAppNewWizard, der "Created X" bereits geschrieben hat.
+- Offene frage: ist der app-stand nach diesem fehler usebar (manifest ist vorhanden) — d.h. der wizard hinterlaesst ein halbfertiges, aber prinzipiell valides projekt, ohne den user zu leiten. Gewicht:UX-hoch, ggf. blocker, wenn kein recovery-pfad.
+
+### BF-2 (doku/ux, mittel): app init / status / doctor schlagen fehl mit "multiple deployment targets configured" fuer repo mit bestehendem baseharbor.yaml
+- Repro: cd ~/demo (besteht, baseharbor.yaml vorhanden) -> `$B app init --quick` -> Error "multiple deployment targets configured". Auch `$B status` -> "Application identity has not been initialized" (benotigt interaktiven init). `$B inspect` funktioniert aber sauber.
+- Ursache: selectedTargetName (cmd/baha/target_selection.go:84) faellt closed, wenn kein persisted/activated/default target UND >1 target in config (w268 + w0427-owner-missing + local). Der wizard kann den target nicht waehlen (kein interaktiver selector im new-flow), es faellt hard-closed.
+- Befund: fuer ein repo mit bestehendem manifest gibt es KEINE nicht-interaktive rueckfalle, die den target akzeptiert; der user muss BASEHARBOR_TARGET setzen oder `baha use` — beides nicht aus der fehlermeldung ersichtlich. Gewicht: doku/ux-mittel.
+
+### BF-3 (confirm-abort, NICHT belegt als bug): "n" bei "Create project files only [Y/n]" hinterlaesst kein projekt (korrekt)
+- Verifiziert: wizard loop auf appWizardNo (phase->Needs), auf EOF -> abort -> "No changes were made", kein app-dir. frueherer schein-befund ("consentapp" trotz n) war ein testfehler (mein script sendete y).
+- => consent-abort verhaelt sich korrekt; kein fund.
+
+### BF-4 (brownfield, beobachtung): host ist voller brownfield-quadlet-state (110 .container/.scope files)
+- ~/.config/containers/systemd/: 110 quadlet-dateien (baseharbor-* app-owned + bh-*shared* fuer w266s/w268/podman-local/podman-local2).
+- systemd --user list-units: baseharbor-postgres*.service etc. als "generated" (from podman-user-generator), status "failed" (keine running container — clean teardown).
+- Befund: baha inspect/status/doctor laufen in diesem umfeld OHNE fremde containern anzutasten (read-only beobachtet). KEIN produkt-befund, nur kontext-festhaltung fuer nachfolger.
+- VM-hygiene: diese quadlet-state NICHT geloescht (bh-*shared* + fremde targets = read-only respekt, owner-scope).
+
+## VM-HYGIENE
+- eigene test-artefakte (gfapp, ecapp, aborttest, decline, consentabort, gf, hf, demo) nur auf baha-podman-2 in ~/ ; KEINE *-shared* stacks angefasst.
+- vm-lock baha-podman-2: noch NICHT released (wird am END released).
+
 ## END
-- (steht am ende)
+- END_BLOCKED 0427-003-podman2-bughunt: teilststand — wizard-exit-konsistenz (BF-1) + target-resolution-doku (BF-2) dokumentiert; kein fix (schreibgrenze); vm-lock release + ls-remote ausstehend -> siehe nachfolgende zeilen
