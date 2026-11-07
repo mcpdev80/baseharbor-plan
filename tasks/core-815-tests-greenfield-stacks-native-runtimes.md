@@ -7,7 +7,7 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: 0427-003-greenfield-stacks
+owner: lane-0427-003-greenfield-stacks
 kanban_lane: active
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
 kanban_status: active
@@ -25,14 +25,14 @@ evidence: []
 
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** 0427-003-greenfield-stacks  
+    **Owner:** lane-0427-003-greenfield-stacks  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
-**Owner:** 0427-003-greenfield-stacks  
+**Owner:** lane-0427-003-greenfield-stacks  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
@@ -77,3 +77,5 @@ Every shipped built-in greenfield stack satisfies `baha app new … → generate
 - Before accepting this card, demonstrate both an explicit HA positive scenario and a default-HA negative scenario from the governing contract. Older green HA-default runs do not qualify this requirement.
 
 owner-direktive #5 + karte 'no open deps, build delivered' -> startup READY acceptance (Go/Next/Quarkus/Python) + single-control-plane default proof. docker jetzt (host sauber), podman-seite moeglichst #107-DNS-blocked (ehrlich melden). write-set templates, NICHT source_oci/registry (#118) noch .github (#021).
+
+r1 END_DONE: Go+Python READY+SINGLE-default auf baha-docker belegt, regression keiner-neu. r2 laeuft (lane busy): QUARKUS-FIX 0d8639c3d (emit compose healthcheck /q/health -> baha up READY) GELIEFERT aber DRIFT (base 0c4e59cdad, develop 812c99c88 NICHT vorfahr) -> VOR REVIEW rebase. nextjs/quarkus JETZT auf baha-docker-2 (14GB avail, maschine bereitgestellt gem. owner-direktive, KEIN host-blocker). PODMAN-SEITE noch NICHT -> haengt an #110/#107 podman readiness. karte active bis alle 4 stacks x docker+podman READY.
