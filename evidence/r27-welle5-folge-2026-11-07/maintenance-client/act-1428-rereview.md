@@ -47,3 +47,4 @@ END BLOCKED 0427-maintenance-review: request-changes; candidate `165405832604a01
 - `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-rereview.md` returned: `100644 blob 52473487c212d5079b871c0b5c1240302c52dcf8 evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-rereview.md`.
 - After publishing this report, `git ls-remote origin refs/heads/main` returned `690253b4b88284508b94d93f3e0f8da4ad301d64 refs/heads/main`.
 - Final candidate recheck remained unchanged: develop `8a3f58da905fad52327d33466fde1d9568092519`; PR #1428 head `165405832604a01483fb192a7969c6f941dfbb06`.
+- Final pre-publish `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-rereview.md` output: `100644 blob 41150c9a336f167277ddb861f62c9dd180bc4e56 evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-rereview.md`.
