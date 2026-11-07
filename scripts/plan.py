@@ -414,9 +414,8 @@ class Vault:
             self.err(path, f"status {st} requires an owner")
         if st == "review" and not item["prs"]:
             self.err(path, "status review requires at least one PR")
-        if st == "wait" and not item["wait_reason"] and not any(
-                not self.accepted(d) for d in item["depends_on"]):
-            self.err(path, "status wait requires wait_reason or an unaccepted dependency")
+        if st == "wait" and not item["wait_reason"] and not item["depends_on"]:
+            self.err(path, "status wait requires wait_reason or a dependency")
         if st != "wait" and item["wait_reason"] and not done:
             self.err(path, "wait_reason is set but card is not #status/wait")
         if st == "blocked" and not item["blocker"]:
@@ -958,7 +957,7 @@ def render_views(vault):
     lines = ["# Planning overview", "", GENERATED_NOTICE, "",
              "Read-only summary derived from the task notes. Edit the task notes, then run "
              "`python3 scripts/plan.py render`.", "",
-             "States: **active**, **review** and **blocked** come from the card's status tag. For "
+             "States: **active**, **wait**, **review** and **blocked** come from the card's status tag. "
              "`#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** "
              "(dependencies accepted, release not started) or **ready** (dependencies accepted and the release "
              "is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not "
