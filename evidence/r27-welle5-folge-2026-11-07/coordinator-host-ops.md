@@ -21,3 +21,7 @@
 - Fresh 2-container sanity on a new network: container-to-container ping OK, name resolution OK.
 - pg_isready/curl exec "not found" = probe-tooling artifact of minimal images (services themselves Up), NOT a stack defect.
 - VERDICT: docker-2 core stack HEALTHY, half-frozen state resolved. Owner-authorized ACCEPT after confirmed health-check.
+
+## dev-host bh-* sweep 2026-11-07 (R1)
+- bh-local-shared/core stacks abandoned ~59min (2 openbao in Created, postgres-init Exited(1)), no active compose process.
+- compose down + stale /tmp/baseharbor-ci-data-* (>30min) removed. bh-* count now per verification.
