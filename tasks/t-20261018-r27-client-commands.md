@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: mcpdev80
-kanban_lane: review
+owner: lane-0427-022-r3
+kanban_lane: active
 kanban_summary: Ordinary local/remote commands call same semantic operations. init writes portable contract locally and explicit registration…
-kanban_status: review
+kanban_status: active
 kanban_title: "0427-022 · route init up status and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-connection-client, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-management-host, t-20261018-r27-stage-versions, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -24,19 +24,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-client-commands · CLI: route init up status and operations through one authority #task #release/v0-4-27 #status/review #view/review #area/cli #kind/task
+- [ ] t-20261018-r27-client-commands · CLI: route init up status and operations through one authority #task #release/v0-4-27 #status/active #view/active #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 · **Priority:** normal  
+    **Owner:** lane-0427-022-r3 · **Priority:** normal  
     **PR:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
-**Owner:** mcpdev80  
+**Owner:** lane-0427-022-r3  
 **Priority:** normal  
 **PRs:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -77,3 +77,7 @@ head 4293b8803 delivered+hosted gruen (10 pass), war fuenf runden ohne abnahme l
 CODEX request-changes: nativer core-gegate start/consent/denial test + TLS status/restore proof FEHLEN. + CI-Aufnahme-blocker ci.yml:255-256 (pull_request excluded) & 342-349 (allowlist omits). korrektur in FRISCHE lane, .github-bedarf als BEFUND an owner.
 
 r2 fresh-lane delivered: native-gated core-integration test + in-process TLS roundtrip, CI 10 pass, develop ancestor. BEFUND runtime_integration .github:349 push-only (owner). CODEX-REVIEW dispatcht.
+
+r3: lane-side quality fixes (kein assumeVerifiedCore bypass, realer status/restore roundtrip) parallel; finale CI-gruen abhaengig von owner ci.yml-allowlist.
+
+r3 fresh lane d5ab38d0: product-quality fixes (kein assumeVerifiedCore bypass, realer status/restore roundtrip). Finale CI-Aufnahme haengt an OWNER ci.yml-allowlist (255-256/349) - lane-reportet befund, aendert NICHT .github.
