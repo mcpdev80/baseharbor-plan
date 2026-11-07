@@ -5,30 +5,29 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: coord-welle5 (wartend)
-kanban_status: blocked
-kanban_lane: blocked
+owner: coord-welle5 (w285 dispatched)
+kanban_status: active
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
-blocker: "urteil 1407b REJECT: karten-acceptance verlangt lauffaehige zellen auf BEIDEN familien; podman-seite haelt am befund ErrDeploymentOwnerMissing (eigene karte t-20261106-r27-remote-up-podman-owner-missing, korrektur-lane laeuft), docker-VM-zelle pending (hostbelegung). trigger: owner-fehbehebung gelandet + docker-zelle nachgezogen + base auf aktuellen develop."
+blocker: ""
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/blocked #view/blocked #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (wartend) · **Priority:** normal  
+    **Owner:** coord-welle5 (w285 dispatched) · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
-    **Blocker:** urteil 1407b REJECT: karten-acceptance verlangt lauffaehige zellen auf BEIDEN familien; podman-seite haelt am befund ErrDeploymentOwnerMissing (eigene karte t-20261106-r27-remote-up-podman-owner-missing, korrektur-lane laeuft), docker-VM-z…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** coord-welle5 (wartend)  
+**Owner:** coord-welle5 (w285 dispatched)  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
