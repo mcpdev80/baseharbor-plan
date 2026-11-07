@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: 0427-036-base-refresh
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Expose the same existing lifecycle executor on a protected management host with one durable state root and active-writer…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-036 · run one durable minimal"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -24,14 +24,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-management-host · Management: run one durable minimal authority on the selected host #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-management-host · Management: run one durable minimal authority on the selected host #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** 0427-036-base-refresh · **Priority:** normal  
     **PR:** [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
@@ -77,3 +77,5 @@ CODEX act-1405b REJECT: rotnachweis+CI ok, aber neuer echter code-defekt cmd/bah
 korrektur geliefert: head 5b8d0f5745 auf develop 934be499b (drift behoben), startup ctx-init in BEIDEN zweigen, regression nil-ctx server_run.go:369 ROT-ohne-fix/GRUEN-mit-fix, ci 42336074504 TERMINAL success, round-8 akte auf main. erfuellt act-1405b rezept -> re-review act-1405c dispatcht.
 
 codex act-1405c REJECT NUR wegen basis-ahnenschaft (serve.go-fix + regression ACCEPTED, ci terminal success); merge-base dddf0d782, develop 934 nicht Vorfahr. leichte mechanische basis-auffrischungs-bahn dispatched (flash), kein neuer code.
+
+basis-auffrischung geliefert: head 6014a8fc, is-ancestor 934 rc0, produktcode identisch zu acceptedem 5b8d0f5745 (nur develop-merge), ci 10 success/0 fail, round-9 akte auf main. gegenprobe act-1405d.
