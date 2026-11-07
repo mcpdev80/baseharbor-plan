@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: lane-0427-maintenance-client-r2
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Route update/backup/restore/destroy through the selected authority and existing lifecycle/consent owners. Archive…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-034 · submit maintenance operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-state-recovery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -22,16 +22,18 @@ early: false
 blocker: ""
 resolution: ""
 evidence: []
+wait_reason: ""
+
 ---
 
-- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-maintenance-client-r2 · **Priority:** normal  
     **PR:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
@@ -71,3 +73,5 @@ PR#1428 head 2e371f5fc GELIEFERT aber NICHT review-ready: DRIFT (develop 812c99c
 r2 drift-frei (head d4d0f77c0, develop 812c99c88 vorfahr), #110-collision behoben (delta nur 9 maintenance-dateien), CI run 42386457934 terminal success (9 pass, selbst beobachtet). CODEX-REVIEW. offene findings: public-surfaces-registrierung(1), kein .github-bedarf(2).
 
 CODEX-REVIEW r1 = REQUEST-CHANGES (local destroy reihenfolge window<->authority, remote destroy laesst window weg, history-append verlust riskiert replay-kontinuitaet). frische korrektur-bahn fd89eda0 (orig lane freigegeben, kandidat von origin#1428 abgeholt). 3 punkte + causal mutants.
+
+r2 alle 3 behebungen: destroy committet window ausbehaltener authority VOR teardown (local+remote), fail-closed history append mit rollback+capacity preflight. head a3416743b drift-frei (develop 06e4b1eaa), kollisionsfrei, delta nur maintenance_*, CI run 42395015763 terminal 9-pass, 6 gruen + last-bearing mutants. CODEX re-review.
