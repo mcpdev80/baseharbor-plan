@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: 0427-051-exposure-tls
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-051 · project exposure material to"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -24,14 +24,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/active #view/active #area/providers #kind/task
+- [ ] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/review #view/review #area/providers #kind/task
     <!-- generated:card -->
     **Owner:** 0427-051-exposure-tls · **Priority:** normal  
     **PR:** [baseharbor#1418](https://github.com/mcpdev80/baseharbor/pull/1418)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
@@ -66,3 +66,5 @@ Projection/ownership/secret-leak/TLS material fixtures; bounded protocol probe w
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
 
 bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
+
+kandidat efb6c2d2c auf develop 934be499b (vor-reboot von w287 geliefert, uebernahme-bahn hat konvergiert + nichts neu gepusht); akte round-1..4 auf main; docker+podman-runtime-zellen SKIPPED am kopf — CODEX-REVIEW prueft ausdrucklich ob das ein CI-aufnahmepflicht-reject ist (AGENTS 5.3).
