@@ -89,6 +89,14 @@ candidate per chain.
   (ci.yml:340, pull_request on develop). The existing unit job already captures the card write-set; no .github/**
   change is required. If any selection needed a change it would be reported here as a finding with file:line, not
   applied.
+- Hosted CI for the round-2 candidate, observed to terminal by this lane:
+  - Run `42395015763` (PR #1428, event `pull_request`, head `a3416743b179f3b678f5bcd028eeb2121f638c30`)
+    `completed/success`. `PR · Validation · go-unit-tests` passed in 9m8s on the exact candidate SHA;
+    `PR · Validation · go-build`, `go-vet`, `cli-gofmt`, `PR · Source format`, `PR · Trusted Plan`,
+    `PR · Focused Python`, and `PR Selected Checks` all passed. No runner, VM or compose infrastructure was
+    touched; no `.github/**` file was edited.
+  - The prior round-1 candidate SHA `d4d0f77c0` is superseded by this drift-free round-2 candidate; the round-1
+    CI record `42386457934` (`completed/success` on `d4d0f77c0`) is a historical reference, not this candidate.
 
 ## repo-rule compliance
 
