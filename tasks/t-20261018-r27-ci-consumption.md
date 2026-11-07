@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: ""
 kanban_status: planned
 kanban_title: "0427-020 · Deferred CI consumption"

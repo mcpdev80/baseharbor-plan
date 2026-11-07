@@ -9,7 +9,7 @@ version: v0.5.1
 release_stage: verify
 parent: v0.5.x
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: Prove the published release is usable and close the release cycle.
 kanban_status: planned
 kanban_title: "0501-007 · verify publication, artifacts,"

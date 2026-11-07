@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: Move current Linux host behavior behind the Host Platform Contract; Linux stays the fully qualified reference with no regression.
 kanban_status: planned
 kanban_title: "0429-003 · integrate host adapters and"

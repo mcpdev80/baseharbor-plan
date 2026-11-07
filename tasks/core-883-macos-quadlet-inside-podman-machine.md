@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: "Podman Machine on macOS reuses the existing Podman Quadlet realization, executed inside the Podman Machine Linux VM (decision…"
 kanban_status: planned
 kanban_title: "0429-008 · run Quadlet inside Podman"

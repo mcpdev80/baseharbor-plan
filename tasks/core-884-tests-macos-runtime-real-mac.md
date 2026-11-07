@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: Real macOS runtime evidence comes from a dedicated self-hosted Apple Silicon Mac registered as a GitHub Actions runner (decision…
 kanban_status: planned
 kanban_title: "0429-009 · verify the macOS runtime on a"

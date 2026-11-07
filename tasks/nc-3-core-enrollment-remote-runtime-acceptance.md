@@ -8,7 +8,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: "The Node Connector integrates with real Core enrollment and sessions, and real remote Docker Compose and rootless Podman Quadlet…"
 kanban_status: planned
 kanban_title: "0427-004 · Core-compatible enrollment and"

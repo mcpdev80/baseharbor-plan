@@ -8,7 +8,7 @@ release: v0.4.31
 version: ""
 parent: v0.4.31
 owner: ""
-kanban_lane: wait
+kanban_lane: waiting
 kanban_summary: "Reproducible, low-noise static analysis, vulnerability checks and targeted coverage before the v0.5 freeze. A standalone bounded…"
 kanban_status: planned
 kanban_title: "0431-001 · staticcheck, govulncheck and"
