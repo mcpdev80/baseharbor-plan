@@ -32,6 +32,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -54,6 +55,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -76,6 +78,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -98,6 +101,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -120,6 +124,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -142,6 +147,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -164,6 +170,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -186,6 +193,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -208,6 +216,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -230,6 +239,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -252,6 +262,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -274,6 +285,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
@@ -296,6 +308,7 @@ views:
       property: note.kanban_lane
       direction: ASC
     groupOrder:
+      - planned
       - ready
       - active
       - wait
