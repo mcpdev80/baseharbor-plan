@@ -23,7 +23,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 - [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** chatgpt-0427-116 · **Priority:** normal  
-    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
+    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
 **Owner:** chatgpt-0427-116  
 **Priority:** normal  
-**PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
+**PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -76,7 +76,7 @@ CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upE
 
 - Owner-Anweisung: `active`; bestehender Lane-Owner und PR #1407 bleiben unangetastet. ChatGPT beginnt read-only OIDC-Vorprüfung; keine VM-/Codeman-Dateizugriffe.
 - #117 / PR #1419 akzeptiert: Podman-Deployment-Owner-Befund behoben. Offen bleibt echter `baha node add` -> `node connect` -> `baha app up` (`err == nil`) -> `baha doctor` (healthy) auf Docker UND Podman.
-- Code-Nachweis: `cmd/baha/node.go` ruft `requestNodeAuthorization` auf; `internal/operatorauth/login.go` verwendet interaktiven Authorization Code mit PKCE und verifiziertem ID-Token. `internal/httpsecurity/middleware.go` verlangt einen gültigen Bearer und Tenant-Rollen. `internal/database/identity_tenant_resolver.go` löst Tenant und Mitgliedschaft unter RLS aus `external_identities` und `memberships` auf.
+- Code-Nachweis: `cmd/baha/node.go` ruft `requestNodeAuthorization` auf; `internal/operatorauth/login.go` verwendet interaktiven Authorization Code mit PKCE und verifiziertem ID-Token. `internal/httpsecurity/middleware.go` verlangt einen gültigen *** Tenant-Rollen. `internal/database/identity_tenant_resolver.go` löst Tenant und Mitgliedschaft unter RLS aus `external_identities` und `memberships` auf.
 - Nächster Schritt: vorhandenen sicheren Test-Operator-/Tenant-Provisioning-Pfad verifizieren. Keine manuellen DB-Seeds, Tokens oder Auth-Bypässe. Danach unter VM-Lock echte Docker-/Podman-Nachweise. Der PR-CI-Runtime-Trigger-Befund gehört an den Owner von `.github/**`; kein paralleler Workflow-Eingriff.
 - Die bisherigen OIDC-/CI-Schwierigkeiten sind weiterhin offene technische Teilaufgaben, aber mit begonnener Bearbeitung kein stillgelegter Alarmstatus. `Active` ist weder PASS noch Mergefreigabe.
 
