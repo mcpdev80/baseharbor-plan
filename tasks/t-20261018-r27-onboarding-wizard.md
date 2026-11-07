@@ -15,7 +15,7 @@ kanban_status: active
 kanban_title: "0427-043 · attach a workstation with"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-profile-codec, t-20261018-r27-secure-export, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1435]
+prs: [mcpdev80/baseharbor#1435, mcpdev80/baseharbor#1438]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -101,3 +101,9 @@ HANDOVER an Owner+ChatGPT (Owner-Direktive 2026-11-07): r2-PR#1435 head 09ec640b
 - **2026-11-07 Node-CI-Ausbau (ChatGPT):** Core-Integrations-PR [#1438](https://github.com/mcpdev80/baseharbor/pull/1438), zuletzt Head `0eb59ac9b056e0eb298a23e1af9edec57327b4a9`: verpflichtende, gegen Skip abgesicherte CLI-/HTTPS-Node-Regressionen (Owner-Target/Tenant-Bindung, echte HTTP-CSR-Ausgabe, Einmal-Grant-Replay 403, fehlende Auth 401, foreign Tenant 403, remote `app up` ohne lokalen Fallback) in PR-Docker+Podman sowie auch in den bestehenden develop-Native-Jobs. Develop-Selektoren erkennen zudem Aenderungen an den Gate-Skripten und beiden Runtime-Workflows. [Exakter CI-Lauf #42422263152](https://github.com/mcpdev80/baseharbor/actions/runs/42422263152) gestartet, noch nicht vollstaendig bestaetigt. **Kein Remote-E2E-Erfolg behauptet:** produktiver geschuetzter Core-API-Lifecycle, echter separater Connector-Daemon, outbound mTLS und erfolgreicher Docker-/Podman-Remote-Deploy samt status/doctor bleiben technische Abnahmebedingungen. Karte `active`, kein Merge.
 
 - **2026-11-07 Target-Bindung (ChatGPT):** Core-PR [#1438](https://github.com/mcpdev80/baseharbor/pull/1438), Head `7c9abb622acd431e450ca2252b58aa8fdd0f3702`: `baha serve` waehlt den verifizierten Core-Autoritaets-Target jetzt fuer Connector- **und** reines Workstation-Enrollment aus (vorher nur Connector). Gemeinsame Methode `serveEnrollmentAuthorityTarget` + verpflichtender nativer Regressionstest. [CI #42423252917](https://github.com/mcpdev80/baseharbor/actions/runs/42423252917) noch offen. API-Lifecycle und Live-E2E bleiben offen; Karte bleibt `active`.
+
+## 2026-11-08 – Core-Integration nach develop gemergt (ChatGPT)
+
+- **PR:** [mcpdev80/baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438), gepruefter Head `7c9abb622acd431e450ca2252b58aa8fdd0f3702`, **Merge nach develop erfolgreich:** `0fe53052d00a8d440b499c66a6a65c0d54bae5a0`.
+- **CI:** [Lauf #42423252917](https://github.com/mcpdev80/baseharbor/actions/runs/42423252917) auf exakt diesem Head terminal `success`, 20 erfolgreiche Jobs, 0 Fehler; native Docker/Podman Core-, OIDC-/Enrollment-, CLI-Vertragstests und Go-Pruefungen erfolgreich.
+- **Abgrenzung:** Dies ist die integrierte Core-Grundlage, **nicht** der Beleg fuer automatisch verwalteten geschuetzten Operator-API-Dienst und realen `baha node connect` -> separaten Connector -> remote `baha app up/status/doctor` ueber Docker und Podman. Diese Release-Abnahme bleibt offen, insbesondere auf [0427-004](nc-3-core-enrollment-remote-runtime-acceptance.md). v0.4.27 ist **nicht** freigegeben.
