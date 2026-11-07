@@ -17,6 +17,7 @@ sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
 blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md"]
+wait_reason: ""
 
 ---
 
@@ -111,3 +112,5 @@ CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upE
 - **PR:** [mcpdev80/baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438), gepruefter Head `7c9abb622acd431e450ca2252b58aa8fdd0f3702`, **Merge nach develop erfolgreich:** `0fe53052d00a8d440b499c66a6a65c0d54bae5a0`.
 - **CI:** [Lauf #42423252917](https://github.com/mcpdev80/baseharbor/actions/runs/42423252917) auf exakt diesem Head terminal `success`, 20 erfolgreiche Jobs, 0 Fehler; native Docker/Podman Core-, OIDC-/Enrollment-, CLI-Vertragstests und Go-Pruefungen erfolgreich.
 - **Abgrenzung:** Dies ist die integrierte Core-Grundlage, **nicht** der Beleg fuer automatisch verwalteten geschuetzten Operator-API-Dienst und realen `baha node connect` -> separaten Connector -> remote `baha app up/status/doctor` ueber Docker und Podman. Diese Release-Abnahme bleibt offen, insbesondere auf [0427-004](nc-3-core-enrollment-remote-runtime-acceptance.md). v0.4.27 ist **nicht** freigegeben.
+
+integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podman-2 (lanes e2e-*). urteil folgt je karte.
