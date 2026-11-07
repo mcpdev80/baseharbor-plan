@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-target-env-ignored
 card_number: "0427-124"
-card_short_title: "BASEHARBOR_TARGET wird ignoriert"
+card_short_title: "Target-ENV ohne Wirkung"
 type: bug
 areas: [lifecycle,compose]
 release: v0.4.27
@@ -10,13 +10,13 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "isolated target selection via BASEHARBOR_TARGET env is read only in TEST code; production up/use/status ignore it, so every up lands on the shared plane and isolation setups are not reproducible"
-kanban_title: 0427-124 · BASEHARBOR_TARGET wird ignoriert
+kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
+kanban_title: 0427-124 · Target-ENV ohne Wirkung
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/vm-bughunt/docker2.md]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
@@ -26,7 +26,21 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task
+- [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Problem (bug-hunt intake 2026-11-08, verified before carding)
 

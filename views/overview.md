@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 0 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 3 |
+| ready | 7 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -51,14 +51,18 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261108-bughunt-0427-appnew-contradictory-exit](../tasks/t-20261108-bughunt-0427-appnew-contradictory-exit.md) | 0427-125 · App new meldet Erfolg plus Fehler | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-core-destroy-keycloak-orphan](../tasks/t-20261108-bughunt-0427-core-destroy-keycloak-orphan.md) | Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-debug-dump-app-init-flags](../tasks/t-20261108-bughunt-0427-debug-dump-app-init-flags.md) | Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-0427-multitarget-ambiguity](../tasks/t-20261108-bughunt-0427-multitarget-ambiguity.md) | 0427-126 · init-status-doctor bei mehreren Targets | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) | Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | 0427-124 · BASEHARBOR_TARGET wird ignoriert | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 27 open, 95 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 31 open, 95 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
