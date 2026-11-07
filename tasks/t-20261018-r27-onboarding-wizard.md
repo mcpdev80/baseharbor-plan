@@ -29,7 +29,7 @@ wait_reason: ""
 - [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
-    **PR:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435)  
+    **PR:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -40,7 +40,7 @@ wait_reason: ""
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
 **Owner:** owner:chatgpt  
 **Priority:** normal  
-**PRs:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435)  
+**PRs:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 

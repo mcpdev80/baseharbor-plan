@@ -23,7 +23,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 - [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** chatgpt-0427-116 · **Priority:** normal  
-    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
+    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
 **Owner:** chatgpt-0427-116  
 **Priority:** normal  
-**PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
+**PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
