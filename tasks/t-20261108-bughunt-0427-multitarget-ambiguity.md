@@ -26,6 +26,8 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
+- [ ] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task
+
 ## Problem (bug-hunt intake 2026-11-08, verified before carding)
 
 BF-2 podman2 hunt: brownfield repo; error text verbatim in the act; commands give no --target selection hint.

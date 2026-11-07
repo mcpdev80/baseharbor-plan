@@ -26,6 +26,8 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
+- [ ] t-20261108-bughunt-0427-appnew-contradictory-exit · 0427-125 · App new meldet Erfolg plus Fehler #task
+
 ## Problem (bug-hunt intake 2026-11-08, verified before carding)
 
 BF-1 podman2 hunt on develop 0fe53052: wizard-completed run prints success then an restore-required error at exit; string is composed, repro in the act.
