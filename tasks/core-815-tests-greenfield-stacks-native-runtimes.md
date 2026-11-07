@@ -7,10 +7,10 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-003 (quarkus korrektur + podman-seite ausstehend)
-kanban_lane: active
+owner: lane-0427-003 (keine aktive bahn)
+kanban_lane: blocked
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
-kanban_status: active
+kanban_status: blocked
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
@@ -18,22 +18,23 @@ prs: [mcpdev80/baseharbor#1429, mcpdev80/baseharbor#1432]
 sources: ["mcpdev80/baseharbor#815"]
 source_updated: "2026-10-15T16:50:55Z"
 labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
-blocker: ""
+blocker: "Docker-seite + quarkus-fix erledigt (#1429/#1432, owner 8-of-8 recording). PODMAN-seite aller 4 stacks haengt an #110 podman runtime readiness. KEINE aktive bahn (lane 9389395c freigegeben) => NICHT active. waiting/blocked bis #110 podman cells durch + owner waiting-column."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
+- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/blocked #view/blocked #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** lane-0427-003 (quarkus korrektur + podman-seite ausstehend)  
+    **Owner:** lane-0427-003 (keine aktive bahn)  
     **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
+    **Blocker:** Docker-seite + quarkus-fix erledigt (\#1429/\#1432, owner 8-of-8 recording). PODMAN-seite aller 4 stacks haengt an \#110 podman runtime readiness. KEINE aktive bahn (lane 9389395c freigegeben) =\> NICHT active. waiting/blocked bis \#110 podman…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
-**Owner:** lane-0427-003 (quarkus korrektur + podman-seite ausstehend)  
+**Owner:** lane-0427-003 (keine aktive bahn)  
 **Priority:** not set  
 **PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
