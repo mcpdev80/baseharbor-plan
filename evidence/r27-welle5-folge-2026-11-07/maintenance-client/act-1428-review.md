@@ -5,7 +5,7 @@
 1. Read mission, canonical task contract, relevant product rules, and evidence for the prior blockers/public-surfaces finding — DONE.
 2. Fetch exact live `develop` and PR #1428 refs; verify ancestry and inspect all changed maintenance files, tests, and candidate-only commits — DONE.
 3. Assess installation-authority routing, fail-closed behavior, causal mutants, maintenance window/history persistence, public-surfaces finding, and CI selection — DONE.
-4. Record verdict and actionable recipe, validate and publish this evidence to `baseharbor-plan` origin/main, then post END — IN PROGRESS.
+4. Record verdict and actionable recipe, validate and publish this evidence to `baseharbor-plan` origin/main, then post END — DONE.
 
 ## Review identity
 
