@@ -74,6 +74,15 @@
 - The new test runs under the existing ci.yml unit job: line 122 `go test ./cmd/baha` and the full job line 340 `go test ./...`. Both capture the cmd/baha path; no workflow change is required.
 - Trigger: standard PR push / ready (no workflow_dispatch or rerun started — Owner scope not touched).
 
+## Hosted CI witness (self-run, terminal — AGENTS 4.6)
+
+- PR #1428 head after fast-forward merge of r4 into PR branch: `396529860e1f349576190f435cb06e2b7b496866` (verified by `git ls-remote origin refs/pull/1428/head` == `39652986...`; branch `lane/0427-maintenance-client-wt` fast-forwarded `16540583 -> 39652986`, normal push, no force).
+- CI run id **42416537555**, event pull_request, head `396529860e1f349576190f435cb06e2b7b496866`, created 2026-11-07T21:34:52Z, completed 2026-11-07T21:44:39Z.
+- Terminal status: **completed / success** (verified via `gh api …/actions/runs/42416537555`).
+- Required jobs on this exact head: go-unit-tests success, go-build success, go-vet success, cli-gofmt success, Source format success, Workflow policy success, Trusted Plan success, Focused Python success. Targeted HA · docker / podman completed (skipped — not required for this fixture-based unit card; no native runtime evidence claimed).
+- The go-unit-tests job runs `go test ./cmd/baha`, which now captures `TestApplicationMaintenanceDestroyAllExitsMatrix` and the round-4 suite on SHA 39652986.
+- Single integration candidate: `refs/pull/1428/head` == `lane/0427-maintenance-client-wt` == `39652986`; no second PR carried.
+
 ## Repo-rule compliance
 
 - Write-set limited to maintenance files: cmd/baha/app_maintenance_client.go, internal/application/maintenance_authority.go, cmd/baha/app_maintenance_round4_test.go. No .github/**, scripts, lifecycle, or fixture files changed.
@@ -82,4 +91,4 @@
 
 ## END
 
-END 0427-maintenance-r4 DONE 396529860e1f349576190f435cb06e2b7b496866: tombstone stamps committed destroy@1 on local+remote destroy; all-exit matrix (7 lines, load-bearing) added; capacity preflight uses submitted; tests green, branch pushed. Card -> review pending.
+END 0427-maintenance-r4 DONE 396529860e1f349576190f435cb06e2b7b496866: tombstone stamps committed destroy@1 on local+remote destroy; all-exit matrix (7 lines, load-bearing) added; capacity preflight uses submitted; tests green. PR#1428 head == 39652986 (r4 fast-forwarded into PR branch lane/0427-maintenance-client-wt, normal push). Hosted CI run 42416537555 terminal success on 39652986 (go-unit-tests/build/vet/gofmt green). Evidence on baseharbor-plan origin/main. Card -> review.
