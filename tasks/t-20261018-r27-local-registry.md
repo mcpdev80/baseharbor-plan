@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-local-registry
+card_number: "0427-033"
+card_short_title: "optionally provision an"
 areas: [artifacts]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (codex-worker, entlassen)
 kanban_lane: closed
 kanban_summary: "For topologies that actually need a shared endpoint, explicitly opt into one existing OCI Distribution-compatible registry…"
 kanban_status: closed
-kanban_title: "Artifacts: optionally provision an existing OCI registry implementation"
+kanban_title: "0427-033 · optionally provision an"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1401]
