@@ -14,7 +14,7 @@ kanban_status: active
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1429]
 sources: ["mcpdev80/baseharbor#815"]
 source_updated: "2026-10-15T16:50:55Z"
 labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
@@ -26,6 +26,7 @@ evidence: []
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** lane-0427-003-greenfield-stacks  
+    **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +35,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Owner:** lane-0427-003-greenfield-stacks  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429)  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
 <!-- /generated:links -->
 
@@ -79,3 +80,5 @@ Every shipped built-in greenfield stack satisfies `baha app new … → generate
 owner-direktive #5 + karte 'no open deps, build delivered' -> startup READY acceptance (Go/Next/Quarkus/Python) + single-control-plane default proof. docker jetzt (host sauber), podman-seite moeglichst #107-DNS-blocked (ehrlich melden). write-set templates, NICHT source_oci/registry (#118) noch .github (#021).
 
 r1 END_DONE: Go+Python READY+SINGLE-default auf baha-docker belegt, regression keiner-neu. r2 laeuft (lane busy): QUARKUS-FIX 0d8639c3d (emit compose healthcheck /q/health -> baha up READY) GELIEFERT aber DRIFT (base 0c4e59cdad, develop 812c99c88 NICHT vorfahr) -> VOR REVIEW rebase. nextjs/quarkus JETZT auf baha-docker-2 (14GB avail, maschine bereitgestellt gem. owner-direktive, KEIN host-blocker). PODMAN-SEITE noch NICHT -> haengt an #110/#107 podman readiness. karte active bis alle 4 stacks x docker+podman READY.
+
+quarkus healthcheck fix PR#1429 (0743011c) drift-frei, delta nur quarkusadapter 2 dateien, CI 8pass. CODEX-REVIEW. REST der karte (podman-seite + alle 4 stacks) haengt an #110/#107 podman readiness -> karte bleibt active bis podman zellen durch.
