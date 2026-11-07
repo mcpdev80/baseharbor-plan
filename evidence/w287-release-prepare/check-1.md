@@ -182,4 +182,9 @@ lassen - ihren Lanes zugeordnet; kein Loschen.
 
 ## END
 
-END_ZEILE: siehe letzte Zeile nach Push (wird hier wortgleich gesichert).
+- ls-tree witness (Pflicht, nach letztem Push ausgefuehrt): git ls-tree -r --name-only origin/main | grep release-prepare/check-1.md
+  ergibt: evidence/w287-release-prepare/check-1.md (origin/main = 3d0eb297 nach Push 8ba56cf8..3d0eb297).
+  Inhaltlicher Tree-Diff cad293f2..origin/main: ausschliesslich diese Akte (round-1.md/Paarhebeanalyse
+  oben; wc-0-Diff auf round-1.md).
+- Kein Produkt-/Plan-Tag, kein Release-Job, keine VM/Compose-Projekte gestartet (ps-Zeuge nicht noetig).
+END_DONE w287-release-prepare-check: bereitungsstand=80% (75 accepted + 19 superseded + 1 dropped von 119), luecken=access-wizard:#1433 CONFLICTING|node-cli/onboarding/maintenance/remote-up:PRs offen #1427/#1428/#1435/#1436/#1407/#1437 + draft #1438|core-815:#1429/#1432 offen|docs+demo-ref v0.4.27 fehlen develop (Fundstelle pre-release.yml:121 auf develop HEAD)|CHANGELOG [0.4.27] leer trotz 119 Commits seit f3db942859c|release-requirements.json v0.4.27 JETZT registriert (66 Treffer; Audit-Behauptung ueberholt, neu zu testen)|15 planned-Karten inkl. public-surfaces/docs/video-proof|akten=evidence/w287-release-prepare/check-1.md auf origin/main 8ba56cf8 | Prepare NICHT abgeschlossen, Qualify/Tag/Publish nicht beantragt und nicht autorisiert.
