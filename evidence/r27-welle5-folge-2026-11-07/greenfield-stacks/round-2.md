@@ -10,10 +10,11 @@
 - Python stack READY + single-default (baha-docker, round-1).
 - Next.js READY + single-default (baha-docker-2, ~12GiB).
 - Quarkus READY + single-default (baha-docker-2, ~12GiB).
-- Podman-Seite (baha-podman-2, serial nach docker-2).
-- CI-Aufnahme neuer Tests / file:line-Befund an Owner.
-- PR gegen develop (exact one candidate) + hosted checks.
-- All stacks down, Evidence publish, END_DONE.
+- quarkus-fix 0d8639c3d auf develop 812c99c88 rebasiert (fresh branch quarkus-fix-r3, cherry-pick, delta nur 2 quarkusadapter-Dateien; #110 lifecycle/fixture nicht berührt).
+- PR #1429 gegen develop (ornith, OPEN, mergeable); TestQuarkusRoundTrip läuft im CI go-unit-suite.
+- Hosted CI run 42387327608 TERMINAL (8 success/10 skipped, 0 failure); docker+podman+go-build+go-vet+go-unit-tests success.
+- Podman-Seite (baha-podman-2) — wartet auf #110 podman readiness, NICHT host-blocker.
+- all-stacks-down, Evidence publish, END_DONE.
 
 - ROLLE: Worker, lane 0427-003-greenfield-stacks, Coord 594fd2f5. KARTE: core-815-tests-greenfield-stacks-native-runtimes.
 - Task (Owner-Direktive 2026-11-07): Teil-Lieferung Round-1 (Go+Python READY + single-control-plane proven) ergänzen. finish Next.js + Quarkus auf baha-docker-2 (12 GiB avail), dann Podman-Seite auf baha-podman-2 (seriell nach docker-2).
