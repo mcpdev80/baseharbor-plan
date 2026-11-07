@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: lane-0427-034-maintenance-r4
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Route update/backup/restore/destroy through the selected authority and existing lifecycle/consent owners. Archive…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-034 · submit maintenance operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-state-recovery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -26,14 +26,14 @@ wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-034-maintenance-r4 · **Priority:** normal  
     **PR:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
@@ -83,3 +83,5 @@ r3 (2.bounce destroy) mit STRATEGIE-WECHSEL: atomare zustandsmaschine (commit->t
 r3 endgueltig auf PR#1428 head 165405832: drift-frei, r3-vollstaendig (state-machine + round3-tests), CI TERMINAL 9-pass, evidence origin/main 31ee442c. lane stand zweimal ohne END (coord hat run-beobachtung uebernommen, dokumentiert); transport-notiz der lane: force-ausweich auf eigenem branch nach spurious up-to-date — befunl gering (eigener lane-branch), finaler sha gegen develop geprueft. CODEX-REVIEW.
 
 r3 review REQUEST-CHANGES (3.bounce): stale destroy-tombstone (reload nach erfolg) + all-exit matrix fehlt — rezept liegt in act-1428-review.md section 'actionable recipe' auf origin/main 5eddad3b. r4 auf frischer laptop-lane 36e03dd3. karte active MIT worker.
+
+r4 VOLL geliefert: head 39652986 auf PR#1428 (fast-forward, ls-remote bezeugt), CI run 42416537555 TERMINAL success auf finaler sha, drift-frei, delta nur maintenance-dateien. beide review-punkte behoben: commitiertes destroy-tombstone ohne reload (local+remote) + all-exit matrix 7 zeilen table-driven. CODEX-REVIEW.
