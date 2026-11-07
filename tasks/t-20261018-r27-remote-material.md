@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: 0427-051-exposure-node
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
-kanban_status: review
+kanban_status: closed
 kanban_title: "0427-051 · project exposure material to"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -20,18 +20,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md"]
 ---
 
-- [ ] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/review #view/review #area/providers #kind/task
+- [x] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/providers #kind/task
     <!-- generated:card -->
     **Owner:** 0427-051-exposure-node · **Priority:** normal  
     **PR:** [baseharbor#1418](https://github.com/mcpdev80/baseharbor/pull/1418)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
@@ -72,3 +73,5 @@ kandidat efb6c2d2c auf develop 934be499b (vor-reboot von w287 geliefert, ueberna
 CODEX act-1418a REJECT am kopf efb6c2d2c: go-unit gruen, aber (a) echte produktmaengel runtime_postgres.go exposure-only ohne gateway + gateway ohne Caddy-serving + rotation/node-consumption ohne verhaltensabdeckung, (b) docker+podman runtime-zellen SKIPPED weil .github/ci.yml:171-176,213-218 sie auf push-refs beschraenkt (OWNER-Scope, im END als befund gemeldet). frische korrektur-bahn 0427-051-exposure-node dispatched.
 
 single-owner caddy.go gelandet: head a91debbb0 auf develop 934 (ancestor), totes round-4 duplikat efb6c2d2c ersetzt, F1/F2/F3 behoben, run 4984 terminal, go-unit deckt internal/exposure, runtime cells skipped=owner-gate, akte round-5 auf main. re-review act-1418b.
+
+PR #1418 merged unchanged as eee11d50b7a7b55675a282f03d4a1a78e4511cf0; accepted head a91debbb047d6ea7a0f258194c0a3474978687bd verified as ancestor of develop. Review and merge evidence are published under evidence/r27-welle5-folge-2026-11-06/remote-material/.
