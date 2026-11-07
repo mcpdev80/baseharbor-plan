@@ -2,18 +2,18 @@
 
 ## PLAN-Checkliste (Echtstand)
 
-- [x] core-815 lesen, contract t-20261106-r27-control-plane-single-default, base verify.
-- [x] Task claim (active+owned).
-- [x] Templates+build/startup-Code inspiziert; write-set bestätigt. Befund: quarkus adapter emittiert keinen compose healthcheck.
-- [x] quarkus adapter gefixed (/q/health healthcheck + TestQuarkusRoundTrip); commit 0d8639c3d (base 0c4e59cdad ancestor).
-- [x] Go stack READY + single-default (baha-docker, round-1).
-- [x] Python stack READY + single-default (baha-docker, round-1).
-- [x] Next.js READY + single-default (baha-docker-2, ~12GiB).
-- [x] Quarkus READY + single-default (baha-docker-2, ~12GiB).
-- [ ] Podman-Seite (baha-podman-2, serial nach docker-2).
-- [ ] CI-Aufnahme neuer Tests / file:line-Befund an Owner.
-- [ ] PR gegen develop (exact one candidate) + hosted checks.
-- [ ] All stacks down, Evidence publish, END_DONE.
+- core-815 lesen, contract t-20261106-r27-control-plane-single-default, base verify.
+- Task claim (active+owned).
+- Templates+build/startup-Code inspiziert; write-set bestätigt. Befund: quarkus adapter emittiert keinen compose healthcheck.
+- quarkus adapter gefixed (/q/health healthcheck + TestQuarkusRoundTrip); commit 0d8639c3d (base 0c4e59cdad ancestor).
+- Go stack READY + single-default (baha-docker, round-1).
+- Python stack READY + single-default (baha-docker, round-1).
+- Next.js READY + single-default (baha-docker-2, ~12GiB).
+- Quarkus READY + single-default (baha-docker-2, ~12GiB).
+- Podman-Seite (baha-podman-2, serial nach docker-2).
+- CI-Aufnahme neuer Tests / file:line-Befund an Owner.
+- PR gegen develop (exact one candidate) + hosted checks.
+- All stacks down, Evidence publish, END_DONE.
 
 - ROLLE: Worker, lane 0427-003-greenfield-stacks, Coord 594fd2f5. KARTE: core-815-tests-greenfield-stacks-native-runtimes.
 - Task (Owner-Direktive 2026-11-07): Teil-Lieferung Round-1 (Go+Python READY + single-control-plane proven) ergänzen. finish Next.js + Quarkus auf baha-docker-2 (12 GiB avail), dann Podman-Seite auf baha-podman-2 (seriell nach docker-2).
