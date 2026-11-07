@@ -14,7 +14,7 @@ kanban_status: active
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1429]
+prs: [mcpdev80/baseharbor#1429, mcpdev80/baseharbor#1432]
 sources: ["mcpdev80/baseharbor#815"]
 source_updated: "2026-10-15T16:50:55Z"
 labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
@@ -26,7 +26,7 @@ evidence: []
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** lane-0427-003 (quarkus korrektur + podman-seite ausstehend)  
-    **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429)  
+    **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Owner:** lane-0427-003 (quarkus korrektur + podman-seite ausstehend)  
 **Priority:** not set  
-**PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429)  
+**PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
 <!-- /generated:links -->
 
