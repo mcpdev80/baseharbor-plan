@@ -8,28 +8,27 @@ priority: normal
 type: task
 areas: [cli, remote]
 owner: lane-0427-116 (geraet blockiert)
-kanban_status: blocked
+kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
-kanban_lane: blocked
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
-blocker: "Genuine err==nil  success NICHT erreichbar ohne: (1) baseharbor Keycloak realm hat 0 user / keinen operator-client — control-plane bootstrap saeht keinen tenant+roles; braucht OIDC operator session (browser PKCE oder programmatic public-client reg + code exchange) + tenant/role seeding BEVOR broker-less pure-client app up=err==nil+doctor. (2) OWNER-SCOPE ci.yml finding: targeted-HA jobs hardcoden runtime_required=false => von PR nicht erreichbar. r5 evidence act-1407-r5.md. naechster trigger: oidc-operator/tenant-seed vorgang + owner ci-trigger decision."
+blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md"]
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/blocked #view/blocked #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-116 (geraet blockiert) · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
-    **Blocker:** Genuine err==nil success NICHT erreichbar ohne: (1) baseharbor Keycloak realm hat 0 user / keinen operator-client — control-plane bootstrap saeht keinen tenant+roles; braucht OIDC operator session (browser PKCE oder programmatic public-cli…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
@@ -63,15 +62,20 @@ bahn hat basis konfliktfrei auf develop 934be499b aufgefrischt (head 86f990a6) u
 
 blocker '#117 landing' ERFUELLT (1419 merged develop beb923fe6 11:33Z); deps release-updates+vm-smoke closed. owner-direktive war conditional auf 117 -> jetzt bereit, seat-refill.
 
-<<<<<<< HEAD
 r3 request-changes: KEIN Erfolg-fall (err==nil) ueber echtes CLI baha app up auf Docker UND Podman; nur podman-negativ + interne direkt-aufrufe. ask-3 verweis auf #117 falsch (#117 = fail-closed owner-negativ, kein erfolg-transkript). r4 in FRISCHER lane = echter konfliktfreier einsatz auf dem freien sitz.
-=======
 ## Owner-PR-Pruefung — 2026-11-07
 
 - **PR #1407** head `5900dc6b71a2adfec1842164066475061a44d616` ist offen, mergeable und hat PR-CI [42374201283](https://github.com/mcpdev80/baseharbor/actions/runs/42374201283) SUCCESS.
 - Der vorhandene Review-Befund verlangt zusaetzlich, dass `app up` nachweislich erfolgreich endet (nicht nur kein lokaler Core-Bootstrap), und einen echten Connector-gebundenen Docker- **und** Podman-Up+Doctor-Gesundheitsnachweis; Podman-Installation-Owner-Befund ist separat zu klaeren. PR-Gruen allein schliesst das nicht. Bis zur echten Abnahme in **review** belassen; kein Merge durch diesen Board-Abgleich.
->>>>>>> origin/main
 
 head c4d528645 drift-frei (develop 812c99c88 Vorfahr), delta nur 116-dateien, CI run 4238139371 terminal PASS. CODEX-REVIEW ausgelöst.
 
 CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upErr!=nil ohne live connector), KEIN echter successfull baha app up + healthy doctor auf Docker UND Podman, native HA/Runtime jobs skipped. run 42381393714 nur go-unit PASS. Review veroeffentlicht act-1407-r4.md (plan 4d00f0ee9). Korrektur r5 an c977fe82.
+
+## Fortsetzung OIDC-/Connector-Abnahme (ChatGPT, 2026-11-07)
+
+- Owner-Anweisung: `active`; bestehender Lane-Owner und PR #1407 bleiben unangetastet. ChatGPT beginnt read-only OIDC-Vorprüfung; keine VM-/Codeman-Dateizugriffe.
+- #117 / PR #1419 akzeptiert: Podman-Deployment-Owner-Befund behoben. Offen bleibt echter `baha node add` -> `node connect` -> `baha app up` (`err == nil`) -> `baha doctor` (healthy) auf Docker UND Podman.
+- Code-Nachweis: `cmd/baha/node.go` ruft `requestNodeAuthorization` auf; `internal/operatorauth/login.go` verwendet interaktiven Authorization Code mit PKCE und verifiziertem ID-Token. `internal/httpsecurity/middleware.go` verlangt einen gültigen Bearer und Tenant-Rollen. `internal/database/identity_tenant_resolver.go` löst Tenant und Mitgliedschaft unter RLS aus `external_identities` und `memberships` auf.
+- Nächster Schritt: vorhandenen sicheren Test-Operator-/Tenant-Provisioning-Pfad verifizieren. Keine manuellen DB-Seeds, Tokens oder Auth-Bypässe. Danach unter VM-Lock echte Docker-/Podman-Nachweise. Der PR-CI-Runtime-Trigger-Befund gehört an den Owner von `.github/**`; kein paralleler Workflow-Eingriff.
+- Die bisherigen OIDC-/CI-Schwierigkeiten sind weiterhin offene technische Teilaufgaben, aber mit begonnener Bearbeitung kein stillgelegter Alarmstatus. `Active` ist weder PASS noch Mergefreigabe.

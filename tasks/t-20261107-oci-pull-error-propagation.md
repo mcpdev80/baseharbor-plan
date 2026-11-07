@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: lane-0427-119-oci-pull-error
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "oras pull reports failures with the same classification as oras resolve: a genuinely missing oras binary is still unambiguously…"
 kanban_title: "0427-119 · OCI pull error propagation"
 priority: normal
@@ -20,18 +20,19 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
-wait_reason: ""
+wait_reason: "Implementierung und Regressionstest in Core PR #1434 fertig; wartet auf terminale PR-CI und Review des exakten Heads."
 
 ---
 
-- [ ] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/active #view/active #area/deployment #area/registry #kind/task
+- [ ] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/wait #view/wait #area/deployment #area/registry #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-119-oci-pull-error · **Priority:** normal  
     **PR:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
+    **Waiting:** Implementierung und Regressionstest in Core PR \#1434 fertig; wartet auf terminale PR-CI und Review des exakten Heads.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
 **Owner:** lane-0427-119-oci-pull-error  
@@ -69,6 +70,8 @@ wait_reason: ""
 - Shared files: none with in-flight cards; does not touch `.github/**`, `scripts/*` CI seam, or the `serve.go` management-host-lock area.
 
 ## Handoff
+
+- 2026-11-07: PR #1434 implementiert, `wait` bis finale CI/Review des exakten Heads. Kein Merge/Closed behauptet. Bestehender Lane-Owner bleibt bestehen.
 
 - 2026-11-07: ChatGPT hat 0427-119 nach Prüfung der veröffentlichten Datei-Reservierungen übernommen. Product-Branch `fix/0427-119-oci-pull-errors`, PR https://github.com/mcpdev80/baseharbor/pull/1434, Head `bbb388d2fc11b6d94925300f000056edf327b5f1`. Kein Overlap mit den zum Übernahmezeitpunkt offenen Core-PRs; unveröffentlichte Codeman-Dateien sind nicht einsehbar. Fix und Regressionstest committed, PR-CI/Review noch ausstehend; keine Abnahme/Closed.
 
