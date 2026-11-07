@@ -48,3 +48,7 @@ The exact pre-push remote-main witness captured for this evidence was:
 ## END
 
 END_DONE codex-1419-review-a: verdict=REJECT_LANE_FIX head=8b5075d2554871ac58dd905c86d27a4bfdf798fc redfirst=unit-seam-only ci=42336410875 terminal-success runtime_cells=skipped-owner-gate plus named-host acceptance still fails; recipe=make authorized remote Podman owner resolution pass and prove up-to-doctor health with CI regression
+
+## Turn-start operational flags
+
+`python3 coordinator/scripts/basics-check.py` reported the PR #1419 review pending (resolved by this evidence), a missing GUI TODO for a separate `0427-051-exposure-node` lane, a missing `codex-rev-1419.json` name while this mission's mandatory board is `workers/todos/codex-1419-review-a.json`, and five pre-existing `bh-*` containers on the dev host. The separate lane TODO and host containers are outside this read-only review's ownership; they were left untouched and reported to coordinator. The mission-specific board JSON exists and was ticked. `python3 coordinator/scripts/events-check.py --ack` acknowledged the watcher event.
