@@ -78,3 +78,62 @@ Output of `git -C baseharbor-plan ls-tree -r origin/main --name-only | rg '^evid
 ```text
 evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
 ```
+
+## REREVIEW RESULT — PR #1428
+
+### Review identity and exact provenance
+
+- Role: CODEX-REVIEW rereview only. Candidate was not modified; no local tests, CI rerun, merge, VM, or workflow action was performed.
+- Candidate head: `a3416743b179f3b678f5bcd028eeb2121f638c30`.
+- Exact fetched `develop`: `06e4b1eaa01fe10b3edb5f0ca59ce5232d110156`.
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1428/head` returned:
+
+  ```text
+  06e4b1eaa01fe10b3edb5f0ca59ce5232d110156 refs/heads/develop
+  a3416743b179f3b678f5bcd028eeb2121f638c30 refs/pull/1428/head
+  ```
+
+- `git merge-base --is-ancestor refs/remotes/origin/develop refs/remotes/origin/pr/1428` returned `0`.
+- `git log --format='%H %an %s' develop..head` lists only four task commits: `d4dd5137687d42ebe549215c85efa2c03903d489`, `a7704406366a6f655e824450e4f5a731e93e9d15`, `f3e047e1febc7205c62f8ec7347cb5be14df3913`, and candidate `a3416743b179f3b678f5bcd028eeb2121f638c30`.
+- Against current `develop`, the full write-set is ten files, all `cmd/baha/*maintenance*` or `internal/application/maintenance_*`; no `.github/**`, scripts, #110 lifecycle/fixture, or unrelated paths are changed. Direct tree comparison of previous reviewed head `d4d0f77c0cf0db675b603daaf22ea859fac4290a` to the new head shows the round-two delta in four maintenance files: `cmd/baha/app_maintenance_client.go`, `cmd/baha/app_maintenance_round2_test.go`, `internal/application/maintenance_authority.go`, and `internal/application/maintenance_history.go`. The previous candidate was based on `812c99c8873df400348fbc8cc9be5e650b8966c4`; the new candidate is rebased on `06e4b1eaa01fe10b3edb5f0ca59ce5232d110156`.
+- GitHub reports the PR OPEN, exact head above, base `develop`, mergeable, merge state `CLEAN`.
+
+### Verdict: REQUEST-CHANGES
+
+1. **Local destroy window retention: NOT FIXED.** `cmd/baha/app_maintenance_client.go:325-348` commits the window before invoking the destroy owner, but the owner ultimately calls `deployment.DeleteDeploymentRecord`, which removes the complete deployment root (`internal/deployment/deployment_store.go:602-607`). The window and history are stored under `resolved.stateRoot()`, so the successful teardown deletes the just-committed window. `TestApplicationMaintenanceDestroyCommitsWindowFromRetainedAuthority` (`cmd/baha/app_maintenance_round2_test.go:55-91`) deliberately removes that same root at lines 77-79 but asserts only that the command returned nil; it never proves a durable window remains queryable.
+2. **Remote destroy window retention: NOT FIXED.** The remote path now also commits via the retained authority before teardown (`app_maintenance_client.go:242-265`), so it includes a commit attempt, but the same state-root deletion loses that record. `TestApplicationMaintenanceRemoteDestroyCommitsWindow` (`app_maintenance_round2_test.go:99-137`) likewise removes the root and checks only for nil, without asserting retained history after teardown. Both tests would also pass if a no-op owner returned nil without committing the maintenance window, so they are not causal evidence for the required durable outcome.
+3. **History append failure and capacity preflight: PARTIAL / NOT FIXED.** `internal/application/maintenance_authority.go:350-359` now rolls the current window back after append failure, and the append-failure regression exercises that lower-level rollback. However, the preflight at line 343 calls `maintenanceHistoryHasCapacity(stateRoot, current)` with the previous window record instead of `submitted`; the helper appends its argument when calculating size (`maintenance_authority.go:367-378`). An oversized submitted history record therefore is not preflighted before the current window rename. `TestMaintenanceHistoryCapacityPreflightFailsBeforeCommit` (`cmd/baha/app_maintenance_round2_test.go:207-243`) wraps/replaces `application.CommitMaintenanceAuthority` and calls the helper itself with the correct `submitted` record at lines 215-222, so it tests the wrapper's preflight rather than proving the production commit uses the submitted record. Also, destroy's outer rollback (`app_maintenance_client.go:345-347`) restores/removes only the current window through `RollbackMaintenanceAuthorityWindow`; it does not remove the already-appended failed destroy entry from history. A retry after a failed destroy can then reuse the missing current revision and be refused as a duplicate history revision.
+4. **Causal mutants: INSUFFICIENT.** `TestMaintenanceHistoryAppendRollbackIsLoadbearing` exercises a history append rollback mutant, but neither successful destroy test asserts window/history durability or demonstrates red/green when the pre-teardown commit is removed. The capacity test's test-side wrapper makes the intended production preflight non-loadbearing. Hosted green status cannot establish these absent assertions.
+5. **Write-set and hosted test capture: PASS.** Current diff is confined to maintenance-prefixed files. Run `42395015763` is terminal success on the exact head: nine checks passed, including `PR · Validation · go-unit-tests`, go-build, go-vet, cli-gofmt, source format, trusted plan, workflow policy, focused Python, and `PR Selected Checks`. The new round-two Go tests are in `cmd/baha` / `internal/application` and are captured by the non-skipped hosted `go-unit-tests` job. Targeted Docker and Podman jobs are skipped; this rereview does not claim native runtime evidence and did not rerun CI.
+
+### Actionable recipe
+
+- **Files and changes:** In `cmd/baha/app_maintenance_client.go` and the existing deployment lifecycle owner, retain the maintenance window/history in durable storage that survives `DeleteDeploymentRecord` for both local and remote destroy. Make failed destroy rollback remove both the current-window update and its history append so the same operation can be retried. In `internal/application/maintenance_authority.go:343`, preflight the submitted record, not the previous current record; keep the append transaction fail-closed.
+- **Tests:** Update `cmd/baha/app_maintenance_round2_test.go` so faithful local and remote destroy owners delete the deployment root, then assert the exact committed window and history remain loadable after success. Add failure-and-retry coverage proving a rejected destroy leaves neither a phantom history revision nor a stuck duplicate on retry. Make the capacity test call the production commit path directly with an oversized submitted record and assert the production append hook was never invoked and the previous current state remains unchanged. Retain and extend the history append failure/rollback mutant so disabling each production guard makes its own regression fail. These tests are executed by hosted `PR · Validation · go-unit-tests` on pull-request changes; no `.github/**` change is requested.
+- **Stop criterion:** Keep this candidate at request-changes until both destroy paths preserve queryable durable windows after actual root teardown, failed destroys can be retried without history divergence, and production capacity preflight and each required mutant are demonstrated by load-bearing tests on a green exact-head hosted run.
+
+## REREVIEW END
+
+END_BLOCKED 0427-maintenance-client-rereview: REQUEST-CHANGES; candidate a3416743b179f3b678f5bcd028eeb2121f638c30 is ancestry-clean with hosted CI green, but teardown deletes the precommitted window, failed destroy can leave history residue, and capacity preflight checks the old record rather than the submission.
+
+Planning-root re-verification before this rereview evidence commit: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` returned exactly `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`; `remote -v` showed origin fetch/push at `https://github.com/mcpdev80/baseharbor-plan.git`; live origin/main before this evidence commit was `cfc432bf98080c9bec3ebe9640a401e833bf4258`.
+
+
+Remote publication witness from `git ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review\.md$'`:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
+
+Final unchanged-candidate witness from `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1428/head`:
+
+```text
+06e4b1eaa01fe10b3edb5f0ca59ce5232d110156 refs/heads/develop
+a3416743b179f3b678f5bcd028eeb2121f638c30 refs/pull/1428/head
+```
+
+Final remote-tree witness from `git -C /tmp/opencode/0427-maintenance-client-rereview-plan-wt ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review\\.md$'`:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
