@@ -161,18 +161,22 @@ Mehrere dieser Lanes (w275, w282, w285, w287) arbeiten im SELBEN Verzeichnis
 unkomittierte Aenderungen der node-r3-Lane vor (tasks/t-20261018-r27-node-cli.md,
 node-cli/round-3.md, views/*). Nach fetch erschien cad293f2 ("coord: evidence-recovery node
 round-3.md"), das genau diese Dateien bereits publiziert hatte und mit meinem stash-carry-forward
-kollidierte. Aufloesung: die publizierten cad293f2-Inhalte sind massgeblich (git --theirs);
-die carry-forward-commits 537a3cc0 enthalten inhaltlich nur die bereits veraffentlichten
-Stende. Empfehlung an den Coordinator: lanesgetrennte Klone oder commit-before-dispatch,
+kollidierte. Aufloesung: die publizierten cad293f2-Inhalte sind massgeblich. Die carry-forward-commits
+(537a3cc0) wurden zurueckgenommen (c0591090); der diff origin/main..HEAD enthaelt damit AUSSCHLIESSLICH
+meine eigene Akte, keine fremden Stände. Empfehlung an den Coordinator: lanesgetrennte Klone oder commit-before-dispatch,
 sonst naechster stash-Konflikt.
 
-Die uebrigen Fremd-aenderung (compose-host-isolation/round-7.md, infra/podman2-rebuild-2.md,
+Die uebrigen Fremd-aenderungen (compose-host-isolation/round-7.md, infra/podman2-rebuild-2.md,
 maintenance-client/round-3.md, remote-up-cli/round-3.md) habe ich bewusst unkomittiert liegen
 lassen - ihren Lanes zugeordnet; kein Loschen.
 
 ## Publizieren
 
 - Witness-Push: git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan push origin HEAD:main
+- Commit-Kette cad293f2..HEAD (log-Line-Zeuge): 537a3cc0 carry-forward (unkomittierte Fremd-edits
+  der node-r3-lane), f748b6de/4c6d368b meine Akte + Ruecknahme des carry-forward. Der
+  GESENDETE DIFF origin/main..HEAD enthaelt nur evidence/w287-release-prepare/check-1.md; die
+  carry-forward/revert-Paare heben sich dateiweise auf. Kein fremder Kandidat wird mitgefuehrt.
 - Verifikation vor END: git ls-tree -r --name-only origin/main | grep release-prepare/check-1.md
   (Exakte Ausgabe steht in der END-Zeile und als letzter Absatz dieser Akte nach dem Push.)
 

@@ -4,39 +4,44 @@
 
 Read-only summary derived from the task notes. Edit the task notes, then run `python3 scripts/plan.py render`.
 
-States: **active**, **review** and **blocked** come from the card's status tag. For `#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** (dependencies accepted, release not started) or **ready** (dependencies accepted and the release is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not assigned work: the Maintainer still assigns it.
+States: **active**, **wait**, **review** and **blocked** come from the card's status tag. `#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** (dependencies accepted, release not started) or **ready** (dependencies accepted and the release is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not assigned work: the Maintainer still assigns it. Unstarted tasks stay Planned, even when dependencies are outstanding; Wait means already started and temporarily parked.
 
 ## Counts
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 1 |
+| active | 6 |
+| review | 0 |
+| wait | 3 |
 | blocked | 0 |
-| ready | 1 |
+| ready | 0 |
 | queued | 26 |
-| waiting | 184 |
+| waiting | 177 |
 | backlog | 7 |
-| closed | 154 |
+| closed | 163 |
 
 ## Active
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
-| [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | ChatGPT (Owner-directed release preparation; no product file claims) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
-| [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md) | Management: run one durable minimal authority on the selected host | active | normal | coord-welle5 (w280 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405) |
-| [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | coord-welle5 (w269 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
-| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | coord-welle5 (w282 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
-| [t-20261106-docker-2-half-frozen-core-stack](../tasks/t-20261106-docker-2-half-frozen-core-stack.md) | Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install | active | not set | worker (w269) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) | Remote app up: CLI start path for provider-bound remote apps | active | normal | coord-welle5 (w285 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407) |
-| [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](../tasks/t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md) | Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready | active | not set | worker (w269) | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) (open) | — |
+| [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | Access: guide profile assignment and deliberate offboarding | active | normal | lane-0427-013-access-r3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433) |
+| [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md) | CLI: submit maintenance operations without workstation path assumptions | active | normal | lane-0427-034-maintenance-r3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428) |
+| [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Nodes: finish guided add connect status and disconnect | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1427](https://github.com/mcpdev80/baseharbor/pull/1427), [baseharbor#1436](https://github.com/mcpdev80/baseharbor/pull/1436) |
+| [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md) | Onboarding: attach a workstation with minimal questions | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](../tasks/t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435) |
+| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
+| [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) | Remote app up: CLI start path for provider-bound remote apps | active | normal | chatgpt-0427-116 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437) |
 
 ## Ready for review
 
+None.
+
+## Waiting for resources
+
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-artifact-resolution](../tasks/t-20261018-r27-artifact-resolution.md) | Images: resolve existing artifacts or an explicit builder | review | normal | coord-welle5 (w281) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](../tasks/t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](../tasks/t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | [baseharbor#1406](https://github.com/mcpdev80/baseharbor/pull/1406) |
+| [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | wait | not set | lane-0427-003 (keine aktive bahn) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432) |
+| [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | wait | normal | mcpdev80 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
+| [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | wait | high | coord-ops-107 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 
 ## Blocked
 
@@ -44,14 +49,12 @@ None.
 
 ## Ready to assign
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | coord-welle5 (assigned; dispatch pending) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+None.
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 32 open, 86 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 24 open, 95 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
