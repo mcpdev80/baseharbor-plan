@@ -187,12 +187,14 @@ vormals active mit toter bahn w282 (reboot); korrekt auf blocked gesetzt.
 
 owner-direktive 2026-11-07: 110 FERTIGSTELLEN. echter blocker war PR#1383 CONFLICTING + 4 native docker/podman lifecycle tests nie echt ausgefuehrt. VM-raeume frei (podman w169 strays removed).
 
-<<<<<<< HEAD
 ## Owner-Merge 2026-11-07
 
 - PR [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) merged into `develop` at `812c99c8873df400348fbc8cc9be5e650b8966c4` after conflict reconciliation (`b3321c6ab3d258e56a7997b4acc606887b6ab9a8`).
 - [PR CI 42377648851](https://github.com/mcpdev80/baseharbor/actions/runs/42377648851) terminal successful on exact PR head; `PR Selected Runtime` skipped. This verifies build and selected Go checks, **not** native isolation acceptance.
 - Keep card blocked on real Docker+Podman clean/polluted isolation, omitted-isolation mutant RED and restored GREEN, SINGLE default/explicit HA verification, and exact evidence. Merge does not authorize v0.4.27 release.
-=======
+
+## Native Acceptance Handoff — 2026-11-07
+
 PR#1383 GEMERGT (develop 812c99c88). Owner-direktive: native CI-abnahme VOLLSTENDIG. lane 3a4d5d33 faehrt die 4 tests echt docker+podman × clean+kontaminiert + SINGLE-default+HA+isolation-mutante (red->green), behebt funde selbststaendig, dokumentiert sha. Karte->closed NUR bei voll erfolgreicher abnahme.
->>>>>>> 73b91891 (kanban: t-20261105-r27-compose-host-isolation -> active)
+
+**Mitwirkender (CI/Review):** ChatGPT — Merge #1383, Plan-Abgleich und Konfliktbereinigung; die native Acceptance verbleibt bei `lane-0427-110-compose-native-acceptance`. Kein vorzeitiges `closed` ohne exakte native Nachweise.
