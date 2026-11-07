@@ -10,10 +10,10 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 9 |
 | review | 1 |
 | blocked | 0 |
-| ready | 2 |
+| ready | 1 |
 | queued | 26 |
 | waiting | 182 |
 | backlog | 7 |
@@ -26,10 +26,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | ChatGPT (Owner-directed release preparation; no product file claims) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md) | Management: run one durable minimal authority on the selected host | active | normal | coord-welle5 (w280 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405) |
+| [t-20261018-r27-remote-material](../tasks/t-20261018-r27-remote-material.md) | Remote providers: project exposure material to the actual target | active | normal | w287 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](../tasks/t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | coord-welle5 (w269 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | coord-welle5 (w282 dispatched) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261106-docker-2-half-frozen-core-stack](../tasks/t-20261106-docker-2-half-frozen-core-stack.md) | Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install | active | not set | worker (w269) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261106-r27-remote-up-podman-owner-missing](../tasks/t-20261106-r27-remote-up-podman-owner-missing.md) | Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) | active | high | w286 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) (open) | — |
+| [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](../tasks/t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md) | Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready | active | not set | worker (w269) | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) (open) | — |
 
 ## Ready for review
 
@@ -46,12 +48,11 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | coord-welle5 (assigned; dispatch pending) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261018-r27-remote-material](../tasks/t-20261018-r27-remote-material.md) | Remote providers: project exposure material to the actual target | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](../tasks/t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 30 open, 87 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 31 open, 87 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

@@ -8,7 +8,7 @@ parent: ""
 owner: worker (w269)
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Runtime broker readiness fails in an isolated single-default Core: the baseharbor CLI requires the oras CLI for OCI runtime-image resolution (absent on the host), and the published edge runtime image (0.4.26) reports /readyz=not_ready even with OpenBao reachable."
+kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
 kanban_title: "Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready"
 priority: ""
 depends_on: [t-20261104-r27-vm-integration-runs]
@@ -20,17 +20,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #defect #runtime-broker #status/active #kind/task
-
+- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #defect #runtime-broker #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** worker (w269)
+    **Owner:** worker (w269)  
+    **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
     <!-- /generated:card -->
 
+
 <!-- generated:links -->
-**State:** active
-**Owner:** worker (w269)
-**PRs:** none
-**Source:**
+**State:** active  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
+**Owner:** worker (w269)  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
 <!-- /generated:links -->
 
 ## Goal
