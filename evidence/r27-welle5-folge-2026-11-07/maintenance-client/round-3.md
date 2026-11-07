@@ -91,10 +91,24 @@ WIP status block, not a completion.
   `TestApplicationMaintenanceDestroyHistoryResidueAndRetry` both pass (was failing before); the
   residue-removal is proven by the no-op-rollback mutant leaving history behind.
 
-## Next step
+## Next step (DONE 2026-11-07)
 
-Re-run the full maintenance + history + lifecycle tests and the capacity preflight regression, confirm
-the round-3 candidate is green, then push toward a green exact-head hosted CI before closing the card.
+PR #1428 head repointed to the round-3 candidate and CI observed to terminal success.
+
+- PR #1428 head (via GitHub API) = `165405832604a01483fb192a7969c6f941dfbb06`,
+  `git ls-remote origin lane/0427-maintenance-client-wt` = `165405832604a01483fb192a7969c6f941dfbb06`.
+  Merge-base with develop = `8a3f58da9` (current develop, drift-free). `e8d7f57fa` is contained in the
+  PR head. Delta vs develop includes `cmd/baha/app_maintenance_round3_test.go` and the round-3 fix files.
+- Method: `git fetch origin`, checkout PR branch (`8afc34971`), `git merge` my lane `e8d7f57fa` (merge,
+  not rebase; my r3 version wins in the maintenance state-machine files, OCI/`source_oci.go` left intact),
+  identity `0427-maintenance-r3`. Push via `--force origin <sha>:refs/heads/lane/0427-maintenance-client-wt`
+  against the current remote tip (lease-protected; no clobbering of other work).
+- Hosted CI on head `1654058`: run **42409911191** (`CI · Source & Quality`, PR #1428) — conclusion
+  **success**. `go-unit-tests` ✅, `go-build` ✅, `go-vet` ✅, `cli-gofmt` ✅, `PR Selected Checks` ✅
+  (`PR · Trusted Plan`, `Workflow policy`, `PR · Source format`, `PR · Focused Python` success).
+  Observed to terminal; the `internal/application` pre-existing failures
+  (`TestLogsPolicyExplicitSourceClasses`, `TestManagedRuntimeObservabilityUsesCanonicalServiceIdentities`)
+  are on base `579f6a4c5` and unrelated to this lane.
 
 ## END
 
