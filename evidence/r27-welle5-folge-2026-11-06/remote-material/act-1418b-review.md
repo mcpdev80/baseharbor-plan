@@ -80,3 +80,9 @@ The planning repository remote was verified as `https://github.com/mcpdev80/base
 Read-only product review only; no product files or workflows were edited, no hosted workflow was triggered, and no test VM/container was started. Evidence is stored only in the real `baseharbor-plan` repository. Native todowrite was not exposed in this session; the required live board JSON was used.
 
 END_DONE codex-1418-rereview-b: verdict ACCEPT; evidence published to baseharbor-plan origin/main; candidate a91debbb047d6ea7a0f258194c0a3474978687bd.
+
+Remote origin/main tree witness after the first push (commit `b52115d569b92364c0853a260bb50be44f0e0754`):
+
+```text
+100644 blob b5eeb99694179c5ad921ed41ccc41b4a512871c1\tevidence/r27-welle5-folge-2026-11-06/remote-material/act-1418b-review.md
+```
