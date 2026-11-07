@@ -73,3 +73,15 @@ Exact planning `origin/main` witness after `git pull --rebase origin main` and b
 ```text
 e30c7c003143c1aa8b1bb89ebd450fa4e250a396\trefs/heads/main
 ```
+
+After the first evidence push, fetched `origin/main` at `d6a0c8a354aa7ca3e7040f9aeccdea50bac42252`; `git ls-tree origin/main` returned:
+
+```text
+100644 blob 4f94192fc468f687bed080b6f10208e5a6d4bcd4\tevidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1419c-review.md
+```
+
+Exact `origin/main` witness immediately before the final evidence update:
+
+```text
+d6a0c8a354aa7ca3e7040f9aeccdea50bac42252\trefs/heads/main
+```
