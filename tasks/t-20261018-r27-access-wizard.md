@@ -105,3 +105,5 @@ r3 Kandidat head 5ccb81472: drift-frei, CI terminal success (coord-uebernahme na
 review r3: registration OK + CI gruen, aber 4 funktionale kernpunkte offen (persistenz-zueckeschreiben, cancel-write, multi-target-loop, kinds fail-closed) — rezept mit file:line in act-1430-review.md (20810abd). r4 frisch auf ornith 496759eb. karte active.
 
 review r3: registration OK+CI gruen, 4 funktionale kernpunkte offen (persistenz-rueckschreiben, cancel-write, multi-target, kinds fail-closed); rezept mit file:line in act-1430-review.md (20810abd). r4 frisch auf ornith 496759eb. karte active.
+
+r4 head be65de6d: CI run 42421669238 TERMINAL success (14/0), drift-frei, fail-closed-guard fuer unimplementierte kinds neu (finding 4); these 'findings 1-3 schon in 5ccb' mit stelle-nachweisen in round-4.md — reviewer-recheck entscheidet mit file:line-pflicht. CODEX-REVIEW dispatched.
