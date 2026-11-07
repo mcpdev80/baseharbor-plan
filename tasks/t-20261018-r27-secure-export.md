@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-secure-export
+card_number: "0427-054"
+card_short_title: "encrypt explicitly selected"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (codex-worker, entlassen)
 kanban_lane: closed
 kanban_summary: Opt-in local eligible credentials only; authenticated encryption/version/KDF using existing reviewed primitives. Password never…
 kanban_status: closed
-kanban_title: "Profiles: encrypt explicitly selected local credential export"
+kanban_title: "0427-054 · encrypt explicitly selected"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-codec, t-20261018-r27-protected-credentials, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1396]

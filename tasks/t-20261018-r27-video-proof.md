@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-video-proof
+card_number: "0427-061"
+card_short_title: "prove real stage versions"
 areas: [demo]
 type: acceptance
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Qualify real-world operation, not a filmed demonstration: same app has three independent release/component versions and…"
 kanban_status: planned
-kanban_title: "Acceptance: prove real stage versions artifacts and promotion"
+kanban_title: "0427-061 · prove real stage versions"
 depends_on: [nc-3, t-20261017-release-0-4-27-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-consumption, t-20261018-r27-delegated-handoff, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-local-registry, t-20261018-r27-promote, t-20261018-r27-team-proof, t-20261018-r27-version-view, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-demo]
 prs: []

@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-team-proof
+card_number: "0427-059"
+card_short_title: "prove two workstations share"
 areas: [acceptance]
 type: acceptance
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Two isolated homes/checkouts attach one app on Docker VM; A changes, B sees same IDs and current revision. Race same…"
 kanban_status: planned
-kanban_title: "Acceptance: prove two workstations share one authoritative deployment"
+kanban_title: "0427-059 · prove two workstations share"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-maintenance-client, t-20261018-r27-public-surfaces, t-20261018-r27-stage-versions, t-20261018-r27-state-recovery, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
