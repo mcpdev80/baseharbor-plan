@@ -8,7 +8,7 @@ release: v0.4.27
 version: v0.4.27
 release_stage: prepare
 parent: v0.4.27
-owner: ChatGPT (Owner-directed release preparation; no product file claims)
+owner: mcpdev80
 kanban_lane: active
 kanban_summary: Prepare the v0.4.27 ecosystem release-readiness dossier while implementation progress is tracked by its own CardBoard tasks and…
 kanban_status: active
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 
 - [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** ChatGPT (Owner-directed release preparation; no product file claims) · **Priority:** normal  
+    **Owner:** mcpdev80 · **Priority:** normal  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
-**Owner:** ChatGPT (Owner-directed release preparation; no product file claims)  
+**Owner:** mcpdev80  
 **Priority:** normal  
 **PRs:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
 **Source:** 
@@ -74,3 +74,5 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 2026-11-07: Preparation started with a read-only audit. Verified missing `docs/releases/v0.4.27.md` and `docs/releases/v0.4.27.demo-ref` on product develop, plus incomplete release scope and missing final four-repository candidate qualification. See `evidence/v0.4.27-prepare-2026-11-07.md`. No release jobs, tags, promotion, Pages publication or product branch changes authorized/performed. Continue preparation only; do not mark accepted until all criteria are met.
 
 owner-direktive 2026-11-07: release-vorbereitung FORTSETZEN aber NICHT veroeffentlichen (kein pre-release/tag/promotion bis separate freigabe). umbrella; wartet auf rest der welle (117+ci-seam+118+003).
+
+PR#1151 (prepare-branch) MERGED. Karte BLEIBT active gemaess owner-direktive 2026-11-07: release PREPARE ja, PUBLISH/TAG nein bis freigabe. Kein board-lie — GATE=owner publish.
