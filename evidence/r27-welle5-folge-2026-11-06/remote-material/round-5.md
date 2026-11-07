@@ -110,6 +110,44 @@ forbids inventing a second branch, and force-push into this hot zone risks
 dropping the concurrent session's commits (scope violation). Cannot durably
 land the correction without Owner/Coord resolving branch ownership.
 
+## RESOLUTION — push landed via pinned lease (Coord clarified: no concurrent session)
+
+Coord remote check: no parallel session. Remote `work/r27-remote-material` =
+`efb6c2d2c` = the dead w287 branch's CODEX-rejected round-4 gateway impl. My
+`a91debbb0` builds directly on develop `934be499b` and IS the correct single-owner
+replacement that replaces exactly that dead head — therefore it is NOT a
+fast-forward of `efb6c2d2c`, and my earlier `--force-with-lease` failed silently
+on an expired lease token (remote was still `efb6c2d2c`, unmerged).
+
+Push executed per Coord step 3, pinned lease, branch not protected:
+- (1) `git fetch origin work/r27-remote-material` -> FETCH_HEAD confirmed `efb6c2d2c`
+    at the moment of the pinned-lease push.
+- (2) `git log --oneline 934be499b..a91debbb0` shows ONLY my single single-owner
+    commit.
+- (3) `git push --force-with-lease=work/r27-remote-material:efb6c2d2c...
+    origin a91debbb0:refs/heads/work/r27-remote-material`
+    -> `+ efb6c2d2c...a91debbb0 a91debbb0 -> work/r27-remote-material (forced update)`.
+    Only the dead head was replaced; no third commit dropped.
+- (4) Fresh-clone proof (authoritative, direct https URL):
+    `git ls-remote origin refs/pull/1418/head refs/heads/work/r27-remote-material`
+    = a91debbb047d6ea7a0f258194c0a3474978687bd for BOTH.
+    Fresh --single-branch clone HEAD = a91debbb0, git cat-file -e a91debbb0 = PRESENT.
+- Branch is NOT protected (no push-permission gate); pinned-lease push was safe.
+
+Local verification at candidate a91debbb0 (own session):
+- go build ./... rc=0
+- go vet ./internal/exposure/... rc=0
+- gofmt clean (internal/exposure)
+- go test ./internal/exposure/... -> ok
+- exactly one commit on 934be499b..HEAD; develop 934be499b confirmed ancestor
+
+CI: run 4984 on head a91debbb0 via pull_request, workflow "CI · Source & Quality",
+conclusion success (authoritative gh run list witness). The release_source run
+`go test ./contracts/... ./internal/... ./spec/...` covers internal/exposure, so
+both new tests execute in CI. Docker/Podman runtime cells at
+.github/workflows/ci.yml:171-176 and 213-218 remain push-ref-gated (owner scope)
+and skip on PR #1418 — reported as a STATE finding, NOT edited.
+
 ## END
 
-END_BLOCKED 0427-051-exposure-node: product fix complete and locally verified (a91debbb0, single-owner caddy.go serving + rotation regression, suites/build/vet/gofmt clean); AUTHORITATIVE remote work/r27-remote-material is stuck at efb6c2d2c — a concurrent session keeps resetting the shared branch, and my --force-with-lease push did not durably land (fresh clone HEAD=efb6c2d2c, commit a91debbb0 absent). Exactly-one-candidate forbids a second branch; force-push risks dropping concurrent commits. Needs Owner/Coord to resolve branch ownership / stop the concurrent pusher so my single commit can land on PR #1418. CI wiring finding remains: ci.yml:171-176,213-218 runtime cells push-ref-gated -> skipped on PR (owner scope, not edited).
+END_DONE 0427-051-exposure-node: head=a91debbb0 pr=1418 gateway=exposure-only gets serving route via single owner internal/exposure/caddy.go (dead w287 round-4 duplicate removed, no duplicate Caddy logic), finding#1 fixed; rotation=node consumes rotated serving cert via ReconcileWorkloadTransport/ensureFiles path without re-bootstrap, finding#3 fixed; run=4984 TERMINAL success on a91debbb0 via pull_request (go-unit/release_source covers internal/exposure); ci_wiring_befund=ci.yml:171-176 (docker) and 213-218 (podman) runtime cells push-ref-gated -> SKIPPED on PR, owner scope, not edited; akte=evidence/r27-welle5-folge-2026-11-06/remote-material/round-5.md origin/main; branch not protected, pinned-lease push landed a91debbb0 (was dead efb6c2d2c).
