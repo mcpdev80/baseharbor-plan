@@ -34,6 +34,17 @@
   - Only my two commits sit on top of develop 66310729; the old commits are ancestors in the single chain.
 - Parent of my first fix commit `68190cdc` after the merge is exactly `66310729` (the new develop head).
 
+## Round-4 base refresh (mechanical, code unchanged)
+
+- develop advanced from `66310729` to `eee11d50` (051/#1418 merged) while this lane's code was already complete. My PR #1419 head `7b25276c` had `66310729` as ancestor but NOT `eee11d50`, which would have triggered a pure basis-drift reject (same as #036).
+- Steps (mechanical only, no re-implementation, no second branch, `.github` untouched):
+  1. `git fetch origin develop`; FETCH_HEAD == `eee11d50b7a7b55675a282f03d4a1a78e4511cf0`.
+  2. `git merge --no-edit origin/develop` — made by the 'ort' strategy; only added `internal/exposure/exposure_node_serving_test.go` (unrelated, pre-existing); no conflict, no change to my product logic.
+  3. `git merge-base --is-ancestor origin/develop HEAD` => **rc0** (`eee11d50` is now an ancestor).
+  4. `git log --oneline origin/develop..HEAD` shows only my card commits on top (merge `c0ac3bef` + `7b25276c` + `68190cdc` + the integrated old candidate `14ec6674..8b5075d2`).
+  5. Pushed `HEAD:work/r27-remote-up-owner-missing` — PR #1419 new head `c0ac3bef9e61b255b2fce97874ea7f4102ee6ce5`, OPEN, base develop, MERGEABLE.
+- Code is byte-identical to the round-3 head `7b25276c` — this refresh carries no product change, only the develop merge. Build/vet/regression re-run after merge: green.
+
 ## Root cause with file:line
 
 - Sentinel `ErrDeploymentOwnerMissing` — `internal/deployment/deployment_store.go:25`.
@@ -55,7 +66,7 @@
 
 ## CI run (own-run, monitored to terminal)
 
-- Run **`42341206556`** — terminal **success**, head `7b25276c2a9b904365b9e23b9d5cb13c1ef8b6ca`, event `pull_request` (auto-triggered by the push; no rerun/workflow_dispatch, no `.github/**` edit).
+- Run **`42342771963`** — terminal **success**, head `c0ac3bef9e61b255b2fce97874ea7f4102ee6ce5` (base-refreshed on develop `eee11d50`), event `pull_request` (auto-triggered by the push; no rerun/workflow_dispatch, no `.github/**` edit). Code is byte-identical to round-3 head `7b25276c` — only the develop merge differs.
 - Job outcomes: `PR · Validation · cli-package-tests` = **success** (my regression test runs here), `PR · Validation · cli-build` = success, `cli-gofmt` = success, `cli-vet` = success, `source-contracts` = success, `deployment-package-tests` = success, `PR · Source format` = success, `PR · Trusted Plan` = success, `PR · Focused Python` = success, `Workflow policy` = success, **`PR Selected Checks`** = success (base attestation clean, branch from develop 66310729).
 - Scope-skipped (owner gate, not failures): `Targeted HA · docker`, `Targeted HA · podman`, `validate`, `Release Source Preflight`, `PR · Selected Runtime`, `PR · Selected Runtime`, `PR · Runner Interface`, `PR · Public Contracts`, `PR · Exact Candidate`, `PR · Demo Pin`, `PR · Consumer Pins`.
 
@@ -81,4 +92,4 @@
 
 ## END
 
-END_DONE 0427-117-owner-resolve: head=7b25276c pr=1419 owner_res=real-boot-target-resolution-via-CLI-effective-target (BASEHARBOR_TARGET-first) not-marker-only regression=TestPodmanOwnerLoanIsolatedApplyPasses RED-ErrDeploymentOwnerMissing-without-fix / GREEN-with-fix connector+unmarked-fail-closed-on-both-sides ci=42341206556 TERMINAL-SUCCESS incl-PR-Selected-Checks + cli-package-tests success single-integration-chain (old candidate integrated, only my 2 commits on develop 66310729) podman=baha-podman-2 fresh-iso-target fails-closed-ErrDeploymentOwnerMissing-without-boot-Core (loan is testing.Testing()-gated TEST-SCOPE for CI compose cells, proven by regression test; manual-CLI STATE per mission) host-clean 0-containers-0-compose target-recovery-clean akte=evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-3.md origin/main
+END_DONE 0427-117-owner-resolve-r4: head=c0ac3bef pr=1419 ancestry=eee11d50 rc0 run=42342771963 TERMINAL-SUCCESS incl-PR-Selected-Checks + cli-package-tests success code=unchanged-from-7b25276c (base-refresh only) akte=evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-3.md origin/main owner_res=real-boot-target-resolution-via-CLI-effective-target (BASEHARBOR_TARGET-first) not-marker-only regression=TestPodmanOwnerLoanIsolatedApplyPasses RED-ErrDeploymentOwnerMissing-without-fix / GREEN-with-fix connector+unmarked-fail-closed-on-both-sides ci=42341206556 TERMINAL-SUCCESS incl-PR-Selected-Checks + cli-package-tests success single-integration-chain (old candidate integrated, only my 2 commits on develop 66310729) podman=baha-podman-2 fresh-iso-target fails-closed-ErrDeploymentOwnerMissing-without-boot-Core (loan is testing.Testing()-gated TEST-SCOPE for CI compose cells, proven by regression test; manual-CLI STATE per mission) host-clean 0-containers-0-compose target-recovery-clean akte=evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-3.md origin/main
