@@ -7,18 +7,20 @@ release: v0.4.27
 priority: high
 type: bug
 areas: [cli, remote]
-owner: w286
+owner: 0427-117-podman-owner
 kanban_status: active
 kanban_title: "0427-117 · podman-family Deploy owner"
 kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261106-r27-remote-up-cli-path]
 prs: []
 repos: [mcpdev80/baseharbor]
+blocker: ""
+
 ---
 
 - [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/bug
     <!-- generated:card -->
-    **Owner:** w286 · **Priority:** high  
+    **Owner:** 0427-117-podman-owner · **Priority:** high  
     **Needs:** [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
     <!-- /generated:card -->
 
@@ -26,7 +28,7 @@ repos: [mcpdev80/baseharbor]
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
-**Owner:** w286  
+**Owner:** 0427-117-podman-owner  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -43,3 +45,5 @@ up path apparently does not record or resolve the deployment owner for the podma
 
 - Same-scenario cell on baha-podman passes (up -> doctor health OK); owner record present and resolvable.
 - Root cause with file:line in the akte; regression cell red-first.
+
+bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
