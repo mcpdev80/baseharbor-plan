@@ -161,7 +161,29 @@ job actually runs and produces the required CI Run-ID + terminal status. Until
 then the go-test evidence is local-only and is not durable per the
 CI-Aufnahmepflicht (Owner directive 2026-11-07).
 
-## End state
+## Evidence path on origin/main (measured before END)
+
+```text
+git -C baseharbor-plan fetch origin main && git -C baseharbor-plan ls-tree -r --name-only origin/main | grep remote-material/round-2
+```
+
+Output (paste):
+
+```text
+evidence/r27-welle5-folge-2026-11-06/remote-material/round-2.md
+```
+
+Evidence committed to baseharbor-plan/main (`89aecc41..44389682`) and present on
+origin/main.
+
+## Wrong-zone checkout guard
+
+baseharbor-plan remote before committing (not the workers/ copy):
+
+```text
+origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
+```
 
 - Branch work/r27-remote-material, single commit `852e421c2`, base is a develop
   ancestor.
