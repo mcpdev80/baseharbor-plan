@@ -50,5 +50,9 @@
 
 ## Blockers / findings for Owner
 
+- END_DONE 0427-node-cli: node list/status live trust + expiry + capabilities implemented in cmd/baha/node.go (write-set only). Candidate work/r27-node-cli cc98ccad6 on c8a79faff; PR #1427 vs develop. CI run 42379565916 Go checks (cli-gofmt/go-unit-tests/go-vet/go-build) SUCCESS. Evidence origin/main 0c50ef3e.
+
+## Blockers / findings for Owner
+
 - STATE (check "PR · Selected Checks"): CI requires a native runtime-selected job result to close PR Selected Checks. The node-cli slice is CLI-scoped (card: "existing native node smoke reused only when verifier-valid"); no native gate should be required for this write-set. The failing native test fails on clean develop. Fix to `.github/**` routing / runtime-gate selection is Owner scope — not edited here. file: `.github/workflows/ci.yml` PR Selected Checks "Require normal selected job results" (run 42379565916, step "Require normal selected job results" conclusion failure).
 - STATE (check "PR · Source format"): broad integration-range gofmt diff carries other lanes' unformatted files. My files clean. Cross-lane artifact.
