@@ -15,7 +15,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-p
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
-blocker: "ErrDeploymentOwnerMissing wird auf docker UND podman am kopf 86f96a... reproduziert; die karte wartet auf die LANDUNG von 0427-117 (owner-inherit fix auf develop). naechster trigger: 117 merged develop."
+blocker: "owner-direktive 2026-11-07: BLOCKED lassen (wartet auf #117 produkt-owner-fix landing)."
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md"]
 
 ---
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- generated:card -->
     **Owner:** 0427-116-cli-path · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
-    **Blocker:** ErrDeploymentOwnerMissing wird auf docker UND podman am kopf 86f96a... reproduziert; die karte wartet auf die LANDUNG von 0427-117 (owner-inherit fix auf develop). naechster trigger: 117 merged develop.  
+    **Blocker:** owner-direktive 2026-11-07: BLOCKED lassen (wartet auf \#117 produkt-owner-fix landing).  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
