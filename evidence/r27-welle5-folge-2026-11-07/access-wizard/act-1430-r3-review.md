@@ -3,9 +3,9 @@
 ## PLAN
 
 1. Read the r3 mission and record the numbered plan — done.
-2. Read task contract; fetch exact PR/base refs; inspect persistence, cancel, multi-target, offboarding fail-closed, write-set, docs/registration, and hosted CI without reruns — pending.
-3. Record SHA-specific verdict and actionable recipe in canonical planning evidence — pending.
-4. Publish evidence to origin/main, verify evidence and unchanged candidate witnesses, then post END — pending.
+2. Read task contract; fetch exact PR/base refs; inspect persistence, cancel, multi-target, offboarding fail-closed, write-set, docs/registration, and hosted CI without reruns — done.
+3. Record SHA-specific verdict and actionable recipe in canonical planning evidence — done.
+4. Publish evidence to origin/main, verify evidence and unchanged candidate witnesses, then post END — in progress.
 
 ## Candidate and hosted evidence
 
@@ -45,3 +45,4 @@ END BLOCKED 0427-access-r3-review: request-changes; candidate `5ccb81472ef1a9ca5
 - `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/access-wizard/act-1430-r3-review.md` returned exactly: `100644 blob 4e059286e38aa2a63955395c6d73c2cb469f4042 evidence/r27-welle5-folge-2026-11-07/access-wizard/act-1430-r3-review.md`.
 - The evidence commit `20810abd` is an ancestor of fetched `origin/main` (`d9150f667e1534fa2b11395bef5550cd9e9877cb`); the coordinator's subsequent commit moved the 110-lane state block and did not alter this review file.
 - Final candidate witness before END remains develop `8a3f58da905fad52327d33466fde1d9568092519`, PR #1430 head `5ccb81472ef1a9ca53e065c94ccd89987fa05211`.
+- A concurrent planning update carried the same initial tree witness. Final post-rebase tree and remote-main witnesses are recorded below after publication.
