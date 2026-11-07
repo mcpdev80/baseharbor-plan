@@ -1,5 +1,7 @@
 ---
 id: t-20261107-r27-runtime-broker-oras-missing-edge-readiness
+card_number: "0427-118"
+card_short_title: "runtime broker readiness"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: worker (w269)
 kanban_status: active
 kanban_lane: active
 kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
-kanban_title: "Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready"
+kanban_title: "0427-118 · runtime broker readiness"
 priority: ""
 depends_on: [t-20261104-r27-vm-integration-runs]
 repos: [mcpdev80/baseharbor]

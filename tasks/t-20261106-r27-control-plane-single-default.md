@@ -1,5 +1,7 @@
 ---
 id: t-20261106-r27-control-plane-single-default
+card_number: "0427-115"
+card_short_title: "default Deploy must be SINGLE"
 type: task
 areas: [platform, runtime, testing]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle5 (w277, entlassen)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: The default BaseHarbor developer/control-plane deployment MUST use a single instance per required service. Currently the shipped…
-kanban_title: "Control plane: default deployment must be SINGLE instances (per-service one postgres/one openbao, no HA ensemble); HA only as explicit opt-in"
+kanban_title: "0427-115 · default Deploy must be SINGLE"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
