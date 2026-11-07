@@ -7,7 +7,7 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: lane-0427-116 (geraet blockiert)
+owner: chatgpt-0427-116
 kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
 kanban_lane: active
@@ -22,7 +22,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-116 (geraet blockiert) · **Priority:** normal  
+    **Owner:** chatgpt-0427-116 · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** lane-0427-116 (geraet blockiert)  
+**Owner:** chatgpt-0427-116  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -79,3 +79,5 @@ CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upE
 - Code-Nachweis: `cmd/baha/node.go` ruft `requestNodeAuthorization` auf; `internal/operatorauth/login.go` verwendet interaktiven Authorization Code mit PKCE und verifiziertem ID-Token. `internal/httpsecurity/middleware.go` verlangt einen gültigen Bearer und Tenant-Rollen. `internal/database/identity_tenant_resolver.go` löst Tenant und Mitgliedschaft unter RLS aus `external_identities` und `memberships` auf.
 - Nächster Schritt: vorhandenen sicheren Test-Operator-/Tenant-Provisioning-Pfad verifizieren. Keine manuellen DB-Seeds, Tokens oder Auth-Bypässe. Danach unter VM-Lock echte Docker-/Podman-Nachweise. Der PR-CI-Runtime-Trigger-Befund gehört an den Owner von `.github/**`; kein paralleler Workflow-Eingriff.
 - Die bisherigen OIDC-/CI-Schwierigkeiten sind weiterhin offene technische Teilaufgaben, aber mit begonnener Bearbeitung kein stillgelegter Alarmstatus. `Active` ist weder PASS noch Mergefreigabe.
+
+- **2026-11-07 Ownership:** ChatGPT uebernimmt den Produkt-Bootstrap-Teil und die Abnahmevorbereitung als Karten-Owner. Die bisherige Codeman-Lane `lane-0427-116 (geraet blockiert)` sowie deren Core-PR #1407 bleiben als separate, nicht zu ueberschreibende Zuständigkeit erhalten; keine Dateireservierung durch den Karten-Owner-Wechsel aufgehoben.
