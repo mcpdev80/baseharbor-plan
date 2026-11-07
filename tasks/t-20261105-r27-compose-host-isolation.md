@@ -7,9 +7,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: 0427-110-compose-inci
-kanban_status: blocked
-kanban_lane: blocked
+owner: lane-0427-110-r2
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -19,23 +19,22 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: "PR #1383 ist offen und derzeit nicht mergeable; PR-CI war gruen, aber vier Native-Lifecycle-Tests liefen dort nicht. Exakter Docker/Podman-Lauf rot; Isolation und echte kontaminierte/saubere Host-Zellen weiterhin nachzuweisen. #117 und #021 sind kein pauschaler Ersatz fuer diese fehlende Abnahme."
+blocker: ""
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** 0427-110-compose-inci · **Priority:** high  
+    **Owner:** lane-0427-110-r2 · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-    **Blocker:** PR \#1383 ist offen und derzeit nicht mergeable; PR-CI war gruen, aber vier Native-Lifecycle-Tests liefen dort nicht. Exakter Docker/Podman-Lauf rot; Isolation und echte kontaminierte/saubere Host-Zellen weiterhin nachzuweisen. \#117 und \#02…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** 0427-110-compose-inci  
+**Owner:** lane-0427-110-r2  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -185,3 +184,5 @@ vormals active mit toter bahn w282 (reboot); korrekt auf blocked gesetzt.
 
 - PR [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) head `61566c6805d74a0966a8b096a596bb3bd6fb43b8` bleibt offen, GitHub meldet nicht mergeable. Gruener PR-Lauf [42326862499](https://github.com/mcpdev80/baseharbor/actions/runs/42326862499) ist **kein** PASS der vier gezielten Native-Tests.
 - Fehlende echte Ausfuehrung sowie die spaetere rote Docker-/Podman-Abnahme bleiben Blocker. Der zwischenzeitliche Installation-Owner- und Consent-Fortschritt anderer PRs ersetzt die vier Test- und Isolationsbeweise nicht. Erneut gegen aktuellen develop rebasen und exakt-head native sauber/kontaminiert belegen; **blocked** bis dahin.
+
+owner-direktive 2026-11-07: 110 FERTIGSTELLEN. echter blocker war PR#1383 CONFLICTING + 4 native docker/podman lifecycle tests nie echt ausgefuehrt. VM-raeume frei (podman w169 strays removed).
