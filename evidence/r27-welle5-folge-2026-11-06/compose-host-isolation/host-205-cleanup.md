@@ -20,7 +20,19 @@ Mission: coordinator/missions/w283-pr1383-clean205.txt · Coord: ec2254ac · Dat
 - Repo-Fund bei Akte-Suche: workers/baseharbor ist ein clone von mcpdev80/baseharbor, dessen origin/main SHA == baseharbor-plan main SHA (527e8885… lokal 8ad1d489 auf height-standalone). Die compose-host-isolation Akten-Pfade existieren in mcpdev80/baseharbor-plan. Diese Akte landet dort, mit leerem Diff zum Produkt-Repo als Compliance-Beweis.
 
 ## Journal
-- claim: (ausstehend, blockiert durch w282)
+- claim: (ausstehend — rc=3, blockiert durch w282 @ 00:00:18Z fresh)
 - release: (ausstehend)
 
-END_BLOCKED w283-pr1383-clean205: vm-lock baha-docker-2 gehört w282 (fresh claim 00:00:18Z); QUESTION an Coordinator gepostet, Kandidat/Akte: ausstehend bis Freigabe
+## Aktenbeweis
+- baseharbor-plan main vor Branch: 527e88851dba1ea608ccb98cfdbd5f02bb9a8c12 (gh api commits/main)
+- Branch docs/w283-host-205-cleanup, commit 6596006fba4c2e0f5f4c4110929eb75887a5f6f6 (git log: 1 Commit, dieser Lane; git log origin/main..HEAD zeigt nur diesen)
+- Ancestry: git merge-base --is-ancestor 527e8885 6596006 → rc=0
+- PR baseharbor-plan#18 → MERGED squash 2026-11-07T00:04:12Z; main nun 39cf8f24500254b49b447c4e02933ea82b087268
+
+## repo-rule compliance
+- Akte lebt in baseharbor-plan (evidence/...), nie im Produkt-Repo: workers/baseharbor clone zeigt origin/main == baseharbor-plan main SHA 527e8885; mein Commit 6596006 enthält ausschließlich evidence/.../host-205-cleanup.md (git show --name-only → leerer Diff zum Produkt-Repo-Baum).
+- Keine Markdown-Checkboxen in dieser Datei (Punkte statt checkboxen; Sanitize-Check: grep '\- \[' → keine Checkboxen).
+- Keine Workflow-/Runner-Arbeit; nur vm-lock + Inventur/Löschung SSH-read-only/write auf 205 (ausstehend).
+- Kein Subagent eingesetzt.
+
+END_BLOCKED w283-pr1383-clean205: vm-lock baha-docker-2 gehört w282 (fresh claim 2026-11-07T00:00:18Z laut vm-lock status/journal), claim rc=3; Inventur/Löschung noch nicht ausgeführt; Akte (dieses Dokument) via PR baseharbor-plan#18 auf origin/main 39cf8f24; Kandidat: kein Produktkandidat, Akten-PR head 6596006fba4c2e0f5f4c4110929eb75887a5f6f6 (cut from 527e8885). QUESTION an Coordinator kann via `codeman agent post ec2254ac` nicht zugestellt werden (no session starts with ec2254ac — `codeman agent ls` zeigt keine solchen IDs); bitte Route korrigieren, Lane ruft vm-lock claim erneut, sobald baha-docker-2 frei ist.
