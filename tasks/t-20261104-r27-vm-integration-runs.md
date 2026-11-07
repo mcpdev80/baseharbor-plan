@@ -7,33 +7,32 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: 0427-107-docker-podman
-kanban_lane: blocked
+owner: coord-ops-107
+kanban_lane: active
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: blocked
+kanban_status: active
 kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
-blocker: "host-blocker BEHOBEN (coord host-ops 2026-11-07): podman-2 ip_forward war 0 (reboot-reset) -> jetzt 1+persistent; container->extern DNS/gateway/reachout verifiziert. owner: KEINE firewall auf den systemen, meine netavark-firewall-theorie verworfen. rest=echter compose-READY-lauf auf podman-2 wird von 003/118/021 jetzt gefahren; naechster trigger: deren gruenlauf."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** 0427-107-docker-podman · **Priority:** high  
-    **Blocker:** host-blocker BEHOBEN (coord host-ops 2026-11-07): podman-2 ip\_forward war 0 (reboot-reset) -\> jetzt 1+persistent; container-\>extern DNS/gateway/reachout verifiziert. owner: KEINE firewall auf den systemen, meine netavark-firewall-theorie v…  
+    **Owner:** coord-ops-107 · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** 0427-107-docker-podman  
+**Owner:** coord-ops-107  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -94,3 +93,5 @@ kein blocker mehr: braucht ein nachweis mehrere Maschinen, werden mehrere bereit
 bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
 
 akte round-3-docker-podman2.md auf origin/main (c5b947df); lane hat eigene compose auf beiden hosts downgemacht (0 lane-container ps-zeugnis).
+
+owner-direktive 2026-11-07: #107 -> ACTIVE. podman-2 host-blocker behoben (ip_forward). realer docker+podman integration-lauf wird jetzt gefahren (coord host-ops + 021 CI runtime cells + 003/118 outputs).

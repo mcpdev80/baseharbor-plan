@@ -11,10 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 87/118 · **Blocked:** 4 · **Waiting:** 19  
-    **Blocker:** [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) — host-blocker BEHOBEN (coord host-ops 2026-11-07): podman-2 ip\_forward war 0 (reboot-reset) -\> jetzt 1+persistent; container-\>extern DNS/gateway/reachout verifi…  
+    **Accepted tasks:** 87/118 · **Blocked:** 3 · **Waiting:** 19  
     **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — die vier composes isolationszellen laufen jetzt real in der CI (owner \#1417) aber schlagen auf ErrDeploymentOwnerMissing — derselbe fehler den karte 0427-117 b…  
-    Plus 2 further blockers in the task list.  
+    **Blocker:** [t-20261106-docker-2-half-frozen-core-stack](../tasks/t-20261106-docker-2-half-frozen-core-stack.md) — owner-direktive 2026-11-07: docker-2 core reparieren = coordinator host-ops (keine owned repo-files). docker-2 VM core-stack halb-eingefroren -\> wird per vm-lo…  
+    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
