@@ -7,33 +7,32 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: 0427-116-cli-path
-kanban_status: blocked
+owner: lane-0427-116
+kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
-kanban_lane: blocked
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
-blocker: "owner-direktive 2026-11-07: BLOCKED lassen (wartet auf #117 produkt-owner-fix landing)."
+blocker: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md"]
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/blocked #view/blocked #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** 0427-116-cli-path · **Priority:** normal  
+    **Owner:** lane-0427-116 · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
-    **Blocker:** owner-direktive 2026-11-07: BLOCKED lassen (wartet auf \#117 produkt-owner-fix landing).  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** 0427-116-cli-path  
+**Owner:** lane-0427-116  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -60,3 +59,5 @@ kandidat c87c8b644cc auf develop dddf0d7823f; alle gehosteten checks success (sk
 bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
 
 bahn hat basis konfliktfrei auf develop 934be499b aufgefrischt (head 86f990a6) und die beiden zellen ausgefuehrt — ergebnis ist der owner-seam-fehler, nicht ein neuer defekt dieser karte.
+
+blocker '#117 landing' ERFUELLT (1419 merged develop beb923fe6 11:33Z); deps release-updates+vm-smoke closed. owner-direktive war conditional auf 117 -> jetzt bereit, seat-refill.
