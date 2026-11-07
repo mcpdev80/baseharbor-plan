@@ -7,33 +7,32 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: w269-vm-integration-runs
-kanban_lane: blocked
+owner: w288-pr1407-vm-matrix-podman
+kanban_lane: active
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: blocked
+kanban_status: active
 kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
-blocker: "zwei von vier zellen brauchen maschinen, die es unter den geltenden regeln fuer eine einzelne Bahn nicht gibt: (1) connector-zelle ist ein TWO-HOST-Flow (core auf host A, node auf host B) — R2 erlaubt einer Bahn genau EINEN host gleichzeitig; (2) demo-zelle braucht auf baha-docker-2 (205) das r27-w150-demo-repo plus ein provisioniertes managed backend (sql/redis/s3) — beides fehlt dort. ergebnis bisher: core+console PASS (SINGLE default Core READY, doctor OK, status read-only), docker-podman-matrix 2/4 gruen. naechster trigger: (a) owner-entscheid, ob eine zwei-host-bahn ausdruecklich zwei locks halten darf (R2-ausnahme) oder zwei bahnen koordiniert werden, (b) provisioning-laeuft auf 205"
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** w269-vm-integration-runs · **Priority:** high  
-    **Blocker:** zwei von vier zellen brauchen maschinen, die es unter den geltenden regeln fuer eine einzelne Bahn nicht gibt: (1) connector-zelle ist ein TWO-HOST-Flow (core auf host A, node auf host B) — R2 erlaubt einer Bahn genau EINEN host gleichzeit…  
+    **Owner:** w288-pr1407-vm-matrix-podman · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** w269-vm-integration-runs  
+**Owner:** w288-pr1407-vm-matrix-podman  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -84,3 +83,5 @@ is based on executed runs instead of skipped gates.
 - Fail closed: implicit HA in the default, an unverified topology, or SKIP means FAIL/BLOCKED and must not qualify the release. Never execute these tests on the Codeman server `baha-runner-docker-2`.
 
 akte auf plan main: evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-1.md + docker-2-finding.md; neue defektkarte t-20261107-r27-runtime-broker-oras-missing-edge-readiness ist von mir schema-gefixt (b8fe933e) und in arbeit
+
+wieder active gesetzt: w288 faehrt gerade die podman-seite der matrix (0/4 war der stand von w269). offene zweigruende bleiben: (1) connector-zelle ist TWO-HOST-flow — R2 erlaubt einer Bahn nur EINEN host, wartet auf deine regelentscheidung; (2) demo-zelle braucht auf dem host das r27-w150-demo-repo + provisioniertes managed backend (sql/redis/s3) — provisioning-lane folgt, sobald ein sitz frei ist. docker-seite: 2/4 gruen (core+console PASS), akte auf main.
