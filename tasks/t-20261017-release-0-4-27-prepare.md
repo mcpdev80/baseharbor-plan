@@ -72,3 +72,5 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 ## Handoff
 
 2026-11-07: Preparation started with a read-only audit. Verified missing `docs/releases/v0.4.27.md` and `docs/releases/v0.4.27.demo-ref` on product develop, plus incomplete release scope and missing final four-repository candidate qualification. See `evidence/v0.4.27-prepare-2026-11-07.md`. No release jobs, tags, promotion, Pages publication or product branch changes authorized/performed. Continue preparation only; do not mark accepted until all criteria are met.
+
+owner-direktive 2026-11-07: release-vorbereitung FORTSETZEN aber NICHT veroeffentlichen (kein pre-release/tag/promotion bis separate freigabe). umbrella; wartet auf rest der welle (117+ci-seam+118+003).
