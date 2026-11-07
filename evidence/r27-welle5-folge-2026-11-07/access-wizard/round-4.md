@@ -30,7 +30,23 @@ Finding #1 (PERSISTENZ), #2 (CANCEL), #3 (MULTIPLE TARGETS) are ALREADY IMPLEMEN
 
 Finding #4 (OFFBOARDING KINDS) was the only unmet item and is what this round implements.
 
-## Finding #4 repair (fail-closed only; no cross-card write)
+## Terminal CI receipt (hosted, run on `be65de6d` — the final candidate SHA)
+
+- Run: **CI · PR #1430**, run_id **42421669238**, run_number 5111, event `pull_request`, head_sha `be65de6da3ffd15e79fc6479dff8c81a8fcb81cd`, branch `work/r27-access-wizard`.
+- Status: **completed** / conclusion **success** (terminal; started 2026-11-07T22:40:01Z, updated 2026-11-07T22:48:21Z).
+- Passed jobs (14): Workflow policy, PR · Source format, PR · Trusted Plan, PR · Focused Python, PR · Validation · cli-gofmt (job 128551266489), go-vet (128551266490), go-unit-tests (128551266500), pages-candidate-build, documentation-audit (128551266508), go-build (128551266525), mkdocs-en-strict, mkdocs-de-strict, wizard-registration-tests (128551266589), PR Selected Checks.
+- Failed: **0**. Skipped (legitimate for a Go-only change; not a covered path): validate, Targeted HA · docker, Targeted HA · podman, Release Source Preflight, PR · Consumer Pins, PR · Selected Runtime, PR · Demo Pin, PR · Exact Candidate, PR · Runner Interface, PR · Public Contracts.
+- No rerun or workflow_dispatch by me: the run was the normal GitHub pull_request trigger on the named candidate branch push.
+
+## Finding place-witnesses (file:line counter-objects for the recheck)
+
+Reviewer recheck objects — the three already-merged functional fixes in candidate head `5ccb81472`:
+
+- **#1 Persistence** (recipe: durable write via additive seam, persistence-regression reloads store and compares): durable write seam `internal/orgconfig/profiles.go:585` `func PersistActive(manager *Manager, state ActiveState) error`; wired into both production callers `internal/accesswizard/authority.go:93` (`ResolveAssignment`) and `:148` (`RevokeAssignment`). CLI regression reloads the store and asserts the durable owned profile set: `cmd/baha/access_wizard_persistence_test.go` `ownedProfileCount`/`ownedProfile` (asserts at :118,:132,:153,:174).
+- **#2 Cancel** (recipe: `cancel` after selection must NOT invoke the write-callback; review needs explicit confirmation): `pageSelect` returns the isCancel sentinel at `internal/accesswizard/controller.go:280`; `Run` returns on the sentinel BEFORE `decide(review)` at `:206` (guard at `:163`) — no write on cancel.
+- **#3 Multiple targets** (recipe: loop/batch over ALL accumulated selections per route, assign+revoke, table-driven last-bearing): both command callbacks iterate `review.Selected` — assign `cmd/baha/access_wizard_command.go:64`, offboard `:129` (no `Selected[0]` truncation).
+
+Finding **#4** (this round) implemented + witnessed above (fail-closed guard in `RevokeAssignment`, `RemoveManagedUser` only, regression `TestOffboardUnimplementedKindFailsClosedNoSilentMutation`).
 
 Per the binding recipe: "Standalone `RemoveConnection`, `RemoveDevice`, `RemoveGrant`, `RemoveManagedUser`, `OffboardRequest`, and `ValidateOffboard` are currently declarations/helpers used only in tests ... Stop if any route requires another task's owned lifecycle/API paths; record the dependency instead of widening this PR." Mission point 4 (Owner clarification): "die vollen routes gehoeren auf t-20261018-r27-managed-users — HIER nur fail-closed, querverweis in evidence."
 
@@ -81,4 +97,4 @@ New regression `internal/accesswizard/offboard_scope_regression_test.go` `TestOf
 
 ## END
 
-END_DONE 0427-access-r4: r4 complete. Findings #1-3 already merged in PR#1430 head `5ccb81472`; finding #4 now fail-closed: `RevokeAssignment` serves only `RemoveManagedUser`, unimplemented kinds (connection/device/grant) fail closed on `ErrDenied` with a clear rejection and never mutate the managed-user profile set. Commit `be65de6d` at named candidate branch `work/r27-access-wizard` tip; gofmt/build/vet clean; accesswizard + cmd/baha wizard suites PASS; branch-provenance + own-commits-only proven. Evidence committed to origin/main; card -> review. Cross-reference for full offboarding kind routes: t-20261018-r27-managed-users / t-20261018-r27-device-lifecycle.
+END_DONE 0427-access-r4: r4 complete. Findings #1-3 already merged in PR#1430 head `5ccb81472` (place-witnesses in this file); finding #4 now fail-closed: `RevokeAssignment` serves only `RemoveManagedUser`, unimplemented kinds (connection/device/grant) fail closed on `ErrDenied` with a clear rejection and never mutate the managed-user profile set. Commit `be65de6d` at named candidate branch `work/r27-access-wizard` tip; gofmt/build/vet clean; accesswizard + cmd/baha wizard suites PASS. Hosted CI · PR #1430 run_id 42421669238 TERMINAL success (14 passed, 0 failed, remaining skipped for Go-only change). Evidence committed to origin/main; card -> review. Cross-reference for full offboarding kind routes: t-20261018-r27-managed-users / t-20261018-r27-device-lifecycle.
