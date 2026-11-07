@@ -15,8 +15,8 @@ Role: CODEX-REVIEW. Candidate PR head: `5b8d0f5745c55fd8be89d5dc53edb4e9b145eede
 Fresh first remote witness, from `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1405/head`:
 
 ```text
-934be499b9d2d894f80889fc23cd811884c8aec4\trefs/heads/develop
-5b8d0f5745c55fd8be89d5dc53edb4e9b145eede\trefs/pull/1405/head
+934be499b9d2d894f80889fc23cd811884c8aec4	refs/heads/develop
+5b8d0f5745c55fd8be89d5dc53edb4e9b145eede	refs/pull/1405/head
 ```
 
 A second fresh witness confirmed `refs/heads/work/r27-management-host` and `refs/pull/1405/head` both point to `5b8d0f5745c55fd8be89d5dc53edb4e9b145eede`. PR #1405 is OPEN, non-draft, targets `develop`, and is mergeable.
@@ -63,8 +63,8 @@ END_DONE codex-1405-rereview-c: verdict=REJECT head=5b8d0f5745c55fd8be89d5dc53ed
 Before this first evidence commit, `git remote -v` in `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` returned:
 
 ```text
-origin\thttps://github.com/mcpdev80/baseharbor-plan.git (fetch)
-origin\thttps://github.com/mcpdev80/baseharbor-plan.git (push)
+origin	https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 ```
 
 Exact `git ls-remote origin refs/heads/main` output captured immediately before publishing this evidence:
