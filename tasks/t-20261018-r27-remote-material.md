@@ -21,14 +21,14 @@ aliases: []
 early: false
 blocker: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md", "https://github.com/mcpdev80/baseharbor/pull/1418"]
 ---
 
 - [x] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/providers #kind/task
     <!-- generated:card -->
     **Owner:** 0427-051-exposure-node · **Priority:** normal  
     **PR:** [baseharbor#1418](https://github.com/mcpdev80/baseharbor/pull/1418)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1418)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -75,3 +75,5 @@ CODEX act-1418a REJECT am kopf efb6c2d2c: go-unit gruen, aber (a) echte produktm
 single-owner caddy.go gelandet: head a91debbb0 auf develop 934 (ancestor), totes round-4 duplikat efb6c2d2c ersetzt, F1/F2/F3 behoben, run 4984 terminal, go-unit deckt internal/exposure, runtime cells skipped=owner-gate, akte round-5 auf main. re-review act-1418b.
 
 PR #1418 merged unchanged as eee11d50b7a7b55675a282f03d4a1a78e4511cf0; accepted head a91debbb047d6ea7a0f258194c0a3474978687bd verified as ancestor of develop. Review and merge evidence are published under evidence/r27-welle5-folge-2026-11-06/remote-material/.
+
+CODEX act-1418b ACCEPT + act-1418c MERGE in develop (eee11d50b7a7b55675a282f03d4a1a78e4511cf0). single-owner caddy.go serving route + node rotation regression; F1/F2/F3 erfuellt.
