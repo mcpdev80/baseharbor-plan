@@ -2,10 +2,10 @@
 
 ## PLAN
 
-1. Read mission, canonical task contract, relevant product rules, and evidence for the prior blockers/public-surfaces finding — DONE.
-2. Fetch exact live `develop` and PR #1428 refs; verify ancestry and inspect all changed maintenance files, tests, and candidate-only commits — DONE.
-3. Assess installation-authority routing, fail-closed behavior, causal mutants, maintenance window/history persistence, public-surfaces finding, and CI selection — DONE.
-4. Record verdict and actionable recipe, validate and publish this evidence to `baseharbor-plan` origin/main, then post END — DONE.
+1. Read the r5 mission and create the visible numbered plan — done.
+2. Read round-5 evidence from planning origin/main and inspect the named candidate test functions and oracle lines at exact SHA — done.
+3. Decide whether the reported mutants establish the disputed behaviors; record only the remaining review findings and corrected recipe — done.
+4. Verify candidate head before and after, publish the updated verdict in this authorized act on planning origin/main, then post END — in progress.
 
 ## Review identity
 
@@ -137,3 +137,34 @@ Final remote-tree witness from `git -C /tmp/opencode/0427-maintenance-client-rer
 ```text
 evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
 ```
+
+
+## R5 contradiction recheck — PR #1428 head 396529860e1f349576190f435cb06e2b7b496866
+
+### Verdict: REQUEST-CHANGES; the r5 evidence does not fully close both review findings
+
+Exact candidate witnesses before this recheck: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1428/head` returned `8a3f58da905fad52327d33466fde1d9568092519 refs/heads/develop` and `396529860e1f349576190f435cb06e2b7b496866 refs/pull/1428/head`. The develop SHA is an ancestor of this candidate (`git merge-base --is-ancestor` exit 0). The candidate was inspected detached and was not modified. Round-5 evidence was read from planning `origin/main` at `796b93653d0aa961d3127a4f6b729d1a0046c05f`; its tree entry was `100644 blob 756d453f40c1675f46f024f92a4d432dbf2b0fc5 evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-5.md`.
+
+1. **Retry rollback implementation is present, but the claimed retry regression is not valid for owner-failure residue.** `rollbackApplicationMaintenanceWindowImpl` passes the committed revision to `application.RollbackMaintenanceAuthorityWindow` (`cmd/baha/app_maintenance_client.go:574-586`; `internal/application/maintenance_authority.go:455-460`), and that function removes the history entry. The separate `TestApplicationMaintenanceDestroyHistoryResidueAndRetry` verifies the inner history-append-failure transaction and then a successful retry (`cmd/baha/app_maintenance_round3_test.go:107-154`). However, the r5-cited matrix does not prove retry after a successful window commit followed by lifecycle-owner failure: its owner-failure rows do not set `retryableAfter` (`cmd/baha/app_maintenance_round4_test.go:59-90`). The only retry-enabled rows are history-append failures; the hook remains set to return the failure, and both retry checks at lines 204-220 fail if the retry returns nil. The duplicated assertions therefore expect retry failure, contrary to their comments. The round-5 mutation probe that replaces the outer rollback with a no-op fails earlier on current-window presence (`round-5.md`, Finding 1), so it does not demonstrate the specifically disputed history-residue/retry oracle. I withdraw the claim that source rollback is missing, but the promised owner-failure history/retry proof remains outstanding.
+
+   Corrected recipe: in `cmd/baha/app_maintenance_round4_test.go`, make a `local-owner-failure` and a `remote-owner-failure` case assert the history contents and then retry the same committed revision after restoring the lifecycle owner; assert retry succeeds and exactly one durable entry remains. Add a targeted mutant that disables only the history-removal half of `RollbackMaintenanceAuthorityWindow` while retaining current-window rollback; the owner-failure regression must go red because the stale history revision rejects retry. Stop criterion: both local and remote owner-failure cases prove history is removed and the same revision is accepted on retry, and the isolated history-removal mutant makes those assertions fail.
+
+2. **Tombstone persistence is proven; tombstone replay is not wired.** The local and remote destroy paths stamp a sibling tombstone before teardown (`cmd/baha/app_maintenance_client.go:256-275, 352-372`). The round-4 matrix uses a faithful owner that removes the deployment root (`cmd/baha/app_maintenance_round4_test.go:137-153`) and reads the tombstone file directly, checking operation and committed revision (`:184-200`). The r5 no-op stamp probe consequently proves the file is durable after teardown. But `loadMaintenanceRevision` reads only the current window and history beneath `stateRoot` (`internal/application/maintenance_history.go:197-219`); it has no tombstone fallback. Search of the candidate shows `maintenanceTombstonePath` is used by the writer and tests, with no production tombstone reader. Once `DeleteDeploymentRecord` removes the deployment root, the reported `loadMaintenanceRevision` replay cannot consume the sibling tombstone. Thus the evidence proves a retained JSON artifact, not a working replay path.
+
+   Corrected recipe: in the production maintenance replay/authority lookup, add a tombstone read fallback keyed by target and deployment identity when the deployment root is absent; validate its contract version and revision and preserve fail-closed handling of malformed or mismatched tombstones. Extend `TestApplicationMaintenanceDestroyAllExitsMatrix` (or a focused production-path test) so both local and remote successful teardown invoke the actual replay lookup and receive the committed destroy revision. The no-op/missing-reader mutant must make that lookup fail. Stop criterion: after the faithful owner deletes the deployment root, the supported production lookup replays the exact committed destroy record from the sibling tombstone for both routes; direct `os.ReadFile` alone does not meet it.
+
+- Existing hosted CI record in round-5 evidence: run `42416537555` on the exact candidate was terminal success; `PR · Validation · go-unit-tests` covered the Go changes. No CI was rerun and no local test or gate was run for this recheck.
+- Write scope remained review-only. No product file or workflow was changed, and no release/tag action was taken.
+- Planning root verification: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` returned exactly `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`; origin fetch/push is `https://github.com/mcpdev80/baseharbor-plan.git`.
+- END BLOCKED 0427-maintenance-r5-recheck: REQUEST-CHANGES; candidate `396529860e1f349576190f435cb06e2b7b496866`; retry matrix has an inverted/duplicated oracle and tombstone persistence has no production replay reader.
+
+
+## R5 publication witness
+
+Pre-publication `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md` output:
+
+```text
+100644 blob 27fa71492f416b9b63a2307a30c65dc205e7b954	evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
+
+Candidate `git ls-remote` immediately before publication still returned develop `8a3f58da905fad52327d33466fde1d9568092519` and PR #1428 head `396529860e1f349576190f435cb06e2b7b496866`.
