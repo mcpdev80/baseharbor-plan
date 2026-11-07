@@ -103,3 +103,5 @@ review REQUEST-CHANGES (4 punkte: persistenz der zuweisung/offboarding, cancel s
 r3 Kandidat head 5ccb81472: drift-frei, CI terminal success (coord-uebernahme nach 3x stillstand ohne END), punkte 1-3 behoben (persistence/cancel/multi-target + indices neu), punkt 4 = cross-card befund managed-users. CODEX-REVIEW laeuft.
 
 review r3: registration OK + CI gruen, aber 4 funktionale kernpunkte offen (persistenz-zueckeschreiben, cancel-write, multi-target-loop, kinds fail-closed) — rezept mit file:line in act-1430-review.md (20810abd). r4 frisch auf ornith 496759eb. karte active.
+
+review r3: registration OK+CI gruen, 4 funktionale kernpunkte offen (persistenz-rueckschreiben, cancel-write, multi-target, kinds fail-closed); rezept mit file:line in act-1430-review.md (20810abd). r4 frisch auf ornith 496759eb. karte active.
