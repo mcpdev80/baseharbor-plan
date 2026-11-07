@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-evidence-contract
+card_number: "0427-067"
+card_short_title: "Receipt schema and interface"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: flash-f71 (worker-1 contract+legacy-bootstrap)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Receipt schema and interface contract (PR1 scope)"
+kanban_title: "0427-067 · Receipt schema and interface"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092]

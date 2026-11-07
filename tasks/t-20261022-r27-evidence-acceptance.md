@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-evidence-acceptance
+card_number: "0427-066"
+card_short_title: "Accept the automatic receipt"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: flash-coordinator + o145 (W5 independent)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Accept the automatic receipt chain, not partial jobs"
+kanban_title: "0427-066 · Accept the automatic receipt"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151]
