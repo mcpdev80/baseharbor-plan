@@ -15,3 +15,9 @@
 - Real root cause found and fixed: **`net.ipv4.ip_forward=0`** (reboot reset) → set to 1 and persisted (`/etc/sysctl.d/99-baseharbor-podman-forward.conf`). Without it, rootless podman cannot masquerade/forward container→external, which is exactly the path a compose `pg-init`/dependency DNS resolution uses → the historical pg-init timeout.
 - Validation on a real container (fresh network): container→external DNS now resolves (`nslookup google.com` → address returned), container→`host.containers.internal` ping 0% loss, container→1.1.1.1 reachable. Internal container→container by IP and by hostname also fine. aardvark-dns running.
 - #107 host defect considered REPAIRED at the network layer. Final closure = a real compose start reaching READY on baha-podman-2 (exercised by cards #003 greenfield-stacks and #118 broker, now running), which is the genuine end-to-end witness. Not relying on my synthetic probe alone.
+
+## #114 docker-2 Health-Check 2026-11-07 (owner directive: accept after confirmed health)
+- All bh-local core services Up ~17h, no crash-loop/Created/Exited: keycloak (healthy), openbao+member+admin, postgres+member+admin.
+- Fresh 2-container sanity on a new network: container-to-container ping OK, name resolution OK.
+- pg_isready/curl exec "not found" = probe-tooling artifact of minimal images (services themselves Up), NOT a stack defect.
+- VERDICT: docker-2 core stack HEALTHY, half-frozen state resolved. Owner-authorized ACCEPT after confirmed health-check.

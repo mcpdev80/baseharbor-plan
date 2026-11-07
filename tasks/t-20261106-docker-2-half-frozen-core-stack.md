@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: ""
-owner: worker (w269)
-kanban_status: blocked
-kanban_lane: blocked
+owner: coord-ops-114
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "A new owning card for the docker-2 local Core that is half-frozen: Core containers (postgres, openbao, keycloak) are running ~4h…"
 kanban_title: "0427-114 · docker-2 Core half-frozen"
 priority: ""
@@ -17,22 +17,22 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "owner-direktive 2026-11-07: docker-2 core reparieren = coordinator host-ops (keine owned repo-files). docker-2 VM core-stack halb-eingefroren -> wird per vm-lock+SSH wiederhergestellt. naechster trigger: coordinator podman-2/docker-2 host-pass."
-resolution: ""
-evidence: []
+blocker: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/coordinator-host-ops.md"]
 ---
 
-- [ ] t-20261106-docker-2-half-frozen-core-stack · Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install #task #release/v0-4-27 #status/blocked #view/blocked #kind/task
+- [x] t-20261106-docker-2-half-frozen-core-stack · Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** worker (w269)  
-    **Blocker:** owner-direktive 2026-11-07: docker-2 core reparieren = coordinator host-ops (keine owned repo-files). docker-2 VM core-stack halb-eingefroren -\> wird per vm-lock+SSH wiederhergestellt. naechster trigger: coordinator podman-2/docker-2 host-…  
+    **Owner:** coord-ops-114  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/coordinator-host-ops.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** worker (w269)  
+**Owner:** coord-ops-114  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -65,3 +65,5 @@ A new owning card for the docker-2 `local` Core that is half-frozen: Core contai
 
 - Current state, branch, PR and evidence links. Newest first.
 - Filed by w269 (coordinator ec2254ac, 2026-11-06): the half-frozen docker-2 Core is a stale holdover (likely w252 window), not created by this lane. Evidence in evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/docker-2-finding.md.
+
+owner-direktive 2026-11-07 ACCEPT nach bestaetigtem health-check: docker-2 kern-dienste up 17h, container-2-container+name-resolve OK, half-frozen behoben (orphan w169+frozen w266dn downed, bh-local preserved). ops-card, kein merge noetig.
