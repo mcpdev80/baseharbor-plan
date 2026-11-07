@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-ops-107
-kanban_lane: active
+kanban_lane: wait
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
@@ -20,15 +20,18 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+wait_reason: "#107 host-config (ip_forward) fertig; native VM-laeufe fuellen #110/#003 pods, keine aktive worker-bahn; wartet auf #110 podman cells"
+
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-ops-107 · **Priority:** high  
+    **Waiting:** \#107 host-config (ip\_forward) fertig; native VM-laeufe fuellen \#110/\#003 pods, keine aktive worker-bahn; wartet auf \#110 podman cells  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
@@ -95,3 +98,5 @@ bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfre
 akte round-3-docker-podman2.md auf origin/main (c5b947df); lane hat eigene compose auf beiden hosts downgemacht (0 lane-container ps-zeugnis).
 
 owner-direktive 2026-11-07: #107 -> ACTIVE. podman-2 host-blocker behoben (ip_forward). realer docker+podman integration-lauf wird jetzt gefahren (coord host-ops + 021 CI runtime cells + 003/118 outputs).
+
+#107 host-config erledigt (ip_forward). native VM-laeufe fuellen #110/#003 pods. KEINE aktive worker-bahn => wait, nicht active. trigger: #110 podman cells durch.
