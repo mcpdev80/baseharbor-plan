@@ -57,3 +57,9 @@ The two-file write-set and candidate ancestry are clean, and the required hosted
 ## END
 
 END_BLOCKED 0427-node-cli-r2-review: REQUEST-CHANGES; candidate 0dc4c4d4f3e8c27bc9d48019d0b210807d45f951 is ancestry-clean and selected hosted Go CI is green, but node list is permanently PENDING from unset local fields, Core status omits serial/capabilities, and new client behavior has no regression tests.
+
+Remote publication witness from `git ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/node-cli/act-1427-review\.md$'`:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/node-cli/act-1427-review.md
+```
