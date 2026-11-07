@@ -76,8 +76,25 @@
 - PR #1405 head = 3a80ed04, state OPEN, not draft, MERGEABLE.
 - Hosted CI: run 42313020650, head 3a80ed04, conclusion success. 25 checks total: 15 SUCCESS, 10 SKIPPED (HA/docker, HA/podman, consumer/demo/exact-candidate/runtime/validate — not on the Go-only changed path), 0 FAIL. Rollup "PR Selected Checks" = SUCCESS. Notable SUCCESS: go-build, go-vet, cli-build, cli-vet, cli-gofmt, cli-package-tests, cli-guided-tests, authority-package-tests, source-contracts. No .github/** in write set, no workflow_dispatch/rerun.
 - Write set: internal/coreinstallation/management_host.go, internal/coreinstallation/management_host_test.go, cmd/baha/serve_command_resolve_error_test.go. No .github/**.
+- Owner accepted the serve-seam attach regression as sufficient for act-1405c item 2 (no socket-level TLS serve test required; it needs a live DB + OIDC + TLS cert + real install provisioning, impractical in a unit test).
 
 ## EVIDENCE PROVENANCE (second-to-last action)
 
 - baseharbor-plan origin/main before push: 9ed5a4104744dd032240edf331acaa1a5b68ca92 (origin/main advanced while working; merged remote main carrying my commit 5a022247)
 - evidence committed in baseharbor-plan commit 5a022247 (merge with origin/main preserving my prior evidence) and pushed to origin/main HEAD 432e2e48; `git ls-tree -r --name-only origin/main | grep management-host/round-4.md` = evidence/r27-welle5-folge-2026-11-06/management-host/round-4.md and evidence/r27-welle5-folge-2026-11-06/management-host/scripts/mutation_mgmt_host.sh
+
+## STEP 2b REAL serveCommand INTEGRATION REGRESSION (owner follow-up 2026-11-07)
+
+The owner required a genuine two-process serveCommand integration regression where process A actually binds+serving (not merely the serve-seam attach regression). Added `cmd/baha/serve_command_integration_test.go`:
+
+- `TestServeCommandIntegrationOwnershipOnValidRoot`: process A runs the real `serveCommand` on a durable state root carrying a genuine Core installation, verifies ownership on the attach path (acquiring the lifecycle lock), then binds+serving the control-plane at listen address A (proven via `/healthz` returning HTTP 200 through a real TLS client). Process B runs the same `serveCommand` on the SAME valid root at a DIFFERENT listen address B and is refused specifically for ownership ("already owned by a concurrent writer") while A remains bound+serving. Distinct addresses prove the refusal is caused by A's ownership of the root, not a port collision.
+- Both processes resolve the same durable root via a shared XDG pair passed through env; two concrete free addresses reserved before the child launch; self-signed localhost TLS cert for the bound listener.
+- The holder child writes "BOUND A <addr>" to a ready marker once it is demonstrably serving; the parent asserts A reachable/serving before AND after B's refusal.
+- Mutation at the NEW production line (management_host.go attach-path bootstrap-lock bridge) turns this test RED (round-3 gap restored) then GREEN at exact restoration — causal. The existing mutation harness `scripts/mutation_mgmt_host.sh` (GREEN->RED->GREEN, sha256 L0 8422c938 / L1 553dfa1f / L2 8422c938, L0==L2) covers the unit gap repro; this integration cell confirms the same fix end-to-end through serveCommand.
+
+## STEP 7b PUSH + HOSTED CI (terminal) on integration-regression head
+
+- Second commit: 5b8c5422220f23ccc8c900ca6e5b0dd0568ec375 on work/r27-management-host, parent 3a80ed04 (r4 fix), parent 64d93e94 (r3). No foreign commit carried (git log --oneline -3 shows r3 head, r4 fix, r4 integration test).
+- Push: 3a80ed04..5b8c5422 to refs/heads/work/r27-management-host (fast-forward, no --force). Remote tip AFTER = 5b8c5422.
+- PR #1405 head = 5b8c5422, state OPEN, not draft, MERGEABLE.
+- Hosted CI: run 42317538394, head 5b8c5422, conclusion success. 25 checks: 15 SUCCESS, 10 SKIPPED (HA/docker, HA/podman, consumer/demo/exact-candidate/runtime/validate — not on the Go-only changed path), 0 FAIL. Rollup "PR Selected Checks" = SUCCESS. go-unit-tests now exercises the new integration cell and passes. Notable SUCCESS: go-build, go-vet, cli-build, cli-vet, cli-gofmt, cli-package-tests, cli-guided-tests, authority-package-tests, source-contracts. No .github/** in write set, no workflow_dispatch/rerun.
