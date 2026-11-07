@@ -1,17 +1,15 @@
 ---
 id: t-20261104-r27-vm-integration-runs
-card_number: "0427-107"
-card_short_title: "real Docker and Podman Integr"
 type: task
 areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: coord-ops-107
-kanban_lane: wait
+owner: coord-welle5 (w269 dispatched)
+kanban_lane: active
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: wait
-kanban_title: "0427-107 · real Docker and Podman Integr"
+kanban_status: active
+kanban_title: "Operations: real Docker and Podman integration runs with core, demo, console and connector"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
@@ -20,22 +18,19 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
-wait_reason: "#107 host-config (ip_forward) fertig; native VM-laeufe fuellen #110/#003 pods, keine aktive worker-bahn; wartet auf #110 podman cells"
-
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-ops-107 · **Priority:** high  
-    **Waiting:** \#107 host-config (ip\_forward) fertig; native VM-laeufe fuellen \#110/\#003 pods, keine aktive worker-bahn; wartet auf \#110 podman cells  
+    **Owner:** coord-welle5 (w269 dispatched) · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** coord-ops-107  
+**Owner:** coord-welle5 (w269 dispatched)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -84,19 +79,3 @@ is based on executed runs instead of skipped gates.
 - Governing contract: `t-20261106-r27-control-plane-single-default`. The Docker and Podman integration runs must demonstrate that an unmodified production default startup creates ONE instance per required control-plane service, with no implicit HA members or load balancers.
 - Additionally execute an explicitly selected HA positive run on each runtime. Archive both topologies, health and restart results, rendered Compose configuration, container inventory, product SHA, and verifiable command transcripts.
 - Fail closed: implicit HA in the default, an unverified topology, or SKIP means FAIL/BLOCKED and must not qualify the release. Never execute these tests on the Codeman server `baha-runner-docker-2`.
-
-akte auf plan main: evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-1.md + docker-2-finding.md; neue defektkarte t-20261107-r27-runtime-broker-oras-missing-edge-readiness ist von mir schema-gefixt (b8fe933e) und in arbeit
-
-wieder active gesetzt: w288 faehrt gerade die podman-seite der matrix (0/4 war der stand von w269). offene zweigruende bleiben: (1) connector-zelle ist TWO-HOST-flow — R2 erlaubt einer Bahn nur EINEN host, wartet auf deine regelentscheidung; (2) demo-zelle braucht auf dem host das r27-w150-demo-repo + provisioniertes managed backend (sql/redis/s3) — provisioning-lane folgt, sobald ein sitz frei ist. docker-seite: 2/4 gruen (core+console PASS), akte auf main.
-
-owner-freigabe 05:0xZ: zwei-rechner-ausnahme fuer die fertigstellende bahn — w288 haelt baha-podman + baha-docker-2 gleichzeitig und uebernimmt damit auch die demo-provisionierung (bisher als externer blocker gemeldet). status gruende damit beseitigt: connector-zelle = ausgehend freigeben, demo-zelle = einrichtung teil dieses auftrags.
-
-kein blocker mehr: braucht ein nachweis mehrere Maschinen, werden mehrere bereitgestellt (owner-regel 05:2xZ, RUNBOOK R2). w288 haelt baha-podman + baha-docker-2 und faehrt: podman-matrix (4 zellen) -> demo-einrichtung auf docker-2 (r27-w150-demo-repo + managed backend sql/redis/s3) -> connector-zelle im zwei-rechner-ablauf. bisherige zeugen: docker-seite 2/4 gruen (core+console PASS, akte round-1.md + docker-2-finding.md auf main).
-
-bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
-
-akte round-3-docker-podman2.md auf origin/main (c5b947df); lane hat eigene compose auf beiden hosts downgemacht (0 lane-container ps-zeugnis).
-
-owner-direktive 2026-11-07: #107 -> ACTIVE. podman-2 host-blocker behoben (ip_forward). realer docker+podman integration-lauf wird jetzt gefahren (coord host-ops + 021 CI runtime cells + 003/118 outputs).
-
-#107 host-config erledigt (ip_forward). native VM-laeufe fuellen #110/#003 pods. KEINE aktive worker-bahn => wait, nicht active. trigger: #110 podman cells durch.
