@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
     <!-- generated:card -->
     **Owner:** ChatGPT (Owner-directed release preparation; no product file claims) · **Priority:** normal  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
