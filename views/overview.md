@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
-| review | 1 |
+| active | 5 |
+| review | 0 |
 | blocked | 3 |
 | ready | 2 |
 | queued | 26 |
@@ -26,13 +26,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | coord-welle3 (lane w35) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | ChatGPT (Owner-directed release preparation; no product file claims) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261106-docker-2-half-frozen-core-stack](../tasks/t-20261106-docker-2-half-frozen-core-stack.md) | Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install | active | not set | worker (w269) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261106-r27-remote-up-podman-owner-missing](../tasks/t-20261106-r27-remote-up-podman-owner-missing.md) | Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) | active | high | 0427-117-prod-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) (open) | [baseharbor#1419](https://github.com/mcpdev80/baseharbor/pull/1419) |
 | [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](../tasks/t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md) | Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready | active | not set | worker (w269) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) (open) | — |
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261106-r27-remote-up-podman-owner-missing](../tasks/t-20261106-r27-remote-up-podman-owner-missing.md) | Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) | review | high | 0427-117-owner-resolve | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) (open) | [baseharbor#1419](https://github.com/mcpdev80/baseharbor/pull/1419) |
+None.
 
 ## Blocked
 
