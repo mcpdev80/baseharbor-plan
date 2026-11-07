@@ -7,36 +7,37 @@ areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
-owner: 0427-118-runtime-broker
-kanban_status: active
-kanban_lane: active
+owner: mcpdev80
+kanban_status: review
+kanban_lane: review
 kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
 kanban_title: "0427-118 · runtime broker readiness"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-integration-runs]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1425]
 sources: []
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md"]
 ---
 
-- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
+- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/task
     <!-- generated:card -->
-    **Owner:** 0427-118-runtime-broker  
+    **Owner:** mcpdev80  
+    **PR:** [baseharbor#1425](https://github.com/mcpdev80/baseharbor/pull/1425)  
     **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md)  
     <!-- /generated:card -->
 
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
-**Owner:** 0427-118-runtime-broker  
+**Owner:** mcpdev80  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1425](https://github.com/mcpdev80/baseharbor/pull/1425)  
 **Source:** 
 <!-- /generated:links -->
 
