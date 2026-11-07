@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Implement and qualify the native macOS/Darwin Host Platform adapter and the macOS Dev Local journey without claiming runtime…
 kanban_status: planned
 kanban_title: "0429-005 · implement and qualify Darwin"

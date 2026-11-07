@@ -8,7 +8,7 @@ release: v0.8.x
 version: v0.8.0
 parent: v0.8.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Start the Kubernetes Complete phase by making the full BaseHarbor application lifecycle available on Kubernetes wherever the…
 kanban_status: planned
 kanban_title: "0800-001 · implement the complete app"

@@ -8,7 +8,7 @@ release: v0.8.x
 version: v0.8.4
 parent: v0.8.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Make application/provider updates and BaseHarbor state migrations safe and predictable on Kubernetes using the compatibility…
 kanban_status: planned
 kanban_title: "0804-001 · secure updates, migration and"

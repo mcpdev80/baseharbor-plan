@@ -18,6 +18,7 @@ repos: [{{repo}}]
 prs: []
 sources: []
 blocker: ""
+wait_reason: ""
 resolution: ""
 evidence: []
 ---

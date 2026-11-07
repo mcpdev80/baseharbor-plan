@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: "Same portable SQL/cache/web candidate on rootless Podman; native Quadlet startup/ownership and TLS verification, no fake Compose…"
 kanban_status: planned
 kanban_title: "0427-052 · verify native Quadlet HTTPS"

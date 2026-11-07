@@ -20,11 +20,11 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-STATUSES = ["backlog", "planned", "active", "blocked", "review"]
+STATUSES = ["backlog", "planned", "active", "wait", "blocked", "review"]
 CLOSED = "closed"  # terminal status tag; required on, and only on, a checked card
 RESOLUTIONS = ["accepted", "superseded", "dropped"]
 PRIORITIES = ["critical", "high", "normal", "low"]
-VIEW_STATES = ["ready", "waiting", "queued", "active", "review", "blocked", "backlog", "closed"]
+VIEW_STATES = ["backlog", "planned", "ready", "wait", "waiting", "queued", "active", "review", "blocked", "closed"]
 TASK_TYPES = ["task", "bug", "feature", "maintenance", "acceptance", "architecture", "review"]
 RELEASE_KINDS = ["release", "series", "backlog", "triage"]
 RELEASE_STATUSES = ["planned", "active", "candidate", "qualified", "published"]
@@ -343,7 +343,8 @@ class Vault:
         status = kanban_status or (status_tags[0] if len(status_tags) == 1 else "")
         prior = status_tags[0] if len(status_tags) == 1 else ""
         if lane:
-            requested = "planned" if lane in ("ready", "waiting", "queued") else lane
+            # Unstarted dependency work remains Planned, never automatic Wait.
+            requested = "planned" if lane in ("ready", "waiting", "queued", "planned") else lane
             if requested != status:
                 if prior == status:
                     status = requested
@@ -362,7 +363,7 @@ class Vault:
             "areas": as_list(meta.get("areas")),
             "depends_on": as_list(meta.get("depends_on")), "repos": as_list(meta.get("repos")),
             "prs": as_list(meta.get("prs")), "sources": as_list(meta.get("sources")),
-            "blocker": as_str(meta.get("blocker")), "resolution": as_str(meta.get("resolution")),
+            "blocker": as_str(meta.get("blocker")), "wait_reason": as_str(meta.get("wait_reason")), "resolution": as_str(meta.get("resolution")),
             "evidence": as_list(meta.get("evidence")), "superseded_by": as_str(meta.get("superseded_by")),
             "aliases": as_list(meta.get("aliases")),
             "early": meta.get("early", "false") == "true",
@@ -414,6 +415,12 @@ class Vault:
             self.err(path, f"status {st} requires an owner")
         if st == "review" and not item["prs"]:
             self.err(path, "status review requires at least one PR")
+        if st == "wait" and not item["owner"]:
+            self.err(path, "status wait requires an assigned owner (work already started)")
+        if st == "wait" and not item["wait_reason"]:
+            self.err(path, "status wait requires wait_reason")
+        if st != "wait" and item["wait_reason"] and not done:
+            self.err(path, "wait_reason is set but card is not #status/wait")
         if st == "blocked" and not item["blocker"]:
             self.err(path, "status blocked requires a blocker description")
         if st != "blocked" and item["blocker"] and not done:
@@ -735,7 +742,11 @@ def derived_state(vault, t):
 
 
 def view_state(vault, task):
-    return "closed" if task["done"] else derived_state(vault, task)
+    if task["done"]:
+        return "closed"
+    state = derived_state(vault, task)
+    # A planned task with unmet dependencies has never started.
+    return "planned" if state == "waiting" else state
 
 
 def card_line(vault, task):
@@ -747,10 +758,12 @@ def card_line(vault, task):
     tags = [tag for tag in match.group("tags").split() if not tag.startswith(remove_tags)]
     if "kanban_status" in task["meta"]:
         tags.append("#status/" + task["status"])
-    tags.append("#view/" + view_state(vault, task))
+    # Retain legacy #view/waiting for CardBoard and downstream clients;
+    # Obsidian's writable kanban_lane now projects it to the Wait column.
+    tags.append("#view/" + ("closed" if task["done"] else derived_state(vault, task)))
     # CardBoard's Completed column only admits tasks matching a non-completed
     # column. Retain a routing match for closed cards without a second status.
-    if view_state(vault, task) in ("waiting", "closed"):
+    if task["done"] or derived_state(vault, task) == "waiting":
         tags.append("#board/planned")
     tags += ["#area/" + a for a in sorted(task.get("areas", []))]
     tags.append("#kind/" + task["type"])
@@ -794,6 +807,8 @@ def card_preview(vault, task):
     state = view_state(vault, task)
     if task["blocker"]:
         lines.append("**Blocker:** " + card_text(task["blocker"], 240))
+    if task["wait_reason"]:
+        lines.append("**Waiting:** " + card_text(task["wait_reason"], 240))
     if waiting:
         if task["status"] == "planned":
             lines.append("**Waiting for prerequisites**")
@@ -948,17 +963,18 @@ def render_views(vault):
     lines = ["# Planning overview", "", GENERATED_NOTICE, "",
              "Read-only summary derived from the task notes. Edit the task notes, then run "
              "`python3 scripts/plan.py render`.", "",
-             "States: **active**, **review** and **blocked** come from the card's status tag. For "
+             "States: **active**, **wait**, **review** and **blocked** come from the card's status tag. "
              "`#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** "
              "(dependencies accepted, release not started) or **ready** (dependencies accepted and the release "
              "is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not "
-             "assigned work: the Maintainer still assigns it.", ""]
+             "assigned work: the Maintainer still assigns it. Unstarted tasks stay Planned, even "
+             "when dependencies are outstanding; Wait means already started and temporarily parked.", ""]
     lines += ["## Counts", "", "| State | Tasks |", "| --- | ---: |"]
-    for st in ["active", "review", "blocked", "ready", "queued", "waiting", "backlog"]:
+    for st in ["active", "review", "wait", "blocked", "ready", "queued", "waiting", "backlog"]:
         lines.append(f"| {st} | {len(by_state.get(st, []))} |")
     lines.append(f"| closed | {sum(1 for t in vault.tasks.values() if t['done'])} |")
     lines.append("")
-    for st, heading in [("active", "Active"), ("review", "Ready for review"), ("blocked", "Blocked"),
+    for st, heading in [("active", "Active"), ("review", "Ready for review"), ("wait", "Waiting for resources"), ("blocked", "Blocked"),
                         ("ready", "Ready to assign")]:
         lines += [f"## {heading}", ""]
         items = by_state.get(st, [])
@@ -976,16 +992,16 @@ def render_views(vault):
     # Read-only inventory counters; native Kanban has no collapsible columns.
     dashboard = ["# BaseHarbor – Release-Kanban", "", GENERATED_NOTICE, "",
         "Backlog, Planned und Closed werden hier als Zähler gezeigt. "
-        "Die interaktive Kanban-Ansicht enthält Ready, Active, Review und Blocked.", ""]
+        "Die interaktive Kanban-Ansicht enthält Ready, Active, Wait, Review und Blocked.", ""]
     for r in sorted_releases(vault):
         rid = r["id"]
         items = [t for t in vault.tasks.values() if t["release"] == rid]
         counts = {key: sum(view_state(vault, t) == key for t in items)
-                  for key in ("backlog", "waiting", "queued", "ready", "active", "review", "blocked", "closed")}
+                  for key in ("backlog", "wait", "waiting", "queued", "ready", "active", "review", "blocked", "closed")}
         planned = sum(t["status"] == "planned" for t in items)
         dashboard.extend([f"## {rid}", "",
             f"**Backlog:** {counts['backlog']} · **Planned:** {planned} "
-            f"· **Ready:** {counts['ready']} · **Active:** {counts['active']} "
+            f"· **Ready:** {counts['ready']} · **Active:** {counts['active']} · **Wait:** {counts['wait']} "
             f"· **Review:** {counts['review']} · **Blocked:** {counts['blocked']} "
             f"· **Closed:** {counts['closed']}", "",
             f"![[BaseHarbor.base#{rid}]]" if (vault.root / "BaseHarbor.base").exists() else "", ""])
@@ -1274,8 +1290,8 @@ def cmd_claim(root, args):
     if not t:
         print(f"unknown task {args.id}", file=sys.stderr)
         return 1
-    if t["done"] or t["status"] not in ("planned", "blocked"):
-        print(f"{args.id} is {derived_state(vault, t)}; only planned or blocked tasks can be claimed", file=sys.stderr)
+    if t["done"] or t["status"] not in ("planned", "wait", "blocked"):
+        print(f"{args.id} is {derived_state(vault, t)}; only planned, wait or blocked tasks can be claimed", file=sys.stderr)
         return 1
     if t["owner"] and t["owner"] != args.owner and not args.force:
         print(f"{args.id} already has owner {t['owner']!r}; coordinate first (or --force after agreement)",
@@ -1284,6 +1300,7 @@ def cmd_claim(root, args):
     text = t["path"].read_text(encoding="utf-8")
     text = re.sub(r"(?m)^owner:.*$", "owner: " + dump_value(args.owner), text, count=1)
     text = re.sub(r"(?m)^blocker:.*$", 'blocker: ""', text, count=1)
+    text = re.sub(r"(?m)^wait_reason:.*$", 'wait_reason: ""', text, count=1)
     if "kanban_status" in t["meta"]:
         text = re.sub(r"(?m)^kanban_status:.*$", "kanban_status: active", text, count=1)
     if "kanban_lane" in t["meta"]:

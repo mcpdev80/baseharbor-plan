@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.7
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: "Close v0.7 by proving that the same portable BaseHarbor application contract runs on Compose and Kubernetes, including a…"
 kanban_status: planned
 kanban_title: "0707-001 · verify Compose-to-Kubernetes"

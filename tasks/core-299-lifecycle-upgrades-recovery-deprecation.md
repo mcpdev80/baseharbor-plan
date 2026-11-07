@@ -8,7 +8,7 @@ release: v0.5.x
 version: v0.5.3
 parent: v0.5.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: "Make upgrades predictable and recoverable while keeping the normal workflow simple — a safe upgrade should feel boring. Model:…"
 kanban_status: planned
 kanban_title: "0503-001 · secure upgrades, recovery and"

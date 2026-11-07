@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.3
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Realize BaseHarbor persistent-storage intent using namespaced PVC lifecycle while treating StorageClass/PV infrastructure as…
 kanban_status: planned
 kanban_title: "0703-001 · implement namespaced"

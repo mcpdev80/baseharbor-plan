@@ -9,7 +9,7 @@ version: v0.4.29
 release_stage: prepare
 parent: v0.4.29
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Finish every prerequisite for complete-ecosystem pre-release readiness.
 kanban_status: planned
 kanban_title: "0429-011 · complete ecosystem readiness"

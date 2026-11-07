@@ -9,7 +9,7 @@ version: v0.5.0
 release_stage: publish
 parent: v0.5.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Promote only approved content and provide the complete exact tagging command to the Maintainer.
 kanban_status: planned
 kanban_title: "0500-003 · promote the validated"

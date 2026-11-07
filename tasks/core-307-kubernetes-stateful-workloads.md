@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.4
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: "Add namespaced Kubernetes stateful workload primitives where a real runtime/capability-provider path requires them, without…"
 kanban_status: planned
 kanban_title: "0704-001 · support stateful workloads"

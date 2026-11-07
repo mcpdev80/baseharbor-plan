@@ -9,7 +9,7 @@ version: v0.4.30
 release_stage: updates
 parent: v0.4.30
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Complete dependency intake before feature development.
 kanban_status: planned
 kanban_title: "0430-005 · integrate Renovate updates"

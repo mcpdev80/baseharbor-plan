@@ -182,6 +182,68 @@ class PlanTests(unittest.TestCase):
         self.assertIn("kanban_status: active", content)
         self.assertIn("#status/active", content)
 
+
+    def test_unstarted_dependency_remains_planned_not_wait(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "A: prerequisite"))
+        card = task_note("core-2", "B: dependent", deps="[core-1]").replace(
+            "blocker:", 'kanban_status: planned\nkanban_lane: waiting\nblocker:')
+        f.add_task("core-2", card)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        consumer = f.dir / "tasks/core-2-x.md"
+        self.assertIn("kanban_lane: planned", consumer.read_text())
+        self.assertIn("#status/planned #view/waiting", consumer.read_text())
+        self.assertNotIn("kanban_status: wait", consumer.read_text())
+        self.assertEqual(f.run("check")[0], 0)
+
+    def test_explicit_wait_for_runner_capacity_is_not_blocked(self):
+        f = self.fixture()
+        card = task_note("core-1", "A: waiting for runner", status="wait", extra="worker").replace(
+            "blocker:", 'kanban_status: wait\nkanban_lane: wait\nwait_reason: "runner capacity occupied"\nblocker:')
+        f.add_task("core-1", card)
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        content = (f.dir / "tasks/core-1-x.md").read_text()
+        self.assertIn("kanban_lane: wait", content)
+        self.assertIn("#status/wait #view/wait", content)
+        self.assertIn("**Waiting:** runner capacity occupied", content)
+        _, listed = f.run("list", "--status", "wait")
+        self.assertIn("core-1", listed)
+
+    def test_explicit_wait_without_reason_or_dependency_is_invalid(self):
+        f = self.fixture()
+        card = task_note("core-1", "A: unexplained", status="wait", extra="worker").replace(
+            "blocker:", "kanban_status: wait\nkanban_lane: wait\nblocker:")
+        f.add_task("core-1", card)
+        f.finish()
+        self.assertCheckFails(f, "status wait requires wait_reason")
+
+    def test_drag_from_active_into_wait_requires_reason(self):
+        f = self.fixture()
+        card = task_note("core-1", "A: worker", status="active", extra="worker").replace(
+            "blocker:", 'kanban_status: active\nkanban_lane: active\nwait_reason: "CI runner busy"\nblocker:')
+        f.add_task("core-1", card)
+        f.finish()
+        path = f.dir / "tasks/core-1-x.md"
+        path.write_text(path.read_text().replace("kanban_lane: active", "kanban_lane: wait"))
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        self.assertIn("kanban_status: wait", path.read_text())
+        self.assertIn("#status/wait", path.read_text())
+
+    def test_native_base_has_wait_column_for_all_release_boards(self):
+        content = (REPO / "BaseHarbor.base").read_text()
+        groups = content.split("groupOrder:")
+        self.assertGreater(len(groups), 2)
+        for group in groups[1:]:
+            order = group.split("columnWidth:")[0]
+            self.assertIn("      - wait", order)
+            self.assertLess(order.index("      - active"), order.index("      - wait"))
+            self.assertLess(order.index("      - wait"), order.index("      - blocked"))
+
     def test_native_lane_close_keeps_evidence_guard(self):
         f = self.fixture()
         text = task_note("core-1", "Native close").replace(
