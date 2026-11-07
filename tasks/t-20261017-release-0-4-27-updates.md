@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-4-27-updates
+card_number: "0427-009"
+card_short_title: "integrate Renovate updates"
 type: maintenance
 areas: [release]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: "o267-base (coordinator, owner-authorized)"
 kanban_lane: closed
 kanban_summary: Complete dependency intake before feature development.
 kanban_status: closed
-kanban_title: "v0.4.27 · Release start: integrate Renovate updates before feature work"
+kanban_title: "0427-009 · integrate Renovate updates"
 priority: high
 depends_on: [t-20261017-release-0-4-27-cleanup]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
