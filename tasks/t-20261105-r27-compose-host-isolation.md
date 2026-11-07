@@ -7,9 +7,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: lane-0427-110-r2
-kanban_status: active
-kanban_lane: active
+owner: owner (chatgpt)
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -19,22 +19,23 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: ""
+blocker: "Owner loest PR#1383 CONFLICT direkt (2026-11-07). Danach: 4 native docker/podman lifecycle cells MUESSEN echt laufen (isolation + contaminated/clean host-zellen) — ich stelle dafuer freie docker+podman VMs bereit (KEIN systemknappheits-blocker). Trigger: #1383 mergeable/merged."
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-110-r2 · **Priority:** high  
+    **Owner:** owner (chatgpt) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Blocker:** Owner loest PR\#1383 CONFLICT direkt (2026-11-07). Danach: 4 native docker/podman lifecycle cells MUESSEN echt laufen (isolation + contaminated/clean host-zellen) — ich stelle dafuer freie docker+podman VMs bereit (KEIN systemknappheits-blo…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-0427-110-r2  
+**Owner:** owner (chatgpt)  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 

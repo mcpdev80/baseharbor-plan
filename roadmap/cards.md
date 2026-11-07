@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 93/119 · **Blocked:** 0 · **Waiting:** 15  
+    **Accepted tasks:** 93/119 · **Blocked:** 1 · **Waiting:** 15  
+    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — Owner loest PR\#1383 CONFLICT direkt (2026-11-07). Danach: 4 native docker/podman lifecycle cells MUESSEN echt laufen (isolation + contaminated/clean host-zelle…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
