@@ -96,7 +96,7 @@ was reverted to restore GREEN. This is a causal, behavioral red-first witness, n
 ## CI coverage (durable evidence, no .github/** edit)
 
 Gate plan for the PR write-set resolves (`coverage_status: resolved`, `broad_required: false`). Required
-validation checks for head `801fdbc7f`:
+validation checks for head `8b5075d25`:
 
 ```
 cli-build            go build ./cmd/baha
@@ -114,6 +114,38 @@ source-contracts     go test ./internal/application/... ./contracts/...
   `go vet ./cmd/baha` rc=0, `deployment-package-tests` matched `./internal/deployment` rc=0.
 - No `.github/**` file was touched by this lane; no rerun/workflow_dispatch. The `internal/deployment/deployment_store.go`
   change additionally selects `deployment-package-tests` (verified passing locally above).
+
+### CI runs (own-run, monitored to terminal)
+
+**Run `42336410875` — terminal `success`, head `8b5075d25`, 2026-11-07T03:59:24Z->04:06:45Z** (GitHub Actions,
+`CI · Source & Quality`):
+
+```text
+Workflow policy                          => success
+PR · Trusted Plan                        => success
+PR · Source format                       => success   (gate #1: readability cap <=800 met; deployment_store.go=776)
+PR · Focused Python                      => success
+PR · Validation · cli-package-tests      => success   (my TestOwnerLoanRegression* + cmd/baha package)
+PR · Validation · cli-gofmt              => success
+PR · Validation · cli-vet                => success
+PR · Validation · cli-build              => success
+PR · Validation · source-contracts       => success
+PR · Validation · deployment-package-tests => success (matches ./internal/deployment)
+PR Selected Checks                       => success   (gate #2: base attestation clean, branch from develop 934be499b)
+Targeted HA · docker/podman, validate, Release Source Preflight, Selected Runtime, Exact Candidate, Demo Pin, Consumer Pins, Runner Interface, Public Contracts => skipped
+```
+
+Both owner-CI failures are resolved:
+
+1. **`PR · Source format` was red** — readability limit 800 lines/file (ratchet 0, no baseline for
+   `deployment_store.go`). The owner-loan/`VerifyDeploymentOwner` additions had pushed the storage seam to 824
+   lines. Extracted the TEST-SCOPE owner-loan seam (`TargetLoanVerifier` + `verifyLoanOwnerGuarantees`) into a new
+   sister file `internal/deployment/deployment_owner_loan.go`; `deployment_store.go` returns to 776 lines. Verified
+   locally (go build/vet/gofmt clean, deployment + regression tests pass) before the green CI run. Pure refactor, no
+   behavior change.
+2. **`PR Selected Checks` base-attestation** (pr-plan EXPECTED_BASE/target_base_sha) — confirmed the branch is cut
+   from develop `934be499b` (`git merge-base --is-ancestor origin/develop HEAD` = YES) with no second basis; the only
+   merge was the single clean `git merge origin/develop`.
 
 ## Podman native owner seam (baha-podman-2, 2026-11-07)
 
@@ -207,4 +239,4 @@ every production path byte-identical.
 
 ## END
 
-END_DONE 0427-117-podman-owner: head=801fdbc7f2e79e2a27ec0104a39474e498011c58 pr=1419 (OPEN base=develop) design=verleih red=TestOwnerLoanRegressionIsolatedTestTargetPassesSeam ErrDeploymentOwnerMissing with loan unbound -> GREEN at fix vet/build/gofmt/deployment-package-tests clean ci=cli-package-tests(go test ./cmd/baha)+deployment-package-tests, no .github edit podman=ErrDeploymentOwnerMissing at app apply (deployment_store.go:107 / deployment_record.go:87) on fresh w0427 target, w268 untouched 0-of-mine host-clean lsremote_before=absent_branch lsremote_after=801fdbc7f akte=evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-2.md
+END_DONE 0427-117-podman-owner: head=8b5075d2554871ac58dd905c86d27a4bfdf798fc pr=1419 (OPEN base=develop) design=verleih red=TestOwnerLoanRegressionIsolatedTestTargetPassesSeam ErrDeploymentOwnerMissing with loan unbound -> GREEN at fix ci=run 42336410875 terminal SUCCESS: PR Source format success(deployment_store.go 824->776 via sister file deployment_owner_loan.go) + PR Selected Checks success(base 934be499b ancestor no second basis) + cli-package-tests/deployment-package-tests/cli-build/cli-gofmt/cli-vet/source-contracts all success refactor-only no behavior change podman=ErrDeploymentOwnerMissing at app apply (deployment_store.go:107/deployment_record.go:87) on fresh w0427 target, w268 untouched 0-of-mine host-clean lsremote_after=8b5075d25 akte=evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-2.md(origin/main c904c5ba)
