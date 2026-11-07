@@ -117,3 +117,10 @@ evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
 END_BLOCKED 0427-maintenance-client-rereview: REQUEST-CHANGES; candidate a3416743b179f3b678f5bcd028eeb2121f638c30 is ancestry-clean with hosted CI green, but teardown deletes the precommitted window, failed destroy can leave history residue, and capacity preflight checks the old record rather than the submission.
 
 Planning-root re-verification before this rereview evidence commit: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` returned exactly `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`; `remote -v` showed origin fetch/push at `https://github.com/mcpdev80/baseharbor-plan.git`; live origin/main before this evidence commit was `cfc432bf98080c9bec3ebe9640a401e833bf4258`.
+
+
+Remote publication witness from `git ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review\.md$'`:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
