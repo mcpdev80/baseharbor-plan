@@ -52,13 +52,17 @@ The unit regression is durably covered by `PR · Validation · go-unit-tests` (`
 - **File and change:** In `internal/development/quarkusadapter/adapter_test.go`, add a regression that validates the rendered healthcheck configuration and demonstrates the readiness behavior when the check is absent versus present. Keep `/q/health`, the matching port, and the generated SmallRye Health dependency aligned. Do not change other adapters.
 - **Test requirement:** Preserve the current generated-file check in hosted `go-unit-tests`. Add or use a Quarkus startup acceptance that runs `baha up` and observes READY with this healthcheck, plus the negative case without it. The native runtime result must be captured by a CI job as well as any smoke validation. The run cited for this SHA has no such result because both Targeted HA jobs were skipped.
 - **Owner-scope CI finding:** If a native Quarkus test is added, the required trigger/selection change is in `.github/workflows/ci.yml` around lines 171-199 for Docker (and 213-240 for Podman if brought into this scope). The Owner must add the Quarkus greenfield path/group to a hosted CI route; this review does not edit `.github/**` or dispatch a workflow.
-- **Stop criterion:** Keep the verdict at request-changes until the exact healthcheck is shown to drive Quarkus `baha up` to READY, the no-healthcheck case is red, and the applicable hosted job actually executes and passes on the candidate SHA. Do not infer a runtime pass from the generated-text assertion or from skipped job status.
+- **Stop criterion:** Keep the verdict at request-changes until the exact healthcheck is shown to drive Quarkus `baha up` to READY, the no-healthcheck case is red, the applicable hosted job actually executes and passes on the candidate SHA, and the candidate is ancestry-clean against the then-current `develop`. Do not infer a runtime pass from the generated-text assertion or from skipped job status.
 
 ## Repository-rule compliance
 
 - Review was read-only for the product repository and PR; no local tests, candidate changes, merges, or CI reruns were performed.
 - No workflow was edited or dispatched; no runner infrastructure or VM was touched.
 - Evidence is stored only in the verified `baseharbor-plan` repository. This evidence file contains no Markdown checkbox lines.
+
+## Base drift observed after review snapshot
+
+A final live ref check showed the PR head remains `0743011cfa5d9bd260d4a347ab94a6049ce960a2`, while `develop` advanced from reviewed base `812c99c8873df400348fbc8cc9be5e650b8966c4` to `06e4b1eaa01fe10b3edb5f0ca59ce5232d110156`. Rechecking `git merge-base --is-ancestor 06e4b1eaa01fe10b3edb5f0ca59ce5232d110156 0743011cfa5d9bd260d4a347ab94a6049ce960a2` returned `1`; the unchanged candidate is not based on the current develop head. This is an additional stop criterion until rebased and re-reviewed.
 
 ## Planning publication note
 
