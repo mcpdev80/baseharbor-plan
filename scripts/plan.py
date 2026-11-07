@@ -1127,6 +1127,26 @@ def update_roadmap_frontmatter(vault, release, content):
 
 def render(vault):
     changed = []
+    # Render is the only allocator for generated lifecycle cards and legacy
+    # producers. Existing numbers stay stable when a task changes release.
+    used = {as_str(t["meta"].get("card_number")) for t in vault.tasks.values()
+            if CARD_NUMBER.fullmatch(as_str(t["meta"].get("card_number")))}
+    next_by_prefix = {}
+    for number in used:
+        prefix, suffix = number.split("-")
+        next_by_prefix[prefix] = max(next_by_prefix.get(prefix, 0), int(suffix))
+    for task in sorted(vault.tasks.values(), key=lambda t: t["id"]):
+        meta = task["meta"]
+        prefix = card_release_prefix(meta)
+        if prefix and not as_str(meta.get("card_number")):
+            seq = next_by_prefix.get(prefix, 0) + 1
+            if seq > 999:
+                raise ValueError(f"card number range exhausted for {prefix}")
+            number = f"{prefix}-{seq:03d}"
+            meta["card_number"] = number
+            next_by_prefix[prefix] = seq
+        if as_str(meta.get("card_number")) and not as_str(meta.get("card_short_title")):
+            meta["card_short_title"] = compact_card_title(task["title"])
     for release in vault.releases.values():
         if release["kind"] not in ("release", "series"):
             continue
@@ -1138,8 +1158,17 @@ def render(vault):
     for t in vault.tasks.values():
         text = t["path"].read_text(encoding="utf-8")
         head, body = text[:text.find("\n---\n", 4) + 5], text[text.find("\n---\n", 4) + 5:]
+        # Persist newly allocated immutable identifiers, never rename task IDs/files.
+        additions = []
+        for key in ("card_number", "card_short_title"):
+            if key in t["meta"] and not re.search(r"(?m)^" + key + r":", head):
+                additions.append(key + ": " + dump_value(t["meta"][key]))
+        if additions:
+            head = head.replace("\n---\n", "\n" + "\n".join(additions) + "\n---\n", 1)
         if "kanban_title" in t["meta"]:
             head = re.sub(r"(?m)^kanban_title:.*$", lambda _: "kanban_title: " + dump_value(card_display_title(t)), head, count=1)
+        elif as_str(t["meta"].get("card_number")):
+            head = head.replace("\n---\n", "\nkanban_title: " + dump_value(card_display_title(t)) + "\n---\n", 1)
         if "kanban_status" in t["meta"]:
             head = re.sub(r"(?m)^kanban_status:.*$", "kanban_status: " + t["status"], head, count=1)
         if "kanban_lane" in t["meta"]:

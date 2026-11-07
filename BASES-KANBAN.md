@@ -37,3 +37,18 @@ Empfohlene Regeln unter Bases Colors > Card/row colors > Rules by property, in d
 Unter Property/tag colors die Anzeige fuer `areas` aktivieren, damit ein Thema (zum Beispiel `identity`) immer dieselbe Farbe erhaelt. Falls das Plugin die Kartendatei nicht zuordnen kann, muss auch `file.name` als anzeigbare Karteneigenschaft vorhanden sein; die Plugin-Dokumentation fordert einen sichtbaren Dateinamen. Das ist eine Plugineigenschaft, kein natives Obsidian-Feature.
 
 Quelle: https://obsidian.md/help/bases/views/kanban
+
+
+## Release-scoped card identifiers (2026-11-07)
+
+Obsidian Kanban shows a stable numeric prefix plus a concise English title:
+`0427-002 · Keycloak HA Conf`. The identifier is stored in `card_number`
+and the editable title in `card_short_title` (maximum 30 characters);
+`kanban_title` is generated display output. The full task title and technical
+`id` never change. The four digits encode the concrete release: v0.4.27
+→ 0427; v0.5.1 → 0501. The last three digits increment per concrete release.
+For a series without `version`, the initial patch (for example 0500 for
+v0.5.x) is used; specify `version` for concrete work. Existing numbers do
+not change on release moves. `plan.py render` assigns missing numbers
+deterministically, `plan.py check` rejects missing or duplicate numbers.
+Only concrete work from v0.4.27 onward is numbered; older tasks remain unchanged.

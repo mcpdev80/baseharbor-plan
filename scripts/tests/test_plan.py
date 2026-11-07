@@ -603,14 +603,28 @@ class ReleaseCardNumberTests(unittest.TestCase):
         for n in (1, 2):
             tid = f"core-{n}"
             text = task_note(tid, "Keycloak HA Configuration")
-            text = text.replace("type: task", 'card_number: "0427-001"\\ncard_short_title: "Keycloak HA Conf"\\ntype: task')
+            text = text.replace("type: task", 'card_number: "0427-001"\ncard_short_title: "Keycloak HA Conf"\ntype: task')
             text = text.replace("release: v1.0", "release: v0.4.27")
-            text = text.replace("owner:", 'kanban_title: "0427-001 · Keycloak HA Conf"\\nowner:')
+            text = text.replace("owner:", 'kanban_title: "0427-001 · Keycloak HA Conf"\nowner:')
             f.add_task(tid, text)
         f.finish()
         code, output = f.run("check")
         self.assertEqual(code, 1)
         self.assertIn("duplicate card_number", output)
+
+    def test_render_allocates_numbers_for_concrete_release(self):
+        f = self.fixture()
+        f.add_task("core-1", task_note("core-1", "Keycloak HA Configuration", release="v0.4.27"))
+        text = (f.dir / "releases" / "v1.0.md").read_text()
+        (f.dir / "releases" / "v0.4.27.md").write_text(text.replace("v1.0", "v0.4.27"))
+        f.finish()
+        f.run("render")
+        task_path = f.dir / "tasks" / "core-1-x.md"
+        first = task_path.read_text()
+        self.assertIn('card_number: "0427-001"', first)
+        self.assertIn("0427-001 · Keycloak HA Conf", first)
+        f.run("render")
+        self.assertEqual(first, task_path.read_text())
 
     def test_old_release_needs_no_card_number(self):
         self.assertIsNone(plan.card_release_prefix({"release": "v0.4.26", "version": ""}))
