@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1420]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: "worker delivered+freed (head 7717f4505, product fixes done). FINALER nachweis haengt an OWNER .github: ci.yml:256 (validate pull_request-excluded) + ci.yml:349 (runtime_integration allowlist nennt TestClientCommandsTwoHomesRealCoreOverTLS nicht) -> gated core-test laeuft in KEINER CI. NAechster Trigger: owner erweitert allowlist/entscheidet PR-vs-Push. dann CODEX-REVIEW->merge."
+blocker: "PR #1420 ist in develop gemergt (c8a79faff91); CI-Owner #1426 ist gemergt (3089edbc). Die fruehere .github:256/349-Sperre ist veraltet. Offen: exakter terminaler Post-Merge-CI-Nachweis und echte Core/TLS-/Native-Acceptance laut Karte; package-PASS allein beweist keine externe Core/TLS-Integration."
 resolution: ""
 evidence: []
 ---
@@ -28,7 +28,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** owner · **Priority:** normal  
     **PR:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
-    **Blocker:** worker delivered+freed (head 7717f4505, product fixes done). FINALER nachweis haengt an OWNER .github: ci.yml:256 (validate pull\_request-excluded) + ci.yml:349 (runtime\_integration allowlist nennt TestClientCommandsTwoHomesRealCoreOverTLS…  
+    **Blocker:** PR \#1420 ist in develop gemergt (c8a79faff91); CI-Owner \#1426 ist gemergt (3089edbc). Die fruehere .github:256/349-Sperre ist veraltet. Offen: exakter terminaler Post-Merge-CI-Nachweis und echte Core/TLS-/…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -82,3 +82,9 @@ r2 fresh-lane delivered: native-gated core-integration test + in-process TLS rou
 r3: lane-side quality fixes (kein assumeVerifiedCore bypass, realer status/restore roundtrip) parallel; finale CI-gruen abhaengig von owner ci.yml-allowlist.
 
 r3 fresh lane d5ab38d0: product-quality fixes (kein assumeVerifiedCore bypass, realer status/restore roundtrip). Finale CI-Aufnahme haengt an OWNER ci.yml-allowlist (255-256/349) - lane-reportet befund, aendert NICHT .github.
+
+## Owner-Abgleich — 2026-11-07
+
+- **PR #1420 gemergt**: `c8a79faff91cd870ac3904a2a392922a24cc7e13` (PR workflow 42374687508 SUCCESS). **PR #1426 gemergt**: `3089edbc9eb34f47b58865f5c5dc7ca796ec9f0c` (PR workflow 42375618947 SUCCESS).
+- Die alte behauptete Owner-Sperre `ci.yml:256/349` ist **nicht mehr zutreffend**: die bestehende PR-Pruefung `cli-package-tests` fuehrt `go test ./cmd/baha -count=1 -json` aus. #1426 verlangt ausdruecklich PASS fuer alle fuenf `TestClientCommands*`-Faelle, falls die Testdatei vorhanden ist; ohne eigene Parallel-Pipeline.
+- Exakter Post-Merge-Lauf: [source-preflight 42375856513](https://github.com/mcpdev80/baseharbor/actions/runs/42375856513). Noch keine Freigabe allein aus package-Gruen: der verlangte reale CLI->TLS/Core-Nachweis und notwendige Native-Acceptance sind eigenstaendig zu pruefen. **Blocked** bis diese Evidenz wirklich vorliegt; kein Scheingruen und kein Release.
