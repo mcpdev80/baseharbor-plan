@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: worker (w269)
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "A new owning card for the docker-2 local Core that is half-frozen: Core containers (postgres, openbao, keycloak) are running ~4h…"
 kanban_title: "0427-114 · docker-2 Core half-frozen"
 priority: ""
@@ -17,18 +17,19 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "owner-direktive 2026-11-07: docker-2 core reparieren = coordinator host-ops (keine owned repo-files). docker-2 VM core-stack halb-eingefroren -> wird per vm-lock+SSH wiederhergestellt. naechster trigger: coordinator podman-2/docker-2 host-pass."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261106-docker-2-half-frozen-core-stack · Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install #task #release/v0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261106-docker-2-half-frozen-core-stack · Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install #task #release/v0-4-27 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** worker (w269)  
+    **Blocker:** owner-direktive 2026-11-07: docker-2 core reparieren = coordinator host-ops (keine owned repo-files). docker-2 VM core-stack halb-eingefroren -\> wird per vm-lock+SSH wiederhergestellt. naechster trigger: coordinator podman-2/docker-2 host-…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** worker (w269)  
