@@ -124,3 +124,16 @@ Remote publication witness from `git ls-tree -r origin/main --name-only | rg '^e
 ```text
 evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
 ```
+
+Final unchanged-candidate witness from `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1428/head`:
+
+```text
+06e4b1eaa01fe10b3edb5f0ca59ce5232d110156 refs/heads/develop
+a3416743b179f3b678f5bcd028eeb2121f638c30 refs/pull/1428/head
+```
+
+Final remote-tree witness from `git -C /tmp/opencode/0427-maintenance-client-rereview-plan-wt ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review\\.md$'`:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
