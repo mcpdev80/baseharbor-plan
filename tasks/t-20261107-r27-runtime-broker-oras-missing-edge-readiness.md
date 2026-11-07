@@ -7,9 +7,9 @@ areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
-owner: worker (w269)
-kanban_status: blocked
-kanban_lane: blocked
+owner: 0427-118-runtime-broker
+kanban_status: active
+kanban_lane: active
 kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
 kanban_title: "0427-118 · runtime broker readiness"
 priority: ""
@@ -17,24 +17,23 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-integration-ru
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "abhaengigkeit t-20261104-r27-vm-integration-runs ist NICHT accepted; owner-direktive 2026-11-07 (oras/broker readiness beheben) wird umgesetzt sobald vm-integration-runs + ci-seam (0427-021) landen. kein stiller start auf nicht-akzeptierter basis."
+blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/blocked #view/blocked #area/deployment #kind/task
+- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
     <!-- generated:card -->
-    **Owner:** worker (w269)  
-    **Blocker:** abhaengigkeit t-20261104-r27-vm-integration-runs ist NICHT accepted; owner-direktive 2026-11-07 (oras/broker readiness beheben) wird umgesetzt sobald vm-integration-runs + ci-seam (0427-021) landen. kein stiller start auf nicht-akzeptierte…  
+    **Owner:** 0427-118-runtime-broker  
     **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
     <!-- /generated:card -->
 
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
-**Owner:** worker (w269)  
+**Owner:** 0427-118-runtime-broker  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -85,3 +84,5 @@ docker-phase matrix:
 - Current state, branch, PR and evidence links. Newest first.
 - Filed by w269 (coordinator a4573079, 2026-11-07): demo-app matrix cell blocked on the two gaps above.
   Evidence in evidence/r27-welle5-folge-2026-11-06/vm-integration-runs/round-1.md (DEMO-CELL section).
+
+owner-direktive #5 zugewiesen; zwei gaps (oras registry-resolution source_oci.go+application_registry_source.go fail-closed; edge-runtime /readyz not_ready broker bug). volle READY-validierung haengt an vm-integration-runs+oras-host (coord ops); produktfix+runnable tests jetzt. write-set dateidisjunkt zu 117/022/021.
