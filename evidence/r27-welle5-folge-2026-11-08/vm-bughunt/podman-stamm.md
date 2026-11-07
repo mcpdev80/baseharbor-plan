@@ -50,6 +50,16 @@
 - nicht umgesetzt (develop nicht fertig): 0
 - (H-P1 erst im setup; kein ux-durchlauf begonnen)
 
+## END
+
+- STATUS: ABGESCHLOSSEN / HANDOFF (slice H-P1 abgebrochen durch Owner-Direktive).
+- befehle gesamt: 6 (git worktree add develop, go build, scp binary, baha version, baha --help, podman ps -a vorher-snapshot).
+- funde gesamt: blocker 0, ux 0, clone 0, doku 0, nicht-umgesetzt 0 (kein ux-strom durchlaufen — nur setup).
+- akte pfad: evidence/r27-welle5-folge-2026-11-08/vm-bughunt/podman-stamm.md (committed da0a4654, on origin/main 0f6b8675).
+- ls-remote origin main: 0f6b86759bf15d84c2f0a3f9ff91480f9e2879ee (evidence file present).
+- vm-lock baha-podman: nie gehalten, nichts zu release (journal-clean). ps-witness: 0 container in meinem lane-name.
+- build-binary ~/baha-bughunt auf host (laeuft). build-worktree /tmp/bh-build-wt + binary /tmp/baha-8a3f58d loescht.
+
 ## ABGESCHLOSSEN / HANDOFF
 
 - STATUS: ABGEBROCHEN. Owner-Direktive: slice H-P1 wird abgelost durch KARTENARBEIT; ich ARBEITE NICHT weiter.
