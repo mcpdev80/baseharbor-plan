@@ -67,3 +67,15 @@ Exact `origin/main` witness after `git pull --rebase origin main` and before thi
 ```text
 a57fb1401ecdacb84b0a89d4baf9d748475bc6a8\trefs/heads/main
 ```
+
+After the first push, fetched planning `origin/main` at `afec64afc5529c0f58533452d17cbb293ac280e1`; `git ls-tree origin/main` returned:
+
+```text
+100644 blob 774329f761141a172d5940ef520aabdfd835042c\tevidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1419b-review.md
+```
+
+The final review evidence commit was prepared after this exact pre-push witness:
+
+```text
+afec64afc5529c0f58533452d17cbb293ac280e1\trefs/heads/main
+```
