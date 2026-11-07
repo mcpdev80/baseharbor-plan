@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 85/118 · **Blocked:** 2 · **Waiting:** 20  
+    **Accepted tasks:** 86/118 · **Blocked:** 2 · **Waiting:** 19  
     **Blocker:** [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) — docker-seite BESTANDEN (core READY single default, 8 container, ps-zeugnis). podman-2-host BLOCKT durch host-seitigen podman netzwerk-routing-defekt (container…  
     **Blocker:** [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) — ErrDeploymentOwnerMissing wird auf docker UND podman am kopf 86f96a... reproduziert; die karte wartet auf die LANDUNG von 0427-117 (owner-inherit fix auf devel…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)

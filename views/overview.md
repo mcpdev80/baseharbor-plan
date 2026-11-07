@@ -11,13 +11,13 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | State | Tasks |
 | --- | ---: |
 | active | 6 |
-| review | 2 |
+| review | 1 |
 | blocked | 2 |
-| ready | 1 |
+| ready | 2 |
 | queued | 26 |
-| waiting | 182 |
+| waiting | 181 |
 | backlog | 7 |
-| closed | 155 |
+| closed | 156 |
 
 ## Active
 
@@ -34,7 +34,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md) | Management: run one durable minimal authority on the selected host | review | normal | 0427-036-base-refresh | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](../tasks/t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405) |
 | [t-20261018-r27-remote-material](../tasks/t-20261018-r27-remote-material.md) | Remote providers: project exposure material to the actual target | review | normal | 0427-051-exposure-node | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](../tasks/t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1418](https://github.com/mcpdev80/baseharbor/pull/1418) |
 
 ## Blocked
@@ -49,11 +48,12 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-ci-lanes](../tasks/t-20261018-r27-ci-lanes.md) | Deferred cross-domain CI integration (single coordinator seam) | ready | critical | coord-welle5 (assigned; dispatch pending) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md) | CLI: route init up status and operations through one authority | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](../tasks/t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](../tasks/t-20261018-r27-candidate-ingress.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](../tasks/t-20261018-r27-journal-wiring.md), [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-team-auth](../tasks/t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 31 open, 87 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 30 open, 88 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
