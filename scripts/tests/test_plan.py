@@ -187,7 +187,7 @@ class PlanTests(unittest.TestCase):
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "A: prerequisite"))
         card = task_note("core-2", "B: dependent", deps="[core-1]").replace(
-            "blocker:", 'kanban_status: planned\\nkanban_lane: waiting\\nblocker:')
+            "blocker:", 'kanban_status: planned\nkanban_lane: waiting\nblocker:')
         f.add_task("core-2", card)
         f.finish()
         code, out = f.checked()
@@ -209,7 +209,7 @@ class PlanTests(unittest.TestCase):
     def test_explicit_wait_for_runner_capacity_is_not_blocked(self):
         f = self.fixture()
         card = task_note("core-1", "A: waiting for runner", status="wait", extra="worker").replace(
-            "blocker:", 'kanban_status: wait\\nkanban_lane: wait\\nwait_reason: "runner capacity occupied"\\nblocker:')
+            "blocker:", 'kanban_status: wait\nkanban_lane: wait\nwait_reason: "runner capacity occupied"\nblocker:')
         f.add_task("core-1", card)
         f.finish()
         code, out = f.checked()
@@ -224,7 +224,7 @@ class PlanTests(unittest.TestCase):
     def test_explicit_wait_without_reason_or_dependency_is_invalid(self):
         f = self.fixture()
         card = task_note("core-1", "A: unexplained", status="wait").replace(
-            "blocker:", "kanban_status: wait\\nkanban_lane: wait\\nblocker:")
+            "blocker:", "kanban_status: wait\nkanban_lane: wait\nblocker:")
         f.add_task("core-1", card)
         f.finish()
         self.assertCheckFails(f, "status wait requires wait_reason or a dependency")
@@ -232,7 +232,7 @@ class PlanTests(unittest.TestCase):
     def test_drag_from_active_into_wait_requires_reason(self):
         f = self.fixture()
         card = task_note("core-1", "A: worker", status="active", extra="worker").replace(
-            "blocker:", 'kanban_status: active\\nkanban_lane: active\\nwait_reason: "CI runner busy"\\nblocker:')
+            "blocker:", 'kanban_status: active\nkanban_lane: active\nwait_reason: "CI runner busy"\nblocker:')
         f.add_task("core-1", card)
         f.finish()
         path = f.dir / "tasks/core-1-x.md"
