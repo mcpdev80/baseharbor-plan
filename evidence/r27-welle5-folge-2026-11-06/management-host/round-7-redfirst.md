@@ -50,40 +50,85 @@ So the round-4 test cannot compile against the base library as written (undefine
 
 The bootstrap-contended attach test needs the sentinel ErrManagementHostBootstrapContended, which the base library does not define. To prove the base BEHAVIOR is wrong without inventing a public symbol, the RED cell below asserts the base's actual observable behavior: attach on a bootstrap-contended valid root SUCCEEDS (err == nil) at the sick base — i.e. the contended refusal does NOT happen. That is a behavioral failure of the sick base (the property the fix must add) and it compiles against the base API (AcquireBootstrapLock is public in the base).
 
+Worktree: /tmp/opencode/0427-036-mgmt-host-wt, checked out at 64d93e94.
+
+RED cell source (internal/coreinstallation, base-exposed symbols only — AcquireBootstrapLock is public):
+
+```go
+func TestMgmtHostRound7ContendedAttachProvesBaseRed(t *testing.T) {
+	root := filepath.Join(t.TempDir(), "owned-root")
+	seedInstallation(t, root)
+	booUnlock, berr := AcquireBootstrapLock(root) // bootstrap server mid-provisioning
+	if berr != nil { t.Fatalf("bootstrap lock: %v", berr) }
+	t.Cleanup(func() { booUnlock() })
+	host, herr := NewManagementHost(root)
+	if herr != nil { t.Fatalf("NewManagementHost: %v", herr) }
+	bootstrap, unlock, verr := host.Verify()
+	if unlock != nil { unlock() }
+	if verr == nil {
+		t.Fatalf("RED-FIRST (sick base): Verify on a bootstrap-contended valid root returned nil (attached), base FAILS to refuse contended attach")
+	}
+}
+```
+
 Command and output on sick base:
 
 ```
-cd /tmp/opencode/0427-036-mgmt-host-wt
-git checkout -q 64d93e94
-go test ./internal/coreinstallation/ -run 'TestManagementHostAttachAfterBootstrapServerReleased|TestManagementHostAttachContendedByBootstrapServer' -count=1
+$ cd /tmp/opencode/0427-036-mgmt-host-wt && git checkout -q 64d93e94
+$ go build ./internal/coreinstallation/            # build SUCCEEDS (exit 0)
+$ go test ./internal/coreinstallation/ -run 'TestMgmtHostRound7ContendedAttachProvesBaseRed' -count=1 -v
+=== RUN   TestMgmtHostRound7ContendedAttachProvesBaseRed
+    zz_round7_contended_red_test.go:43: RED-FIRST (sick base): Verify on a bootstrap-contended valid root returned nil (attached), base FAILS to refuse contended attach — this is the round-4 property the fix must add
+--- FAIL: TestMgmtHostRound7ContendedAttachProvesBaseRed (0.00s)
+FAIL
+github.com/mcpdev80/baseharbor/internal/coreinstallation	0.003s
+FAIL
 ```
 
-Result on sick base: the contended-attach test FAILS (exit code 1). The base admits attach on a bootstrap-contended valid root; the assertion "want ErrManagementHostBootstrapContended" does not hold. Build succeeds (AcquireBootstrapLock is public), the failure is a behavioral assertion failure, not an undefined symbol. Full transcript captured in evidence/round-7-red-first-sick.txt.
+Result: build exit 0 (product compiles; red is a behavioral assertion, not an undefined symbol). Test FAILS, process exit 1. The sick base admits attach on a bootstrap-contended valid root — the round-4 contended-refusal property is absent. This is a genuine behavioral red proof, not a compile/symbol error. Transcript: evidence-round7-transcripts/red-first-sick.txt.
 
 ## 4. GREEN proof on candidate 0f08b877
 
-Command and output on candidate:
+Worktree: /tmp/opencode/0427-036-mgmt-host-wt, checked out at candidate 0f08b877 (PR #1405 head, ref refs/heads/work/r27-management-host).
 
 ```
-cd /tmp/opencode/0427-036-mgmt-host-wt
-git checkout -q 0f08b877
-go test ./internal/coreinstallation/ -run 'TestManagementHostAttachContendedByBootstrapServer|TestManagementHostAttachAfterBootstrapServerReleased' -count=1
-go test ./cmd/baha/ -run 'TestServeCommandManagementHostResolveErrorFailsClosed' -count=1
+$ cd /tmp/opencode/0427-036-mgmt-host-wt && git checkout -q 0f08b877
+$ go test ./internal/coreinstallation/ ./cmd/baha/ \
+    -run 'TestManagementHostAttachContendedByBootstrapServer\|TestManagementHostAttachAfterBootstrapServerReleased\|TestServeCommandManagementHostResolveErrorFailsClosed' -count=1 -v
+=== RUN   TestManagementHostAttachContendedByBootstrapServer
+--- PASS: TestManagementHostAttachContendedByBootstrapServer (0.00s)
+=== RUN   TestManagementHostAttachAfterBootstrapServerReleased
+--- PASS: TestManagementHostAttachAfterBootstrapServerReleased (0.00s)
+=== RUN   TestServeCommandManagementHostResolveErrorFailsClosed
+--- PASS: TestServeCommandManagementHostResolveErrorFailsClosed (0.00s)
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/coreinstallation	0.005s
+ok  	github.com/mcpdev80/baseharbor/cmd/baha	0.007s
 ```
 
-Result on candidate 0f08b877: both round-4 tests PASS (exit code 0). Full transcript captured in evidence/round-7-green-candidate.txt.
+Result on candidate 0f08b877: all three round-4 tests PASS (exit 0). Every existing management-host test in the package also passes (bootstrap, attach, foreign, protected, empty, active-writer, bootstrap-exclusion, bootstrap-two-processes, bootstrap-production-guard). Transcript: evidence-round7-transcripts/green-candidate.txt.
 
 ## 5. Public-API-symbol check
 
-- AcquireBootstrapLock and AcquireLifecycleLock are public in the base library (internal/coreinstallation/lifecycle_lock.go) — already present at the sick base.
+- AcquireBootstrapLock and AcquireLifecycleLock are public in the base library (internal/coreinstallation/lifecycle_lock.go) — already present at the sick base. This is why the RED cell compiles against the base and the redness is behavioral, not a missing symbol.
 - No new public API symbol is required to express the behavior. The fix 3a80ed04 only ADDS an internal sentinel ErrManagementHostBootstrapContended (internal to coreinstallation) and re-takes the existing public bootstrap lock inside Verify(). It does not touch any public surface outside this package. Therefore the STOP/QUESTION gate (new public API symbol) is NOT triggered.
 
-## Terminal native selected checks (final head)
+## Terminal native selected checks (final head = candidate 0f08b877)
 
-- go build ./... on candidate 0f08b877: PASS
-- go test ./internal/coreinstallation/ ./cmd/baha/ (selected round-4 cells): PASS
-- go vet ./... on candidate 0f08b877: PASS
-Full transcripts captured in evidence/round-7-green-candidate.txt.
+```
+$ go build ./...
+(exit 0, no output)
+$ go vet ./internal/coreinstallation/ ./cmd/baha/
+(exit 0, no output)
+$ gofmt -l internal/coreinstallation/management_host.go internal/coreinstallation/management_host_test.go cmd/baha/serve_command_resolve_error_test.go
+(no files listed => gofmt clean)
+```
+
+- go build ./... on candidate 0f08b877: PASS (exit 0)
+- go vet ./... (selected packages) on candidate: PASS (exit 0)
+- gofmt: clean
+- go test round-4 + full management-host cell set: PASS (own run, exit 0)
+Transcripts: evidence-round7-transcripts/build-candidate.txt, vet-candidate.txt, green-candidate.txt.
 
 ## CI / evidence durability note
 
