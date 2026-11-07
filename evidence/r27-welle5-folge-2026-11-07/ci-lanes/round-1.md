@@ -68,16 +68,16 @@ Migration/regression proof: `pre-release-check-plan.py --tag v0.4.27` now select
 
 - `baseharbor-plan/evidence/r27-welle5-folge-2026-11-07/ci-lanes/round-1.md` (origin/main `7342f2b6da331e077be0c77be8fae10d2969ef6d`, verified via `git ls-remote origin main`).
 
-## Refresh + merge (coordinator directive 2026-11-07)
+## Refresh + merge (coordinator directives 2026-11-07)
 
-- `git fetch origin develop`: develop advanced `ff43c3d2` → `0c4e59` (newer; `ff43c3d2` is an ancestor of `0c4e59`).
-- Merged `origin/develop` `0c4e59` into `work/r27-ci-lanes-catalog` (clean; only a pre-existing `cmd/baha/update_provider_runtime_test.go` from develop landed — no product churn in my write-set).
-- Base attestation after merge: `git merge-base --is-ancestor ff43c3d2... b6619dae5` = OK (rc0 ancestor; branch is a descendant of current develop). History = only my catalog commit + the develop merge.
-- Re-ran on the merged stand: `test_ci_v0427_gate_catalog` 7/7 OK; `pr_focused` 205/205 OK.
+- develop drifted to `4bcede97` (PR #1423, broker-skip-management-host-lock). `git fetch https://github.com/mcpdev80/baseharbor.git develop` → real develop HEAD `4bcede9786c9ca6676d12fe140259c9e45d43f93`.
+- Merged `4bcede97` into `work/r27-ci-lanes-catalog` (clean; `cmd/baha/serve.go`/`serve_test.go` from #1423 landed via the develop merge, **no churn in my write-set** — diff vs develop is exactly my 4 CI files).
+- Base attestation after merge: `git merge-base --is-ancestor 4bcede97... fc81fbc6b` = OK (branch is a descendant of current develop). History = only my catalog commit + develop merges.
+- Re-ran on the refreshed stand: `test_ci_v0427_gate_catalog` 7/7 OK; `pr_focused` **205/205 OK**.
 
 ## Push + PR handoff (Owner/gh auth required)
 
-- **`git push origin work/r27-ci-lanes-catalog` SUCCEEDED** (local remote). Branch head on origin: **`b6619dae596ae38cc186d92c604582a48b02228e`**.
+- **`git push https://github.com/mcpdev80/baseharbor.git HEAD:work/r27-ci-lanes-catalog` SUCCEEDED** (real GitHub origin; the worktree's `origin` points at the local baseharbor which had misleadingly reported the branch already present). `git ls-remote` proof: `fc81fbc6b877b45c3ec96179e85c2110c46b05c5 refs/heads/work/r27-ci-lanes-catalog`; GitHub API confirms same SHA.
 - PR open still needs Owner/`gh` write token (`mcpdev80`); this lane cannot `gh pr create` (API rejects fork-PR under another user identity). Owner opens the PR.
 - PR base: `develop`; body: `/tmp/opencode/0427-021-ci-lanes-wt/pr_body.json`.
 - After PR open: CI `pr_focused` + `go-unit-tests` run it (durable evidence). Then record the run-id in the END line.
