@@ -92,13 +92,13 @@ Lane ended. Task already Owner-closed with truthful acceptance; no worker implem
 
 ## PLAN
 
-- [x] Read mission + card contract word-for-word; identify exact scope.
-- [x] Measure remote truth via `git ls-remote` + GitHub API; confirm PR #1434 state.
-- [x] Confirm PR #1434 merged into develop (base `06e4b1eaa`, head `4808a20e`), terminal CI `42396424816` success.
-- [x] Verify all 5 acceptance criteria against the exact merged develop code.
-- [x] Document the merged SHA lineage (ancestor proof) and write-set.
-- [x] Note the zero-CODEX-REVIEW process observation as an Owner decision item.
-- [ ] Report to Owner; no further action required unless Owner asks for a follow-up.
+- Read mission + card contract word-for-word; identify exact scope.
+- Measure remote truth via `git ls-remote` + GitHub API; confirm PR #1434 state.
+- Confirm PR #1434 merged into develop (base `06e4b1eaa`, head `4808a20e`), terminal CI `42396424816` success.
+- Verify all 5 acceptance criteria against the exact merged develop code.
+- Document the merged SHA lineage (ancestor proof) and write-set.
+- Note the zero-CODEX-REVIEW process observation as an Owner decision item.
+- Report to Owner; no further action required unless Owner asks for a follow-up.
 
 ## Status
 
