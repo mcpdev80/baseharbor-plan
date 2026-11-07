@@ -198,3 +198,14 @@ owner-direktive 2026-11-07: 110 FERTIGSTELLEN. echter blocker war PR#1383 CONFLI
 PR#1383 GEMERGT (develop 812c99c88). Owner-direktive: native CI-abnahme VOLLSTENDIG. lane 3a4d5d33 faehrt die 4 tests echt docker+podman × clean+kontaminiert + SINGLE-default+HA+isolation-mutante (red->green), behebt funde selbststaendig, dokumentiert sha. Karte->closed NUR bei voll erfolgreicher abnahme.
 
 **Mitwirkender (CI/Review):** ChatGPT — Merge #1383, Plan-Abgleich und Konfliktbereinigung; die native Acceptance verbleibt bei `lane-0427-110-compose-native-acceptance`. Kein vorzeitiges `closed` ohne exakte native Nachweise.
+
+## Native Acceptance Fortschritt — 2026-11-07 (18:xxZ, lane-0427-110)
+
+Stand der 4-Test-Abnahme (docker Lane, host `baha-docker`, Lock `0427-110-compose-native-acceptance` belegt; `baha-podman` an `0427-116-r5` vergeben → erst nach Release):
+
+- **Owner-Defekt (Fund ~Zeile 60) BEHEBT:** Bootstrap-Core wurde keinem Loan-Boot zugewiesen → equal-name guard + re-entrante Lock-EAGAIN → `ErrDeploymentOwnerMissing` in `internal/deployment/deployment_store.go`. Fix in `cmd/baha/deployment_record.go`: `registerBootInstallation` + `productionLoanAuthorityForTarget`-Override + non-fatal Lock; Bootstrap-Selector in `cmd/baha/runtime_integration_test_support_test.go` registriert die READY-Installation. **Nachweis: `TestRepositoryWorkflowRealLifecycle` durchlauft Zeile 60 ("application and requested infrastructure verified")** auf sauberem (volumengepraagtem) Target.
+- **SQL-Volumen-Defekt (Fund ~Zeile 107) BEHEBT (Fix rekonstruiert):** Geteiltes Core-SQL liegt im Shared-Resource-Projekt, nicht im App-Projekt → `NativeBackendResources` projiziert kein App-Volumen → `verifyRepositoryFixtureRetirement` scheiterte. Fix: `sharedSQLOwnedVolumeName`/`sharedSQLOwnedVolumeIdentity` inspizieren das Core SQL-Volumen `baseharbor-<ns>-core-postgres-data-1` im Shared-Projekt (getrennt von der App-Inventur), vor und nach der Retirement.
+- **Wiederhergestellt nach Plan-Hygiene-Vorfall:** Arbeitsbaum `/tmp/0427-compose-wt` wurde vom tmp-Sweep gelöscht; aus dem Basissystem `812c99c88` wiederhergestellt, beide write-set-Änderungen (Loan-Fix + SQL-Fix) aus dem gesicherten Diff rekonstruiert. `go build ./...` und `go vet ./cmd/baha/ ./internal/deployment/` CLEAN.
+- **Bisheriger Lauf:** `TestRepositoryWorkflowRealLifecycle` greift bis Zeile 107 (SQL-Volumen-Check) und schlägt ohne SQL-Fix fehl; mit rekonstruiertem SQL-Fix identisch geprüft. **Nicht abschließend grün gemeldet** — ausstehend: bestätigter PASS auf docker (clean + kontaminiert) und podman, SHA + Transcript dokumentiert.
+
+Status: Fixe implementiert und gebaut; native ECHT-Nachweise (PASS docker × clean+kontaminiert, podman × clean+kontaminiert) ausstehend. Karte→closed erst nach vollen Nachweisen.
