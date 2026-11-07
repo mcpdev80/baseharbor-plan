@@ -7,10 +7,10 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: w285-pr1407-docker-cell
-kanban_status: review
+owner: 0427-116-cli-path
+kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
-kanban_lane: review
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
@@ -20,19 +20,19 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/review #view/review #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** w285-pr1407-docker-cell · **Priority:** normal  
+    **Owner:** 0427-116-cli-path · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** w285-pr1407-docker-cell  
+**Owner:** 0427-116-cli-path  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -55,3 +55,5 @@ evidence/r27-welle5-2026-11-06/remote-control-smoke/round-3.md).
 kandidat c87c8b644cc auf develop dddf0d7823f; alle gehosteten checks success (skipped nach pfadregel), lauf 42320398007 terminal; docker-zelle meldet echten defekt ErrDeploymentOwnerMissing -> folgt auf karte t-20261106-r27-remote-up-podman-owner-missing
 
 kandidat c87c8b644cc auf develop dddf0d7823f; alle gehosteten checks success (skipped nach pfadregel), lauf 42320398007 terminal; docker-zelle meldet echten defekt ErrDeploymentOwnerMissing -> folgt auf karte t-20261106-r27-remote-up-podman-owner-missing
+
+bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
