@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-maintenance-client
-kanban_lane: review
+owner: lane-0427-maintenance-client-r2
+kanban_lane: active
 kanban_summary: Route update/backup/restore/destroy through the selected authority and existing lifecycle/consent owners. Archive…
-kanban_status: review
+kanban_status: active
 kanban_title: "0427-034 · submit maintenance operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-state-recovery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -24,19 +24,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
+- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-maintenance-client · **Priority:** normal  
+    **Owner:** lane-0427-maintenance-client-r2 · **Priority:** normal  
     **PR:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
-**Owner:** lane-0427-maintenance-client  
+**Owner:** lane-0427-maintenance-client-r2  
 **Priority:** normal  
 **PRs:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -69,3 +69,5 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 PR#1428 head 2e371f5fc GELIEFERT aber NICHT review-ready: DRIFT (develop 812c99c88 nicht vorfahr) + SCHREIBSATZ-KOLLISION mit #110 (app_repository/app_workload_integration + repository_runtime_fixture = #110/#1383 owned) + CI 1-pending (lane geparkt ohne END, 4.6). korrektur dispatched: rebase + 3 dateien raus + CI terminal + END. karte active.
 
 r2 drift-frei (head d4d0f77c0, develop 812c99c88 vorfahr), #110-collision behoben (delta nur 9 maintenance-dateien), CI run 42386457934 terminal success (9 pass, selbst beobachtet). CODEX-REVIEW. offene findings: public-surfaces-registrierung(1), kein .github-bedarf(2).
+
+CODEX-REVIEW r1 = REQUEST-CHANGES (local destroy reihenfolge window<->authority, remote destroy laesst window weg, history-append verlust riskiert replay-kontinuitaet). frische korrektur-bahn fd89eda0 (orig lane freigegeben, kandidat von origin#1428 abgeholt). 3 punkte + causal mutants.
