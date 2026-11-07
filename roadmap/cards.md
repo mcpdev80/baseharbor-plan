@@ -11,8 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 92/118 · **Blocked:** 2 · **Waiting:** 19  
-    **Blocker:** [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md) — PR \#1420 ist in develop gemergt (c8a79faff91); CI-Owner \#1426 ist gemergt (3089edbc). Die fruehere .github:256/349-Sperre ist veraltet. Offen: exakter terminal…  
+    **Accepted tasks:** 93/118 · **Blocked:** 1 · **Waiting:** 15  
     **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — PR \#1383 ist offen und derzeit nicht mergeable; PR-CI war gruen, aber vier Native-Lifecycle-Tests liefen dort nicht. Exakter Docker/Podman-Lauf rot; Isolation…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
