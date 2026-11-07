@@ -55,3 +55,18 @@ write-set stayed inside the bounded set. The old `42607ca40` and the rebased
 ## Next
 Independent **CODEX-REVIEW** verdict against the task contract (candidate `3a699a287`),
 then CODEX-MERGE if it passes. No subagents. END to 594fd2f5 after handoff.
+
+## END to 594fd2f5 (2026-11-07)
+[0427-access-wizard HANDOFF — drift cleaned, candidate re-pushed]
+
+Round-2 directive applied. Candidate is now drift-free and re-pushed; PR is yours to open (laptop/owner scope).
+
+- **Candidate SHA: 3a699a2876c4d0349021b6222958d9a2f74b09dc** (branch work/r27-access-wizard, 1 commit on develop 812c99c88).
+- (a) Drift: fetch origin/develop=812c99c88 (#1383); rebase → clean; `merge-base --is-ancestor 812c99c88 HEAD` = YES.
+- (b) Write-set collision: diff touches NONE of the 3 #110/#1383 lifecycle/fixture files → no STOP + QUESTION; write-set stayed bounded (6 files listed in round-2.md).
+- (c) Push: `--force-with-lease lane-origin work/r27-access-wizard`; remote tip now 3a699a287 (verified via `git ls-remote lane-origin work/r27-access-wizard`).
+- (d) CI coverage: wizard tests + CLI adapter run under required "Release source tests" job (ci.yml:121-122). No .github change needed; no finding.
+- Local: `go build ./...` pass, `go vet ./...` pass, gofmt clean, 15/15 wizard tests PASS.
+- Evidence round-2.md committed to planning origin/main (f13d5cd6).
+
+Your action: open the PR mechanically against origin/develop for SHA 3a699a287, then CODEX-REVIEW before any merge. No subagents.
