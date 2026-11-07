@@ -12,7 +12,7 @@ kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
 kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
-prs: [mcpdev80/baseharbor#1407, mcpdev80/baseharbor#1437]
+prs: [mcpdev80/baseharbor#1407, mcpdev80/baseharbor#1437, mcpdev80/baseharbor#1438]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
 blocker: ""
@@ -23,7 +23,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 - [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** chatgpt-0427-116 · **Priority:** normal  
-    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
+    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
 **Owner:** chatgpt-0427-116  
 **Priority:** normal  
-**PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
+**PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -105,3 +105,9 @@ CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upE
 - **2026-11-07 native selector follow-up (ChatGPT):** Core-PR [#1438](https://github.com/mcpdev80/baseharbor/pull/1438) erweitert auf Head `4b656481e20f5f3c223d30cbdf511ae7d2158d7c` die develop-Impact-Selektoren fuer OIDC/Keycloak, Operator-Tenant, Onboarding, Core-API, Node und Remote-App; `scripts/test-ci-impact-selectors.sh` wurde als Regression hinzugefuegt und in die verpflichtende native Docker/Podman-CI eingebunden. [Neuer CI-Lauf #42419767443](https://github.com/mcpdev80/baseharbor/actions/runs/42419767443) gestartet, noch **nicht** endgueltig abgenommen. Der alte Head `8eeb6200` hatte einen vollstaendigen erfolgreichen Go-/Docker-/Podman-PR-Lauf #42418160655, jedoch ohne Remote E2E. Geschuetzter Core-API-Autostart/Health sowie die reale Node-Enrollment-bis-Remote-app-up-Kette fehlen als PASS-Nachweis; Karte bleibt `active`, kein Merge/Release.
 
 - **2026-11-07 Node-CI-Ausbau (ChatGPT):** Core-Integrations-PR [#1438](https://github.com/mcpdev80/baseharbor/pull/1438), zuletzt Head `0eb59ac9b056e0eb298a23e1af9edec57327b4a9`: verpflichtende, gegen Skip abgesicherte CLI-/HTTPS-Node-Regressionen (Owner-Target/Tenant-Bindung, echte HTTP-CSR-Ausgabe, Einmal-Grant-Replay 403, fehlende Auth 401, foreign Tenant 403, remote `app up` ohne lokalen Fallback) in PR-Docker+Podman sowie auch in den bestehenden develop-Native-Jobs. Develop-Selektoren erkennen zudem Aenderungen an den Gate-Skripten und beiden Runtime-Workflows. [Exakter CI-Lauf #42422263152](https://github.com/mcpdev80/baseharbor/actions/runs/42422263152) gestartet, noch nicht vollstaendig bestaetigt. **Kein Remote-E2E-Erfolg behauptet:** produktiver geschuetzter Core-API-Lifecycle, echter separater Connector-Daemon, outbound mTLS und erfolgreicher Docker-/Podman-Remote-Deploy samt status/doctor bleiben technische Abnahmebedingungen. Karte `active`, kein Merge.
+
+## 2026-11-08 – Core-Integration nach develop gemergt (ChatGPT)
+
+- **PR:** [mcpdev80/baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438), gepruefter Head `7c9abb622acd431e450ca2252b58aa8fdd0f3702`, **Merge nach develop erfolgreich:** `0fe53052d00a8d440b499c66a6a65c0d54bae5a0`.
+- **CI:** [Lauf #42423252917](https://github.com/mcpdev80/baseharbor/actions/runs/42423252917) auf exakt diesem Head terminal `success`, 20 erfolgreiche Jobs, 0 Fehler; native Docker/Podman Core-, OIDC-/Enrollment-, CLI-Vertragstests und Go-Pruefungen erfolgreich.
+- **Abgrenzung:** Dies ist die integrierte Core-Grundlage, **nicht** der Beleg fuer automatisch verwalteten geschuetzten Operator-API-Dienst und realen `baha node connect` -> separaten Connector -> remote `baha app up/status/doctor` ueber Docker und Podman. Diese Release-Abnahme bleibt offen, insbesondere auf [0427-004](nc-3-core-enrollment-remote-runtime-acceptance.md). v0.4.27 ist **nicht** freigegeben.

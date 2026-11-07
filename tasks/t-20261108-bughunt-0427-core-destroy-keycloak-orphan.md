@@ -1,0 +1,74 @@
+---
+id: t-20261108-bughunt-0427-core-destroy-keycloak-orphan
+card_number: "0427-122"
+card_short_title: "destroy leaves keycloak up"
+type: bug
+areas: [lifecycle, identity]
+release: v0.4.27
+version: ""
+parent: v0.4.27
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+kanban_summary: A consented baha destroy (and baha destroy --all) of the local control plane removes or explicitly reports every Core-owned…
+kanban_title: 0427-122 · destroy leaves keycloak up
+priority: high
+depends_on: [t-20261017-release-0-4-27-updates]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/planned #view/ready #area/identity #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Goal
+
+A consented `baha destroy` (and `baha destroy --all`) of the local control plane removes or explicitly reports every Core-owned container, including the Identity reference realization in compose project `bh-local-core-shared` (keycloak + keycloak-access). After destroy, `docker ps -a` shows no `bh-*` containers for the target, and `baha status` never reports a STOPPED control plane while Core containers run.
+
+## Scope
+
+- In scope:
+  - Core destroy inventory (`cmd/baha/runtime_destroy_inventory.go`, `runtime_destroy_all.go`, Core retirement paths): enumerate all compose projects owned by the installation, not only `bh-local-shared`; include `bh-local-core-shared` (Keycloak identity realization).
+  - Control-plane `status` stop detection: observed runtime must include identity-project containers so STOPPED/running agree.
+- Out of scope: changing the two-project Core layout itself; HA/topology work.
+
+## Acceptance
+
+- Repro journey (fresh local rootless Docker target): `baha up --control-plane-only --yes` → READY; consented `baha down`; consented `baha destroy --yes`; then no `bh-local-core-shared-keycloak-*` container exists; destroy output lists them as removed or preserved with reason, never silently omits them.
+- `baha destroy --all` picks up a leftover identity container on an otherwise clean target.
+- `baha status` after partial stop reflects running identity containers instead of STOPPED.
+
+## Required checks
+
+- New/changed: `cmd/baha` destroy inventory tests covering a second compose project label (`com.docker.compose.project=bh-local-core-shared`) with zero deployment state; native rootless-Docker develop acceptance journey for the up→down→destroy sequence.
+- Gate: existing package check selects on touched destroy files; Docker native gate executes the live journey; no PR-blocking cross-repo addition.
+- Identify exact test names at implementation time in the handoff.
+
+## Dependencies and file ownership
+
+- Owned files or areas: `cmd/baha/runtime_destroy_*.go`, core status collection.
+- Shared files: provider identity realization docs — coordinate.
+
+## Handoff
+
+- Source: bug-hunt session 2026-11-07, 0.4.23-develop (8a3f58da9), Docker 29.6.0 rootless, Ubuntu 26.04.1.
+- Report: `~/dev/Tests/Baha-Bug-04-destroy-laesst-keycloak-container.md` (destroy plan JSON without keycloak entries, container labels, status output; observed consistently in 3 destroy + 1 destroy --all runs).
+- Leftovers were removed manually (`docker rm -f`) to finish the binary before/after control; documented in the report.
