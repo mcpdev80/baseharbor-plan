@@ -764,7 +764,7 @@ def card_line(vault, task):
     tags.append("#view/" + ("closed" if task["done"] else derived_state(vault, task)))
     # CardBoard's Completed column only admits tasks matching a non-completed
     # column. Retain a routing match for closed cards without a second status.
-    if derived_state(vault, task) in ("waiting", "closed"):
+    if task["done"] or derived_state(vault, task) == "waiting":
         tags.append("#board/planned")
     tags += ["#area/" + a for a in sorted(task.get("areas", []))]
     tags.append("#kind/" + task["type"])
