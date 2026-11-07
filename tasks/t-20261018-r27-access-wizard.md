@@ -15,7 +15,7 @@ kanban_status: active
 kanban_title: "0427-013 · guide profile assignment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-managed-users, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1430]
+prs: [mcpdev80/baseharbor#1430, mcpdev80/baseharbor#1433]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -75,3 +75,9 @@ korrektur dispatched (df554d91): nur die 3 kommando-registrierung FAILS heben (b
 ## Mitarbeit / CI-Abnahme — 2026-11-07
 
 - **Mitwirkender:** ChatGPT (CI-Tests/Review). PR [#1430](https://github.com/mcpdev80/baseharbor/pull/1430), unklassifizierte `baha access assign`/`offboard` Machine-Registry-Operationen und generierte CLI-Index-Drift analysiert; verbindlichen Befund als PR-Kommentar dokumentiert. Die `lane-0427-access-wizard-r2` bleibt fachlicher Owner. Zusätzliche Negative- und Trennungsregressionen in eigenständigem Test-Scope beauftragt; **kein CI-Gate abschwächen, keine Karte ohne Review schließen**.
+
+## ChatGPT CI-Sicherheitsregression — 2026-11-07
+
+- **Bearbeiter:** ChatGPT (CI/Owner-Unterstützung), zusätzlich zu `lane-0427-access-wizard-r2`.
+- [Stacked Test-PR #1433](https://github.com/mcpdev80/baseharbor/pull/1433) basiert auf PR #1430 und prüft beide `access assign`/`offboard`-CLI-Befehle: getrennt von Core Login/Node Connect, fehlende/mehrfache PERSON ablehnen, Name aus CLI muss exakt dem im Wizard geprüften Personennamen entsprechen, JSON-Antwort bleibt auf Person/Decision beschränkt. Kleine fail-closed-Korrektur vor beiden Policy-Mutationscallbacks.
+- Card bleibt **active**, bis #1433 übernommen, #1430 CI grün und die finale Review-Abnahme erfolgt. Keine falsche Closed-/Merge-Markierung.
