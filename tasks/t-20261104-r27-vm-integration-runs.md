@@ -17,7 +17,7 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
-blocker: "docker-seite BESTANDEN (core READY single default, 8 container, ps-zeugnis). podman-2-host BLOCKT durch host-seitigen podman netzwerk-routing-defekt (container-zu-container nc=rc1, postgres-init timeout) — RECHNER-INFRA/host-ops, kein produktcode, ausserhalb einer lane. naechster trigger: podman-2 host-netz behoben (owner/host-ops)."
+blocker: "host-blocker BEHOBEN (coord host-ops 2026-11-07): podman-2 ip_forward war 0 (reboot-reset) -> jetzt 1+persistent; container->extern DNS/gateway/reachout verifiziert. owner: KEINE firewall auf den systemen, meine netavark-firewall-theorie verworfen. rest=echter compose-READY-lauf auf podman-2 wird von 003/118/021 jetzt gefahren; naechster trigger: deren gruenlauf."
 resolution: ""
 evidence: []
 ---
@@ -25,7 +25,7 @@ evidence: []
 - [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** 0427-107-docker-podman · **Priority:** high  
-    **Blocker:** docker-seite BESTANDEN (core READY single default, 8 container, ps-zeugnis). podman-2-host BLOCKT durch host-seitigen podman netzwerk-routing-defekt (container-zu-container nc=rc1, postgres-init timeout) — RECHNER-INFRA/host-ops, kein prod…  
+    **Blocker:** host-blocker BEHOBEN (coord host-ops 2026-11-07): podman-2 ip\_forward war 0 (reboot-reset) -\> jetzt 1+persistent; container-\>extern DNS/gateway/reachout verifiziert. owner: KEINE firewall auf den systemen, meine netavark-firewall-theorie v…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
