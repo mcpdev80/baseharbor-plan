@@ -7,32 +7,33 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: lane-0427-116-remote-up-cli-r5
-kanban_status: active
+owner: lane-0427-116 (geraet blockiert)
+kanban_status: blocked
 kanban_title: "0427-116 · CLI start path for Prov-bound"
-kanban_lane: active
+kanban_lane: blocked
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
-blocker: ""
+blocker: "Genuine err==nil  success NICHT erreichbar ohne: (1) baseharbor Keycloak realm hat 0 user / keinen operator-client — control-plane bootstrap saeht keinen tenant+roles; braucht OIDC operator session (browser PKCE oder programmatic public-client reg + code exchange) + tenant/role seeding BEVOR broker-less pure-client app up=err==nil+doctor. (2) OWNER-SCOPE ci.yml finding: targeted-HA jobs hardcoden runtime_required=false => von PR nicht erreichbar. r5 evidence act-1407-r5.md. naechster trigger: oidc-operator/tenant-seed vorgang + owner ci-trigger decision."
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md"]
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/blocked #view/blocked #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-116-remote-up-cli-r5 · **Priority:** normal  
+    **Owner:** lane-0427-116 (geraet blockiert) · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
+    **Blocker:** Genuine err==nil success NICHT erreichbar ohne: (1) baseharbor Keycloak realm hat 0 user / keinen operator-client — control-plane bootstrap saeht keinen tenant+roles; braucht OIDC operator session (browser PKCE oder programmatic public-cli…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** lane-0427-116-remote-up-cli-r5  
+**Owner:** lane-0427-116 (geraet blockiert)  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)

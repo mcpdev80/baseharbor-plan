@@ -11,7 +11,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 93/119 · **Blocked:** 0 · **Waiting:** 15  
+    **Accepted tasks:** 93/119 · **Blocked:** 2 · **Waiting:** 15  
+    **Blocker:** [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) — Docker-seite + quarkus-fix erledigt (\#1429/\#1432, owner 8-of-8 recording). PODMAN-seite aller 4 stacks haengt an \#110 podman runtime readiness. KEINE aktive ba…  
+    **Blocker:** [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) — Genuine err==nil success NICHT erreichbar ohne: (1) baseharbor Keycloak realm hat 0 user / keinen operator-client — control-plane bootstrap saeht keinen tenant…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

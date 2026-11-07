@@ -4,7 +4,7 @@
 
 Read-only summary derived from the task notes. Edit the task notes, then run `python3 scripts/plan.py render`.
 
-States: **active**, **wait**, **review** and **blocked** come from the card's status tag. `#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** (dependencies accepted, release not started) or **ready** (dependencies accepted and the release is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not assigned work: the Maintainer still assigns it.
+States: **active**, **review** and **blocked** come from the card's status tag. For `#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** (dependencies accepted, release not started) or **ready** (dependencies accepted and the release is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not assigned work: the Maintainer still assigns it.
 
 ## Counts
 
@@ -12,7 +12,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 7 |
 | review | 0 |
-| wait | 0 |
 | blocked | 2 |
 | ready | 1 |
 | queued | 26 |
@@ -33,10 +32,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 
 ## Ready for review
-
-None.
-
-## Waiting for resources
 
 None.
 
