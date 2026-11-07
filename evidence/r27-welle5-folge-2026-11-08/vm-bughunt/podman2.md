@@ -60,9 +60,17 @@
 - Befund: baha inspect/status/doctor laufen in diesem umfeld OHNE fremde containern anzutasten (read-only beobachtet). KEIN produkt-befund, nur kontext-festhaltung fuer nachfolger.
 - VM-hygiene: diese quadlet-state NICHT geloescht (bh-*shared* + fremde targets = read-only respekt, owner-scope).
 
-## VM-HYGIENE
-- eigene test-artefakte (gfapp, ecapp, aborttest, decline, consentabort, gf, hf, demo) nur auf baha-podman-2 in ~/ ; KEINE *-shared* stacks angefasst.
-- vm-lock baha-podman-2: noch NICHT released (wird am END released).
+## VM-HYGIENE / RECHNER-SÄUBERUNG (beweis)
+- host: baha-podman-2 (rootless podman 5.7.0)
+- vorher container: 0 (keine lane-eigenen running) ; nachher: 0
+- bh*/w*/gfapp/ecapp/demo volumes: 0 (keine eigenen — die 5 local-driver volumes sind ambient-podman-state, nicht angefasst)
+- netzwerke: 1 (podman bridge = basis, nicht angefasst)
+- images: 6 (ambient-core, nicht angefasst; kein system prune)
+- ~/.local/share/baseharbor*: keine state-zenisse von mir (observability/ nur ambient)
+- test-app-dirs ~/gfapp ~/ecapp ~/demo ~/aborttest ~/decline ~/consentabort ~/gf ~/hf ~/create-only ~/y: alle entfernt
+- /tmp-testreste: keine lane-eigenen (nur /tmp/opencode/baha-clone build + drive-helfer, host-seitig, nicht produkt)
+- vm-lock baha-podman-2: RELEASED (FREE host=baha-podman-2, coordinator journal)
+- cleanliness: 0 container, 0 volumes (mine), df 44%
 
 ## END
-- END_BLOCKED 0427-003-podman2-bughunt: teilststand — wizard-exit-konsistenz (BF-1) + target-resolution-doku (BF-2) dokumentiert; kein fix (schreibgrenze); vm-lock release + ls-remote ausstehend -> siehe nachfolgende zeilen
+- END_BLOCKED 0427-003-podman2-bughunt: teilststand — wizard-exit-konsistenz (BF-1, ux-hoch) + target-resolution-doku (BF-2, doku-mittel) + brownfield-kontext (BF-4, beobachtung) dokumentiert; kein fix (schreibgrenze = kein PR/produkt-aenderung). vm-lock released, akte auf origin/main (commit aac4d0d2, ls-remote 50a4e175), rechner gesäubert (cleanliness: 0 container). nachfolger bearbeitet fund.
