@@ -11,9 +11,9 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 91/118 · **Blocked:** 2 · **Waiting:** 19  
-    **Blocker:** [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md) — worker delivered+freed (head 7717f4505, product fixes done). FINALER nachweis haengt an OWNER .github: ci.yml:256 (validate pull\_request-excluded) + ci.yml:349…  
-    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — owner-direktive 2026-11-07: BLOCKED lassen (In-CI tests, wartet auf \#117 + 021 runtime cells).  
+    **Accepted tasks:** 92/118 · **Blocked:** 2 · **Waiting:** 19  
+    **Blocker:** [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md) — PR \#1420 ist in develop gemergt (c8a79faff91); CI-Owner \#1426 ist gemergt (3089edbc). Die fruehere .github:256/349-Sperre ist veraltet. Offen: exakter terminal…  
+    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — PR \#1383 ist offen und derzeit nicht mergeable; PR-CI war gruen, aber vier Native-Lifecycle-Tests liefen dort nicht. Exakter Docker/Podman-Lauf rot; Isolation…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

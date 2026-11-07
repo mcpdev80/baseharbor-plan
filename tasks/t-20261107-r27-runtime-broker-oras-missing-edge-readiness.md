@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: mcpdev80
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
 kanban_title: "0427-118 · runtime broker readiness"
 priority: ""
@@ -18,11 +18,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1425]
 sources: []
 blocker: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md"]
 ---
 
-- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/review #view/review #area/deployment #kind/task
+- [x] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80  
     **PR:** [baseharbor#1425](https://github.com/mcpdev80/baseharbor/pull/1425)  
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
 **Owner:** mcpdev80  
@@ -90,3 +90,10 @@ docker-phase matrix:
 owner-direktive #5 zugewiesen; zwei gaps (oras registry-resolution source_oci.go+application_registry_source.go fail-closed; edge-runtime /readyz not_ready broker bug). volle READY-validierung haengt an vm-integration-runs+oras-host (coord ops); produktfix+runnable tests jetzt. write-set dateidisjunkt zu 117/022/021.
 
 CODEX request-changes: /readyz default 503 ohne executor-URL (nur env-waiver) + unverified OCI mutable-fallback bei opt-in=true. korrektur in FRISCHE lane (alte frei).
+
+## Owner-Merge — 2026-11-07
+
+- **PR #1425 gemergt** nach gruenem CI-Lauf [42374471424](https://github.com/mcpdev80/baseharbor/actions/runs/42374471424) auf `baseharbor/develop`, Merge-SHA `a1cb141bf3db9a49783ccd1c56588287a59d4158`.
+- Produktfix fuer klassifizierten `oras`-Fehler, unverifizierbares OCI und Broker-Readiness integriert. Dies bestaetigt noch **keine** externe Demo-App-READY-Abnahme gegen das aktuelle Core/Image auf Docker und Podman; Karte bleibt **review**, bis der beschriebene reale Matrix-Nachweis akzeptiert ist.
+
+MERGED von owner (a1cb141bf). review-flag exec.ErrNotFound-preserve: owner hat gemergt, ggf follow-up.

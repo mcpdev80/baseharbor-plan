@@ -62,4 +62,11 @@ bahn hat basis konfliktfrei auf develop 934be499b aufgefrischt (head 86f990a6) u
 
 blocker '#117 landing' ERFUELLT (1419 merged develop beb923fe6 11:33Z); deps release-updates+vm-smoke closed. owner-direktive war conditional auf 117 -> jetzt bereit, seat-refill.
 
+<<<<<<< HEAD
 r3 request-changes: KEIN Erfolg-fall (err==nil) ueber echtes CLI baha app up auf Docker UND Podman; nur podman-negativ + interne direkt-aufrufe. ask-3 verweis auf #117 falsch (#117 = fail-closed owner-negativ, kein erfolg-transkript). r4 in FRISCHER lane = echter konfliktfreier einsatz auf dem freien sitz.
+=======
+## Owner-PR-Pruefung — 2026-11-07
+
+- **PR #1407** head `5900dc6b71a2adfec1842164066475061a44d616` ist offen, mergeable und hat PR-CI [42374201283](https://github.com/mcpdev80/baseharbor/actions/runs/42374201283) SUCCESS.
+- Der vorhandene Review-Befund verlangt zusaetzlich, dass `app up` nachweislich erfolgreich endet (nicht nur kein lokaler Core-Bootstrap), und einen echten Connector-gebundenen Docker- **und** Podman-Up+Doctor-Gesundheitsnachweis; Podman-Installation-Owner-Befund ist separat zu klaeren. PR-Gruen allein schliesst das nicht. Bis zur echten Abnahme in **review** belassen; kein Merge durch diesen Board-Abgleich.
+>>>>>>> origin/main
