@@ -102,6 +102,16 @@ for `local-success` and `remote-success`. Restored to production afterwards; wor
   (`git ls-remote` confirmed); develop `8a3f58da905fad52327d33466fde1d9568092519` is an ancestor of HEAD.
 - Worktree: `/tmp/opencode/0427-maintenance-r5-wt`, branch `lane/0427-maintenance-r5-wt`.
 
+## Final publication witness
+
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-5\.md$'` after push:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/maintenance-client/round-5.md
+```
+
+Planning origin/main after this commit: `3da5885d3c176b8aa7d15e3e9bf22761c2108a43`.
+
 ## END
 
 END_DONE 0427-034-maintenance-r5: round-5 = prove-only. Both CODEX-REVIEW findings are already
