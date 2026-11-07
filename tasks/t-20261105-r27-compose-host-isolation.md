@@ -7,9 +7,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: w282-compose-cells-now
-kanban_status: active
-kanban_lane: active
+owner: 0427-110-compose-inci
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -19,22 +19,23 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: ""
+blocker: "die vier composes isolationszellen laufen jetzt real in der CI (owner #1417) aber schlagen auf ErrDeploymentOwnerMissing — derselbe fehler den karte 0427-117 behebt (laeuft, ornith). naechster trigger: 117 gemergt (develop), dann zellen gruenermoeglich + re-review."
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** w282-compose-cells-now · **Priority:** high  
+    **Owner:** 0427-110-compose-inci · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Blocker:** die vier composes isolationszellen laufen jetzt real in der CI (owner \#1417) aber schlagen auf ErrDeploymentOwnerMissing — derselbe fehler den karte 0427-117 behebt (laeuft, ornith). naechster trigger: 117 gemergt (develop), dann zellen gr…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** w282-compose-cells-now  
+**Owner:** 0427-110-compose-inci  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -177,3 +178,5 @@ kopf 61566c6805d, basis 3fa6f7b0 Vorfahr (merge-base + compare ahead_by:0), CI r
 review-urteil act-1383c = REJECT am kopf 61566c6805d, aber NICHT wegen der änderung: die vier InCI-tests werden von der CI nie ausgefuehrt (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1, cmd/baha/app_repository_integration_test.go:17-19) und der lauf 'PR · Selected Runtime' ist am kandidat skipped. zuordnung existiert schon in scripts/pr-gate-plan.py:1241-1248 (atomic/docker/lifecycle + atomic/podman/lifecycle) — es fehlt der ausfuehrende job (inhaber: owner/CI-arbeit heute nacht). zweiter grund: ErrDeploymentOwnerMissing wird erst mit karte 0427-117 (w286) behoben. deshalb zurueck auf active, keine weitere auffrischungsrunde auf diesem ast.
 
 urteil act-1383c eingetroffen und rueckgemeldet: REJECT am kopf 61566c6805d — grund ist NICHT die änderung, sondern dass die vier InCI-tests von der CI nie ausgefuehrt werden (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1; job 'PR · Selected Runtime' am kandidat skipped) + der Besitzer-Fehler selbst (0427-117). keine weitere auffrischung auf diesem ast bis die CI-aufnahme (owner-arbeit) und 0427-117 gelandet sind.
+
+vormals active mit toter bahn w282 (reboot); korrekt auf blocked gesetzt.
