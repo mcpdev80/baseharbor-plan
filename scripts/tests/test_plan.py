@@ -187,7 +187,7 @@ class PlanTests(unittest.TestCase):
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "A: prerequisite"))
         card = task_note("core-2", "B: dependent", deps="[core-1]").replace(
-            "blocker:", 'kanban_status: planned\\nkanban_lane: waiting\\nblocker:')
+            "blocker:", 'kanban_status: planned\nkanban_lane: waiting\nblocker:')
         f.add_task("core-2", card)
         f.finish()
         code, out = f.checked()
