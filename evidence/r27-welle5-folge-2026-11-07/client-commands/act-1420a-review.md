@@ -57,3 +57,13 @@ This was a read-only review of the exact PR candidate. No product files, workflo
 ## END CODEX-REVIEW DONE
 
 CODEX-REVIEW 0427-022/#1420-review-a verdict=REJECT_LANE_FIX head=0c23adc56151b94f05916ffcc0cc13b061961107 two_home_tls=simulated coverage=precedence-LUFT/denial-LUFT/server-loss-LUFT/stale-consent-LUFT/error-parity-LUFT fail_closed=internal-seams-only ci=42354903947+128350778682+128352623844 TERMINAL delta=one-file preexisting_red=owner-runtime-gate recipe=add real CLI-to-TLS tests over two independent homes bound to the same deployment and cover all five behaviors, including tamper denial
+
+## Planning publication witness
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/client-commands/act-1420a-review.md` output after fetch:
+
+```
+100644 blob 891cc0e0ed86079a28965edc2d6b817f7e3003eb	evidence/r27-welle5-folge-2026-11-07/client-commands/act-1420a-review.md
+```
+
+That witness was observed at planning `origin/main` commit `294bb1c36c2bf47fd2515e56c3d1ddd39ba19a7b`. This file update records the witness; the final evidence commit and path are verified again in the END transcript.
