@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-vm-smoke-docker-podman
+card_number: "0427-109"
+card_short_title: "real-VM smoke test of"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle5 (Lane w227)
 kanban_lane: closed
 kanban_summary: "A workstation enrolls once against a real BaseHarbor installation and the node service installs, starts, restarts and is removed…"
 kanban_status: closed
-kanban_title: "Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts"
+kanban_title: "0427-109 · real-VM smoke test of"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]

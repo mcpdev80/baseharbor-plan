@@ -1,5 +1,7 @@
 ---
 id: t-20261105-r27-snapshot-change-guard-deterministic
+card_number: "0427-112"
+card_short_title: "the change-during-read guard"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle5 (Lane w223, freigegeben)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "The change-during-read guard's regression test aborts the capture because a mutation is PROVEN to have been observed…"
-kanban_title: "Sources: the change-during-read guard must fail deterministically, not by timing (0.01s flake observed in CI)"
+kanban_title: "0427-112 · the change-during-read guard"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-pack]
 repos: [mcpdev80/baseharbor]

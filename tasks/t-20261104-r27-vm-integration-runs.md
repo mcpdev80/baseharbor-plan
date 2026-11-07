@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-vm-integration-runs
+card_number: "0427-107"
+card_short_title: "real Docker and Podman Integr"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle5 (w269 dispatched)
 kanban_lane: active
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
 kanban_status: active
-kanban_title: "Operations: real Docker and Podman integration runs with core, demo, console and connector"
+kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

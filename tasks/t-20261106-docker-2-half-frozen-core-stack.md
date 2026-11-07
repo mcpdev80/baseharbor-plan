@@ -1,5 +1,7 @@
 ---
 id: t-20261106-docker-2-half-frozen-core-stack
+card_number: "0427-114"
+card_short_title: "docker-2 Core half-frozen"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: worker (w269)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "A new owning card for the docker-2 local Core that is half-frozen: Core containers (postgres, openbao, keycloak) are running ~4h…"
-kanban_title: "Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install"
+kanban_title: "0427-114 · docker-2 Core half-frozen"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

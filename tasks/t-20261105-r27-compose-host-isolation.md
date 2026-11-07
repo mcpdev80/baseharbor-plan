@@ -1,5 +1,7 @@
 ---
 id: t-20261105-r27-compose-host-isolation
+card_number: "0427-110"
+card_short_title: "composed InCI tests must run"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle5 (w282 dispatched)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
-kanban_title: "CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon"
+kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
