@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: "Owner loest PR#1383 CONFLICT direkt (2026-11-07). Danach: 4 native docker/podman lifecycle cells MUESSEN echt laufen (isolation + contaminated/clean host-zellen) — ich stelle dafuer freie docker+podman VMs bereit (KEIN systemknappheits-blocker). Trigger: #1383 mergeable/merged."
+blocker: "Owner loest PR#1383 CONFLICT direkt (2026-11-07). Ornith-Sitz wird dafuer FREI gehalten. Sobald #1383 mergeable/merged: frische #110-lane spawnt und laeuft die 4 native docker/podman lifecycle cells echt (isolation + contaminated/clean host-zellen); freie VMs stelle ich bereit (KEIN systemknappheits-blocker). Trigger: #1383 merged."
 
 ---
 
@@ -27,7 +27,7 @@ blocker: "Owner loest PR#1383 CONFLICT direkt (2026-11-07). Danach: 4 native doc
     <!-- generated:card -->
     **Owner:** owner (chatgpt) · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-    **Blocker:** Owner loest PR\#1383 CONFLICT direkt (2026-11-07). Danach: 4 native docker/podman lifecycle cells MUESSEN echt laufen (isolation + contaminated/clean host-zellen) — ich stelle dafuer freie docker+podman VMs bereit (KEIN systemknappheits-blo…  
+    **Blocker:** Owner loest PR\#1383 CONFLICT direkt (2026-11-07). Ornith-Sitz wird dafuer FREI gehalten. Sobald \#1383 mergeable/merged: frische \#110-lane spawnt und laeuft die 4 native docker/podman lifecycle cells echt (isolation + contaminated/clean hos…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
