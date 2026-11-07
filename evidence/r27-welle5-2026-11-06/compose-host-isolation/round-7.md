@@ -186,6 +186,14 @@ the genuine RED where no Core owns the per-test target.
 - Hosted checks at new head f236b66: observed PENDING (`total_count: 0`) via GitHub
   status API (terminal observation; not yet a live pass/fail).
 
+## PLAN
+
+- develop moved forward to ddf0d7823f6 (#1406 artifact-resolution + #1404 single-default) AFTER the round-7 merge f236b66; develop was NOT an ancestor of f236b66.
+- Base-refresh: re-merge origin/develop (dddf0d78) into work/r27-compose-isolation -> new head 42973c7524ad (parents [f236b66, ddf0d78]); develop ddf0d78 now confirmed ancestor via GitHub compare (reverse ahead_by:0); PR #1383 4-file scope present; #1406 files present; pushed normal (no force) f236b661..42973c75.
+- CI running at new head 42973c75 (run 42324195737, in_progress) — affected runtime/compose InCI group; watch to completion.
+- Verify: merge-base witness (GitHub compare reverse ahead_by:0 = develop ancestor); new head 42973c75; CI run-id captured.
+- TODO: END with merge-base witness + new head 42973c75 + CI run-id once green or terminal.
+
 ## END
 
 END_DONE w282-compose-cells-now: head=f236b6610b88 branch=work/r27-compose-isolation (PR #1383, develop-merged, parents [b11eec12, 8bda98c1]) docker_zellen=0/4 GRUEN (isolation bootstrap GONE now; 4/4 ROT at ErrDeploymentOwnerMissing deployment_store.go:107, w169-*-iso no owner Core) podman_zellen=0/4 GRUEN (identical cross-family defect, w273 fall confirmed) mutante=8e15cdfbe3a3d37fa863811b4c9c91a5875ed4e02178fd28539aa787b7998807 (orig) / d02c92a135a73d277bffd11095a23abf4a36af15fe0395074f5f68699d957463 (mutant return nil -> test PASS 130.64s) / 8e15cdfbe3a3d37fa863811b4c9c91a5875ed4e02178fd28539aa787b7998807 (restored) journal=claim w282 baha-docker-2 + release + claim w282 baha-podman + release (4 zeilen) lauf=113.68s/97.059s docker + 139.97s/140.464s podman (PENDING hosted) lsremote=b11eec12f90 (alt) / f236b6610b88 (neu) akte=/home/marcel/dev/baseharbor-ecosystem/workers/compose-host-isolation/round-7.md | isulations-gate formerly blocking is now GONE; four InCI tests fail LATER at genuine ErrDeploymentOwnerMissing seam (deployment_store.go:107), family-wide docker+podman defect now on card t-20261106-r27-remote-up-podman-owner-missing (lane w286); this card reports honest ROT as END_DONE, no code change in PR #1383, no orphaned containers, both vm-claims released.
