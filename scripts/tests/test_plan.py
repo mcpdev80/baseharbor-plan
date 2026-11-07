@@ -588,3 +588,38 @@ class RealVaultTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+class ReleaseCardNumberTests(unittest.TestCase):
+    def fixture(self):
+        f = Fixture()
+        self.addCleanup(shutil.rmtree, f.dir)
+        return f
+
+    def test_card_prefix_and_short_title(self):
+        self.assertEqual(plan.card_release_prefix({"release": "v0.4.27", "version": ""}), "0427")
+        self.assertEqual(plan.card_release_prefix({"release": "v0.5.x", "version": "v0.5.1"}), "0501")
+        self.assertEqual(plan.card_release_prefix({"release": "v0.4.26", "version": ""}), None)
+        self.assertEqual(plan.compact_card_title("Keycloak HA Configuration"), "Keycloak HA Conf")
+
+    def test_duplicate_card_number_is_rejected(self):
+        f = self.fixture()
+        for n in (1, 2):
+            tid = f"core-{n}"
+            text = task_note(tid, "Keycloak HA Configuration")
+            text = text.replace("type: task", 'card_number: "0427-001"\\ncard_short_title: "Keycloak HA Conf"\\ntype: task')
+            text = text.replace("release: v1.0", "release: v0.4.27")
+            text = text.replace("owner:", 'kanban_title: "0427-001 · Keycloak HA Conf"\\nowner:')
+            f.add_task(tid, text)
+        f.finish()
+        code, output = f.run("check")
+        self.assertEqual(code, 1)
+        self.assertIn("duplicate card_number", output)
+
+    def test_old_release_needs_no_card_number(self):
+        self.assertIsNone(plan.card_release_prefix({"release": "v0.4.26", "version": ""}))
+
+    def test_short_title_never_exceeds_30(self):
+        examples = ["Keycloak HA Configuration", "Operations: real Docker and Podman integration runs with Core, Demo and Console",
+                    "CI: composed InCI tests must run against an isolated runtime state"]
+        for example in examples:
+            self.assertLessEqual(len(plan.compact_card_title(example)), 30)

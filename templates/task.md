@@ -1,5 +1,7 @@
 ---
 id: {{id}}
+card_number: "{{card_number}}"
+card_short_title: "{{card_short_title}}"
 type: task
 areas: []
 release: {{release}}
