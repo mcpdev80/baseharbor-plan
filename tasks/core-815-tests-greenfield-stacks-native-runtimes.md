@@ -90,3 +90,9 @@ DOCKER-SEITE + QUARKUS-FERTIG: Go/py/nextjs READY+single-default belegt, quarkus
 - [Core PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) adds real eight-cell native Greenfield `go/nextjs/python/quarkus × docker/podman` source-to-`baha up` checks to the **existing** `nextjs-greenfield-e2e.yml` and wires a mandatory `v0.4.27` full Pre-Release job; no additional workflow file and no new default PR Runtime-gate.
 - Exact candidate native validation [run 42390280687](https://github.com/mcpdev80/baseharbor/actions/runs/42390280687), code SHA `163561dc14bcc2c2afe940a1d2bb0f911c736b01`, was started. A newer branch revision additionally binds the Pre-Release check; validate that revision separately before merge.
 - Card **remains active** until all eight native cells genuinely PASS, default SINGLE control-plane resource counts and explicit HA/negative checks are documented. A mere workflow definition, pending run or source-format green is **not** an accepted Greenfield test.
+
+## Native test result — 2026-11-07
+
+- Actual [native run 42390908119](https://github.com/mcpdev80/baseharbor/actions/runs/42390908119), exact candidate `7065690f130fd2718c4e6852824bf0d2915ff724`: **Next.js / Docker PASS**, including real `baha app new`, Core bootstrap, scoped non-destructive provider consent, `baha up`, status + doctor and cleanup. Other seven matrix cells were not yet all terminal at this snapshot. Do not generalize that one PASS into an eight-cell acceptance.
+- [PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) now adds a stronger typed JSON `ready=true`, workload and per-service readiness verification and the explicit v0.4.27 pre-release gate; validate on newer exact-source [run 42391107321](https://github.com/mcpdev80/baseharbor/actions/runs/42391107321).
+- Keep 0427-003 **active** pending eight native successes, default-SINGLE + explicit HA and negative topology evidence; source PR is not merged.
