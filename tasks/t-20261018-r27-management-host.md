@@ -8,7 +8,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (w280 dispatched)
+owner: 0427-036-mgmt-host
 kanban_lane: active
 kanban_summary: Expose the same existing lifecycle executor on a protected management host with one durable state root and active-writer…
 kanban_status: active
@@ -26,7 +26,7 @@ evidence: []
 
 - [ ] t-20261018-r27-management-host · Management: run one durable minimal authority on the selected host #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w280 dispatched) · **Priority:** normal  
+    **Owner:** 0427-036-mgmt-host · **Priority:** normal  
     **PR:** [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: []
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-state-owner](t-20261018-r27-state-owner.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** coord-welle5 (w280 dispatched)  
+**Owner:** 0427-036-mgmt-host  
 **Priority:** normal  
 **PRs:** [baseharbor#1405](https://github.com/mcpdev80/baseharbor/pull/1405)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -67,3 +67,5 @@ Focused server-config/auth/startup/ownership/restart tests; one isolated service
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
 
 ## Entriegelt 2026-11-06: alle vorlaeufer (geraete-lebenszyklus, tagebuch-kette ausnahme: laeuft noch runde-3-basisRefresh) gemergt. Claimbereit.
+
+bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
