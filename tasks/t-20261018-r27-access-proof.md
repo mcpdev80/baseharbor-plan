@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-access-proof
+card_number: "0427-012"
+card_short_title: "qualify managed and external"
 areas: [acceptance]
 type: acceptance
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Prove external corporate OIDC without managed Keycloak and optional managed-Identity invite/profile path. Trusted Dev Remote…
 kanban_status: planned
-kanban_title: "Acceptance: qualify managed and external identity onboarding"
+kanban_title: "0427-012 · qualify managed and external"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
 prs: []

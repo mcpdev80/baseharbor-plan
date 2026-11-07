@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-artifact-resolution
+card_number: "0427-015"
+card_short_title: "resolve existing artifacts or"
 areas: [build]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (w281)
 kanban_lane: closed
 kanban_summary: Use existing OCI images/releases first when selected; verify artifact availability through image-transfer. For current-checkout…
 kanban_status: closed
-kanban_title: "Images: resolve existing artifacts or an explicit builder"
+kanban_title: "0427-015 · resolve existing artifacts or"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-ingress, t-20261018-r27-image-transfer, t-20261018-r27-native-auth, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1406]

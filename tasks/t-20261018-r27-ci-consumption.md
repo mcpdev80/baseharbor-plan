@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-ci-consumption
+card_number: "0427-020"
+card_short_title: "Deferred CI consumption"
 areas: [docs]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: ""
 kanban_status: planned
-kanban_title: Deferred CI consumption examples for accepted product APIs
+kanban_title: "0427-020 · Deferred CI consumption"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-docs, t-20261018-r27-public-surfaces, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: []
