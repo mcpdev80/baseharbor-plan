@@ -150,25 +150,60 @@ and `t.Fatalf`s at `startControlPlaneRuntime` without a verified PostgreSQL
 backend — it never `t.Skip`s, so it is red wherever no verified runtime is
 present, on develop and on every candidate alike. It is **not** my delta.
 
-## Terminal CI run (own run) — GREEN
+## R3 REVIEW REJECT — ECHTER CLI→TLS (mutual-TLS, zwei homes, protokolltreuer Server)
+
+### Review-Befund act-1420a (REJECT_LANE_FIX, substantiell — keine Schleife mehr)
+Kandidat head `0c23adc56` war SIMULIERT, nicht echt:
+- `application_core_authority_test.go:22-43` (`remoteApplicationCoreFixture`) ist ein lokales no-TLS-Fixture mit synthetischem Principal/Tenant.
+- `client_commands_behaviors_test.go` rief `resolve/record/execute`-Helper DIREKT auf (Denial-Zeilen ~106-145) — kein realer TLS-Roundtrip, kein echtes baha-CLI gegen eine Autorität.
+- Befund: die Karte verlangt WORTLICH echten TLS-servierenden Core, den ECHTES baha CLI über zwei UNABHÄNGIGE homes/checkouts gegen dieselbe Deployment anspricht. Cited existing-tests waren LUFT für die 5 behaviours — cite nichts, was den Roundtrip wirklich fährt.
+- SHA-Genau geprüft: `0c23adc56151b94f05916ffcc0cc13b061961107`, `eee11d50` ist Ancestor.
+
+### Faktische Lage (recherchiert, vor dem Bau verifiziert)
+- Echte Remote-Autorität = `targetsession.Session`/`Pool` über **mutual-TLS 1.3** (`internal/targetsession/session.go:32-176`: `*tls.Conn`, `HandshakeContext`, `RequireAndVerifyClientCert`, SPIFFE-Admission `targetenrollment.AdmitTLSNode`).
+- `applicationCoreTarget` / `remoteApplicationTransport` / `newInstallationMachineExecutor` / `checkBoundCoreTarget` in `cmd/baha/application_core_authority.go`, `cmd/baha/app_tls.go`, `cmd/baha/app_remote_binding.go`.
+- **Kein** existierender Test fährt den echten CLI→TLS-Roundtrip über zwei homes — die 3 real-remote Tests (`app_remote_admission_test.go`, `application_remote_authorization_test.go`, `app_remote_binding_test.go`) nutzen alle das In-Memory-Fixture `remoteApplicationCoreFixture`. Review-Befund zur "Luft" bestätigt.
+- Harness-Vorlage: `internal/targetsession/session_test.go` — echter TLS 1.3 Roundtrip über `net.Pipe` mit mutual-cert; `net.Pipe` durch `net.Listen` ersetzbar = echter Socket-Roundtrip. Kein PostgreSQL/OpenBao nötig (only Cert-Issuer + TLS-Listener).
+- DECISION (coordinator 0427-022-r3-decision.txt): OPT C aufgeteilt. **A = jetzt bauen** (Deliverable), **B = Owner-Befund** (nicht meine Arbeit).
+
+### DELIVERABLE A — 5 echte CLI→TLS roundtrips
+Neue Datei `cmd/baha/client_commands_tls_behaviors_test.go` (write-set: tests only; `commands.go`/machine-registry tabu). Routing seam **nicht** angefasst (verify: `git diff --stat cmd/baha/commands.go` empty).
+
+Muster: **echter mutual-TLS 1.3** (`internal/targetsession/session_test.go`-Vorlage: `net.Listen` + `tls.Listen` + `RequireAndVerifyClientCert` + SPIFFE-Admission), **echter `baha` CLI** (`runWithIO`), **zwei unabhängige homes** (getrennte installation-root/store), **protokolltreuer in-prozess Core-Test-Server** (echter `Hello`-Handshake + minimaler `Dispatch` der 5 behaviours **wirklich auslöst**, nicht hardkodiert).
+
+Pro behaviour ein Test (je file:func), echtes CLI über TLS-Roundtrip:
+- precedence — `TestClientCommandsTwoHomesSameDeploymentPrecedence` (echter TLS: server-assigned id schlägt lokal authored contract)
+- denial — `TestClientCommandsDenialOverTwoHomes` (echtes Server-refuse bei fehlender acknowledgement → fail-closed)
+- server-loss — `TestClientCommandsServerLossOverTwoHomes` (Server weg → fail-closed, kein Inferenz aus lokalen Files)
+- stale-consent — `TestClientCommandsStaleConsentOverTwoHomes` (abgelaufener consent → Server refuses)
+- error-parity — `TestClientCommandsErrorParityOverTwoHomes` (gleicher Fehler lokal vs. remote über TLS)
+
+Protokolltreue-Verifizierung (Selbstcheck, per DECISION Zeile 8): rot durch echtes Weglassen eines Schrits im Test — zB Denial-Test mit entferntem `RequireAndVerifyClientCert`/leerem SPIFFE muss grün werden (sonst ist das Verhalten hardkodiert). Der Server löst die behaviours über den echten `Dispatch`-Weg aus, nicht im Test.
+
+Delta bleibt test-only (commands.go/machine-registry tabu), exact-one-candidate PR #1420, neuer Kopf auf develop `eee11d50` (Ancestor zeugt).
+
+### BEFUND B (Owner-Scope, NICHT meine Arbeit — an coordinator getragen)
+Echtes Core mit PostgreSQL/OpenBao-Persistence + TLS ist nur in der **push-only** `runtime_integration`-Zelle fahrbar — kein PR-TLS-Job existiert.
+- **file:line** `ci.yml:256` — `validate`-Job (`runtime_integration`) `if: github.event_name != 'pull_request'` → push-only.
+- **file:line** `ci.yml:339-347` — `runtime_integration`-Schritt: `go test -p 1 ./cmd/baha ./internal/application -run '^(TestRepositoryWorkflowRealLifecycle|...)$'` (allow-listed, postgres+verified-runtime gated, BASEHARBOR_TEST_DATABASE_URL + ci-core-rootless-runtime.sh).
+- **file:line** `ci.yml:759-848` — `pr_validations` (`PR · Validation · cli-package-tests`, `go test ./cmd/baha`, `allow_skips=True`) läuft auf PR, aber **ohne** PostgreSQL/TLS/verified-runtime → kein realer CLI→TLS-Roundtrip auf PR-Pfad fahrbar.
+- **file:line** `ci.yml:804` — `cli-guided-tests`-Zweig: `go test ./cmd/baha -run '^TestGuided'`.
+- **file:line** `ci.yml:827` — `runtime-provider-package-tests`: Podman-Doctor-Familie.
+- Echte Two-Home-TLS-Gates nur in `release`-Workflow: `integration/{docker,podman}/remote-target` (owner-gated, pre-release). Kein PR-Pfad.
+- **Owner-Scope** (nicht meine Arbeit): kein `.github/**`-Edit. coordinator trägt die Lücke zum Owner.
+
+### Evidence: Review-Urteil + Befund in akte
+- `baseharbor-plan/evidence/r27-welle5-folge-2026-11-07/client-commands/round-1.md` (origin/main): Review-Befund act-1420a, r3-Dekompilation, B-Befund file:line, A-Deliverable SHA, GREEN-Run.
+
+## Terminal CI run (own run) — r3 GREEN
 
 - PR: #1420 `https://github.com/mcpdev80/baseharbor/pull/1420` against `develop` (base `eee11d50`).
-- **Head `0c23adc56151b94f05916ffcc0cc13b061961107` (fix commit `0c23adc56`, `t.Chdir`).**
-- **`PR · Validation · cli-package-tests` = SUCCESS** (job 128350778682, check-suite
-  run 114754818058; started 2026-11-07T08:18:31Z, completed 08:26:42Z). This is
-  the same job that passed green on #1419 — now green on #1420's final head.
-- **`PR · Selected Checks` = SUCCESS** (job 128352623844, completed 08:26:54Z).
-- My 5 behaviour tests: all PASS in CI.
-- Other terminal jobs this run: `PR · Trusted Plan` success, `Workflow policy`
-  success, `PR · Source format` success. `Release Source Preflight`/`Targeted HA
-  · docker|podman` skipped (ref-gated).
-- The single remaining package-level red under a no-runtime cell would be the
-  pre-existing `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`
-  environmental gate; it did not block this run (the runner cell did not hold a
-  verified backend, so the suite completed green). Not fabricated, not my delta.
+- **Head `06639f5a`** (r3 fix, 5 echte CLI→TLS roundtrips).
+- **`PR · Validation · cli-package-tests` = SUCCESS** (run 114770141614, job 128371024286; started 2026-11-07T09:04:19Z, completed 09:11:22Z). Dies ist derselbe Job, der auf #1419 grün war.
+- **`PR · Selected Checks` = SUCCESS** (run 114770141614).
+- Other jobs: `Workflow policy`/`Trusted Plan`/`Source format`/`Focused Python`/`cli-build`/`cli-vet`/`cli-gofmt`/`source-contracts` success; `validate`/`Release Source Preflight`/`Targeted HA · docker|podman` skipped (ref-gated).
+- Kein self-merge, keine subagenten. Delta test-only, commands.go/machine-registry tabu.
 
 ## Current status
 
-DONE — deliverable implemented, `cli-package-tests` GREEN on final head
-`0c23adc56`, own run, evidence committed to `baseharbor-plan` origin/main.
-Awaiting coordinator handoff.
+DONE — r3: 5 echte CLI→TLS roundtrips, `cli-package-tests` GREEN auf final head `06639f5a`, evidence committed (origin/main `9a2962c3`), B-Befund an coordinator getragen. Awaiting coordinator handoff.
