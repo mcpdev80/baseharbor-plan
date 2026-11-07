@@ -754,10 +754,12 @@ def card_line(vault, task):
     tags = [tag for tag in match.group("tags").split() if not tag.startswith(remove_tags)]
     if "kanban_status" in task["meta"]:
         tags.append("#status/" + task["status"])
-    tags.append("#view/" + view_state(vault, task))
+    # Retain legacy #view/waiting for CardBoard and downstream clients;
+    # Obsidian's writable kanban_lane now projects it to the Wait column.
+    tags.append("#view/" + ("closed" if task["done"] else derived_state(vault, task)))
     # CardBoard's Completed column only admits tasks matching a non-completed
     # column. Retain a routing match for closed cards without a second status.
-    if view_state(vault, task) in ("waiting", "closed"):
+    if derived_state(vault, task) in ("waiting", "closed"):
         tags.append("#board/planned")
     tags += ["#area/" + a for a in sorted(task.get("areas", []))]
     tags.append("#kind/" + task["type"])
