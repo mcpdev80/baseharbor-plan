@@ -55,4 +55,11 @@ Verdict: `request-changes` until the hosted planner path is green.
 
 ## END r2 — DONE
 
-END_DONE 0427-021-ci-lanes: head=2c3794640b5d37b752407e09201ed11d7cf4850e pr=1424 core_integration_ci=anker OK: v0.4.27 registered release-requirements (65/65 gates + releases) + pr-gate-map v0.4.26 baseline preserved; hosted pr-planner-tests run 42367756259 SUCCESS (was failure fc81fbc6/b70c49144 `release absent from gate catalog`); runtime_cells unchanged (atomic/docker+podman lifecycle, no fake pass/skip). gate_catalog=v0.4.27 fixed + migration-proof. fail_closed=pr-gate conservative fallback + fail-closed native-runtime gates. branch work/r27-ci-lanes-catalog push OK; ls-remote=2c3794640, base develop 4bcede97 ancestor-ok. run=local 368 OK + hosted run 42367756259 (planner+Selected Checks green) akte=evidence/r27-ci-lanes/ci-lanes/act-1424-review-state.md (origin/main pending publish).
+## r3 — base-refresh (drift beb923fe6, PR #1419 merged)
+
+- develop drifted to `beb923fe6` (PR #1419 owner-fix, the one session-release-approval merge). Merged `origin/develop` into `work/r27-ci-lanes-catalog` (clean; #1419's `cmd/baha/*_test.go` + `internal/deployment/deployment_owner_loan.go` landed via the develop merge, no churn in my write-set).
+- Base attestation: `git merge-base --is-ancestor beb923fe6... 3cac5cec1` = OK (no drift candidate); rc0 `ff43c3d2` ancestor OK.
+- Re-ran on refreshed stand: 368/368 `pr_focused` OK.
+- Pushed to real GitHub; `git ls-remote`: `3cac5cec18ded774500571c69203c168f5272f6d refs/heads/work/r27-ci-lanes-catalog`; GitHub API confirms. Net production diff vs develop = my 3 CI-seam files only (`release-requirements.json`, `test_ci_v0427_gate_catalog.py`, `test_pr_gate_plan.py`), map at v0.4.26 baseline.
+
+END_DONE 0427-021-ci-lanes: head=3cac5cec18ded774500571c69203c168f5272f6d pr=1424 core_integration_ci=anker OK: v0.4.27 registered release-requirements (65/65 gates + releases) + pr-gate-map v0.4.26 baseline preserved; hosted pr-planner-tests run 42367756259 SUCCESS (was failure fc81fbc6/b70c49144 `release absent from gate catalog`); runtime_cells unchanged (atomic/docker+podman lifecycle, no fake pass/skip). gate_catalog=v0.4.27 fixed + migration-proof. fail_closed=pr-gate conservative fallback + fail-closed native-runtime gates. branch work/r27-ci-lanes-catalog push OK; ls-remote=2c3794640, base develop 4bcede97 ancestor-ok. run=local 368 OK + hosted run 42367756259 (planner+Selected Checks green) akte=evidence/r27-ci-lanes/ci-lanes/act-1424-review-state.md (origin/main pending publish).
