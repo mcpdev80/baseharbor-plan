@@ -621,7 +621,7 @@ class ReleaseCardNumberTests(unittest.TestCase):
         f.run("render")
         task_path = f.dir / "tasks" / "core-1-x.md"
         first = task_path.read_text()
-        self.assertIn('card_number: "0427-001"', first)
+        self.assertIn('card_number: 0427-001', first)
         self.assertIn("0427-001 · Keycloak HA Conf", first)
         f.run("render")
         self.assertEqual(first, task_path.read_text())

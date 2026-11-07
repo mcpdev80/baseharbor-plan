@@ -1166,7 +1166,8 @@ def render(vault):
         if additions:
             head = head.replace("\n---\n", "\n" + "\n".join(additions) + "\n---\n", 1)
         if "kanban_title" in t["meta"]:
-            head = re.sub(r"(?m)^kanban_title:.*$", lambda _: "kanban_title: " + dump_value(card_display_title(t)), head, count=1)
+            if as_str(t["meta"].get("kanban_title")) != card_display_title(t):
+                head = re.sub(r"(?m)^kanban_title:.*$", lambda _: "kanban_title: " + dump_value(card_display_title(t)), head, count=1)
         elif as_str(t["meta"].get("card_number")):
             head = head.replace("\n---\n", "\nkanban_title: " + dump_value(card_display_title(t)) + "\n---\n", 1)
         if "kanban_status" in t["meta"]:
