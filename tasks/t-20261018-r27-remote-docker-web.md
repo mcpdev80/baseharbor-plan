@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-remote-docker-web
+card_number: "0427-050"
+card_short_title: "verify SQL cache and reachable"
 areas: [runtime]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Enable only end-to-end verified Docker remote capabilities; retain rejection for every unsupported capability. Real app consumes…
 kanban_status: planned
-kanban_title: "Remote Docker: verify SQL cache and reachable HTTPS workload"
+kanban_title: "0427-050 · verify SQL cache and reachable"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-cli, t-20261018-r27-remote-material, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []

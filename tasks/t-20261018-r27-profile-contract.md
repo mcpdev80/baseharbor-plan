@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-profile-contract
+card_number: "0427-045"
+card_short_title: "define portable Conn and"
 areas: [access]
 type: architecture
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: codeman-coordinator (w1-profile lane)
 kanban_lane: closed
 kanban_summary: Define non-secret profile versus sensitive one-use device enrollment versus explicitly encrypted local-credential export. Pin…
 kanban_status: closed
-kanban_title: "Access: define portable connection and device profile records"
+kanban_title: "0427-045 · define portable Conn and"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1324"]

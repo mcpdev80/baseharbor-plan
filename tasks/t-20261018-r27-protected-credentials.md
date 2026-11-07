@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-protected-credentials
+card_number: "0427-047"
+card_short_title: "retain and recover opted-in"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w181, freigegeben)
 kanban_lane: closed
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
 kanban_status: closed
-kanban_title: "Credentials: retain and recover opted-in local credentials"
+kanban_title: "0427-047 · retain and recover opted-in"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1385]
