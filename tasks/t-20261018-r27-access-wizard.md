@@ -71,3 +71,7 @@ head 3a699a287 drift-frei (develop 812c99c88 vorfahr), #110-lifecycle/fixture-ko
 PR#1430 3a699a287 drift-frei+sauberer write-set, ABER 3 FAILS = kommando-registrierung: 'baha access assign' ist NICHT klassifiziert (TestMachineDocumentationTracksRegistryAndCommandTree + TestMachineCoverageCIRealTreeAndJSONClassification registration_ci_readiness_test.go:82) UND docs/cli/command-index.md drift (TestHumanCommandIndexTracksExactCommandMetadata human_documentation_test.go:101). Kein review bis behebt. Korrektur: kommando in die classification registrieren + command-index.md neu erzeugen. frische lane noetig (orig freigegeben), pool voll -> queued.
 
 korrektur dispatched (df554d91): nur die 3 kommando-registrierung FAILS heben (baha access assign classification + command-index.md neu), wizard-code bleibt. node-cli-lane freigegeben (geliefert, #1427 in review).
+
+## Mitarbeit / CI-Abnahme — 2026-11-07
+
+- **Mitwirkender:** ChatGPT (CI-Tests/Review). PR [#1430](https://github.com/mcpdev80/baseharbor/pull/1430), unklassifizierte `baha access assign`/`offboard` Machine-Registry-Operationen und generierte CLI-Index-Drift analysiert; verbindlichen Befund als PR-Kommentar dokumentiert. Die `lane-0427-access-wizard-r2` bleibt fachlicher Owner. Zusätzliche Negative- und Trennungsregressionen in eigenständigem Test-Scope beauftragt; **kein CI-Gate abschwächen, keine Karte ohne Review schließen**.
