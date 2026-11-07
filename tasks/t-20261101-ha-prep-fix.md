@@ -1,5 +1,7 @@
 ---
 id: t-20261101-ha-prep-fix
+card_number: "0427-095"
+card_short_title: "prepare rootless runtime"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "ha-prep-fix worker (ornith1.5)"
 kanban_lane: closed
 kanban_summary: The Targeted runtime job of .github/workflows/targeted-integration.yml is the only heavy job without a Prepare verified rootless…
 kanban_status: closed
-kanban_title: "targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix)"
+kanban_title: "0427-095 · prepare rootless runtime"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
