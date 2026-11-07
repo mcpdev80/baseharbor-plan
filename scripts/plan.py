@@ -343,12 +343,8 @@ class Vault:
         status = kanban_status or (status_tags[0] if len(status_tags) == 1 else "")
         prior = status_tags[0] if len(status_tags) == 1 else ""
         if lane:
-            # A planned card may have been *rendered* into Wait because one of
-            # its prerequisites was open. That must never become an explicit
-            # parking request when the prerequisite is accepted later.
-            # An explicit drag from planned to Wait requires wait_reason.
-            projected_wait = lane == "wait" and status == "planned" and not as_str(meta.get("wait_reason"))
-            requested = "planned" if lane in ("ready", "waiting", "queued") or projected_wait else lane
+            # Unstarted dependency work remains Planned, never automatic Wait.
+            requested = "planned" if lane in ("ready", "waiting", "queued", "planned") else lane
             if requested != status:
                 if prior == status:
                     status = requested
@@ -419,8 +415,10 @@ class Vault:
             self.err(path, f"status {st} requires an owner")
         if st == "review" and not item["prs"]:
             self.err(path, "status review requires at least one PR")
-        if st == "wait" and not item["wait_reason"] and not item["depends_on"]:
-            self.err(path, "status wait requires wait_reason or a dependency")
+        if st == "wait" and not item["owner"]:
+            self.err(path, "status wait requires an assigned owner (work already started)")
+        if st == "wait" and not item["wait_reason"]:
+            self.err(path, "status wait requires wait_reason")
         if st != "wait" and item["wait_reason"] and not done:
             self.err(path, "wait_reason is set but card is not #status/wait")
         if st == "blocked" and not item["blocker"]:
@@ -747,7 +745,8 @@ def view_state(vault, task):
     if task["done"]:
         return "closed"
     state = derived_state(vault, task)
-    return "wait" if state == "waiting" else state
+    # A planned task with unmet dependencies has never started.
+    return "planned" if state == "waiting" else state
 
 
 def card_line(vault, task):
@@ -968,7 +967,8 @@ def render_views(vault):
              "`#status/planned` the state is derived: **waiting** (a dependency is not accepted), **queued** "
              "(dependencies accepted, release not started) or **ready** (dependencies accepted and the release "
              "is active, or the task is explicitly pulled ahead with `early: true`). A ready task is not "
-             "assigned work: the Maintainer still assigns it.", ""]
+             "assigned work: the Maintainer still assigns it. Unstarted tasks stay Planned, even "
+             "when dependencies are outstanding; Wait means already started and temporarily parked.", ""]
     lines += ["## Counts", "", "| State | Tasks |", "| --- | ---: |"]
     for st in ["active", "review", "wait", "blocked", "ready", "queued", "waiting", "backlog"]:
         lines.append(f"| {st} | {len(by_state.get(st, []))} |")
