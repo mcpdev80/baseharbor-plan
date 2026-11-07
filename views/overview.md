@@ -46,8 +46,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
+None.
 
 ## Ready to assign
 
