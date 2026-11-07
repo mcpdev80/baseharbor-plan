@@ -47,6 +47,7 @@ END BLOCKED 0427-access-r3-review: request-changes; candidate `5ccb81472ef1a9ca5
 - Final candidate witness before END remains develop `8a3f58da905fad52327d33466fde1d9568092519`, PR #1430 head `5ccb81472ef1a9ca53e065c94ccd89987fa05211`.
 - A concurrent planning update carried the same initial tree witness. Final post-rebase tree and remote-main witnesses are recorded below after publication.
 
+<<<<<<< Updated upstream
 
 ## PLAN — r4 review
 
@@ -96,3 +97,10 @@ Pre-publication `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/ac
 ```
 
 Planning `origin/main` before this evidence commit: `26112d6f78341d1a9cb16f5134ed7d7c578e6ab5`. Candidate pre-publication witness: develop `8a3f58da905fad52327d33466fde1d9568092519`, PR #1430 `be65de6da3ffd15e79fc6479dff8c81a8fcb81cd`.
+
+## PLAN — r4 re-review
+
+1. Read mission and establish the numbered review plan — done.
+2. Read round-4 evidence from planning origin/main; verify exact PR/base refs and ancestry — pending.
+3. Inspect r3 findings 1–3 and the new fail-closed guard finding 4 against candidate source and tests — pending.
+4. Record exact verdict/reproduction or withdrawals in this authorized planning act, publish, verify the candidate unchanged, then post END — pending.
