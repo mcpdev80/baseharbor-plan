@@ -12,7 +12,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 87/118 · **Blocked:** 3 · **Waiting:** 19  
-    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — die vier composes isolationszellen laufen jetzt real in der CI (owner \#1417) aber schlagen auf ErrDeploymentOwnerMissing — derselbe fehler den karte 0427-117 b…  
+    **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — owner-direktive 2026-11-07: BLOCKED lassen (In-CI tests, wartet auf \#117 + 021 runtime cells).  
     **Blocker:** [t-20261106-docker-2-half-frozen-core-stack](../tasks/t-20261106-docker-2-half-frozen-core-stack.md) — owner-direktive 2026-11-07: docker-2 core reparieren = coordinator host-ops (keine owned repo-files). docker-2 VM core-stack halb-eingefroren -\> wird per vm-lo…  
     Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)

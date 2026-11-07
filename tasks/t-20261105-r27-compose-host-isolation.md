@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: "die vier composes isolationszellen laufen jetzt real in der CI (owner #1417) aber schlagen auf ErrDeploymentOwnerMissing — derselbe fehler den karte 0427-117 behebt (laeuft, ornith). naechster trigger: 117 gemergt (develop), dann zellen gruenermoeglich + re-review."
+blocker: "owner-direktive 2026-11-07: BLOCKED lassen (In-CI tests, wartet auf #117 + 021 runtime cells)."
 
 ---
 
@@ -27,7 +27,7 @@ blocker: "die vier composes isolationszellen laufen jetzt real in der CI (owner 
     <!-- generated:card -->
     **Owner:** 0427-110-compose-inci · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-    **Blocker:** die vier composes isolationszellen laufen jetzt real in der CI (owner \#1417) aber schlagen auf ErrDeploymentOwnerMissing — derselbe fehler den karte 0427-117 behebt (laeuft, ornith). naechster trigger: 117 gemergt (develop), dann zellen gr…  
+    **Blocker:** owner-direktive 2026-11-07: BLOCKED lassen (In-CI tests, wartet auf \#117 + 021 runtime cells).  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
