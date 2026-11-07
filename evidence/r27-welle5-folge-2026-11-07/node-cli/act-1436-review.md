@@ -34,6 +34,8 @@ Candidate `eee54634a65eeab6f16205e91009ea0de9de91f2` is ancestry-clean and the h
 - Hosted checks on exact head: run `42398736386`. PASS: `PR · Validation · go-unit-tests`, `go-build`, `go-vet`, `cli-gofmt`, `PR · Focused Python`, `PR Selected Checks`, `PR · Trusted Plan`, `Source format`, and `Workflow policy`. SKIPPING: consumer/demo pins, exact candidate, public contracts, runner interface, selected runtime, HA Docker/Podman, release preflight, and validate. There are no failing checks. No local test, CI rerun, or workflow dispatch was started by this review.
 - Planning repository verified before evidence commit: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` returned `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`. `origin` fetch/push is `https://github.com/mcpdev80/baseharbor-plan.git`.
 - Pre-publish planning main witness: `f1645d4c797227f3a6453b6505c301ff9e70411b refs/heads/main`.
+- First published origin/main tree witness, exact output: `100644 blob 2b7d9eee2ae4b1652e4c2af3c400dfc0056f9ad7	evidence/r27-welle5-folge-2026-11-07/node-cli/act-1436-review.md`.
+- First evidence commit: `7023eed44bd58ef763f0541ccd354bd9220ee56a`.
 - The product candidate was not modified; final `ls-remote` still returned head `eee54634a65eeab6f16205e91009ea0de9de91f2` and base `8a3f58da905fad52327d33466fde1d9568092519`.
 
 ## Repository-rule compliance
