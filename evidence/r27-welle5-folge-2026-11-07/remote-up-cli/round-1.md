@@ -100,6 +100,29 @@ Result: ok github.com/mcpdev80/baseharbor/internal/application 2.992s
   clean remote head); it does not run in the CI unit group and is unrelated to
   this lane's change.
 
+## Drift correction (pre-acceptance, coordinator directive 2026-11-07)
+- Coordinator flagged: candidate 0b360898 was in DRIFT — origin/develop had
+  advanced to beb923fe6 (the #1419 owner-merge) since my base 86f990a baked in
+  the older develop 934be499. CI was green on my head, but a review on a
+  drifting head would be a drift-reject cycle. The PR AST must stand on develop
+  before review.
+- Action: `git fetch origin develop`; merged origin/develop (beb923fe6) into
+  work/r27-remote-up-cli. Resulting merge 5900dc6b:
+  - merge-base(HEAD, develop) == beb923fe6 exactly (rc0 resolved).
+  - No content conflict: the #1419 merge touched only deployment-owner-loan /
+    serve / core-management / stableid-lock files. app_remote_lifecycle.go and
+    my two cells were NOT touched (disjoint write-sets).
+  - Sole non-merge leaf on top of develop remains my 0b3608987 (exact one
+    candidate preserved).
+- Re-ran my cells on the merged stand: internal/application
+  TestRemoteApplicationPureClientConvergesThroughConnectorTransport (docker+podman)
+  PASS, TestRemoteApplicationBrokerRequiredIntentFailsClosedOnUnreachableIssuer
+  PASS; cmd/baha TestRemoteFreshApplyPureClientNeverBootstrapsLocalCore PASS;
+  go vet clean. No content conflict broke anything.
+- Pushed merge 0b3608987..5900dc6b to work/r27-remote-up-cli; ls-remote witness
+  5900dc6b (candidate now stands on develop beb923fe6).
+- New CI run #5013 (actions/runs/42374201283) at 5900dc6b, observed to terminal.
+
 ## END
-- Lane complete. Candidate 0b3608987 on work/r27-remote-up-cli (base 86f990a69, exact one candidate). CI #5012 = Success. Evidence on origin/main (4065deba).
+- Lane complete. Candidate 5900dc6b on work/r27-remote-up-cli (stands on develop beb923fe6, drift corrected; sole non-merge leaf 0b3608987, exact one candidate). CI #5012 Success; CI #5013 observed. Evidence on origin/main.
 - Note: acceptance for #1407 as a whole remains open to the Owner (round-3 ask 3 = real Docker AND Podman baha app up + doctor health OK transcripts with correct deployment owner) — that is owned by worker w285 (card t-20261106-r27-remote-up-podman-owner-missing, PR #1408). This lane delivered asks 1 (success regression, err==nil) and 2 (fail-closed negative) of the round-3 review.
