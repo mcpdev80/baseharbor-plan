@@ -15,7 +15,7 @@ kanban_status: active
 kanban_title: "0427-034 · submit maintenance operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-state-recovery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1428]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -27,6 +27,7 @@ evidence: []
 - [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-maintenance-client · **Priority:** normal  
+    **PR:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -37,7 +38,7 @@ evidence: []
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
 **Owner:** lane-0427-maintenance-client  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -64,3 +65,5 @@ Actual CLI->TLS API tests with different local/server filesystem roots, archive 
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+PR#1428 head 2e371f5fc GELIEFERT aber NICHT review-ready: DRIFT (develop 812c99c88 nicht vorfahr) + SCHREIBSATZ-KOLLISION mit #110 (app_repository/app_workload_integration + repository_runtime_fixture = #110/#1383 owned) + CI 1-pending (lane geparkt ohne END, 4.6). korrektur dispatched: rebase + 3 dateien raus + CI terminal + END. karte active.
