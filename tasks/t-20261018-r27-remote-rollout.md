@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Apply an explicitly selected next version through native Docker Compose or Podman Quadlet/systemd using existing…
 kanban_status: planned
 kanban_title: "0427-053 · apply a new candidate without"

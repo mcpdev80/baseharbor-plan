@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.2
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Realize portable BaseHarbor HTTP exposure on Kubernetes while allowing namespace-only BaseHarbor users to consume a…
 kanban_status: planned
 kanban_title: "0702-001 · provide HTTP access through"

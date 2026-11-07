@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.6
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Define Kubernetes Runtime conformance around real BaseHarbor lifecycle semantics and multiple realistic authorization profiles.
 kanban_status: planned
 kanban_title: "0706-001 · verify Kubernetes with"

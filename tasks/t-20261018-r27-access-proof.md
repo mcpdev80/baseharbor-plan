@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Prove external corporate OIDC without managed Keycloak and optional managed-Identity invite/profile path. Trusted Dev Remote…
 kanban_status: planned
 kanban_title: "0427-012 · qualify managed and external"

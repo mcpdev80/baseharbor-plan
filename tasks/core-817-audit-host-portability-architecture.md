@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: v0.4.29
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: "Audit the actual v0.4.29 host-platform implementations before final contract acceptance in v0.4.31 (#174). Passing the audit…"
 kanban_status: planned
 kanban_title: "0429-001 · verify host portability and"

@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.5
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Realize v0.6 availability guarantees on Kubernetes without requiring cluster-wide privileges that a namespace-only user normally…
 kanban_status: planned
 kanban_title: "0705-001 · implement availability"

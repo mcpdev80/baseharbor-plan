@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.0
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Implement Kubernetes as a real BaseHarbor Runtime Provider while keeping the normal application lifecycle fully usable with…
 kanban_status: planned
 kanban_title: "0700-001 · establish a namespace-scoped"

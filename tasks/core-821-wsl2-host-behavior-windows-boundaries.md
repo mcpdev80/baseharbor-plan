@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Implement Windows-side Host Platform semantics with native Windows client behavior explicitly separated from WSL2 Linux…
 kanban_status: planned
 kanban_title: "0429-004 · implement host behavior and"

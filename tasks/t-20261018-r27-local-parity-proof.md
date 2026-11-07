@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Same init/up/status semantics on local Docker and Podman without login/server/bundle; no compulsory services beyond…
 kanban_status: planned
 kanban_title: "0427-032 · prove unchanged no-login local"

@@ -8,7 +8,7 @@ release: v0.7.x
 version: v0.7.8
 parent: v0.7.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Add a runtime-neutral Delivery Provider axis so BaseHarbor can support direct mutation and delegated/GitOps reconciliation…
 kanban_status: planned
 kanban_title: "0708-001 · support delegated Deploy and"

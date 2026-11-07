@@ -9,7 +9,7 @@ version: v0.4.27
 release_stage: qualify
 parent: v0.4.27
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Obtain complete release-boundary validation for the frozen candidate.
 kanban_status: planned
 kanban_title: "0427-008 · complete required candidate"

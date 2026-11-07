@@ -8,7 +8,7 @@ release: v0.4.29
 version: ""
 parent: core-818
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: "A reusable conformance suite, CI matrix and support/evidence rules keep platform claims aligned with what BaseHarbor actually…"
 kanban_status: planned
 kanban_title: "0429-006 · verify platform conformance"

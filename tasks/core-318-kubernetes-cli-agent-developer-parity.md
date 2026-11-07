@@ -8,7 +8,7 @@ release: v0.8.x
 version: v0.8.5
 parent: v0.8.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: wait
 kanban_summary: Make Kubernetes as usable through BaseHarbor by humans and generic coding agents as the Compose reference runtime.
 kanban_status: planned
 kanban_title: "0805-001 · establish CLI, agent and"
