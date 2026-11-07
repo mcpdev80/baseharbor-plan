@@ -101,4 +101,5 @@ Result: ok github.com/mcpdev80/baseharbor/internal/application 2.992s
   this lane's change.
 
 ## END
-- Lane still active.
+- Lane complete. Candidate 0b3608987 on work/r27-remote-up-cli (base 86f990a69, exact one candidate). CI #5012 = Success. Evidence on origin/main (4065deba).
+- Note: acceptance for #1407 as a whole remains open to the Owner (round-3 ask 3 = real Docker AND Podman baha app up + doctor health OK transcripts with correct deployment owner) — that is owned by worker w285 (card t-20261106-r27-remote-up-podman-owner-missing, PR #1408). This lane delivered asks 1 (success regression, err==nil) and 2 (fail-closed negative) of the round-3 review.
