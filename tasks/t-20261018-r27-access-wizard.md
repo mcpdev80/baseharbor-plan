@@ -81,3 +81,8 @@ korrektur dispatched (df554d91): nur die 3 kommando-registrierung FAILS heben (b
 - **Bearbeiter:** ChatGPT (CI/Owner-Unterstützung), zusätzlich zu `lane-0427-access-wizard-r2`.
 - [Stacked Test-PR #1433](https://github.com/mcpdev80/baseharbor/pull/1433) basiert auf PR #1430 und prüft beide `access assign`/`offboard`-CLI-Befehle: getrennt von Core Login/Node Connect, fehlende/mehrfache PERSON ablehnen, Name aus CLI muss exakt dem im Wizard geprüften Personennamen entsprechen, JSON-Antwort bleibt auf Person/Decision beschränkt. Kleine fail-closed-Korrektur vor beiden Policy-Mutationscallbacks.
 - Card bleibt **active**, bis #1433 übernommen, #1430 CI grün und die finale Review-Abnahme erfolgt. Keine falsche Closed-/Merge-Markierung.
+
+## ChatGPT CI Offboarding-Finding — 2026-11-07
+
+- **Bearbeiter:** ChatGPT (CI/Sicherheitsregression). In [PR #1433](https://github.com/mcpdev80/baseharbor/pull/1433) weitergehenden echten Bug gefunden: `RevokeAssignment` erwartete Profilname, CLI übergab Target-Name; bei Namenskollision potenziell falsches Profil betroffen. Mit exakter Person+Target-Prüfung vor `Manager.Revoke` korrigiert; targeted Regressionen für erlaubtes Offboarding, falsch benannte Targets, unbekannte Person, nil Authority und Bestandsschutz anderer Profile hinzugefügt (`794377d`, `1a36cb2`).
+- Keine endgültige CI-Aussage für den gestapelten PR: #1433 basiert auf `work/r27-access-wizard` und löst derzeit keinen eigenständigen `develop`-PR-Lauf aus. Testübernahme in #1430 plus dessen vollständiger CI-/Review-PASS bleibt notwendig. **Active**, kein Merge, keine Abnahme.
