@@ -27,7 +27,7 @@ evidence: []
 - [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-access-wizard-r2 · **Priority:** normal  
-    **PR:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430)  
+    **PR:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -38,7 +38,7 @@ evidence: []
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
 **Owner:** lane-0427-access-wizard-r2  
 **Priority:** normal  
-**PRs:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430)  
+**PRs:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
