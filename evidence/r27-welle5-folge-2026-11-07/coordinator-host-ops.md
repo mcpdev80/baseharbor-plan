@@ -10,9 +10,8 @@
 - Controlled `down` of the w169-ci-bootstrap + w266dn projects. **Preserved** `bh-local-shared` / `bh-local-core-shared` (running, the shared local backend with persistent data under ~/.local/share/baseharbor). Verified: remaining bh-* = 8, all bh-local-*; non-local residual = 0. vm-lock released.
 - docker-2 core stack no longer frozen; a green run still has to validate it (runs via the ci-lanes runtime cells, card 0427-021).
 
-## #107 baha-podman-2 container-to-container / DNS routing (partially fixed; netavark gap open)
-- netavark backend; only default `podman` bridge; no stray stacks.
-- **Found `net.ipv4.ip_forward=0`** → set to 1 and persisted (`/etc/sysctl.d/99-baseharbor-podman-forward.conf`).
-- Probe: same-network container→container by IP works (0% loss); by hostname via /etc/hosts works. BUT a real DNS query to aardvark-dns gateway `10.89.0.1:53` fails ("Message too large"/"no servers reached") and **netavark created 0 nftables rules** (`nft refs:0`). aardvark-dns processes ARE running.
-- Diagnosis: residual = netavark firewall/nat rules not being installed for the rootless network → containers cannot reach the DNS gateway for real lookups → compose service startup that does DNS (apt/apk/Java/Quarkus/next runtime) times out (matches the #107 pg-init-timeout symptom). ip_forward=0 was one cause (fixed); the missing netavark nft rules is a config item (likely firewalld vs nftables backend) still open.
-- Next action: configure netavark firewall backend so per-network masq/DNAT-to-aardvark rules are installed; validate by running the actual compose startup on podman-2 (coordinated with the ci-lanes runtime cells). Not marking #107 fixed until a real green run.
+## #107 baha-podman-2 container→external routing (FIXED by ip_forward)
+- Owner correction 2026-11-07: these systems run **no firewall** (no firewalld/nftables policy). My earlier "netavark created 0 nft rules / firewalld conflict" theory is therefore WRONG and dropped — `nft refs:0` is the expected clean state, not a defect.
+- Real root cause found and fixed: **`net.ipv4.ip_forward=0`** (reboot reset) → set to 1 and persisted (`/etc/sysctl.d/99-baseharbor-podman-forward.conf`). Without it, rootless podman cannot masquerade/forward container→external, which is exactly the path a compose `pg-init`/dependency DNS resolution uses → the historical pg-init timeout.
+- Validation on a real container (fresh network): container→external DNS now resolves (`nslookup google.com` → address returned), container→`host.containers.internal` ping 0% loss, container→1.1.1.1 reachable. Internal container→container by IP and by hostname also fine. aardvark-dns running.
+- #107 host defect considered REPAIRED at the network layer. Final closure = a real compose start reaching READY on baha-podman-2 (exercised by cards #003 greenfield-stacks and #118 broker, now running), which is the genuine end-to-end witness. Not relying on my synthetic probe alone.
