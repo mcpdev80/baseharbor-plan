@@ -84,3 +84,9 @@ r1 END_DONE: Go+Python READY+SINGLE-default auf baha-docker belegt, regression k
 quarkus healthcheck fix PR#1429 (0743011c) drift-frei, delta nur quarkusadapter 2 dateien, CI 8pass. CODEX-REVIEW. REST der karte (podman-seite + alle 4 stacks) haengt an #110/#107 podman readiness -> karte bleibt active bis podman zellen durch.
 
 DOCKER-SEITE + QUARKUS-FERTIG: Go/py/nextjs READY+single-default belegt, quarkus PR#1429 (0743011c) drift-frei CI terminal 8-pass -> CODEX-REVIEW. lane 9389395c PARKTE an shell (blind-spot) -> freigegeben (PR ist traeger). REST DER KARTE: PODMAN-SEITE aller 4 stacks + single-default noch NICHT belegt — haengt an #110/#107 podman runtime readiness (KEIN host-blocker; maschinen bereitgestellt). karte bleibt active bis podman-zellen durch. re-dispatch wenn #110 podman ready.
+
+## Owner CI wiring — 2026-11-07
+
+- [Core PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) adds real eight-cell native Greenfield `go/nextjs/python/quarkus × docker/podman` source-to-`baha up` checks to the **existing** `nextjs-greenfield-e2e.yml` and wires a mandatory `v0.4.27` full Pre-Release job; no additional workflow file and no new default PR Runtime-gate.
+- Exact candidate native validation [run 42390280687](https://github.com/mcpdev80/baseharbor/actions/runs/42390280687), code SHA `163561dc14bcc2c2afe940a1d2bb0f911c736b01`, was started. A newer branch revision additionally binds the Pre-Release check; validate that revision separately before merge.
+- Card **remains active** until all eight native cells genuinely PASS, default SINGLE control-plane resource counts and explicit HA/negative checks are documented. A mere workflow definition, pending run or source-format green is **not** an accepted Greenfield test.
