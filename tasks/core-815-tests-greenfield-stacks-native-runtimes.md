@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-welle3 (lane w35)
-kanban_lane: active
+kanban_lane: blocked
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
-kanban_status: active
+kanban_status: blocked
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ prs: []
 sources: ["mcpdev80/baseharbor#815"]
 source_updated: "2026-10-15T16:50:55Z"
 labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
-blocker: ""
+blocker: "owner-direktive 2026-11-07: greenfield-stack tests vollstaendig in CI. nicht dispatchbar bis ci-seam 0427-021 (test-to-CI verankerung) + qualifizierte docker/podman hosts (#114/#107 ops) landen. naechster trigger: 021 accepted."
 resolution: ""
 evidence: []
 ---
 
-- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/active #view/active #area/testing #kind/acceptance
+- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/blocked #view/blocked #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** coord-welle3 (lane w35)  
+    **Blocker:** owner-direktive 2026-11-07: greenfield-stack tests vollstaendig in CI. nicht dispatchbar bis ci-seam 0427-021 (test-to-CI verankerung) + qualifizierte docker/podman hosts (\#114/\#107 ops) landen. naechster trigger: 021 accepted.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Owner:** coord-welle3 (lane w35)  
