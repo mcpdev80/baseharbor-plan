@@ -5,7 +5,7 @@
 1. Read the r5 mission and create the visible numbered plan — done.
 2. Read round-5 evidence from planning origin/main and inspect the named candidate test functions and oracle lines at exact SHA — done.
 3. Decide whether the reported mutants establish the disputed behaviors; record only the remaining review findings and corrected recipe — done.
-4. Verify candidate head before and after, publish the updated verdict in this authorized act on planning origin/main, then post END — in progress.
+4. Verify candidate head before and after, publish the updated verdict in this authorized act on planning origin/main, then post END — done.
 
 ## Review identity
 
@@ -168,3 +168,10 @@ Pre-publication `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/ma
 ```
 
 Candidate `git ls-remote` immediately before publication still returned develop `8a3f58da905fad52327d33466fde1d9568092519` and PR #1428 head `396529860e1f349576190f435cb06e2b7b496866`.
+
+
+Post-publication tree witness at planning `origin/main` `69c2c84979c4f3989f96a4f84e0a0064fc3e1b77`:
+
+```text
+100644 blob 193f3f9c7ded92f46a1cbc95be45d276d206bfaa	evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
