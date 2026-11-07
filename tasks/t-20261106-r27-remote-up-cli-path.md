@@ -12,7 +12,7 @@ kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
 kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
-prs: [mcpdev80/baseharbor#1407]
+prs: [mcpdev80/baseharbor#1407, mcpdev80/baseharbor#1437]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
 blocker: ""
@@ -23,7 +23,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 - [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** chatgpt-0427-116 · **Priority:** normal  
-    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
+    **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
@@ -81,3 +81,5 @@ CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upE
 - Die bisherigen OIDC-/CI-Schwierigkeiten sind weiterhin offene technische Teilaufgaben, aber mit begonnener Bearbeitung kein stillgelegter Alarmstatus. `Active` ist weder PASS noch Mergefreigabe.
 
 - **2026-11-07 Ownership:** ChatGPT uebernimmt den Produkt-Bootstrap-Teil und die Abnahmevorbereitung als Karten-Owner. Die bisherige Codeman-Lane `lane-0427-116 (geraet blockiert)` sowie deren Core-PR #1407 bleiben als separate, nicht zu ueberschreibende Zuständigkeit erhalten; keine Dateireservierung durch den Karten-Owner-Wechsel aufgehoben.
+
+- 2026-11-07: ChatGPT hat den isolierten produktiven Initial-Tenant-/Operator-Bootstrap als Core-PR [#1437](https://github.com/mcpdev80/baseharbor/pull/1437) auf eigenem Branch implementiert. Neue Dateien `internal/database/operator_bootstrap.go` und `operator_bootstrap_test.go`, nicht im Codeman-PR #1407 reserviert. Implementiert: atomare initiale Tenant-Erstellung und OIDC-verifizierte `editor`-Membership mit serialisiertem, idempotentem Retry, Ablehnung fremder/abgelaufener Principal und zweiter Initialisierung. **Teilimplementierung:** Anbindung an den autorisierten lokalen Core-Setup-/OIDC-Login-Pfad und reale VM-Tests stehen noch aus; Status bleibt `active`, kein Claim zur fertigen End-to-End-Funktion. Eine CI des exakten PR-Heads ist beauftragt; kein weiteres PR-Push bis zum Ergebnis.
