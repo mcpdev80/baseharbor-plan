@@ -51,6 +51,8 @@ The candidate fixes the three command-registration failures and passes hosted CI
 - Hosted checks on exact PR #1430 head: run `42399764027`. Fourteen passed: `wizard-registration-tests`, `documentation-audit`, `go-unit-tests`, `go-build`, `go-vet`, `cli-gofmt`, `mkdocs-en-strict`, `mkdocs-de-strict`, `pages-candidate-build`, `PR Selected Checks`, `PR · Trusted Plan`, `PR · Focused Python`, `PR · Source format`, and `Workflow policy`. Ten path-specific/nonselected checks were skipped, including HA Docker/Podman; none failed. No CI rerun or local test was started by this review.
 - Planning repository verified before the evidence commit: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` returned `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`. `origin` fetch/push is `https://github.com/mcpdev80/baseharbor-plan.git`.
 - Pre-publish `origin/main` witness: `93148b364ed433f79010b16d5cb6a9599c93de8c refs/heads/main`.
+- First published origin/main tree witness, exact output: `100644 blob ef0070210679eb0ec02ce0137fc8291a287e7845	evidence/r27-welle5-folge-2026-11-07/access-wizard/act-1430-review.md`.
+- First evidence commit: `c8ccf9116cb1cd6ca3966d0ecbe4a3894868a7d5`.
 - Product candidate remained `e651cb1c2978c022210c869e6ea6e1e9a43aefa9` at post-review `ls-remote`; no product or PR mutation occurred.
 
 ## Repository-rule compliance
