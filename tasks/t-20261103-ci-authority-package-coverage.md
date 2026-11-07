@@ -1,5 +1,7 @@
 ---
 id: t-20261103-ci-authority-package-coverage
+card_number: "0427-098"
+card_short_title: "execute authority and"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "Codex (CI completion 2026-11-03)"
 kanban_lane: closed
 kanban_summary: "Resolve the real unknown-impact failure in PR 1326 by executing the authority, stable-ID and service-access package tests…"
 kanban_status: closed
-kanban_title: "CI: execute authority and stable-ID package checks for their real Go changes"
+kanban_title: "0427-098 · execute authority and"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261103-ci-receipt-source-recovery]
 repos: [mcpdev80/baseharbor]
