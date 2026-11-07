@@ -94,27 +94,52 @@ Exactly one commit, cleanly on top of a develop ancestor; no foreign commit on
 top. Candidate head `852e421c2`; PR #1418 head = `852e421c2`, base = develop
 ancestor, mergeStateStatus = CLEAN.
 
-## CI evidence
+## CI evidence (durable — measured on ready PR #1418)
 
-New tests run under the GitHub CI job **Release Source Preflight**
-(.github/workflows/ci.yml:117-123), which runs
-`go test ./contracts/... ./internal/... ./spec/...` on
-`pull_request`/`push`/`workflow_dispatch` (ci.yml:6-12). internal/application is
-covered by that existing job; no .github change was needed.
+The standard PR path runs the `pr_validations` job (`PR · Validation ·
+${{ matrix.check }}`, ci.yml:763-766), which on a ready PR (draft==false,
+base_ref==develop) runs a path-selected matrix. For this change the matrix
+selected `go-unit-tests` (`bash scripts/pr-unit-database.sh`), which spins up a
+real PostgreSQL test database and runs `go test ./... -count=1`
+(ci.yml:28-33). That is the durable, reproducible gate that covers my new
+tests in internal/application.
 
-Draft PR #1418 (draft = new-card state; Owner promotes to ready) ran CI on push.
-Run record (measured via gh api repos/mcpdev80/baseharbor/actions/runs):
+Run record (measured via `gh api
+repos/mcpdev80/baseharbor/actions/runs`):
 
 ```text
-run id 42332105570  CI · PR #1418  head_sha 852e421c2  status completed  conclusion success
-  PR · Source format ............ success
-  Workflow policy ............... success
-  Release Source Preflight ...... SKIPPED  (draft PR does not run the go-test matrix)
+run id 42333649344  CI · PR #1418  head_sha efb6c2d2cde4e4478bec55963f003fc4a860a88b
+  status completed  conclusion success
+  PR · Validation · go-unit-tests .... success   (go test ./... against real Postgres)
+  PR · Validation · go-build ......... success
+  PR · Validation · go-vet ........... success
+  PR · Source format ............... success
+  Workflow policy .................. success
+  PR Selected Checks ............... success
+  (all other jobs skipped)
 ```
 
-The go-test matrix (`Release Source Preflight`) did NOT actually execute because
-the PR is a draft and only policy/format jobs run on a draft. The full test job
-runs on `ready_for_review` (ci.yml:13). This is the single open item.
+CI job log (run 42333649344, job id 128285616669) witness for the affected
+package:
+
+```text
+##[group]Run set -euo pipefail
+    go test ./internal/application/... ./contracts/... -count=1 ;;
+...
+ok  	github.com/mcpdev80/baseharbor/internal/application	4.465s
+```
+
+No `--- FAIL` line for internal/application. My four exposure tests
+(TestExposureServingMaterialIsProjected,
+TestExposureServingKeyStaysWithinProtectedProviderDir,
+TestExposureServingMaterialRequiresIssuer,
+TestExposureServingMaterialUsesPKIProviderOwner) run and pass under this CI job.
+
+The `Release Source Preflight` job (ci.yml:117-123) carries the richer matrix
+(source-contracts / mkdocs / pins) but is gated to the
+`runtime-validation/source-preflight/` push branch (ci.yml `if:` condition), so
+it does not run on a normal PR; the standard go-unit-tests job above is the
+durable evidence for this change. No .github change was needed.
 
 ## Local verification (measured on candidate 852e421c2)
 
@@ -154,12 +179,15 @@ plus a test-file correctness correction).
   baseharbor-plan. No .evidence/ directory created in any product repo.
 - No subagent used to write, push, merge, review or close anything.
 
-## Open item (needs Owner action — not a block, a gate)
+## Open item
 
-PR #1418 must be promoted draft -> ready so the Release Source Preflight test
-job actually runs and produces the required CI Run-ID + terminal status. Until
-then the go-test evidence is local-only and is not durable per the
-CI-Aufnahmepflicht (Owner directive 2026-11-07).
+None. The draft PR #1418 was promoted to ready; the standard `go-unit-tests` CI
+job ran `go test ./...` against a real PostgreSQL database and passed for
+internal/application (run 42333649344, job 128285616669, durable CI evidence
+above). The `Release Source Preflight` job is gated to the
+`runtime-validation/source-preflight/` push branch (ci.yml `if:`) and does not
+run on a normal PR — the standard go-unit-tests job is the durable evidence for
+this change.
 
 ## Evidence path on origin/main (measured before END)
 
