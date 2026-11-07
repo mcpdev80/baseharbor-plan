@@ -1,5 +1,7 @@
 ---
 id: core-313
+card_number: "0800-001"
+card_short_title: "implement the complete app"
 areas: [kubernetes]
 type: feature
 release: v0.8.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Start the Kubernetes Complete phase by making the full BaseHarbor application lifecycle available on Kubernetes wherever the…
 kanban_status: planned
-kanban_title: "Kubernetes: implement the complete app lifecycle"
+kanban_title: "0800-001 · implement the complete app"
 depends_on: [core-310, core-325, t-20261017-release-0-8-0-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

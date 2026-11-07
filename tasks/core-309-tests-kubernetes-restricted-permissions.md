@@ -1,5 +1,7 @@
 ---
 id: core-309
+card_number: "0706-001"
+card_short_title: "verify Kubernetes with"
 areas: [testing]
 type: acceptance
 release: v0.7.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Define Kubernetes Runtime conformance around real BaseHarbor lifecycle semantics and multiple realistic authorization profiles.
 kanban_status: planned
-kanban_title: "Tests: verify Kubernetes with restricted permissions"
+kanban_title: "0706-001 · verify Kubernetes with"
 depends_on: [core-102, core-304, core-305, core-306, core-307, core-308, t-20261017-release-0-7-6-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

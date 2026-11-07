@@ -1,5 +1,7 @@
 ---
 id: core-318
+card_number: "0805-001"
+card_short_title: "establish CLI, agent and"
 areas: [kubernetes]
 type: feature
 release: v0.8.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Make Kubernetes as usable through BaseHarbor by humans and generic coding agents as the Compose reference runtime.
 kanban_status: planned
-kanban_title: "Kubernetes: establish CLI, agent and developer parity"
+kanban_title: "0805-001 · establish CLI, agent and"
 depends_on: [core-313, core-315, core-316, core-317, t-20261017-release-0-8-5-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
