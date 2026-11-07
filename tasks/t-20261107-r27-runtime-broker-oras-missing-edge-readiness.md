@@ -1,7 +1,7 @@
 ---
 id: t-20261107-r27-runtime-broker-oras-missing-edge-readiness
 type: task
-areas: []
+areas: [deployment]
 release: v0.4.27
 version: ""
 parent: ""
@@ -11,7 +11,7 @@ kanban_lane: active
 kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
 kanban_title: "Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready"
 priority: ""
-depends_on: [t-20261104-r27-vm-integration-runs]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-integration-runs]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -20,7 +20,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #defect #runtime-broker #status/active #view/active #kind/task
+- [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
     <!-- generated:card -->
     **Owner:** worker (w269)  
     **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
@@ -30,7 +30,7 @@ evidence: []
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
 **Owner:** worker (w269)  
 **Priority:** not set  
 **PRs:** none  
