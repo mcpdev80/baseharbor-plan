@@ -71,7 +71,7 @@ No tag, release, or deployment was created.
 
 ## Planning closeout
 
-The task card `t-20261018-r27-remote-material` is being closed as accepted after the confirmed merge. The acceptance evidence URL is this file on planning `origin/main`. Planning render/check and remote publication witnesses will be recorded after the status update.
+The task card `t-20261018-r27-remote-material` was closed as accepted after the confirmed merge. The acceptance evidence URL is this file on planning `origin/main`. The status helper reported `ok: t-20261018-r27-remote-material -> closed (render+check gruen, publiziert)`. Planning commit `27edc5eec52133d10799d270d3d72dc846f91100` contains the closeout; `python3 scripts/plan.py show t-20261018-r27-remote-material` reports `state: accepted`.
 
 ## repo-rule compliance
 
@@ -83,4 +83,11 @@ Exact planning `origin/main` witness after `git pull --rebase origin main` and b
 
 ```text
 4da251f857fb2c0549f9ed8be9e1fe69f2e1459e\trefs/heads/main
+```
+
+
+Remote planning tree witness for the evidence path after the evidence push and status closeout (origin/main `27edc5eec52133d10799d270d3d72dc846f91100`):
+
+```text
+100644 blob ba0e277c941c27fddeca355231586c63de2a184a\tevidence/r27-welle5-folge-2026-11-06/remote-material/act-1418c-merge.md
 ```
