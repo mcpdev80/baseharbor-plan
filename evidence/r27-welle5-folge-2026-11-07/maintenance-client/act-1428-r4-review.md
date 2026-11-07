@@ -31,3 +31,9 @@
 REQUEST-CHANGES for PR #1428 at `396529860e1f349576190f435cb06e2b7b496866`. The tombstone now contains the committed destroy record, but the required replay path is absent, and the history-residue/retry rows do not test residue or a successful retry. Keep the hosted CI evidence as-is; after correction, the existing `go-unit-tests` and `PR Selected Checks` must pass on the new exact head. No local tests or CI reruns were triggered during this review.
 
 END BLOCKED 0427-maintenance-r4-review: request-changes; candidate `396529860e1f349576190f435cb06e2b7b496866`.
+
+## Publication witness
+
+- `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-r4-review.md` returned exactly: `100644 blob b0b56f6d0bad1ae08f43e6a537c36516fdf7954b evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-r4-review.md`.
+- `git ls-remote origin refs/heads/main` returned `913d9fa6092944d8ab51df39f811da3d021216b8 refs/heads/main` before this publication-witness update.
+- Final candidate witness before END: develop `8a3f58da905fad52327d33466fde1d9568092519`; PR #1428 head `396529860e1f349576190f435cb06e2b7b496866`.
