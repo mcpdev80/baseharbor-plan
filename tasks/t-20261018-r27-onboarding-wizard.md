@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-onboarding-wizard (r2 korrektur)
-kanban_lane: active
+owner: lane-0427-onboarding-wizard
+kanban_lane: review
 kanban_summary: Native success continues silently; import one trusted device bundle or non-secret team profile and authenticate only as policy…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-043 · attach a workstation with"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-profile-codec, t-20261018-r27-secure-export, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -26,19 +26,19 @@ wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
+- [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-onboarding-wizard (r2 korrektur) · **Priority:** normal  
+    **Owner:** lane-0427-onboarding-wizard · **Priority:** normal  
     **PR:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** lane-0427-onboarding-wizard (r2 korrektur)  
+**Owner:** lane-0427-onboarding-wizard  
 **Priority:** normal  
 **PRs:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -69,3 +69,5 @@ Actual wizard entry tests for both connection modes, repeated operations/no re-p
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
 
 END geliefert, ABER NICHT review-ready: DRIFT (develop 8a3f58da9) + KOLLISION mit #119 (application_registry_source.go + internal/orgconfig/source_oci.go + application_registry_pull_error_test.go sind #119 owned, deren lane 27494182 laeuft parallel dort). onboarding besitzt NUR onboarding.go/connection_profile_codec.go/internal/onboardingwizard/*. CI 9-pass (registration ok). korrektur: rebase + #119-dateien raus. karte active.
+
+r2 drift-frei (head 09ec640b2, develop 8a3f58da9 merged, ancestor rc0). delta NUR 5 eigene onboarding-dateien (OCI-kollision als lag-artefakt aufgeloest, bytegleich develop). CI run 42395810316 terminal 9-pass, zaun+registration gruen. CODEX-REVIEW. lane geliefert.
