@@ -211,7 +211,11 @@ over. That is the designed replacement, not a diagnosis-driven re-run.
 
 Terminal observation of run 42374471424 (head 393a1969d, event pull_request)
 via `gh run watch` + `gh run view --json status,conclusion,jobs` (this lane):
-    status/conclusion: (recorded at END below)
+    Jobs completed so far on 42374471424: Workflow policy, PR · Source format,
+    PR · Trusted Plan, go-build, go-vet, cli-gofmt, Focused Python => success;
+    Exact Candidate / Selected Runtime / consumer pins => skipped (gates);
+    go-unit-tests => the covering suite, in progress at evidence-commit time;
+    terminal state recorded in the follow-up evidence commit on main.
 
 Local regression roster on the candidate (this lane, `go test -v`, candidate
 tree 393a1969d, all PASS):
@@ -250,10 +254,11 @@ tree 393a1969d, all PASS):
 
 ## END
 
-State: candidate pushed and PR head verified; PR · Validation · go-unit-tests
-in progress on run 42374471424 at END time — the END line below is QUESTION so
-the lane stays accountable for the run instead of idling unrecorded; a
-follow-up END_DONE will be posted when the watcher reports the terminal state.
+State at this END post: run 42374471424 (head 393a1969d) was still executing
+its covering job PR · Validation · go-unit-tests, so the END line below is
+QUESTION (the lane stays accountable and the run keeps being watched) instead
+of idling unrecorded. When the watcher reports the terminal state, the record
+is appended here and END_DONE is posted.
 
 QUESTION 0427-118-r2-correct: round-2 fixes shipped on PR #1425 candidate
 393a1969d (readyz default READY mount-derived, waiver removed; unverifiable OCI
