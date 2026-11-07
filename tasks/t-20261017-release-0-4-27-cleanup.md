@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-4-27-cleanup
+card_number: "0427-005"
+card_short_title: "reconcile old PRs, tasks and"
 type: maintenance
 areas: [release]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: "o267-base (coordinator, owner-authorized)"
 kanban_lane: closed
 kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: closed
-kanban_title: "v0.4.27 · Release start: reconcile old PRs, tasks and branches"
+kanban_title: "0427-005 · reconcile old PRs, tasks and"
 priority: high
 depends_on: [t-20261017-release-0-4-26-verify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
