@@ -8,7 +8,7 @@ release: v0.8.x
 version: v0.8.6
 parent: v0.8.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Harden the completed Kubernetes feature set across realistic restricted-cluster conditions before declaring Kubernetes…
 kanban_status: planned
 kanban_title: "0806-001 · verify production hardening"

@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: "Qualify real-world operation, not a filmed demonstration: same app has three independent release/component versions and…"
 kanban_status: planned
 kanban_title: "0427-061 · prove real stage versions"

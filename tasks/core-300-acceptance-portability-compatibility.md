@@ -8,7 +8,7 @@ release: v0.5.x
 version: v0.5.4
 parent: v0.5.x
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: "Close v0.5 by proving the frozen contracts are stable, portable and ready for later availability/topology semantics and new…"
 kanban_status: planned
 kanban_title: "0504-001 · verify portability and Compat"

@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Single owner wires accepted callable adapters into public commands and machine discovery without duplicates. Same…
 kanban_status: planned
 kanban_title: "0427-048 · register the accepted CLI JSON"

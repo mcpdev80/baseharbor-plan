@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: planned
 kanban_summary: Enable only end-to-end verified Docker remote capabilities; retain rejection for every unsupported capability. Real app consumes…
 kanban_status: planned
 kanban_title: "0427-050 · verify SQL cache and reachable"
