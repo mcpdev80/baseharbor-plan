@@ -4,7 +4,7 @@
 - Card `t-20261106-r27-remote-up-cli-path` (0427-116, PR #1407, branch `work/r27-remote-up-cli`). Mission `coordinator/missions/0427-116-r4-correct.txt`.
 - Basis drift handled (Owner directive 2026-11-07): develop advanced to `c8a79faff` (#1420/#1424/#1425/#1426). Merged `origin/develop` into the candidate before the r4-final push; `git merge-base --is-ancestor c8a79faff HEAD` rc0.
 - Result: PR #1407 head `4402d3f4b` carries one new **red-first** cmd/baha test that drives the real CLI up-path (`executeApplicationUpLifecycle` -> `executeRemoteApplicationApply` in `cmd/baha/app_remote_lifecycle.go`) for a connector-bound, broker-less pure-client app and asserts the behavioral discriminator #1407 introduced at the production write seam: the up-path routes through the bound target's connector transport, takes NO managed-service issuer and touches NO local Core (injected `applicationCoreBootstrap` never called, no local installation state), then fails closed at the connector seam (no live enrolled node). Same cell asserts the broker-required intent fails closed before mutation. The success seam (`err == nil`) is unit-unreachable at the live-enrolled-node connector boundary; the genuine success round-trip (`Publish`+`ApplyApplication` with `err == nil` on both families) is the internal/application cell `remote_pureclient_apply_roundtrip_test.go`, which the mission forbids calling from the cmd/baha layer.
-- CI (own run, 4.6): `42379326641` (run 5027) terminal **success**; `PR · Validation · go-unit-tests` PASS (9m8s) covers the new cmd/baha test AND the internal round-trip via `go test ./cmd/baha` + `go test ./internal/...` (PR trigger against develop). Docker/podman runtime gates skipped by the path rule (not failures).
+- CI (own run, 4.6): drift-refreshed head `c4d528645` (developer `812c99c88` merged, #1383 conflict-free vs scoped write-set). Hosted run `42381393714` terminal **success**; `PR · Validation · go-unit-tests` success (8m34s) covers the new cmd/baha test AND the internal round-trip via `go test ./cmd/baha` + `go test ./internal/...` (PR trigger against develop); `go-build`/`go-vet` success too. Docker/podman runtime gates skipped by the path rule (not failures).
 
 ## PLAN (numbered; mirrors live board workers/todos/0427-116-r4-correct.json)
 
@@ -82,12 +82,32 @@
 - No subagents; every step in this session.
 - No self-merge; PR left OPEN.
 
+## Drift refresh to 812c99c88 (Owner drift-befund 2026-11-07)
+
+- develop continued to `812c99c88` (owner merged #1383), which touches the three test files the earlier c8a79faff merge already carried: `cmd/baha/app_repository_integration_test.go`, `cmd/baha/app_workload_integration_test.go`, `cmd/baha/repository_runtime_fixture_test.go`.
+- Pre-refresh my head `4402d3f4b` was based on `c8a79faff`, so `git merge-base --is-ancestor origin/develop HEAD` FAILED against `812c99c88`.
+- Method (before any CODEX-REVIEW): `git fetch origin develop`, `git merge --no-edit origin/develop` => ort merge, **zero conflicts**, 3 files changed (the #1383 test files only). Post-merge witnesses:
+  - `git merge-base --is-ancestor 812c99c88 HEAD` => rc0 (812c99c88 IS now an ancestor of HEAD).
+  - `git merge-base origin/develop HEAD` => `812c99c88` (current develop merge base).
+  - new HEAD `c4d528645` (refresh merge commit, no content edits by this lane).
+  - scoped write-set CONFIRMED conflict-free / byte-identical to `4402d3f4b`: `git diff 4402d3f4b HEAD -- cmd/baha/app_remote_lifecycle.go cmd/baha/app_remote_up_success_discriminator_test.go internal/application/remote_pureclient_apply_roundtrip_test.go cmd/baha/app_remote_pureclient_apply_test.go` => empty. #1383 did not touch my write-set.
+  - `go build ./...` rc0; `go vet ./cmd/baha/ ./internal/application/` rc0; `gofmt -l` on scoped files empty; new discriminator test PASS (both subtests).
+  - diff vs develop now scoped to card files only: `cmd/baha/app_remote_lifecycle.go`, `cmd/baha/app_remote_pureclient_apply_test.go`, `cmd/baha/app_remote_up_success_discriminator_test.go`, `internal/application/remote_pureclient_apply_roundtrip_test.go` (the 3 #1383 test files dropped from the delta because develop now includes them).
+  - Push: `4402d3f4b..c4d528645 HEAD -> work/r27-remote-up-cli` (fast-forward, no force). Remote head `c4d528645`; PR #1407 OPEN MERGEABLE base develop.
+- Own-commits `git log origin/develop..HEAD`: `c4d528645 Merge branch 'develop' into HEAD` (refresh) on top of `4402d3f4b`; no foreign commit.
+
+## CI coverage (new-test rule 2026-11-07)
+
+- The new cmd/baha test (`cmd/baha/app_remote_up_success_discriminator_test.go`, package `cmd/baha`) runs under hosted job `PR · Validation · go-unit-tests` via `go test ./cmd/baha` (ci.yml "Run release-source tests": `BASEHARBOR_LOGS_ENABLED=false go test ./cmd/baha`). The internal round-trip cell (`internal/application/remote_pureclient_apply_roundtrip_test.go`) runs via `go test ./internal/...` in the same job.
+- Trigger: pull_request opened/synchronize/reopened against develop (ci.yml PR trigger block). No new test runs only locally or in a VM cell; both packages are covered by the hosted go-unit-tests job.
+- No `.github/**` change required: the existing `PR · Validation · go-unit-tests` group already covers the changed path. (A future VM-transcript test picked up by a docker/podman acceptance group would be an Owner-scope `.github/**` change — reported as finding with file:line, not edited.)
+
 ## Publication block (second-to-last action)
 
-- Before push, `git log --oneline origin/main..HEAD` => `a937569a evidence(r27 w5-folge-2026-11-07): remote-up-cli round-4 — real CLI baha app up success-path discriminator (docker+podman) on PR #1407 head 4402d3f4b, CI 42379326641 run 5027 go-unit-tests PASS; developer head refreshed to c8a79faff; success seam unit-unreachable at live-enrolled-node connector -> proven via internal round-trip cell + cmd/baha real-CLI connector-route discriminator` — lists ONLY this lane's commit.
-- Push: `5b9109e2..a937569a HEAD -> main`; `git log --oneline origin/main..HEAD` after push => empty (fully published).
+- Before push, `git log --oneline origin/main..HEAD` => `71e173f9 evidence(r27 w5-folge-2026-11-07): remote-up-cli round-4 — real CLI baha app up success-path discriminator (docker+podman) on PR #1407; developer head refreshed c8a79faff then 812c99c88 (#1383 conflict-free vs scoped write-set), head c4d528645, CI 42381393714 go-unit-tests PASS; success seam unit-unreachable at live-enrolled-node connector -> proven via internal round-trip cell + cmd/baha real-CLI connector-route discriminator` — lists ONLY this lane's commit.
+- Push: `62c47f16..71e173f9 HEAD -> main`; `git log --oneline origin/main..HEAD` after push => empty (fully published).
 - `git ls-tree -r origin/main --name-only | grep remote-up-cli/round-4` => `evidence/r27-welle5-folge-2026-11-07/remote-up-cli/round-4.md` (present on origin/main).
-- `git ls-remote origin refs/heads/main` => `62c47f16d7903def5920ba9404f3389cde2837a8 refs/heads/main` (final; round-4 file path present on origin/main).
+- `git ls-remote origin refs/heads/main` => `71e173f917e28379dd7787575005f05b31a3f31e refs/heads/main` (final; round-4 file path present on origin/main).
 
 ## Teardown witness
 
@@ -96,4 +116,4 @@
 
 ## END
 
-END_DONE 0427-116-r4-correct: PR #1407 head 4402d3f4b = developer head c8a79faff merged (basis drift #1420/#1424/#1425/#1426 handled, c8a79faff is-ancestor-of-HEAD rc0) + red-first cmd/baha success-discriminator drives real CLI baha app up for connector-bound broker-less pure-client app, asserts connector route / no local Core bootstrap / fail-closed at connector seam (red proven by injecting Core bootstrap), same cell broker-required fails closed before mutation; internal round-trip cell proves the unit-unreachable err==nil success seam (docker+podman); CI 42379326641 run 5027 terminal success go-unit-tests PASS (go test ./cmd/baha + ./internal/...) covers new cmd/baha test + internal round-trip; go-build/vet/gofmt PASS; docker/podman runtime gates skipped by path rule; success seam genuinely unit-unreachable (live-enrolled-node connector), real CLI success against a live node is a VM/transcript concern outside the unit boundary; #1419/#117 referenced correctly (#117=merged fail-closed owner-fix, NOT an success transcript); delta scoped to cmd/baha/app_remote_lifecycle.go + remote-up tests; no .github; PR OPEN MERGEABLE base develop for CODEX-REVIEW; evidence=evidence/r27-welle5-folge-2026-11-07/remote-up-cli/round-4.md; own containers 0 podman 0
+END_DONE 0427-116-r4-correct: PR #1407 drift-freedom confirmed — head c4d528645 = developer head 812c99c88 (#1383) merged conflict-free vs scoped write-set (812c99c88 is-ancestor-of-HEAD rc0, merge-base 812c99c88; app_remote_lifecycle.go + remote_pureclient_* byte-identical to 4402d3f4b, #1383 test files untouched); red-first cmd/baha success-discriminator drives real CLI baha app up for connector-bound broker-less pure-client app, asserts connector route / no local Core bootstrap / fail-closed at connector seam (red proven by injecting Core bootstrap), same cell broker-required fails closed before mutation; internal round-trip cell proves the unit-unreachable err==nil success seam (docker+podman); CI 42381393714 terminal success go-unit-tests PASS 8m34s + go-build/vet (go test ./cmd/baha + ./internal/...) covers new cmd/baha test + internal round-trip; docker/podman runtime gates skipped by path rule; success seam genuinely unit-unreachable (live-enrolled-node connector), real CLI success against a live node is a VM/transcript concern outside the unit boundary; #1419/#117 referenced correctly (#117=merged fail-closed owner-fix, NOT an success transcript); diff vs develop scoped to card files only; no .github; PR OPEN MERGEABLE base develop for CODEX-REVIEW; evidence=evidence/r27-welle5-folge-2026-11-07/remote-up-cli/round-4.md published to origin/main 71e173f9; own containers 0 podman 0
