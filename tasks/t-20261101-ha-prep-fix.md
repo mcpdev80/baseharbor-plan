@@ -17,10 +17,11 @@ prs: [mcpdev80/baseharbor#1254]
 sources: [mcpdev80/baseharbor#1254]
 blocker: ""
 resolution: superseded
+superseded_by: t-20261018-r27-ci-lanes
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1254", "https://github.com/mcpdev80/baseharbor/actions/runs/41321042904", "https://github.com/mcpdev80/baseharbor/actions/runs/41320875840", "https://github.com/mcpdev80/baseharbor/commit/a6e79c768215b5a36a20e88f688d06aa46fe155c"]
 ---
 
-- [ ] t-20261101-ha-prep-fix · targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) #task #release/v0-4-27 #status/closed #view/closed #kind/task
+- [x] t-20261101-ha-prep-fix · targeted-integration: prepare rootless runtime context in Targeted runtime job (docker-leg parity fix) #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** ha-prep-fix worker (ornith1.5)  
     **PR:** [baseharbor#1254](https://github.com/mcpdev80/baseharbor/pull/1254)  
@@ -28,7 +29,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1254", "https://github.c
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** superseded  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** ha-prep-fix worker (ornith1.5)  

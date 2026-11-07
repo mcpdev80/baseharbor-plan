@@ -17,17 +17,18 @@ prs: ["mcpdev80/baseharbor#1269"]
 sources: []
 blocker: ""
 resolution: accepted
-evidence: []
+evidence: [https://github.com/"mcpdev80/baseharbor#1269"]
 ---
 
-- [ ] t-20261102-pgauth2-openbao-backend-privileges · OpenBao: grant PG backend role legal connect on postgres/template1 #task #release/v0-4-x #status/closed #view/closed #kind/task
+- [x] t-20261102-pgauth2-openbao-backend-privileges · OpenBao: grant PG backend role legal connect on postgres/template1 #task #release/v0-4-x #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** ornith (pgauth2)  
     **PR:** [baseharbor#1269](https://github.com/mcpdev80/baseharbor/pull/1269)  
+    **Evidence:** [proof 1](https://github.com/"mcpdev80/baseharbor#1269")  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** accepted  
 **Release:** [v0.4.x](../releases/v0.4.x.md)  
 **Depends on:** none  
 **Owner:** ornith (pgauth2)  
