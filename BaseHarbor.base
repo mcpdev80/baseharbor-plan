@@ -34,6 +34,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -55,6 +56,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -76,6 +78,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -97,6 +100,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -118,6 +122,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -139,6 +144,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -160,6 +166,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -181,6 +188,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -202,6 +210,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -223,6 +232,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -244,6 +254,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -265,6 +276,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
@@ -286,6 +298,7 @@ views:
     groupOrder:
       - ready
       - active
+      - wait
       - review
       - blocked
     columnWidth: 420
