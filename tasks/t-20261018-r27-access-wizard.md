@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-013-access-r4
-kanban_lane: review
+owner: lane-pending-r5
+kanban_lane: active
 kanban_summary: "Name->search/select Targets->rights->review; preserve selections across pagination/back, show effective scope. Distinguish…"
-kanban_status: review
+kanban_status: active
 kanban_title: "0427-013 · guide profile assignment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-managed-users, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -26,20 +26,20 @@ wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/review #view/review #area/wizard #kind/task
+- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-013-access-r4 · **Priority:** normal  
+    **Owner:** lane-pending-r5 · **Priority:** normal  
     **PR:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
     **Evidence:** [proof 1](https://raw.githubusercontent.com/mcpdev80/baseharbor-plan/main/evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** lane-0427-013-access-r4  
+**Owner:** lane-pending-r5  
 **Priority:** normal  
 **PRs:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -107,3 +107,5 @@ review r3: registration OK + CI gruen, aber 4 funktionale kernpunkte offen (pers
 review r3: registration OK+CI gruen, 4 funktionale kernpunkte offen (persistenz-rueckschreiben, cancel-write, multi-target, kinds fail-closed); rezept mit file:line in act-1430-review.md (20810abd). r4 frisch auf ornith 496759eb. karte active.
 
 r4 head be65de6d: CI run 42421669238 TERMINAL success (14/0), drift-frei, fail-closed-guard fuer unimplementierte kinds neu (finding 4); these 'findings 1-3 schon in 5ccb' mit stelle-nachweisen in round-4.md — reviewer-recheck entscheidet mit file:line-pflicht. CODEX-REVIEW dispatched.
+
+recheck: persistenz/cancel/kinds ok, NEUER befund: multi-target assignment UEBERSCHREIBT fruehere targets + multi-target revoke kann PARTIELL persistieren (atomarität je batch fehlt). rezept in neuester act-1430-review.md. r5 folgt auf freiem ornith-sitz (H-P1 hunt wird dafuer eingezogen).
