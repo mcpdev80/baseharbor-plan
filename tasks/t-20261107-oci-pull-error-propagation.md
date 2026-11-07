@@ -7,7 +7,7 @@ areas: [deployment, registry]
 release: v0.4.27
 version: ""
 parent: ""
-owner: lane-0427-119-oci-pull-error
+owner: mcpdev80
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "oras pull reports failures with the same classification as oras resolve: a genuinely missing oras binary is still unambiguously…"
@@ -26,7 +26,7 @@ wait_reason: ""
 
 - [x] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #area/registry #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-119-oci-pull-error · **Priority:** normal  
+    **Owner:** mcpdev80 · **Priority:** normal  
     **PR:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1434), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42396424816)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ wait_reason: ""
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** lane-0427-119-oci-pull-error  
+**Owner:** mcpdev80  
 **Priority:** normal  
 **PRs:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
 **Source:** 
@@ -78,3 +78,5 @@ wait_reason: ""
 - 2026-11-07: ChatGPT hat 0427-119 nach Prüfung der veröffentlichten Datei-Reservierungen übernommen. Product-Branch `fix/0427-119-oci-pull-errors`, PR https://github.com/mcpdev80/baseharbor/pull/1434, Head `bbb388d2fc11b6d94925300f000056edf327b5f1`. Kein Overlap mit den zum Übernahmezeitpunkt offenen Core-PRs; unveröffentlichte Codeman-Dateien sind nicht einsehbar. Fix und Regressionstest committed, PR-CI/Review noch ausstehend; keine Abnahme/Closed.
 
 - Follow-up to #0427-118 (accepted, PR #1425 merged). Planned, awaiting assignment; prerequisites accepted.
+
+owner merged PR#1434 (develop 8a3f58da9): pull nutzt geteilte redacted native-tool classifier, missing-tool identity + stderr redaction belegt (test(oci) asserts). follow-up der akzeptierten broker-karte #0427-118 damit abgeschlossen.
