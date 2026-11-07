@@ -26,4 +26,4 @@ PR #1406 was squash-merged normally into `develop` on 2026-11-07 at 00:29:52Z.
 
 ## Planning closeout
 
-After publishing this merge record, close `t-20261018-r27-artifact-resolution` as accepted with the HTTPS evidence link to this file, then render and check the Planning views. This closeout follows the confirmed PR merge and exact evidence above.
+Planning closeout completed: `t-20261018-r27-artifact-resolution` is `closed` / `accepted`, with this HTTPS evidence linked in its frontmatter. `python3 scripts/plan.py render` and `python3 scripts/plan.py check` passed (380 tasks, 0 errors, 0 warnings). The card and derived views were published on Planning `main` by commit `6053da24f02b6f065150909c7cd69a9ca78d53b0`; this evidence record was published first by `ec2647fe5fd0db19da74a12c4e7a79a57cbc2c8f`.
