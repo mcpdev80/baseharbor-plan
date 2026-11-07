@@ -31,6 +31,8 @@ The onboarding implementation contains a dead offered path: the wizard accepts a
 - No local test or CI run was started by this review. Product candidate was not modified.
 - Planning repository identity verified before evidence commit: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`; origin fetch/push is `https://github.com/mcpdev80/baseharbor-plan.git`.
 - Pre-publish main witness, exact output: `489718935a14533cf55cc4fb7809765e7346f1e2 refs/heads/main`.
+- First published origin/main tree witness, exact output: `100644 blob 94ed696c7142f0004048924de22f4a6868935ec5	evidence/r27-welle5-folge-2026-11-07/onboarding-wizard/act-1435-review.md` (the follow-up evidence update is committed separately).
+- First evidence commit: `14a089c1`.
 - Candidate remained `09ec640b2b648b36c2566d70b915648462c9ac50` at both pre-review and post-review `ls-remote` observations; base remained `8a3f58da905fad52327d33466fde1d9568092519`.
 
 ## repo-rule compliance
