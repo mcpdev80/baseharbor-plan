@@ -8,9 +8,9 @@ priority: high
 type: bug
 areas: [cli, remote]
 owner: 0427-117-prod-owner
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-117 · podman-family Deploy owner"
-kanban_lane: active
+kanban_lane: review
 depends_on: [t-20261017-release-0-4-27-updates, t-20261106-r27-remote-up-cli-path]
 prs: [mcpdev80/baseharbor#1419]
 repos: [mcpdev80/baseharbor]
@@ -18,7 +18,7 @@ blocker: ""
 
 ---
 
-- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/bug
+- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/review #view/review #area/cli #area/remote #kind/bug
     <!-- generated:card -->
     **Owner:** 0427-117-prod-owner · **Priority:** high  
     **PR:** [baseharbor#1419](https://github.com/mcpdev80/baseharbor/pull/1419)  
@@ -26,7 +26,7 @@ blocker: ""
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
 **Owner:** 0427-117-prod-owner  
@@ -58,3 +58,5 @@ CODEX act-1419a REJECT_LANE_FIX (inhaltlich, NICHT wegen ci-cells): bisher nur m
 r4 geliefert: head c0ac3bef auf develop eee11d50 (ancestor rc0), MERGEABLE, run 42342771963 terminal incl selected-checks+source-format, owner-resolution jetzt REAL (BASEHARBOR_TARGET-first) statt marker-only, regression ROT-ohne/GRUEN-mit, akte auf main. act-1419b re-review dispatcht; dieser merge unblockt 110+116.
 
 CODEX act-1419b REJECT_LANE_FIX (inhaltlich): owner-loan ist testing.Testing()-GATED, loest NICHT den produktiv-podman apply; regression ruehrt SaveDeploymentRecord direkt statt echtem CLI apply. rezept= recordDeploymentBeforeMutation echte owner-resolution + echter-cli-apply regression mit woertlicher ausgabe. frische bahn 0427-117-prod-owner dispatched (ornith); unblockt weiterhin 110+116.
+
+r5 geliefert: head 438895466 auf develop eee11d50 (ancestor rc0), MERGEABLE, run 4989 terminal incl selected+cli-package, 0 fails. PROD-PFAD jetzt real un-gated (recordDeploymentBeforeMutation->productionLoanAuthorityForTarget, local-boot-CORE only, fail-closed erhalten) = genau das Option-1-design das ich autorisiert hatte. regression un-gated GREEN + connector RED, akte round-5.md auf main (20e80c39). docker/podman skipped=owner ci.yml-gate (kein lane-fehler). re-review act-1419c dispatcht; ACCEPT merged und unblockt 110+116.
