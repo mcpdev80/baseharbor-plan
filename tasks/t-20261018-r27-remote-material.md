@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: w287
+owner: 0427-051-exposure-tls
 kanban_lane: active
 kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
 kanban_status: active
 kanban_title: "0427-051 · project exposure material to"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1418]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -26,7 +26,8 @@ evidence: []
 
 - [ ] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/active #view/active #area/providers #kind/task
     <!-- generated:card -->
-    **Owner:** w287 · **Priority:** normal  
+    **Owner:** 0427-051-exposure-tls · **Priority:** normal  
+    **PR:** [baseharbor#1418](https://github.com/mcpdev80/baseharbor/pull/1418)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,9 +35,9 @@ evidence: []
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
-**Owner:** w287  
+**Owner:** 0427-051-exposure-tls  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1418](https://github.com/mcpdev80/baseharbor/pull/1418)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -63,3 +64,5 @@ Projection/ownership/secret-leak/TLS material fixtures; bounded protocol probe w
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfreie produkt-/testarbeit unter aufgehobenem basis-HOLD (develop 934be499b), .github weiterhin owner-tabu
