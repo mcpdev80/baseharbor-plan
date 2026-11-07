@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-022-r3
-kanban_lane: active
+owner: owner
+kanban_lane: blocked
 kanban_summary: Ordinary local/remote commands call same semantic operations. init writes portable contract locally and explicit registration…
-kanban_status: active
+kanban_status: blocked
 kanban_title: "0427-022 · route init up status and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-connection-client, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-management-host, t-20261018-r27-stage-versions, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
@@ -19,24 +19,25 @@ prs: [mcpdev80/baseharbor#1420]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: ""
+blocker: "worker delivered+freed (head 7717f4505, product fixes done). FINALER nachweis haengt an OWNER .github: ci.yml:256 (validate pull_request-excluded) + ci.yml:349 (runtime_integration allowlist nennt TestClientCommandsTwoHomesRealCoreOverTLS nicht) -> gated core-test laeuft in KEINER CI. NAechster Trigger: owner erweitert allowlist/entscheidet PR-vs-Push. dann CODEX-REVIEW->merge."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-client-commands · CLI: route init up status and operations through one authority #task #release/v0-4-27 #status/active #view/active #area/cli #kind/task
+- [ ] t-20261018-r27-client-commands · CLI: route init up status and operations through one authority #task #release/v0-4-27 #status/blocked #view/blocked #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-022-r3 · **Priority:** normal  
+    **Owner:** owner · **Priority:** normal  
     **PR:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
+    **Blocker:** worker delivered+freed (head 7717f4505, product fixes done). FINALER nachweis haengt an OWNER .github: ci.yml:256 (validate pull\_request-excluded) + ci.yml:349 (runtime\_integration allowlist nennt TestClientCommandsTwoHomesRealCoreOverTLS…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
-**Owner:** lane-0427-022-r3  
+**Owner:** owner  
 **Priority:** normal  
 **PRs:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
