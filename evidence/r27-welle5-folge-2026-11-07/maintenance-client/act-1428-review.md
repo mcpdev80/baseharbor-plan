@@ -70,3 +70,11 @@ The candidate is ancestry-clean, its nine-file write-set is scoped, and the exac
 ## END
 
 END_BLOCKED 0427-maintenance-client-review: REQUEST-CHANGES; candidate d4d0f77c0cf0db675b603daaf22ea859fac4290a is ancestry-clean with hosted unit CI green, but destroy removes state before local window persistence and remote destroy omits the window; history write failure can leave a superseded operation unanswerable.
+
+## Planning origin witness
+
+Output of `git -C baseharbor-plan ls-tree -r origin/main --name-only | rg '^evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review\.md$'` before this publication update:
+
+```text
+evidence/r27-welle5-folge-2026-11-07/maintenance-client/act-1428-review.md
+```
