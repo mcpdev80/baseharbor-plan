@@ -7,9 +7,9 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: coord-welle5 (w282 dispatched)
-kanban_status: active
-kanban_lane: active
+owner: w282-compose-cells-now
+kanban_status: review
+kanban_lane: review
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
-evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
 blocker: ""
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (w282 dispatched) · **Priority:** high  
+    **Owner:** w282-compose-cells-now · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coord-welle5 (w282 dispatched)  
+**Owner:** w282-compose-cells-now  
 **Priority:** high  
 **PRs:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
 **Source:** 
@@ -167,3 +167,9 @@ klausel ergaenzt). Mission: gate auf baha-docker, design A1 (frische isolierte C
 ## Owner decision — 2026-11-07
 
 **Unblocked; resume work now.** Do not keep this task in `blocked` merely because #1404 has not merged. Prepare and run independent isolation test cells now on approved test hosts, with actual clean/polluted Docker and Podman runtime observations, omitted-isolation mutation RED, restored GREEN, and exact-SHA evidence. Any final default-SINGLE integration cells that require #1404 must be executed against the merged product baseline before final acceptance. Do not claim a skipped runtime test as PASS. No reset of shared Podman hosts.
+
+kopf 61566c6805d, basis 3fa6f7b0 ist Vorfahr (merge-base-Zeuge + compare forward ahead_by:0), CI run 42326862499 SUCCESS am kopf. alle 8 zellen (docker+podman) ROT an ErrDeploymentOwnerMissing deployment_store.go:107 — isolation-bootstrap-tor ist weg, das ist der ehrliche naechste fehler; defekt liegt auf karte 0427-117 (w286). delta-abnahme laeuft (act-1383c).
+
+delta-abnahme laeuft
+
+kopf 61566c6805d, basis 3fa6f7b0 Vorfahr (merge-base + compare ahead_by:0), CI run 42326862499 SUCCESS am kopf; 8 zellen ROT an ErrDeploymentOwnerMissing (defekt auf karte 0427-117/w286); delta-abnahme act-1383c laeuft
