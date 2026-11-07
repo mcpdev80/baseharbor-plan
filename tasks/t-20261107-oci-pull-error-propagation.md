@@ -7,34 +7,34 @@ areas: [deployment, registry]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: chatgpt-0427-119
+kanban_status: active
+kanban_lane: active
 kanban_summary: "oras pull reports failures with the same classification as oras resolve: a genuinely missing oras binary is still unambiguously…"
 kanban_title: "0427-119 · OCI pull error propagation"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261107-r27-runtime-broker-oras-missing-edge-readiness]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1434]
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/planned #view/ready #area/deployment #area/registry #kind/task
+- [ ] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/active #view/active #area/deployment #area/registry #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** chatgpt-0427-119 · **Priority:** normal  
+    **PR:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** unassigned  
+**Owner:** chatgpt-0427-119  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -67,5 +67,7 @@ evidence: []
 - Shared files: none with in-flight cards; does not touch `.github/**`, `scripts/*` CI seam, or the `serve.go` management-host-lock area.
 
 ## Handoff
+
+- 2026-11-07: ChatGPT hat 0427-119 nach Prüfung der veröffentlichten Datei-Reservierungen übernommen. Product-Branch `fix/0427-119-oci-pull-errors`, PR https://github.com/mcpdev80/baseharbor/pull/1434, Head `bbb388d2fc11b6d94925300f000056edf327b5f1`. Kein Overlap mit den zum Übernahmezeitpunkt offenen Core-PRs; unveröffentlichte Codeman-Dateien sind nicht einsehbar. Fix und Regressionstest committed, PR-CI/Review noch ausstehend; keine Abnahme/Closed.
 
 - Follow-up to #0427-118 (accepted, PR #1425 merged). Planned, awaiting assignment; prerequisites accepted.
