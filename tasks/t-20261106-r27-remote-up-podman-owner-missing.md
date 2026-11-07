@@ -5,26 +5,25 @@ release: v0.4.27
 priority: high
 type: bug
 areas: [cli, remote]
-owner: ""
-kanban_status: planned
-kanban_lane: waiting
+owner: w286
+kanban_status: active
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261106-r27-remote-up-cli-path]
 prs: []
 repos: [mcpdev80/baseharbor]
 ---
 
-- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/cli #area/remote #kind/bug
+- [ ] t-20261106-r27-remote-up-podman-owner-missing · Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** w286 · **Priority:** high  
     **Needs:** [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
-**Owner:** unassigned  
+**Owner:** w286  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
