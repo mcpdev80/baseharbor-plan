@@ -142,11 +142,31 @@ reported here as a finding with file:line, not edited.
   ancestor-ok). No foreign commit carried.
 - No subagents (AGENTS 4.8). All checks self-run.
 
-## Hosted-run watch — PENDING (next action)
+## Hosted-run watch — DONE (observed self-run)
 
-Push r5 fix to real GitHub on `work/r27-ci-lanes-catalog`, then observe
-`pr-planner-tests` + `PR Selected Checks` + the new red-cell assertion on the final SHA
-(run-id + status recorded here). No CI rerun workflow_dispatch (Owner scope).
+Pushed r5 fix `1ef159c3f85f22afd5e4e1bc53b86f3c45e03cd6` to real GitHub
+`work/r27-ci-lanes-catalog` (push witness: `git ls-remote origin
+refs/heads/work/r27-ci-lanes-catalog` → `1ef159c3f85f22afd5e4e1bc53b86f3c45e03cd6`).
+CI triggered on the push (no workflow_dispatch — Owner scope untouched).
+`gh api …/check-runs` witness on `1ef159c3` (19 runs, all completed success/skipped/neutral):
+
+```
+PR · Focused Python                | completed | success  | run-id: 128410222590
+PR · Validation · pr-planner-tests | completed | success  | run-id: 128410222631
+PR Selected Checks                 | completed | success  | run-id: 128410460577
+PR · Validation · ci-executor-tests| completed | success  | run-id: 128410222588
+PR · Validation · ci-policy        | completed | success  | run-id: 128410222628
+PR · Validation · receipt-…        | completed | success  | run-id: 128410222651
+PR · Trusted Plan / Source format / Workflow policy | success
+```
+
+`pr-planner-tests` (the r1/r4 `ValueError: release absent from gate catalog` path) is now GREEN on
+`1ef159c3` — was FAILURE on `fc81fbc6`/`b70c49144`. `PR Selected Checks` (the required aggregate gate)
+= success. No red, no skipped-required. No rerun, no workflow_dispatch.
+
+Branch provenance: `1ef159c3`'s parent is the true r4 head `1f2c890f75cf2d64e9b90a0623d671e18ed4bdaa`;
+origin/develop (beb923fe6) is an ancestor (rc0). The ONLY commit carried beyond the r4 candidate is
+my single r5 commit `1ef159c3` — no foreign candidate.
 
 ## Status
 
