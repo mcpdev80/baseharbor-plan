@@ -71,3 +71,13 @@ This was a read-only, exact-head review. No product code, tests, workflow files,
 ## END CODEX-REVIEW DONE
 
 CODEX-REVIEW 0427-117/#1419-rereview-d: verdict=REJECT_LANE_FIX head=f69f2a6c2823b65240604685191ccb8ec6e78cb8 delta=test-only-ok real_cli_apply=still-write-function-not-runApplicationApplyLifecycle regression=un-gated GREEN + base RED verbatim sentinel recorded + connector/unmarked fail-closed recorded ci=4991 TERMINAL runtime_cells=owner-gate recipe=call runApplicationApplyLifecycle/executeApplicationApplyLifecycle and assert the persisted owner record afterward
+
+## Planning publication witness
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1419d-review.md` output after fetch:
+
+```
+100644 blob 116858c94209f05ec2e2d19f659951e28edfa7e0	evidence/r27-welle5-folge-2026-11-06/remote-up-cli/act-1419d-review.md
+```
+
+This path was present on planning `origin/main` at commit `7fdd45e1acf807c26bce0ad8a577839d63817b5f`; final commit/path verification follows this evidence update.
