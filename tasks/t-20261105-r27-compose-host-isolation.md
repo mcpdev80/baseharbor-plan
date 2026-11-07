@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: w282-compose-cells-now
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -23,7 +23,7 @@ blocker: ""
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/review #view/review #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** w282-compose-cells-now · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
@@ -31,7 +31,7 @@ blocker: ""
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** w282-compose-cells-now  
@@ -173,3 +173,5 @@ kopf 61566c6805d, basis 3fa6f7b0 ist Vorfahr (merge-base-Zeuge + compare forward
 delta-abnahme laeuft
 
 kopf 61566c6805d, basis 3fa6f7b0 Vorfahr (merge-base + compare ahead_by:0), CI run 42326862499 SUCCESS am kopf; 8 zellen ROT an ErrDeploymentOwnerMissing (defekt auf karte 0427-117/w286); delta-abnahme act-1383c laeuft
+
+review-urteil act-1383c = REJECT am kopf 61566c6805d, aber NICHT wegen der änderung: die vier InCI-tests werden von der CI nie ausgefuehrt (skip ohne BASEHARBOR_CI_RUNTIME_INTEGRATION=1, cmd/baha/app_repository_integration_test.go:17-19) und der lauf 'PR · Selected Runtime' ist am kandidat skipped. zuordnung existiert schon in scripts/pr-gate-plan.py:1241-1248 (atomic/docker/lifecycle + atomic/podman/lifecycle) — es fehlt der ausfuehrende job (inhaber: owner/CI-arbeit heute nacht). zweiter grund: ErrDeploymentOwnerMissing wird erst mit karte 0427-117 (w286) behoben. deshalb zurueck auf active, keine weitere auffrischungsrunde auf diesem ast.
