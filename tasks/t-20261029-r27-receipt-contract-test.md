@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-receipt-contract-test
+card_number: "0427-087"
+card_short_title: "CI: add required contract test"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: CI: add required contract test — producer artifact must carry every extract_facts field"
+kanban_title: "0427-087 · CI: add required contract test"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

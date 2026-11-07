@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-ci-coverage-inventory
+card_number: "0427-082"
+card_short_title: "map current required checks"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "o202 (1138dbc9, ornith)"
 kanban_lane: closed
 kanban_summary: Map all current required checks and replacement coverage
 kanban_status: closed
-kanban_title: "CI: map current required checks and replacement coverage"
+kanban_title: "0427-082 · map current required checks"
 early: true
 priority: high
 depends_on: []

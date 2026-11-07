@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-evidence-resolver
+card_number: "0427-069"
+card_short_title: "Retired standalone resolver;"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: "w2-lane (post-run + task link, dormant PR2)"
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Retired standalone resolver; lookup is part of verifier"
+kanban_title: "0427-069 · Retired standalone resolver;"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1090, mcpdev80/baseharbor#1048]

@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-private-integration-path
+card_number: "0427-106"
+card_short_title: "ein privater Prüfstapel muss"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle4 (Lane w166, freigegeben)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: "Betrieb: ein privater Prüfstapel muss ohne geteilte Dienste auskommen"
+kanban_title: "0427-106 · ein privater Prüfstapel muss"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

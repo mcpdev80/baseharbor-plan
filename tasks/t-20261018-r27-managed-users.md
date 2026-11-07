@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-managed-users
+card_number: "0427-035"
+card_short_title: "invite users through the"
 areas: [identity]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (w265, entlassen)
 kanban_lane: closed
 kanban_summary: "Optional managed Identity path: discover/invite owned users through least-privilege native API; IdP owns…"
 kanban_status: closed
-kanban_title: "Identity: invite users through the native provider admin adapter"
+kanban_title: "0427-035 · invite users through the"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1397]

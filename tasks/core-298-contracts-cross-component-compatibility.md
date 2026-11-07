@@ -1,5 +1,7 @@
 ---
 id: core-298
+card_number: "0502-001"
+card_short_title: "define cross-component Compat"
 areas: [contracts]
 type: architecture
 release: v0.5.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Make the public compatibility boundaries explicit so CLI, stored state, capability providers and machine interfaces evolve…"
 kanban_status: planned
-kanban_title: "Contracts: define cross-component compatibility"
+kanban_title: "0502-001 · define cross-component Compat"
 depends_on: [core-297, t-20261017-release-0-5-2-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

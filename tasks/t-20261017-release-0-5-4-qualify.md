@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-5-4-qualify
+card_number: "0504-005"
+card_short_title: "complete required candidate"
 type: acceptance
 areas: [release]
 release: v0.5.x
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Obtain complete release-boundary validation for the frozen candidate.
 kanban_status: planned
-kanban_title: "v0.5.4 · Pre-release: complete required candidate checks"
+kanban_title: "0504-005 · complete required candidate"
 priority: normal
 depends_on: [t-20261017-release-0-5-4-prepare]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

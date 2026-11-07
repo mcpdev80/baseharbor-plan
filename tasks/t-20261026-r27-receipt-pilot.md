@@ -1,5 +1,7 @@
 ---
 id: t-20261026-r27-receipt-pilot
+card_number: "0427-076"
+card_short_title: "Retired paper-only pilot; real"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coordinator-lane (r27 board-up)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Retired paper-only pilot; real proof is shadow-run"
+kanban_title: "0427-076 · Retired paper-only pilot; real"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

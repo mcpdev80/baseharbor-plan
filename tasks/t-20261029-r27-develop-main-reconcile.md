@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-develop-main-reconcile
+card_number: "0427-085"
+card_short_title: "forward-port main-only"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-
 kanban_lane: closed
 kanban_summary: "Make develop a strict superset of main's CI hardening so promotion is lossless"
 kanban_status: closed
-kanban_title: "CI: forward-port main-only hardening back to develop"
+kanban_title: "0427-085 · forward-port main-only"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]

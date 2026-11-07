@@ -1,5 +1,7 @@
 ---
 id: core-319
+card_number: "0806-001"
+card_short_title: "verify production hardening"
 areas: [kubernetes]
 type: acceptance
 release: v0.8.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Harden the completed Kubernetes feature set across realistic restricted-cluster conditions before declaring Kubernetes…
 kanban_status: planned
-kanban_title: "Kubernetes: verify production hardening and conformance"
+kanban_title: "0806-001 · verify production hardening"
 depends_on: [core-313, core-314, core-315, core-316, core-317, core-318, t-20261017-release-0-8-6-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

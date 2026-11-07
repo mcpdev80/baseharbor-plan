@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-client-commands
+card_number: "0427-022"
+card_short_title: "route init up status and"
 areas: [cli]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Ordinary local/remote commands call same semantic operations. init writes portable contract locally and explicit registration…
 kanban_status: planned
-kanban_title: "CLI: route init up status and operations through one authority"
+kanban_title: "0427-022 · route init up status and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-connection-client, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-management-host, t-20261018-r27-stage-versions, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: []

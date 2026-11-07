@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-authority-contract
+card_number: "0427-016"
+card_short_title: "define one installation owner"
 areas: [architecture]
 type: architecture
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: w1-authority (lane)
 kanban_lane: closed
 kanban_summary: Define installation identity versus management connection versus Target; one authoritative state/lock owner per managed…
 kanban_status: closed
-kanban_title: "Authority: define one installation owner for local and remote work"
+kanban_title: "0427-016 · define one installation owner"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1348"]

@@ -1,5 +1,7 @@
 ---
 id: t-20261030-publication-failure-injection-tests
+card_number: "0427-091"
+card_short_title: "Publication Failure-Injection"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Publication Failure-Injection Tests (Nachlauf PR 1213)"
+kanban_title: "0427-091 · Publication Failure-Injection"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

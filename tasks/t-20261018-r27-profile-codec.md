@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-profile-codec
+card_number: "0427-044"
+card_short_title: "import and export non-secret"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lanes w90 bis cx06)
 kanban_lane: closed
 kanban_summary: Validate version/trust/installation/scope before any writes; transactional import and explicit conflicts. Default export…
 kanban_status: closed
-kanban_title: "Profiles: import and export non-secret connection metadata"
+kanban_title: "0427-044 · import and export non-secret"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1363]

@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-db-skip-sites
+card_number: "0427-103"
+card_short_title: "four database Integr tests"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle4 (Lane w152)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: The four database-connected integration tests fail with a clear setup error when the test database URL is absent and execute…
-kanban_title: "Tests: four database integration tests fail closed without the test URL"
+kanban_title: "0427-103 · four database Integr tests"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]

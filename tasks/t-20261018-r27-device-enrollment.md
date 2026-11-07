@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-device-enrollment
+card_number: "0427-026"
+card_short_title: "issue and validate scoped"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w146, freigegeben)
 kanban_lane: closed
 kanban_summary: "Explicit installation policy may issue recipient-bound, short-lived one-use workstation enrollment and separate device identity.…"
 kanban_status: closed
-kanban_title: "Devices: issue and validate scoped workstation enrollment"
+kanban_title: "0427-026 · issue and validate scoped"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1371]

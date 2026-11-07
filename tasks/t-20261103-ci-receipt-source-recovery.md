@@ -1,5 +1,7 @@
 ---
 id: t-20261103-ci-receipt-source-recovery
+card_number: "0427-100"
+card_short_title: "deploy receipt Auth on trusted"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "Codex (CI completion 2026-11-03)"
 kanban_lane: closed
 kanban_summary: Publish minimal commit receipts from the actual trusted default-branch writer and recover missed develop merges without…
 kanban_status: closed
-kanban_title: "CI: deploy receipt authentication on trusted main and recover missing records"
+kanban_title: "0427-100 · deploy receipt Auth on trusted"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

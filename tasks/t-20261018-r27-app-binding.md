@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-app-binding
+card_number: "0427-014"
+card_short_title: "attach fresh checkouts to a"
 areas: [identity]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w179, freigegeben)
 kanban_lane: closed
 kanban_summary: Server allocates IDs; explicitly create a new app or attach to a permitted existing app. Two distinct checkout paths can resolve…
 kanban_status: closed
-kanban_title: "Identity: attach fresh checkouts to a registered application"
+kanban_title: "0427-014 · attach fresh checkouts to a"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1388]

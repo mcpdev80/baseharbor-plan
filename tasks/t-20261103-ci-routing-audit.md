@@ -1,5 +1,7 @@
 ---
 id: t-20261103-ci-routing-audit
+card_number: "0427-101"
+card_short_title: "conservative routing, ready-PR"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "Codex (CI routing audit 2026-11-03)"
 kanban_lane: closed
 kanban_summary: "Owner requests the JSON parser fix and a complete audit of all existing CI mappings, including current open PRs. Normal tests…"
 kanban_status: closed
-kanban_title: "CI: conservative routing, ready-PR cadence and reliable test execution"
+kanban_title: "0427-101 · conservative routing, ready-PR"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]

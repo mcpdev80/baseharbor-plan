@@ -1,5 +1,7 @@
 ---
 id: core-820
+card_number: "0429-003"
+card_short_title: "integrate host adapters and"
 areas: [platform]
 type: feature
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Move current Linux host behavior behind the Host Platform Contract; Linux stays the fully qualified reference with no regression.
 kanban_status: planned
-kanban_title: "Linux: integrate host adapters and verify regressions"
+kanban_title: "0429-003 · integrate host adapters and"
 depends_on: [core-819, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

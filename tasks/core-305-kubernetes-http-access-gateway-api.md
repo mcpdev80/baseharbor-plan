@@ -1,5 +1,7 @@
 ---
 id: core-305
+card_number: "0702-001"
+card_short_title: "provide HTTP access through"
 areas: [kubernetes]
 type: feature
 release: v0.7.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Realize portable BaseHarbor HTTP exposure on Kubernetes while allowing namespace-only BaseHarbor users to consume a…
 kanban_status: planned
-kanban_title: "Kubernetes: provide HTTP access through Gateway API"
+kanban_title: "0702-001 · provide HTTP access through"
 depends_on: [core-102, core-304, t-20261017-release-0-7-2-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

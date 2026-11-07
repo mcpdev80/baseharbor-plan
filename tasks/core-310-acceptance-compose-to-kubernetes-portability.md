@@ -1,5 +1,7 @@
 ---
 id: core-310
+card_number: "0707-001"
+card_short_title: "verify Compose-to-Kubernetes"
 areas: [acceptance]
 type: acceptance
 release: v0.7.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Close v0.7 by proving that the same portable BaseHarbor application contract runs on Compose and Kubernetes, including a…"
 kanban_status: planned
-kanban_title: "Acceptance: verify Compose-to-Kubernetes portability"
+kanban_title: "0707-001 · verify Compose-to-Kubernetes"
 depends_on: [core-102, core-304, core-305, core-306, core-307, core-308, core-309, t-20261017-release-0-7-7-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

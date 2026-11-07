@@ -1,5 +1,7 @@
 ---
 id: core-815
+card_number: "0427-003"
+card_short_title: "start all greenfield stacks on"
 areas: [testing]
 type: acceptance
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle3 (lane w35)
 kanban_lane: active
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
 kanban_status: active
-kanban_title: "Tests: start all greenfield stacks on native runtimes"
+kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []

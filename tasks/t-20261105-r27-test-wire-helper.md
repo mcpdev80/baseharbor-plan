@@ -1,5 +1,7 @@
 ---
 id: t-20261105-r27-test-wire-helper
+card_number: "0427-113"
+card_short_title: "export a minimal"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle4 (Lane w155)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: internal/targetaccess exposes one small test-only helper package (or exported constructor) that yields a handshake-bearing mTLS…
-kanban_title: "Testing: export a minimal real-handshake test wire for cross-package evidence"
+kanban_title: "0427-113 · export a minimal"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust]
 repos: [mcpdev80/baseharbor-node-connector]

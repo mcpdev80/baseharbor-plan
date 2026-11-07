@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-4-28-verify
+card_number: "0428-007"
+card_short_title: "verify publication, artifacts,"
 type: acceptance
 areas: [release]
 release: v0.4.28
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Prove the published release is usable and close the release cycle.
 kanban_status: planned
-kanban_title: "v0.4.28 · Release: verify publication, artifacts, Pages and closeout"
+kanban_title: "0428-007 · verify publication, artifacts,"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-publish]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

@@ -1,5 +1,7 @@
 ---
 id: console-2
+card_number: "0428-001"
+card_short_title: "replace fixtures with the"
 areas: [console]
 type: task
 release: v0.4.28
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "The Console's live mode reads and mutates only through the protected Core adapter, with live workflow and stream proofs.…"
 kanban_status: planned
-kanban_title: "Console: replace fixtures with the protected Core adapter and live workflow proofs"
+kanban_title: "0428-001 · replace fixtures with the"
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]
 repos: [mcpdev80/baseharbor-console]
 prs: ["mcpdev80/baseharbor-console#8"]

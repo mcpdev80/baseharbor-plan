@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-candidate-pack
+card_number: "0427-019"
+card_short_title: "package an exact bounded"
 areas: [sources]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w151, freigegeben)
 kanban_lane: closed
 kanban_summary: "Adapt existing native build-context/source-acquisition mechanisms for one selected local checkout, including honest dirty-source…"
 kanban_status: closed
-kanban_title: "Sources: package an exact bounded deployment snapshot"
+kanban_title: "0427-019 · package an exact bounded"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1381]

@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-journal-wiring
+card_number: "0427-031"
+card_short_title: "reconnect and reconcile"
 areas: [remote]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (w235, entlassen)
 kanban_lane: closed
 kanban_summary: Wire durable operation IDs into actual submit/poll/events and lifecycle correlation. Lost response does not submit again; server…
 kanban_status: closed
-kanban_title: "Operations: reconnect and reconcile interrupted executions"
+kanban_title: "0427-031 · reconnect and reconcile"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-execution-journal, t-20261018-r27-mutation-lock, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1393, mcpdev80/baseharbor#1392]

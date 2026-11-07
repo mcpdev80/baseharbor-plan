@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-4-27-prepare
+card_number: "0427-006"
+card_short_title: "complete ecosystem readiness"
 type: acceptance
 areas: [release]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ChatGPT (Owner-directed release preparation; no product file claims)
 kanban_lane: active
 kanban_summary: Prepare the v0.4.27 ecosystem release-readiness dossier while implementation progress is tracked by its own CardBoard tasks and…
 kanban_status: active
-kanban_title: "v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation"
+kanban_title: "0427-006 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

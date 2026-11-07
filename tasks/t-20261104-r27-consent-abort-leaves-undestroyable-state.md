@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-consent-abort-leaves-undestroyable-state
+card_number: "0427-102"
+card_short_title: "refused candidate apply must"
 areas: [deployment]
 type: bug
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: Owner/ChatGPT (Übergabe 2026-11-04, Direktive)
 kanban_lane: closed
 kanban_summary: An app apply that is refused by the candidate-consent gate (missing or wrong --confirm-candidate digest) must leave NO state…
 kanban_status: closed
-kanban_title: "Deployment: refused candidate apply must leave destroyable state"
+kanban_title: "0427-102 · refused candidate apply must"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1375]

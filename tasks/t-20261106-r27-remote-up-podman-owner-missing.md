@@ -1,5 +1,7 @@
 ---
 id: t-20261106-r27-remote-up-podman-owner-missing
+card_number: "0427-117"
+card_short_title: "podman-family Deploy owner"
 title: "Remote app up on Podman family fails with ErrDeploymentOwnerMissing"
 release: v0.4.27
 priority: high
@@ -7,6 +9,7 @@ type: bug
 areas: [cli, remote]
 owner: w286
 kanban_status: active
+kanban_title: "0427-117 · podman-family Deploy owner"
 kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261106-r27-remote-up-cli-path]
 prs: []

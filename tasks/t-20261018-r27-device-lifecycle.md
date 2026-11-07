@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-device-lifecycle
+card_number: "0427-027"
+card_short_title: "renew and revoke one"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (Lane w201, freigegeben)
 kanban_lane: closed
 kanban_summary: "Revoke A without affecting B, apps or platform; bound stale sessions and active connections. Reconnect/renew require valid…"
 kanban_status: closed
-kanban_title: "Devices: renew and revoke one workstation independently"
+kanban_title: "0427-027 · renew and revoke one"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1394]

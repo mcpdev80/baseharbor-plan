@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-stage-versions
+card_number: "0427-055"
+card_short_title: "isolate version and Conf per"
 areas: [state]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (Lane w197, freigegeben)
 kanban_lane: closed
 kanban_summary: "Persist desired, last applied and observed release/component references independently for application identity + selected Target…"
 kanban_status: closed
-kanban_title: "Deployments: isolate version and configuration per stage"
+kanban_title: "0427-055 · isolate version and Conf per"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-contract, t-20261018-r27-state-owner, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1391]

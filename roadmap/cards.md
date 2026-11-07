@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 85/118 · **Blocked:** 0 · **Waiting:** 20  
+    **Accepted tasks:** 85/118 · **Blocked:** 1 · **Waiting:** 20  
+    **Blocker:** [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) — zwei von vier zellen brauchen maschinen, die es unter den geltenden regeln fuer eine einzelne Bahn nicht gibt: (1) connector-zelle ist ein TWO-HOST-Flow (core…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

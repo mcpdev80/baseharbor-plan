@@ -1,5 +1,7 @@
 ---
 id: core-315
+card_number: "0802-001"
+card_short_title: "verify backup and disaster"
 areas: [kubernetes]
 type: feature
 release: v0.8.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Bring BaseHarbor backup/restore semantics to Kubernetes with real recovery verification.
 kanban_status: planned
-kanban_title: "Kubernetes: verify backup and disaster recovery"
+kanban_title: "0802-001 · verify backup and disaster"
 depends_on: [core-313, core-314, t-20261017-release-0-8-2-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

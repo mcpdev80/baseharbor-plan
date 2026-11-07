@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-ci-delivery
+card_number: "0427-064"
+card_short_title: "delivery"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w128 + Codex-Worker cx05)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Deferred trusted CI readiness: delivery"
+kanban_title: "0427-064 · delivery"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1377]

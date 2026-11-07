@@ -1,5 +1,7 @@
 ---
 id: t-20261023-appid-test-env-dep
+card_number: "0427-072"
+card_short_title: "external Prov registry test"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle3 (lane w38)
 kanban_lane: closed
 kanban_summary: "TestExternalProviderRemoval (and any provider-registry ownership checks) pass or fail based on the code's ownership logic alone…"
 kanban_status: closed
-kanban_title: "Defect: external provider registry test unverifiable-ownership outside CI runners"
+kanban_title: "0427-072 · external Prov registry test"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

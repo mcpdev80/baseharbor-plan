@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-candidate-ingress
+card_number: "0427-018"
+card_short_title: "persist authorized immutable"
 areas: [sources]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (Lane w213, freigegeben)
 kanban_lane: closed
 kanban_summary: Accept and retain minimal authorized app/revision/consent metadata and the exact native input/reference for an operation. Reuse…
 kanban_status: closed
-kanban_title: "Sources: persist authorized immutable deployment candidates"
+kanban_title: "0427-018 · persist authorized immutable"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-pack, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1398]

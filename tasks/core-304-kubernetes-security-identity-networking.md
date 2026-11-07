@@ -1,5 +1,7 @@
 ---
 id: core-304
+card_number: "0701-001"
+card_short_title: "implement security, identity"
 areas: [kubernetes]
 type: feature
 release: v0.7.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Realize BaseHarbor security, workload identity and network-isolation semantics on Kubernetes while preserving namespace-only…"
 kanban_status: planned
-kanban_title: "Kubernetes: implement security, identity and networking"
+kanban_title: "0701-001 · implement security, identity"
 depends_on: [core-102, t-20261017-release-0-7-1-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

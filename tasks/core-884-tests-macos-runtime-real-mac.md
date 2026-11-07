@@ -1,5 +1,7 @@
 ---
 id: core-884
+card_number: "0429-009"
+card_short_title: "verify the macOS runtime on a"
 areas: [testing]
 type: acceptance
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Real macOS runtime evidence comes from a dedicated self-hosted Apple Silicon Mac registered as a GitHub Actions runner (decision…
 kanban_status: planned
-kanban_title: "Tests: verify the macOS runtime on a real Mac"
+kanban_title: "0429-009 · verify the macOS runtime on a"
 depends_on: [t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -1,5 +1,7 @@
 ---
 id: t-20261026-r27-v0426-acceptance-carryover
+card_number: "0427-077"
+card_short_title: "Reconcile genuinely"
 type: review
 areas: [release, acceptance]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle3 (lane w34)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: Reconcile genuinely outstanding v0.4.26 acceptance in v0.4.27
+kanban_title: "0427-077 · Reconcile genuinely"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor#1089]

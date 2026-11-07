@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-version-view
+card_number: "0427-060"
+card_short_title: "show release components source"
 areas: [cli]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (1403d entlassen)
 kanban_lane: closed
 kanban_summary: "Readable release names/tags and component versions are the primary UI. Show each app/service image repository/tag, resolved…"
 kanban_status: closed
-kanban_title: "Versions: show release components source and running state"
+kanban_title: "0427-060 · show release components source"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-registry-access, t-20261018-r27-stage-versions, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1403]

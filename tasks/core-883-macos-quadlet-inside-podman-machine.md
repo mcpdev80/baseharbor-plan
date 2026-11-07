@@ -1,5 +1,7 @@
 ---
 id: core-883
+card_number: "0429-008"
+card_short_title: "run Quadlet inside Podman"
 areas: [platform]
 type: feature
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Podman Machine on macOS reuses the existing Podman Quadlet realization, executed inside the Podman Machine Linux VM (decision…"
 kanban_status: planned
-kanban_title: "macOS: run Quadlet inside Podman Machine"
+kanban_title: "0429-008 · run Quadlet inside Podman"
 depends_on: [core-820, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

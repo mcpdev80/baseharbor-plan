@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-local-parity-proof
+card_number: "0427-032"
+card_short_title: "prove unchanged no-login local"
 areas: [acceptance]
 type: acceptance
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Same init/up/status semantics on local Docker and Podman without login/server/bundle; no compulsory services beyond…
 kanban_status: planned
-kanban_title: "Acceptance: prove unchanged no-login local operation"
+kanban_title: "0427-032 · prove unchanged no-login local"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor-demo]
 prs: []

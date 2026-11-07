@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-native-auth
+card_number: "0427-038"
+card_short_title: "reuse native Auth before"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w135)
 kanban_lane: closed
 kanban_summary: "Reuse Git credential helper/SSH agent/config, registry/native credential references and native kube contexts; cloud credential…"
 kanban_status: closed
-kanban_title: "Credentials: reuse native authentication before prompting"
+kanban_title: "0427-038 · reuse native Auth before"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-profile-contract, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1362]

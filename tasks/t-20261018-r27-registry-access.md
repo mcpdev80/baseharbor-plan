@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-registry-access
+card_number: "0427-049"
+card_short_title: "use configured enterprise"
 areas: [artifacts]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (Lane w222, freigegeben)
 kanban_lane: closed
 kanban_summary: Resolve explicitly configured app-scoped OCI registry/artifact endpoints including GitLab/GHCR/Harbor/Quay/Artifactory/Nexus…
 kanban_status: closed
-kanban_title: "Registries: use configured enterprise endpoints and native credentials"
+kanban_title: "0427-049 · use configured enterprise"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-contract, t-20261018-r27-native-auth, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1395]

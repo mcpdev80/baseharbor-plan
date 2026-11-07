@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-node-streams
+card_number: "0427-041"
+card_short_title: "bound log replay and terminal"
 areas: [connector]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (Lane w215, freigegeben)
 kanban_lane: closed
 kanban_summary: "Preserve existing logs/exec/PTY/metrics implementation; prove cursor expiry, at-least-once replay, stream limits/deadlines and…"
 kanban_status: closed
-kanban_title: "Connector: bound log replay and terminal cancellation"
+kanban_title: "0427-041 · bound log replay and terminal"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime, t-20261105-r27-test-wire-helper]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor-node-connector#22]
