@@ -7,10 +7,10 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: mcpdev80
-kanban_status: review
+owner: lane-0427-116-r4
+kanban_status: active
 kanban_title: "0427-116 · CLI start path for Prov-bound"
-kanban_lane: review
+kanban_lane: active
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]
 sources: ["mcpdev80/baseharbor#777"]
@@ -20,19 +20,19 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/review #view/review #area/cli #area/remote #kind/task
+- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 · **Priority:** normal  
+    **Owner:** lane-0427-116-r4 · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** mcpdev80  
+**Owner:** lane-0427-116-r4  
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -61,3 +61,5 @@ bahn nach system-reboot frisch beauftragt (takeover der toten lane), konfliktfre
 bahn hat basis konfliktfrei auf develop 934be499b aufgefrischt (head 86f990a6) und die beiden zellen ausgefuehrt — ergebnis ist der owner-seam-fehler, nicht ein neuer defekt dieser karte.
 
 blocker '#117 landing' ERFUELLT (1419 merged develop beb923fe6 11:33Z); deps release-updates+vm-smoke closed. owner-direktive war conditional auf 117 -> jetzt bereit, seat-refill.
+
+r3 request-changes: KEIN Erfolg-fall (err==nil) ueber echtes CLI baha app up auf Docker UND Podman; nur podman-negativ + interne direkt-aufrufe. ask-3 verweis auf #117 falsch (#117 = fail-closed owner-negativ, kein erfolg-transkript). r4 in FRISCHER lane = echter konfliktfreier einsatz auf dem freien sitz.
