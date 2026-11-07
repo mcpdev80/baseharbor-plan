@@ -10,9 +10,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 8 |
 | review | 1 |
-| blocked | 0 |
+| blocked | 1 |
 | ready | 1 |
 | queued | 26 |
 | waiting | 182 |
@@ -29,7 +29,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | 0427-107-docker-podman | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | w282-compose-cells-now | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261106-docker-2-half-frozen-core-stack](../tasks/t-20261106-docker-2-half-frozen-core-stack.md) | Operations: docker-2  Core half-frozen (compose.yaml missing, phase=sql_failed, containers running ~4h) blocks Core install | active | not set | worker (w269) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) | Remote app up: CLI start path for provider-bound remote apps | active | normal | 0427-116-cli-path | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407) |
 | [t-20261106-r27-remote-up-podman-owner-missing](../tasks/t-20261106-r27-remote-up-podman-owner-missing.md) | Remote up: podman-family deployment owner missing (ErrDeploymentOwnerMissing) | active | high | 0427-117-podman-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) (open) | — |
 | [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](../tasks/t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md) | Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready | active | not set | worker (w269) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) (open) | — |
 
@@ -41,7 +40,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Blocked
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) | Remote app up: CLI start path for provider-bound remote apps | blocked | normal | 0427-116-cli-path | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407) |
 
 ## Ready to assign
 
