@@ -10,8 +10,8 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
-| review | 0 |
+| active | 8 |
+| review | 1 |
 | blocked | 0 |
 | ready | 1 |
 | queued | 26 |
@@ -27,7 +27,6 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | mcpdev80 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | Access: guide profile assignment and deliberate offboarding | active | normal | lane-0427-access-wizard (korrektur ausstehend) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430) |
 | [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md) | CLI: submit maintenance operations without workstation path assumptions | active | normal | lane-0427-maintenance-client-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428) |
-| [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Nodes: finish guided add connect status and disconnect | active | normal | lane-0427-node-cli-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1427](https://github.com/mcpdev80/baseharbor/pull/1427) |
 | [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md) | Onboarding: attach a workstation with minimal questions | active | normal | lane-0427-onboarding-wizard | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](../tasks/t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | coord-ops-107 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
@@ -35,7 +34,9 @@ States: **active**, **review** and **blocked** come from the card's status tag. 
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Nodes: finish guided add connect status and disconnect | review | normal | lane-0427-node-cli-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1427](https://github.com/mcpdev80/baseharbor/pull/1427) |
 
 ## Blocked
 
