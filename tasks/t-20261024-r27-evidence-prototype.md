@@ -1,5 +1,7 @@
 ---
 id: t-20261024-r27-evidence-prototype
+card_number: "0427-075"
+card_short_title: "Retired signed archive"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: "ChatGPT (isolated v0.4.27 prototype)"
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Retired signed archive prototype; never resume"
+kanban_title: "0427-075 · Retired signed archive"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1048]

@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-evidence-verifier
+card_number: "0427-070"
+card_short_title: "W3: genuine Owner approval and"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: w3-lane (W3 verifier package)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: W3: genuine Owner approval and live/offline verification"
+kanban_title: "0427-070 · W3: genuine Owner approval and"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151]

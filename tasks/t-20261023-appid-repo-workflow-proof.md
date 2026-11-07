@@ -1,5 +1,7 @@
 ---
 id: t-20261023-appid-repo-workflow-proof
+card_number: "0427-071"
+card_short_title: "execute native"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle3 (lane w33)
 kanban_lane: closed
 kanban_summary: Execute TestRepositoryWorkflowRealLifecycle as an actual native Docker lifecycle on a fixed current develop candidate. Preserve…
 kanban_status: closed
-kanban_title: execute native TestRepositoryWorkflowRealLifecycle on a fixed develop candidate
+kanban_title: "0427-071 · execute native"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

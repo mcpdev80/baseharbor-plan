@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-evidence-publisher
+card_number: "0427-068"
+card_short_title: "W2: automatic receipt, plan"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: w2-lane (W2 writer package)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: W2: automatic receipt, plan and task publication"
+kanban_title: "0427-068 · W2: automatic receipt, plan"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1151, mcpdev80/baseharbor#1213]
