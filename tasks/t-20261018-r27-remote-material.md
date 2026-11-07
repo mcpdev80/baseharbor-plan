@@ -7,7 +7,7 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: waiting
+kanban_lane: ready
 kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
 kanban_status: planned
 kanban_title: "Remote providers: project exposure material to the actual target"
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/providers #kind/task
+- [ ] t-20261018-r27-remote-material · Remote providers: project exposure material to the actual target #task #release/v0-4-27 #status/planned #view/ready #area/providers #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  

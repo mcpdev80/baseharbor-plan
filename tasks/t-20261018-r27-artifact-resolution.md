@@ -7,9 +7,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: coord-welle5 (w281)
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: Use existing OCI images/releases first when selected; verify artifact availability through image-transfer. For current-checkout…
-kanban_status: review
+kanban_status: closed
 kanban_title: "Images: resolve existing artifacts or an explicit builder"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-candidate-ingress, t-20261018-r27-image-transfer, t-20261018-r27-native-auth, t-20261018-r27-registry-access, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -18,18 +18,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/artifact-resolution/act-1406-merge2.md"]
 ---
 
-- [ ] t-20261018-r27-artifact-resolution · Images: resolve existing artifacts or an explicit builder #task #release/v0-4-27 #status/review #view/review #area/build #kind/task
+- [x] t-20261018-r27-artifact-resolution · Images: resolve existing artifacts or an explicit builder #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/build #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (w281) · **Priority:** normal  
     **PR:** [baseharbor#1406](https://github.com/mcpdev80/baseharbor/pull/1406)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/artifact-resolution/act-1406-merge2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
@@ -63,3 +64,5 @@ Focused build-selection/digest/secret-reference fixtures; smallest Docker build/
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+Merged PR #1406 at dddf0d7823f6eec161ad518bbced626fa9efe52e; independent review and native Docker/Podman evidence are recorded in act-1406-merge2.md.
