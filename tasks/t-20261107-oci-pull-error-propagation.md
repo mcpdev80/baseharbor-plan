@@ -7,7 +7,7 @@ areas: [deployment, registry]
 release: v0.4.27
 version: ""
 parent: ""
-owner: chatgpt-0427-119
+owner: lane-0427-119-oci-pull-error
 kanban_status: active
 kanban_lane: active
 kanban_summary: "oras pull reports failures with the same classification as oras resolve: a genuinely missing oras binary is still unambiguously…"
@@ -20,11 +20,13 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+wait_reason: ""
+
 ---
 
 - [ ] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/active #view/active #area/deployment #area/registry #kind/task
     <!-- generated:card -->
-    **Owner:** chatgpt-0427-119 · **Priority:** normal  
+    **Owner:** lane-0427-119-oci-pull-error · **Priority:** normal  
     **PR:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
     <!-- /generated:card -->
 
@@ -32,7 +34,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** chatgpt-0427-119  
+**Owner:** lane-0427-119-oci-pull-error  
 **Priority:** normal  
 **PRs:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
 **Source:** 
