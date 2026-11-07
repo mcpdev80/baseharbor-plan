@@ -8,7 +8,7 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-043-onboarding-r3
+owner: owner:chatgpt
 kanban_lane: active
 kanban_summary: Native success continues silently; import one trusted device bundle or non-secret team profile and authenticate only as policy…
 kanban_status: active
@@ -28,7 +28,7 @@ wait_reason: ""
 
 - [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-043-onboarding-r3 · **Priority:** normal  
+    **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435)  
     <!-- /generated:card -->
 
@@ -38,7 +38,7 @@ wait_reason: ""
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** lane-0427-043-onboarding-r3  
+**Owner:** owner:chatgpt  
 **Priority:** normal  
 **PRs:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -77,3 +77,5 @@ r2 review REQUEST-CHANGES (bundle-import dead end + root registration/classifica
 - 2026-11-07 Ergaenzung aus 0427-116: PR #1435 implementiert den Workstation-Onboarding-Wizard mit Installation, attach/import, App und Persistenz, **aber bisher keine Entdeckung/Initialisierung einer verifizierten Operator-Tenant-Membership**. Fuer einen frischen lokalen Management-Core muss die Erst-Owner-OIDC-PKCE-/Tenant-editor-Zuordnung aus Core-PR #1437 nach expliziter Zustimmung angeboten werden; vorhandene Memberships werden verifiziert und still wiederverwendet. Attach/import duerfen keinen Tenant erzeugen; eine TrustedLocal-Verbindung darf die Operator-/Tenant-Authorization nicht umgehen. Cancel/EOF = keine Mutation. Node-Enrolment bleibt im bestehenden JSON-Vertrag von `baha node add/connect`, kein neues Workstation-Bundle dafuer. [Auftrag an PR #1435](https://github.com/mcpdev80/baseharbor/pull/1435#issuecomment-6711528355); Owner `lane-0427-043-onboarding-r3` bleibt zustaendig. Card `active`, noch keine Umsetzung oder Abnahme behaupten.
 
 - **2026-11-07 Produktentscheid: DEFAULT FIRST, ADVANCED OPTIONAL.** Grundsatz `so wenig wie moeglich, so viel wie noetig`: Wizard bietet einen vollstaendigen sofort verwendbaren empfohlenen Pfad, ohne Fragen zu vorhandenen Core-/Trust-/Tenant-Details. Beispiel-Default bei frischer Installation: Tenant-Name/Slug `baseharbor`, UUID wird generiert; Installation, Operator-OIDC-Realm/Client, Endpunkte und Trust nach echten Fakten und sicherem Vertrag ableiten. **Jeder** konfigurierte Wert darf im erweiterten Pfad individuell gesetzt werden, soweit vom Vertrag unterstuetzt (Tenant-Name/Slug, Identity-Provider/Realm-Client, relevante Endpunkte/Trust, Runtime/Target); der Wizard zeigt Defaults und validiert Eingaben vor Commit. Operator-Tenant ist installationsweit und **nicht** an `dev` gebunden. Der sichere First-Owner PKCE-Proof und bewusste Zustimmung bleiben zwingend; Existing/Attach/Import verwenden vorhandenen Tenant unveraendert, nie heimlicher Owner-Transfer. Abbruch = keine Mutation. Tests fuer Default, Custom, Bestehendes und Negativfaelle. Umsetzung PR #1435 in Abstimmung mit #1437; [PR-Auftrag](https://github.com/mcpdev80/baseharbor/pull/1435#issuecomment-6711558947). Noch offen, `active`.
+
+HANDOVER an Owner+ChatGPT (Owner-Direktive 2026-11-07): r2-PR#1435 head 09ec640b in review-REQUEST (root registration/classification/index offen); r3-wip 0d60f6b5 auf refs/heads/lane/0427-onboarding-r3 (bundle-import durch enrollment-seam, tests lokal gruen). Handover-comment auf PR. Evidenz round-2/round-3 auf origin/main. Worker-lane freigegeben, keine weiteren lane-aenderungen.
