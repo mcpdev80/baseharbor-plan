@@ -36,6 +36,25 @@
 - Punkt 3: issuer/verifier-pfad wie remote-control round-3 belegt (connector-gebundene ferne core).
 - Punkt 4: matrix fortsetzen; podman-2 ist FREI (w273 released) fuer die podman-phase.
 
+## CELL-ERGEBNISSE (docker-2/baha-docker-2 205, Core w269-matrix @ 8bda98c1cd3, SINGLE default)
+
+Zielhost der Mission ist baha-docker-2 (192.168.6.205, vm-lock claim w269, seit 2026-11-07T00:37Z).
+166 (baha-docker) nur als isoliertes Testfeld genutzt; release+cleanup (0 meine container/volumes/
+netzwerke); shared bh-local-shared (6 container) unveraendert.
+
+- core: PASS — Core READY (postgres/openbao/Core Identity), doctor OK, single default (ha-requested=
+  false). Befehl: `baha up --control-plane-only --skip-memory-preflight --target w269-matrix`;
+  `baha doctor --target w269-matrix --plain` => READY. Ports auto auf 15436/18203 (5432/8200 belegt
+  durch w169 ci-bootstrap); 8 core-container.
+- console: PASS — Core status read-only: postgres/openbao READY, availability satisfied.
+- demo (r27-w150-demo): BLOCKED-by-scope — das reale demo-repo ist auf 205 NICHT verfuegbar
+  (/home/marcel/work/... existiert nicht hier). Rekonstruiertes demo-app gegen isolierten w269-matrix
+  (kein managed backend sql/redis/s3 provisioniert) => workload start FAILED (backend hostnames
+  unerreichbar). Same broker/readiness-defect wie 166 (host-unabhaengig, card
+  t-20261107-r27-runtime-broker-oras-missing-edge-readiness).
+- connector (node): BLOCKED-by-scope — `baha node add/connect/list/status/disconnect` = TWO-HOST-flow
+  (remote node enrollment). Single-host lane (205) ohne zweiten host nicht end-to-end fahrbar.
+
 ## MATRIX (offen — noch nicht gefahren)
 
 - docker-1 (baha-docker/166): SINGLE default core + demo + console + connector, je host pass/fail + revision.
