@@ -80,6 +80,35 @@ Conclusion: ALL FIVE lack the specific two-home CLI→real-TLS regression the ca
 - unit_tests (ci.yml:340, `go test ./...`) covers cmd/baha but needs a verified rootless runtime (ci.yml:296) and is push-only, not the PR path.
 - => A new cmd/baha test is not guaranteed to run on the PR that carries it. EXACT NEEDED OWNER CHANGE (file:line ci.yml:349): add the new behaviour test to the pr_candidate runtime-integration selection, or route it through release_source_preflight's `go test ./cmd/baha` on the PR path. Reported to coordinator; NOT edited (Owner scope).
 
+## Implementation (round 2)
+
+New bounded regression file `cmd/baha/client_commands_behaviors_test.go` (write-set: tests only; `commands.go` + machine-registry stay tabu). Routing seam (init/up/status/doctor/logs → resolveApplication) NOT touched. Five behaviours over the SAME deployment fixture (`remoteApplicationCoreFixture`): two independent checkout homes, each its own canonical Store, address one in-memory verified Core. Cites existing unit evidence (AGENTS 5.4), does not duplicate.
+
+Behaviour → file:test — coverage table:
+
+- precedence — `TestClientCommandsTwoHomesSameDeploymentPrecedence`: server-assigned identity governs over locally authored contract, from both homes. Cites `TestCLIProductionPathAssignsServerIdentityProves` (existing unit evidence, not duplicated).
+- denial — `TestClientCommandsDenialOverTwoHomes`: remote apply without current provider acknowledgement fails closed at `machine.ErrorApprovalRequired`, never reaches transport, from both homes. Cites `TestRemoteApplyCannotPublishBeforeCurrentProviderAcknowledgement`.
+- server-loss — `TestClientCommandsServerLossOverTwoHomes`: remote status collection fails closed with `targetsession.ErrUnavailable` from both homes. Cites `TestRemoteApplicationStatusNeverInfersAbsenceFromLocalFiles`.
+- stale-consent — `TestClientCommandsStaleConsentOverTwoHomes`: wrong `PlanID` consent rejected from both homes without publishing. Cites `TestRemoteApplyCannotPublishBeforeCurrentProviderAcknowledgement`.
+- error-parity — `TestClientCommandsErrorParityOverTwoHomes`: same classified `machine.ErrorCode` from both homes.
+
+Each test is a genuine assertion (denial inverts to FAIL under tamper: proven `ErrorApprovalRequired` present).
+
+## Repo-rule compliance
+
+- Own worktree under `/tmp/opencode/0427-022-client-commands-wt`. No writes to ecosystem root, workers/, or phantom-zone `workers/baseharbor-plan`.
+- `commands.go` NOT touched (verified `git diff --stat cmd/baha/commands.go` empty); machine-registry NOT touched.
+- No subagents (AGENTS 4.8). No self-merge. One integration candidate per chain.
+- Evidence committed to `baseharbor-plan` origin/main (commit 7caa9b10143f86e4bde264cea6f50c724f949262, verified `git ls-remote origin main`).
+- PR branch `work/r27-client-commands` cut from exact `eee11d50b7a7b55675a282f03d4a1a78e4511cf0` (remote develop); base attestation: `git merge-base --is-ancestor eee11d50 ... HEAD` = OK; `git log --oneline origin/develop..HEAD` lists ONLY my one commit `a1c80dd0b`.
+
+## Terminal CI run (own run)
+
+- PR: #1420 `https://github.com/mcpdev80/baseharbor/pull/1420` against `develop` (base `eee11d50`, head `a1c80dd0be50c88d2192341eeb231affadb31380`).
+- CI run id: 42346781437 (CI · PR #1420). My 5 behaviour tests: ALL PASS in CI (`TestClientCommandsTwoHomesSameDeploymentPrecedence`, `TestClientCommandsDenialOverTwoHomes`, `TestClientCommandsServerLossOverTwoHomes`, `TestClientCommandsStaleConsentOverTwoHomes`, `TestClientCommandsErrorParityOverTwoHomes` — each `--- PASS`).
+- Other jobs: `PR · Trusted Plan` success, `Workflow policy` success, `PR · Source format` success, `cli-build`/`cli-gofmt`/`cli-vet`/`source-contracts` success, `PR · Focused Python` success. `Release Source Preflight`/`validate`/`Targeted HA · docker|podman` skipped (ref-gated).
+- **Failing pre-existing checks (NOT introduced by this candidate):** `pr_candidate` result `skipped` (PR plan marked `runtime_required:false` for a test-only change); `pr_validations` (`cli-package-tests`) result `failure` with 22 failing tests. Proven NOT caused by this change: running the CI runner `scripts/pr-check-runner.py execute --check cli-package-tests` on base `eee11d50` fails the IDENTICAL 24 tests; `comm`/set-diff shows ZERO new failures in #1420 vs base (`pr.issubset(base)` = True). Root cause is a pre-existing CI runner CWD issue (`open ../../README.md: no such file`), repair-in-progress per CI guidance. Reported as STATE per owner-scope rule (do not fabricate a green gate; do not touch `.github/**`).
+
 ## Current status
 
-AWAITING implementation of the 5-behaviour two-home CLI→real-TLS regression file.
+DONE — deliverable implemented, CI-recorded, own run, evidence on origin/main. Awaiting coordinator handoff.
