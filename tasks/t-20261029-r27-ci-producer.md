@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-ci-producer
+card_number: "0427-084"
+card_short_title: "qualify a real"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "q202 (a71d5cd0, qwen)"
 kanban_lane: closed
 kanban_summary: Qualify a genuine public-contracts pilot producer
 kanban_status: closed
-kanban_title: "CI: qualify a real public-contracts producer"
+kanban_title: "0427-084 · qualify a real"
 early: true
 priority: high
 depends_on: []

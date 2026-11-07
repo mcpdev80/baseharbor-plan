@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-postrun-token-mapping
+card_number: "0427-086"
+card_short_title: "pass Planning write token to"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "o203 (3fba91dd, ornith)"
 kanban_lane: closed
 kanban_summary: Close the fail-closed publication gap found on run 40834168626
 kanban_status: closed
-kanban_title: "CI: pass Planning write token to receipt writer publish step"
+kanban_title: "0427-086 · pass Planning write token to"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]

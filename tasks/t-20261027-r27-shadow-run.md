@@ -1,5 +1,7 @@
 ---
 id: t-20261027-r27-shadow-run
+card_number: "0427-080"
+card_short_title: "Prove one automatic"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coordinator-lane (r27 board-up)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: Prove one automatic contributor receipt chain"
+kanban_title: "0427-080 · Prove one automatic"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1151"]
