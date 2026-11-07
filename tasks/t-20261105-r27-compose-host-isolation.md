@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: "Owner loest PR#1383 CONFLICT direkt (2026-11-07). Ornith-Sitz wird dafuer FREI gehalten. Sobald #1383 mergeable/merged: frische #110-lane spawnt und laeuft die 4 native docker/podman lifecycle cells echt (isolation + contaminated/clean host-zellen); freie VMs stelle ich bereit (KEIN systemknappheits-blocker). Trigger: #1383 merged."
+blocker: "PR #1383 merged in develop (812c99c8873df400348fbc8cc9be5e650b8966c4), but required real Docker/Podman clean/polluted isolation and omitted-isolation mutant proofs are not yet accepted. PR CI run 42377648851 is green; PR Selected Runtime was skipped. No release qualification from this merge."
 
 ---
 
@@ -187,3 +187,9 @@ vormals active mit toter bahn w282 (reboot); korrekt auf blocked gesetzt.
 - Fehlende echte Ausfuehrung sowie die spaetere rote Docker-/Podman-Abnahme bleiben Blocker. Der zwischenzeitliche Installation-Owner- und Consent-Fortschritt anderer PRs ersetzt die vier Test- und Isolationsbeweise nicht. Erneut gegen aktuellen develop rebasen und exakt-head native sauber/kontaminiert belegen; **blocked** bis dahin.
 
 owner-direktive 2026-11-07: 110 FERTIGSTELLEN. echter blocker war PR#1383 CONFLICTING + 4 native docker/podman lifecycle tests nie echt ausgefuehrt. VM-raeume frei (podman w169 strays removed).
+
+## Owner-Merge 2026-11-07
+
+- PR [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) merged into `develop` at `812c99c8873df400348fbc8cc9be5e650b8966c4` after conflict reconciliation (`b3321c6ab3d258e56a7997b4acc606887b6ab9a8`).
+- [PR CI 42377648851](https://github.com/mcpdev80/baseharbor/actions/runs/42377648851) terminal successful on exact PR head; `PR Selected Runtime` skipped. This verifies build and selected Go checks, **not** native isolation acceptance.
+- Keep card blocked on real Docker+Podman clean/polluted isolation, omitted-isolation mutant RED and restored GREEN, SINGLE default/explicit HA verification, and exact evidence. Merge does not authorize v0.4.27 release.
