@@ -289,3 +289,12 @@ public-contract gates: skipped, not selected for this path set.
 ## END
 
 END_DONE 0427-118-runtime-broker: head=f1af4cdedcb13d4d35d980c2c1ef36ec365ab1df pr=1425 oras=<source_oci+registry_source fail-closed, kein generic> readiness=<root-cause not_ready gefixt, READY bei vollstaendigen mounts> regression=<rot/gruen real> run=42368956940 SUCCESS TERMINAL ci_wiring=ok (go-unit-tests + cli-package-tests, keine .github-Aenderung noetig) akte=evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md origin/main
+
+## Evidence-on-origin/main witness (second-to-last action)
+
+```
+$ git log --oneline -1 origin/main -- evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md
+78a9b35d evidence(0427-118-runtime-broker): round-1 oras fail-closed + broker readiness root-cause, PR #1425 f1af4cded runs terminal
+$ git cat-file -e origin/main:evidence/.../round-1.md && echo EXISTS
+PATH-EXISTS-ON-origin/main
+```
