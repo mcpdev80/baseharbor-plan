@@ -87,9 +87,9 @@ All runs use binary `baha` built byte-reproducibly from candidate head `86f990a6
 ## Publication block (second-to-last action)
 
 - Before push, `git log --oneline origin/main..HEAD` => `35c34a8c evidence(r27 w5-folge): remote-up-cli round-4 — develop-merged head 86f990a6 on PR #1407, CI 42332668220 terminal success; docker+podman VM cells hit ErrDeploymentOwnerMissing seam -> END_BLOCKED awaiting 0427-117` — lists ONLY this lane's commit. (A pre-existing unstaged change in `remote-material/round-2.md` and an untracked `vm-integration-runs/round-3-docker-podman2.md` belong to other lanes; stashed/restored and left uncommitted, not touched by this lane.)
-- Push: `44389682..35c34a8c  main -> main`.
+- Push: `44389682..35c34a8c` then follow-up `4fcb5742..9e0d7503` (witness fill-in); `git log --oneline origin/main..HEAD` after push => empty (fully published).
 - `git ls-tree -r origin/main --name-only | grep remote-up-cli/round-4` => `evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-4.md` (present on origin/main).
-- `git ls-remote origin refs/heads/main` => `35c34a8c2f53b106c1908d8ebae9118a8d300c1c refs/heads/main`.
+- `git ls-remote origin refs/heads/main` => `9e0d750390480c396fa4034f0f213b0330f9841b refs/heads/main` (final; round-4 file path present on origin/main).
 
 ## END
 
