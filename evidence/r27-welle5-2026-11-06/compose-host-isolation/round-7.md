@@ -189,10 +189,12 @@ the genuine RED where no Core owns the per-test target.
 ## PLAN
 
 - develop moved forward to ddf0d7823f6 (#1406 artifact-resolution + #1404 single-default) AFTER the round-7 merge f236b66; develop was NOT an ancestor of f236b66.
-- Base-refresh: re-merge origin/develop (dddf0d78) into work/r27-compose-isolation -> new head 42973c7524ad (parents [f236b66, ddf0d78]); develop ddf0d78 now confirmed ancestor via GitHub compare (reverse ahead_by:0); PR #1383 4-file scope present; #1406 files present; pushed normal (no force) f236b661..42973c75.
-- CI running at new head 42973c75 (run 42324195737, in_progress) — affected runtime/compose InCI group; watch to completion.
-- Verify: merge-base witness (GitHub compare reverse ahead_by:0 = develop ancestor); new head 42973c75; CI run-id captured.
-- TODO: END with merge-base witness + new head 42973c75 + CI run-id once green or terminal.
+- Base-refresh round 1: re-merge origin/develop (dddf0d78) into work/r27-compose-isolation -> new head 42973c7524ad (parents [f236b66, ddf0d78]); develop ddf0d78 confirmed ancestor (GitHub compare reverse ahead_by:0); PR #1383 4-file scope present; #1406 files present; pushed normal (no force) f236b661..42973c75.
+- develop drifted AGAIN to 3fa6f7b0d0ba (PR #1412, ~51 commits ahead: single-default topology gates, CI dedup #1408-1413, Keycloak selection); 42973c75 no longer basis-faehig.
+- Base-refresh round 2: re-merge origin/develop (3fa6f7b0) -> new head 61566c6805d7 (parents [42973c75, 3fa6f7b0]); merge-base(61566c68, 3fa6f7b0) == 3fa6f7b0 (develop fully merged/ancestor); GitHub compare forward 61566c68..3fa6f7b0 ahead_by:0 (zero foreign candidates); PR #1383 4-file scope present; pushed normal (no force) 42973c75..61566c68. (.github/ workflow edits in this merge are upstream develop PRs #1408-1413, authored upstream, not by this lane.)
+- CI running at new head 61566c68 (run 42326862499, in_progress) — affected runtime/compose InCI group; watch to completion.
+- Verify: local merge-base witness (merge-base(61566c68, 3fa6f7b0)==3fa6f7b0; --is-ancestor OK); GitHub compare forward ahead_by:0 (no foreign candidate); new head 61566c68; build clean (go build ./cmd/baha rc=0); CI run-id captured.
+- TODO: END with merge-base witness + new head 61566c68 + CI run-id once green or terminal.
 
 ## END
 
