@@ -146,3 +146,10 @@ publishing this evidence:
 
 (After push, re-verified that this file's path exists on origin/main; the verification output is
 appended below by the publish step.)
+
+```text
+$ git ls-tree origin/main -- evidence/r27-welle5-folge-2026-11-06/management-host/round-9-baserefresh.md
+100644 blob a1796706c87077c930191e7bddc8b0934a89937a	evidence/r27-welle5-folge-2026-11-06/management-host/round-9-baserefresh.md
+$ git ls-remote origin refs/heads/main
+432ed210ee8155564f78c3bf27e737f83cb3ef33	refs/heads/main
+```
