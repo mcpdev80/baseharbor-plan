@@ -16,7 +16,7 @@ priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261107-r27-runtime-broker-oras-missing-edge-readiness]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: [mcpdev80/baseharbor#1425]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
@@ -35,7 +35,7 @@ evidence: []
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
-**Source:** [baseharbor#1425](https://github.com/mcpdev80/baseharbor/issues/1425)
+**Source:** 
 <!-- /generated:links -->
 
 ## Goal
