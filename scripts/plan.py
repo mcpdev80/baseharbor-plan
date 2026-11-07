@@ -343,7 +343,12 @@ class Vault:
         status = kanban_status or (status_tags[0] if len(status_tags) == 1 else "")
         prior = status_tags[0] if len(status_tags) == 1 else ""
         if lane:
-            requested = "planned" if lane in ("ready", "waiting", "queued") else lane
+            # A planned card may have been *rendered* into Wait because one of
+            # its prerequisites was open. That must never become an explicit
+            # parking request when the prerequisite is accepted later.
+            # An explicit drag from planned to Wait requires wait_reason.
+            projected_wait = lane == "wait" and status == "planned" and not as_str(meta.get("wait_reason"))
+            requested = "planned" if lane in ("ready", "waiting", "queued") or projected_wait else lane
             if requested != status:
                 if prior == status:
                     status = requested
