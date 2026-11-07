@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-demo-guided-consent
+card_number: "0427-104"
+card_short_title: "guided up supplies candidate"
 areas: [demo]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: w85-demo-consent
 kanban_lane: closed
 kanban_summary: "The guided happy path (baha up via tests/guided/drive.py) captures the printed confirm-hash and, when the Core binary supports…"
 kanban_status: closed
-kanban_title: "Demo: guided up supplies candidate consent (feature-detected)"
+kanban_title: "0427-104 · guided up supplies candidate"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-demo]
 prs: [mcpdev80/baseharbor-demo#128]

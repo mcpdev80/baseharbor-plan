@@ -1,5 +1,7 @@
 ---
 id: core-325
+card_number: "0708-001"
+card_short_title: "support delegated Deploy and"
 areas: [delivery]
 type: architecture
 release: v0.7.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Add a runtime-neutral Delivery Provider axis so BaseHarbor can support direct mutation and delegated/GitOps reconciliation…
 kanban_status: planned
-kanban_title: "Delivery: support delegated deployment and GitOps"
+kanban_title: "0708-001 · support delegated Deploy and"
 depends_on: [core-310, t-20261017-release-0-7-8-updates, t-20261018-r27-delegated-handoff, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
 prs: []

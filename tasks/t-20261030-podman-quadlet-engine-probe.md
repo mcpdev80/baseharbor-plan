@@ -1,5 +1,7 @@
 ---
 id: t-20261030-podman-quadlet-engine-probe
+card_number: "0427-089"
+card_short_title: "podman-quadlet job probes"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)"
 kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_status: closed
-kanban_title: "CI: podman-quadlet job probes Docker engine context (fail-closed on podman runner)"
+kanban_title: "0427-089 · podman-quadlet job probes"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

@@ -1,5 +1,7 @@
 ---
 id: t-20261024-r27-ci-impact-prototype
+card_number: "0427-074"
+card_short_title: "W1: trusted receipt execution,"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: "ChatGPT (isolated v0.4.27 prototype)"
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: W1: trusted receipt execution, discovery and shadow consumption"
+kanban_title: "0427-074 · W1: trusted receipt execution,"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1091, mcpdev80/baseharbor#1092, mcpdev80/baseharbor#1109, mcpdev80/baseharbor#1115, mcpdev80/baseharbor#1125, mcpdev80/baseharbor#1129, mcpdev80/baseharbor#1128, mcpdev80/baseharbor#1131, mcpdev80/baseharbor#1132, mcpdev80/baseharbor#1133, mcpdev80/baseharbor#1134, mcpdev80/baseharbor#1135]

@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-onboarding-wizard
+card_number: "0427-043"
+card_short_title: "attach a workstation with"
 areas: [wizard]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Native success continues silently; import one trusted device bundle or non-secret team profile and authenticate only as policy…
 kanban_status: planned
-kanban_title: "Onboarding: attach a workstation with minimal questions"
+kanban_title: "0427-043 · attach a workstation with"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-profile-codec, t-20261018-r27-secure-export, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: []

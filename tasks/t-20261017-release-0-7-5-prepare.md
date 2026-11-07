@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-7-5-prepare
+card_number: "0705-003"
+card_short_title: "complete ecosystem readiness"
 type: acceptance
 areas: [release]
 release: v0.7.x
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Finish every prerequisite for complete-ecosystem pre-release readiness.
 kanban_status: planned
-kanban_title: "v0.7.5 · Pre-release: complete ecosystem readiness and candidate preparation"
+kanban_title: "0705-003 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-7-5-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

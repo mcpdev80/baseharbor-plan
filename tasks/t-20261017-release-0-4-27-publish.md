@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-4-27-publish
+card_number: "0427-007"
+card_short_title: "promote the validated"
 type: acceptance
 areas: [release]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Promote only approved content and provide the complete exact tagging command to the Maintainer.
 kanban_status: planned
-kanban_title: "v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands"
+kanban_title: "0427-007 · promote the validated"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-qualify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]

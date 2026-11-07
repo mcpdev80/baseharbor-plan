@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-node-trust
+card_number: "0427-042"
+card_short_title: "qualify rotation revocation"
 areas: [connector]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)
 kanban_lane: closed
 kanban_summary: "Reconcile existing implementation, then close actual token/mTLS/CA overlap/revocation/reconnect gaps against immutable Core…"
 kanban_status: closed
-kanban_title: "Connector: qualify rotation revocation and session recovery"
+kanban_title: "0427-042 · qualify rotation revocation"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-service, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor-node-connector#20]

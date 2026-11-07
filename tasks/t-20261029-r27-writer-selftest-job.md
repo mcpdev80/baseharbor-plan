@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-writer-selftest-job
+card_number: "0427-088"
+card_short_title: "CI: writer selftest job —"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: CI: writer selftest job — validate plan.zip against extract_facts before any publication"
+kanban_title: "0427-088 · CI: writer selftest job —"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

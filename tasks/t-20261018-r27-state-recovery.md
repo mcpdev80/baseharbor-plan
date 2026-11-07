@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-state-recovery
+card_number: "0427-057"
+card_short_title: "restore the installation state"
 areas: [recovery]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (w252, zelle5 auf docker-2 laeuft)
 kanban_lane: closed
 kanban_summary: "Consistent backup of installation identity, deployments/provider ownership, accepted candidates, required protected snapshots…"
 kanban_status: closed
-kanban_title: "Recovery: restore the installation state and reconcile owned targets"
+kanban_title: "0427-057 · restore the installation state"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-app-binding, t-20261018-r27-candidate-ingress, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-state-owner, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
 prs: []

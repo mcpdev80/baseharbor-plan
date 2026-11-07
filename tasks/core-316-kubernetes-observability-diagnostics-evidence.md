@@ -1,5 +1,7 @@
 ---
 id: core-316
+card_number: "0803-001"
+card_short_title: "add observability, diagnostics"
 areas: [kubernetes]
 type: feature
 release: v0.8.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Complete Kubernetes observability and diagnostic behavior so BaseHarbor can explain application/runtime health without requiring…
 kanban_status: planned
-kanban_title: "Kubernetes: add observability, diagnostics and evidence"
+kanban_title: "0803-001 · add observability, diagnostics"
 depends_on: [core-313, core-314, t-20261017-release-0-8-3-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

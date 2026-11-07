@@ -1,5 +1,7 @@
 ---
 id: t-20261105-r27-connection-authority-boundary
+card_number: "0427-111"
+card_short_title: "target-scoped live-Conn"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle4 (Lane w172, freigegeben)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "Expose, inside the already accepted boundary internal/coreinstallation (authority), a resolution call that takes the VERIFIED…"
-kanban_title: "Authority: target-scoped live-connection resolution without an application context"
+kanban_title: "0427-111 · target-scoped live-Conn"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

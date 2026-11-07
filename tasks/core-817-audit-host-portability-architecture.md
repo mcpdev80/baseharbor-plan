@@ -1,5 +1,7 @@
 ---
 id: core-817
+card_number: "0429-001"
+card_short_title: "verify host portability and"
 areas: [platform]
 type: acceptance
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Audit the actual v0.4.29 host-platform implementations before final contract acceptance in v0.4.31 (#174). Passing the audit…"
 kanban_status: planned
-kanban_title: "Audit: verify host portability and architecture"
+kanban_title: "0429-001 · verify host portability and"
 depends_on: [core-823, t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

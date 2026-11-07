@@ -1,5 +1,7 @@
 ---
 id: t-20261022-r27-ci-authority
+card_number: "0427-063"
+card_short_title: "authority"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle3 (lane w41)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Deferred trusted CI readiness: authority"
+kanban_title: "0427-063 · authority"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
 prs: []

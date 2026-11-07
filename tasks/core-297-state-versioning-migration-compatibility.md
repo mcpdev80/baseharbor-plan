@@ -1,5 +1,7 @@
 ---
 id: core-297
+card_number: "0501-001"
+card_short_title: "define versioning and"
 areas: [contracts]
 type: architecture
 release: v0.5.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Make BaseHarbor state safely evolvable after the v0.5.0 freeze without migration ceremony for normal users. A supported upgrade…
 kanban_status: planned
-kanban_title: "State: define versioning and migration compatibility"
+kanban_title: "0501-001 · define versioning and"
 depends_on: [t-20261017-release-0-5-1-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

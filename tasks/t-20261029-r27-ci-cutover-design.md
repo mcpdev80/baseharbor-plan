@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-ci-cutover-design
+card_number: "0427-083"
+card_short_title: "CI: specify candidate-bound"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "q201 (38460858, qwen)"
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: CI: specify candidate-bound completion and ruleset"
+kanban_title: "0427-083 · CI: specify candidate-bound"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]

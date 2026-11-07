@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-candidate-contract
+card_number: "0427-017"
+card_short_title: "define immutable source and"
 areas: [architecture]
 type: architecture
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: Owner + ChatGPT
 kanban_lane: closed
 kanban_summary: "Define only the minimal Baha app/target/consent binding around existing Git revisions, OCI images/artifacts/layouts and native…"
 kanban_status: closed
-kanban_title: "Deployment: define immutable source and image submission"
+kanban_title: "0427-017 · define immutable source and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-delivery-boundary]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1355"]

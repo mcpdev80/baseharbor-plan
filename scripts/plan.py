@@ -142,6 +142,67 @@ def quote(value):
     return s
 
 
+
+CARD_NUMBER = re.compile(r"^[0-9]{4}-[0-9]{3}$")
+VERSION_NUMBER = re.compile(r"^v([0-9]+)\.([0-9]+)\.([0-9]+)$")
+SERIES_NUMBER = re.compile(r"^v([0-9]+)\.([0-9]+)\.x$")
+
+
+def card_release_prefix(meta):
+    # The concrete patch wins over the series. Series-only tasks use patch 0.
+    version = as_str(meta.get("version"))
+    release = as_str(meta.get("release"))
+    candidate = version if VERSION_NUMBER.fullmatch(version) else release
+    match = VERSION_NUMBER.fullmatch(candidate)
+    if not match:
+        match = SERIES_NUMBER.fullmatch(release)
+        if not match:
+            return None
+        major, minor = int(match[1]), int(match[2])
+        patch = 0
+    else:
+        major, minor, patch = map(int, match.groups())
+    if (major, minor, patch) < (0, 4, 27):
+        return None
+    if major > 9 or minor > 9 or patch > 99:
+        raise ValueError("release version cannot fit a four-digit card prefix")
+    # 0427 => v0.4.27; 0501 => v0.5.1
+    return f"{major}{minor}{patch:02d}"
+
+
+def compact_card_title(title):
+    # The full title remains untouched in the checkbox and metadata.
+    value = re.sub(r"^((?:fix|feat|ci|docs|test|chore|refactor)\([^)]*\)|(?:fix|feat|ci|docs|test|chore)):\s*", "", title, flags=re.I)
+    value = re.sub(r"\s*\([^)]*\)", "", value)
+    value = re.sub(r"\s+", " ", value).strip()
+    if ":" in value:
+        value = value.split(":", 1)[-1].strip()
+    substitutions = {"Configuration": "Conf", "Integration": "Integr", "Compatibility": "Compat",
+                     "Authentication": "Auth", "Infrastructure": "Infra", "Application": "App",
+                     "Documentation": "Docs", "Management": "Mgmt", "Environment": "Env",
+                     "Deployment": "Deploy", "Acceptance": "Accept", "Validation": "Validate",
+                     "Provider": "Prov", "Connection": "Conn"}
+    for long, short in substitutions.items():
+        value = re.sub(r"\b" + re.escape(long) + r"\b", short, value, flags=re.I)
+    if len(value) <= 30:
+        return value
+    words = value.split()
+    result = ""
+    for word in words:
+        if len((result + " " + word).strip()) > 30:
+            break
+        result = (result + " " + word).strip()
+    return result or value[:30].rstrip()
+
+
+def card_display_title(task):
+    number = as_str(task["meta"].get("card_number"))
+    if not number:
+        return task["title"]
+    short = as_str(task["meta"].get("card_short_title")) or compact_card_title(task["title"])
+    return f"{number} · {short}"
+
+
 # ---------------------------------------------------------------- model
 
 class Vault:
@@ -388,7 +449,24 @@ class Vault:
         for tid in set(self.tasks) & set(self.epics):
             self.err(self.tasks[tid]["path"], f"id {tid} is used by both a task and an epic")
         parents = set(self.epics) | set(self.releases)
+        seen_numbers = {}
         for t in self.tasks.values():
+            expected_prefix = card_release_prefix(t["meta"])
+            number = as_str(t["meta"].get("card_number"))
+            short = as_str(t["meta"].get("card_short_title"))
+            if number:
+                if not CARD_NUMBER.fullmatch(number):
+                    self.err(t["path"], f"invalid card_number {number!r}")
+                elif number in seen_numbers:
+                    self.err(t["path"], f"duplicate card_number {number} (also {self.rel(seen_numbers[number])})")
+                else:
+                    seen_numbers[number] = t["path"]
+                if not short or len(short) > 30:
+                    self.err(t["path"], "card_short_title must contain 1 to 30 characters")
+                if as_str(t["meta"].get("kanban_title")) != card_display_title(t):
+                    self.err(t["path"], "kanban_title differs from numbered display title; run render")
+            elif expected_prefix:
+                self.err(t["path"], "missing card_number for concrete release")
             if t["release"] not in self.releases:
                 self.err(t["path"], f"unknown release {t['release']!r}")
             if t["parent"] and t["parent"] not in parents:
@@ -1049,6 +1127,26 @@ def update_roadmap_frontmatter(vault, release, content):
 
 def render(vault):
     changed = []
+    # Render is the only allocator for generated lifecycle cards and legacy
+    # producers. Existing numbers stay stable when a task changes release.
+    used = {as_str(t["meta"].get("card_number")) for t in vault.tasks.values()
+            if CARD_NUMBER.fullmatch(as_str(t["meta"].get("card_number")))}
+    next_by_prefix = {}
+    for number in used:
+        prefix, suffix = number.split("-")
+        next_by_prefix[prefix] = max(next_by_prefix.get(prefix, 0), int(suffix))
+    for task in sorted(vault.tasks.values(), key=lambda t: t["id"]):
+        meta = task["meta"]
+        prefix = card_release_prefix(meta)
+        if prefix and not as_str(meta.get("card_number")):
+            seq = next_by_prefix.get(prefix, 0) + 1
+            if seq > 999:
+                raise ValueError(f"card number range exhausted for {prefix}")
+            number = f"{prefix}-{seq:03d}"
+            meta["card_number"] = number
+            next_by_prefix[prefix] = seq
+        if as_str(meta.get("card_number")) and not as_str(meta.get("card_short_title")):
+            meta["card_short_title"] = compact_card_title(task["title"])
     for release in vault.releases.values():
         if release["kind"] not in ("release", "series"):
             continue
@@ -1060,8 +1158,17 @@ def render(vault):
     for t in vault.tasks.values():
         text = t["path"].read_text(encoding="utf-8")
         head, body = text[:text.find("\n---\n", 4) + 5], text[text.find("\n---\n", 4) + 5:]
+        # Persist newly allocated immutable identifiers, never rename task IDs/files.
+        additions = []
+        for key in ("card_number", "card_short_title"):
+            if key in t["meta"] and not re.search(r"(?m)^" + key + r":", head):
+                additions.append(key + ": " + dump_value(t["meta"][key]))
+        if additions:
+            head = head.replace("\n---\n", "\n" + "\n".join(additions) + "\n---\n", 1)
         if "kanban_title" in t["meta"]:
-            head = re.sub(r"(?m)^kanban_title:.*$", "kanban_title: " + dump_value(t["title"]), head, count=1)
+            head = re.sub(r"(?m)^kanban_title:.*$", lambda _: "kanban_title: " + dump_value(card_display_title(t)), head, count=1)
+        elif as_str(t["meta"].get("card_number")):
+            head = head.replace("\n---\n", "\nkanban_title: " + dump_value(card_display_title(t)) + "\n---\n", 1)
         if "kanban_status" in t["meta"]:
             head = re.sub(r"(?m)^kanban_status:.*$", "kanban_status: " + t["status"], head, count=1)
         if "kanban_lane" in t["meta"]:
@@ -1135,7 +1242,23 @@ def cmd_new(root, args):
         return 1
     template = (root / "templates" / "task.md").read_text(encoding="utf-8")
     status = "backlog" if args.release in ("backlog", "triage") else "planned"
-    text = (template.replace("{{id}}", tid).replace("{{title}}", args.title)
+    existing = Vault(root).load()
+    prefix = card_release_prefix({"release": args.release, "version": args.version or ""})
+    number = ""
+    if prefix:
+        used = [int(as_str(x["meta"].get("card_number")).split("-")[1])
+                for x in existing.tasks.values()
+                if as_str(x["meta"].get("card_number")).startswith(prefix + "-")
+                and CARD_NUMBER.fullmatch(as_str(x["meta"].get("card_number")))]
+        seq = max(used, default=0) + 1
+        if seq > 999:
+            print("card number range exhausted for this release", file=sys.stderr)
+            return 1
+        number = f"{prefix}-{seq:03d}"
+    text = (template.replace("{{card_number}}", number)
+            .replace("{{card_short_title}}", compact_card_title(args.title) if number else "")
+            .replace("{{id}}", tid).replace("{{title}}", args.title)
+            .replace("version: \"\"", "version: " + dump_value(args.version or ""), 1)
             .replace("{{release}}", args.release).replace("{{release_tag}}", release_tag(args.release))
             .replace("{{status}}", status).replace("{{repo}}", REPO_PREFIX[args.repo]))
     path.write_text(text, encoding="utf-8")
@@ -1198,6 +1321,7 @@ def main(argv=None):
     p.add_argument("--slug", required=True)
     p.add_argument("--title", required=True)
     p.add_argument("--release", required=True)
+    p.add_argument("--version", help="concrete patch version for a release series (e.g. v0.5.1)")
     p = sub.add_parser("claim")
     p.add_argument("id")
     p.add_argument("--owner", required=True)

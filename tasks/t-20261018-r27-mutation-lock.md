@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-mutation-lock
+card_number: "0427-037"
+card_short_title: "reject concurrent or stale"
 areas: [state]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w184c, freigegeben)
 kanban_lane: closed
 kanban_summary: All clients use the existing owner lock. Bind application and provider changes to current revision and exact consent;…
 kanban_status: closed
-kanban_title: "Lifecycle: reject concurrent or stale shared changes"
+kanban_title: "0427-037 · reject concurrent or stale"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-state-owner, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1390]

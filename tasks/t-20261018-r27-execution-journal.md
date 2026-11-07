@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-execution-journal
+card_number: "0427-029"
+card_short_title: "persist execution identity and"
 areas: [state]
 type: task
 release: v0.4.27
@@ -8,7 +10,7 @@ parent: core-777
 priority: normal
 owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
 kanban_status: closed
-kanban_title: "Operations: persist execution identity and terminal outcomes"
+kanban_title: "0427-029 · persist execution identity and"
 kanban_lane: closed
 kanban_summary: "Persist accepted/running/terminal or uncertain status, correlation and authorized request commitment before effects. Duplicate…"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]

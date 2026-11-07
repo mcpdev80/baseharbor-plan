@@ -1,5 +1,7 @@
 ---
 id: core-306
+card_number: "0703-001"
+card_short_title: "implement namespaced"
 areas: [kubernetes]
 type: feature
 release: v0.7.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Realize BaseHarbor persistent-storage intent using namespaced PVC lifecycle while treating StorageClass/PV infrastructure as…
 kanban_status: planned
-kanban_title: "Kubernetes: implement namespaced persistent storage"
+kanban_title: "0703-001 · implement namespaced"
 depends_on: [core-102, core-304, t-20261017-release-0-7-3-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-vm-rebuild-integration
+card_number: "0427-108"
+card_short_title: "reproducible rebuild of the"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "coord-welle4 (lanes w116, w117)"
 kanban_lane: closed
 kanban_summary: "Both test hosts are rebuilt from their own setup scripts instead of patched by hand, and afterwards the real Docker and Podman…"
 kanban_status: closed
-kanban_title: "Operations: reproducible rebuild of the Docker and Podman test VMs and real cross-repo integration runs"
+kanban_title: "0427-108 · reproducible rebuild of the"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor-node-connector]

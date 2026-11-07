@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-state-owner
+card_number: "0427-056"
+card_short_title: "enforce installation-owned"
 areas: [state]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: Owner/ChatGPT (externe Übernahme 2026-11-05, Direktive)
 kanban_lane: closed
 kanban_summary: Bind existing deployment/provider state to the selected installation and server-owned durable root. Workstation paths are…
 kanban_status: closed
-kanban_title: "State: enforce installation-owned deployment storage"
+kanban_title: "0427-056 · enforce installation-owned"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1347]

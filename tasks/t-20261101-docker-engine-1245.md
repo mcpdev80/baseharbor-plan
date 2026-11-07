@@ -1,5 +1,7 @@
 ---
 id: t-20261101-docker-engine-1245
+card_number: "0427-093"
+card_short_title: "resolve the ACTIVE Docker"
 type: task
 areas: []
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: worker-ornith-1245 (Ornith; session 35cdb02e)
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: resolve the ACTIVE Docker context (rootless + rootful) without a hardcoded uid socket
+kanban_title: "0427-093 · resolve the ACTIVE Docker"
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

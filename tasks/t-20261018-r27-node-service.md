@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-node-service
+card_number: "0427-040"
+card_short_title: "reconcile enrollment service"
 areas: [connector]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Codex-Worker cx09)
 kanban_lane: closed
 kanban_summary: "Review retained PR #4 exact unique work against current Core before extending; preserve it.…"
 kanban_status: closed
-kanban_title: "Connector: reconcile enrollment service and restart behavior"
+kanban_title: "0427-040 · reconcile enrollment service"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor-node-connector#19]

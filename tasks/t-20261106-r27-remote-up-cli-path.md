@@ -1,5 +1,7 @@
 ---
 id: t-20261106-r27-remote-up-cli-path
+card_number: "0427-116"
+card_short_title: "CLI start path for Prov-bound"
 title: "Remote app up: CLI start path for provider-bound remote apps"
 release: v0.4.27
 priority: normal
@@ -7,6 +9,7 @@ type: task
 areas: [cli, remote]
 owner: w285-pr1407-docker-cell
 kanban_status: review
+kanban_title: "0427-116 · CLI start path for Prov-bound"
 kanban_lane: review
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407]

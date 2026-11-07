@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-access-wizard
+card_number: "0427-013"
+card_short_title: "guide profile assignment and"
 areas: [wizard]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Name->search/select Targets->rights->review; preserve selections across pagination/back, show effective scope. Distinguish…"
 kanban_status: planned
-kanban_title: "Access: guide profile assignment and deliberate offboarding"
+kanban_title: "0427-013 · guide profile assignment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-managed-users, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: []

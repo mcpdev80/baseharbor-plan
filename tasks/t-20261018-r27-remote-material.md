@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-remote-material
+card_number: "0427-051"
+card_short_title: "project exposure material to"
 areas: [providers]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: w287
 kanban_lane: active
 kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
 kanban_status: active
-kanban_title: "Remote providers: project exposure material to the actual target"
+kanban_title: "0427-051 · project exposure material to"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
 prs: []

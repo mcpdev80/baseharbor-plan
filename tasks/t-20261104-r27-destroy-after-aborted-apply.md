@@ -1,5 +1,7 @@
 ---
 id: t-20261104-r27-destroy-after-aborted-apply
+card_number: "0427-105"
+card_short_title: "destroy must succeed when a"
 type: task
 areas: [deployment]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: coord-welle4 (Lane w158, freigegeben)
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: app destroy --yes ends with success and leaves no running instance and no project ownership when a provider-change apply aborted…
-kanban_title: "Deployment: destroy must succeed when a provider-change apply aborted before runtime materialization"
+kanban_title: "0427-105 · destroy must succeed when a"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-consent-abort-leaves-undestroyable-state]
 repos: [mcpdev80/baseharbor]

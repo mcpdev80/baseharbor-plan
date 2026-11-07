@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-remote-podman-web
+card_number: "0427-052"
+card_short_title: "verify native Quadlet HTTPS"
 areas: [runtime]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: "Same portable SQL/cache/web candidate on rootless Podman; native Quadlet startup/ownership and TLS verification, no fake Compose…"
 kanban_status: planned
-kanban_title: "Remote Podman: verify native Quadlet HTTPS workload"
+kanban_title: "0427-052 · verify native Quadlet HTTPS"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-streams, t-20261018-r27-remote-docker-web, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []

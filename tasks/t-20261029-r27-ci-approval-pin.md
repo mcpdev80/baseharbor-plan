@@ -1,5 +1,7 @@
 ---
 id: t-20261029-r27-ci-approval-pin
+card_number: "0427-081"
+card_short_title: "CI: repair approval trusted"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -9,7 +11,7 @@ owner: "f60 (29879f0e, flash)"
 kanban_lane: closed
 kanban_summary: ""
 kanban_status: closed
-kanban_title: "Historical: CI: repair approval trusted source pins"
+kanban_title: "0427-081 · CI: repair approval trusted"
 early: true
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]

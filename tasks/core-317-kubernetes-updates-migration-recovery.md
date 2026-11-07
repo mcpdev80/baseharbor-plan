@@ -1,5 +1,7 @@
 ---
 id: core-317
+card_number: "0804-001"
+card_short_title: "secure updates, migration and"
 areas: [kubernetes]
 type: feature
 release: v0.8.x
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: Make application/provider updates and BaseHarbor state migrations safe and predictable on Kubernetes using the compatibility…
 kanban_status: planned
-kanban_title: "Kubernetes: secure updates, migration and recovery"
+kanban_title: "0804-001 · secure updates, migration and"
 depends_on: [core-313, core-314, core-315, t-20261017-release-0-8-4-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

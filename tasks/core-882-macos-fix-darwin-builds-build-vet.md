@@ -1,5 +1,7 @@
 ---
 id: core-882
+card_number: "0429-007"
+card_short_title: "fix Darwin builds and verify"
 areas: [platform]
 type: bug
 release: v0.4.29
@@ -9,7 +11,7 @@ owner: ""
 kanban_lane: waiting
 kanban_summary: cmd/baha compiles for GOOS=darwin (arm64 and amd64) and CI keeps it that way. Pulled ahead of v0.4.29; targets develop (the…
 kanban_status: planned
-kanban_title: "macOS: fix Darwin builds and verify build/vet"
+kanban_title: "0429-007 · fix Darwin builds and verify"
 depends_on: [t-20261017-release-0-4-29-updates]
 repos: [mcpdev80/baseharbor]
 prs: []

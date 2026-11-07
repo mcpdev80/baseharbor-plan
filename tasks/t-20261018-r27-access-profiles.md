@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-access-profiles
+card_number: "0427-011"
+card_short_title: "manage scoped team profiles"
 areas: [access]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle4 (Lane w174, freigegeben)
 kanban_lane: closed
 kanban_summary: Create/update/revoke named profiles for selected Targets/operations/scopes/environments with existing policy authority. Profiles…
 kanban_status: closed
-kanban_title: "Access: manage scoped team profiles and owned assignments"
+kanban_title: "0427-011 · manage scoped team profiles"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-team-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1384]

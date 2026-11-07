@@ -1,5 +1,7 @@
 ---
 id: t-20261018-r27-delegated-handoff
+card_number: "0427-024"
+card_short_title: "preserve external desired"
 areas: [delivery]
 type: task
 release: v0.4.27
@@ -10,7 +12,7 @@ owner: coord-welle5 (Lane w221, freigegeben)
 kanban_lane: closed
 kanban_summary: "Preserve existing delegated-delivery boundary: Argo CD/GitOps owns its Git/Helm/Kustomize desired resources and reconciliation.…"
 kanban_status: closed
-kanban_title: "GitOps: preserve external desired state and hand off native changes"
+kanban_title: "0427-024 · preserve external desired"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-delivery-boundary, t-20261018-r27-stage-versions, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1399]
