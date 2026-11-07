@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-maintenance-client (r3 ausstehend, pool voll->queue)
-kanban_lane: active
+owner: lane-0427-maintenance-client (r3 in queue)
+kanban_lane: wait
 kanban_summary: Route update/backup/restore/destroy through the selected authority and existing lifecycle/consent owners. Archive…
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-034 · submit maintenance operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-state-recovery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -22,23 +22,24 @@ early: false
 blocker: ""
 resolution: ""
 evidence: []
-wait_reason: ""
+wait_reason: "arbeit begonnen (r1/r2, 2 review-bounces auf destroy-ablauf); r3-Korrektur (atomare zustandsmaschine) wartet auf freien worker-sitz (pool 5/5 voll)"
 
 ---
 
-- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/wait #view/wait #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-maintenance-client (r3 ausstehend, pool voll-\>queue) · **Priority:** normal  
+    **Owner:** lane-0427-maintenance-client (r3 in queue) · **Priority:** normal  
     **PR:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
+    **Waiting:** arbeit begonnen (r1/r2, 2 review-bounces auf destroy-ablauf); r3-Korrektur (atomare zustandsmaschine) wartet auf freien worker-sitz (pool 5/5 voll)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
-**Owner:** lane-0427-maintenance-client (r3 ausstehend, pool voll->queue)  
+**Owner:** lane-0427-maintenance-client (r3 in queue)  
 **Priority:** normal  
 **PRs:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
