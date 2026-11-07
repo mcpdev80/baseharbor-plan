@@ -68,11 +68,16 @@ Migration/regression proof: `pre-release-check-plan.py --tag v0.4.27` now select
 
 - `baseharbor-plan/evidence/r27-welle5-folge-2026-11-07/ci-lanes/round-1.md` (origin/main `7342f2b6da331e077be0c77be8fae10d2969ef6d`, verified via `git ls-remote origin main`).
 
-## PR-creation handoff to Coordinator (Owner/gh auth required)
+## Refresh + merge (coordinator directive 2026-11-07)
 
-This lane has no GitHub write token (the present token is Owner `mcpdev80`; opening a PR from the fork under another user identity is rejected by the API — 422 `head invalid`). PR must open under Owner/`gh` auth, the sanctioned lane path. Details:
+- `git fetch origin develop`: develop advanced `ff43c3d2` → `0c4e59` (newer; `ff43c3d2` is an ancestor of `0c4e59`).
+- Merged `origin/develop` `0c4e59` into `work/r27-ci-lanes-catalog` (clean; only a pre-existing `cmd/baha/update_provider_runtime_test.go` from develop landed — no product churn in my write-set).
+- Base attestation after merge: `git merge-base --is-ancestor ff43c3d2... b6619dae5` = OK (rc0 ancestor; branch is a descendant of current develop). History = only my catalog commit + the develop merge.
+- Re-ran on the merged stand: `test_ci_v0427_gate_catalog` 7/7 OK; `pr_focused` 205/205 OK.
 
-- Branch: `work/r27-ci-lanes-catalog` (head `8bf52f02`, on origin, cut from develop `ff43c3d2`).
-- Target base: `develop`.
-- PR body: `/tmp/opencode/0427-021-ci-lanes-wt/pr_body.json`.
+## Push + PR handoff (Owner/gh auth required)
+
+- **`git push origin work/r27-ci-lanes-catalog` SUCCEEDED** (local remote). Branch head on origin: **`b6619dae596ae38cc186d92c604582a48b02228e`**.
+- PR open still needs Owner/`gh` write token (`mcpdev80`); this lane cannot `gh pr create` (API rejects fork-PR under another user identity). Owner opens the PR.
+- PR base: `develop`; body: `/tmp/opencode/0427-021-ci-lanes-wt/pr_body.json`.
 - After PR open: CI `pr_focused` + `go-unit-tests` run it (durable evidence). Then record the run-id in the END line.
