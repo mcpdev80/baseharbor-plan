@@ -65,7 +65,7 @@ cc6373c06bdcc0ebe336b23a0c7b8b2f38fc3464	refs/heads/main
 
 ## END
 
-END_DONE codex-1405-merge-e: result=MERGED merged_head=66310729e1789a59e3025fcbfb270015f83b8d08 develop_now=66310729e1789a59e3025fcbfb270015f83b8d08 ancestry=6014a8fcd2697f34ab0c52353d328dd55cc9a1a5 ancestor rc0 akte=this file
+END_DONE codex-1405-merge-e: result=MERGED merged_head=66310729e1789a59e3025fcbfb270015f83b8d08 develop_at_merge=66310729e1789a59e3025fcbfb270015f83b8d08; latest_develop=eee11d50b7a7b55675a282f03d4a1a78e4511cf0; accepted_head_and_merge_commit_are_ancestors_rc0; akte=this file
 
 
 ## Planning closeout and final publication
@@ -76,4 +76,21 @@ Final planning-main witness before this evidence addendum:
 
 ```text
 98bfb025b37720366b36cfe9aad782dc07f61c7c	refs/heads/main
+```
+
+
+## Final remote freshness check
+
+After the merge, `develop` advanced again to `eee11d50b7a7b55675a282f03d4a1a78e4511cf0` (a separate merge, recorded by planning receipt `evidence/receipts/commits/eee11d50b7a7b55675a282f03d4a1a78e4511cf0.json`). A fresh fetch in the lane's own clone confirmed both the accepted PR head `6014a8fcd2697f34ab0c52353d328dd55cc9a1a5` and merge commit `66310729e1789a59e3025fcbfb270015f83b8d08` remain ancestors of current `origin/develop`, both `git merge-base --is-ancestor` rc=0.
+
+Latest product witness:
+
+```text
+eee11d50b7a7b55675a282f03d4a1a78e4511cf0	refs/heads/develop
+```
+
+Latest planning `origin/main` witness before this addendum:
+
+```text
+3451f12640329fa3dc56a6df865bc07053690287	refs/heads/main
 ```
