@@ -64,6 +64,14 @@ Rules (enforced by `scripts/plan.py check`):
 - Use relative Markdown links (`[core-910](core-910-….md)`) so navigation works on GitHub too.
 - New task: `python3 scripts/plan.py new --repo core --slug short-name --title "Area: outcome" --release v0.4.27`. IDs are never reused or renumbered ([decision](decisions/2026-10-15-stable-task-ids.md)).
 
+## Mandatory test discovery and CI selection
+
+Every executable task that introduces or changes a test must deliver its **test-to-CI registration and trigger** in the same acceptance scope, not merely a passing local command. State exact package/test name, required environment and runtime, CI check/gate owning the execution, and the changed paths or develop/release event selecting it. Prove that the planner selects the check for a relevant change, does not accidentally select expensive gates for unrelated changes, and that the selected job executes real assertions without a silent `Skip` or missing fixture. For unchanged package-wide Go tests, show the existing package check really runs them; do not add duplicate jobs.
+
+Native Docker and rootless Podman/Quadlet coverage is mandatory for behavior supported on both. A mocked unit test, docker-only run or static Compose render is not native Podman acceptance. Keep self-contained checks in ordinary PR CI; put cross-repository, real host lifecycle and expensive integrations in the existing develop acceptance or release qualification instead of reintroducing blocking cross-repo PR gates. Changes to the test selection catalog and native suite owner belong to their assigned CI lane, with non-overlapping file ownership.
+
+For **previously accepted** cards, an acceptance record remains historical, but missing CI routing is an explicit **current release preparation blocker**, tracked in the [v0.4.27 test-routing audit](evidence/v0.4.27-ci-test-routing-audit-2026-11-07.md) and [CI-lanes integration task](tasks/t-20261018-r27-ci-lanes.md). Until every required test is registered and executes in the selected scope, the release cannot be qualified. The release v0.4.27 is not published; no release/tag/main promotion is authorized here.
+
 ## Lifecycle
 
 | Card line | Meaning | Requirements |
