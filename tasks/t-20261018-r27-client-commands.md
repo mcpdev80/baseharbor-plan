@@ -9,13 +9,13 @@ version: ""
 parent: core-777
 priority: normal
 owner: 0427-022-client-commands
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Ordinary local/remote commands call same semantic operations. init writes portable contract locally and explicit registration…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-022 · route init up status and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-connection-client, t-20261018-r27-device-lifecycle, t-20261018-r27-journal-wiring, t-20261018-r27-management-host, t-20261018-r27-stage-versions, t-20261018-r27-team-auth, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1420]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -24,20 +24,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-client-commands · CLI: route init up status and operations through one authority #task #release/v0-4-27 #status/active #view/active #area/cli #kind/task
+- [ ] t-20261018-r27-client-commands · CLI: route init up status and operations through one authority #task #release/v0-4-27 #status/review #view/review #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** 0427-022-client-commands · **Priority:** normal  
+    **PR:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-team-auth](t-20261018-r27-team-auth.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md)  
 **Owner:** 0427-022-client-commands  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -66,3 +67,5 @@ Real CLI->TLS API tests with two independent homes/checkouts, same deployment, p
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
 
 ready erreicht (alle 10 deps inkl management-host akzeptiert); bahn auf laptop dispatched; write-set cmd/baha/main.go dispatch-naht + adapter, disjunkt zu 117 deployment_record.go.
+
+r2 geliefert+verifiziert: head 0c23adc56 auf eee11d50 (ancestor rc0), MERGEABLE, cli-package-tests+selected checks GRUEN, delta=NUR client_commands_behaviors_test.go (kein produktcode). root-cause der r1-CI-rote war ein os.Chdir-leak der lane (behoben mit t.Chdir), mein #1419-vs-#1420-zeugnis war richtig. 5 behaviours (3 cite existing, 2 neu) — review prueft echt-zwei-home-TLS + dass cites nicht luft sind. skipped docker/podman=owner ci-gate.
