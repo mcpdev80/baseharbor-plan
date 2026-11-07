@@ -1,5 +1,7 @@
 ---
 id: t-20261017-release-0-8-5-cleanup
+card_number: "0805-002"
+card_short_title: "reconcile old PRs, tasks and"
 type: maintenance
 areas: [release]
 release: v0.8.x
@@ -10,7 +12,7 @@ owner: ""
 kanban_lane: queued
 kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: planned
-kanban_title: "v0.8.5 · Release start: reconcile old PRs, tasks and branches"
+kanban_title: "0805-002 · reconcile old PRs, tasks and"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
