@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: lane-0427-119-oci-pull-error
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "oras pull reports failures with the same classification as oras resolve: a genuinely missing oras binary is still unambiguously…"
 kanban_title: "0427-119 · OCI pull error propagation"
 priority: normal
@@ -18,21 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1434]
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
-wait_reason: "Implementierung und Regressionstest in Core PR #1434 fertig; wartet auf terminale PR-CI und Review des exakten Heads."
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1434", "https://github.com/mcpdev80/baseharbor/actions/runs/42396424816"]
+wait_reason: ""
 
 ---
 
-- [ ] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/wait #view/wait #area/deployment #area/registry #kind/task
+- [x] t-20261107-oci-pull-error-propagation · OCI: pull uses same error classification as resolve #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #area/registry #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-119-oci-pull-error · **Priority:** normal  
     **PR:** [baseharbor#1434](https://github.com/mcpdev80/baseharbor/pull/1434)  
-    **Waiting:** Implementierung und Regressionstest in Core PR \#1434 fertig; wartet auf terminale PR-CI und Review des exakten Heads.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1434), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42396424816)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
 **Owner:** lane-0427-119-oci-pull-error  
@@ -70,6 +70,8 @@ wait_reason: "Implementierung und Regressionstest in Core PR #1434 fertig; warte
 - Shared files: none with in-flight cards; does not touch `.github/**`, `scripts/*` CI seam, or the `serve.go` management-host-lock area.
 
 ## Handoff
+
+- **Accepted 2026-11-07 (ChatGPT review):** Core PR #1434 merged as `8a3f58da905fad52327d33466fde1d9568092519` (candidate head `4808a20e1308758a5b1df02ec602bb33a6250f3e`). CI run [42396424816](https://github.com/mcpdev80/baseharbor/actions/runs/42396424816) completed **success** at that exact candidate: `PR Selected Checks`, `go-unit-tests` (`go test ./cmd/baha`, complete `cmd/baha` suite), `go-build`, `go-vet`, `cli-gofmt`, `Source format` all PASS. Runtime jobs skipped by normal path selection and not required for this pure error-classification change. Reviewed diff covers shared OCI native-tool classifier, preserved `exec.ErrNotFound` identity, redaction of ordinary pull failures and `TestApplicationRegistrySourcePullErrorClassification` on the real `pullResolvedRuntimeImage` path. No `.github/**` or security-contract changes. Acceptance confined to OCI pull error classification; not a Docker/Podman end-to-end release qualification.
 
 - 2026-11-07: PR #1434 implementiert, `wait` bis finale CI/Review des exakten Heads. Kein Merge/Closed behauptet. Bestehender Lane-Owner bleibt bestehen.
 
