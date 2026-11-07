@@ -19,13 +19,14 @@ prs: []
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md"]
 ---
 
 - [ ] t-20261107-r27-runtime-broker-oras-missing-edge-readiness · Defect: runtime broker readiness blocked — oras missing + edge-runtime /readyz not_ready #task #release/v0-4-27 #status/active #view/active #area/deployment #kind/task
     <!-- generated:card -->
     **Owner:** 0427-118-runtime-broker  
     **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md)  
     <!-- /generated:card -->
 
 
