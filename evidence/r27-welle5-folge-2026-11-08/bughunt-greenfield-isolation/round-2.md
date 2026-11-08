@@ -48,8 +48,13 @@ Evidence: evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/roun
 
 ## CI REGRESSION (must run in GitHub CI)
 
-- New regression test `TestBindExplicitSelectionResolvesKeycloakCoreIssuer` in `cmd/baha/use_target_keycloak_issuer_test.go`: bootstrap a verified installation via `coreinstallation.Run` (fake steps), materialize the REAL Keycloak core issuer under `targets/<name>/providers/keycloak/shared/core` (not `service-access/issuer`), then assert `bindExplicitSelectionToConnection` SUCCEEDS and that `coreinstallation.ResolveCoreIssuer` yields the Keycloak-bound identity. The negative control `TestBindExplicitSelectionFailsClosedOnOpenbaoIdentity` asserts that an OpenBao/service-PKI identity (the r1 bug) is still rejected as foreign. The test pins BOTH the app-path and the use-path to the SAME Keycloak core issuer root.
-- Group/trigger: the new test lives in `cmd/baha`, covered by the existing `PR · Validation · cli-package-tests` group (`go test ./cmd/baha -count=1` on `pull_request`). If the workflow selection does NOT currently discover a new cmd/baha test file, that is an Owner-scope `.github/**` change — reported as a finding with file:line, NOT edited.
+- Regression tests in `cmd/baha/use_target_keycloak_issuer_test.go` (deterministic, no Docker):
+  - `TestBindExplicitSelectionResolvesKeycloakCoreIssuer` — the r2 fix: a verified Core whose REAL Keycloak core issuer (targets/<name>/providers/keycloak/shared/core) is present on disk binds via `bindExplicitSelectionToConnection`. This closes the r1 bug (use/activate verified through a local base CA the real Core never materializes).
+  - `TestBindExplicitSelectionFailsClosedOnForeignIssuerIdentity` — negative control: a disk-resolved Keycloak core issuer identity that does NOT match the verified Core's IdentityIssuer is rejected as foreign (`ErrCoreIssuerMismatch`), never falling back to a second trust source.
+  - `TestBindExplicitSelectionFailsClosedOnMissingKeycloakIssuer` — a verified Core with no Keycloak core issuer on disk fails closed, never fabricating a trust source.
+- The tests pin BOTH the app-path (`deployment.TargetStateRoot(name)` = plain root) and the use-path to the SAME Keycloak core issuer location (targets/<name>/providers/keycloak/shared/core), so a future re-split fails CI.
+- Group/trigger: the new tests live in `cmd/baha`, covered by the existing `PR · Validation · cli-package-tests` group (`go test ./cmd/baha -count=1` on `pull_request`, via `scripts/pr-check-runner.py` → `go_package_tests(['./cmd/baha'], 'CLI')`). The whole `cmd/baha` package is discovered and executed, so the new test file IS picked up by CI. No `.github/**` change needed (Owner scope).
+- Also updated the existing r1 tests (`use_target_test.go`, `use_target_connection_test.go`) so they materialize the REAL Keycloak core issuer instead of a local base CA — the r1 tests asserted the WRONG authority. These now assert the correct Keycloak-bound identity.
 
 ## DOCKER/PODMAN
 
