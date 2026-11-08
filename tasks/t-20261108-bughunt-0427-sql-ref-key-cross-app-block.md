@@ -92,3 +92,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 - [PR #1447](https://github.com/mcpdev80/baseharbor/pull/1447), Head `44cb45784774656fb75aaa32c6510dbb3c362c41`: aktueller Portable-Intent-Test weist SQL-Instanzschluessel `/` fail-closed ab und prueft gueltigen `primary`-Roundtrip. Exakte PR-CI offen.
 - Die alte Registry-/Deployment-Projektion `SQLInstanceReferences` kommt in der aktuellen Source nicht mehr vor. **Dieser Test allein behebt keinen historischen fehlerhaften Fremd-App-Record**; daher Karte weiterhin `active`, Zwei-App-Repro und owner-sichere Bereinigung erforderlich.
+
+## 2026-11-08 Merge #1447 (ChatGPT)
+
+- [PR #1447](https://github.com/mcpdev80/baseharbor/pull/1447) erfolgreich nach `develop` gemergt, Merge-SHA `ffa83e78f9d4df43e9ca7b0e40792509c9f5c129`. Exact-head [CI #42432320249](https://github.com/mcpdev80/baseharbor/actions/runs/42432320249) terminal `success`, **8 PASS, 0 FAIL, 0 pending**.
+- Validiert neue SQL-Instanzschluessel gegen ungueltiges `/`, aber **alte Deployment-Record-Referenzen und fremde konfigurierte Apps noch nicht im Zwei-App-E2E rehabilitiert**. Deshalb `active` und kein gesicherter Produkt-Fix fuer das urspruengliche Fehlerbild behauptet.
