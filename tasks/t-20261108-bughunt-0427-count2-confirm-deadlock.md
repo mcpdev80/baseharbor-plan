@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w135-count2
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Ein sauberer go test -count=2 (ohne ambient Core) endet terminierend statt zu blockieren; der Bestätigungspfad leaket keine…
 kanban_title: "0427-135 · Wiederholtest hängt (count=2)"
 priority: normal
@@ -19,17 +19,17 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: dropped
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md"]
 ---
-- [ ] t-20261108-bughunt-0427-count2-confirm-deadlock · Bug Hunt v0.4.27: Wiederholtest-Hänger im Bestätigungspfad #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-count2-confirm-deadlock · Bug Hunt v0.4.27: Wiederholtest-Hänger im Bestätigungspfad #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w135-count2 · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** dropped  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w135-count2  
