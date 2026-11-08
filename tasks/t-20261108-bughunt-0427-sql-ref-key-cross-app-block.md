@@ -112,3 +112,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 - Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
 - PR #1450 merged 8f8be71; native two-app Docker/Podman stop/down and legacy SQL reference safety still need exact SHA PASS.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
+
+### 2026-11-08 Develop-Merge #1450
+
+- [PR #1450](https://github.com/mcpdev80/baseharbor/pull/1450) nach `develop` gemergt, **SHA `8f8be71df2d73846d2cfed275cf6dfbf28ded89f`**, exact-head [PR-CI #42433085133](https://github.com/mcpdev80/baseharbor/actions/runs/42433085133) terminal `success` (10 PASS). Zwei-App-Regression prueft historischen SQL-`/`-Key im App-B-Record gegen Stop-Plan fuer A ohne Fremd-Record-Mutation.
+- **Nativer Zwei-App-Stop/Down auf Docker/Podman noch offen.** Keine stillschweigende Provider-Referenz-Loeschung; an Coordinator uebergeben.
