@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w149b-nameid2
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: done
+kanban_lane: done
 kanban_summary: "One name gate in the registry: registration checks collisions and fails closed with a clear message (no silent second uuid);…"
 kanban_title: 0427-149 · Duplicate names lock all
 priority: normal
@@ -19,10 +19,10 @@ prs: [mcpdev80/baseharbor#1475]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: "Merged PR #1475 as d8849198265f13d34e1ece95d6982ce6b613d2aa; exact-head selected CI jobs including native Docker and Podman destroy retry passed."
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
 ---
-- [ ] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/done #view/done #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w149b-nameid2 · **Priority:** normal  
     **PR:** [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475)  
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** done  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w149b-nameid2  
@@ -55,3 +55,10 @@ None. Write-set: app registry name gate + app edit/init/create/show/plan/destroy
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (mapping): BF-01/02/05 are one name-gate contract; BF-10 hint fix belongs here too; live lane w149 owns it. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+## Merge verification — 2026-11-08
+
+- Product PR: https://github.com/mcpdev80/baseharbor/pull/1475
+- Squash merge SHA: `d8849198265f13d34e1ece95d6982ce6b613d2aa`
+- Exact-head workflow successful: Go build, vet, unit tests, targeted package checks and Docker/Podman native destroy-retry jobs. Skipped unrelated jobs were not treated as passing.
+- Full end-to-end Greenfield smoke test remains a separate release qualification.
