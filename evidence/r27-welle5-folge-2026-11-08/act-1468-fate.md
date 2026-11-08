@@ -11,17 +11,19 @@
 ## Review basis
 
 - Role: REVIEW. Product repo: `mcpdev80/baseharbor`. Card: 0427-154, `t-20261108-bughunt-openbao-stale-manager-cred`.
-- PR #1467 live head: `2d929127c343094234f07581c9fdfa9083fdb224`, open; its live mergeability was `UNKNOWN` at review time. Its exact-head run 42479206678 passed.
+- PR #1467 live head: `2d929127c343094234f07581c9fdfa9083fdb224`, open. The first live query returned `UNKNOWN` while GitHub recalculated; a refreshed query reports `CLEAN`/`MERGEABLE`. Its exact-head run 42479206678 passed.
 - PR #1468 live head: `73182463c6535ea1475f5e1d0480b2c3266a583d`, open, non-draft, base `develop`, `CLEAN` and `MERGEABLE`.
 - Current `develop`: `4786c541743541e7550f2c214f143ac8ee4f0aa6`.
 - Exact-head hosted run for #1468: [42481502910](https://github.com/mcpdev80/baseharbor/actions/runs/42481502910), terminal `success`, event `pull_request`, head exactly `73182463c6535ea1475f5e1d0480b2c3266a583d`. `PR Selected Checks`, `PR · Validation · go-unit-tests`, `openbao-package-tests`, `go-build`, `go-vet`, `Source format`, `Focused Python`, `Trusted Plan`, and `Workflow policy` passed. The run skipped targeted HA Docker/Podman and Native Keycloak/Core cells. No service-backed native test is required by this file-only OpenBao unit regression, and no skipped cell is counted as a pass.
 - Test routing: `internal/openbao/bootstrap_test.go` ran in `PR · Validation · go-unit-tests`, job `128734277800`, which logged `ok github.com/mcpdev80/baseharbor/internal/openbao 5.081s`. Trigger: `pull_request`. The specialized `openbao-package-tests` job also passed, but its selected-test manifest does not include either newly added stale-credential test; the broad Go unit job is the CI evidence that runs them.
 - Product write-set on #1468: `internal/openbao/bootstrap.go`, `internal/openbao/bootstrap_test.go` only; no workflow changes.
-- Planning base before this evidence commit: `e15609f073ffea84d483df2a9044070ed8d19eff refs/heads/main`.
+- Planning base before this evidence update: `fcf8f33d29143ad240c56a17bf2e4979016d4c03 refs/heads/main`.
 
 ## Comparison of the two candidates
 
 The complete `gh pr diff` output for #1467 and #1468 is byte-identical; both have SHA-256 `1ff88e116dfc6b8f8e11db47504c52f57003db643cc14f3e37857610ad785e48`. The changed product patch is only the same two OpenBao files. GitHub's head-to-head graph compare reports `diverged` (8 commits ahead, 1 behind, common base `b73a13a909b2d7b811d6956b3bdaf93f17b80454`) because #1468 carries already-integrated #1465 ancestry. Against current develop, #1468 has only one ahead commit and 21 behind from merge base `618d23bde0870391541a8bbdf3ee103f22d70560`; its PR diff remains the same scoped OpenBao patch. There is no unique #154 correction delta on #1467 to import into #1468, nor a #1468 fix to the findings in act-1467.
+
+The refreshed live view shows #1467 is also now `CLEAN`/`MERGEABLE`; the recommendation is not based on a current mergeability failure. Compared with the same current develop SHA, #1467 is one ahead and 28 behind from merge base `b73a13a909b2d7b811d6956b3bdaf93f17b80454`, whereas #1468 is one ahead and 21 behind from merge base `618d23bde0870391541a8bbdf3ee103f22d70560`. Both have exact-head successful CI, but #1468's run 42481502910 is later and its integration base is closer to current develop. Those are the reasons to retain #1468 as the single leading candidate; neither candidate's product patch fixes the act-1467 findings.
 
 ## Review against act-1467 recipe
 
@@ -53,6 +55,8 @@ The complete `gh pr diff` output for #1467 and #1468 is byte-identical; both hav
 ## END
 
 END_DONE 0427-154-duplex-review: #1468 leads but remains KORREKTUR; #1467 has identical product diff and no unique code delta.
+
+Live-state addendum: #1467 also refreshed to `CLEAN`/`MERGEABLE`; #1468 remains the recommendation because it is closer to develop and has the later exact-head green run, not because #1467 is blocked.
 
 Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md` output after initial publication:
 
