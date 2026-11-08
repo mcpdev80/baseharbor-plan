@@ -23,20 +23,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd5.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-local-access-singleton · Bug Hunt v0.4.27: One host, one local access #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-local-access-singleton · Bug Hunt v0.4.27: One host, one local access #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** chatgpt-r27-local-core · **Priority:** normal  
+    **PR:** [baseharbor#1481](https://github.com/mcpdev80/baseharbor/pull/1481)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd5.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** chatgpt-r27-local-core  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1481](https://github.com/mcpdev80/baseharbor/pull/1481)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->

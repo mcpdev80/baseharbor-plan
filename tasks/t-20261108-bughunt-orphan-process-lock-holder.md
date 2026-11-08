@@ -22,18 +22,18 @@ wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42486164133", "https://github.com/mcpdev80/baseharbor/commit/b95f913ff0142b8a5e7902cab6feda1afb93fae0"]
 ---
-- [ ] t-20261108-bughunt-orphan-process-lock-holder · Bug Hunt v0.4.27: Orphan holds the target #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-orphan-process-lock-holder · Bug Hunt v0.4.27: Orphan holds the target #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-lock-holder · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1480](https://github.com/mcpdev80/baseharbor/pull/1480)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42486164133), [proof 3](https://github.com/mcpdev80/baseharbor/commit/b95f913ff0142b8a5e7902cab6feda1afb93fae0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-lock-holder  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1480](https://github.com/mcpdev80/baseharbor/pull/1480)  
 **Source:** 

@@ -22,18 +22,18 @@ wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42485782689", "https://github.com/mcpdev80/baseharbor/commit/b90a6e2f220e7bc90f4fe763905402cd47ee0a18"]
 ---
-- [ ] t-20261108-bughunt-edit-surface-nits · Bug Hunt v0.4.27: Edit surface nits #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-edit-surface-nits · Bug Hunt v0.4.27: Edit surface nits #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-edit-surface · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1479](https://github.com/mcpdev80/baseharbor/pull/1479)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42485782689), [proof 3](https://github.com/mcpdev80/baseharbor/commit/b90a6e2f220e7bc90f4fe763905402cd47ee0a18)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-edit-surface  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1479](https://github.com/mcpdev80/baseharbor/pull/1479)  
 **Source:** 
