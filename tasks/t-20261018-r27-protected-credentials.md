@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle4 (Lane w181, freigegeben)
-kanban_lane: closed
+owner: ChatGPT (0427-047 regression follow-up)
+kanban_lane: active
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: closed
+kanban_status: active
 kanban_title: "0427-047 · retain and recover opted-in"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -20,24 +20,24 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: accepted
+resolution: reopened-regression
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md", "https://github.com/mcpdev80/baseharbor/pull/1385"]
 ---
 
-- [x] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #board/planned #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle4 (Lane w181, freigegeben) · **Priority:** normal  
+    **Owner:** ChatGPT (0427-047 regression follow-up) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1385)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** reopened-regression  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** coord-welle4 (Lane w181, freigegeben)  
+**Owner:** ChatGPT (0427-047 regression follow-up)  
 **Priority:** normal  
 **PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -119,3 +119,14 @@ SetManagedCredentialIfAbsent-pfad in der race-zelle, -if-not-exists-mutante ROT 
 ## Gemerged 2026-11-05 (CODEX-MERGE, Owner-Richtlinie 'fertig heißt mergen'): develop 10e8d646f0,
 kopf-vor-merge 31cc10a0 (develop-abgleich konfliktfrei), akzeptierter kopf 0e2b4803736 + rerun gruen nach
 fremdem flake-treffer. Urteile: 1385d ACCEPT.
+
+## Reopened 2026-11-08 — Sicherheitsregression (ChatGPT)
+
+Status `active` statt `closed`: PR #1385 wurde akzeptiert, aber der aktuelle `develop`-Produktionspfad erfüllt die Fail-closed-Akzeptanz noch nicht vollständig:
+
+- `reconcileDeveloperCredentialAuthority` interpretiert **jeden** Fehler von `openBaoRuntime` als «OpenBao noch nicht eingerichtet» und gibt lokale Credentials ohne verifizierte Authority zurück. Eine nicht erreichbare bestehende Runtime darf nicht als Bootstrap behandelt werden.
+- `devaccess.Ensure` erzeugt bei fehlender Projektionsdatei neue lokale Credentials **vor** dem Authority-Check; das ist bei Gerätewechsel und bestehendem Managed Store kein sicherer Recover-Mechanismus.
+- `SetManagedCredentialIfAbsent` klassifiziert jeden fehlgeschlagenen CAS-Write bei anschließend erfolgreichem Read als `AlreadyExists`; der genaue Schreibfehler bleibt unbelegt.
+- Die vorhandene CAS-Mutationszelle ist abhängig von `BAHA_ECOSYSTEM_ROOT` und kann übersprungen werden; CI-Grün allein belegt den Negativpfad daher nicht.
+
+**Arbeitspaket:** echten Bootstrap von Runtime-Störung unterscheiden; bestehende Credentials authoritative lesen, ohne den Store durch einen lokalen Kandidaten zu ersetzen; Fehlerpfade testbar machen; CAS-/Recovery-Regressionen ergänzen. Alte Merge-/Review-Nachweise bleiben historisch gültig, sind aber kein Nachweis für diesen Follow-up-Fix. Kein erneutes `closed` ohne Codeprüfung, tatsächliche Testausführung und grünen CI-Nachweis am neuen PR-Head.
