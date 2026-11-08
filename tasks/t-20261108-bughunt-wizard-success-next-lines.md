@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-wizard-ux"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Success/next text consistent across all create paths (wizard, headless, alias, top-level); prompt input errors as usageError…"
 kanban_title: 0427-142 · Success omits next step
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1465, mcpdev80/baseharbor#1469]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -52,3 +52,9 @@ Success/next text consistent across all create paths (wizard, headless, alias, t
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha app new + wizard message paths.
+
+
+## Ownership and code link — 2026-11-08
+
+- Claimed by `chatgpt-r27-wizard-ux` for the remaining CLI-surface scope, while merged [#1465](https://github.com/mcpdev80/baseharbor/pull/1465) already unified create-only/headless next instructions.
+- [#1469](https://github.com/mcpdev80/baseharbor/pull/1469) adds structured invalid yes/no input errors and a Next action after verified wizard-run success. Exact-head CI pending; no acceptance or closure claimed.
