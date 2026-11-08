@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: owner:chatgpt
-kanban_lane: active
+owner: "coordinator"
+kanban_lane: wait
 kanban_summary: Native success continues silently; import one trusted device bundle or non-secret team profile and authenticate only as policy…
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-043 · attach a workstation with"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-profile-codec, t-20261018-r27-secure-export, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,23 +22,23 @@ early: false
 blocker: ""
 resolution: ""
 evidence: []
-wait_reason: ""
+wait_reason: "True first-owner OIDC/Keycloak Tenant end-to-end and connected Node onboarding need real Docker/Podman acceptance."
 
 ---
 
-- [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
+- [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/wait #view/wait #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** owner:chatgpt · **Priority:** normal  
+    **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
-**Owner:** owner:chatgpt  
+**Owner:** coordinator 
 **Priority:** normal  
 **PRs:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -109,3 +109,9 @@ HANDOVER an Owner+ChatGPT (Owner-Direktive 2026-11-07): r2-PR#1435 head 09ec640b
 - **Abgrenzung:** Dies ist die integrierte Core-Grundlage, **nicht** der Beleg fuer automatisch verwalteten geschuetzten Operator-API-Dienst und realen `baha node connect` -> separaten Connector -> remote `baha app up/status/doctor` ueber Docker und Podman. Diese Release-Abnahme bleibt offen, insbesondere auf [0427-004](nc-3-core-enrollment-remote-runtime-acceptance.md). v0.4.27 ist **nicht** freigegeben.
 
 integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podman-2 (lanes e2e-*). urteil folgt je karte.
+
+## 2026-11-08 Owner-Freigabe und Uebergabe
+
+- Bearbeitungs-Owner gewechselt von `owner:chatgpt` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
+- True first-owner OIDC/Keycloak Tenant end-to-end and connected Node onboarding need real Docker/Podman acceptance.
+- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
