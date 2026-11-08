@@ -137,3 +137,9 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - CI [#5320](https://github.com/mcpdev80/baseharbor/actions/runs/42512795402) completed FAIL only in `TestRemoteTargetSelectionDoesNotRequireOrBootstrapLocalCore`: test expected obsolete text `remote Core management connection`, while production returns actionable `remote management connection profile not configured (BASEHARBOR_CONNECTION_PROFILE)` (under typed authentication failure).
 - PR #1473 head `e1b67be0f0f4400c51b6e6819d00e80425e7c0cf` now explicitly clears `BASEHARBOR_CONNECTION_PROFILE` in the test and checks that actionable missing-profile message. Production fail-closed behavior unchanged. [CI #5327](https://github.com/mcpdev80/baseharbor/actions/runs/42516611610) pending qualification.
 - The remote developer-to-host application lifecycle is **not** proven by the unit correction; keep this card open until real E2E passes.
+
+## Ready CI and Target tenant authority review 2026-11-08
+
+- PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473) head `e1b67be0f0f4400c51b6e6819d00e80425e7c0cf`: [CI #5327](https://github.com/mcpdev80/baseharbor/actions/runs/42516611610) **PASS**, including all required checks. This qualifies the scoped Core identity/handshake patch, not the complete remote app lifecycle.
+- Security review found `verifyRemoteManagementConnection` previously compared returned tenant to the profile only, not the configured selected Target. New head `d177ed15362ac1677a2afead8a573d9acfb8fff2` binds expected `ResolvedTarget.TenantID` explicitly and adds foreign/empty target-tenant regression tests. [CI #5341](https://github.com/mcpdev80/baseharbor/actions/runs/42529833874) pending on exact head.
+- Still missing: dispatch of authenticated developer CLI application operations to Core Machine HTTP API and external developer-workstation E2E proof. **Do not close card or assert remote deployment PASS based on green CI alone.**
