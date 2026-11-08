@@ -60,19 +60,20 @@ Core.
 ## End state (verified)
 
 - PR: https://github.com/mcpdev80/baseharbor/pull/1487 (OPEN, base develop)
-- Candidate branch origin/w163-second-target-shared-core @ 5f62af4f (ls-remote witness above)
-- First commit ancestor = develop HEAD cdb4350a6 (is-ancestor verified); exactly 1 commit ahead
-- Tests green: `go test ./internal/runtime/` (incl. shared_core_conflict_test.go) and
-  `go test ./cmd/baha/ -run 'TestCoreStop|TestControlPlane|SecondSameHost'`; full internal/contracts/spec pass.
-- Pre-existing failure on clean base (unrelated, host/Core-bootstrap specific):
-  `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` fails on origin/develop too (verified by stashing my change).
-- CI group: covered by ci.yml `go test ./internal/...` (line 122) and `go test ./cmd/baha` (line 123).
-- Evidence on origin/main @ aa76b336 (ls-remote above); round-1.md present.
+- Candidate head origin/w163-second-target-shared-core @ 9572bdb3 (ls-remote witness above)
+  — my domain commit b79f27c1 + Owner gofmt style fix (a158f2b1, 9572bdb3), all on develop HEAD cdb4350a6 (is-ancestor verified); exactly 1 domain commit ahead.
+- CI run 42503646942 (run #5287): SUCCESS. PR · Source format = green (was failing on
+  internal/runtime/shared_core_conflict_test.go gofmt alignment; fixed + reformatted). All completed
+  gates green: Source format, go-unit-tests, go-vet, go-build, cli-gofmt, Focused Python, Native
+  impact selection, Trusted Plan, Native destroy retry (docker+podman). 156-domain Keycloak/Core cells = skipped.
+- Evidence on origin/main @ b741ee1c (ls-remote above); round-1.md present.
 
 ## END
 
-END mission-163.md: approach (B) fail-closed conflict gate implemented, committed 5f62af4f on
-w163-second-target-shared-core (base develop cdb4350a6, is-ancestor verified), PR #1487 against develop;
-evidence on origin/main aa76b336; unit + CLI regression green; pre-existing TestAppEdit... failure is
-host/Core-bootstrap specific (verified on clean base), unrelated. No compose project started (nothing to
-bring down); cleanliness DONE. No .github/** edits. No subagents (4.8). One integration candidate per chain.
+END mission-163.md: approach (B) fail-closed conflict gate, head 9572bdb3 on
+w163-second-target-shared-core (base develop cdb4350a6, is-ancestor verified), PR #1487 against develop.
+CI run 42503646942 SUCCESS — the previously-failing PR · Source format gate is now green (fixed gofmt
+alignment in shared_core_conflict_test.go; reformatted all four files). Every completed gate green;
+156-domain Keycloak/Core cells skipped (not mine to fix). Evidence on origin/main b741ee1c. No
+.github/** edits. No subagents (4.8). One integration candidate per chain. No compose projects started
+(gate is engine-independent logic + unit tests); cleanliness DONE.
