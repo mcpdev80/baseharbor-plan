@@ -7,9 +7,9 @@ areas: [dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w131-logsgap
-kanban_status: review
-kanban_lane: review
+owner: pending-lane-0427-131-r2
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The logs entry point is coherent: either baha logs works top-level (resolving the nearest app) or the error names the correct…"
 kanban_title: "0427-131 · logs top-level ohne Pfad"
 priority: low
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-logs-command-gap · Bug Hunt v0.4.27: logs top-level ohne Pfad #task #release/v0-4-27 #status/review #view/review #area/dx #kind/bug
+- [ ] t-20261108-bughunt-0427-logs-command-gap · Bug Hunt v0.4.27: logs top-level ohne Pfad #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w131-logsgap · **Priority:** low  
+    **Owner:** pending-lane-0427-131-r2 · **Priority:** low  
     **PR:** [baseharbor#1456](https://github.com/mcpdev80/baseharbor/pull/1456)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w131-logsgap  
+**Owner:** pending-lane-0427-131-r2  
 **Priority:** low  
 **PRs:** [baseharbor#1456](https://github.com/mcpdev80/baseharbor/pull/1456)  
 **Source:** 
