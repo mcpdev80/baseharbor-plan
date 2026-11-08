@@ -15,7 +15,7 @@ kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1447]
+prs: [mcpdev80/baseharbor#1447, mcpdev80/baseharbor#1450]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -97,3 +97,7 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 - [PR #1447](https://github.com/mcpdev80/baseharbor/pull/1447) erfolgreich nach `develop` gemergt, Merge-SHA `ffa83e78f9d4df43e9ca7b0e40792509c9f5c129`. Exact-head [CI #42432320249](https://github.com/mcpdev80/baseharbor/actions/runs/42432320249) terminal `success`, **8 PASS, 0 FAIL, 0 pending**.
 - Validiert neue SQL-Instanzschluessel gegen ungueltiges `/`, aber **alte Deployment-Record-Referenzen und fremde konfigurierte Apps noch nicht im Zwei-App-E2E rehabilitiert**. Deshalb `active` und kein gesicherter Produkt-Fix fuer das urspruengliche Fehlerbild behauptet.
+
+## 2026-11-08 Zwei-App-Legacy-Record-Regression (ChatGPT)
+
+- [PR #1450](https://github.com/mcpdev80/baseharbor/pull/1450), Head `90ef32f158ab7afa1fef0d914f9529cd773f2a91`: tatsaechlicher `buildApplicationStopPlan`-Pfad fuer App A, waehrend App B SQL anfordert und im gespeicherten `deployment.json` das alte `SQLInstanceReferences:{"/":...}` enthaelt. Prueft, dass fremder historischer Record den aktuellen Stop-Plan nicht blockiert und nicht geschrieben wird. **Keine CI-PASS-Behauptung vor exaktem Run**; danach nativer Docker/Podman-Stop noch erforderlich. Karte bleibt `active`.
