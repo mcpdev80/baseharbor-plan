@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w160-stalelist
-kanban_status: closed
-kanban_lane: closed
+owner: "voided-coord-error — see note"
+kanban_status: review
+kanban_lane: review
 kanban_summary: "list/status reconciles against the live provider state (failed unit = not applied, actionable hint); MISSING gains a next-action…"
 kanban_title: 0427-160 · Stale entries after SIGKILL an
 priority: normal
@@ -19,22 +19,22 @@ prs: [mcpdev80/baseharbor#1491]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: accepted
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [x] t-20261108-bughunt-list-stale-after-kill · Bug Hunt v0.4.27: Liste zeigt Leichen #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-list-stale-after-kill · Bug Hunt v0.4.27: Liste zeigt Leichen #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w160-stalelist · **Priority:** normal  
+    **Owner:** voided-coord-error — see note · **Priority:** normal  
     **PR:** [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w160-stalelist  
+**Owner:** voided-coord-error — see note  
 **Priority:** normal  
 **PRs:** [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491)  
 **Source:** 
@@ -53,3 +53,6 @@ list/status reconciles against the live provider state (failed unit = not applie
 
 ## Dependencies and file ownership
 None. Write-set: app list/status reconciliation paths.
+
+## COORD CORRECTION 2026-11-08
+Coordinator closed this card on a false merge claim (#1491 was never merged; SHA 8f2a90617 does not exist). State restored to review. PR #1491 (head cd9eca82e) is OPEN and needs: rebase onto current develop, terminal hosted run with real native cells.

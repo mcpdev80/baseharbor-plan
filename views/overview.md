@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 14 |
-| review | 1 |
+| review | 2 |
 | wait | 7 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 198 |
+| closed | 197 |
 
 ## Active
 
@@ -43,6 +43,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | review | normal | voided-coord-error — see note | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491) |
 | [t-20261108-bughunt-stale-provider-edit-block](../tasks/t-20261108-bughunt-stale-provider-edit-block.md) | Bug Hunt v0.4.27: Stale instance blocks edit | review | normal | lane-w150-staleedit | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1490](https://github.com/mcpdev80/baseharbor/pull/1490) |
 
 ## Waiting for resources
@@ -68,7 +69,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 37 open, 130 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 38 open, 129 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
