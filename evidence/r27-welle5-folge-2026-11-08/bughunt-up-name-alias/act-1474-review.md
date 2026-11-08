@@ -54,3 +54,9 @@ The run skipped Native Keycloak/Core, Selected Runtime, and targeted HA Docker/P
 ## END
 
 END_DONE 0427-130-r5-review: APPROVE PR #1474 head `8bb8cc0e8565b88e89f1ecab5ad1c8fd6853b306`; run 42482853636 passed on the exact head.
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/bughunt-up-name-alias/act-1474-review.md` output after initial publication:
+
+```text
+100644 blob 51f9a43f304fb05526b413a435de64407982cbb6	evidence/r27-welle5-folge-2026-11-08/bughunt-up-name-alias/act-1474-review.md
+```
