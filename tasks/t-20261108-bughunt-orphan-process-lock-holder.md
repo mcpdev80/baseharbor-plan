@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-lock-holder"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Lock holder visible: status/up show pid+state of the holding process and name the next step; optional explicit-release cleanup…"
 kanban_title: 0427-147 · Orphan holds the target
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1480]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -52,3 +52,9 @@ Lock holder visible: status/up show pid+state of the holding process and name th
 
 ## Dependencies and file ownership
 None. Write-set: lifecycle lock reporting + target status.
+
+
+## Code-/CI-Übernahme — 2026-11-08
+
+- Owner `chatgpt-r27-lock-holder`, Implementierung in [PR #1480](https://github.com/mcpdev80/baseharbor/pull/1480). Der private Flock schreibt PID beim Erwerb, meldet PID/Status und eine explizite Prüf-/Freigabeanweisung bei Konflikt. Keine automatische Signalisierung oder Löschung fremder Locks.
+- Unix-Regression mit echtem Lock-Konflikt und sauberem Reacquire implementiert. Exact-head CI läuft/steht aus. Kein Acceptance ohne bestätigten PASS.
