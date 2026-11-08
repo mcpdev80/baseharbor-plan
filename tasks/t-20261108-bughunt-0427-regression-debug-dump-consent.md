@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-regression-dbgdump/round-1.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-regression-dbgdump/act-129-verify.md"]
 ---
 
 - [ ] t-20261108-bughunt-0427-regression-debug-dump-consent · Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) #task #release/v0-4-27 #status/review #view/review #area/dx #kind/bug
