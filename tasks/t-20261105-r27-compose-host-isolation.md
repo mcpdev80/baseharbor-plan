@@ -345,3 +345,9 @@ Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.
 - Offene Reste fuer Owner: (1) F1 Verkartung-Karte, (2) F2 Podman-readiness-Triage,
   (3) restliche Podman-Matrix (clean+contaminated count=1) nach F2-Triage. Kein weiteres
   Arbeiten am Produktdesign.
+
+
+## Audit 2026-11-08 — Merge-/Scope-Klarstellung
+
+- [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) ist gemergt (`812c99c8873df400348fbc8cc9be5e650b8966c4`); er ist **kein offener PR-Blocker** mehr.
+- Die in round-9 beschriebene offene Podman-App-Readiness, die unvollstaendige Podman-Matrix und die getrennte count=2-Prozess-Leak-Analyse sind fachliche Restbelege. Daher `active` nicht automatisch zu `closed`. Die historische Lane-Bezeichnung darf nicht als aktuell laufender Worker interpretiert werden, bevor die Coordinator-Zustaendigkeit bestaetigt ist.

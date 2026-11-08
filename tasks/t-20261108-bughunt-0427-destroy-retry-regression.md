@@ -55,3 +55,9 @@ Both develop push runs failed on commit 1fe57f25007413c710e049094c62bf71656b2aa2
 ## Dependencies and file ownership
 
 Umbrella only; write-set cmd/baha/app_destroy_lifecycle.go scope branch + installation_destroy_native_test.go fixture expectations. Owner decision needed if the intent of #1448 conflicts with the fixture contract.
+
+
+## Audit 2026-11-08 — Merge-/Abnahme-Abgleich
+
+- PR [#1453](https://github.com/mcpdev80/baseharbor/pull/1453) ist gemergt (`d30de3a4a176e073c8c1a9a0fc0b0ef06202b064`). Die anschliessende native Regression in PR [#1464](https://github.com/mcpdev80/baseharbor/pull/1464) hat Docker und Podman bestanden und wurde laut Owner-Integration gemergt (`cd494610`).
+- `active` auf der Karte ist **kein offener PR #1453**. Die urspruengliche Acceptance verlangt zusaetzlich einen exakten `develop`-Push-Lauf fuer beide nativen Runtime-Zellen; dieser wurde in diesem Karten-Audit nicht gesondert verifiziert. Bis dahin keine automatische Schliessung, kein Re-Claim und keine neuen Testressourcen reservieren.

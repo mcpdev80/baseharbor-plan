@@ -56,3 +56,9 @@ Witnessed live on baha-docker 2026-11-08: three full Core stacks `bh-w169-ci-boo
 ## Dependencies and file ownership
 
 Depends on 0427-124 only if that fix changes target naming used by the helper; write-set: the test support file(s) under cmd/baha + one check step in the existing workflow that already runs the package.
+
+
+## Audit 2026-11-08 — PR-Merge ist nicht Cleanup-Abnahme
+
+- [#1454](https://github.com/mcpdev80/baseharbor/pull/1454) ist gemergt (`22a3cb8a715f3a2063040ea3a3140c91d9e41ab6`). Die Karte steht noch `review` und hat keine verlinkte Evidence in `evidence:`.
+- Offener Akzeptanzbeleg ist der nachgelagerte Nachweis, dass nach den Docker- **und** Podman-Testpaketen keine `bh-w169-ci-bootstrap-*` Ressourcen verbleiben. Kein `closed` ohne diesen Cleanup-Beleg; Review-Owner-Eintrag bis Handover klaeren.

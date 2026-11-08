@@ -68,3 +68,10 @@ The Owner is changing PR runtime qualification in `mcpdev80/baseharbor`:
 - Relevant destroy source paths select `scripts/ci-native-installation-destroy.sh` on hosted Docker and Podman; exact `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` must PASS, never SKIP.
 - Unrelated changes do not trigger expensive native acceptance; missing mapping falls back to a conservative native selection.
 - CI Owner PR: [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463), MERGED as `88acebc5cc725ab69af5abe89588987c2001af6c`; [PR CI green](https://github.com/mcpdev80/baseharbor/actions/runs/42466245067). #1453 was merged by its owner as d30de3a4. Independent hosted verification PR [#1464](https://github.com/mcpdev80/baseharbor/pull/1464) selected Docker and Podman, reproducing the missing installation-owner regression (run 42466868568). A true Core-bootstrap fixture fix is now under validation in run 42467115964; do not mark native acceptance PASS until both runtime cells succeed.
+
+
+## Audit 2026-11-08 — CI-Merge und Folgeverifikation
+
+- PR [#1463](https://github.com/mcpdev80/baseharbor/pull/1463) ist in `develop` gemergt: `88acebc5cc725ab69af5abe89588987c2001af6c`.
+- Die anschliessende Regression/Verifikation [#1464](https://github.com/mcpdev80/baseharbor/pull/1464) wurde ebenfalls gemergt: `cd494610` (laut dokumentierter Owner-Mergeabnahme). Native Destroy-Retry Docker und Podman, Go-Unit, Build/Vet und PR-Auswahl waren dabei PASS.
+- Der vorherige Satz 'do not mark native acceptance PASS' beschreibt den damaligen Zwischenstand vor #1464 und ist **historisch**, nicht mehr aktueller CI-Blocker. CI-Implementierung gemergt; offener Kartenstatus wird erst nach erneuter kanonischer Release-/Abnahmepruefung samt `plan.py render && check` geschlossen. Kein neuer Workerauftrag.
