@@ -15,7 +15,7 @@ kanban_title: "0427-123 · Shared-Core Consent blockiert"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1445]
+prs: [mcpdev80/baseharbor#1445, mcpdev80/baseharbor#1446]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -74,3 +74,7 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 
 - **Teilfehler-Fix: ungefilterte DIAG_EXEC-Stdout-Ausgaben entfernt:** [PR #1445](https://github.com/mcpdev80/baseharbor/pull/1445) nach `develop` gemergt, Merge-SHA `db06f01e9fd793706da5072769922a0c64afecf0`; [exact-head CI #42430983626](https://github.com/mcpdev80/baseharbor/actions/runs/42430983626) terminal `success`, keine fehlgeschlagenen Jobs.
 - **Karte bleibt `active`**: echte native Docker-/Podman-End-to-End-Abnahme des urspruenglichen Bugs steht noch aus. Der gemergte Teilfix ersetzt diese nicht.
+
+## 2026-11-08 Interaktiver Consent-Regressionstest (ChatGPT)
+
+- [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) Head `90e9aae7f5c07729a309f97672f60247885c4845`: reproduziert `authorizeApplicationStop` auf dem echten CLI-Autorisierungspfad mit einer endlichen interaktiven Eingabe (2x `yes`, Ablehnung Stufe 1, Ablehnung Stufe 2). Prueft Erfolg nur bei aktueller Plan-ID und fail-closed bei Ablehnung. Noch kein echter PTY auf Docker/Podman; CI offen, Karte weiterhin `active`.
