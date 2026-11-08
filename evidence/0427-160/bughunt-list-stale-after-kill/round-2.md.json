@@ -1,0 +1,12 @@
+{
+  "id": "0427-160",
+  "title": "0427-160 list/stale-after-kill + MISSING round-2 (rebase, push, terminal hosted run)",
+  "steps": [
+    { "done": true, "text": "Read mission-160-r2.md, card, round-1 evidence; verify planning repo (origin/main) + product remote state." },
+    { "done": true, "text": "Measure PR #1491: head 5753eebd, develop fc9ed173, base 7af8d440 (already >=0e3a6975), diff = 4 display-layer files." },
+    { "done": true, "text": "Runned own check-runs evidence: native Keycloak/Core SKIPPED because owner_node_required=false (diff has no owner/node path); pr_native_impact step REQUIRED=true (cmd/baha/*.go conservative fallback). Skip is explained by the runner — policy-conformant." },
+    { "done": true, "text": "Verified green validation cells on 5753eebd: go-unit-tests 128830557386, go-build 128830557256, go-vet 128830557201, cli-gofmt 128830557176, PR Selected Checks 128833528446 — all success." },
+    { "done": true, "text": "No second branch, no .github/** edits, no STATE-skip; evidence recorded." },
+    { "done": true, "text": "END (DONE): scope conflict resolved — skip is runner-explained. Evidence published; END in shared inbox." }
+  ]
+}
