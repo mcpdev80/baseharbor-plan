@@ -66,3 +66,5 @@ Evidence: evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/roun
 ## END
 
 END_DONE 0427-133-r3-ca-issuer: verifier strengthened (Keycloak cert chain + DNS/SAN binding, fail-closed); negative regressions added; drift-merged to develop HEAD d30de3a4; candidate on PR #1460. Native Docker/Podman cells remain skipped (Owner-scope `.github/workflows/ci.yml` selector — reported, not edited).
+
+END-PFLICHT witnesses: planning `git ls-remote origin main` = `7c0a0d923aa9bfdb5a272bde0e9c86dbeca27678 refs/heads/main` (my round-3 evidence committed + on origin/main). Candidate `git ls-remote lane-origin work/0427-133-r3-ca-issuer` = `80895b67123c80d2b902e3f91a90d2d9e38547bd` (== local commit; my branch carries ONLY this commit, base d30de3a4 is its ancestor). Host cleanliness: no Docker/Podman compose project started this shift (native cells are Owner-scope and skipped; no daemon activity attributable to this lane).
