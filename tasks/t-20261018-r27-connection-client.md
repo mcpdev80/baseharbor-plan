@@ -230,3 +230,8 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - Draft [CI #5376](https://github.com/mcpdev80/baseharbor/actions/runs/42535376141) failed due malformed duplicated code in `management_remote_machine.go`; repaired at `0ad30f1b2b87272a5096c3fda65a49b679e18b9e`.
 - Latest candidate `9f29a0066b6a04b31d62b691ffa4224d63aed5a2` uses typed pending execution sentinel and rejects an unverified or operation-mismatched lifecycle receipt. Fresh Ready [CI #5379](https://github.com/mcpdev80/baseharbor/actions/runs/42535614007): source-format, gofmt, Go build/vet **PASS** at last inspection; go-unit-tests and native Docker/Podman Keycloak/Core + destroy/retry still running. No final selected-check verdict yet.
 - This CI proves code-level contracts only. The existing developer repository transfer/registration and separate physical Docker-host E2E are not evidenced; keep card active and PR unmerged.
+
+## Existing source staging reuse boundary 2026-11-09
+
+- Existing accepted source pieces **already exist**: 0427-019 candidate packer [PR #1381](https://github.com/mcpdev80/baseharbor/pull/1381) and 0427-018 immutable candidate ingress [PR #1398](https://github.com/mcpdev80/baseharbor/pull/1398). Do not reimplement source packing or upload storage.
+- Remaining integration gap for 0427-023 is narrower: the freshly connected remote developer CLI must invoke those existing source/candidate boundaries, retain exact source identity, and bind the server-side registered application to the selected Core/tenant/Target before apply. Current explicit `app apply NAME` assumes Core-registered source. Physical Docker-host end-to-end proof remains required.
