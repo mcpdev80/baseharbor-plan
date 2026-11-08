@@ -136,3 +136,9 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 - Exact-head PR CI: https://github.com/mcpdev80/baseharbor/actions/runs/42501499483
 - Exact-head native validation (all eight cells permitted concurrently): https://github.com/mcpdev80/baseharbor/actions/runs/42501503535
 - Previous run on the old SHA does not count as release qualification. Card remains `active` pending new exact-head CI and the separately required SINGLE/HA positive/negative topology evidence.
+
+## Fresh native Greenfield qualification passed — 2026-11-08
+
+- PR #1432 head `767a3196583e03a552f66a24a80e4b8085f2954b`, exact-head [PR CI #42501499483](https://github.com/mcpdev80/baseharbor/actions/runs/42501499483) = SUCCESS.
+- Exact-head [native Greenfield #42501503535](https://github.com/mcpdev80/baseharbor/actions/runs/42501503535) = SUCCESS; all eight native Go/Next.js/Python/Quarkus × Docker/Podman jobs actually executed and passed, plus Next.js legacy Docker = SUCCESS. No skipped native matrix cell.
+- Separately required SINGLE default topology counts plus explicit HA positive and default-HA negative assertions are **not established by the 8/8 READY jobs**. Keep card active until those exact acceptance checks are demonstrated; do not mistake source-ready CI for full card acceptance.
