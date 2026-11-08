@@ -25,6 +25,35 @@ ACTIVE — executing the fix recipe from `act-1457-review.md` (r2 review; points
 - develop moved during the round: `07ae6c3e` -> `48d6f10a` (commits 1452, 1454, 1456, 1461, 1462). Merged origin/develop into 134-r3-ca-pkce (drift-merge, recipe point 4); merge commit clean, no conflicts; command-index login row still carries `[--ca FILE] [--auth-code-file FILE] [--no-browser]`; TestHumanCommandIndexTracksExactCommandMetadata passes on the merged tree
 - My branch's only delta vs the candidate head is the r3 fix (8 files, +440/-18)
 
+## CI witness (run 42467172096, head 83d175f5)
+
+REQUIRED check that CI was red on (recipe point 3) is now GREEN:
+- `PR · Validation · go-unit-tests: completed/success` (was `failure` on 09030b37 run 42455848388)
+- `PR · Validation · go-build: completed/success`
+- `PR · Validation · go-vet: completed/success`
+- `PR · Validation · documentation-audit: completed/success`
+- `PR · Validation · mkdocs-en-strict: completed/success`
+- `PR · Validation · mkdocs-de-strict: completed/success`
+- `PR · Validation · cli-gofmt: completed/success`
+- `PR · Validation · wizard-registration-tests: completed/success`
+- `PR · Validation · pages-candidate-build: completed/success`
+
+REST is a merge-policy gate, NOT a code defect. `PR Selected Checks` failed only on its policy
+step `Require selected native acceptance before merge` — a gate on the four native runtime
+gates that need an isolated verified runtime, never a GitHub-hosted shared runner:
+
+- `PR · Native destroy retry · docker` → `##[error]Process completed with exit code 1.` (TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry, run against dockerd-rootless on a shared runner)
+- `PR · Native destroy retry · podman` → `##[error]Process completed with exit code 1.`
+- `PR · Native Keycloak/Core · docker` → `##[error]Process completed with exit code 1.`
+- `PR · Native Keycloak/Core · podman` → `##[error]Process completed with exit code 1.`
+
+STATE (Owner directive 2026-11-07): native gates are blocked on GitHub-hosted shared runners only
+(the runners cannot run nested Docker/Podman rootless containers). Do not build/register/repair
+runner infrastructure. Report and stop.
+
+My fix touches only operator-auth / OIDC / command-index files — zero native/runtime/destroy/keycloak
+files — so these four native failures are environment-blocked and independent of the r3 change.
+
 ## Repo-rule compliance
 
 - Single integration candidate per chain; branch `134-r3-ca-pkce` cut from the named PR head, no second branch
@@ -35,4 +64,14 @@ ACTIVE — executing the fix recipe from `act-1457-review.md` (r2 review; points
 
 ## END
 
-PENDING.
+END_DONE 0427-134-r3 — all three recipe deliverables executed and verified:
+(1) `--no-browser` wired into TrustOptions.NoBrowser and passed to operatorauth.Login (CLI + internal);
+(2) combined CA+PKCE production login path proven (TestLoginThroughManagedCAProvesCombinedProductionPath), fixed-callback-port + flag>env>default precedence added;
+(3) command-index.md regenerated, go-unit-tests GREEN on head 83d175f5.
+
+Native runtime gates (destroy retry + Keycloak/Core docker/podman) are STATE (environment-blocked
+on shared runners, cannot run nested Docker/Podman; independent of the r3 change which touches
+no native/runtime files). Not a code defect; reported and stopped per 2026-11-07 directive.
+
+Candidate head: 83d175f54ea9aba432d192c87dfe6464e879e0df
+CI run: 42467172096 (go-unit-tests success; native gates STATE)
