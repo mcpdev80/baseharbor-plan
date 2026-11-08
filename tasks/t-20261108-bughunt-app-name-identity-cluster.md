@@ -10,18 +10,34 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path (documented flow…
-kanban_title: "0427-149 · Namens-Zwillinge sperren alles"
+kanban_summary: "Eine namensaesung im registry: registrieren prueft kollision (expliziter fehler statt stiller zweiter uuid), name-basierte…"
+kanban_title: 0427-149 · app init Owner-Naht regression
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1458]
+prs: []
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
 ---
+- [ ] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Namens-Zwillinge sperren alles #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 <!-- generated:card -->
 
 <!-- /generated:card -->

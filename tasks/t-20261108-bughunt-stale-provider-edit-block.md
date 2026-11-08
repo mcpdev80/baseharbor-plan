@@ -10,18 +10,34 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path (documented flow…
-kanban_title: "0427-150 · Veraltete Instanz sperrt Edit"
+kanban_summary: Provider-instanz-pruefung beim edit-refresh (veraltet = neu losen oder klar melden); regression mit state-only app im selben…
+kanban_title: 0427-150 · app init Owner-Naht regression
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1458]
+prs: []
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
 ---
+- [ ] t-20261108-bughunt-stale-provider-edit-block · Bug Hunt v0.4.27: Veraltete Instanz sperrt Edit #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 <!-- generated:card -->
 
 <!-- /generated:card -->
