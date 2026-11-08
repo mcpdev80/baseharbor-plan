@@ -22,20 +22,20 @@ wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md"]
 ---
-- [ ] t-20261108-bughunt-appnew-name-slug-keywords · Bug Hunt v0.4.27: Name silently reshaped #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-appnew-name-slug-keywords · Bug Hunt v0.4.27: Name silently reshaped #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** chatgpt-r27-appnew · **Priority:** normal  
+    **PR:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** chatgpt-r27-appnew  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
