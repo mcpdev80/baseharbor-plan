@@ -51,3 +51,42 @@ The new `TestListHelpExplainsFailClosedTargetSelection` at `cmd/baha/cli_diagnos
 The review was read-only. PR head witnessed before review: `f8e1d573a0a6c32435dd7646576c511d97b68129`. Develop head witnessed before review: `618d23bde0870391541a8bbdf3ee103f22d70560`.
 
 Planning repository remote verified as `https://github.com/mcpdev80/baseharbor-plan.git`. Pre-publication remote witness after integrating concurrent evidence commits: `7f08135255f2dccc1b35bdcc3bf26f14f298b1bb refs/heads/main`.
+
+## Current-head review — 2026-11-08
+
+### Exact candidate and hosted state
+
+- Role: REVIEW; cards 0427-141 and 0427-148.
+- Live PR #1466 head: `daacddbbe9d011c3fd48ae7cc798e560dd591258`; base `develop`; PR state `MERGED`; merge commit `ad49d2d2129657e2e09c40b534c6a8030413a083`; merged at `2026-11-08T12:38:50Z`.
+- Live `develop` was `f05d6ee2e596da73056dfd1bda64a79ebbfe6b92`. GitHub compare reported the reviewed head as an ancestor of develop (`behind`, 0 ahead, 13 behind; merge base is the candidate), consistent with the recorded merge.
+- The exact-head workflow run [42480521183](https://github.com/mcpdev80/baseharbor/actions/runs/42480521183) was terminal `success`, event `pull_request`, head `daacddbbe9d011c3fd48ae7cc798e560dd591258`. `PR · Validation · go-unit-tests` (job `128731358928`) passed and logged `ok github.com/mcpdev80/baseharbor/cmd/baha 399.265s`; this executes the changed package tests. `PR Selected Checks`, `go-build`, `go-vet`, `cli-gofmt`, `Source format`, `mkdocs-de-strict`, `mkdocs-en-strict`, `documentation-audit`, `pages-candidate-build`, `wizard-registration-tests`, `Focused Python`, and `Workflow policy` passed. Native destroy-retry Docker and Podman jobs also passed but are not proof of these CLI acceptance points. Targeted HA Docker/Podman and Native Keycloak/Core were skipped; this review makes no native application E2E claim.
+- Exact product diff is five files: `cmd/baha/app_init_wizard.go`, `cmd/baha/cli_diagnostics_regression_test.go`, `cmd/baha/commands.go`, `docs/cli/command-index.md`, and `docs/de/cli/command-index.md`. No product or workflow changes were made during this review.
+- Planning base before this evidence update: `c454da653a5d8db5e201de7d9da188a3a5bd8243 refs/heads/main`.
+
+### Current acceptance findings
+
+#### 0427-141 — quick-init diagnostic, candidate detail, and dry-run guidance
+
+The diagnostic at `cmd/baha/app_init_wizard.go:232-235` distinguishes detected capability booleans, workload count, and the count of unconfirmed secret candidates, and its `Next` text points to `baha app plan` as the dry-run substitute. But the fixture supplies the candidate `SECRET_NAME`, while the error reports only `secret-candidates=1`; it does not name that candidate or distinguish it by identity. The new test at `cmd/baha/cli_diagnostics_regression_test.go:8-18` asserts the aggregate count and two capability fields only. It no longer asserts the separate `Next` guidance that failed in the earlier run, so the green run does not prove the full acceptance message. The command-index changes document list syntax, not the app-plan dry-run guidance.
+
+#### 0427-148 — fail-closed list semantics and regression
+
+The help text at `cmd/baha/commands.go:44-55` now explains selected-Target behavior, deliberate fail-closed handling, explicit target selection, and the `--all-targets` inventory. Production `appListCommand` at `cmd/baha/app_commands.go:56-120` routes default listing through `effectiveTarget` and renders a `TARGET` column for `--all-targets`. The new regression at `cmd/baha/cli_diagnostics_regression_test.go:20-33` checks only help strings. Existing selector tests (`cmd/baha/target_selection_test.go:17-88`) verify the selection helper's ambiguous-target error, and `target_list_ambiguity_test.go` tests `baha target list`; neither exercises top-level `baha list` nor verifies that `baha list --all-targets` emits both targets and the `TARGET` column. Thus the exact command behavior described by the new help remains without a command-level regression.
+
+### Current verdict
+
+**ROLLE: REVIEW — URTEIL: KORREKTUR-FOLLOW-UP.** Hosted checks passed on the exact head and the change was merged, but neither card's entire acceptance is proven: 0427-141 omits candidate identity and does not test the separate app-plan next action; 0427-148 adds a help-text check but no command-level regression for the documented list behavior. The earlier request-changes verdict is not cleared by the green run alone. Since #1466 is already merged, this calls for a focused follow-up PR rather than further edits to the merged candidate.
+
+### Follow-up recipe and stop criterion
+
+- `cmd/baha/app_init_wizard.go:232-235`: include safe, deterministic candidate identity/details and the unconfirmed distinction in the quick-init diagnostic, without disclosing secret values. Keep the app-plan next action visible in rendered CLI output.
+- `cmd/baha/cli_diagnostics_regression_test.go:8-18`: assert the candidate represented by the fixture, the missing-versus-unconfirmed distinction, and the separately rendered `Next` text that recommends `baha app plan`.
+- `cmd/baha/cli_diagnostics_regression_test.go:20-33`: add command-level coverage with two configured targets and no selected target. Assert `baha list` fails closed with actionable target choices, while `baha list --all-targets` succeeds and emits both targets under an explicit `TARGET` column. Keep the help assertion.
+- Run the focused `cmd/baha` tests and require the exact follow-up head's `PR · Validation · go-unit-tests` and `PR Selected Checks` to reach terminal success. Preserve docs checks for any changed help or docs.
+- Stop criterion: do not accept/close the follow-up until candidate-level quick-init detail and next-action output are asserted, both list command behaviors are regression-tested, and exact-head hosted required checks are green. Do not weaken fail-closed target selection.
+
+### Current-head END
+
+END_DONE 0427-1466-review: KORREKTUR-FOLLOW-UP; #1466 `daacddbbe9d011c3fd48ae7cc798e560dd591258` reviewed, merged as `ad49d2d2129657e2e09c40b534c6a8030413a083`; exact-head run `42480521183` success.
+
+Planning validation after fetching base: `python3 scripts/plan.py check` reported 417 tasks, 7 epics, 13 releases, 16 decisions; 0 errors and 3 dependency warnings.
