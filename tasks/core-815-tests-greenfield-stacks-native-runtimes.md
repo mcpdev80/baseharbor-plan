@@ -142,3 +142,9 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 - PR #1432 head `767a3196583e03a552f66a24a80e4b8085f2954b`, exact-head [PR CI #42501499483](https://github.com/mcpdev80/baseharbor/actions/runs/42501499483) = SUCCESS.
 - Exact-head [native Greenfield #42501503535](https://github.com/mcpdev80/baseharbor/actions/runs/42501503535) = SUCCESS; all eight native Go/Next.js/Python/Quarkus × Docker/Podman jobs actually executed and passed, plus Next.js legacy Docker = SUCCESS. No skipped native matrix cell.
 - Separately required SINGLE default topology counts plus explicit HA positive and default-HA negative assertions are **not established by the 8/8 READY jobs**. Keep card active until those exact acceptance checks are demonstrated; do not mistake source-ready CI for full card acceptance.
+
+## Greenfield CI implementation merged — 2026-11-08
+
+- [PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) merged to develop as `21615b9f91d36afa7eb51edfa8b4bf7c9cb5edb1` from exact-head `767a3196583e03a552f66a24a80e4b8085f2954b`.
+- PR CI run `42501499483` = SUCCESS; native 8/8 Docker/Podman application READY run `42501503535` = SUCCESS, plus legacy Next.js Docker.
+- **Card remains active:** SINGLE-default actual topology counts, explicit HA positive and default-HA negative assertions are separate missing acceptance evidence. Merge of the CI implementation alone does not close the full qualification card.
