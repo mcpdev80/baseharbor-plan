@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: ""
 kanban_status: closed
 kanban_lane: closed
-kanban_summary: "Target/provider guided creation must cancel safely on Ctrl-D or partial EOF at any prompt, without writing records or files."
+kanban_summary: ""
 kanban_title: "0427-170 · New subwizard EOF cancel"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -22,7 +22,22 @@ wait_reason: ""
 resolution: accepted
 evidence: [https://github.com/mcpdev80/baseharbor/pull/1496, https://github.com/mcpdev80/baseharbor/actions/runs/42513832507]
 ---
-- [x] t-20261108-bughunt-guided-new-eof · Target/provider guided EOF cancellation #task #release/v0-4-27 #status/closed #view/closed #area/cli #kind/bug
+- [x] t-20261108-bughunt-guided-new-eof · Target/provider guided EOF cancellation #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/cli #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **PR:** [baseharbor#1496](https://github.com/mcpdev80/baseharbor/pull/1496)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1496), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42513832507)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** accepted  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** [baseharbor#1496](https://github.com/mcpdev80/baseharbor/pull/1496)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Reproduction from develop (2026-11-08)
 

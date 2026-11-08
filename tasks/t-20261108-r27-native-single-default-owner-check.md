@@ -1,6 +1,6 @@
 ---
 id: t-20261108-r27-native-single-default-owner-check
-card_number: "0427-170"
+card_number: "0427-171"
 card_short_title: "native default owner check"
 type: bug
 areas: [ci, lifecycle, compose]
@@ -10,8 +10,8 @@ parent: v0.4.27
 owner: "ChatGPT (native CI)"
 kanban_status: review
 kanban_lane: review
-kanban_summary: "SINGLE-default native acceptance must inspect its already running owned bootstrap Core rather than attempting a second Core on the same engine."
-kanban_title: "0427-170 · native default owner check"
+kanban_summary: ""
+kanban_title: 0427-171 · native default owner check
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-r27-native-single-default-owner-check · Native SINGLE-default acceptance honors one-Core-per-engine policy #task #release/v0-4-27 #status/review #view/review #area/ci #area/lifecycle #kind/bug
+- [ ] t-20261108-r27-native-single-default-owner-check · Native SINGLE-default acceptance honors one-Core-per-engine policy #task #release/v0-4-27 #status/review #view/review #area/ci #area/compose #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** ChatGPT (native CI) · **Priority:** high  
+    **PR:** [baseharbor#1495](https://github.com/mcpdev80/baseharbor/pull/1495), [baseharbor#1497](https://github.com/mcpdev80/baseharbor/pull/1497)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** review  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** ChatGPT (native CI)  
+**Priority:** high  
+**PRs:** [baseharbor#1495](https://github.com/mcpdev80/baseharbor/pull/1495), [baseharbor#1497](https://github.com/mcpdev80/baseharbor/pull/1497)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Cause
 
@@ -49,3 +63,5 @@ A subsequent failure on corrected fixture (PR #1489 run 42513106766, native Podm
 - CI routing [PR #1497](https://github.com/mcpdev80/baseharbor/pull/1497) merged into develop as `128e6f50b538cb6ba2925432740aa37014fcc09a` after successful [CI #42514020854](https://github.com/mcpdev80/baseharbor/actions/runs/42514020854), including CI policy, planner/executor tests, actionlint and the ordinary final check.
 - Test-fix PR #1495 rebased onto that trusted policy; new exact head `3020f9ca786ed4f186ba84771636489188b928dd`.
 - [Exact-head CI #42514307992](https://github.com/mcpdev80/baseharbor/actions/runs/42514307992) actively schedules both `PR · Native Keycloak/Core · docker` and `podman` for this file; ordinary Go checks and native destroy retry also selected. Status remains `review` until these jobs **and** final `PR Selected Checks` are terminal PASS.
+
+<!-- CARD-NUMBER FIX 2026-11-08: war 0427-170, doppel mit guided-new-eof (dessen inhaberfeld sich selbst "(0427-170)" nennt); coordinator-vermerk, owner-bestätigung erbeten. -->
