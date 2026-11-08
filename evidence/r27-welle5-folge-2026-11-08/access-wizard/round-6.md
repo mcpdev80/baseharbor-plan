@@ -106,6 +106,9 @@ es die Basis, nicht dieser Diff; bisher zeigt der lauf dieses Muster nicht.
 - Keine .github/**-Aenderung; keine workflow_dispatch/Reruns durch diese Lane (nur PR-Push auf bestehendem Kandidaten, normaler Check-Trigger).
 - Ein Kandidat pro Kette: Arbeit auf work/r27-access-wizard (PR #1430), kein Extra-Branch auf origin; lokaler Arbeitsbranch nur Durchlaufposten.
 - Keine Subagenten (4.8); keine Container/compose-Projekte gestartet (kein VM-Teil in diesem Auftrag; ps-Zeuge: nichts zu holen).
+  ps-Witness bei Lane-Ende: `docker ps` (running) => leer; nur exited-fremde
+  w169-Reste (14h alt, nicht diese Lane). Diese Lane hat null Container/compose
+  gestartet => nichts herunterzubringen.
 - Evidence nur in baseharbor-plan; Zonen-Check: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` => `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`, Remote https://github.com/mcpdev80/baseharbor-plan.git. Produkte-Checkout: /home/marcel/dev/baseharbor-ecosystem/baseharbor (workers/baseharbor nur ls-remote-Quelle via dessen Remote, nie als Remote-Zustands-Zeig zitiert).
 - Write-Set exakt wie im Rezept genannt: internal/orgconfig/profiles.go + cmd/baha/access_wizard_persistence_test.go.
 
