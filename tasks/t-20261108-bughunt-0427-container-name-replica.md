@@ -73,5 +73,5 @@ evidence: []
 
 - Current state: bug found on develop 0fe53052d (binary 0.4.11, Phase 0a stamped) at 2026-11-08 on the dedicated rootless test server 192.168.6.178.
 - Branch: `bughunt/0427-128-container-name-replica` (PR pending; develop 0fe53052d, commit `4f7011a1...` in candidate fingerprint).
-- Reports: /home/marcel/dev/Tests/Baha-Bug-01-backup-container-name-replica.md
+- Report: ~/dev/Tests/Baha-Bug-01-backup-container-name-replica.md
 - Evidence: backups under ~/dev/Tests/backups (linkding.bhbackup = letzter Erfolg vor cnref-Test), stdout/logs under ~/tests/2026-11-08-cnrepro/
