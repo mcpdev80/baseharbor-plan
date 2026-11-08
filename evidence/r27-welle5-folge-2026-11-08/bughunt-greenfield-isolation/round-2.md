@@ -73,6 +73,24 @@ Evidence: evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/roun
   `07ae6c3e9 feat(access): guided profile assignment and deliberate offboarding (#1430)`
 - Evidence on origin/main before END: `git ls-remote origin/main` = `bf7469bdfe38ad86eaff42a74403b5dd8d49aa87` (my round-2.md commit `bf7469bd`).
 
+## CI RUN (observed to terminal — run-id 128674010500)
+
+- PR #1460 against `develop`: https://github.com/mcpdev80/baseharbor/pull/1460
+- Branch `work/r27-greenfield-isolation-r2` = `ab486677f7ff2376b47f9fd8298acfb73ecc2b41` (verified on remote via `git ls-remote`), cut from verified develop `07ae6c3e91b081a189266ca4b162ba705d4aa78f` (ancestor check exit 0). No foreign commits on branch.
+- CI `PR · Validation · go-unit-tests` = **pass** (9m10s, run-id 128674010500) — the whole `./cmd/baha` package passes (discovers and runs my 3 new regression tests + the 2 updated r1 tests).
+- CI `PR · Validation · go-build` = pass, `PR · Validation · go-vet` = pass, `PR · Validation · cli-gofmt` = pass, `PR · Source format` = pass, `PR · Trusted Plan` = pass, `PR · Focused Python` = pass, `Workflow policy` = pass. All required green.
+- `go-unit-tests` covers `cmd/baha` (via `scripts/pr-check-runner.py` -> `go_package_tests(['./cmd/baha'], 'CLI')`), so my new tests are picked up by CI on `pull_request`. No `.github/**` change needed (Owner scope).
+
+## BRANCH PROVENANCE
+
+- Base SHA (verified develop, ancestor of first commit): `07ae6c3e91b081a189266ca4b162ba705d4aa78f`
+- My first commit ancestor check vs develop: exit 0.
+- My branch's git log lists ONLY my commit on top of develop:
+  `ab486677f fix(cmd/baha): verify use/activate via Keycloak-bound core issuer (card 0427-133 r2)`
+  `07ae6c3e9 feat(access): guided profile assignment and deliberate offboarding (#1430)`
+- Evidence on origin/main before END: `git ls-remote origin/main` = `bf7469bdfe38ad86eaff42a74403b5dd8d49aa87` (my round-2.md commit `bf7469bd`).
+
+## DOCKER/PODMAN
 ## DOCKER/PODMAN
 ## DOCKER/PODMAN
 
