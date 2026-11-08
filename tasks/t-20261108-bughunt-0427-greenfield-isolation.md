@@ -15,7 +15,7 @@ kanban_title: "0427-133 · greenfield isolation open"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-wizard]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1460]
+prs: [mcpdev80/baseharbor#1460, mcpdev80/baseharbor#1503]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -67,3 +67,8 @@ Depends on access-wizard acceptance (#1430). Write-set: cmd/baha target/use/acti
 - Source and CI gap audited in [acceptance-gap-audit.md](../evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md). Docker/Podman currently prove destroy-retry and same-engine conflict, not the positive second-isolated-engine greenfield chain.
 - A second Core on the same daemon is intentionally forbidden; acceptance needs a genuinely isolated endpoint and a cleanup claim for both runtimes. Do not weaken the ownership guard or treat the existing native conflict test as positive evidence.
 - Card stays **active** pending an exact-SHA Docker and Podman positive Core bootstrap/use/activate/status and no-shared-plane-writes proof. No additional CI success is claimed.
+
+## Proof-gate implementation — 2026-11-08
+
+- [Draft PR #1503](https://github.com/mcpdev80/baseharbor/pull/1503) provides fail-closed JSON verification for the future named native greenfield test on both Docker and Podman; it checks exact SHA, named PASS, no SKIP/FAIL and package teardown. Includes isolated Python regression cases.
+- The actual positive two-engine bootstrap/use/activate/status Go test, hosted execution and no-shared-plane-write witness are **not yet supplied**. PR is intentionally Draft and the card remains active. Do not merge or close on verifier-only evidence.
