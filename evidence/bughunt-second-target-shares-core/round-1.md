@@ -57,6 +57,22 @@ Core.
   target and concrete options and stops the shared-state/port-collision hazard at the boundary.
 - Scope limit: no new port-allocation subsystem, no second engine, no machine change.
 
+## End state (verified)
+
+- PR: https://github.com/mcpdev80/baseharbor/pull/1487 (OPEN, base develop)
+- Candidate branch origin/w163-second-target-shared-core @ 5f62af4f (ls-remote witness above)
+- First commit ancestor = develop HEAD cdb4350a6 (is-ancestor verified); exactly 1 commit ahead
+- Tests green: `go test ./internal/runtime/` (incl. shared_core_conflict_test.go) and
+  `go test ./cmd/baha/ -run 'TestCoreStop|TestControlPlane|SecondSameHost'`; full internal/contracts/spec pass.
+- Pre-existing failure on clean base (unrelated, host/Core-bootstrap specific):
+  `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` fails on origin/develop too (verified by stashing my change).
+- CI group: covered by ci.yml `go test ./internal/...` (line 122) and `go test ./cmd/baha` (line 123).
+- Evidence on origin/main @ aa76b336 (ls-remote above); round-1.md present.
+
 ## END
 
-END mission-163.md: candidate committed 5f62af4f on w163-second-target-shared-core (base develop cdb4350a6), PR #1487 against develop; evidence on origin/main; unit + CLI regression green; pre-existing TestAppEdit... failure is host/Core-bootstrap specific, unrelated. Shared Core / any compose brought down (none started). Cleanliness: DONE.
+END mission-163.md: approach (B) fail-closed conflict gate implemented, committed 5f62af4f on
+w163-second-target-shared-core (base develop cdb4350a6, is-ancestor verified), PR #1487 against develop;
+evidence on origin/main aa76b336; unit + CLI regression green; pre-existing TestAppEdit... failure is
+host/Core-bootstrap specific (verified on clean base), unrelated. No compose project started (nothing to
+bring down); cleanliness DONE. No .github/** edits. No subagents (4.8). One integration candidate per chain.
