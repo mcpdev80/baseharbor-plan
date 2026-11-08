@@ -7,9 +7,9 @@ areas: [lifecycle,dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "owner:chatgpt"
+kanban_status: active
+kanban_lane: active
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 kanban_title: "0427-123 · Shared-Core Consent blockiert"
 priority: high
@@ -26,17 +26,17 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/planned #view/ready #area/dx #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** owner:chatgpt · **Priority:** high  
+    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** owner:chatgpt  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -53,3 +53,7 @@ up/down complete through documented interactive flow without hanging; any requir
 ## Dependencies and file ownership
 
 Depends only on the release umbrella. Write-set per repo rules; intake evidence carries the exact repro.
+
+## 2026-11-08 Übernahme (ChatGPT)
+
+- Owner `owner:chatgpt`; `active`. Sicherheitsrelevanter Consent-Fluss: interaktiven App-Up/Down-Weg und die bestehende `ProviderChangeConsent`-Pruefung gegen die VM-Reproduktion untersuchen. Keine Abschwaechung der Freigabe- oder Datenloeschungs-Gates. Zuerst echter Negativ-/Positivtest, dann enger Produktfix.
