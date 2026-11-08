@@ -61,6 +61,23 @@
 - Config-Pfad korrekt: config an $BASEHARBOR_STATE_DIR/config/config.yaml unter targets.<t>.operator-auth.<env>: provider=external-oidc, issuer=https..., client-id (HYPHEN, nicht underscore). Runtime-Block runtime.provider=docker + access.reference erforderlich fuer gueltige Target-Definition.
 - BF-10 (positiv, ergaenzt): session store location confirmed at $BASEHARBOR_STATE_DIR/cache/sessions/operator-<target>-<env>.json.
 
+## BF-11..BF-16 (neu): Fehlerpfade + Session-Haesigkeit (cut 5/6)
+
+- BF-11 (Sicherheit, fail-closed): falscher issuer -> saubere Fehlermeldung "discover operator OIDC provider: ... no such host" (DNS). Datei: internal/operatorauth/login.go:48 (err wrap "discover operator OIDC provider"). Kein stack trace, keine Info-Leake.
+- BF-12 (fail-closed): closed port (issuer https://127.0.0.1:9999) -> "dial tcp 127.0.0.1:9999: connect: connection refused"; whoami danach "session required". Recovery ohne state-cruft.
+- BF-13 (fail-closed): SIGKILL mitten im PKCE-Flow (nach auth-URL, vor callback-redirect) hinterlaesst KEINE partial session file. Sessions-Direktorium nach Abbruch leer. Kein Halbfinished-Credential auf Disk.
+- BF-14 (fail-closed): expired session (expires_at=2020, ansonsten gueltige Felder) -> whoami "session required". Cause: ValidAt() Require "ExpiresAt.After(now + 30s)" (30s grace). SaveSession refused invalid sessions (kann nicht manuell persistiert werden). Datei: internal/operatorauth/session.go:26 ValidAt, :75 SaveSession.
+- BF-15 (fail-closed): tampered session issuer mismatch (https://tampered-issuer.test) -> "session required". VerifySession checks issuer==config.Issuer. Datei: internal/operatorauth/session.go:139.
+- BF-16 (fail-closed): tampered session subject mismatch (attacker-superuser) -> "session required". VerifySession subject==session.Subject. Logout idempotent: ClearSession treats os.ErrNotExist as success ("Operator session removed" auch ohne Session); operator_auth.go:72.
+- BF-17 (positiv): login per-target scoped. Login hx1 -> nur operator-hx1-stage.json; whoami hx2 -> "session required". Session-Name-Schema operator-<target>-<env>.json.
+
+## Positives
+
+- POS-1: Full managed PKCE login works end-to-end (integrierter OIDC-Flow: discover -> callback listener -> code -> RS256 id_token -> persist). BF-09.
+- POS-2: Fail-closed across ALL error paths (DNS, closed port, mid-flow kill, expiry, issuer-tamper, subject-tamper). Session validation robust.
+- POS-3: logout clean + idempotent; no credential residue on failure.
+- POS-4: Managed-identity enforcement returns a clear, non-auth-error message ("no claim-based tenant membership") AFTER successful OIDC verification — good separation of auth vs authorization.
+
 ## Status
 
-- STATUS: IN ARBEIT (BF-01..BF-10 documented; continuing error-path testing, cut 5)
+- STATUS: IN ARBEIT (BF-01..BF-17 documented; continuing multi-target/scope testing cut 6, then trust-prompts cut 4)
