@@ -92,4 +92,6 @@
 - origin/main (HTTPS) witness: `c3a5bafbc7f3f8c87bbfbd927e7195f3f95c8858` (`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git main`); round-3.md present in that HEAD tree.
 - Candidate branch witness (git ls-remote origin): lane/0427-162-r2-verify = `03fa07f823899ebc7bef1be1103489187fd5b6e1`.
 - Validation branch witness: runtime-validation/ci/lane-0427-162-r2-verify deleted (witness: `git ls-remote origin 'runtime-validation/*'` no longer contains the ref).
+- Owner-BERICHT-AKZEPTIERT: gegenbestaetigt, der validate-Matrix-Fehler auf 03fa07f8 faellt an `TestUpNameResumesThroughCommandEntrypoint` (79s, marker-adoption-zeige) = echter 156-nachfolger; Owner karriere ihn als neuen 156-Successor-Befund.
+- PR #1489 head-Referenz (Owner-Bueroregel): #1489 zeigte noch den kontaminierten 7f07d1302. Force-PUSH meines EIGENEN PR-Branches `lane/0427-162-issuerfix` (kein Schutz, meiner) auf 03fa07f8, damit #1489 das sauberen Wortung+Tests-Delta zeigt. GitHub-API-Witness (authoritativ fuer #1489): branch `lane/0427-162-issuerfix`, head_sha `03fa07f823899ebc7bef1be1103489187fd5b6e1`, state open.
 - Sandbox: markers/caches cleared, stray dirs removed; cleanliness verified before END.
