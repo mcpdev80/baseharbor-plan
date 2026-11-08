@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: lane-0427-013-access-r7
-kanban_lane: review
+kanban_lane: closed
 kanban_summary: "Name->search/select Targets->rights->review; preserve selections across pagination/back, show effective scope. Distinguish…"
-kanban_status: review
+kanban_status: closed
 kanban_title: "0427-013 · guide profile assignment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-managed-users, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -20,21 +20,21 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: ["https://raw.githubusercontent.com/mcpdev80/baseharbor-plan/main/evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md"]
+resolution: accepted
+evidence: ["https://raw.githubusercontent.com/mcpdev80/baseharbor-plan/main/evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md", "https://github.com/mcpdev80/baseharbor/commit/07ae6c3e91b081a189266ca4b162ba705d4aa78f", "https://github.com/mcpdev80/baseharbor-plan/blob/0ec5bdaee01860ab0bb9d7c94cfd86f2c58e68e9/evidence/r27-welle5-folge-2026-11-08/access-wizard/act-1430-review-r7.md"]
 wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/review #view/review #area/wizard #kind/task
+- [x] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-013-access-r7 · **Priority:** normal  
     **PR:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
-    **Evidence:** [proof 1](https://raw.githubusercontent.com/mcpdev80/baseharbor-plan/main/evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md)  
+    **Evidence:** [proof 1](https://raw.githubusercontent.com/mcpdev80/baseharbor-plan/main/evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/07ae6c3e91b081a189266ca4b162ba705d4aa78f), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/0ec5bdaee01860ab0bb9d7c94cfd86f2c58e68e9/evidence/r27-welle5-folge-2026-11-08/access-wizard/act-1430-review-r7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -113,3 +113,5 @@ recheck: persistenz/cancel/kinds ok, NEUER befund: multi-target assignment UEBER
 hunt H-P1 sofort gestoppt (owner-direktive: echte arbeit > hunt) — sitz an access-r5 c38f521b: multi-target atomaritaet (alle-oder-nichts je batch) laut recheck-befund. H-P1-slice kehrt bei naechstem freien sitz zurueck in die matrix.
 
 r6 candidate 9dd2f779fa2445257d4f7f3c99a43b1245493818 on PR #1430; hosted run 42438784031 completed/success; evidence round-6.md
+
+PR #1430 was reviewed and squash-merged at 07ae6c3e91b081a189266ca4b162ba705d4aa78f. Exact-head CI run 42445068559 passed; post-merge Receipt · Commit run 42447092067 succeeded. The develop head matches the merge commit.
