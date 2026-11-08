@@ -1,0 +1,72 @@
+---
+id: t-20261108-bughunt-0427-up-name-alias-parity
+card_number: "0427-130"
+card_short_title: "baha up NAME rejected although"
+type: bug
+areas: [dx]
+release: v0.4.27
+version: ""
+parent: ""
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+kanban_summary: resolves the registered application NAME identically to ; the top-level alias exposes the full documented argument surface.
+kanban_title: 0427-130 · baha up NAME rejected although
+priority: normal
+depends_on: [t-20261017-release-0-4-27-updates]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261108-bughunt-0427-up-name-alias-parity · Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented #task #release/v0-4-27 #status/planned #view/ready #area/dx #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Goal
+
+ resolves the registered application NAME identically to ; the top-level alias exposes the full documented argument surface.
+
+## Scope
+
+- In scope: align the top-level  argument parser () with  () so optional positional NAME is accepted; add parity test.
+- Out of scope: consent semantics.
+
+## Acceptance
+
+-  outside a repository resumes the registered deployment NAME (same result as ).
+- Parser parity test:  and  accept the identical flag/argument grammar.
+
+## Required checks
+
+- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
+- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
+- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
+- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
+- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
+
+## Dependencies and file ownership
+
+- Owned files or areas:
+- Shared files: coordinate through the owning task.
+
+## Handoff
+
+- Found 2026-11-08 on develop 0fe53052d (build 0.4.11), test host 192.168.6.178.
+- Report: ~/dev/Tests/Baha-Bug-09-up-name-vs-app-up-name.md
