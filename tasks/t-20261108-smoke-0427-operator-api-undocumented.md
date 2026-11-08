@@ -1,0 +1,75 @@
+---
+id: t-20261108-smoke-0427-operator-api-undocumented
+card_number: "0427-169"
+card_short_title: "operator API runbook missing"
+type: bug
+areas: [docs, cli]
+release: v0.4.27
+version: ""
+parent: v0.4.27
+owner: ""
+kanban_status: planned
+kanban_lane: ready
+kanban_summary: A developer can start and use the Core operator API from documentation alone.
+kanban_title: 0427-169 · operator API runbook missing
+priority: normal
+depends_on: [t-20261017-release-0-4-27-updates]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/docs #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
+
+## Problem
+
+Component: documentation + `baha serve` startup surface, version 0.4.27-dev+b90a6e2f2 (develop b90a6e2f2, tested 2026-11-08).
+
+The user story "developer PC binds the Core that runs on the remote Docker host **over the API** (not SSH)" is the intended route (homelab tutorial direction, open PR #1473). But the required startup of the operator machine API is undocumented anywhere: which process exposes `/api/v1/machine/*`, which `BASEHARBOR_*` envs are mandatory (OIDC issuer/client, TLS, connector listener), and which single command starts it on a Core host. Searching docs/ for serve/8443/operator-API env names yields no runbook; only the CLI-internal calls exist.
+
+Evidence (real, smoke-test session 2026-11-08):
+- `rg "8443|operator.*api|serve" docs/` — no startup documentation.
+- `baha serve --help` documents only `--listen`/`--core-target`, not the required OIDC/TLS env contract; a run without them fails at auth verification (`machinehttp requires OIDC issuer and audience`-style errors from the handler).
+- Consequently the whole §4 path had to be reconstructed from code reading (`internal/machinehttp`, `controlplaneruntime`), which no developer without internal BaseHarbor knowledge can do.
+
+Expected: a how-to/tutorial page (or `baha serve --help` + config docs) gives the exact steps to run the operator API beside an installed Core and to point the CLI at it.
+
+Actual: default route unusable without internal knowledge; smoke-test had to stop at that step.
+
+Impact on E2E flow: Step 2/6 (connect remote Core) unverifiable via documented path; contributes to FAIL of remote app deployment section.
+
+## Goal
+
+A developer can start and use the Core operator API from documentation alone.
+
+## Acceptance
+
+- A docs page (how-to/tutorial) states: required env/config, TLS and OIDC prerequisites, the exact start command, and the CLI-side connection steps; each claim exercised by a test or manual acceptance run on a real Core install.
+- `baha serve --help` references the doc or lists the mandatory env variables.
+
+## Dependencies and file ownership
+
+- Owned files or areas: docs/tutorials or docs/how-to, cmd/baha/serve.go help text.
+- Shared files: coordinate through the owning task.
+
+## Handoff
+
+- Found 2026-11-08 in E2E smoke-test (API route requirement confirmed with maintainer mid-run). Newest first.
