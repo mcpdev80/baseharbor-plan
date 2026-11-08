@@ -34,7 +34,8 @@ Evidence: evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/roun
 
 ## DRIFT-MERGE (base refresh)
 
-- The PR base `07ae6c3e` is 10 commits behind current develop `d30de3a4`. Per r3 point (1) I drift-merged develop onto the candidate. The only commit on my candidate branch is a single drift-merge commit that carries exactly the r2 PR-1460 fix (unchanged, from PR #1460) plus my r3 changes on top.
+- The PR base `07ae6c3e` is 10 commits behind current develop `d30de3a4`. Per r3 point (1) I drift-merged develop onto the candidate. The only commit on my candidate branch is my r3 fix `80895b671` (drift-merged onto develop HEAD `d30de3a4`), which carries exactly the r2 PR-1460 fix (unchanged, from PR #1460) plus my r3 changes on top. The r2 lines of `verify_core_connection.go` are byte-identical to PR #1460 head (a content diff shows only additive r3 lines); no foreign product commit is carried.
+- Branch provenance: `work/0427-133-r3-ca-issuer` cut from verified develop `d30de3a4a176e073c8c1a9a0fc0b0ef06202b064` (`git merge-base --is-ancestor d30de3a4 HEAD` exit 0); `git log origin/develop..HEAD` lists ONLY my commit `80895b671`.
 - Foreign-content check: `git log --oneline <base>..<HEAD>` lists ONLY the drift-merge commit; the r2 fix content is identical to PR #1460's `verify_core_connection.go` (verified by content, the r2 author is the same card). No independently-authored foreign product commit is carried on my branch.
 
 ## FIX (my code)
