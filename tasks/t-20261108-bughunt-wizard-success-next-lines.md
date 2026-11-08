@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 - [ ] t-20261108-bughunt-wizard-success-next-lines · Bug Hunt v0.4.27: Success omits next step #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** chatgpt-r27-wizard-ux · **Priority:** normal  
-    **PR:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469)  
+    **PR:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42480609018), [proof 3](https://github.com/mcpdev80/baseharbor/commit/f05d6ee2e596da73056dfd1bda64a79ebbfe6b92)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** chatgpt-r27-wizard-ux  
 **Priority:** normal  
-**PRs:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469)  
+**PRs:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->

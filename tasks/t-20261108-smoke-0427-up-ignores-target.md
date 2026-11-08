@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (remote bootstrap safety) · **Priority:** high  
     **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
-    **Active:** #1492 merged (safety guard); real remote bootstrap capability not yet implemented  
     <!-- /generated:card -->
 
 <!-- generated:links -->

@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 4 |
 | wait | 6 |
 | blocked | 1 |
-| ready | 3 |
+| ready | 2 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -36,15 +36,16 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-target-delete-nontty-consent](../tasks/t-20261108-bughunt-target-delete-nontty-consent.md) | Bug Hunt v0.4.27: Target delete needs TTY | active | normal | lane-w164-delconsent | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) | Bug Hunt v0.4.27: Select fails without issuer | active | normal | lane-w162c-issuerfix2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
+| [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | Remote core: up installs local | active | high | ChatGPT (remote bootstrap safety) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | review | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
-| [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard cancel is uneven | review | normal | chatgpt-r27-eof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471), [baseharbor#1484](https://github.com/mcpdev80/baseharbor/pull/1484) |
+| [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | review | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493) |
+| [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard cancel is uneven | review | normal | chatgpt-r27-eof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471), [baseharbor#1484](https://github.com/mcpdev80/baseharbor/pull/1484), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493) |
 | [t-20261108-bughunt-stale-provider-edit-block](../tasks/t-20261108-bughunt-stale-provider-edit-block.md) | Bug Hunt v0.4.27: Stale instance blocks edit | review | normal | lane-w150-staleedit | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1490](https://github.com/mcpdev80/baseharbor/pull/1490) |
-| [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Success omits next step | review | normal | chatgpt-r27-wizard-ux | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469) |
+| [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Success omits next step | review | normal | chatgpt-r27-wizard-ux | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493) |
 
 ## Waiting for resources
 
@@ -69,7 +70,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-wizard-foreign-records](../tasks/t-20261108-bughunt-wizard-foreign-records.md) | Bug Hunt v0.4.27: Foreign records stall wizard | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | Remote core: up installs local | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492) |
 
 ## By release
 
