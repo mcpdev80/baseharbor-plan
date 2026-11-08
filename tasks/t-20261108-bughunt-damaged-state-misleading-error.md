@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-w159-damagedstate
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Damaged-state detection precedes generic limits: error names the missing record/network and the concrete recovery (re-up from…"
 kanban_title: 0427-159 · Corrupted deployment state rep
 priority: normal
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-damaged-state-misleading-error · Bug Hunt v0.4.27: Damaged state lies #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-damaged-state-misleading-error · Bug Hunt v0.4.27: Damaged state lies #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-w159-damagedstate · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-w159-damagedstate  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
