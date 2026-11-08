@@ -20,7 +20,7 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: reopened-regression
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 ---
 
@@ -99,3 +99,8 @@ Drei-Autoritaeten-trennung + fails-closed pfad damit ECHT im zweig.
 Abgleich `baseharbor/develop`: `cmd/baha/use_target.go:bindExplicitSelectionToConnection` ruft `coreinstallation.Load(targetRuntimeStateRootByName(target))` aus **lokalem** Dateizustand auf. Bei Entwickler-PC mit `baha` ohne lokalen Core und externem Core fehlt dieser lokale Installationsdatensatz zwangsläufig; `baha use` verlangt stattdessen `baha core install`. Das widerspricht dem Outcome dieser Karte: Remote Management Connection muss über verifizierte Server-Installation/Trust/Discovery möglich sein, ohne lokale Core-Installation und ohne Kopie autoritativen States. Der `connection-profile/v1` Schema-Vertrag ist kein Beweis einer produktiven Remote-Bindung. 
 
 **Akzeptanz offen:** developer-only CLI -> externes Core HTTPS/OIDC (serververifizierte Installations-ID, CA, Session, Scope) -> Target selection -> Docker-/Podman-Connector -> tatsächlich verifizierte Remote-App READY; negatives (fremde/abgelaufene Verbindung, falsches Tenant, nicht verfügbar, kein lokaler Fallback). Nicht mit Credential-Karte `0427-047` verwechseln; deren Draft #1470 behandelt einen separaten Aspekt. Vorheriger Merge #1380 bleibt historisch, aber `closed` ist für die End-to-End-Anforderung nicht mehr gerechtfertigt.
+
+
+## Plan-validator correction — 2026-11-08
+
+- The previous `resolution: reopened-regression` was invalid on an `active` card. Reopening remains documented in the audit narrative; the resolution field is intentionally empty until a verified final acceptance. Existing owner, PRs and dependencies remain unchanged.
