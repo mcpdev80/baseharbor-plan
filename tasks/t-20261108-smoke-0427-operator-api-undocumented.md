@@ -8,7 +8,7 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_status: planned
+kanban_status: wait
 kanban_lane: wait
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
@@ -23,10 +23,11 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/planned #view/wait #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/wait #view/wait #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting:** Verified remote Core API and connector enrollment path  
+    **Waiting:** Document only the verified production remote API startup and enrollment path after 0427-168 / 0427-023 pass the real E2E smoke.  
+    **Needs:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

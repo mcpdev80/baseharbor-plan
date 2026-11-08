@@ -22,9 +22,9 @@ wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md"]
 ---
-- [x] t-20261108-bughunt-second-target-shares-core · Bug Hunt v0.4.27: Second target reuses Core #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-second-target-shares-core · Bug Hunt v0.4.27: Second target reuses Core #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** — · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1487](https://github.com/mcpdev80/baseharbor/pull/1487)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md)  
     <!-- /generated:card -->
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** —  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1487](https://github.com/mcpdev80/baseharbor/pull/1487)  
 **Source:** 

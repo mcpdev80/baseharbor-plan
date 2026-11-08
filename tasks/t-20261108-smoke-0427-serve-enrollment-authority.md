@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_status: planned
+kanban_status: wait
 kanban_lane: wait
-kanban_summary: "Connector enrollment works through the verified remote Core authority without local-state or signer fallback."
+kanban_summary: "Implement Connector enrollment against the Core's verified installation authority. The release contract already requires remote…"
 kanban_title: 0427-168 · serve needs local core
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-up-ignores-target, t-20261018-r27-connection-client]
@@ -23,17 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/planned #view/wait #area/cli #area/connector #kind/bug
+- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/wait #view/wait #area/cli #area/connector #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting:** Remote Core management binding (0427-167 / 0427-023)  
-    **Needs:** [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md)  
+    **Waiting:** Remote installation and management authority binding (0427-167 / 0427-023) are prerequisites for verifying connector enrollment from a developer workstation.  
+    **Needs:** [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+**Required by:** [t-20261108-smoke-0427-operator-api-undocumented](t-20261108-smoke-0427-operator-api-undocumented.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
