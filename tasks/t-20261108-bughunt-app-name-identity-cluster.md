@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-149-r2
+owner: lane-w149b-nameid2
 kanban_status: active
 kanban_lane: active
 kanban_summary: "One name gate in the registry: registration checks collisions and fails closed with a clear message (no silent second uuid);…"
@@ -24,7 +24,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 ---
 - [ ] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-149-r2 · **Priority:** normal  
+    **Owner:** lane-w149b-nameid2 · **Priority:** normal  
     **PR:** [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)  
     <!-- /generated:card -->
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** pending-lane-0427-149-r2  
+**Owner:** lane-w149b-nameid2  
 **Priority:** normal  
 **PRs:** [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475)  
 **Source:** 
