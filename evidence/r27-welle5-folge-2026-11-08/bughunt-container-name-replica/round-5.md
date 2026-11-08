@@ -198,6 +198,16 @@ CI-Aufnahme) den nativen pinned-Lifecycle-Test tatsächlich ausführt.
 - Write-Set: `git diff --name-only origin/develop...HEAD` liegt vollständig in
   `cmd/baha/**` und `internal/runtime/**`; `.github/**` unverändert.
 
+## VERÖFFENTLICHUNG (Zeugen vor END)
+
+- `git ls-remote origin refs/heads/main` (baseharbor-plan) =>
+  `d36f38aca2678419205d966e3905df37406dfb1a refs/heads/main`
+- `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/round-5.md` =>
+  `100644 blob f4beacf55291f81c0a9636ef860ea7ba592c27fc evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/round-5.md`
+- Lane-Board-Datei: workers/todos/mission-128-r5.md.json (alle Schritte abgehakt).
+- ps-Zeuge (dieser Host, letzter Check vor END): `docker compose ls` => leer;
+  `docker ps` => keine Lane-eigenen Container; kein compose-Projekt je gestartet.
+
 ## END
 
 END_DONE 0427-128-r5: retirement renderer panic-frei (nil-safe/type-assert +
@@ -206,7 +216,9 @@ cross-project pinned regression (RetireOwnedServices-Produktionsaufruf +
 Matcher-Negativ erhalten), lokale Regression (eingebetteter nil-Renderer /
 Typ ohne Render-Methode / panicking renderer) vor push grün; eigener hosted
 Run 42461735463 auf Kopf 01f6325d660aa4723a9106d84dbca49faf6e392f TERMINAL
-completed/success (go-unit-tests success, PR Selected Checks success).
+completed/success (go-unit-tests success, PR Selected Checks success; die
+Publizierungs-Zeugen oben beschreiben den Stand DESSEN VOR dem finalen
+Evidence-Update — der final Commit enthält diese END-Zeile).
 Punkt 4 Befund offen (Owner): ci.yml:349 nimmt
 TestRepositoryComposePinnedWorkloadLifecycleInCI weiterhin nicht auf (im
 r5-Lauf skipped wie in r4) — nicht grün gerechnet. Keine Subagenten (4.8).
