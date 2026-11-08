@@ -85,3 +85,9 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - [PR #1439](https://github.com/mcpdev80/baseharbor/pull/1439) auf `develop`, Head `7a01f888404e195288fc51f83c37c6c453c6a56c`: `runtime.Stack` aus fehlender Candidate-Consent-Fehlerbehandlung entfernt; Fail-Closed bleibt unveraendert.
 - Die dokumentierten `app init NAME -e/--environment dev --sql --workload-component` Optionen sind auf dem aktuellen Basiscode bereits implementiert; neuer CLI-Regressionstest beweist beide Aliase und die Workload-Auswahl.
 - Noch nicht als abgeschlossen markiert: exakte PR-CI ausstehend; danach Review/Merge und Karte aktualisieren.
+
+## 2026-11-08 Merge-Nachweis (ChatGPT)
+
+- **PR #1439 erfolgreich nach `develop` gemergt:** Merge-SHA `32ce55dd5c0d623e7dd32ffcf1434a0baa9909dd`; exact-head [CI #42429340000](https://github.com/mcpdev80/baseharbor/actions/runs/42429340000) terminal `success` (alle 11 Jobs erfolgreich).
+- Produktiv-Code entfernt den ungewollten `runtime.Stack`-Debug-Dump aus der Consent-Fehlerbehandlung, ohne den Fail-Closed-Fehler zu veraendern. Regression der dokumentierten `app init`-Flags vorhanden.
+- **Abnahme nachpruefen:** Ein expliziter Negativtest fuer stderr ohne `goroutine`/Stack in beiden CLI-Modi steht noch aus; Karte bis dahin nicht `closed`.
