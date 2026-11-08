@@ -15,7 +15,7 @@ kanban_title: "0427-125 · App new: Erfolg plus Fehler"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1440]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -59,3 +59,8 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 - Owner: `owner:chatgpt`; Lane: `active`.
 - Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
 - Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
+
+## 2026-11-08 Produktarbeit (ChatGPT)
+
+- [PR #1440](https://github.com/mcpdev80/baseharbor/pull/1440), Head `425777028faadd7ac100e3f2dd1ef4d0cb308a5a`: `app new` meldet `Created` und `Validation: SATISFIED` erst nach erfolgreicher Target-Registrierung bzw. optionalem Lifecycle. Zuvor moegliche gleichzeitige Erfolg/Fehler-Ausgabe wird verhindert.
+- Regression stellt sicher, dass fehlgeschlagener Lifecycle kein Erfolgssignal ausgibt. PR-CI ausstehend, Karte `active`, nicht abgeschlossen.
