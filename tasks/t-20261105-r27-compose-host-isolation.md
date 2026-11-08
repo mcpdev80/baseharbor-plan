@@ -298,3 +298,50 @@ Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.
 - Host-transkripte: `/tmp/cont-matrix.out`, `/tmp/c2-matrix.out`, `/tmp/cont-*.log`, `/tmp/c2-*.log`.
 - Test-binary auf host: `/tmp/iso-tests-docker`; build `go test -c -o ./cmd/baha`.
 - Helper auf host: `/tmp/iso-full-clean.sh` (full cleanup), `/tmp/iso-cont-c2.sh` (count=2 cont).
+
+## FINALE PFLICHT — 2026-11-08 ~06:10Z (erfüllt, END)
+
+### 1) baha-podman-Lock: FREI, keine Freigabe nötig
+- Kein Lock-File in `coordinator/.vm-locks/`, kein Eintrag in `.pool.json`.
+- Journal `coordinator/.vm-locks/journal.log`: `0427-116-r5` claimte `baha-podman`
+  `2026-11-07T14:52:11Z`, **freigebtet** `2026-11-07T23:02:27Z` (≈8h10m). Kein Re-Claim danach.
+- `0427-116-r5` = geschlossene Mission (Korrekturrunde). Host erreichbar (`podman 5.7.0`),
+  lane `0427-110` = 0 Container. **Nur dokumentiert, nicht gelöscht/frei-gesetzt** (Lock
+  war ohnehin schon frei). Host-transports: 33 fremde quadlet `bh-*` Container (andere Missionen),
+  nicht angefasst.
+
+### 2) count=2-Deadlock als eigenstandiger Befund — round-9.md „Befunde für Verkartung"
+- **F1** `cmd/baha/deployment_record.go:551` (`recordDeploymentBeforeMutation`, `consent==nil`):
+  confirm-retry-Haltereit hält FD/Goroutine offen → `go test`-Prozess exitiert bei `-count=2`
+  auf sauberen Host nie; `-count=1`-CI faengt ihn NICHT (frischer Runner je Test, count=1).
+  contaminated count=2 gruen (ambient Core loest `consent != nil`). Kein Defekt im Kandidaten —
+  Owner-Karte zur Verkartung. round-9.md lines 77-109.
+- **F2** Podman application-readiness: baha-podman count=1 Workflow erreichte backend-readiness
+  (PostgreSQL+Valkey READY), scheiterte an `DEGRADED application` — platform finding (podman
+  rootless healthcheck/port-publishing vs docker). round-9.md lines 111-118. Kein fake-green.
+
+### 3) END_STOPPED 594fd2f5 — Zellen-stand
+
+| Cell | Runtime | Scenario | count | Result |
+| --- | --- | --- | --- | --- |
+| TestRepositoryWorkflowRealLifecycle | docker | contaminated | 2 | PASS rc=0 (197s) |
+| TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI | docker | contaminated | 2 | PASS rc=0 (237s) |
+| TestRepositoryComposeWorkloadOnlyLifecycleInCI | docker | contaminated | 2 | PASS rc=0 (212s) |
+| TestRepositoryBuildWorkloadRebuildsSourceChangesInCI | docker | contaminated | 2 | PASS rc=0 (217s) |
+| TestRepositoryWorkflowRealLifecycle | docker | clean | 1 | PASS rc=0 (~160-210s) |
+| TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI | docker | contaminated | 1 | PASS rc=0 |
+| TestRepositoryComposeWorkloadOnlyLifecycleInCI | docker | contaminated | 1 | PASS rc=0 |
+| TestRepositoryBuildWorkloadRebuildsSourceChangesInCI | docker | contaminated | 1 | PASS rc=0 |
+| TestRepositoryWorkflowRealLifecycle | podman | clean | 1 | FAIL app-readiness (F2, host-clean, backends READY) |
+
+- Branch `task/r27-compose-host-isolation-wip` @ `e291fba9a458fd1eef10e820c42598a66c2a5efc`
+  (merge develop `07ae6c3e9` #1430 + WIP). Drift OK: `06e4b1eaa` Ancestor; delta vs develop =
+  4 write-set files.
+- Plan-evidence gepusht: round-9.md (commits incl. `9f425ebc` Podman-lock + Befunde).
+  **Nebenstelle:** todos.json auf Disk ediert (count=2 F1 + podman FREI), Commit/Push durch
+  ausgefallenes shell-Tool (CWD `/tmp/0427-compose-wt` geloscht) offen — Prioritaet: `git add
+  workers/0427-compose-native-acceptance/todos.json && git push origin main`.
+- Hosts: `baha-docker` full-clean (0 Container/0 Netze). `baha-podman` host-clean, lane=0 Container.
+- Offene Reste fuer Owner: (1) F1 Verkartung-Karte, (2) F2 Podman-readiness-Triage,
+  (3) restliche Podman-Matrix (clean+contaminated count=1) nach F2-Triage. Kein weiteres
+  Arbeiten am Produktdesign.

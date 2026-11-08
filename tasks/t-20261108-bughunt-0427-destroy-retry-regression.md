@@ -7,7 +7,7 @@ areas: [lifecycle]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-132-r3-nativeaccept
+owner: lane-0427-132-nativeaccept-r3
 kanban_status: active
 kanban_lane: active
 kanban_summary: "develop's Runtime Docker Core and Podman Core push runs are green again;…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42434076648"]
 
 - [ ] t-20261108-bughunt-0427-destroy-retry-regression · Bug Hunt v0.4.27: 1448 macht destroy-retry rot #task #release/v0-4-27 #status/active #view/active #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-132-r3-nativeaccept · **Priority:** critical  
+    **Owner:** lane-0427-132-nativeaccept-r3 · **Priority:** critical  
     **PR:** [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42434076648)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42434076648"]
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** pending-lane-0427-132-r3-nativeaccept  
+**Owner:** lane-0427-132-nativeaccept-r3  
 **Priority:** critical  
 **PRs:** [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453)  
 **Source:** 
