@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: planned
+kanban_lane: wait
 kanban_summary: Decide and implement (or explicitly scope out) a Core authority model for Connector enrollment that works with a remote-hosted…
 kanban_title: 0427-168 · serve needs local core
 priority: high
@@ -17,21 +17,21 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-up-ignores
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "Owner decision required: should ConnectorEnrollmentHTTP accept a remote-Core authority (OpenBao over API) or is Core-on-remote explicitly out of scope for v0.4.27?"
-wait_reason: ""
+blocker: ""
+wait_reason: "Remote installation and management authority binding (0427-167 / 0427-023) are prerequisites for verifying connector enrollment from a developer workstation."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/blocked #view/blocked #area/cli #area/connector #kind/bug
+- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/planned #view/wait #area/cli #area/connector #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Blocker:** Owner decision required: should ConnectorEnrollmentHTTP accept a remote-Core authority (OpenBao over API) or is Core-on-remote explicitly out of scope for v0.4.27?  
+    **Waiting:** Remote Core management binding (0427-167 / 0427-023)  
     **Needs:** [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md)  
 **Owner:** unassigned  
@@ -65,7 +65,7 @@ Impact on E2E flow: Steps 2+4 (bind remote Core from developer PC, remote app de
 
 ## Goal
 
-Decide and implement (or explicitly scope out) a Core authority model for Connector enrollment that works with a remote-hosted Core.
+Implement Connector enrollment against the Core's verified installation authority. The release contract already requires remote developer access; no additional scope decision is needed.
 
 ## Acceptance
 
@@ -79,4 +79,4 @@ Decide and implement (or explicitly scope out) a Core authority model for Connec
 
 ## Handoff
 
-- Found 2026-11-08 in E2E smoke-test. Blocked pending Owner scope decision (see blocker). No fix attempted per smoke-test rules. Newest first.
+- Found 2026-11-08 in E2E smoke-test. Waiting for the remote Core binding implementation; no Owner scope decision remains. No fix attempted per smoke-test rules. Newest first.
