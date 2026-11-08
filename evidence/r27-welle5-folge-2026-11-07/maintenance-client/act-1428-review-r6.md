@@ -42,3 +42,12 @@ The reviewed `0fe53052d00a8d440b499c66a6a65c0d54bae5a0...9548239d85254595054337b
 END_DONE integration-1428-review-r6: APPROVE; PR #1428 candidate `9548239d85254595054337b17736b3b8941d0133`; tombstone reader and corrected retry/replay oracles verified; latest develop is `f7a49e6818efb269cc928ad550038b2bf94d333b`.
 
 Planning validation state: `python3 scripts/plan.py render && python3 scripts/plan.py check` rendered derived files; check ended with 2 errors and 2 warnings. Errors were unrelated checked cards missing evidence links: `tasks/t-20261108-bughunt-0427-appnew-contradictory-exit.md` and `tasks/t-20261108-bughunt-0427-multitarget-ambiguity.md` (“a checked card requires evidence links”). Warnings concerned accepted dependency states in two unrelated cards. Rendered derived changes were restored; only this review act is intended for commit. No unrelated card was edited to mask the validator result.
+
+## Merge verification
+
+- Role: CODEX-MERGE. PR #1428 merged with the standard merge strategy; no force push or protection bypass was used.
+- PR API reports merged at `2026-11-08T00:37:43Z`; merge commit `419b0211317bab63cb0fa66d07892488685d3ed8`.
+- Post-merge `develop` checks on the exact merge commit completed successfully: Runtime · Docker Core run `42430614314` and Runtime · Podman Core run `42430614252`.
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop` returned `419b0211317bab63cb0fa66d07892488685d3ed8`.
+
+END_DONE integration-1428-merge: CODEX-MERGE; PR #1428 merge commit `419b0211317bab63cb0fa66d07892488685d3ed8`; develop head `419b0211317bab63cb0fa66d07892488685d3ed8`.
