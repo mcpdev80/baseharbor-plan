@@ -143,3 +143,15 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473) head `e1b67be0f0f4400c51b6e6819d00e80425e7c0cf`: [CI #5327](https://github.com/mcpdev80/baseharbor/actions/runs/42516611610) **PASS**, including all required checks. This qualifies the scoped Core identity/handshake patch, not the complete remote app lifecycle.
 - Security review found `verifyRemoteManagementConnection` previously compared returned tenant to the profile only, not the configured selected Target. New head `d177ed15362ac1677a2afead8a573d9acfb8fff2` binds expected `ResolvedTarget.TenantID` explicitly and adds foreign/empty target-tenant regression tests. [CI #5341](https://github.com/mcpdev80/baseharbor/actions/runs/42529833874) pending on exact head.
 - Still missing: dispatch of authenticated developer CLI application operations to Core Machine HTTP API and external developer-workstation E2E proof. **Do not close card or assert remote deployment PASS based on green CI alone.**
+
+## Remote machine HTTP client seam 2026-11-08
+
+- New PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473) code on head `70756f8175146a153898eeda531c6f34d1d61901`: reuse the authenticated, pinned TLS/OIDC Core connection as `verifiedRemoteCore`; negotiate semantic operations through canonical `GET /api/v1/machine/discovery`, reject discovered foreign execution URLs and unsupported contract versions.
+- Introduced `requestMachineExecution` (canonical POST only) with explicit caller-provided stable idempotency key, matching Target/environment/application and strict relative Location validation. A 202 is **admission only**, never represented as operation success. Added negative tests for unverified sessions, forged binding/Location and wrong Target. No CLI application route has been switched over yet.
+- [CI #5351](https://github.com/mcpdev80/baseharbor/actions/runs/42530971667) pending at time of update. Do not merge/close this card until this head passes required CI, CLI apply/status/update/destroy actually use the authenticated remote Core path, and the external workstation Docker E2E is verified.
+
+## Machine HTTP transport qualification follow-up 2026-11-08
+
+- Production seam added to #1473: reuse one verified, CA-pinned Core identity; retrieve canonical Machine discovery; submit an explicitly selected operation via authenticated POST with caller-supplied stable idempotency key and strict Target/Environment/Application/Location matching. A 202 is admission, never claimed READY or deployed. Test cases cover forged endpoint and Location, wrong Target and unverified session.
+- Initial #5351 checks exposed a Go wrapper compilation error (wrong return arity), fixed at head `e23c32115cc0c7fd0ae405eaf918457fd4a2e804`. New [CI #5352](https://github.com/mcpdev80/baseharbor/actions/runs/42531128980) pending at update. This HEAD is not yet qualified.
+- Still required: actual CLI routing of app apply/status/update/destroy, terminal execution status handling and real separate workstation-to-Docker-host E2E. Do not merge until that contract is demonstrated.
