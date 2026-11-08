@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 1 |
 | wait | 4 |
 | blocked | 0 |
-| ready | 4 |
+| ready | 8 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -60,12 +60,16 @@ None.
 | [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new nur-anlegen ohne Init | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 | [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard-Abbruch über Prompts ungleich | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 | [t-20261108-bughunt-appnew-name-slug-keywords](../tasks/t-20261108-bughunt-appnew-name-slug-keywords.md) | Bug Hunt v0.4.27: Namens.slugify und Keywordwall | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
+| [t-20261108-bughunt-needs-tui-display-nav](../tasks/t-20261108-bughunt-needs-tui-display-nav.md) | Bug Hunt v0.4.27: Needs-TUI Anzeige und Rueckweg | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 | [t-20261108-bughunt-quickinit-failure-explain](../tasks/t-20261108-bughunt-quickinit-failure-explain.md) | Bug Hunt v0.4.27: Schnellstart ohne Grundangabe | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
+| [t-20261108-bughunt-rawmode-prompt-sigint](../tasks/t-20261108-bughunt-rawmode-prompt-sigint.md) | Bug Hunt v0.4.27: Ctrl-C im Pfadprompt | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
+| [t-20261108-bughunt-wizard-foreign-records](../tasks/t-20261108-bughunt-wizard-foreign-records.md) | Bug Hunt v0.4.27: Fremde Records storen Wizard | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
+| [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Erfolg meldet Naechstes nicht | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 33 open, 108 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 37 open, 108 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
