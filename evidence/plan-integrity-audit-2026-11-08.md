@@ -43,3 +43,8 @@
 ## Remaining coverage limitation
 
 A full vault-wide semantic check of every task and generated projection was not performed in this pass. Planning CI `Validate planning` is the authoritative repository structural validation; check the terminal result on current main before declaring structural consistency.
+
+## Validator warning requiring owner decision
+
+- 0427-118 (`t-20261107-r27-runtime-broker-oras-missing-edge-readiness`) is `closed/accepted` despite dependency `t-20261104-r27-vm-integration-runs` not accepted. The recorded Owner-Merge narrative explicitly says real Demo-App READY acceptance was not shown. This is a semantic inconsistency reported as a validator warning. Do **not** silently delete the dependency or fabricate acceptance. Either narrow 0427-118's contract to the already delivered broker fix (with an explicit follow-up acceptance task), or reopen its acceptance via canonical renderer with Owner approval.
+- Structural validator run [42476923743](https://github.com/mcpdev80/baseharbor-plan/actions/runs/42476923743) passed on `f9ee1c03`, despite the above known warning. It is not an exhaustive semantic sign-off.
