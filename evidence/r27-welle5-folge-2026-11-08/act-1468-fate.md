@@ -61,5 +61,11 @@ Live-state addendum: #1467 also refreshed to `CLEAN`/`MERGEABLE`; #1468 remains 
 Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md` output after initial publication:
 
 ```text
+100644 blob 5794bd33c15f588093f7369f201e6e7d18db4db7	evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md
+```
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md` output after initial publication:
+
+```text
 100644 blob d5780435a94b90c8347bbbe60b7b5288b4d9a153	evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md
 ```
