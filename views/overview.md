@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 0 |
+| active | 7 |
+| review | 1 |
 | wait | 4 |
 | blocked | 0 |
 | ready | 4 |
@@ -31,11 +31,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-container-name-replica](../tasks/t-20261108-bughunt-0427-container-name-replica.md) | Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) | active | normal | lane-w128-contname-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1452](https://github.com/mcpdev80/baseharbor/pull/1452) |
 | [t-20261108-bughunt-0427-destroy-retry-regression](../tasks/t-20261108-bughunt-0427-destroy-retry-regression.md) | Bug Hunt v0.4.27: 1448 macht destroy-retry rot | active | critical | lane-0427-132-nativeaccept-r3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453) |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | active | normal | lane-0427-127-bootleak-r2 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | review | normal | lane-0427-127-bootleak-r2 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 
 ## Waiting for resources
 
