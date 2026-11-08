@@ -1,6 +1,6 @@
 # H-X1 Bug-Hunt: Operator-Auth-Oberflaeche auf baha-docker
 
-- Lane/Session: 594fd2f5-4e80-43b6-9841-92879146a85e (worker, Ornith, server host codeman)
+- Lane/Session: 635122aa-716a-4af9-99f7-91a634d9bf4c (whunt-pr-hx1, Ornith desktop; coord-bookkeeping-fix: wrong id copied at start)
 - Shift: r27-welle5-folge-2026-11-08
 - Mission: /tmp/opencode/mission-hunt-hx1.md
 - Host unterucht: baha-docker (192.168.6.166, ssh-user marcel, hostname baha-runner-docker) — server host ist codeman, kein Test-Host
