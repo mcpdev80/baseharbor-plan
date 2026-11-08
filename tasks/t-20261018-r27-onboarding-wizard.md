@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: "coordinator"
-kanban_lane: wait
+kanban_lane: closed
 kanban_summary: Native success continues silently; import one trusted device bundle or non-secret team profile and authenticate only as policy…
-kanban_status: wait
+kanban_status: closed
 kanban_title: "0427-043 · attach a workstation with"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-profile-codec, t-20261018-r27-secure-export, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -20,21 +20,21 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
-wait_reason: "True first-owner OIDC/Keycloak Tenant end-to-end and connected Node onboarding need real Docker/Podman acceptance."
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md"]
+wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/wait #view/wait #area/wizard #kind/task
+- [x] t-20261018-r27-onboarding-wizard · Onboarding: attach a workstation with minimal questions #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/wizard #kind/task
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** normal  
     **PR:** [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
-    **Waiting:** True first-owner OIDC/Keycloak Tenant end-to-end and connected Node onboarding need real Docker/Podman acceptance.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
