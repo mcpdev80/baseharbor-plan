@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-w156-diag
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Root cause identified with file:line and either (a) the marker is produced again on the productive path (product fix +…"
 kanban_title: 0427-156 · Native marker missing
 priority: normal
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42485190712","https://github.com/mcpdev80/baseharbor/actions/runs/42485190770"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-native-single-default-marker · Develop red 0.4.27: native single-default marker #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-native-single-default-marker · Develop red 0.4.27: native single-default marker #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-w156-diag · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42485190712), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42485190770)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-w156-diag  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
