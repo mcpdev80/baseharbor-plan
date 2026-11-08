@@ -105,4 +105,5 @@
 
 ## Status
 
-- STATUS: IN ARBEIT (BF-01..BF-27 documented; VM cleanup + END next)
+- VM-BESAINREIN: Isser (pid 1940252, root, 127.0.0.1:443) per sudo kill -9 beendet + PORT_443_FREE verifiziert. Tooling /tmp/hx1-mg + /tmp/hx1-oidc + hx1-pub-/hx1-tls-Temps + hx1_testkey.pem per sudo rm -rf aufgeraeumt (TMP_CLEAN). KEIN `baha up` -> KEINNeue Docker-Container (NO_HX1_CONTAINERS). Bestehende gfield0427-Runtime unveraendert.
+- STATUS: FINAL — 27 Befunde + 4 Positives dokumentiert; Evidence origin/main (43855612); todos work/r27-node-cli (3c73e37d); VM besenrein; END in geteilte Inbox gepostet.
