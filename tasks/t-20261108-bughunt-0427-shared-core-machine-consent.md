@@ -15,7 +15,7 @@ kanban_title: "0427-123 · Shared-Core Consent blockiert"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1445]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -67,3 +67,5 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 ### 2026-11-08 DIAG_EXEC-Teilfehler (ChatGPT)
 
 - In `cmd/baha/app_machine_adapters.go` hat der aktuelle `develop` zwei **unbedingte** `fmt.Printf("DIAG_EXEC ...")` bei fehlgeschlagenem Machine-Provider-Change. Diese Debug-Ausgaben umgehen die stabilen maschinenlesbaren Fehlergrenzen, stoeren stdout und koennen Outcome-Details exponieren. Als sicherer, eng abgegrenzter **Teilfix** von 0427-123 werden sie ohne Aenderung der Consent-/Result-Logik entfernt und gegen Rueckfall getestet. Dieser Teilfix ist **nicht** die Loesung des PTY-Down-Haengers; Karte bleibt danach aktiv.
+
+- **Teilfehler-Fix-PR:** [#1445](https://github.com/mcpdev80/baseharbor/pull/1445), Head `f80dc0b9eefc0b4f757ec4ba4d05a500e569f450` entfernt beide ungefilterten `DIAG_EXEC`-Stdout-Prints und fuegt eine Source-Regression hinzu. Kein Consent-Sicherheits-Bypass. Exact-head CI offen, PTY-Haenger weiterhin separat zu beheben.
