@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "A safe 'baha app prune <name>' under the app tree deletes ONLY the dangling record whose source is missing (refuses when source…"
 kanban_title: 0427-173 · No command prunes a dangling m
 priority: normal
-depends_on: [t-20261108-bughunt-list-stale-after-kill]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261108-bughunt-list-stale-after-kill]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -34,7 +34,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261108-bughunt-list-stale-after-kill](t-20261108-bughunt-list-stale-after-kill.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-list-stale-after-kill](t-20261108-bughunt-list-stale-after-kill.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
