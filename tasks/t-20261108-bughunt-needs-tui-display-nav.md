@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-needs-tui"
+kanban_status: active
+kanban_lane: active
 kanban_summary: Back navigation visible; wrap-safe rows; choicesForSelection errors surfaced instead of swallowed; key hint consistent (p vs P);…
 kanban_title: 0427-143 · TUI rows break silently
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1476]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -52,3 +52,10 @@ Back navigation visible; wrap-safe rows; choicesForSelection errors surfaced ins
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha tui needs-screen + provider choice views.
+
+
+## PR-/CI-Übernahme — 2026-11-08
+
+- Owner: `chatgpt-r27-needs-tui`; Umsetzung im [PR #1476](https://github.com/mcpdev80/baseharbor/pull/1476) auf Basis `develop` `4786c541`.
+- Behebt Key-Hinweise (`p`, `b/←`), vorherige Zeile, zu lange Provider-Zeilen und versteckte `choicesForSelection`-Fehler. Regressionstests ergänzt.
+- Exact-Head-CI noch ausstehend. Kein Merge, keine Acceptance und kein Closed bis zum vollständigen PASS. Karte bleibt Active.
