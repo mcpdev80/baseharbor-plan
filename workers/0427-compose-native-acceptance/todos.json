@@ -1,0 +1,12 @@
+[
+  {"title": "Docker clean matrix (4 tests x count=1): all PASS", "done": true, "sha": "5e75b87a2b1015520e51be5b6cf9635e42e69b06", "note": "host baha-docker, lane 0427-110; logs /tmp/iso-run-*.log"},
+  {"title": "Docker contaminated matrix (ambient bh-local-core present): 4/4 PASS", "done": true, "sha": "5e75b87a2b1015520e51be5b6cf9635e42e69b06", "note": "isolation uses own bootstrap Core, never ambient; logs /tmp/iso-run-cont-*.log"},
+  {"title": "Fix line 107: boot-core runtime fallback in targetRuntimeFiles (CI-gated)", "done": true, "sha": "5e75b87a2b1015520e51be5b6cf9635e42e69b06", "note": "cmd/baha/target.go; workload-runtime writes to Store.Root, read path reads target root; fallback to registered boot Core"},
+  {"title": "Host leak fix: remove bootstrap networks after trust-plane (count=2 pool)", "done": false, "sha": "", "note": "PRODUKTBEFUND — harness leak; owner making bug card; NOT merged to WIP"},
+  {"title": "Docker clean count=2 matrix (4 tests x2) to terminal PASS", "done": false, "sha": "", "note": "running 2026-11-08; count=1 clean already PASS; count=2 in progress"},
+  {"title": "Docker contaminated count=2 matrix (4 tests x2)", "done": false, "sha": "", "note": "pending after clean count=2 terminal"},
+  {"title": "Podman matrix (clean + contaminated, count=1 and count=2)", "done": false, "sha": "", "note": "host baha-podman held by 0427-116-r5; not releaseable until docker lane releases"},
+  {"title": "Round evidence file: cell table + shas + transcripts + leak report", "done": false, "sha": "", "note": "task note updated; round file pending"},
+  {"title": "Push final WIP to task/r27-compose-host-isolation-wip (normal push)", "done": true, "sha": "5e75b87a2b1015520e51be5b6cf9635e42e69b06", "note": "drift OK: 06e4b1eaa ancestor; only target.go + 3 fixture files differ from develop"},
+  {"title": "Release lane 0427-110; END_STOPPED 594fd2f5", "done": false, "sha": "", "note": "after podman matrix + full count=2 terminal"}
+]
