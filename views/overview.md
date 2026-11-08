@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 14 |
-| review | 2 |
+| active | 15 |
+| review | 1 |
 | wait | 7 |
 | blocked | 1 |
 | ready | 0 |
@@ -33,6 +33,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | active | normal | lane-w159b-damagednet | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | active | normal | chatgpt-r27-destroy-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483) |
 | [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | active | normal | lane-w160c-stalelist3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491) |
+| [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | active | normal | pending-lane-0427-165-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 | [t-20261108-bughunt-upname-entrypoint-develop-rot](../tasks/t-20261108-bughunt-upname-entrypoint-develop-rot.md) | Bug Hunt v0.4.27: Entrypoint test rots | active | normal | lane-w172-entrypointrot | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) | Bug Hunt v0.4.27: Select fails without issuer | active | normal | lane-w162c-issuerfix2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489) |
 | [t-20261108-bughunt-wizard-foreign-records](../tasks/t-20261108-bughunt-wizard-foreign-records.md) | Bug Hunt v0.4.27: Foreign records stall wizard | active | normal | lane-w144-foreignrec | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -44,7 +45,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-target-delete-nontty-consent](../tasks/t-20261108-bughunt-target-delete-nontty-consent.md) | Bug Hunt v0.4.27: Target delete needs TTY | review | normal | lane-w164b-delconsent2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1494](https://github.com/mcpdev80/baseharbor/pull/1494) |
-| [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | review | normal | lane-w165-orphanrec | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 
 ## Waiting for resources
 
