@@ -34,6 +34,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261108-bughunt-app-prune-dangling-record](t-20261108-bughunt-app-prune-dangling-record.md)  
 **Owner:** lane-w160c-stalelist3  
 **Priority:** normal  
 **PRs:** [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491)  

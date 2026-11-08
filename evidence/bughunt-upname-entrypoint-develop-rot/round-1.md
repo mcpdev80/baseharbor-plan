@@ -80,6 +80,42 @@ The precise change is in destroyOrphanedBootstrapMarkers: distinguish a destroy 
 
 See round-2 for the exact diff (file:line) and the regression coverage.
 
+The precise change landed in cmd/baha/runtime_integration_test_support_test.go,
+function destroyOrphanedBootstrapMarkers (the dead-owner adoption path). Before
+attempting the destroy, the adoption now calls orphanBootstrapTargetHadFootprint
+to check whether the orphan's target actually owned a provisioned Core (runtime
+project files compose.yaml + env on disk, OR owned containers/resources on the
+engine). If it did NOT (a dead owner whose `up` never completed — the torn
+teardown/sequence), adoption consumes the claim cleanly: removes the marker,
+returns nil. Fail-closed is preserved: a genuine residual (Core was provisioned,
+owned resources remain after destroy, or a provider/engine error while something
+WAS up) still returns a non-nil error, keeps the marker, and aborts the run.
+
+Two regression tests added to cmd/baha/runtime_integration_cleanup_coverage_test.go
+(pure unit tests, no real runtime daemon required, durably run by
+`go test ./cmd/baha` and `go test ./...` in ci.yml):
+- TestBootstrapAdoptionConsumesOrphanWithNoProvisionedCore: dead-owner marker +
+  config naming a w169-ci-bootstrap-* target but NO compose files -> adoption
+  returns nil and removes the marker.
+- TestBootstrapAdoptionKeepsMarkerWhenCoreExists: dead-owner marker + config +
+  compose file (Core was provisioned) -> adoption returns an error and KEEPS the
+  marker (fail-closed against a real residual).
+
+Hosted reproduction on local docker with a phantom orphan:
+BEFORE:
+  bootstrap trust-plane teardown: adopting orphaned marker from dead pid 99999999
+  bootstrap trust-plane adoption destroyed target "w169-ci-bootstrap-abcabcabc0"
+    with reported failures: .../runtime/compose.yaml: no such file or directory
+  bootstrap trust-plane teardown: failed adoption aborts this run (marker kept): ...
+  FAIL    github.com/mcpdev80/baseharbor/cmd/baha    0.199s   (test never reached)
+AFTER (same leftover):
+  bootstrap trust-plane teardown: adopting orphaned marker from dead pid 99999999
+  bootstrap trust-plane adoption consumed orphaned marker "...": target
+    "w169-ci-bootstrap-abcabcabc0" owned no provisioned Core (dead owner never
+    brought it up)
+  --- PASS: TestUpNameResumesThroughCommandEntrypoint
+  PASS
+
 ## 4. Evidence: hosted run
 Run name: <to fill after hosted CI run>
 Hosted matrix result (develop-nearby head, green unit matrix): <to fill>
