@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: lane-0427-013-access-r6
-kanban_lane: active
+owner: flash
+kanban_lane: review
 kanban_summary: "Name->search/select Targets->rights->review; preserve selections across pagination/back, show effective scope. Distinguish…"
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-013 · guide profile assignment and"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-profiles, t-20261018-r27-client-commands, t-20261018-r27-device-lifecycle, t-20261018-r27-managed-users, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -26,20 +26,20 @@ wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/active #view/active #area/wizard #kind/task
+- [ ] t-20261018-r27-access-wizard · Access: guide profile assignment and deliberate offboarding #task #release/v0-4-27 #status/review #view/review #area/wizard #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-013-access-r6 · **Priority:** normal  
+    **Owner:** flash · **Priority:** normal  
     **PR:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
     **Evidence:** [proof 1](https://raw.githubusercontent.com/mcpdev80/baseharbor-plan/main/evidence/r27-welle5-folge-2026-11-07/access-wizard/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261108-bughunt-0427-greenfield-isolation](t-20261108-bughunt-0427-greenfield-isolation.md)  
-**Owner:** lane-0427-013-access-r6  
+**Owner:** flash  
 **Priority:** normal  
 **PRs:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -111,3 +111,5 @@ r4 head be65de6d: CI run 42421669238 TERMINAL success (14/0), drift-frei, fail-c
 recheck: persistenz/cancel/kinds ok, NEUER befund: multi-target assignment UEBERSCHREIBT fruehere targets + multi-target revoke kann PARTIELL persistieren (atomarität je batch fehlt). rezept in neuester act-1430-review.md. r5 folgt auf freiem ornith-sitz (H-P1 hunt wird dafuer eingezogen).
 
 hunt H-P1 sofort gestoppt (owner-direktive: echte arbeit > hunt) — sitz an access-r5 c38f521b: multi-target atomaritaet (alle-oder-nichts je batch) laut recheck-befund. H-P1-slice kehrt bei naechstem freien sitz zurueck in die matrix.
+
+r6 candidate 9dd2f779fa2445257d4f7f3c99a43b1245493818 on PR #1430; hosted run 42438784031 completed/success; evidence round-6.md
