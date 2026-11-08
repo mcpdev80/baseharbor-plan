@@ -41,7 +41,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 <!-- /generated:card -->
 ## Outcome and acceptance
-`baha target create --reference local` + `baha app init --quick` completes the native acceptance bootstrap path without ErrDeploymentOwnerMissing on the real-instance lifecycle; the #1347 owner enforcement keeps working for paths that genuinely require an owner (fix at the init seam: establish/verify owner correctly for reference-local flows). Regression runs in the CI-selected native/validate group it belongs to (test->check->trigger named).
+`baha target create --reference local` + `baha app init --quick` completes the native acceptance bootstrap path (documented flow incl. genuine Core bootstrap, e.g. baha up --control-plane-only) without ErrDeploymentOwnerMissing on the real-instance lifecycle; the #1347 owner enforcement keeps working for paths that genuinely require an owner (fix location decided 2026-11-08: the native acceptance harness must run the documented bootstrap so a genuine owner exists; product consent semantics unchanged (core_required without --yes stays, #1347 enforcement intact)). Regression runs in the CI-selected native/validate group it belongs to (test->check->trigger named).
 
 ## Problem (Fund aus 0427-132 r3, round-3.md — origin/main 48980d11)
 `app init --quick` bricht in zeile 43 des native-acceptanz tests mit ErrDeploymentOwnerMissing bevor destroy/retry-Phasen erreicht werden. Ursache: #1347 (commit 42bfcb1c) macht VerifyDeploymentOwner Pflicht in der init-Naht ohne owner-establishment für reference-local targets. Reproduktion dreifach identisch: PR #1453 head 7557a0b1d, develop 07ae6c3e9, CI run 42434076648 (develop 1fe57f250) — v0.4.25 (bad37ce6) besteht.
