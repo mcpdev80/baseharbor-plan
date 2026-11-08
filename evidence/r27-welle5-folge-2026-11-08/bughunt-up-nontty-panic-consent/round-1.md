@@ -50,6 +50,15 @@
 - This changes an existing fail-closed property, so the fix is conservative: `--yes` grants the two consequence-acknowledgements only, and NEVER grants `DeleteData` (permanent data deletion still requires an explicit interactive/JSON decision). Non-destructive plans resolve; destructive plans without `--yes` still fail closed.
 - Fail-closed is preserved at every layer: `ValidateProviderChangeConsent` still rejects incomplete consent; `DeleteData` still requires an explicit flag.
 
+## Outcome and acceptance
+
+- BF-01 (blocker candidate) fixed: `recordDeploymentBeforeMutation` no longer prints a Go runtime stack (cmd/baha/deployment_record.go:140-141 removed); the missing-confirm error is now a clean `*cli.UsageError` (exit 2) whose message + hint print the exact `--confirm-candidate` confirm-hash (`delivery.CandidateConsentDigest`).
+- BF-02 fixed: `acknowledgeProviderImpact` (cmd/baha/provider_change_confirmation.go) honours an explicit `--yes`/non-TTY run with BOTH consequence acknowledgements for a `confirmations_required==2` plan; `--yes` never implies `DeleteData` (destructive plans still fail closed); runs without `--yes` that cannot read a terminal still refuse.
+- Regressions (CI group `release_source_preflight`: `BASEHARBOR_LOGS_ENABLED=false go test ./cmd/baha`): `TestM157NoConfirmNoPanicIsUsageErrorNamingDigest` (BF-01, no stack + exact digest), `TestOrdinaryYesHonoursDoubleAcknowledgementButNeverDeletes` (BF-02).
+- Provenance: base SHA (cut-from, ancestor of first commit) `512dcd721` (develop HEAD at worktree cut); first commit `f6c15edc` — single commit, no foreign commits. PR #1486 vs develop HEAD `cdb4350a6`.
+- VM SSH host (baha-docker/baha-podman, 192.168.6.101-107) unreachable from this session — STATE. Go unit tests are the durable CI-picked evidence.
+- CI for PR #1486: not visible in read-accessible window (token lacks `actions:read`; pull_request run list shows PR #1485 completed, #1486 never dispatched). Did NOT touch `.github/**` or trigger reruns/workflow_dispatch (Owner scope).
+
 ## END
 
-END mission-157.md: (in progress — implementation + PR)
+END mission-157.md: BF-01/BF-02 implemented in single commit f6c15edc (PR #1486 vs develop), local Go tests pass, evidence on origin/main; CI for #1486 not dispatching in read window = recorded STATE, owner to verify.
