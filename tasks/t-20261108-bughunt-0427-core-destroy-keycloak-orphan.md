@@ -128,3 +128,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449) nach `develop` gemergt, **SHA `ebf56a092de55c5b2e1d3129b32ab50db6b92790`**, exact-head [PR-CI #42432965054](https://github.com/mcpdev80/baseharbor/actions/runs/42432965054) terminal `success` (15 PASS). Der echte Keycloak-/Installation-Destroy-Nativtest ist damit als Gate in den vorhandenen Docker-/Podman-Develop-Jobs eingebaut.
 - **Nativer PASS noch offen:** native Develop-Runs auf dem Merge-SHA wurden durch den folgenden Merge abgebrochen; auf dem folgenden SHA war der native Job wegen Impact-Auswahl geskippt. Nicht als native Abnahme interpretieren. PR #1448 bleibt bis exact-head CI/Integration offen. Coordinator übernimmt die notwendigen nativen Gates.
+
+### 2026-11-08 Letzter Fix gemergt
+
+- [PR #1448](https://github.com/mcpdev80/baseharbor/pull/1448) nach `develop` gemergt, Merge-SHA `1fe57f25007413c710e049094c62bf71656b2aa2`; exact-head [CI #42433268819](https://github.com/mcpdev80/baseharbor/actions/runs/42433268819) terminal `success`, nach Korrektur der vier zuvor fehlgeschlagenen fremden Orphan-Fälle.
+- Sämtliche Teilfix-PRs #1444, #1448, #1449 integriert. **Nur native Docker+Podman-Ausführung auf dem finalen integrierten SHA mit Keycloak-Resource-Zählung fehlt noch**; Coordinator hat die Karte, `wait` bleibt bis Nachweis bestehen.
