@@ -59,4 +59,4 @@ Core.
 
 ## END
 
-<placeholder-end>
+END mission-163.md: candidate committed 5f62af4f on w163-second-target-shared-core (base develop cdb4350a6), PR #1487 against develop; evidence on origin/main; unit + CLI regression green; pre-existing TestAppEdit... failure is host/Core-bootstrap specific, unrelated. Shared Core / any compose brought down (none started). Cleanliness: DONE.
