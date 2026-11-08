@@ -242,3 +242,10 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - [PR #1473](https://github.com/mcpdev80/baseharbor/pull/1473) reached Ready at `9f29a006` but [CI 42535614007](https://github.com/mcpdev80/baseharbor/actions/runs/42535614007) failed `PR · Validation · go-unit-tests`: `TestRemoteMutationArgumentsFailClosed/apply/demo---confirm-candidate-bogus` accepted a malformed digest. Format, build, vet, native Keycloak/Core Docker+Podman and native destroy-retry were green in that run.
 - Fixed `remoteMutationArgs` to require exact 64-character lowercase hex SHA-256 candidate confirmation. Test now supplies a canonical digest in the positive path; malformed `bogus` stays rejected. Commits: `10f57886` and `ec80ea74` on #1473.
 - These commits require new exact-head CI; prior green jobs are not inherited as acceptance. Remote candidate ingest/source handoff and physical workstation-to-Docker lifecycle E2E remain open. Keep card active, no merge.
+
+
+## Remote candidate argument hardening 2026-11-09
+
+- On #1473 after digest-shape validation, added fail-closed duplicate `--confirm-candidate` rejection for both separate and equals variants; regressions included. Product commits `f560f1df` and `d20a88cd`.
+- [CI 42536471426](https://github.com/mcpdev80/baseharbor/actions/runs/42536471426) is an earlier head and cannot qualify the latest duplicate-guard patch. Fresh exact-head CI required.
+- Existing 0427-019 source snapshot captures metadata and bounded source-file identities but is not by itself a wire upload. Existing candidate ingress must be reused, not replaced; physical remote source-registration and lifecycle smoke remain outstanding. Card active, no merge.
