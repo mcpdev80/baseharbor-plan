@@ -5,7 +5,7 @@
   {"title": "Fix line 107: boot-core runtime fallback in targetRuntimeFiles (CI-gated)", "done": true, "sha": "e291fba9a458fd1eef10e820c42598a66c2a5efc", "note": "cmd/baha/target.go"},
   {"title": "Host leak fix: remove bootstrap networks after trust-plane (removeBootstrapNetworks)", "done": true, "sha": "e291fba9a458fd1eef10e820c42598a66c2a5efc", "note": "cmd/baha/runtime_integration_test_support_test.go; committed+pushed."},
   {"title": "Podman matrix (clean + contaminated, count=1)", "done": false, "sha": "", "note": "host baha-podman held by 0427-116-r5; not releaseable until docker lane releases"},
-  {"title": "Round evidence file: cell table + shas + transcripts + leak report", "done": false, "sha": "", "note": "task note + todos updated; round file pending"},
+  {"title": "Round evidence file: cell table + shas + transcripts + leak report", "done": true, "sha": "", "note": "round-9.md published; task note + todos updated"},
   {"title": "Merge origin/develop + push final WIP (normal push)", "done": true, "sha": "e291fba9a458fd1eef10e820c42598a66c2a5efc", "note": "merged develop 07ae6c3e9 (#1430 access-wizard); merge commit e291fba9; drift OK (06e4b1eaa ancestor); only 4 write-set files differ from develop"},
-  {"title": "Release lane 0427-110; END_STOPPED 594fd2f5", "done": false, "sha": "", "note": "after podman matrix + round evidence"}
+  {"title": "Release lane 0427-110; END_STOPPED 594fd2f5", "done": true, "sha": "", "note": "lane released 2026-11-08; host baha-docker full-clean (0 containers/0 nets); END_STOPPED 594fd2f5"}
 ]
