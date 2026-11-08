@@ -35,7 +35,7 @@ wait_reason: "prepare-branch (PR#1151) gemergt; wartet auf OWNER publish-freigab
 
 <!-- generated:links -->
 **State:** wait  
-**Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
+**Release:** v0.4.27 (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
 **Owner:** mcpdev80  

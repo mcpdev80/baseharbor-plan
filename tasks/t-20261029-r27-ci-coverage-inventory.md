@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/blob/develop/docs/internal/ci
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** none  
 **Owner:** o202 (1138dbc9, ornith)  
 **Priority:** high  

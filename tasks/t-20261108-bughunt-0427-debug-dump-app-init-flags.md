@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/32ce55dd5"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
 **Priority:** normal  
@@ -100,3 +100,8 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - [PR #1442](https://github.com/mcpdev80/baseharbor/pull/1442) **nach develop gemergt**: Merge-SHA `853c2608afcd41f78dea1bb41df0e8e8f09e1110`, exact-head [CI #42430071237](https://github.com/mcpdev80/baseharbor/actions/runs/42430071237) terminal `success`.
 - Der Negativtest ruft die echte Candidate-Consent-Ablehnung auf, bestaetigt unveraendertes Fail-Closed und prueft stderr auf `goroutine` und `runtime.Stack`. Zusammen mit gemergtem Produktfix [#1439](https://github.com/mcpdev80/baseharbor/pull/1439) sind die fokussierten Abnahmebedingungen erfuellt.
 - Status **closed / accepted**. Keine gesonderte vollstaendige VM-Matrix fuer diesen fokussierten CLI-Fix behauptet.
+
+## Handoff 2026-11-08 (regression)
+
+- Regression bestätigt: Debug-Dump lebt weiter in develop 0fe53052d (Build 0.4.11).
+- Karte t-20261108-bughunt-0427-regression-debug-dump-consent (0427-129) dokumentiert die Korrektur.

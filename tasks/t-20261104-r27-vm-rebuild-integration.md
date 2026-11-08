@@ -32,7 +32,7 @@ superseded_by: t-20261104-r27-vm-integration-runs
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
 **Owner:** coord-welle4 (lanes w116, w117)  

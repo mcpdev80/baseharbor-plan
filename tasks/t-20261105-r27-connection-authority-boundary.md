@@ -31,7 +31,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-we
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** coord-welle4 (Lane w172, freigegeben)  
