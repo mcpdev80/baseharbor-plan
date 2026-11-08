@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-network-hint"
+kanban_status: active
+kanban_lane: active
 kanban_summary: The network-create error site catches pool exhaustion and reports a concrete next step (name released nets / docker network…
 kanban_title: 0427-146 · No advice on pool error
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1477]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -52,3 +52,10 @@ The network-create error site catches pool exhaustion and reports a concrete nex
 
 ## Dependencies and file ownership
 None. Write-set: compose network creation error paths in core/workload up.
+
+
+## Übernahme und CI — 2026-11-08
+
+- Owner `chatgpt-r27-network-hint`; [PR #1477](https://github.com/mcpdev80/baseharbor/pull/1477) fügt dem echten Network-Create-Pfad einen sicheren Hinweis für Docker-Adressenpool-Erschöpfung hinzu.
+- Synthetic native-command regression prüft zwei Pool-Fehler und einen nicht verwandten Fehler. Keine automatische Bereinigung fremder Netzwerke.
+- CI exact-head ausstehend; Karte bleibt `active`, keine Acceptance oder Mergefreigabe vor PASS.
