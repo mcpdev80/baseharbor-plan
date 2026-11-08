@@ -15,7 +15,7 @@ kanban_title: 0427-122 · destroy leaves keycloak up
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1444]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -76,3 +76,9 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 ## 2026-11-08 Übernahme (ChatGPT)
 
 - Owner `owner:chatgpt`; `active`. Naechster gezielter Fix: explizite Erfassung des geschuetzten Core-Keycloak-Compose-Projekts auch ohne laufende Container, gefolgt von Negativ-/Eigentums-Regressionen. Keine Fremdcontainer loeschen. Native Docker-Reproduktion bleibt fuer finale Abnahme erforderlich.
+
+## 2026-11-08 Produktfix-PR (ChatGPT)
+
+- [Core PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444), Head `ddb311ea6682cd72337423d7e04f68098803285e`: Destroy-Inventory erfasst `bh-<target>-core-shared` auch ohne laufende Container, statt nur ueber beobachtete Runtime-Container. Verifikation verwendet unveraendert Runtime-Owner-Grenzen.
+- Regression testet Identity-Projekt ohne laufende Container, Preview, Aufraeumen, `sharedOnly` und Schutz fremder Target-Projekte. Exact-head CI offen.
+- Finale Abnahme braucht zusaetzlich realen nativen Docker `baha up/down/destroy`-Ablauf und Status-Messung; nicht vorzeitig `closed`.
