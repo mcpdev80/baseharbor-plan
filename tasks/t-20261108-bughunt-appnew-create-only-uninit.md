@@ -66,3 +66,8 @@ Audit 2026-11-08 (zuerklaeren): the dossier case was context-dependent; owner PR
 
 - [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) exact head `7b1c01b843305a36c51600f7125f74aece5cf2cd`; [CI #42510870133](https://github.com/mcpdev80/baseharbor/actions/runs/42510870133). Added explicit create-only CLI/alias parity regression: generated portable contract, truthful Next: cd -> app init --quick -> up sequence, no false Deployment READY. Native generated project->init->up acceptance remains distinct.
 - Card intentionally remains `review` until the relevant contract is fully established by actual executed CI; no synthetic PASS or unrelated Remote smoke acceptance.
+
+## Corrected PR #1493 exact-head CI — 2026-11-08
+
+- Formatter-corrected PR head `050123164e4522792db900d852c3f6d42fb8137a` tested by [CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058); prior run cancelled after a gofmt-only error.
+- Source format, CLI gofmt/build/vet and source-contract checks succeeded; native Docker/Podman and complete CLI package tests must still finish. No premature acceptance.
