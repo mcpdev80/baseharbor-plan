@@ -15,7 +15,7 @@ kanban_title: 0427-140 · app new left uninit
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1465]
+prs: [mcpdev80/baseharbor#1465, mcpdev80/baseharbor#1493]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -61,3 +61,8 @@ None. Write-set: cmd/baha app new + init seam.
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (zuerklaeren): the dossier case was context-dependent; owner PR #1465 already improved the create-only next-step text - remaining scope narrowed to the init-state decision. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+## Consolidated review PR #1493 — 2026-11-08
+
+- [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) exact head `7b1c01b843305a36c51600f7125f74aece5cf2cd`; [CI #42510870133](https://github.com/mcpdev80/baseharbor/actions/runs/42510870133). Added explicit create-only CLI/alias parity regression: generated portable contract, truthful Next: cd -> app init --quick -> up sequence, no false Deployment READY. Native generated project->init->up acceptance remains distinct.
+- Card intentionally remains `review` until the relevant contract is fully established by actual executed CI; no synthetic PASS or unrelated Remote smoke acceptance.
