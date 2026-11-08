@@ -81,3 +81,8 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 ## 2026-11-08 Interaktiver Consent-Regressionstest (ChatGPT)
 
 - [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) Head `90e9aae7f5c07729a309f97672f60247885c4845`: reproduziert `authorizeApplicationStop` auf dem echten CLI-Autorisierungspfad mit einer endlichen interaktiven Eingabe (2x `yes`, Ablehnung Stufe 1, Ablehnung Stufe 2). Prueft Erfolg nur bei aktueller Plan-ID und fail-closed bei Ablehnung. Noch kein echter PTY auf Docker/Podman; CI offen, Karte weiterhin `active`.
+
+## 2026-11-08 PR #1446 erfolgreich gemergt (ChatGPT)
+
+- [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) erfolgreich nach `develop` gemergt: `f9e207ac0d0b4c983fbb01d4357a8784c41c92de`. Exact-head [CI #42431899984](https://github.com/mcpdev80/baseharbor/actions/runs/42431899984) terminal `success`, **10 PASS, 0 FAIL, 0 ausstehend**.
+- Echter `authorizeApplicationStop`-Codepfad mit zwei Ja-Bestaetigungen, Ablehnung in Stufe 1/2, aktueller Planbindung regressionsgetestet. **Karte bleibt active:** echter PTY- und nativer Docker-/Podman-Lifecycle-Nachweis weiterhin ausstehend, keinerlei Sicherheits-Bypass.
