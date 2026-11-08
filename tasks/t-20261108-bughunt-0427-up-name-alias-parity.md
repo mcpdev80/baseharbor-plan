@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: codex-merge-1474
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: baha up NAME resolves the registered application NAME identically to baha app up NAME; the top-level alias exposes the full…
 kanban_title: "0427-130 · baha up NAME rejected"
 priority: normal
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1459, mcpdev80/baseharbor#1474]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1474"]
 ---
 
-- [ ] t-20261108-bughunt-0427-up-name-alias-parity · Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented #task #release/v0-4-27 #status/review #view/review #area/dx #kind/bug
+- [x] t-20261108-bughunt-0427-up-name-alias-parity · Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** codex-merge-1474 · **Priority:** normal  
     **PR:** [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459), [baseharbor#1474](https://github.com/mcpdev80/baseharbor/pull/1474)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1474)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** codex-merge-1474  

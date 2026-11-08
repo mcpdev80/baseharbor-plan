@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 11 |
-| review | 4 |
+| review | 3 |
 | wait | 4 |
 | blocked | 1 |
 | ready | 7 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 181 |
+| closed | 182 |
 
 ## Active
 
@@ -40,7 +40,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | review | normal | codex-merge-1474 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459), [baseharbor#1474](https://github.com/mcpdev80/baseharbor/pull/1474) |
 | [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | review | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
 | [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard cancel is uneven | review | normal | chatgpt-r27-eof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471) |
 | [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Success omits next step | review | normal | chatgpt-r27-wizard-ux | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469) |
@@ -75,7 +74,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 42 open, 113 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 41 open, 114 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
