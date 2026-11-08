@@ -53,6 +53,14 @@
 
 - (wird gefuellt: compose down + ps-witness + cleanliness-zeile)
 
+## BF-09 (neu): Full managed PKCE login flow works end-to-end (positiv)
+
+- `baha login -e stage --target hx1` auf dem external-oidc managed target schliesst den vollen Flow ab: discovers OIDC config, startet ephemeral callback listener (127.0.0.1:0), erhaelt browser redirect mit authorization code, exchange code for RS256 id_token via /token, sign verify bestanden. Treibwerk: lokaler Test-Issuer /tmp/hx1-oidc/issuer.py (self-signed CA + RS256, browser_sim -> 302-redirect). Treiber: /tmp/hx1-mg/hx1-drive-login.py (liest auth URL aus Log, injiziert ?simulate=1).
+- Session persistiert an /tmp/hx1-mg/state/cache/sessions/operator-hx1-stage.json (Felder: target, environment, issuer, subject, client_id, id_token (RS256 JWT), expires_at).
+- whoami nach Login: session valid (issuer/clientID match, OIDC sign ok, subject==operator-hx1-user), ABER: "The verified operator carried no claim-based tenant membership that permits this machine operation." — dies ist MANAGED-IDENTITY-ENFORCEMENT (kein claim-based tenant-role im Test-issuers), NICHT ein Auth-Fehler. Der OIDC-Verifikationsteil ist erfolgreich; die Meldung kommt erst nach erfolgreicher Session-Verifikation. Klasse: expected behavior (fail-closed auf tenant membership), keine Regression.
+- Config-Pfad korrekt: config an $BASEHARBOR_STATE_DIR/config/config.yaml unter targets.<t>.operator-auth.<env>: provider=external-oidc, issuer=https..., client-id (HYPHEN, nicht underscore). Runtime-Block runtime.provider=docker + access.reference erforderlich fuer gueltige Target-Definition.
+- BF-10 (positiv, ergaenzt): session store location confirmed at $BASEHARBOR_STATE_DIR/cache/sessions/operator-<target>-<env>.json.
+
 ## Status
 
-- STATUS: IN ARBEIT (all evidence BF-01..BF-08 documented; continuing error-path testing, cut 5)
+- STATUS: IN ARBEIT (BF-01..BF-10 documented; continuing error-path testing, cut 5)
