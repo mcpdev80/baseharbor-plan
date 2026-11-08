@@ -78,3 +78,6 @@ Suggested test: `TestBindExplicitSelectionReconcilesAbsentLocalIssuer` — seed 
 
 ## Repo-rule compliance
 - Pure finding + fix recipe: no product code change made. No `.github/**` touched (Owner scope). Single integration candidate from origin/develop cdb4350a6. Evidence written only to baseharbor-plan (no product-repo writes, no `.evidence/`). No subagents (4.8).
+
+## Board state (post-hoc)
+- t-20261108-bughunt-use-activate-issuer-failclosed (0427-162) transitioned active->review by card-status.py (authoritative). A new review-owner lane `lane-w163-correctissuer` now owns the fix (0427-162 fix), so this bug-hunt lane's scope (finding + fix recipe) is complete; the fix is a separate chain and not this lane's write-set.
