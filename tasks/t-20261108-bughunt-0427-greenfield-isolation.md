@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-133-r3
+owner: lane-w133-greenfield-r3
 kanban_status: active
 kanban_lane: active
 kanban_summary: "An isolated greenfield run (BASEHARBORTARGET-selected second target, docker-2 style) completes bootstrap + core self-install +…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-133-r3 · **Priority:** normal  
+    **Owner:** lane-w133-greenfield-r3 · **Priority:** normal  
     **PR:** [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** pending-lane-0427-133-r3  
+**Owner:** lane-w133-greenfield-r3  
 **Priority:** normal  
 **PRs:** [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460)  
 **Source:** 
