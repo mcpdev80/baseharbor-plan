@@ -15,7 +15,7 @@ kanban_status: active
 kanban_title: "0427-047 · retain and recover opted-in"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1385]
+prs: [mcpdev80/baseharbor#1385, mcpdev80/baseharbor#1470]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
 - [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #board/planned #area/access #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (0427-047 regression follow-up) · **Priority:** normal  
-    **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
+    **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) (Draft)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1385)  
     <!-- /generated:card -->
 
@@ -39,7 +39,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
 **Owner:** ChatGPT (0427-047 regression follow-up)  
 **Priority:** normal  
-**PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385)  
+**PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) (Draft)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -130,3 +130,7 @@ Status `active` statt `closed`: PR #1385 wurde akzeptiert, aber der aktuelle `de
 - Die vorhandene CAS-Mutationszelle ist abhängig von `BAHA_ECOSYSTEM_ROOT` und kann übersprungen werden; CI-Grün allein belegt den Negativpfad daher nicht.
 
 **Arbeitspaket:** echten Bootstrap von Runtime-Störung unterscheiden; bestehende Credentials authoritative lesen, ohne den Store durch einen lokalen Kandidaten zu ersetzen; Fehlerpfade testbar machen; CAS-/Recovery-Regressionen ergänzen. Alte Merge-/Review-Nachweise bleiben historisch gültig, sind aber kein Nachweis für diesen Follow-up-Fix. Kein erneutes `closed` ohne Codeprüfung, tatsächliche Testausführung und grünen CI-Nachweis am neuen PR-Head.
+
+## Draft PR 2026-11-08
+
+[baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) (`fix/0427-047-credential-recovery` -> `develop`) eröffnet. Initialer Commit: `f7ef6bcf` entfernt den unsicheren lokalen Fallback bei Runtime-Auflösungsfehlern; Regression `cmd/baha/dev_access_authority_failure_test.go` ergänzt, Head `f9f184b4`. **Weiter active:** Bootstrap-/Recovery-Abgrenzung, CAS-Negativfälle und CI-Ausführung noch offen; kein Merge ohne Verifikation.
