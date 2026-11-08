@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 116/164 · **Blocked:** 3 · **Waiting:** 15  
+    **Accepted tasks:** 118/164 · **Blocked:** 3 · **Waiting:** 15  
     **Blocker:** [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) — external acceptance blocker per act-1457-review-r7: required native gate red from card 0427-156 missing BASEHARBOR\_CI\_RUNTIME\_INTEGRATION env line in workflow…  
     **Blocker:** [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) — audit 2026-11-08: native two-app acceptance never executed; reopen for proof run  
     Plus 1 further blockers in the task list.  

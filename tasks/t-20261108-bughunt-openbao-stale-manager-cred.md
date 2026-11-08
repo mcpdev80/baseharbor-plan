@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_status: done
-kanban_lane: done
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Bootstrap treats manager-credential state as part of the uninitialized check: stale admin env on an uninitialized server =…"
 kanban_title: 0427-154 · Stale OpenBao manager credenti
 priority: normal
@@ -23,7 +23,7 @@ resolution: "Merged PR #1468 as 224fa801f1ae9fcab166a2407178b380e650f923; select
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd5.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-openbao-stale-manager-cred · Bug Hunt v0.4.27: Stale cred blocks rebirth #task #release/v0-4-27 #status/done #view/done #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-openbao-stale-manager-cred · Bug Hunt v0.4.27: Stale cred blocks rebirth #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468)  
@@ -31,7 +31,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** done  
+**State:** Merged PR #1468 as 224fa801f1ae9fcab166a2407178b380e650f923; selected exact-head CI checks succeeded.  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  

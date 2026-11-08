@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ""
-kanban_status: done
-kanban_lane: done
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One name gate in the registry: registration checks collisions and fails closed with a clear message (no silent second uuid);…"
 kanban_title: 0427-149 · Duplicate names lock all
 priority: normal
@@ -19,10 +19,10 @@ prs: [mcpdev80/baseharbor#1475]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: "Merged PR #1475 as d8849198265f13d34e1ece95d6982ce6b613d2aa; exact-head selected CI jobs including native Docker and Podman destroy retry passed."
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
 ---
-- [ ] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/done #view/done #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475)  
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** done  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
