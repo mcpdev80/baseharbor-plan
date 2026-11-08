@@ -69,3 +69,8 @@ None. Write-set: control-plane up / runtime project naming.
 - Added real `TestSecondSameHostCoreNativeConflictInCI`: first Target owns a running Core on the selected Docker/Podman engine; second distinct configured Target's `baha up --control-plane-only --yes` must fail with typed owner conflict, first stays running, second never starts a Core.
 - Wired into both `PR · Native destroy retry` matrix cells via `scripts/ci-native-installation-destroy.sh`; test must PASS once, not SKIP or synthetic success. Corrected engine-discovery errors to fail closed and stopped foreign Core resources to be ignored.
 - Await exact-head native CI before merge and card acceptance.
+
+## Owning Identity Core regression — 2026-11-08
+
+- Additional review found that a Target's own `bh-<target>-core-shared` managed Identity project must be excluded from foreign-Core detection. Corrected on PR #1487 current head `3826acd9329832d907e717cbd97218740049f932` with `TestSharedCoreOwnerConflictIgnoresOwningIdentityCore`.
+- Prior exact-head runs are historical only; new head must independently pass Go checks and actual Docker/Podman two-Target native CI before merge.
