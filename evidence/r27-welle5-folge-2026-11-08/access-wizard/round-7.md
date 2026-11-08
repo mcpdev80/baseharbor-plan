@@ -160,12 +160,12 @@ gehostete CI (provisionierte Umgebung), analog Coordinator-Entscheid r6.
 - Keine Subagenten (4.8); keine Container/compose-Projekte gestartet (kein VM-Teil in diesem Auftrag); ps-Zeuge bei Lane-Ende siehe Abschluss.
 - Evidence nur in baseharbor-plan (evidence/r27-welle5-folge-2026-11-08/access-wizard/round-7.md); keine Checkboxen; keine Secret-Werte; Produktrepo unveraendert ausser den vier Quell-/Testdateien des Fixes.
 
-## Abschluss
+ps-Witness bei Lane-Ende (VM/compose-Hygiene): diese Lane hat null
+Container/compose-Projekte gestartet; `docker ps` (running) => leer (0 Zeilen).
+
+Beweis-Publikation: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main` => `1a0b427b3afb2e804d8b3d767cbf752c31ce5103`; `git cat-file -e origin/main:evidence/r27-welle5-folge-2026-11-08/access-wizard/round-7.md` => Erfolg (dieser Commit enthaelt die finale Fassung).
 
 END_DONE mission-013-r7.md: 0427-013 access-wizard r7 — same-key
 owner-collision fail-closed in PersistActive, CLI-Regressionen assign+offboard
 rot auf 9dd2f779f / gruen mit Fix, CI 42445068559 terminal success;
 Kandidat `931b43677bad186c73480f5923d4cf7716585ca9` auf PR #1430.
-
-ps-Witness bei Lane-Ende (VM/compose-Hygiene): diese Lane hat null
-Container/compose-Projekte gestartet; `docker ps` (running) => leer (0 Zeilen).
