@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-w157-nonttyup
+kanban_status: active
+kanban_lane: active
 kanban_summary: "No panic path: missing confirm input = clean usage error that PRINTS the exact --confirm-candidate hash; consent stage honors…"
 kanban_title: 0427-157 · Up panics and consent gate fai
 priority: normal
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-up-nontty-panic-consent · Bug Hunt v0.4.27: Non-TTY up panics #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-up-nontty-panic-consent · Bug Hunt v0.4.27: Non-TTY up panics #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-w157-nonttyup · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-w157-nonttyup  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
