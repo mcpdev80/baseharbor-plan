@@ -101,3 +101,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 ## 2026-11-08 Zwei-App-Legacy-Record-Regression (ChatGPT)
 
 - [PR #1450](https://github.com/mcpdev80/baseharbor/pull/1450), Head `90ef32f158ab7afa1fef0d914f9529cd773f2a91`: tatsaechlicher `buildApplicationStopPlan`-Pfad fuer App A, waehrend App B SQL anfordert und im gespeicherten `deployment.json` das alte `SQLInstanceReferences:{"/":...}` enthaelt. Prueft, dass fremder historischer Record den aktuellen Stop-Plan nicht blockiert und nicht geschrieben wird. **Keine CI-PASS-Behauptung vor exaktem Run**; danach nativer Docker/Podman-Stop noch erforderlich. Karte bleibt `active`.
+
+
+## Handoff 2026-11-08 (duplikat-hinweis)
+- Neue Funde im Bug-Hunt 2026-11-08: linkding (Baha-Bug-01), ghost/status (Baha-Bug-04/05), gsmoke (Baha-Bug-06/07), ghostapp (Baha-Bug-05/07/08/09).
+- Ghost-Status/Source-MISSING (Baha-Bug-05): Symptom überschneidet sich mit dieser Karte (Discovery auf fehlende Quelle). Karte bleibt aktiv; neue Reports dokumentieren das Phänomen ohne separate Karte.
