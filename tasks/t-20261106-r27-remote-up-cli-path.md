@@ -126,3 +126,8 @@ integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podma
 
 - PR [#1407](https://github.com/mcpdev80/baseharbor/pull/1407), Head `345b0352bc4577e2fcd540729d9c1adf94e68810`, am 2026-11-08 erneut auf aktuellen Checks geprueft: [Run 42476049436](https://github.com/mcpdev80/baseharbor/actions/runs/42476049436). Native Destroy-Retry Docker und Podman, Build, Vet, Format und Trusted Plan PASS; Go-Unit-Test zuletzt IN_PROGRESS. PR noch offen/mergeable, **kein Merge** vor terminalem Gesamtergebnis und Head-Abgleich.
 - **Plan-Wahrheit:** Vorhandenes `closed/accepted` dieser Karte wurde nicht rueckwirkend geaendert; es ist kein Nachweis, dass PR #1407 bereits gemergt wurde. PR-Abschluss wird separat nachgetragen. CI-Uebernahme durch ChatGPT, keine weitere Produktdatei-Bearbeitung.
+
+## PR-Abschluss — 2026-11-08
+
+- [#1407](https://github.com/mcpdev80/baseharbor/pull/1407) ist nach `develop` gemergt, Merge-SHA `223042bc0372f41a6f0a7c2d1a2e01b095bb7a0b`. Der vorher dokumentierte CI-/Merge-Zwischenstand ist damit historisch.
+- Bereits bestehende `closed/accepted`-Kartenannahme wird nicht verändert; kein neuer Worker, keine erneute Produktimplementierung dieser geschlossenen Karte.
