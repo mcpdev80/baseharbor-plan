@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-eof"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "A single cancel path: EOF/Ctrl-D at every prompt = clean cancel with no side effects; regression in the cli-surface group."
 kanban_title: 0427-138 · Wizard cancel uneven
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1471]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -52,3 +52,9 @@ A single cancel path: EOF/Ctrl-D at every prompt = clean cancel with no side eff
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha app new wizard prompts.
+
+
+## Code/PR owner — 2026-11-08
+
+- Claimed for [PR #1471](https://github.com/mcpdev80/baseharbor/pull/1471): top-level `baha new` EOF cancellation now has a single clean return, and early app-new name/location/stack EOF regressions verify no project creation. Existing pre-consent cancellation test retained.
+- Exact PR CI is pending; card remains `active` until full prompt matrix and acceptance. No conflicting worker claim.
