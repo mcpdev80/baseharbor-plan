@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "owner:chatgpt"
-kanban_status: active
-kanban_lane: active
-kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: "Ambiguous target selection fails closed and lists sorted configured targets with activation and BASEHARBOR_TARGET selection remedies."
 kanban_title: "0427-126 · Multitarget ohne Auswahl"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -19,21 +19,21 @@ prs: [mcpdev80/baseharbor#1441]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 ---
 
 ## Outcome and acceptance
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
+- [x] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/closed #view/closed #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
@@ -64,3 +64,9 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 
 - [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441), Head `42f50099e5267dd31093b959828fbd3e21136a65`: bei mehreren konfigurierten Targets nennt die Fehlermeldung jetzt alphabetisch alle auswaehlbaren Namen sowie die konkrete Auswahl ueber `baha target activate NAME` oder `BASEHARBOR_TARGET=NAME`.
 - Keine implizite Target-Auswahl (Fail-Closed bleibt); neuer Typed-Error-Regressionstest. PR-CI noch offen, Karte `active`.
+
+## 2026-11-08 Abnahme (ChatGPT)
+
+- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441) **gemergt nach develop**: `f7a49e6818efb269cc928ad550038b2bf94d333b`; gepruefter Head `42f50099e5267dd31093b959828fbd3e21136a65`.
+- [CI #42429449162](https://github.com/mcpdev80/baseharbor/actions/runs/42429449162) terminal `success`, alle Jobs erfolgreich, keine Fehler; native cross-repo VM-Journey war nicht Teil dieser kleinen Bug-Abnahme.
+- **Status `closed` / accepted:** gezielter Produktfix und Regression integriert.
