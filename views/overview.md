@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 3 |
 | wait | 4 |
 | blocked | 0 |
-| ready | 12 |
+| ready | 11 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -33,6 +33,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-list-target-failclosed](../tasks/t-20261108-bughunt-list-target-failclosed.md) | Bug Hunt v0.4.27: List needs target choice | active | normal | chatgpt-r27-cli-diagnostics | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1466](https://github.com/mcpdev80/baseharbor/pull/1466) |
 | [t-20261108-bughunt-openbao-stale-manager-cred](../tasks/t-20261108-bughunt-openbao-stale-manager-cred.md) | Bug Hunt v0.4.27: Stale cred blocks rebirth | active | normal | lane-w154-baocred-b | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-quickinit-failure-explain](../tasks/t-20261108-bughunt-quickinit-failure-explain.md) | Bug Hunt v0.4.27: Quick init names no reason | active | normal | chatgpt-r27-cli-diagnostics | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1466](https://github.com/mcpdev80/baseharbor/pull/1466) |
+| [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Success omits next step | active | normal | chatgpt-r27-wizard-ux | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
 
 ## Ready for review
@@ -71,7 +72,6 @@ None.
 | [t-20261108-bughunt-rawmode-prompt-sigint](../tasks/t-20261108-bughunt-rawmode-prompt-sigint.md) | Bug Hunt v0.4.27: Ctrl-C breaks raw prompt | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-stale-provider-edit-block](../tasks/t-20261108-bughunt-stale-provider-edit-block.md) | Bug Hunt v0.4.27: Stale instance blocks edit | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-wizard-foreign-records](../tasks/t-20261108-bughunt-wizard-foreign-records.md) | Bug Hunt v0.4.27: Foreign records stall wizard | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Success omits next step | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 
