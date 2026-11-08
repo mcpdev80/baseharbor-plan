@@ -61,11 +61,18 @@
 - `baha up --help` after fix shows `Usage: baha up [NAME] [-e ENV|...`.
 - `baha up somedeployment --yes --skip-memory-preflight` now returns `Error: inspect repository: repository inspection size limit exceeded` (a `/tmp` directory-size artifact, NOT a parser rejection) — proves the NAME is accepted end-to-end.
 
-## CI (run 42461878643 on SHA `fecfbabc7`)
+## CI (run 42461878643 on SHA `b69c096242a8940f5365b683532313a4fb89e5bc`)
 
 - Draft-PR gate jobs: `PR · Source format` **success**, `Workflow policy` **success**, `PR · Trusted Plan` **success**.
-- Standard CI: `PR · cli-gofmt` **success**; `PR · Selected Runtime` **skipped** (no runtime-provider path touched — correct scope selection).
-- Validation in progress: `PR · Validation · go-vet`, `go-unit-tests`, `go-build`, `PR · Focused Python` — observed running.
+- Standard CI (25 jobs, 0 failures): `PR · Selected Checks` **success**.
+- Validation: `go-build` **success**, `go-vet` **success**, `go-unit-tests` **success** (full `cmd/baha` suite incl. new parity test), `documentation-audit` **success**, `cli-gofmt` **success**, `Focused Python` **success**, `pages-candidate-build`/`mkdocs-en-strict`/`mkdocs-de-strict` **success**, `wizard-registration-tests` **success**.
+- Skipped (correct scope — no runtime/contract/pin path touched): `PR · Selected Runtime`, `PR · Public Contracts`, `PR · Consumer Pins`, `PR · Demo Pin`, `PR · Runner Interface`, `PR · Exact Candidate`, `PR · Native Keycloak/Core`, `validate`, `Targeted HA · podman/docker`.
+- Which CI group runs `cmd/baha` unit tests: the `PR · Validation · go-unit-tests` job in the CI · PR workflow (base `develop`). No `.github/**` change needed for the trigger/selection rule — the group already runs on the PR path and covers this file.
+
+## END status
+
+- Lane: 0427-130-upalias
+- Status: DONE — PR #1459 against develop, CI green (0 failures), evidence on origin/main.
 
 ## Docs
 
