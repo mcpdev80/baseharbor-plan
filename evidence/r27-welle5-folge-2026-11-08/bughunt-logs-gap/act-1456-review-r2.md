@@ -63,3 +63,23 @@ b58b3ce3b852ef262281823fea990bb8cc26480e\trefs/heads/main
 07ae6c3e91b081a189266ca4b162ba705d4aa78f\trefs/heads/develop
 0920086920f8f88949c91c712237d3e47bd9854e\trefs/pull/1456/head
 ```
+
+## Merge and post-merge verification
+
+**ROLLE: MERGE**
+
+PR #1456 was merged with the standard squash method, without force or a protection bypass. GitHub reports PR state `MERGED` at `2026-11-08T09:04:05Z`, reviewed head `0920086920f8f88949c91c712237d3e47bd9854e`, merge commit `c441537b9d18a48cd7c781b85878e950af5e13b7`. The immediate post-merge develop runs on that merge commit completed successfully: `42465578830` (`Runtime · Podman Core · develop`) and `42465578769` (`Runtime · Docker Core · develop`). `Select native single-default impact` passed; native/HA jobs were skipped on the merge commit.
+
+At the later remote observation, `git ls-remote` reported develop at `48d6f10ac8a36ab8289f8981acef153c558dd2d7`; GitHub compare confirms this head is two commits ahead of, and descends from, merge commit `c441537b9d18a48cd7c781b85878e950af5e13b7`. On this newer develop head, run `42465615779` (`Runtime · Docker Core · develop`) completed with failure in job `Native single-default · Docker`, step `Verify selected SQL/Secrets default with native runtime`. The failing log line is:
+
+```text
+control_plane_single_native_ci_test.go:31: prepare BaseHarbor integration trust plane: bootstrap leftover marker missing (teardown not guaranteed): open /tmp/baseharbor-ci-data-3603934397/baseharbor-bootstrap-cleanup-pending: no such file or directory
+```
+
+Run `42465615728` (`Runtime · Podman Core · develop`) was still `in_progress` at the same observation. This failure is on the newer develop head, not the #1456 merge commit; the two immediate post-merge core runs on `c441537` passed. Per the stop instruction, no further merge or planning-state transition is performed here. The failure requires owner/coordinator triage; this report does not attribute it to PR #1456.
+
+Remote witnesses: `refs/heads/develop` = `48d6f10ac8a36ab8289f8981acef153c558dd2d7`; `refs/pull/1456/head` = `0920086920f8f88949c91c712237d3e47bd9854e`; PR merge SHA = `c441537b9d18a48cd7c781b85878e950af5e13b7`.
+
+## END
+
+END_BLOCKED 0427-131-merge — PR #1456 was merged as `c441537b9d18a48cd7c781b85878e950af5e13b7`; immediate post-merge Docker and Podman core runs passed, but newer develop head `48d6f10ac8a36ab8289f8981acef153c558dd2d7` has a failing Docker native single-default run `42465615779` with the missing bootstrap marker error above. Podman run `42465615728` was still in progress.
