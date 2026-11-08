@@ -90,3 +90,9 @@ The help text at `cmd/baha/commands.go:44-55` now explains selected-Target behav
 END_DONE 0427-1466-review: KORREKTUR-FOLLOW-UP; #1466 `daacddbbe9d011c3fd48ae7cc798e560dd591258` reviewed, merged as `ad49d2d2129657e2e09c40b534c6a8030413a083`; exact-head run `42480521183` success.
 
 Planning validation after fetching base: `python3 scripts/plan.py check` reported 417 tasks, 7 epics, 13 releases, 16 decisions; 0 errors and 3 dependency warnings.
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/act-1466-review.md` output after publishing the current-head review:
+
+```text
+100644 blob 9eda2ea2d02242c1aa437c396e42c6b6eb12721c	evidence/r27-welle5-folge-2026-11-08/act-1466-review.md
+```
