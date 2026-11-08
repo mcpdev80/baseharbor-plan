@@ -48,3 +48,12 @@ The English and German target-selection diagrams mention the environment overrid
 END_DONE integration-1451-review: REQUEST-CHANGES for card-level acceptance; target selection proof passes, greenfield acceptance remains unmet and must be split from it; candidate `ebdf8d5db0122620b7d2e5c57d8dc48a2c6148f3`.
 
 Planning validation: `python3 scripts/plan.py render && python3 scripts/plan.py check` completed with 0 errors and 1 warning about an unrelated accepted runtime-broker task depending on an unaccepted VM-integration task. Render produced no tracked-file changes.
+
+## CODEX-MERGE verification
+
+- PR #1451 was merged with the standard merge-commit strategy; no force-push or protection bypass was used. PR API reports merged at `2026-11-08T01:41:07Z`, merge commit `e39b0004346cdfd082e34ba55d94d24757bbbd27`.
+- Post-merge `develop` head verified by `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop`: `e39b0004346cdfd082e34ba55d94d24757bbbd27`.
+- Post-merge Runtime · Docker Core run `42435313622` and Runtime · Podman Core run `42435313588` both completed with success on the exact merge SHA. The source-impact selector passed in each workflow; runtime-specific test cells were skipped for this test-only change (Docker: `mcp-edit-native`, `provider-ha`, `docker-runtime`, native Keycloak+SQL and native single-default; Podman: `podman-quadlet`, native Keycloak+SQL and native single-default). No post-merge cell failed.
+- The Owner's scope decision moved the greenfield requirement to follow-up 0427-133. Planning `origin/main` now contains `tasks/t-20261108-bughunt-0427-greenfield-isolation.md`, whose dependency is the access-wizard authority task and the release umbrella. The target-env slice is accepted independently; greenfield execution remains open on that follow-up.
+
+END_DONE integration-1451-merge: CODEX-MERGE; PR #1451 merge commit `e39b0004346cdfd082e34ba55d94d24757bbbd27`; develop head verified at the same SHA; Docker/Podman post-merge workflows completed successfully with runtime cells skipped.
