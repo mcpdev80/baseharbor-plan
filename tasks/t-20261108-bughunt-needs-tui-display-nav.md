@@ -22,18 +22,18 @@ wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42485007017", "https://github.com/mcpdev80/baseharbor/commit/6f5a4a6a30cbe7d0445ae65d66b2c8f181828e8a"]
 ---
-- [ ] t-20261108-bughunt-needs-tui-display-nav · Bug Hunt v0.4.27: TUI rows break silently #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-needs-tui-display-nav · Bug Hunt v0.4.27: TUI rows break silently #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-needs-tui · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1476](https://github.com/mcpdev80/baseharbor/pull/1476)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42485007017), [proof 3](https://github.com/mcpdev80/baseharbor/commit/6f5a4a6a30cbe7d0445ae65d66b2c8f181828e8a)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-needs-tui  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1476](https://github.com/mcpdev80/baseharbor/pull/1476)  
 **Source:** 
