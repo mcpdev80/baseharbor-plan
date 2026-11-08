@@ -142,16 +142,24 @@ AFTER (same leftover):
 - ls-remote origin fix/0427-172-adopt -> 7ea003b87d343b4685b306ac9c5db84520044f08
 - git log origin/develop..HEAD lists ONLY: 7ea003b87 test(cmd/baha): adopt dead-owner bootstrap marker with no provisioned Core cleanly
   (no foreign commit carried on top of the develop base)
-- Cleanliness: docker ps -a -> 7 shared containers from OTHER lanes (bh-docker-dev-shared-*); NONE started by this lane; no compose project to bring down.
+- Cleanliness: docker ps -a -> shared containers from OTHER lanes (bh-docker-dev-shared-*); NONE started by this lane; no compose project to bring down.
+
+## Local verification
+- `go vet ./cmd/baha/`: PASS
+- `gofmt -l cmd/baha/`: clean
+- `go test ./internal/deployment/... ./internal/runtime/...`: PASS
+- `go test ./cmd/baha -run 'TestBootstrap|TestUpName|TestControlPlane'`: PASS
+- New regression tests both PASS; the failing reproduction (phantom orphan) now PASSES instead of aborting the run.
+
+## Hosted CI (run #5336, PR #1502, headSha 7ea003b87)
+- PR · Validation · cli-package-tests: **success** — runs `go test ./cmd/baha`; my two regression tests pass in the hosted matrix. Green unit-matrix evidence.
+- PR · Validation · cli-vet / cli-build / source-contracts / cli-gofmt: success.
+- PR · Native destroy retry · docker: **failure**; · podman: **failure**.
+  - STATE (outside my scope). These gates require an isolated rootless Docker/Podman daemon. `scripts/ci-core-rootless-runtime.sh` line 6 asserts `test "$(id -u)" -ne 0` (must not run as root); GitHub-hosted shared runners (ubuntu-latest / ubuntu-26.04) run as root, so the rootless prepare cannot complete. Runner-infrastructure limitation, not a code defect. The mission forbids editing `.github/**` or touching runner infrastructure — reported here as STATE.
+- PR Selected Checks: failure (depends on native_destroy + trusted-pr-plan gating).
+
+## Remaining (blocked on owner / runner isolation)
+- `Native destroy retry · docker/podman` needs runner isolation (rootless) that shared GitHub runners cannot provide; requires an Owner decision on runner provisioning, outside my scope.
 
 ## Status
-- FIX APPLIED. Local targeted unit matrix green. CI run #5336 in progress.
-
-## 5. ls-remote + cleanliness
-- ls-remote origin develop -> <SHA>
-- ls-remote origin <candidate branch> -> <SHA>
-- git log --oneline <candidate> lists ONLY own commits (no foreign commit).
-- Cleanliness: docker ps -a -> 0 stray containers (all compose projects brought down by own last action).
-
-## Status
-- IN PROGRESS. Cause pinned. Fix applied in round-2.
+- FIX APPLIED. Unit matrix green (hosted cli-package-tests = success). Native destroy gate blocked on runner isolation — reported as STATE. Evidence on origin/main pending.
