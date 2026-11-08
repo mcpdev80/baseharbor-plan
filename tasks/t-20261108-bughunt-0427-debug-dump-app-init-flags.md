@@ -7,7 +7,7 @@ areas: [dx, lifecycle]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "owner:chatgpt"
+owner: ""
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 are fixed: (1) baha up without --confirm-candidate…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/32ce55dd5"]
 
 - [x] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** owner:chatgpt · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439), [baseharbor#1442](https://github.com/mcpdev80/baseharbor/pull/1442)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/32ce55dd5)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/32ce55dd5"]
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** owner:chatgpt  
+**Owner:** unassigned 
 **Priority:** normal  
 **PRs:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439), [baseharbor#1442](https://github.com/mcpdev80/baseharbor/pull/1442)  
 **Source:** 
@@ -105,3 +105,9 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 
 - Regression bestätigt: Debug-Dump lebt weiter in develop 0fe53052d (Build 0.4.11).
 - Karte t-20261108-bughunt-0427-regression-debug-dump-consent (0427-129) dokumentiert die Korrektur.
+
+## 2026-11-08 Owner-Freigabe und Uebergabe
+
+- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `unassigned`. Bereits akzeptierte Karte bleibt `closed`.
+- Fixed/accepted #1439 + #1442.
+- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
