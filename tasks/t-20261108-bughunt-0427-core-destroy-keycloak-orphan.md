@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448, mcpdev80/baseharbor#1449]
 sources: []
 blocker: ""
-wait_reason: "PR #1449 merged ebf56a09; PR #1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS."
+wait_reason: "PRs #1444/#1448/#1449 merged; native Docker/Podman Keycloak start/destroy/retry with exact integration SHA and resource count remains to be evidenced."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
 ---
@@ -121,7 +121,7 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 ## 2026-11-08 Owner-Freigabe und Uebergabe
 
 - Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
-- PR #1449 merged ebf56a09; PR #1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS.
+- PRs #1444/#1448/#1449 merged; native Docker/Podman Keycloak start/destroy/retry with exact integration SHA and resource count remains to be evidenced.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
 
 ### 2026-11-08 Develop-Merge #1449
