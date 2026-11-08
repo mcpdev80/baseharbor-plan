@@ -111,3 +111,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - **Prior `closed/accepted` was premature**: code/PR merge links are not native end-to-end proof. Native Keycloak-up -> consented destroy -> partial retry -> zero owned resources on BOTH Docker and Podman on integrated SHA missing.
 - Reopened to `active` with existing code evidence retained. Do not close until exact integration SHA, native runtime output, verified resource preservation/removal, no SKIP, and VM cleanup are recorded.
+
+### 2026-11-08 CI-Fehler #1448 korrigiert (ChatGPT)
+
+- Die erste exact-head [CI #42432440793](https://github.com/mcpdev80/baseharbor/actions/runs/42432440793) war rot, weil die neue Unknown-Runtime-Blockade unbeabsichtigt vier bestehende Tests fuer **andere** unregistrierte Orphan-Targets mit betraf. Das war ein echter Scope-Regressionseffekt, nicht nur eine CI-Flake.
+- Korrigiert in Head `b96b1f83af457f4df926992cdecbd9c7e88ea4d1`: **nur** beim legacy `local`-Target ohne Runtime-Owner fail-closed und State-Erhalt, andere unbekannte Targets behalten ihre bisherige gesonderte Behandlung. Exakte neue CI offen. **Nicht mergen, bevor gruen.**
