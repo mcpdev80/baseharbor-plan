@@ -58,6 +58,44 @@ runnable cell is forced.
 
 Damaged-state detection will report BOTH halves of the observed BF-03 damage — the missing `deployment.json` record AND the absent workload runtime network — with the record + network named, the retained deploy directory named, and the two concrete recovery paths (re-up from source, or destroy-and-recreate) — before the generic repository-inspection budget check runs. The undamaged over-limit control and the empty/never-delivered ignore cases stay unchanged.
 
+## Implementation (product write-set: baseharbor)
+
+### 1. `internal/runtime/contract/api.go` — `RuntimeNetworkState` + `InspectNetwork` seam
+
+- `RuntimeNetworkState` (string kind) with constants `Present`, `Absent`, `NotManaged`, `InspectError`.
+- `InspectNetwork(context.Context, string) (RuntimeNetworkState, error)` added to `RuntimeProvider`.
+
+### 2. `internal/runtime/provider.go` — re-export
+
+- `type RuntimeNetworkState = runtimecontract.RuntimeNetworkState` + the four constants re-exported so the `internal/runtime` alias `bhruntime` carries them (deployment imports `bhruntime`, not the contract subpackage, keeping the seam tidy).
+
+### 3. `internal/runtime/compose_network.go` — `Compose.InspectNetwork`
+
+- Returns `Present` when the named network exists AND carries `io.baseharbor.managed=connectivity` (the exact label `EnsureManagedNetwork`/`RemoveManagedNetwork` write); `Absent` when the runtime cannot find the network (BF-03 damage); `NotManaged` when it exists but is owned by another project or lacks the label; `InspectError` on any runtime query failure — never fabricates `Absent` from a transient error.
+
+### 4. `internal/deployment/damaged_state.go` — app-scoped network damage
+
+- `NetworkInspector` minimal interface (`InspectNetwork(ctx, name) (RuntimeNetworkState, error)`) — satisfied by `bhruntime.RuntimeProvider`, faked in tests, avoids the `application`→`deployment` import cycle.
+- `workloadNetworkNameForIdentity(appName, environment)` derives `baseharbor-dev-workload-baseharbor-<app>-<env>` from the retained identity alone (never from the UUID deploy dir — the "provider-liste, nicht datumrei" source of truth).
+- `DamagedDeploymentNamespaceScoped(target, applicationID, environment, appName, inspector)` — flags the orphaned dir exactly as `DamagedDeploymentNamespace` does; when `appName` is known and an inspector is supplied it inspects THIS app's workload network and returns `(damaged, root, networkName, networkDamage, inspectErr)`. Nil inspector / empty name → namespace-only fallback (record damage unchanged). Present network → record damage still flagged, absent state dropped. `InspectError` surfaced so the CLI can fail closed without misattributing.
+- `DamagedDeploymentError` gains `Network RuntimeNetworkState` and `NetworkName string`; `Error()` now names the absent workload network when `Network == Absent`.
+
+### 5. `cmd/baha/app_context.go` — wiring
+
+- `resolvedRepositoryApplication` gains `ctx`; the damaged scan is now app-scoped (`m.Name` identity + runtime inspector).
+- `damagedScanRuntimeForTarget` package-var seam (default `detectRuntimeForTarget` result) lets tests inject the fake without a live runtime.
+- Returns `DamagedDeploymentError{Identity, Root, Network, NetworkName}`.
+
+## Regressions added
+
+- `internal/deployment/damaged_namespace_network_test.go`: scoped scan names both halves when network absent; names only record when present; nil inspector falls back to record-only; a foreign orphaned directory is flagged on the record half without attributing the resolved app's present/absent network to it.
+- `cmd/baha/app_lifecycle_damaged_state_test.go`: `TestUpFailsClosedNamingRecordAndNetworkAbsent` (network absent → error names record + network + both recovery paths); `TestUpDamagedRecordPresentNetworkStillFlagsRecord` (network present → record damage still fails closed). Existing `TestUpFailsClosedOnDamagedDeploymentState`, `TestDetectDamagedDeploymentState`, `TestDamagedDeploymentNamespaceDetectsOrphanedState`, `TestDamagedDeploymentNamespaceIgnoresEmptyAndNeverDelivered` unchanged and still pass.
+
+## CI wiring
+
+- New tests live in `internal/deployment` and `cmd/baha`, covered by the Go unit group in `.github/workflows/` (Owner scope). No `.github/**` edit made; if the group's selection rule needs a change, report to the Coordinator per 2026-11-07 directive.
+- The `internal/deployment` package also has native-runtime tests (`*native*`), but the new network unit test is pure and CI-covered; no new runnable cell is forced (Owner choice C).
+
 ## END
 
 <state>in progress</state>
