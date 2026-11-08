@@ -67,3 +67,8 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 ### 2026-11-08 Repro-Praezisierung (ChatGPT)
 
 Die VM-Akte `evidence/r27-welle5-folge-2026-11-07/vm-bughunt/docker2.md` weist `BASEHARBOR_TARGET=ghisolated baha status` mit `ErrDeploymentOwnerMissing` nach, aber **keinen** exakten `BASEHARBOR_TARGET=ghisolated baha up --control-plane-only`-Aufruf. Der spaetere `baha up`-Befehl ist ohne ENV-Prefix dokumentiert; daher ist ein Rueckfall auf den gespeicherten/default Target fuer diesen Aufruf kein Beweis fuer ignorierte ENV. Es sind zwei getrennte Fragen: (1) Target-Aufloesung auf produktivem CLI-Pfad (PR #1443), (2) eigenstaendige Core-Installation/Owner-Recovery des isolierten Targets (weiter offen). Keine Fail-Closed-Aufweichung, keine fremde Core-Autoritaet ausleihen. Karte bleibt aktiv bis zum nativen isolierten Up-/Destroy-Nachweis.
+
+## 2026-11-08 Merge #1443 (ChatGPT)
+
+- [PR #1443](https://github.com/mcpdev80/baseharbor/pull/1443) nach `develop` gemergt: `c27d259dfdd072533b115cf38c38a3f992082bb2`. Exact-head [CI #42430159943](https://github.com/mcpdev80/baseharbor/actions/runs/42430159943) `success`.
+- Der bestehende produktive `BASEHARBOR_TARGET`-Auswahlpfad ist jetzt gegen persistierten Target-Override getestet. **Kein Beleg** fuer erfolgreichen isolierten Core-Up/Owner-Zyklus; Karte bleibt `active` bis nativer Docker/Podman-Betriebsnachweis vorliegt.
