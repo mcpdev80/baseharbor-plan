@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w164-delconsent
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0427-164 · target delete fails non-TTY ev
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1494]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-target-delete-nontty-consent · Bug Hunt v0.4.27: Target delete needs TTY #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-target-delete-nontty-consent · Bug Hunt v0.4.27: Target delete needs TTY #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w164-delconsent · **Priority:** normal  
+    **PR:** [baseharbor#1494](https://github.com/mcpdev80/baseharbor/pull/1494)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w164-delconsent  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1494](https://github.com/mcpdev80/baseharbor/pull/1494)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
