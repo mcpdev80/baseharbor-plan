@@ -13,7 +13,7 @@ kanban_lane: review
 kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path (documented flow…
 kanban_title: "0427-136 · app init Owner-Naht regression"
 priority: normal
-depends_on: [t-20261017-release-0-4-27-updates]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-ci-lanes]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1458]
 sources: []
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-ci-lanes](t-20261018-r27-ci-lanes.md)  
 **Owner:** lane-w136-appinit  
 **Priority:** normal  
 **PRs:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
