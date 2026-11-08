@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-logs-gap/round-2.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-logs-gap/act-1456-review-r2.md"]
 ---
 
 - [ ] t-20261108-bughunt-0427-logs-command-gap · Bug Hunt v0.4.27: logs top-level ohne Pfad #task #release/v0-4-27 #status/review #view/review #area/dx #kind/bug
