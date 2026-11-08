@@ -249,3 +249,9 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - On #1473 after digest-shape validation, added fail-closed duplicate `--confirm-candidate` rejection for both separate and equals variants; regressions included. Product commits `f560f1df` and `d20a88cd`.
 - [CI 42536471426](https://github.com/mcpdev80/baseharbor/actions/runs/42536471426) is an earlier head and cannot qualify the latest duplicate-guard patch. Fresh exact-head CI required.
 - Existing 0427-019 source snapshot captures metadata and bounded source-file identities but is not by itself a wire upload. Existing candidate ingress must be reused, not replaced; physical remote source-registration and lifecycle smoke remain outstanding. Card active, no merge.
+
+
+## CI format requalification 2026-11-09
+
+- On #1473 exact head `d20a88cd`, [CI 42536593588](https://github.com/mcpdev80/baseharbor/actions/runs/42536593588) showed `PR · Source format` and `PR · Validation · cli-gofmt` **FAIL** solely for `cmd/baha/management_remote_mutation_test.go`. The added `--confirm-candidate=` negative vectors omitted gofmt spaces around string concatenation; go-build/go-vet were PASS, full matrix had not reached terminal qualification at inspection.
+- Corrected the Go source to gofmt-compatible string concatenation in new commit `1de087888c4b6c1db468be22535b7bcd21dc97a3`; exact-head CI still required. No release/merge claim.
