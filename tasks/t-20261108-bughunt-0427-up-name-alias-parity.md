@@ -72,3 +72,10 @@ evidence: []
 
 - [Core PR #1459](https://github.com/mcpdev80/baseharbor/pull/1459) ist nach `develop` **gemergt** (GitHub-Status `closed/merged`, am 2026-11-08 live geprueft). Die Karte darf nicht mehr als offener PR-/CI-Fix dargestellt werden.
 - Kanban bleibt vorerst `active`: die gesondert verlangte `baha up NAME --yes --plain`- und Parser-Paritaetsabnahme ist in dieser Karte nicht mit exaktem integriertem SHA dokumentiert. Der Wert `pending-lane-0427-130-r5` ist keine verifizierte laufende Session; Coordinator soll den Claim mit der tatsaechlichen Lane abgleichen oder nach Abnahme schliessen. Bestehende Worker-Dateien bleiben unangetastet.
+
+
+## Code- und CI-Abgleich — 2026-11-08
+
+- `baseharbor/develop` SHA `b73a13a909b2d7b811d6956b3bdaf93f17b80454`: `cmd/baha/runtime.go` Funktion `parseRuntimeUpOptions` akzeptiert ein optionales positional `NAME`, lehnt einen zweiten Namen ab; `runtime_repository_up.go` uebergibt `upNameArgs(opts.Name)` an den echten `resolveApplication`-Pfad.
+- `cmd/baha/runtime_ports_test.go`: `TestParseRuntimeUpOptionsAcceptsOptionalName`, `TestParseRuntimeUpOptionsRejectsSecondName`, `TestParseUpParsesIdenticalToAppUpEnforcesParity` und `TestUpNameResumesRegisteredDeploymentAcceptsParity` decken den Parser und die registrierte Anwendung ab. [PR #1459 CI #42475609941](https://github.com/mcpdev80/baseharbor/actions/runs/42475609941) terminal SUCCESS am PR-Head `b3bb20416c69919af02bd854b3966cfe5e3761ca`; PR gemergt.
+- **Code- und CI-Abnahme fuer die Kartenfunktion plausibel bestanden.** Eine eigenstaendige externe Laufzeitmessung mit `baha up NAME --yes --plain` ist hier nicht behauptet. Coordinator kann die Karte nach formaler Acceptance mit `plan.py render && check` schliessen; kein weiterer Produktfix am selben Scope noetig. Nicht ungeprueft neu zuweisen.
