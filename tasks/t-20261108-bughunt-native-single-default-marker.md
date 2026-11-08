@@ -51,5 +51,8 @@ Post-merge develop native cells (Docker run 42485190712, Podman run 42485190770)
 ## Acceptance
 Root cause identified with file:line and either (a) the marker is produced again on the productive path (product fix + regression in the native single-default group) or (b) the assertion is corrected to the new intended bootstrap semantics (test fix + rationale), then a push-triggered Docker+Podman native single-default pair is terminal green on the exact develop head; no permanent skips, no rerun spam.
 
+## Watch status (2026-11-08)
+Fix-vs-masking unresolved: red at 8ecd1ea5d, silently skipped on b95f913ff + cdb4350a6 after #1482. The next commit touching installation_destroy_native_test.go must show a TERMINAL GREEN Native single-default pair, otherwise this bug returns to active.
+
 ## Dependencies and file ownership
 None. Write-set: cmd/baha/installation_destroy_native_test.go + internal bootstrap marker paths (exact files per root-cause decision).
