@@ -3,22 +3,22 @@
 Lane: w-flash (flash channel, session c51c8e1a). Card: t-20261108-bughunt-0427-target-env-ignored.
 Branch: work/r27-bughunt-124-target-env (single candidate for this chain).
 
-## PLAN
+# PLAN
 
 1. Verify zones and remotes (planning repo, develop drift). DONE
 2. Re-read the grep proof on current develop; locate every production BASEHARBOR_TARGET reader. DONE
 3. Reproduce the behavior locally in an isolated config/data plane (two targets, ENV set). DONE (see Findings)
 4. Scope decision: production reader already present on develop -> remaining acceptance gap is the isolated greenfield Core bootstrap; decide fix vs documented no-op. DECISION: this candidate adds the production-path regression proof + precedence assertion in cmd/baha (test-only slice, no duplicate ambiguity logic after #1441 merge), and reports the bootstrap blocker as STATE. See Findings.
-5. Drift-merge origin/develop (32ce55dd -> f7a49e681 -> 419b0211) and diff-check for duplicated ambiguity logic. DONE — #1441 changed only the `len(cfg.Targets) > 1` message in selectedTargetName; my slice does not touch that region.
-6. Regression test calling the READ PATH on the production CLI path (runWithIO, not t.Setenv-in-fixture-only), CI-picked in the existing Go unit group. IN PROGRESS
-7. Local go build/vet/gofmt/focused tests. PENDING
-8. PR against develop with card number 0427-124 in title; ancestry + log-line witnesses. PENDING
-9. Observe own CI run to terminal; record run ids and outcomes. PENDING
-10. Publish evidence to baseharbor-plan origin/main; verify before END; END post. PENDING
+5. Drift-merge origin/develop (32ce55dd -> f7a49e681 -> 419b02113 -> c27d259df -> ffa83e78f) and diff-check for duplicated ambiguity logic. DONE — #1441 changed only the `len(cfg.Targets) > 1` message in selectedTargetName; my slice does not touch that region.
+6. Regression test calling the READ PATH on the production CLI path (runWithIO, not t.Setenv-in-fixture-only), CI-picked in the existing Go unit group. DONE (mutation witness verified red when the reader is removed)
+7. Local go build/vet/gofmt/focused tests. DONE (gofmt 0, vet clean, targeted + full cmd/baha suite run; pre-existing environment-dependent failures on this host documented, same failures reproduce on unmodified develop base)
+8. PR against develop with card number 0427-124 in title; ancestry + log-line witnesses. DONE (PR #1451)
+9. Observe own CI run to terminal; record run ids and outcomes. DONE (run 42433354279 success)
+10. Publish evidence to baseharbor-plan origin/main; verify before END; END post. IN PROGRESS
 
 ## Reality witnesses
 
-- Planning zone check (mission-required one-liner):
+- Planning zone check (mission-required one-liner, run before the first evidence commit):
   `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin main` -> `d6ac3012c6cd9342ec6bd261ef138df0f58943b2 refs/heads/main` at lane start; after rebase+push: `5be74833`. The workers/baseharbor-plan directory was NOT used.
 - Product remote truth: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor fetch origin develop` -> develop moved 0fe53052d -> 32ce55dd5 -> f7a49e681 (#1441, coordinator drift notice) -> 419b02113 (#1428 merged during work). The stale workers/baseharbor checkout was never cited.
 - Base attestation: branch cut from origin/develop 32ce55dd5c0d623e7dd32ffcf1434a0baa9909dd (verified via `git merge-base --is-ancestor`), then drift-merged to f7a49e681 and 419b02113. 32ce55dd5 and f7a49e681 are ancestors of HEAD.
@@ -44,8 +44,10 @@ The new test lives in cmd/baha and is executed by the existing `PR · Validation
 
 ## State at round end
 
-- Candidate: work/r27-bughunt-124-target-env @ (see origin ls-remote witness below), PR #1443 (branch reused per single-candidate rule; card 0427-124 in title), base develop 419b02113.
-- CI: (filled below after terminal observation)
+- Candidate: work/r27-bughunt-124-target-env @ ebdf8d5db0122620b7d2e5c57d8dc48a2c6148f3, PR #1451 (https://github.com/mcpdev80/baseharbor/pull/1451), title carries card 0427-124, base develop ffa83e78f. Ancestor witness: `git merge-base --is-ancestor ffa83e78f HEAD` OK; `git log ffa83e78f..HEAD` lists ONLY ebdf8d5db (my own commit).
+- Drift handling per coordinator notices: cut at 32ce55dd5, merged f7a49e681 (#1441), 419b02113 (#1428), c27d259df (#1443 = card-124 slice 1, merged) and ffa83e78f (#1446/#1447) before push. No duplicated ambiguity logic — my file is test-only; the #1441 message change is untouched.
+- Collision check #1444/#1447 (coordinator question): write-set files fetched via gh api; intersection of the two PRs is EMPTY and neither claims cmd/baha/target_environment_production_path_test.go. No conflict, no repair needed for this slice.
+- Own run observed to terminal on the exact candidate head (self-run duty): CI · Source & Quality run 42433354279 -> completed/success on PR #1451; PR · Source format pass, PR · Trusted pass, Release Source Preflight pass; Targeted HA docker/podman + validate skipping (not selected for this path). The new tests run inside the go-test group the CI already executes for cmd/baha.
 
 ## VM cleanliness
 
@@ -53,8 +55,8 @@ No VM, container or compose project was started or touched by this lane (local `
 
 ## URTEIL
 
-PENDING
+The card premise is disproved on current develop: BASEHARBOR_TARGET IS read on the production paths (effectiveTarget and the selection chain), precedence --target > BASEHARBOR_TARGET > persisted holds, and this lane published the CI-picked production-path regression (slice 1 #1443 merged; slice 2 PR #1451 awaiting review). The isolated docker-2 greenfield acceptance clause remains blocked by the `use`/`target activate` management-connection binding (target-authority territory of #1430/#1435, reported as STATE, not silently patched). Card stays open until a native isolated `baha up` journey passes or the Owner re-scopes that clause to the authority card.
 
 ## END
 
-PENDING
+END_PENDING — mission file: mission-124.md
