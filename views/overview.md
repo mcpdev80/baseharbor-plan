@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 2 |
+| active | 9 |
+| review | 1 |
 | wait | 5 |
 | blocked | 0 |
 | ready | 2 |
@@ -28,6 +28,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | lane-0427-107-docker2-bughunt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-0427-appinit-owner-seam](../tasks/t-20261108-bughunt-0427-appinit-owner-seam.md) | Bug Hunt v0.4.27: app init Owner-Naht regression | active | normal | lane-w136-appinit | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-0427-container-name-replica](../tasks/t-20261108-bughunt-0427-container-name-replica.md) | Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) | active | normal | pending-lane-0427-128-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1452](https://github.com/mcpdev80/baseharbor/pull/1452) |
 | [t-20261108-bughunt-0427-count2-confirm-deadlock](../tasks/t-20261108-bughunt-0427-count2-confirm-deadlock.md) | Bug Hunt v0.4.27: Wiederholtest-Hänger im Bestätigungspfad | active | normal | lane-w135-count2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r2 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-logs-command-gap](../tasks/t-20261108-bughunt-0427-logs-command-gap.md) | Bug Hunt v0.4.27: logs top-level ohne Pfad | active | low | lane-w131-logsgap | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -38,7 +39,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | review | high | lane-w134-capkce-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457) |
-| [t-20261108-bughunt-0427-container-name-replica](../tasks/t-20261108-bughunt-0427-container-name-replica.md) | Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) | review | normal | lane-w128-contname-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1452](https://github.com/mcpdev80/baseharbor/pull/1452) |
 
 ## Waiting for resources
 
