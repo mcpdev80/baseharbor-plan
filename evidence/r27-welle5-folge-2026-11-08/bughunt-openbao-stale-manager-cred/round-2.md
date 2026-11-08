@@ -71,7 +71,8 @@ Lokaler Stand (NICHT gepusht, wegen HALT-PUSCH):
 
 ## END
 
-- Status: **END_BLOCKED**
-- Grund: Owner-Halt-PUSCH an 1467. CODEX-REVIEW-Korrektur ist implementiert und lokal GRUEN, aber per Owner-Direktive nicht gepusht. duplex 1467/1468 dokumentiert (Ancestry NO-NOT-ANCESTOR; Content bytesgleich).
-- Nächster Trigger: Entscheidung Coord/Owner — 1468 mit round-2-Delta mergen/aktualisieren ODER 1468 schließen und 1467 als einzigen Integration-Kandidaten weiterverfolgen. Kein eigener Push ohne neue Owner-Freigabe.
+- Status: **END** (Auftrag abgeschlossen — weitere Arbeit an diesem Bug ist beendet).
+- Owner-Direktive DUPLEX-ENTSCHEID: #1468 fuehrender Kandidat (gutachten act-1468-fate.md), #1467 geschlossen. Meine Arbeit an diesem Bug ist BEENDET.
+- round-2.md mit ancestry-notiz + duplex-befund fertig geschrieben (read-only; kein Push an 1467/1468, Stillstand gewahrt).
+- Stand meines round-2-Deltas: lokal in /tmp/bh-154b-verify (fix/0427-154-baocred head 73182463), Build/Vet/Test GRUEN, aber per Owner-Direktive NICHT gepusht/aktualisiert; 1468 bleibt unveraendert.
 - evidence on origin/main (10edaf97), blob `evidence/r27-welle5-folge-2026-11-08/bughunt-openbao-stale-manager-cred/round-2.md`.
