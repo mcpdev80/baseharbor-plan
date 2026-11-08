@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w154-baocred
+owner: lane-w154-baocred-b
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Bootstrap treats manager-credential state as part of the uninitialized check: stale admin env on an uninitialized server =…"
@@ -25,7 +25,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
 - [ ] t-20261108-bughunt-openbao-stale-manager-cred · Bug Hunt v0.4.27: Stale cred blocks rebirth #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w154-baocred · **Priority:** normal  
+    **Owner:** lane-w154-baocred-b · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd5.md)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w154-baocred  
+**Owner:** lane-w154-baocred-b  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
