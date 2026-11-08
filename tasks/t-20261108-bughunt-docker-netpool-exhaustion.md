@@ -22,20 +22,20 @@ wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md"]
 ---
-- [ ] t-20261108-bughunt-docker-netpool-exhaustion · Bug Hunt v0.4.27: No advice on pool error #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-docker-netpool-exhaustion · Bug Hunt v0.4.27: No advice on pool error #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** chatgpt-r27-network-hint · **Priority:** normal  
+    **PR:** [baseharbor#1477](https://github.com/mcpdev80/baseharbor/pull/1477)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** chatgpt-r27-network-hint  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1477](https://github.com/mcpdev80/baseharbor/pull/1477)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
