@@ -15,7 +15,7 @@ kanban_title: 0427-122 · destroy leaves keycloak up
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1444]
+prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -92,3 +92,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 ### 2026-11-08 Docker2 Live-Evidence (ChatGPT)
 
 - [E2E Docker2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/docker2.md) auf aelterem Core-Head `0fe53052`: `baha destroy --yes` entfernte SQL/OpenBao, Keycloak-Container blieben und mussten manuell beseitigt werden; `destroy --all` scheiterte nach Teilabbau wegen fehlender Compose-Provider-Registrierung. Dieser Nachweis ist ein **RED vor #1444**, kein PASS fuer den neuen Merge `ab8c1615`. Bestehender Restfehler `destroy --all` nach Teilabbau braucht separaten Recovery-Test. Keine manuelle Cleanup-Prozedur als Produkt-PASS werten.
+
+## 2026-11-08 Retry nach verlorenem Runtime-Owner (ChatGPT)
+
+- [PR #1448](https://github.com/mcpdev80/baseharbor/pull/1448), Head `70d40bb35d8df865c6db51c8fa19866fdb389b71`: entfernt den nachgewiesenen falschen `compose`-Fallback aus `discoverFullDestroyTargets` fuer unregistrierte Local-Targets. Existieren noch lokale Target-State-Dateien ohne verifizierte Providerbindung, ist das ein **blockierender Eigentums-Fehler** statt ein erfundener Runtime-Adapter. Ownership-/Recovery-Zustand bleibt erhalten; kein fremder Runtime-Fallback.
+- Regression prueft explizit fehlende Target-Konfiguration, erhaltenen lokalen Zustand, keinen geratenen Provider und blockierendes `unregistered-target-runtime`. PR-CI offen. Danach noch nativer Docker/Podman-Up/Down/Destroy-Retry notwendig; **Karte active**.
