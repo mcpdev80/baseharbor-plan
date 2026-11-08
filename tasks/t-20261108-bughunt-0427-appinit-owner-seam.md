@@ -8,33 +8,34 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w136-appinit
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path (documented flow…
 kanban_title: "0427-136 · app init Owner-Naht regression"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1458]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md"]
 ---
-- [ ] t-20261108-bughunt-0427-appinit-owner-seam · Bug Hunt v0.4.27: app init Owner-Naht regression #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-appinit-owner-seam · Bug Hunt v0.4.27: app init Owner-Naht regression #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w136-appinit · **Priority:** normal  
+    **PR:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w136-appinit  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
