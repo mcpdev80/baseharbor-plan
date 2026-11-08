@@ -79,3 +79,8 @@ None. Write-set: control-plane up / runtime project naming.
 
 - [PR #1487 CI #42508772678](https://github.com/mcpdev80/baseharbor/actions/runs/42508772678) ran `TestSecondSameHostCoreNativeConflictInCI` against **actual Docker**: PASS (69.31s, exact head `3826acd9329832d907e717cbd97218740049f932`). Runtime log confirms the first live Core `w169-ci-bootstrap-8886576f` remained running and second distinct target `w169-second-target-conflict-6b91ea30-iso` was refused before a second Core started. The script's anti-skip verifier returned `PASS: two real Targets, one native engine, no silent Core reuse`.
 - Podman and full Go unit/final PR gate still pending at this checkpoint; do not mark done or merge yet.
+
+## Actual Podman two-Target proof — 2026-11-08
+
+- Same exact-head [CI #42508772678](https://github.com/mcpdev80/baseharbor/actions/runs/42508772678): `TestSecondSameHostCoreNativeConflictInCI` **PASS on actual Podman** (66.84s), and anti-skip verifier `PASS: two real Targets, one native engine, no silent Core reuse`.
+- First real Core `w169-ci-bootstrap-b2e0d3ca` remained running while second distinct Target `w169-second-target-conflict-d000e981-iso` was refused without a second Core. Combined Docker and Podman native proof passed at exact head; Go unit/final gate remained pending at the time of recording.
