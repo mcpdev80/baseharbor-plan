@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
+| active | 10 |
 | review | 1 |
 | wait | 4 |
 | blocked | 0 |
-| ready | 17 |
+| ready | 15 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -29,15 +29,17 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | active | high | lane-w134-capkce-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457) |
 | [t-20261108-bughunt-0427-destroy-retry-regression](../tasks/t-20261108-bughunt-0427-destroy-retry-regression.md) | Bug Hunt v0.4.27: 1448 macht destroy-retry rot | active | critical | lane-w132-nativeaccept-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453) |
-| [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r4 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
+| [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
 | [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | active | normal | lane-w130-upalias-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
+| [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | active | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
+| [t-20261108-bughunt-appnew-name-slug-keywords](../tasks/t-20261108-bughunt-appnew-name-slug-keywords.md) | Bug Hunt v0.4.27: Name silently reshaped | active | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | review | normal | lane-w127-bootleak-r4 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
+| [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | review | normal | lane-w127-bootleak-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 
 ## Waiting for resources
 
@@ -57,9 +59,7 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Duplicate names lock all | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard cancel is uneven | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-appnew-name-slug-keywords](../tasks/t-20261108-bughunt-appnew-name-slug-keywords.md) | Bug Hunt v0.4.27: Name silently reshaped | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-docker-netpool-exhaustion](../tasks/t-20261108-bughunt-docker-netpool-exhaustion.md) | Bug Hunt v0.4.27: No advice on pool error | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-edit-surface-nits](../tasks/t-20261108-bughunt-edit-surface-nits.md) | Bug Hunt v0.4.27: Edit surface nits | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
