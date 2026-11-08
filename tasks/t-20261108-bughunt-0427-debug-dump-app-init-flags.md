@@ -15,7 +15,7 @@ kanban_title: 0427-120 · CLI Debug-Dump und app-init
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1439]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -79,3 +79,9 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - Owner: `owner:chatgpt`; Lane: `active`.
 - Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
 - Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
+
+## 2026-11-08 Produktarbeit (ChatGPT)
+
+- [PR #1439](https://github.com/mcpdev80/baseharbor/pull/1439) auf `develop`, Head `7a01f888404e195288fc51f83c37c6c453c6a56c`: `runtime.Stack` aus fehlender Candidate-Consent-Fehlerbehandlung entfernt; Fail-Closed bleibt unveraendert.
+- Die dokumentierten `app init NAME -e/--environment dev --sql --workload-component` Optionen sind auf dem aktuellen Basiscode bereits implementiert; neuer CLI-Regressionstest beweist beide Aliase und die Workload-Auswahl.
+- Noch nicht als abgeschlossen markiert: exakte PR-CI ausstehend; danach Review/Merge und Karte aktualisieren.
