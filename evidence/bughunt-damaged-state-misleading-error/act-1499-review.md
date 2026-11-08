@@ -63,6 +63,9 @@ Per the supplied ownership attribution, these two native failures are **STATE: 0
 - #1498 ancestry was checked against the fetched PR head; it is not an ancestor of #1499.
 - Planning pre-push remote witness: `1402376c0f327dae4676fdfed06a34849c21de30	refs/heads/main`
 
+- Product branch remote witness: `452be76cec7122f27b3468850d780e232960d2f2	refs/heads/0427-159-damagedstate`
+- Planning update pre-push remote witness: `955b732bf84e07650bd9a8ff63ac09fd3880d331	refs/heads/main`
+
 ## END
 
 END 0427-159-review: KORREKTUR — functional coverage gap for the observed record-plus-network damage; exact-head required hosted result remains blocked by external native STATE in run 42518412175.
