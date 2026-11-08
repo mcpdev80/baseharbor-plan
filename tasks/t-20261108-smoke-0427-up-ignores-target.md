@@ -15,7 +15,7 @@ kanban_title: 0427-167 · up installs local
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [1492]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -36,7 +36,7 @@ evidence: []
 **Required by:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  
 **Owner:** unassigned  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -76,3 +76,8 @@ Core bootstrap/install respects the effective or explicitly selected target; whe
 ## Handoff
 
 - Found 2026-11-08 in E2E smoke-test (CLI 0.4.27-dev+b90a6e2f2, host 192.168.6.178). No fix attempted per smoke-test rules. Newest first.
+
+## Implementation update 2026-11-08
+
+- PR [#1492](https://github.com/mcpdev80/baseharbor/pull/1492) introduces a safe interim guard: a selected remote Target cannot silently bootstrap Core on the developer workstation. Production entry-point regression added.
+- This **does not** implement remote Core installation. The full developer-PC-to-remote-host happy path remains unverified and the E2E verdict remains FAIL until real deployment evidence exists.
