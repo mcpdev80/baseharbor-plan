@@ -22,9 +22,9 @@ wait_reason: ""
 resolution: "Merged PR #1475 as d8849198265f13d34e1ece95d6982ce6b613d2aa; exact-head selected CI jobs including native Docker and Podman destroy retry passed."
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
 ---
-- [x] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/done #view/done #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-app-name-identity-cluster · Bug Hunt v0.4.27: Duplicate names lock all #task #release/v0-4-27 #status/done #view/done #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w149b-nameid2 · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)  
     <!-- /generated:card -->
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** done  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w149b-nameid2  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475)  
 **Source:** 

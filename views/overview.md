@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 14 |
+| active | 12 |
 | review | 3 |
 | wait | 4 |
 | blocked | 3 |
-| ready | 6 |
+| ready | 7 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -30,9 +30,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | lane-0427-107-docker2-bughunt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
-| [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Duplicate names lock all | active | normal | lane-w149b-nameid2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475) |
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | active | normal | chatgpt-r27-destroy-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483) |
-| [t-20261108-bughunt-openbao-stale-manager-cred](../tasks/t-20261108-bughunt-openbao-stale-manager-cred.md) | Bug Hunt v0.4.27: Stale cred blocks rebirth | active | normal | lane-w154-baocred-b | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468) |
 | [t-20261108-bughunt-second-target-shares-core](../tasks/t-20261108-bughunt-second-target-shares-core.md) | Bug Hunt v0.4.27: Second target reuses Core | active | normal | lane-w163-sharedcore | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-trust-uninstall-eof-error](../tasks/t-20261108-bughunt-trust-uninstall-eof-error.md) | Bug Hunt v0.4.27: Trust prompt EOF error | active | normal | pending-lane-0427-161-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) (open) | [baseharbor#1485](https://github.com/mcpdev80/baseharbor/pull/1485) |
 | [t-20261108-bughunt-up-nontty-panic-consent](../tasks/t-20261108-bughunt-up-nontty-panic-consent.md) | Bug Hunt v0.4.27: Non-TTY up panics | active | normal | lane-w157-nonttyup | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -70,6 +68,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-prompt-unterminated-affirmative-eof](../tasks/t-20261108-bughunt-prompt-unterminated-affirmative-eof.md) | Bug Hunt v0.4.27: Half-line yes wins | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-stale-provider-edit-block](../tasks/t-20261108-bughunt-stale-provider-edit-block.md) | Bug Hunt v0.4.27: Stale instance blocks edit | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-target-delete-nontty-consent](../tasks/t-20261108-bughunt-target-delete-nontty-consent.md) | Bug Hunt v0.4.27: Target delete needs TTY | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -78,7 +77,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 45 open, 118 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 46 open, 118 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
