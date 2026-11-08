@@ -115,4 +115,20 @@
 - cleanliness-zeile: 0 container delta, 0 volumes delta, 0 netz delta, 0 images delta, 0 lane-eigene laufende prozesse, df 54%.
 - vm-lock baha-podman: RELEASED vor END (journal-zeugnis unten).
 
-## END
+## vm-lock zeugnis
+- claim: `2026-11-08T08:48:45Z claim baha-podman hunt-hp1` (journal)
+- release: `FREE host=baha-podman` (vm-lock.sh release, journal-zeile release baha-podman hunt-hp1)
+
+## planning-repo und push-zeugnis (Pflicht: pfad in origin/main VOR END)
+- kanonisch: git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v -> https://github.com/mcpdev80/baseharbor-plan.git (NICHT workers/baseharbor-plan; verifiziert).
+- akte-commit: 2abcd13c evidence(hunt-hp1): bug-hunt slice H-P1 …
+- ls-remote witness (zweitletzte handlung): `git ls-remote origin main` -> 2abcd13cf84b9e117b97264983930ea3c82e79a3 refs/heads/main
+- aktenpfad in origin/main: evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md
+
+## befehlssumme (schaätzung, alle beobachtet)
+- pty-zellen: ~30 (wizard: create-only, sql-toggle, needs-ESC/EOF/ctrl-c/ctrl-d an jedem prompt, run-mode, p-provider, noloop, wellen k1-k4, slug/badinput, iso-home/g-cellen, lock-held-zelle)
+- nonpty-beweise: ~25 (target list/create, headless app new, up/status/down, registry/deployment-inspektionen, ls/df cleanliness, git ls-remote)
+- kein zelle grin gerechnet: jede fundzelle hat transcript-auszug (EXIT-zeile) in dieser akte.
+
+## END_LINE
+- END_DONE hunt-hp1.md: 10 funde (0 blocker / 4 ux / 4 daemm / 2 doku) auf develop 07ae6c3e9, host besenrein, vm-lock released, akte auf origin/main.

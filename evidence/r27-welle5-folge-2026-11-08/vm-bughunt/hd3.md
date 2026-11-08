@@ -202,8 +202,10 @@
 
 ## ENDE
 - host vorher (docker): docker ps -a LEER (keine container); docker network ls nur default bridge/host/none; keine volumes meiner seiten.
-- host nachher: SAME (keine container/volumes meiner seiten); container-clean.
-- cleanliness-zeile: host CLEAN — keine container/netzwerke/volumes meiner seiten; fremde ambient-core/ objekte unangetastet; nur ./baha-hd3, ./hunt-hd3-drive.py, ./bttest*, ./strace*, ./wiz-*.py, ./new-*.py, ./init-case.py, ./edit-case.py, ./hunt-hd3-run/ (+ unterordner cmp/cmpec/cmyes) in ~/ .
-- vm-lock: release pending (letzte aktion).
+- host nachher: SAME (keine container/volumes meiner seiten); docker volumes nur default; container-clean.
+- cleanliness-zeile: host CLEAN — keine container/netzwerke/volumes meiner seiten; fremde ambient-core/ objekte unangetastet; alle hunt-hd3 artefakte (~/baha-hd3, ./hunt-hd3-drive.py, ~/bttest*, ~/strace*, ~/wiz-*.py, ./new-*.py, ./init-case.py, ./edit-case.py, ./hunt-hd3-run/) entfernt.
+- vm-lock: RELEASED (journal: release baha-docker mission-hunt-hd3 @ 2026-11-08T10:25:22Z; lock file entfernt).
 - funddichte: 0 blocker / 2 ux-mittel / 4 ux-low / 3 daemm / 1 doku / 4 ux-positiv.
+- evidence: origin/main HEAD = 2fe78d35aabd5883f31d19a709bb7c3e05fde32b; commit 2fe78d35 (= local HEAD) enthalten.
+- BASE: origin/develop = d30de3a4 (reality witness via git ls-remote); 48d6f10a ancestor bestaetigt.
 - END: DONE
