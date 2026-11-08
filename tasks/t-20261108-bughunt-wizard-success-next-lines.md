@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "chatgpt-r27-wizard-ux"
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Success/next text consistent across all create paths (wizard, headless, alias, top-level); prompt input errors as usageError…"
 kanban_title: 0427-142 · Success omits next step
 priority: normal
@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42480609018", "https://github.com/mcpdev80/baseharbor/commit/f05d6ee2e596da73056dfd1bda64a79ebbfe6b92"]
 ---
 - [ ] t-20261108-bughunt-wizard-success-next-lines · Bug Hunt v0.4.27: Success omits next step #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
@@ -61,3 +61,10 @@ None. Write-set: cmd/baha app new + wizard message paths.
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (mapping): success-vs-error text overlap with #138 cancel path and #145 raw-mode messaging - keep separate contracts, cross-reference in fixes. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+
+## Merge and review — 2026-11-08
+
+- PR [#1469](https://github.com/mcpdev80/baseharbor/pull/1469) merged to `develop` as `f05d6ee2e596da73056dfd1bda64a79ebbfe6b92` (exact head `7458eca9e4990c8f7af45fecde9079da09856531`). [CI #42480609018](https://github.com/mcpdev80/baseharbor/actions/runs/42480609018) terminal SUCCESS, including Go-unit, build, vet and Docker/Podman native destroy-retry.
+- Targeted change: `promptYesNo` errors now carry structured usage guidance; verified `run` wizard emits `Next: baha app status`. Combined with #1465, headless/create-only share the same init/up guidance.
+- `review` rather than `closed`: exact end-to-end/alias user-facing output matrix for every entry point was not run in this review; the additional top-level interactive `baha new` choice error path remains a candidate for confirmation. No synthetic PASS.
