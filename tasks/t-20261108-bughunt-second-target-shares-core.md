@@ -53,3 +53,7 @@ Either true per-target isolation (distinct project/ports/state dir, verified), o
 
 ## Dependencies and file ownership
 None. Write-set: control-plane up / runtime project naming.
+
+## Exact-head CI monitoring — 2026-11-08 (0427-163)
+
+- [PR #1487](https://github.com/mcpdev80/baseharbor/pull/1487), head `a158f2b183db3ed2dcfd6dcbead378b626ae9a55`, [CI #42503466672](https://github.com/mcpdev80/baseharbor/actions/runs/42503466672). Source format failed on unformatted shared_core_conflict_test.go; aligned map/fixture formatting, then re-triggered CI. Card remains open until the required CI is terminal green.
