@@ -190,3 +190,9 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - Server `machineApplyInput.confirm_candidate` now passes the operator-confirmed exact candidate hash through BOTH Machine HTTP and MCP to the existing `withCandidateConsentDigest` boundary, rather than silently omitting repository candidate approval.
 - The remote HTTP POST timeout is isolated from the short handshake timeout, with 31-minute limit for Core's 30-minute execution budget and a read-only terminal observation path. Two-stage plan-bound consent remains enforced by Core and is only provided from an explicit bounded JSON file.
 - Do not close: current head still needs fresh required CI and real external developer-workstation -> Core -> Connector -> app apply/READY/update/destroy proof, including import/registration of a pre-existing developer repository.
+
+## Remote stop parity 2026-11-09
+
+- New #1473 head `708139ada019476bd421779654467d44b267552c`: explicit `baha app down NAME` on remote Target invokes authenticated Machine HTTP `app.stop`, including optional plan-bound provider consent file; validates terminal stop `state=stopped` with `data_preserved=true`. Remote selection never falls back to local runtime.
+- Added TLS Core roundtrip and CLI negative regression tests for remote stop. `--yes` does not replace staged provider/consumer impact acknowledgements.
+- Current head has no complete exact-head CI proof yet; previous [#5370](https://github.com/mcpdev80/baseharbor/actions/runs/42533302009) succeeded on an earlier SHA. Physical E2E and safe first-source registration remain open; no merge or card closure.
