@@ -117,3 +117,7 @@ Lane: hunt-hp3 (flash worker). Date: 2026-11-08. Mode: REINE BEFUNDUNG — no pr
 ## END
 
 END_DONE mission-hunt-hp3.md: 12 findings (2 blocker-kandidaten BF-01/BF-03 + BF-05 daemm, positives BF-12/BF-13) on baha-podman, candidate = evidence commit on baseharbor-plan main, host released.
+
+- Evidence-on-origin/main witness (second-to-last action): `git ls-remote origin main` → `ef711b90aa7ebc8c211d8f1b7329171d0930d3eb refs/heads/main`; `git cat-file -e origin/main:evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md` → `EVIDENCE-PRESENT-ON-ORIGIN-MAIN`; `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/vm-bughunt/` lists hp3.md blob 38ccb9b8.
+- Lock release witness: `vm-lock.sh release baha-podman hunt-hp3` → `FREE host=baha-podman` (journal line written same second).
+
