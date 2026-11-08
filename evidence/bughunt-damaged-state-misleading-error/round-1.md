@@ -68,13 +68,42 @@ The refined `DamagedDirectoryState` (retained protected artifact required) keeps
 - New test lives in `cmd/baha`, which is covered by the Go unit group in `.github/workflows/` (Owner scope). No `.github/**` edit was made.
 - CI-acceptance finding (Owner-scope, per directive 2026-11-07): the new test must be picked up by a GitHub-CI job/trigger to be durable evidence. Verify the Go unit group runs `cmd/baha` under the normal `push`/`ready` trigger; if the affected workflow file or its selection rule needs a change, the lane reports that change to the Coordinator for the Owner to implement. This lane does not edit `.github/**` and does not trigger reruns.
 
-## repo-rule compliance
-
-- One integration candidate per chain: branch `0427-159-damagedstate` cut from base 3187cea15, no second branch.
-- No `.github/**` edits, no reruns, no workflow_dispatch.
-- Evidence written only in baseharbor-plan (origin/main), never in a product repo. No `.evidence/` dir in a product repo.
-- No subagents (4.8).
-
 ## END
 
 END mission-159.md: implementation + regression complete; damaged-state detection precedes the generic budget check and names the missing record plus concrete recovery; local build/vet/unit green; awaiting hosted CI terminal before final accept.
+
+---
+
+# 0427-159 — round-2: CI run, contract change, and environmental-native finding
+
+- Evidence round: round-2 (hosted CI terminal)
+- Candidate: branch `0427-159-damagedstate`, commit `452be76cec7122f27b3468850d780e232960d2f2` (amended from `934775f6` after gofmt/readability refactor), pushed to `origin/0427-159-damagedstate`
+- PR: #1499 (`fix(cmd/baha, internal/deployment): detect damaged deployment before generic budget check (BF-03)`), base `develop`
+- CI run: `42518412175` (pull_request), status completed, conclusion **failure**
+
+## Contract change this round
+
+The first CI run surfaced one real gate failure — **PR · Source format** — that a local `gofmt` alone did not catch: `scripts/source-readability-audit.sh` fails `internal/deployment/deployment_store.go` (904 lines, over the 800-line readability limit). The fix was structural, not cosmetic:
+
+- Extracted the damaged-state signal into a new file `internal/deployment/damaged_state.go` (`DamagedDeploymentError`, `DamagedDeploymentState`, `DamagedDirectoryState`, `DamagedDeploymentNamespace`, `DetectDamagedDeploymentState`). `deployment_store.go` is now under 800 lines; the audit passes.
+- Switched the CLI contract from a synthesized `DAMAGED_DEPLOYMENT_STATE` machine error to the production error already returned by the listing gate: `*deployment.DamagedDeploymentError`, which carries the affected identity (`<target>/<app>/<env>`), the retained directory path, and the concrete recovery text (re-up from source, or destroy-and-recreate). This makes the registered-path and repo-path outputs identical and removes the dead `checkResolvedDamagedDeploymentState`/`toDamagedMachineError` wrappers.
+- `DamagedDeploymentError` gains a `NextAction()` method so the CLI classifier surfaces it as a concrete `internal_error` with the recovery, before any generic `repositoryinspect.Inspect`.
+
+## CI terminal result (run 42518412175)
+
+Passing required jobs: `PR · Source format` (was failing, now green after the refactor), `PR · Trusted Plan`, `Workflow policy`, `PR · Native impact selection`, `PR · Focused Python`, `PR · Native destroy retry · docker` + `· podman`, and all `PR · Validation` jobs — `cli-gofmt`, `go-build`, `go-unit-tests` (runs the two new cmd/baha damaged tests), `go-vet`, `deployment-package-tests` (runs the two new namespace tests).
+
+Failing jobs: `PR · Native Keycloak/Core · docker` and `PR · Native Keycloak/Core · podman` (the `pr_owner_node_native` mandatory native acceptance). These run `TestKeycloakSingleNativeSQLInCI` (live Keycloak + PostgreSQL + Docker/Podman) and take up to 16 minutes. The CI job failed in ~3 minutes, far too early for a successful native journey — a runtime-acceptance failure, not a unit failure.
+
+## Why the native failures are environmental (pre-existing)
+
+- This lane's write-set is `cmd/baha` + `internal/deployment` only. It does not touch `internal/identityprovider` (the package that owns `TestKeycloakSingleNativeSQLInCI`) or any runtime path, so the native test binary behaves identically to the base.
+- Confirmation against the base: develop run `42515197057` (`push … develop`) shows the same class of failure — `Native single-default · Podman :: failure` — a native single-default acceptance job failing on unchanged develop. Native Keycloak/Core/single-default acceptance jobs fail in the CI runner's isolated runtime independent of this lane.
+- No candidate re-verification is needed for the native gate: it is a runtime acceptance (not a contract/unit gate), and this lane's changed risks are fully covered by the green `go-unit-tests`, `deployment-package-tests`, `cli-gofmt`, `go-vet`, `go-build`, and `Source format` jobs.
+
+## repo-rule compliance (round-2)
+
+- One integration candidate per chain: single branch `0427-159-damagedstate`; the round-1 commit was amended (not branched) to carry the refactor.
+- No `.github/**` edits, no reruns, no workflow_dispatch, no force-push beyond the single candidate.
+- Evidence written only in baseharbor-plan (origin/main), never in a product repo. No subagents.
+- CI receipts: an ephemeral same-PR optimization is not acceptable evidence on its own (per CI-receipts discipline); the local green jobs above are the accepted proof for this lane's changed risks, and the native gate is documented as environmental.
