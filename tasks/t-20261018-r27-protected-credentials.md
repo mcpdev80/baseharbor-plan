@@ -29,6 +29,7 @@ wait_reason: "Draft #1470 fachlich pausiert: Architekturabgleich und Remote-Mana
     <!-- generated:card -->
     **Owner:** ChatGPT (0427-047 regression follow-up) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470)  
+    **Waiting:** Draft \#1470 fachlich pausiert: Architekturabgleich und Remote-Management-Connection-E2E (\#1473) zuerst abschliessen; kein eigenstaendiger Credential-Fortschritt ohne neuen Auftrag.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1385)  
     <!-- /generated:card -->
 

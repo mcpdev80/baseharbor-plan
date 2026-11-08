@@ -27,6 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (remote bootstrap safety) · **Priority:** high  
     **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
+    **Waiting:** Sicherheitsfix \#1492 gemergt; Remote-Happy-Path bleibt separater Folgeumfang. Ausstehende Remote-Client-/Connector-Integration wird parallel in \#1473 bearbeitet; diese Karte bis Scope-/Acceptance-Abgleich geparkt.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
