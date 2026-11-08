@@ -105,9 +105,16 @@ teilen denselben planned-set-Matcher.
 
 ## HOSTED-CI STATUS
 
-Nicht von der Lane gestartet (Owner-Direktive). CI-Trigger-Befund in Finding (4).
-Vor dem Push: CI auf exaktem Merge-Head `916a3a6ab` laufen lassen; `PR · Source format`
-und `PR Selected Checks` müssen grün sein.
+CI läuft auf exaktem Head `54a6fd11d` (run 42450415960). `PR · Source format`
+ursprünglich auf `a7482fb52` GEFALLEN (cmd/baha/app_workload.go 821 Linen > 800
+Limit). Korrigiert durch Auslagern der Pinned-Namen-Extension in
+`internal/runtime/container_names_pinned.go` und Einhalten der 800-Linien-Grenze;
+`PR · Source format` auf `54a6fd11d` GRÜN. `go-build`, `go-unit-tests`,
+`go-vet`, `runtime-provider-package-tests` laufen lokal grün; CI-Trigger für den
+neuen pinned-CI-Test (`TestRepositoryComposePinnedWorkloadLifecycleInCI`,
+`ci.yml:349`) ist Owner-Scope (Befund in Finding 4), Lane startet keinen Rerun.
+Die CI-native pinned-Werkstattleben-Akzeptanz ist als Test implementiert und
+compiliert; ihr CI-Auslöser wartet auf Owner-Change an `ci.yml:349`.
 
 ## EVIDENCE-PROVENANCE
 
