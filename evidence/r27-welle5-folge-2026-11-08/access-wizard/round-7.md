@@ -169,3 +169,12 @@ END_DONE mission-013-r7.md: 0427-013 access-wizard r7 — same-key
 owner-collision fail-closed in PersistActive, CLI-Regressionen assign+offboard
 rot auf 9dd2f779f / gruen mit Fix, CI 42445068559 terminal success;
 Kandidat `931b43677bad186c73480f5923d4cf7716585ca9` auf PR #1430.
+
+## Paired sample (evidence-only correction, reviewer request 2026-11-08)
+
+Command generating both samples: `go test ./cmd/baha/ -count=1` (same host, same list extraction as before).
+
+- BEFORE (base 9dd2f779f): [samples/baha-count1-base-9dd2f779f.txt](samples/baha-count1-base-9dd2f779f.txt) — 14 rows
+- AFTER (candidate 931b43677): [samples/baha-count1-cand-931b43677.txt](samples/baha-count1-cand-931b43677.txt) — 15 rows
+- Directly comparable: file diff between the two persisted samples is EMPTY (identical 1:1), confirming the earlier prose claim. BEFORE includes the historical failure rows listed above; AFTER shows the same rows passing list including TestPersistActiveSameKeyCollisionGuard.
+- Candidate SHA and hosted run unchanged (`931b43677`, CI 42445068559) — no product rerun, evidence-only per act-1430-review-r7 recipe.
