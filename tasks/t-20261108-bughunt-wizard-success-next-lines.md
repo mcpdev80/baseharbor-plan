@@ -73,3 +73,8 @@ Audit 2026-11-08 (mapping): success-vs-error text overlap with #138 cancel path 
 
 - [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) exact head `7b1c01b843305a36c51600f7125f74aece5cf2cd`; [CI #42510870133](https://github.com/mcpdev80/baseharbor/actions/runs/42510870133). Added app new vs top-level new application deterministic Next-step parity and top-level interactive chooser EOF/partial EOF cancellation. Full interactive execution-modes output still requires final exact-head evidence.
 - Card intentionally remains `review` until the relevant contract is fully established by actual executed CI; no synthetic PASS or unrelated Remote smoke acceptance.
+
+## Corrected PR #1493 exact-head CI — 2026-11-08
+
+- Formatter-corrected PR head `050123164e4522792db900d852c3f6d42fb8137a` tested by [CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058); prior run cancelled after a gofmt-only error.
+- Source format, CLI gofmt/build/vet and source-contract checks succeeded; native Docker/Podman and complete CLI package tests must still finish. No premature acceptance.
