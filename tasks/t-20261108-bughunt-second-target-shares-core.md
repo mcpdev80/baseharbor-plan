@@ -57,3 +57,8 @@ None. Write-set: control-plane up / runtime project naming.
 ## Exact-head CI monitoring — 2026-11-08 (0427-163)
 
 - [PR #1487](https://github.com/mcpdev80/baseharbor/pull/1487), head `a158f2b183db3ed2dcfd6dcbead378b626ae9a55`, [CI #42503466672](https://github.com/mcpdev80/baseharbor/actions/runs/42503466672). Source format failed on unformatted shared_core_conflict_test.go; aligned map/fixture formatting, then re-triggered CI. Card remains open until the required CI is terminal green.
+
+## Source-format correction — 2026-11-08
+
+- The initial source-format repair was still not gofmt-canonical in the map table; fixed the exact spacing, verified the formatting shape separately, and pushed PR #1487 head `9572bdb3ae83db6da6252fcdc4d865e0a9fbbf35`.
+- Fresh exact-head CI: https://github.com/mcpdev80/baseharbor/actions/runs/42503646942. Do not mark accepted before terminal checks.
