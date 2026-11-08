@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-appnew"
-kanban_status: review
-kanban_lane: review
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Either a documented two-step with a clear next action, or automatic init in the create path - decision with rationale;…"
 kanban_title: 0427-140 · app new left uninit
 priority: normal
@@ -19,21 +19,21 @@ prs: [mcpdev80/baseharbor#1465, mcpdev80/baseharbor#1493]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42478010118", "https://github.com/mcpdev80/baseharbor/commit/618d23bde0870391541a8bbdf3ee103f22d70560"]
 ---
-- [ ] t-20261108-bughunt-appnew-create-only-uninit · Bug Hunt v0.4.27: app new left uninit #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-appnew-create-only-uninit · Bug Hunt v0.4.27: app new left uninit #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-appnew · **Priority:** normal  
+    **Owner:** —
     **PR:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42478010118), [proof 3](https://github.com/mcpdev80/baseharbor/commit/618d23bde0870391541a8bbdf3ee103f22d70560)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-appnew  
+**Owner:** —
 **Priority:** normal  
 **PRs:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
 **Source:** 
@@ -71,3 +71,10 @@ Audit 2026-11-08 (zuerklaeren): the dossier case was context-dependent; owner PR
 
 - Formatter-corrected PR head `050123164e4522792db900d852c3f6d42fb8137a` tested by [CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058); prior run cancelled after a gofmt-only error.
 - Source format, CLI gofmt/build/vet and source-contract checks succeeded; native Docker/Podman and complete CLI package tests must still finish. No premature acceptance.
+
+## Final review acceptance and merged PR #1493 — 2026-11-08
+
+- [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) merged to develop as `7af8d440e9a4dd1b633fdc44e4093109fe44ae37` from exact head `050123164e4522792db900d852c3f6d42fb8137a`.
+- [Exact-head CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058) terminal **SUCCESS**: full CLI package tests (includes new R27 review regressions), CLI build/vet/gofmt, source contracts, native Docker + Podman destroy-retry and final `PR Selected Checks` all passed. No skipped required selected check.
+- Acceptance rationale: Accepted explicit create-only then init/up design (no implicit deployment claim). Product prints `Next: cd`, `Next: baha app init --quick`, `Next: baha up`; new `TestR27CreateOnlyNextStepsAcrossAppAndTopLevelAlias` proves source contract creation and truthful instructions on both deterministic paths. Separate previously green native Greenfield 8/8 CI #42501503535 proves real `app new` -> `baha up` -> application READY on Docker/Podman across four stacks. The intermediate explicit `app init --quick` step is not separately attested by that native run; no such separate PASS is claimed.
+- Card status **closed**, resolution `accepted`, no processing owner; unrelated remote Core/workstation E2E and larger release qualification are tracked separately.
