@@ -38,7 +38,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-0427-appinit-owner-seam](../tasks/t-20261108-bughunt-0427-appinit-owner-seam.md) | Bug Hunt v0.4.27: app init Owner-Naht regression | review | normal | lane-w136-appinit | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
-| [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | review | normal | lane-w133-greenfield-r2 (r2 takeover — r1 owner gone; documented in evidence/round-2.md) | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
+| [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | review | normal | lane-w133-greenfield-r2 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
 
 ## Waiting for resources
 
