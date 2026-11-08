@@ -88,9 +88,22 @@ a5bdd03a docs(plan): record all 15 ready cards code triage and two shared PRs
 - Evidence nur in baseharbor-plan (evidence/r27-welle5-folge-2026-11-08/bughunt-openbao-stale-manager-cred/), KEINE .evidence/ im produkt-repo.
 - Subagenten/agent-tools NIEMAL genutzt (4.8); jeder Schritt in dieser eigenen Session.
 
+## CI-Lauf (gehostet, terminal)
+
+- PR: #1467 `fix(openbao): re-init stale manager credential on uninitialized server` (base `develop`, head `fix/0427-154-openbao-stale-manager-cred`, mergeStateStatus CLEAN).
+  https://github.com/mcpdev80/baseharbor/pull/1467
+- CI-Workflow: `.github/workflows/ci.yml` → `CI · Source & Quality`, Lauf-ID `42479206678`.
+  - headSha: `2d929127c343094234f07581c9fdfa9083fdb224` (mein Kandidat)
+  - conclusion: **success**, aktualisiert 2026-11-08T12:22:56Z.
+- Deckende Jobs (alle success): `PR · Validation · go-unit-tests` (laeuft `go test ./contracts/... ./internal/... ./spec/...`, deckt `internal/openbao/`), `openbao-package-tests`, `go-vet`, `go-build`, `Native impact selection`, `Focused Python`, `Native destroy retry · docker`/`podman`.
+- CI-Regel: KEINE .github/**-Aenderng; KEINE workflow_dispatch/Rerun-Eigenerstellung (nur PR-Push triggerte den Lauf).
+
 ## END
 
-- Status: END_BLOCKED
-- Blocker: Owner-Direktive 2026-11-04 + Mission-Text: PR-Offnung, Push und gerosteter CI-Lauf gehort in den Owner-Scope (keine PR/Push/Workflow-Steuerung in dieser Session).
-- Weiterer Trigger: Owner-Freigabe zum Push der Kandidaten-Branch + CI-Beobachtung (run-id go-unit-tests).
-- Offen: PR gegen develop HEAD; ls-remote + cleanliness; compose-Stack herunterfahren.
+- Status: **END_DONE**
+- Fix implementiert, beide Regressionen als Go-Unit-Test im bao-Feld (stale+uninit => gelingt; stale+init => verweigert), beide local + in CI gruen.
+- Kandidat `2d929127c` auf origin (branch `fix/0427-154-openbao-stale-manager-cred`), PR #1467 gegen develop (mergeStateStatus CLEAN).
+- CI-Lauf `42479206678` terminal: success (run-id + pr-nummer oben dokumentiert).
+- drift: develop weiter gelaufen (PR bleibt gegen develop HEAD offen); bei Merge-Blockade durch neues develop HEAD Rebase notiert.
+- cleanliness: keine Container/compose-Projects gestartet (nur lokale Go-Tests); lane-eigener Nachtschmuck vorhanden.
+- evidence on origin/main (14a197b3), blob `evidence/r27-welle5-folge-2026-11-08/bughunt-openbao-stale-manager-cred/round-1.md`.
