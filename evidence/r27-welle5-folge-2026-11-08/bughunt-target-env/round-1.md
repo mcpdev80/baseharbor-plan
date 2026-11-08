@@ -14,7 +14,7 @@ Branch: work/r27-bughunt-124-target-env (single candidate for this chain).
 7. Local go build/vet/gofmt/focused tests. DONE (gofmt 0, vet clean, targeted + full cmd/baha suite run; pre-existing environment-dependent failures on this host documented, same failures reproduce on unmodified develop base)
 8. PR against develop with card number 0427-124 in title; ancestry + log-line witnesses. DONE (PR #1451)
 9. Observe own CI run to terminal; record run ids and outcomes. DONE (run 42433354279 success)
-10. Publish evidence to baseharbor-plan origin/main; verify before END; END post. IN PROGRESS
+10. Publish evidence to baseharbor-plan origin/main; verify before END; END post. DONE (path present on origin/main, verified via git ls-tree)
 
 ## Reality witnesses
 
@@ -59,4 +59,4 @@ The card premise is disproved on current develop: BASEHARBOR_TARGET IS read on t
 
 ## END
 
-END_PENDING — mission file: mission-124.md
+END_DONE — mission file: mission-124.md. Candidate PR #1451 head ebdf8d5db0122620b7d2e5c57d8dc48a2c6148f3; CI run 42433354279 completed/success on that exact head. URTEIL: env-reader premise disproved and pinned by CI-picked production-path regression; greenfield-isolation clause stays open on the card (blocked by use/activate management-connection binding, authority territory #1430/#1435) — reported as STATE.
