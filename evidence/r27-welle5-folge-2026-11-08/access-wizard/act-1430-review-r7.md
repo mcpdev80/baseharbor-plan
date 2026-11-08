@@ -52,3 +52,18 @@ This is the sole outstanding review item. The sample gap does not invalidate the
 - No product files, workflows, or CI runs were changed or triggered by this review. This evidence is planning-only and contains no Markdown checkbox task lines.
 
 END_DONE 0427-access-wizard-review-r7: REQUEST-CHANGES, evidence-only paired-sample correction; candidate `931b43677bad186c73480f5923d4cf7716585ca9`.
+
+## R7 paired-sample follow-up — final verdict: APPROVE
+
+The evidence-only correction resolves the outstanding stop criterion. Both samples are now durable files on Planning `origin/main`:
+
+- BEFORE, base `9dd2f779f`: `samples/baha-count1-base-9dd2f779f.txt`, blob `492a09093d1c7e4ee1d2e3a23b362af8c5a2c08e`.
+- AFTER, candidate `931b43677`: `samples/baha-count1-cand-931b43677.txt`, blob `e39c2217ebe483ccff8e0b6cd82a6190f8a076f5`.
+- Round-7 section states the generating command: `go test ./cmd/baha/ -count=1`.
+- Independently compared the two remote blobs. The complete diff is exactly one inserted line, `TestPersistActiveSameKeyCollisionGuard`; the other 14 sample rows match one-to-one (14 before, 15 after).
+
+The exact product PR head remains `931b43677bad186c73480f5923d4cf7716585ca9`, and hosted run `42445068559` remains terminal success on that SHA. No product source or CI state changed. The requested pair is now inspectable from the Planning main branch, so the evidence-only hold is cleared.
+
+FINAL VERDICT: approve.
+
+END_DONE 0427-access-wizard-review-r7: APPROVE; paired sample verified on Planning origin/main; candidate `931b43677bad186c73480f5923d4cf7716585ca9`.
