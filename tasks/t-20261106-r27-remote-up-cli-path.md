@@ -121,3 +121,8 @@ integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podma
 - Bearbeitungs-Owner gewechselt von `chatgpt-0427-116` auf `unassigned`. Bereits akzeptierte Karte bleibt `closed`.
 - Existing accepted card; ownership released.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
+
+## CI-/PR-Nachtrag — 2026-11-08 (ChatGPT)
+
+- PR [#1407](https://github.com/mcpdev80/baseharbor/pull/1407), Head `345b0352bc4577e2fcd540729d9c1adf94e68810`, am 2026-11-08 erneut auf aktuellen Checks geprueft: [Run 42476049436](https://github.com/mcpdev80/baseharbor/actions/runs/42476049436). Native Destroy-Retry Docker und Podman, Build, Vet, Format und Trusted Plan PASS; Go-Unit-Test zuletzt IN_PROGRESS. PR noch offen/mergeable, **kein Merge** vor terminalem Gesamtergebnis und Head-Abgleich.
+- **Plan-Wahrheit:** Vorhandenes `closed/accepted` dieser Karte wurde nicht rueckwirkend geaendert; es ist kein Nachweis, dass PR #1407 bereits gemergt wurde. PR-Abschluss wird separat nachgetragen. CI-Uebernahme durch ChatGPT, keine weitere Produktdatei-Bearbeitung.
