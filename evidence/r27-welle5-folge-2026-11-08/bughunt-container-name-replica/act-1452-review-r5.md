@@ -59,3 +59,13 @@ Do not approve until the control-plane observation production-path cross-project
 ## END
 
 END_BLOCKED 0427-128-r5-review — KORREKTUR; PR #1452 head `01f6325d660aa4723a9106d84dbca49faf6e392f`, hosted run `42461735463` terminal success; control-plane cross-project regression and hosted pinned lifecycle execution remain open.
+
+## Publication witnesses
+
+Pre-publication remote output:
+
+```text
+567103e834e9f2b20964cadf35c209126ead7c81\trefs/heads/main
+07ae6c3e91b081a189266ca4b162ba705d4aa78f\trefs/heads/develop
+01f6325d660aa4723a9106d84dbca49faf6e392f\trefs/pull/1452/head
+```
