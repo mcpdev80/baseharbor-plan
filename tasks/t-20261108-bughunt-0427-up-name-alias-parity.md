@@ -7,9 +7,9 @@ areas: [dx]
 release: v0.4.27
 version: ""
 parent: ""
-owner: lane-w130-upalias
-kanban_status: review
-kanban_lane: review
+owner: pending-lane-0427-130-r2
+kanban_status: active
+kanban_lane: active
 kanban_summary: baha up NAME resolves the registered application NAME identically to baha app up NAME; the top-level alias exposes the full…
 kanban_title: 0427-130 · baha up NAME abgelehnt
 priority: normal
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-up-name-alias-parity · Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented #task #release/v0-4-27 #status/review #view/review #area/dx #kind/bug
+- [ ] t-20261108-bughunt-0427-up-name-alias-parity · Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w130-upalias · **Priority:** normal  
+    **Owner:** pending-lane-0427-130-r2 · **Priority:** normal  
     **PR:** [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w130-upalias  
+**Owner:** pending-lane-0427-130-r2  
 **Priority:** normal  
 **PRs:** [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459)  
 **Source:** 

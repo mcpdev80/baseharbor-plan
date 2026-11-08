@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 3 |
+| active | 9 |
+| review | 2 |
 | wait | 5 |
 | blocked | 0 |
 | ready | 0 |
@@ -32,6 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-logs-command-gap](../tasks/t-20261108-bughunt-0427-logs-command-gap.md) | Bug Hunt v0.4.27: logs top-level ohne Pfad | active | low | lane-w131-logsgap-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1456](https://github.com/mcpdev80/baseharbor/pull/1456) |
 | [t-20261108-bughunt-0427-regression-debug-dump-consent](../tasks/t-20261108-bughunt-0427-regression-debug-dump-consent.md) | Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) | active | normal | lane-w129-dbgdump | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | active | normal | lane-w127-bootleak-r4 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
+| [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | active | normal | pending-lane-0427-130-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
 
 ## Ready for review
 
@@ -39,7 +40,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-0427-appinit-owner-seam](../tasks/t-20261108-bughunt-0427-appinit-owner-seam.md) | Bug Hunt v0.4.27: app init Owner-Naht regression | review | normal | lane-w136-appinit | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | review | normal | lane-w133-greenfield-r2 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
-| [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | review | normal | lane-w130-upalias | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
 
 ## Waiting for resources
 
