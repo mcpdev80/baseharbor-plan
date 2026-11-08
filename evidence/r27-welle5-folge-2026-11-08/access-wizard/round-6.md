@@ -108,3 +108,5 @@ es die Basis, nicht dieser Diff; bisher zeigt der lauf dieses Muster nicht.
 - Keine Subagenten (4.8); keine Container/compose-Projekte gestartet (kein VM-Teil in diesem Auftrag; ps-Zeuge: nichts zu holen).
 - Evidence nur in baseharbor-plan; Zonen-Check: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` => `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`, Remote https://github.com/mcpdev80/baseharbor-plan.git. Produkte-Checkout: /home/marcel/dev/baseharbor-ecosystem/baseharbor (workers/baseharbor nur ls-remote-Quelle via dessen Remote, nie als Remote-Zustands-Zeig zitiert).
 - Write-Set exakt wie im Rezept genannt: internal/orgconfig/profiles.go + cmd/baha/access_wizard_persistence_test.go.
+
+END_DONE mission-013-r6.md: r6-Fix PersistActive owner-namespace-Merge + 2 CLI-Regressionen; Kandidat PR #1430 head 9dd2f779fa2445257d4f7f3c99a43b1245493818; Run 42438784031 completed/success; Karte review.
