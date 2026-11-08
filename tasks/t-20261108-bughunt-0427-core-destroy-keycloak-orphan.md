@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
-    **Waiting:** PR \#1449 merged ebf56a09; PR \#1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS.  
+    **Waiting:** PRs \#1444/\#1448/\#1449 merged; native Docker/Podman Keycloak start/destroy/retry with exact integration SHA and resource count remains to be evidenced.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158)  
     <!-- /generated:card -->
 
