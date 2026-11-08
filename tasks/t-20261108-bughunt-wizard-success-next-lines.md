@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-wizard-ux"
-kanban_status: review
-kanban_lane: review
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Success/next text consistent across all create paths (wizard, headless, alias, top-level); prompt input errors as usageError…"
 kanban_title: 0427-142 · Success omits next step
 priority: normal
@@ -19,21 +19,21 @@ prs: [mcpdev80/baseharbor#1465, mcpdev80/baseharbor#1469, mcpdev80/baseharbor#14
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42480609018", "https://github.com/mcpdev80/baseharbor/commit/f05d6ee2e596da73056dfd1bda64a79ebbfe6b92"]
 ---
-- [ ] t-20261108-bughunt-wizard-success-next-lines · Bug Hunt v0.4.27: Success omits next step #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-wizard-success-next-lines · Bug Hunt v0.4.27: Success omits next step #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-wizard-ux · **Priority:** normal  
+    **Owner:** —
     **PR:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42480609018), [proof 3](https://github.com/mcpdev80/baseharbor/commit/f05d6ee2e596da73056dfd1bda64a79ebbfe6b92)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-wizard-ux  
+**Owner:** —
 **Priority:** normal  
 **PRs:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
 **Source:** 
@@ -78,3 +78,10 @@ Audit 2026-11-08 (mapping): success-vs-error text overlap with #138 cancel path 
 
 - Formatter-corrected PR head `050123164e4522792db900d852c3f6d42fb8137a` tested by [CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058); prior run cancelled after a gofmt-only error.
 - Source format, CLI gofmt/build/vet and source-contract checks succeeded; native Docker/Podman and complete CLI package tests must still finish. No premature acceptance.
+
+## Final review acceptance and merged PR #1493 — 2026-11-08
+
+- [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) merged to develop as `7af8d440e9a4dd1b633fdc44e4093109fe44ae37` from exact head `050123164e4522792db900d852c3f6d42fb8137a`.
+- [Exact-head CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058) terminal **SUCCESS**: full CLI package tests (includes new R27 review regressions), CLI build/vet/gofmt, source contracts, native Docker + Podman destroy-retry and final `PR Selected Checks` all passed. No skipped required selected check.
+- Acceptance rationale: Reviewed `finishAppNewWizard`: create-only uses the same `printAppNewNextSteps` helper as deterministic CLI; successful authorized run alone prints `Lifecycle: VERIFIED` and `Next: baha app status`, failed lifecycle never claims READY. `runHumanNewSelection` delegates application alias to canonical command. New #1493 tests explicit alias/create-only output parity and top-level chooser EOF; prior #1469 tests structured yes/no guidance and successful run next action. Full cmd/baha tests and selected native CI completed successfully.
+- Card status **closed**, resolution `accepted`, no processing owner; unrelated remote Core/workstation E2E and larger release qualification are tracked separately.
