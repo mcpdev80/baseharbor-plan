@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-docker-netpool-exhaustion
 card_number: "0427-146"
-card_short_title: "app init Owner-Naht regression"
+card_short_title: "No advice on pool error"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -10,22 +10,21 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: Die netz-anlege-fehlerstelle faengt den pool-exhaustion-fehler und meldet konkreten naechsten schritt (freigebene netze nennen /…
-kanban_title: 0427-146 · app init Owner-Naht regression
+kanban_summary: The network-create error site catches pool exhaustion and reports a concrete next step (name released nets / docker network…
+kanban_title: 0427-146 · No advice on pool error
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1458]
+prs: []
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md"]
 ---
-- [ ] t-20261108-bughunt-docker-netpool-exhaustion · Bug Hunt v0.4.27: Netzpool-Erschoepfung ohne Rat #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-docker-netpool-exhaustion · Bug Hunt v0.4.27: No advice on pool error #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **PR:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
     **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md)  
     <!-- /generated:card -->
@@ -36,20 +35,20 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** normal  
-**PRs:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
+**PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
 
 <!-- /generated:card -->
 ## Outcome and acceptance
-Die netz-anlege-fehlerstelle faengt den pool-exhaustion-fehler und meldet konkreten naechsten schritt (freigebene netze nennen / docker network prune hinweis mit target-bezug); regression mit erzeugbarem fehlerpfad (mock/invalid netz-name) in der lifecycle gruppe; host-seitige erschoepfung selbst ist owner-scope, nicht produkt-fix.
+The network-create error site catches pool exhaustion and reports a concrete next step (name released nets / docker network prune hint with target context); regression with a producible error path (mock/invalid network name) in the lifecycle group; host-side exhaustion itself is owner-scope, not a product fix.
 
-## Problem (Fund aus Hunt H-D4, datei-/#beleg in der Akte)
-Auf gesaettigtem docker-host bricht baha up (Core wie workload) an "all predefined address pools have been fully subnetted" ohne jeden recovery-hinweis; user sieht nur die daemon-zeile. Quelle Hunt H-D4 BF-hd4-1 (HOCH).
+## Problem (source evidence in the dossier)
+On a saturated docker host, baha up (core and workload) dies on all predefined address pools have been fully subnetted without any recovery hint; the user only sees the daemon line. Source: hunt H-D4 BF-hd4-1 (HIGH).
 
 ## Acceptance
-Die netz-anlege-fehlerstelle faengt den pool-exhaustion-fehler und meldet konkreten naechsten schritt (freigebene netze nennen / docker network prune hinweis mit target-bezug); regression mit erzeugbarem fehlerpfad (mock/invalid netz-name) in der lifecycle gruppe; host-seitige erschoepfung selbst ist owner-scope, nicht produkt-fix.
+The network-create error site catches pool exhaustion and reports a concrete next step (name released nets / docker network prune hint with target context); regression with a producible error path (mock/invalid network name) in the lifecycle group; host-side exhaustion itself is owner-scope, not a product fix.
 
 ## Dependencies and file ownership
-Keine. Write-set: compose netz-anlage fehlerpfad in core/workload up.
+None. Write-set: compose network creation error paths in core/workload up.

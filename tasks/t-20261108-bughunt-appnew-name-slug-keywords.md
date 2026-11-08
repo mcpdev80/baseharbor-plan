@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-appnew-name-slug-keywords
 card_number: "0427-139"
-card_short_title: "Name ohne Warnung verbogen"
+card_short_title: "Name reshaped silently"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -10,22 +10,21 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: "Sichtbare normalisierung (hinweis wenn eingabe != Ergebnis) + reservierte keywords am name-prompt ablehnen; regressionen im…"
-kanban_title: 0427-139 · Name ohne Warnung verbogen
+kanban_summary: "Visible normalization (note when input != result) + reject reserved keywords at the name prompt; regressions in the existing…"
+kanban_title: 0427-139 · Name reshaped silently
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1458]
+prs: []
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md"]
 ---
-- [ ] t-20261108-bughunt-appnew-name-slug-keywords · Bug Hunt v0.4.27: Namens.slugify und Keywordwall #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-appnew-name-slug-keywords · Bug Hunt v0.4.27: Name silently reshaped #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **PR:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
     **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md)  
     <!-- /generated:card -->
@@ -36,20 +35,20 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** normal  
-**PRs:** [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458)  
+**PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
 
 <!-- /generated:card -->
 ## Outcome and acceptance
-Sichtbare normalisierung (hinweis wenn eingabe != Ergebnis) + reservierte keywords am name-prompt ablehnen; regressionen im bestehenden feld.
+Visible normalization (note when input != result) + reject reserved keywords at the name prompt; regressions in the existing field.
 
-## Problem (Fund aus Hunt H-D3, datei-/#beleg in der Akte)
-app new slugifyt still (My App!! -> my-app) und akzeptiert reservierte wortlike "cancel" als namen. Quelle Hunt H-D3 BF-03/BF-04.
+## Problem (source evidence in the dossier)
+app new silently slugifies input (My App!! -> my-app) and accepts reserved words like cancel as a name. Source: hunt H-D3 BF-03/BF-04.
 
 ## Acceptance
-Sichtbare normalisierung (hinweis wenn eingabe != Ergebnis) + reservierte keywords am name-prompt ablehnen; regressionen im bestehenden feld.
+Visible normalization (note when input != result) + reject reserved keywords at the name prompt; regressions in the existing field.
 
 ## Dependencies and file ownership
-Keine. Write-set: cmd/baha app new name validation.
+None. Write-set: cmd/baha app new name validation.

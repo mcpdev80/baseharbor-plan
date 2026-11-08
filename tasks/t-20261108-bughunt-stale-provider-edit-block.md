@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-stale-provider-edit-block
 card_number: "0427-150"
-card_short_title: "app init Owner-Naht regression"
+card_short_title: "Stale instance blocks edit"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -10,8 +10,8 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: Provider-instanz-pruefung beim edit-refresh (veraltet = neu losen oder klar melden); regression mit state-only app im selben…
-kanban_title: 0427-150 · app init Owner-Naht regression
+kanban_summary: Provider-instance check on edit refresh (stale = re-resolve or report clearly); regression with a state-only app in the same…
+kanban_title: 0427-150 · Stale instance blocks edit
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -22,7 +22,7 @@ wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
 ---
-- [ ] t-20261108-bughunt-stale-provider-edit-block · Bug Hunt v0.4.27: Veraltete Instanz sperrt Edit #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-stale-provider-edit-block · Bug Hunt v0.4.27: Stale instance blocks edit #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Ready to assign** · prerequisites accepted  
@@ -42,13 +42,13 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 <!-- /generated:card -->
 ## Outcome and acceptance
-Provider-instanz-pruefung beim edit-refresh (veraltet = neu losen oder klar melden); regression mit state-only app im selben target in der lifecycle gruppe.
+Provider-instance check on edit refresh (stale = re-resolve or report clearly); regression with a state-only app in the same target in the lifecycle group.
 
-## Problem (Fund H-P3, datei-/#beleg in der Akte)
-app edit kann ein need nicht aendern wenn eine unapplied state-only app existiert: veraltete provider-instance im target-registry fuehrt zu fehlerhaften referenzen. Quelle Hunt H-P3 BF-03 (blocker-kandidat).
+## Problem (source evidence in the dossier)
+app edit cannot change a need when an unapplied state-only app exists: a stale provider instance in the target registry leads to broken references. Source: hunt H-P3 BF-03 (blocker candidate).
 
 ## Acceptance
-Provider-instanz-pruefung beim edit-refresh (veraltet = neu losen oder klar melden); regression mit state-only app im selben target in der lifecycle gruppe.
+Provider-instance check on edit refresh (stale = re-resolve or report clearly); regression with a state-only app in the same target in the lifecycle group.
 
 ## Dependencies and file ownership
-Keine. Write-set: target registry provider-instance refresh im edit-pfad.
+None. Write-set: target registry provider-instance refresh on the edit path.
