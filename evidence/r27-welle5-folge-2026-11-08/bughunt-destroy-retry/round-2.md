@@ -112,7 +112,17 @@ $ gh run list --repo mcpdev80/baseharbor --branch fix/0427-132-destroy-retry-reg
 
 The round-1 run `42442084950` (head `fd3dd0c2`) was all-green including `go-unit-tests` and the readability gate; the corrected head `7557a0b1` runs in `42448230775`.
 
-Terminal CI result for `42448230775` (head `7557a0b1`): **status completed, conclusion success**; `PR · Source format` = success (readability gate at exactly 800 lines), `PR · Validation · go-unit-tests` = success (the new unit regressions run and pass in hosted CI), `go-vet`/`go-build`/`cli-gofmt` = success, `PR Selected Checks` = success. `Targeted HA · docker`/`podman` acceptance jobs = **skipped** (documented below).
+Terminal CI result for `42448230775` (head `7557a0b1`): **completed / success**; `PR · Source format` = success (readability gate at exactly 800 lines), `PR · Validation · go-unit-tests` = success (the new unit regressions run and pass in hosted CI), `go-vet`/`go-build`/`cli-gofmt` = success, `PR Selected Checks` = success. `Targeted HA · docker`/`podman` acceptance jobs = **skipped** (documented below).
+
+```
+$ gh run view 42448230775 --repo mcpdev80/baseharbor --json status,conclusion,jobs --jq '.status, .conclusion, [.jobs[]|{n:.name,c:.conclusion}]'
+"completed"
+"success"
+[{n:"PR · Source format",c:"success"},{n:"PR · Validation · go-unit-tests",c:"success"},
+ {n:"PR · Validation · go-vet",c:"success"},{n:"PR · Validation · go-build",c:"success"},
+ {n:"PR · Validation · cli-gofmt",c:"success"},{n:"Targeted HA · docker",c:"skipped"},
+ {n:"Targeted HA · podman",c:"skipped"},{n:"PR Selected Checks",c:"success"}]
+```
 
 ### Named native retry test in hosted CI (5.3, Owner workflow scope)
 
