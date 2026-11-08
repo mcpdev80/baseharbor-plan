@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-127-r4
+owner: lane-w127-bootleak-r4
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-127-r4 · **Priority:** normal  
+    **Owner:** lane-w127-bootleak-r4 · **Priority:** normal  
     **PR:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** pending-lane-0427-127-r4  
+**Owner:** lane-w127-bootleak-r4  
 **Priority:** normal  
 **PRs:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
 **Source:** 
