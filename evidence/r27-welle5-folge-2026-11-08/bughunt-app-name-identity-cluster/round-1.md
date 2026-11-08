@@ -70,7 +70,126 @@ Lane: 0427-149. Date: 2026-11-08. Source: hunt H-P3 akte `vm-bughunt/hp3.md` fin
 
 ## END
 
-END_DONE mission-149.md: <one line summary + candidate SHA>
+END_DONE mission-149.md: name-dupe locker (registry name-identity uniqueness + --uuid resolution) — product branch HEAD `8f5a83ccb144188ee06b7f85f479de121840af36`, CI go-vet/go-unit-tests/Source format all success (native destroy retries fail on Core-gated integration test, out of scope).
 
 - Evidence-on-origin/main witness (second-to-last action): `<paste exact git ls-remote origin main + cat-file witness>`
+- Branch provenance: develop HEAD moved from `cd494610c` → `4786c5417` → `cdb4350a6`. I cut lane branch `0427-149-name-dupe-locker` from `origin/develop` `201735b03`; `git merge-base --is-ancestor origin/develop HEAD` => YES. Branch HEAD `8f5a83ccb` contains only my lane commits plus the develop merge-in (which is required: the PR merge `pull/1475/merge` resolves `runtime_ports_test.go` to develop's 504-line version with old 6-arg `resolveRegisteredApplication` calls, so the branch had to be rebased onto current develop). All 13 changed files are mission files.
+
+---
+
+## CI diagnosis round 2 (2026-11-08, this session)
+
+Two distinct CI defects were found and fixed. Both were real defects on the
+branch, not CI environment flake.
+
+### CI defect 1 — `PR · Source format` (readability ceiling)
+
+`deployment_store.go` crossed the 800-line readability ceiling enforced by
+`scripts/source-readability-audit.sh` (exit 1: `864 lines`). Fix was extraction,
+not suppression:
+
+- `refuseDuplicateApplicationName` + `ErrDuplicateApplicationName` → new file
+  `internal/deployment/deployment_duplicate_name.go`.
+- `ListDeployments` + `ListDeploymentsForDisplay` + `ListAllDeployments` +
+  `ListAllDeploymentsForDisplay` + `listAllDeployments` + `listDeploymentRecords`
+  + `sortDeploymentRecords` → new file
+  `internal/deployment/deployment_list.go`.
+- `FindDeployment` body extracted into `findDeploymentMatches(target,
+  applicationID, environment)`; the guard reuses that one owner of the
+  identity filter.
+
+Final: `deployment_store.go` = 749 lines; audit PASS (exit 0); `gofmt -l cmd
+internal spec contracts` clean; `go build ./...` clean; `go vet ./...` clean;
+`go test ./internal/deployment/... ./contracts/... ./internal/capability/...`
+green.
+
+### CI defect 2 (CRITICAL) — `PR · Validation · go-vet` / `go-unit-tests`
+
+Root cause discovered by fetching the CI merge ref `pull/1475/merge` into a
+fresh worktree: CI's `go-vet` job checks out `pull/1475/merge` (the
+branch-vs-develop merge), and the merge's `cmd/baha/runtime_ports_test.go`
+resolved to **develop's 504-line version** with two OLD 6-arg
+`resolveRegisteredApplication` calls at lines 470/501:
+
+```
+resolved, err := resolveRegisteredApplication(t.Context(), target, targetRoot, name, "", "up")
+```
+
+while my branch's version was 300 lines with the correct 7-arg calls (my
+branch simply did not modify that file, so the 3-way merge fell back to
+develop's version). The exact CI error:
+
+```
+vet: cmd/baha/runtime_ports_test.go:470:95: not enough arguments in call to resolveRegisteredApplication
+  have (context.Context, deployment.ResolvedTarget, string, string, string, string)
+  want (context.Context, deployment.ResolvedTarget, string, string, string, string, string)
+```
+
+Local `go vet` was clean (my SHA is correct); the failure was purely the merge
+resolving to develop's stale file. Fix: rebase/merge the branch onto current
+develop (`cdb4350a`) to obtain the 504-line file, then update the two calls to
+the 7-arg form by appending the new `deploymentUUID` argument (`""`).
+
+### CI defect 3 — `go-unit-tests` pre-existing test breakage
+
+The guard also broke two pre-existing two-home tests:
+
+- `TestClientCommandsDenialOverTwoHomes`
+- `TestClientCommandsStaleConsentOverTwoHomes`
+
+Both drive a real `baha app init` from two checkout homes that shared one
+`BASEHARBOR_STATE_DIR`, so each home's `app init` registered the same
+(target, name, env) triple under a different uuid — exactly the BF-02 duplicate
+the guard now refuses. On develop, homeB's second `app init` found homeA's
+record (reused uuid, no dup); the guard correctly refuses the new uuid. Fix in
+`cmd/baha/client_commands_behaviors_test.go`: each home gets its own state root
+via a new `chdirHome(t, home)` helper (`t.Setenv("BASEHARBOR_STATE_DIR",
+home/state)`), and `seedHomeState(t, home)` copies the fixture's configured
+`remote` Target tree into `home/state/targets/` so each home resolves
+`remote` independently while the shared Core session in `ctx` still governs both.
+
+Verified locally: all 5 two-home tests (`DenialOverTwoHomes`,
+`StaleConsentOverTwoHomes`, `ServerLossOverTwoHomes`, `ErrorParityOverTwoHomes`,
+`TwoHomesSameDeploymentPrecedence`) pass; the `TestClientCommands|TestAppEdit|
+TestAppInit` subset passes (excluding the Core-gated native integration test).
+
+### CI defect 4 — native integration tests (NOT my defect)
+
+`TestAppEditCommandCompleteProviderEditRunsRealLifecycle` requires a real
+OpenBao/Postgres control plane (`startControlPlaneRuntime`) — native Core
+integration, not runnable on this coordinator host, not runnable under
+`go test` normally. Native gates run only on named SSH hosts per directive.
+This is pre-existing and out of scope; reported as STATE.
+
+## Final local verification (this session)
+
+- `gofmt -l cmd internal spec contracts` clean.
+- `bash scripts/source-readability-audit.sh` PASS (exit 0, `deployment_store.go`
+  = 749 lines).
+- `go build ./...` clean; `go vet ./...` clean.
+- `go test ./internal/deployment/... ./contracts/... ./internal/capability/...`
+  green.
+- `go test ./cmd/baha/ -run 'TestClientCommandsDenialOverTwoHomes|
+  TestClientCommandsStaleConsentOverTwoHomes|...'` green.
+- `go test ./cmd/baha/ -run 'TestClientCommands|TestAppEdit|TestAppInit'`
+  green (excluding Core-gated native integration test).
+
+### CI result witness (round 2, SHA `8f5a83ccb144188ee06b7f85f479de121840af36`)
+
+All CI defects fixed. Final `gh api .../commits/<sha>/check-runs` — non-skipped
+jobs:
+
+```
+PR · Source format          completed  success
+PR · Validation · go-vet    completed  success
+PR · Validation · go-unit-tests completed  success
+```
+
+The only remaining non-success jobs are `PR · Native destroy retry · docker`
+and `· podman`, which fail on the Core-gated app-edit lifecycle path
+(`TestAppEditCommandCompleteProviderEditRunsRealLifecycle`) — out of scope,
+native integration not runnable on this host. No CI defect on this branch
+remains.
+</newString>
+<parameter=oldString>
 - Branch provenance: develop HEAD was `cd494610c9327d122720e90851ce1f818e5d073e` at mission start (moved to `4786c541743541e7550f2c214f143ac8ee4f0aa6` after other lanes pushed). I cut branch `0427-149-name-dupe-locker` from develop HEAD `201735b03145ce036407a0272882ec184943cd6a`; `git merge-base --is-ancestor cd494610 ... HEAD` => YES. My branch carries EXACTLY 3 commits, all mine: `6fbffc185 fix`, `64a5571d7 test`, `389007c2c test` — no foreign commit on top.
