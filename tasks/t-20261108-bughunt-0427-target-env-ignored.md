@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1451"]
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1451", "https://github.com/mcpdev80/baseharbor/commit/e39b0004346cdfd082e34ba55d94d24757bbbd27"]
 
 ---
 
@@ -32,7 +32,7 @@ The production CLI target-selection slice is accepted on PR #1451. Greenfield co
     <!-- generated:card -->
     **Owner:** lane-0427-124-target-env · **Priority:** high  
     **PR:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443), [baseharbor#1451](https://github.com/mcpdev80/baseharbor/pull/1451)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1451)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1451), [proof 2](https://github.com/mcpdev80/baseharbor/commit/e39b0004346cdfd082e34ba55d94d24757bbbd27)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
