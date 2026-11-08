@@ -49,6 +49,10 @@ The new test lives in cmd/baha and is executed by the existing `PR · Validation
 - Collision check #1444/#1447 (coordinator question): write-set files fetched via gh api; intersection of the two PRs is EMPTY and neither claims cmd/baha/target_environment_production_path_test.go. No conflict, no repair needed for this slice.
 - Own run observed to terminal on the exact candidate head (self-run duty): CI · Source & Quality run 42433354279 -> completed/success on PR #1451; PR · Source format pass, PR · Trusted pass, Release Source Preflight pass; Targeted HA docker/podman + validate skipping (not selected for this path). The new tests run inside the go-test group the CI already executes for cmd/baha.
 
+## Evidence-on-origin witness (mission-mandated, second-to-last action)
+
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree origin/main --name-only evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/` -> `evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/round-1.md` (origin/main at 83c03e6c9f99b3f07863035d449b85933435aca7)
+
 ## VM cleanliness
 
 No VM, container or compose project was started or touched by this lane (local `baha target show`/`app status` reads only against throwaway XDG dirs; `go test` is sandboxed). `docker ps` and `podman ps` untouched on baha-docker/baha-podman hosts.
