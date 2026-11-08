@@ -78,3 +78,13 @@ A developer can start and use the Core operator API from documentation alone.
 ## E2E follow-up 2026-11-08
 
 The remote API runbook must be validated against a **working** developer-only CLI -> authenticated remote Core -> Docker connector -> app apply/status/destroy sequence. Existing env names in source are not a substitute for an independently successful startup sequence. Track this documentation card in Wait on 0427-168 and 0427-023 rather than presenting untested configuration as supported.
+
+## Code-derived operator API inventory (unverified)
+
+The following is **source inspection only**, not a validated installation runbook. Keep this card in **Wait** until 0427-023/168 and a physical smoke pass.
+
+- `baha serve` distinguishes per-application broker from Core operator API using `BASEHARBOR_RUNTIME_APP_NAME`; Core startup binds a verified management host and rejects foreign/competing state ownership.
+- Operator API config is loaded by `controlPlaneConfigFromEnv` from `cmd/baha/serve.go`: `BASEHARBOR_API_LISTEN_ADDR`, `BASEHARBOR_API_DATABASE_URL`, `BASEHARBOR_API_OIDC_ISSUER`, `BASEHARBOR_API_OIDC_AUDIENCES`, `BASEHARBOR_API_TLS_CERT_FILE`, `BASEHARBOR_API_TLS_KEY_FILE`, `BASEHARBOR_API_TLS_CLIENT_CA_FILE`. These are **recognized variable names**, not a verified minimal/mandatory set.
+- Connector enrollment additionally recognizes `BASEHARBOR_CONNECTOR_ENROLLMENT_ENABLED`, `BASEHARBOR_CONNECTOR_AUTHORITY_TARGET`, `BASEHARBOR_CONNECTOR_LISTEN_ADDR` and `BASEHARBOR_CONNECTOR_TLS_{CERT,KEY,CA}_FILE`; workstation enrollment has `BASEHARBOR_WORKSTATION_ENROLLMENT_ENABLED`.
+- Client currently uses `BASEHARBOR_CONNECTION_PROFILE` with explicit pinned HTTPS CA, installation identity, tenant-bound Target, and operator OIDC `dev` session. Machine routes: authenticated `GET /api/v1/management/installation`, `GET /api/v1/machine/discovery`, `POST /api/v1/machine/executions`, `GET /api/v1/machine/executions/{execution_id}`; 202 is admission only.
+- **Do not publish a copy-paste production startup recipe** from this inspection: TLS/Keycloak provisioning and client app registration remain untested on the real Docker host.

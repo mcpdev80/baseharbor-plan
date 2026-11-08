@@ -216,3 +216,17 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - PR #1473 ist weiterhin Draft und mergebar mit aktuellem develop (GitHub-Compare: 80 ahead, 0 behind); die alte Konfliktmeldung ist damit ueberholt.
 - Exakt-Head-Lauf [42535190815](https://github.com/mcpdev80/baseharbor/actions/runs/42535190815) **FAIL** im Job `PR · Draft focused checks` (128897829606), Grund: `gofmt -l` nennt `cmd/baha/management_remote_connection_test.go` und `cmd/baha/management_remote_mutation.go`. Andere Vollmatrix-Jobs sind in diesem Draft-Lauf SKIPPED, nicht PASS.
 - Naechste Qualifikation: beide Dateien gofmt, neuer exakter Head, Ready-PR mit vollstaendiger CI; danach echte Remote-Source-Registrierung und separater Dev-PC -> Core -> Docker-Connector -> HTTP READY/update/destroy-Nachweis. Kein Merge und keine E2E-Abnahme auf Basis des Draft-Laufs.
+
+
+## Remote source admission review 2026-11-09
+
+- PR #1473 advanced concurrently to Ready at `9f29a0066b6a04b31d62b691ffa4224d63aed5a2`; full CI [42535614007](https://github.com/mcpdev80/baseharbor/actions/runs/42535614007) in progress at inspection. Do not edit the concurrently maintained PR branch blindly or claim PASS ahead of completion.
+- Reviewed current `cmd/baha/machine_http_executor_platform.go`: `executeHTTPAppNew` invokes `development.CreateApplication` on the **Core host filesystem** using its supplied root; this creates a new generated application and is NOT an import/transfer of a repository from a developer workstation.
+- Required source-admission design: explicitly transfer/admit existing portable Application Intent and workload sources through an authenticated, target/tenant-scoped bounded API; validate source digest and canonical application ownership on the Core before mutation, reject path traversal, symlinks, foreign repository and changed digest, and retain idempotency. Reuse existing app.adopt and source inspection contracts where feasible; do not treat arbitrary local `path` as a trusted Core path. Real external host E2E still needed.
+
+## Exact-head CI after merge and terminal guards 2026-11-09
+
+- Merged/reconciled branch with current develop via SHA `82fe9120821f442332ed372958e08ba5d16df8c9`, no forced ref update; comparison verified no commits behind develop and preserved both nonlocal app dispatch and no-local-bootstrap guard.
+- Draft [CI #5376](https://github.com/mcpdev80/baseharbor/actions/runs/42535376141) failed due malformed duplicated code in `management_remote_machine.go`; repaired at `0ad30f1b2b87272a5096c3fda65a49b679e18b9e`.
+- Latest candidate `9f29a0066b6a04b31d62b691ffa4224d63aed5a2` uses typed pending execution sentinel and rejects an unverified or operation-mismatched lifecycle receipt. Fresh Ready [CI #5379](https://github.com/mcpdev80/baseharbor/actions/runs/42535614007): source-format, gofmt, Go build/vet **PASS** at last inspection; go-unit-tests and native Docker/Podman Keycloak/Core + destroy/retry still running. No final selected-check verdict yet.
+- This CI proves code-level contracts only. The existing developer repository transfer/registration and separate physical Docker-host E2E are not evidenced; keep card active and PR unmerged.
