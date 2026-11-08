@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 0 |
 | wait | 5 |
 | blocked | 0 |
-| ready | 4 |
+| ready | 5 |
 | queued | 26 |
 | waiting | 178 |
 | backlog | 7 |
@@ -53,6 +53,7 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
+| [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-destroy-retry-regression](../tasks/t-20261108-bughunt-0427-destroy-retry-regression.md) | Bug Hunt v0.4.27: 1448 macht destroy-retry rot | ready | critical | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-logs-command-gap](../tasks/t-20261108-bughunt-0427-logs-command-gap.md) | Bug Hunt v0.4.27: logs top-level ohne Pfad | ready | low | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-regression-debug-dump-consent](../tasks/t-20261108-bughunt-0427-regression-debug-dump-consent.md) | Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -61,7 +62,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 31 open, 102 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 32 open, 102 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
