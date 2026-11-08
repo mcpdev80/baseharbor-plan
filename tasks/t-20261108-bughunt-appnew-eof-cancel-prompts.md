@@ -75,3 +75,9 @@ None. Write-set: cmd/baha app new wizard prompts.
 ## CI remediation — 2026-11-08 (0427-138)
 
 - PR #1484: strict partial-line EOF cancellation retained; workspace wizard scripted fixture responses now terminate with newline (avoids false EOF) on head `24431d9f0504f712696a17883bc27ad3b68421d9`, exact-head CI run https://github.com/mcpdev80/baseharbor/actions/runs/42502959988. Keep active until terminal CI.
+
+## Verified PR #1484 merge — 2026-11-08
+
+- [PR #1484](https://github.com/mcpdev80/baseharbor/pull/1484) merged to develop as `fa355e8360497b03a40837b60ae6c88f166a8699` from exact head `24431d9f0504f712696a17883bc27ad3b68421d9`.
+- [CI #42502959988](https://github.com/mcpdev80/baseharbor/actions/runs/42502959988) = SUCCESS, including source format, gofmt, Go unit/build/vet and native Docker/Podman destroy retry. Workspace prompt fixtures updated to terminate legitimate scripted answers with newline; unterminated partial input cancels safely.
+- Keep card status under normal acceptance triage; this is not proof of unrelated Wizard or full Release E2E.
