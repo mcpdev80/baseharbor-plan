@@ -29,6 +29,7 @@ blocker: ""
     <!-- generated:card -->
     **Owner:** coord-welle5 (codex-worker, entlassen) · **Priority:** normal  
     **PR:** [baseharbor#1396](https://github.com/mcpdev80/baseharbor/pull/1396)  
+    **Needs:** [t-20261018-r27-protected-credentials](t-20261018-r27-protected-credentials.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1396)  
     <!-- /generated:card -->
 
