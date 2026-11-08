@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-121-sql-ref
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
 kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1447, mcpdev80/baseharbor#1450]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f"]
 ---
 
-- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/active #view/active #area/lifecycle #area/sql #kind/bug
+- [x] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-121-sql-ref · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-121-sql-ref  
