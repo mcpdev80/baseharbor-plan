@@ -84,3 +84,15 @@ origin	https://github.com/mcpdev80/baseharbor-plan.git (push)
 ## END
 
 END_BLOCKED 0427-133-review-r3 — KORREKTUR: production `x509.Verify` is present, but the wrong-SAN and future-validity fixtures are confounded and the alleged untrusted-CA test replaces the trust root with its signing CA. After #1464 merged, PR #1460 still skips Native Keycloak/Core; the exact R3 candidate has no hosted run and is not the current PR head.
+
+## CI refresh after initial publication
+
+The PR run completed after the initial review text was written. Exact run `42474997328` on PR head `b09db84a16cdec3e64a736a1e29c98d41d2a1ef6` is terminal success: `PR · Validation · go-unit-tests`, `PR · Native destroy retry · docker`, `PR · Native destroy retry · podman`, and `PR Selected Checks` passed. `PR · Native Keycloak/Core` remains skipped. These destroy-retry cells do not exercise the card's isolated-target bootstrap/use/activate behavior; the exact requested candidate `80895b67123c80d2b902e3f91a90d2d9e38547bd` still has no hosted run.
+
+The review verdict remains KORREKTUR: the current successful run is on a different PR SHA and does not satisfy the required native greenfield cells or correct the non-discriminating R3 negative fixtures.
+
+Pre-publication planning remote witness, exact output of `git ls-remote origin refs/heads/main`:
+
+```text
+5668be0d342403f77efe139005a8b5efd42e5ab5	refs/heads/main
+```
