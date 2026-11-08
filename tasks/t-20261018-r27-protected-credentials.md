@@ -20,7 +20,7 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: reopened-regression
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md", "https://github.com/mcpdev80/baseharbor/pull/1385"]
 ---
 
@@ -144,3 +144,8 @@ User-requested checkpoint before further fixes: `0427-047` covers **dev manageme
 Aktueller Head `4f52b177`: getrennte Coreless-Lokal-/Remote-Fail-closed-Pfade in `cmd/baha/dev_access.go` und fokussierte Regression `dev_access_authority_failure_test.go`. `cmd/baha/node.go` meldet nach `systemctl is-active` nur noch `started`, nicht fälschlich eine vom Core verifizierte Session. Die PR-CI `#5223` wurde **SKIPPED**, daher kein grüner Testnachweis.
 
 **Weiterer eigentlicher Entwickler-zu-Core-Blocker festgestellt:** `cmd/baha/use_target.go:bindExplicitSelectionToConnection` verlangt `coreinstallation.Load(targetRuntimeStateRootByName(target))` aus **lokalem** Target-State. Ein Entwicklerrechner ohne Core kann damit einen externen Core nicht regulär über `baha use` binden. Der `connection-profile/v1`-Contract existiert, ist aber kein nachgewiesener aktiver Remote-Binder. Dieses Problem ist unabhängig von Credentials/Karte 0427-047 und muss als Management-Connection-/Remote-Client-Slice mit eigener Code-/CI-E2E-Qualifikation behandelt werden. Bis dahin kein vollständig behaupteter Remote-Durchlauf und keine Freigabe von #1470.
+
+
+## Plan-validator correction — 2026-11-08
+
+- The previous `resolution: reopened-regression` was invalid on an `active` card. Reopening remains documented in the audit narrative; the resolution field is intentionally empty until a verified final acceptance. Existing owner, PRs and dependencies remain unchanged.
