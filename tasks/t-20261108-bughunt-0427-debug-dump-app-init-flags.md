@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/32ce55dd5"]
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned 
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439), [baseharbor#1442](https://github.com/mcpdev80/baseharbor/pull/1442)  
 **Source:** 

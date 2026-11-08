@@ -27,6 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
+    **Waiting:** PR \#1449 merged ebf56a09; PR \#1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158)  
     <!-- /generated:card -->
 
@@ -34,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coordinator 
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
 **Source:** 

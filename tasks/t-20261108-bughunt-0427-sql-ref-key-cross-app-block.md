@@ -27,13 +27,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
+    **Waiting:** PR \#1450 merged 8f8be71; native two-app Docker/Podman stop/down and legacy SQL reference safety still need exact SHA PASS.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coordinator 
+**Owner:** coordinator  
 **Priority:** high  
 **PRs:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
 **Source:** 
