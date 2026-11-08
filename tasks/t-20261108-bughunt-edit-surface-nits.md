@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-edit-surface"
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Each of the four: documented decision + matching regression OR fix in the existing field; the message loop terminates after at…"
 kanban_title: 0427-151 · Edit surface nits
 priority: normal
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor#1479]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42485782689", "https://github.com/mcpdev80/baseharbor/commit/b90a6e2f220e7bc90f4fe763905402cd47ee0a18"]
 ---
 - [ ] t-20261108-bughunt-edit-surface-nits · Bug Hunt v0.4.27: Edit surface nits #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
@@ -62,3 +62,13 @@ Audit 2026-11-08 (mapping): four independent symptoms; fix commits must each cit
 - Owner `chatgpt-r27-edit-surface`, Produkt-[PR #1479](https://github.com/mcpdev80/baseharbor/pull/1479) auf `develop` zur Bearbeitung BF-04/07/08/14.
 - Vorhandener Manifest-Pfad wird in einem einzigen Runtime-Init-Zweig verarbeitet, Podman-Target zeigt keine Docker-Engine, fehlende Directory-Parents werden vor Mutation abgelehnt, non-interactive Hilfetext geklärt. Gezielte Regressionstests für alle vier Befunde ergänzt.
 - Exact-head CI noch offen. Status `active`, kein Merge oder acceptance behauptet.
+
+
+## Acceptance 2026-11-08 — PR #1479
+
+- [PR #1479](https://github.com/mcpdev80/baseharbor/pull/1479) merged at `b90a6e2f220e7bc90f4fe763905402cd47ee0a18`, exact head `f7ee1fad73e928b4b6671b5f61b1b69264f5c9b6`. [CI #42485782689](https://github.com/mcpdev80/baseharbor/actions/runs/42485782689) terminal SUCCESS including Go-unit, build/vet, native Docker/Podman and focused wizard cases.
+- BF-04: documented explicit non-interactive invocation versus TTY wizard (help regression).
+- BF-07: missing/non-directory parent rejected without filesystem mutation (two regressions).
+- BF-08: Podman Target no longer collects/displays Docker-engine observation (regression).
+- BF-14: existing manifest routes directly to a single runtime configuration mode, not contract generation; branch regression.
+- Acceptance met for four bounded source defects, worker released.
