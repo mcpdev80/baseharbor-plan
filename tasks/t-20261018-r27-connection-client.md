@@ -203,3 +203,9 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - Current PR state **Draft, mergeable=false** against `develop` (compare: 79 commits ahead, 59 behind at inspection). Branch reconciliation is required; do not squash/merge by force or infer compatibility from older SHA.
 - [CI #5370](https://github.com/mcpdev80/baseharbor/actions/runs/42533302009) completed SUCCESS on older head `bc0cee720dc9bede904cc7e91d014fa31abfdc60`. The **current** head has no visible exact-head workflow result at inspection; status is not PASS.
 - Product remains partial: existing Core-registered applications can use bounded authenticated remote lifecycle; importing a pre-existing workstation repository to Core and real workstation -> Core -> Connector -> Docker HTTP READY/update/destroy are not yet proven. Card stays active, not Done.
+
+## Safe develop reconciliation 2026-11-09
+
+- #1473 reconciled without force with current develop `20902f0a6ab016fd8fe6a501751e1becc5f334dd` through a genuine two-parent merge commit `82fe9120821f442332ed372958e08ba5d16df8c9`. All 23 PR file patches were applied onto develop, existing shared native-test fixture retained unchanged. The one overlapping `app_input_resolver.go` guard was merged to preserve **both** nonlocal app dispatch and the existing fail-closed remote control-plane bootstrap guard.
+- Verified compare against develop: **ahead 80 / behind 0**, `mergeable=true` and both safety guards present. PR intentionally remains **Draft** because a fully valid remote source registration and physical E2E acceptance are outstanding.
+- Fresh exact-head [CI #5372](https://github.com/mcpdev80/baseharbor/actions/runs/42535190815) started on integrated SHA. No PASS assertion until Go/native/selected checks complete.
