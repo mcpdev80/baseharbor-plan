@@ -15,7 +15,7 @@ kanban_title: "0427-122 · destroy leaves keycloak up"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448]
+prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448, mcpdev80/baseharbor#1449]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -97,3 +97,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - [PR #1448](https://github.com/mcpdev80/baseharbor/pull/1448), Head `70d40bb35d8df865c6db51c8fa19866fdb389b71`: entfernt den nachgewiesenen falschen `compose`-Fallback aus `discoverFullDestroyTargets` fuer unregistrierte Local-Targets. Existieren noch lokale Target-State-Dateien ohne verifizierte Providerbindung, ist das ein **blockierender Eigentums-Fehler** statt ein erfundener Runtime-Adapter. Ownership-/Recovery-Zustand bleibt erhalten; kein fremder Runtime-Fallback.
 - Regression prueft explizit fehlende Target-Konfiguration, erhaltenen lokalen Zustand, keinen geratenen Provider und blockierendes `unregistered-target-runtime`. PR-CI offen. Danach noch nativer Docker/Podman-Up/Down/Destroy-Retry notwendig; **Karte active**.
+
+## 2026-11-08 Native-Develop-CI angeschlossen (ChatGPT)
+
+- [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449), Head `6343c82b48989bf3389907c638396c522ed176b3`: fuehrt vorhandenen echten `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` in den **bestehenden** GitHub-hosted Develop-Nativjobs Docker und Podman verbindlich aus. `BASEHARBOR_INSTALLATION_DESTROY_ACCEPTANCE=1`, einmaliger Test-PASS, kein SKIP/FAIL; gemeinsames CI-Skript, Impact-Selector plus Regression angepasst. Kein Self-hosted Runner und keine zusaetzliche parallele Pipeline.
+- **Nachweis noch offen:** PR-CI qualifiziert die Scriptsyntax; erst ein echter Develop-Push-Lauf mit nativen Docker+Podman-PASS auf genauem integriertem SHA zaehlt zur Abnahme. Kartenstatus `active`.
