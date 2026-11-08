@@ -176,5 +176,5 @@ Command generating both samples: `go test ./cmd/baha/ -count=1` (same host, same
 
 - BEFORE (base 9dd2f779f): [samples/baha-count1-base-9dd2f779f.txt](samples/baha-count1-base-9dd2f779f.txt) — 14 rows
 - AFTER (candidate 931b43677): [samples/baha-count1-cand-931b43677.txt](samples/baha-count1-cand-931b43677.txt) — 15 rows
-- Directly comparable: file diff between the two persisted samples is EMPTY (identical 1:1), confirming the earlier prose claim. BEFORE includes the historical failure rows listed above; AFTER shows the same rows passing list including TestPersistActiveSameKeyCollisionGuard.
+- Directly comparable: the diff between the two persisted samples is EXACTLY one added line: the new regression `TestPersistActiveSameKeyCollisionGuard` present only in AFTER (14 -> 15 rows). All other rows are 1:1 identical, which is the auditable form of the earlier prose claim.
 - Candidate SHA and hosted run unchanged (`931b43677`, CI 42445068559) — no product rerun, evidence-only per act-1430-review-r7 recipe.
