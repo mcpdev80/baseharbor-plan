@@ -110,3 +110,9 @@ DOCKER-SEITE + QUARKUS-FERTIG: Go/py/nextjs READY+single-default belegt, quarkus
 - **Mitwirkender:** ChatGPT (CI/Owner-Unterstützung). Implementiert PR [#1432](https://github.com/mcpdev80/baseharbor/pull/1432), Native Docker/Podman Matrix 8/8 auf SHA `6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b` geprüft und Kanban/Evidence aktualisiert. Der bestehende `owner` bleibt die Implementierungs-Lane; ChatGPT betreut CI-Integration/Abnahme. Status **active** bis vollständiger SINGLE-/HA-Nachweis und Merge.
 
 podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleiche direktive: greenfield/brownfield/wizards, KEIN HA, nur befundung. lane 486b2d02.
+
+
+## PR-Lifecycle-Abgleich — 2026-11-08
+
+- [PR #1429](https://github.com/mcpdev80/baseharbor/pull/1429) ist inzwischen gemergt; [PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) ist weiterhin offen auf Head `6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b`.
+- Der dokumentierte native 8/8 Docker/Podman-READY-Lauf ist nicht gleichbedeutend mit den separat geforderten SINGLE-/HA-Topologie-Nachweisen. Karte deshalb weiterhin `active`, keine Doppelarbeit durch neuen Worker und kein irrtuemlicher Mergehinweis fuer #1432.
