@@ -6,7 +6,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Namens-Zwillinge sperren alles | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new nur-anlegen ohne Init | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 | [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard-Abbruch über Prompts ungleich | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
 | [t-20261108-bughunt-appnew-name-slug-keywords](../tasks/t-20261108-bughunt-appnew-name-slug-keywords.md) | Bug Hunt v0.4.27: Namens.slugify und Keywordwall | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
