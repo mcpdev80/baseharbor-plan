@@ -110,6 +110,15 @@ e39b0004346cdfd082e34ba55d94d24757bbbd27
 
 The fix branch will be cut from this SHA (ancestor of the first commit). CI run IDs / terminal GREEN recorded after the push lands and the runner reports.
 
-## END
+END
 
-END_BLOCKED mission-132.md: fix-forward complete and unit-verified locally; TERMINAL GREEN requires the CI-hosted develop Docker+Podman acceptance gate (Owner CI scope). candidate SHA pending first commit on the fix branch.
+origin/main witness (second-to-last action, 4.6):
+
+```
+$ git ls-remote origin main
+78219e2638372ea3596f367967864a7b693ea4e4	refs/heads/main
+```
+
+origin/main ends at 78219e26 (my evidence commit, sole commit on top of 46d3cd0c / e2e0f9d0). Evidence path is on origin/main.
+
+END_BLOCKED mission-132.md: fix-root-caused and unit-verified locally (destroy/discovery suite green; the regression is a deterministic unit-level blocker). TERMINAL GREEN (develop Runtime Docker Core + Podman Core) is a CI-hosted gate (Owner CI scope) — not run here. candidate fix commit / PR / CI run IDs pending push of the fix branch.
