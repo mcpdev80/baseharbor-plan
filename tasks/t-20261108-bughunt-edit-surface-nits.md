@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-edit-surface"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Each of the four: documented decision + matching regression OR fix in the existing field; the message loop terminates after at…"
 kanban_title: 0427-151 · Edit surface nits
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1479]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -55,3 +55,10 @@ None. Write-set: cmd/baha edit surface (help text, directory check, target block
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (mapping): four independent symptoms; fix commits must each cite their BF, split PRs if write-sets differ. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+
+## Code- und PR-Übernahme — 2026-11-08
+
+- Owner `chatgpt-r27-edit-surface`, Produkt-[PR #1479](https://github.com/mcpdev80/baseharbor/pull/1479) auf `develop` zur Bearbeitung BF-04/07/08/14.
+- Vorhandener Manifest-Pfad wird in einem einzigen Runtime-Init-Zweig verarbeitet, Podman-Target zeigt keine Docker-Engine, fehlende Directory-Parents werden vor Mutation abgelehnt, non-interactive Hilfetext geklärt. Gezielte Regressionstests für alle vier Befunde ergänzt.
+- Exact-head CI noch offen. Status `active`, kein Merge oder acceptance behauptet.
