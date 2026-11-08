@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: ci-owner
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Owner implements targeted hosted native PR gate; Codeman informed, no hardware work"
+kanban_summary: ""
 kanban_title: "0427-137 · Ready-PR Native CI"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -23,7 +23,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-r27-ready-pr-native-ci-info · Ready-PR Native CI #task #release/v0-4-27 #status/active #area/ci #kind/task
+- [ ] t-20261108-r27-ready-pr-native-ci-info · Ready-PR Native CI #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+    <!-- generated:card -->
+    **Owner:** ci-owner · **Priority:** high  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** ci-owner  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Information for Codeman coordinator and workers (Owner decision, 2026-11-08)
 
