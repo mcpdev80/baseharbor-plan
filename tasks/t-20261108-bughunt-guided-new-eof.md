@@ -7,9 +7,9 @@ areas: [cli, lifecycle]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "ChatGPT (0427-170)"
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Target/provider guided creation must cancel safely on Ctrl-D or partial EOF at any prompt, without writing records or files."
 kanban_title: "0427-170 · New subwizard EOF cancel"
 priority: normal
@@ -19,10 +19,10 @@ prs: [mcpdev80/baseharbor#1496]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: [https://github.com/mcpdev80/baseharbor/pull/1496, https://github.com/mcpdev80/baseharbor/actions/runs/42513832507]
 ---
-- [ ] t-20261108-bughunt-guided-new-eof · Target/provider guided EOF cancellation #task #release/v0-4-27 #status/active #view/active #area/cli #kind/bug
+- [x] t-20261108-bughunt-guided-new-eof · Target/provider guided EOF cancellation #task #release/v0-4-27 #status/closed #view/closed #area/cli #kind/bug
 
 ## Reproduction from develop (2026-11-08)
 
@@ -45,3 +45,10 @@ evidence: []
 - `human_new.go`: preserve unchanged interactive/headless guard but delegate to tested reader-injected guided target/provider handlers. At every prompt, including confirmation, `io.EOF` cancels with no mutation. Other read errors continue to propagate.
 - `human_new_eof_test.go`: 8 target EOF/partial scenarios, 4 provider EOF/partial scenarios; asserts clean cancellation and no target config or provider files.
 - Await exact-head selected CI and final gate before accepting or closing.
+
+## Accepted and merged — 2026-11-08
+
+- [PR #1496](https://github.com/mcpdev80/baseharbor/pull/1496) squash-merged to `develop` at **`fc9ed173ddf5e3d52c5468ced7b86423daabb58a`** from exact head `bb3c05d70fc73fc00c687898abb10377d08fe9fe`.
+- [Required CI #42513832507](https://github.com/mcpdev80/baseharbor/actions/runs/42513832507) terminal **SUCCESS**: real full `go-unit-tests` (`cmd/baha` included, 574.281s), Source format, gofmt, go-build, go-vet, Workflow policy, native Docker and Podman destroy-retry, and final `PR Selected Checks` all passed. Required jobs did not skip.
+- Result: interactive target/provider child wizards return clean cancellation for an empty or unterminated EOF at every tested prompt. A partial `y` at final consent cannot mutate configuration or write a provider skeleton. Explicit non-interactive commands, remote Core, provider registration, CI workflows and security policy remain unchanged.
+- Status **closed**, resolution `accepted`, no active owner; no additional release action.
