@@ -11,7 +11,7 @@ owner: lane-w135-count2
 kanban_status: active
 kanban_lane: active
 kanban_summary: Ein sauberer go test -count=2 (ohne ambient Core) endet terminierend statt zu blockieren; der Bestätigungspfad leaket keine…
-kanban_title: "0427-135 · Wiederholtest hängt \1"
+kanban_title: "0427-135 · Wiederholtest hängt (count=2)"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
