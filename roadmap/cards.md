@@ -11,9 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 123/164 · **Blocked:** 2 · **Waiting:** 15  
+    **Accepted tasks:** 123/167 · **Blocked:** 3 · **Waiting:** 15  
     **Blocker:** [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) — audit 2026-11-08: native two-app acceptance never executed; reopen for proof run  
     **Blocker:** [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) — per act-1489-review.md: alle quellenpruefungen PASS, einzig offen ist das pflicht-tor native keycloak/core = 0427-156 domaene (owner: env-zeilen oder ausdrueck…  
+    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
