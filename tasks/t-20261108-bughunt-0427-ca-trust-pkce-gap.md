@@ -72,3 +72,9 @@ Umbrella only; write-set internal/identity + cmd/baha login/node paths + docs. S
 
 - On PR #1457 head `066fda972c4bc91d0b8a7913bcb6ecd338e9801f`, [CI #42503131808](https://github.com/mcpdev80/baseharbor/actions/runs/42503131808) has successfully executed both `PR · Native Keycloak/Core · docker` and `podman`, including the previously failing `TestControlPlaneSingleDefaultNativeRuntimeInCI` bootstrap-marker setup.
 - Native destroy retry on Docker/Podman also succeeded; full Go unit gate is still running at this check. Do not mark accepted or merge until the workflow is terminal SUCCESS.
+
+## Verified PR #1457 merge — 2026-11-08
+
+- [PR #1457](https://github.com/mcpdev80/baseharbor/pull/1457) merged to develop as `0e3a6975e2d96097c284b1f7b8042bfeed21001a` from exact head `066fda972c4bc91d0b8a7913bcb6ecd338e9801f`.
+- [CI #42503131808](https://github.com/mcpdev80/baseharbor/actions/runs/42503131808) SUCCESS: full Go unit/build/vet, docs, wizard registration, native Docker+Podman Keycloak/Core and destroy-retry, final PR Selected Checks.
+- The CA/PKCE implementation and native isolation fix are merged; do not assume the broader complete remote workstation-to-Core E2E has been accepted by this slice alone.
