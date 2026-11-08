@@ -8,33 +8,34 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w150-staleedit
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Provider-instance check on edit refresh (stale = re-resolve or report clearly); regression with a state-only app in the same…
 kanban_title: 0427-150 · Stale instance blocks edit
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1490]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-stale-provider-edit-block/round-1.md"]
 ---
-- [ ] t-20261108-bughunt-stale-provider-edit-block · Bug Hunt v0.4.27: Stale instance blocks edit #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-stale-provider-edit-block · Bug Hunt v0.4.27: Stale instance blocks edit #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w150-staleedit · **Priority:** normal  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)  
+    **PR:** [baseharbor#1490](https://github.com/mcpdev80/baseharbor/pull/1490)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-stale-provider-edit-block/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w150-staleedit  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1490](https://github.com/mcpdev80/baseharbor/pull/1490)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
