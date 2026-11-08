@@ -235,3 +235,10 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 
 - Existing accepted source pieces **already exist**: 0427-019 candidate packer [PR #1381](https://github.com/mcpdev80/baseharbor/pull/1381) and 0427-018 immutable candidate ingress [PR #1398](https://github.com/mcpdev80/baseharbor/pull/1398). Do not reimplement source packing or upload storage.
 - Remaining integration gap for 0427-023 is narrower: the freshly connected remote developer CLI must invoke those existing source/candidate boundaries, retain exact source identity, and bind the server-side registered application to the selected Core/tenant/Target before apply. Current explicit `app apply NAME` assumes Core-registered source. Physical Docker-host end-to-end proof remains required.
+
+
+## CI-Regression corrected 2026-11-09
+
+- [PR #1473](https://github.com/mcpdev80/baseharbor/pull/1473) reached Ready at `9f29a006` but [CI 42535614007](https://github.com/mcpdev80/baseharbor/actions/runs/42535614007) failed `PR · Validation · go-unit-tests`: `TestRemoteMutationArgumentsFailClosed/apply/demo---confirm-candidate-bogus` accepted a malformed digest. Format, build, vet, native Keycloak/Core Docker+Podman and native destroy-retry were green in that run.
+- Fixed `remoteMutationArgs` to require exact 64-character lowercase hex SHA-256 candidate confirmation. Test now supplies a canonical digest in the positive path; malformed `bogus` stays rejected. Commits: `10f57886` and `ec80ea74` on #1473.
+- These commits require new exact-head CI; prior green jobs are not inherited as acceptance. Remote candidate ingest/source handoff and physical workstation-to-Docker lifecycle E2E remain open. Keep card active, no merge.
