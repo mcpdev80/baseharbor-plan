@@ -28,6 +28,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- generated:card -->
     **Owner:** owner · **Priority:** normal  
     **PR:** [baseharbor#1420](https://github.com/mcpdev80/baseharbor/pull/1420)  
+    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/client-commands/round-1.md)  
     <!-- /generated:card -->
 
