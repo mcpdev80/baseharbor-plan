@@ -15,7 +15,7 @@ kanban_title: 0427-142 · Success omits next step
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1465, mcpdev80/baseharbor#1469]
+prs: [mcpdev80/baseharbor#1465, mcpdev80/baseharbor#1469, mcpdev80/baseharbor#1493]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -68,3 +68,8 @@ Audit 2026-11-08 (mapping): success-vs-error text overlap with #138 cancel path 
 - PR [#1469](https://github.com/mcpdev80/baseharbor/pull/1469) merged to `develop` as `f05d6ee2e596da73056dfd1bda64a79ebbfe6b92` (exact head `7458eca9e4990c8f7af45fecde9079da09856531`). [CI #42480609018](https://github.com/mcpdev80/baseharbor/actions/runs/42480609018) terminal SUCCESS, including Go-unit, build, vet and Docker/Podman native destroy-retry.
 - Targeted change: `promptYesNo` errors now carry structured usage guidance; verified `run` wizard emits `Next: baha app status`. Combined with #1465, headless/create-only share the same init/up guidance.
 - `review` rather than `closed`: exact end-to-end/alias user-facing output matrix for every entry point was not run in this review; the additional top-level interactive `baha new` choice error path remains a candidate for confirmation. No synthetic PASS.
+
+## Consolidated review PR #1493 — 2026-11-08
+
+- [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) exact head `7b1c01b843305a36c51600f7125f74aece5cf2cd`; [CI #42510870133](https://github.com/mcpdev80/baseharbor/actions/runs/42510870133). Added app new vs top-level new application deterministic Next-step parity and top-level interactive chooser EOF/partial EOF cancellation. Full interactive execution-modes output still requires final exact-head evidence.
+- Card intentionally remains `review` until the relevant contract is fully established by actual executed CI; no synthetic PASS or unrelated Remote smoke acceptance.
