@@ -7,15 +7,15 @@ areas: [dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "owner:chatgpt"
+kanban_status: active
+kanban_lane: active
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 kanban_title: 0427-126 · Multitarget ohne Auswahl
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1441]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,17 +26,17 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/planned #view/ready #area/dx #kind/bug
+- [ ] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** owner:chatgpt · **Priority:** normal  
+    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** owner:chatgpt  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -53,3 +53,14 @@ the three commands either apply to all targets consistently or present an explic
 ## Dependencies and file ownership
 
 Depends only on the release umbrella. Write-set per repo rules; intake evidence carries the exact repro.
+
+## 2026-11-08 Übernahme (ChatGPT)
+
+- Owner: `owner:chatgpt`; Lane: `active`.
+- Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
+- Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
+
+## 2026-11-08 Produktarbeit (ChatGPT)
+
+- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441), Head `42f50099e5267dd31093b959828fbd3e21136a65`: bei mehreren konfigurierten Targets nennt die Fehlermeldung jetzt alphabetisch alle auswaehlbaren Namen sowie die konkrete Auswahl ueber `baha target activate NAME` oder `BASEHARBOR_TARGET=NAME`.
+- Keine implizite Target-Auswahl (Fail-Closed bleibt); neuer Typed-Error-Regressionstest. PR-CI noch offen, Karte `active`.
