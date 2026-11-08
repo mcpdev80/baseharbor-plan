@@ -102,6 +102,31 @@ The active configuration's `Config.Profiles` map is keyed by name, so even the i
 - AGENTS 5.1 requires `active→review` only when the candidate is reviewable AND the CI terminal is clean. The CI is terminal but red (pre-existing). Moving to review now would assert a CI-green that isn't there; leaving it active when the fix is delivered stalls the chain on a CI-repair condition outside this lane's scope.
 - Decision requested: (a) move the card to review now and let CODEX-REVIEW run against the reviewable, SHA-fixed, evidence-backed candidate (pre-existing CI red is a separate CI-repair item), OR (b) hold the card at active until a clean full-`go test ./...` runs on a CI-repaired runner. Record the choice; this lane will not move the card without it.
 
+## OFFBOARD REPROTOCOL (owner correction 2026-11-08)
+
+The owner rejected the "pre-existing CI red ⇒ card ready" reasoning: the failing test `TestOffboardUnimplementedKindFailsClosedNoSilentMutation[/owned_grant,/connection]` lives INSIDE this lane's write-set, so the red is this lane's responsibility. Worktree protocol run:
+
+1. **Clean candidate head `be65de6d` (before r5):** `go test ./internal/accesswizard/... -run 'TestOffboardUnimplementedKindFailsClosedNoSilentMutation'` — PASS on the first run, then flaky (fails 4/6 runs). Root cause: the assertion `before[0].Name == after[0].Name` compares map-iteration order, which Go randomizes per range — a pre-existing FLAKY test, not a real mutation (my debug showed `before` byte-identical to `after`).
+2. **My head `1103f513`:** same test FAILs ~half the runs — flakiness surfaced, but still not a real regression (profile set byte-identical).
+3. **Fix (in this lane's write-set, `offboard_scope_regression_test.go`):** replaced the positional `before[0].Name == after[0].Name` check with an order-independent bag comparison (`profilesEqual` helper). Now green 15/15 runs. Full `internal/accesswizard` and `cmd/baha -run 'Access|Wizard'` suites PASS.
+
+This proves the CI red on the pushed head was (partly) this lane's own flaky test, and it is now fixed. The DB-URL / `deployment.json` environment failures remain a separate pre-existing CI-repair item (documented above as STATE).
+
+## PERSISTENT STATE BLOCK (context save ~01:35 CET, before next push)
+
+- Branch: `work/r27-access-wizard`. Current commit: `1103f5135c4a9822b00f12c89612d138d3652a14` (r5 r6).
+- Worktree: `/tmp/opencode/0427-access-r5-wt` (fresh clone of mcpdev80/baseharbor; NOT quarantined ecosystem checkout).
+- git identity: `0427-013-access-r5`.
+- NEW drift: develop moved to `f7a49e681` (#1439/#1440/#1441 merged) before next push — merge develop before next push, re-verify ancestor-rc0 (`8a3f58da9`), re-run CI on final SHA.
+- Worktree protocol already completed vs `be65de6d` (offboard repro, see above).
+- CI (run_id `128571956666`) terminal: `go-unit-tests`/`PR Selected Checks` red ONLY on pre-existing env failures (DB URL/deployment.json/runtime-executor) — reproduced on clean base. Plus one in-lane flaky test now fixed.
+- Write-set: cmd/baha/access_wizard_command.go, cmd/baha/access_wizard_persistence_test.go, internal/accesswizard/authority.go, internal/accesswizard/offboard_scope_regression_test.go (+profilesEqual), internal/accesswizard/persistence_cancel_test.go, internal/accesswizard/wizard_test.go, internal/orgconfig/profiles.go, internal/orgconfig/profiles_test.go, internal/policy/assignment.go, internal/policy/assignment_test.go.
+- Evidence: published to baseharbor-plan origin/main (blob `60cc8c68`).
+- Open steps: (a) merge develop `f7a49e681` into branch (drift), re-verify rc0 ancestor, re-run gofmt/build/vet + wizard suites; (b) amend/append commit so head reflects merged develop + flaky fix, push to `work/r27-access-wizard` (ls-remote witness); (c) record new hosted CI run-id WITHOUT rerun/.github edit; (d) await owner card-status decision on QUESTION; (e) post END 594fd2f5.
+- Rule reminders: no subagents; no .github/workflow_dispatch; one candidate per chain; evidence only in baseharbor-plan; card stays active until owner decides (no review with red gate + no 1:1 base proof).
+
+## PERSISTENT STATE BLOCK (context save 2026-11-08 ~01:05 CET)
+
 END_QUESTION 0427-access-r5: r5 fix complete — per-target profile identity keyed by (name, target) at Manager and persistence (`ProfileKey`, `NewManager`/`Create`/`Update`/`Revoke`/`ProfileMap`/`LoadProfiles`), batch all-or-nothing apply (`ResolveAssignment`/`RevokeAssignment` validate in memory, `CommitActive` persists once). Regressions cover 1/2/3 target assign, multi-target revoke, later-Target failure leaving store byte-identical, no partial write. Commit `1103f513` on `work/r27-access-wizard` atop `be65de6d` (branch merged onto develop `0fe53052`/#1438 per drift warning; own-commits-only change). gofmt/build/vet clean; orgconfig/policy/accesswizard/cmd/baha wizard suites PASS. Evidence published to baseharbor-plan origin/main (blob `f2fc8173`). CI `go-unit-tests`/`PR Selected Checks` red only on pre-existing env failures (DB URL/deployment.json), reproduced on clean base — recorded as STATE. Card→review decision requested from coordinator (owner scope).
 
 ---
