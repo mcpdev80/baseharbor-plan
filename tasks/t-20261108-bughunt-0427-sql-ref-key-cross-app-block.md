@@ -7,9 +7,9 @@ areas: [lifecycle, sql]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "coordinator"
-kanban_status: wait
-kanban_lane: wait
+owner: lane-0427-121-sql-ref
+kanban_status: active
+kanban_lane: active
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
 kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1447, mcpdev80/baseharbor#1450]
 sources: []
 blocker: ""
-wait_reason: "PR #1450 merged 8f8be71; native two-app Docker/Podman stop/down and legacy SQL reference safety still need exact SHA PASS."
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/wait #view/wait #area/lifecycle #area/sql #kind/bug
+- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/active #view/active #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** lane-0427-121-sql-ref · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
-    **Waiting:** PR \#1450 merged 8f8be71; native two-app Docker/Podman stop/down and legacy SQL reference safety still need exact SHA PASS.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coordinator  
+**Owner:** lane-0427-121-sql-ref  
 **Priority:** high  
 **PRs:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
 **Source:** 
