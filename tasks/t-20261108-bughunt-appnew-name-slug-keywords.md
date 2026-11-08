@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-appnew"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Visible normalization (note when input != result) + reject reserved keywords at the name prompt; regressions in the existing…"
 kanban_title: 0427-139 · Name reshaped silently
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1465]
 sources: []
 blocker: ""
 wait_reason: ""
