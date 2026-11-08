@@ -132,3 +132,6 @@ rootless port-publishing / healthcheck-Semantik vs. Docker).
   bereits frei (siehe Abschnitt oben). Application-readiness-Fehlenschlag als **F2** dokumentiert
   — Triage durch Owner.
 - Final: round evidence consolidated, lane release, END_STOPPED at lane `594fd2f5`.
+
+## Lane closure (coordinator takeover, §3.5)
+Lane idled at prompt twice after all deliverables were durable: round-9 published (incl. F1→card 0427-135), hosts witnessed clean by the lane itself (baha-docker 0/0 containers/volumes of this lane; baha-podman lane-clean, lock free), branch `task/r27-compose-host-isolation-wip` @ e291fba9a pushed (ls-remote verified by coordinator). cleanliness: lane objects removed, ambient core untouched. Formal END replaced by this takeover note; seat released. WIP branch remains pending integration decision under cards 0427-110/135 (no merge claimed).

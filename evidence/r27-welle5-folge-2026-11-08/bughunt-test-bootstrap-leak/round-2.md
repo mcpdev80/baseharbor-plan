@@ -9,7 +9,7 @@ Shift r27-welle5-folge-2026-11-08. Lane mission `mission-127-r2.md`, candidate b
 - Recipe (1): bind cleanup to the package/singleton lifetime — TestMain-level teardown with durable marker fail-safe; remove first-*testing.T registration and the late-registration gap; setup capture becomes explicit failure.
 - Recipe (2): wächter scoping to exactly this run's generated target/project namespaces plus explicitly derived shared subprojects; broad `bh-w169-*` filter removed; inventory errors stay fail-closed.
 - Recipe (3): durable package-coverage tests (multi-caller cleanup, panic/setup-failure paths, watcher foreign-lane exclusion, fail-closed inventory).
-- Recipe (4): CI routing OWN-BLOCK below; no workflow file touched, no rerun/dispatch triggered.
+- Recipe (4): CI routing OWN-BLOCK below; no workflow file touched, no rerun/dispatch triggered. IMPORTANT discovery: `cli-package-tests` on PRs is NOT a full package run — `scripts/validation-owner.sh` (cli-package-tests branch) executes selector groups (`^TestGuided`, named doctor tests, `./internal/application/...`, …) and none of them matches `^TestBootstrap…`. The new proofs therefore need an explicit selector entry to be CI-visible; see OWN-BLOCK item 2.
 - Push follow-up commits to the named branch, observe CI terminal on the exact candidate (4.6), publish evidence, END.
 
 ## Base attestation
@@ -57,7 +57,11 @@ $ git ls-remote origin refs/heads/develop   (drift refresh per coordinator notic
 
 ## OWN-BLOCK — CI routing (workflow files = OWNER scope, untouched here)
 
-Finding for the owner: the runtime integration suite that consumes this helper is excluded from pull-request events, so a PR run can never prove the cleanup on the exact candidate (act-1454 review finding 4; run 42443497463 confirms: only `cli-package-tests` ran).
+Two findings; the second one emerged from the actual CI logs of this very PR and matters for the AGENTS 5.3 rule "every new test must be picked up by the GitHub CI".
+
+### OWN-BLOCK 1 — runtime-integration suite excluded from PR events
+
+Finding: the runtime integration suite that consumes this helper is excluded from pull-request events, so a PR run can never prove the cleanup on the exact candidate (act-1454 review finding 4; run 42443497463 confirms: only `cli-package-tests` selector-groups ran). Note: the exact line numbers of both gates below were recorded by the reviewer at f03b12bdd and are unchanged in this branch's tree after the develop drift-merge — ci.yml:256 (`validate` gate) and ci.yml:343-349 (`runtime_integration` step), verified by grep on the candidate tree.
 
 Exact needed change in `.github/workflows/ci.yml` (base develop 07ae6c3e9):
 
@@ -91,7 +95,16 @@ Exact needed change in `.github/workflows/ci.yml` (base develop 07ae6c3e9):
 
   (Owner's choice per card intent: either execute a bounded runtime-integration subset on PRs — the recommended, strongest reading of "affected runtime-integration path in the selected PR/native job with skips rejected" — or keep the skip but make it a documented non-gate and route the exact-candidate proof through the native push branch `runtime-validation/ci/**` that DOES run `validate`.)
 - This lane's PR run must NOT be counted green for the runtime suite; nothing here was "green-recomputed".
-- Where the new coverage tests run: job `PR · Validation · cli-package-tests` (ci.yml go test selection incl. ./cmd/baha), trigger `pull_request` on develop/main. No `.github/**` change is needed for them.
+
+### OWN-BLOCK 2 — selector entry for the new package-level proofs (needed regardless of OWN-BLOCK 1)
+
+Finding: the 13 new `TestBootstrap*` proof tests in `cmd/baha/runtime_integration_cleanup_coverage_test.go` are pure-Go (no daemon required) but no PR-CI selector group matches them: `scripts/validation-owner.sh` (referenced from the `pr_validations` matrix at `.github/workflows/ci.yml:759-765`) runs selector groups like `go test ./cmd/baha -run '^TestGuided'`, named doctor tests, and per-package selections — never a plain full `go test ./cmd/baha`. Per AGENTS 5.3 ("CI must know when a new test runs") the owner should add one selector line, e.g. in the validation owner's cli-package-tests group list (file:line: `scripts/validation-owner.sh`, the `cli-package-tests)` case block):
+
+```diff
++  bootstrap-cleanup-tests) go test ./cmd/baha -run '^TestBootstrap' -count=1 ;;
+```
+
+  and include `bootstrap-cleanup-tests` in the selected PR matrix (`pr_plan` outputs, ci.yml ~:759-875) — or, simplest, extend an existing `./cmd/baha` selector to `^(TestGuided|TestBootstrap)`. `scripts/validation-owner.sh` is not under `.github/**`, but its selection contract is coupled to the Owner-scope matrix in ci.yml, so the lane files the complete change here instead of editing either side.
 
 ## Verification record
 
@@ -111,6 +124,7 @@ Exact needed change in `.github/workflows/ci.yml` (base develop 07ae6c3e9):
 ## STATE — CI runs (Eigenes-Run-Pflicht 4.6)
 
 - Candidate `c472c9530`: run 42450724467 (pull_request) terminal SUCCESS. Jobs: `PR · Source format`, `Workflow policy`, `PR · Trusted Plan`, `PR · Focused Python`, `PR · Validation · cli-gofmt`, `cli-package-tests`, `cli-vet`, `source-contracts`, `cli-build`, `PR Selected Checks` all success; `validate` (holds `runtime_integration`), `Targeted HA · docker/podman`, `PR · Native Keycloak/Core`, `PR · Exact Candidate`, `PR · Consumer Pins`, `PR · Public Contracts`, `PR · Runner Interface`, `PR · Demo Pin`, `PR · Selected Runtime`, `Release Source Preflight` skipped by design. STATE: the runtime-integration suite that consumes this helper is NOT executed on PR events (OWN-BLOCK); this run is not evidence for it and nothing was green-recomputed.
-- Final candidate `2a88c9d4f`: run 42451229448 in progress at evidence time; the terminal result is appended below before END.
+- Final candidate `8cadc33a8` (tip of PR #1454). Chain reconciliation: the four intermediate commits c472c9530/d9b26e75c/2a88c9d4f/0ffbadf0e are author-attribution artifacts of this lane's worktree identity (the worktree's committed git identity is `0427-maintenance-r3` from a parallel card's config; commit bodies carry the `Co-authored-by: w127-r2` trailer). Content-wise they are one continuous correction of this card's files; 8cadc33a8 (message authored for this card) contains the complete final state — `git diff 8cadc33a8 0ffbadf0e -- cmd/baha` is 81 lines, all intermediate experiment reversals of the structure-proof test; `0ffbadf0e` is an ancestor of `8cadc33a8`. One branch per chain held: no second branch was pushed.
+- Run 42451808132 (pull_request, head 8cadc33a8) in progress at evidence time; terminal result appended below before END.
 - `TestRuntimeProviderContractSweep` does not exist anywhere in this repository (verified with `go test -run ContractSweep ./...`: no test matched). That failing line belongs to another lane's tree and is not evidence about this candidate.
 - The local `internal/controlplaneruntime` single-test failure (`TestRunStartsTLSHealthReadinessAndProtectedAPI`) reproduces identically on the untouched `origin/develop@07ae6c3e9` baseline worktree: host flake (shared ports/state), not this change. My lane changed no file under `internal/`.
