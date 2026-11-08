@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "owner:chatgpt"
-kanban_status: active
-kanban_lane: active
-kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: "App new prints its Created/Validation success verdict only after successful Target preference registration and optional lifecycle; partial failures remain actionable."
 kanban_title: "0427-125 · App new: Erfolg plus Fehler"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -19,21 +19,21 @@ prs: [mcpdev80/baseharbor#1440]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 ---
 
 ## Outcome and acceptance
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-appnew-contradictory-exit · 0427-125 · App new meldet Erfolg plus Fehler #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
+- [x] t-20261108-bughunt-0427-appnew-contradictory-exit · 0427-125 · App new meldet Erfolg plus Fehler #task #release/v0-4-27 #status/closed #view/closed #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1440](https://github.com/mcpdev80/baseharbor/pull/1440)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
@@ -64,3 +64,9 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 
 - [PR #1440](https://github.com/mcpdev80/baseharbor/pull/1440), Head `425777028faadd7ac100e3f2dd1ef4d0cb308a5a`: `app new` meldet `Created` und `Validation: SATISFIED` erst nach erfolgreicher Target-Registrierung bzw. optionalem Lifecycle. Zuvor moegliche gleichzeitige Erfolg/Fehler-Ausgabe wird verhindert.
 - Regression stellt sicher, dass fehlgeschlagener Lifecycle kein Erfolgssignal ausgibt. PR-CI ausstehend, Karte `active`, nicht abgeschlossen.
+
+## 2026-11-08 Abnahme (ChatGPT)
+
+- [PR #1440](https://github.com/mcpdev80/baseharbor/pull/1440) **gemergt nach develop**: `1e83abd3ccd4f0b6622bde601384c628dd2cbef1`; gepruefter Head `425777028faadd7ac100e3f2dd1ef4d0cb308a5a`.
+- [CI #42429399440](https://github.com/mcpdev80/baseharbor/actions/runs/42429399440) terminal `success`, alle Jobs erfolgreich, keine Fehler; native cross-repo VM-Journey war nicht Teil dieser kleinen Bug-Abnahme.
+- **Status `closed` / accepted:** gezielter Produktfix und Regression integriert.
