@@ -53,3 +53,9 @@ The complete `gh pr diff` output for #1467 and #1468 is byte-identical; both hav
 ## END
 
 END_DONE 0427-154-duplex-review: #1468 leads but remains KORREKTUR; #1467 has identical product diff and no unique code delta.
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md` output after initial publication:
+
+```text
+100644 blob d5780435a94b90c8347bbbe60b7b5288b4d9a153	evidence/r27-welle5-folge-2026-11-08/act-1468-fate.md
+```
