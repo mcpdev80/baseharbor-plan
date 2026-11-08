@@ -96,6 +96,36 @@ Damaged-state detection will report BOTH halves of the observed BF-03 damage —
 - New tests live in `internal/deployment` and `cmd/baha`, covered by the Go unit group in `.github/workflows/` (Owner scope). No `.github/**` edit made; if the group's selection rule needs a change, report to the Coordinator per 2026-11-07 directive.
 - The `internal/deployment` package also has native-runtime tests (`*native*`), but the new network unit test is pure and CI-covered; no new runnable cell is forced (Owner choice C).
 
+## Hosted CI terminal — run 42530058011 (PR #1499, head `b68092b22`)
+
+- Run: `42530058011`, `pull_request`, head `b68092b22ffe6585f631ddea796867ec28161f34`, status `completed`, conclusion `failure`.
+- **Passing required (my changed risks):** `PR · Source format` (GREEN after the gofmt fix that resolved the prior `TestAppEditCommandChecksGoSourceFormat` failure), `PR · cli-gofmt` (GREEN), `PR · Trusted Plan`, `PR · Native impact selection`, `PR · Focused Python`, `PR · go-build` (`ok github.com/mcpdev80/baseharbor`), `PR · go-vet` (`ok`), `PR · go-unit-tests` (GREEN after gofmt — was red on the unformatted candidate, green here), `PR · deployment-package-tests` (`ok github.com/mcpdev80/baseharbor/internal/deployment`), `PR · Validation · runtime-provider-package-tests` (`ok .../internal/runtime`).
+- **Failing (STATE 0427-172, not this lane):** `PR · Native Keycloak/Core · docker` (job `128882101537`) and `PR · Native Keycloak/Core · podman` both `PASS TestKeycloakSingleNativeSQLInCI` then fail in `TestControlPlaneSingleDefaultNativeRuntimeInCI: control_plane_single_native_ci_test.go:31: prepare BaseHarbor integration trust plane: bootstrap leftover marker missing (teardown not guaranteed): open /tmp/baseharbor-ci-data-…/baseharbor-bootstrap-cleanup-pending: no such file or directory` — identical class to recipe run 42518412175. `PR Selected Checks` fails only as the aggregate of these two native gates. This lane's write-set (`cmd/baha` + `internal/deployment` + `internal/runtime`) does not touch `internal/identityprovider` or any native runtime path, so the native acceptance binary behaves identically to the base; it is a runtime-acceptance failure on the CI runner's isolated runtime, independent of this lane. No rerun or workflow edit was made (Owner scope).
+
+## Provenance
+
+- Base attestation: candidate cut from `3187cea15728143146905c7238ad6e280ca11b3e`; `git merge-base --is-ancestor 3187cea15 b68092b22` returns true.
+- One integration candidate per chain: single branch `0427-159-damagedstate`; the round-1 candidate `452be76ce` was amended (not branched) into this candidate. Branch log `3187cea15..b68092b22` lists ONLY `b68092b22`.
+- PR #1498 head `934775f6` is not an ancestor of this candidate; #1498's diff mentioned "networks" only in a comment about retained runtime state — it did not cover the absent-network case, so this is a genuine reintroduction, not a cherry-pick.
+- Product branch remote witness: `b68092b22ffe6585f631ddea796867ec28161f34	refs/heads/0427-159-damagedstate`.
+
 ## END
 
-<state>in progress</state>
+<state>in progress — CI terminal, finalizing evidence</state>
+
+---
+
+## FINAL — mission-159-r2 (0427-159 r2)
+
+- Candidate: branch `0427-159-damagedstate`, commit `b68092b22ffe6585f631ddea796867ec28161f34` (amended from `452be76ce`), pushed to `origin/0427-159-damagedstate`.
+- PR: #1499 (`fix(cmd/baha, internal/deployment): report missing workload network in damaged-state detection (BF-03 r2)`), base `develop` HEAD `20902f0a6`; mergeable.
+- CI: run `42530058011` (pull_request, head `b68092b22`), terminal `completed`. All Go gates for this lane's changed risks GREEN: `go-build`, `go-vet`, `go-unit-tests` (was red on the unformatted candidate, green after the gofmt fix; the `TestAppEditCommandChecksGoSourceFormat` source-format check is now green), `deployment-package-tests`, `runtime-provider-package-tests`, `cli-gofmt`, `Source format`. `Native destroy retry` docker+podman GREEN.
+- STATE (0427-172, external, this lane's write-set does not touch it): `Native Keycloak/Core · docker` (job `128882101537`) + `· podman` fail only in `TestControlPlaneSingleDefaultNativeRuntimeInCI` (`bootstrap leftover marker missing`) after `TestKeycloakSingleNativeSQLInCI` passes — identical class to recipe run 42518412175. `PR Selected Checks` fails solely as the aggregate of these two native gates. No rerun/workflow edit (Owner scope).
+- Local: `go build ./...` EXIT 0; `go vet ./internal/runtime/... ./internal/deployment/... ./internal/application/...` EXIT 0; targeted tests pass.
+- Smoke (VM): BLOCKED — the named smoke host `baha-podman-1` does not resolve from this session, and every reachable SSH host resolves to a `baha-runner-*` hostname, which the mission explicitly excludes as a test host. Recorded as STATE; no container/compose stack was started, so nothing to bring down.
+- Drift vs develop HEAD: candidate is 1 commit ahead of `20902f0a6`; base `3187cea15` is an ancestor of develop (clean integration).
+- ls-remote candidate: `b68092b22ffe6585f631ddea796867ec28161f34	refs/heads/0427-159-damagedstate`. Branch log `3187cea15..b68092b22` lists ONLY `b68092b22` (one integration candidate per chain).
+- Evidence on origin/main: published below.
+
+END mission-159-r2.md: BF-03 NETZ-side damage reintroduced and verified — DamagedDeploymentNamespaceScoped inspects THIS app's workload network via the InspectNetwork seam, the DamagedDeploymentError names both halves (record + network) and both recovery paths, present/not-managed networks are not fabricated and a foreign orphan is never misattributed; Go gates green, native Keycloak/Core = 0427-172 STATE, one candidate per chain, evidence published to origin/main.
+
