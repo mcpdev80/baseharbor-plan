@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Uninstall prompt shares the install path io.EOF guard: EOF = clean cancel with \"Host trust unchanged.\" and exit 0-style…"
 kanban_title: 0427-161 · Uninstall prompt EOF I/O error
 priority: normal
-depends_on: [t-20261108-bughunt-appnew-eof-cancel-prompts]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261108-bughunt-appnew-eof-cancel-prompts]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -34,7 +34,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261108-bughunt-appnew-eof-cancel-prompts](t-20261108-bughunt-appnew-eof-cancel-prompts.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-appnew-eof-cancel-prompts](t-20261108-bughunt-appnew-eof-cancel-prompts.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
