@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ChatGPT (remote bootstrap safety)
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Core bootstrap/install respects the effective or explicitly selected target; when the target cannot host the control plane, a…"
 kanban_title: 0427-167 · up installs local
 priority: high
@@ -18,19 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1492"]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Sicherheitsfix #1492 gemergt; Remote-Happy-Path bleibt separater Folgeumfang. Ausstehende Remote-Client-/Connector-Integration wird parallel in #1473 bearbeitet; diese Karte bis Scope-/Acceptance-Abgleich geparkt."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/bug
+- [ ] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/wait #view/wait #area/cli #area/remote #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (remote bootstrap safety) · **Priority:** high  
     **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  
@@ -83,3 +83,8 @@ Core bootstrap/install respects the effective or explicitly selected target; whe
 - This **does not** implement remote Core installation. The full developer-PC-to-remote-host happy path remains unverified and the E2E verdict remains FAIL until real deployment evidence exists.
 
 - CI proof for #1492: [run #5300](https://github.com/mcpdev80/baseharbor/actions/runs/42509941118), HEAD `0e1e0c4746980c2f7896d1dcf79fd98f43c1f66b`: **all selected required checks PASS**, including Docker/Podman native destroy, Go unit/build/vet and PR Selected Checks. Squash merged into develop at `171e9569d4bdea0b03faca663dc88a41e185f75f`. The full remote bootstrap capability is STILL OPEN; this receipt covers the no-local-fallback safety fix only.
+
+## Kanban-Pause 2026-11-08
+
+- Sicherheitsfix #1492 gemergt; Remote-Happy-Path bleibt separater Folgeumfang. Ausstehende Remote-Client-/Connector-Integration wird parallel in #1473 bearbeitet; diese Karte bis Scope-/Acceptance-Abgleich geparkt.
+- Status `wait` als Ressourcen-/Abnahme-Pause, **nicht** als technischer Blocker. Owner bleibt bestehen; Reaktivierung nach konkreter Uebergabe bzw. Acceptance.
