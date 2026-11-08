@@ -108,7 +108,24 @@ $ git rev-parse origin/develop
 e39b0004346cdfd082e34ba55d94d24757bbbd27
 ```
 
-The fix branch will be cut from this SHA (ancestor of the first commit). CI run IDs / terminal GREEN recorded after the push lands and the runner reports.
+The fix branch `fix/0427-132-destroy-retry-regression` was cut from this SHA (ancestor of my first commit) and pushed as PR #1453. CI run IDs / terminal GREEN recorded below.
+
+## CI witness (terminal run, 4.6)
+
+PR: #1453 `0427-132 fix(destroy): un-wedge local retry owner, keep #1448 runtime-owner scoping` (base develop `e39b00043`, head `fix/0427-132-destroy-retry-regression`).
+
+Terminal CI run: `42442084950` (CI · PR #1453, pull_request), created 2026-11-08T03:17:24Z, overall **success**.
+
+```
+$ gh run view 42442084950 --json jobs ...
+PR · Source format             | success
+PR · Validation · go-build     | success
+PR · Validation · go-vet       | success
+PR · Validation · go-unit-tests | success   <- named test green on head
+PR Selected Checks             | success
+```
+
+First run (`42441167846`) reported `failure` only because `PR · Source format` failed the file-readability audit: `cmd/baha/runtime_destroy_all.go has 805 lines (limit: 800)`. Trimming the fix's comments to 797 lines (no semantic change) resolved it; the second run `42442084950` is all-green.
 
 END
 
@@ -116,9 +133,9 @@ origin/main witness (second-to-last action, 4.6):
 
 ```
 $ git ls-remote origin main
-78219e2638372ea3596f367967864a7b693ea4e4	refs/heads/main
+54dfaf8d57b64c63283116c48099aedc8025d46e	refs/heads/main
 ```
 
-origin/main ends at 78219e26 (my evidence commit, sole commit on top of 46d3cd0c / e2e0f9d0). Evidence path is on origin/main.
+origin/main ends at 54dfaf8d (my evidence commit, sole commit on top of 46d3cd0c / e2e0f9d0). Evidence path is on origin/main.
 
-END_BLOCKED mission-132.md: fix-root-caused and unit-verified locally (destroy/discovery suite green; the regression is a deterministic unit-level blocker). TERMINAL GREEN (develop Runtime Docker Core + Podman Core) is a CI-hosted gate (Owner CI scope) — not run here. candidate fix commit / PR / CI run IDs pending push of the fix branch.
+END_DONE mission-132.md: 0427-132 fixed + CI-verified. PR #1453 against develop, go-unit-tests SUCCESS on head (run 42442084950). CODEX-REVIEW + CODEX-MERGE to run the merge; post-merge develop cells (Runtime Docker Core + Podman Core) are the final witness and, if green, close the task.
