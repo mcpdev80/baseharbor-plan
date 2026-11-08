@@ -82,3 +82,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 - [Core PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444), Head `ddb311ea6682cd72337423d7e04f68098803285e`: Destroy-Inventory erfasst `bh-<target>-core-shared` auch ohne laufende Container, statt nur ueber beobachtete Runtime-Container. Verifikation verwendet unveraendert Runtime-Owner-Grenzen.
 - Regression testet Identity-Projekt ohne laufende Container, Preview, Aufraeumen, `sharedOnly` und Schutz fremder Target-Projekte. Exact-head CI offen.
 - Finale Abnahme braucht zusaetzlich realen nativen Docker `baha up/down/destroy`-Ablauf und Status-Messung; nicht vorzeitig `closed`.
+
+## 2026-11-08 Merge-Nachweis PR #1444 (ChatGPT)
+
+- **Inventory-Fix fuer Core-eigenes Keycloak-Projekt:** [PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444) nach `develop` gemergt, Merge-SHA `ab8c16158372bc927f67bb4ee64b6ab98e7626ad`; [exact-head CI #42430589361](https://github.com/mcpdev80/baseharbor/actions/runs/42430589361) terminal `success`, keine fehlgeschlagenen Jobs.
+- **Karte bleibt `active`**: echte native Docker-/Podman-End-to-End-Abnahme des urspruenglichen Bugs steht noch aus. Der gemergte Teilfix ersetzt diese nicht.
