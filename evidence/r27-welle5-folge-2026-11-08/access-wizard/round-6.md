@@ -85,7 +85,6 @@ PR#1448 — falls der PR-Validation-Lauf genau `TestInstallationDestroyCurrentCh
 es die Basis, nicht dieser Diff; bisher zeigt der lauf dieses Muster nicht.
 
 ## Reviews, Checks, Kandidat
-
 - Fokussiert: `go test ./cmd/baha -run TestAccess` PASS; `go test ./internal/orgconfig/... ./internal/accesswizard/...` PASS (r3 cancel, r4 fail-closed offboarding, multi-target-Persistenz unveraendert gruen).
 - `go build ./...` PASS, `gofmt -l` leer fuer die beiden Aenderungsdateien, `go vet` (orgconfig/accesswizard/cmd-Build) sauber.
 - Kandidat: PR #1430 head = `9dd2f779fa2445257d4f7f3c99a43b1245493818`
