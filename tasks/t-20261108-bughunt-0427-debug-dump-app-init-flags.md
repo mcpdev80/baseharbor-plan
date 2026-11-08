@@ -7,9 +7,9 @@ areas: [dx, lifecycle]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "owner:chatgpt"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 are fixed: (1) baha up without --confirm-candidate…"
 kanban_title: 0427-120 · CLI Debug-Dump und app-init
 priority: normal
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/planned #view/ready #area/dx #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** owner:chatgpt · **Priority:** normal  
+    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** owner:chatgpt  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -73,3 +73,9 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - Source: bug-hunt session 2026-11-07, binary 0.4.23-develop (8a3f58da9, own build), Docker 29.6.0 rootless, Ubuntu 26.04.1.
 - Reports: `~/dev/Tests/Baha-Bug-01-debug-dump-in-produktion-pfad.md` (repro 4x, source anchor `deployment_record.go:523-526` with verbatim dump) and `~/dev/Tests/Baha-Bug-02-app-init-flags-usage.md` (repro 3x, v0.4.23-vs-develop regression countercheck).
 - Repro trigger for the dump requires NO manifest on disk (first candidate submission); with a manifest the refusal happens later in the impact stage without a dump (documented in the report).
+
+## 2026-11-08 Übernahme (ChatGPT)
+
+- Owner: `owner:chatgpt`; Lane: `active`.
+- Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
+- Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
