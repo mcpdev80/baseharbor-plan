@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 3 |
 | wait | 4 |
 | blocked | 1 |
-| ready | 7 |
+| ready | 6 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -32,6 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | active | high | lane-w134-capkce-r6 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457) |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
 | [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | active | normal | lane-w130-upalias-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
+| [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Duplicate names lock all | active | normal | lane-w149-nameid | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475) |
 | [t-20261108-bughunt-docker-netpool-exhaustion](../tasks/t-20261108-bughunt-docker-netpool-exhaustion.md) | Bug Hunt v0.4.27: No advice on pool error | active | normal | chatgpt-r27-network-hint | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1477](https://github.com/mcpdev80/baseharbor/pull/1477) |
 | [t-20261108-bughunt-needs-tui-display-nav](../tasks/t-20261108-bughunt-needs-tui-display-nav.md) | Bug Hunt v0.4.27: TUI rows break silently | active | normal | chatgpt-r27-needs-tui | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1476](https://github.com/mcpdev80/baseharbor/pull/1476) |
 | [t-20261108-bughunt-openbao-stale-manager-cred](../tasks/t-20261108-bughunt-openbao-stale-manager-cred.md) | Bug Hunt v0.4.27: Stale cred blocks rebirth | active | normal | lane-w154-baocred-b | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468) |
@@ -64,7 +65,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Duplicate names lock all | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-edit-surface-nits](../tasks/t-20261108-bughunt-edit-surface-nits.md) | Bug Hunt v0.4.27: Edit surface nits | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-local-access-singleton](../tasks/t-20261108-bughunt-local-access-singleton.md) | Bug Hunt v0.4.27: One host, one local access | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
