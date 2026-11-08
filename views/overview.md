@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 2 |
+| active | 9 |
+| review | 1 |
 | wait | 4 |
 | blocked | 0 |
 | ready | 15 |
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | active | high | lane-w134-capkce-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457) |
 | [t-20261108-bughunt-0427-destroy-retry-regression](../tasks/t-20261108-bughunt-0427-destroy-retry-regression.md) | Bug Hunt v0.4.27: 1448 macht destroy-retry rot | active | critical | lane-w132-nativeaccept-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453) |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r4 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
+| [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | active | normal | pending-lane-0427-130-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
 
 ## Ready for review
@@ -38,7 +39,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | review | normal | lane-w127-bootleak-r4 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
-| [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | review | normal | lane-w130-upalias-r4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
 
 ## Waiting for resources
 
