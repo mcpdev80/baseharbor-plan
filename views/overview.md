@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 0 |
+| active | 10 |
+| review | 1 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 7 |
+| ready | 4 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -26,16 +26,20 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | active | not set | lane-0427-003-podman2-bughunt | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432) |
 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | Access: guide profile assignment and deliberate offboarding | active | normal | lane-0427-013-access-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433) |
-| [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md) | CLI: submit maintenance operations without workstation path assumptions | active | normal | lane-0427-034-maintenance-r6 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428) |
 | [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Nodes: finish guided add connect status and disconnect | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1427](https://github.com/mcpdev80/baseharbor/pull/1427), [baseharbor#1436](https://github.com/mcpdev80/baseharbor/pull/1436), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438) |
 | [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md) | Onboarding: attach a workstation with minimal questions | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261018-r27-secure-export](../tasks/t-20261018-r27-secure-export.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1435](https://github.com/mcpdev80/baseharbor/pull/1435), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438) |
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | active | high | lane-0427-107-docker2-bughunt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261106-r27-remote-up-cli-path](../tasks/t-20261106-r27-remote-up-cli-path.md) | Remote app up: CLI start path for provider-bound remote apps | active | normal | chatgpt-0427-116 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](../tasks/t-20261104-r27-vm-smoke-docker-podman.md) | [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438) |
+| [t-20261108-bughunt-0427-appnew-contradictory-exit](../tasks/t-20261108-bughunt-0427-appnew-contradictory-exit.md) | 0427-125 · App new meldet Erfolg plus Fehler | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1440](https://github.com/mcpdev80/baseharbor/pull/1440) |
+| [t-20261108-bughunt-0427-debug-dump-app-init-flags](../tasks/t-20261108-bughunt-0427-debug-dump-app-init-flags.md) | Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439) |
+| [t-20261108-bughunt-0427-multitarget-ambiguity](../tasks/t-20261108-bughunt-0427-multitarget-ambiguity.md) | 0427-126 · init-status-doctor bei mehreren Targets | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441) |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md) | CLI: submit maintenance operations without workstation path assumptions | review | normal | lane-0427-034-maintenance-r6 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428) |
 
 ## Waiting for resources
 
@@ -51,10 +55,7 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-0427-appnew-contradictory-exit](../tasks/t-20261108-bughunt-0427-appnew-contradictory-exit.md) | 0427-125 · App new meldet Erfolg plus Fehler | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-core-destroy-keycloak-orphan](../tasks/t-20261108-bughunt-0427-core-destroy-keycloak-orphan.md) | Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-0427-debug-dump-app-init-flags](../tasks/t-20261108-bughunt-0427-debug-dump-app-init-flags.md) | Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-0427-multitarget-ambiguity](../tasks/t-20261108-bughunt-0427-multitarget-ambiguity.md) | 0427-126 · init-status-doctor bei mehreren Targets | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) | Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | 0427-124 · BASEHARBOR_TARGET wird ignoriert | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |

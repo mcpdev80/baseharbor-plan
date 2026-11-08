@@ -29,7 +29,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 - [ ] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
-    **In progress** · owner:chatgpt  
+    **PR:** [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -38,7 +38,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441)  
 **Source:** 
 <!-- /generated:links -->
 

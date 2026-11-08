@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: lane-0427-034-maintenance-r6
-kanban_lane: active
+kanban_lane: review
 kanban_summary: Route update/backup/restore/destroy through the selected authority and existing lifecycle/consent owners. Archive…
-kanban_status: active
+kanban_status: review
 kanban_title: "0427-034 · submit maintenance operations"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-client-commands, t-20261018-r27-state-recovery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -26,14 +26,14 @@ wait_reason: ""
 
 ---
 
-- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-maintenance-client · CLI: submit maintenance operations without workstation path assumptions #task #release/v0-4-27 #status/review #view/review #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-034-maintenance-r6 · **Priority:** normal  
     **PR:** [baseharbor#1428](https://github.com/mcpdev80/baseharbor/pull/1428)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
