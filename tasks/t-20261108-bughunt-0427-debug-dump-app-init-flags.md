@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/32ce55dd5"]
 ---
 
 - [x] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439), [baseharbor#1442](https://github.com/mcpdev80/baseharbor/pull/1442)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/32ce55dd5)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
