@@ -15,7 +15,7 @@ kanban_title: 0427-121 · phantom SQL key blocks down
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1447]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -86,3 +86,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 - Aktuelle `internal/application/manifest_validation.go` validiert bereits jede mit `SQLInstanceNames` deklarierte Instanz ueber `validateSlug("SQL instance name", name)`; der Name `/` ist kein gueltiger Slug und darf bei `ValidateIntent` nicht als neuer authored SQL-Instanzname durchgehen. Die alte `SQLInstanceReferences`-Struktur existiert aktuell nicht mehr im Produkt-Quellbaum. Der gemeldete `"/"`-Key stammt wahrscheinlich aus einem alten/persistierten Intent oder einer anderen Projektion, nicht automatisch aus dem aktuellen Authoring-Writer.
 - **Kein Codefix ohne Repro:** bereits gespeicherte Records muessen auf Owner, Provider-Instanz und Abhaengigkeiten untersucht werden; shared-last-consumer-Sicherheit bleibt fail-closed, wenn die Zuordnung unbekannt ist.
+
+## 2026-11-08 SQL-Phantom-Guard (ChatGPT)
+
+- [PR #1447](https://github.com/mcpdev80/baseharbor/pull/1447), Head `44cb45784774656fb75aaa32c6510dbb3c362c41`: aktueller Portable-Intent-Test weist SQL-Instanzschluessel `/` fail-closed ab und prueft gueltigen `primary`-Roundtrip. Exakte PR-CI offen.
+- Die alte Registry-/Deployment-Projektion `SQLInstanceReferences` kommt in der aktuellen Source nicht mehr vor. **Dieser Test allein behebt keinen historischen fehlerhaften Fremd-App-Record**; daher Karte weiterhin `active`, Zwei-App-Repro und owner-sichere Bereinigung erforderlich.
