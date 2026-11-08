@@ -57,6 +57,7 @@ Der native Test `TestRepositoryComposePinnedWorkloadLifecycleInCI` ist auf `BASE
 - Run `42455350913`: `headSha=48814ecc5e8603f16f4849249fffc9b0c8abd7ab`, `status=completed`, `conclusion=failure`. `PR · Validation · go-unit-tests` und `PR Selected Checks` failure; `validate`, `Targeted HA · docker` und `Targeted HA · podman` skipped.
 - Die r4-Planungsakte wurde aus Commit `3e7876664c115da345b7e828a2f72f960078882a` gelesen. Der aktuelle Planning-Remote-Stand wurde separat frisch geholt und ist inzwischen weitergelaufen.
 - Veröffentlichung vor dem END: `git ls-remote origin refs/heads/main` ergab exakt `a6f95079351a1c49c5212746a80fa84228e03414 refs/heads/main`; `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/act-1452-review-r4.md` ergab exakt `100644 blob f2b751d94bf8772e9d85879f46300d2562b5c026 evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/act-1452-review-r4.md`.
+- Nach dem Witness-Update: `git ls-remote origin refs/heads/main` ergab exakt `6ec988df01712ac4c8c36948fa92b47760aa304b refs/heads/main`; `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/act-1452-review-r4.md` ergab exakt `100644 blob 1330823113bdee6d823a6e72b36bdef91d8a6afd evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/act-1452-review-r4.md`.
 - Review-only: keine Produktdatei geändert, kein Test lokal gestartet, keine Workflow-Datei verändert, kein Rerun/Dispatch und keine Containeroperation ausgeführt.
 
 ## Stop-Kriterium
