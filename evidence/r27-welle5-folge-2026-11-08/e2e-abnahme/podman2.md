@@ -72,7 +72,11 @@ Belege je karte in evidence/r27-welle5-folge-2026-11-08/bughunt-sql-ref-key/roun
 plan(0427-12x)-commits. 120/121/122 als done attestiert.
 
 ## HOST-CLEANLINESS (FINAL)
-- demoapp-containeren: 0 (gestoppt + entfernt).
+- demoapp-containeren: 0 (gestoppt + entfernt). Die managed exposure-route
+  (demoapp-dev-baseharbor-internal-exposure-web) wird vom laufenden core-gateway
+  erneut angelegt; jedes rm wird durch den gateway wiederhergestellt. Daher:
+  demoapp-cont = 0 nach jedem rm, aber nicht stabil — der full-reset (destroy)
+  haette die exposure-route mitfreigegeben (consent-gate blockte dies ueber SSH).
 - Core-instanz keycloak/openbao/postgres/gateway lief noch als managed installation;
   destroy-CLI blockt an consent-gate (nicht ueber SSH durchspielbar).
 - ambient-volumes erhalten (build-baseline).
