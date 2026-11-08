@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "chatgpt-r27-eof"
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "A single cancel path: EOF/Ctrl-D at every prompt = clean cancel with no side effects; regression in the cli-surface group."
 kanban_title: 0427-138 · Wizard cancel uneven
 priority: normal
@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42481515062", "https://github.com/mcpdev80/baseharbor/commit/f5abba4219cb65ef16d655ac03b95eab008bc172"]
 ---
 - [ ] t-20261108-bughunt-appnew-eof-cancel-prompts · Bug Hunt v0.4.27: Wizard cancel is uneven #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
@@ -58,3 +58,9 @@ None. Write-set: cmd/baha app new wizard prompts.
 
 - Claimed for [PR #1471](https://github.com/mcpdev80/baseharbor/pull/1471): top-level `baha new` EOF cancellation now has a single clean return, and early app-new name/location/stack EOF regressions verify no project creation. Existing pre-consent cancellation test retained.
 - Exact PR CI is pending; card remains `active` until full prompt matrix and acceptance. No conflicting worker claim.
+
+
+## Merge and acceptance handoff — 2026-11-08
+
+- [PR #1471](https://github.com/mcpdev80/baseharbor/pull/1471) merged at `f5abba4219cb65ef16d655ac03b95eab008bc172`, exact head `4c809b1937dafc210a36b67585e56910390bee55`; [CI #42481515062](https://github.com/mcpdev80/baseharbor/actions/runs/42481515062) terminal SUCCESS, including Go-unit, native Docker/Podman and selected checks.
+- Name/location/stack-entry EOF and existing pre-consent EOF regressions pass; top-level interactive `baha new` now interprets EOF as clean cancellation. **Full all-prompts matrix not yet proven.** Move to `review` with Owner retained; no acceptance/closed assertion before remaining modes and needs-list inputs are checked.
