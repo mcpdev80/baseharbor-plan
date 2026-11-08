@@ -19,6 +19,7 @@ prs: [mcpdev80/baseharbor#1441]
 sources: []
 blocker: ""
 wait_reason: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/f7a49e681"]
 resolution: accepted
 ---
 
@@ -30,6 +31,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/f7a49e681)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
