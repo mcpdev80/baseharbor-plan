@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
-| review | 2 |
+| active | 7 |
+| review | 1 |
 | wait | 4 |
 | blocked | 0 |
 | ready | 3 |
@@ -30,13 +30,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | active | high | lane-0427-134-capkce | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-container-name-replica](../tasks/t-20261108-bughunt-0427-container-name-replica.md) | Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) | active | normal | lane-0427-128-contname-r3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1452](https://github.com/mcpdev80/baseharbor/pull/1452) |
 | [t-20261108-bughunt-0427-destroy-retry-regression](../tasks/t-20261108-bughunt-0427-destroy-retry-regression.md) | Bug Hunt v0.4.27: 1448 macht destroy-retry rot | active | critical | lane-0427-132-destroyretry-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453) |
+| [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | active | normal | lane-0427-127-bootleak-r2 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | Access: guide profile assignment and deliberate offboarding | review | normal | lane-0427-013-access-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](../tasks/t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](../tasks/t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](../tasks/t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433) |
-| [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | review | normal | lane-0427-127-bootleak | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 
 ## Waiting for resources
 
