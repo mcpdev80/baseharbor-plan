@@ -48,6 +48,14 @@
 - Evidence is stored only in baseharbor-plan. No compose project was started.
 - `python3 scripts/plan.py check` on the fetched planning main reported 25 existing errors and 3 warnings, including stale generated views and lifecycle metadata in unrelated cards (`t-20261018-r27-connection-client`, `t-20261018-r27-protected-credentials`, `t-20261108-bughunt-list-target-failclosed`, `t-20261108-bughunt-quickinit-failure-explain`, and other generated views). I did not render or edit those unrelated files. The review act is being published as the specifically authorized evidence update only.
 
+## Planning publication witness
+
+Exact `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/act-1467-review.md` output after the initial publication:
+
+```text
+100644 blob cad0b53e367c305a24ebec45d8ec278759861c6c	evidence/r27-welle5-folge-2026-11-08/act-1467-review.md
+```
+
 ## END
 
 END_DONE 0427-154-review: KORREKTUR for PR #1467 head `2d929127c343094234f07581c9fdfa9083fdb224`; the act is published on baseharbor-plan origin/main.
