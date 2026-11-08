@@ -1,41 +1,37 @@
-# 0427-128 — round-2 (formal): gofmt correction on PR #1452, CI now green at head
+# 0427-128 r2 — gofmt correction on PR #1452
 
-**Task:** `t-20261108-bughunt-0427-container-name-replica` (card 0427-128)
-**Mission:** mission-128-r2.md (KORREKTURrunde formal, per act-1452-review.md)
-**Lane/session:** worker-flash, this session
-**Candidate:** PR #1452, branch `bughunt/0427-128-container-name-replica`, head `978503376c34e447fc0f82451c35b43fb9fa8fd5`
+Lane: mission-128-r2.md (0427-128 r2 KORREKTURRUNDE, formal only)
+Candidate: PR #1452 branch `bughunt/0427-128-container-name-replica`, head `978503376c34e447fc0f82451c35b43fb9fa8fd5`
+Task: `t-20261108-bughunt-0427-container-name-replica` (card 0427-128)
 
 ## PLAN
 
-1. Verify PR #1452 head and branch name (`gh pr view 1452`). — done, see STATE below
-2. Worktree: existing lane worktree `/tmp/opencode/0427-128-contname-wt` was up-to-date with remote branch head; no fresh worktree needed (the mission allowed either). — done
-3. gofmt: `internal/runtime/container_identity_test.go` is gofmt-clean at head; the other diff-touched files (`container_identity.go`, `service_stop.go`) are also clean. — done, no new commit needed (see attribution)
-4. Drift check: branch contains a merge of `origin/develop` at `e39b00043`, which is the current remote develop tip. — done
-5. Push: nothing to push; remote head is exactly `978503376`. — done (ls-remote witness)
-6. Observe the hosted run to terminal state. — done, run `42440204879` conclusion `success`, all required PR checks terminal (witness below)
-7. Evidence on baseharbor-plan origin/main + END post. — this file
+1. Verify PR #1452 head and branch name via `gh pr view 1452`.
+2. Use the existing 128-lane worktree `/tmp/opencode/0427-128-contname-wt` on the candidate branch (same chain, no new branch).
+3. Ensure `internal/runtime/container_identity_test.go` is gofmt-clean; `gofmt -l` empty on all diff-touched files.
+4. Drift check against current `origin/develop` head.
+5. Push only if a correction commit is needed (normal follow-up, no rebase/force).
+6. Observe the PR run to terminal state (self-run duty AGENTS 4.6).
+7. Evidence in baseharbor-plan on origin/main, END post.
 
-## STATE: remote truth witnesses
+## Reality witnesses
 
-Planning repo verification (`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v`):
+Planning repo verification (before first evidence commit):
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v` →
+`origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch/push)`
 
-```text
-origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
-origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
-```
-
-Product repo remote refs (`git ls-remote origin`, from `/home/marcel/dev/baseharbor-ecosystem/baseharbor`):
+Remote refs fetched fresh via `git ls-remote` from the worktree's real product remote:
 
 ```text
-978503376c34e447fc0f82451c35b43fb9fa8fd5  refs/heads/bughunt/0427-128-container-name-replica
-e39b0004346cdfd082e34ba55d94d24757bbbd27  refs/heads/develop
+978503376c34e447fc0f82451c35b43fb9fa8fd5	refs/heads/bughunt/0427-128-container-name-replica
+e39b0004346cdfd082e34ba55d94d24757bbbd27	refs/heads/develop
 ```
 
-`gh pr view 1452` reports head `978503376c34e447fc0f82451c35b43fb9fa8fd5`, state OPEN, mergeable CLEAN/MERGEABLE.
+`gh pr view 1452`: head `978503376…`, state OPEN, mergeable CLEAN/MERGEABLE.
 
-Ancestry (`git merge-base --is-ancestor`): develop at `e39b00043` IS an ancestor of `978503376` (via merge commit `c551fcd01`). No second branch was created; work continues on the named candidate branch only.
-
-Diff files (`git diff e39b00043...978503376 --name-only`):
+- Base attestation: the chain descends from `develop` at `e39b0004346cdfd082e34ba55d94d24757bbbd27`; ancestry verified with `git merge-base --is-ancestor e39b00043 978503376` → OK. No second branch was created; work stays on the named candidate branch (AGENTS 3.8).
+- Drift: `e39b00043` (current develop tip) is already merged into the branch at `c551fcd01`. No further merge needed.
+- Diff files `git diff e39b00043...978503376 --name-only`:
 
 ```text
 internal/runtime/container_identity.go
@@ -43,7 +39,7 @@ internal/runtime/container_identity_test.go
 internal/runtime/service_stop.go
 ```
 
-Log (`git log --oneline origin/develop..HEAD`):
+- Log line `git log --oneline origin/develop..HEAD`:
 
 ```text
 978503376 style(runtime): gofmt container_identity_test.go
@@ -51,67 +47,67 @@ c551fcd01 Merge remote-tracking branch 'origin/develop' into bughunt/0427-128-co
 a96b4e218 fix(runtime): accept pinned container_name in quiesce identity check
 ```
 
-## What happened (attribution finding)
+## State at lane start (attribution)
 
-Between the review note (written at old head `c551fcd01`) and this lane's start, a
-follow-up commit `978503376` ("style(runtime): gofmt container_identity_test.go",
-author identity `0427-maintenance-r3`) landed on the SAME candidate branch — the one
-normal follow-up commit this mission called for. This lane therefore had nothing
-further to commit or push; it verified the result instead of duplicating it
-(one candidate per chain, AGENTS 3.8). The commit is NOT this session's work;
-its authorship is noted here so acceptance can trace it.
+The mission's required correction — the normal follow-up commit `978503376`
+("style(runtime): gofmt container_identity_test.go", author identity
+`0427-maintenance-r3`, timestamped before this session began) — had already
+landed on the same candidate branch when this lane started. This lane therefore
+performed full independent verification of the correction rather than creating a
+duplicate commit or a competing candidate (one candidate per chain).
+`978503376` is not this session's work; it is the chain's own follow-up.
 
-### Format verification (bitwise, neutral path)
+## Format verification (bitwise, neutral path)
 
-- Fetched the file blob for both heads from the GitHub API (`/repos/mcpdev80/baseharbor/contents/internal/runtime/container_identity_test.go?ref=<sha>`).
-- `c551fcd01` blob: object `673eb2a8e7d9ba2ea9478520de62e9b4a9ed6a88`, sha256 `f87b25f136fd7d4f…` → `gofmt -l` reports it (misaligned struct-literal fields, trailing blank line). This is the file the review flagged.
-- `978503376` blob: object `3d16979daf909046ad3c728d58216c325bf027ae`, sha256 `53abba123b01d4ab5e90f7094bf12ef592f34c9f611701d0bb9dedfae3f2dad7` → `gofmt -l` clean.
-- Running `gofmt` on the exact `c551fcd01` content reproduces the `978503376` content byte-for-byte (identical sha256). The change is pure format: 10 insertions / 11 deletions, all in `container_identity_test.go`; `container_identity.go` and `service_stop.go` are untouched by the style commit and still gofmt-clean.
-- Local toolchain check: `go build ./...` clean, `go test ./internal/runtime/ -run 'Quiesce|Identity' -count=1` → ok. (No behavioural change to test further; CI already runs the group.)
+- Fetched the file blob for both heads via the GitHub API
+  (`/repos/mcpdev80/baseharbor/contents/internal/runtime/container_identity_test.go?ref=<sha>`).
+- `c551fcd01` blob: git object `673eb2a8e7d9ba2ea9478520de62e9b4a9ed6a88`, sha256 `f87b25f136fd7d4f…` → `gofmt -l` lists it (misaligned struct-literal fields, trailing blank line). This is the file act-1452-review.md flagged.
+- `978503376` blob: git object `3d16979daf909046ad3c728d58216c325bf027ae`, sha256 `53abba123b01d4ab5e90f7094bf12ef592f34c9f611701d0bb9dedfae3f2dad7` → `gofmt -l` clean.
+- Running `gofmt` on the exact `c551fcd01` content reproduces the `978503376` content byte-for-byte (identical sha256). The style commit touches ONLY `container_identity_test.go` (10 insertions / 11 deletions, whitespace only); `container_identity.go` and `service_stop.go` are untouched by it and remain gofmt-clean.
+- Local checks on head: `go build ./...` OK; `go test ./internal/runtime/ -run 'Quiesce|Identity' -count=1` → ok (go1.26.8 host toolchain).
 
-## Hosted run (self-run observation, AGENTS 4.6)
+## Hosted CI (observed to terminal, AGENTS 4.6)
 
-The push that set head `978503376` was not made by this session; this session
-observed the run it started to its terminal state (watch from pending → success):
-
-- Run: `42440204879` (PR #1452, head `978503376c34e447fc0f82451c35b43fb9fa8fd5`), watched via `gh run watch`, final `gh run view` conclusion: **success**.
-- Job outcomes on the exact head (`gh pr checks 1452`):
+Exact head `978503376c34e447fc0f82451c35b43fb9fa8fd5`, run `42440204879` (started by the normal PR push; no manual rerun or dispatch). This session watched it from pending to the terminal state (`gh run watch`, then `gh run view` / `gh pr checks`):
 
 ```text
 Workflow policy                pass
-PR · Source format             pass     <- the gate that failed at c551fcd01
+PR · Source format             pass   <- the gate that failed at c551fcd01
 PR · Trusted Plan              pass
-PR Selected Checks             pass     <- also failing in the review STATE, now pass
+PR Selected Checks             pass   <- also failing in the review STATE, now pass
 PR · Focused Python            pass
 PR · Validation · cli-build    pass
-PR · Validation · cli-vet      pass
-PR · Validation · source-contracts           pass
 PR · Validation · cli-guided-tests           pass
+PR · Validation · cli-vet                    pass
 PR · Validation · runtime-provider-package-tests pass
-Targeted HA · docker / podman, validate, Release Source Preflight, Demo Pin,
-Exact Candidate, Consumer Pins, Runner Interface, Public Contracts,
-Selected Runtime, Native Keycloak/Core: skipped (not selected for this path)
+PR · Validation · source-contracts           pass
 ```
 
-- The review's stop criterion ("terminal green `PR · Source format` and `PR Selected Checks` on the exact new PR head") is met at `978503376`. The suspended content review (act-1452-review.md) can now resume against this head.
+Unrelated matrix cells (Targeted HA docker/podman, validate, Release Source
+Preflight, Demo Pin, Exact Candidate, Consumer Pins, Runner Interface, Public
+Contracts, Selected Runtime, Native Keycloak/Core) report `skipping` for this
+head, as expected for selected checks. Run conclusion: `success`.
 
-## CI pickup for tests (no new tests added this round)
+The review's stop criterion (act-1452-review.md: terminal green `PR · Source
+format` and `PR Selected Checks` on the exact new head) is met at `978503376`;
+the suspended content review can resume against this head.
 
-`internal/runtime/container_identity_test.go` is run by GitHub CI through the
-existing selection: `PR · Source format` (gofmt on diff-touched `.go` files,
-`.github/workflows/ci.yml` `source_format` job, trigger: `pull_request` against
-develop) and the Go test group in `PR · Validation` jobs. Trigger rule unchanged;
-no `.github/**` edit needed this round.
+## CI pickup for tests
+
+No new tests this round. `internal/runtime/container_identity_test.go` is
+covered by GitHub CI through existing selection: the `source_format` job
+(`PR · Source format`, `.github/workflows/ci.yml`, trigger: `pull_request`
+against `develop`) runs `gofmt -l` over diff-touched `.go` files, and the Go
+test group runs it inside `PR · Validation` jobs. No `.github/**` change needed.
 
 ## repo-rule compliance
 
-- Scope: format-only per mission ("KEINE inhaltlichen aenderungen — nur format"). This session made zero product-repo edits and zero pushes; verification only.
-- No `.github/**` edits, no reruns, no workflow_dispatch (all gates already terminal from the normal PR push).
-- No subagents (AGENTS 4.8). No containers started anywhere (this round needed none; no VM smoke named in the mission).
-- One candidate per chain: no new branch, no extra branch to delete.
-- Evidence lives only in baseharbor-plan; no writes to any product repo.
-- Note: an untracked file `conformance/provider/v1/testdata/external/go.sum` exists in the shared worktree from earlier lane work; left untouched, reported here.
+- Scope: format-only per mission ("KEINE inhaltlichen aenderungen — nur format"). Zero product-repo edits and zero pushes by this session; verification of the existing chain follow-up.
+- No `.github/**` edits; no reruns, no workflow_dispatch.
+- No subagents (AGENTS 4.8); all steps in this session.
+- No containers/compose projects started (no VM smoke named in this mission); nothing to bring down.
+- Evidence lives only in baseharbor-plan (no `.evidence/`, no product-repo planning acts).
+- Observation (left untouched, other lanes' work): uncommitted modification of `evidence/.../bughunt-test-bootstrap-leak/round-1.md` present in the shared planning checkout at lane start; untracked `conformance/provider/v1/testdata/external/go.sum` present in the shared product worktree.
+- This file previously held a parallel r2 record from another session on the same mission; that content is preserved in this file's git history.
 
-## End state
-
-END mission-128-r2.md: DONE — PR #1452 head 978503376c34e447fc0f82451c35b43fb9fa8fd5, gofmt gate and PR Selected Checks terminal green in run 42440204879; no new commit by this lane (style commit 978503376 predates this session, attribution above).
+END_DONE mission-128-r2.md: verified; PR #1452 head 978503376c34e447fc0f82451c35b43fb9fa8fd5 gofmt-clean, `PR · Source format` + `PR Selected Checks` terminal green in run 42440204879; no duplicate commit by this lane (see attribution).
