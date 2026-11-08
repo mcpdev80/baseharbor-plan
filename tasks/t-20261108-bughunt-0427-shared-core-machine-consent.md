@@ -69,3 +69,8 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 - In `cmd/baha/app_machine_adapters.go` hat der aktuelle `develop` zwei **unbedingte** `fmt.Printf("DIAG_EXEC ...")` bei fehlgeschlagenem Machine-Provider-Change. Diese Debug-Ausgaben umgehen die stabilen maschinenlesbaren Fehlergrenzen, stoeren stdout und koennen Outcome-Details exponieren. Als sicherer, eng abgegrenzter **Teilfix** von 0427-123 werden sie ohne Aenderung der Consent-/Result-Logik entfernt und gegen Rueckfall getestet. Dieser Teilfix ist **nicht** die Loesung des PTY-Down-Haengers; Karte bleibt danach aktiv.
 
 - **Teilfehler-Fix-PR:** [#1445](https://github.com/mcpdev80/baseharbor/pull/1445), Head `f80dc0b9eefc0b4f757ec4ba4d05a500e569f450` entfernt beide ungefilterten `DIAG_EXEC`-Stdout-Prints und fuegt eine Source-Regression hinzu. Kein Consent-Sicherheits-Bypass. Exact-head CI offen, PTY-Haenger weiterhin separat zu beheben.
+
+## 2026-11-08 Merge-Nachweis PR #1445 (ChatGPT)
+
+- **Teilfehler-Fix: ungefilterte DIAG_EXEC-Stdout-Ausgaben entfernt:** [PR #1445](https://github.com/mcpdev80/baseharbor/pull/1445) nach `develop` gemergt, Merge-SHA `db06f01e9fd793706da5072769922a0c64afecf0`; [exact-head CI #42430983626](https://github.com/mcpdev80/baseharbor/actions/runs/42430983626) terminal `success`, keine fehlgeschlagenen Jobs.
+- **Karte bleibt `active`**: echte native Docker-/Podman-End-to-End-Abnahme des urspruenglichen Bugs steht noch aus. Der gemergte Teilfix ersetzt diese nicht.
