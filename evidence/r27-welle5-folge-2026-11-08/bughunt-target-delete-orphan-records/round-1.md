@@ -79,3 +79,7 @@
 - No product-repo planning artifacts committed; evidence lives in baseharbor-plan only.
 - No VM containers/compose started on this host. Clean temp state removed.
 - `go.mod` untouched (Go 1.25.0 / toolchain go1.26.9 as pinned).
+
+## END
+
+END mission-165.md: scope decision (A) — `target delete` refuses while collectable orphan records are attached (names each UUID + collect path `baha destroy --all` / per-record `app destroy --uuid <id> --full-reset --yes` once restored); no silent removal; owner-verification seam intact. PR #1500 (branch `0427-165-target-delete-orphanrec`) against develop; focused CI checks green (build/vet/gofmt/unit/deployment-package-tests). 3 failures are gated native-runtime acceptance tests requiring a real Docker/Podman engine (same class as local `TestAppEdit...` failure, not my change — my fix is a config-only `target delete` refusal, unreachable by the destroy-acceptance paths). Evidence published to origin/main `b9d81ef7`. No VM started (config-only fix); no containers/compose/orphans on this host.
