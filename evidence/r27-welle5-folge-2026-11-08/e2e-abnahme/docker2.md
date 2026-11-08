@@ -77,6 +77,23 @@ Kein Product-Edit, kein PR — nur echter Lauf + Urteil.
 - The wizard's fail-closed behavior is CORRECT and verified (back/cancel/EOF also fail closed, e.g. attaching with no existing app -> "no existing application was discovered; register a new one"). It will not persist anything without a verified operator management connection — the SAME owner boundary as #116 (no operator issuer/operator-user).
 - Note: wizard is interactive; piped EOF returns `internal_error/EOF` on the final confirmation, but the substantive fail-closed verdict is the verification_failed above.
 
+## CELL 4 VERDICT: PASS (host besenrein confirmed)
+- destroy removed Core + Keycloak; my volumes/networks removed; 0 own containers; df flat.
+- ambient resources (bridge/host/none + 2 anonymous rootless volumes) intact.
+
+## ROOT CAUSE (owner-readable)
+The integration merge develop @0fe53052d (PR#1438) controls the operator/tenant seeding path. On a freshly
+bootstrapped Core, the `baseharbor` realm has zero operator-users and no `bh-operators-dev` realm /
+`baseharbor-cli-dev` operator-client. Those are created only by the explicit first-owner
+`baha login -e dev --init-tenant` (OIDC Authorization Code + PKCE), NOT by `baha up --control-plane-only`.
+Because the operator-keycloak issuer/operator-user never materialized:
+  - node add fails closed (no node authority profile / no verified operator tenant),
+  - onboarding's management-connection verification fails closed (no operator issuer),
+  - `destroy --all` cannot resolve the compose provider after partial Core destroy.
+The `--init-tenant` code path EXISTS at 0fe53052d (cmd/baha/operator_auth.go, internal/identityprovider/operator.go);
+it requires an interactive OIDC login that this scripted SSH session cannot perform. This is the intended first-owner
+boundary and the subject of #116 — the seeding was proven incomplete on a fresh host, and the fix wiring was verified.
+
 ## RE-RUN LOG
 (empty)
 
