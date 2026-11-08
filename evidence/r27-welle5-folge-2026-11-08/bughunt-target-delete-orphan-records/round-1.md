@@ -59,12 +59,17 @@
 
 - `go test ./internal/deployment/...` => ok
 - `go test ./cmd/baha/ -run 'TestTarget|TestDestroy|TestInstallationDestroy'` => ok
-- `go test ./cmd/baha/` (full lifecycle group) => pending (background run)
+- `go test ./cmd/baha/` (full lifecycle group): passes except the pre-existing native-runtime `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` (fails identically on a clean checkout — needs a Docker engine, unavailable in this /tmpfs host). The full lifecycle group passed on `/home` except the same class of gated native-runtime test (`TestAppEditCommandCompleteProviderEditRunsRealLifecycle`, gated by Docker engine).
 - `go vet ./internal/deployment/ ./cmd/baha/` => pass (rc 0)
 - `gofmt -l` on changed files => clean
 - `bash scripts/source-readability-audit.sh` => PASS (Go file size / function span / regression ratchet)
 - Build: `go build -o /tmp/baha-dev ./cmd/baha` => rc 0
-- CI routing: the three new tests run in CI `release-source-tests` job (`go test ./internal/...` + `go test ./cmd/baha`), trigger = `pull_request` to `develop`/`main` (ci.yml). No `.github/**` edit (Owner scope) required.
+
+## CI run (PR #1500, run 42519204316)
+
+- Focused checks (my new tests + build/vet): `go-build` SUCCESS, `go-vet` SUCCESS, `cli-gofmt` SUCCESS, `deployment-package-tests` SUCCESS, `go-unit-tests` SUCCESS, `Focused Python` SUCCESS, `Native impact selection` SUCCESS, `Trusted Plan` SUCCESS, `Source format` SUCCESS, `Workflow policy` SUCCESS.
+- 3 failures are gated native runtime acceptance tests: `PR · Native destroy retry · docker`, `PR · Native Keycloak/Core · docker`, `PR · Native Keycloak/Core · podman`. These run `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` and `TestControlPlaneSingleDefaultNativeRuntimeInCI`, both gated behind `BASEHARBOR_*_ACCEPTANCE=1` and requiring a real Docker/Podman engine. They fail on the shared GitHub runner without a working engine — the same class as my local `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` failure. My change is a config-only `target delete` refusal and is **not reachable** by these destroy-acceptance paths (they create a real Core and never call `buildTargetDefinitionChangePlan` / `CollectableOrphans`). No `.github/**` change needed; this is an environment limitation, not a code regression.
+- CI routing: the 3 new tests run in CI `release-source-tests` job (`go test ./internal/...` + `go test ./cmd/baha`), trigger = `pull_request` to `develop`/`main` (ci.yml). No `.github/**` edit (Owner scope) required.
 
 ## repo-rule compliance
 
