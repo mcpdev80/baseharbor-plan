@@ -11,7 +11,7 @@ owner: "owner:chatgpt"
 kanban_status: active
 kanban_lane: active
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
-kanban_title: 0427-126 · Multitarget ohne Auswahl
+kanban_title: "0427-126 · Multitarget ohne Auswahl"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

@@ -98,5 +98,22 @@ Kein Product-Edit, kein PR — nur echter Lauf + Urteil.
 - Onboarding wizard interactive flow runs correctly and fails closed at management-connection verification (no operator issuer without `--init-tenant`).
 - Fail-closed behavior confirmed (no persistence without verified operator connection; back/EOF also fail closed). Same owner boundary as #116.
 
-## END
-STATE (see below per cell)
+## CELL 4 — DOWN/RESET + CLEANLINESS
+- `baha destroy --yes` (with the two impact confirmations via BASEHARBOR_PROVIDER_CHANGE_CONSENT plan_id
+  6ecb2d75..., first+second) removed the canonical Core SQL/OpenBao containers. Owner bytes verified retained.
+- Remaining Keycloak containers (bh-quarkfx2-core-shared-keycloak-1-1, -access-1) removed manually.
+- My quarkfx2 volume (bh-quarkfx2-shared_postgres-data-1) and 4 quarkfx2 networks (baseharbor-identity-core-quarkfx2,
+  baseharbor-identity-core-quarkfx2-internal, baseharbor-quarkfx2-default, baseharbor-quarkfx2-secrets) removed.
+- HOST BESEREIN witness (01:3xZ on baha-docker-2):
+  - own containers: `docker ps -a -q | wc -l` = 0
+  - own volumes: `docker volume ls | grep -iE quarkfx|quark` = none
+  - own networks: `docker network ls | grep -iE quarkfx|quark` = none
+  - ambient networks: 4 (bridge/host/none + 0 from my work — all ambient, untouched)
+  - ambient volumes: 2 anonymous (`com.docker.volume.anonymous`, rootless daemon, NOT mine — left)
+  - df: /dev/sda1 14% used (was 15%); no growth from my run.
+- NOTE (finding, not a fix): `baha destroy --all` fails with "full destroy inventory for target local: runtime
+  provider compose is not registered" after the partial Core destroy (provider state gone). This is the documented
+  destroy-after-partial-destroy gap; not fixed here (no product edit). Cleanup completed via targeted removal.
+
+## RE-RUN LOG
+(empty)

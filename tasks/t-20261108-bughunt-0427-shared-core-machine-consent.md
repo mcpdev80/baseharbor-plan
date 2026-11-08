@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
-kanban_title: 0427-123 · Shared-Core Consent blockiert
+kanban_title: "0427-123 · Shared-Core Consent blockiert"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
