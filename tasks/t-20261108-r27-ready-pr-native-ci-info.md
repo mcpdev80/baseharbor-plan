@@ -75,3 +75,10 @@ The Owner is changing PR runtime qualification in `mcpdev80/baseharbor`:
 - PR [#1463](https://github.com/mcpdev80/baseharbor/pull/1463) ist in `develop` gemergt: `88acebc5cc725ab69af5abe89588987c2001af6c`.
 - Die anschliessende Regression/Verifikation [#1464](https://github.com/mcpdev80/baseharbor/pull/1464) wurde ebenfalls gemergt: `cd494610` (laut dokumentierter Owner-Mergeabnahme). Native Destroy-Retry Docker und Podman, Go-Unit, Build/Vet und PR-Auswahl waren dabei PASS.
 - Der vorherige Satz 'do not mark native acceptance PASS' beschreibt den damaligen Zwischenstand vor #1464 und ist **historisch**, nicht mehr aktueller CI-Blocker. CI-Implementierung gemergt; offener Kartenstatus wird erst nach erneuter kanonischer Release-/Abnahmepruefung samt `plan.py render && check` geschlossen. Kein neuer Workerauftrag.
+
+
+## Source-Check — 2026-11-08 (`develop` b73a13a9)
+
+- `.github/workflows/ci.yml` hat `pull_request` Trigger `opened`, `synchronize`, `reopened`, `ready_for_review`, `converted_to_draft` und laesst teure PR-Jobs nur fuer `draft == false` laufen. Es gibt keinen normalen `push`-Trigger auf beliebige Entwicklerbranches.
+- `pr_native_impact` waehlt betroffene Pfade per `scripts/ci-single-default-impact.sh` und faellt bei nicht klassifizierter `cmd/baha/*.go`-Aenderung konservativ auf Native zurueck. `pr_native_destroy` laeuft in der Docker-/Podman-Matrix auf `ubuntu-latest`/`ubuntu-26.04`, checkout `github.sha`, verifiziert exakt den SHA und benutzt `scripts/ci-native-installation-destroy.sh`.
+- Das Shell-Skript fordert den wirklichen Test `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` mit `BASEHARBOR_INSTALLATION_DESTROY_ACCEPTANCE=1` an und verweigert fehlendes PASS, SKIP und FAIL im JSON-Ergebnis. Codevertrag der Karte ist damit implementiert. Dies ist ein **Code-Review des Trigger-/Guard-Pfads**, kein neuer Testlauf. Formale Karten-Schliessung mit kanonischem Renderer offen; bitte keine neue Implementierungslane beauftragen.
