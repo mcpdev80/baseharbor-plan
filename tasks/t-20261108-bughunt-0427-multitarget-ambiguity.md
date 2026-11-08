@@ -15,7 +15,7 @@ kanban_title: 0427-126 · Multitarget ohne Auswahl
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1441]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -59,3 +59,8 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 - Owner: `owner:chatgpt`; Lane: `active`.
 - Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
 - Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
+
+## 2026-11-08 Produktarbeit (ChatGPT)
+
+- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441), Head `42f50099e5267dd31093b959828fbd3e21136a65`: bei mehreren konfigurierten Targets nennt die Fehlermeldung jetzt alphabetisch alle auswaehlbaren Namen sowie die konkrete Auswahl ueber `baha target activate NAME` oder `BASEHARBOR_TARGET=NAME`.
+- Keine implizite Target-Auswahl (Fail-Closed bleibt); neuer Typed-Error-Regressionstest. PR-CI noch offen, Karte `active`.
