@@ -7,9 +7,9 @@ areas: [identity, dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-0427-134-capkce
+kanban_status: active
+kanban_lane: active
 kanban_summary: "baha login -e dev --init-tenant and baha node add complete on native podman/docker test hosts WITHOUT manual OS trust surgery:…"
 kanban_title: "0427-134 · CA-Trust + PKCE blockt"
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md"]
 ---
 
-- [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/planned #view/ready #area/dx #area/identity #kind/bug
+- [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/active #view/active #area/dx #area/identity #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0427-134-capkce · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-0427-134-capkce  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
