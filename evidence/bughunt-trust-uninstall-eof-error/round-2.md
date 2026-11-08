@@ -82,3 +82,15 @@ Lokale tests laufen, dann drift + push + hosted lauf terminal auf exaktem head.
 - `go-unit-tests` führt `scripts/pr-unit-database.sh` → `go test ./... -count=1`, trigger `pull_request`; die neuen tests laufen also CI-erfasst.
 - Evidence-log-download war ohne rechte nicht möglich (HTTP 404), aber API-Conclusion ist die autoritative, reproduzierbare Evidenz.
 
+## Merge + finaler zustand (4.6)
+
+- PR #1488 von Owner (mcpdev80) merge-commit `3187cea15728143146905c7238ad6e280ca11b3e` in develop; parent `fa355e8360497b03a40837b60ae6c88f166a8699` (develop HEAD #1484).
+- Provenance: `git merge-base --is-ancestor fa355e8 3187cea` = 0 (fa355e8 ancestor von merge); merge-parent = develop HEAD, kein foreign candidate.
+- Content byte-identisch: `git diff be2d071cf 3187cea -- cmd/baha/trust.go cmd/baha/trust_uninstall_test.go` = leer.
+- Finaler develop head: `3187cea15728143146905c7238ad6e280ca11b3e`; fix an trust.go:206 (EOF guard).
+- Lokal verifiziert auf merged develop: alle six trust-uninstall tests PASS, `go vet ./cmd/baha/` OK.
+- Branch `0427-166-trust-uninstall-eof` vom Owner merge aufgebraucht (remote ref nicht mehr vorhanden); kein stray candidate.
+- evidence/round-2.md auf origin/main verifiziert: `git cat-file -e origin/main:evidence/bughunt-trust-uninstall-eof-error/round-2.md` = present.
+- Kein container/compose gestartet (reiner Go unit-test fix); daemon sauber.
+
+
