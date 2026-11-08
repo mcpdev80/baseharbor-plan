@@ -9,13 +9,13 @@ version: ""
 parent: v0.4.27
 owner: lane-0427-132-destroyretry-r2
 kanban_status: review
-kanban_lane: active
+kanban_lane: review
 kanban_summary: "develop's Runtime Docker Core and Podman Core push runs are green again;…"
 kanban_title: "0427-132 · 1448 macht destroy-retry rot"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1453, "1453"]
+prs: [mcpdev80/baseharbor#1453]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42434076648"]
 ---
 
-- [ ] t-20261108-bughunt-0427-destroy-retry-regression · Bug Hunt v0.4.27: 1448 macht destroy-retry rot #task #release/v0-4-27 #status/active #view/active #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-destroy-retry-regression · Bug Hunt v0.4.27: 1448 macht destroy-retry rot #task #release/v0-4-27 #status/review #view/review #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-132-destroyretry-r2 · **Priority:** critical  
     **PR:** [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453)  
@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42434076648"]
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-132-destroyretry-r2  
