@@ -52,3 +52,8 @@ production command paths honour BASEHARBOR_TARGET (or an explicit equivalent) fo
 ## Dependencies and file ownership
 
 Depends only on the release umbrella. Write-set per repo rules; intake evidence carries the exact repro.
+
+## 2026-11-08 Übernahme (ChatGPT)
+
+- Owner `owner:chatgpt`, `active` fuer gezielte Diagnose von `BASEHARBOR_TARGET` im echten Core-CLI-Startpfad; keine implizite Target-Umschaltung und keine fremden Ressourcen manipulieren.
+- Ergebnis noch offen; Reproduktion und Regression vor Abschluss erforderlich.
