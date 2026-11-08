@@ -63,3 +63,6 @@ Audit 2026-11-08 (zuerklaeren): fail-closed was called intentional in the dossie
 - [CI #42480521183](https://github.com/mcpdev80/baseharbor/actions/runs/42480521183): terminal SUCCESS (Go-unit, build, vet, source/docs checks, native Docker/Podman destroy-retry). No standalone end-to-end deployment result is claimed.
 - Retains Target fail-closed default; help identifies existing `baha list --all-targets` read-only inventory with Target column and target activation. TestListHelpExplainsFailClosedTargetSelection and existing target-list ambiguity tests PASS. No cross-target implicit mixing.
 - `resolution: accepted`; no active worker claim remains.
+
+## Review status
+CODEX-REVIEW 2026-11-08 on #1466 head daacddbbe: URTEIL korrektur - recipe in [act-1466-review.md](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/act-1466-review.md) (candidate ids in quick-init error, Next-text assertions, exact-head green required before approve).
