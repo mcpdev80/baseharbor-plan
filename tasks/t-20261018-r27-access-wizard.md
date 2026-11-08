@@ -115,3 +115,8 @@ hunt H-P1 sofort gestoppt (owner-direktive: echte arbeit > hunt) — sitz an acc
 r6 candidate 9dd2f779fa2445257d4f7f3c99a43b1245493818 on PR #1430; hosted run 42438784031 completed/success; evidence round-6.md
 
 PR #1430 was reviewed and squash-merged at 07ae6c3e91b081a189266ca4b162ba705d4aa78f. Exact-head CI run 42445068559 passed; post-merge Receipt · Commit run 42447092067 succeeded. The develop head matches the merge commit.
+
+## PR #1433 reconciliation — 2026-11-08
+
+- Historical [PR #1433](https://github.com/mcpdev80/baseharbor/pull/1433) closed without merge as redundant: production functions and all added test cases already exist on develop, which contains additional fail-closed safeguards. Do not overwrite newer production implementations with the stale 205-commit-behind branch.
+- This source-code reconciliation is **not** a full acceptance of the access-wizard card; existing lane/status and any independent end-to-end checks stay unchanged.
