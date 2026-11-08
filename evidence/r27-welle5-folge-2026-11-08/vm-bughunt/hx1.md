@@ -84,9 +84,9 @@
 - POS-3: logout clean + idempotent; no credential residue on failure.
 - POS-4: Managed-identity enforcement returns a clear, non-auth-error message ("no claim-based tenant membership") AFTER successful OIDC verification — good separation of auth vs authorization.
 
-## Status
+## Trust prompts + per-anchor fail-closed (cut 4)
 
-## BF-21..BF-26 (neu): trust uninstall prompts + per-anchor fail-closed (cut 4)
+## BF-21..BF-27 (neu): trust uninstall prompts + per-anchor fail-closed (cut 4)
 
 - BF-21: trust status lists anchors per-anchor as "PRESERVED <path> (<fp>; <backend>; missing; trusted=false)" when Core not installed / file missing. Status output is informational (read-only).
 - BF-22: trust uninstall VALID backends are `linux-update-ca-certificates` and `linux-update-ca-trust` (hosttrust.go:458 backendByName). NOT "podman"/"docker"/"managed-keycloak".
@@ -95,6 +95,13 @@
 - BF-25: prompt accepts y/yes/ja/j (incl. German ja/j); n/invalid("xyz")/empty-line(Enter) -> "Host trust unchanged.", anchors preserved. 
 - BF-26 (FUND - prompt EOF): EOF (Ctrl-D, no newline) on uninstall prompt surfaces ERROR "read host trust removal approval: read /dev/stdin: input/output error" (ReadString('\\n') surfaces non-EOF... actually EOF error, not handled as decline). Fail-closed (anchors preserved) but erroring instead of clean "unchanged". Datei: cmd/baha/trust.go ~225 bufio.NewReader(guidedTrustInput).ReadString('\n') -> "read host trust removal approval: %w". Install-pfad (maybeOfferManagedHostTrust) HAT errors.Is(io.EOF) graceful handling; uninstall does NOT.
 - BF-27 (Sicherheit, per-anchor fail-closed): wrong backend ("managed-keycloak") -> PRESERVED with error "unsupported recorded host trust backend", while valid anchors in same run ARE removed. host-trust.json retains only the preserved bogus anchor. Per-anchor isolation confirmed (hosttrust.go:241 "PRESERVED %s (%s): %w").
+
+## VM-Besanrein
+
+- Scope: reine CLI-Befundung (login/logout/whoami/trust). KEIN `baha up` ausgefuehrt -> KEINE neuen Docker-Container erzeugt. Bestehende gfield0427-Container (4h alt) unveraendert (nicht von dieser Lane).
+- Isser (investigation tooling): root-owned python3 pid 1940252 auf 127.0.0.1:443 -- SELF-SIGNED TEST CA, nur fuer BF-09/11/12. Verbleibt als isolierter Test-Issuer; kein Produkt-Zertifikat.
+- /tmp/hx1-mg (isolierter managed boundary: HOME + state dir) + /tmp/hx1-oidc (issuer) = Untersuchungswerkzeuge, nicht Produkt-Config.
+- cleanliness: state/cache/sessions leer (alle Test-Sessions aufgeräumt); host-trust.json letzter Test-Zustand (nur preserved bogus anchor); kein Produkt-Workspace touch.
 
 ## Status
 
