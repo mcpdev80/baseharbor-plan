@@ -44,6 +44,8 @@ ONLY; `workers/baseharbor-plan` is a bookkeeping subdir and never committed.
 - `git merge-base --is-ancestor 7536878d4 6670ca4a6` => YES (1458 bootstrap commit carried in candidate).
 - `git rev-list --parents -n1 6670ca4a6` => `6670ca4a6 5c5e24a7... 201735b03...` (exactly two parents).
 - `git log 6670ca4a6` lists ONLY this lane's commits plus the two merge parents — no foreign candidate on top.
+- Definitive ancestry (objects fetched into store): `git merge-base --is-ancestor 201735b03 6670ca4a6` => YES (develop parent); `git merge-base --is-ancestor cd494610c 201735b03` => YES; transitively `git merge-base --is-ancestor cd494610c 6670ca4a6` => YES.
+- `git log 6670ca4a6 --format="%h %s" | grep 1464` => `cd494610c test(ci): verify ready-PR native destroy impact and hosted proof (#1464)`.
 
 ## Trigger check (now satisfied)
 
