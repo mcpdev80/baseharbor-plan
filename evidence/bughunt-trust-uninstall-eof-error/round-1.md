@@ -62,6 +62,12 @@
 - KEINE failures. Core-gates (go-unit-tests) gruen.
 - Kein .github/** aenderung; kein rerun/workflow_dispatch von mir ausgeloest
 
-## Status
+## End-of-shift bookkeeping
 
-- STATUS: DONE — fix verifiziert (lokal + hosted CI green), PR #1485 OPEN gegen develop; Abnahme/Merge durch Codex (Owner scope); evidence committed
+- evidence committed + pushed to origin/main: 87eef34d0121a12e5880e45c5ad2272fbcbae893 (ls-remote origin main bestaetigt; file present on origin/main tree)
+- PR #1485 OPEN: develop -> fix/trust-uninstall-prompt-eof, head 4fcff755e, run 42498653903 terminal green
+- Abnahme/Merge durch Codex (Owner scope); kein eigenes Merge/Autoforgezwungen
+
+## END
+
+- LANE DONE mission-161: BF-26 fixed, verified locally + hosted CI (go-vet/build/unit green), PR #1485 OPEN against develop HEAD, evidence on origin/main (87eef34d)
