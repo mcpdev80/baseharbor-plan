@@ -33,6 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261108-bughunt-trust-uninstall-eof-error](t-20261108-bughunt-trust-uninstall-eof-error.md)  
 **Owner:** chatgpt-r27-eof  
 **Priority:** normal  
 **PRs:** [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471), [baseharbor#1484](https://github.com/mcpdev80/baseharbor/pull/1484)  
