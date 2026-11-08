@@ -22,15 +22,15 @@ wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42478010118", "https://github.com/mcpdev80/baseharbor/commit/618d23bde0870391541a8bbdf3ee103f22d70560"]
 ---
-- [ ] t-20261108-bughunt-appnew-create-only-uninit · Bug Hunt v0.4.27: app new left uninit #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-appnew-create-only-uninit · Bug Hunt v0.4.27: app new left uninit #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** chatgpt-r27-appnew · **Priority:** normal  
     **PR:** [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42478010118), [proof 3](https://github.com/mcpdev80/baseharbor/commit/618d23bde0870391541a8bbdf3ee103f22d70560)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** chatgpt-r27-appnew  
