@@ -29,7 +29,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 - [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
-    **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445)  
+    **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -38,7 +38,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
 **Priority:** high  
-**PRs:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445)  
+**PRs:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
 **Source:** 
 <!-- /generated:links -->
 
