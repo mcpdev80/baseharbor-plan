@@ -99,5 +99,28 @@ without OS surgery" and "Headless PKCE on non-browser hosts" sections; `bash scr
 - Evidence lives only in baseharbor-plan (no .evidence/ in any product repo).
 - Branch cut from origin/develop; own commits only.
 
+## CI (4.6)
+- New tests run under the "Release Source Preflight" job in `.github/workflows/ci.yml` via
+  `go test ./contracts/... ./internal/... ./spec/...` (line ~119) and the "Exercise enrollment and
+  operator boundary races" job (line ~125). Triggered on PR-ready/push.
+- CI is GitHub-hosted (shared runners only). This lane does NOT rerun or workflow_dispatch (Owner scope:
+  `.github/**`). To promote to live Required Check enforcement the Owner must open/ready the PR; the
+  candidate SHA and job mapping above are what CI would run.
+- Local verification (self-run): `go build ./...` OK; `go vet ./internal/operatorauth ./internal/auth ./cmd/baha` OK;
+  `go test ./internal/operatorauth ./internal/auth` PASS; `go test ./cmd/baha -run OperatorAuth|Login|Node|Onboard|Boundary` PASS;
+  `go test ./internal/...` fails ONLY on DB-integration packages (`internal/database`,
+  `internal/controlplaneruntime`) that require `BASEHARBOR_TEST_DATABASE_URL` (CI sets it, line ~58).
+- Documentation audit `bash scripts/documentation-audit.sh` PASS.
+
+## EVIDENCE PATH (4.6 second-to-last)
+- `git ls-remote origin main` = `dde9edaaece68c5ba8221ae7e0013622addcf362 refs/heads/main`
+  (= my commit `dde9edaa evidence(0427-134): CA-trust + headless PKCE implementation + CI mapping`)
+  — evidence path confirmed present on origin/main before END post.
+
 ## END
-_(to be filled: SHA + CI terminal + ls-remote + host cleanliness)_
+- SHA: candidate branch `work/r283-ca-pkce` at develop HEAD `e39b0004346cdfd082e34ba55d94d24757bbbd27`;
+  evidence commit `dde9edaa` on planning origin/main.
+- CI: candidate runs under ci.yml "Release Source Preflight" + "operator boundary races" jobs (PR-ready trigger);
+  GitHub-hosted, not rerun by this lane (Owner scope).
+- ls-remote: `dde9edaa...` (above).
+- Host cleanliness (baha-podman-2): PENDING — residual managed core PTY destroy still required.
