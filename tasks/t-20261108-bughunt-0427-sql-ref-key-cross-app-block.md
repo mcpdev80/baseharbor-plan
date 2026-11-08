@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/active #view/active #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
-    **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447)  
+    **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
 **Priority:** high  
-**PRs:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447)  
+**PRs:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
 **Source:** 
 <!-- /generated:links -->
 
