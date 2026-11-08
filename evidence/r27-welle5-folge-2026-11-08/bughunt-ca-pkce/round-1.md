@@ -171,3 +171,43 @@ without OS surgery" and "Headless PKCE on non-browser hosts" sections; `bash scr
   separate Lane (bereits wo anders evidenziert) und werden NICHT in diesen Branch gemischt.
 - Host nach dieser Lane: sauber (keine hängenden baha/destroy/pexpect-Prozesse), w0427-Core intakt (11
   Container), podman-local2 Core unberührt, host antwortbar.
+
+## CI-Run auf Exaktem Head (Release Source Preflight) — 2026-11-08 ~06:3x
+- PR #1455 `[0427-134] destroy: resolve owned Core targets from data root` opened against develop; head
+  `9a9630003b1c9913626923adc06ef7d3402e5e34`, mergeable, 2 files
+  (`cmd/baha/runtime_destroy_all.go`, `internal/deployment/target.go`).
+- Fix im Detail (gegen Base `e39b0004`, nur diese 2 Dateien):
+  - `internal/deployment/target.go`: neue `ResolveDataRootTarget(name)` — liest
+    `<data-root>/targets/<name>/runtime/installation.json`, prüft `spec.target==name` + `spec.runtime != ""`,
+    liefert `ResolvedTarget{RuntimeProvider: spec.Runtime, AccessProvider/Reference: "local", Scope: "discovered"}`.
+    Fail-closed für Targets ohne eigenständige, verwirte Installation. `ResolveTarget` ruft sie vor dem
+    "not configured"-Pfad auf (ersetzt die alte Rate-Logik, die "compose" bzw. Docker erfunden hat).
+  - `cmd/baha/runtime_destroy_all.go`: `discoverFullDestroyTargets` resolved discovered Core via
+    `ResolveDataRootTarget`; `local`-Retained-Owner-SKIPPED-Detail unverändert (blocking-owner invariant
+    erhalten).
+- `PR · Source format` (readability audit, Limit 800 Zeilen) **erfordert Fix**: Base war 799 Zeilen,
+  Fix netted +7 → 806. Netto-Abbau auf ≤800 durch Kommentar-/Struktur-Kompression (aktuell 800, audit exit 0).
+- **Release Source Preflight ist ein Ref-gated Gate** (ci.yml Zeile 54): nur `push` auf
+  `runtime-validation/source-preflight/*`. Ein `gh pr create --base develop` triggert nur `pull_request`,
+  daher SKIPPED. Kein Bearbeiten der Workflow-Datei (Owner-Scope). Stattdessen Validierungs-Branch
+  `runtime-validation/source-preflight/9a963000` exakt auf Candidate gepusht, Run getriggert, danach deleted
+  (PR #1455 enthält denselben SHA; kein Produkt-/Workflow-Change).
+- **Run `42451110988` @ SHA `9a9630003b1c9913626923adc06ef7d3402e5e34` → status=completed, conclusion=success.**
+  Full release-source gate: gofmt/readability, `go test ./contracts/... ./internal/... ./spec/...`,
+  `go test ./cmd/baha`, race gates, mkdocs (EN+DE), v0.4.21-readiness, actionlint, Release-Snapshot.
+- Lokaler Recheck: `go build ./...` OK, `go vet` clean, `go test ./internal/deployment` ok,
+  `go test ./cmd/baha -run Destroy|Target|Resolve|Installation|Discovery|Continuation` ok.
+- Evidence `origin/main` witness (ls-remote, vor END):
+  `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git` → main HEAD.
+
+## CLEANLINESS-ZEILE (Host baha-podman-2, round 2)
+- w0427-core: 0 Container (alle `bh-w0427-*` entfernt), 0 w0427-Volumes, 0 w0427-Netzwerke (alle `baseharbor-*-w0427-owner-missing*` entfernt).
+- `podman-local2` Core: UNANGETASTET. Fremde/anonymous Volumes + `podman`-Netzwerk: UNANGETASTET.
+- Keine hängenden `baha`/destroy/pexpect-Prozesse. Host antwortbar (`date`-Response ok).
+- Temp-Dateien aus /tmp der Host-Session cleanup: bereinigt; Fremdbinäry (`baha-resolver-test`,
+  `baha-w268`, `baha-w274`) nicht angefasst.
+
+## END-NACHWIS (ls-remote proofs, 2026-11-08 ~06:4x)
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git work/r283-ca-pkce` → `9a9630003b1c9913626923adc06ef7d3402e5e34 refs/heads/work/r283-ca-pkce`
+- `git ls-remote https://github.com/mcpdev80/baseharbor-plan.git main` → (re-verified, value in evidence above)
+- Validierungs-Branch `runtime-validation/source-preflight/9a963000` deleted (nur Run-Triggers, jetzt weg).
