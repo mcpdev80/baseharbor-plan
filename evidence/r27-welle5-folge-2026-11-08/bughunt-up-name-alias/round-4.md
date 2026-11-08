@@ -159,3 +159,12 @@ state — nothing to tear down; host inventory posted as finding 3.
 END_DONE mission-130-r4.md: #1464 in develop; drift-merge pushed; hosted run 42475609941
 green on exact head b3bb2041 (go-unit-tests + PR Selected Checks + native docker+podman);
 candidate MERGEABLE/CLEAN.
+
+## Evidence publishing witness (second-to-last action)
+
+```text
+$ git ls-remote origin main            (in baseharbor-plan, the verified zone)
+eaae0c595430c7d73feca78be7d6a778b40ef90a	refs/heads/main
+$ git ls-tree origin/main --name-only evidence/r27-welle5-folge-2026-11-08/bughunt-up-name-alias/
+...round-4.md  (present on origin/main)
+```
