@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "chatgpt-r27-destroy-owner"
-kanban_status: active
-kanban_lane: active
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Destroy resolves owned core targets from the data root (never discards foreign targets, fail-closed per the card-127 doctrine);…"
 kanban_title: 0427-152 · Destroy finds own core
 priority: normal
@@ -18,11 +18,11 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1483]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Produkt-PR #1483 gemergt; Bearbeitung pausiert bis zur gesonderten exakten Native-Docker/Podman-Abnahme des Datenwurzel-/Core-Discovery-Vertrags. Kein neuer Produkt-PR ohne Befund."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-ca-pkce/act-1455-fate.md"]
 ---
-- [ ] t-20261108-bughunt-destroy-data-root-residual · Bug Hunt v0.4.27: Destroy finds own core #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-destroy-data-root-residual · Bug Hunt v0.4.27: Destroy finds own core #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** chatgpt-r27-destroy-owner · **Priority:** normal  
     **PR:** [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483)  
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** chatgpt-r27-destroy-owner  
@@ -61,3 +61,8 @@ Audit 2026-11-08 (mapping): related to #122 destroy inventory but a distinct dat
 
 - Owner `chatgpt-r27-destroy-owner`, [PR #1483](https://github.com/mcpdev80/baseharbor/pull/1483). Re-sliced the old unmerged #1455 data-root Core discovery using validated `coreinstallation.Load` rather than trusting arbitrary JSON. Foreign/ambiguous Core owners fail closed without guessed runtime.
 - Regression: real temporary owned Core-only state is discoverable; foreign state remains unverifiable with no inferred runtime. Native Docker/Podman exact-head CI required before merge; card remains Active, no claim of actual destruction.
+
+## Kanban-Pause 2026-11-08
+
+- Produkt-PR #1483 gemergt; Bearbeitung pausiert bis zur gesonderten exakten Native-Docker/Podman-Abnahme des Datenwurzel-/Core-Discovery-Vertrags. Kein neuer Produkt-PR ohne Befund.
+- Status `wait` als Ressourcen-/Abnahme-Pause, **nicht** als technischer Blocker. Owner bleibt bestehen; Reaktivierung nach konkreter Uebergabe bzw. Acceptance.
