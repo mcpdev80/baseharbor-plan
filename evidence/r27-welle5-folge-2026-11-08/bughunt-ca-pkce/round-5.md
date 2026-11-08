@@ -26,6 +26,9 @@ Recipe: `act-1457-review-r4.md` (origin/main)
 - `git merge-base --is-ancestor 83d175f5... 7da148a3...` -> R4 descends from R3 (YES).
 - `git diff --name-status 83d175f5..7da148a3` -> only `cmd/baha/operator_auth.go` and `cmd/baha/operator_tenant_bootstrap_test.go`.
 - develop HEAD `cd494610c` is the #1464 head; the native-keycloak blocker (STATE-bis-1464) is resolved — STATE/blocked no longer applies to this candidate's native gates.
+- Candidate HEAD `134-r3-ca-pkce` -> `48a3e36fb627141c0434bdcd8b7249887faef9f5` (R5), clean linear ancestry `83d175f5` (R3) -> `7da148a3` (R4) -> `48a3e36f` (R5, my single commit).
+- Planning main `origin/main`: `git ls-remote origin refs/heads/main` returned `cc34512165601552957754104dd98e5e259b81d9`.
+- Evidence witness: `git ls-tree origin/main --name-only evidence/r27-welle5-folge-2026-11-08/bughunt-ca-pkce/` lists `round-5.md` — the evidence path is on origin/main BEFORE the END post.
 
 ## R4 verdict recap (from act-1457-review-r4.md)
 
