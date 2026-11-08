@@ -127,3 +127,48 @@ compiliert; ihr CI-Auslöser wartet auf Owner-Change an `ci.yml:349`.
 END_DONE integration-1452-review-r3: KORREKTUR implementiert (1-3), pinned CI-Akzeptanz
 implementiert aber CI-Trigger (ci.yml:349) ist Owner-Scope — Change-Report, kein Rerun.
 Kandidat `916a3a6ab` (Merge-Head nach develop-drift-merge).
+
+---
+
+## CONTEXT-SICHERUNG (79% — persistent, 2026-11-08 ~06:0x CET)
+
+### Befund-Punkte 1–4
+1. **RuntimeConfigProvider-Signatur** — FIXT. Interface `internal/runtime/container_identity.go:25`
+   auf 5-Arg (`context.Context, string workdir, string project, map[string]string environment, ...string`)
+   gesetzt; Aufrufer `container_identity.go:37`, `service_stop.go:81`; Podman-Pfad (`service_stop.go`)
+   vor Compose-Render priorisiert (kein nil-embedded-Interface-Panic). Test-Doubles angepasst.
+2. **service_retirement + control_plane_stop** — FIXT. `service_retirement.go:62`,
+   `control_plane_stop_observation.go:59` akzeptieren gepinnte `container_name` über
+   `bhruntime.ParsedExpectedContainerNames`/`ContainerNameInPlannedSet` (exportiert in `container_identity.go`).
+3. **Foreign-project pinned-name regression** — FIXT. Cross-project negative case in
+   `container_identity_test.go`; `app_workload.go` dedupft gepinnte Namen (kein Duplikat im Inventory).
+4. **Native Docker backup-akzeptanz** — CI-nativer Test `TestRepositoryComposePinnedWorkloadLifecycleInCI`
+   (`cmd/baha/app_workload_integration_test.go`) implementiert (apply→backup→down→up→destroy, pinned name).
+   CI-Trigger `ci.yml:349` (Owner-Scope) — Change-Report, kein Rerun. Pinned-Extensions-Block in
+   `internal/runtime/container_names_pinned.go` ausgelagert (800-Linien-Grenze source-readability-audit).
+
+### Branch / SHA
+- PR #1452, Branch `bughunt/0427-128-container-name-replica`.
+- **Kandidat HEAD (pushed, verified):** `54a6fd11dd639062e537a44815f25a80c3c4b8b2`.
+- Base/develop drift: `07ae6c3e91b081a189266ca4b162ba705d4aa78f` (access-wizard #1430), Merge `916a3a6ab`.
+- `git merge-base --is-ancestor 07ae6c3e9 HEAD` => 0. Kein fremder Commit im Log.
+
+### PR-head / CI-Gate
+- CI run `42450415960` (exaktem Head `54a6fd11d`).
+- PASSING: PR · Source format, go-build, go-vet, cli-gofmt, runtime-provider-package-tests, Workflow policy, Trusted Plan.
+- **LAUFEND / OFFEN: `PR · Validation · go-unit-tests`** (`go test ./...`) — enthält 14 PRE-EXISTING
+  Init-Fehler (unabhängig von dieser Lane). Nachweis: Base `978503376` zeigt dieselben Init-Fehler.
+
+### Offene Schritte (priorisiert)
+1. CI `go-unit-tests` terminal abwarten (Eigenes-Run-Pflicht 4.6); Ergebnis in Evidence.
+2. (Optional/Owner) CI-Trigger `ci.yml:349` um `TestRepositoryComposePinnedWorkloadLifecycleInCI|` ergänzen —
+   Befund file:line in round-3.md, Lane ändert keine `.github/**`.
+3. Compose/docker stacks auf `baha-docker-2` (`~/bh-0427-r3-two-buckets`) herunterfahren (besenrein) —
+   native CLI-Akzeptanz über SSH nicht treibbar (multi-stage impact-confirmation).
+4. Evidence `round-3.md` auf origin/main (`a818b501`) verifiziert; ggf. CI-Ergebnis nachtragen.
+
+### Evidence-Pfad
+`baseharbor-plan/evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/round-3.md`
+(Planning-Repo `origin/main` `a818b501`; `git ls-remote` bestätigt).
+
+END_BLOCK — Kontext gesichert; nach go-unit-tests-terminal + END priorisieren.
