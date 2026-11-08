@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/round-6.md","https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/runtime_destroy_all.go"]
 ---
 
 - [ ] t-20261108-bughunt-0427-container-name-replica · Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w128-contname-r6 · **Priority:** normal  
     **PR:** [baseharbor#1452](https://github.com/mcpdev80/baseharbor/pull/1452)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/round-6.md), [proof 2](https://github.com/mcpdev80/baseharbor/blob/develop/cmd/baha/runtime_destroy_all.go)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
