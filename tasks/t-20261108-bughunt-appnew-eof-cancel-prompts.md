@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-eof"
-kanban_status: review
-kanban_lane: review
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "A single cancel path: EOF/Ctrl-D at every prompt = clean cancel with no side effects; regression in the cli-surface group."
 kanban_title: 0427-138 · Wizard cancel uneven
 priority: normal
@@ -19,22 +19,22 @@ prs: [mcpdev80/baseharbor#1471, mcpdev80/baseharbor#1484, mcpdev80/baseharbor#14
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42481515062", "https://github.com/mcpdev80/baseharbor/commit/f5abba4219cb65ef16d655ac03b95eab008bc172"]
 ---
-- [ ] t-20261108-bughunt-appnew-eof-cancel-prompts · Bug Hunt v0.4.27: Wizard cancel is uneven #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-appnew-eof-cancel-prompts · Bug Hunt v0.4.27: Wizard cancel is uneven #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-eof · **Priority:** normal  
+    **Owner:** —
     **PR:** [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471), [baseharbor#1484](https://github.com/mcpdev80/baseharbor/pull/1484), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd3.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42481515062), [proof 3](https://github.com/mcpdev80/baseharbor/commit/f5abba4219cb65ef16d655ac03b95eab008bc172)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261108-bughunt-trust-uninstall-eof-error](t-20261108-bughunt-trust-uninstall-eof-error.md)  
-**Owner:** chatgpt-r27-eof  
+**Owner:** —
 **Priority:** normal  
 **PRs:** [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471), [baseharbor#1484](https://github.com/mcpdev80/baseharbor/pull/1484), [baseharbor#1493](https://github.com/mcpdev80/baseharbor/pull/1493)  
 **Source:** 
@@ -91,3 +91,10 @@ None. Write-set: cmd/baha app new wizard prompts.
 
 - Formatter-corrected PR head `050123164e4522792db900d852c3f6d42fb8137a` tested by [CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058); prior run cancelled after a gofmt-only error.
 - Source format, CLI gofmt/build/vet and source-contract checks succeeded; native Docker/Podman and complete CLI package tests must still finish. No premature acceptance.
+
+## Final review acceptance and merged PR #1493 — 2026-11-08
+
+- [PR #1493](https://github.com/mcpdev80/baseharbor/pull/1493) merged to develop as `7af8d440e9a4dd1b633fdc44e4093109fe44ae37` from exact head `050123164e4522792db900d852c3f6d42fb8137a`.
+- [Exact-head CI #42510949058](https://github.com/mcpdev80/baseharbor/actions/runs/42510949058) terminal **SUCCESS**: full CLI package tests (includes new R27 review regressions), CLI build/vet/gofmt, source contracts, native Docker + Podman destroy-retry and final `PR Selected Checks` all passed. No skipped required selected check.
+- Acceptance rationale: Reviewed shared `readPrompt` EOF contract: buffered partial input is never interpreted as affirmative; `appNewAbortOnEOF` and controller return a clean cancel before consent. New `TestR27WizardEarlyPromptEOFMatrixNoMutation` exercises nine early prompt/cut cases and checks no project root or error. Existing #1471 and #1484 cover chooser, pre-consent and partial input. Exact-head full cmd/baha tests and selected native CI passed.
+- Card status **closed**, resolution `accepted`, no processing owner; unrelated remote Core/workstation E2E and larger release qualification are tracked separately.
