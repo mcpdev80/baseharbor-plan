@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "owner:chatgpt"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 are fixed: (1) baha up without --confirm-candidate…"
 kanban_title: 0427-120 · CLI Debug-Dump und app-init
 priority: normal
@@ -19,18 +19,18 @@ prs: [mcpdev80/baseharbor#1439, mcpdev80/baseharbor#1442]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/closed #view/closed #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
@@ -93,3 +93,9 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - **Abnahme nachpruefen:** Ein expliziter Negativtest fuer stderr ohne `goroutine`/Stack in beiden CLI-Modi steht noch aus; Karte bis dahin nicht `closed`.
 
 - **Negativtest-Nachtrag:** [PR #1442](https://github.com/mcpdev80/baseharbor/pull/1442) prueft die echte Candidate-Consent-Ablehnung und stderr auf unerlaubte `goroutine`/`runtime.Stack`-Ausgabe; die initiale Produktkorrektur #1439 ist bereits gemergt. PR-CI fuer #1442 steht noch aus; Karte bleibt bis zur Abnahme `active`.
+
+## 2026-11-08 Finale Abnahme (ChatGPT)
+
+- [PR #1442](https://github.com/mcpdev80/baseharbor/pull/1442) **nach develop gemergt**: Merge-SHA `853c2608afcd41f78dea1bb41df0e8e8f09e1110`, exact-head [CI #42430071237](https://github.com/mcpdev80/baseharbor/actions/runs/42430071237) terminal `success`.
+- Der Negativtest ruft die echte Candidate-Consent-Ablehnung auf, bestaetigt unveraendertes Fail-Closed und prueft stderr auf `goroutine` und `runtime.Stack`. Zusammen mit gemergtem Produktfix [#1439](https://github.com/mcpdev80/baseharbor/pull/1439) sind die fokussierten Abnahmebedingungen erfuellt.
+- Status **closed / accepted**. Keine gesonderte vollstaendige VM-Matrix fuer diesen fokussierten CLI-Fix behauptet.
