@@ -11,7 +11,8 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 129/169 · **Blocked:** 0 · **Waiting:** 15  
+    **Accepted tasks:** 130/169 · **Blocked:** 1 · **Waiting:** 15  
+    **Blocker:** [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) — stale claim from 11-04 wave (lane-0427-107-docker2-bughunt no longer exists; hunt docker2 finished via hp3/podman2 dossiers). Work needs either a fresh integra…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next

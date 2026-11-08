@@ -8,29 +8,30 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-107-docker2-bughunt
-kanban_lane: active
+kanban_lane: blocked
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: active
+kanban_status: blocked
 kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
-blocker: ""
+blocker: "stale claim from 11-04 wave (lane-0427-107-docker2-bughunt no longer exists; hunt docker2 finished via hp3/podman2 dossiers). Work needs either a fresh integration-run mission or owner decision; not on any live lane."
 resolution: ""
 evidence: []
 wait_reason: ""
 
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-107-docker2-bughunt · **Priority:** high  
+    **Blocker:** stale claim from 11-04 wave (lane-0427-107-docker2-bughunt no longer exists; hunt docker2 finished via hp3/podman2 dossiers). Work needs either a fresh integration-run mission or owner decision; not on any live lane.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
