@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: "owner:chatgpt"
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Two-stage consent and stdout fixes merged; real native Docker/Podman PTY acceptance outstanding."
+kanban_summary: Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 kanban_title: "0427-123 · Shared-Core Consent blockiert"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -28,7 +28,7 @@ evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https:/
 
 Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 
-- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #board/planned #area/dx #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
     **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
