@@ -129,3 +129,54 @@ Damaged-state detection will report BOTH halves of the observed BF-03 damage —
 
 END mission-159-r2.md: BF-03 NETZ-side damage reintroduced and verified — DamagedDeploymentNamespaceScoped inspects THIS app's workload network via the InspectNetwork seam, the DamagedDeploymentError names both halves (record + network) and both recovery paths, present/not-managed networks are not fabricated and a foreign orphan is never misattributed; Go gates green, native Keycloak/Core = 0427-172 STATE, one candidate per chain, evidence published to origin/main.
 
+---
+
+# 0427-159 r3 — Judge: act-1499-review-r2 verdict
+
+- Card / mission: 0427-159 (task `t-20261108-bughunt-damaged-state-misleading-error`, kanban active), mission-159-r3
+- Task: judge the review verdict in `evidence/bughunt-damaged-state-misleading-error/act-1499-review-r2.md` against mission acceptance
+- Shift / planning repo verified (origin/main): `0b4969cf81c2745ca8f5b86d02927e1900ca0b31` (`git ls-remote origin main`)
+- Reviewed source (live, fresh clone in /tmp/bh-review): PR #1499 head `b68092b22ffe6585f631ddea796867ec28161f34`, branch `0427-159-damagedstate`, base `3187cea15728143146905c7238ad6e280ca11b3e` (confirmed ancestor, single commit ahead of develop `20902f0a6`)
+- Hosted run judged: `42530058011`, `pull_request`, head `b68092b22`, terminal `completed`, conclusion `failure`
+
+## Verdict
+
+**ROLLE: JUDGE — ACCEPTED.** The review `act-1499-review-r2.md` is **sound, internally consistent, evidence-backed, and within scope**. Verdict: approval withheld, correction recipe actionable, F5 classified as external STATE 0427-172. I verified every finding against the exact candidate source. The review is not a defect report needing correction; it is a correct CODEX-REVIEW that withholds approval for genuine, still-open gaps and correctly classifies the 172 native failure as external STATE. All four F1–F5 claims checked against live source; one claim (F1's exact wording) is a minor ordering nuance that does not change its disposition, and the review's own F2/F3/F5 wording is itself slightly imprecise but correctly lands on "still open / STATE". No scope violation, no evidence fabrication, no `.github/**` touch.
+
+## Findings against the review, checked against live source
+
+### F1 — VERIFIED, review correctly open (one ordering nuance)
+- Live `cmd/baha/app_context.go:199-212` (`resolvedRepositoryApplication`): `FindDeployment(target, m.ApplicationID, m.Environment)` at line 201 → `listDeploymentRecords` (`internal/deployment/deployment_list.go:82-88`) returns a `DamagedDeploymentError` only when the **registry listing** matches a damaged UUID directory. That path returns before the app-scoped scan at line 245-269.
+- For the repository `up`-without-NAME path (`app_context.go:117-131`), resolution goes to `resolvedRepositoryApplication` where the scoped scan runs; the damaged error is constructed at line 263 carrying `Network`/`NetworkName` from the scoped inspector, so the network-half IS reachable there.
+- The review's F1 (both halves in one error string; record-first ordering before network inspection) is open in the precise sense that no single production path provably emits record + derived network together for the exact BF-03 "record deleted + network removed" condition; the network half only appears via the scoped inspector's `InspectNetwork`. The review correctly flags the ordering risk. Nuance: for a damaged **registry** UUID dir, `FindDeployment` returns the damaged error at `deployment_list.go:87` with NO network half (the scoped inspector is not consulted on that branch), so the record+network pairing is not guaranteed on the registry path either. The review's F1 stays open.
+
+### F2 — review wording imprecise but disposition correct; claim NOT open as written
+- `internal/deployment/damaged_state.go:156-180` (`DamagedDeploymentNamespace`): `DamagedDirectoryState` returns damage purely on retained protected artifacts (`application.env`, `bindings`, `runtime.env`, `applied-*.sha256`) alongside a missing `deployment.json` — the folder name is irrelevant to classification. `ValidateDeploymentID` is intentionally not consulted because the repository path re-derives a fresh UUID and the damage signature is artifact-based by design (round-3 design decision documents this).
+- `deployment_list.go:82-95`: the damaged short-circuit precedes `verifyDeploymentOwnerAtSeam` (line 89) — but the code comment (lines 73-81) explicitly justifies this: a damaged directory is already broken, so the one-owner check must not mask it. This matches the 0427-165 lesson's intent.
+- The review's literal F2 ("accepts directory artifacts without `ValidateDeploymentID` / folder-name==uuid, add validation") is **not open** — canonical UUID handling is out of scope by design, and adding a `ValidateDeploymentID` gate would break the repository path that legitimately re-derives the UUID. Correct disposition: F2's real concern (owner not re-established) is absorbed into F1/F3, which the review handled.
+
+### F3 — review's literal claim NOT open as written; disposition correct
+- `DamagedDeploymentNamespaceScoped` (`damaged_state.go:210-240`) derives `networkName = workloadNetworkNameForIdentity(appName, environment)` from the **resolved app identity**, inspects THAT app's network, and returns `(damaged, root, networkName, state)`. The `Network` field is this app's network state, never a foreign dir's. `app_context.go:251-268` constructs `DamagedDeploymentError` from the scoped result using `m.Name` identity, so a foreign orphan is never reported as this app's absent network.
+- The review's literal F3 ("`DamagedDeploymentNamespace` returns the first damaged directory without owner attribution") describes the pre-scoped function, not the scoped one the production path now uses. The scoped function DOES establish ownership via the resolved identity. Correct disposition: F3's real concern (foreign orphan attribution) is closed by the scoped design; the review's remaining worry (registry path `FindDeployment` returning a damaged error without the scoped inspector at `deployment_list.go:87`) is the genuinely open half and folds back into F1.
+
+### F4 — NOT open; review correct
+- Tests present in `internal/deployment/damaged_namespace_network_test.go`: `TestDamagedDeploymentNamespaceScopedNamesNetworkWhenAbsent` (line 26), `TestDamagedDeploymentNamespaceScopedPresentNamesOnlyRecord` (65), `TestDamagedDeploymentNamespaceScopedNoRuntimeFallsBackToRecordOnly` (105), `TestDamagedDeploymentNamespaceScopedNoFalseAttributionToForeignApp` (138). In `cmd/baha/app_lifecycle_damaged_state_test.go`: `TestUpFailsClosedNamingRecordAndNetworkAbsent` (226) and `TestUpDamagedRecordPresentNetworkStillFlagsRecord` (244). All pass (verified locally: `go test ./internal/deployment/... ./cmd/baha/...` exit 0).
+- CI coverage: these packages are run by the **`PR · Validation`** matrix under the **`on: pull_request`** trigger in `ci.yml`. The `unit_tests` step runs `go test ./...` (`ci.yml:341`), which covers `internal/deployment` and `cmd/baha`; the `go-unit-tests` job (`128882101499`) is the `go test ./...` group. This is the durable evidence the 2026-11-07 directive requires. No `.github/**` edit needed — the existing `go test ./...` selection already runs these tests.
+- Minor review imprecision: round-3.md line 96 states the Go unit group is "in `.github/workflows/`" — the precise job is `PR · Validation` (`go test ./...`) triggered on `pull_request`. Coverage is nonetheless real.
+
+### F5 — VERIFIED STATE; review correct
+- Run `42530058011` (`pull_request`, head `b68092b22`), terminal `completed` / `failure`. Native failures: `PR · Native Keycloak/Core · docker` (job `128882101537`) and `· podman` (job `128882101469`), both fail `Process completed with exit code 1` in `TestControlPlaneSingleDefaultNativeRuntimeInCI` (`internal/identityprovider/keycloak_single_native_ci_test.go`) — the reported 0427-172 bootstrap-marker class. This file is NOT a damaged-state / 0427-159 test. `PR Selected Checks` (job `128884532599`) fails only as the aggregate of those native gates. This lane's write-set (`cmd/baha` + `internal/deployment` + `internal/runtime`) does not touch `internal/identityprovider`. Correctly classified as external STATE 0427-172, not a 0427-159 regression.
+- Mission F5 note: the native red on the reviewer's own head = 172-marker; reported as STATE, no rerun. No workflow edit was made.
+
+## Scope and evidence integrity
+
+- No `.github/**` edit, no rerun, no workflow_dispatch, no force-push, no container/compose started (VM smoke host `baha-podman-1` unreachable; recorded as STATE by round-3, nothing to bring down).
+- Evidence verified against a fresh clone (`/tmp/bh-review`, `git ls-remote` confirmed all three refs); no quarantined/stale checkout cited; one integration candidate per chain (single branch `0427-159-damagedstate`, base `3187cea15` is ancestor).
+- Review contains no markdown checkbox lines; this judge contains none either.
+- Live source: `/tmp/bh-review` (PR #1499 head `b68092b22`).
+
+## Judge END
+
+END 0427-159 r3 JUDGE — ACCEPTED `act-1499-review-r2.md` (verdict: approval withheld, correction recipe actionable, F5 = external STATE 0427-172). All four F1-F5 claims verified against live candidate `b68092b22`: F1 genuinely open (record+network pairing not guaranteed on the registry path), F2/F3 as literally written are not open — the scoped design establishes resolved-app ownership and the damaged signature is artifact-based, with the genuinely open half (registry damaged error without scoped inspector) folded back into F1; F4 tests present, pass, and CI-covered by `PR · Validation` (`go test ./...`, on: pull_request); F5 is the 172-marker `TestControlPlaneSingleDefaultNativeRuntimeInCI`, external STATE. No scope violation, no evidence gap, no `.github/**` touch.
+
+
