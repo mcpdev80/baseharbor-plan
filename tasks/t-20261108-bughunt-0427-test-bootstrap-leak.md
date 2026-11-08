@@ -62,3 +62,9 @@ Depends on 0427-124 only if that fix changes target naming used by the helper; w
 
 - [#1454](https://github.com/mcpdev80/baseharbor/pull/1454) ist gemergt (`22a3cb8a715f3a2063040ea3a3140c91d9e41ab6`). Die Karte steht noch `review` und hat keine verlinkte Evidence in `evidence:`.
 - Offener Akzeptanzbeleg ist der nachgelagerte Nachweis, dass nach den Docker- **und** Podman-Testpaketen keine `bh-w169-ci-bootstrap-*` Ressourcen verbleiben. Kein `closed` ohne diesen Cleanup-Beleg; Review-Owner-Eintrag bis Handover klaeren.
+
+
+## Produkt-Code und CI — 2026-11-08
+
+- `baseharbor/develop` `b73a13a9`: `cmd/baha/runtime_integration_test_support_test.go` hat `TestMain` mit Package-End-Teardown und langlebigem Cleanup-Marker; `runRuntimeIntegrationTestMain` uebernimmt nach Prozessabbruch verwaiste Marker, bricht bei fehlgeschlagener Adoption fail-closed ab und setzt einen Fehlercode, wenn Teardown scheitert. `destroyRuntimeIntegrationTrustPlane` entfernt Keycloak, Daten-Provider, Control Plane und prueft das Restinventar; eine Einzelschritt-Fehlfunktion verhindert die spaeteren Aufraeumversuche nicht.
+- [PR #1454](https://github.com/mcpdev80/baseharbor/pull/1454) gemergt, exact-head [PR-CI #42464014150](https://github.com/mcpdev80/baseharbor/actions/runs/42464014150) terminal SUCCESS. **Code-Fix vorhanden.** CI-Erfolg allein ist jedoch keine hier eigens protokollierte Host-Nachmessung aller Docker-/Podman-Restobjekte nach dem Testpaket. Diese externe Restressourcen-Abnahme bleibt offen; deshalb Karte `review`, nicht voreilig `closed`.
