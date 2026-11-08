@@ -102,3 +102,7 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449), Head `6343c82b48989bf3389907c638396c522ed176b3`: fuehrt vorhandenen echten `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` in den **bestehenden** GitHub-hosted Develop-Nativjobs Docker und Podman verbindlich aus. `BASEHARBOR_INSTALLATION_DESTROY_ACCEPTANCE=1`, einmaliger Test-PASS, kein SKIP/FAIL; gemeinsames CI-Skript, Impact-Selector plus Regression angepasst. Kein Self-hosted Runner und keine zusaetzliche parallele Pipeline.
 - **Nachweis noch offen:** PR-CI qualifiziert die Scriptsyntax; erst ein echter Develop-Push-Lauf mit nativen Docker+Podman-PASS auf genauem integriertem SHA zaehlt zur Abnahme. Kartenstatus `active`.
+
+### 2026-11-08 Keycloak-E2E-Schaerfung (ChatGPT)
+
+- PR #1449 nun Head `1e3af6441c886897bb1e1c8a185c9b53e005a758`: bestehender nativer Installations-Destroy-Test erzeugt **echte SQL + Identity/Keycloak**-Ressourcen, weist vor der Destruktion vorhandene Core-eigene Keycloak-Container nach und verifiziert nach dem bestaetigten Retry **0 verbliebene eigene Keycloak-Ressourcen**. Docker/Podman-Gate weiterhin im bestehenden develop-Nativjob. Vorherige Head-CI reicht **nicht** mehr; neue exakte PR-CI sowie spaetere echte develop-Nativ-Gates erforderlich. Karte `active`.
