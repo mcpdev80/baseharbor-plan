@@ -7,9 +7,9 @@ areas: [dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-w131-logsgap
+kanban_status: active
+kanban_lane: active
 kanban_summary: "The logs entry point is coherent: either baha logs works top-level (resolving the nearest app) or the error names the correct…"
 kanban_title: "0427-131 · logs top-level ohne Pfad"
 priority: low
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-logs-command-gap · Bug Hunt v0.4.27: logs top-level ohne Pfad #task #release/v0-4-27 #status/planned #view/ready #area/dx #kind/bug
+- [ ] t-20261108-bughunt-0427-logs-command-gap · Bug Hunt v0.4.27: logs top-level ohne Pfad #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** low  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-w131-logsgap · **Priority:** low  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-w131-logsgap  
 **Priority:** low  
 **PRs:** none  
 **Source:** 
