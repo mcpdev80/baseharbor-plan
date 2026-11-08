@@ -43,3 +43,9 @@ A subsequent failure on corrected fixture (PR #1489 run 42513106766, native Podm
 - Requalify #1495 against updated trusted develop policy, execute `TestControlPlaneSingleDefaultNativeRuntimeInCI` for real on both Docker and Podman with explicit non-SKIP PASS and successful final PR Selected Checks.
 - Confirm cleanup of only the package-owned bootstrap Core, do not interfere with foreign cores.
 - Record resulting PRs/merge SHAs/CI runs and close only after actual tests.
+
+## Trusted-routing integration and exact-head native rerun — 2026-11-08
+
+- CI routing [PR #1497](https://github.com/mcpdev80/baseharbor/pull/1497) merged into develop as `128e6f50b538cb6ba2925432740aa37014fcc09a` after successful [CI #42514020854](https://github.com/mcpdev80/baseharbor/actions/runs/42514020854), including CI policy, planner/executor tests, actionlint and the ordinary final check.
+- Test-fix PR #1495 rebased onto that trusted policy; new exact head `3020f9ca786ed4f186ba84771636489188b928dd`.
+- [Exact-head CI #42514307992](https://github.com/mcpdev80/baseharbor/actions/runs/42514307992) actively schedules both `PR · Native Keycloak/Core · docker` and `podman` for this file; ordinary Go checks and native destroy retry also selected. Status remains `review` until these jobs **and** final `PR Selected Checks` are terminal PASS.
