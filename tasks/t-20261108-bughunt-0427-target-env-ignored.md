@@ -15,7 +15,7 @@ kanban_title: "0427-124 · Target-ENV ohne Wirkung"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1443]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -57,3 +57,9 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 
 - Owner `owner:chatgpt`, `active` fuer gezielte Diagnose von `BASEHARBOR_TARGET` im echten Core-CLI-Startpfad; keine implizite Target-Umschaltung und keine fremden Ressourcen manipulieren.
 - Ergebnis noch offen; Reproduktion und Regression vor Abschluss erforderlich.
+
+## 2026-11-08 Produktionspfad-Diagnose (ChatGPT)
+
+- [PR #1443](https://github.com/mcpdev80/baseharbor/pull/1443), Head `37019b5c1445dda0cc47204e334c734c1e61aff7`: Regression prueft `BASEHARBOR_TARGET` direkt in der produktiven `effectiveTarget()`-Aufloesung und ueber `baha target show --json`, jeweils gegen ein abweichendes persistiertes Target. Exakte CI ausstehend.
+- Codeinspektion: `cmd/baha/target.go` liest die Variable; `deployment_record.go` benutzt sie ebenfalls bei der Boot-Target-Auswahl. Der auf der VM beobachtete `ErrDeploymentOwnerMissing` fuer einen isolierten Target **kann** aus der separaten Installationseigentuemer-Pruefung kommen; keine unsichere automatische Core-Ausleihe eingefuehrt.
+- Noch offen: isolierter nativer Docker+Podman `baha up --control-plane-only` auf anderem Target ohne Zugriff auf fremde Ressourcen; Karte bleibt `active`.
