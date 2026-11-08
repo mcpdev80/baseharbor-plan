@@ -122,3 +122,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 - Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
 - PR #1449 merged ebf56a09; PR #1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
+
+### 2026-11-08 Develop-Merge #1449
+
+- [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449) nach `develop` gemergt, **SHA `ebf56a092de55c5b2e1d3129b32ab50db6b92790`**, exact-head [PR-CI #42432965054](https://github.com/mcpdev80/baseharbor/actions/runs/42432965054) terminal `success` (15 PASS). Der echte Keycloak-/Installation-Destroy-Nativtest ist damit als Gate in den vorhandenen Docker-/Podman-Develop-Jobs eingebaut.
+- **Nativer PASS noch offen:** native Develop-Runs auf dem Merge-SHA wurden durch den folgenden Merge abgebrochen; auf dem folgenden SHA war der native Job wegen Impact-Auswahl geskippt. Nicht als native Abnahme interpretieren. PR #1448 bleibt bis exact-head CI/Integration offen. Coordinator übernimmt die notwendigen nativen Gates.
