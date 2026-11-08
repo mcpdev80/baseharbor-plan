@@ -26,7 +26,7 @@ below were produced by this session.
 4. Regression tests (CI-covered): state-only app same field + instance-really-gone fail-closed — done
 5. Focused local runs: go test ./internal/application (full pkg), targeted ./cmd/baha groups, vet, build, readability — done
 6. Candidate commit + drift merge + PR #1490 against develop — done
-7. Hosted PR checks to terminal state (draft: policy/source gates) — running
+7. Hosted PR checks to terminal state — done (draft run failed on a CI routing defect, see STATE; ready-phase run 42511516539 all-PASS on `35e549620`)
 8. Evidence on origin/main, END post — this file
 
 ## Base attestation and worktree
@@ -70,15 +70,15 @@ The edit-refresh path validates stored provider-instance preferences against a s
 
 ## Outcomes and candidates
 
-- Fix commit: `1a4423b36`; drift-merge candidate HEAD: `8ce26c983`; remote witness `git ls-remote origin refs/heads/fix/0427-150-stale-provider-edit-block` → `8ce26c9831b9fcc7eb92a352f4cbdb2713eaa6ee`.
-- PR: https://github.com/mcpdev80/baseharbor/pull/1490 (draft against develop, base head `0e3a6975e` at open).
-- Candidate HEAD witness: `git ls-remote origin refs/heads/fix/0427-150-stale-provider-edit-block` → `8ce26c9831b9fcc7eb92a352f4cbdb2713eaa6ee refs/heads/fix/0427-150-stale-provider-edit-block`.
-- `git log --oneline origin/develop..HEAD` lists ONLY: `8ce26c983` (drift merge of origin/develop) and `1a4423b36` (this lane's fix commit) — no foreign candidate commits.
+- Fix commit: `1a4423b36`; drift-merge candidate HEAD: `8ce26c983` (develop `0e3a6975e`); final drift-merge onto develop tip `177349187` → final candidate HEAD `35e549620`.
+- PR: https://github.com/mcpdev80/baseharbor/pull/1490 (opened draft, marked ready to run the selected required checks; base develop).
+- Candidate HEAD witness: `git ls-remote origin refs/heads/fix/0427-150-stale-provider-edit-block` → `35e5496203dc75fe6ad3bd4d1b97a44e98308792 refs/heads/fix/0427-150-stale-provider-edit-block`.
+- `git log --oneline origin/develop..HEAD` lists ONLY: `35e549620` (drift merge of origin/develop tip) and `1a4423b36` (this lane's fix commit) — no foreign candidate commits.
 - Local runs: `go build ./...`, `go vet ./cmd/baha ./internal/application`, `bash scripts/source-readability-audit.sh` PASS; `go test ./internal/application` full package ok (81.9s); targeted `cmd/baha` groups (edit/provider/wizard/apply/mcp/choice) ok. One environmental failure exists on the base too (needs CI's controlled Docker daemon): `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` fails identically on pristine d88491982 on this host ("existing native network lacks a protected Core or shared backend owner") — not caused by this change, recorded as STATE.
 - Hosted runs: run 42509459864 ("CI · PR #1490", attempt 1) on candidate
   `8ce26c983` reached terminal FAILURE in the draft-only job "PR · Draft focused
   checks" (see STATE above); all other PR jobs SKIPPED by design while draft.
-  After marking ready the selected required checks run; terminal results appended below.
+- Ready-phase run 42511516539 (+ selected-checks run 42511466771/42512168345) on final candidate `35e549620`: ALL executed checks PASS — go-unit-tests, go-build, go-vet, cli-gofmt, wizard-app-edit-tests, wizard-controller-tests, wizard-provider-choice-tests, Focused Python, Source format, Trusted Plan, Native impact selection, Native destroy retry (docker AND podman), Workflow policy, PR Selected Checks. No Keycloak/Core native gate was selected for this unit-surface change. Zero failures; PR mergeable=MERGEABLE, state=OPEN, isDraft=false.
 
 ## repo-rule compliance
 
@@ -87,6 +87,10 @@ The edit-refresh path validates stored provider-instance preferences against a s
 - Write-set matches the card: target-registry provider-instance refresh on the edit path (`cmd/baha/app_edit*.go`, `app_provider_choice.go`, `app_wizard_controller.go`, `internal/application/provider_preferences.go`, `provider_registry.go`, new test file).
 - Incident note: an intermediate broken state of `cmd/baha/app_edit.go` (editor truncation during development) was restored from git and rewritten cleanly before commit; the committed tree builds and passes the focused suites.
 
+## host-environment notes
+
+- Two local `cmd/baha` failures seen during full-package runs are session-host artifacts, not candidate defects: `TestNonTTYBackupDefaultUsesProtectedExternalArchive` (this worktree lives under a path containing a `.models` directory; the repo-safety guard resolves the default destination inside a git worktree — fails identically on pristine base `d88491982` in a sibling worktree) and `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` (needs CI's controlled Docker daemon). CI `go-unit-tests` on the exact candidate `35e549620` passed all packages.
+
 ## END
 
-(pending — finalize after hosted runs reach terminal state)
+END_DONE mission-150.md: H-P3 BF-03 fixed (stale provider instance no longer blocks `app edit`; live-registry re-resolution + actionable fail-closed), 6 CI-covered regression tests, candidate `35e5496203dc75fe6ad3bd4d1b97a44e98308792` on PR #1490 with all selected required checks PASS on GitHub runners.
