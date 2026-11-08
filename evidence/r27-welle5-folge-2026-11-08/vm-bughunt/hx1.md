@@ -86,4 +86,16 @@
 
 ## Status
 
-- STATUS: IN ARBEIT (BF-01..BF-20 documented; continuing trust-prompts cut 4, then VM cleanup + END)
+## BF-21..BF-26 (neu): trust uninstall prompts + per-anchor fail-closed (cut 4)
+
+- BF-21: trust status lists anchors per-anchor as "PRESERVED <path> (<fp>; <backend>; missing; trusted=false)" when Core not installed / file missing. Status output is informational (read-only).
+- BF-22: trust uninstall VALID backends are `linux-update-ca-certificates` and `linux-update-ca-trust` (hosttrust.go:458 backendByName). NOT "podman"/"docker"/"managed-keycloak".
+- BF-23: uninstall --yes (no prompt) removes owned anchors; host-trust.json deleted after removal. Backend refresh (update-ca-certificates) runs per anchor.
+- BF-24: uninstall prompt "[y/N]: " — non-TTY (piped) SKIPS prompt and errors "trust uninstall requires explicit approval" (readerIsTerminal false). Requires --yes for non-interactive.
+- BF-25: prompt accepts y/yes/ja/j (incl. German ja/j); n/invalid("xyz")/empty-line(Enter) -> "Host trust unchanged.", anchors preserved. 
+- BF-26 (FUND - prompt EOF): EOF (Ctrl-D, no newline) on uninstall prompt surfaces ERROR "read host trust removal approval: read /dev/stdin: input/output error" (ReadString('\\n') surfaces non-EOF... actually EOF error, not handled as decline). Fail-closed (anchors preserved) but erroring instead of clean "unchanged". Datei: cmd/baha/trust.go ~225 bufio.NewReader(guidedTrustInput).ReadString('\n') -> "read host trust removal approval: %w". Install-pfad (maybeOfferManagedHostTrust) HAT errors.Is(io.EOF) graceful handling; uninstall does NOT.
+- BF-27 (Sicherheit, per-anchor fail-closed): wrong backend ("managed-keycloak") -> PRESERVED with error "unsupported recorded host trust backend", while valid anchors in same run ARE removed. host-trust.json retains only the preserved bogus anchor. Per-anchor isolation confirmed (hosttrust.go:241 "PRESERVED %s (%s): %w").
+
+## Status
+
+- STATUS: IN ARBEIT (BF-01..BF-27 documented; VM cleanup + END next)
