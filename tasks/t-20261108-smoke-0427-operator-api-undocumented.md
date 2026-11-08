@@ -9,30 +9,30 @@ version: ""
 parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: ready
+kanban_lane: wait
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
-depends_on: [t-20261017-release-0-4-27-updates]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-serve-enrollment-authority, t-20261018-r27-connection-client]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Document only the verified production remote API startup and enrollment path after 0427-168 / 0427-023 pass the real E2E smoke."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/planned #view/wait #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting:** Verified remote Core API and connector enrollment path  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
@@ -73,3 +73,7 @@ A developer can start and use the Core operator API from documentation alone.
 ## Handoff
 
 - Found 2026-11-08 in E2E smoke-test (API route requirement confirmed with maintainer mid-run). Newest first.
+
+## E2E follow-up 2026-11-08
+
+The remote API runbook must be validated against a **working** developer-only CLI -> authenticated remote Core -> Docker connector -> app apply/status/destroy sequence. Existing env names in source are not a substitute for an independently successful startup sequence. Track this documentation card in Wait on 0427-168 and 0427-023 rather than presenting untested configuration as supported.
