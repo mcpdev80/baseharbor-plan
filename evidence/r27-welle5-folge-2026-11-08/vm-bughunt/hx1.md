@@ -71,6 +71,12 @@
 - BF-16 (fail-closed): tampered session subject mismatch (attacker-superuser) -> "session required". VerifySession subject==session.Subject. Logout idempotent: ClearSession treats os.ErrNotExist as success ("Operator session removed" auch ohne Session); operator_auth.go:72.
 - BF-17 (positiv): login per-target scoped. Login hx1 -> nur operator-hx1-stage.json; whoami hx2 -> "session required". Session-Name-Schema operator-<target>-<env>.json.
 
+## BF-18..BF-20 (neu): env-fallback + config-mutation-scope (cut 6)
+
+- BF-18 (Sicherheit/Usability): Mit KEINEM per-target operator-auth in config.yaml UND gesetzten env vars (BASEHARBOR_OPERATOR_OIDC_ISSUER/CLIENT_ID) laeuft der login bis zum exchange, schlägt aber am persist-Schritt fehl: "Target configuration mutation requires its protected owner directory". Cause: persistOperatorAuthBoundary -> config_mutation.go:72 ProtectedStateOwner(root) fail fuer /tmp (nicht owner-geschuetzt). Datei: internal/deployment/config_mutation.go:72; cmd/baha/operator_auth_boundary.go:158 persistOperatorAuthBoundary.
+- BF-19 (positiv, praezision): whoami/observe verwendet resolveStoredOperatorAuthBoundary (config.yaml ONLY, KEIN env fallback) — BF-04 bestaetigt. ConfigFromEnv() fallback existiert nur in resolveOperatorAuthBoundaryConfig (login-pfad). Trennung klar: whoami liest nur config.yaml; login kann aus env bootstrappen, darf aber nur in protected owner dir persistieren.
+- BF-20 (positiv): config mutation path validiert config (Validate) + .installation.lock owner-read, bevor persistiert wird. Defensiv.
+
 ## Positives
 
 - POS-1: Full managed PKCE login works end-to-end (integrierter OIDC-Flow: discover -> callback listener -> code -> RS256 id_token -> persist). BF-09.
@@ -80,4 +86,4 @@
 
 ## Status
 
-- STATUS: IN ARBEIT (BF-01..BF-17 documented; continuing multi-target/scope testing cut 6, then trust-prompts cut 4)
+- STATUS: IN ARBEIT (BF-01..BF-20 documented; continuing trust-prompts cut 4, then VM cleanup + END)
