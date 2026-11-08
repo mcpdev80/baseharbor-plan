@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: ChatGPT (0427-047 regression follow-up)
-kanban_lane: active
+kanban_lane: wait
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-047 · retain and recover opted-in"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,9 +22,10 @@ early: false
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md", "https://github.com/mcpdev80/baseharbor/pull/1385"]
+wait_reason: "Draft #1470 fachlich pausiert: Architekturabgleich und Remote-Management-Connection-E2E (#1473) zuerst abschliessen; kein eigenstaendiger Credential-Fortschritt ohne neuen Auftrag."
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/wait #view/wait #area/access #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (0427-047 regression follow-up) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470)  
@@ -32,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -149,3 +150,8 @@ Aktueller Head `4f52b177`: getrennte Coreless-Lokal-/Remote-Fail-closed-Pfade in
 ## Plan-validator correction — 2026-11-08
 
 - The previous `resolution: reopened-regression` was invalid on an `active` card. Reopening remains documented in the audit narrative; the resolution field is intentionally empty until a verified final acceptance. Existing owner, PRs and dependencies remain unchanged.
+
+## Kanban-Pause 2026-11-08
+
+- Draft #1470 fachlich pausiert: Architekturabgleich und Remote-Management-Connection-E2E (#1473) zuerst abschliessen; kein eigenstaendiger Credential-Fortschritt ohne neuen Auftrag.
+- Status `wait` als Ressourcen-/Abnahme-Pause, **nicht** als technischer Blocker. Owner bleibt bestehen; Reaktivierung nach konkreter Uebergabe bzw. Acceptance.
