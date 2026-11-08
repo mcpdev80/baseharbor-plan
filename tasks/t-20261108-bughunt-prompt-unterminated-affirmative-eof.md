@@ -52,3 +52,7 @@ Reader treats line-buffered input only: complete "y\n" authorizes, torn "y"+EOF 
 
 ## Dependencies and file ownership
 Follow-up of 0427-161 (merged #1485). Write-set: cmd/baha trust prompt reader (same site as #1485 fix).
+
+## Exact-head CI monitoring — 2026-11-08 (0427-166)
+
+- [PR #1488](https://github.com/mcpdev80/baseharbor/pull/1488), head `be2d071cf83dd94cbe7cf43e5007d46e761f1090`, [CI #42502971526](https://github.com/mcpdev80/baseharbor/actions/runs/42502971526). Initial selected CI checks have no failures; the Go unit-test matrix is still running. Card remains open until the required CI is terminal green.
