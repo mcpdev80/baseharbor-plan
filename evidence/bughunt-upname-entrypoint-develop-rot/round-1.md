@@ -117,8 +117,35 @@ AFTER (same leftover):
   PASS
 
 ## 4. Evidence: hosted run
-Run name: <to fill after hosted CI run>
-Hosted matrix result (develop-nearby head, green unit matrix): <to fill>
+Run name: GitHub Actions CI run #5336 (branch fix/0427-172-adopt, PR #1502)
+Hosted matrix result (develop-nearby head): PENDING — CI run 5336 in progress (headSha 7ea003b87).
+PR: https://github.com/mcpdev80/baseharbor/pull/1502
+
+Local reproduction (hosted-matrix parity on local docker):
+BEFORE (leftover marker naming w169-ci-bootstrap-* with no provisioned Core):
+  bootstrap trust-plane teardown: adopting orphaned marker from dead pid 99999999
+  bootstrap trust-plane adoption destroyed target "w169-ci-bootstrap-abcabcabc0"
+    with reported failures: bootstrap trust-plane control-plane files: stat
+    .../targets/w169-ci-bootstrap-abcabcabc0/runtime/compose.yaml: no such file
+  bootstrap trust-plane teardown: failed adoption aborts this run (marker kept): ...
+  FAIL    github.com/mcpdev80/baseharbor/cmd/baha    0.199s   (test never reached)
+AFTER (same leftover):
+  bootstrap trust-plane teardown: adopting orphaned marker from dead pid 99999999
+  bootstrap trust-plane adoption consumed orphaned marker "...": target
+    "w169-ci-bootstrap-abcabcabc0" owned no provisioned Core (dead owner never
+    brought it up)
+  --- PASS: TestUpNameResumesThroughCommandEntrypoint
+  PASS
+
+## 5. ls-remote + cleanliness
+- ls-remote origin develop -> 20902f0a6ab016fd8fe6a501751e1becc5f334dd (develop base)
+- ls-remote origin fix/0427-172-adopt -> 7ea003b87d343b4685b306ac9c5db84520044f08
+- git log origin/develop..HEAD lists ONLY: 7ea003b87 test(cmd/baha): adopt dead-owner bootstrap marker with no provisioned Core cleanly
+  (no foreign commit carried on top of the develop base)
+- Cleanliness: docker ps -a -> 7 shared containers from OTHER lanes (bh-docker-dev-shared-*); NONE started by this lane; no compose project to bring down.
+
+## Status
+- FIX APPLIED. Local targeted unit matrix green. CI run #5336 in progress.
 
 ## 5. ls-remote + cleanliness
 - ls-remote origin develop -> <SHA>
