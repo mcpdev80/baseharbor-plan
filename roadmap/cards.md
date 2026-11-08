@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 116/159 · **Blocked:** 2 · **Waiting:** 16  
+    **Accepted tasks:** 116/159 · **Blocked:** 2 · **Waiting:** 15  
     **Blocker:** [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) — audit 2026-11-08: native two-app acceptance never executed; reopen for proof run  
     **Blocker:** [t-20261108-bughunt-native-single-default-marker](../tasks/t-20261108-bughunt-native-single-default-marker.md) — root-cause belegt: CI verdraegtet BASEHARBOR\_CI\_RUNTIME\_INTEGRATION nicht in den single-default-jobs, TestMain schreibt deshalb den bootstrap-marker nie — fix…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)

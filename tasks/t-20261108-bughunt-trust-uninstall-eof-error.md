@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: lane-w161-eoftrust
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Uninstall prompt shares the install path io.EOF guard: EOF = clean cancel with \"Host trust unchanged.\" and exit 0-style…"
 kanban_title: 0427-161 · Uninstall prompt EOF I/O error
 priority: normal
@@ -23,19 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx1.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-trust-uninstall-eof-error · Bug Hunt v0.4.27: Trust prompt EOF error #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-trust-uninstall-eof-error · Bug Hunt v0.4.27: Trust prompt EOF error #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** lane-w161-eoftrust · **Priority:** normal  
     **Needs:** [t-20261108-bughunt-appnew-eof-cancel-prompts](t-20261108-bughunt-appnew-eof-cancel-prompts.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-appnew-eof-cancel-prompts](t-20261108-bughunt-appnew-eof-cancel-prompts.md)  
-**Owner:** unassigned  
+**Owner:** lane-w161-eoftrust  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
