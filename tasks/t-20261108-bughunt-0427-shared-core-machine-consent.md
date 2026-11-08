@@ -57,3 +57,9 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 ## 2026-11-08 Übernahme (ChatGPT)
 
 - Owner `owner:chatgpt`; `active`. Sicherheitsrelevanter Consent-Fluss: interaktiven App-Up/Down-Weg und die bestehende `ProviderChangeConsent`-Pruefung gegen die VM-Reproduktion untersuchen. Keine Abschwaechung der Freigabe- oder Datenloeschungs-Gates. Zuerst echter Negativ-/Positivtest, dann enger Produktfix.
+
+## 2026-11-08 Consent-Pfadpruefung (ChatGPT)
+
+- Der aktuelle lokale CLI-Stop-Pfad `authorizeApplicationStop` unter `cmd/baha/application_stop_impact.go` bietet auf einem erkannten Terminal `readProviderImpactAcknowledgements` an, prueft erst danach per `ValidateProviderImpactScopeConsent` und verifiziert vor Mutation den unveraenderten Plan. Der maschinenlesbare Consent bleibt per `BASEHARBOR_PROVIDER_CHANGE_CONSENT` an den aktuellen `plan_id` gebunden; generisches `--yes` reicht **absichtlich nicht**.
+- Der Bug-Hunt beschreibt bei `baha app down` einen blockierenden Prompt auf echtem Rootless-Docker, aber noch keinen exakten aktuellen `develop`-PTY-Trace, der zwischen fehlendem Terminal-Input, abweichendem Plan-ID und fehlender Scope-Confirmation unterscheidet. Bestehender `readProviderImpactAcknowledgements`-Test validiert die Sicherheits-Logik, aber nicht den realen PTY-Weg.
+- Kein Sicherheits-Bypass und keine behauptete Behebung. Naechster konkreter Nachweis: PTY-E2E mit 2× `y`, Plan-SHA-Vergleich und timeout-gesteuertem Abbruch; danach ggf. lokaler CLI-Input-Fix. Karte bleibt `active`.
