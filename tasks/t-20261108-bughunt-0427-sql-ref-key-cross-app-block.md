@@ -7,9 +7,9 @@ areas: [lifecycle, sql]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "owner:chatgpt"
-kanban_status: active
-kanban_lane: active
+owner: "coordinator"
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
 kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
@@ -18,22 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1447, mcpdev80/baseharbor#1450]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1450 merged 8f8be71; native two-app Docker/Podman stop/down and legacy SQL reference safety still need exact SHA PASS."
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/active #view/active #area/lifecycle #area/sql #kind/bug
+- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/wait #view/wait #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
-    **Owner:** owner:chatgpt · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** owner:chatgpt  
+**Owner:** coordinator 
 **Priority:** high  
 **PRs:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
 **Source:** 
@@ -106,3 +106,9 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 ## Handoff 2026-11-08 (duplikat-hinweis)
 - Neue Funde im Bug-Hunt 2026-11-08: linkding (Baha-Bug-01), ghost/status (Baha-Bug-04/05), gsmoke (Baha-Bug-06/07), ghostapp (Baha-Bug-05/07/08/09).
 - Ghost-Status/Source-MISSING (Baha-Bug-05): Symptom überschneidet sich mit dieser Karte (Discovery auf fehlende Quelle). Karte bleibt aktiv; neue Reports dokumentieren das Phänomen ohne separate Karte.
+
+## 2026-11-08 Owner-Freigabe und Uebergabe
+
+- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
+- PR #1450 merged 8f8be71; native two-app Docker/Podman stop/down and legacy SQL reference safety still need exact SHA PASS.
+- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
