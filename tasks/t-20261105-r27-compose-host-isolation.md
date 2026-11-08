@@ -251,3 +251,50 @@ das ist ein LEAK im Produkt-Test-Code. Bereits geleakte Suffixe: `2e0a4b61`, `d1
 erzeugten Bootstrap-Container komplett entfernen (running + exited, `docker rm -f`), Volumes und
 Netze mit, laufenden Test nicht unterbrechen. Ambienter `bh-local-shared`-Core bleibt bestehen.
 Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.
+
+## KONTEXT-SICHERUNG — 2026-11-08 ~05:00Z (74% Kontext, persistenter Zustandsblock)
+
+**ZWECK:** bei Abbruch/Neustart sofort weiterbar — zustandsblock > restliche zellen > END.
+
+### Worktree / SHA / Branch
+- Produkt-worktree `/tmp/0427-compose-wt` (recovert aus origin, base `812c99c88`).
+- Branch: `task/r27-compose-host-isolation-wip`.
+- Local + origin HEAD: `210b2dbd4c5d5d06baa5a4c0af30b776623b099e` (WIP-committet, auf origin).
+- Drift OK: `06e4b1eaa` Ancestor; Delta vs `origin/develop` = `cmd/baha/target.go` + 3 Fixture-
+  files (`deployment_record.go`, `repository_runtime_fixture_test.go`, `runtime_integration_test_support_test.go`).
+- Plan-repo HEAD (main): `90caf849` (lane todos.json committet, gepusht).
+
+### Write-Set (alle auf task/r27-compose-host-isolation-wip, NORMAL-PUSH, nie develop)
+- `cmd/baha/deployment_record.go`: Owner-Loan Fix (~line 60) — `registerBootInstallation` +
+  `productionLoanAuthorityForTarget`-Override + non-fatal Lock (WIP-committet).
+- `cmd/baha/target.go`: Zeile-107-Fix — `targetRuntimeFiles`-Fallback auf registrierten Boot-Core
+  (`installationLoans.currentBoot()`) bei fehlendem Target-Runtime; Boot-Projekt aus Boot-Wurzelfad.
+- `cmd/baha/runtime_integration_test_support_test.go`: `removeBootstrapNetworks` nach Trust-Plane
+  (Network-Leak-Fix, verhindert address-pool-Erschöpfung bei count=N).
+- `cmd/baha/repository_runtime_fixture_test.go`: Memory-Preflight-Waiver.
+
+### Zellen-stand (docker lane, host `baha-docker`, Lock `0427-110-compose-native-acceptance`)
+- **Contaminated (ambient `bh-local-shared` Core):** alle 4 tests PASS mit rc=0 (clean exit) —
+  Transkript `/tmp/cont-matrix.out`:
+  - WorkflowRealLifecycle PASS 159s | ComposeBackends PASS 190s | ComposeOnly PASS 162s |
+    BuildWorkload PASS 188s.
+- **Clean (kein ambient Core):** WorkflowRealLifecycle PASS rc=0 (159-212s). Tests 2–4 HANGEN beim
+  Apply-CConfirm-Pfad (`recordDeploymentBeforeMutation:551`, `consent==nil`) — Leak eines pipe-
+  haltenden Goroutines; Prozess_exitiert_nicht → `-count=2` blockiert. Produkt-/Harness-Befund.
+- **`-count=2` contaminated:** läuft aktuell (pristine host, mem 5904MB, 0 containers/nets).
+- **Podman:** OFFEN — host `baha-podman` an `0427-116-r5` (nicht releasebar, bis docker lane released).
+
+### Offene schritte (priorisiert)
+1. `count=2` contaminated zu terminal PASS bringen (aktuell laufend).
+2. Ggf. clean-host confirm-Hang dokumentieren (Prozess-Leak bei Tests 2–4); CI-Gate ist `-count=1`
+   (ci.yml:349) — `-count=1` clean+contaminated beide grün.
+3. Podman-matrix (clean + contaminated, count=1) nach docker-release.
+4. Round-Evidence (zellentabelle + shas + transkripte + leak/befund) publizieren.
+5. Lane `0427-110` releasen; END_STOPPED an lane `594fd2f5`.
+
+### Evidence-pfade
+- Akte/Note: `tasks/t-20261105-r27-compose-host-isolation.md` (dieser text).
+- Lane todos: `workers/0427-compose-native-acceptance/todos.json` (baseharbor-plan, gepusht).
+- Host-transkripte: `/tmp/cont-matrix.out`, `/tmp/c2-matrix.out`, `/tmp/cont-*.log`, `/tmp/c2-*.log`.
+- Test-binary auf host: `/tmp/iso-tests-docker`; build `go test -c -o ./cmd/baha`.
+- Helper auf host: `/tmp/iso-full-clean.sh` (full cleanup), `/tmp/iso-cont-c2.sh` (count=2 cont).
