@@ -84,7 +84,7 @@
 - dateireferenz: cmd/baha/app_init_prompts.go:376-397; cmd/baha/app_new_wizard.go:256-272.
 
 ### BF-8 (daemm): needs-TUI zeigt provider-zeile abgeschnitten ("(scope: ap")
-- Schwere: daemm-niedrig (darstellung). Die candidate-zeile in appProviderChoice.View() laeuft auf 120 spalten terminal in den zeilenumbruch und wird im TUI-re-render abgeschnitten: "[x] caddy/application/<uuid>/dev-ef260e9a (caddy): caddy supports exposure.http (scope: ap". Der text (scope: application) ist unvollstaendig lesbar.
+- Schwere: daemm-niedrig (darstellung). Die candidate-zeile in appProviderChoice.View() laeuft auf 120 spalten terminal in den zeilenumbruch und wird im TUI-re-render abgeschnitten: "checkmarke caddy/application/<uuid>/dev-ef260e9a (caddy): caddy supports exposure.http (scope: ap" (original mit eckiger-checkmarke davor). Der text (scope: application) ist unvollstaendig lesbar.
 - dateireferenz: cmd/baha/app_provider_choice.go:241 (fmt.Fprintf single-line).
 
 ### BF-9 (ux): needs-screen verschluckt provider-zeilen still, wenn choicesForSelection() fehlschlaegt
