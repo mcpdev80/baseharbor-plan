@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-path-signal"
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: SIGINT at a raw prompt = clean cancel with message and restored terminal; signal regression in the existing field.
 kanban_title: 0427-145 · Ctrl-C breaks raw prompt
 priority: normal
@@ -19,21 +19,21 @@ prs: [mcpdev80/baseharbor#1472]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42481779497", "https://github.com/mcpdev80/baseharbor/commit/4786c541743541e7550f2c214f143ac8ee4f0aa6"]
 ---
-- [ ] t-20261108-bughunt-rawmode-prompt-sigint · Bug Hunt v0.4.27: Ctrl-C breaks raw prompt #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-rawmode-prompt-sigint · Bug Hunt v0.4.27: Ctrl-C breaks raw prompt #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-path-signal · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1472](https://github.com/mcpdev80/baseharbor/pull/1472)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42481779497), [proof 3](https://github.com/mcpdev80/baseharbor/commit/4786c541743541e7550f2c214f143ac8ee4f0aa6)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-path-signal  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1472](https://github.com/mcpdev80/baseharbor/pull/1472)  
 **Source:** 
@@ -61,3 +61,10 @@ Audit 2026-11-08 (zuerklaeren): the missing Interrupted line was observed non-de
 
 - Claimed by `chatgpt-r27-path-signal` for [PR #1472](https://github.com/mcpdev80/baseharbor/pull/1472). Raw path Ctrl-C displays a clean cancellation and retains `context.Canceled`; real PTY regression verifies ISIG-off entry, Ctrl-C and restoration of the terminal local flags.
 - Exact-head CI and signal regression pending. Do not close or claim user-host proof before terminal PASS.
+
+
+## Accepted — 2026-11-08
+
+- [PR #1472](https://github.com/mcpdev80/baseharbor/pull/1472), exact head `36ce785320e71ac1ad3169c24aa67ab3d47d1d00`, merged to develop as `4786c541743541e7550f2c214f143ac8ee4f0aa6`.
+- [CI #42481779497](https://github.com/mcpdev80/baseharbor/actions/runs/42481779497): terminal SUCCESS including targeted Linux PTY regression, Go-unit, build/vet, native Docker/Podman destroy retry and selected checks.
+- `path_prompt_linux.go` now reports `Interrupted. No changes were made.` on raw Ctrl-C and returns `context.Canceled`; real PTY test verifies input signal and restored termios local flags. All card acceptance criteria covered. `resolution: accepted`, worker claim released.
