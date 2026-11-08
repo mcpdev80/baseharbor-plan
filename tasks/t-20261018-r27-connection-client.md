@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 - [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (remote-client regression) · **Priority:** normal  
-    **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473) (Draft)  
+    **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
@@ -39,7 +39,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md)  
 **Owner:** ChatGPT (remote-client regression)  
 **Priority:** normal  
-**PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473) (Draft)  
+**PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
