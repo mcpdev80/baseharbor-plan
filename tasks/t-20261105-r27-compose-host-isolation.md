@@ -209,3 +209,45 @@ Stand der 4-Test-Abnahme (docker Lane, host `baha-docker`, Lock `0427-110-compos
 - **WIP gepusht:** Branch `task/r27-compose-host-isolation-wip` @ `3011102aa` auf origin. Delta vs `origin/develop` = exakt die write-set-Andauerungen; `06e4b1eaa` ist Ancestor des HEAD (Drift-Konform). Kein Force-Push, keine history-umschreibung.
 
 Status: Two Funde (Owner-Loan ~line 60, SQL volume ~line 107) fixed, built, vet-clean, WIP pushed. Not yet green -- PASS on docker (clean+contaminated) and podman still pending with SHA + transcript. Card->closed only on full evidence.
+
+## Native Acceptance Fortschritt — 2026-11-08 (docker lane, 0427-110)
+
+Drift-Warnung bearbeitet: develop ist auf `0fe53052d` (#1438) gezogen. `git fetch origin develop`
++ `git merge origin/develop` im WIP-Kopf; Ancestor-Regel `06e4b1eaa` JA; Delta nach Merge = exakt
+`cmd/baha/target.go` (eigene Änderung), develop-Änderungen konfliktfrei übernommen. Build/vet CLEAN.
+
+**Fund Zeile 107 (BEHEBT, Produkt-Testpfad):** `app apply` schreibt das Workload-Runtime-Compose
+nach `Store.Root/name/runtime` = `.../targets/<iso>/deployments/<id>/state/repo-e2e/runtime/compose.yaml`
+(`EnsureRuntime`, `internal/application/runtime_postgres.go`), während `openBaoRuntime`/
+`existingTargetRuntimeFiles`/`app status`/`app doctor` die Runtime am TARGET-WURZEL
+`.../targets/<iso>/runtime/compose.yaml` lesen (`bhruntime.ExistingFilesForProject`). Für das
+isolierte Test-Target existiert kein `runtime/` am Target-Wurzelpfad → `BaseHarbor runtime is not
+initialized: .../runtime/compose.yaml: no such file`. Der Bootstrap-Core läuft am grünen
+`up --control-plane-only`-Pfad über `ensureTargetRuntimeFiles` → Target-Wurzelpfad, deshalb dort
+kein Defekt. Fix (`cmd/baha/target.go`, CI-getoggert auf
+`BASEHARBOR_CI_RUNTIME_INTEGRATION=1`): `targetRuntimeFiles` fällt bei fehlendem Target-Runtime auf
+den registrierten Boot-Core (`installationLoans.currentBoot()`) zurück; Boot-Core-Projekt wird aus
+dem Boot-Wurzelpfav abgeleitet, damit `coreFiles.Project` die geliehenen Core-Container exakt
+trifft. Never-mutates, nie ein produktiver Pfad.
+
+**Docker-Ergebnis — saubere UMGEBUNG (kein ambient Core):** alle 4 Tests PASS.
+**Docker-Ergebnis — kontaminierte UMGEBUNG (ambient `bh-local-shared` Core vorhanden):** alle 4
+Tests PASS — die Isolation nutzt durchgehend den eigenen Bootstrap-Core, nie den ambienten.
+
+| Test | Clean | Contaminated |
+| --- | --- | --- |
+| TestRepositoryWorkflowRealLifecycle | PASS | PASS |
+| TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI | PASS | PASS |
+| TestRepositoryComposeWorkloadOnlyLifecycleInCI | PASS | PASS |
+| TestRepositoryBuildWorkloadRebuildsSourceChangesInCI | PASS | PASS |
+
+## Docker-Host-Leak Fund (PRODUKTBEFUND, an bug-karte gemeldet)
+
+Alle `bh-w169-ci-bootstrap-<suffix>-…`-Container auf `baha-docker` stammen aus DEN eigenen
+Testläufen (`runtime_integration_test_support_test.go:60`, hartcodiert `w169-ci-bootstrap-`). Der
+Test-Hilfscode räumt den Bootstrap-Core nach jedem Lauf NICHT ab (kein `down` + Volumes + Netze);
+das ist ein LEAK im Produkt-Test-Code. Bereits geleakte Suffixe: `2e0a4b61`, `d1dfaab2`, `afe2d8fa`
+(+ `92505478`, `431036d1`, `185e354d`, `169b4fbf`, `996d1f7f`) — nach JEDEM Lauf alle im Lauf
+erzeugten Bootstrap-Container komplett entfernen (running + exited, `docker rm -f`), Volumes und
+Netze mit, laufenden Test nicht unterbrechen. Ambienter `bh-local-shared`-Core bleibt bestehen.
+Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.

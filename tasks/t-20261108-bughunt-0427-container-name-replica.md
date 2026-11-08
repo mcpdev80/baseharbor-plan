@@ -7,9 +7,9 @@ areas: [dx, lifecycle]
 release: v0.4.27
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-0427-128-contname
+kanban_status: active
+kanban_lane: active
 kanban_summary: "baha app backup succeeds for repository workloads that use Compose containername (linkding, JoySafety/AgenticX/Tier0 patterns);…"
 kanban_title: "0427-128 · backup stop fails on"
 priority: normal
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-container-name-replica · Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) #task #release/v0-4-27 #status/planned #view/ready #area/dx #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-container-name-replica · Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0427-128-contname · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-0427-128-contname  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
