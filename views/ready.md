@@ -4,6 +4,4 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-0427-regression-debug-dump-consent](../tasks/t-20261108-bughunt-0427-regression-debug-dump-consent.md) | Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+None.
