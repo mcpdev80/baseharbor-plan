@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "owner:chatgpt"
-kanban_status: closed
-kanban_lane: closed
-kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
+kanban_status: active
+kanban_lane: active
+kanban_summary: "Two-stage consent and stdout fixes merged; real native Docker/Podman PTY acceptance outstanding."
 kanban_title: "0427-123 · Shared-Core Consent blockiert"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -19,16 +19,16 @@ prs: [mcpdev80/baseharbor#1445, mcpdev80/baseharbor#1446]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: accepted
+resolution: ""
 evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9"]
 
 ---
 
 ## Outcome and acceptance
 
-Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
+Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 
-- [x] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #board/planned #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
     **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
@@ -36,7 +36,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
@@ -86,3 +86,8 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 
 - [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) erfolgreich nach `develop` gemergt: `f9e207ac0d0b4c983fbb01d4357a8784c41c92de`. Exact-head [CI #42431899984](https://github.com/mcpdev80/baseharbor/actions/runs/42431899984) terminal `success`, **10 PASS, 0 FAIL, 0 ausstehend**.
 - Echter `authorizeApplicationStop`-Codepfad mit zwei Ja-Bestaetigungen, Ablehnung in Stufe 1/2, aktueller Planbindung regressionsgetestet. **Karte bleibt active:** echter PTY- und nativer Docker-/Podman-Lifecycle-Nachweis weiterhin ausstehend, keinerlei Sicherheits-Bypass.
+
+## 2026-11-08 Acceptance correction (ChatGPT)
+
+- **Prior `closed/accepted` was premature**: code/PR merge links are not native end-to-end proof. Real PTY two-stage app down on BOTH Docker and Podman still lacks exact SHA and PASS-not-SKIP evidence.
+- Reopened to `active` with existing code evidence retained. Do not close until exact integration SHA, native runtime output, verified resource preservation/removal, no SKIP, and VM cleanup are recorded.
