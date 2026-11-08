@@ -67,3 +67,8 @@ Umbrella only; write-set internal/identity + cmd/baha login/node paths + docs. S
 ## CI remediation — 2026-11-08 (0427-134)
 
 - PR #1457: native SINGLE-default test failed before executing topology assertions due to absent/moved package cleanup-marker root. TestMain now pins XDG data home before claiming marker and shared bootstrap reuses it; head `066fda972c4bc91d0b8a7913bcb6ecd338e9801f`, new CI https://github.com/mcpdev80/baseharbor/actions/runs/42503131808. Pending native Docker/Podman CI; no PASS claim.
+
+## Native Core topology retest — 2026-11-08
+
+- On PR #1457 head `066fda972c4bc91d0b8a7913bcb6ecd338e9801f`, [CI #42503131808](https://github.com/mcpdev80/baseharbor/actions/runs/42503131808) has successfully executed both `PR · Native Keycloak/Core · docker` and `podman`, including the previously failing `TestControlPlaneSingleDefaultNativeRuntimeInCI` bootstrap-marker setup.
+- Native destroy retry on Docker/Podman also succeeded; full Go unit gate is still running at this check. Do not mark accepted or merge until the workflow is terminal SUCCESS.
