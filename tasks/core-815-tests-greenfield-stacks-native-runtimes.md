@@ -116,3 +116,9 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 
 - [PR #1429](https://github.com/mcpdev80/baseharbor/pull/1429) ist inzwischen gemergt; [PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) ist weiterhin offen auf Head `6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b`.
 - Der dokumentierte native 8/8 Docker/Podman-READY-Lauf ist nicht gleichbedeutend mit den separat geforderten SINGLE-/HA-Topologie-Nachweisen. Karte deshalb weiterhin `active`, keine Doppelarbeit durch neuen Worker und kein irrtuemlicher Mergehinweis fuer #1432.
+
+
+## Source-Vergleich zu PR #1432 — 2026-11-08
+
+- PR #1432 (`6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b`) hat einen alten erfolgreichen [CI-Lauf #42391093788](https://github.com/mcpdev80/baseharbor/actions/runs/42391093788), liegt gegen aktuelles `develop` jedoch **135 Commits behind, 14 ahead** (divergiert). Der bisherige 8/8 Native-Greenfield-Erfolg ist SHA-genau, aber nicht automatisch ein PASS auf aktuellem Integrationskopf.
+- Vor Merge aktualisierten Diff auf `develop` abstimmen; danach relevante native Zellen inkl. SINGLE-default, HA-opt-in und HA-negative acceptance auf exakt dem Integrations-SHA pruefen. Solange kein aktueller Beleg vorliegt bleibt `active`, kein Merge allein aufgrund historischer gruener CI.
