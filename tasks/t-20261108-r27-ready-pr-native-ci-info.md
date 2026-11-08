@@ -15,7 +15,7 @@ kanban_title: "0427-137 · Ready-PR Native CI"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1463]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -65,4 +65,4 @@ The Owner is changing PR runtime qualification in `mcpdev80/baseharbor`:
 - Draft PR does not start native acceptance; ready-for-review starts it; new commits to ready PR rerun it.
 - Relevant destroy source paths select `scripts/ci-native-installation-destroy.sh` on hosted Docker and Podman; exact `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` must PASS, never SKIP.
 - Unrelated changes do not trigger expensive native acceptance; missing mapping falls back to a conservative native selection.
-- Owner records CI PR and the actual run IDs before declaring implementation complete.
+- CI Owner PR: [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463). Owner records actual run IDs before declaring implementation complete.
