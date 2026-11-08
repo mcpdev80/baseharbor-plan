@@ -63,15 +63,21 @@ The production `--no-browser` fix (`cmd/baha/operator_auth.go`, `NoBrowser: noBr
 
 Note on the `/tmp` environment: this host's `/tmp` is a tmpfs that aborts child writes at ~32 KB (df reports ~2.6 GB free but writes fail with ENOSPC). The browser marker therefore writes under `/var/tmp` (43 GB free), not `/tmp`, so the launch marker can reliably record. This is a test-host hygiene note, not a product change.
 
-## Hosted run truth (outstanding)
+## Hosted run truth (terminal, but native Keycloak/Core blocked by develop-rot)
 
-- Candidate `ac78619a` was pushed to the PR branch `wip/0427-134-ca-pkce-integrate` at 13:34 UTC. The PR (`#1457`) updated (`updated_at 2026-11-08T13:34:47Z`), but no new hosted CI run was scheduled on `ac78619a` after the push:
-  - `gh run list --branch wip/0427-134-ca-pkce-integrate` continues to show only the two prior runs: `42467172096` (83d175f5, terminal FAILURE) and `42455848388` (06:42).
-  - `gh api repos/mcpdev80/baseharbor/pulls/1457/check-runs` -> 404 (no check runs registered against the current PR head).
-  - The `pull_request` `synchronize` webhook did not schedule a new run for this push; the two prior runs belong to `83d175f5` only and do not validate `ac78619a`.
-- The recipe stop-criterion (approve requires a terminal hosted run on the exact PR head for PR Selected Checks + go-unit-tests + required native Docker/Podman cells) is therefore NOT yet met. This is an environment/webhook behavior on GitHub's side, not a defect in the carried change. Per the mission, no `.github/**` edit, rerun, or `workflow_dispatch` was made.
-- develop-rot caveat (Owner note this shift): native develop single-default docker+podman gates fail since `8ecd1ea5d` (card 0427-156); my PR-side unit + selected checks are unaffected. If a run ever names those cells, STATE with the run-link, do not refix, no rerun spam.
+- Drift-merge: the PR was CONFLICTING against develop (`cdb4350a6b5ba614ec4f7fe6e9bd19e91055952c`). Merged develop into the PR branch and pushed the merge head `2c6ed412` (synchronize webhook then fired run `42488764519`).
+- Merge head `2c6ed412` run `42488764519` was terminal FAILURE: `go-unit-tests` FAILED with
+  `human_documentation_test.go:107: machine documentation drift in ../../docs/cli/command-index.md` — the manual merge conflict resolution of `docs/cli/command-index.md` left a stale `baha list [options]` row. Fixed by regenerating with `BASEHARBOR_UPDATE_MACHINE_DOCS=1 go test ./cmd/baha/ -run TestHumanCommandIndexTracksExactCommandMetadata`, which restores the authoritative `baha list [--all-targets]` row while retaining the richer `baha login --ca --auth-code-file --no-browser` surface. Committed as `b4b027de`.
+- Pushed corrected merge head `b4b027de593f306ec7cf2d3465bcb735e69628f2`; synchronize webhook fired run `42489711156`, now terminal:
+  - `PR · Validation · go-unit-tests`: **SUCCESS**
+  - `PR · Validation · go-build/vet/gofmt/documentation-audit/pages/mkdocs-en-de`: **SUCCESS**
+  - `PR · Native destroy retry · docker` / `podman`: **SUCCESS**
+  - `PR · Native impact selection`: **SUCCESS**
+  - `PR · Native Keycloak/Core · docker` / `podman`: **FAILURE** (`NATIVE_SELECTION: success`, `NATIVE_REQUIRED: true`, `NATIVE_RESULT: failure`)
+  - `PR Selected Checks`: **FAILURE** (carries the two red native Keycloak/Core cells)
+- The two native Keycloak/Core failures are the known develop-rot (card 0427-156, native develop single-default docker+podman failing since `8ecd1ea5d`): the identical cell `Native single-default · Docker` also FAILED on the known-green develop push run `42485190712` (conclusion `failure`). Not a defect in this candidate's carried change; my PR-side unit + selected checks are unaffected. Per the Owner/Coordinator shift note, STATE with run-link, do not refix, no rerun spam.
+- The recipe stop-criterion (approve requires a terminal-green run on the exact PR head for PR Selected Checks + go-unit-tests + required native Docker/Podman cells) is therefore NOT met: go-unit-tests is green, but `PR Selected Checks` + native Keycloak/Core docker/podman are red solely because of develop-rot. This was verified on the exact merge head `b4b027de` (native Keycloak/Core docker job log: `NATIVE_RESULT: failure`). No `.github/**` edit, rerun, or `workflow_dispatch` was made by this lane.
 
 ## END
 
-END_BLOCKED 0427-134-review-r6 — candidate SHA ac78619a (PR #1457 branch `wip/0427-134-ca-pkce-integrate`, fast-forward of PR head 83d175f5, own commit only). Test counterfactuals strengthened and verified by mutation; branch fast-forwarded and pushed. Hosted run on the exact PR head was not scheduled by GitHub after the push (synchronize webhook did not fire); the recipe's terminal-hosted-run stop-criterion remains unmet. Coordinator action required to obtain/trigger the exact-head hosted run before an approve can be issued. No compose projects were started; nothing to bring down.
+END_BLOCKED 0427-134-review-r6 — candidate head `b4b027de` (PR #1457 branch `wip/0427-134-ca-pkce-integrate`; drift-merged develop `cdb4350a`, own merge+doc commits on top of R4/R5 `83d175f5→7da148a3→48a3e36f`). Test counterfactuals strengthened and verified by mutation (browser-suppression mutation FAILS the test, correct prod PASSES). Merge head `b4b027de` hosted run `42489711156` is terminal: go-unit-tests SUCCESS, go-build/vet/gofmt/docs SUCCESS, native destroy retry docker/podman SUCCESS; but `PR Selected Checks` + native Keycloak/Core docker/podman FAILURE — the known develop-rot (card 0427-156), identical failure on known-green develop push run 42485190712. Recipe's terminal-green stop-criterion (PR Selected Checks + go-unit-tests + required native Docker/Podman cells) not met because of develop-rot, not the carried change. STATE with run-link 42489711156; no refix, no rerun spam. No compose projects started; nothing to bring down.
