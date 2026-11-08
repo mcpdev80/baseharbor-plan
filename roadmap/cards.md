@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 110/154 · **Blocked:** 1 · **Waiting:** 15  
+    **Accepted tasks:** 111/154 · **Blocked:** 1 · **Waiting:** 15  
     **Blocker:** [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) — audit 2026-11-08: native two-app acceptance never executed; reopen for proof run  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 

@@ -22,18 +22,18 @@ wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42484014091", "https://github.com/mcpdev80/baseharbor/commit/25baf858c59c8352ee733acf01da8853e778e807"]
 ---
-- [ ] t-20261108-bughunt-docker-netpool-exhaustion · Bug Hunt v0.4.27: No advice on pool error #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-docker-netpool-exhaustion · Bug Hunt v0.4.27: No advice on pool error #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** chatgpt-r27-network-hint · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1477](https://github.com/mcpdev80/baseharbor/pull/1477)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42484014091), [proof 3](https://github.com/mcpdev80/baseharbor/commit/25baf858c59c8352ee733acf01da8853e778e807)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-network-hint  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1477](https://github.com/mcpdev80/baseharbor/pull/1477)  
 **Source:** 
