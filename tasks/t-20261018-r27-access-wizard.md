@@ -38,7 +38,7 @@ wait_reason: ""
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-profiles](t-20261018-r27-access-profiles.md), [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-device-lifecycle](t-20261018-r27-device-lifecycle.md), [t-20261018-r27-managed-users](t-20261018-r27-managed-users.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
-**Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
+**Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261108-bughunt-0427-greenfield-isolation](t-20261108-bughunt-0427-greenfield-isolation.md)  
 **Owner:** lane-0427-013-access-r6  
 **Priority:** normal  
 **PRs:** [baseharbor#1430](https://github.com/mcpdev80/baseharbor/pull/1430), [baseharbor#1433](https://github.com/mcpdev80/baseharbor/pull/1433)  
