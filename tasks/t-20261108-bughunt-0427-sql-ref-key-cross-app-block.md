@@ -74,7 +74,7 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 - Report: `~/dev/Tests/Baha-Bug-03-cross-app-down-missing-dependency.md` with full error text, deployment.json excerpt, registry dump; reproduced 1x end-to-end (causality registry↔intent proven; independent second run outstanding).
 - Note: manual workaround during the hunt was deleting the phantom deployment record; stop-path cross-app coupling was observed in the same run.
 
-## 2026-11-08 Übernahme (ChatGPT)
+## 2026-11-08 Takeover (ChatGPT)
 
 - Owner `owner:chatgpt`, Lane `active`: SQL phantom-key causality (Writer + foreign-app stop footprint) check against current `develop` sources, create a reliable isolation regression and a targeted product fix. Do not globally suppress foreign app references.
 
@@ -106,7 +106,7 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 ## Handoff 2026-11-08 (duplikat-hinweis)
 - Neue Funde im Bug-Hunt 2026-11-08: linkding (Baha-Bug-01), ghost/status (Baha-Bug-04/05), gsmoke (Baha-Bug-06/07), ghostapp (Baha-Bug-05/07/08/09).
-- Ghost-Status/Source-MISSING (Baha-Bug-05): Symptom überschneidet sich mit dieser Karte (Discovery auf fehlende Quelle). Karte bleibt aktiv; neue Reports dokumentieren das Phänomen ohne separate Karte.
+- Ghost status/source MISSING (Baha-Bug-05): symptom overlaps with this card (discovery on missing source). Card stays active; new reports document the phenomenon without a separate card.
 
 ## 2026-11-08 Owner-Freigabe und Uebergabe
 
