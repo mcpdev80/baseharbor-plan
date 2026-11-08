@@ -86,10 +86,43 @@ control-plane werden mit r4 abgedeckt.
 
 ## END
 
-END_DONE integration-1452-review-r4: KORREKTUR retirement (file:line) + control-plane
-(file:line) auf Produktionspfaden, pinned+default tests. CI-Trigger (ci.yml:349) ist
-Owner-Scope — Change-Report, kein Rerun. END-PFLICHT: docker/podman compose stacks
-herunterfahren, origin/main evidence verifizieren, evidence commit.
+END_DONE integration-1452-review-r4: KORREKTUR retirement (service_retirement.go) + control-plane
+(control_plane_stop_observation.go) auf Produktionspfaden, pinned+default tests. CI-Trigger (ci.yml:349)
+ist Owner-Scope — Change-Report, kein Rerun. All evidence committed to origin/main; no docker/podman
+compose stacks started this lane (native unit/vet/tests only).
+
+## PROOF (r4, committed)
+
+- PR #1452 new head via `git ls-remote`:
+  `48814ecc5e8603f16f4849249fffc9b0c8abd7ab` refs/heads/bughunt/0427-128-container-name-replica.
+- Exact base develop via `git ls-remote`:
+  `07ae6c3e91b081a189266ca4b162ba705d4aa78f`.
+- `git merge-base --is-ancestor 54a6fd11d 48814ecc` => 0 (r3 head is ancestor of r4 head).
+- `git merge-base --is-ancestor 07ae6c3e9 48814ecc` => 0 (develop is ancestor).
+- PR #1452 commit list (`gh pr view 1452`): only the six expected commits; the newest is
+  `48814ecc fix(0427-128 r4): admit pinned container_name in retirement and control-plane stop`
+  authored by mcpdev80. No foreign commit carried on the branch.
+- PR state `OPEN`, `mergeable MERGEABLE` (`gh pr view 1452`).
+- Evidence path present in origin/main (`26d20789`):
+  `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/bughunt-container-name-replica/`
+  lists `round-4.md`; `git ls-remote origin main` => `26d2078932cdb2ab9ff495c1e432cfe680a998af`.
+- Local checks: `go build ./cmd/baha` ok; `go vet ./internal/runtime/ ./cmd/baha/` ok;
+  `go test ./internal/runtime/` ok; pinned/wrong-service tests pass;
+  `go test ./cmd/baha/ -run 'Retire|ControlPlane|CoreStop'` ok. gofmt clean on all six changed files.
+- Pre-existing failure (NOT introduced by this lane): `TestQuickInitPreservesWorkloadOnlyRepository`
+  and three siblings fail on the pristine r3 head too (`deployment.json is missing`); unrelated to
+  container-name changes.
+
+## CI ROUTING (Owner scope — change report, no edit, no rerun)
+
+- `TestRepositoryComposePinnedWorkloadLifecycleInCI` (`cmd/baha/app_workload_integration_test.go`)
+  gates on `BASEHARBOR_CI_RUNTIME_INTEGRATION=1`. `internal/runtime` tests run under
+  `ci.yml:121` (`go test ./contracts/... ./internal/... ./spec/...`); `cmd/baha` tests under
+  `ci.yml:122` (`go test ./cmd/baha`), same `pull_request` trigger.
+- BEFUND file:line: `.github/workflows/ci.yml:349` (Owner scope) must add
+  `TestRepositoryComposePinnedWorkloadLifecycleInCI|` to the runtime-integration `-run` selection
+  so GitHub CI runs the new pinned lifecycle acceptance. No `.github/**` file edited, no
+  workflow_dispatch, no rerun requested.
 
 ---
 
