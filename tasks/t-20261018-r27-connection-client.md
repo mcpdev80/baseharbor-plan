@@ -131,3 +131,9 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 
 - PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), exact head `b14ed8372315e761d900f14e050afbae9970e462`, [CI #5320](https://github.com/mcpdev80/baseharbor/actions/runs/42512795402): native Keycloak/Core **Docker PASS / Podman PASS**; native destroy/retry **Docker PASS / Podman PASS**; source format, gofmt, go-build, go-vet PASS. Unit check was still running at inspection; final PR Selected Checks pending, so do not mark full CI PASS prematurely.
 - These green native cells validate Core bootstrap and cleanup, **not** remote app lifecycle from a developer workstation. Keep the card open pending authenticated remote apply/status/update/destroy and real Docker-host proof.
+
+## Go unit regression alignment 2026-11-08
+
+- CI [#5320](https://github.com/mcpdev80/baseharbor/actions/runs/42512795402) completed FAIL only in `TestRemoteTargetSelectionDoesNotRequireOrBootstrapLocalCore`: test expected obsolete text `remote Core management connection`, while production returns actionable `remote management connection profile not configured (BASEHARBOR_CONNECTION_PROFILE)` (under typed authentication failure).
+- PR #1473 head `e1b67be0f0f4400c51b6e6819d00e80425e7c0cf` now explicitly clears `BASEHARBOR_CONNECTION_PROFILE` in the test and checks that actionable missing-profile message. Production fail-closed behavior unchanged. [CI #5327](https://github.com/mcpdev80/baseharbor/actions/runs/42516611610) pending qualification.
+- The remote developer-to-host application lifecycle is **not** proven by the unit correction; keep this card open until real E2E passes.
