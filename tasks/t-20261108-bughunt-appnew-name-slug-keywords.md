@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-appnew-name-slug-keywords
 card_number: "0427-139"
-card_short_title: "Name-Eingabe ohne Warnung verbogen"
+card_short_title: "Name ohne Warnung verbogen"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "Sichtbare normalisierung (hinweis wenn eingabe != Ergebnis) + reservierte keywords am name-prompt ablehnen; regressionen im…"
-kanban_title: 0427-139 · Name-Eingabe ohne Warnung verbogen
+kanban_title: 0427-139 · Name ohne Warnung verbogen
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

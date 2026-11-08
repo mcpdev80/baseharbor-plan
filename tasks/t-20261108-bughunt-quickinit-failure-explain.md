@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-quickinit-failure-explain
 card_number: "0427-141"
-card_short_title: "app init --quick nennt keinen Scheitergrund"
+card_short_title: "Schnellstart ohne Grund"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: Fehler nennt kandidaten+fehlende unterscheidung; doku-/hilfezeile verweist auf app plan als trockener lauf; regression fuer…
-kanban_title: 0427-141 · app init --quick nennt keinen Scheitergrund
+kanban_title: 0427-141 · Schnellstart ohne Grund
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

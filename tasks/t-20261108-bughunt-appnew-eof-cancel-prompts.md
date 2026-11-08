@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-appnew-eof-cancel-prompts
 card_number: "0427-138"
-card_short_title: "Wizard-Abbruch ungleich behandelt"
+card_short_title: "Wizard-Abbruch ungleich"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "Vereinheitlichter abbruch-pfad: EOF/Strg-D an JEDEM prompt = sauberer cancel ohne side-effects, regression in der cli-surface…"
-kanban_title: 0427-138 · Wizard-Abbruch ungleich behandelt
+kanban_title: 0427-138 · Wizard-Abbruch ungleich
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

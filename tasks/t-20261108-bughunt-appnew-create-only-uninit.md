@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-appnew-create-only-uninit
 card_number: "0427-140"
-card_short_title: "app new hinterlässt uninitialisiertes Repository"
+card_short_title: "app new ohne Init"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: Entweder dokumentierter zweischritt mit klarer naechster-aktion ODER automatischer init im create-pfad — entscheidung mit…
-kanban_title: 0427-140 · app new hinterlässt uninitialisiertes Repository
+kanban_title: 0427-140 · app new ohne Init
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
