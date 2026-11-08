@@ -56,3 +56,9 @@ None. Write-set: up consent/confirm flow cmd/baha.
 ## CI remediation — 2026-11-08 (0427-157)
 
 - PR #1486: corrected unsafe implicit provider double-acknowledgement by `--yes`, preserving explicit two-stage consent and fail-closed delete path; candidate error retains typed usage error, exact digest and historical errors.Is sentinel. Head `1ed7b144e0375cf78cb865c81a3e75d1e502d470`, exact-head CI https://github.com/mcpdev80/baseharbor/actions/runs/42502776430. Keep active until terminal CI.
+
+## CI-verified merge #1486 — 2026-11-08
+
+- Product [PR #1486](https://github.com/mcpdev80/baseharbor/pull/1486) merged on develop as `e7f830873f8f6b4c0104183d9df7278431e1c316` from exact head `1ed7b144e0375cf78cb865c81a3e75d1e502d470`.
+- [CI #42502776430](https://github.com/mcpdev80/baseharbor/actions/runs/42502776430) = SUCCESS: Go build/vet/unit, deployment checks, gofmt, native Docker/Podman destroy retry, final selected gate all passed.
+- The panic-free, digest-bearing candidate consent error is fixed. **Two-stage provider-change consent remains explicit**; ordinary `--yes` intentionally does *not* silently authorize both acknowledgements because existing fail-closed policy/tests forbid it. The card remains active if a non-TTY scoped consent UX is still an acceptance requirement; it requires a separate, explicitly bound typed plan approval, not an implicit bypass.
