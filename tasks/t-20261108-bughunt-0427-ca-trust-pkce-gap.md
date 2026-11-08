@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w134-capkce7
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "baha login -e dev --init-tenant and baha node add complete on native podman/docker test hosts WITHOUT manual OS trust surgery:…"
 kanban_title: "0427-134 · CA trust + PKCE blocks login"
 priority: high
@@ -17,22 +17,21 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1457]
 sources: []
-blocker: "external acceptance blocker per act-1457-review-r7: required native gate red from card 0427-156 missing BASEHARBOR_CI_RUNTIME_INTEGRATION env line in workflow single_default jobs (owner scope) — needs owner fix or explicit waiver before #1457 merge"
+blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md"]
 ---
 
-- [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/blocked #view/blocked #area/dx #area/identity #kind/bug
+- [x] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/identity #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w134-capkce7 · **Priority:** high  
     **PR:** [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
-    **Blocker:** external acceptance blocker per act-1457-review-r7: required native gate red from card 0427-156 missing BASEHARBOR\_CI\_RUNTIME\_INTEGRATION env line in workflow single\_default jobs (owner scope) — needs owner fix or explicit waiver before \#1…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w134-capkce7  
@@ -72,3 +71,9 @@ Umbrella only; write-set internal/identity + cmd/baha login/node paths + docs. S
 
 - On PR #1457 head `066fda972c4bc91d0b8a7913bcb6ecd338e9801f`, [CI #42503131808](https://github.com/mcpdev80/baseharbor/actions/runs/42503131808) has successfully executed both `PR · Native Keycloak/Core · docker` and `podman`, including the previously failing `TestControlPlaneSingleDefaultNativeRuntimeInCI` bootstrap-marker setup.
 - Native destroy retry on Docker/Podman also succeeded; full Go unit gate is still running at this check. Do not mark accepted or merge until the workflow is terminal SUCCESS.
+
+## Verified PR #1457 merge — 2026-11-08
+
+- [PR #1457](https://github.com/mcpdev80/baseharbor/pull/1457) merged to develop as `0e3a6975e2d96097c284b1f7b8042bfeed21001a` from exact head `066fda972c4bc91d0b8a7913bcb6ecd338e9801f`.
+- [CI #42503131808](https://github.com/mcpdev80/baseharbor/actions/runs/42503131808) SUCCESS: full Go unit/build/vet, docs, wizard registration, native Docker+Podman Keycloak/Core and destroy-retry, final PR Selected Checks.
+- The CA/PKCE implementation and native isolation fix are merged; do not assume the broader complete remote workstation-to-Core E2E has been accepted by this slice alone.

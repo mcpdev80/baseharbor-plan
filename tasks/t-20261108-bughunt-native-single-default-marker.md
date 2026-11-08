@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-board
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Root cause identified with file:line and either (a) the marker is produced again on the productive path (product fix +…"
 kanban_title: 0427-156 · Native marker missing
 priority: normal
@@ -17,21 +17,20 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: "root-cause belegt: CI verdraegtet BASEHARBOR_CI_RUNTIME_INTEGRATION nicht in den single-default-jobs, TestMain schreibt deshalb den bootstrap-marker nie — fix ist .github/** (owner-scope, see evidence/native-single-default/round-1.md)"
+blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42485190712","https://github.com/mcpdev80/baseharbor/actions/runs/42485190770"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-native-single-default-marker · Develop red 0.4.27: native single-default marker #task #release/v0-4-27 #status/blocked #view/blocked #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-native-single-default-marker · Develop red 0.4.27: native single-default marker #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** coord-board · **Priority:** normal  
-    **Blocker:** root-cause belegt: CI verdraegtet BASEHARBOR\_CI\_RUNTIME\_INTEGRATION nicht in den single-default-jobs, TestMain schreibt deshalb den bootstrap-marker nie — fix ist .github/\*\* (owner-scope, see evidence/native-single-default/round-1.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42485190712), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42485190770)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-board  
