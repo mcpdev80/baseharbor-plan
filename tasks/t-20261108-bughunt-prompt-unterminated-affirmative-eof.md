@@ -56,3 +56,8 @@ Follow-up of 0427-161 (merged #1485). Write-set: cmd/baha trust prompt reader (s
 ## Exact-head CI monitoring — 2026-11-08 (0427-166)
 
 - [PR #1488](https://github.com/mcpdev80/baseharbor/pull/1488), head `be2d071cf83dd94cbe7cf43e5007d46e761f1090`, [CI #42502971526](https://github.com/mcpdev80/baseharbor/actions/runs/42502971526). Initial selected CI checks have no failures; the Go unit-test matrix is still running. Card remains open until the required CI is terminal green.
+
+## Verified PR #1488 merge — 2026-11-08
+
+- [PR #1488](https://github.com/mcpdev80/baseharbor/pull/1488) merged as `3187cea15728143146905c7238ad6e280ca11b3e` from head `be2d071cf83dd94cbe7cf43e5007d46e761f1090`.
+- [CI #42502971526](https://github.com/mcpdev80/baseharbor/actions/runs/42502971526) = SUCCESS with Go unit/build/vet, source format, gofmt and native Docker/Podman destroy-retry checks; no required check skipped.
