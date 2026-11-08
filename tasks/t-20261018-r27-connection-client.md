@@ -15,7 +15,7 @@ kanban_status: active
 kanban_title: "0427-023 · resolve trusted local or"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access, t-20261105-r27-connection-authority-boundary]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1380]
+prs: [mcpdev80/baseharbor#1380, mcpdev80/baseharbor#1473]
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 - [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (remote-client regression) · **Priority:** normal  
-    **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
+    **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473) (Draft)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
@@ -39,7 +39,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md)  
 **Owner:** ChatGPT (remote-client regression)  
 **Priority:** normal  
-**PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
+**PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473) (Draft)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 
@@ -104,3 +104,7 @@ Abgleich `baseharbor/develop`: `cmd/baha/use_target.go:bindExplicitSelectionToCo
 ## Plan-validator correction — 2026-11-08
 
 - The previous `resolution: reopened-regression` was invalid on an `active` card. Reopening remains documented in the audit narrative; the resolution field is intentionally empty until a verified final acceptance. Existing owner, PRs and dependencies remain unchanged.
+
+## Draft #1473 2026-11-08 — Remote-Client-Qualifikation
+
+PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, wartet auf echte Remote-Bindung. Initialer Fix: `baha use` gibt für remote AccessProvider keine irreführende lokale Core-Installationsanweisung mehr aus und verweigert weiterhin jede unbestätigte Verbindung; Regression gegen lokalen Bootstrap-Fallback hinzugefügt. `connection-profile/v1` ist bisher nur ein Schema (`implementation deferred`), und der Core Machine HTTP Discovery-Handler liefert zwar Operationen, aber keine überprüfbare Installations-ID. **Produktiver Remote-Management-Client und hostübergreifender E2E-Durchlauf sind weiterhin OPEN.** CI-Lauf [#5228](https://github.com/mcpdev80/baseharbor/actions/runs/42481850017) gestartet; bei Inspektion waren alle gelisteten Jobs skipped, daher keine bestandenen Tests. Vor Freigabe: API-Identitätsnachweis, CA-Pin, OIDC-Tenant, remote Baha-Aufruf, Docker/Podman Connector und App READY, ohne lokale Core-State-Dateien.
