@@ -123,6 +123,14 @@
 - `~/.local/share/baseharbor/` and `~/.config/baseharbor/` unchanged by this lane (read-only trust/status + app/env calls only).
 - cleanliness: DONE — no test containers, networks, volumes, deploy records, export files or scratch dirs created by hx4; no worktree/cache left in the ecosystem root (all under /tmp / workers/.hx4-* removed).
 
+## ls-remote witness (before END)
+
+- `git ls-remote origin main`:
+  ```
+  8ef4546d09e826bff253b86d5025d887d161f522	refs/heads/main
+  ```
+- My evidence commit `8ef4546d` is origin/main HEAD. origin/main `53dec171` (attestation) is an ancestor of my commit. Evidence path `evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx4.md` committed + pushed to origin/main.
+
 ## END
 
 END mission-hunt-hx4.md: 5 findings (BF-01..BF-05), 0 blocker. All positive / contract-confirming on the trust-/nachrichtendienst-oberflaeche: BF-01 trust export = public-only at --output; BF-02 secure-profile export = password-locked 0600 fail-closed; BF-03 OpenBao manager rotation overlap-safe+verify+retire; BF-04 empty/oversized CA store fails closed (empirical); BF-05 destroy/forget = ownership-verified, Core trust/nets preserved. meldefenster met (8/2 window).
