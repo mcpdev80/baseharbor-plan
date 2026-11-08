@@ -51,3 +51,6 @@ Ein sauberer `go test -count=2` (ohne ambient Core) endet terminierend statt zu 
 
 ## Dependencies and file ownership
 Keine. Write-set: cmd/baha (deployment_record/confirm lifecycle) + tests.
+
+## Resolution (dropped 2026-11-08)
+Not a product defect. Triple-negative reproduction: develop 07ae6c3e9 and the compose WIP head e291fba9a both terminate under clean `-count=2`; SIGQUIT dumps show no pipe-waiting goroutine. The original hang witness came from invalidated FIFO cells plus ambient load on the compose host (round-1.md details). No product change, no PR.
