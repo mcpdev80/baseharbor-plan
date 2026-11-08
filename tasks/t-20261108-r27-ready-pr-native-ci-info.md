@@ -26,6 +26,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1463", "https://github.c
 - [ ] t-20261108-r27-ready-pr-native-ci-info · Ready-PR Native CI #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ci-owner · **Priority:** high  
+    **PR:** [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1463), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42466245067)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1463", "https://github.c
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** ci-owner  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463)  
 **Source:** 
 <!-- /generated:links -->
 
