@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-destroy-owner"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Destroy resolves owned core targets from the data root (never discards foreign targets, fail-closed per the card-127 doctrine);…"
 kanban_title: 0427-152 · Destroy finds own core
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1483]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -55,3 +55,9 @@ None. Write-set: internal destroy + data-root resolution.
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (mapping): related to #122 destroy inventory but a distinct data-root recovery contract. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+
+## Source/CI ownership — 2026-11-08
+
+- Owner `chatgpt-r27-destroy-owner`, [PR #1483](https://github.com/mcpdev80/baseharbor/pull/1483). Re-sliced the old unmerged #1455 data-root Core discovery using validated `coreinstallation.Load` rather than trusting arbitrary JSON. Foreign/ambiguous Core owners fail closed without guessed runtime.
+- Regression: real temporary owned Core-only state is discoverable; foreign state remains unverifiable with no inferred runtime. Native Docker/Podman exact-head CI required before merge; card remains Active, no claim of actual destruction.
