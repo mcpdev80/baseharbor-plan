@@ -67,6 +67,29 @@ Exact needed change (Owner scope, .github/** — NOT edited by me):
   `docker compose ls --format json | ... ; docker ps -aq --filter label=com.docker.compose.project=bh-w169-ci-bootstrap-* || true; test <(docker ps -aq --filter label=...) -eq 0`
   (concrete form to be finalized by Owner). State the failing log line the wächter must produce on leak.
 
+## Fix verification (DONE — witness below)
+
+Fixed file: `cmd/baha/runtime_integration_test_support_test.go`.
+
+Change: after the trust-plane is proven ready, resolve the owning target + runtime and register ONE `t.Cleanup` (guarded by `runtimeIntegrationTrustPlaneCleanupOnce`, runs exactly once, on BOTH success and failure paths). Teardown uses a **fresh independent 5-min context** (`context.Background()`, not the test's possibly-canceled ctx — the first attempt failed with `context canceled` because the test hit its own timeout before cleanup). It tears down via existing production destroy helpers (`DestroyAllSharedKeycloakAt`, `DestroyAllSharedBackendsAt`, `compose.DestroyProject`) — NO product destroy-path change — then fails closed: `assertIntegrationTrustPlaneLeavesNoLeftover` reports residual `bh-*`/`baseharbor-` containers or shared-project owned resources.
+
+Host: baha-docker-2, gofmt NOT installed there so the gofmt-formatting tests must be excluded (run via -test.run, mirroring CI's exact -run selector). Verified PASS on a PRISTINE host (0 containers before each run):
+
+- gate2 (single workload test): PASS (203s), host after = 0 containers, 0 shared vols, 0 shared compose projects.
+- gate3 (three workload/lifecycle tests): GATE_EXIT=0, PASS, host after = 0 containers, 0 shared volumes, 0 shared compose projects; 2 app-owned workload vols remain (correct: those belong to the retired per-app workload, not the shared trust-plane).
+
+No "context canceled" / "remain" / leak lines in any fixed-gate run.
+
+Acceptance criterion met: after a full package run of the shared trust-plane there are no residual keycloak/openbao/postgres containers/volumes/networks.
+
+Host witness (clean, final — this session tears down everything it started):
+
+```
+$ ssh baha-docker-2
+# after gate3
+containers=0  shared_vols=0  compose_projects(bh-)=0
+```
+
 ## Local repro
 
 NOTE: the docker test host is /home/marcel/dev/baseharbor-ecosystem/... session host is the codeman server per mission — see below. Docker runtime tests must run on the named SSH host baha-docker, NOT on the host this session runs on. (Confirmed: baseharbor mission forbids starting containers on the coordinator host.)
