@@ -13,16 +13,16 @@ Two first-owner DX gaps that block `baha login -e dev --init-tenant` and `baha n
 2. The operator login only offers a real browser for the PKCE loopback callback, so non-browser sessions (SSH/PTY) cannot complete login or node add.
 
 ## PLAN
-- Grounding: planning-Remote (ls-remote origin/main) + Base-Attestation develop HEAD; Mission + Task-Note gelesen
-- Code-Analyse: OIDC-Discoverypfad (operatorauth/login.go, auth/oidc.go), Bootstrap, CA-Ablage, node add Flow, CI-Job-Gruppe
-- Implementieren CA-Trust: --ca Flag + BASEHARBOR_OPERATOR_OIDC_CA_FILE env; atomarer CA-Write beim Bootstrap in <state-dir>/trust/managed-operator-ca.pem; RootCAs-Pool (add-only); Fail-Text nennt Pfad
-- Implementieren Headless-PKCE: fixed port (BASEHARBOR_OPERATOR_OIDC_CALLBACK_PORT) Ende-Ende; auth-URL + callback-URL drucken; --auth-code-file + --no-browser/--BASEHARBOR_NO_BROWSER; --init-tenant ohne Echttymilling
-- Unit/Regression Tests (CI-Pflicht) für CA-Transport-Pool + headless callback completion
-- Docs: documented headless flow (login + node add)
-- Local checks: go test ./internal/operatorauth ./internal/auth ./cmd/baha; go vet; go build
-- Evidence commit + push origin/main; ls-remote witness
-- Cleanup: residuales managed core auf baha-podman-2 via PTY destroy; docker/podman ps-witness
-- END an 594fd2f5-4e80-43b6-9841-92879146a85e posten
+- DONE Grounding: planning-Remote (ls-remote origin/main) + Base-Attestation develop HEAD; Mission + Task-Note gelesen
+- DONE Code-Analyse: OIDC-Discoverypfad (operatorauth/login.go, auth/oidc.go), Bootstrap, CA-Ablage, node add Flow, CI-Job-Gruppe
+- DONE Implementieren CA-Trust: --ca Flag + BASEHARBOR_OPERATOR_OIDC_CA_FILE env; atomarer CA-Write beim Bootstrap in <state-dir>/trust/managed-operator-ca.pem; RootCAs-Pool (add-only); Fail-Text nennt Pfad
+- DONE Implementieren Headless-PKCE: fixed port (BASEHARBOR_OPERATOR_OIDC_CALLBACK_PORT) Ende-Ende; auth-URL + callback-URL drucken; --auth-code-file + --no-browser/--BASEHARBOR_NO_BROWSER; --init-tenant ohne Echttymilling
+- DONE Unit/Regression Tests (CI-Pflicht) für CA-Transport-Pool + headless callback completion
+- DONE Docs: documented headless flow (login + node add) - EN + DE, documentation-audit.sh PASS
+- DONE Local checks: go test ./internal/operatorauth ./internal/auth ./cmd/baha; go vet; go build
+- IN PROGRESS Evidence commit + push origin/main; ls-remote witness
+- PENDING Cleanup: residuales managed core auf baha-podman-2 via PTY destroy; docker/podman ps-witness
+- PENDING END an 594fd2f5-4e80-43b6-9841-92879146a85e posten
 
 ## BASE ATTESTATION
 - develop HEAD `e39b0004346cdfd082e34ba55d94d24757bbbd27` via `git ls-remote origin develop` (remote truth).
@@ -38,6 +38,53 @@ Two first-owner DX gaps that block `baha login -e dev --init-tenant` and `baha n
 - No code path reads the managed CA into the discovery transport. The OpenBao PKI `TrustBundle`/`ServiceCA` returns the PEM but the CLI login path never consumes it.
 - Headless gap: `internal/operatorauth/login.go:51` binds `127.0.0.1:0` (random port); `:121` `openBrowser(authURL)` opens a browser unconditionally. `BASEHARBOR_OPERATOR_OIDC_CALLBACK_PORT` is parsed (config.go) but the listener ignores it when 0; there is no auth-code-file completion path.
 - node add (`cmd/baha/node.go`) routes through the same operator boundary (`ensureOperatorAuthForBoundary`) -> same CA + PKCE gaps apply.
+
+## IMPLEMENTATION (SHA-precise, write-set internal/operatorauth + internal/auth + cmd/baha + docs)
+
+CA-trust (target a):
+- internal/auth/oidc.go `NewOIDCVerifier`: when `auth.Config.TrustFile` is set, discovery uses
+  `oidc.ClientContext(ctx, &http.Client{Transport: &http.Transport{TLSClientConfig{RootCAs: additivePool}}})`
+  on top of `x509.SystemCertPool()`. System pool is never replaced (additive only, Owner spec).
+- internal/operatorauth/trust.go: `ResolveTrustFile` precedence `--ca` > `BASEHARBOR_OPERATOR_OIDC_CA_FILE`
+  > state-dir default `trust/managed-operator-ca.pem`; only adds to RootCAs, never replaces system pool.
+  `discoveryClient` returns the additive pool when an explicit CA is configured, else (nil,nil) to keep
+  the default transport. Fail text names the remedy path when trust is missing.
+- internal/operatorauth/login.go `Login`: builds the trust-aware client; prints auth URL AND loopback
+  callback URL; `--auth-code-file` (`AuthCodeFile`) completion reads the code from a file instead of the
+  OS browser; `suppressBrowser()` honors `--no-browser` / `BASEHARBOR_NO_BROWSER=1`.
+- cmd/baha/operator_auth.go: `--ca`, `--auth-code-file` (=VALUE variants), `--no-browser` flags parsed;
+  usage + long help updated.
+- cmd/baha/operator_auth_boundary.go `writeManagedOperatorCAFile`: atomically writes the managed CA PEM
+  (from `serviceaccess.Issuer.TrustBundle`) to `<state-dir>/trust/managed-operator-ca.pem` (0600) during
+  `bootstrapManagedOperatorKeycloak` after `EnsureManagedOperatorOIDC` succeeds.
+- internal/operatorauth/session.go: persisted-session verifier also resolves the managed CA via
+  `resolveSessionTrustFile()` so VerifySession trusts the managed CA additively.
+
+Headless PKCE (target b):
+- `BASEHARBOR_OPERATOR_OIDC_CALLBACK_PORT` honored end-to-end (listener binds exactly that port).
+- Both auth URL and callback URL printed; browser opened only when neither `--no-browser` nor
+  `BASEHARBOR_NO_BROWSER=1`.
+- Completion via `--auth-code-file` / `BASEHARBOR_OPERATOR_OIDC_AUTH_CODE_FILE` (env alias).
+- node add uses the same operator boundary -> same fix applies.
+
+Tests (CI group = CI · Source & Quality in .github/workflows/ci.yml, `go test ./internal/... ./cmd/baha`,
+triggered on PR-ready/push; no workflow edit made — Owner scope):
+- internal/operatorauth/trust_test.go: `TestResolveTrustFilePrecedence` (precedence + fail-closed remedy
+  naming state-dir default), `TestDiscoveryClientAdditiveRoots` (real TLS server with a leaf signed by the
+  test CA -> proves managed-CA trust works additively, not via OS pool), `TestDiscoveryClientNoExplicitCAKeepsDefaultTransport`,
+  `TestDiscoveryClientRejectsNonCertificate`.
+- internal/operatorauth/login_headless_test.go: `TestLoginHeadlessCompletionViaCodeFile` (full PKCE flow
+  completed via auth-code-file, verifier matches S256 challenge, session persisted).
+
+Docs: docs/explanation/authentication.md (EN) + docs/de/explanation/authentication.md (DE) — "Trust the managed CA
+without OS surgery" and "Headless PKCE on non-browser hosts" sections; `bash scripts/documentation-audit.sh` PASS.
+
+## CI MAPPING
+- New tests run under the "Release Source Preflight" job in ci.yml via `go test ./contracts/... ./internal/... ./spec/...`
+  (line 119) and the "Exercise enrollment and operator boundary races" job (line 125) for operatorauth/cmd/baha.
+- CI sets `BASEHARBOR_TEST_DATABASE_URL` (line 58); the only local-failing packages are DB-integration tests
+  (internal/database, internal/controlplaneruntime) that require a live Postgres and are unrelated to this change.
+- No .github/** workflow file edited (Owner scope).
 
 ## ACCEPTANCE MAPPING
 - OIDC client path trusts the managed CA it bootstrapped (explicit documented flag / env / state-dir default file), NOT TOFU.
