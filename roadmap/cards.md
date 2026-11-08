@@ -11,9 +11,10 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 116/163 · **Blocked:** 2 · **Waiting:** 15  
+    **Accepted tasks:** 116/163 · **Blocked:** 3 · **Waiting:** 15  
+    **Blocker:** [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) — external acceptance blocker per act-1457-review-r7: required native gate red from card 0427-156 missing BASEHARBOR\_CI\_RUNTIME\_INTEGRATION env line in workflow…  
     **Blocker:** [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) — audit 2026-11-08: native two-app acceptance never executed; reopen for proof run  
-    **Blocker:** [t-20261108-bughunt-native-single-default-marker](../tasks/t-20261108-bughunt-native-single-default-marker.md) — root-cause belegt: CI verdraegtet BASEHARBOR\_CI\_RUNTIME\_INTEGRATION nicht in den single-default-jobs, TestMain schreibt deshalb den bootstrap-marker nie — fix…  
+    Plus 1 further blockers in the task list.  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
