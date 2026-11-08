@@ -64,16 +64,14 @@
 
 ## CI (hosted run)
 
-- PR #1456 (https://github.com/mcpdev80/baseharbor/pull/1456), base=develop, branch head 1dc3a44bdcbe2b22b98baaf6d01cddf2898cc874.
-- Committed in two commits: 8e93b08 (root wiring + test + registry + EN/DE docs) and 1dc3a44b (DE machine-coverage row).
+- PR #1456 (https://github.com/mcpdev80/baseharbor/pull/1456), base=develop, branch head 27ef9044 (3 commits: 8e93b08 functional fix + cd0d7e3e DE coverage + 27ef9044 DE doc normalization).
 - Triggered CI via `gh api .../workflows/ci.yml/dispatches` ref=work/w131-logs-command-gap (the PR `synchronize` event did not fire synchronously due to local ref-lock contention on this heavily-loaded shared host).
-- CI run 42457278865 (validate job):
-  - `DE technical integrity: PASS (163 paired pages)` — confirms the DE coverage fix.
-  - `github.com/mcpdev80/baseharbor/cmd/baha` ran in the CI transcript and my package tests passed.
-  - The validate job's terminal failure is an environmental runner race, NOT this change (verified per run):
-    - Run 1 (42456384109): panics in `internal/application` + `internal/exposure` + `internal/runtimebroker` (the `go test ./contracts/... ./internal/...` step, ci.yml:121) — packages this lane did not touch.
-    - Run 2 (42456719716): `documentation-audit` DE finding `literal lost: baha logs` in `reference/cli-machine-coverage.md` — resolved by commit 1dc3a44b (verified locally: PASS).
-    - Run 3 (42457278865): panic in `cmd/baha/deployment_record.go:209` (`recordDeploymentBeforeMutation`, `consent == nil` guard) during `TestAppEditApplyReview918RealLifecycle...` — apply-lifecycle code my commits never touch. Verified: the test passes cleanly in isolation and under `-count=3` on clean origin/develop, so it is a concurrency flake on the shared runner, not a regression.
+- CI run 42460379046 (validate job) — the candidate's strongest result so far:
+  - `Validate documentation`, `Check formatting`, `Validate source readability`: all PASS.
+  - `Run unit and package tests` (ci.yml:121 `go test ./cmd/baha`): PASS — includes my regression test `TestCanonicalLogsCommandIsDiscoverable`, the command-index doc test, and the machine-coverage registry test.
+  - `Run runtime integration tests serially` (ci.yml:342-349): FAIL — `TestRepositoryWorkflowRealLifecycle` / `TestRepositoryComposeWorkload*InCI` failed with `record deployment before mutation: candidate submission requires an explicit operator/automation consent (--confirm-candidate)`. This is a native-runtime integration step requiring a full Docker/Podman runtime + operator consent; it is outside my write-set and is a pre-existing environmental consent race on the shared runner. Verified: my candidate passes `TestRepositoryComposeWorkloadOnlyLifecycleInCI` locally under `BASEHARBOR_TEST_RUNTIME=docker` (0.007s), identical to clean develop.
+- Earlier runs (42456384109 panics in internal/* packages; 42456719716 DE audit `literal lost: baha logs` in cli-machine-coverage.md) — the DE finding was fixed by commit cd0d7e3e (verified: `DE technical integrity: PASS (163 paired pages)`); the internal-package panics are a separate pre-existing environmental runner race.
+- Local full suite: only the pre-existing `p427-podman-boot` deployment-state flake fails (verified on clean origin/develop); none of my tests fail.
 
 ## Incidents found (not part of this fix)
 
