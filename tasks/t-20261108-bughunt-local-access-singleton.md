@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-local-core"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Decision card: document the single-core boundary in help/docs with the exact error and the multi-target way out…"
 kanban_title: 0427-155 · Local targets cannot be isolat
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1481]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -53,3 +53,10 @@ Decision card: document the single-core boundary in help/docs with the exact err
 
 ## Dependencies and file ownership
 None. Write-set: docs + target/access registry help.
+
+
+## Architecture-decision implementation — 2026-11-08
+
+- Owner `chatgpt-r27-local-core`. [PR #1481](https://github.com/mcpdev80/baseharbor/pull/1481): documents one local Core per host and the safe separate-host Connector alternative in English/German CLI docs; strengthens the exact local-access conflict message without relaxing admission.
+- Regression test on error/next-step message; does **not** claim independent local Core per Target was implemented. CI exact-head pending, card remains active.
+- Existing `superseded_by` pointer is historical and not automatically a completed decision; preserve until acceptance reconciliation.
