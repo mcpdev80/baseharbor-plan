@@ -40,9 +40,10 @@ R4 `7da148a3` keeps the parser fix but its command-level regression `TestOperato
 
 ## CI / native state
 
-- PR Selected Checks: run under `ci.yml` `run_release_source_tests` on exact candidate SHA (`go test ./cmd/baha`). Required gate.
-- Host RUN_DOCKER/PODMAN Core gates: Owner scope (`.github/**`). State pass/fail/skip per cell with run-id; skipped != passed.
+- PR Selected Checks: run under `ci.yml` `pr_validations` (go-unit-tests, go-vet, go-build, cli-gofmt) and `pr_selected_final` on `pull_request` against `develop` — i.e. on PR #1457's managed integration head `wip/0427-134-ca-pkce-integrate` (`83d175f5`). My candidate branch `134-r3-ca-pkce` (`48a3e36f`) has no PR and no hosted run; the required source tests are verified locally on the exact R5 SHA.
+- Host RUN_DOCKER/PODMAN Core gates: Owner scope (`.github/**`). Not triggered/re-triggerable from this lane.
 
 ## END
 
-END_DONE 0427-134-review-r5
+END_DONE 0427-134-review-r5 — candidate SHA 48a3e36f (branch 134-r3-ca-pkce, ancestry 83d175f5→7da148a3→48a3e36f). R5 rewrites the command-level regression so `baha login -e managed --no-browser --auth-code-file` reaches operatorauth.Login headlessly through the managed OIDC branch (no trusted-local early return).
+
