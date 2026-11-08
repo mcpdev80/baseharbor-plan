@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-destroy-retry-regression
 card_number: "0427-132"
-card_short_title: "1448 macht destroy-retry rot"
+card_short_title: "#1448 breaks destroy retry"
 type: bug
 areas: [lifecycle]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w132-nativeaccept-r4
 kanban_status: active
 kanban_lane: active
 kanban_summary: "develop's Runtime Docker Core and Podman Core push runs are green again;…"
-kanban_title: "0427-132 · 1448 macht destroy-retry rot"
+kanban_title: "0427-132 · #1448 breaks destroy retry"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

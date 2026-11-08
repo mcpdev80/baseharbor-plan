@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-target-env-ignored
 card_number: "0427-124"
-card_short_title: "Target-ENV ohne Wirkung"
+card_short_title: "target env has no effect"
 type: bug
 areas: [lifecycle,compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-0427-124-target-env
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "The production CLI target-selection slice is accepted on PR #1451. Greenfield core bootstrap and isolated-target ownership…"
-kanban_title: "0427-124 · Target-ENV ohne Wirkung"
+kanban_title: "0427-124 · target env has no effect"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

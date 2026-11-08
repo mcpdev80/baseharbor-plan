@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-appinit-owner-seam
 card_number: "0427-136"
-card_short_title: "app init Owner-Naht regression"
+card_short_title: "app init owner seam gap"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w136-appinit-r4b
 kanban_status: active
 kanban_lane: active
 kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path (documented flow…
-kanban_title: "0427-136 · app init Owner-Naht regression"
+kanban_title: "0427-136 · app init owner seam gap"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-ci-lanes]
 repos: [mcpdev80/baseharbor]

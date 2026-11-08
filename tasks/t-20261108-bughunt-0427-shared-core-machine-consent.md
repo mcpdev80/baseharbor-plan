@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-shared-core-machine-consent
 card_number: "0427-123"
-card_short_title: "Shared-Core Consent blockiert"
+card_short_title: "shared-core consent blocks"
 type: bug
 areas: [lifecycle,dx]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: "coordinator"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
-kanban_title: "0427-123 · Shared-Core Consent blockiert"
+kanban_title: "0427-123 · shared-core consent blocks"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

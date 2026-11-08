@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-ca-trust-pkce-gap
 card_number: "0427-134"
-card_short_title: "CA-Trust + PKCE blockt"
+card_short_title: "CA trust + PKCE blocks login"
 type: bug
 areas: [identity, dx]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w134-capkce-r5
 kanban_status: active
 kanban_lane: active
 kanban_summary: "baha login -e dev --init-tenant and baha node add complete on native podman/docker test hosts WITHOUT manual OS trust surgery:…"
-kanban_title: "0427-134 · CA-Trust + PKCE blockt"
+kanban_title: "0427-134 · CA trust + PKCE blocks login"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

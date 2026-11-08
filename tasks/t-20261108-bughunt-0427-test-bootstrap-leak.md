@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-test-bootstrap-leak
 card_number: "0427-127"
-card_short_title: "Test-Bootstrap leak't Cores"
+card_short_title: "test bootstrap leaks cores"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w127-bootleak-r4
 kanban_status: review
 kanban_lane: review
 kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
-kanban_title: "0427-127 · Test-Bootstrap leak't Cores"
+kanban_title: "0427-127 · test bootstrap leaks cores"
 priority: normal
 depends_on: [t-20261108-bughunt-0427-target-env-ignored, t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

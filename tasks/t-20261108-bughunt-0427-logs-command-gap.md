@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-logs-command-gap
 card_number: "0427-131"
-card_short_title: "logs top-level ohne Pfad"
+card_short_title: "top-level logs misses path"
 type: bug
 areas: [dx]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w131-logsgap-r2
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "The logs entry point is coherent: either baha logs works top-level (resolving the nearest app) or the error names the correct…"
-kanban_title: "0427-131 · logs top-level ohne Pfad"
+kanban_title: "0427-131 · top-level logs misses path"
 priority: low
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

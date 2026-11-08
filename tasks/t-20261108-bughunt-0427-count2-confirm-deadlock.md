@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-count2-confirm-deadlock
 card_number: "0427-135"
-card_short_title: "Wiederholtest hängt (count=2)"
+card_short_title: "repeat test hangs (count=2)"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w135-count2
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: Ein sauberer go test -count=2 (ohne ambient Core) endet terminierend statt zu blockieren; der Bestätigungspfad leaket keine…
-kanban_title: "0427-135 · Wiederholtest hängt (count=2)"
+kanban_title: "0427-135 · repeat test hangs (count=2)"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

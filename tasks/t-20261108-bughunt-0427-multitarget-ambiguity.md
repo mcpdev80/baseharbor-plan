@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-multitarget-ambiguity
 card_number: "0427-126"
-card_short_title: "Multitarget ohne Auswahl"
+card_short_title: "multi-target without choice"
 type: bug
 areas: [dx]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
-kanban_title: "0427-126 · Multitarget ohne Auswahl"
+kanban_title: "0427-126 · multi-target without choice"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

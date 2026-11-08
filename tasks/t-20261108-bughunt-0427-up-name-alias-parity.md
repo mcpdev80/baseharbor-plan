@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-up-name-alias-parity
 card_number: "0427-130"
-card_short_title: "baha up NAME abgelehnt"
+card_short_title: "baha up NAME rejected"
 type: bug
 areas: [dx]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: lane-w130-upalias-r4
 kanban_status: active
 kanban_lane: active
 kanban_summary: baha up NAME resolves the registered application NAME identically to baha app up NAME; the top-level alias exposes the full…
-kanban_title: 0427-130 · baha up NAME abgelehnt
+kanban_title: "0427-130 · baha up NAME rejected"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

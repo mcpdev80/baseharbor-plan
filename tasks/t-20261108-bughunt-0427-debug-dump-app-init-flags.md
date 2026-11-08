@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-debug-dump-app-init-flags
 card_number: "0427-120"
-card_short_title: "CLI Debug-Dump und app-init"
+card_short_title: "CLI debug dump and app-init"
 type: bug
 areas: [dx, lifecycle]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 are fixed: (1) baha up without --confirm-candidate…"
-kanban_title: "0427-120 · CLI Debug-Dump und app-init"
+kanban_title: "0427-120 · CLI debug dump and app-init"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

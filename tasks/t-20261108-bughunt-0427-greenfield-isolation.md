@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-greenfield-isolation
 card_number: "0427-133"
-card_short_title: "Greenfield-Isolation offen"
+card_short_title: "greenfield isolation open"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: pending-lane-0427-133-r4
 kanban_status: active
 kanban_lane: active
 kanban_summary: "An isolated greenfield run (BASEHARBORTARGET-selected second target, docker-2 style) completes bootstrap + core self-install +…"
-kanban_title: "0427-133 · Greenfield-Isolation offen"
+kanban_title: "0427-133 · greenfield isolation open"
 priority: normal
 depends_on: [t-20261018-r27-access-wizard, t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

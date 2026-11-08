@@ -1,7 +1,7 @@
 ---
 id: t-20261108-bughunt-0427-appnew-contradictory-exit
 card_number: "0427-125"
-card_short_title: "App new: Erfolg plus Fehler"
+card_short_title: "app new: success plus error"
 type: bug
 areas: [dx]
 release: v0.4.27
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
-kanban_title: "0427-125 · App new: Erfolg plus Fehler"
+kanban_title: "0427-125 · app new: success plus error"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
