@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-cli-diagnostics"
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Decision documented (keep fail-closed OR add an all-targets view with a target column); if kept: quickstart/help line mentions…"
 kanban_title: 0427-148 · List needs target choice
 priority: normal
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor#1466]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd4.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42480521183", "https://github.com/mcpdev80/baseharbor/commit/ad49d2d2129657e2e09c40b534c6a8030413a083"]
 ---
 - [ ] t-20261108-bughunt-list-target-failclosed · Bug Hunt v0.4.27: List needs target choice #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
@@ -55,3 +55,11 @@ None. Write-set: cmd/baha list + target docs.
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (zuerklaeren): fail-closed was called intentional in the dossier; open owner PR #1466 documents it - decision may reduce to a docs line. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+
+## Acceptance — 2026-11-08
+
+- [PR #1466](https://github.com/mcpdev80/baseharbor/pull/1466) merged into `develop`: `ad49d2d2129657e2e09c40b534c6a8030413a083`; exact PR head `daacddbbe9d011c3fd48ae7cc798e560dd591258`.
+- [CI #42480521183](https://github.com/mcpdev80/baseharbor/actions/runs/42480521183): terminal SUCCESS (Go-unit, build, vet, source/docs checks, native Docker/Podman destroy-retry). No standalone end-to-end deployment result is claimed.
+- Retains Target fail-closed default; help identifies existing `baha list --all-targets` read-only inventory with Target column and target activation. TestListHelpExplainsFailClosedTargetSelection and existing target-list ambiguity tests PASS. No cross-target implicit mixing.
+- `resolution: accepted`; no active worker claim remains.
