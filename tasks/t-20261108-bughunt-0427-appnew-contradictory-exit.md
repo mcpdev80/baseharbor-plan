@@ -7,7 +7,7 @@ areas: [dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "owner:chatgpt"
+owner: ""
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
@@ -29,7 +29,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 
 - [x] t-20261108-bughunt-0427-appnew-contradictory-exit · 0427-125 · App new meldet Erfolg plus Fehler #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #kind/bug
     <!-- generated:card -->
-    **Owner:** owner:chatgpt · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1440](https://github.com/mcpdev80/baseharbor/pull/1440)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1e83abd3c)  
     <!-- /generated:card -->
@@ -38,7 +38,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** owner:chatgpt  
+**Owner:** unassigned 
 **Priority:** normal  
 **PRs:** [baseharbor#1440](https://github.com/mcpdev80/baseharbor/pull/1440)  
 **Source:** 
@@ -72,3 +72,9 @@ Depends only on the release umbrella. Write-set per repo rules; intake evidence 
 - [PR #1440](https://github.com/mcpdev80/baseharbor/pull/1440) **gemergt nach develop**: `1e83abd3ccd4f0b6622bde601384c628dd2cbef1`; gepruefter Head `425777028faadd7ac100e3f2dd1ef4d0cb308a5a`.
 - [CI #42429399440](https://github.com/mcpdev80/baseharbor/actions/runs/42429399440) terminal `success`, alle Jobs erfolgreich, keine Fehler; native cross-repo VM-Journey war nicht Teil dieser kleinen Bug-Abnahme.
 - **Status `closed` / accepted:** gezielter Produktfix und Regression integriert.
+
+## 2026-11-08 Owner-Freigabe und Uebergabe
+
+- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `unassigned`. Bereits akzeptierte Karte bleibt `closed`.
+- Fixed/accepted #1440.
+- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
