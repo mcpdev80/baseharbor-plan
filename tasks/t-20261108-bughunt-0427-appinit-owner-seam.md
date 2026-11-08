@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: lane-w136-appinit
 kanban_status: active
 kanban_lane: active
-kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path without…
+kanban_summary: baha target create --reference local + baha app init --quick completes the native acceptance bootstrap path (documented flow…
 kanban_title: "0427-136 · app init Owner-Naht regression"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
