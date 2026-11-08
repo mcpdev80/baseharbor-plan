@@ -52,3 +52,7 @@ No panic path: missing confirm input = clean usage error that PRINTS the exact -
 
 ## Dependencies and file ownership
 None. Write-set: up consent/confirm flow cmd/baha.
+
+## CI remediation — 2026-11-08 (0427-157)
+
+- PR #1486: corrected unsafe implicit provider double-acknowledgement by `--yes`, preserving explicit two-stage consent and fail-closed delete path; candidate error retains typed usage error, exact digest and historical errors.Is sentinel. Head `1ed7b144e0375cf78cb865c81a3e75d1e502d470`, exact-head CI https://github.com/mcpdev80/baseharbor/actions/runs/42502776430. Keep active until terminal CI.
