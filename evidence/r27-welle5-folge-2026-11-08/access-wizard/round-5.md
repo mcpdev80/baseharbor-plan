@@ -112,7 +112,26 @@ The owner rejected the "pre-existing CI red ⇒ card ready" reasoning: the faili
 
 This proves the CI red on the pushed head was (partly) this lane's own flaky test, and it is now fixed. The DB-URL / `deployment.json` environment failures remain a separate pre-existing CI-repair item (documented above as STATE).
 
-## PERSISTENT STATE BLOCK (context save ~01:35 CET, before next push)
+## Worktree protocol — final run (owner-required, 2026-11-08)
+
+Base for the diff: candidate head `be65de6d`. Branch head: `bd5f2f10` (merge of develop `419b02113`, #1428/#1442/#1443; rc0 `8a3f58da9` is an ancestor of develop).
+
+- **(a) Clean head `be65de6d`:** `go test ./internal/accesswizard/... -run 'TestOffboardUnimplementedKindFailsClosedNoSilentMutation' -count=1 -v` → PASS on first run, then FLAKY (4/6 fails) — pre-existing map-order flakiness, NOT a real mutation (debug shows `before` byte-identical to `after`).
+- **(b) My head `bd5f2f10`:** same test → PASS 15/15 after the `profilesEqual` fix. Full suites: `go test ./internal/accesswizard/...` ok; `go test ./cmd/baha/... -run 'Access|Wizard'` ok (61.6s).
+- **(c) Verdict:** the flaky-failing test was IN this lane's write-set and is now fixed (order-independent). The remaining CI `go-unit-tests`/`PR Selected Checks` red on the pushed head is pre-existing env (DB URL/`deployment.json`/runtime-executor), reproduced on `be65de6d` — a separate CI-repair item.
+
+## PERSISTENT STATE BLOCK (context save ~01:40 CET, post-merge, before next push)
+
+- Branch: `work/r27-access-wizard`. Current head: `bd5f2f10` (merge of develop `419b02113`, #1428/#1442/#1443). Own commits on top of `be65de6d`: `1103f513` (r5), `3aa6e81f` (flaky fix). rc0 `8a3f58da9` is ancestor of develop.
+- Worktree: `/tmp/opencode/0427-access-r5-wt` (fresh clone of mcpdev80/baseharbor; NOT quarantined ecosystem checkout). git identity: `0427-013-access-r5`.
+- Drift: develop keeps moving (0fe53052 → 419b02113). Merge develop before EVERY push; re-verify rc0 ancestor; re-run CI on exact head.
+- CI (run_id `128571956666`) terminal: go-unit-tests/PR Selected Checks red only on pre-existing env failures. Flaky in-lane test now fixed (15/15).
+- Write-set (mine): cmd/baha/access_wizard_command.go, cmd/baha/access_wizard_persistence_test.go, internal/accesswizard/authority.go, internal/accesswizard/offboard_scope_regression_test.go (+profilesEqual), internal/accesswizard/persistence_cancel_test.go, internal/accesswizard/wizard_test.go, internal/orgconfig/profiles.go, internal/orgconfig/profiles_test.go, internal/policy/assignment.go, internal/policy/assignment_test.go.
+- Evidence: baseharbor-plan origin/main (blob `60cc8c68`).
+- Open: (a) push bd5f2f10 to work/r27-access-wizard (ls-remote witness); (b) record new hosted CI run-id WITHOUT rerun/.github edit; (c) await owner card-status decision on pending QUESTION; (d) post END 594fd2f5.
+- Rules: no subagents; no .github/workflow_dispatch; one candidate per chain; evidence only in baseharbor-plan; card stays active until owner decides.
+
+## PERSISTENT STATE BLOCK (context save 2026-11-08 ~01:05 CET)
 
 - Branch: `work/r27-access-wizard`. Current commit: `1103f5135c4a9822b00f12c89612d138d3652a14` (r5 r6).
 - Worktree: `/tmp/opencode/0427-access-r5-wt` (fresh clone of mcpdev80/baseharbor; NOT quarantined ecosystem checkout).
