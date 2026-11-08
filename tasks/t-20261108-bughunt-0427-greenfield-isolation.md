@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md"]
 ---
 
 - [ ] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
@@ -61,3 +61,9 @@ Depends on access-wizard acceptance (#1430). Write-set: cmd/baha target/use/acti
 
 - [#1460](https://github.com/mcpdev80/baseharbor/pull/1460) ist gemergt nach `develop` (`201735b03145ce036407a0272882ec184943cd6a`); die Keycloak-Core-Issuer-/Destroy-Retry-CI war gruenn.
 - Fuer die hier geforderte **isolierte Greenfield-E2E-Kette** auf Docker und Podman fehlt in dieser Kartenpruefung ein separat ausgewiesener PASS-Nachweis. Daher `active` nicht allein aus dem PR-Merge in `closed` umschreiben. `pending-lane-*` ist kein bestaetigter aktiver Worker; diese Eigentuemer-Zuordnung ist im naechsten Owner-Abgleich aufzuklaeren.
+
+## Native E2E acceptance follow-up — 2026-11-08
+
+- Source and CI gap audited in [acceptance-gap-audit.md](../evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md). Docker/Podman currently prove destroy-retry and same-engine conflict, not the positive second-isolated-engine greenfield chain.
+- A second Core on the same daemon is intentionally forbidden; acceptance needs a genuinely isolated endpoint and a cleanup claim for both runtimes. Do not weaken the ownership guard or treat the existing native conflict test as positive evidence.
+- Card stays **active** pending an exact-SHA Docker and Podman positive Core bootstrap/use/activate/status and no-shared-plane-writes proof. No additional CI success is claimed.
