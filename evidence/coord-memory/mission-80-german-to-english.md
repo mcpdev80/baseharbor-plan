@@ -71,4 +71,4 @@ No new evidence file was required by the mission. This file is the diff witness.
 
 ## END
 
-mission-80.md: translated 8 2026-11-08 bug-hunt card bodies German->English, committed 9963c08d on plan main.
+mission-80.md: translated 8 2026-11-08 bug-hunt card bodies German->English; committed 609f78ed (translation) + bbf878e8 (evidence) on plan main; rebased onto origin/main and pushed; HEAD==origin/main. All 8 target cards verified 0 German chars in body on origin/main.
