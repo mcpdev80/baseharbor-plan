@@ -90,6 +90,44 @@ $ ssh baha-docker-2
 containers=0  shared_vols=0  compose_projects(bh-)=0
 ```
 
+## FINAL RESULT — FIX IMPLEMENTED, VERIFIED, COMMITTED, PR OPEN (DONE)
+
+**Fix** (`cmd/baha/runtime_integration_test_support_test.go`): after the trust-plane is proven ready, capture the bootstrap Core owner target + runtime provider (while the target-selection env is still valid) and register ONE package-level `t.Cleanup` (guarded by `runtimeIntegrationTrustPlaneCleanupOnce`, runs exactly once, on BOTH success and failure paths). Teardown uses a FRESH independent 5-min context (`context.Background()`, not the test's possibly-canceled ctx — the first attempts failed with `context canceled` because the test hit its own timeout before cleanup). It tears down via existing production destroy helpers (`identityprovider.DestroyAllSharedKeycloakAt`, `application.DestroyAllSharedBackendsAt`, `compose.DestroyProject`) — NO product destroy-path change — then fails closed: `assertBootstrapTrustPlaneLeavesNoLeftover` reports residual `bh-w169-ci-bootstrap-*`/`bh-<target>` containers or shared-project owned resources.
+
+**Reproduction (baseline, develop, baha-docker-2):** the unmodified `bh-w169-ci-bootstrap-<suffix>-shared` control-plane left **9 containers** (openbao/postgres + keycloak-core-shared), 3 volumes, and 4 BaseHarbor networks after the trust-plane — exactly the operator's 3 cores.
+
+**Verification (fixed, baha-docker-2, pristine host):**
+- baseline: 9 residual containers after trust-plane.
+- fixed witness (`TestFinalBootstrapTrustPlaneTeardown`): PASS, **AFTER = 0 containers, 0 volumes, 0 compose projects** (docker compose ls: empty).
+- fail-closed witness (intentional leaked shared container injected into `ListRuntimeContainers`): assertion fired — `containers remain after teardown: bh-w169-ci-bootstrap-shared/bh-w169-ci-bootstrap-openbao` — proving the wächter goes RED on a real leak. Witness test removed after verification.
+
+**Branch provenance (proof):**
+```
+$ git -C /tmp/wt-0427-leak rev-parse origin/develop
+e39b0004346cdfd082e34ba55d94d24757bbbd27
+$ git -C /tmp/wt-0427-leak log --oneline origin/develop..HEAD
+f03b12bd fix(cmd/baha): deterministic teardown of integration trust-plane (0427-127)
+```
+Branch `work/0427-127-test-bootstrap-leak` cut from develop `e39b00043` (confirmed ancestor of `f03b12bd`); single commit, only `cmd/baha/runtime_integration_test_support_test.go` changed.
+
+**Pushed + PR:**
+```
+$ git ls-remote --heads origin work/0427-127-test-bootstrap-leak
+f03b12bdd0b9549b9dd36dae2d947db322caac6e  refs/heads/work/0427-127-test-bootstrap-leak
+```
+PR #1454 (base develop, title "[0427-127] deterministic teardown of integration trust-plane (fix bh-w169-ci-bootstrap-* leak)"):
+https://github.com/mcpdev80/baseharbor/pull/1454
+
+**CI (4.6, own-run witness):** GitHub CI run 42443497463 on SHA `f03b12bd` — **conclusion=success**. All jobs completed (PR · Source format, cli-vet, cli-gofmt, source-contracts, Public Contracts, Targeted HA docker+podman, PR Selected Checks, …). No `.github/**` edit (Owner scope).
+
+**Owner-scope open item (reported in PR + this file, NOT edited):** the fail-closed wächter assertion must be appended to the `runtime_integration` job's `go test` step in `.github/workflows/ci.yml` (~line 349) as a trailing bounded docker assertion for zero leftover `bh-w169-ci-bootstrap-*` resources after the package — a `.github/**` change only the Owner may implement. The go-integration job itself is extended (no new engine).
+
+**Endzeuginis (baha-docker-2, end-of-shift):**
+```
+$ ssh baha-docker-2 'bash /tmp/cleanall.sh'
+AFTER cleanup: containers=0  volumes=0  compose=0
+```
+
 ## Local repro
 
 NOTE: the docker test host is /home/marcel/dev/baseharbor-ecosystem/... session host is the codeman server per mission — see below. Docker runtime tests must run on the named SSH host baha-docker, NOT on the host this session runs on. (Confirmed: baseharbor mission forbids starting containers on the coordinator host.)
