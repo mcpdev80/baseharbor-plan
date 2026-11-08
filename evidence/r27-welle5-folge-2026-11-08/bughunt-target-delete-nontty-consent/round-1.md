@@ -49,7 +49,8 @@
 ## CI coverage
 
 - Regression unit tests run in `go test ./cmd/baha` (unit_tests job, ci.yml ~ line 121) and the full `go test ./...` (ci.yml ~ line 355). Trigger: PR marked ready and subsequent pushes (Owner coordinator dispatch); the lane did NOT trigger reruns/workflow_dispatch (Owner scope).
-- Note: the exact CI run for this PR is not visible in the read-accessible window (token lacks actions:read); recorded as STATE. The Go unit tests are the durable, CI-picked evidence.
+- Verified CI run for PR #1494 (all non-skipped jobs SUCCESS, zero failures): Workflow policy, PR · Native impact selection, PR · Source format, PR · Trusted Plan, PR · Native destroy retry · docker, PR · Native destroy retry · podman, PR · Focused Python, PR · Validation · cli-gofmt, PR · Validation · go-build, PR · Validation · go-unit-tests, PR · Validation · go-vet, PR Selected Checks — all SUCCESS. Native destroy-retry docker/podman gates were triggered by this target-delete delta. Skipped (not applicable): Release Source Preflight, Targeted HA · docker/podman, validate, PR · Draft focused checks, Runner Interface, Consumer Pins, Demo Pin, Exact Candidate, Native Keycloak/Core, Public Contracts, Selected Runtime.
+- CI for the PR WAS DISPATCHED and is the durable evidence; the Go unit tests + the two native destroy-retry gates are the CI-picked evidence.
 
 ## END
 
