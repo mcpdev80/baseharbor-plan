@@ -9,7 +9,7 @@ owner: "Codex (Owner-authorized Maintainer policy)"
 kanban_lane: closed
 kanban_summary: "Marcel explicitly directed that agents acting on his instructions through @mcpdev80 inherit his repository Maintainer authority…"
 kanban_status: closed
-kanban_title: Document Owner-delegated Maintainer merge authority
+kanban_title: "Document Owner-delegated Maintainer merge authority"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]

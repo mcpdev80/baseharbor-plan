@@ -9,7 +9,7 @@ owner: coord-welle4-rest (wartet Owner)
 kanban_lane: closed
 kanban_summary: "The runtime-broker Compose container reaches readiness in time: app apply's /readyz wait no longer times out because the broker…"
 kanban_status: closed
-kanban_title: Widen broker readiness grace to the established healthcheck pattern
+kanban_title: "Widen broker readiness grace to the established healthcheck pattern"
 priority: ""
 depends_on: []
 repos: ["mcpdev80/baseharbor"]

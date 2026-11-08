@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "baha app backup succeeds for repository workloads that use Compose containername (linkding, JoySafety/AgenticX/Tier0 patterns);…"
-kanban_title: 0427-128 · backup stop fails on
+kanban_title: "0427-128 · backup stop fails on"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

@@ -11,7 +11,7 @@ owner: "owner:chatgpt"
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: A consented baha destroy (and baha destroy --all) of the local control plane removes or explicitly reports every Core-owned…
-kanban_title: 0427-122 · destroy leaves keycloak up
+kanban_title: "0427-122 · destroy leaves keycloak up"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

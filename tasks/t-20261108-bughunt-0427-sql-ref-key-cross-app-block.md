@@ -11,7 +11,7 @@ owner: "owner:chatgpt"
 kanban_status: active
 kanban_lane: active
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
-kanban_title: 0427-121 · phantom SQL key blocks down
+kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]

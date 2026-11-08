@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: baha up without --confirm-candidate on an already-initialized app repository exits 1 with a clean stderr (no goroutine dump) on…
-kanban_title: 0427-129 · debug goroutine dump on
+kanban_title: "0427-129 · debug goroutine dump on"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
