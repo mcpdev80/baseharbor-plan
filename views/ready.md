@@ -4,4 +4,6 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261108-bughunt-permission-lies-foreign-install](../tasks/t-20261108-bughunt-permission-lies-foreign-install.md) | Bug Hunt v0.4.27: Denied lies foreign | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
