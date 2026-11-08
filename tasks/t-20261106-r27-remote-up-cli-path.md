@@ -131,3 +131,9 @@ integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podma
 
 - [#1407](https://github.com/mcpdev80/baseharbor/pull/1407) ist nach `develop` gemergt, Merge-SHA `223042bc0372f41a6f0a7c2d1a2e01b095bb7a0b`. Der vorher dokumentierte CI-/Merge-Zwischenstand ist damit historisch.
 - Bereits bestehende `closed/accepted`-Kartenannahme wird nicht verändert; kein neuer Worker, keine erneute Produktimplementierung dieser geschlossenen Karte.
+
+## PR #1437 lifecycle reconciliation — 2026-11-08
+
+- PR https://github.com/mcpdev80/baseharbor/pull/1437 closed **without merge** after source audit: 14 of 15 files byte-identical with develop; remaining `cmd/baha/operator_auth.go` differs only by newer, more complete `baha login` usage on develop.
+- First-owner bootstrap implementation and regression sources already exist on develop; historical PR would regress the CLI usage string.
+- This is **not** an acceptance of full remote-up onboarding/Keycloak E2E: keep the card's existing status and outstanding independent checks.

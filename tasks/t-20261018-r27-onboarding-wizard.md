@@ -116,3 +116,9 @@ integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podma
 - Bearbeitungs-Owner gewechselt von `owner:chatgpt` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
 - True first-owner OIDC/Keycloak Tenant end-to-end and connected Node onboarding need real Docker/Podman acceptance.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
+
+## PR #1435 reconciliation — 2026-11-08
+
+- Historical [PR #1435](https://github.com/mcpdev80/baseharbor/pull/1435) closed **without merge** as superseded by develop. `cmd/baha/onboarding_command.go` already implements the previously inlined `onboardCommand`, `runOnboardCommand`, and `finishOnboardOutput` plus an explicit first-owner `runOnboardInitialTenant` path.
+- All PR-defined production method names and test function names exist on develop (including the split command file); the current tests additionally cover first-owner onboarding, bundle import and real Core bootstrap failures.
+- The old branch would reintroduce duplicate command definitions. Keep card status/owner and the remaining real onboarding acceptance obligations unchanged; historical green PR CI is not a fresh E2E proof.
