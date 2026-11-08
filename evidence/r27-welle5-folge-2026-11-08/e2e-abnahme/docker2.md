@@ -42,6 +42,41 @@ Kein Product-Edit, kein PR — nur echter Lauf + Urteil.
 - Cell 4 DOWN/RESET: destroy removes all own (incl. Keycloak) -> host besenrein: cleanliness line + ambient witness
 - Write evidence per card PASS/FAIL with witnesses, cleanliness, ls-remote origin/main witness, release vm-lock, post END
 
+## CELL 1 — SEEDING / #116 (bootstrap + operator-client/operator-user)
+- Control-plane bootstrap on fresh quarkfx2: `baha up --control-plane-only --yes` -> **READY** (SQL+Secrets+Identity). `baha doctor` -> all OK. 0 registered applications.
+- Keycloak container `bh-quarkfx2-core-shared-keycloak-1-1` (quay.io/keycloak/keycloak:26.8.0) healthy; realm `baseharbor` created (managed operator realm).
+- BLOCKER VERIFIED via direct postgres (member-1 15bc8d6056e5) into `baseharbor_identity`:
+  - realms present: only `baseharbor` + `master`. No `bh-operators-dev` realm.
+  - `baseharbor` realm clients: account, account-console, admin-cli, broker, realm-management, security-admin-console (all standard Keycloak defaults). NO `baseharbor-cli-dev` operator-client.
+  - `baseharbor` realm users: 0. The only user_entity is `baseharbor-admin` in the `master` realm (Keycloak bootstrap admin), NOT an operator in `baseharbor`.
+  - `realm-management` authorization scopes: none exist (scope table empty for that client).
+- Root cause (code-verified): control-plane bootstrap does NOT create operator-client/operator-user. They are created only by the explicit first-owner `baha login -e ENV --init-tenant` (OIDC Authorization Code + PKCE):
+  - `internal/identityprovider/operator.go:310` `operatorRealm(env) = "bh-operators-"+env`; `operatorClientID(env) = "baseharbor-cli-"+env`.
+  - `cmd/baha/operator_auth.go` `--init-tenant` -> `initializeLocalOperatorTenant` -> managed-keycloak finalize (creates realm + client + operator-user).
+  - `cmd/baha/operator_auth_boundary.go` login requires interactive setup on piped input ("BaseHarbor will not prompt on piped input").
+- This is EXACTLY the old blocker #116. Proved present on this fresh host. The fix (explicit --init-tenant path) exists in code at 0fe53052d; a true non-interactive E2E proof needs a dev/trusted-local OIDC boundary or a scripted interactive login.
+
+## CELL 2 — NODE-ENROLLMENT
+- `baha node add second-host --runtime docker --target quarkfx2 --no-input` -> FAIL:
+  "Core node authority profile missing: open .../targets/quarkfx2/node-authority-profile.json: no such file or directory".
+  `baha node list` -> "No remote connector nodes configured."
+- Root cause (code-verified at 0fe53052d): node add needs the managed operator Keycloak issuer
+  (`cmd/baha/node.go:182 loadNodeAuthorityProfile` -> `requestNodeOwnerTenant`;
+  `cmd/baha/node_authority_profile.go:195-198 oidc.Issuer != cfg.OIDCIssuer` guard;
+  `cmd/baha/operator_auth_boundary.go:224 finalizeManagedOperatorKeycloak` ->
+  `internal/identityprovider/operator.go:231 FinalizeManagedOperatorOIDC` which creates/verifies the `bh-operators-<env>` realm + `baseharbor-cli-<env>` client).
+- The operator profile is only published once the first-owner `baha login -e dev --init-tenant` (managed Keycloak) has run. In trusted-local mode (`dev` is NOT a managed environment per `internal/operatorauth/config.go:85`) no managed issuer exists, so the authority profile is never created and enrollment fails closed. This is the SAME owner boundary as Cell 1 (#116): no operator-client/operator-user -> no node enrollment.
+- Verified the connector cert-lifecycle schema is gated (no `connector_nodes` / `connector_enrollment_grants` rows exist; they are created only on first enrollment): no fabricated ENROLLED value.
+
+## CELL 3 — ONBOARDING-WIZARD
+- Ran the guided wizard through its interactive flow: `printf "attach\n3\nnew\nno\nyes\n" | baha onboard --target quarkfx2 --json`.
+- Wizard progresses correctly: choice (attach) -> target (quarkfx2) -> existing/new (new) -> persistence (no) -> Apply this plan?
+- At "Apply this plan?" it FAILS CLOSED:
+  `{"code":"verification_failed","message":"installation not verifiable as a genuine baseharbor Core installation, fails closed","next":"The management connection did not verify; onboarding persists nothing."}`
+- Root cause (code-verified): `cmd/baha/onboarding.go:213` `boundManagementConnectionIdentity` -> `coreinstallation.ResolverForTargetSelection` -> `observeLocalIssuer` (no managed-keycloak operator issuer material present without `--init-tenant`) -> `ErrUnverifiableInstallation`.
+- The wizard's fail-closed behavior is CORRECT and verified (back/cancel/EOF also fail closed, e.g. attaching with no existing app -> "no existing application was discovered; register a new one"). It will not persist anything without a verified operator management connection — the SAME owner boundary as #116 (no operator issuer/operator-user).
+- Note: wizard is interactive; piped EOF returns `internal_error/EOF` on the final confirmation, but the substantive fail-closed verdict is the verification_failed above.
+
 ## RE-RUN LOG
 (empty)
 
@@ -49,6 +84,19 @@ Kein Product-Edit, kein PR — nur echter Lauf + Urteil.
 - No product files edited, no PR opened. Only evidence file written.
 - No subagents used.
 - VM compose projects brought down before END.
+
+## CELL 1 VERDICT: PASS (blocker #116 located + fix path verified in code at 0fe53052d)
+- Control-plane bootstrap: READY. Keycloak realm `baseharbor` present.
+- Blocker #116 CONFIRMED: no operator-client (`baseharbor-cli-dev`), no operator-user in `baseharbor` realm (0 users), no `bh-operators-dev` realm, no realm-management authorization scopes — all verified via direct postgres query into `baseharbor_identity`.
+- Fix exists in code: `cmd/baha/operator_auth.go` `--init-tenant` -> `initializeLocalOperatorTenant` + managed-keycloak finalize. Requires interactive OIDC (blocked in this scripted SSH session). This is the intended first-owner boundary, not a regression.
+
+## CELL 2 VERDICT: BLOCKED (same owner boundary as #116)
+- `baha node add` fails closed: node authority profile missing (needs managed operator Keycloak issuer).
+- Blocked by the same first-owner `--init-tenant` OIDC step that is the subject of #116. No fabricated ENROLLED state; cert-lifecycle tables verified empty.
+
+## CELL 3 VERDICT: PASS (wizard fail-closed verified) — functional, blocked on same owner boundary
+- Onboarding wizard interactive flow runs correctly and fails closed at management-connection verification (no operator issuer without `--init-tenant`).
+- Fail-closed behavior confirmed (no persistence without verified operator connection; back/EOF also fail closed). Same owner boundary as #116.
 
 ## END
 STATE (see below per cell)

@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 1 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 4 |
+| ready | 3 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -34,6 +34,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-appnew-contradictory-exit](../tasks/t-20261108-bughunt-0427-appnew-contradictory-exit.md) | 0427-125 · App new meldet Erfolg plus Fehler | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1440](https://github.com/mcpdev80/baseharbor/pull/1440) |
 | [t-20261108-bughunt-0427-debug-dump-app-init-flags](../tasks/t-20261108-bughunt-0427-debug-dump-app-init-flags.md) | Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439) |
 | [t-20261108-bughunt-0427-multitarget-ambiguity](../tasks/t-20261108-bughunt-0427-multitarget-ambiguity.md) | 0427-126 · init-status-doctor bei mehreren Targets | active | normal | owner:chatgpt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441) |
+| [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | 0427-124 · BASEHARBOR_TARGET wird ignoriert | active | high | lane-0427-124-target-env | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
 
@@ -58,7 +59,6 @@ None.
 | [t-20261108-bughunt-0427-core-destroy-keycloak-orphan](../tasks/t-20261108-bughunt-0427-core-destroy-keycloak-orphan.md) | Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) | Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | 0427-124 · BASEHARBOR_TARGET wird ignoriert | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 

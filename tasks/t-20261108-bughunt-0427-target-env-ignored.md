@@ -7,9 +7,9 @@ areas: [lifecycle,compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-0427-124-target-env
+kanban_status: active
+kanban_lane: active
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 kanban_title: 0427-124 · Target-ENV ohne Wirkung
 priority: high
@@ -26,17 +26,16 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task #release/v0-4-27 #status/planned #view/ready #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0427-124-target-env · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-0427-124-target-env  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
