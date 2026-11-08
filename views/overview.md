@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
+| active | 13 |
 | review | 1 |
 | wait | 4 |
 | blocked | 0 |
-| ready | 14 |
+| ready | 12 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -33,7 +33,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | active | normal | lane-w130-upalias-r5 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1459](https://github.com/mcpdev80/baseharbor/pull/1459) |
 | [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | active | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
 | [t-20261108-bughunt-appnew-name-slug-keywords](../tasks/t-20261108-bughunt-appnew-name-slug-keywords.md) | Bug Hunt v0.4.27: Name silently reshaped | active | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
+| [t-20261108-bughunt-list-target-failclosed](../tasks/t-20261108-bughunt-list-target-failclosed.md) | Bug Hunt v0.4.27: List needs target choice | active | normal | chatgpt-r27-cli-diagnostics | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1466](https://github.com/mcpdev80/baseharbor/pull/1466) |
 | [t-20261108-bughunt-openbao-stale-manager-cred](../tasks/t-20261108-bughunt-openbao-stale-manager-cred.md) | Bug Hunt v0.4.27: Stale cred blocks rebirth | active | normal | lane-w154-baocred | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-quickinit-failure-explain](../tasks/t-20261108-bughunt-quickinit-failure-explain.md) | Bug Hunt v0.4.27: Quick init names no reason | active | normal | chatgpt-r27-cli-diagnostics | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1466](https://github.com/mcpdev80/baseharbor/pull/1466) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
 
 ## Ready for review
@@ -64,11 +66,9 @@ None.
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-docker-netpool-exhaustion](../tasks/t-20261108-bughunt-docker-netpool-exhaustion.md) | Bug Hunt v0.4.27: No advice on pool error | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-edit-surface-nits](../tasks/t-20261108-bughunt-edit-surface-nits.md) | Bug Hunt v0.4.27: Edit surface nits | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-list-target-failclosed](../tasks/t-20261108-bughunt-list-target-failclosed.md) | Bug Hunt v0.4.27: List needs target choice | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-local-access-singleton](../tasks/t-20261108-bughunt-local-access-singleton.md) | Bug Hunt v0.4.27: One host, one local access | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-needs-tui-display-nav](../tasks/t-20261108-bughunt-needs-tui-display-nav.md) | Bug Hunt v0.4.27: TUI rows break silently | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-orphan-process-lock-holder](../tasks/t-20261108-bughunt-orphan-process-lock-holder.md) | Bug Hunt v0.4.27: Orphan holds the target | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-quickinit-failure-explain](../tasks/t-20261108-bughunt-quickinit-failure-explain.md) | Bug Hunt v0.4.27: Quick init names no reason | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-rawmode-prompt-sigint](../tasks/t-20261108-bughunt-rawmode-prompt-sigint.md) | Bug Hunt v0.4.27: Ctrl-C breaks raw prompt | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-stale-provider-edit-block](../tasks/t-20261108-bughunt-stale-provider-edit-block.md) | Bug Hunt v0.4.27: Stale instance blocks edit | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-wizard-foreign-records](../tasks/t-20261108-bughunt-wizard-foreign-records.md) | Bug Hunt v0.4.27: Foreign records stall wizard | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
