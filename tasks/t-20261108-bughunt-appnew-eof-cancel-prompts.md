@@ -53,3 +53,6 @@ Vereinheitlichter abbruch-pfad: EOF/Strg-D an JEDEM prompt = sauberer cancel ohn
 
 ## Dependencies and file ownership
 Keine. Write-set: cmd/baha app new wizard prompts.
+
+## Zusatz-Befund
+Ergaenzung (Hunt H-P1 BF-05): exit-codes/texte des abbruchs unterscheiden sich nach position im strom — vereinheitlichung gilt fuer beide fundlagen.

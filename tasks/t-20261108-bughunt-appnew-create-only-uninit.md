@@ -53,3 +53,6 @@ Entweder dokumentierter zweischritt mit klarer naechster-aktion ODER automatisch
 
 ## Dependencies and file ownership
 Keine. Write-set: cmd/baha app new + init seam.
+
+## Zusatz-Befund
+Ergaenzung (Hunt H-P1 BF-04, podman-bestaetigt): create-only auf owner-losem target meldet "project created but ..." ohne recovery-pfad — schaerfter fall, in acceptance beruecksichtigen.
