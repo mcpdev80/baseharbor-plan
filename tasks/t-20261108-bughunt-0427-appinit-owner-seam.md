@@ -1,0 +1,38 @@
+---
+id: t-20261108-bughunt-0427-appinit-owner-seam
+card_number: "0427-136"
+card_short_title: "app init Owner-Naht regression"
+type: bug
+areas: [lifecycle, compose]
+release: v0.4.27
+version: ""
+parent: v0.4.27
+owner: lane-w135-count2
+kanban_status: active
+kanban_lane: active
+kanban_summary: Ein sauberer go test -count=2 (ohne ambient Core) endet terminierend statt zu blockieren; der Bestätigungspfad leaket keine…
+kanban_title: "0427-136 · app init Owner-Naht regression"
+priority: normal
+depends_on: [t-20261017-release-0-4-27-updates]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+wait_reason: ""
+resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md"]
+---
+<!-- generated:card -->
+
+<!-- /generated:card -->
+## Outcome and acceptance
+`baha target create --reference local` + `baha app init --quick` completes the native acceptance bootstrap path without ErrDeploymentOwnerMissing on the real-instance lifecycle; the #1347 owner enforcement keeps working for paths that genuinely require an owner (fix at the init seam: establish/verify owner correctly for reference-local flows). Regression runs in the CI-selected native/validate group it belongs to (test->check->trigger named).
+
+## Problem (Fund aus 0427-132 r3, round-3.md — origin/main 48980d11)
+`app init --quick` bricht in zeile 43 des native-acceptanz tests mit ErrDeploymentOwnerMissing bevor destroy/retry-Phasen erreicht werden. Ursache: #1347 (commit 42bfcb1c) macht VerifyDeploymentOwner Pflicht in der init-Naht ohne owner-establishment für reference-local targets. Reproduktion dreifach identisch: PR #1453 head 7557a0b1d, develop 07ae6c3e9, CI run 42434076648 (develop 1fe57f250) — v0.4.25 (bad37ce6) besteht.
+
+## Acceptance
+- Native acceptanz-pfad (target create --reference local + app init --quick) gruen auf aktuellem develop + PR #1453 head; #1347 enforcement bleibt intakt (kein revert der owner-pruefung, fix am seam); develop-zellen 'Native single-default Docker/Podman' wieder gruen.
+
+## Dependencies and file ownership
+Blocks completion evidence of 0427-132 (native acceptance). Write-set: cmd/baha app init seam + internal/deployment owner establishment; KEIN anrühren von runtime_destroy_all.go (#1453 domain) ohne drift-merge.
