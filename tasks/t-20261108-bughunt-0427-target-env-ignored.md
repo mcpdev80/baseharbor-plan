@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-124-target-env
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 kanban_title: "0427-124 · Target-ENV ohne Wirkung"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1443]
+prs: [mcpdev80/baseharbor#1443, mcpdev80/baseharbor#1451]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,20 +26,20 @@ resolution: ""
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-124-target-env · **Priority:** high  
-    **PR:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443)  
+    **PR:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443), [baseharbor#1451](https://github.com/mcpdev80/baseharbor/pull/1451)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261108-bughunt-0427-test-bootstrap-leak](t-20261108-bughunt-0427-test-bootstrap-leak.md)  
 **Owner:** lane-0427-124-target-env  
 **Priority:** high  
-**PRs:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443)  
+**PRs:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443), [baseharbor#1451](https://github.com/mcpdev80/baseharbor/pull/1451)  
 **Source:** 
 <!-- /generated:links -->
 
