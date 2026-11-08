@@ -126,7 +126,7 @@
 - kanonisch: git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v -> https://github.com/mcpdev80/baseharbor-plan.git (NICHT workers/baseharbor-plan; verifiziert).
 - akte-commit: 2abcd13c evidence(hunt-hp1): bug-hunt slice H-P1 …
 - aktenpfad in origin/main: evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md
-- nachlieferung 2026-11-08T~11:5xZ: die R4-/BF-6-sequenzzell-ergaenzungen landeten im coord-tick-commit 9170c825 ("coord: lane-disk-writes persistiert (tick)") statt in einem eigenen commit — der tick hat meine unstaged datei mitgenommen. inhalt ist vollstaendig in origin/main (grep-zeugnis: BF-11/END_DONE/sequenzzelle = 6 treffer). letzter ls-remote: 09d23809fbf019476bf461976a0af4c2e4ea5891.
+- nachlieferung 2026-11-08T~11:5xZ: die R4-/BF-6-sequenzzell-ergaenzungen landeten im coord-tick-commit 9170c825 ("coord: lane-disk-writes persistiert (tick)") statt in einem eigenen commit — der tick hat meine unstaged datei mitgenommen. inhalt ist vollstaendig in origin/main (grep-zeugnis: BF-11/END_DONE/sequenzzelle = 6 treffer). letzter ls-remote: 09d23809fbf019476bf461976a0af4c2e4ea5891. finaler ls-remote unmittelbar vor END: f40593970c8cf2c2afcc901acc431478ee841d33 refs/heads/main (enthält diese akte vollständig).
 
 ## befehlssumme (schaätzung, alle beobachtet)
 - pty-zellen: ~30 (wizard: create-only, sql-toggle, needs-ESC/EOF/ctrl-c/ctrl-d an jedem prompt, run-mode, p-provider, noloop, wellen k1-k4, slug/badinput, iso-home/g-cellen, lock-held-zelle)
