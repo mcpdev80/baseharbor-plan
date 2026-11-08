@@ -7,7 +7,7 @@ areas: [identity, dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-134-r3
+owner: lane-w134-capkce-r3
 kanban_status: active
 kanban_lane: active
 kanban_summary: "baha login -e dev --init-tenant and baha node add complete on native podman/docker test hosts WITHOUT manual OS trust surgery:…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 - [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/active #view/active #area/dx #area/identity #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-134-r3 · **Priority:** high  
+    **Owner:** lane-w134-capkce-r3 · **Priority:** high  
     **PR:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** pending-lane-0427-134-r3  
+**Owner:** lane-w134-capkce-r3  
 **Priority:** high  
 **PRs:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
 **Source:** 
