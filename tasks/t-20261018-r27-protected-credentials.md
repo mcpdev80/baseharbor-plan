@@ -134,3 +134,7 @@ Status `active` statt `closed`: PR #1385 wurde akzeptiert, aber der aktuelle `de
 ## Draft PR 2026-11-08
 
 [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) (`fix/0427-047-credential-recovery` -> `develop`) eröffnet. Initialer Commit: `f7ef6bcf` entfernt den unsicheren lokalen Fallback bei Runtime-Auflösungsfehlern; Regression `cmd/baha/dev_access_authority_failure_test.go` ergänzt, Head `f9f184b4`. **Weiter active:** Bootstrap-/Recovery-Abgrenzung, CAS-Negativfälle und CI-Ausführung noch offen; kein Merge ohne Verifikation.
+
+## Architekturabgleich 2026-11-08 — Host-Verbindung ist eigener Pfad
+
+User-requested checkpoint before further fixes: `0427-047` covers **dev management UI credentials**, not developer workstation -> Core management OIDC nor Core -> Docker/Podman Node Connector mTLS. Code: `docs/how-to/developer-access.md`, `cmd/baha/node.go`, `cmd/baha/application_core_authority.go`, `cmd/baha/app_remote_lifecycle.go`, `docs/spec/target-access-v1.md`. `node add` requires a valid Core operator session, verified tenant membership, a scoped one-use grant, and a pinned CA; `node connect` installs the outbound connector. Remote apply uses the authorized target session and explicitly rejects unsupported provider intents. Draft #1470 must not be mistaken for an E2E connector fix. **Hold** broader changes until workstation->Core management, enrollment, session and remote apply are qualified separately. Existing draft code is unverified and must remain Draft.
