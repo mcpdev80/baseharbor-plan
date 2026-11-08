@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** ChatGPT (remote bootstrap safety) · **Priority:** high  
     **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
-    **Active:** PR #1492 in CI; full remote bootstrap not yet implemented  
+    **Active:** #1492 merged (safety guard); real remote bootstrap capability not yet implemented  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -83,4 +83,4 @@ Core bootstrap/install respects the effective or explicitly selected target; whe
 - PR [#1492](https://github.com/mcpdev80/baseharbor/pull/1492) introduces a safe interim guard: a selected remote Target cannot silently bootstrap Core on the developer workstation. Production entry-point regression added.
 - This **does not** implement remote Core installation. The full developer-PC-to-remote-host happy path remains unverified and the E2E verdict remains FAIL until real deployment evidence exists.
 
-- CI proof for #1492: [run #5300](https://github.com/mcpdev80/baseharbor/actions/runs/42509941118), HEAD `0e1e0c4746980c2f7896d1dcf79fd98f43c1f66b`. Go unit checks still running at last inspection; **do not mark PASS** until final check is green.
+- CI proof for #1492: [run #5300](https://github.com/mcpdev80/baseharbor/actions/runs/42509941118), HEAD `0e1e0c4746980c2f7896d1dcf79fd98f43c1f66b`: **all selected required checks PASS**, including Docker/Podman native destroy, Go unit/build/vet and PR Selected Checks. Squash merged into develop at `171e9569d4bdea0b03faca663dc88a41e185f75f`. The full remote bootstrap capability is STILL OPEN; this receipt covers the no-local-fallback safety fix only.
