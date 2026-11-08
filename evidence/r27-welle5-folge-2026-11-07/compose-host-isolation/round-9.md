@@ -107,6 +107,7 @@ none belong to this lane and were not touched.)
   Retry sauber auflösen (Pipe/FD close, goroutine beenden) statt hängen zu lassen.
   **Nicht im WIP behoben** — Owner-Karte zur Verkartung.
 - **Nachweis:** Host-Transkript der sauberen count=2-Sitzung hängt (HANG bei `recordDeploymentBeforeMutation`); docker contaminated count=2 4/4 `rc=0` gegenbeispiel in Cell table.
+- **Verkartung status 2026-11-08:** F1 ist **verkartet** als Owner-Karte **`0427-135`**. round-9.md Z. 109.
 
 ### F2 — Podman application-readiness (platform finding, not yet triaged)
 
