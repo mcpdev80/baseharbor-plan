@@ -26,8 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- generated:card -->
     **Owner:** chatgpt-r27-destroy-owner · **Priority:** normal  
     **PR:** [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483)  
-    **Waiting:** Produkt-PR \#1483 gemergt; Bearbeitung pausiert bis zur gesonderten exakten Native-Docker/Podman-Abnahme des Datenwurzel-/Core-Discovery-Vertrags. Kein neuer Produkt-PR ohne Befund.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-ca-pkce/act-1455-fate.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-ca-pkce/act-1455-fate.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42487539941)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
