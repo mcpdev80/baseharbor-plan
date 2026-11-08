@@ -71,3 +71,7 @@ None. Write-set: cmd/baha app new wizard prompts.
 
 - [PR #1484](https://github.com/mcpdev80/baseharbor/pull/1484) adds a fail-closed EOF guard for unterminated partial inputs in `readPrompt`: Ctrl-D after partial `yes` must not authorize project creation. Regression tests cover partial input and confirmation.
 - This complements merged #1471. Card stays `review` with existing owner until the exact-head CI and complete acceptance are verified. No separate duplicate implementation lane.
+
+## CI remediation — 2026-11-08 (0427-138)
+
+- PR #1484: strict partial-line EOF cancellation retained; workspace wizard scripted fixture responses now terminate with newline (avoids false EOF) on head `24431d9f0504f712696a17883bc27ad3b68421d9`, exact-head CI run https://github.com/mcpdev80/baseharbor/actions/runs/42502959988. Keep active until terminal CI.
