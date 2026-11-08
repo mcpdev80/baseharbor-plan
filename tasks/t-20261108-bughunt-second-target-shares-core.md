@@ -62,3 +62,10 @@ None. Write-set: control-plane up / runtime project naming.
 
 - The initial source-format repair was still not gofmt-canonical in the map table; fixed the exact spacing, verified the formatting shape separately, and pushed PR #1487 head `9572bdb3ae83db6da6252fcdc4d865e0a9fbbf35`.
 - Fresh exact-head CI: https://github.com/mcpdev80/baseharbor/actions/runs/42503646942. Do not mark accepted before terminal checks.
+
+## Native two-Target acceptance added — 2026-11-08
+
+- PR #1487 rebased on develop after #1457: exact head `5a0b66c7a2fe3756a7caa640e94b2ae4a04c45fd`.
+- Added real `TestSecondSameHostCoreNativeConflictInCI`: first Target owns a running Core on the selected Docker/Podman engine; second distinct configured Target's `baha up --control-plane-only --yes` must fail with typed owner conflict, first stays running, second never starts a Core.
+- Wired into both `PR · Native destroy retry` matrix cells via `scripts/ci-native-installation-destroy.sh`; test must PASS once, not SKIP or synthetic success. Corrected engine-discovery errors to fail closed and stopped foreign Core resources to be ignored.
+- Await exact-head native CI before merge and card acceptance.
