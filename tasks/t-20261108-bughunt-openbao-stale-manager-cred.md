@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1468]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: "Merged PR #1468 as 224fa801f1ae9fcab166a2407178b380e650f923; selected exact-head CI checks succeeded."
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd5.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
@@ -31,7 +31,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** Merged PR #1468 as 224fa801f1ae9fcab166a2407178b380e650f923; selected exact-head CI checks succeeded.  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
