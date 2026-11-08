@@ -48,3 +48,11 @@ END 0427-144 REVIEW DONE — source verdict APPROVE for `a6bb99bfa1727b2231c3b22
 ## Planning validation
 
 `git diff --check` passed for this evidence. `python3 scripts/plan.py check` reported one pre-existing generated-preview error outside this evidence: `tasks/t-20261108-bughunt-0427-greenfield-isolation.md: generated card preview is stale; run scripts/plan.py render` (with four unrelated dependency warnings). I did not render or modify unrelated Planning files as part of this read-only product review. The review evidence contains no Markdown checkbox lines.
+
+## Planning remote witness before follow-up publication
+
+Command output from `git ls-tree origin/main evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1501-review.md`:
+
+```text
+100644 blob 872b3ed4920c61ba44b1476f8c8ef78254881aa0	evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1501-review.md
+```
