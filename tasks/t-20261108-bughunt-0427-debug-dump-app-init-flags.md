@@ -15,7 +15,7 @@ kanban_title: 0427-120 · CLI Debug-Dump und app-init
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1439]
+prs: [mcpdev80/baseharbor#1439, mcpdev80/baseharbor#1442]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -91,3 +91,5 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - **PR #1439 erfolgreich nach `develop` gemergt:** Merge-SHA `32ce55dd5c0d623e7dd32ffcf1434a0baa9909dd`; exact-head [CI #42429340000](https://github.com/mcpdev80/baseharbor/actions/runs/42429340000) terminal `success` (alle 11 Jobs erfolgreich).
 - Produktiv-Code entfernt den ungewollten `runtime.Stack`-Debug-Dump aus der Consent-Fehlerbehandlung, ohne den Fail-Closed-Fehler zu veraendern. Regression der dokumentierten `app init`-Flags vorhanden.
 - **Abnahme nachpruefen:** Ein expliziter Negativtest fuer stderr ohne `goroutine`/Stack in beiden CLI-Modi steht noch aus; Karte bis dahin nicht `closed`.
+
+- **Negativtest-Nachtrag:** [PR #1442](https://github.com/mcpdev80/baseharbor/pull/1442) prueft die echte Candidate-Consent-Ablehnung und stderr auf unerlaubte `goroutine`/`runtime.Stack`-Ausgabe; die initiale Produktkorrektur #1439 ist bereits gemergt. PR-CI fuer #1442 steht noch aus; Karte bleibt bis zur Abnahme `active`.
