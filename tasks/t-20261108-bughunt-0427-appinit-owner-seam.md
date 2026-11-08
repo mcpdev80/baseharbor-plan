@@ -52,3 +52,10 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 ## Dependencies and file ownership
 Blocks completion evidence of 0427-132 (native acceptance). Write-set: cmd/baha app init seam + internal/deployment owner establishment; KEIN anrühren von runtime_destroy_all.go (#1453 domain) ohne drift-merge.
+
+
+## Owner PR review — 2026-11-08
+
+- [PR #1458](https://github.com/mcpdev80/baseharbor/pull/1458) closed **superseded** (not merged): remaining diff is comment-only; real Core owner bootstrap is already in `develop` via [#1464](https://github.com/mcpdev80/baseharbor/pull/1464), merge `cd494610c9327d122720e90851ce1f818e5d073e`.
+- [CI run 42474092741](https://github.com/mcpdev80/baseharbor/actions/runs/42474092741) proved actual Docker/Podman native destroy retry PASS on #1464. Existing strict deployment ownership is retained. No duplicate product PR or hardware validation for the same code is needed.
+- Card retains its existing Codeman owner and acceptance tracking; Codeman can reconcile final lifecycle evidence and then close the card. The PR closure by itself does **not** certify every stated card acceptance clause.
