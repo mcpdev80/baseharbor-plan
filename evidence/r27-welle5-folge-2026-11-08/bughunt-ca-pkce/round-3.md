@@ -22,6 +22,8 @@ ACTIVE — executing the fix recipe from `act-1457-review.md` (r2 review; points
 - Candidate-only log: single commit `09030b37 wip(ca-pkce): ...`
 - Branch cut from `09030b370c607a818a77cc128322c7b06fffd4f7` (candidate head)
 - Hosted run `42455848388` -> conclusion failure on exact head `09030b37` (`go-unit-tests` failed on `human_documentation_test.go:101` command-index.md drift)
+- develop moved during the round: `07ae6c3e` -> `48d6f10a` (commits 1452, 1454, 1456, 1461, 1462). Merged origin/develop into 134-r3-ca-pkce (drift-merge, recipe point 4); merge commit clean, no conflicts; command-index login row still carries `[--ca FILE] [--auth-code-file FILE] [--no-browser]`; TestHumanCommandIndexTracksExactCommandMetadata passes on the merged tree
+- My branch's only delta vs the candidate head is the r3 fix (8 files, +440/-18)
 
 ## Repo-rule compliance
 
