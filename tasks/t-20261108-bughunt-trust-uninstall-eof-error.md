@@ -27,7 +27,6 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- generated:card -->
     **Owner:** pending-lane-0427-161-r2 · **Priority:** normal  
     **PR:** [baseharbor#1485](https://github.com/mcpdev80/baseharbor/pull/1485)  
-    **Needs:** [t-20261108-bughunt-appnew-eof-cancel-prompts](t-20261108-bughunt-appnew-eof-cancel-prompts.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx1.md)  
     <!-- /generated:card -->
 

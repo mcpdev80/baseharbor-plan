@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed
     <!-- generated:card -->
     **Owner:** coord-board · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
-    **Wait:** Docker/Podman stop-plan tests passed; full CLI E2E awaits operator-OIDC.  
+    **Waiting:** Native Docker/Podman two-app stop-plan regression passed; full CLI app up/down E2E awaits operator-OIDC availability and verified end-to-end execution.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f)  
     <!-- /generated:card -->
 
