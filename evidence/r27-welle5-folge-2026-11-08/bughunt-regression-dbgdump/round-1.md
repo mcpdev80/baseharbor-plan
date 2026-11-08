@@ -21,7 +21,8 @@ e6b26ac982f074016ba4c03d918910149f770796 HEAD
 e6b26ac982f074016ba4c03d918910149f770796 refs/heads/main
 ```
 
-origin/main HEAD: `e6b26ac982f074016ba4c03d918910149f770796`
+origin/main HEAD (before my evidence commit): `e6b26ac982f074016ba4c03d918910149f770796`
+origin/main HEAD (after my evidence commit, verified live): `cf7c82dc233b312799e6e60165c604cdb5b3890d`
 
 Product base (baseharbor), measured via `git ls-remote origin` (NOT the quarantined workers/baseharbor checkout):
 
@@ -118,3 +119,5 @@ Out of scope (untouched): consent semantics and exit codes, per card scope.
 ## END
 
 STATE: VERIFIED-NO-CHANGE mission-129.md. develop `07ae6c3e91` contains PR #1439 debug-stack removal (`449f107ffc` ancestor of develop); focused regression `TestMissingCandidateConsentDoesNotDumpRuntimeStack` PASS; build + vet clean. No PR. Resolution: close as VERIFIED-NO-CHANGE (no change needed).
+
+Evidence origin/main HEAD: `cf7c82dc233b312799e6e60165c604cdb5b3890d` (contains round-1.md).
