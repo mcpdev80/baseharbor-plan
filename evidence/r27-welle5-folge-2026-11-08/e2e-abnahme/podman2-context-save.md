@@ -67,3 +67,9 @@ control-plane bootstrap OK; demoapp reiner client-pfad up READY (err=nil, prefli
 ## WARNUNGEN
 - END VOR Stop posten. evidence origin/main (nicht workers/baseharbor-plan!). kein subagent/produkt-edit/PR.
 - evidence KEIN markdown-checkbox.
+
+## TASK-COMPLETION (2026-11-08 ~03:15)
+- worker todo workers/todos/0427-e2e-podman2.json: 11/11 steps done (keine checkboxes).
+- board card 0427-043: kanban_status=closed (accepted); coordinator commit f68044c9.
+- evidence origin/main cd0f6119. vm-lock release baha-podman-2 (journal.log).
+- END posted to Codeman 594fd2f5.
