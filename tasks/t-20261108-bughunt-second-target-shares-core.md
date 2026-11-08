@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w163b-sharedgate2
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Either true per-target isolation (distinct project/ports/state dir, verified), or an explicit fail-closed conflict gate: up for…"
 kanban_title: 0427-163 · Second same-host target silent
 priority: normal
@@ -19,22 +19,21 @@ prs: [mcpdev80/baseharbor#1487]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md"]
-superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-second-target-shares-core · Bug Hunt v0.4.27: Second target reuses Core #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-second-target-shares-core · Bug Hunt v0.4.27: Second target reuses Core #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w163b-sharedgate2 · **Priority:** normal  
+    **Owner:** — · **Priority:** normal  
     **PR:** [baseharbor#1487](https://github.com/mcpdev80/baseharbor/pull/1487)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w163b-sharedgate2  
+**Owner:** —  
 **Priority:** normal  
 **PRs:** [baseharbor#1487](https://github.com/mcpdev80/baseharbor/pull/1487)  
 **Source:** 
@@ -84,3 +83,9 @@ None. Write-set: control-plane up / runtime project naming.
 
 - Same exact-head [CI #42508772678](https://github.com/mcpdev80/baseharbor/actions/runs/42508772678): `TestSecondSameHostCoreNativeConflictInCI` **PASS on actual Podman** (66.84s), and anti-skip verifier `PASS: two real Targets, one native engine, no silent Core reuse`.
 - First real Core `w169-ci-bootstrap-b2e0d3ca` remained running while second distinct Target `w169-second-target-conflict-d000e981-iso` was refused without a second Core. Combined Docker and Podman native proof passed at exact head; Go unit/final gate remained pending at the time of recording.
+
+## PR #1487 verified merge and acceptance — 2026-11-08
+
+- [PR #1487](https://github.com/mcpdev80/baseharbor/pull/1487) squash-merged into develop at `1773491877a32e0a90f3537735216a7ba01657fd` from exact head `3826acd9329832d907e717cbd97218740049f932`.
+- [CI #42508772678](https://github.com/mcpdev80/baseharbor/actions/runs/42508772678) terminal SUCCESS: both actual native Docker/Podman same-host two-Target trials PASS with anti-skip verification, Go unit/build/vet, runtime package and final selected gate all SUCCESS.
+- Explicit fail-closed conflict approach (B) is chosen and verified: second Target cannot silently join first running Core; names owner, preserves first Core, starts no second Core. Identity same-owner and stopped Core false positives covered by regressions. Card accepted/closed; any separate bootstrap-leak investigation remains a separate card.
