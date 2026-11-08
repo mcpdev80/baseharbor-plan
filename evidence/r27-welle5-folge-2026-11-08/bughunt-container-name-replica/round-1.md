@@ -54,6 +54,25 @@ The three quiesce identity checks compare against a single computed ordinal:
 
 POSTED QUESTION to Owner: derive canonical identity from plan; if the plan/manifest schema must gain per-service `container_name`/`scale`, that is a schema change the Owner must scope (file:line above). Waiting on Owner response before implementing.
 
+## Owner directive (second answer) — IMPLEMENTATION
+
+Owner: DO NOT extend the plan schema. Source of truth is the COMPOSE-PROJEKT-MODEL the `up` path already parses (container_name + replicas per service); derive `expectedContainerNames` from that model in the compose loader (areas: compose). All three quiesce call sites get the set.
+
+Findings (verified against rendered `docker compose config --format json`):
+- `container_name` is a top-level field; `replicas` lives under `deploy.replicas`.
+- Compose REJECTS `container_name` together with `replicas` (single container when pinned).
+- `Compose.ConfigJSONProjectFilesEnv(ctx, project, workdir, composeFiles...)` (internal/runtime/compose_files.go:65) already returns that rendered JSON and is used by app_artifact_resolution.go:511 and app_workload_apply.go:79.
+
+Design (in `/tmp/opencode/0427-128-contname-wt` branch `bughunt/0427-128-container-name-replica`):
+- `internal/runtime/container_identity.go`: added `RuntimeConfigProvider` interface (exposes `ConfigJSONProjectFilesEnv`); `expectedContainerNameSet` + `parsedExpectedContainerNames` derive the planned native container-name set per service from the rendered model (pinned `container_name` -> that name; no pinned name -> `project-service-1..replicas`, defaulting to 1); `containerNameInPlannedSet` stays inside the project scope the caller validated.
+- `internal/runtime/service_stop.go`: quiesce check at :79 now compares `container.Name` against the planned set from the render; falls back to the single canonical ordinal (plus the Podman `project-service` name) when no render is available, preserving the pre-existing identity contract. Error text now names the failing service + native name.
+- Tests (in CI via `go test ./internal/...` in ci.yml:121): `TestParsedExpectedContainerNamesDerivesCanonicalNamesFromRenderedModel` (pinned / single / scaled / unknown) and `TestExpectedContainerNameSetFallsBackToCanonicalOrdinal`.
+- Verified: `go build ./...`, `go vet ./internal/runtime/`, `go test ./internal/runtime/` all pass; Stop/Backup/Retire/Destroy/ControlPlane/Quiesc cmd/baha suites pass.
+
+## END status
+
+END_BLOCKED mission-128.md: bug CONFIRMED (backup quiesce fails with "selected stop has an unplanned service replica" for explicit `container_name`); fix IMPLEMENTED deriving the planned container-name set from the rendered Compose model (not the plan schema). Work committed to worktree branch `bughunt/0427-128-container-name-replica` at `7717f4505`. Open items: (1) retirement/control_plane call sites (`service_retirement.go:63`, `control_plane_stop_observation.go:49`) still use the raw `ContainerMatchesProjectResource` contract — Owner to confirm whether composeFiles threading is in scope for the destroy paths; (2) evidence must be committed to planning origin/main and PR (0427-128) opened before final acceptance.
+
 ## END status
 
 END_BLOCKED mission-128.md: bug CONFIRMED (backup quiesce fails with "selected stop has an unplanned service replica" for explicit `container_name`); blocked on Owner scope decision whether the plan schema exposes per-service container_name/scale before identity can accept pinned names without string guessing. QUESTION posted.
