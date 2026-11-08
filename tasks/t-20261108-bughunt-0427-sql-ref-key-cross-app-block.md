@@ -76,13 +76,13 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 ## 2026-11-08 Übernahme (ChatGPT)
 
-- Owner `owner:chatgpt`, Lane `active`: SQL-Phantom-Key-Kausalitaet (Writer + Fremd-App-Stop-Footprint) anhand aktueller `develop`-Quellen pruefen, sichere Isolationsregression und gezielten Produktfix erstellen. Fremde App-Referenzen nicht global unterdruecken.
+- Owner `owner:chatgpt`, Lane `active`: SQL phantom-key causality (Writer + foreign-app stop footprint) check against current `develop` sources, create a reliable isolation regression and a targeted product fix. Do not globally suppress foreign app references.
 
 ## 2026-11-08 Ursachenpruefung (ChatGPT)
 
-- Der auf 0.4.23-develop gemeldete JSON-Name `SQLInstanceReferences` kommt im aktuellen `baseharbor/develop`-Code **nicht mehr** vor (GitHub Source Search 0 Treffer). Die aktuelle Source beschreibt `Services.SQLInstances` sowie gemeinsame `ResolveFootprint`-/`ResolveProviderPlan`-Routen. Der Fehler kann weiter in bereits persistierten Records bestehen, ist aber nicht sauber allein am historischen Namen patchbar.
-- `cmd/baha/application_provider_plan.go` validiert alle fremden retained Intents; `internal/application/provider_retained_intents.go` und `footprint.go` verweigern unaufloesbare Dependencies. **Nicht** allgemein fremde fehlerhafte Intents ueberspringen, da sonst Shared-Provider-Entfernung ohne Konsumentennachweis moeglich waere.
-- Naechster notwendiger Beleg: aktuelle Zwei-App-Reproduktion einschliesslich unveraenderter `deployment.json`, `provider-registry.json` und Ziel-CLI-Fehler, dann nur die urspruengliche Writer-Kante oder verifizierbare Fremd-App-Isolation korrigieren. Karte `active`; kein Fix/PASS behauptet.
+- The JSON name `SQLInstanceReferences` reported on 0.4.23-develop does **no longer** appear in the current `baseharbor/develop` code (GitHub source search 0 hits). The current source describes `Services.SQLInstances` as well as shared `ResolveFootprint`/`ResolveProviderPlan` routines. The error may persist in already-persisted records, but it is not cleanly patchable on the historical name alone.
+- `cmd/baha/application_provider_plan.go` validates all foreign retained intents; `internal/application/provider_retained_intents.go` and `footprint.go` reject unresolvable dependencies. **Do not** generally skip foreign defective intents, otherwise shared-provider removal would be possible without a consumer proof.
+- Next required evidence: current two-app reproduction including unchanged `deployment.json`, `provider-registry.json` and target CLI errors, then only fix the original writer edge or verifiable foreign-app isolation. Card `active`; no fix/PASS claimed.
 
 ### 2026-11-08 Writer-Grenze verifiziert (ChatGPT)
 
@@ -91,8 +91,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 ## 2026-11-08 SQL-Phantom-Guard (ChatGPT)
 
-- [PR #1447](https://github.com/mcpdev80/baseharbor/pull/1447), Head `44cb45784774656fb75aaa32c6510dbb3c362c41`: aktueller Portable-Intent-Test weist SQL-Instanzschluessel `/` fail-closed ab und prueft gueltigen `primary`-Roundtrip. Exakte PR-CI offen.
-- Die alte Registry-/Deployment-Projektion `SQLInstanceReferences` kommt in der aktuellen Source nicht mehr vor. **Dieser Test allein behebt keinen historischen fehlerhaften Fremd-App-Record**; daher Karte weiterhin `active`, Zwei-App-Repro und owner-sichere Bereinigung erforderlich.
+- [PR #1447](https://github.com/mcpdev80/baseharbor/pull/1447), head `44cb45784774656fb75aaa32c6510dbb3c362c41`: current portable-intent test rejects SQL instance key `/` fail-closed and checks valid `primary` roundtrip. Exact PR CI open.
+- The old registry/deployment projection `SQLInstanceReferences` no longer appears in the current source. **This test alone does not fix a historical defective foreign-app record**; hence the card stays `active`; two-app repro and owner-safe cleanup required.
 
 ## 2026-11-08 Merge #1447 (ChatGPT)
 

@@ -75,19 +75,19 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 - Reports: `~/dev/Tests/Baha-Bug-01-debug-dump-in-produktion-pfad.md` (repro 4x, source anchor `deployment_record.go:523-526` with verbatim dump) and `~/dev/Tests/Baha-Bug-02-app-init-flags-usage.md` (repro 3x, v0.4.23-vs-develop regression countercheck).
 - Repro trigger for the dump requires NO manifest on disk (first candidate submission); with a manifest the refusal happens later in the impact stage without a dump (documented in the report).
 
-## 2026-11-08 Übernahme (ChatGPT)
+## 2026-11-08 Takeover (ChatGPT)
 
 - Owner: `owner:chatgpt`; Lane: `active`.
-- Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
-- Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
+- Work order: a small, targeted product fix including regression and a mandatory PR CI. No simultaneous changes to other cards.
+- No product commit and no PASS/completion claimed yet; evidence/PR added after actual implementation.
 
-## 2026-11-08 Produktarbeit (ChatGPT)
+## 2026-11-08 Product Work (ChatGPT)
 
 - [PR #1439](https://github.com/mcpdev80/baseharbor/pull/1439) auf `develop`, Head `7a01f888404e195288fc51f83c37c6c453c6a56c`: `runtime.Stack` aus fehlender Candidate-Consent-Fehlerbehandlung entfernt; Fail-Closed bleibt unveraendert.
 - Die dokumentierten `app init NAME -e/--environment dev --sql --workload-component` Optionen sind auf dem aktuellen Basiscode bereits implementiert; neuer CLI-Regressionstest beweist beide Aliase und die Workload-Auswahl.
 - Noch nicht als abgeschlossen markiert: exakte PR-CI ausstehend; danach Review/Merge und Karte aktualisieren.
 
-## 2026-11-08 Merge-Nachweis (ChatGPT)
+## 2026-11-08 Merge Evidence (ChatGPT)
 
 - **PR #1439 erfolgreich nach `develop` gemergt:** Merge-SHA `32ce55dd5c0d623e7dd32ffcf1434a0baa9909dd`; exact-head [CI #42429340000](https://github.com/mcpdev80/baseharbor/actions/runs/42429340000) terminal `success` (alle 11 Jobs erfolgreich).
 - Produktiv-Code entfernt den ungewollten `runtime.Stack`-Debug-Dump aus der Consent-Fehlerbehandlung, ohne den Fail-Closed-Fehler zu veraendern. Regression der dokumentierten `app init`-Flags vorhanden.
@@ -95,7 +95,7 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 
 - **Negativtest-Nachtrag:** [PR #1442](https://github.com/mcpdev80/baseharbor/pull/1442) prueft die echte Candidate-Consent-Ablehnung und stderr auf unerlaubte `goroutine`/`runtime.Stack`-Ausgabe; die initiale Produktkorrektur #1439 ist bereits gemergt. PR-CI fuer #1442 steht noch aus; Karte bleibt bis zur Abnahme `active`.
 
-## 2026-11-08 Finale Abnahme (ChatGPT)
+## 2026-11-08 Final Acceptance (ChatGPT)
 
 - [PR #1442](https://github.com/mcpdev80/baseharbor/pull/1442) **nach develop gemergt**: Merge-SHA `853c2608afcd41f78dea1bb41df0e8e8f09e1110`, exact-head [CI #42430071237](https://github.com/mcpdev80/baseharbor/actions/runs/42430071237) terminal `success`.
 - Der Negativtest ruft die echte Candidate-Consent-Ablehnung auf, bestaetigt unveraendertes Fail-Closed und prueft stderr auf `goroutine` und `runtime.Stack`. Zusammen mit gemergtem Produktfix [#1439](https://github.com/mcpdev80/baseharbor/pull/1439) sind die fokussierten Abnahmebedingungen erfuellt.
@@ -103,10 +103,10 @@ Two related CLI defects found in the 2026-11-07 bug hunt on develop 8a3f58da9 ar
 
 ## Handoff 2026-11-08 (regression)
 
-- Regression bestätigt: Debug-Dump lebt weiter in develop 0fe53052d (Build 0.4.11).
+- Regression confirmed: debug dump survives in develop 0fe53052d (build 0.4.11).
 - Karte t-20261108-bughunt-0427-regression-debug-dump-consent (0427-129) dokumentiert die Korrektur.
 
-## 2026-11-08 Owner-Freigabe und Uebergabe
+## 2026-11-08 Owner Release and Handover
 
 - Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `unassigned`. Bereits akzeptierte Karte bleibt `closed`.
 - Fixed/accepted #1439 + #1442.
