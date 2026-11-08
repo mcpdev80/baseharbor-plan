@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 13 |
-| review | 3 |
+| active | 12 |
+| review | 4 |
 | wait | 4 |
 | blocked | 3 |
 | ready | 7 |
@@ -33,7 +33,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Duplicate names lock all | active | normal | lane-w149b-nameid2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475) |
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | active | normal | chatgpt-r27-destroy-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483) |
 | [t-20261108-bughunt-openbao-stale-manager-cred](../tasks/t-20261108-bughunt-openbao-stale-manager-cred.md) | Bug Hunt v0.4.27: Stale cred blocks rebirth | active | normal | lane-w154-baocred-b | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468) |
-| [t-20261108-bughunt-trust-uninstall-eof-error](../tasks/t-20261108-bughunt-trust-uninstall-eof-error.md) | Bug Hunt v0.4.27: Trust prompt EOF error | active | normal | lane-w161-eoftrust | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) (open) | — |
 | [t-20261108-bughunt-up-nontty-panic-consent](../tasks/t-20261108-bughunt-up-nontty-panic-consent.md) | Bug Hunt v0.4.27: Non-TTY up panics | active | normal | lane-w157-nonttyup | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) | Bug Hunt v0.4.27: Select fails without issuer | active | normal | lane-w162-issueruse | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
@@ -44,6 +43,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-appnew-create-only-uninit](../tasks/t-20261108-bughunt-appnew-create-only-uninit.md) | Bug Hunt v0.4.27: app new left uninit | review | normal | chatgpt-r27-appnew | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465) |
 | [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) | Bug Hunt v0.4.27: Wizard cancel is uneven | review | normal | chatgpt-r27-eof | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1471](https://github.com/mcpdev80/baseharbor/pull/1471), [baseharbor#1484](https://github.com/mcpdev80/baseharbor/pull/1484) |
+| [t-20261108-bughunt-trust-uninstall-eof-error](../tasks/t-20261108-bughunt-trust-uninstall-eof-error.md) | Bug Hunt v0.4.27: Trust prompt EOF error | review | normal | lane-w161-eoftrust | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-appnew-eof-cancel-prompts](../tasks/t-20261108-bughunt-appnew-eof-cancel-prompts.md) (open) | [baseharbor#1485](https://github.com/mcpdev80/baseharbor/pull/1485) |
 | [t-20261108-bughunt-wizard-success-next-lines](../tasks/t-20261108-bughunt-wizard-success-next-lines.md) | Bug Hunt v0.4.27: Success omits next step | review | normal | chatgpt-r27-wizard-ux | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1465](https://github.com/mcpdev80/baseharbor/pull/1465), [baseharbor#1469](https://github.com/mcpdev80/baseharbor/pull/1469) |
 
 ## Waiting for resources
