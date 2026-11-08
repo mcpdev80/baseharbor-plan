@@ -3,6 +3,16 @@
 Lane: w150-staleedit (flash worker). Card: t-20261108-bughunt-stale-provider-edit-block (0427-150).
 Source dossier: hunt H-P3 BF-03 ([hp3.md](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp3.md)).
 
+CI finding (STATE, no lane change): on candidate `8ce26c983` the draft PR job "PR · Draft focused checks"
+(run 42509459864) failed with `stat …/cmd/baha.test: directory not found` for every selected package.
+Root cause: `.github/workflows/ci.yml:1189-1193` builds the `selected` array from
+`scripts/pr-draft-go-packages.py`, whose output (scripts/pr-draft-go-packages.py:39) contains
+`<pkg>.test` pseudo-packages that `go test` cannot resolve; the same script's own selection
+(`./cmd/baha` etc.) is correct. Both edits are under `.github/**`/script selection (Owner scope);
+this lane did not touch them. The failure is a runner routing defect, not a product/test defect:
+the identical package set passes locally with the CI env contract (see ## Local verification).
+
+
 Note: this file was first written at ~09:30 into the planning checkout; another session's
 `git pull`/reset of the shared checkout (8bd1bc88 → e8d5cf97) discarded the uncommitted file
 before this lane could commit it. Re-created here from the lane's own records; all witnesses

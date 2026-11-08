@@ -15,7 +15,7 @@ kanban_title: 0427-167 · up installs local
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [1492]
+prs: ["mcpdev80/baseharbor#1492"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/remote #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
+    **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
     **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
@@ -36,7 +37,7 @@ evidence: []
 **Required by:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  
 **Owner:** unassigned  
 **Priority:** high  
-**PRs:** [#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
+**PRs:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
 **Source:** 
 <!-- /generated:links -->
 
