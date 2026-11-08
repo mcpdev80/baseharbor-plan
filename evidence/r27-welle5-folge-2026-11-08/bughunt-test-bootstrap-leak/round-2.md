@@ -123,6 +123,21 @@ Finding: the 13 new `TestBootstrap*` proof tests in `cmd/baha/runtime_integratio
 
 END_DONE 0427-127 r2: package-end teardown + scoped wächter + durable proofs on candidate 8cadc33a8; CI run 42451808132 terminal success; runtime-suite CI routing awaits owner (OWN-BLOCK).
 
+- Origin/main evidence witness (second-to-last action, exact output):
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan fetch origin main
+* branch              main       -> FETCH_HEAD
+$ git ls-tree origin/main -- evidence/r27-welle5-folge-2026-11-08/bughunt-test-bootstrap-leak/
+.../act-1454-review.md
+.../round-1.md
+.../round-2.md
+$ git rev-parse origin/main
+b0959dc08c5b9f90c8825c4b9e579f5a954c4ddf
+```
+
+- Product repo remote truth (final): `git ls-remote origin refs/heads/work/0427-127-test-bootstrap-leak refs/heads/develop` → `8cadc33a8a6101a2b071bb092176a36b1a699109` / `07ae6c3e91b081a189266ca4b162ba705d4aa78f`.
+
 ## CONTEXT BLOCK (durable, context-safety 2026-11-08)
 
 - Lane: mission-127-r2 (0427-127 r2), worktree /tmp/opencode/w127-r2-wt, branch work/0427-127-test-bootstrap-leak.
