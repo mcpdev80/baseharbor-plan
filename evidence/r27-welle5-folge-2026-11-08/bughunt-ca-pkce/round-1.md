@@ -117,10 +117,23 @@ without OS surgery" and "Headless PKCE on non-browser hosts" sections; `bash scr
   (= my commit `dde9edaa evidence(0427-134): CA-trust + headless PKCE implementation + CI mapping`)
   — evidence path confirmed present on origin/main before END post.
 
-## END
-- SHA: candidate branch `work/r283-ca-pkce` at develop HEAD `e39b0004346cdfd082e34ba55d94d24757bbbd27`;
-  evidence commit `dde9edaa` on planning origin/main.
-- CI: candidate runs under ci.yml "Release Source Preflight" + "operator boundary races" jobs (PR-ready trigger);
-  GitHub-hosted, not rerun by this lane (Owner scope).
-- ls-remote: `dde9edaa...` (above).
-- Host cleanliness (baha-podman-2): PENDING — residual managed core PTY destroy still required.
+## HOST CLEANLINESS (baha-podman-2, residual managed core)
+- Before (witnessed, 10 containers + 1 owned Core volume `bh-w0427-owner-missing-shared_postgres-data-1`):
+  keycloak(+access), openbao(admin+member-1), postgres(member-1+admin+haproxy), caddy-access, dev-gateway,
+  demoapp exposure-web; df 45% / ; 7 volumes.
+- Real PTY destroy attempted (`script -q`, real TTY detected — CA-anchors confirmation prompt was answered):
+  `baha destroy --all --yes --delete-data` enumerated ALL owned resources across 3 Targets and preserved every
+  external recovery file, then FAILED CLOSED: "Provider consumer inventory is incomplete or damaged."
+- Root cause (not this lane's residue): the `w268` Target (created 2026-11-07 04:22, a prior lane's artifact)
+  has runtime state (compose.yaml/providers/runtime.env/topology.json) but NO `provider-registry.json`, so the
+  `destroy --all` fail-closed inventory check rejects the whole run. The w0427 managed core itself is intact.
+- `baha destroy` has no single-target scope (only in-repo `appDestroyCommand` or global `--all`), so the
+  w0427 core cannot be removed without also clearing the unrelated `w268` damaged state.
+- ACTION: STOPPED at the safety gate. Did NOT bypass the fail-closed check with manual `podman rm` (Ownership/
+  consent path) and did NOT wipe the unrelated `w268` state (another lane's recovery, out of scope).
+  Priorities 1 (code) + 2 (docs/tests) are DONE; priority 3 (host cleanliness) is BLOCKED on an Owner scope call.
+- Current host state (ps-witness, 2026-11-08): 10 `bh-w0427-*` containers still running; host not yet besenrein.
+
+## RALPH TODO (Owner reminder 2026-11-08 04:2x)
+- RAM hygiene: only ONE clean-home per iteration (`/tmp/opencode/<lane>-ch-<n>`), delete at end of iteration,
+  before/after reference list in round-1.md. Coordinator re-checks after END.
