@@ -15,7 +15,7 @@ kanban_title: 0427-154 · Stale OpenBao manager credenti
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1467]
+prs: [mcpdev80/baseharbor#1468]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 - [ ] t-20261108-bughunt-openbao-stale-manager-cred · Bug Hunt v0.4.27: Stale cred blocks rebirth #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w154-baocred-b · **Priority:** normal  
-    **PR:** [baseharbor#1467](https://github.com/mcpdev80/baseharbor/pull/1467)  
+    **PR:** [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd5.md)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w154-baocred-b  
 **Priority:** normal  
-**PRs:** [baseharbor#1467](https://github.com/mcpdev80/baseharbor/pull/1467)  
+**PRs:** [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
@@ -53,3 +53,6 @@ Bootstrap treats manager-credential state as part of the uninitialized check: st
 
 ## Dependencies and file ownership
 None. Write-set: internal/openbao/bootstrap.go.
+
+## Duplex note
+Own candidate PR #1467 closed unmerged per act-1468-fate.md (patch byte-identical); #1468 (owner side) is the leading candidate and still needs the act-1467 review deltas.

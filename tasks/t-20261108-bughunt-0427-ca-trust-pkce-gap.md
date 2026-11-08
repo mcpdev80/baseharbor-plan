@@ -15,7 +15,7 @@ kanban_title: "0427-134 · CA trust + PKCE blocks login"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1455, mcpdev80/baseharbor#1457]
+prs: [mcpdev80/baseharbor#1457]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 - [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/active #view/active #area/dx #area/identity #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w134-capkce-r6 · **Priority:** high  
-    **PR:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
+    **PR:** [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md)  
     <!-- /generated:card -->
 
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w134-capkce-r6  
 **Priority:** high  
-**PRs:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
+**PRs:** [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
 **Source:** 
 <!-- /generated:links -->
 
