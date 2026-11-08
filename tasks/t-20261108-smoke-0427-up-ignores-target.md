@@ -7,9 +7,9 @@ areas: [cli, remote]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: ChatGPT (remote bootstrap safety)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Core bootstrap/install respects the effective or explicitly selected target; when the target cannot host the control plane, a…"
 kanban_title: 0427-167 · up installs local
 priority: high
@@ -23,19 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/remote #kind/bug
+- [ ] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
+    **Owner:** ChatGPT (remote bootstrap safety) · **Priority:** high  
     **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
-    **Ready to assign** · prerequisites accepted  
+    **Active:** PR #1492 in CI; full remote bootstrap not yet implemented  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  
-**Owner:** unassigned  
+**Owner:** ChatGPT (remote bootstrap safety)  
 **Priority:** high  
 **PRs:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
 **Source:** 
@@ -82,3 +82,5 @@ Core bootstrap/install respects the effective or explicitly selected target; whe
 
 - PR [#1492](https://github.com/mcpdev80/baseharbor/pull/1492) introduces a safe interim guard: a selected remote Target cannot silently bootstrap Core on the developer workstation. Production entry-point regression added.
 - This **does not** implement remote Core installation. The full developer-PC-to-remote-host happy path remains unverified and the E2E verdict remains FAIL until real deployment evidence exists.
+
+- CI proof for #1492: [run #5300](https://github.com/mcpdev80/baseharbor/actions/runs/42509941118), HEAD `0e1e0c4746980c2f7896d1dcf79fd98f43c1f66b`. Go unit checks still running at last inspection; **do not mark PASS** until final check is green.
