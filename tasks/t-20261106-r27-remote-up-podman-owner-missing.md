@@ -24,7 +24,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- generated:card -->
     **Owner:** mcpdev80 · **Priority:** high  
     **PR:** [baseharbor#1419](https://github.com/mcpdev80/baseharbor/pull/1419)  
-    **Needs:** [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/owner-missing-round-7.md)  
     <!-- /generated:card -->
 

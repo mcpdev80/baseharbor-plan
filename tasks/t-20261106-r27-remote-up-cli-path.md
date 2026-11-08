@@ -8,28 +8,29 @@ priority: normal
 type: task
 areas: [cli, remote]
 owner: chatgpt-0427-116
-kanban_status: active
+kanban_status: closed
 kanban_title: "0427-116 · CLI start path for Prov-bound"
-kanban_lane: active
+kanban_lane: closed
 depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-smoke-docker-podman]
 prs: [mcpdev80/baseharbor#1407, mcpdev80/baseharbor#1437, mcpdev80/baseharbor#1438]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
 blocker: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md", "https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0"]
 wait_reason: ""
+resolution: accepted
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/active #view/active #area/cli #area/remote #kind/task
+- [x] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** chatgpt-0427-116 · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
