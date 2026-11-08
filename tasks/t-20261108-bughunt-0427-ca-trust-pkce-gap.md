@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w134-capkce-r2
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "baha login -e dev --init-tenant and baha node add complete on native podman/docker test hosts WITHOUT manual OS trust surgery:…"
 kanban_title: "0427-134 · CA-Trust + PKCE blockt"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1455]
+prs: [mcpdev80/baseharbor#1455, mcpdev80/baseharbor#1457]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,20 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md"]
 ---
 
-- [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/active #view/active #area/dx #area/identity #kind/bug
+- [ ] t-20261108-bughunt-0427-ca-trust-pkce-gap · Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login #task #release/v0-4-27 #status/review #view/review #area/dx #area/identity #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w134-capkce-r2 · **Priority:** high  
-    **PR:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455)  
+    **PR:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/podman2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w134-capkce-r2  
 **Priority:** high  
-**PRs:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455)  
+**PRs:** [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457)  
 **Source:** 
 <!-- /generated:links -->
 
