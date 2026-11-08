@@ -7,9 +7,9 @@ areas: [ci, lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "ChatGPT (native CI)"
-kanban_status: review
-kanban_lane: review
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0427-171 · native default owner check
 priority: high
@@ -19,11 +19,11 @@ prs: [mcpdev80/baseharbor#1495, mcpdev80/baseharbor#1497]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: [https://github.com/mcpdev80/baseharbor/actions/runs/42514020854, https://github.com/mcpdev80/baseharbor/actions/runs/42514307992]
 ---
 
-- [ ] t-20261108-r27-native-single-default-owner-check · Native SINGLE-default acceptance honors one-Core-per-engine policy #task #release/v0-4-27 #status/review #view/review #area/ci #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-r27-native-single-default-owner-check · Native SINGLE-default acceptance honors one-Core-per-engine policy #task #release/v0-4-27 #status/closed #view/closed #area/ci #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (native CI) · **Priority:** high  
     **PR:** [baseharbor#1495](https://github.com/mcpdev80/baseharbor/pull/1495), [baseharbor#1497](https://github.com/mcpdev80/baseharbor/pull/1497)  
@@ -65,3 +65,10 @@ A subsequent failure on corrected fixture (PR #1489 run 42513106766, native Podm
 - [Exact-head CI #42514307992](https://github.com/mcpdev80/baseharbor/actions/runs/42514307992) actively schedules both `PR · Native Keycloak/Core · docker` and `podman` for this file; ordinary Go checks and native destroy retry also selected. Status remains `review` until these jobs **and** final `PR Selected Checks` are terminal PASS.
 
 <!-- CARD-NUMBER FIX 2026-11-08: war 0427-170, doppel mit guided-new-eof (dessen inhaberfeld sich selbst "(0427-170)" nennt); coordinator-vermerk, owner-bestätigung erbeten. -->
+
+## Accepted native CI repair — 2026-11-08
+
+- CI routing [PR #1497](https://github.com/mcpdev80/baseharbor/pull/1497) merged as `128e6f50b538cb6ba2925432740aa37014fcc09a`, exact-head [run 42514020854](https://github.com/mcpdev80/baseharbor/actions/runs/42514020854) terminal SUCCESS (policy/actionlint/planner/normal final check).
+- Native fixture [PR #1495](https://github.com/mcpdev80/baseharbor/pull/1495) merged as `7fff6ba0986d54f01c79df1ea36c0027bd006020` from exact head `3020f9ca786ed4f186ba84771636489188b928dd`, exact-head [run 42514307992](https://github.com/mcpdev80/baseharbor/actions/runs/42514307992) terminal SUCCESS.
+- Mandatory real `TestControlPlaneSingleDefaultNativeRuntimeInCI`: Docker PASS (73.31s), Podman PASS (55.97s), **not skipped**. Both native Keycloak/Core jobs, native Docker/Podman destroy retry, full CLI package tests and `PR Selected Checks` SUCCESS.
+- Old stale-marker defect was separately corrected in the fixture before this task. This task fixes the second-Core false conflict introduced by correct same-host Core owner protection (#1487), and makes future edits to this acceptance test select the existing native PR gates through trusted develop policy. No security bypass, no new workflow, no evidence gate or self-hosted runner. Card closed/accepted; no active processing owner.
