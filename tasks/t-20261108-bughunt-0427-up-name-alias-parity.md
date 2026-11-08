@@ -66,3 +66,9 @@ evidence: []
 
 - Found 2026-11-08 on develop 0fe53052d (build 0.4.11), test host 192.168.6.178.
 - Report: ~/dev/Tests/Baha-Bug-09-up-name-vs-app-up-name.md
+
+
+## PR-Lifecycle-Abgleich — 2026-11-08
+
+- [Core PR #1459](https://github.com/mcpdev80/baseharbor/pull/1459) ist nach `develop` **gemergt** (GitHub-Status `closed/merged`, am 2026-11-08 live geprueft). Die Karte darf nicht mehr als offener PR-/CI-Fix dargestellt werden.
+- Kanban bleibt vorerst `active`: die gesondert verlangte `baha up NAME --yes --plain`- und Parser-Paritaetsabnahme ist in dieser Karte nicht mit exaktem integriertem SHA dokumentiert. Der Wert `pending-lane-0427-130-r5` ist keine verifizierte laufende Session; Coordinator soll den Claim mit der tatsaechlichen Lane abgleichen oder nach Abnahme schliessen. Bestehende Worker-Dateien bleiben unangetastet.
