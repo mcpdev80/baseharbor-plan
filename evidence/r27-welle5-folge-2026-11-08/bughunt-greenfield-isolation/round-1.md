@@ -92,12 +92,42 @@ Saved 2026-11-08 ~07:10 UTC. Only fix + tests + PR + END remain.
 - APP-APPLY reads a DIFFERENT root: `cmd/baha/application_service_issuer.go:38` `dir = resolved.TargetStateRoot + /service-access/issuer`; `resolved.TargetStateRoot` = `deployment.TargetStateRoot(name)` = `targets/<name>` (plain root, `cmd/baha/app_context.go:99,219`). App-path falls back to a live runtime issuer (`:43-66`); the `use`/`activate` resolver has NO such fallback -> always fails closed on a real Core.
 - Regression introduced by `#d1ed8752` (w180, Nov 5): added `bindExplicitSelectionToConnection` via `ResolverForTargetSelection` (local base CA model) to the use/target path. Unit tests (`cmd/baha/use_target_test.go:55`, `use_target_connection_test.go:68`, `internal/coreinstallation/w168_boundary_probe_test.go`) pass because they manually `EnsureLocalIssuer(runtimeRoot/service-access/issuer)` — a location the real lifecycle never populates. So CI does NOT cover the production gap.
 
-### OFFENE SCHRITT
-1. Fix: `use`/`activate` must resolve the live Core issuer (local base CA OR live runtime issuer) — unifies with accepted app-path. IMPLEMENTED in `cmd/baha/use_target.go` (`resolveCoreConnectionIssuer` helper + `errManagementConnectionUnavailable` sentinel, imports deployment/openbao/serviceaccess/time added). Builds clean, go vet clean, existing TestUseTarget/TestBindExplicit pass.
-2. Verify end-to-end: READY isolated Core with live runtime -> use/activate SUCCEEDS; no-core -> fails closed; foreign target -> fails closed; no shared-plane write.
-3. CI regression test (cmd/baha, covered by cli-package-tests on pull_request) pinning the issuer-root unification.
-4. PR against develop `07ae6c3e9`; hosted run terminal; ls-remote + cleanliness witness.
-5. Update planning card + END post.
+### OFFENE SCHRITT / BLOCKER (END_BLOCKED — follow-up lane takes over)
+The fix is NOT yet correct. Per END-priority, no further investigation this lane.
+
+#### What was verified
+- Build clean, `go vet ./cmd/baha/` clean, existing `TestUseTarget*`/`TestBindExplicit*` pass.
+- No-core / foreign-target cases FAIL CLOSED correctly (no shared-plane write, no foreign activation).
+- READY isolated Core (g-b, docker, `BASEHARBOR_TARGET=g-b`) bootstraps to phase=ready (witnessed; docker objects pruned).
+
+#### Why the fix is still wrong (the blocker)
+- `use`/`activate` must verify the Core's LIVE MANAGEMENT CONNECTION via the single reading boundary.
+- The real Core keeps its management-connection identity at the KEYCLOAK core issuer
+  (`installation.json` `identity_issuer: https://<host>:<port>/realms/baseharbor`), NOT a local base CA
+  (`local-pki:<sha256(ca)>`) and NOT the OpenBao service PKI (`openbao://baseharbor-pki/baseharbor-services`).
+- First attempt (fallback to `openbao.NewServiceIssuer`) reached the liveness/identity check but failed
+  `ConnectionSelection.Resolve` with `foreign management connection authority`: the OpenBao issuer's
+  identity (`openbao://...`) != the Core's Keycloak-bound connection identity. So the observed identity is wrong.
+- `bindExplicitSelectionToConnection` is called ONLY from `cmd/baha/target.go:263` (activate NAME) and
+  `cmd/baha/target_activate_wizard.go:69` (guided). It is NOT on the app-path. The app-path's
+  `resolveApplicationServiceIssuer` (OpenBao) is a separate service-access boundary.
+- `resolveManagementConnectionIssuer` (`cmd/baha/application_service_issuer.go:89`) is defined but NEVER called.
+
+#### What the follow-up lane must do (NOT done here)
+- Verify the real Core's management connection via its KEYCLOAK core issuer, not OpenBao and not a local
+  base CA (the Core never materialises a base CA — `find <target>/... -name issuer.pem` is empty on a real Core).
+- The `use`/`activate` read-set is `cmd/baha/use_target.go` (bindExplicitSelectionToConnection + the
+  `resolveCoreConnectionIssuer`/`observedThroughCoreBoundary` helpers I added) and `internal/deployment`
+  target-state reader. Keep the fail-closed no-core / foreign-target / no-shared-plane-write guarantees.
+- The `observedThroughCoreBoundary` var I added must be threaded the correct ctx and must yield the
+  Keycloak-bound connection identity, not `openbao://...`.
+- Then: end-to-end verify READY isolated Core -> use/activate SUCCEEDS; no-core -> fails closed; foreign -> fails closed.
+
+#### Remaining (all in END-order, only if a correct fix lands)
+1. Correct fix (Keycloak-bound identity) — NOT YET CORRECT.
+2. CI regression test (cmd/baha, covered by cli-package-tests on pull_request) pinning the identity.
+3. PR against develop `07ae6c3e9`; hosted run observed to terminal (run-id in evidence); ls-remote + cleanliness witness.
+4. Update planning card + END post.
 
 ### STOPKRITERIUM
 - Product-design question beyond contract: RESOLVED by Owner (greenfield bootstrap = separate scope).
