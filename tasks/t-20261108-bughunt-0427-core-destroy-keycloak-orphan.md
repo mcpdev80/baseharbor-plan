@@ -87,3 +87,7 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - **Inventory-Fix fuer Core-eigenes Keycloak-Projekt:** [PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444) nach `develop` gemergt, Merge-SHA `ab8c16158372bc927f67bb4ee64b6ab98e7626ad`; [exact-head CI #42430589361](https://github.com/mcpdev80/baseharbor/actions/runs/42430589361) terminal `success`, keine fehlgeschlagenen Jobs.
 - **Karte bleibt `active`**: echte native Docker-/Podman-End-to-End-Abnahme des urspruenglichen Bugs steht noch aus. Der gemergte Teilfix ersetzt diese nicht.
+
+### 2026-11-08 Docker2 Live-Evidence (ChatGPT)
+
+- [E2E Docker2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/docker2.md) auf aelterem Core-Head `0fe53052`: `baha destroy --yes` entfernte SQL/OpenBao, Keycloak-Container blieben und mussten manuell beseitigt werden; `destroy --all` scheiterte nach Teilabbau wegen fehlender Compose-Provider-Registrierung. Dieser Nachweis ist ein **RED vor #1444**, kein PASS fuer den neuen Merge `ab8c1615`. Bestehender Restfehler `destroy --all` nach Teilabbau braucht separaten Recovery-Test. Keine manuelle Cleanup-Prozedur als Produkt-PASS werten.
