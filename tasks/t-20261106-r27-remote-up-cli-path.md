@@ -7,7 +7,7 @@ release: v0.4.27
 priority: normal
 type: task
 areas: [cli, remote]
-owner: chatgpt-0427-116
+owner: ""
 kanban_status: closed
 kanban_title: "0427-116 · CLI start path for Prov-bound"
 kanban_lane: closed
@@ -24,7 +24,7 @@ resolution: accepted
 
 - [x] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/cli #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** chatgpt-0427-116 · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ resolution: accepted
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md)  
 **Required by:** [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
-**Owner:** chatgpt-0427-116  
+**Owner:** unassigned 
 **Priority:** normal  
 **PRs:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -115,3 +115,9 @@ CODEX-REVIEW r4 = REQUEST-CHANGES an head c4d528645: belegt nur fail-closed (upE
 - **Abgrenzung:** Dies ist die integrierte Core-Grundlage, **nicht** der Beleg fuer automatisch verwalteten geschuetzten Operator-API-Dienst und realen `baha node connect` -> separaten Connector -> remote `baha app up/status/doctor` ueber Docker und Podman. Diese Release-Abnahme bleibt offen, insbesondere auf [0427-004](nc-3-core-enrollment-remote-runtime-acceptance.md). v0.4.27 ist **nicht** freigegeben.
 
 integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podman-2 (lanes e2e-*). urteil folgt je karte.
+
+## 2026-11-08 Owner-Freigabe und Uebergabe
+
+- Bearbeitungs-Owner gewechselt von `chatgpt-0427-116` auf `unassigned`. Bereits akzeptierte Karte bleibt `closed`.
+- Existing accepted card; ownership released.
+- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
