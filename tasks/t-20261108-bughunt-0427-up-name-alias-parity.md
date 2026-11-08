@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: ready
-kanban_summary: resolves the registered application NAME identically to ; the top-level alias exposes the full documented argument surface.
+kanban_summary: baha up NAME resolves the registered application NAME identically to baha app up NAME; the top-level alias exposes the full…
 kanban_title: 0427-130 · baha up NAME rejected although
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -41,29 +41,25 @@ evidence: []
 
 ## Goal
 
- resolves the registered application NAME identically to ; the top-level alias exposes the full documented argument surface.
+`baha up NAME` resolves the registered application NAME identically to `baha app up NAME`; the top-level alias exposes the full documented argument surface.
 
 ## Scope
 
-- In scope: align the top-level  argument parser () with  () so optional positional NAME is accepted; add parity test.
+- In scope: align the top-level `up` argument parser (`cmd/baha/runtime.go`) with `app up` (`cmd/baha/app_lifecycle.go`) so the optional positional NAME is accepted; add parity test.
 - Out of scope: consent semantics.
 
 ## Acceptance
 
--  outside a repository resumes the registered deployment NAME (same result as ).
-- Parser parity test:  and  accept the identical flag/argument grammar.
+- `baha up NAME --yes --plain` outside a repository resumes the registered deployment NAME (same result as `baha app up NAME`).
+- Parser parity test: `up` and `app up` accept the identical flag/argument grammar.
 
 ## Required checks
 
-- Name every new or changed test (package, exact test ID, fixture/env and native runtime if applicable). Targeted checks for the changed area; broaden when impact is unknown.
-- Record the existing CI validation/check or Docker/Podman native gate that actually executes each test, and which PR paths, develop integration event or release candidate selection triggers it.
-- If coverage is absent, implement/register it in the owning CI lane before acceptance; prove positive selection for a relevant change and negative/non-selection for an unrelated change. Missing, skipped or failed mandatory execution is NOT PASS.
-- For Docker/Podman tests, prove native Docker and rootless Podman/Quadlet separately where required; unit fakes do not replace live runtime evidence. Cross-repo tests run through existing develop/release acceptance, not a blocking independent PR gate.
-- Handoff must identify exact source SHA, test -> CI gate -> trigger -> actual run/outcome, or mark explicit CI coverage debt as blocking. No new CI framework or full automatic PR matrix.
+- CLI parser unit test asserting `up <NAME>` parses; machine/CLI parity test against `app up`; documented in the existing cli-command grammar suite (no new CI framework).
 
 ## Dependencies and file ownership
 
-- Owned files or areas:
+- Owned files or areas: `cmd/baha/runtime.go`, `cmd/baha/app_lifecycle.go`.
 - Shared files: coordinate through the owning task.
 
 ## Handoff
