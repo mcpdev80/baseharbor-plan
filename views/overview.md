@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
-| review | 1 |
+| active | 8 |
+| review | 2 |
 | wait | 5 |
 | blocked | 0 |
 | ready | 1 |
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-0427-ca-trust-pkce-gap](../tasks/t-20261108-bughunt-0427-ca-trust-pkce-gap.md) | Bug Hunt v0.4.27: CA-Trust + PKCE blockieren Login | active | high | lane-w134-capkce-r3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1455](https://github.com/mcpdev80/baseharbor/pull/1455), [baseharbor#1457](https://github.com/mcpdev80/baseharbor/pull/1457) |
 | [t-20261108-bughunt-0427-container-name-replica](../tasks/t-20261108-bughunt-0427-container-name-replica.md) | Bug Hunt v0.4.27: backup stop fails on container_name (unplanned service replica) | active | normal | pending-lane-0427-128-r6 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1452](https://github.com/mcpdev80/baseharbor/pull/1452) |
-| [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | lane-w133-greenfield-r2 | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-0427-logs-command-gap](../tasks/t-20261108-bughunt-0427-logs-command-gap.md) | Bug Hunt v0.4.27: logs top-level ohne Pfad | active | low | lane-w131-logsgap-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1456](https://github.com/mcpdev80/baseharbor/pull/1456) |
 | [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | active | normal | lane-w127-bootleak-r4 | [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 | [t-20261108-bughunt-0427-up-name-alias-parity](../tasks/t-20261108-bughunt-0427-up-name-alias-parity.md) | Bug Hunt v0.4.27: baha up NAME rejected although app up [NAME] documented | active | normal | lane-w130-upalias | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
@@ -39,6 +38,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-0427-appinit-owner-seam](../tasks/t-20261108-bughunt-0427-appinit-owner-seam.md) | Bug Hunt v0.4.27: app init Owner-Naht regression | review | normal | lane-w136-appinit | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1458](https://github.com/mcpdev80/baseharbor/pull/1458) |
+| [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | review | normal | lane-w133-greenfield-r2 (r2 takeover — r1 owner gone; documented in evidence/round-2.md) | [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460) |
 
 ## Waiting for resources
 
