@@ -36,6 +36,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261108-bughunt-0427-test-bootstrap-leak](t-20261108-bughunt-0427-test-bootstrap-leak.md)  
 **Owner:** lane-0427-124-target-env  
 **Priority:** high  
 **PRs:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443)  

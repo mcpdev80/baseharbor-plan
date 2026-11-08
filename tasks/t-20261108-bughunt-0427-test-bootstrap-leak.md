@@ -9,8 +9,8 @@ version: ""
 parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: ready
-kanban_summary: "Runtime integration tests on develop create isolated bootstrap Cores (containers prefixed bh-w169-ci-bootstrap-<suffix>) but the test teardown does not remove them; repeated runs accumulate whole Core stacks (keycloak, openbao, postgres sets) on the docker test host."
+kanban_lane: planned
+kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
 kanban_title: "0427-127 · Test-Bootstrap leak't Cores"
 priority: normal
 depends_on: [t-20261108-bughunt-0427-target-env-ignored, t-20261017-release-0-4-27-updates]
@@ -22,6 +22,23 @@ wait_reason: ""
 resolution: ""
 evidence: []
 ---
+
+- [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/compose #area/lifecycle #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Outcome and acceptance
 
