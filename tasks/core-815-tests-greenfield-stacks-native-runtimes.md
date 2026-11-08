@@ -129,3 +129,10 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 - PR CI: https://github.com/mcpdev80/baseharbor/actions/runs/42501095254 (new head).
 - Fresh native 8-cell Greenfield run: https://github.com/mcpdev80/baseharbor/actions/runs/42501117075, from `runtime-validation/greenfield/r27-1432-rebased` at same head.
 - Remains active until both runs are terminal success and required SINGLE-default, explicit HA-positive, and default-HA-negative topology evidence is verified; no green-by-skip.
+
+## Parallel native matrix update — 2026-11-08
+
+- PR #1432 head `767a3196583e03a552f66a24a80e4b8085f2954b`: removed the artificial two-job bottleneck by changing `max-parallel: 2` to `max-parallel: 8` in the native Greenfield matrix.
+- Exact-head PR CI: https://github.com/mcpdev80/baseharbor/actions/runs/42501499483
+- Exact-head native validation (all eight cells permitted concurrently): https://github.com/mcpdev80/baseharbor/actions/runs/42501503535
+- Previous run on the old SHA does not count as release qualification. Card remains `active` pending new exact-head CI and the separately required SINGLE/HA positive/negative topology evidence.
