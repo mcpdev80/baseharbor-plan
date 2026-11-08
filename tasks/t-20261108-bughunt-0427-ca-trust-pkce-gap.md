@@ -55,3 +55,10 @@ podman2 e2e-abnahme Zelle 2+3: operator OIDC issuer https://auth.baha.localhost:
 ## Dependencies and file ownership
 
 Umbrella only; write-set internal/identity + cmd/baha login/node paths + docs. Side task on this lane: bring the RESIDUAL managed core on baha-podman-2 down via PTY (script -q) full destroy — cleanliness per 3.3.5.
+
+
+## Code-/CI-Abgleich — 2026-11-08
+
+- [PR #1455](https://github.com/mcpdev80/baseharbor/pull/1455) wurde ohne Merge geschlossen; [PR #1457](https://github.com/mcpdev80/baseharbor/pull/1457) ist noch offen, Head `83d175f54ea9aba432d192c87dfe6464e879e0df`.
+- Exact-head [PR-CI #42467172096](https://github.com/mcpdev80/baseharbor/actions/runs/42467172096) terminal **FAILURE**. Weder ein gruener Code-Check noch ein erfolgreicher deutscher OIDC-/Node-Login auf beiden nativen Runtimes wird hieraus abgeleitet.
+- Karte bleibt `active` mit bestehendem Worker-Owner; vor Acceptance CI-Fehler klassifizieren, Supersession von #1455 erklaeren und den tatsaechlichen `baha login --init-tenant` / `node add`-Pfad auf dem aktualisierten Integrationskopf fuer Docker und Podman nachweisen. Kein zweiter konkurrierender PR fuer denselben Write-Set.
