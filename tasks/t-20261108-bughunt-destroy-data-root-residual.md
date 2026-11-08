@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-r27-destroy-owner"
-kanban_status: review
-kanban_lane: review
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Destroy resolves owned core targets from the data root (never discards foreign targets, fail-closed per the card-127 doctrine);…"
 kanban_title: 0427-152 · Destroy finds own core
 priority: normal
@@ -19,22 +19,21 @@ prs: [mcpdev80/baseharbor#1483]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-ca-pkce/act-1455-fate.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42487539941"]
 ---
-- [ ] t-20261108-bughunt-destroy-data-root-residual · Bug Hunt v0.4.27: Destroy finds own core #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-destroy-data-root-residual · Bug Hunt v0.4.27: Destroy finds own core #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** chatgpt-r27-destroy-owner · **Priority:** normal  
     **PR:** [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483)  
-    **Waiting:** Produkt-PR \#1483 gemergt; Bearbeitung pausiert bis zur gesonderten exakten Native-Docker/Podman-Abnahme des Datenwurzel-/Core-Discovery-Vertrags. Kein neuer Produkt-PR ohne Befund.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-ca-pkce/act-1455-fate.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** closed  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-r27-destroy-owner  
+**Owner:** —  
 **Priority:** normal  
 **PRs:** [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483)  
 **Source:** 
@@ -74,3 +73,13 @@ Audit 2026-11-08 (mapping): related to #122 destroy inventory but a distinct dat
 - Both raw job logs include **one real PASS** for `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry`, with actual partial native deletion, retry, foreign-holder preservation and selected owner/resource removal. Not a green-by-SKIP.
 - The PR also adds `TestFullDestroyDiscoversProtectedCoreOnlyTarget` covering verified data-root Core-only discovery and fail-closed foreign ownership with temporary state. **This specific regression is not a native runtime test**; do not conflate the generic native destroy-retry PASS with a full positive unregistered-Core data-root cleanup E2E.
 - **Review decision:** Code implementation is merged and native destroy/retry proof exists, so unqualified `wait` is no longer accurate. Move to `review` for the precise criterion: whether the already-tested identity/owner state regression plus native destroy retry jointly satisfy the card, or whether a dedicated native missing-target-configuration Core-only case is mandated. Do not claim card accepted or start redundant product code.
+
+## Final acceptance – 2026-11-08
+
+**ACCEPTED** for the explicitly scoped 0427-152 discovery and fail-closed ownership contract.
+
+- Merged [PR #1483](https://github.com/mcpdev80/baseharbor/pull/1483), merge commit [`cf9351e7`](https://github.com/mcpdev80/baseharbor/commit/cf9351e766f6dbcd654a9af1701c2da2d592ee9b).
+- Actual `cmd/baha/runtime_destroy_owned_core_test.go`: `TestFullDestroyDiscoversProtectedCoreOnlyTarget` creates a verified temporary Core-only installation and proves discovery by `discoverFullDestroyTargets`; `TestFullDestroyRejectsForeignCoreDataRoot` proves untrusted foreign Core is rejected with `installation-owner` FAILED and no inferred runtime.
+- Exact-head [PR CI #42487539941](https://github.com/mcpdev80/baseharbor/actions/runs/42487539941): Go unit job `128752835080` SUCCESS, including `github.com/mcpdev80/baseharbor/cmd/baha`; native destroy/retry jobs [Docker `128752757865`](https://github.com/mcpdev80/baseharbor/actions/runs/42487539941/job/128752757865) and [Podman `128752757922`](https://github.com/mcpdev80/baseharbor/actions/runs/42487539941/job/128752757922) individually report actual `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` PASS, including foreign authority preservation and native retry.
+- Scope precision: The named discovery tests use temporary Core state, not live Engine destruction; the independent native destroy/retry jobs prove the supported runtime lifecycle. This combination meets the card's defined data-root discovery, no foreign-target adoption, and regression requirements. Do not extrapolate to a dedicated native unregistered-Core teardown that was not run.
+- No remaining 0427-152-specific implementation or CI gap; card closed, owner cleared only as work assignment on closure.
