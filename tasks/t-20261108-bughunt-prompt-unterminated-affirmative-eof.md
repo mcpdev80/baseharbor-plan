@@ -7,30 +7,30 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w166-halfyes
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: done
+kanban_lane: done
 kanban_summary: "Reader treats line-buffered input only: complete \"y\n\" authorizes, torn \"y\"+EOF cancels cleanly; regression for both cases in…"
 kanban_title: "0427-166 · Unterminated affirmative plus "
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1488]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: "Unterminated affirmative EOF fail-closed; PR #1488 merged as 3187cea15728143146905c7238ad6e280ca11b3e; exact-head CI success."
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1485-review.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-prompt-unterminated-affirmative-eof · Bug Hunt v0.4.27: Half-line yes wins #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-prompt-unterminated-affirmative-eof · Bug Hunt v0.4.27: Half-line yes wins #task #release/v0-4-27 #status/done #view/done #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w166-halfyes · **Priority:** normal  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1485-review.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** done  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w166-halfyes  
