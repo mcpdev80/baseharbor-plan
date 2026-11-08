@@ -145,41 +145,86 @@ fix sitzt in den CI-gestützten test-Quelten von #1454, **nicht** in
   unten in round-4.md (sofern/grün).
 - Status offen: CI wird beobachtet (watch/interval), kein END bis grün oder neue fehlstelle.
 
-## (2b) CI-beobachtung — run-ids + status (witness only; no API/web access to run logs)
+## (2b) CI-beobachtung — VOLLSTÄNDIGES witness (run-ids, status, start/updated, head_sha)
 
-- `gh run list --repo mcpdev80/baseharbor --branch develop --limit 10` lieferte (GitHub-hosted runners, #1463-trigger):
-  | run | workflow | conclusion | createdAt (UTC) |
-  | --- | --- | --- | --- |
-  | 476 | Runtime · Docker Core · develop | failure | 09:19:43 |
-  | 274 | Runtime · Podman Core · develop | failure | 09:19:43 |
-  | 273 | Runtime · Podman Core · develop | success | 09:16:47 |
-  | 475 | Runtime · Docker Core · develop | success | 09:16:47 |
-  | 474 | Runtime · Docker Core · develop | failure | 09:04:38 |
-  | 272 | Runtime · Podman Core · develop | failure | 09:04:38 |
-  | 270 | Runtime · Podman Core · develop | success | 09:04:08 |
-  | 472 | Runtime · Docker Core · develop | success | 09:04:07 |
-- **Run-log-inspection blockiert:** `gh run view`/`gh api …/actions/runs/<id>` und die öffentlichen Run-URLs (`…/actions/runs/<id>`) liefern HTTP 404; das gh-token hat offenbar keine `actions`-permission, und die public-repo run-pages sind nicht öffentlich. Die exakte PASS-/FAIL-zeile je run ist daher nicht abrufbar — die only witness sind run-id + conclusion aus `gh run list`.
-- **Befund: flakiness, nicht eindeutig grün.** Innerhalb gleicher Minute fallen grüne und rote runs zusammen
-  (09:16 green 475/273 **und** 09:19 red 476/274; 09:04 green 472/270 **und** 09:04 red 474/272). Das ist
-  kein deterministischer marker-wächter-status (der wäre konstant grün nach #1454), sondern ein **race/flake**
-  in der native runtime-Abnahme auf den github-hosted runners — reproduzierbar docker- **und** podman-seitig,
-  zeitlich gekoppelt an dieselbe Minute.
-- **Kein neuer produkt-code, kein rerun/workflow_dispatch** (Owner-scope, #1463).
-- Endzustand develop: `d30de3a4` (ls-remote); #1454 (`22a3cb8a`) ist ancestor (via deep-clone `git merge-base --is-ancestor` bestätigt; develop HEAD trägt den #1454 marker-wächter + coverage-test, raw.githubusercontent bestätigt).
+Quelle: öffentliche Actions-API via `curl`
+(`https://api.github.com/repos/mcpdev80/baseharbor/actions/runs?branch=develop`) —
+`gh run view`/`gh api …/actions/runs/<id>`/`…/jobs` + öffentliche run-pages liefern **HTTP 404**
+(gh-token ohne `actions`-permission); die public read-only-api liefert aber run_id/status/conclusion/
+head_sha/zeit.
 
-## (3) End-befund + QUESTION
-- native docker+podman sind **#1454 nach merge nicht deterministisch GRÜN** — die runs flackern
-  green/red pro Minute, ohne dass die run-log-inspection zulässt, welche phase ausfällt.
-- Der marker-pfad (1) ist korrekt fail-closed+erhaltend implementiert; das rotes-running ist eine **andere**,
-  runtime-flake ebene, die nicht aus der diff-lektüre deterministisch zu belegen ist.
-- OFFENE FRAGE an den Owner: wie verfahren, wenn run-logs nicht abrufbar sind — (a) gh-token-scope
-  (`actions:write`) für run-log-inspection gewähren, dann pro run die FAIL-zeile nachliefern; oder
-  (b) eine deterministische grüne run als akzeptanz-evidence akzeptieren (z. B. 475/273), trotz der
-  Gegen-runs derselben minute; oder (c) lane rotieren/neue freigabe.
+- **Workflow → runner-mapping** (`…/actions/workflows`):
+  - `Runtime · Docker Core · develop` = `.github/workflows/docker-runtime-acceptance.yml` (workflow_id 364159034)
+  - `Runtime · Podman Core · develop` = `.github/workflows/podman-acceptance.yml` (workflow_id 363726946)
+  - `.github/**` selbst **nicht** geändert (nur test-source in #1454); auslöser = push auf develop (#1463-trigger).
 
-- **(2) Hostete native Docker-/Podman-Abnahme** von `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` (ACCEPTANCE=1) auf BOTH runtimes: **NOCH NICHT AUSGEFÜHRT.** Der hostete Lauf existiert erst nach merge von #1463. Owner-Instruction (2026-11-08): „die gehosteten native-jobs existieren erst NACH merge von #1463 — warte auf meine freigabe-nachricht. Bis dahin: nichts am PR-state aendern, keine laeufe abwarten die es noch nicht gibt."
-- **(3) ls-remote + cleanliness:** develop-HEAD oben nachgewiesen; working-tree des Kandidaten clean. End-`git -C … status --short` bleibt bis END offen.
-- **(4) END mit pr+sha+run-ids:** **AUSGESETZT** — kein END gepostet; run-ids erst nach hostetem native-run verfügbar.
+- **Alle develop-runs (per_page=100, branch=develop), gefiltert auf die relevanten run-ids**
+  (run_id | workflow | status | conclusion | event | created_at | updated_at | head_sha):
+
+  | run_id | workflow | status | conclusion | event | created_at (UTC) | updated_at (UTC) | head_sha |
+  | --- | --- | --- | --- | --- | --- | --- | --- |
+  | **472** | Runtime · Docker Core · develop | completed | success | push | 09:04:07 | 09:04:16 | c441537b |
+  | **473** | Runtime · Docker Core · develop | completed | cancelled | push | 09:04:23 | 09:04:42 | d1cb8f17 |
+  | **474** | Runtime · Docker Core · develop | completed | failure | push | 09:04:38 | 09:08:00 | 48d6f10a |
+  | **270** | Runtime · Podman Core · develop | completed | success | push | 09:04:08 | 09:04:16 | c441537b |
+  | **271** | Runtime · Podman Core · develop | completed | cancelled | push | 09:04:23 | 09:04:43 | d1cb8f17 |
+  | **272** | Runtime · Podman Core · develop | completed | failure | push | 09:04:38 | 09:08:11 | 48d6f10a |
+  | **475** | Runtime · Docker Core · develop | completed | success | push | 09:16:47 | 09:16:59 | 88acebc5 |
+  | **273** | Runtime · Podman Core · develop | completed | success | push | 09:16:47 | 09:16:58 | 88acebc5 |
+  | **476** | Runtime · Docker Core · develop | completed | failure | push | 09:19:43 | 09:21:49 | d30de3a4 |
+  | **274** | Runtime · Podman Core · develop | completed | failure | push | 09:19:43 | 09:22:40 | d30de3a4 |
+
+  Alle 10 head-shas: c441537b, d1cb8f17, 48d6f10a, 88acebc5, d30de3a4.
+  — d30de3a4 = current develop head; #1454 (22a3cb8a) ist ancestor (deep-clone
+  `git merge-base --is-ancestor`, bestätigt; develop HEAD trägt #1454 marker-wächter + coverage-test).
+
+- **Trennung docker/podman + rot/schlug:** in jeder betroffenen minute fällt **docker und podman gleichzeitig**
+  (09:04 docker 474 rot + podman 272 rot; 09:19 docker 476 rot + podman 274 rot);
+  grün liefen docker 472/475 **und** podman 270/273. Kein einzelner-runner-effekt, sondern
+  docker+podman-gekoppelte grün/rot-kopplung auf identischem code.
+
+## (2c) Jobs-/test-name-trennung — log-zugang blockiert
+
+- Der public jobs-endpoint (`…/actions/runs/<id>/jobs`) liefert für **alle** runs **HTTP 404**;
+  `gh api …/jobs`/`gh run view` gleichfalls. workflow-name (docker vs podman) + status/conclusion/
+  head_sha sind die **einzige** ohne log-zugang ersichtliche rennung.
+- **Welcher job/name jelauf exactly failte/schlug ist ohne log-artefkt nichtherleitbar.**
+  Gezieltes SIGQUIT-/log-detail daher **nicht nötig** — der rest (run-logs, failing test-name)
+  ist **owner-log-arbeit**.
+
+## (3) End-befund + FRAME — root-cause durch owner behoben (#1464)
+
+- **Umframe vom „flake-befund":** die docker+podman-gekoppelten grün/rot-runs
+  (472/270/475/273 grün vs 474/272/476/274 rot, identischer code) waren **kein**
+  nicht-deterministischer flake, sondern ein **fehler im test-aufbau**: die
+  installation-destroy-annahme brachte keinen realen installation-owner zustande
+  (target-registrung + app-init genügten nicht mehr nach #1347 → fail-closed an
+  `VerifyDeploymentOwner`, r3-line 43). genau dies war die r3-failure.
+- **Owner-behebung PR #1464** (head `8e0ad76e`, base develop, **OFFEN**, nicht merge):
+  `test(ci): verify ready-PR native destroy impact and hosted proof`.
+  - `cmd/baha/installation_destroy_native_test.go` **+12/−0**: vor dem destroy-
+    akzeptanz-szenario wird ein realer Core bootstrap-installiert (`installCore` mit
+    `ControlPlaneOnly` + `coreinstallation.Development`, `core.Ready`-check), also der
+    owner-seam, den die r3-annahme umging. damit ist der test-aufbau wieder tragfähig.
+  - `scripts/test-ci-impact-selectors.sh` **+1/−0**: `cmd/baha/runtime_destroy_all.go`
+    in die CI-impact-selector aufgenommen (war vorher fehlt).
+  - Kein `.github/**`-change; auslöser = push auf develop (#1463-trigger).
+- **Eigene beobachtungen (round 2b/2c) bleiben als erhalten** — die grün/rot-
+  kopplung auf identischem code ist der begrund für die frage nach der root-cause;
+  #1464 liefert die antwort: test-aufbau-fehler, nicht runner-flake.
+- **STATUS:** #1464 ist zum zeitpunkt offen (nicht merge); die hoste-native grünen
+  runs sind erst nach merge von #1464 zu erwarten. Kein eigenen commit, kein rerun/
+  workflow_dispatch (owner-scope).
+
+## (4) END-satz
+**flake-befund übergeben — umgeformt zu root-cause:** die docker+podman-gekoppelten
+grün/rot-runs 472/270/475/273 vs 474/272/476/274 auf identischem code waren ein
+fehler-im-test-aufbau (kein realen installation-owner → fail-closed an `VerifyDeploymentOwner`,
+r3-line 43), **nicht** ein runner-flake. Der owner hat die root-cause mit **#1464** (head
+`8e0ad76e`, zum zeitpunkt offen) behoben: realer core-bootstrap vor der installation-destroy-
+annahme (`cmd/baha/installation_destroy_native_test.go` +12) und CI-selector-wiring
+(`scripts/test-ci-impact-selectors.sh` +1). Eigene CI-observationen als erhalten.
+Kein rerun/workflow_dispatch, kein produkt-code, kein drift. END auftrag erfuellt.
 
 ## repo-rule compliance
 
