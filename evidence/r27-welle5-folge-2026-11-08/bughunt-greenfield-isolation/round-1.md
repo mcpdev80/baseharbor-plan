@@ -76,12 +76,30 @@ Net: `use`/`activate` reads a location the real bootstrap + app lifecycle never 
 - Two failed identical correction attempts: NOT reached.
 - develop red on my merge base without my influence: NOT observed (develop `07ae6c3e9` is the mission base; no foreign commits).
 
-## PLAN
+## CONTEXT-SICHERUNG (77% — savepoint before continue)
 
-- Reality check: origin/develop 07ae6c3e9, task contract, act-1451 review, plan claim — DONE
-- Deterministically reproduce the gap (isolation verified; authority-resolution bug identified) — DONE
-- Owner scope decision (greenfield bootstrap out of scope) — DONE (Owner answered)
-- Fix write-set: cmd/baha target/use/activate + internal/deployment target-state reader — IN PROGRESS
-- CI regression (group + trigger named) — PENDING
-- PR against develop; hosted run terminal; ls-remote + cleanliness — PENDING
-- Evidence round-1.md (this file); update planning card; END post — IN PROGRESS
+Saved 2026-11-08 ~07:10 UTC. Only fix + tests + PR + END remain.
+
+### IST-REPRO (stand)
+- Two local docker targets: `default` = green-a (shared), isolated = green-b, `BASEHARBOR_TARGET=green-b`.
+- Bootstrap completes cleanly on clean slate: `BASEHARBOR_TARGET=green-b baha up --control-plane-only --yes` -> Core READY (phase=ready, all 3 caps). Isolate: green-a never bootstrapped. Witnessed (docker objects pruned after).
+- `use`/`activate` on the READY isolated target FAILS CLOSED: `target "green-b" has no verified management connection: installation not verifiable ... fails closed` (reproduced 4x, clean slate each time).
+- Shared-plane config NOT mutated by failed activate (md5 before==after). Isolation holds.
+
+### DATEI:ZEILE der falschen Authoritäts-AUFLÖSUNG (the bug)
+- USE/ACTIVATE read path: `cmd/baha/use_target.go:72` `root := targetRuntimeStateRootByName(target)` = `targets/<name>/runtime` (in `cmd/baha/target.go:591-597`). Then `coreinstallation.ResolverForTargetSelection(ctx, state, root)` reads `issuerStateDir(root)` = `<runtimeRoot>/service-access/issuer` (`internal/coreinstallation/authority.go:287-290`, `:386-387`).
+- That dir holds NO `issuer.pem`: the real Core uses Keycloak/OpenBao issuers, never a local base CA.
+- APP-APPLY reads a DIFFERENT root: `cmd/baha/application_service_issuer.go:38` `dir = resolved.TargetStateRoot + /service-access/issuer`; `resolved.TargetStateRoot` = `deployment.TargetStateRoot(name)` = `targets/<name>` (plain root, `cmd/baha/app_context.go:99,219`). App-path falls back to a live runtime issuer (`:43-66`); the `use`/`activate` resolver has NO such fallback -> always fails closed on a real Core.
+- Regression introduced by `#d1ed8752` (w180, Nov 5): added `bindExplicitSelectionToConnection` via `ResolverForTargetSelection` (local base CA model) to the use/target path. Unit tests (`cmd/baha/use_target_test.go:55`, `use_target_connection_test.go:68`, `internal/coreinstallation/w168_boundary_probe_test.go`) pass because they manually `EnsureLocalIssuer(runtimeRoot/service-access/issuer)` — a location the real lifecycle never populates. So CI does NOT cover the production gap.
+
+### OFFENE SCHRITT
+1. Fix: `use`/`activate` must resolve the live Core issuer (local base CA OR live runtime issuer) — unifies with accepted app-path. IMPLEMENTED in `cmd/baha/use_target.go` (`resolveCoreConnectionIssuer` helper + `errManagementConnectionUnavailable` sentinel, imports deployment/openbao/serviceaccess/time added). Builds clean, go vet clean, existing TestUseTarget/TestBindExplicit pass.
+2. Verify end-to-end: READY isolated Core with live runtime -> use/activate SUCCEEDS; no-core -> fails closed; foreign target -> fails closed; no shared-plane write.
+3. CI regression test (cmd/baha, covered by cli-package-tests on pull_request) pinning the issuer-root unification.
+4. PR against develop `07ae6c3e9`; hosted run terminal; ls-remote + cleanliness witness.
+5. Update planning card + END post.
+
+### STOPKRITERIUM
+- Product-design question beyond contract: RESOLVED by Owner (greenfield bootstrap = separate scope).
+- Two failed identical correction attempts: NOT reached.
+- develop red on my merge base without my influence: NOT observed.
