@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w162b-issuerfix
-kanban_status: blocked
-kanban_lane: blocked
+owner: lane-w162c-issuerfix2
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Selection reconciles issuer state the way the read path already does (status works): either re-establishes/derives the issuer…"
 kanban_title: 0427-162 · use/activate fails closed when
 priority: normal
@@ -17,25 +17,24 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1489]
 sources: []
-blocker: "per act-1489-review.md: alle quellenpruefungen PASS, einzig offen ist das pflicht-tor native keycloak/core = 0427-156 domaene (owner: env-zeilen oder ausdrueckliche entbindung wie bei 0427-134/#1457). Lane-seitig nichts zu aendern — kein korrekturlauf."
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-use-activate-issuer-failclosed · Bug Hunt v0.4.27: Select fails without issuer #task #release/v0-4-27 #status/blocked #view/blocked #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-use-activate-issuer-failclosed · Bug Hunt v0.4.27: Select fails without issuer #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w162b-issuerfix · **Priority:** normal  
+    **Owner:** lane-w162c-issuerfix2 · **Priority:** normal  
     **PR:** [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489)  
-    **Blocker:** per act-1489-review.md: alle quellenpruefungen PASS, einzig offen ist das pflicht-tor native keycloak/core = 0427-156 domaene (owner: env-zeilen oder ausdrueckliche entbindung wie bei 0427-134/\#1457). Lane-seitig nichts zu aendern — kein k…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w162b-issuerfix  
+**Owner:** lane-w162c-issuerfix2  
 **Priority:** normal  
 **PRs:** [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489)  
 **Source:** 

@@ -7,7 +7,7 @@ areas: [docs, cli]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
+owner: "owner-chatgpt-r27"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/wait #view/wait #area/cli #area/docs #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **Waiting:** Document only the verified production remote API startup and enrollment path after 0427-168 / 0427-023 pass the real E2E smoke.  
     **Needs:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ evidence: []
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
-**Owner:** unassigned  
+**Owner:** owner-chatgpt-r27  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

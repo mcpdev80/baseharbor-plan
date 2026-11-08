@@ -75,7 +75,10 @@ The edit-refresh path validates stored provider-instance preferences against a s
 - Candidate HEAD witness: `git ls-remote origin refs/heads/fix/0427-150-stale-provider-edit-block` → `8ce26c9831b9fcc7eb92a352f4cbdb2713eaa6ee refs/heads/fix/0427-150-stale-provider-edit-block`.
 - `git log --oneline origin/develop..HEAD` lists ONLY: `8ce26c983` (drift merge of origin/develop) and `1a4423b36` (this lane's fix commit) — no foreign candidate commits.
 - Local runs: `go build ./...`, `go vet ./cmd/baha ./internal/application`, `bash scripts/source-readability-audit.sh` PASS; `go test ./internal/application` full package ok (81.9s); targeted `cmd/baha` groups (edit/provider/wizard/apply/mcp/choice) ok. One environmental failure exists on the base too (needs CI's controlled Docker daemon): `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` fails identically on pristine d88491982 on this host ("existing native network lacks a protected Core or shared backend owner") — not caused by this change, recorded as STATE.
-- Hosted runs: run 42509459864 ("CI · PR #1490") on candidate `8ce26c983`; draft-phase job "PR · Draft focused checks" IN_PROGRESS at the time of writing; all other PR jobs are SKIPPED by design while the PR is a draft (they run when marked ready). Terminal result: (fill)
+- Hosted runs: run 42509459864 ("CI · PR #1490", attempt 1) on candidate
+  `8ce26c983` reached terminal FAILURE in the draft-only job "PR · Draft focused
+  checks" (see STATE above); all other PR jobs SKIPPED by design while draft.
+  After marking ready the selected required checks run; terminal results appended below.
 
 ## repo-rule compliance
 
