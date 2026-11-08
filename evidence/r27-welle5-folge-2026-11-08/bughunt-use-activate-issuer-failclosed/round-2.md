@@ -58,3 +58,16 @@
 
 - Status: BLOCKED (scope decision required) — see QUESTION below.
 - Candidate SHA: (none yet; branch lane/0427-162-issuerfix at cdb4350a6, no commits)
+
+## Push verification (done 2026-11-08 ~18:2x)
+
+- Product fix branch `lane/0427-162-issuerfix` pushed; commit `6d96bf5cad206327c895becf77a785c7186e6b76` confirmed via `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane/0427-162-issuerfix`.
+- Evidence on origin/main: file present (verified `git ls-tree origin/main --name-only .../round-2.md`); origin/main (HTTPS) = `05224eb6875311bb39f8f86719243fd252b8664a`.
+- CI job that runs this test group: `.github/workflows/ci.yml` "Run release-source tests" → `BASEHARBOR_LOGS_ENABLED=false go test ./cmd/baha` (line 123); also pre-release / docker + podman acceptance runs it. My regression tests live in `cmd/baha` (same package) so they run under that group with no .github/** change.
+
+## CI outcomes (local, sandbox; no hosted run — .github/** is Owner scope)
+
+- `go build ./cmd/baha` OK. `go vet ./cmd/baha/...` OK. gofmt clean on all edited files.
+- `go test ./cmd/baha` full package: only failure is `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` — PRE-EXISTING (fails identically on base develop HEAD `d884919`), needs a real isolated Core runtime unavailable in the sandbox. Not caused by this change-set.
+- All target-connection selection tests pass, including the two new guards: `TestBindExplicitSelectionBindsWithoutLocalIssuerDir` (BF-02 regression: verified Core without service-access/issuer selects) and `TestBindExplicitSelectionFailsClosedOnAbsentCore` (absent Core still fails closed with typed conflict).
+- Note: no hosted CI run was triggered (Owner scope forbids workflow_dispatch/reruns; the mission's hosted-run step is a 156-domain Keycloak/Core STATE).
