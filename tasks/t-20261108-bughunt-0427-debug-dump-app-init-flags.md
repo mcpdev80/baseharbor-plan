@@ -23,19 +23,19 @@ resolution: accepted
 evidence: []
 ---
 
-- [x] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/closed #view/closed #area/dx #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-debug-dump-app-init-flags · Bug Hunt v0.4.27: CLI Debug-Dump und app-init Usage-Regression #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
-    **PR:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439)  
+    **PR:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439), [baseharbor#1442](https://github.com/mcpdev80/baseharbor/pull/1442)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
 **Priority:** normal  
-**PRs:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439)  
+**PRs:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439), [baseharbor#1442](https://github.com/mcpdev80/baseharbor/pull/1442)  
 **Source:** 
 <!-- /generated:links -->
 

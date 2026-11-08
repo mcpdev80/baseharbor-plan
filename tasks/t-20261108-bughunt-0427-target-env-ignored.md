@@ -29,6 +29,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 - [ ] t-20261108-bughunt-0427-target-env-ignored · 0427-124 · BASEHARBOR_TARGET wird ignoriert #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-124-target-env · **Priority:** high  
+    **PR:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -37,7 +38,7 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-124-target-env  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1443](https://github.com/mcpdev80/baseharbor/pull/1443)  
 **Source:** 
 <!-- /generated:links -->
 

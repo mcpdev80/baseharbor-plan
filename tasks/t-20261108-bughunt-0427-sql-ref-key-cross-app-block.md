@@ -26,7 +26,6 @@ evidence: []
 - [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/active #view/active #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
-    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->

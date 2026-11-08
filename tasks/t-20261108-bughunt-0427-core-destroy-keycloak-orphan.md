@@ -26,7 +26,7 @@ evidence: []
 - [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/active #view/active #area/identity #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
-    **In progress** · owner:chatgpt  
+    **PR:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ evidence: []
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444)  
 **Source:** 
 <!-- /generated:links -->
 

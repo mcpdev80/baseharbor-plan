@@ -29,7 +29,6 @@ Fixed as far as the acceptance criterion holds on native docker AND podman runs;
 - [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** high  
-    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->

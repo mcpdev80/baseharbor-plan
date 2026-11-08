@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: "owner:chatgpt"
 kanban_status: closed
 kanban_lane: closed
-kanban_summary: "Ambiguous target selection fails closed and lists sorted configured targets with activation and BASEHARBOR_TARGET selection remedies."
+kanban_summary: Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 kanban_title: "0427-126 · Multitarget ohne Auswahl"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -26,14 +26,14 @@ resolution: accepted
 
 Fixed as far as the acceptance criterion holds on native docker AND podman runs; no silent states.
 
-- [x] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/closed #view/closed #area/dx #kind/bug
+- [x] t-20261108-bughunt-0427-multitarget-ambiguity · 0427-126 · init-status-doctor bei mehreren Targets #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** owner:chatgpt · **Priority:** normal  
     **PR:** [baseharbor#1441](https://github.com/mcpdev80/baseharbor/pull/1441)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** owner:chatgpt  
