@@ -6,11 +6,11 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 
 | Repository | Open issues | Mapped |
 | --- | ---: | ---: |
-| mcpdev80/baseharbor | 86 | 85 |
+| mcpdev80/baseharbor | 86 | 86 |
 | mcpdev80/baseharbor-console | 2 | 2 |
 | mcpdev80/baseharbor-demo | 1 | 1 |
 | mcpdev80/baseharbor-node-connector | 1 | 1 |
-| **Total** | **90** | **89** |
+| **Total** | **90** | **90** |
 
 ## Dispositions
 
@@ -19,12 +19,11 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | epic | 6 |
 | epic+task | 1 |
 | external-tooling | 1 |
-| release | 9 |
+| release | 10 |
 | release+task | 1 |
 | roadmap | 1 |
 | split | 2 |
 | task | 68 |
-| unmapped | 1 |
 
 ## Source to destination
 
@@ -78,7 +77,7 @@ Source inventory captured 2026-10-15T20:53:44Z from: mcpdev80/baseharbor, mcpdev
 | [baseharbor#823](https://github.com/mcpdev80/baseharbor/issues/823) | task | [tasks/core-823-tests-platform-conformance-support.md](../tasks/core-823-tests-platform-conformance-support.md) |
 | [baseharbor#862](https://github.com/mcpdev80/baseharbor/issues/862) | task | [tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md](../tasks/core-862-quality-staticcheck-govulncheck-risk-tests.md) |
 | [baseharbor#873](https://github.com/mcpdev80/baseharbor/issues/873) | release+task | [releases/v0.4.26.md](../releases/v0.4.26.md), [tasks/t-20261022-q20-docs-pages.md](../tasks/t-20261022-q20-docs-pages.md) |
-| [baseharbor#874](https://github.com/mcpdev80/baseharbor/issues/874) | unmapped | **unmapped** |
+| [baseharbor#874](https://github.com/mcpdev80/baseharbor/issues/874) | release | [releases/v0.4.27.md](../releases/v0.4.27.md) |
 | [baseharbor#875](https://github.com/mcpdev80/baseharbor/issues/875) | release | [releases/v0.4.28.md](../releases/v0.4.28.md) |
 | [baseharbor#876](https://github.com/mcpdev80/baseharbor/issues/876) | release | [releases/v0.4.29.md](../releases/v0.4.29.md) |
 | [baseharbor#882](https://github.com/mcpdev80/baseharbor/issues/882) | task | [tasks/core-882-macos-fix-darwin-builds-build-vet.md](../tasks/core-882-macos-fix-darwin-builds-build-vet.md) |

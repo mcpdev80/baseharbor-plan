@@ -31,7 +31,7 @@ evidence: [https://github.com/mcpdev80/baseharbor/pull/1349, https://github.com/
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Owner:** Codex (CI routing audit 2026-11-03)  
 **Priority:** critical  

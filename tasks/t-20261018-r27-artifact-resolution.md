@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-image-transfer](t-20261018-r27-image-transfer.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  

@@ -9,7 +9,7 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: queued
+kanban_lane: ready
 kanban_summary: baha up without --confirm-candidate on an already-initialized app repository exits 1 with a clean stderr (no goroutine dump) on…
 kanban_title: 0427-129 · debug goroutine dump on
 priority: normal
@@ -23,15 +23,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-regression-debug-dump-consent · Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) #task #release/v0-4-27 #status/planned #view/queued #area/dx #kind/bug
+- [ ] t-20261108-bughunt-0427-regression-debug-dump-consent · Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) #task #release/v0-4-27 #status/planned #view/ready #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** v0.4.27  
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** normal  

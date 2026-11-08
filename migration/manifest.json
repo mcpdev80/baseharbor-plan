@@ -7,7 +7,7 @@
     "mcpdev80/baseharbor-node-connector"
   ],
   "open_issue_count": 90,
-  "mapped_count": 89,
+  "mapped_count": 90,
   "issues": [
     {
       "source": "mcpdev80/baseharbor#100",
@@ -901,8 +901,14 @@
       "title": "[v0.4.27] Release: remote development and onboarding",
       "source_updated": "2026-10-15T16:49:51Z",
       "snapshot": "migration/source-snapshot/baseharbor/874.json",
-      "disposition": "unmapped",
-      "destinations": []
+      "disposition": "release",
+      "destinations": [
+        {
+          "path": "releases/v0.4.27.md",
+          "kind": "release",
+          "role": "primary"
+        }
+      ]
     },
     {
       "source": "mcpdev80/baseharbor#875",

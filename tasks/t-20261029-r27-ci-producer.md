@@ -33,7 +33,7 @@ evidence:
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
 **Owner:** q202 (a71d5cd0, qwen)  
 **Priority:** high  

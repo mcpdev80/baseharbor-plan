@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** normal  

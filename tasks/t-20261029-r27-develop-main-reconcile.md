@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1206","https://github.co
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** o217 (d2ee29b3, ornith; Handoff von q207 nach 2 Fehlschlaegen, Strategy-Change gemaess rv1206C)  
 **Priority:** high  
