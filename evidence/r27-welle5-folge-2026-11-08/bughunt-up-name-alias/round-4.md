@@ -111,9 +111,11 @@ ok  	github.com/mcpdev80/baseharbor/cmd/baha	0.011s
 
 | Cell | Job id | Status |
 | --- | --- | --- |
-| PR · Validation · go-unit-tests | 128716229423 | (pending at write time) |
-| PR · Native destroy retry · docker | 128716218501 | (in progress) |
-| PR · Native destroy retry · podman | 128716218424 | (in progress) |
+| PR · Validation · go-unit-tests | 128716229423 | success |
+| PR · Native destroy retry · docker | 128716218501 | success |
+| PR · Native destroy retry · podman | 128716218424 | success |
+| PR · Native impact selection | 128716179372 | success |
+| PR Selected Checks | 128718353300 | success |
 
 ## Repo-rule compliance
 
@@ -122,6 +124,38 @@ ok  	github.com/mcpdev80/baseharbor/cmd/baha	0.011s
 - Single candidate branch for this chain; no extra branch created.
 - No containers/compose projects/VM state started on this host or any SSH host (verification is hosted CI only; nothing to tear down — witness in END section).
 
+## Findings
+
+1. Post-merge develop movement: develop moved `cd494610 -> 201735b0` (PR #1460, "fix(cmd/baha):
+   use/activate verifies Keycloak-bound core issuer") AFTER my candidate head `b3bb2041` was
+   pushed. The full gate set is GREEN on the exact head `b3bb2041` (mission requirement met).
+   A further drift-merge would be needed to land, but my rule forbids launching a duplicate
+   full matrix (including heavyweight native destroy cells) without an actual failure to fix;
+   the merge lane/Codex should judge: merge `b3bb2041` as proven, or authorise one more
+   drift-merge + run.
+2. CI routing of the new test: it runs under `PR · Validation · go-unit-tests`
+   (`pull_request` trigger, job runs `scripts/pr-unit-database.sh` -> `go test ./... -count=1`,
+   whose `ok github.com/mcpdev80/baseharbor/cmd/baha 460.454s` line covers the chain's
+   `TestUpNameResumesRegisteredDeploymentAcceptsParity`). No `.github/**` change is needed.
+   The named test does not appear per-name in the non-verbose go-unit-tests log, so the
+   package-pass line plus the isolated local run is the routing evidence.
+3. Local host state (not started by this lane): on this coordinator host, docker `default`
+   context has running `bh-docker-dev-*` compose stacks (earliest 2026-11-07, newest 2026-11-08
+   11:59 +0100 from another live lane, project `bh-docker-dev-edit-runtime-integration-dev`).
+   This lane touched no containers; per hygiene rules I report the inventory instead of
+   deleting other lanes' state.
+
 ## END
 
-(terminal state recorded here once the hosted run is observed to completion)
+STATE: PR #1459 head `b3bb20416c69919af02bd854b3966cfe5e3761ca` (ls-remote witness above),
+run `42475609941` completed/success, all required cells green on the exact head:
+go-unit-tests + PR Selected Checks + native destroy retry docker AND podman (job ids and
+PASS log lines above; nothing counted green from a skip). PR `mergeable=MERGEABLE`,
+`mergeStateStatus=CLEAN`. No `.github/**` edit, no reruns/dispatch, no subagents,
+single candidate branch, no foreign commits on top (`git log origin/develop..HEAD` =
+4 own commits, witness above). This lane started NO containers, compose projects or VM
+state — nothing to tear down; host inventory posted as finding 3.
+
+END_DONE mission-130-r4.md: #1464 in develop; drift-merge pushed; hosted run 42475609941
+green on exact head b3bb2041 (go-unit-tests + PR Selected Checks + native docker+podman);
+candidate MERGEABLE/CLEAN.
