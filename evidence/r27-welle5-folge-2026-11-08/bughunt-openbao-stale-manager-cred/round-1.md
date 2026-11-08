@@ -24,7 +24,13 @@
 a5bdd03a docs(plan): record all 15 ready cards code triage and two shared PRs
 ```
 
-- origin/main nach Publish wiederholt verifiziert (END).
+- origin/main nach Publish verifiziert (ls-remote):
+
+```
+3d2bb4a9388c0f4251be119c97c8e9929a7ff1cb
+```
+
+- evidence blob on origin/main: `evidence/r27-welle5-folge-2026-11-08/bughunt-openbao-stale-manager-cred/round-1.md` (blob d06b025d).
 
 - Produkt checkout baseharbor: QUARANTAINT (ref-push-incident), remote-Wahrheit NUR via `git ls-remote origin`.
 
