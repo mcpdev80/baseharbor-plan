@@ -23,17 +23,18 @@ resolution: accepted
 evidence: [https://github.com/mcpdev80/baseharbor/actions/runs/42514020854, https://github.com/mcpdev80/baseharbor/actions/runs/42514307992]
 ---
 
-- [x] t-20261108-r27-native-single-default-owner-check · Native SINGLE-default acceptance honors one-Core-per-engine policy #task #release/v0-4-27 #status/closed #view/closed #area/ci #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-r27-native-single-default-owner-check · Native SINGLE-default acceptance honors one-Core-per-engine policy #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** ChatGPT (native CI) · **Priority:** high  
+    **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor#1495](https://github.com/mcpdev80/baseharbor/pull/1495), [baseharbor#1497](https://github.com/mcpdev80/baseharbor/pull/1497)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42514020854), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42514307992)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** ChatGPT (native CI)  
+**Owner:** unassigned  
 **Priority:** high  
 **PRs:** [baseharbor#1495](https://github.com/mcpdev80/baseharbor/pull/1495), [baseharbor#1497](https://github.com/mcpdev80/baseharbor/pull/1497)  
 **Source:** 
