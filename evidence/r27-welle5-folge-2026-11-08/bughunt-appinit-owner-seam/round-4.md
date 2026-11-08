@@ -114,3 +114,12 @@ develop head in the same candidate branch.
 
 END_DONE mission-136-r4.md — PR #1458 drifted onto develop-head (merge 6670ca4a6, #1464 + #1460 carried in),
 ready-for-review, and both hosted native Docker + Podman cells PASSED to terminal on the exact head.
+
+## Final witnesses (post-publish)
+
+- evidence committed to planning repo: `0ad20a9b` (parent merge c89693a2 of origin/main)
+- `git ls-remote origin main` => `c89693a24adbc6e6780a12e39d976d1d16e50a refs/heads/main`
+- `git merge-base --is-ancestor 0ad20a9b origin/main` => YES (evidence present on origin/main)
+- `git cat-file -p origin/main:evidence/r27-welle5-folge-2026-11-08/bughunt-appinit-owner-seam/round-4.md` => first line present
+- PR #1458 head (ls-remote) => `6670ca4a6c8828a44cd858c8c3c0bf2c83cac902` refs/heads/fix/0427-136-appinit-owner-seam
+- No container/compose project started on this host (coordinator server); nothing to tear down.
