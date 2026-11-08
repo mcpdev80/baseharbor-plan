@@ -52,3 +52,6 @@ Destroy resolves owned core targets from the data root (never discards foreign t
 
 ## Dependencies and file ownership
 None. Write-set: internal destroy + data-root resolution.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (mapping): related to #122 destroy inventory but a distinct data-root recovery contract. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

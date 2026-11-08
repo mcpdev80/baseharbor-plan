@@ -58,3 +58,6 @@ None. Write-set: cmd/baha app new + wizard message paths.
 
 - Claimed by `chatgpt-r27-wizard-ux` for the remaining CLI-surface scope, while merged [#1465](https://github.com/mcpdev80/baseharbor/pull/1465) already unified create-only/headless next instructions.
 - [#1469](https://github.com/mcpdev80/baseharbor/pull/1469) adds structured invalid yes/no input errors and a Next action after verified wizard-run success. Exact-head CI pending; no acceptance or closure claimed.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (mapping): success-vs-error text overlap with #138 cancel path and #145 raw-mode messaging - keep separate contracts, cross-reference in fixes. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

@@ -52,3 +52,6 @@ Each of the four: documented decision + matching regression OR fix in the existi
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha edit surface (help text, directory check, target block display, init manifest path).
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (mapping): four independent symptoms; fix commits must each cite their BF, split PRs if write-sets differ. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

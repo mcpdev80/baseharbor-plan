@@ -52,3 +52,6 @@ Decision documented (keep fail-closed OR add an all-targets view with a target c
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha list + target docs.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (zuerklaeren): fail-closed was called intentional in the dossier; open owner PR #1466 documents it - decision may reduce to a docs line. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

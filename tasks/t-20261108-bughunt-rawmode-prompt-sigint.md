@@ -52,3 +52,6 @@ SIGINT at a raw prompt = clean cancel with message and restored terminal; signal
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha path prompt raw mode.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (zuerklaeren): the missing Interrupted line was observed non-deterministically; the deterministic part (terminal restore) is what acceptance must pin. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
 - [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (0427-047 regression follow-up) · **Priority:** normal  
-    **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) (Draft)  
+    **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1385)  
     <!-- /generated:card -->
 
@@ -39,7 +39,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-0
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
 **Owner:** ChatGPT (0427-047 regression follow-up)  
 **Priority:** normal  
-**PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) (Draft)  
+**PRs:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 

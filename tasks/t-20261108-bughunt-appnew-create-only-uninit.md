@@ -58,3 +58,6 @@ None. Write-set: cmd/baha app new + init seam.
 
 - PR [#1465](https://github.com/mcpdev80/baseharbor/pull/1465) merged into develop as `618d23bde0870391541a8bbdf3ee103f22d70560`, exact PR head `933b3380ca107b7bfcb81100aa77b6f7fc0e3446`. [CI run 42478010118](https://github.com/mcpdev80/baseharbor/actions/runs/42478010118) completed SUCCESS, including selected checks, build/vet, Go-unit and native Docker/Podman destroy retry.
 - The create-only UX now prints a documented init/up sequence in wizard and headless paths; unit regression verifies the sequence. The card remains review because an actual generated project -> app init -> up lifecycle success is not established by this output test. No false runtime PASS.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (zuerklaeren): the dossier case was context-dependent; owner PR #1465 already improved the create-only next-step text - remaining scope narrowed to the init-state decision. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

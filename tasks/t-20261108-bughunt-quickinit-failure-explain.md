@@ -52,3 +52,6 @@ The error names candidates and the missing distinction; docs/help line points to
 
 ## Dependencies and file ownership
 None. Write-set: cmd/baha init message + docs.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (zuerklaeren): open owner PR #1466 carries the actionable quick-init diagnosis; card stays claimed by chatgpt-r27-cli-diagnostics until that exact head is green. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)

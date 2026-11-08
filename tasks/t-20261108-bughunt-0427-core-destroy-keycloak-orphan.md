@@ -85,7 +85,7 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 - Regression tests the identity project without running containers, preview, cleanup, `sharedOnly`, and protection of foreign target projects. Exact-head CI open.
 - Final acceptance additionally needs a real native Docker `baha up/down/destroy` sequence and status measurement; not closed prematurely.
 
-## 2026-11-08 Merge-Nachweis PR #1444 (ChatGPT)
+## 2026-11-08 Merge Evidence PR #1444 (ChatGPT)
 
 - **Inventory-Fix fuer Core-eigenes Keycloak-Projekt:** [PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444) nach `develop` gemergt, Merge-SHA `ab8c16158372bc927f67bb4ee64b6ab98e7626ad`; [exact-head CI #42430589361](https://github.com/mcpdev80/baseharbor/actions/runs/42430589361) terminal `success`, keine fehlgeschlagenen Jobs.
 - **Karte bleibt `active`**: echte native Docker-/Podman-End-to-End-Abnahme des urspruenglichen Bugs steht noch aus. Der gemergte Teilfix ersetzt diese nicht.
@@ -94,19 +94,19 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - [E2E Docker2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/docker2.md) auf aelterem Core-Head `0fe53052`: `baha destroy --yes` entfernte SQL/OpenBao, Keycloak-Container blieben und mussten manuell beseitigt werden; `destroy --all` scheiterte nach Teilabbau wegen fehlender Compose-Provider-Registrierung. Dieser Nachweis ist ein **RED vor #1444**, kein PASS fuer den neuen Merge `ab8c1615`. Bestehender Restfehler `destroy --all` nach Teilabbau braucht separaten Recovery-Test. Keine manuelle Cleanup-Prozedur als Produkt-PASS werten.
 
-## 2026-11-08 Retry nach verlorenem Runtime-Owner (ChatGPT)
+## 2026-11-08 Retry after lost runtime owner (ChatGPT)
 
 - [PR #1448](https://github.com/mcpdev80/baseharbor/pull/1448), Head `70d40bb35d8df865c6db51c8fa19866fdb389b71`: entfernt den nachgewiesenen falschen `compose`-Fallback aus `discoverFullDestroyTargets` fuer unregistrierte Local-Targets. Existieren noch lokale Target-State-Dateien ohne verifizierte Providerbindung, ist das ein **blockierender Eigentums-Fehler** statt ein erfundener Runtime-Adapter. Ownership-/Recovery-Zustand bleibt erhalten; kein fremder Runtime-Fallback.
 - Regression prueft explizit fehlende Target-Konfiguration, erhaltenen lokalen Zustand, keinen geratenen Provider und blockierendes `unregistered-target-runtime`. PR-CI offen. Danach noch nativer Docker/Podman-Up/Down/Destroy-Retry notwendig; **Karte active**.
 
-## 2026-11-08 Native-Develop-CI angeschlossen (ChatGPT)
+## 2026-11-08 Native Develop CI attached (ChatGPT)
 
-- [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449), Head `6343c82b48989bf3389907c638396c522ed176b3`: fuehrt vorhandenen echten `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` in den **bestehenden** GitHub-hosted Develop-Nativjobs Docker und Podman verbindlich aus. `BASEHARBOR_INSTALLATION_DESTROY_ACCEPTANCE=1`, einmaliger Test-PASS, kein SKIP/FAIL; gemeinsames CI-Skript, Impact-Selector plus Regression angepasst. Kein Self-hosted Runner und keine zusaetzliche parallele Pipeline.
-- **Nachweis noch offen:** PR-CI qualifiziert die Scriptsyntax; erst ein echter Develop-Push-Lauf mit nativen Docker+Podman-PASS auf genauem integriertem SHA zaehlt zur Abnahme. Kartenstatus `active`.
+- [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449), head `6343c82b48989bf3389907c638396c522ed176b3`: mandates running the existing real `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` in the **existing** GitHub-hosted native Develop jobs Docker and Podman. `BASEHARBOR_INSTALLATION_DESTROY_ACCEPTANCE=1`, one-time test PASS, no SKIP/FAIL; shared CI script, impact selector plus regression adjusted. No self-hosted runner and no additional parallel pipeline.
+- **Evidence still open:** PR CI qualifies the script syntax; only a real develop push run with native Docker+Podman PASS on the exact integrated SHA counts toward acceptance. Card status `active`.
 
 ### 2026-11-08 Keycloak-E2E-Schaerfung (ChatGPT)
 
-- PR #1449 nun Head `1e3af6441c886897bb1e1c8a185c9b53e005a758`: bestehender nativer Installations-Destroy-Test erzeugt **echte SQL + Identity/Keycloak**-Ressourcen, weist vor der Destruktion vorhandene Core-eigene Keycloak-Container nach und verifiziert nach dem bestaetigten Retry **0 verbliebene eigene Keycloak-Ressourcen**. Docker/Podman-Gate weiterhin im bestehenden develop-Nativjob. Vorherige Head-CI reicht **nicht** mehr; neue exakte PR-CI sowie spaetere echte develop-Nativ-Gates erforderlich. Karte `active`.
+- PR #1449 now head `1e3af6441c886897bb1e1c8a185c9b53e005a758`: the existing native installation destroy test generates **real SQL + Identity/Keycloak** resources, proves pre-destruction Core-owned Keycloak containers, and after the confirmed retry verifies **0 remaining owned Keycloak resources**. Docker/Podman gate stays in the existing develop native job. Previous head CI is **no** longer enough; new exact PR CI and later real native develop gates required. Card `active`.
 
 ## 2026-11-08 Acceptance correction (ChatGPT)
 
@@ -115,21 +115,21 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 ### 2026-11-08 CI-Fehler #1448 korrigiert (ChatGPT)
 
-- Die erste exact-head [CI #42432440793](https://github.com/mcpdev80/baseharbor/actions/runs/42432440793) war rot, weil die neue Unknown-Runtime-Blockade unbeabsichtigt vier bestehende Tests fuer **andere** unregistrierte Orphan-Targets mit betraf. Das war ein echter Scope-Regressionseffekt, nicht nur eine CI-Flake.
-- Korrigiert in Head `b96b1f83af457f4df926992cdecbd9c7e88ea4d1`: **nur** beim legacy `local`-Target ohne Runtime-Owner fail-closed und State-Erhalt, andere unbekannte Targets behalten ihre bisherige gesonderte Behandlung. Exakte neue CI offen. **Nicht mergen, bevor gruen.**
+- The first exact-head [CI #42432440793](https://github.com/mcpdev80/baseharbor/actions/runs/42432440793) was red because the new unknown-runtime blockade unintentionally affected four existing tests for **other** unregistered orphan targets. This was a real scope-regression effect, not just a CI-flake.
+- Fixed in head `b96b1f83af457f4df926992cdecbd9c7e88ea4d1`: **only** for the legacy `local` target without runtime owner fail-closed and state retention; other unknown targets keep their previous separate treatment. New exact CI open. **Do not merge before green.**
 
-## 2026-11-08 Owner-Freigabe und Uebergabe
+## 2026-11-08 Owner Release and Handover
 
-- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
+- Processing owner changed from `"owner:chatgpt"` to `coordinator`. Board column `wait` (dependency / pending native acceptance; **no** technical `blocked` alarm).
 - PRs #1444/#1448/#1449 merged; native Docker/Podman Keycloak start/destroy/retry with exact integration SHA and resource count remains to be evidenced.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
 
-### 2026-11-08 Develop-Merge #1449
+### 2026-11-08 Develop Merge #1449
 
-- [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449) nach `develop` gemergt, **SHA `ebf56a092de55c5b2e1d3129b32ab50db6b92790`**, exact-head [PR-CI #42432965054](https://github.com/mcpdev80/baseharbor/actions/runs/42432965054) terminal `success` (15 PASS). Der echte Keycloak-/Installation-Destroy-Nativtest ist damit als Gate in den vorhandenen Docker-/Podman-Develop-Jobs eingebaut.
-- **Nativer PASS noch offen:** native Develop-Runs auf dem Merge-SHA wurden durch den folgenden Merge abgebrochen; auf dem folgenden SHA war der native Job wegen Impact-Auswahl geskippt. Nicht als native Abnahme interpretieren. PR #1448 bleibt bis exact-head CI/Integration offen. Coordinator übernimmt die notwendigen nativen Gates.
+- [PR #1449](https://github.com/mcpdev80/baseharbor/pull/1449) merged to `develop`, **SHA `ebf56a092de55c5b2e1d3129b32ab50db6b92790`**, exact-head [PR-CI #42432965054](https://github.com/mcpdev80/baseharbor/actions/runs/42432965054) terminal `success` (15 PASS). The real Keycloak/installation destroy native test is thereby built as a gate into the existing Docker/Podman develop jobs.
+- **Native PASS still open:** native develop runs on the merge SHA were canceled by the following merge; on the following SHA the native job was skipped due to impact selection. Do not interpret as native acceptance. PR #1448 stays open until exact-head CI/integration. Coordinator takes over the necessary native gates.
 
-### 2026-11-08 Letzter Fix gemergt
+### 2026-11-08 Final fix merged
 
-- [PR #1448](https://github.com/mcpdev80/baseharbor/pull/1448) nach `develop` gemergt, Merge-SHA `1fe57f25007413c710e049094c62bf71656b2aa2`; exact-head [CI #42433268819](https://github.com/mcpdev80/baseharbor/actions/runs/42433268819) terminal `success`, nach Korrektur der vier zuvor fehlgeschlagenen fremden Orphan-Fälle.
-- Sämtliche Teilfix-PRs #1444, #1448, #1449 integriert. **Nur native Docker+Podman-Ausführung auf dem finalen integrierten SHA mit Keycloak-Resource-Zählung fehlt noch**; Coordinator hat die Karte, `wait` bleibt bis Nachweis bestehen.
+- [PR #1448](https://github.com/mcpdev80/baseharbor/pull/1448) merged to `develop`, merge SHA `1fe57f25007413c710e049094c62bf71656b2aa2`; exact-head [CI #42433268819](https://github.com/mcpdev80/baseharbor/actions/runs/42433268819) terminal `success`, after fixing the four previously failing foreign orphan cases.
+- All partial-fix PRs #1444, #1448, #1449 integrated. **Only native Docker+Podman execution on the final integrated SHA with Keycloak resource count still missing**; the coordinator holds the card, `wait` remains until evidence.

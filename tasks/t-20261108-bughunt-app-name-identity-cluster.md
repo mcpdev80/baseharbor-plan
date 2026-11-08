@@ -52,3 +52,6 @@ One name gate in the registry: registration checks collisions and fails closed w
 
 ## Dependencies and file ownership
 None. Write-set: app registry name gate + app edit/init/create/show/plan/destroy.
+
+## Audit note (Karten-Audit 2026-11-08)
+Audit 2026-11-08 (mapping): BF-01/02/05 are one name-gate contract; BF-10 hint fix belongs here too; live lane w149 owns it. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
