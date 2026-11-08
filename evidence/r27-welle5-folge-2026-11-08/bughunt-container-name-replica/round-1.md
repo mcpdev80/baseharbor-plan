@@ -71,7 +71,13 @@ Design (in `/tmp/opencode/0427-128-contname-wt` branch `bughunt/0427-128-contain
 
 ## END status
 
-END_BLOCKED mission-128.md: bug CONFIRMED (backup quiesce fails with "selected stop has an unplanned service replica" for explicit `container_name`); fix IMPLEMENTED deriving the planned container-name set from the rendered Compose model (not the plan schema). Work committed to worktree branch `bughunt/0427-128-container-name-replica` at `7717f4505`. Open items: (1) retirement/control_plane call sites (`service_retirement.go:63`, `control_plane_stop_observation.go:49`) still use the raw `ContainerMatchesProjectResource` contract — Owner to confirm whether composeFiles threading is in scope for the destroy paths; (2) evidence must be committed to planning origin/main and PR (0427-128) opened before final acceptance.
+DONE mission-128.md: bug CONFIRMED and FIX IMPLEMENTED + VERIFIED.
+
+- Fix: planned container-name set derived from rendered Compose model (not plan schema). Branch `bughunt/0427-128-container-name-replica`, HEAD `c551fcd01` (drift-merged from origin/develop `e39b00043`, ancestry proven).
+- PR: **#1452** "fix(0427-128): backup quiesce accepts pinned container_name" (https://github.com/mcpdev80/baseharbor/pull/1452), base develop, title carries 0427-128.
+- CI: run 42437310258 green — PR · Validation · cli-guided-tests completed/success (runs my new unit tests via `go test ./internal/...` in ci.yml:121), all other validation jobs completed/success.
+- Evidence on planning origin/main: round-1.md (commit 39a532fd), todos (workers commit e35a7552).
+- Open for Abnahme: CODEX-REVIEW against the task contract (SHA-generue Diff, Evidence, Pflichtchecks); CODEX-MERGE on pass. Retirement/control_plane call sites (`service_retirement.go:63`, `control_plane_stop_observation.go:49`) still use the raw `ContainerMatchesProjectResource` contract — Owner/Codex to confirm whether composeFiles threading into the destroy paths is in scope for this card, or a follow-up.
 
 ## END status
 
