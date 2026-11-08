@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: coord-welle5 (Lane w186, freigegeben)
-kanban_lane: closed
+owner: ChatGPT (remote-client regression)
+kanban_lane: active
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
-kanban_status: closed
+kanban_status: active
 kanban_title: "0427-023 · resolve trusted local or"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access, t-20261105-r27-connection-authority-boundary]
 repos: [mcpdev80/baseharbor]
@@ -20,24 +20,24 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: accepted
+resolution: reopened-regression
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
 ---
 
-- [x] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/remote #kind/task
+- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/active #view/active #board/planned #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** coord-welle5 (Lane w186, freigegeben) · **Priority:** normal  
+    **Owner:** ChatGPT (remote-client regression) · **Priority:** normal  
     **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** reopened-regression  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md)  
-**Owner:** coord-welle5 (Lane w186, freigegeben)  
+**Owner:** ChatGPT (remote-client regression)  
 **Priority:** normal  
 **PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380)  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -93,3 +93,9 @@ unveraendert), fails-closed belegt. round-1.md (welle5) auf main.
 ## Gemerged 2026-11-05 (CODEX-MERGE nach 1380b ACCEPT): develop 3d8fc207de, merge-zweig 560945201e
 (develop-abgleich a53c10a7+drin), same-head flake-rerun 42093092814 attempt2 SUCCESS, merge ohne bypass.
 Drei-Autoritaeten-trennung + fails-closed pfad damit ECHT im zweig.
+
+## Wiedereröffnet 2026-11-08 — echte Remote-Client-Lücke
+
+Abgleich `baseharbor/develop`: `cmd/baha/use_target.go:bindExplicitSelectionToConnection` ruft `coreinstallation.Load(targetRuntimeStateRootByName(target))` aus **lokalem** Dateizustand auf. Bei Entwickler-PC mit `baha` ohne lokalen Core und externem Core fehlt dieser lokale Installationsdatensatz zwangsläufig; `baha use` verlangt stattdessen `baha core install`. Das widerspricht dem Outcome dieser Karte: Remote Management Connection muss über verifizierte Server-Installation/Trust/Discovery möglich sein, ohne lokale Core-Installation und ohne Kopie autoritativen States. Der `connection-profile/v1` Schema-Vertrag ist kein Beweis einer produktiven Remote-Bindung. 
+
+**Akzeptanz offen:** developer-only CLI -> externes Core HTTPS/OIDC (serververifizierte Installations-ID, CA, Session, Scope) -> Target selection -> Docker-/Podman-Connector -> tatsächlich verifizierte Remote-App READY; negatives (fremde/abgelaufene Verbindung, falsches Tenant, nicht verfügbar, kein lokaler Fallback). Nicht mit Credential-Karte `0427-047` verwechseln; deren Draft #1470 behandelt einen separaten Aspekt. Vorheriger Merge #1380 bleibt historisch, aber `closed` ist für die End-to-End-Anforderung nicht mehr gerechtfertigt.
