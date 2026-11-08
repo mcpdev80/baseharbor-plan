@@ -13,7 +13,7 @@ kanban_lane: active
 kanban_summary: "An isolated greenfield run (BASEHARBORTARGET-selected second target, docker-2 style) completes bootstrap + core self-install +…"
 kanban_title: "0427-133 · greenfield isolation open"
 priority: normal
-depends_on: [t-20261018-r27-access-wizard, t-20261017-release-0-4-27-updates]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-wizard]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1460]
 sources: []
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md)  
 **Owner:** lane-w133-greenfield-r4  
 **Priority:** normal  
 **PRs:** [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460)  
