@@ -7,9 +7,9 @@ areas: [lifecycle, identity]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "owner:chatgpt"
+kanban_status: active
+kanban_lane: active
 kanban_summary: A consented baha destroy (and baha destroy --all) of the local control plane removes or explicitly reports every Core-owned…
 kanban_title: 0427-122 · destroy leaves keycloak up
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/planned #view/ready #area/identity #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/active #view/active #area/identity #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** owner:chatgpt · **Priority:** high  
+    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** owner:chatgpt  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -72,3 +72,7 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 - Source: bug-hunt session 2026-11-07, 0.4.23-develop (8a3f58da9), Docker 29.6.0 rootless, Ubuntu 26.04.1.
 - Report: `~/dev/Tests/Baha-Bug-04-destroy-laesst-keycloak-container.md` (destroy plan JSON without keycloak entries, container labels, status output; observed consistently in 3 destroy + 1 destroy --all runs).
 - Leftovers were removed manually (`docker rm -f`) to finish the binary before/after control; documented in the report.
+
+## 2026-11-08 Übernahme (ChatGPT)
+
+- Owner `owner:chatgpt`; `active`. Naechster gezielter Fix: explizite Erfassung des geschuetzten Core-Keycloak-Compose-Projekts auch ohne laufende Container, gefolgt von Negativ-/Eigentums-Regressionen. Keine Fremdcontainer loeschen. Native Docker-Reproduktion bleibt fuer finale Abnahme erforderlich.
