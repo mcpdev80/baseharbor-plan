@@ -7,9 +7,9 @@ areas: [lifecycle, identity]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "owner:chatgpt"
-kanban_status: active
-kanban_lane: active
+owner: "coordinator"
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: A consented baha destroy (and baha destroy --all) of the local control plane removes or explicitly reports every Core-owned…
 kanban_title: "0427-122 · destroy leaves keycloak up"
 priority: high
@@ -18,23 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448, mcpdev80/baseharbor#1449]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "PR #1449 merged ebf56a09; PR #1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
 ---
 
-- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/active #view/active #area/identity #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/wait #view/wait #area/identity #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** owner:chatgpt · **Priority:** high  
+    **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** owner:chatgpt  
+**Owner:** coordinator 
 **Priority:** high  
 **PRs:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
 **Source:** 
@@ -116,3 +116,9 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 
 - Die erste exact-head [CI #42432440793](https://github.com/mcpdev80/baseharbor/actions/runs/42432440793) war rot, weil die neue Unknown-Runtime-Blockade unbeabsichtigt vier bestehende Tests fuer **andere** unregistrierte Orphan-Targets mit betraf. Das war ein echter Scope-Regressionseffekt, nicht nur eine CI-Flake.
 - Korrigiert in Head `b96b1f83af457f4df926992cdecbd9c7e88ea4d1`: **nur** beim legacy `local`-Target ohne Runtime-Owner fail-closed und State-Erhalt, andere unbekannte Targets behalten ihre bisherige gesonderte Behandlung. Exakte neue CI offen. **Nicht mergen, bevor gruen.**
+
+## 2026-11-08 Owner-Freigabe und Uebergabe
+
+- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
+- PR #1449 merged ebf56a09; PR #1448 still CI in progress. Native Docker/Podman Keycloak start/destroy/retry required. Prior develop native runs cancelled or skipped; no PASS.
+- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
