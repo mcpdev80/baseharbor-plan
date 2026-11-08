@@ -7,9 +7,9 @@ areas: [lifecycle]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-w132-nativeaccept-r4
-kanban_status: active
-kanban_lane: active
+owner: coord-board
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "develop's Runtime Docker Core and Podman Core push runs are green again;…"
 kanban_title: "0427-132 · #1448 breaks destroy retry"
 priority: critical
@@ -19,22 +19,22 @@ prs: [mcpdev80/baseharbor#1453]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42434076648"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42434076648", "https://github.com/mcpdev80/baseharbor/actions/runs/42476195799"]
 ---
 
-- [ ] t-20261108-bughunt-0427-destroy-retry-regression · Bug Hunt v0.4.27: 1448 macht destroy-retry rot #task #release/v0-4-27 #status/active #view/active #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-destroy-retry-regression · Bug Hunt v0.4.27: 1448 macht destroy-retry rot #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w132-nativeaccept-r4 · **Priority:** critical  
+    **Owner:** coord-board · **Priority:** critical  
     **PR:** [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42434076648)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42434076648), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42476195799)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-w132-nativeaccept-r4  
+**Owner:** coord-board  
 **Priority:** critical  
 **PRs:** [baseharbor#1453](https://github.com/mcpdev80/baseharbor/pull/1453)  
 **Source:** 
