@@ -75,15 +75,15 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 - Report: `~/dev/Tests/Baha-Bug-04-destroy-laesst-keycloak-container.md` (destroy plan JSON without keycloak entries, container labels, status output; observed consistently in 3 destroy + 1 destroy --all runs).
 - Leftovers were removed manually (`docker rm -f`) to finish the binary before/after control; documented in the report.
 
-## 2026-11-08 Übernahme (ChatGPT)
+## 2026-11-08 Takeover (ChatGPT)
 
-- Owner `owner:chatgpt`; `active`. Naechster gezielter Fix: explizite Erfassung des geschuetzten Core-Keycloak-Compose-Projekts auch ohne laufende Container, gefolgt von Negativ-/Eigentums-Regressionen. Keine Fremdcontainer loeschen. Native Docker-Reproduktion bleibt fuer finale Abnahme erforderlich.
+- Owner `owner:chatgpt`; `active`. Next targeted fix: explicit capture of the protected Core-Keycloak compose project even without running containers, followed by negative/ownership regressions. Do not delete foreign containers. Native Docker reproduction remains required for final acceptance.
 
 ## 2026-11-08 Produktfix-PR (ChatGPT)
 
-- [Core PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444), Head `ddb311ea6682cd72337423d7e04f68098803285e`: Destroy-Inventory erfasst `bh-<target>-core-shared` auch ohne laufende Container, statt nur ueber beobachtete Runtime-Container. Verifikation verwendet unveraendert Runtime-Owner-Grenzen.
-- Regression testet Identity-Projekt ohne laufende Container, Preview, Aufraeumen, `sharedOnly` und Schutz fremder Target-Projekte. Exact-head CI offen.
-- Finale Abnahme braucht zusaetzlich realen nativen Docker `baha up/down/destroy`-Ablauf und Status-Messung; nicht vorzeitig `closed`.
+- [Core PR #1444](https://github.com/mcpdev80/baseharbor/pull/1444), head `ddb311ea6682cd72337423d7e04f68098803285e`: destroy inventory captures `bh-<target>-core-shared` even without running containers, not just via observed runtime containers. Verification continues to use unchanged runtime-owner boundaries.
+- Regression tests the identity project without running containers, preview, cleanup, `sharedOnly`, and protection of foreign target projects. Exact-head CI open.
+- Final acceptance additionally needs a real native Docker `baha up/down/destroy` sequence and status measurement; not closed prematurely.
 
 ## 2026-11-08 Merge-Nachweis PR #1444 (ChatGPT)
 
