@@ -126,3 +126,8 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 - Exact-head [#5319](https://github.com/mcpdev80/baseharbor/actions/runs/42512036786) FAIL in Docker and Podman native Keycloak/Core: `TestControlPlaneSingleDefaultNativeRuntimeInCI` could not read `baseharbor-bootstrap-cleanup-pending` before bootstrap. This is a shared test marker setup defect, not evidence of a product runtime failure.
 - Root cause: the old PR head's `TestMain` did not enable the native acceptance marker cell, and `ensureRuntimeIntegrationTrustPlane` changed `XDG_DATA_HOME` after the package marker boundary. The fix was already on develop; copied that version of `cmd/baha/runtime_integration_test_support_test.go` into #1473 head `b14ed8372315e761d900f14e050afbae9970e462`.
 - Fresh [CI #5320](https://github.com/mcpdev80/baseharbor/actions/runs/42512795402) initiated on that head; no PASS asserted until Docker and Podman checks truly execute successfully. Remote app apply/update/destroy E2E remains FAIL independently.
+
+## Native integration proof 2026-11-08
+
+- PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), exact head `b14ed8372315e761d900f14e050afbae9970e462`, [CI #5320](https://github.com/mcpdev80/baseharbor/actions/runs/42512795402): native Keycloak/Core **Docker PASS / Podman PASS**; native destroy/retry **Docker PASS / Podman PASS**; source format, gofmt, go-build, go-vet PASS. Unit check was still running at inspection; final PR Selected Checks pending, so do not mark full CI PASS prematurely.
+- These green native cells validate Core bootstrap and cleanup, **not** remote app lifecycle from a developer workstation. Keep the card open pending authenticated remote apply/status/update/destroy and real Docker-host proof.
