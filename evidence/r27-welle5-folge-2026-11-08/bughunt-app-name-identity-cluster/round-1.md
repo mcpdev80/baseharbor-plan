@@ -72,7 +72,7 @@ Lane: 0427-149. Date: 2026-11-08. Source: hunt H-P3 akte `vm-bughunt/hp3.md` fin
 
 END_DONE mission-149.md: name-dupe locker (registry name-identity uniqueness + --uuid resolution) — product branch HEAD `8f5a83ccb144188ee06b7f85f479de121840af36`, CI go-vet/go-unit-tests/Source format all success (native destroy retries fail on Core-gated integration test, out of scope).
 
-- Evidence-on-origin/main witness (second-to-last action): `<paste exact git ls-remote origin main + cat-file witness>`
+- Evidence-on-origin/main witness (second-to-last action): `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse main` = `6b808ac0edb01fb2de24cd3bca9e991b438f4ab7`; push confirmed `ce131b82..6b808ac0  main -> main`.
 - Branch provenance: develop HEAD moved from `cd494610c` → `4786c5417` → `cdb4350a6`. I cut lane branch `0427-149-name-dupe-locker` from `origin/develop` `201735b03`; `git merge-base --is-ancestor origin/develop HEAD` => YES. Branch HEAD `8f5a83ccb` contains only my lane commits plus the develop merge-in (which is required: the PR merge `pull/1475/merge` resolves `runtime_ports_test.go` to develop's 504-line version with old 6-arg `resolveRegisteredApplication` calls, so the branch had to be rebased onto current develop). All 13 changed files are mission files.
 
 ---
