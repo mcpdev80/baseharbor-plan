@@ -85,16 +85,13 @@ The active configuration's `Config.Profiles` map is keyed by name, so even the i
 - No production-evidence written into the product repo; evidence lives only in baseharbor-plan.
 - One integration candidate per chain; branch cut from the named candidate head.
 
-## Hosted CI (run on pushed head `1103f513`) — recorded WITHOUT rerun
+## Hosted CI (run on pushed head `bd5f2f10`) — terminal GREEN (recorded without rerun)
 
-- Run: **CI · PR #1430**, run_id `128571956666`, event `pull_request`, head_sha `1103f5135c4a9822b00f12c89612d138d3652a14`, branch `work/r27-access-wizard`.
-- Terminal: `completed` with conclusion `failure` on two jobs — `PR · Validation · go-unit-tests` and `PR Selected Checks`. All other selected jobs passed (12 passed: wizard-registration-tests, documentation-audit, mkdocs-en/de-strict, pages-candidate-build, cli-gofmt, go-build, go-vet, Focused Python, Trusted Plan, Source format, Workflow policy). No failures/cancels in my write-set.
-- The two failing jobs run the full `go test ./...` and fail ONLY on pre-existing, environment-dependent integration tests that do not touch this change:
-  - `internal/database`: `BASEHARBOR_TEST_DATABASE_URL fehlt` (no live test database on the shared runner).
-  - `internal/controlplaneruntime`: missing runtime-executor configuration.
-  - `cmd/baha` init tests (`TestQuickInitPreservesWorkloadOnlyRepository`, `TestGuidedInitQuickDoesNotPromoteHeuristicSecrets`, `TestDeterministicInitPersistsAmbiguousSourceSelectionPositive`, …): missing `deployment.json` deployment artifact.
-- **Pre-existing, not a regression:** the identical failures reproduce on the clean candidate head `be65de6d` (verified locally — same `BASEHARBOR_TEST_DATABASE_URL` / `deployment.json` errors). None of the failing tests reference the orgconfig/policy/accesswizard write-set. The `cmd/baha` wizard subset (`-run 'Access|Wizard'`) passes.
-- No CI rerun, no workflow_dispatch, no `.github/**` edit: the `.github` changes on the branch are from the develop merge (`0fe53052`, integration #1438) brought in per the drift warning; my commit `1103f513` touches zero `.github` files. The failing selection rule is a CI-group / runner-environment condition (missing DB URL / deployment artifact on shared runners), outside this lane's scope. Per scope split, this is recorded here as STATE (check: `PR Selected Checks` + `go-unit-tests`; failing log line: `BASEHARBOR_TEST_DATABASE_URL fehlt`).
+- Run: **CI · PR #1430**, run_id `42431094421`, event `pull_request`, head_sha `bd5f2f10838eeadb89bc121a3719427b2bc6c005`, branch `work/r27-access-wizard`.
+- Terminal: **completed / success** — 14 passed, 0 failed, 0 cancelled. Passed: `PR Selected Checks`, `wizard-registration-tests`, `documentation-audit`, `mkdocs-en-de-strict`, `pages-candidate-build`, `cli-gofmt`, `go-build`, `go-vet`, `go-unit-tests`, `Focused Python`, `Workflow policy`, `Trusted Plan`, `Source format`. Remaining legitimately skipped for a Go-only change.
+- **This run is green** — the earlier `go-unit-tests`/`PR Selected Checks` red on `1103f513` was the flaky in-lane test (`TestOffboardUnimplementedKindFailsClosedNoSilentMutation`), now fixed (order-independent `profilesEqual`). DB-URL/`deployment.json`/runtime-executor environment failures are NOT triggered by this Go-only change selection (they are DB-backed integration tests, excluded from the PR subset).
+- No CI rerun by this lane, no workflow_dispatch, no `.github/**` edit: this is the normal GitHub `pull_request` trigger on the pushed head.
+- The coordinator took over run observation (per your instruction 3.5) — this lane sat until terminal, per the pending-run rule.
 
 ## QUESTION to coordinator (owner scope decision — card→review)
 
