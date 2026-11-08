@@ -52,3 +52,10 @@ Reader treats line-buffered input only: complete "y\n" authorizes, torn "y"+EOF 
 
 ## Dependencies and file ownership
 Follow-up of 0427-161 (merged #1485). Write-set: cmd/baha trust prompt reader (same site as #1485 fix).
+
+## Done (0427-166 worker note)
+
+- Final develop head `3187cea15728143146905c7238ad6e280ca11b3e` contains the fix (trust.go line 206 EOF guard).
+- Verified locally on merged develop: all six trust-uninstall tests PASS, `go vet ./cmd/baha/` OK.
+- Evidence dossier: `evidence/bughunt-trust-uninstall-eof-error/round-2.md`.
+- Branch `0427-166-trust-uninstall-eof` cleaned up (no stray candidate).
