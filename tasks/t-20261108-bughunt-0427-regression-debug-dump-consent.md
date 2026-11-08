@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: lane-w129-dbgdump
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: baha up without --confirm-candidate on an already-initialized app repository exits 1 with a clean stderr (no goroutine dump) on…
 kanban_title: "0427-129 · debug goroutine dump on"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1439]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-regression-debug-dump-consent · Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) #task #release/v0-4-27 #status/active #view/active #area/dx #kind/bug
+- [ ] t-20261108-bughunt-0427-regression-debug-dump-consent · Bug Hunt v0.4.27 (Regression 0427-120): debug goroutine dump on consent denial (develop 0fe53052d) #task #release/v0-4-27 #status/review #view/review #area/dx #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w129-dbgdump · **Priority:** normal  
+    **PR:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w129-dbgdump  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1439](https://github.com/mcpdev80/baseharbor/pull/1439)  
 **Source:** 
 <!-- /generated:links -->
 
