@@ -56,6 +56,67 @@ Transcripts on host: `/tmp/c2-matrix.out` (count=2 contaminated), `/tmp/cont-mat
   `cmd/baha/repository_runtime_fixture_test.go`, `cmd/baha/runtime_integration_test_support_test.go`).
 - Build + vet clean after merge.
 
+## Podman lane lock — already released, host free (verified 2026-11-08)
+
+`baha-podman` is **not** held by any living process and carries **no lock file** in
+`coordinator/.vm-locks/`. The `.pool.json` registry has no podman entry. The coordinator
+journal (`coordinator/.vm-locks/journal.log`) shows the prior claim by `0427-116-r5`:
+
+```
+2026-11-07T14:52:11Z claim baha-podman 0427-116-r5
+2026-11-07T23:02:27Z release baha-podman 0427-116-r5
+```
+
+Hold ≈ 8h10m; released by the owning mission itself. `0427-116-r5` is a closed mission
+(corrected-review round). Lock was never re-claimed after release. Podman host reachable
+(`podman version 5.7.0`), lane `0427-110-compose-native-acceptance` has 0 containers. **No
+release action needed — the lock is already `frei` and documented above.** (The host carries
+33 foreign quadlet `bh-*` containers from other missions' `/tmp/*.config/containers/systemd/`;
+none belong to this lane and were not touched.)
+
+## Befunde für Verkartung (owner)
+
+### F1 — `-count=2` deadlock on truly-clean host: confirm-retry goroutine leak
+
+- **file:line:** `cmd/baha/deployment_record.go:551` — `recordDeploymentBeforeMutation`,
+  `consent == nil` branch.
+- **Reproduktion:**
+  ```
+  cd cmd/baha
+  go test -run 'TestRepository(WorkflowRealLifecycle|ComposeWorkload|BuildWorkloadRebuildsSourceChangesInCI)' -count=2
+  ```
+  auf einer **sauberen** VM (kein ambient `bh-local-shared` Core). Der erste Iterationslauf
+  terminiert sauber (`rc=0`). Beim zweiten Iterationslauf blockiert der `go test`-Prozess im
+  **apply-confirm**: `consent==nil` betritt den Retry-Pfad, der eine Pipe/Reader-Halterei
+  offen lässt; die gehaltene Goroutine hält den `os.Pipe`/FD offen, sodass der Testprozess
+  nie zurück zu `testing.Main` und damit nie exited — `go test` hängt bis `-timeout` (default
+  10m), dann `FAIL ... test timed out`.
+- **Warum `-count=1`-CI ihn nicht fängt:** die Gate-Workflows `ci.yml:306` und
+  `docker-runtime-acceptance.yml:306` laufen mit `-count=1` und auf **frischen Runnern je
+  Test**. Jede Test-Ausführung ist isoliert; der leaked FD/Goroutine des Iterationslaufs 1
+  kann keinen Iterationslauf 2 im selben Prozess blockieren. `-count=1` auf frischem Runner
+  sieht nur die saubere Terminierung — der Leak ist intrinsisch eine **Multi-Iteration-** /
+  **Langzeit-Prozess-** Eigenschaft, die `-count=1` auf Clean-Roller per Definition nicht
+  deterministisch auslöst.
+- **Warum contaminated (`-count=2`) grün ist:** ambient Core löst die Zustimmung (`consent !=
+  nil`) ohne den `consent==nil` Retry-Pfad; der Leak wird auf dem verseuchten Shared-Daemon
+  nicht durchlaufen. Der contaminated count=2-Lauf war daher 4/4 `rc=0` (siehe Cell table).
+- **Bewertung:** kein CI-Failure auf der Gate-Head (`-count=1`, frische Runner), sondern ein
+  **Leak im Produkt-/Harness-Befund**: der confirm-retry-Pfad hält FDs/Goroutines offen und
+  ist auf `count=N` bzw. langlaufende Prozesse nicht leak-frei. Produktseitig `consent==nil`
+  Retry sauber auflösen (Pipe/FD close, goroutine beenden) statt hängen zu lassen.
+  **Nicht im WIP behoben** — Owner-Karte zur Verkartung.
+- **Nachweis:** Host-Transkript der sauberen count=2-Sitzung hängt (HANG bei `recordDeploymentBeforeMutation`); docker contaminated count=2 4/4 `rc=0` gegenbeispiel in Cell table.
+
+### F2 — Podman application-readiness (platform finding, not yet triaged)
+
+Erster Podman-Lauf (`baha-podman`, count=1, `TestRepositoryWorkflowRealLifecycle`) erreichte
+Backend-Readiness (PostgreSQL `authenticated SELECT 1`, Valkey `semantic verification passed`)
+schlug aber fehl: `DEGRADED application — one or more readiness checks failed`. Backends sind
+READY, aber die Application-Workload/Endpoint-Prüfung greift unter Podman nicht. Kein
+fake-green angestrebt; Host-Zustand sauber dokumentiert. **Triage durch Owner** (podman
+rootless port-publishing / healthcheck-Semantik vs. Docker).
+
 ## Open (handed to owner / blocked)
 
 - **Clean `-count=2` deadlock (finding, not fixed):** on a truly clean host (no ambient Core)
@@ -65,6 +126,8 @@ Transcripts on host: `/tmp/c2-matrix.out` (count=2 contaminated), `/tmp/cont-mat
   also hit the confirm path. The contaminated scenario resolves the confirm via the ambient
   Core, so `-count=2` is green there. CI runs on fresh runners per test (`-count=1`), which is
   the authoritative gate. This is a product/harness finding for the confirm-retry lifecycle.
-- **Podman matrix** (clean + contaminated, count=1): `baha-podman` held by mission
-  `0427-116-r5`, not releaseable until after the docker lane releases.
+  → formalisiert als **F1** (Befunde für Verkartung).
+- **Podman matrix** (clean + contaminated, count=1): `baha-podman` host reachable, lock
+  bereits frei (siehe Abschnitt oben). Application-readiness-Fehlenschlag als **F2** dokumentiert
+  — Triage durch Owner.
 - Final: round evidence consolidated, lane release, END_STOPPED at lane `594fd2f5`.
