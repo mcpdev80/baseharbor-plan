@@ -55,3 +55,9 @@ act-1451-review.md: the 0427-124 production reader merged, but use/activate reso
 ## Dependencies and file ownership
 
 Depends on access-wizard acceptance (#1430). Write-set: cmd/baha target/use/activate paths + internal/deployment target-state reader.
+
+
+## Audit 2026-11-08 — PR geschlossen, Acceptance getrennt
+
+- [#1460](https://github.com/mcpdev80/baseharbor/pull/1460) ist gemergt nach `develop` (`201735b03145ce036407a0272882ec184943cd6a`); die Keycloak-Core-Issuer-/Destroy-Retry-CI war gruenn.
+- Fuer die hier geforderte **isolierte Greenfield-E2E-Kette** auf Docker und Podman fehlt in dieser Kartenpruefung ein separat ausgewiesener PASS-Nachweis. Daher `active` nicht allein aus dem PR-Merge in `closed` umschreiben. `pending-lane-*` ist kein bestaetigter aktiver Worker; diese Eigentuemer-Zuordnung ist im naechsten Owner-Abgleich aufzuklaeren.
