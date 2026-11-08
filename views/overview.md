@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 12 |
+| active | 13 |
 | review | 4 |
 | wait | 4 |
 | blocked | 3 |
-| ready | 7 |
+| ready | 6 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -33,6 +33,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-app-name-identity-cluster](../tasks/t-20261108-bughunt-app-name-identity-cluster.md) | Bug Hunt v0.4.27: Duplicate names lock all | active | normal | lane-w149b-nameid2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1475](https://github.com/mcpdev80/baseharbor/pull/1475) |
 | [t-20261108-bughunt-destroy-data-root-residual](../tasks/t-20261108-bughunt-destroy-data-root-residual.md) | Bug Hunt v0.4.27: Destroy finds own core | active | normal | chatgpt-r27-destroy-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1483](https://github.com/mcpdev80/baseharbor/pull/1483) |
 | [t-20261108-bughunt-openbao-stale-manager-cred](../tasks/t-20261108-bughunt-openbao-stale-manager-cred.md) | Bug Hunt v0.4.27: Stale cred blocks rebirth | active | normal | lane-w154-baocred-b | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1468](https://github.com/mcpdev80/baseharbor/pull/1468) |
+| [t-20261108-bughunt-second-target-shares-core](../tasks/t-20261108-bughunt-second-target-shares-core.md) | Bug Hunt v0.4.27: Second target reuses Core | active | normal | lane-w163-sharedcore | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-up-nontty-panic-consent](../tasks/t-20261108-bughunt-up-nontty-panic-consent.md) | Bug Hunt v0.4.27: Non-TTY up panics | active | normal | lane-w157-nonttyup | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) | Bug Hunt v0.4.27: Select fails without issuer | active | normal | lane-w162-issueruse | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
@@ -69,7 +70,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-second-target-shares-core](../tasks/t-20261108-bughunt-second-target-shares-core.md) | Bug Hunt v0.4.27: Second target reuses Core | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-stale-provider-edit-block](../tasks/t-20261108-bughunt-stale-provider-edit-block.md) | Bug Hunt v0.4.27: Stale instance blocks edit | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-target-delete-nontty-consent](../tasks/t-20261108-bughunt-target-delete-nontty-consent.md) | Bug Hunt v0.4.27: Target delete needs TTY | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
