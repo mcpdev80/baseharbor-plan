@@ -10,10 +10,10 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: wait
-kanban_summary: Decide and implement (or explicitly scope out) a Core authority model for Connector enrollment that works with a remote-hosted…
+kanban_summary: "Connector enrollment works through the verified remote Core authority without local-state or signer fallback."
 kanban_title: 0427-168 · serve needs local core
 priority: high
-depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-up-ignores-target]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-up-ignores-target, t-20261018-r27-connection-client]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -33,7 +33,7 @@ evidence: []
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
@@ -80,3 +80,7 @@ Implement Connector enrollment against the Core's verified installation authorit
 ## Handoff
 
 - Found 2026-11-08 in E2E smoke-test. Waiting for the remote Core binding implementation; no Owner scope decision remains. No fix attempted per smoke-test rules. Newest first.
+
+## Scope confirmation 2026-11-08
+
+The accepted core-777 / v0.4.27 contract includes an authenticated remote developer client and host-owned management Core. This is an implementation dependency, **not** an unresolved Owner scope decision. Resume once remote management binding from [0427-023](t-20261018-r27-connection-client.md) and remote bootstrap safety from [0427-167](t-20261108-smoke-0427-up-ignores-target.md) are qualified. The remote E2E remains FAIL.
