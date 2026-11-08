@@ -7,15 +7,15 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "chatgpt-r27-path-signal"
+kanban_status: active
+kanban_lane: active
 kanban_summary: SIGINT at a raw prompt = clean cancel with message and restored terminal; signal regression in the existing field.
 kanban_title: 0427-145 · Ctrl-C breaks raw prompt
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1472]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -55,3 +55,9 @@ None. Write-set: cmd/baha path prompt raw mode.
 
 ## Audit note (Karten-Audit 2026-11-08)
 Audit 2026-11-08 (zuerklaeren): the missing Interrupted line was observed non-deterministically; the deterministic part (terminal restore) is what acceptance must pin. [Dossier](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/karten-audit-2026-11-08.md)
+
+
+## PR and owner — 2026-11-08
+
+- Claimed by `chatgpt-r27-path-signal` for [PR #1472](https://github.com/mcpdev80/baseharbor/pull/1472). Raw path Ctrl-C displays a clean cancellation and retains `context.Canceled`; real PTY regression verifies ISIG-off entry, Ctrl-C and restoration of the terminal local flags.
+- Exact-head CI and signal regression pending. Do not close or claim user-host proof before terminal PASS.
