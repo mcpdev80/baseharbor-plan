@@ -7,9 +7,9 @@ areas: [lifecycle, sql]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "owner:chatgpt"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
 kanban_title: 0427-121 · phantom SQL key blocks down
 priority: high
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/planned #view/ready #area/lifecycle #area/sql #kind/bug
+- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/active #view/active #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** owner:chatgpt · **Priority:** high  
+    **In progress** · owner:chatgpt  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** owner:chatgpt  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -72,3 +72,7 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 - Source: bug-hunt session 2026-11-07, 0.4.23-develop (8a3f58da9), Docker 29.6.0 rootless.
 - Report: `~/dev/Tests/Baha-Bug-03-cross-app-down-missing-dependency.md` with full error text, deployment.json excerpt, registry dump; reproduced 1x end-to-end (causality registry↔intent proven; independent second run outstanding).
 - Note: manual workaround during the hunt was deleting the phantom deployment record; stop-path cross-app coupling was observed in the same run.
+
+## 2026-11-08 Übernahme (ChatGPT)
+
+- Owner `owner:chatgpt`, Lane `active`: SQL-Phantom-Key-Kausalitaet (Writer + Fremd-App-Stop-Footprint) anhand aktueller `develop`-Quellen pruefen, sichere Isolationsregression und gezielten Produktfix erstellen. Fremde App-Referenzen nicht global unterdruecken.
