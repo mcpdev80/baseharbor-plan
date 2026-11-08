@@ -87,4 +87,4 @@
 
 ## END
 
-- DONE — (final line, updated when work complete)
+- DONE — 0427-131 complete: `baha logs` now resolves to app logs (no more `login` suggestion). PR #1456 vs develop (3 commits), CI unit+docs green (run 42460379046), card -> review, evidence on planning origin/main 846f5f88.
