@@ -122,3 +122,10 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 
 - PR #1432 (`6e06cb6a85ede34df5a0ea9fd23a825f49c8f03b`) hat einen alten erfolgreichen [CI-Lauf #42391093788](https://github.com/mcpdev80/baseharbor/actions/runs/42391093788), liegt gegen aktuelles `develop` jedoch **135 Commits behind, 14 ahead** (divergiert). Der bisherige 8/8 Native-Greenfield-Erfolg ist SHA-genau, aber nicht automatisch ein PASS auf aktuellem Integrationskopf.
 - Vor Merge aktualisierten Diff auf `develop` abstimmen; danach relevante native Zellen inkl. SINGLE-default, HA-opt-in und HA-negative acceptance auf exakt dem Integrations-SHA pruefen. Solange kein aktueller Beleg vorliegt bleibt `active`, kein Merge allein aufgrund historischer gruener CI.
+
+## Rebase and native requalification — 2026-11-08
+
+- PR #1432 rebased by creating a single replacement commit on develop `d8849198` (original 14 commits condensed, four final PR files preserved); new head `8a793c09c6b509280d72714dbf862b6ad4aa6b40`.
+- PR CI: https://github.com/mcpdev80/baseharbor/actions/runs/42501095254 (new head).
+- Fresh native 8-cell Greenfield run: https://github.com/mcpdev80/baseharbor/actions/runs/42501117075, from `runtime-validation/greenfield/r27-1432-rebased` at same head.
+- Remains active until both runs are terminal success and required SINGLE-default, explicit HA-positive, and default-HA-negative topology evidence is verified; no green-by-skip.
