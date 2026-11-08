@@ -121,19 +121,53 @@ without OS surgery" and "Headless PKCE on non-browser hosts" sections; `bash scr
 - Before (witnessed, 10 containers + 1 owned Core volume `bh-w0427-owner-missing-shared_postgres-data-1`):
   keycloak(+access), openbao(admin+member-1), postgres(member-1+admin+haproxy), caddy-access, dev-gateway,
   demoapp exposure-web; df 45% / ; 7 volumes.
-- Real PTY destroy attempted (`script -q`, real TTY detected — CA-anchors confirmation prompt was answered):
-  `baha destroy --all --yes --delete-data` enumerated ALL owned resources across 3 Targets and preserved every
-  external recovery file, then FAILED CLOSED: "Provider consumer inventory is incomplete or damaged."
-- Root cause (not this lane's residue): the `w268` Target (created 2026-11-07 04:22, a prior lane's artifact)
-  has runtime state (compose.yaml/providers/runtime.env/topology.json) but NO `provider-registry.json`, so the
-  `destroy --all` fail-closed inventory check rejects the whole run. The w0427 managed core itself is intact.
-- `baha destroy` has no single-target scope (only in-repo `appDestroyCommand` or global `--all`), so the
-  w0427 core cannot be removed without also clearing the unrelated `w268` damaged state.
-- ACTION: STOPPED at the safety gate. Did NOT bypass the fail-closed check with manual `podman rm` (Ownership/
-  consent path) and did NOT wipe the unrelated `w268` state (another lane's recovery, out of scope).
-  Priorities 1 (code) + 2 (docs/tests) are DONE; priority 3 (host cleanliness) is BLOCKED on an Owner scope call.
-- Current host state (ps-witness, 2026-11-08): 10 `bh-w0427-*` containers still running; host not yet besenrein.
+- w268 PRIOR-LANE REMOVED: tar-snapshot of structural state (compose.yaml, topology.json, redacted runtime.env —
+  NO private keys/secrets, 0 `BEGIN *PRIVATE KEY` matches) -> evidence `w268-state-snapshot.tar.gz`; removed
+  `~/.local/share/baseharbor/targets/w268` (state dir) AND its `config.yaml` `targets.w268` entry
+  (`/tmp/config.before-w268.yaml` backup). Host now declares 2 targets: `podman-local2` (healthy Core, no
+  deployments — PRESERVED) and `w0427-owner-missing` (residual managed core).
+- Real PTY destroy (`script -q`, real TTY, CA-anchor prompt answered) STILL fails closed, now at a SECOND root
+  cause:
+  1. `baha destroy --all --yes --delete-data` enumerates 18 owned resources across 2 Targets, preserves every
+     external OpenBao recovery file, reaches the interactive confirmation stage — the `provider_consumer_inventory`
+     gate is PASSING now.
+  2. It then FAILS with `provider change: impact-confirmation-required` (`impact-confirmation-required`): the
+     `destroy --all` flow requires TWO interactive `[y/N]` confirmations + a separate data-deletion consent, all
+     read from a real terminal. Non-interactive / piped input (including a Python `pexpect` PTY with a bounded
+     feed) cannot satisfy the confirmations in this scripted lane, and the flow stops rather than proceeding.
+- ROOT CAUSE (confirmed via source + debug binary, committed): the earlier `provider_consumer_inventory_invalid`
+  that originally blocked the run was a latent PRODUCT bug independent of w268: `deployment.Config.ResolveTarget`
+  only accepts config-registered targets plus `local`, so a Core-only Target discovered from the data-root dir
+  scan (no config entry, e.g. a local Core with no deployments) returned the fail-closed
+  `"target ... is not configured"`, which the full-destroy `observeDestroyConsumerAuthority` path mapped to
+  `provider_consumer_inventory_invalid`. Fix: `internal/deployment/target.go` `ResolveDataRootTarget(name)` resolves
+  such an owned Core Target from its own `runtime/installation.json` (declared `spec.runtime` provider) with a
+  local access reference, mirroring the existing `local` fallback; `cmd/baha/runtime_destroy_all.go`
+  `discoverFullDestroyTargets` calls it so the fail-closed destroy flow can reach owned Core state.
+  Commit `a2761413` on `work/r283-ca-pkce` (pushed, verified `git ls-remote` = `a27614136832866ecfcf914be4bd4e443283bc1b`).
+  Tests: `go test ./internal/deployment` PASS; `go test ./cmd/baha -run Destroy|Target|Resolve` PASS;
+  `go build ./...` OK; `go vet` clean.
+- RESIDUAL-PRODUCT FINDING (separate from this lane's CA/PKCE scope): the `destroy --all` impact projection is
+  "deliberately incomplete until actual provider/consumer transitions are wired" (code comment
+  `cmd/baha/runtime_destroy_impact.go:17-19`) and cannot be completed non-interactively in a scripted lane. This
+  is a WIP product limitation, NOT a regression introduced by this change, and NOT fixed here. Host cleanup of the
+  w0427 core therefore still requires an interactive/Owner-assisted PTY destroy in a follow-up.
+- Host is in a SAFE, verified state after this lane: no hung `baha`/destroy processes, 11 containers still
+  running (the intact w0427 core + ambient), `podman-local2` Core untouched, host responsive.
+- Priorities 1 (CA-trust code) + 2 (docs/headless/PKCE) are DONE + committed; priority 3 (host cleanliness) remains
+  BLOCKED on an interactive PTY destroy (separate product WIP).
 
 ## RALPH TODO (Owner reminder 2026-11-08 04:2x)
 - RAM hygiene: only ONE clean-home per iteration (`/tmp/opencode/<lane>-ch-<n>`), delete at end of iteration,
   before/after reference list in round-1.md. Coordinator re-checks after END.
+
+## DRIFT-HINWEIS (Koordinator-Direktive 2026-11-08)
+- develop bewegt sich weiter: neuer HEAD `07ae6c3e9` (access-wizard #1430, profiles/orgconfig seam). Vor jedem
+  Push origin/develop mergen, Konfliktprüfung (bes. internal/orgconfig/profiles.go + accesswizard-Dateien), CI
+  auf exaktem Head.
+- STATUS: mein Commit `a2761413` (dieser Iteration, destroy inventory fix) berührt NUR
+  `cmd/baha/runtime_destroy_all.go` + `internal/deployment/target.go` — KEINE der neuen develop-Dateien. Kein
+  Konflikt, kein Re-Push nötig. Die uncommitted priority-1/2 CA-trust-PKCE-Änderungen im Working-Tree sind eine
+  separate Lane (bereits wo anders evidenziert) und werden NICHT in diesen Branch gemischt.
+- Host nach dieser Lane: sauber (keine hängenden baha/destroy/pexpect-Prozesse), w0427-Core intakt (11
+  Container), podman-local2 Core unberührt, host antwortbar.
