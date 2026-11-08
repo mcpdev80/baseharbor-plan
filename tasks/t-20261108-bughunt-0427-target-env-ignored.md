@@ -58,25 +58,25 @@ Production command paths honour `BASEHARBOR_TARGET` (or an explicit equivalent) 
 
 Depends only on the release umbrella. Write-set per repo rules; intake evidence carries the exact repro.
 
-## 2026-11-08 Übernahme (ChatGPT)
+## 2026-11-08 Takeover (ChatGPT)
 
-- Owner `owner:chatgpt`, `active` fuer gezielte Diagnose von `BASEHARBOR_TARGET` im echten Core-CLI-Startpfad; keine implizite Target-Umschaltung und keine fremden Ressourcen manipulieren.
-- Ergebnis noch offen; Reproduktion und Regression vor Abschluss erforderlich.
+- Owner `owner:chatgpt`, `active` for targeted diagnosis of `BASEHARBOR_TARGET` in the real core CLI startup path; no implicit target switching and do not manipulate foreign resources.
+- Result still open; reproduction and regression required before completion.
 
 ## 2026-11-08 Produktionspfad-Diagnose (ChatGPT)
 
-- [PR #1443](https://github.com/mcpdev80/baseharbor/pull/1443), Head `37019b5c1445dda0cc47204e334c734c1e61aff7`: Regression prueft `BASEHARBOR_TARGET` direkt in der produktiven `effectiveTarget()`-Aufloesung und ueber `baha target show --json`, jeweils gegen ein abweichendes persistiertes Target. Exakte CI ausstehend.
-- Codeinspektion: `cmd/baha/target.go` liest die Variable; `deployment_record.go` benutzt sie ebenfalls bei der Boot-Target-Auswahl. Der auf der VM beobachtete `ErrDeploymentOwnerMissing` fuer einen isolierten Target **kann** aus der separaten Installationseigentuemer-Pruefung kommen; keine unsichere automatische Core-Ausleihe eingefuehrt.
-- Noch offen: isolierter nativer Docker+Podman `baha up --control-plane-only` auf anderem Target ohne Zugriff auf fremde Ressourcen; Karte bleibt `active`.
+- [PR #1443](https://github.com/mcpdev80/baseharbor/pull/1443), head `37019b5c1445dda0cc47204e334c734c1e61aff7`: regression checks `BASEHARBOR_TARGET` directly in the production `effectiveTarget()` resolution and via `baha target show --json`, each against a diverging persisted target. Exact CI pending.
+- Code inspection: `cmd/baha/target.go` reads the variable; `deployment_record.go` also uses it during the boot target selection. The observed `ErrDeploymentOwnerMissing` for an isolated target **may** come from the separate installation-owner check; no insecure automatic core checkout introduced.
+- Still open: isolated native Docker+Podman `baha up --control-plane-only` on another target without access to foreign resources; card stays `active`.
 
 ### 2026-11-08 Repro-Praezisierung (ChatGPT)
 
-Die VM-Akte `evidence/r27-welle5-folge-2026-11-07/vm-bughunt/docker2.md` weist `BASEHARBOR_TARGET=ghisolated baha status` mit `ErrDeploymentOwnerMissing` nach, aber **keinen** exakten `BASEHARBOR_TARGET=ghisolated baha up --control-plane-only`-Aufruf. Der spaetere `baha up`-Befehl ist ohne ENV-Prefix dokumentiert; daher ist ein Rueckfall auf den gespeicherten/default Target fuer diesen Aufruf kein Beweis fuer ignorierte ENV. Es sind zwei getrennte Fragen: (1) Target-Aufloesung auf produktivem CLI-Pfad (PR #1443), (2) eigenstaendige Core-Installation/Owner-Recovery des isolierten Targets (weiter offen). Keine Fail-Closed-Aufweichung, keine fremde Core-Autoritaet ausleihen. Karte bleibt aktiv bis zum nativen isolierten Up-/Destroy-Nachweis.
+The VM file `evidence/r27-welle5-folge-2026-11-07/vm-bughunt/docker2.md` shows `BASEHARBOR_TARGET=ghisolated baha status` with `ErrDeploymentOwnerMissing`, but **no** exact `BASEHARBOR_TARGET=ghisolated baha up --control-plane-only` command. The later `baha up` command is documented without ENV prefix; hence a regression to the stored/default target for this command is not proof of an ignored ENV. Two separate questions are: (1) target resolution on the production CLI path (PR #1443), (2) independent core installation/owner recovery of the isolated target (still open). No fail-closed loosening, no lending of foreign core authority. Card stays active until the native isolated up/destroy evidence.
 
 ## 2026-11-08 Merge #1443 (ChatGPT)
 
-- [PR #1443](https://github.com/mcpdev80/baseharbor/pull/1443) nach `develop` gemergt: `c27d259dfdd072533b115cf38c38a3f992082bb2`. Exact-head [CI #42430159943](https://github.com/mcpdev80/baseharbor/actions/runs/42430159943) `success`.
-- Der bestehende produktive `BASEHARBOR_TARGET`-Auswahlpfad ist jetzt gegen persistierten Target-Override getestet. **Kein Beleg** fuer erfolgreichen isolierten Core-Up/Owner-Zyklus; Karte bleibt `active` bis nativer Docker/Podman-Betriebsnachweis vorliegt.
+- [PR #1443](https://github.com/mcpdev80/baseharbor/pull/1443) merged to `develop`: `c27d259dfdd072533b115cf38c38a3f992082bb2`. Exact-head [CI #42430159943](https://github.com/mcpdev80/baseharbor/actions/runs/42430159943) `success`.
+- The existing production `BASEHARBOR_TARGET` selection path is now tested against a persisted target override. **No evidence** of a successful isolated core up/owner cycle; card stays `active` until native Docker/Podman operation evidence is provided.
 
 ### 2026-11-08 CODEX-MERGE #1451 scope decision
 

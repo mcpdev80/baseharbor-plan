@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: lane-w135-count2
 kanban_status: closed
 kanban_lane: closed
-kanban_summary: Ein sauberer go test -count=2 (ohne ambient Core) endet terminierend statt zu blockieren; der Bestätigungspfad leaket keine…
+kanban_summary: A clean go test -count=2 (without ambient Core) ends terminating rather than blocking; the confirm path leaks no pipe-holding…
 kanban_title: "0427-135 · repeat test hangs (count=2)"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -41,16 +41,16 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 
 <!-- /generated:card -->
 ## Outcome and acceptance
-Ein sauberer `go test -count=2` (ohne ambient Core) endet terminierend statt zu blockieren; der Bestätigungspfad leaket keine pipe-haltende Goroutine. Regression im CI-erfassten Pfad.
+A clean `go test -count=2` (without ambient Core) ends terminating rather than blocking; the confirm path leaks no pipe-holding goroutine. Regression in a CI-covered path.
 
-## Problem (Fund aus Compose-Akzeptanz, Runde 9, F1)
-`recordDeploymentBeforeMutation` (cmd/baha deployment_record :551, consent==nil-Zweig) hinterlässt auf einem tatsächlich sauberen Host einen Goroutine, der eine Pipe hält — `go test` terminiert nie, `-count=2` blockiert. Kontaminiertes Bild (ambient Core löst confirm) ist grün; `-count=1` auf frischen Runnern ist grün => CI fing es nie. Transkripte: /tmp/c2-matrix.out (Lane 0427-110).
+## Problem (fund from compose acceptance, round 9, F1)
+`recordDeploymentBeforeMutation` (cmd/baha deployment_record :551, consent==nil branch) leaves a goroutine holding a pipe on a truly clean host — `go test` never terminates, `-count=2` blocks. A contaminated image (ambient core triggers confirm) is green; `-count=1` on fresh runners is green => CI never caught it. Transcripts: /tmp/c2-matrix.out (lane 0427-110).
 
 ## Acceptance
-- Deterministischer Repro (count=2, sauberer host) als test oder dokumentierter CI-pfad; Fix im confirm-retry lifecycle; keine leakende goroutine nach fehlgeschlagenem/abgebrochenem confirm.
+- Deterministic repro (count=2, clean host) as a test or documented CI path; fix in the confirm-retry lifecycle; no leaking goroutine after a failed/aborted confirm.
 
 ## Dependencies and file ownership
-Keine. Write-set: cmd/baha (deployment_record/confirm lifecycle) + tests.
+None. Write-set: cmd/baha (deployment_record/confirm lifecycle) + tests.
 
 ## Resolution (dropped 2026-11-08)
 Not a product defect. Triple-negative reproduction: develop 07ae6c3e9 and the compose WIP head e291fba9a both terminate under clean `-count=2`; SIGQUIT dumps show no pipe-waiting goroutine. The original hang witness came from invalidated FIFO cells plus ambient load on the compose host (round-1.md details). No product change, no PR.

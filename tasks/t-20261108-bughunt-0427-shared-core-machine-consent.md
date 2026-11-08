@@ -58,43 +58,43 @@ up/down complete through documented interactive flow without hanging; any requir
 
 Depends only on the release umbrella. Write-set per repo rules; intake evidence carries the exact repro.
 
-## 2026-11-08 Übernahme (ChatGPT)
+## 2026-11-08 Takeover (ChatGPT)
 
-- Owner `owner:chatgpt`; `active`. Sicherheitsrelevanter Consent-Fluss: interaktiven App-Up/Down-Weg und die bestehende `ProviderChangeConsent`-Pruefung gegen die VM-Reproduktion untersuchen. Keine Abschwaechung der Freigabe- oder Datenloeschungs-Gates. Zuerst echter Negativ-/Positivtest, dann enger Produktfix.
+- Owner `owner:chatgpt`; `active`. Security-relevant consent flow: investigate the interactive app-up/down path and the existing `ProviderChangeConsent` check against the VM reproduction. Do not weaken the release or data-deletion gates. First a real negative/positive test, then a tighter product fix.
 
-## 2026-11-08 Consent-Pfadpruefung (ChatGPT)
+## 2026-11-08 Consent path check (ChatGPT)
 
-- Der aktuelle lokale CLI-Stop-Pfad `authorizeApplicationStop` unter `cmd/baha/application_stop_impact.go` bietet auf einem erkannten Terminal `readProviderImpactAcknowledgements` an, prueft erst danach per `ValidateProviderImpactScopeConsent` und verifiziert vor Mutation den unveraenderten Plan. Der maschinenlesbare Consent bleibt per `BASEHARBOR_PROVIDER_CHANGE_CONSENT` an den aktuellen `plan_id` gebunden; generisches `--yes` reicht **absichtlich nicht**.
-- Der Bug-Hunt beschreibt bei `baha app down` einen blockierenden Prompt auf echtem Rootless-Docker, aber noch keinen exakten aktuellen `develop`-PTY-Trace, der zwischen fehlendem Terminal-Input, abweichendem Plan-ID und fehlender Scope-Confirmation unterscheidet. Bestehender `readProviderImpactAcknowledgements`-Test validiert die Sicherheits-Logik, aber nicht den realen PTY-Weg.
+- The current local CLI stop path `authorizeApplicationStop` under `cmd/baha/application_stop_impact.go` offers `readProviderImpactAcknowledgements` on a detected terminal, then checks afterwards via `ValidateProviderImpactScopeConsent`, and verifies the unchanged plan before mutation. The machine-readable consent remains bound to the current `plan_id` via `BASEHARBOR_PROVIDER_CHANGE_CONSENT`; generic `--yes` is **intentionally** not enough.
+- The bug hunt describes a blocking prompt on real rootless Docker for `baha app down`, but still no exact current `develop` PTY trace that distinguishes missing terminal input, divergent plan ID, and missing scope confirmation. The existing `readProviderImpactAcknowledgements` test validates the security logic, but not the real PTY path.
 - Kein Sicherheits-Bypass und keine behauptete Behebung. Naechster konkreter Nachweis: PTY-E2E mit 2× `y`, Plan-SHA-Vergleich und timeout-gesteuertem Abbruch; danach ggf. lokaler CLI-Input-Fix. Karte bleibt `active`.
 
 ### 2026-11-08 DIAG_EXEC-Teilfehler (ChatGPT)
 
-- In `cmd/baha/app_machine_adapters.go` hat der aktuelle `develop` zwei **unbedingte** `fmt.Printf("DIAG_EXEC ...")` bei fehlgeschlagenem Machine-Provider-Change. Diese Debug-Ausgaben umgehen die stabilen maschinenlesbaren Fehlergrenzen, stoeren stdout und koennen Outcome-Details exponieren. Als sicherer, eng abgegrenzter **Teilfix** von 0427-123 werden sie ohne Aenderung der Consent-/Result-Logik entfernt und gegen Rueckfall getestet. Dieser Teilfix ist **nicht** die Loesung des PTY-Down-Haengers; Karte bleibt danach aktiv.
+- In `cmd/baha/app_machine_adapters.go`, the current `develop` has two **unconditional** `fmt.Printf("DIAG_EXEC ...")` on machine-provider-change failure. These debug outputs bypass the stable machine-readable error boundaries, disturb stdout, and may expose outcome details. As a safe, tightly scoped **partial fix** of 0427-123 they are removed without changing the consent/result logic and tested against regression. This partial fix is **not** the solution to the PTY down hang; the card stays active thereafter.
 
-- **Teilfehler-Fix-PR:** [#1445](https://github.com/mcpdev80/baseharbor/pull/1445), Head `f80dc0b9eefc0b4f757ec4ba4d05a500e569f450` entfernt beide ungefilterten `DIAG_EXEC`-Stdout-Prints und fuegt eine Source-Regression hinzu. Kein Consent-Sicherheits-Bypass. Exact-head CI offen, PTY-Haenger weiterhin separat zu beheben.
+- **Partial-error fix PR:** [#1445](https://github.com/mcpdev80/baseharbor/pull/1445), head `f80dc0b9eefc0b4f757ec4ba4d05a500e569f450` removes both unfiltered `DIAG_EXEC` stdout prints and adds a source regression. No consent security bypass. Exact-head CI open, PTY hang still to be fixed separately.
 
-## 2026-11-08 Merge-Nachweis PR #1445 (ChatGPT)
+## 2026-11-08 Merge Evidence PR #1445 (ChatGPT)
 
-- **Teilfehler-Fix: ungefilterte DIAG_EXEC-Stdout-Ausgaben entfernt:** [PR #1445](https://github.com/mcpdev80/baseharbor/pull/1445) nach `develop` gemergt, Merge-SHA `db06f01e9fd793706da5072769922a0c64afecf0`; [exact-head CI #42430983626](https://github.com/mcpdev80/baseharbor/actions/runs/42430983626) terminal `success`, keine fehlgeschlagenen Jobs.
-- **Karte bleibt `active`**: echte native Docker-/Podman-End-to-End-Abnahme des urspruenglichen Bugs steht noch aus. Der gemergte Teilfix ersetzt diese nicht.
+- **Partial-error fix: unfiltered DIAG_EXEC stdout removed:** [PR #1445](https://github.com/mcpdev80/baseharbor/pull/1445) merged to `develop`, merge SHA `db06f01e9fd793706da5072769922a0c64afecf0`; [exact-head CI #42430983626](https://github.com/mcpdev80/baseharbor/actions/runs/42430983626) terminal `success`, no failed jobs.
+- **Card stays `active`:** the real native Docker/Podman end-to-end acceptance of the original bug is still pending. The merged partial fix does not replace this.
 
-## 2026-11-08 Interaktiver Consent-Regressionstest (ChatGPT)
+## 2026-11-08 Interactive consent regression test (ChatGPT)
 
 - [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) Head `90e9aae7f5c07729a309f97672f60247885c4845`: reproduziert `authorizeApplicationStop` auf dem echten CLI-Autorisierungspfad mit einer endlichen interaktiven Eingabe (2x `yes`, Ablehnung Stufe 1, Ablehnung Stufe 2). Prueft Erfolg nur bei aktueller Plan-ID und fail-closed bei Ablehnung. Noch kein echter PTY auf Docker/Podman; CI offen, Karte weiterhin `active`.
 
-## 2026-11-08 PR #1446 erfolgreich gemergt (ChatGPT)
+## 2026-11-08 PR #1446 successfully merged (ChatGPT)
 
-- [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) erfolgreich nach `develop` gemergt: `f9e207ac0d0b4c983fbb01d4357a8784c41c92de`. Exact-head [CI #42431899984](https://github.com/mcpdev80/baseharbor/actions/runs/42431899984) terminal `success`, **10 PASS, 0 FAIL, 0 ausstehend**.
-- Echter `authorizeApplicationStop`-Codepfad mit zwei Ja-Bestaetigungen, Ablehnung in Stufe 1/2, aktueller Planbindung regressionsgetestet. **Karte bleibt active:** echter PTY- und nativer Docker-/Podman-Lifecycle-Nachweis weiterhin ausstehend, keinerlei Sicherheits-Bypass.
+- [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446) successfully merged to `develop`: `f9e207ac0d0b4c983fbb01d4357a8784c41c92de`. Exact-head [CI #42431899984](https://github.com/mcpdev80/baseharbor/actions/runs/42431899984) terminal `success`, **10 PASS, 0 FAIL, 0 pending**.
+- Real `authorizeApplicationStop` code path with two yes-confirmations, refusal in level 1/2, current plan bound regression-tested. **Card stays active:** real PTY and native Docker/Podman lifecycle evidence still pending, no security bypass whatsoever.
 
 ## 2026-11-08 Acceptance correction (ChatGPT)
 
 - **Prior `closed/accepted` was premature**: code/PR merge links are not native end-to-end proof. Real PTY two-stage app down on BOTH Docker and Podman still lacks exact SHA and PASS-not-SKIP evidence.
 - Reopened to `active` with existing code evidence retained. Do not close until exact integration SHA, native runtime output, verified resource preservation/removal, no SKIP, and VM cleanup are recorded.
 
-## 2026-11-08 Owner-Freigabe und Uebergabe
+## 2026-11-08 Owner Release and Handover
 
-- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `coordinator`. Board-Spalte `wait` (Abhaengigkeit / ausstehende native Abnahme; **kein** technischer `blocked`-Alarm).
+- Processing owner changed from `"owner:chatgpt"` to `coordinator`. Board column `wait` (dependency / pending native acceptance; **no** technical `blocked` alarm).
 - PRs #1445 and #1446 merged. Native PTY Docker/Podman two-stage app down and denial proof still needed.
-- Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
+All existing PR, commit, and CI evidence remains unchanged. No new PASS claimed.

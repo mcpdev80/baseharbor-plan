@@ -56,25 +56,25 @@ the three commands either apply to all targets consistently or present an explic
 
 Depends only on the release umbrella. Write-set per repo rules; intake evidence carries the exact repro.
 
-## 2026-11-08 Übernahme (ChatGPT)
+## 2026-11-08 Takeover (ChatGPT)
 
 - Owner: `owner:chatgpt`; Lane: `active`.
-- Arbeitsauftrag: kleiner, gezielter Produktfix inklusive Regression und verpflichtender PR-CI. Keine gleichzeitigen Änderungen an fremden Karten.
-- Noch kein Produkt-Commit und kein PASS/Abschluss behauptet; Nachweis/PR werden nach tatsächlicher Umsetzung ergänzt.
+- Work order: a small, targeted product fix including regression and a mandatory PR CI. No simultaneous changes to other cards.
+- No product commit and no PASS/completion claimed yet; evidence/PR added after actual implementation.
 
-## 2026-11-08 Produktarbeit (ChatGPT)
+## 2026-11-08 Product Work (ChatGPT)
 
-- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441), Head `42f50099e5267dd31093b959828fbd3e21136a65`: bei mehreren konfigurierten Targets nennt die Fehlermeldung jetzt alphabetisch alle auswaehlbaren Namen sowie die konkrete Auswahl ueber `baha target activate NAME` oder `BASEHARBOR_TARGET=NAME`.
-- Keine implizite Target-Auswahl (Fail-Closed bleibt); neuer Typed-Error-Regressionstest. PR-CI noch offen, Karte `active`.
+- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441), head `42f50099e5267dd31093b959828fbd3e21136a65`: with multiple configured targets, the error message now lists alphabetically all selectable names as well as the concrete selection via `baha target activate NAME` or `BASEHARBOR_TARGET=NAME`.
+- No implicit target selection (fail-closed remains); new typed-error regression test. PR CI still open, card `active`.
 
-## 2026-11-08 Abnahme (ChatGPT)
+## 2026-11-08 Acceptance (ChatGPT)
 
-- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441) **gemergt nach develop**: `f7a49e6818efb269cc928ad550038b2bf94d333b`; gepruefter Head `42f50099e5267dd31093b959828fbd3e21136a65`.
-- [CI #42429449162](https://github.com/mcpdev80/baseharbor/actions/runs/42429449162) terminal `success`, alle Jobs erfolgreich, keine Fehler; native cross-repo VM-Journey war nicht Teil dieser kleinen Bug-Abnahme.
-- **Status `closed` / accepted:** gezielter Produktfix und Regression integriert.
+- [PR #1441](https://github.com/mcpdev80/baseharbor/pull/1441) **merged to develop**: `f7a49e6818efb269cc928ad550038b2bf94d333b`; checked head `42f50099e5267dd31093b959828fbd3e21136a65`.
+- [CI #42429449162](https://github.com/mcpdev80/baseharbor/actions/runs/42429449162) terminal `success`, all jobs successful, no errors; native cross-repo VM journey was not part of this small bug acceptance.
+- **Status `closed` / accepted:** targeted product fix and regression integrated.
 
-## 2026-11-08 Owner-Freigabe und Uebergabe
+## 2026-11-08 Owner Release and Handover
 
-- Bearbeitungs-Owner gewechselt von `"owner:chatgpt"` auf `unassigned`. Bereits akzeptierte Karte bleibt `closed`.
+- Processing owner changed from `"owner:chatgpt"` to `unassigned`. An already accepted card stays `closed`.
 - Fixed/accepted #1441.
 - Alle bestehenden PR-, Commit- und CI-Belege bleiben unveraendert. Kein neuer PASS behauptet.
