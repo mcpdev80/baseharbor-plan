@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: lane-0427-182-impl
 kanban_status: closed
 kanban_lane: closed
-kanban_summary: "Serve test holders are stopped and released; no leaked listener contaminates later CLI tests."
+kanban_summary: Release and await every serve integration holder so a later cmd/baha test cannot inherit a bound listener from another test.
 kanban_title: 0427-182 · Serve holder teardown
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -23,14 +23,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1520", "https://github.com/mcpdev80/baseharbor/actions/runs/42704543118", "https://github.com/mcpdev80/baseharbor/commit/edee0ae532605fb12da3f86f2f588889f579fa7b"]
 ---
 
-- [x] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/closed #view/closed #kind/bug
+- [x] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-182-impl  
     **PR:** [baseharbor#1520](https://github.com/mcpdev80/baseharbor/pull/1520)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1520), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42704543118), [proof 3](https://github.com/mcpdev80/baseharbor/commit/edee0ae532605fb12da3f86f2f588889f579fa7b)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-182-impl  
