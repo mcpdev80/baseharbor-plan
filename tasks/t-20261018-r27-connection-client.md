@@ -472,3 +472,9 @@ Verbindliche Richtung: [Decision](../decisions/2026-11-09-r27-local-delta-delive
 - Exact-head Ready CI `42687471705` revealed two concrete failures: `PR · Source format` because `cmd/baha/app_context.go` had 807 lines (800 limit), and `PR · Validation · pr-planner-tests` because the generated EN CLI index was missing `--tenant-id UUID` in `baha target create`.
 - Fixed by moving `resolvedApplication.ResourceLabel()` to `cmd/baha/app_context_resource_label.go` (`29ac9d44`, `bc0e6d42`), and aligning both EN/DE command indices with actual CLI Usage (`e480f05e`, `d1965fa4`). No application behavior changed. Fresh CI is required on the new exact head; earlier in-progress jobs do not qualify the new commits.
 - Remains active/unmerged: full exact-head CI, physical independent developer workstation -> authenticated Core -> Core-local Docker -> application READY, second delta apply, update and destroy. Preserve VM and security/tenant state.
+
+## 2026-11-09 – CI native second-Core regression after rebase
+
+- CI #42688295995 at HEAD `89520362` had one failed native Docker destroy-retry job: `TestSecondSameHostCoreNativeConflictInCI` asserted two different selected Target identities but called `isolateRuntimeForTest`, which by design always selects the **same** package-owned bootstrap Core Target after the newer isolation changes on `develop`.
+- Fixed in PR #1473 commit `2bc0de6c`: negative test now registers a distinct second local Target on the same runtime engine without `--default`, selects that Target explicitly, and verifies selection before the same-host Core conflict check. Production Core implementation was not changed. Existing first Core remains test-owned; no VM smoke run.
+- CI must qualify the **new exact head**, including Docker and Podman negative native checks; no merge claim from the old failed run.
