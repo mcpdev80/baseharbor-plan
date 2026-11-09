@@ -69,6 +69,22 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- 2026-11-09 r2 correction (lane-0427-179-r2-fix): the r1 blocking gap (b) is
+  fixed. The not-enforcing filesystem condition now fails closed IMMEDIATELY in
+  the app CLI path (no 15s retry) with the actionable remediation text.
+  Implementation: export `ErrLockFilesystemNotEnforcing` at the stableid
+  boundary (internal/stableid/lock_unix.go) and add a `LockProbeFunc` test seam
+  (internal/stableid/lock_probe.go); cmd/baha/application_lifecycle_lock.go now
+  detects the condition via errors.Is and returns immediately; command-path
+  regressions added (cmd/baha/application_lifecycle_lock_test.go) proving
+  immediate fail-closed + remediation, and that genuine contention still enters
+  the bounded retry. Existing cross-process/fail-closed regressions, #1507
+  fairness and per-app dotfile semantics untouched. Commit 11b8bd44 integrated
+  as the single new commit on PR #1515 head (branch 0427-179-flock-enforcement,
+  now 11b8bd44; sibling branch 0427-179-r2-fix deleted). Local targeted checks
+  green on the exact candidate. CI on the exact SHA needs PR #1515 marked ready
+  (Owner; .github/** is Owner scope — never rerun by the lane).
+  Evidence: evidence/bughunt-flock-enforcement-cells/round-2.md.
 
 ## Task Note
 Hunt H-P5 (evidence: evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp5.md, FINDING 1, confirmed in docker cell on kernel 7.0 host): regular-file flock() mutual exclusion is NOT enforced across processes inside the runtime cells (C/python/shell probes all acquired a lock an unrelated child already held), while in-process contends. Every lifecycle guarantee built on `.installation.lock` / per-app dotfiles (incl. today's #1507 fairness work) is therefore advisory-only exactly where BaseHarbor ships. Required: a validity-enforced mutual-exclusion primitive (e.g. O_EXCL lockfile + holder-liveness verification, or flock probe at acquire that fails closed when the kernel/fs does not enforce), plus a cell regression that proves cross-process contention actually blocks.
