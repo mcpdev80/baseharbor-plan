@@ -1,7 +1,7 @@
 ---
 id: t-20261109-r31-cli-manpage-after-consolidation
 card_number: "0431-008"
-card_short_title: "CLI man page after consolidation"
+card_short_title: "CLI man page after cleanup"
 type: task
 areas: [cli, docs]
 release: v0.4.31
