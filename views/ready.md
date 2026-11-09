@@ -4,6 +4,4 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261109-0427-182-serve-integration-holder-leak](../tasks/t-20261109-0427-182-serve-integration-holder-leak.md) | 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+None.
