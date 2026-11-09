@@ -47,3 +47,13 @@ Owner-authorized CODEX-MERGE is requested for this exact candidate using squash,
 - No checks were rerun and no workflow files were changed.
 - Evidence is in canonical baseharbor-plan, whose origin is https://github.com/mcpdev80/baseharbor-plan.git.
 
+
+## MERGE
+
+ROLLE: MERGE
+
+- Command: `gh pr merge 1510 --repo mcpdev80/baseharbor --squash` (no force, admin flag, or protection bypass).
+- GitHub API confirms PR #1510 merged at 2026-11-09T10:03:03Z; merge commit fe16127ac19526e7ed287fd8d4d3428fa2a4f174.
+- Remote witness: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1510/head` returned `fe16127ac19526e7ed287fd8d4d3428fa2a4f174 refs/heads/develop` and `4ad2285f8d43dfbed59741903df5f8cd6f27a837 refs/pull/1510/head`.
+- Exact PR validation remains run 42594772123, completed/success on reviewed head 4ad2285f8d43dfbed59741903df5f8cd6f27a837: https://github.com/mcpdev80/baseharbor/actions/runs/42594772123. PR Selected Checks used GitHub Actions app 15368 and passed.
+- Merge-triggered develop workflows 42598000671 and 42598000675 were still in progress at the time of this update. Their live run links are https://github.com/mcpdev80/baseharbor/actions/runs/42598000671 and https://github.com/mcpdev80/baseharbor/actions/runs/42598000675. They are not reported as passed here; final status will be appended after observation.
