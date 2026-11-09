@@ -478,3 +478,8 @@ Verbindliche Richtung: [Decision](../decisions/2026-11-09-r27-local-delta-delive
 - CI #42688295995 at HEAD `89520362` had one failed native Docker destroy-retry job: `TestSecondSameHostCoreNativeConflictInCI` asserted two different selected Target identities but called `isolateRuntimeForTest`, which by design always selects the **same** package-owned bootstrap Core Target after the newer isolation changes on `develop`.
 - Fixed in PR #1473 commit `2bc0de6c`: negative test now registers a distinct second local Target on the same runtime engine without `--default`, selects that Target explicitly, and verifies selection before the same-host Core conflict check. Production Core implementation was not changed. Existing first Core remains test-owned; no VM smoke run.
 - CI must qualify the **new exact head**, including Docker and Podman negative native checks; no merge claim from the old failed run.
+
+## Integration status 2026-11-09
+
+- PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473) merged into `develop` at `6b1838ee38bed120f4af0770a84ac2d1880094ff` after exact-head green CI. This is code integration, **not** a successful independent workstation smoke test; no physical VM changes or E2E READY proof have been reported.
+- Other completed integration steps: #1512 (`bc839f05`), #1518 (`cb30f7a6`) and #1491 (`14c5922c`) merged on fresh green CI. #1514 policy presets, #1470 credential recovery and #1503 native Greenfield proof remain separate Draft PRs pending acceptance. Smoke must be performed on an intentionally selected develop build and its result recorded before treating this card as accepted.
