@@ -27,7 +27,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- generated:card -->
     **Owner:** lane-0427-175-r2 · **Priority:** normal  
     **PR:** [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
