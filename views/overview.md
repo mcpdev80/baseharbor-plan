@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
-| review | 5 |
+| active | 11 |
+| review | 4 |
 | wait | 11 |
 | blocked | 0 |
 | ready | 0 |
@@ -28,6 +28,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | Client: resolve trusted local or remote management connections | active | normal | ChatGPT (remote-client regression) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](../tasks/t-20261105-r27-connection-authority-boundary.md) | [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473) |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | lane-0427-110-compose-native-acceptance | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | active | normal | lane-w178-listscale | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261108-bughunt-app-prune-dangling-record](../tasks/t-20261108-bughunt-app-prune-dangling-record.md) | Bug Hunt v0.4.27: Prune dangling record | active | normal | lane-w173c-mcpcorrect | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) (open) | [baseharbor#1505](https://github.com/mcpdev80/baseharbor/pull/1505) |
 | [t-20261108-bughunt-concurrent-init-double-registration](../tasks/t-20261108-bughunt-concurrent-init-double-registration.md) | Bug Hunt v0.4.27: Double init poisons target | active | normal | lane-w175-initlock | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | active | normal | lane-w159f-trustbind | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
 | [t-20261108-bughunt-lifecycle-lock-scope-fairness](../tasks/t-20261108-bughunt-lifecycle-lock-scope-fairness.md) | Bug Hunt v0.4.27: Target lock serializes and starves | active | normal | lane-w176-lockfairness | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1507](https://github.com/mcpdev80/baseharbor/pull/1507) |
@@ -39,7 +40,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-app-prune-dangling-record](../tasks/t-20261108-bughunt-app-prune-dangling-record.md) | Bug Hunt v0.4.27: Prune dangling record | review | normal | lane-w173c-mcpcorrect | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) (open) | [baseharbor#1505](https://github.com/mcpdev80/baseharbor/pull/1505) |
 | [t-20261108-bughunt-permission-lies-foreign-install](../tasks/t-20261108-bughunt-permission-lies-foreign-install.md) | Bug Hunt v0.4.27: Denied lies foreign | review | normal | lane-w174b-refoldfix | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1506](https://github.com/mcpdev80/baseharbor/pull/1506) |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | review | normal | lane-w165d-orphanrec4 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 | [t-20261108-bughunt-upname-entrypoint-develop-rot](../tasks/t-20261108-bughunt-upname-entrypoint-develop-rot.md) | Bug Hunt v0.4.27: Entrypoint test rots | review | normal | lane-w172b-inventoryfix | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1502](https://github.com/mcpdev80/baseharbor/pull/1502) |
