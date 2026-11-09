@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w144-foreignrec
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Provider resolution tolerates foreign records cleanly or reports the concrete conflict actionably; regression with two apps on…
 kanban_title: 0427-144 · Foreign records stall
 priority: normal
@@ -19,10 +19,10 @@ prs: [mcpdev80/baseharbor#1501, mcpdev80/baseharbor#1504]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp1.md"]
 ---
-- [ ] t-20261108-bughunt-wizard-foreign-records · Bug Hunt v0.4.27: Foreign records stall wizard #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-wizard-foreign-records · Bug Hunt v0.4.27: Foreign records stall wizard #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w144-foreignrec · **Priority:** normal  
     **PR:** [baseharbor#1501](https://github.com/mcpdev80/baseharbor/pull/1501), [baseharbor#1504](https://github.com/mcpdev80/baseharbor/pull/1504)  
@@ -30,7 +30,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w144-foreignrec  
