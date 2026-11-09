@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
 
 <!-- generated:links -->
 **State:** wait  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coordinator  
 **Priority:** high  

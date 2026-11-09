@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
+**Release:** v0.4.27 (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
 **Required by:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
 **Owner:** unassigned  

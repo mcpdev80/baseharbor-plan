@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1403"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-registry-access](t-20261018-r27-registry-access.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** coord-welle5 (1403d entlassen)  

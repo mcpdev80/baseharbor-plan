@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md)  
 **Owner:** coord-board  
 **Priority:** normal  

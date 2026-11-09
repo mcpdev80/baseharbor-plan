@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1220"]
 
 <!-- generated:links -->
 **State:** dropped  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
 **Owner:** marcel  
 **Priority:** not set  

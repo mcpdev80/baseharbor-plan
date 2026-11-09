@@ -32,7 +32,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-appnew-eof-cancel-prompts](t-20261108-bughunt-appnew-eof-cancel-prompts.md)  
 **Owner:** pending-lane-0427-161-r2  
 **Priority:** normal  

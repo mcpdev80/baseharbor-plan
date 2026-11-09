@@ -35,7 +35,7 @@ evidence: [https://github.com/mcpdev80/baseharbor/pull/1375, https://github.com/
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-candidate-contract](t-20261018-r27-candidate-contract.md)  
 **Required by:** [t-20261104-r27-destroy-after-aborted-apply](t-20261104-r27-destroy-after-aborted-apply.md)  

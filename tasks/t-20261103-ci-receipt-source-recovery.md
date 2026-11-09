@@ -31,7 +31,7 @@ evidence: [https://github.com/mcpdev80/baseharbor/pull/1343, https://github.com/
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Release:** v0.4.27  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261103-ci-authority-package-coverage](t-20261103-ci-authority-package-coverage.md)  
 **Owner:** Codex (CI completion 2026-11-03)  
