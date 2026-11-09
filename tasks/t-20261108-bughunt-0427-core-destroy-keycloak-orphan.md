@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "coordinator"
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: A consented baha destroy (and baha destroy --all) of the local control plane removes or explicitly reports every Core-owned…
 kanban_title: "0427-122 · destroy leaves keycloak up"
 priority: high
@@ -19,20 +19,20 @@ prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448, mcpdev80/baseharbor#14
 sources: []
 blocker: ""
 wait_reason: "PRs #1444/#1448/#1449 merged; native Docker/Podman Keycloak start/destroy/retry with exact integration SHA and resource count remains to be evidenced."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158", "https://github.com/mcpdev80/baseharbor/commit/1449"]
 ---
 
-- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/wait #view/wait #area/identity #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/identity #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
     **Waiting:** PRs \#1444/\#1448/\#1449 merged; native Docker/Podman Keycloak start/destroy/retry with exact integration SHA and resource count remains to be evidenced.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1449)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coordinator  

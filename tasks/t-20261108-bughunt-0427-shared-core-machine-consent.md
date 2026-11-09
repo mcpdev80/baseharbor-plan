@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "coordinator"
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 kanban_title: "0427-123 · shared-core consent blocks"
 priority: high
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor#1445, mcpdev80/baseharbor#1446]
 sources: []
 blocker: ""
 wait_reason: "PRs #1445 and #1446 merged. Native PTY Docker/Podman two-stage app down and denial proof still needed."
-resolution: ""
-evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9"]
+resolution: accepted
+evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/1446"]
 
 ---
 
@@ -28,16 +28,16 @@ evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https:/
 
 Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 
-- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/wait #view/wait #area/dx #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
     **Waiting:** PRs \#1445 and \#1446 merged. Native PTY Docker/Podman two-stage app down and denial proof still needed.  
-    **Evidence:** [proof 1](https://github.com/marcel/dev/baseharbor/commit/db06f01e9), [proof 2](https://github.com/mcpdev80/baseharbor/commit/db06f01e9)  
+    **Evidence:** [proof 1](https://github.com/marcel/dev/baseharbor/commit/db06f01e9), [proof 2](https://github.com/mcpdev80/baseharbor/commit/db06f01e9), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1446)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coordinator  

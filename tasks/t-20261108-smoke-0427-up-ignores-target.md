@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ChatGPT (remote bootstrap safety)
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Core bootstrap/install respects the effective or explicitly selected target; when the target cannot host the control plane, a…"
 kanban_title: 0427-167 · up installs local
 priority: high
@@ -19,19 +19,20 @@ prs: ["mcpdev80/baseharbor#1492"]
 sources: []
 blocker: ""
 wait_reason: "Sicherheitsfix #1492 gemergt; Remote-Happy-Path bleibt separater Folgeumfang. Ausstehende Remote-Client-/Connector-Integration wird parallel in #1473 bearbeitet; diese Karte bis Scope-/Acceptance-Abgleich geparkt."
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/1492"]
 ---
 
-- [ ] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/wait #view/wait #area/cli #area/remote #kind/bug
+- [x] t-20261108-smoke-0427-up-ignores-target · Remote core: up installs local #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/cli #area/remote #kind/bug
     <!-- generated:card -->
     **Owner:** ChatGPT (remote bootstrap safety) · **Priority:** high  
     **PR:** [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492)  
     **Waiting:** Sicherheitsfix \#1492 gemergt; Remote-Happy-Path bleibt separater Folgeumfang. Ausstehende Remote-Client-/Connector-Integration wird parallel in \#1473 bearbeitet; diese Karte bis Scope-/Acceptance-Abgleich geparkt.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/1492)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  

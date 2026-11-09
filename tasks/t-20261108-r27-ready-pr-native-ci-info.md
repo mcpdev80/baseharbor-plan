@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: ci-owner
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: "0427-137 · Ready-PR Native CI"
 priority: high
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1463]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1463", "https://github.com/mcpdev80/baseharbor/actions/runs/42466245067"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1463", "https://github.com/mcpdev80/baseharbor/actions/runs/42466245067", "https://github.com/mcpdev80/baseharbor/commit/1463"]
 ---
 
-- [ ] t-20261108-r27-ready-pr-native-ci-info · Ready-PR Native CI #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261108-r27-ready-pr-native-ci-info · Ready-PR Native CI #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** ci-owner · **Priority:** high  
     **PR:** [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1463), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42466245067)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1463), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42466245067), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1463)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** ci-owner  

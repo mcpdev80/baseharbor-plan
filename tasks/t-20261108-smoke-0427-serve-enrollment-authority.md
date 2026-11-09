@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** high  
     **Waiting:** Remote installation and management authority binding (0427-167 / 0427-023) are prerequisites for verifying connector enrollment from a developer workstation.  
-    **Needs:** [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
