@@ -120,8 +120,12 @@ CLI/MCP surfaces (`cmd/baha`):
 
 ## Stop/open items for the review
 
-- Hosted CI outcome for `f32f35576` is appended to this note when the run reaches terminal state
-  (Eigenes-Run observation §4.6; monitor running in the lane).
+- Hosted CI on the exact final head `a6afd633c`: run 42606542313 (attempt on the PR) completed
+  SUCCESS — all 18 checks pass, 0 failures, native destroy-retry cells executed green; observed to
+  terminal state from this lane (`gh pr checks 1512` failure grep empty, PR mergeable CLEAN).
+- Earlier same-head-family evidence: run 42601589418 green on `135c8be1a`; run 42599950208's single
+  failure (`TestUpNameResumesThroughCommandEntrypoint`, the real-Docker resume path) did not
+  reproduce on any later head and is absent from the terminal green run.
 - Native Docker/Podman cells are not required: every new/changed behavior is pure-Go storage/CLI
   logic and is covered by the Go unit job.
 
@@ -145,3 +149,13 @@ CLI/MCP surfaces (`cmd/baha`):
 - `deployment_store.go` grew back to 818 lines through the merge; the registry/conflict cluster now
   lives in `internal/deployment/registry_conflict.go` (778-line store, readability audit PASS,
   no baseline-ratchet entry touched).
+
+## END
+
+Mission steps complete on candidate `a6afd633c` (PR #1512, branch `0427-175-initlock`): race
+prevented at the write seam, poison reported with the verified uuid repair on every planning
+surface, regressions published and CI-green (run 42606542313), EN/DE docs landed, board card at
+`review`. Cleanliness: this lane's temp probes removed, `git status` clean in the worktree, no
+test-owned containers/volumes/networks created (pure-Go cells only). A parallel r2/r3 lane works
+the review round on the SAME branch (its evidence lives in round-2.md/round-3.md); this lane
+stops here without starting new work.
