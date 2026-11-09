@@ -12,3 +12,10 @@ The existing source packer `internal/development/source_snapshot.go` records sou
 
 ## Constraints
 No external developer machine/runtime is accessible through this session's GitHub connector; a green unit test or synthetic HTTP fixture must not be represented as actual on-host smoke success. Do not mark release/PR DONE or merge solely on fixture fixes. Integrate accepted predecessor modules rather than creating a parallel protocol or skipping required authorization/consent.
+
+## Follow-up: 2026-11-09 source-transfer implementation
+- PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473) exact head `4da01dfc3ec9631cff23e698d73b6cf16f84de37` now contains authenticated HTTPS source-transfer handlers, delta transfer with SHA-256 manifest and chunk checks, Core immutable snapshot storage, the HTTP apply source-binding path, and revisioned remote publication/rollback logic. Local isolated `go test -race ./internal/sourcetransfer` passed; this is NOT a full-system validation.
+- Snapshot capture now excludes local .baseharbor credentials, Docker/AWS/SSH/Kube/Terraform configuration and rejects environment/credential files; see commit [4da01dfc](https://github.com/mcpdev80/baseharbor/commit/4da01dfc3ec9631cff23e698d73b6cf16f84de37).
+- A dedicated exact-commit validation ref `runtime-validation/ci/r27-remote-snapshot-4da01d` started [Actions run 42619879783](https://github.com/mcpdev80/baseharbor/actions/runs/42619879783). No success is claimed until it is terminal green.
+- PR #1473 currently reports `mergeable_state=dirty` against newer `develop`, so reconciliation is required before merging; do not overwrite concurrent changes.
+- **Still outstanding:** actual independent workstation HTTPS Core -> Connector -> Docker/Podman READY, second delta apply, update and destroy live-host smoke. No release/tag/merge and no unconditional READY claim.
