@@ -408,3 +408,11 @@ Critical first-deploy gap verified in createTargetManagedApplication: first app.
 Remaining implementation: authorize Git repository through existing tenant/organization source policy before privileged Core fetch (no arbitrary client URL / SSRF); perform credential-helper-backed native Git clone/fetch at an exact commit; stage and bind immutable tree to consent + canonical deployment record under application lifecycle lock; preserve exact staged artifact for Connector delivery and recovery. OCI needs authenticated digest/manifest verification and native image integration. Respect direct/delegated Target delivery and one reconciliation owner. Require physical independent workstation -> Core -> Docker/Podman Connector READY/update/destroy proof before acceptance.
 
 Latest code head 9edca206, CI https://github.com/mcpdev80/baseharbor/actions/runs/42544549416 pending at inspection. Keep 0427-023 active, PR #1473 open and unmerged.
+
+
+## CI review 2026-11-09 08:40 CET: git archive PAX header failure
+
+- Exact PR head `9edca206` CI [42544549416](https://github.com/mcpdev80/baseharbor/actions/runs/42544549416) completed FAIL. Real failing jobs: Go unit tests in `cmd/baha` and `internal/development` (`TestPrepareStagedCoreGitCandidatePinsCanonicalApplication` and `TestStagePinnedGitTreeExportsCommitNotDirtyWorktree`), both rejecting the normal global PAX metadata emitted by native `git archive` as an unsupported TAR entry. This is a product bug, not a waived test.
+- The same CI passed Source format, go-build, go-vet, cli-gofmt, focused Python, native Docker/Podman destroy retries, and native Keycloak/Core Docker+Podman. PR Selected Checks failed as a consequence of failed Go unit tests.
+- Fix in `c9fa6127`: allow only global PAX `comment` metadata (commit identifier) and refuse unknown global metadata/path/link overrides; `9e1a8e26` adds positive Git PAX and negative path/link metadata tests. New exact-head CI [42580961985](https://github.com/mcpdev80/baseharbor/actions/runs/42580961985) pending at last observation. No claim of success before result.
+- Keep card active and PR unmerged: the fix addresses native git archive parsing only, not remote source onboarding, immutable Core candidate consent/Connector binding, OCI source acquisition, or physical remote READY/update/destroy E2E.
