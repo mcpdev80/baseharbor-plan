@@ -27,7 +27,6 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- generated:card -->
     **Owner:** lane-w173c-mcpcorrect · **Priority:** normal  
     **PR:** [baseharbor#1505](https://github.com/mcpdev80/baseharbor/pull/1505)  
-    **Needs:** [t-20261108-bughunt-list-stale-after-kill](t-20261108-bughunt-list-stale-after-kill.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-list-stale-after-kill/round-3.md)  
     <!-- /generated:card -->
 
