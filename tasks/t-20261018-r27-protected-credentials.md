@@ -156,3 +156,7 @@ Aktueller Head `4f52b177`: getrennte Coreless-Lokal-/Remote-Fail-closed-Pfade in
 
 - Draft #1470 fachlich pausiert: Architekturabgleich und Remote-Management-Connection-E2E (#1473) zuerst abschliessen; kein eigenstaendiger Credential-Fortschritt ohne neuen Auftrag.
 - Status `wait` als Ressourcen-/Abnahme-Pause, **nicht** als technischer Blocker. Owner bleibt bestehen; Reaktivierung nach konkreter Uebergabe bzw. Acceptance.
+
+## Integration follow-up 2026-11-09
+
+The prerequisite Remote Core PR #1473 has merged. Draft #1470 was replayed onto post-#1512 `develop` and its credential helper formatting corrected; current head `dda15ed0a4471a2f30fd768ade38fc545a21a521`. Draft focused validation is pending. No claim of OIDC, tenant or connector end-to-end success; preserve fail-closed semantics. Earlier wait-for-#1473 prerequisite is now satisfied, but the card is not accepted.
