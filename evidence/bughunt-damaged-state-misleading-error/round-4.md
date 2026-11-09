@@ -77,6 +77,13 @@ Both regressions were proven to fail against the raw pre-fix code (`9e211715`) a
 - No markdown checkbox lines anywhere in this evidence file (plain bullets only).
 - Planning repo verified (origin/main) witness pasted below in the Run section.
 
+## Run
+
+- Evidence published to baseharbor-plan `origin/main`: `930440db32369f07172f3acf500235cf1aa7f6fd` (`git ls-remote origin main`). Local planning workspace clean after the evidence commit.
+- Product candidate: branch `0427-159-damagedstate` (PR #1499) head `43fab0e5737f6e1bc587f8783467bed0ecb01db2`; base `3187cea15` and develop `b3a8042d1` both ancestors; `develop..HEAD` contains only the 3 chain commits.
+- No container/compose started on any host (no VM smoke host reachable this shift); nothing to bring down.
+- No markdown checkbox lines in this evidence file.
+
 ## END
 
-END 0427-159 r4: F2 + F3 fixed + F4 regressions (terminal CI green), drift integrated, push to #1499, single chain, evidence published.
+END 0427-159 r4: F2 (`ValidateDeploymentID` gate, malformed dirs discarded) + F3 (registry damaged error reported as unknown-owner, foreign orphan never attributed via production path) fixed; F4 regressions added through the real `FindDeployment`/`resolvedRepositoryApplication` path (proven FAIL pre-fix / PASS post-fix) and CI-covered in `go-unit-tests`+`deployment-package-tests`; develop HEAD `b3a8042d1` integrated by rebase; single chain; pushed to PR #1499 head `43fab0e57`; hosted CI terminal green (26 jobs, 0 failures, no red, no external STATE); evidence published to `origin/main` `930440db`.
