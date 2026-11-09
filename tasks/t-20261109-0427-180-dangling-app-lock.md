@@ -72,3 +72,7 @@ One or two sentences: the observable outcome.
 
 ## Task Note
 Hunt H-P5 (evidence: hp5.md FINDING 2, proven): a holder killed with SIGKILL leaves the per-app dotfile `.scope.app_installation.lock` on disk (cleanup only runs on clean release). The target-wide scan `deploymentsHaveAppLocks` then reports held=true forever: all later lifecycle operations on the target fail closed with no self-service recovery. Required: stale-detection (holder pid recorded in dotfile + liveness check) and an automatic reclaim path in the acquire, with a regression proving kill -9 followed by a new lifecycle call succeeds after reclamation.
+
+## Follow-up hardening 2026-11-09
+
+PR [baseharbor#1518](https://github.com/mcpdev80/baseharbor/pull/1518) passed its exact-head workflow and merged into `develop` as `cb30f7a667a6e88a8b422979fcdaeea65ed2e958`. It adds OS-observed process start-time checks and malformed receipt fail-closed parsing on top of #1517.
