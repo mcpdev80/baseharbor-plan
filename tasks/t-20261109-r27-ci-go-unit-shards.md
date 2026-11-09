@@ -23,17 +23,19 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42698387343", "https://github.com/mcpdev80/baseharbor/commit/4d827a55cb115f316c074b2e1d72d077fc577637"]
 ---
 
-- [x] t-20261109-r27-ci-go-unit-shards · CI: split slow Go tests and wire impact selection #task #release/v0-4-27 #status/closed #view/closed #area/ci #kind/task
+- [x] t-20261109-r27-ci-go-unit-shards · CI: split slow Go tests and wire impact selection #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/ci #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1519](https://github.com/mcpdev80/baseharbor/pull/1519)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42698387343), [proof 2](https://github.com/mcpdev80/baseharbor/commit/4d827a55cb115f316c074b2e1d72d077fc577637)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** chatgpt-ci-owner  
+**Required by:** [t-20261109-r27-ci-go-shard-reuse](t-20261109-r27-ci-go-shard-reuse.md)  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1519](https://github.com/mcpdev80/baseharbor/pull/1519)  
 **Source:** 
