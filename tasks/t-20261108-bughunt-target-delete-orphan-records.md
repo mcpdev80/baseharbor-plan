@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-165-refresh
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Deleting a target either refuses while apps/records exist (naming them) or prunes its records under the existing destroy…
 kanban_title: 0427-165 · target delete leaves uncollect
 priority: normal
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1500]
 sources: []
 blocker: ""
-wait_reason: "APPROVED exact-head green ef1851dc7 (run 42674227560 attempt2, act-1500-review-r11) — wartet auf merge-griff"
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/d2e225f20", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md"]
 superseded_by: ""
 ---
-- [ ] t-20261108-bughunt-target-delete-orphan-records · Bug Hunt v0.4.27: Delete leaves orphans #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-target-delete-orphan-records · Bug Hunt v0.4.27: Delete leaves orphans #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-165-refresh · **Priority:** normal  
     **PR:** [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500)  
-    **Waiting:** APPROVED exact-head green ef1851dc7 (run 42674227560 attempt2, act-1500-review-r11) — wartet auf merge-griff  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/d2e225f20), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-165-refresh  
