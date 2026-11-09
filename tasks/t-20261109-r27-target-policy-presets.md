@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: "mcpdev80 (PR #1514)"
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Editable dev/test/staging/production/custom presets; authenticated Core-side enforcement and edit flow still missing."
+kanban_summary: ""
 kanban_title: "0427-186 · Editable Target policy presets"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client]
@@ -23,17 +23,22 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/active #view/active #area/remote #area/deployment #kind/feature
+- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/active #view/active #area/deployment #area/remote #kind/feature
     <!-- generated:card -->
-    **Owner:** mcpdev80 (PR #1514) · **Priority:** high
-    **PR:** [baseharbor#1514](https://github.com/mcpdev80/baseharbor/pull/1514)
+    **Owner:** mcpdev80 (PR \#1514) · **Priority:** high  
+    **PR:** [baseharbor#1514](https://github.com/mcpdev80/baseharbor/pull/1514)  
+    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active
-**Release:** [v0.4.27](../releases/v0.4.27.md)
-**PRs:** [baseharbor#1514](https://github.com/mcpdev80/baseharbor/pull/1514)
-**Source:** [baseharbor#1513](https://github.com/mcpdev80/baseharbor/issues/1513)
+**State:** active  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+**Required by:** [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md)  
+**Owner:** mcpdev80 (PR #1514)  
+**Priority:** high  
+**PRs:** [baseharbor#1514](https://github.com/mcpdev80/baseharbor/pull/1514)  
+**Source:** 
 <!-- /generated:links -->
 
 ## Goal and scope

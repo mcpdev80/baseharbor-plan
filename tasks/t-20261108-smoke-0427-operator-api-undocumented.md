@@ -13,7 +13,7 @@ kanban_lane: wait
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
-depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-serve-enrollment-authority, t-20261018-r27-connection-client]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client, t-20261108-smoke-0427-serve-enrollment-authority]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **Waiting:** Document only the verified production remote API startup and enrollment path after 0427-168 / 0427-023 pass the real E2E smoke.  
-    **Needs:** [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md)  
 **Owner:** owner-chatgpt-r27  
 **Priority:** normal  
 **PRs:** none  

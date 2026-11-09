@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: "0427-185 · Reuse unchanged green Go shards"
+kanban_title: 0427-185 · Reuse green Go shards
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261109-r27-ci-go-unit-shards]
 repos: [mcpdev80/baseharbor]
@@ -31,11 +31,11 @@ evidence: []
 <!-- generated:links -->
 **State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261109-r27-ci-go-unit-shards](t-20261109-r27-ci-go-unit-shards.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261109-r27-ci-go-unit-shards](t-20261109-r27-ci-go-unit-shards.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
-**Source:** [baseharbor#1519](https://github.com/mcpdev80/baseharbor/issues/1519)
+**Source:** 
 <!-- /generated:links -->
 
 ## Outcome

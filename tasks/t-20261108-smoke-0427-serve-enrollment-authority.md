@@ -13,7 +13,7 @@ kanban_lane: wait
 kanban_summary: "Implement Connector enrollment against the Core's verified installation authority. The release contract already requires remote…"
 kanban_title: 0427-168 · serve needs local core
 priority: high
-depends_on: [t-20261017-release-0-4-27-updates, t-20261108-smoke-0427-up-ignores-target, t-20261018-r27-connection-client]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client, t-20261108-smoke-0427-up-ignores-target]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -33,7 +33,7 @@ evidence: []
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md)  
 **Required by:** [t-20261108-smoke-0427-operator-api-undocumented](t-20261108-smoke-0427-operator-api-undocumented.md)  
 **Owner:** owner-chatgpt-r27  
 **Priority:** high  

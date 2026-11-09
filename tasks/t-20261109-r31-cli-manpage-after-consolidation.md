@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: planned
 kanban_summary: "Once the v0.4.31 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable,…"
-kanban_title: 0431-008 · CLI man page after consolidation
+kanban_title: 0431-008 · CLI man page after cleanup
 priority: normal
 depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor]
@@ -37,7 +37,7 @@ evidence: []
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
-**Source:** [baseharbor#603](https://github.com/mcpdev80/baseharbor/issues/603), [baseharbor#846](https://github.com/mcpdev80/baseharbor/issues/846)
+**Source:** 
 <!-- /generated:links -->
 
 ## Goal

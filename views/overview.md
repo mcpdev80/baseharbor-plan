@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 5 |
 | review | 1 |
 | wait | 6 |
 | blocked | 0 |
 | ready | 1 |
 | queued | 26 |
-| waiting | 178 |
+| waiting | 179 |
 | backlog | 7 |
 | closed | 223 |
 
@@ -28,6 +28,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261018-r27-protected-credentials](../tasks/t-20261018-r27-protected-credentials.md) | Credentials: retain and recover opted-in local credentials | active | normal | ChatGPT (0427-047 regression follow-up) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470) |
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460), [baseharbor#1503](https://github.com/mcpdev80/baseharbor/pull/1503) |
 | [t-20261109-0427-183-repository-workload-ci-rot](../tasks/t-20261109-0427-183-repository-workload-ci-rot.md) | 0427-183 · Repository lifecycle/compose CI tests fail on develop head | active | not set | lane-0427-183-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | active | high | mcpdev80 (PR #1514) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | [baseharbor#1514](https://github.com/mcpdev80/baseharbor/pull/1514) |
 
 ## Ready for review
 
@@ -43,8 +44,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | wait | normal | mcpdev80 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151) |
 | [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Nodes: finish guided add connect status and disconnect | wait | normal | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | [baseharbor#1427](https://github.com/mcpdev80/baseharbor/pull/1427), [baseharbor#1436](https://github.com/mcpdev80/baseharbor/pull/1436), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438) |
 | [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | wait | high | lane-0427-107-docker2-bughunt | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
-| [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | wait | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) (open), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
-| [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) | Serve: enrollment needs local Core | wait | high | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
+| [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | wait | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open), [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) (open) | — |
+| [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) | Serve: enrollment needs local Core | wait | high | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open), [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | — |
 
 ## Blocked
 
@@ -54,12 +55,12 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261109-r27-ci-go-shard-reuse](../tasks/t-20261109-r27-ci-go-shard-reuse.md) | CI: reuse green Go shards when their verified inputs are unchanged | ready | normal | — | [t-20261109-r27-ci-go-unit-shards](../tasks/t-20261109-r27-ci-go-unit-shards.md) | — |
+| [t-20261109-r27-ci-go-shard-reuse](../tasks/t-20261109-r27-ci-go-shard-reuse.md) | CI: reuse green Go shards when their verified inputs are unchanged | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261109-r27-ci-go-unit-shards](../tasks/t-20261109-r27-ci-go-unit-shards.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 27 open, 155 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 29 open, 155 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

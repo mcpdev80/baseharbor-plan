@@ -10,8 +10,8 @@ parent: v0.4.27
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Transfer exact dirty/untracked snapshots and existing OCI images through authenticated Core/Connector; delta, no unnecessary rebuild."
-kanban_title: "0427-187 · Local dirty and OCI delta delivery"
+kanban_summary: "Implement the approved local delta delivery, as scoped by issue #1513. Existing snapshot/candidate-ingress and OCI-native…"
+kanban_title: 0427-187 · Dirty + OCI delta delivery
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client, t-20261109-r27-target-policy-presets]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]
@@ -23,13 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-27 #status/planned #view/planned #area/remote #area/delivery #kind/feature
+- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/delivery #area/remote #kind/feature
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
+    <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** planned
-**Release:** [v0.4.27](../releases/v0.4.27.md)
-**PRs:** none
-**Source:** [baseharbor#1513](https://github.com/mcpdev80/baseharbor/issues/1513)
+**State:** waiting  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
 <!-- /generated:links -->
 
 ## Goal
