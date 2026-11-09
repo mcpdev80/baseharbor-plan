@@ -48,14 +48,19 @@ Correctness-first. The batch caches only the resolved installation State; the pe
 ## Hosted
 Per mission, 172-domains is STATE/skip; no hosted run required for this card. Not triggered.
 
+## Commit + PR
+- Product commit: `dbb1df08069424265830a397ab41ee882fa36830` on branch `0427-178-listscale` (author Marcel Pfingstgräf <dev@pfingstgraef.eu>, matching repo convention). Log after base shows ONLY this commit.
+- PR: https://github.com/mcpdev80/baseharbor/pull/1508, against develop, state OPEN, MERGEABLE, mergeStateStatus CLEAN, single commit dbb1df08.
+- Evidence commit: `c5ed802505eafe3093d94aa6eeb4b552df969460` pushed to origin/main (planning repo). ls-remote origin/main confirms c5ed8025.
+
 ## Cleanliness
 No containers/compose projects started. No orphaned runtimes. State dir isolated under /tmp/opencode/0427-178-listscale-wt.
 
 ## Repo-rule compliance
 - Write-set: internal/deployment/deployment_list.go, deployment_store.go, deployment_owner_loan.go (modified), deployment_list_owner_batch.go, deployment_list_owner_scale_test.go (new). All under internal/deployment/. No .github/** edited.
 - Branch provenance: cut from b3a8042d1 (origin/develop HEAD); ancestry PASS. Only my own commits on this branch.
-- Evidence lives only in baseharbor-plan (planning repo) under evidence/0427-178-listscale-owner-check-scaling/. No evidence files in the product repo.
+- Evidence lives only in baseharbor-plan (planning repo) at evidence/0427-178-listscale-owner-check-scaling/round-1.md, pushed to origin/main. No evidence files in the product repo.
 - No subagents (Owner directive 2026-11-04). All steps run in this session.
 - One integration candidate per chain: single branch 0427-178-listscale.
 
-## Status: ACTIVE — implementation + tests complete; commit/push/PR pending
+## Status: DONE — implementation + tests + commit + PR + evidence all complete
