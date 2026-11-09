@@ -32,10 +32,23 @@ Decision: **granularity = per app; fairness = bounded destroy-priority retry.**
 
 ## Implementation
 
-- internal/stableid/lock.go: added AcquireAppLifecycleLock(root, scope) — same directory/permission/symlink validation as AcquireLifecycleLock, keyed by `<root>/deployments/<scope>` (MkdirAll 0700 like bootstrap), re-exports the existing lockNamed primitive. Added per-app lock file name `app_installation.lock`.
+- internal/stableid/lock.go: added AcquireAppLifecycleLock(root, scope) — same directory/permission/symlink validation as AcquireLifecycleLock, keyed by `<root>/deployments/<scope>` (MkdirAll 0700 like bootstrap), re-exports the existing lockNamed primitive. Added per-app lock file name `app_installation.lock` (exported as `AppLifecycleLockFileName`).
 - internal/coreinstallation/lifecycle_lock.go: re-export AcquireAppLifecycleLock with the same contract.
-- cmd/baha/application_lifecycle_lock.go: lockApplicationTargetLifecycle now takes a per-app lock (scope from resolved.Manifest.Name + DeploymentID) and a destroy/stop bias. destroy/stop: one immediate try, then bounded jittered retry. up/apply: bounded jittered retry. Same "Target application lifecycle is active: %w" message on contention.
+- cmd/baha/application_lifecycle_lock.go: lockApplicationTargetLifecycle now takes a per-app lock (scope = deployment id) for local repo apps, keyed inside `<root>/deployments/<id>/app_installation.lock`; remote/control-plane ops keep the existing per-target `.installation.lock` (no new deployments member). destroy/stop: one immediate try, then bounded jittered retry. up/apply: bounded jittered retry. Same "Target application lifecycle is active: %w" message on contention.
+- cmd/baha/app_context.go: eligibleNeverDeliveredLocalDestroy treats a deployments/<id> dir that holds only app_installation.lock as an empty namespace (the lock created by a refused apply must not disqualify never-delivered detection); new deploymentIsOnlyAppLock helper.
 - Docs updated: docs/explanation/targets.md (granularity note), docs/explanation/providers.md / lifecycle section.
+
+## Regression fix (round 2 — coordinator rejected the BLOCKED)
+
+Two tests failed on exact head 43d359f48 that PASS on base (confirmed by diffing failing-test sets):
+
+- TestRemoteUnsupportedProviderDisclosesCurrentImpactBeforeTechnicalDenial: my per-app lock created a new top-level `lock/` member, violating the "unsupported remote apply must not stage any new target-root member" contract (only `.installation.lock` is whitelisted).
+- TestCoreStopCLIJSONAndMCPExposeSameCurrentScopeWithoutEnvironmentConsentReuse: my empty-scope guard rejected control-plane stop (control-plane destroy/stop pass resolvedApplication{} with no deployment id / manifest name).
+- (also) TestW138* never-delivered: my per-app lock created `deployments/<id>/` during a refused apply, making deployments/ non-empty and breaking never-delivered detection.
+
+Diagnosis: my first keying `<root>/lock/<scope>` created a stray top-level member; keying inside `deployments/<id>/` conflicts with the never-delivered empty-check and with the remote owner check for empty-deployment-id remote apps.
+
+Fix (verbatim): key the per-app lock inside the application's OWN deployments directory `deployments/<deployment-id>/app_installation.lock` (the deployment layer already creates and owns that namespace, so no new top-level target-root member and no disturbance of never-delivered detection); control-plane/remote ops keep the existing per-target `.installation.lock`. Update eligibleNeverDeliveredLocalDestroy to treat a deployments/<id> dir holding only app_installation.lock as empty (deploymentIsOnlyAppLock helper); remote/control-plane scope falls back to target name so they never stage a local deployments member. All 5 W138/remote/control-plane tests pass; full regression audit below shows zero new cmd/baha failures vs base.
 
 ## Regression evidence (local)
 
