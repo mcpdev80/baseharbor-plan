@@ -1,7 +1,17 @@
 # 0427-175 round 3 — repair path must be executable, recovery regression on the real destroy path, tighter race asserts
 
 Mission: `/tmp/opencode/mission-175-r3.md`. Lane: worker-flash (session zone `workers/.models/flash`).
-Base: branch `0427-175-initlock`, remote head `135c8be1a` at checkout time (`refs/pull/1512/head` same).
+Remote-truth witnesses (first three actions of this lane, own reads):
+
+    git ls-remote origin refs/pull/1512/head  -> a6afd633ce38a4cedfb74bc71d6703d3df56312b  refs/pull/1512/head
+    gh pr view 1512 --json headRefName,headRefOid -> 0427-175-initlock a6afd633ce38a4cedfb74bc71d6703d3df56312b
+    gh api "repos/mcpdev80/baseharbor/actions/runs?head_sha=a6afd633c...": <run id recorded when it appears>
+
+Base: branch `0427-175-initlock`. The mission named head `135c8be1a`, but while this lane read the
+review, the branch advanced to `a6afd633c` (three commits: `54d9b9ef1` docs EN/DE repair section,
+`9de8c993b` its merge with my `135c8be1a`, `a6afd633c` DE wording cleanup). `135c8be1a` IS an ancestor
+of `a6afd633c` (`git merge-base --is-ancestor`, rc=0), so this lane continues on the same chain — no
+second candidate, no rebase-over. Everything below was written against `a6afd633c` content.
 PR: https://github.com/mcpdev80/baseharbor/pull/1512. No `.github/**` changes. No subagents (AGENTS §4.8).
 
 Planning-repo witness: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel`
