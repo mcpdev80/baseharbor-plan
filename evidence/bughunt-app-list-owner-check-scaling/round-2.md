@@ -58,7 +58,7 @@ File: `internal/deployment/deployment_list_owner_scale_test.go`.
 
 ## Evidence source and limitation
 - Review judgment: baseharbor-plan/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1508-review.md (verdict KORREKTUR, F1 best-effort mislabeling, F2 incomplete fixture/bound).
-- Round-1 dossier: baseharbor-plan/evidence/0427-178-listscale-owner-check-scaling/round-1.md (implementation intent, not a substitute for the corrected source).
+- Round-1 dossier: baseharbor-plan/evidence/bughunt-app-list-owner-check-scaling/round-1.md (implementation intent, not a substitute for the corrected source).
 - Source measured on branch `0427-178-r2-pr1508` at `dbb1df08` (PR #1508 head).
 
 ## Cleanliness

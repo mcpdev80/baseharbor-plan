@@ -59,7 +59,7 @@ No containers/compose projects started. No orphaned runtimes. State dir isolated
 ## Repo-rule compliance
 - Write-set: internal/deployment/deployment_list.go, deployment_store.go, deployment_owner_loan.go (modified), deployment_list_owner_batch.go, deployment_list_owner_scale_test.go (new). All under internal/deployment/. No .github/** edited.
 - Branch provenance: cut from b3a8042d1 (origin/develop HEAD); ancestry PASS. Only my own commits on this branch.
-- Evidence lives only in baseharbor-plan (planning repo) at evidence/0427-178-listscale-owner-check-scaling/round-1.md, pushed to origin/main. No evidence files in the product repo.
+- Evidence lives only in baseharbor-plan (planning repo) at evidence/bughunt-app-list-owner-check-scaling/round-1.md, pushed to origin/main. No evidence files in the product repo.
 - No subagents (Owner directive 2026-11-04). All steps run in this session.
 - One integration candidate per chain: single branch 0427-178-listscale.
 
