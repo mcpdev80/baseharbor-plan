@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-0427-183-impl
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-183 · Repository workload CI rot
 priority: ""
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/planned #view/ready #kind/bug
+- [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0427-183-impl  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-0427-183-impl  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
