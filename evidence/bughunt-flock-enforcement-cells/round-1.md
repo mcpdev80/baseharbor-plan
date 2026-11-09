@@ -57,6 +57,16 @@
 - Trigger: `pull_request` to `develop` (ci.yml lines 12-16), draft=false. The `validate` job runs for such PRs.
 - Positive selection: a change under `./internal/...` is covered by `go test ./...`.
 - No `.github/**` change needed; the test is picked up by the existing `go test ./...` in the validate job (Owner directive 2026-11-07 satisfied by the existing group trigger).
+- First CI run (PR #1515) surfaced `exec: "go": executable file not found in $PATH` from the probe's `go run`-based child: CI's `setup-go` sets `GOROOT` and may place Go on a non-default PATH that a freshly-spawned `exec.Command("go", "run", ...)` child does not inherit, and `go run` in a temp module dir also needs `GOMODCACHE`/`GOCACHE` that a bare child lacks. Root cause fixed by replacing `go run` with an EMBEDDED statically-linked Linux/AMD64 probe binary (`internal/stableid/testdata/lock-probe-linux-amd64`, stdlib-only `syscall`, runs with NO toolchain/PATH/module cache) plus a `go build` toolchain fallback for non-amd64 platforms that reports `errProbeUnavailable` (fail closed) when neither is available.
+
+## Local check results (this host, go1.26.8)
+
+- `go build ./...` => OK
+- `go vet ./...` => OK
+- `go test ./internal/stableid/... ./internal/coreinstallation/... ./internal/serviceaccess/...` => OK
+- `go test ./cmd/baha/ -run 'TestTargetLifecycleLockRejectsSecondProcess|TestTargetSelectionMutationRejectsSecondProcess|TestSharedBackendReconcileRejectsSecondProcess'` => OK
+- Full `go test ./...` => all packages pass (only pre-existing DB/integration packages fail when `BASEHARBOR_TEST_DATABASE_URL` is unset locally; CI sets it in `pr-unit-database.sh`).
+- NOTE: during development a test-ordering interaction exposed that `lockProbeFunc` (the package var the unit tests patch) must restore via `defer`; verified both orderings pass.
 
 ## Hosted-run evidence (runtime cell baha-docker, kernel 7.0.0-34-generic, go1.26.8)
 

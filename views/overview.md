@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 7 |
-| review | 3 |
-| wait | 11 |
+| review | 2 |
+| wait | 12 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 26 |
@@ -37,7 +37,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | review | normal | none | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1508](https://github.com/mcpdev80/baseharbor/pull/1508), [baseharbor#1509](https://github.com/mcpdev80/baseharbor/pull/1509), [baseharbor#1511](https://github.com/mcpdev80/baseharbor/pull/1511) |
-| [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | review | normal | lane-0427-159-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | review | normal | lane-0427-165-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 
 ## Waiting for resources
@@ -52,6 +51,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | wait | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460), [baseharbor#1503](https://github.com/mcpdev80/baseharbor/pull/1503) |
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | wait | high | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446) |
 | [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) | Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down | wait | high | coord-board | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450) |
+| [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | wait | normal | lane-0427-159-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | wait | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) (open), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
 | [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) | Serve: enrollment needs local Core | wait | high | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) (open), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
 | [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | Remote core: up installs local | wait | high | ChatGPT (remote bootstrap safety) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492) |
