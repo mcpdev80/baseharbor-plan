@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-182-impl
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-182 · 0427-182 · Serve Integr test
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1520]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,18 +23,19 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/active #view/active #kind/bug
+- [ ] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/review #view/review #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-182-impl  
+    **PR:** [baseharbor#1520](https://github.com/mcpdev80/baseharbor/pull/1520)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-182-impl  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1520](https://github.com/mcpdev80/baseharbor/pull/1520)  
 **Source:** 
 <!-- /generated:links -->
 
