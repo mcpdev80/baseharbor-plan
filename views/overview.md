@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 10 |
+| active | 11 |
 | review | 3 |
 | wait | 11 |
 | blocked | 0 |
-| ready | 2 |
+| ready | 1 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
@@ -30,6 +30,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-app-prune-dangling-record](../tasks/t-20261108-bughunt-app-prune-dangling-record.md) | Bug Hunt v0.4.27: Prune dangling record | active | normal | lane-w173c-mcpcorrect | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) (open) | [baseharbor#1505](https://github.com/mcpdev80/baseharbor/pull/1505) |
 | [t-20261108-bughunt-concurrent-init-double-registration](../tasks/t-20261108-bughunt-concurrent-init-double-registration.md) | Bug Hunt v0.4.27: Double init poisons target | active | normal | lane-w175-initlock | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | active | normal | lane-w159e-proofpath | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
+| [t-20261108-bughunt-lifecycle-lock-scope-fairness](../tasks/t-20261108-bughunt-lifecycle-lock-scope-fairness.md) | Bug Hunt v0.4.27: Target lock serializes and starves | active | normal | lane-w176-lockfairness | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | active | normal | lane-w160c-stalelist3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491) |
 | [t-20261108-bughunt-permission-lies-foreign-install](../tasks/t-20261108-bughunt-permission-lies-foreign-install.md) | Bug Hunt v0.4.27: Denied lies foreign | active | normal | lane-w174b-refoldfix | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1506](https://github.com/mcpdev80/baseharbor/pull/1506) |
 | [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) | Bug Hunt v0.4.27: Select fails without issuer | active | normal | lane-w162d-waitmerge | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489) |
@@ -68,7 +69,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-lifecycle-lock-scope-fairness](../tasks/t-20261108-bughunt-lifecycle-lock-scope-fairness.md) | Bug Hunt v0.4.27: Target lock serializes and starves | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## By release
 

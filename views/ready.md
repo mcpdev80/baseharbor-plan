@@ -7,4 +7,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261108-bughunt-lifecycle-lock-scope-fairness](../tasks/t-20261108-bughunt-lifecycle-lock-scope-fairness.md) | Bug Hunt v0.4.27: Target lock serializes and starves | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
