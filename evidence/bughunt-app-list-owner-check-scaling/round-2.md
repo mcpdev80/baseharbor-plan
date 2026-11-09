@@ -6,7 +6,7 @@ Mission: /tmp/opencode/mission-178-r2.md
 Candidate: PR #1508, head `dbb1df08069424265830a397ab41ee882fa36830`
 Branch: `0427-178-r2-pr1508` cut from `dbb1df08` (PR #1508 head) — single integration candidate for PR #1508 (continuation)
 Base: `dbb1df08` = `refs/heads/0427-178-listscale` = `refs/pull/1508/head`; `b3a8042d18ea60f162a32a51df34a499cad6a237` (origin/develop) is an ancestor of my first commit
-Plan repo origin/main HEAD: `82c3ca4b` (verified via `git ls-remote origin/main` BEFORE first evidence commit)
+Plan repo origin/main HEAD: `b50e4c0720c75dfa25d04d01a5f05e68dcc3431f` (via `git fetch origin && git ls-remote origin/main`; recorded before first evidence commit — planning main is actively rewritten by the Coordinator)
 Repo: mcpdev80/baseharbor (product), worktree `/tmp/opencode/0427-178-r2-bughunt-pr1508`
 
 ## PLAN
@@ -59,6 +59,7 @@ File: `internal/deployment/deployment_list_owner_scale_test.go`.
 ## Evidence source and limitation
 - Review judgment: baseharbor-plan/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1508-review.md (verdict KORREKTUR, F1 best-effort mislabeling, F2 incomplete fixture/bound).
 - Round-1 dossier: baseharbor-plan/evidence/bughunt-app-list-owner-check-scaling/round-1.md (implementation intent, not a substitute for the corrected source).
+- Coordinator note (2026-11-09): this round-2 evidence file was authored under evidence/0427-178-listscale-owner-check-scaling/round-2.md and relocated by the Coordinator to evidence/bughunt-app-list-owner-check-scaling/round-2.md (the path named in the card/mission). The `0427-178-listscale-*` own-name is retired; all future writes use evidence/bughunt-app-list-owner-check-scaling/round-2.md.
 - Source measured on branch `0427-178-r2-pr1508` at `dbb1df08` (PR #1508 head).
 
 ## Cleanliness
