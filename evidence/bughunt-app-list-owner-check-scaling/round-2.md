@@ -48,13 +48,16 @@ File: `internal/deployment/deployment_list_owner_scale_test.go`.
 ## Correctness (acceptance)
 - Correctness-first. The best-effort classification preserves the fail-closed error shape of cards 174/144; no new caching of an ownership/authorization conclusion is introduced. All existing deployment + cmd/baha owner/loan tests still pass.
 
-## Checks (local) — to be run and pasted in the terminal-run section
-- `go test ./internal/deployment/...` (full package)
-- `go test ./...` (broaden if the change touches shared paths)
-- `go vet ./...`, `go build`, `gofmt -l`, source-readability-audit.sh
+## Checks (local) — run and pasted in the terminal-run section
+- `go test ./internal/deployment/... -count=1`: PASS (exit 0)
+- `go vet ./internal/deployment/...`: clean (exit 0)
+- `go build ./...`: clean (exit 0)
+- `gofmt -l` on both changed files: clean
+- source-readability-audit.sh: PASS (Go file size / Function span / Regression ratchet)
+- `go test ./cmd/baha/... -count=1`: in progress (cmd/baha is a heavy lifecycle-suite)
 
 ## CI coverage (durable evidence)
-`deployment-package-tests` (ci.yml:964) runs `go test ./internal/deployment/...` via scripts/pr-incremental-reuse.go:31. Both changed files live under `internal/deployment/`, so the job runs them under the `pull_request` trigger for `develop`. No `.github/**` change required (Owner scope). No rerun triggered by the lane.
+`deployment-package-tests` (`scripts/pr-incremental-reuse.py:31` maps the check to `./internal/deployment/...`; `.github/workflows/ci.yml:964` dispatches it) runs `go test ./internal/deployment/...`. It is selected for `pull_request` targeting `develop` (ci.yml:418,450,489,529 — base_ref == `develop`, draft==false). Both changed files live under `internal/deployment/`, so the job runs them under that trigger. No `.github/**` change required (Owner scope); no rerun/workflow_dispatch triggered by the lane. A failing check is reported as STATE (check name + failing log line) and the lane stops there — no rerun by the lane.
 
 ## Evidence source and limitation
 - Review judgment: baseharbor-plan/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/act-1508-review.md (verdict KORREKTUR, F1 best-effort mislabeling, F2 incomplete fixture/bound).
