@@ -59,3 +59,9 @@ Implement the Owner-approved [target-preset decision](../decisions/2026-11-09-r2
 - Operator can edit an existing Target policy without bypassing authorization.
 - Exact-head targeted CI, relevant security negatives, and end-to-end acceptance documented before merging and closing.
 - Delta/OCI transfer is tracked separately on 0427-187; no release or tag authorized.
+
+## Integration status — 2026-11-09
+
+- [PR #1514](https://github.com/mcpdev80/baseharbor/pull/1514) merged as bounded **foundation** into `develop` at `96ee6a9520e9a32c7193e09d113db67945bf81c9`, after [exact-head PR CI #42707150233](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233) passed at `58963750f5976abbb9e50ac62ffa6a90e238892e`.
+- Presets, CLI/Wizard overrides, local protected Target policy edit and fail-closed evaluator are integrated. **Do not equate code merge with complete feature acceptance**: Core-authoritative construction of trusted candidate source provenance, remote operator edit and fully functional protected remote apply are not established by this PR. The evaluator currently refuses restrictive policies when verified evidence is unavailable.
+- Card **0427-186 stays active** until the remaining Core-side source-proof and remote policy pathways are implemented and verified; keep 0427-187 planned separately. No release/tag.
