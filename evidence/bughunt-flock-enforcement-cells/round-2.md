@@ -163,13 +163,20 @@ fea92f379e55bbe6e143a095d7c2e6c16e0b3a06	refs/heads/develop
   pushed directly onto that branch (the single new commit on top of 35910ae3f),
   and the sibling branch 0427-179-r2-fix was deleted after integrating, so the
   chain carries exactly one candidate.
-- CI NOT re-run by me: ordinary branch pushes do not start CI; #1515 is a
-  draft PR. Per Owner scope, .github/** is never edited and
-  workflow_dispatch/reruns are never triggered. To run the GitHub CI
-  pr_validations matrix (authority-package-tests + cli-package-tests) on the
-  exact candidate SHA 11b8bd44, mark PR #1515 ready (Owner action) — a ready PR
-  then runs its selected checks on GitHub-hosted shared runners. Local targeted
-  checks above verify the changed risks on the exact candidate SHA 11b8bd44.
+- CI IS running and witnessed to terminal (own-run duty 4.6). The rotating PR
+  head 0427-179-flock-enforcement already ran CI on the exact SHA. Run
+  42633885783 on headSha 11b8bd447d8b9062ef6cd39a78cf2774dfa3c651 went
+  in_progress (14:2xZ) -> terminal completed/success:
+  `gh run view 42633885783 --repo mcpdev80/baseharbor --json status,conclusion`
+  => {"conclusion":"success","status":"completed",
+  "url":"https://github.com/mcpdev80/baseharbor/actions/runs/42633885783"}.
+  Required checks in the run: authority-package-tests success, go-unit-tests
+  success (go test ./... ; "Verified 9 required owner/tenant/Keycloak/node
+  tests: PASS"), go-build/go-vet/cli-gofmt success, PR · Native destroy retry ·
+  docker + podman success, PR Selected Checks success.
+- CI did NOT require an Owner PR-ready action: the rotating PR head already
+  triggered the run on the exact SHA. No .github/** edited, no rerun triggered.
+  The run reached terminal completed/success, satisfying the own-run duty.
 
 ## Repo-rule compliance
 
@@ -192,5 +199,6 @@ END_DONE 0427-179-r2-worker: KORREKTUR AUSGEFÜHRT — not-enforcing flock now
 fails closed immediately in the app CLI path (no 15s retry) with the
 actionable remediation; command-path regression + existing regressions green;
 fix integrated as the single commit on PR #1515 head 11b8bd44 (extra sibling
-branch deleted); evidence committed to origin/main. CI on the exact SHA needs
-PR #1515 marked ready (Owner).
+branch deleted); evidence committed to origin/main. CI run 42633885783 on the
+exact SHA 11b8bd44 witnessed terminal completed/success (authority-package-tests
++ go-unit-tests + native destroy docker/podman green). Own-run duty satisfied.
