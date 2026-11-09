@@ -126,6 +126,41 @@ Consequences:
 
 Race regression `cmd/baha/app_init_concurrent_race_test.go` UNCHANGED.
 
+## Round 9 — false-alarm rebase + push (deckungsklärung)
+
+The exact-head hosted run `42678151766` on `03a4544d` fell on
+`TestUpNameResumesThroughCommandEntrypoint`. That is **not** my change: the log
+shows a `holder: root=/tmp/TestServeCommandIntegrationOwnershipOnValidRoot...
+bound+serving 127.0.0.1:43423` line — a leftover serve-test holder from the
+181-family second sender (card 0427-182), which leaves a live process binding a
+port and interferes with the `TestUpNameResumes*` test under full-suite
+ordering. Isolated, `TestUpNameResumesThroughCommandEntrypoint` PASSES.
+
+Action taken (Owner deckungsklärung): rebase the candidate onto current
+develop and push so the false-alarm ordering cannot recur at a green base.
+
+- Old head (pushed, stale): `03a4544de3963693f07d1aa90bd9af054a83f0f9`.
+- New base: develop `8a2912c62869cc89adc35bd6680b18724c5eac8d`
+  (`git merge-base --is-ancestor origin/develop HEAD` → YES).
+- Rebase resolved conflicts in `internal/deployment/deployment_list.go`,
+  `internal/deployment/deployment_store.go`, `cmd/baha/app_context.go` — all
+  resolved by keeping develop's newer HEAD versions (verified by
+  `internal/deployment/` tests passing). A duplicate
+  `eligibleNeverDeliveredLocalDestroy` left by the conflict was dropped
+  (`app_context.go`) — the canonical copy lives in
+  `application_backend_placement_selection.go` (verified identical logic).
+- New head: `81ae0cddad3b14f72855436f08b44e1eea8766c3`, pushed to
+  `origin/0427-175-initlock` (force-with-lease; remote tip was the stale old
+  head).
+- Race regression `cmd/baha/app_init_concurrent_race_test.go` unchanged vs r7.
+- Local verification on the new head: `go build ./...`, `go vet ./cmd/baha/`,
+  `gofmt` clean; `TestRegistryConflict*`, destroy lifecycle, poison/repair, and
+  `TestUpNameResumesThroughCommandEntrypoint` (isolated) all pass. The only
+  full-suite failure is the native-runtime integration test
+  `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`, which needs a Docker
+  engine (unavailable in the sandbox) and fails identically in isolation — an
+  environment gap, not a regression.
+
 ## CI status
 
 - New candidate `03a4544d` pushed to `origin/0427-175-initlock` at
