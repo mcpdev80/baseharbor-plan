@@ -84,10 +84,59 @@ ok  	github.com/mcpdev80/baseharbor/cmd/baha	3.446s
 All prune tests green:
 `TestAppPrune*` (IsRegisteredAndRefusesLiveSource, RemovesDanglingRecord, RefusesMultipleMatches, RefusesRecordWithAppliedIntent, RefusesNoName, RefusesMultipleNames, JSONOnlyValid, HumanHasNoJSONTrailer, LiveSourceUnchangedOnRefusal, RefusesDanglingRecordWithAppliedIntent, MCPPreservesTargetOverride, MCPIdentityStabilityThroughAuthorizationAndMutation, MCPHappyPathRemovesUniquelyResolvedRecord) plus the golden and doc tests.
 
-## Push + hosted CI — PENDING
+## Push + hosted CI — TERMINAL SUCCESS
 
-Candidate rebased and locally verified. Not yet pushed. Hosted CI is terminal only after the push is observed on exact head `602bf1720…`. Native runtime cells skipped in this zone (isolated runtime prerequisite); skipped cells are reported here as skipped, not as green.
+Candidate pushed to `fix/0427-173-app-prune` as a linear child of the r3 head
+`bcdede01` (the r4 diff applies cleanly on `bcdede01`; the develop drift #1494
+touches no prune files, so the fix is pushed directly on `bcdede01` to keep a
+linear PR history):
+
+- Push: `git push origin HEAD:refs/heads/fix/0427-173-app-prune` => `bcdede01..d0daa4e8`
+- Remote tip after push: `d0daa4e8f91e1506b94f3b0c8638f1deed9eb422`
+
+Hosted CI — run **42561867025**, head `d0daa4e8`, overall **completed / success**:
+
+| Job | Conclusion |
+| --- | --- |
+| PR · Native impact selection | success |
+| Workflow policy | success |
+| PR · Source format | success |
+| PR · Trusted Plan | success |
+| PR · Focused Python | success |
+| PR · Native destroy retry · docker | success |
+| PR · Native destroy retry · podman | success |
+| PR · Validation · mkdocs-de-strict | success |
+| PR · Validation · go-build | success |
+| PR · Validation · pages-candidate-build | success |
+| PR · Validation · go-vet | success |
+| PR · Validation · go-unit-tests | success |
+| PR · Validation · cli-gofmt | success |
+| PR · Validation · mkdocs-en-strict | success |
+| PR · Validation · documentation-audit | success |
+| PR · Validation · wizard-registration-tests | success |
+| PR Selected Checks | success |
+| Targeted HA · docker | skipped (isolated runtime) |
+| Targeted HA · podman | skipped (isolated runtime) |
+| PR · Native Keycloak/Core · runtime | skipped (isolated runtime) |
+| PR · Selected Runtime | skipped (isolated runtime) |
+| PR · Public Contracts | skipped (no contract change) |
+| PR · Exact Candidate | skipped |
+| PR · Demo Pin | skipped |
+| PR · Consumer Pins | skipped |
+| PR · Runner Interface | skipped |
+| validate | skipped |
+| Release Source Preflight | skipped |
+| PR · Draft focused checks | skipped |
+
+Skipped cells are legitimately skipped in this zone — native runtime cells need
+the isolated verified runtime prerequisite not available here and are reported
+as skipped, NOT as green. Contract/proof cells (Public Contracts, Consumer
+Pins, Exact Candidate) are skipped because the r4 change is confined to the
+prune CLI + its tests; no shared contract changed.
 
 ## END
 
-END_PENDING 0427-173-r4: code complete, rebased onto develop, locally verified (build/vet/gofmt/test). Pending push + hosted CI terminal.
+END_PASS 0427-173-r4: all four r3 points closed, candidate `d0daa4e8` pushed to
+`fix/0427-173-app-prune`, hosted CI run 42561867025 terminal on that exact head
+(conclusion: success). END only now, because the required hosted CI is terminal —
+END_PENDING was not claimed as a pass until the run completed.
