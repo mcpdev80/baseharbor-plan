@@ -19,7 +19,7 @@ prs: [mcpdev80/baseharbor#1506]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: "Three-way split in VerifyDeploymentOwner/VerifyDeploymentOwnerAgainstOwner: absent=ErrDeploymentOwnerMissing, unreadable(permission-denied)=new ErrDeploymentOwnerAccessDenied w/ path+repair hint, genuine foreign hash=ErrDeploymentOwnerForeign. Empty target name stays usage error. Regressions in internal/deployment. PR #1506 (develop <- 0427-174-permission-truth @ fb21a02e), CI terminal SUCCESS."
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd6.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-permission-lies-foreign-install/round-1.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
