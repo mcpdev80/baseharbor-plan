@@ -15,7 +15,7 @@ kanban_title: 0427-176 · Target lock serializes and sta
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1507]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 - [ ] t-20261108-bughunt-lifecycle-lock-scope-fairness · Bug Hunt v0.4.27: Target lock serializes and starves #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w176-lockfairness · **Priority:** normal  
+    **PR:** [baseharbor#1507](https://github.com/mcpdev80/baseharbor/pull/1507)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md)  
     <!-- /generated:card -->
 
@@ -35,7 +36,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w176-lockfairness  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1507](https://github.com/mcpdev80/baseharbor/pull/1507)  
 **Source:** 
 <!-- /generated:links -->
 <!-- generated:card -->
