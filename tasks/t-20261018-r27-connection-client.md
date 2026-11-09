@@ -255,3 +255,10 @@ PR [#1473](https://github.com/mcpdev80/baseharbor/pull/1473), Head `22277f8f`, w
 
 - On #1473 exact head `d20a88cd`, [CI 42536593588](https://github.com/mcpdev80/baseharbor/actions/runs/42536593588) showed `PR · Source format` and `PR · Validation · cli-gofmt` **FAIL** solely for `cmd/baha/management_remote_mutation_test.go`. The added `--confirm-candidate=` negative vectors omitted gofmt spaces around string concatenation; go-build/go-vet were PASS, full matrix had not reached terminal qualification at inspection.
 - Corrected the Go source to gofmt-compatible string concatenation in new commit `1de087888c4b6c1db468be22535b7bcd21dc97a3`; exact-head CI still required. No release/merge claim.
+
+
+## Exact-head CI and empty consent guards 2026-11-09
+
+- [CI 42536954065](https://github.com/mcpdev80/baseharbor/actions/runs/42536954065) completed **SUCCESS** for #1473 head `1de087888c4b6c1db468be22535b7bcd21dc97a3`; this proves the prior remote lifecycle/argument regressions, not a live remote source import.
+- Additional fail-closed audit found `--confirm-candidate=` and `--provider-consent-file=` with empty values could silently collapse to an omitted optional argument, bypassing an explicitly provided operator choice. New guards explicitly reject empty or duplicate flags, including mixed forms; tests added in commits `8d51ab8f` and `03af9f56`.
+- Latest head `03af9f56ba9e91a8e914cc059ed66890aa671649` requires fresh CI. `develop` remains ancestor at review (94 ahead, 0 behind). PR must stay open; source registration and separate workstation-to-Connector E2E still outstanding.
