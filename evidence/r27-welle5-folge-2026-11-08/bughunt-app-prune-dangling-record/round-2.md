@@ -80,6 +80,15 @@ ok      github.com/mcpdev80/baseharbor/cmd/baha
 
 `go vet ./cmd/baha/` clean. Golden/docs (`-run 'Test.*Golden|Test.*Documentation|Test.*CommandIndex'`) green in both `contracts` and `cmd/baha`.
 
+## Hosted CI (my own run)
+
+Run **42543119434** `CI · PR #1505`, event `pull_request`, head `18e048681132c5d63bed10c17f7a48e454002723`: **completed / success** (terminal).
+- `PR · Validation · go-unit-tests` (job 128922288022): success. This job runs `scripts/pr-unit-database.sh`, which starts an ephemeral PostgreSQL fixture and executes `go test ./... -count=1` — the full `cmd/baha` package (including every `TestAppPrune*` regression above) runs under it.
+- `PR · Validation · go-build` and `go-vet`: success.
+- `PR Selected Checks`: success.
+
+No `.github/**` file was edited and no workflow_dispatch issued; the run was triggered by pushing the candidate to the PR's backing branch `fix/0427-173-app-prune`. CI run id `42543119434` on SHA `18e04868`.
+
 ## CI coverage (which job runs which regression)
 
 All regressions live in `cmd/baha/app_prune_test.go` (package `main`, package `cmd/baha`). They are exercised by the ordinary `go test ./...` that the **unit-tests** CI job runs. The job selection rule in `.github/workflows/unit-tests.yml` (Owner scope — NOT edited here) selects `./cmd/**...` and `./internal/**...` packages, which includes `cmd/baha`, so every prune regression runs under that job. The command/golden/doc regressions run under the `docs` job's `go test ./cmd/baha/... ./contracts/...` selection. Per the 2026-11-07 directive, no `.github/**` file was touched; the coverage mapping is stated here as the finding.
