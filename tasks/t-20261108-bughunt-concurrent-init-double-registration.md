@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
 - [ ] t-20261108-bughunt-concurrent-init-double-registration · Bug Hunt v0.4.27: Double init poisons target #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
