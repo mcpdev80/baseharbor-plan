@@ -8,6 +8,15 @@ Candidates: branch `0427-175-initlock`.
   "Source format" gate flagged the resulting 818-line store file, fixed below).
 - `f442b7e99` — merge follow-up: the resolution prologue re-integration (see "Drift notes"), the
   0427-174 owner-state cells, and the store-file split back under 800 lines.
+- `54d9b9ef1` + `a6afd633c` — EN/DE documentation of the unique-registration rule and the
+  uuid-addressed repair (documentation-audit PASS, locale parity PASS).
+- Parallel lane `135c8be1a` integrated develop @ `fea92f379` (0427-176 lock fairness) and its
+  r2-session commits into the SAME branch (shared task branch, ownership preserved); my merge
+  `9de8c993b` reconciles both heads. `DeleteDeploymentRecord` intentionally resolves to the
+  drift-aware version (prune/identity-drift integration). Parity after the merge re-verified:
+  `cmd/baha` failure sets identical to develop @ `fea92f379` (14/14, `comm` empty both ways),
+  `internal/deployment` ok, readability + documentation audits PASS.
+Final candidate SHA under review: `a6afd633c` (PR head).
 PR: https://github.com/mcpdev80/baseharbor/pull/1512 (no `.github/**` files changed).
 
 ## PLAN
