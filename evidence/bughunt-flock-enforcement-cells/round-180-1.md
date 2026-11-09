@@ -97,6 +97,13 @@ ok  github.com/mcpdev80/baseharbor/internal/stableid
 - PR: **#1517** open on base `develop`, head `0427-180-stale-reclaim-8a29`, non-draft. URL: https://github.com/mcpdev80/baseharbor/pull/1517
 - CI trigger blocked by token scope (gist/read:org/repo; no actions:write) — see CI-findings; **Owner must trigger the CI validate run.**
 
+## HOSTED CI (PENDING — Owner action)
+
+- Covered by: ci.yml `validate` job, "Run release-source tests" (`go test ./internal/...` covers `internal/stableid`). No `.github/**` change required.
+- Blocked: my gh token scopes = `gist`, `read:org`, `repo` (NO `actions:write`); `POST .../actions/workflows/ci.yml/runs` returns 404. Owner must trigger the CI `Source & Quality` run on PR #1517 head `bf1fe2dad`, then record the run-id + `validate` PASS line.
+
 ## END STATUS
 
-State: **BLOCKED** — implementation, tests, PR (#1517) and CI-coverage wiring are complete and local checks are green; the only open step is the hosted CI run, which requires an Owner token with `actions:write` (my token 404s on the Actions create endpoint). Hosted run-id + PASS line to be recorded from the Owner's CI trigger, then evidence committed to origin/main and END re-posted as DONE.
+State: **BLOCKED** — implementation, tests, PR (#1517, head `bf1fe2dad`), and CI-coverage wiring are complete; local checks green (gofmt, vet, `go test ./internal/stableid` 17 cells, coreinstallation, source-readability audit; the one cmd/baha native-runtime failure `TestAppEditCommandCompleteProviderEditRunsRealLifecycle` fails identically on the clean base). The only open step is the hosted CI run, which requires an Owner token with `actions:write`. Evidence committed to `baseharbor-plan` origin/main:
+`git ls-remote origin main` => `beeeb397da628b376753ba23667244e8625018e8` (confirmed present).
+Hosted run-id + PASS line to be recorded from the Owner's CI trigger, then END re-posted as DONE.
