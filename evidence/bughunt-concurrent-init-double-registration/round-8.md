@@ -189,6 +189,41 @@ develop and push so the false-alarm ordering cannot recur at a green base.
 
 ---
 
+## Round 10 — readability-gate refactor (round-9 head did not pass CI)
+
+The round-9 head `81ae0cdd` was pushed but the CI readability job failed it:
+`cmd/baha/app_context.go has 855 lines (limit: 800; baseline ratchet: 0)` and
+`internal/deployment/deployment_store.go function saveDeploymentRecord spans
+206 lines` (source-format job, ~19:31:12Z). This is a **readability gate**,
+not a logic diff — the 0427-175 work pushed both over the gate.
+
+Triage: both are my gut. `app_context.go` grew from the develop baseline by the
+uuid-addressed-repair additions (confirmed: `git diff origin/develop --
+cmd/baha/app_context.go` is the 0427-175 work, not the 159-merge).
+`saveDeploymentRecord` is entirely my new function.
+
+Refactor (only my gut, no logic change):
+
+- `cmd/baha/app_context_identity_selection.go` — NEW file. Extracted three
+  isolated helpers (`refuseRegistryApplicationIDConflict`, `withoutUUIDSelector`,
+  `withoutEnvironmentSelector`) and the cohesive identity-selection pair
+  (`resolveRecordByIdentity`, `resolveRecordByIdentityProjecting`) out of
+  `app_context.go`.
+- `cmd/baha/app_context.go`: 855 → **716 lines** (under 800).
+- `internal/deployment/deployment_store.go`: extracted the atomic-write tail
+  (json.MarshalIndent → foreign-claim check → temp write → rename → retained
+  ownership band) into `persistDeploymentRecord`.
+  `saveDeploymentRecord`: 200 → **152 lines** (under 200).
+
+Verification on new head `2dfcb21f`: `go build ./...`, `go vet ./cmd/baha/
+./internal/deployment/`, `gofmt` on all three files — all clean;
+`internal/deployment` + registry/destroy/poison/repair/`TestUpNameResumes`
+focused suites pass. Race regression `app_init_concurrent_race_test.go`
+unchanged vs r7.
+
+New head: `2dfcb21fed35b4672ddbd9dab931cb227f7a5d85`, pushed to
+`origin/0427-175-initlock`. Reported to Owner for the next manual CI re-trigger.
+
 ## END
 
 0427-175 r8 implemented. Real-binary `--full-reset` repair moved off
