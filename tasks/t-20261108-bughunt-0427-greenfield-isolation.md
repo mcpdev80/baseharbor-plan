@@ -90,3 +90,9 @@ Draft #1503's two fail-closed proof-verifier files were replayed on post-#1518 `
 ## 2026-11-09 – Greenfield-PR nach Credentials-Merge neu integriert
 
 #1503 war auf altem `develop` gruen, wurde nach dem Merge von #1470 aber von der GitHub Merge-API mit Konflikt (HTTP 405) verweigert. Der reine Greenfield-PR wurde deshalb ohne neue Produktfunktionalitaet auf `develop` neu aufgebaut: SHA `4a99e8f39f0956f888149fc7190b0562810c768c`. Der einzige Workflow-Konflikt betraf die `needs`-Liste (`pr_unit_shards` aus neuerem develop plus eigener `pr_native_greenfield_proof`); beide erhalten. Ein erneuter exakter CI-Lauf #42702568290 ist erforderlich und bei der Abfrage noch in Arbeit. Nicht mergen oder als accepted markieren, bevor er erfolgreich abgeschlossen ist.
+
+## Verified integration and remaining release proof — 2026-11-09
+
+- [BaseHarbor PR #1503](https://github.com/mcpdev80/baseharbor/pull/1503) is now **merged** into `develop` at `78963050a66e8758569223d01967174abadbffc4` (2026-11-09 21:36 UTC), after exact-head [PR workflow #42702568290](https://github.com/mcpdev80/baseharbor/actions/runs/42702568290) succeeded. The PR contains the native Greenfield Go test and proof verifier and registers the Docker/Podman proof workflow steps in `.github/workflows/ci.yml`.
+- **Do not mark native two-engine E2E accepted from that PR workflow alone:** its reported jobs did not include the newly introduced `pr_native_greenfield_proof` job, even though the workflow is now present on `develop`. A subsequent selected PR/native run must execute both real Docker/Podman Greenfield cells and the exact-SHA two-engine aggregate proof. The physical independent-workstation/Core/Connector/READY journey is also a separate release acceptance requirement.
+- Preserve **active** until the actual selected native proof has been captured and reviewed, then move to review/closed with true HTTPS evidence. No early release/tag.
