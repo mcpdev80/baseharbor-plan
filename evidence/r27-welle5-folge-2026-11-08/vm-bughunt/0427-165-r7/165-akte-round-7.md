@@ -25,3 +25,16 @@
 - No `.github/**` files changed
 - Evidence destination: canonical planning repository whose `origin` is `https://github.com/mcpdev80/baseharbor-plan.git`
 - No subagents (Owner directive 2026-11-04): every step executed in this session
+
+## STOP DIRECTIVE RECEIVED (2nd unconfirmed-close incident, owner 2026-11-09)
+
+- Witness (own `ls-remote`, first line of this file):
+  - `refs/pull/1500/head` = `f966505cda93aa35da60ad65afee5e885e4886c9` — UNCHANGED, exactly the head named in the r6 CODEX-REVIEW verdict
+  - `refs/heads/develop` = `fea92f379e55bbe6e143a095d7c2e6c16e0b3a06`
+- No candidate was pushed to `origin/pr1500`; the PR head remains the verdict's head. The r7 correction stays on the local branch `0427-165-r7-orphan-refusal` (worktree `/tmp/opencode/0427-165-r7-wt`), unpushed.
+- Per owner directive: NO further pushes or END posts for 165. The r7 correction will be completed by the coordinator commissioning a fresh lane against the real head. No other lane (incl. 178) touched this shift.
+- Corrective actions taken: removed stray `baha` binary from the worktree; branch left uncommitted/unpushed for a later honest lane.
+
+## Compose / runtime hygiene
+
+- No docker/podman compose projects were started this shift; nothing to tear down.
