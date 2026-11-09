@@ -131,10 +131,12 @@ The three tests run in the existing Go validation group under the `pull_request`
 ### Planning repo witness (origin/main)
 
 ```
-$ git ls-remote origin main
-5b4b92e6b24b148c1f6b84c01ef1f2f6ccf02de8	refs/heads/main
-$ git ls-remote origin/main evidence/bughunt-damaged-state-misleading-error/round-7.md
-<sha>	refs/heads/main:evidence/bughunt-damaged-state-misleading-error/round-7.md   (after push)
+$ git ls-remote origin refs/heads/main
+08b08cc1141e233d7c69fd7540c80103243b1374	refs/heads/main
+$ git rev-parse HEAD
+08b08cc1141e233d7c69fd7540c80103243b1374   (my branch synced to origin/main)
+$ git cat-file -e HEAD:evidence/bughunt-damaged-state-misleading-error/round-7.md
+PRESENT
 ```
 
 ### Product chain witness
