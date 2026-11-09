@@ -32,7 +32,7 @@ evidence: [https://github.com/mcpdev80/baseharbor-plan/blob/master/evidence/boar
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** t1232-engine-probe (Qwen3.6; owner-directive, prior=o261 dead)  
 **Priority:** not set  

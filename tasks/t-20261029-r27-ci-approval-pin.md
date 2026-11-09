@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/commit/a3750a8f6a26170fbe3995
 
 <!-- generated:links -->
 **State:** superseded  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** f60 (29879f0e, flash)  
 **Priority:** high  

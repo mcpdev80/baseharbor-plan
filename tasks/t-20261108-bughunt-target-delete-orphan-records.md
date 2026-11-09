@@ -32,7 +32,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 
 <!-- generated:links -->
 **State:** review  
-**Release:** v0.4.27  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-165-r7  
 **Priority:** normal  

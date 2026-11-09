@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.27 (v0.4.27)  
+**Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-26-verify](t-20261017-release-0-4-26-verify.md)  
 **Required by:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** o267-base (coordinator, owner-authorized)  

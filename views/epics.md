@@ -21,7 +21,7 @@ Status: open · release: [backlog](../releases/backlog.md)
 
 ## [core-777](../epics/core-777-developer-access-and-profiles.md) · Make developer access and profiles portable
 
-Status: open · release: v0.4.27
+Status: open · release: [v0.4.27](../releases/v0.4.27.md)
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |

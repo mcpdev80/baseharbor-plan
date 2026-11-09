@@ -2,18 +2,18 @@
 id: t-20261109-0427-179-flock-not-enforced
 card_number: "0427-179"
 card_short_title: "0427-179 · Lifecycle flock is"
-type: task
+type: bug
 areas: []
 release: v0.4.27
 version: ""
-parent: ""
+parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: queued
+kanban_lane: ready
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-179 · 0427-179 · Lifecycle flock is
 priority: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-179-flock-not-enforced · 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261109-0427-179-flock-not-enforced · 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems #task #release/v0-4-27 #status/planned #view/ready #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** v0.4.27  
-**Depends on:** none  
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
@@ -68,3 +68,6 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## Task Note
+Hunt H-P5 (evidence: evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp5.md, FINDING 1, confirmed in docker cell on kernel 7.0 host): regular-file flock() mutual exclusion is NOT enforced across processes inside the runtime cells (C/python/shell probes all acquired a lock an unrelated child already held), while in-process contends. Every lifecycle guarantee built on `.installation.lock` / per-app dotfiles (incl. today's #1507 fairness work) is therefore advisory-only exactly where BaseHarbor ships. Required: a validity-enforced mutual-exclusion primitive (e.g. O_EXCL lockfile + holder-liveness verification, or flock probe at acquire that fails closed when the kernel/fs does not enforce), plus a cell regression that proves cross-process contention actually blocks.

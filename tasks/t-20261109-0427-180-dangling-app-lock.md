@@ -2,18 +2,18 @@
 id: t-20261109-0427-180-dangling-app-lock
 card_number: "0427-180"
 card_short_title: "0427-180 · Killed app"
-type: task
+type: bug
 areas: []
 release: v0.4.27
 version: ""
-parent: ""
+parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: queued
+kanban_lane: ready
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-180 · 0427-180 · Killed app
 priority: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,16 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-180-dangling-app-lock · 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target #task #release/v0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261109-0427-180-dangling-app-lock · 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target #task #release/v0-4-27 #status/planned #view/ready #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** v0.4.27  
-**Depends on:** none  
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  
@@ -68,3 +68,6 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+## Task Note
+Hunt H-P5 (evidence: hp5.md FINDING 2, proven): a holder killed with SIGKILL leaves the per-app dotfile `.scope.app_installation.lock` on disk (cleanup only runs on clean release). The target-wide scan `deploymentsHaveAppLocks` then reports held=true forever: all later lifecycle operations on the target fail closed with no self-service recovery. Required: stale-detection (holder pid recorded in dotfile + liveness check) and an automatic reclaim path in the acquire, with a regression proving kill -9 followed by a new lifecycle call succeeds after reclamation.
