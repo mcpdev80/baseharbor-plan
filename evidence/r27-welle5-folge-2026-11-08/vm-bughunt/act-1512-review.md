@@ -65,3 +65,37 @@ Other reported executed validation jobs passed, including deployment-package-tes
 - Evidence is in canonical baseharbor-plan, whose origin is https://github.com/mcpdev80/baseharbor-plan.git.
 
 END_DONE 0427-175-review: KORREKTUR PR #1512 head f32f35576379eeb961bfb292a5b003be3a1dff3f; real two-process overlap and production lock verified, but exact-head run 42593160991 failed source format, go-unit-tests, and PR Selected Checks; develop drift to e072e142ec9511f3cc86ffa67c7debd022d7760a.
+
+## Current remote-head review
+
+ROLLE: REVIEW
+URTEIL: KORREKTUR
+
+### Exact remote state
+
+- `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1512/head` returned `fea92f379e55bbe6e143a095d7c2e6c16e0b3a06 refs/heads/develop` and `f442b7e99a01d0f4aed85042c947e6d6ed7f76fe refs/pull/1512/head`.
+- `gh pr view 1512 --repo mcpdev80/baseharbor --json state,mergeCommit` returned `{"mergeCommit":null,"state":"OPEN"}`. The full PR read identifies head `f442b7e99a01d0f4aed85042c947e6d6ed7f76fe` and base branch `develop`.
+- `gh run list --repo mcpdev80/baseharbor --branch 0427-175-initlock` returned run `42599950208`, event `workflow_dispatch`, head `f442b7e99a01d0f4aed85042c947e6d6ed7f76fe`, status `in_progress`. The older PR run `42593160991` is on the superseded `f32f35576379eeb961bfb292a5b003be3a1dff3f` and is queued; it is not evidence for the current head. `gh pr checks 1512` reports no checks on the current branch.
+- Current remote develop is `fea92f379e55bbe6e143a095d7c2e6c16e0b3a06`. The PR base recorded by the API and candidate merge base remain `942111d5a1c43f5257bf1627a966fa9e6c6f24bd`; `git rev-list --left-right --count origin/develop...origin/pr1512` is `7 3`. Thus #1512 is seven develop commits behind, including the #1507 merge.
+
+### Review findings
+
+The two-process race proof from the previous review remains intact: `TestConcurrentInitAcrossRealProcessesIsSerializedOrRefused` in `cmd/baha/app_init_concurrent_race_test.go:91-177` parks the first process inside the production `SaveDeploymentRecord` seam before starting the child process. The production writer still performs the first-claim and duplicate checks under `WithDeploymentRegistryWriteLock` in `internal/deployment/deployment_store.go`. The current head also fixes the previous owner-state fixture and source-readability failures by persisting the test deployment through the production seam and moving registry-conflict code out of `deployment_store.go`.
+
+The recovery command advertised for an already-poisoned registry is not proven executable and the source parser contradicts it:
+
+- `internal/deployment/registry_conflict.go:26-36` tells the operator to run `baha app destroy --uuid <id> --full-reset` for each twin.
+- `cmd/baha/app_lifecycle.go:327-346` rejects every option other than `--yes` and `--full-reset`; `--uuid` reaches the `unknown option` error.
+- `cmd/baha/app_destroy_lifecycle.go:51-67` builds `appArgs` from the positional `name` only and passes those arguments to `resolveApplicationEnvironment`; it has no UUID field to route to the exact record.
+- `cmd/baha/app_registry_poison_recovery_test.go:62-88` asserts only that the error text contains the advertised command. `TestPoisonedTargetRemainsReachableByUUID` at lines 146-200 calls the resolver with `status --uuid`, not the `destroy` command, and accepts a registry-conflict error as an outcome. It does not run the advertised command or prove that it retires exactly one twin.
+
+The incomplete-record path still classifies a deployment directory without `deployment.json` as incomplete (`internal/deployment/deployment_list.go` and `TestLoadDeploymentRecordClassifiesMissingState` in `internal/deployment/target_test.go:123-153`), so it fails closed rather than treating the directory as an empty registry. The prior review's stronger combined test—an incomplete first record while a distinct first registration with the same application ID attempts to enter—has not been added; retain it as a requested regression for the partial-write race boundary.
+
+### Corrective recipe and stop criteria
+
+- In `cmd/baha/app_lifecycle.go:327-346` and `cmd/baha/app_destroy_lifecycle.go:51-67`, parse and carry `--uuid` into `resolveApplicationEnvironment` for `app destroy`, preserving one exact deployment identity through authorization, preflight, and mutation. If UUID-targeted full reset is not a safe recovery, change `RegistryConflictError` in `internal/deployment/registry_conflict.go:26-36` to name only a recovery action that actually works.
+- Add a real dispatcher/CLI regression on a poisoned registry that executes `baha app destroy --uuid <one-id> --full-reset`, verifies that the selected duplicate is retired, the other twin remains byte-identical, and `baha app list` becomes healthy. Include a negative assertion that UUID omission stays fail-closed. Keep the existing two-process barrier test. Add the partial-record/concurrent-registration regression that asserts no duplicate is persisted and the incomplete state is surfaced.
+- Refresh the candidate onto current develop `fea92f379e55bbe6e143a095d7c2e6c16e0b3a06`, resolve integration changes, then obtain a terminal PR-triggered run on the refreshed exact head. The current `workflow_dispatch` run `42599950208` is still in progress and `gh pr checks` has no current-head result; it cannot support approval. Require `go-unit-tests`, source format, `PR Selected Checks`, and every other required PR check to be terminal-success; report skips as skips.
+- Stop until the advertised recovery command is executable and demonstrated on the production command path, the refreshed branch has no base drift, and the current-head PR run is terminal and green. Do not merge this head.
+
+END_DONE 0427-175-review-current: KORREKTUR #1512 head f442b7e99a01d0f4aed85042c947e6d6ed7f76fe; PR OPEN with mergeCommit null, actual run 42599950208 remains in_progress, advertised --uuid recovery is rejected by app destroy, and candidate is seven develop commits behind. Evidence plan main commit f477d75fc95f9a4525643a82e31faadf0ad2a0a1.
