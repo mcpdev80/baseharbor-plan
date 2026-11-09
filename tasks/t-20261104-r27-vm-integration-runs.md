@@ -27,6 +27,7 @@ wait_reason: "Bisherige Worker-Lane beendet; fuer ausstehende 8/8 Core/Demo/Cons
 - [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-107-docker2-bughunt · **Priority:** high  
+    **Waiting:** Bisherige Worker-Lane beendet; fuer ausstehende 8/8 Core/Demo/Console/Connector-Integrationsnachweise fehlt die neu zugeordnete CI-Owner-/Coordinator-Abnahmebahn. Bestehende GitHub-hosted Runtime-CI bevorzugen; keine neue Hardware-/VM-Test…  
     <!-- /generated:card -->
 
 <!-- generated:links -->
