@@ -21,7 +21,7 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md"]
-superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
+superseded_by: ""
 ---
 - [ ] t-20261108-bughunt-target-delete-orphan-records · Bug Hunt v0.4.27: Delete leaves orphans #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
