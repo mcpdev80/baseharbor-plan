@@ -1,17 +1,17 @@
 ---
 id: t-20261109-0427-182-serve-integration-holder-leak
 card_number: "0427-182"
-card_short_title: "0427-182 · Serve Integr test"
+card_short_title: "Serve holder teardown"
 type: bug
 areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-182-impl
-kanban_status: review
-kanban_lane: review
-kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: 0427-182 · 0427-182 · Serve Integr test
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: "Serve test holders are stopped and released; no leaked listener contaminates later CLI tests."
+kanban_title: 0427-182 · Serve holder teardown
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -19,11 +19,11 @@ prs: [mcpdev80/baseharbor#1520]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1520", "https://github.com/mcpdev80/baseharbor/actions/runs/42704543118", "https://github.com/mcpdev80/baseharbor/commit/edee0ae532605fb12da3f86f2f588889f579fa7b"]
 ---
 
-- [ ] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/review #view/review #kind/bug
+- [x] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/closed #view/closed #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-182-impl  
     **PR:** [baseharbor#1520](https://github.com/mcpdev80/baseharbor/pull/1520)  
@@ -41,7 +41,7 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+Release and await every serve integration holder so a later `cmd/baha` test cannot inherit a bound listener from another test.
 
 ## Scope
 
@@ -71,3 +71,9 @@ One or two sentences: the observable outcome.
 
 ## Task Note
 Follow-on of 0427-181 (which isolated only the `up` side). Witness (hosted, exact): run 42678151766 on 03a4544de (PR #1512 head, base develop 8a2912c62) fails `--- FAIL: TestUpNameResumesThroughCommandEntrypoint (80.57s)` at runtime_ports_test.go:340 with `holder: root=/tmp/TestServeCommandIntegrationOwnershipOnValidRoot.../runtime` and `holder bound+serving at 127.0.0.1:43423` — a SERVE integration test's holder stays bound/serving into a later test, i.e. the same contamination family, different emitter. Required: teardown guarantee (stop + wait release) for every serve holder created in cmd/baha tests, plus a guard assertion that no listener from another test's temp root is bound when the entrypoint test starts. Must run (no SKIP) in the always-executed CI group.
+
+## Acceptance verified — 2026-11-09
+
+- PR [#1520](https://github.com/mcpdev80/baseharbor/pull/1520) merged into `develop` at `edee0ae532605fb12da3f86f2f588889f579fa7b`.
+- Exact PR HEAD `9e9acee89ecc28072b4695a3ee00d74d116530b2` passed [CI #42704543118](https://github.com/mcpdev80/baseharbor/actions/runs/42704543118): CLI shards `cli-0`, `cli-1`, `cli-2`, native Docker and Podman, and `PR Selected Checks` all SUCCESS.
+- This test-holder regression is accepted independently from full remote management E2E; the release remains unreleased.
