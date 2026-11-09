@@ -221,7 +221,10 @@ return nil, nil, &DamagedDeploymentError{Identity: DeploymentIdentity{Target: ta
 
 ## Hosted CI
 
-- Run pending/awaiting at the time of writing; exact run ID/status recorded in the final END below from the live CI result. The 172-marker native failure (`TestControlPlaneSingleDefaultNativeRuntimeInCI`, `internal/identityprovider/keycloak_single_native_ci_test.go`) remains external STATE 0427-172 — this lane's write-set (`cmd/baha` + `internal/deployment`) does not touch `internal/identityprovider`.
+- **Run `42538516181`** (`https://github.com/mcpdev80/baseharbor/actions/runs/42538516181`), `pull_request`, head `9e211715187534d9939a39702cd28a726d83581e`, terminal `completed` / `failure` (updated 2026-11-09T00:19:21Z).
+- **Passing (this lane's changed risks):** `PR · Validation · go-build`, `go-vet`, `go-unit-tests` (runs the new `TestRegistryUpFailsClosedNamingRecordAndNetworkAbsent` + existing damaged tests), `deployment-package-tests`, `PR · Validation · runtime-provider-package-tests`, `cli-gofmt`, `Source format`, `Trusted Plan`, `Native impact selection`, `Native destroy retry` docker + podman, `Focused Python`. This lane's write-set (`cmd/baha/app_context.go` + `internal/deployment/damaged_state.go`) does not touch any native runtime path.
+- **Failing (STATE 0427-172, external):** `PR · Native Keycloak/Core · docker` (job `128908126340`) and `· podman` (job `128908126390`) both fail in `TestControlPlaneSingleDefaultNativeRuntimeInCI` (`cmd/baha/control_plane_single_native_ci_test.go:18`) — the reported 0427-172 bootstrap-marker class. This test is NOT in this lane's write-set (which touches only `app_context.go`, `app_lifecycle_damaged_state_test.go`, `damaged_state.go`); the registry-path fix cannot alter the control-plane native entrypoint. `PR Selected Checks` (job `128908126...`) fails solely as the aggregate of these two native gates.
+- No rerun or workflow edit was made (Owner scope).
 
 ## Scope and evidence integrity
 
