@@ -8,30 +8,29 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-107-docker2-bughunt
-kanban_lane: blocked
+kanban_lane: wait
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: blocked
+kanban_status: wait
 kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
-blocker: "stale claim from 11-04 wave (lane-0427-107-docker2-bughunt no longer exists; hunt docker2 finished via hp3/podman2 dossiers). Work needs either a fresh integration-run mission or owner decision; not on any live lane."
+blocker: ""
 resolution: ""
 evidence: []
-wait_reason: ""
+wait_reason: "Bisherige Worker-Lane beendet; fuer ausstehende 8/8 Core/Demo/Console/Connector-Integrationsnachweise fehlt die neu zugeordnete CI-Owner-/Coordinator-Abnahmebahn. Bestehende GitHub-hosted Runtime-CI bevorzugen; keine neue Hardware-/VM-Testpflicht."
 
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-107-docker2-bughunt · **Priority:** high  
-    **Blocker:** stale claim from 11-04 wave (lane-0427-107-docker2-bughunt no longer exists; hunt docker2 finished via hp3/podman2 dossiers). Work needs either a fresh integration-run mission or owner decision; not on any live lane.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
@@ -102,3 +101,10 @@ owner-direktive 2026-11-07: #107 -> ACTIVE. podman-2 host-blocker behoben (ip_fo
 #107 host-config erledigt (ip_forward). native VM-laeufe fuellen #110/#003 pods. KEINE aktive worker-bahn => wait, nicht active. trigger: #110 podman cells durch.
 
 owner-direktive: hand-festival docker-2 — greenfield+brownfield+alle wizards, KEIN HA, nur befundung ohne produkt-aenderungen. lane 2cc3a33a.
+
+## Kanban-Audit 2026-11-09 — kein technischer Blocker
+
+- Der bisherige `blocker` bezog sich nur auf eine nicht mehr aktive Lane. Eine fehlende Lane ist keine Owner-Entscheidung oder technisch unmoegliche Implementierung: **blocked -> wait**.
+- Die direkten technischen Voraussetzungen `device-enrollment`, `node-service`, `vm-rebuild-integration` sowie der private Integration Path sind in den Plan-Karten `closed`/`accepted`. Der alte Nachweisstand `Docker core+console 2/4 PASS` ist historisch; die vollstaendigen acht Kombinationen sind nicht belegt.
+- CI-Owner-/Coordinator-Uebergabe steht aus. Nach aktueller Owner-CI-Policy werden Native-/PR-Tests auf GitHub-hosted Docker/Podman-Runnern ausgefuehrt; Cross-Repo-E2E wird in der develop-/Release-Qualifikation geprueft, nicht als zusaetzliches PR-Gate oder manuelle Hardwarepflicht. Die alten VM-Anweisungen in Scope/Acceptance sind historische Ausgangsanforderungen und muessen vor Wiederaufnahme mit der aktuellen CI-Policy abgestimmt werden.
+- Nicht `closed`: kein 8/8-Run und keine SHA-genauen allseitigen Integrationsnachweise behauptet. Nicht `active`: kein aktueller Worker nachgewiesen. Wiederaufnahme, sobald Coordinator die CI-Integration/Abnahme explizit uebernimmt.
