@@ -67,3 +67,14 @@ Diagnosis of the red on the *dev* host (the local baseline, before the two hoste
 - After cleaning, the clean full `cmd/baha` matrix (≈518s) failed only on the two pre-existing flakes above — **not** on `TestUpNameResumesThroughCommandEntrypoint`.
 
 This local divergence (hosted deterministically fails the witness test; the dev host does not) is itself the evidence that the hosted red is a genuine regression on this head, not the local stale-state artifact.
+
+## Counter-check (165): the witness is a BASE defect — not this PR's concern
+
+Owner counter-check: clean develop HEAD `fea92f379` **also fails** the witness test in full CI (`workflow_dispatch` run `42627177914`, `--- FAIL: TestUpNameResumesThroughCommandEntrypoint (81.09s)` @ `13:48:44Z`). The failing test is a **base defect**, not a regression on this PR's head — the red is environmental/infra on both develop and `f5883e1e9`, unrelated to my split.
+
+Consequence for this PR (per 165's instruction):
+- **Rezept point (c) is excused** until card 0427-181 lands.
+- **Hold head `f5883e1e9` untouched. Add NOTHING test-infrastructure-related.**
+- Stand by for a **landing-refresh** after 181 merges: rebase `f5883e1e9` onto the new develop + one green hosted run.
+- Fund card **0427-181** is minted for the base test-isolation defect (the permissive ports / trust-plane teardown fires into another test's running `serve`).
+- Seat stays warm; no new task dispatched today.
