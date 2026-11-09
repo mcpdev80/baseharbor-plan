@@ -85,6 +85,15 @@ Same as scenario 2: the read-only `app list`/`app list --all-targets` paths neve
 - No read-only list writes. `ListDeploymentsForDisplay`/`ListAllDeploymentsForDisplay`/`listDeploymentRecords` are read-only; owner verification is fail-closed, not mutating.
 - No concurrent-init (175-family) drift: the #174 classification seam (`VerifyDeploymentOwner` → `isAccessDeniedLoadError`/`isMalformedInstallationLoadError` → distinct `DeploymentRecordStateError.Kind`) holds; `resolveRegisteredApplication` propagates the true verdict (`access-denied`/`malformed`) instead of the "not found" lie.
 - No mixed-dead mask: dead-target state surfaces as a distinct malformed/access-denied warning; walk best-effort, does not abort; live-target records still listed.
+
+## pre-existing (out of scope)
+
+- The full `cmd/baha` suite has PRE-EXISTING init/guided-init corruption-test failures on clean develop HEAD `fea92f379` (NOT introduced by this bug hunt; worktree verified clean, no uncommitted files). Example:
+  ```
+  --- FAIL: TestDeterministicInitDoesNotPersistUnneededSourceSelection (0.00s)
+      app_init_source_neutral_test.go:72: corrupt deployment state for p427-podman-boot/gone/dev [...] must be a UUIDv4
+  ```
+  Cause: a fixed placeholder `application_id` in `cmd/baha/app_init_source_neutral_test.go` that no longer validates as UUIDv4. These are init/data-corruption tests, unrelated to the list/prune/classification cuts of this mission. The `internal/deployment` package (the subject of this hunt) is fully green (`go test ./internal/deployment/...` = ok). The round-8 evidence for 0427-173 already noted these 16 init tests fail on clean develop itself. Out of scope; reported, not fixed (mission = no product change).
 ```
 
 ## repo-rule compliance
