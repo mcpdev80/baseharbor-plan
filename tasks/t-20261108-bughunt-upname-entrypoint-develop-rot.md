@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1502]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "Fix landed on PR #1502 (head e69de123); cli-package-tests passes on hosted runner. WARTET AUF LANDING: needs a develop push where TestUpNameResumesThroughCommandEntrypoint and TestControlPlaneSingleDefaultNativeRuntimeInCI both run in native Docker AND Podman and pass (skip != healing)."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-use-activate-issuer-failclosed/round-3.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
