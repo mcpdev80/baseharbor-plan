@@ -1,7 +1,7 @@
 ---
 id: 2026-11-09-r27-local-delta-delivery-and-target-presets
-status: accepted-product-direction
-sources: ["mcpdev80/baseharbor#1513", "mcpdev80/baseharbor#1473"]
+status: accepted
+sources: []
 ---
 # Local delta delivery and editable target deployment presets (2026-11-09)
 
