@@ -65,7 +65,19 @@ Decision: **granularity = per app; fairness = bounded destroy-priority retry.**
 
 ## Hosted run (exact head)
 
-- CI run <RUN_ID> completed <STATUS> on candidate SHA <SHA>. go-unit-tests / go test ./... green. (post-push)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1507 (0427-176-lockfairness -> develop), candidate SHA `43d359f487d5035c47e234843d6a18c4f7c79e5c`.
+- CI run id `5449` (job `128981766564`, `PR · Validation · go-unit-tests`), exact head `43d359f4`, status completed, conclusion **failure**.
+- go-unit-tests job runs `go test ./internal/application/... ./contracts/...` — verified locally **green** (`ok ... internal/application 7.379s`, `ok ... contracts ...`). No new regression in the go-unit-tests package.
+- `go test ./...` on my branch fails on 26 tests; identical 26 fail on the clean base (b3a8042d1) — confirmed by diffing failing-test sets. These are pre-existing environment failures (UUID-validation in GuidedInit/Deterministic/QuickInit/AppInit; DB/migration in internal/database; native-runtime + host-resource in internal/controlplaneruntime and cmd/baha TestAppEditCommandCompleteProviderEditRunsRealLifecycle). None touch the lock change. My new/changed tests pass with `-race -count=3`.
+- FAILURES that BLOCK merge, per scope split (Owner owns `.github/**`):
+  - `PR · Native destroy retry · docker` (job `128981756365`) → FAILURE.
+  - `PR · Native destroy retry · podman` (job `128981756397`) → FAILURE.
+  - These are the shared-impact native destroy-retry gates; they trigger because the PR edits `cmd/baha/**` (ci-single-default-impact.sh flags CLI source edits). This is an Owner-scope workflow gate — I did not touch `.github/**` and did not trigger a rerun.
+  - STATE: native destroy-retry docker/podman gate failing. (Exact failing log line not captured — the GitHub API token lacks the `actions: read` scope, so the job log archive could not be downloaded. The failing step prints `Process completed with exit code 1` at `.github/workflows/ci.yml` line 302.)
+
+## END
+
+- lane BLOCKED — see below
 
 ## END
 
