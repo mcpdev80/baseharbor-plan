@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-159-r7
-kanban_status: review
-kanban_lane: review
+kanban_status: accepted
+kanban_lane: accepted
 kanban_summary: "Damaged-state detection precedes generic limits: error names the missing record/network and the concrete recovery (re-up from…"
 kanban_title: 0427-159 · Corrupted deployment state rep
 priority: normal
@@ -19,11 +19,11 @@ prs: [mcpdev80/baseharbor#1499]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: "APPROVED exact-head green d69d3c0b9 (run 42619991654, act-1499-review-r10) — wartet auf merge-griff"
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx2.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-damaged-state-misleading-error · Bug Hunt v0.4.27: Damaged state lies #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-damaged-state-misleading-error · Bug Hunt v0.4.27: Damaged state lies #task #release/v0-4-27 #status/accepted #view/accepted #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-159-r7 · **Priority:** normal  
     **PR:** [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499)  
@@ -31,7 +31,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-159-r7  
