@@ -37,7 +37,7 @@ Live PR API identifies head `4362f4a16f821214774ff4a524efe6a35799d3a3`, base `20
 - `cmd/baha/runtime_integration_cleanup_coverage_test.go`
 - `cmd/baha/runtime_integration_test_support_test.go`
 
-No `.github/**` changes. The exact-head run `42546833737` completed successfully. `PR · Validation · cli-package-tests` job `128933579320` passed on the `pull_request` trigger and covers the `cmd/baha` package, including the marker-transfer and injected-permission regressions. Native destroy-retry Docker job `128933577055` and Podman job `128933577080` both passed; each log explicitly records `TestSecondSameHostCoreNativeConflictInCI` PASS.
+No `.github/**` changes. The exact-head run `42546833737` completed successfully. `PR · Validation · cli-package-tests` job `128933579320` passed on the `pull_request` trigger and covers the `cmd/baha` package, including the marker-transfer and injected-permission regressions. Native destroy-retry Docker job `128933577055` and Podman job `128933577080` both passed; each log explicitly records `TestSecondSameHostCoreNativeConflictInCI` PASS. `PR Selected Checks` job `128936088336` also passed.
 
 The distinct `PR · Native Keycloak/Core` job `128933581031` was skipped. I do not count that job as a pass. This does not invalidate the requested r3 marker-root review: the applicable native Docker/Podman destroy-retry jobs executed and passed. The card's F3 healing proof is a separate post-merge develop-push obligation below.
 
