@@ -11,7 +11,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 7 |
-| review | 2 |
+| review | 3 |
 | wait | 11 |
 | blocked | 0 |
 | ready | 0 |
@@ -37,6 +37,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | review | normal | none | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1508](https://github.com/mcpdev80/baseharbor/pull/1508), [baseharbor#1509](https://github.com/mcpdev80/baseharbor/pull/1509), [baseharbor#1511](https://github.com/mcpdev80/baseharbor/pull/1511) |
+| [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | review | normal | lane-0427-159-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | review | normal | lane-0427-165-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 
 ## Waiting for resources
