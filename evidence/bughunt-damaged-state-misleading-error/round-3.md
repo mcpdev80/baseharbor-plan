@@ -239,6 +239,6 @@ The r3 judge's ACCEPTED disposition stands as the r2-verdict evaluation; the F1 
 
 ## END
 
-END 0427-159 r3 (r4 rebuttal + F1 fix): F1 CLOSED — registry damaged-state error now enriched with the verified absent workload network for the resolved identity (`DamagedDeploymentState(err, inspector)` + `EnrichNetworkForOwnIdentity`, `cmd/baha/app_context.go` registry branch reconstructs identity from request params); foreign orphan never attributed; regression `TestRegistryUpFailsClosedNamingRecordAndNetworkAbsent` proves it and fails pre-fix; F2/F3/F4 rebuttals filed with file:line; candidate `0427-159-damagedstate` head `9e211715`, base `3187cea15` ancestor, single chain; CI run `<<RUN_ID>>` terminal; 172 native = external STATE; evidence published to origin/main `<<EVIDENCE_SHA>>`.
+END 0427-159 r3 (r4 rebuttal + F1 fix): F1 CLOSED — registry damaged-state error now enriched with the verified absent workload network for the resolved identity (`DamagedDeploymentState(err, inspector)` + `EnrichNetworkForOwnIdentity`, `cmd/baha/app_context.go` registry branch reconstructs identity from request params); foreign orphan never attributed; regression `TestRegistryUpFailsClosedNamingRecordAndNetworkAbsent` proves it and fails pre-fix; F2/F3/F4 rebuttals filed with file:line; candidate `0427-159-damagedstate` head `9e211715`, base `3187cea15` ancestor, single chain; CI run `42538516181` terminal (Go gates green, 172 native = external STATE); evidence published to origin/main `47945e1a`.
 
 
