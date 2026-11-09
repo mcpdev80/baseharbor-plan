@@ -96,5 +96,7 @@ Both new tests live in `cmd/baha/app_prune_test.go` (package `main`). They are e
 
 ## END
 
-END_DONE 0427-173-r3: all three r2 findings closed — MCP prune preserves the pinned target (fix + discriminating MCP regression, fails without fix), applied-intent guard proven at the real CLI entry with byte-identical record and `RECORD_NOT_DANGLING` cause, and help/docs aligned to the enforced one-name contract. `bd5df838` pushed to `fix/0427-173-app-prune` / PR #1505 head; local prune + golden + doc + vet + build green.
+END_DONE 0427-173-r3: all three r2 findings closed — MCP prune preserves the pinned target (fix + discriminating MCP regression, fails without fix), applied-intent guard proven at the real CLI entry with byte-identical record and `RECORD_NOT_DANGLING` cause, and help/docs aligned to the enforced one-name contract. Candidate `bd5df838` then `bcdede01` pushed to `fix/0427-173-app-prune` / PR #1505 head; evidence on baseharbor-plan `origin/main`.
+
+Hosted CI on exact head `bcdede014979de5692b2879eb6ddcd17141c2677` (own persistent zone, read-only check-runs endpoint): TERMINAL — all jobs success or skipped, no failures. `go-unit-tests` success (run_id 115261009036, completed 2026-11-09T03:02:16Z), `go-build`/`go-vet` success, `cli-gofmt` success, `Source format` success, `Native destroy retry · docker`/`podman` success, `PR Selected Checks` success. The initial END was returned because the first candidate `bd5df838` had gofmt failures; fixed with `bcdede01` (one alignment in `app_prune_test.go`, `gofmt -l cmd/baha/` clean), pushed, and accompanied the resulting run to terminal.
 
