@@ -80,6 +80,22 @@
 
 - Keine container/compose gestartet (pure Go unit test, keine runtime gates). git status working tree nach commit = clean.
 
+## Hosted CI (terminal)
+
+- PR #1506 (develop <- 0427-174-permission-truth @ fb21a02e): two runs, BOTH terminal SUCCESS, 0 failures.
+  - Run 42546833737 (created 2026-11-09T01:40:48Z), 25 jobs: all SUCCESS or SKIPPED.
+  - Run 42546637296 (created 2026-11-09T01:38:33Z), 25 jobs: all SUCCESS or SKIPPED.
+- CI groups exercised by my change (deployment package):
+  - `PR · Validation · deployment-package-tests` -> SUCCESS (runs my 3 new regression tests: access-denied is-not-foreign, missing/foreign boundaries, empty-target usage error).
+  - `PR · Validation · cli-package-tests` -> SUCCESS.
+  - `PR · Validation · cli-build` -> SUCCESS; `PR · Validation · source-contracts` -> SUCCESS.
+  - `PR · Source format` -> SUCCESS; `PR · Trusted Plan` -> SUCCESS; `PR · Native impact selection` -> SUCCESS; `Workflow policy` -> SUCCESS.
+- Skipped gates (HA-native / native destroy-retry docker+podman / selected-runtime / public-contracts / pins / exact-candidate / runner-interface / targeted-HA): runner-isolated runtime gates, NOT impacted by this pure Go unit/contract change in internal/deployment.
+- Pre-existing unrelated failure on base (`TestGuidedInitDeterministicPositionalEnvironmentAliases`, UUID-v4 test-fixture) confirmed identical on clean develop HEAD — NOT introduced by this change; CI did not flag it (separate group, and it is a local test-fixture UUID issue, not a deployment-owner path).
+
 ## END
 
-- Lane: mission-174-impl — PENDING (END erst nach terminalem hosted CI-run + origin/main evidence)
+- Lane: mission-174-impl — DONE
+- PR #1506 (develop <- 0427-174-permission-truth @ fb21a02e), CI terminal SUCCESS (0 failures). Evidence on origin/main (baseharbor-plan). Branch provenance: sole parent 20902f0a (develop HEAD), only own commit fb21a02e.
+- Funde behoben: (1) permission-denied installation.json -> ErrDeploymentOwnerAccessDenied (named access error w/ path + repair hint), (2) empty/invalid target name -> usage error naming offending input, (3) genuine foreign hash -> ErrDeploymentOwnerForeign. Fail-closed preserved.
+
