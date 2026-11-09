@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 9 |
-| review | 2 |
+| review | 1 |
 | wait | 11 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 26 |
 | waiting | 177 |
 | backlog | 7 |
-| closed | 206 |
+| closed | 207 |
 
 ## Active
 
@@ -39,7 +39,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-lifecycle-lock-scope-fairness](../tasks/t-20261108-bughunt-lifecycle-lock-scope-fairness.md) | Bug Hunt v0.4.27: Target lock serializes and starves | review | normal | lane-w176-lockfairness | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1507](https://github.com/mcpdev80/baseharbor/pull/1507) |
-| [t-20261108-bughunt-use-activate-issuer-failclosed](../tasks/t-20261108-bughunt-use-activate-issuer-failclosed.md) | Bug Hunt v0.4.27: Select fails without issuer | review | normal | lane-0427-178-rebase | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489), [baseharbor#1510](https://github.com/mcpdev80/baseharbor/pull/1510) |
 
 ## Waiting for resources
 
@@ -68,7 +67,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 37 open, 138 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 36 open, 139 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
