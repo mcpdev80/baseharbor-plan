@@ -22,18 +22,18 @@ wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md", "https://github.com/mcpdev80/baseharbor/actions/runs/42520608394", "https://github.com/mcpdev80/baseharbor/commit/b3a8042d18ea60f162a32a51df34a499cad6a237"]
 ---
-- [x] t-20261108-bughunt-target-delete-nontty-consent · Bug Hunt v0.4.27: Target delete needs TTY #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-target-delete-nontty-consent · Bug Hunt v0.4.27: Target delete needs TTY #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-w164b-delconsent2 · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1494](https://github.com/mcpdev80/baseharbor/pull/1494)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42520608394), [proof 3](https://github.com/mcpdev80/baseharbor/commit/b3a8042d18ea60f162a32a51df34a499cad6a237)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** closed  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** —  
+**Owner:** unassigned  
 **Priority:** normal  
 **PRs:** [baseharbor#1494](https://github.com/mcpdev80/baseharbor/pull/1494)  
 **Source:** 
