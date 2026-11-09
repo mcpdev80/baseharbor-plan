@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 7 |
+| active | 8 |
 | review | 2 |
 | wait | 12 |
 | blocked | 0 |
-| ready | 1 |
+| ready | 0 |
 | queued | 26 |
 | waiting | 178 |
 | backlog | 7 |
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | active | normal | lane-w160c-stalelist3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
 | [t-20261109-0427-179-flock-not-enforced](../tasks/t-20261109-0427-179-flock-not-enforced.md) | 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems | active | not set | lane-0427-179-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1515](https://github.com/mcpdev80/baseharbor/pull/1515) |
+| [t-20261109-0427-181-upname-entrypoint-hosted-rot](../tasks/t-20261109-0427-181-upname-entrypoint-hosted-rot.md) | 0427-181 · TestUpNameResumes fails in hosted | active | normal | lane-0427-181-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
 
@@ -62,9 +63,7 @@ None.
 
 ## Ready to assign
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261109-0427-181-upname-entrypoint-hosted-rot](../tasks/t-20261109-0427-181-upname-entrypoint-hosted-rot.md) | 0427-181 · TestUpNameResumes fails in hosted | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+None.
 
 ## By release
 
