@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-179-impl
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-179 · 0427-179 · Lifecycle flock is
 priority: ""
@@ -18,19 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1515]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "APPROVED exact-head green 11b8bd447 (run 42633885783, act-1515-review-r2) — wartet auf merge-griff"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-179-flock-not-enforced · 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems #task #release/v0-4-27 #status/review #view/review #kind/bug
+- [ ] t-20261109-0427-179-flock-not-enforced · 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems #task #release/v0-4-27 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-179-impl  
     **PR:** [baseharbor#1515](https://github.com/mcpdev80/baseharbor/pull/1515)  
+    **Waiting:** APPROVED exact-head green 11b8bd447 (run 42633885783, act-1515-review-r2) — wartet auf merge-griff  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261109-0427-180-dangling-app-lock](t-20261109-0427-180-dangling-app-lock.md)  
