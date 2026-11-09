@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-178-rebase
-kanban_status: closed
-kanban_lane: closed
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Selection reconciles issuer state the way the read path already does (status works): either re-establishes/derives the issuer…"
 kanban_title: 0427-162 · use/activate fails closed when
 priority: normal
@@ -19,11 +19,10 @@ prs: [mcpdev80/baseharbor#1489, mcpdev80/baseharbor#1510]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [x] t-20261108-bughunt-use-activate-issuer-failclosed · Bug Hunt v0.4.27: Select fails without issuer #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-use-activate-issuer-failclosed · Bug Hunt v0.4.27: Select fails without issuer #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-178-rebase · **Priority:** normal  
     **PR:** [baseharbor#1489](https://github.com/mcpdev80/baseharbor/pull/1489), [baseharbor#1510](https://github.com/mcpdev80/baseharbor/pull/1510)  
@@ -31,7 +30,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-178-rebase  
