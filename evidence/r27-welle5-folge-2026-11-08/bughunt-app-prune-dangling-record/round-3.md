@@ -100,3 +100,7 @@ END_DONE 0427-173-r3: all three r2 findings closed — MCP prune preserves the p
 
 Hosted CI on exact head `bcdede014979de5692b2879eb6ddcd17141c2677` (own persistent zone, read-only check-runs endpoint): TERMINAL — all jobs success or skipped, no failures. `go-unit-tests` success (run_id 115261009036, completed 2026-11-09T03:02:16Z), `go-build`/`go-vet` success, `cli-gofmt` success, `Source format` success, `Native destroy retry · docker`/`podman` success, `PR Selected Checks` success. The initial END was returned because the first candidate `bd5df838` had gofmt failures; fixed with `bcdede01` (one alignment in `app_prune_test.go`, `gofmt -l cmd/baha/` clean), pushed, and accompanied the resulting run to terminal.
 
+## END delivery note
+
+Terminal state reached and evidence on `origin/main`. The coordinator inbox (594fd2f5) was full at 200 pending when the terminal END was posted; the queue must be acked/consumed before the END lands. This lane is otherwise idle and awaiting inbox drainage — no further work to do here.
+
