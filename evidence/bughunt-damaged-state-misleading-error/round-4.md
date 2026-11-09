@@ -37,6 +37,46 @@ The r3 judge rejected the r3 rebuttals that declared F2/F3/F4 "not open." This r
 - Planning repo verified (origin/main) witness pasted below in the Run section.
 - No markdown checkbox lines anywhere in this evidence file (plain bullets only).
 
+## Implementation (product write-set: baseharbor)
+
+- F2 — `internal/deployment/deployment_list.go:67-88` (`listDeploymentRecords`): gate each scanned deploy directory against `ValidateDeploymentID` (canonical UUIDv4) BEFORE `DamagedDirectoryState`. A non-UUID directory name (a foreign app's directory, a stray folder) cannot masquerade as a deployment and is discarded, never advertised as deployment damage. The damaged-signature/artifact logic is unchanged for a valid UUID.
+- F3 — `internal/deployment/damaged_state.go`: added `(*DamagedDeploymentError).Ownerless()` — true when the damaged entry's identity carries no retained Application/ApplicationID/Environment (the deploy directory is a UUID with no record to read ownership from).
+- F3 — `cmd/baha/app_context.go:223-249` (registry path in `resolvedRepositoryApplication`): the registry damaged error carries only `Target + DeploymentID`, so there is no trusted retained-identity source binding it to the requested app. The raw pre-fix code filled that identity from the request parameters (`m.ApplicationID`, `m.Name`, `m.Environment`) and then enriched with the requested app's absent workload network — attributing a foreign/unknown-owner orphan as the requested app's BF-03 damage. The fix reports such an ownerless damaged error as an explicit unknown-owner damaged-state conflict (Application = "unknown") and does NOT enrich it with the requested app's network half, so a foreign/unknown-owner orphan is never attributed.
+
+## Regressions (F4)
+
+- `internal/deployment/damaged_namespace_network_test.go`: `TestListDeploymentRecordsDiscardsMalformedDirectoryNames` — a valid-UUID damaged directory is still flagged; a malformed (non-UUID) directory carrying the same damaged signature is discarded by the listing, never advertised. Verified to FAIL against the raw pre-fix listing error (malformed dir advertised) and PASS after the gate.
+- `cmd/baha/app_lifecycle_damaged_state_test.go`:
+  - `TestRegistryForeignOrphanNoFalseAttributionToRequestedApp` — exercises the REAL production path `resolvedRepositoryApplication` with a seeded foreign damaged directory (valid UUID, Core owner, no record) present while a DIFFERENT requested app (workload network absent) is resolved. `FindDeployment` returns the foreign damaged error (listing returns before the application_id filter). After the F3 fix the error is reported as ownerless (Application = "unknown", ApplicationID empty) with the requested app's absent network NOT attributed. Verified to FAIL against the raw pre-fix production path (foreign dir's absent network attributed to the requested app) and PASS after the fix.
+  - `TestRegistryOwnedAppReportsExactNetwork` — a seeded owned app record still resolves cleanly through the production path with the absent network seam (BF-03 owned-app case unchanged).
+
+Both regressions were proven to fail against the raw pre-fix code (`9e211715`) and pass against the fix in an isolated clone (`/tmp/bh-fixverify`).
+
+## CI wiring
+
+- F2/F4 tests run in the existing Go validation group under the `pull_request` trigger via `go test ./...`: `PR · Validation · go-unit-tests` and `PR · Validation · deployment-package-tests` (both success on the exact head). No `.github/**` edit was made (Owner scope).
+
+## Hosted CI terminal — run 43fab0e57 (PR #1499, head `43fab0e57`)
+
+- Run: CI for PR #1499, `pull_request`, head `43fab0e5737f6e1bc587f8783467bed0ecb01db2`, terminal `completed`.
+- All 26 CI jobs terminal with 0 failures / 0 non-success: `PR Selected Checks` success; `PR · Validation · go-build`, `go-vet`, `go-unit-tests` (runs `TestListDeploymentRecordsDiscardsMalformedDirectoryNames` + `TestRegistryForeignOrphanNoFalseAttributionToRequestedApp` + `TestRegistryOwnedAppReportsExactNetwork`), `deployment-package-tests`, `runtime-provider-package-tests`, `cli-gofmt`, `Source format`, `Focused Python` all green; `PR · Native destroy retry · docker` + `· podman` green; `PR · Native impact selection` + `Trusted Plan` green. The remaining jobs are legitimately `skipped` (not failures).
+- This lane's write-set (`cmd/baha/app_context.go`, `internal/deployment/damaged_state.go`, `internal/deployment/deployment_list.go` + tests) does not touch any native runtime path; no 172-marker red, no external STATE. Terminal green with no red checks.
+- CI was triggered by the authenticated push of this single integration candidate to the PR branch (standard `pull_request` trigger) — no workflow rerun, dispatch, or `.github/**` edit.
+
+## Drift integration
+
+- develop HEAD moved from `20902f0a6ab016fd8fe6a501751e1becc5f334dd` (mission name) to `b3a8042d18ea60f162a32a51df34a499cad6a237` (one commit `fix(r27): target delete honors --yes on non-TTY` #1494) since the candidate was last based on develop. Rebased the candidate chain (r2 + F1 + F2/F3/F4) onto the current develop HEAD.
+- Base attestation: `3187cea15728143146905c7238ad6e280ca11b3e` is an ancestor of `43fab0e57` (merge-base --is-ancestor exit 0); develop `b3a8042d1` is an ancestor of `43fab0e57`. `develop..HEAD` contains only the chain's 3 commits + the develop tip — no foreign candidate commit.
+- One integration candidate per chain: single branch `0427-159-damagedstate`; branch log `3187cea15..43fab0e57` lists only the 3 chain commits (r2 `61f69c206`, F1 `79f1a8f1f`, F2/F3/F4 `43fab0e57`) on top of develop.
+
+## Scope and evidence integrity
+
+- No `.github/**` edit, no rerun, no workflow_dispatch, no force-push beyond the single candidate branch, no container/compose started on any host (no VM smoke host reachable; nothing to bring down).
+- Subagents: none (4.8) — every step executed inside this own session.
+- Live source verified via fresh clone (`/tmp/bh-fixverify`, exact head `43fab0e57`) and the single candidate worktree (`/tmp/opencode/0427-159-r4-damagedstate`); no quarantined/stale checkout cited.
+- No markdown checkbox lines anywhere in this evidence file (plain bullets only).
+- Planning repo verified (origin/main) witness pasted below in the Run section.
+
 ## END
 
-<state>in progress</state>
+END 0427-159 r4: F2 + F3 fixed + F4 regressions (terminal CI green), drift integrated, push to #1499, single chain, evidence published.
