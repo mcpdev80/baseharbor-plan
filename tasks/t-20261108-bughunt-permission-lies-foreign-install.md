@@ -8,19 +8,19 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w174-permissiontruth
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Identity resolution distinguishes three outcomes explicitly: unreadable/denied = named access error with the path and a fix hint…"
 kanban_title: 0427-174 · Permission and invalid-name er
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["https://github.com/mcpdev80/baseharbor/pull/1506"]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd6.md"]
+resolution: "Three-way split in VerifyDeploymentOwner/VerifyDeploymentOwnerAgainstOwner: absent=ErrDeploymentOwnerMissing, unreadable(permission-denied)=new ErrDeploymentOwnerAccessDenied w/ path+repair hint, genuine foreign hash=ErrDeploymentOwnerForeign. Empty target name stays usage error. Regressions in internal/deployment. PR #1506 (develop <- 0427-174-permission-truth @ fb21a02e), CI terminal SUCCESS."
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hd6.md","https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-permission-lies-foreign-install/round-1.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
 - [ ] t-20261108-bughunt-permission-lies-foreign-install · Bug Hunt v0.4.27: Denied lies foreign #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
