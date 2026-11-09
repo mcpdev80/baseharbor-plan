@@ -15,7 +15,11 @@ Repo: mcpdev80/baseharbor (product), worktree `/tmp/opencode/0427-178-r2-bughunt
 - Local checks: `go test ./internal/deployment/...`, vet, build, source-readability-audit, gofmt
 - CI coverage: the new/changed tests run under `deployment-package-tests` (`go test ./internal/deployment/...`, ci.yml:964, pr-incremental-reuse.go:31) under the `pull_request` trigger for `develop` — no `.github/**` edit (Owner scope)
 - Branch pushed: `0427-178-r2-pr1508` -> `03d144134292d4eae53c966c9f578bbd068d8358` (confirmed via `git ls-remote origin 0427-178-r2-pr1508`). Ancestry: `b3a8042d` (origin/develop) and `dbb1df08` (refs/pull/1508/head) both ancestors, only my commit on top of `dbb1df08`.
-- CI (hosted, GitHub-hosted shared runners): `deployment-package-tests` runs `go test ./internal/deployment/...` for this `pull_request` targeting `develop` (ci.yml:964, pr-incremental-reuse.py:31, selected by ci.yml:418/450/489/529). Terminal result + run-ID recorded once CI reaches terminal state. No rerun/workflow_dispatch by the lane (Owner scope).
+- PR: https://github.com/mcpdev80/baseharbor/pull/1509 (OPEN, MERGEABLE, base `develop`, head `03d144134`).
+- CI (hosted, GitHub-hosted shared runners): run `42580378234` `CI · PR #1509` on head `03d144134292` — terminal **success**.
+  - `PR · Validation · deployment-package-tests` (job `129037453848`, attempt 1): **success** — runs `go test ./internal/deployment/...`, executing the new `TestBatchedListClassifiesAccessForeignMissing`, `TestBatchedListForeignToleranceControl`, `TestBatchedListOncePerTargetResolverBound`.
+  - `PR Selected Checks` (job `129037957651`, attempt 1): **success**.
+  - `deployment-package-tests` runs `go test ./internal/deployment/...` (ci.yml:964, pr-incremental-reuse.py:31, selected by ci.yml:418/450/489/529). No rerun/workflow_dispatch by the lane (Owner scope).
 - Cleanliness: no containers/compose projects started; no orphaned runtimes.
 - Evidence written only in baseharbor-plan; no VM/docker/podman (card is a Core-batch unit fix; the required test is a Go unit test)
 
@@ -81,4 +85,16 @@ No containers/compose projects started (card is a Core-batch unit fix; required 
 - Pre-existing cmd/baha init failures (UUIDv4 corruption) verified identical on clean PR head `dbb1df08` — not my regression.
 
 ## Status
-IN PROGRESS — local deployment package + owner-batch regression PASS; cmd/baha pre-existing failures confirmed not mine; branch pushed; awaiting terminal CI.
+DONE — F1 (truthful classification) + F2 (public batched-list fixture + bound widening) implemented, committed to `0427-178-r2-pr1508` (`03d144134`, only commit on top of PR head `dbb1df08`), PR #1509 against `develop`. Terminal CI run `42580378234` success: `PR · Validation · deployment-package-tests` (job 129037453848) and `PR Selected Checks` (job 129037957651) both terminal success.
+
+## Terminal run (reproduced below)
+```
+$ git ls-remote origin 0427-178-r2-pr1508
+03d144134292d4eae53c966c9f578bbd068d8358  refs/heads/0427-178-r2-pr1508
+$ git merge-base --is-ancestor b3a8042d18ea60f162a32a51df34a499cad6a237 HEAD   # develop ancestry
+$ git merge-base --is-ancestor dbb1df08069424265830a397ab41ee882fa36830 HEAD   # PR head ancestry
+$ gh api repos/mcpdev80/baseharbor/actions/runs/42580378234/jobs   # deployment-package-tests + Selected Checks = success
+```
+
+## END
+0427-178 r2 DONE — F1 truthful classification + F2 batched-list fixture/bound; branch `0427-178-r2-pr1508` head `03d144134`; PR #1509; CI 42580378234 success (deployment-package-tests 129037453848, Selected Checks 129037957651).
