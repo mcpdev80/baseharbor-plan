@@ -31,7 +31,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.31 · Final semantic acceptance #roadmap #roadmap-state/later
     **Release:** planned  
-    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 6  
+    **Accepted tasks:** 0/8 · **Blocked:** 0 · **Waiting:** 7  
     [Scope](../releases/v0.4.31.md) · [Tasks](../views/releases/v0.4.31.md)
 
 - [ ] v0.4.x · Product readiness before the contract freeze (unscheduled v0.4.x work) #roadmap #roadmap-state/current

@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
-| review | 0 |
+| active | 7 |
+| review | 1 |
 | wait | 11 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 26 |
-| waiting | 177 |
+| waiting | 178 |
 | backlog | 7 |
 | closed | 212 |
 
@@ -31,11 +31,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-list-stale-after-kill](../tasks/t-20261108-bughunt-list-stale-after-kill.md) | Bug Hunt v0.4.27: Liste zeigt Leichen | active | normal | lane-w160c-stalelist3 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491) |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | active | normal | lane-0427-165-refresh | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 | [t-20261108-r27-ready-pr-native-ci-info](../tasks/t-20261108-r27-ready-pr-native-ci-info.md) | Ready-PR Native CI | active | high | ci-owner | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1463](https://github.com/mcpdev80/baseharbor/pull/1463) |
-| [t-20261109-0427-180-dangling-app-lock](../tasks/t-20261109-0427-180-dangling-app-lock.md) | 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target | active | not set | lane-0427-180-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261109-0427-179-flock-not-enforced](../tasks/t-20261109-0427-179-flock-not-enforced.md) | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261109-0427-180-dangling-app-lock](../tasks/t-20261109-0427-180-dangling-app-lock.md) | 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target | review | not set | lane-0427-180-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261109-0427-179-flock-not-enforced](../tasks/t-20261109-0427-179-flock-not-enforced.md) | [baseharbor#1517](https://github.com/mcpdev80/baseharbor/pull/1517) |
 
 ## Waiting for resources
 
@@ -68,7 +69,7 @@ None.
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
-- [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
+- [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 8 open, 0 closed ([view](releases/v0.4.31.md))
 - [v0.4.x](../releases/v0.4.x.md): Product readiness before the contract freeze (unscheduled v0.4.x work) — 0 open, 19 closed ([view](releases/v0.4.x.md))
 - [v0.5.x](../releases/v0.5.x.md): Contract freeze and compatibility — 34 open, 0 closed ([view](releases/v0.5.x.md))
 - [v0.7.x](../releases/v0.7.x.md): Kubernetes runtime — 63 open, 0 closed ([view](releases/v0.7.x.md))

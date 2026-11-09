@@ -10,8 +10,8 @@ parent: v0.4.31
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Create and ship a complete Linux man page for the final consolidated baha CLI, after command hierarchy, names, aliases and help texts are approved."
-kanban_title: "0431-008 · CLI man page for final baha commands"
+kanban_summary: "Once the v0.4.31 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable,…"
+kanban_title: 0431-008 · CLI man page after consolidation
 priority: normal
 depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,22 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-r31-cli-manpage-after-consolidation · CLI: provide a man page after the final command organization #task #release/v0-4-31 #status/planned #view/planned #area/cli #area/docs #kind/task
+- [ ] t-20261109-r31-cli-manpage-after-consolidation · CLI: provide a man page after the final command organization #task #release/v0-4-31 #status/planned #view/waiting #board/planned #area/cli #area/docs #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.31](../releases/v0.4.31.md)  
+**Depends on:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** [baseharbor#603](https://github.com/mcpdev80/baseharbor/issues/603), [baseharbor#846](https://github.com/mcpdev80/baseharbor/issues/846)
+<!-- /generated:links -->
 
 ## Goal
 

@@ -34,7 +34,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.31](../releases/v0.4.31.md) (v0.4.31)  
 **Depends on:** [t-20261017-release-0-4-31-cleanup](t-20261017-release-0-4-31-cleanup.md)  
-**Required by:** [core-862](core-862-quality-staticcheck-govulncheck-risk-tests.md), [t-20261017-release-0-4-31-prepare](t-20261017-release-0-4-31-prepare.md)  
+**Required by:** [core-862](core-862-quality-staticcheck-govulncheck-risk-tests.md), [t-20261017-release-0-4-31-prepare](t-20261017-release-0-4-31-prepare.md), [t-20261109-r31-cli-manpage-after-consolidation](t-20261109-r31-cli-manpage-after-consolidation.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
