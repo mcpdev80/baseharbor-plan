@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-173-r2
+owner: lane-w173b-prune-r2
 kanban_status: active
 kanban_lane: active
 kanban_summary: "A safe 'baha app prune <name>' under the app tree deletes ONLY the dangling record whose source is missing (refuses when source…"
@@ -25,7 +25,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
 - [ ] t-20261108-bughunt-app-prune-dangling-record · Bug Hunt v0.4.27: Prune dangling record #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-173-r2 · **Priority:** normal  
+    **Owner:** lane-w173b-prune-r2 · **Priority:** normal  
     **PR:** [baseharbor#1505](https://github.com/mcpdev80/baseharbor/pull/1505)  
     **Needs:** [t-20261108-bughunt-list-stale-after-kill](t-20261108-bughunt-list-stale-after-kill.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-list-stale-after-kill/round-3.md)  
@@ -35,7 +35,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-list-stale-after-kill](t-20261108-bughunt-list-stale-after-kill.md)  
-**Owner:** pending-lane-0427-173-r2  
+**Owner:** lane-w173b-prune-r2  
 **Priority:** normal  
 **PRs:** [baseharbor#1505](https://github.com/mcpdev80/baseharbor/pull/1505)  
 **Source:** 
