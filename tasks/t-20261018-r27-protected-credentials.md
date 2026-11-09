@@ -163,3 +163,7 @@ The prerequisite Remote Core PR #1473 has merged. Draft #1470 was replayed onto 
 ## Reaktiviert 2026-11-09
 
 Vorbedingung #1473 ist gemergt. Draft-Status aufgehoben, Full-CI zu #1470 laeuft. Native Podman-Fix des ausdruecklichen Credential-Opt-in auf `555032f6`. Echte Authentifizierungs- und E2E-Abnahme bleibt offen; nicht als closed verbuchen.
+
+## CI-qualifizierter Merge 2026-11-09
+
+PR [#1470](https://github.com/mcpdev80/baseharbor/pull/1470) ist mit exakt qualifiziertem Workflow [#42697440542](https://github.com/mcpdev80/baseharbor/actions/runs/42697440542) nach `develop` gemergt (Merge-Commit `2f2cb22c7facd6d1bab88ec00c35543e2cf39bb1`). Die native Podman-Fixture initialisiert das gewollte Managed-Credential explizit, statt einen stillen lokalen Fallback zuzulassen. Vollstaendiger Remote-PC/VM-Smoke-Test bleibt getrennt offen; kein End-to-End-PASS behauptet.
