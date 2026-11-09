@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-175-r2
-kanban_status: active
-kanban_lane: active
+owner: lane-w175-initlock
+kanban_status: review
+kanban_lane: review
 kanban_summary: "concurrent init is serialized or CAS-rejected so duplicates cannot exist; if a target is already poisoned, a named CLI recovery…"
 kanban_title: "0427-175 · Double init poisons target"
 priority: normal
@@ -23,18 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-concurrent-init-double-registration · Bug Hunt v0.4.27: Double init poisons target #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-concurrent-init-double-registration · Bug Hunt v0.4.27: Double init poisons target #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-0427-175-r2 · **Priority:** normal  
+    **Owner:** lane-w175-initlock · **Priority:** normal  
     **PR:** [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-0427-175-r2  
+**Owner:** lane-w175-initlock  
 **Priority:** normal  
 **PRs:** [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512)  
 **Source:** 
@@ -50,3 +50,5 @@ BF-01 + BF-10 (blocker): two concurrent app init runs on the same repo path/mani
 
 ## Dependencies and file ownership
 None blocking. Write-set: cmd/baha app init path, internal registration + recovery guidance.
+
+candidate f442b7e99 on PR #1512, hosted CI observed
