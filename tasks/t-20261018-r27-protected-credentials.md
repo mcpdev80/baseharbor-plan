@@ -9,9 +9,9 @@ version: ""
 parent: core-777
 priority: normal
 owner: ChatGPT (0427-047 regression follow-up)
-kanban_lane: wait
+kanban_lane: active
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: wait
+kanban_status: active
 kanban_title: "0427-047 · retain and recover opted-in"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -22,19 +22,18 @@ early: false
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md", "https://github.com/mcpdev80/baseharbor/pull/1385"]
-wait_reason: "Draft #1470 fachlich pausiert: Architekturabgleich und Remote-Management-Connection-E2E (#1473) zuerst abschliessen; kein eigenstaendiger Credential-Fortschritt ohne neuen Auftrag."
+wait_reason: ""
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/wait #view/wait #area/access #kind/task
+- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/active #view/active #area/access #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (0427-047 regression follow-up) · **Priority:** normal  
     **PR:** [baseharbor#1385](https://github.com/mcpdev80/baseharbor/pull/1385), [baseharbor#1470](https://github.com/mcpdev80/baseharbor/pull/1470)  
-    **Waiting:** Draft \#1470 fachlich pausiert: Architekturabgleich und Remote-Management-Connection-E2E (\#1473) zuerst abschliessen; kein eigenstaendiger Credential-Fortschritt ohne neuen Auftrag.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1385)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
@@ -160,3 +159,7 @@ Aktueller Head `4f52b177`: getrennte Coreless-Lokal-/Remote-Fail-closed-Pfade in
 ## Integration follow-up 2026-11-09
 
 The prerequisite Remote Core PR #1473 has merged. Draft #1470 was replayed onto post-#1512 `develop` and its credential helper formatting corrected; current head `dda15ed0a4471a2f30fd768ade38fc545a21a521`. Draft focused validation is pending. No claim of OIDC, tenant or connector end-to-end success; preserve fail-closed semantics. Earlier wait-for-#1473 prerequisite is now satisfied, but the card is not accepted.
+
+## Reaktiviert 2026-11-09
+
+Vorbedingung #1473 ist gemergt. Draft-Status aufgehoben, Full-CI zu #1470 laeuft. Native Podman-Fix des ausdruecklichen Credential-Opt-in auf `555032f6`. Echte Authentifizierungs- und E2E-Abnahme bleibt offen; nicht als closed verbuchen.
