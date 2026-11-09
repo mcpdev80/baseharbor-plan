@@ -14,7 +14,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 2 |
 | wait | 12 |
 | blocked | 0 |
-| ready | 0 |
+| ready | 1 |
 | queued | 26 |
 | waiting | 178 |
 | backlog | 7 |
@@ -62,12 +62,14 @@ None.
 
 ## Ready to assign
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261109-0427-181-upname-entrypoint-hosted-rot](../tasks/t-20261109-0427-181-upname-entrypoint-hosted-rot.md) | 0427-181 · TestUpNameResumes fails in hosted | ready | normal | — | [t-20261108-bughunt-upname-entrypoint-develop-rot](../tasks/t-20261108-bughunt-upname-entrypoint-develop-rot.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 37 open, 140 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 38 open, 140 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

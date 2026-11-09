@@ -34,6 +34,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261109-0427-181-upname-entrypoint-hosted-rot](t-20261109-0427-181-upname-entrypoint-hosted-rot.md)  
 **Owner:** lane-w172b-inventoryfix  
 **Priority:** normal  
 **PRs:** [baseharbor#1502](https://github.com/mcpdev80/baseharbor/pull/1502)  

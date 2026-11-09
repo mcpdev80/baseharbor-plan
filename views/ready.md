@@ -4,4 +4,6 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261109-0427-181-upname-entrypoint-hosted-rot](../tasks/t-20261109-0427-181-upname-entrypoint-hosted-rot.md) | 0427-181 · TestUpNameResumes fails in hosted | ready | normal | — | [t-20261108-bughunt-upname-entrypoint-develop-rot](../tasks/t-20261108-bughunt-upname-entrypoint-develop-rot.md) | — |
