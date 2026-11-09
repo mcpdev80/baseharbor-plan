@@ -4,6 +4,4 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261109-0427-179-flock-not-enforced](../tasks/t-20261109-0427-179-flock-not-enforced.md) | 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+None.

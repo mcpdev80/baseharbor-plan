@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: worker-179-flock
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-179 · 0427-179 · Lifecycle flock is
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-179-flock-not-enforced · 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems #task #release/v0-4-27 #status/planned #view/ready #kind/bug
+- [ ] t-20261109-0427-179-flock-not-enforced · 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems #task #release/v0-4-27 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** worker-179-flock  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261109-0427-180-dangling-app-lock](t-20261109-0427-180-dangling-app-lock.md)  
-**Owner:** unassigned  
+**Owner:** worker-179-flock  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
