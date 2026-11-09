@@ -57,3 +57,7 @@ None. Write-set: app list/status reconciliation paths.
 
 ## COORD CORRECTION 2026-11-08
 Coordinator closed this card on a false merge claim (#1491 was never merged; SHA 8f2a90617 does not exist). State restored to review. PR #1491 (head cd9eca82e) is OPEN and needs: rebase onto current develop, terminal hosted run with real native cells.
+
+## Integration 2026-11-09
+
+PR [baseharbor#1491](https://github.com/mcpdev80/baseharbor/pull/1491) was replayed against post-#1512 `develop`, reconciled with existing MISSING-source guidance, and merged as `14c5922cd15954f63a5c227472a401ba14c6b738` after fresh full CI success. Note the implementation's record-only list reconciliation: the original live SIGKILL scenario with a still-ready persisted record is **not proven solved** until native provider-state acceptance; do not close the card on merge alone.
