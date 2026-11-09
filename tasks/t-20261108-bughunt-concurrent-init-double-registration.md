@@ -52,3 +52,7 @@ BF-01 + BF-10 (blocker): two concurrent app init runs on the same repo path/mani
 None blocking. Write-set: cmd/baha app init path, internal registration + recovery guidance.
 
 candidate f442b7e99 on PR #1512, hosted CI observed
+
+## Integration 2026-11-09
+
+PR [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512) was merged to `develop` as `bc839f054b892b3fc1c43ea88ac9f608390f3da4` after a successful exact-head PR workflow. This is an integration fact, not an independent physical VM acceptance claim.
