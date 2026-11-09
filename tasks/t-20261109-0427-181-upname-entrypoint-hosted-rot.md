@@ -8,14 +8,14 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-181-impl
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: ""
 kanban_title: 0427-181 · TestUpNameResumes hosted rot
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1516]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -24,19 +24,20 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42627177914"]
 superseded_by: ""
 ---
 
-- [ ] t-20261109-0427-181-upname-entrypoint-hosted-rot · 0427-181 · TestUpNameResumes fails in hosted #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261109-0427-181-upname-entrypoint-hosted-rot · 0427-181 · TestUpNameResumes fails in hosted #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-181-impl · **Priority:** normal  
+    **PR:** [baseharbor#1516](https://github.com/mcpdev80/baseharbor/pull/1516)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42627177914)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-181-impl  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1516](https://github.com/mcpdev80/baseharbor/pull/1516)  
 **Source:** 
 <!-- /generated:links -->
 
