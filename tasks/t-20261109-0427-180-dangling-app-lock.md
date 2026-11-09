@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-180 · 0427-180 · Killed app
 priority: ""
@@ -23,15 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-180-dangling-app-lock · 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target #task #release/v0-4-27 #status/planned #view/waiting #board/planned #kind/bug
+- [ ] t-20261109-0427-180-dangling-app-lock · 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target #task #release/v0-4-27 #status/planned #view/ready #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261109-0427-179-flock-not-enforced](t-20261109-0427-179-flock-not-enforced.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261109-0427-179-flock-not-enforced](t-20261109-0427-179-flock-not-enforced.md)  
 **Owner:** unassigned  

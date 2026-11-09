@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-181-impl
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: 0427-181 · TestUpNameResumes hosted rot
 priority: normal
@@ -18,22 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1516]
 sources: []
 blocker: ""
-wait_reason: "APPROVED exact-head green 07fe960f6 (run 42640378393, act-1516-review-r1) — wartet auf merge-griff"
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42627177914"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42627177914", "https://github.com/mcpdev80/baseharbor/commit/d9bf3d94e"]
 superseded_by: ""
 ---
 
-- [ ] t-20261109-0427-181-upname-entrypoint-hosted-rot · 0427-181 · TestUpNameResumes fails in hosted #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
+- [x] t-20261109-0427-181-upname-entrypoint-hosted-rot · 0427-181 · TestUpNameResumes fails in hosted #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-181-impl · **Priority:** normal  
     **PR:** [baseharbor#1516](https://github.com/mcpdev80/baseharbor/pull/1516)  
-    **Waiting:** APPROVED exact-head green 07fe960f6 (run 42640378393, act-1516-review-r1) — wartet auf merge-griff  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42627177914)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42627177914), [proof 2](https://github.com/mcpdev80/baseharbor/commit/d9bf3d94e)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-181-impl  

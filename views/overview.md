@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 6 |
-| review | 2 |
-| wait | 14 |
+| review | 1 |
+| wait | 11 |
 | blocked | 0 |
-| ready | 0 |
+| ready | 1 |
 | queued | 26 |
-| waiting | 178 |
+| waiting | 177 |
 | backlog | 7 |
-| closed | 208 |
+| closed | 212 |
 
 ## Active
 
@@ -35,7 +35,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | review | normal | none | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1508](https://github.com/mcpdev80/baseharbor/pull/1508), [baseharbor#1509](https://github.com/mcpdev80/baseharbor/pull/1509), [baseharbor#1511](https://github.com/mcpdev80/baseharbor/pull/1511) |
 | [t-20261108-bughunt-target-delete-orphan-records](../tasks/t-20261108-bughunt-target-delete-orphan-records.md) | Bug Hunt v0.4.27: Delete leaves orphans | review | normal | lane-0427-165-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500) |
 
 ## Waiting for resources
@@ -50,12 +49,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261108-bughunt-0427-greenfield-isolation](../tasks/t-20261108-bughunt-0427-greenfield-isolation.md) | Bug Hunt v0.4.27: Greenfield-Isolation offen | wait | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md) | [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460), [baseharbor#1503](https://github.com/mcpdev80/baseharbor/pull/1503) |
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | wait | high | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446) |
 | [t-20261108-bughunt-0427-sql-ref-key-cross-app-block](../tasks/t-20261108-bughunt-0427-sql-ref-key-cross-app-block.md) | Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down | wait | high | coord-board | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450) |
-| [t-20261108-bughunt-damaged-state-misleading-error](../tasks/t-20261108-bughunt-damaged-state-misleading-error.md) | Bug Hunt v0.4.27: Damaged state lies | wait | normal | lane-0427-159-r7 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1499](https://github.com/mcpdev80/baseharbor/pull/1499) |
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | wait | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) (open), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
 | [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) | Serve: enrollment needs local Core | wait | high | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) (open), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
 | [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | Remote core: up installs local | wait | high | ChatGPT (remote bootstrap safety) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1492](https://github.com/mcpdev80/baseharbor/pull/1492) |
-| [t-20261109-0427-179-flock-not-enforced](../tasks/t-20261109-0427-179-flock-not-enforced.md) | 0427-179 · Lifecycle flock is not cross-process enforced on runtime filesystems | wait | not set | lane-0427-179-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1515](https://github.com/mcpdev80/baseharbor/pull/1515) |
-| [t-20261109-0427-181-upname-entrypoint-hosted-rot](../tasks/t-20261109-0427-181-upname-entrypoint-hosted-rot.md) | 0427-181 · TestUpNameResumes fails in hosted | wait | normal | lane-0427-181-impl | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1516](https://github.com/mcpdev80/baseharbor/pull/1516) |
 
 ## Blocked
 
@@ -63,12 +59,14 @@ None.
 
 ## Ready to assign
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261109-0427-180-dangling-app-lock](../tasks/t-20261109-0427-180-dangling-app-lock.md) | 0427-180 · Killed app lifecycle holder leaves dangling per-app lock that blocks the target | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261109-0427-179-flock-not-enforced](../tasks/t-20261109-0427-179-flock-not-enforced.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 38 open, 140 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 34 open, 144 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
