@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "chatgpt-ci-owner"
-kanban_status: active
-kanban_lane: active
+owner: ""
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: "0427-184 · Parallel impacted Go tests"
 priority: normal
@@ -19,18 +19,18 @@ prs: [mcpdev80/baseharbor#1519]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42698387343", "https://github.com/mcpdev80/baseharbor/commit/4d827a55cb115f316c074b2e1d72d077fc577637"]
 ---
 
-- [ ] t-20261109-r27-ci-go-unit-shards · CI: split slow Go tests and wire impact selection #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+- [x] t-20261109-r27-ci-go-unit-shards · CI: split slow Go tests and wire impact selection #task #release/v0-4-27 #status/closed #view/closed #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** chatgpt-ci-owner · **Priority:** normal  
+    **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1519](https://github.com/mcpdev80/baseharbor/pull/1519)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** chatgpt-ci-owner  
@@ -55,5 +55,6 @@ PR `go-unit-tests` runs `go test ./...` serially: `cmd/baha` alone took about 49
 ## Implementation status 2026-11-09
 
 - [PR #1519](https://github.com/mcpdev80/baseharbor/pull/1519) proposes deterministic Go test sharding, per-shard DB fixtures, trusted PR selection and fail-closed final aggregation.
-- CI evaluation on current head is still pending; no release, tag or acceptance claimed.
+- CI #42698387343 passed on exact PR head 6300e0678cb5670bdc5a1c72d59c9668804e2acc: five Go shards, Docker/Podman native, focused checks, and final required checks. Squash merge: 4d827a55cb115f316c074b2e1d72d077fc577637.
+- The original functional split is accepted. Cross-run reuse and measured improvement after merge belong to a separate follow-up card; they are **not** claimed as complete. No release/tag.
 - Only this CI optimization is owned here; remote/enrollment #1473, policies #1514 and Greenfield #1503 remain independently owned.
