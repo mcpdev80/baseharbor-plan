@@ -1,11 +1,11 @@
 # CODEX-REVIEW 0427-165 r3 — PR #1500
 
-ROLLE: REVIEW  
+ROLLE: REVIEW
 URTEIL: KORREKTUR
 
-Reviewed PR head: `7cc996e0e95de73c0967ba7a6c7e5b4ff3916fbe`  
-Base `develop`: `20902f0a6ab016fd8fe6a501751e1becc5f334dd`  
-Task: `t-20261108-bughunt-target-delete-orphan-records`  
+Reviewed PR head: `7cc996e0e95de73c0967ba7a6c7e5b4ff3916fbe`
+Base `develop`: `20902f0a6ab016fd8fe6a501751e1becc5f334dd`
+Task: `t-20261108-bughunt-target-delete-orphan-records`
 Hosted run: [42539114216](https://github.com/mcpdev80/baseharbor/actions/runs/42539114216)
 
 ## PLAN
