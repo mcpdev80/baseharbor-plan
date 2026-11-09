@@ -458,3 +458,10 @@ Verbindliche Richtung: [Decision](../decisions/2026-11-09-r27-local-delta-delive
 - Regression covers client tenant mapping, missing-profile rejection and no local Docker fallback. EN/DE target documentation added `78e45485`. Source-format gofmt correction `95a3976e`. Exact-head CI pending after new validation branch ref.
 - Prior temporary `37c3d680` Git/OCI-only change was fully reverted in `c2ac5b2b` after verifying the newer accepted product decision #1513: **developer dirty/untracked delta source delivery is the intended dev default**, with user-editable target policies (test clean by default). Do not remove working-tree source transfer based on stale Git-only handover.
 - Actual Core-local remote apply and second delta/destroy are NOT YET proven. Preserve working VM Core, tenant, OpenBao, Keycloak and TLS; avoid installing unrelated Connector for same-host smoke. PR #1473 remains active/unmerged; no release acceptance claim.
+
+## 2026-11-09 – Remote HTTP app.create source binding regression fix
+
+- PR #1473: `executeHTTPAppCreate` decoded `machineApplicationCreateInput.SourceModel` but called `createMachineApplication`, silently dropping the source model. Fixed at `5e631181` to pass the model to the existing `createMachineApplicationWithSource` authoritative validation/persistence path.
+- Regression test added at `aa7bbac8`: mutable Git ref `main` must fail with `ErrorValidationFailed` at the real HTTP create boundary before registration; the test does not imply a runtime deployment proof.
+- Follow the latest approved dev delta and Target preset decision (#1513); the earlier Git/OCI-only PR prose was corrected. Do not remove the existing authorized developer delta source-transfer path.
+- Still OPEN: branch reconciliation with develop (10 overlapping changed files at inspection), exact-head CI, and physical independent Dev-PC -> Core-local Docker -> application READY, second delta apply, update and destroy. Do not merge or mark the smoke PASS. No live VM changes were made.
