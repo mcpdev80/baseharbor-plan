@@ -63,10 +63,16 @@ fea92f379e55bbe6e143a095d7c2e6c16e0b3a06	refs/heads/develop
 ```
 
 - PR #1515 head 35910ae3f is an ancestor of my fix commit 11b8bd44.
-- My candidate branch 0427-179-r2-fix head 11b8bd447d8b9062ef6cd39a78cf2774dfa3c651.
-- Exactly one integration candidate per chain: my branch carries only my own
-  commit on top of the PR head 35910ae3f (git log origin/develop..HEAD shows
-  11b8bd44 then 35910ae3; no foreign commit carried).
+- Integration candidate (exactly one per chain): PR #1515, branch
+  0427-179-flock-enforcement, now head 11b8bd447d8b9062ef6cd39a78cf2774dfa3c651.
+  My r2 fix is integrated as the single commit on top of the r1 PR head 35910ae3f
+  (git log 35910ae3f..11b8bd44 shows only 11b8bd44; no foreign commit carried).
+- The sibling correction branch 0427-179-r2-fix was deleted after integrating
+  into PR #1515 (ls-remote before: 11b8bd44; after: absent).
+- PR #1515 head (11b8bd44) witnesses:
+  35910ae3f1d822bfbcec367f5cebc0957ca37e70	refs/heads/0427-179-flock-enforcement (BEFORE)
+  11b8bd447d8b9062ef6cd39a78cf2774dfa3c651	refs/heads/0427-179-flock-enforcement (AFTER)
+  11b8bd447d8b9062ef6cd39a78cf2774dfa3c651	refs/pull/1515/head (AFTER)
 
 ## Correction applied (against r1 review finding (b))
 
@@ -152,12 +158,18 @@ fea92f379e55bbe6e143a095d7c2e6c16e0b3a06	refs/heads/develop
   PR #1515 that I did NOT touch: internal/stableid/lock_probe.go.txt and the
   embedded internal/stableid/testdata/lock-probe-linux-amd64 binary. My own
   changes resolve through authority-package and cli-package-tests.
+- Integration into the one candidate: the r1 branch 0427-179-flock-enforcement
+  was a draft and was the named integration candidate for PR #1515. My fix was
+  pushed directly onto that branch (the single new commit on top of 35910ae3f),
+  and the sibling branch 0427-179-r2-fix was deleted after integrating, so the
+  chain carries exactly one candidate.
 - CI NOT re-run by me: ordinary branch pushes do not start CI; #1515 is a
-  draft PR; my fix is on a sibling branch 0427-179-r2-fix with no ready PR.
-  Per Owner scope, .github/** is never edited and workflow_dispatch/reruns are
-  never triggered. To run CI on the exact candidate SHA 11b8bd44, a ready PR
-  on branch 0427-179-r2-fix is required (Owner action). Local targeted checks
-  above verify the changed risks on the exact candidate.
+  draft PR. Per Owner scope, .github/** is never edited and
+  workflow_dispatch/reruns are never triggered. To run the GitHub CI
+  pr_validations matrix (authority-package-tests + cli-package-tests) on the
+  exact candidate SHA 11b8bd44, mark PR #1515 ready (Owner action) — a ready PR
+  then runs its selected checks on GitHub-hosted shared runners. Local targeted
+  checks above verify the changed risks on the exact candidate SHA 11b8bd44.
 
 ## Repo-rule compliance
 
@@ -179,5 +191,6 @@ fea92f379e55bbe6e143a095d7c2e6c16e0b3a06	refs/heads/develop
 END_DONE 0427-179-r2-worker: KORREKTUR AUSGEFÜHRT — not-enforcing flock now
 fails closed immediately in the app CLI path (no 15s retry) with the
 actionable remediation; command-path regression + existing regressions green;
-candidate 0427-179-r2-fix@11b8bd44 pushed; CI on the distinct SHA needs a
-ready PR (Owner).
+fix integrated as the single commit on PR #1515 head 11b8bd44 (extra sibling
+branch deleted); evidence committed to origin/main. CI on the exact SHA needs
+PR #1515 marked ready (Owner).
