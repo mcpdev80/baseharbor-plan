@@ -79,3 +79,7 @@ Depends on access-wizard acceptance (#1430). Write-set: cmd/baha target/use/acti
 - Owner-Entscheidung: Diese bereits begonnene Karte wird vorerst pausiert, um parallele Target/Core-/CI-Integration zu vermeiden. Die zweite Session bearbeitet PR #1473 und CI #5341; der CI-Owner bleibt fuer Workflow-Auswahl verantwortlich.
 - Dies ist eine **Ressourcen-/Koordinationspause**, keine nachgewiesene technische Dependency von 0427-133 auf #1473 und kein Blocker.
 - PR #1503 bleibt Draft, wird nicht gemergt. Wiederaufnahme nach Abstimmung; danach fehlende native Isolation-Acceptance gezielt in bestehende CI aufnehmen.
+
+## Integration follow-up 2026-11-09
+
+Draft #1503's two fail-closed proof-verifier files were replayed on post-#1518 `develop` as `33c0e25eda3b1f17fa37600a8aad215806f2ef11`; focused draft CI completed successfully. The real positive native Docker+Podman Greenfield isolated-Core Go test and its hosted run remain unimplemented. Keep Draft and card open, no false E2E PASS.
