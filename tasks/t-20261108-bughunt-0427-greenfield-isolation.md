@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: owner-chatgpt-r27
-kanban_status: wait
-kanban_lane: wait
+kanban_status: active
+kanban_lane: active
 kanban_summary: "An isolated greenfield run (BASEHARBORTARGET-selected second target, docker-2 style) completes bootstrap + core self-install +…"
 kanban_title: "0427-133 · greenfield isolation open"
 priority: normal
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1460, mcpdev80/baseharbor#1503]
 sources: []
 blocker: ""
-wait_reason: "Bearbeitung pausiert zur Vermeidung paralleler Eingriffe in Target/Core- und CI-Integration; laufende Remote-Client-Session (#1473, CI #5341) und CI-Owner-Abstimmung abwarten. Keine behauptete technische Code-Abhaengigkeit zu #1473."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md"]
 ---
 
-- [ ] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **PR:** [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460), [baseharbor#1503](https://github.com/mcpdev80/baseharbor/pull/1503)  
-    **Waiting:** Bearbeitung pausiert zur Vermeidung paralleler Eingriffe in Target/Core- und CI-Integration; laufende Remote-Client-Session (\#1473, CI \#5341) und CI-Owner-Abstimmung abwarten. Keine behauptete technische Code-Abhaengigkeit zu \#1473.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md)  
 **Owner:** owner-chatgpt-r27  
@@ -83,3 +82,7 @@ Depends on access-wizard acceptance (#1430). Write-set: cmd/baha target/use/acti
 ## Integration follow-up 2026-11-09
 
 Draft #1503's two fail-closed proof-verifier files were replayed on post-#1518 `develop` as `33c0e25eda3b1f17fa37600a8aad215806f2ef11`; focused draft CI completed successfully. The real positive native Docker+Podman Greenfield isolated-Core Go test and its hosted run remain unimplemented. Keep Draft and card open, no false E2E PASS.
+
+## Reaktiviert 2026-11-09
+
+#1503 besitzt jetzt den nativen Test `TestGreenfieldIsolatedCoreNativeInCI`, Docker-/Podman-Host-Jobs und einen SHA-genauen Zwei-Runtime-Verifier auf `d99fc7c7`. Full-CI laeuft; keine native PASS- oder Release-Abnahme behauptet. Die bisherige Pause ist beendet.
