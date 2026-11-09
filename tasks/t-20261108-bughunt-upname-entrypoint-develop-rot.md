@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w172b-inventoryfix
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: TestUpNameResumesThroughCommandEntrypoint passes again in hosted go test ./... on a develop HEAD with no PR-side changes…
 kanban_title: 0427-172 · TestUpNameResumesThroughComman
 priority: normal
@@ -19,11 +19,11 @@ prs: [mcpdev80/baseharbor#1502]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-use-activate-issuer-failclosed/round-3.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-upname-entrypoint-develop-rot · Bug Hunt v0.4.27: Entrypoint test rots #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-upname-entrypoint-develop-rot · Bug Hunt v0.4.27: Entrypoint test rots #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w172b-inventoryfix · **Priority:** normal  
     **PR:** [baseharbor#1502](https://github.com/mcpdev80/baseharbor/pull/1502)  
@@ -31,7 +31,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w172b-inventoryfix  
