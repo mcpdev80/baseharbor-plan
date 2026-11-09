@@ -10,7 +10,7 @@ parent: v0.4.27
 owner: "chatgpt-ci-owner"
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Split selected Go tests into isolated parallel CLI/package/owner shards; require exact execution and preserve impacted-file selection."
+kanban_summary: ""
 kanban_title: "0427-184 · Parallel impacted Go tests"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -24,6 +24,20 @@ evidence: []
 ---
 
 - [ ] t-20261109-r27-ci-go-unit-shards · CI: split slow Go tests and wire impact selection #task #release/v0-4-27 #status/active #view/active #area/ci #kind/task
+    <!-- generated:card -->
+    **Owner:** chatgpt-ci-owner · **Priority:** normal  
+    **PR:** [baseharbor#1519](https://github.com/mcpdev80/baseharbor/pull/1519)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** chatgpt-ci-owner  
+**Priority:** normal  
+**PRs:** [baseharbor#1519](https://github.com/mcpdev80/baseharbor/pull/1519)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Problem
 
