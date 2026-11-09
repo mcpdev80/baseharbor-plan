@@ -57,5 +57,4 @@ One or two sentences: the observable outcome.
 
 ## Task Note
 - [ ] Make cmd/baha hermetic: no TestServe* leaves a bound+serving holder behind.
-
 Follow-on of 0427-181 (which isolated only the `up` side). Witness (hosted, exact): run 42678151766 on 03a4544de (PR #1512 head, base develop 8a2912c62) fails `--- FAIL: TestUpNameResumesThroughCommandEntrypoint (80.57s)` at runtime_ports_test.go:340 with `holder: root=/tmp/TestServeCommandIntegrationOwnershipOnValidRoot.../runtime` and `holder bound+serving at 127.0.0.1:43423` — a SERVE integration test's holder stays bound/serving into a later test, i.e. the same contamination family, different emitter. Required: teardown guarantee (stop + wait release) for every serve holder created in cmd/baha tests, plus a guard assertion that no listener from another test's temp root is bound when the entrypoint test starts. Must run (no SKIP) in the always-executed CI group.
