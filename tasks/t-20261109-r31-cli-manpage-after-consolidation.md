@@ -1,5 +1,6 @@
 ---
 id: t-20261109-r31-cli-manpage-after-consolidation
+card_number: "0431-008"
 card_short_title: "CLI man page after consolidation"
 type: task
 areas: [cli, docs]
@@ -10,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: planned
 kanban_summary: "Create and ship a complete Linux man page for the final consolidated baha CLI, after command hierarchy, names, aliases and help texts are approved."
-kanban_title: "CLI man page for final baha commands"
+kanban_title: "0431-008 · CLI man page for final baha commands"
 priority: normal
 depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor]
