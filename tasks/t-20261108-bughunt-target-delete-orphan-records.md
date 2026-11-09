@@ -22,11 +22,10 @@ wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
-state: review (r2: reachability proof — delta unreachable from destroy path; CI failure on shared-runner cell 42519204316 is an environmental STATE, not a code regression; no destroy-path code change, no .github/** edit; CORd checks overlap with 0427-152)
 ---
 - [ ] t-20261108-bughunt-target-delete-orphan-records · Bug Hunt v0.4.27: Delete leaves orphans #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** pending-lane-0427-165-r4 · **Priority:** normal  
+    **Owner:** lane-w165d-orphanrec4 · **Priority:** normal  
     **PR:** [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hx3.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-delete-orphan-records/round-2.md)  
     <!-- /generated:card -->
@@ -35,7 +34,7 @@ state: review (r2: reachability proof — delta unreachable from destroy path; C
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** pending-lane-0427-165-r4  
+**Owner:** lane-w165d-orphanrec4  
 **Priority:** normal  
 **PRs:** [baseharbor#1500](https://github.com/mcpdev80/baseharbor/pull/1500)  
 **Source:** 
