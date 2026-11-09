@@ -42,8 +42,13 @@ directory inside the workers bookkeeping repo and is NOT the planning repo).
 
 An earlier revision of this file asserted that this lane authored `f442b7e99` (the file split and the
 owner-state test fix). That claim is WITHDRAWN as unfounded, and an even earlier guess ("Owner push")
-is withdrawn too. The decisive witness is the shared branch reflog
-(`git reflog show --date=iso 0427-175-initlock` in `/home/marcel/dev/baseharbor-ecosystem/baseharbor`):
+is withdrawn too. Two decisive witnesses:
+
+1. My OWN session transcript for r2 shows the only product-code edits this lane made were (a) creating
+   four extraction files in the never-pushed `0427-175-initlock-r2` worktree and (b) deleting the
+   duplicated `DeleteDeploymentRecord`; the r2 evidence file I wrote listed only `abe3ba837` and
+   `135c8be1a` as my commits. I never authored `f442b7e99`.
+2. `git reflog show --date=iso 0427-175-initlock` in `/home/marcel/dev/baseharbor-ecosystem/baseharbor`:
 
     9de8c993b 2026-11-09 11:43:23 +0100: pull --rebase=false origin 0427-175-initlock: Merge made by the 'ort' strategy.
     54d9b9ef1 2026-11-09 11:42:54 +0100: commit: docs(0427-175): document unique registration and the uuid-addressed poison repair ...
@@ -51,17 +56,19 @@ is withdrawn too. The decisive witness is the shared branch reflog
     b4dff2caf 2026-11-09 10:26:05 +0100: merge origin/develop: Merge made by the 'ort' strategy.
     f32f35576 ...  commit: fix(deployment,cmd/baha): serialize first registrations ... (0427-175)
 
-`b4dff2caf` and `f442b7e99` were committed by a DIFFERENT local session on the shared branch checkout
-`/home/marcel/dev/baseharbor-ecosystem/work/0427-175-wt` (that worktree's HEAD holds them; this lane's
-session never wrote to it). All lanes push under the same Owner author identity, so the commit author
-field carries no lane signal — only reflog/worktree evidence does.
-Consequences stated plainly: review items (1) source format and (2) the owner-state test were CLOSED by
-that other session's commits, which this lane then carried by merging the branch head — this lane did
-not write them. This lane's own remote-visible work is item (3): the base-drift closure `abe3ba837` +
-`135c8be1a`, including resolving the compile break that merge introduced, plus the verification and
-this evidence. That other session also made local commits `54d9b9ef1`/`9de8c993b` (docs pages) AFTER
-my push; those are not on the remote (`git ls-remote origin | grep -c 9de8c993b` → 0) and are left
-untouched here — a coordination finding, not this lane's work.
+`b4dff2caf` and `f442b7e99` were committed on the shared branch checkout
+`/home/marcel/dev/baseharbor-ecosystem/work/0427-175-wt` — the other session's worktree (its own
+reflog shows `checkout: moving from 0427-175-initlock to 0427-175-initlock` then the commit, i.e. the
+commit landed in THAT session), never in this lane's `/tmp/opencode/w175r2-wt/1512`. All lanes push
+under the same Owner author identity, so the commit author field carries no lane signal — only
+reflog/worktree evidence does.
+Consequences stated plainly: review items (1) source format and (2) the owner-state test were CLOSED
+by that other session's commits, which this lane carried by merging the branch head. This lane's own
+remote-visible work is item (3): the base-drift closure `abe3ba837` + `135c8be1a`, including resolving
+the compile break that merge introduced, plus verification and this evidence. That other session also
+made `54d9b9ef1`/`9de8c993b` (docs pages: `docs/cli/applications.md`, `docs/de/cli/applications.md`)
+locally AFTER my push; those two are NOT on the remote (`git ls-remote origin | grep -c 9de8c993b` →
+0) and are left untouched here — a coordination finding, not this lane's work.
 
 ## The three review items on the exact head 135c8be1a
 
