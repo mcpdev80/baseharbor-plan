@@ -15,7 +15,7 @@ kanban_title: 0427-144 · Foreign records stall
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: ["mcpdev80/baseharbor#1501", "mcpdev80/baseharbor#1504"]
+prs: [mcpdev80/baseharbor#1501, mcpdev80/baseharbor#1504]
 sources: []
 blocker: ""
 wait_reason: ""
