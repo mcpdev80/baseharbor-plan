@@ -283,4 +283,44 @@ subprocess (native). Race regression unchanged. Native-runtime finding
 reported for the Owner `.github/**` scope; the CI-durable proofs run in normal
 CI.
 
+## Round 12 — Deckungsschließung (175-r8): ENT SCHULDIG, blockiert by card 0427-183
+
+Owner (DECKUNG 175-r8): two foreign cells in `cmd/baha` —
+`TestRepositoryWorkflowRealLifecycle` + `TestRepositoryComposeWorkloadUsesBootstrap`
+— error `missing deployment state for w169-repository-workflow-...` = the
+`w169`-fixture family, a known base-compound, not my diff. Two Gegenproben on
+vanilla develop `d2e225f20` both = FAILURE of the same family:
+
+- Run `5571` (workflow_dispatch, head `d2e225f200...`): `status=completed`,
+  `conclusion=failure`, begun `2026-11-09T20:08:26Z`. Witness transcript:
+  `evidence/bughunt-concurrent-init-double-registration/gegenprobe-develop-5571.json`.
+- Run `42690054408` (workflow_dispatch, head `d2e225f20`): FAILURE of the same
+  family — 5 cells, "run runtime integration tests serially".
+
+Decision (Owner-Regel): develop ROT => `2dfcb21fe` is ENTIRELY innocent
+(ENT SCHULDIG). The blocker is card 0427-183 (develop's own rust, new card cast).
+Do not rerun — Sitze bleiben warm, kein rerun-ping-pong.
+
+Report per Owner (recipe points 1-3 + readability, check point 4 holds until 183):
+
+1. Readability / source-format gate: ERLEDT on my head. `app_context.go` = 716/800,
+   `saveDeploymentRecord` = 152/200 — both under limit; the source-format job did
+   not fire (round-10 refactor held). Resolved.
+2. Recipe points 1-3 (diff correctness) stand. The 0427-175 selector-vs-resolved
+   guard relocation + real-binary `--full-reset` repair subprocess are correct;
+   local verification green on `2dfcb21f` (build/vet/gofmt clean; `internal/deployment`
+   + registry/destroy/poison/repair/`TestUpNameResumes` focused suites PASS; race
+   regression unchanged vs r7).
+3. The two CI failures are the `w169` base family, proven by two independent
+   develop Gegenproben (`5571`, `42690054408`) both failing the same family on
+   `d2e225f20` without any 0427-175 code present.
+4. Check point 4 holds until card 0427-183. The terminal CI run `42687854644`
+   (head `2dfcb21f`) is a FAILURE on the native-runtime `validate` cells; therefore
+   `2dfcb21f` is not yet accepted. END (Abnahme of the final, SHA-accurate
+   candidate) is held pending card 0427-183 clearing the develop rust, then a green
+   re-run of `2dfcb21f`.
+
+Evidence published to baseharbor-plan origin/main. No .github/** edits, no
+reruns/workflow_dispatch by the worker, no subagents.
+
 END_DONE 0427-175-r8: real-binary --full-reset repair subprocess + guard at resolve-and-authorize; drift guard CI-durable; native-run finding for Owner .github/**; cand 03a4544d on origin/0427-175-initlock
