@@ -47,3 +47,5 @@ Local verification on the exact checked-out candidate:
 Landing recipe: merge only the reviewed head `03d144134292d4eae53c966c9f578bbd068d8358` while it remains the PR head and the required checks remain successful. Do not describe skipped native/runtime jobs as green. After landing, verify the resulting develop head and its post-merge checks under the normal merge procedure.
 
 Stop criterion: if the PR head changes, if `deployment-package-tests` or `PR Selected Checks` is no longer successful for this exact SHA, or if a new non-skipped required check is failing or pending, stop and review the new state before landing.
+
+END_DONE 0427-178-review: APPROVE PR #1509 at `03d144134292d4eae53c966c9f578bbd068d8358`.
