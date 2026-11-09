@@ -57,3 +57,9 @@ ROLLE: MERGE
 - Remote witness: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/pull/1510/head` returned `fe16127ac19526e7ed287fd8d4d3428fa2a4f174 refs/heads/develop` and `4ad2285f8d43dfbed59741903df5f8cd6f27a837 refs/pull/1510/head`.
 - Exact PR validation remains run 42594772123, completed/success on reviewed head 4ad2285f8d43dfbed59741903df5f8cd6f27a837: https://github.com/mcpdev80/baseharbor/actions/runs/42594772123. PR Selected Checks used GitHub Actions app 15368 and passed.
 - Merge-triggered develop workflows 42598000671 and 42598000675 were still in progress at the time of this update. Their live run links are https://github.com/mcpdev80/baseharbor/actions/runs/42598000671 and https://github.com/mcpdev80/baseharbor/actions/runs/42598000675. They are not reported as passed here; final status will be appended after observation.
+
+## Post-merge checks
+
+- Both push workflows ran on merge SHA `fe16127ac19526e7ed287fd8d4d3428fa2a4f174` and completed with failure: [Docker run 42598000671](https://github.com/mcpdev80/baseharbor/actions/runs/42598000671) and [Podman run 42598000675](https://github.com/mcpdev80/baseharbor/actions/runs/42598000675).
+- The failed job in each run is `Native single-default`. Docker job 129095350589 and Podman job 129095338706 both fail `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` at `installation_destroy_native_test.go:48` during real Core bootstrap. The log reports `BaseHarbor Core is already running on this engine for target ...`; the process exits with code 1. The Keycloak+SQL single jobs passed on both runtimes.
+- This is a post-merge STATE, not a passing check: the required native single-default Docker and Podman post-merge cells failed. No rerun or workflow dispatch was triggered. The source PR run remains terminal success on its exact reviewed SHA; it does not replace these develop failures.
