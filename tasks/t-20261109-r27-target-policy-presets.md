@@ -16,7 +16,7 @@ priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1514]
-sources: ["mcpdev80/baseharbor#1513"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
