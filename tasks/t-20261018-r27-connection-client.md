@@ -416,3 +416,10 @@ Latest code head 9edca206, CI https://github.com/mcpdev80/baseharbor/actions/run
 - The same CI passed Source format, go-build, go-vet, cli-gofmt, focused Python, native Docker/Podman destroy retries, and native Keycloak/Core Docker+Podman. PR Selected Checks failed as a consequence of failed Go unit tests.
 - Fix in `c9fa6127`: allow only global PAX `comment` metadata (commit identifier) and refuse unknown global metadata/path/link overrides; `9e1a8e26` adds positive Git PAX and negative path/link metadata tests. New exact-head CI [42580961985](https://github.com/mcpdev80/baseharbor/actions/runs/42580961985) pending at last observation. No claim of success before result.
 - Keep card active and PR unmerged: the fix addresses native git archive parsing only, not remote source onboarding, immutable Core candidate consent/Connector binding, OCI source acquisition, or physical remote READY/update/destroy E2E.
+
+
+## Follow-up code/CI review 2026-11-09
+
+- CI 42580961985 on 9e1a8e26 failed `PR Source format` because pinned_git_archive_test.go contained an extra blank line (`gofmt -l`), and its `PR Selected Checks` aggregate therefore did not pass. Fixed gofmt in commit d86f703e.
+- Reviewed `fingerprintStagedCandidate`: previously hashed file paths and bytes, but omitted the Git-tracked executable permission bit. Two different release trees (same bytes, different executable mode) could receive identical candidate fingerprints. Fixed in 7c5dcffa to hash the executable mode, while rejecting files replaced with symlinks/non-regular entries at hash time. Test added in 831bae43, test formatting fixed f3483c4a.
+- New exact-head CI [42581333500](https://github.com/mcpdev80/baseharbor/actions/runs/42581333500) pending at observation. This is a hardening/fix iteration, **not** a validated remote end-to-end apply. Remaining first Git source authorization, transaction-bound staging/consent, OCI resolution and real remote Docker/Podman E2E remain open. Keep #1473 unmerged and 0427-023 active.
