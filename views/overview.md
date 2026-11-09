@@ -37,7 +37,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261108-bughunt-app-list-owner-check-scaling](../tasks/t-20261108-bughunt-app-list-owner-check-scaling.md) | Bug Hunt v0.4.27: App list scales with every record | review | normal | lane-0427-178-rebase | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1508](https://github.com/mcpdev80/baseharbor/pull/1508), [baseharbor#1509](https://github.com/mcpdev80/baseharbor/pull/1509), [baseharbor#1511](https://github.com/mcpdev80/baseharbor/pull/1511) |
-| [t-20261108-bughunt-concurrent-init-double-registration](../tasks/t-20261108-bughunt-concurrent-init-double-registration.md) | Bug Hunt v0.4.27: Double init poisons target | review | normal | lane-w175-initlock | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512) |
+| [t-20261108-bughunt-concurrent-init-double-registration](../tasks/t-20261108-bughunt-concurrent-init-double-registration.md) | Bug Hunt v0.4.27: Double init poisons target | review | normal | lane-0427-175-r2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512) |
 
 ## Waiting for resources
 
