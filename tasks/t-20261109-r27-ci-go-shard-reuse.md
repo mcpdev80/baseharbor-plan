@@ -1,7 +1,7 @@
 ---
 id: t-20261109-r27-ci-go-shard-reuse
 card_number: "0427-185"
-card_short_title: "Reuse unchanged green Go shards"
+card_short_title: "Reuse green Go shards"
 type: task
 areas: [ci]
 release: v0.4.27
@@ -13,10 +13,10 @@ kanban_lane: ready
 kanban_summary: ""
 kanban_title: "0427-185 · Reuse unchanged green Go shards"
 priority: normal
-depends_on: [t-20261109-r27-ci-go-unit-shards]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261109-r27-ci-go-unit-shards]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["mcpdev80/baseharbor#1519"]
+sources: []
 blocker: ""
 resolution: ""
 evidence: []
