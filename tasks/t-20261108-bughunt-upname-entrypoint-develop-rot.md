@@ -45,6 +45,10 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ## Outcome and acceptance
 TestUpNameResumesThroughCommandEntrypoint passes again in hosted go test ./... on a develop HEAD with no PR-side changes pending: either the marker/teardown sequencing in the fixture is repaired (dead-pid adoption must find a persisted bootstrap target) or the test is made hermetic against adoption races; one hosted full-matrix green run on develop named in the card as the healing proof.
 
+## Landing check — 2026-11-09
+
+PR #1502 was squash-merged as `1912734ff864bdfefd7ab8ae71a25e856859d5d8`, now the `develop` head. The merge-triggered native Docker and Podman develop runs are `42582097892` and `42582097798`; both were still in progress when checked. Do not treat the card's healing proof as complete until a develop run actually executes and passes both `TestUpNameResumesThroughCommandEntrypoint` and `TestControlPlaneSingleDefaultNativeRuntimeInCI`. A skipped or absent test is not evidence. Leave the card open pending that observation; do not close follow-up cases from this merge.
+
 ## Problem (witness runs)
 After the bootstrap-marker adoption work (0427-156 era + owner acceptance #1495 on develop), the hosted go test ./... matrix fails on TestUpNameResumesThroughCommandEntrypoint (~80s, "adopting orphaned marker from dead pid", "adoption found no persisted bootstrap target") across UNRELATED branches and pure-wording PRs (runs 42516911484 on 03fa07f8, 42516978054 on the 0427-159 branch) - a global develop rot that reds the unit gate of every PR; successor of the 156 marker gap.
 
