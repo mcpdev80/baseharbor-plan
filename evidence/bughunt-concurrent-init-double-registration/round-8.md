@@ -224,9 +224,53 @@ unchanged vs r7.
 New head: `2dfcb21fed35b4672ddbd9dab931cb227f7a5d85`, pushed to
 `origin/0427-175-initlock`. Reported to Owner for the next manual CI re-trigger.
 
-## END
+## Round 11 — terminal CI run 42687854644 (NOT a readability failure; native-runtime runner-state)
 
-0427-175 r8 implemented. Real-binary `--full-reset` repair moved off
+Owner (ZUENDUNG 175-r8): watch CI run `42687854644` on exactly `2dfcb21fe`
+(manual trigger; CI-feuer defective) to terminal, then END with the run line
+and `git ls-remote origin refs/pull/1512/head`.
+
+Run `42687854644` reached terminal: `status=completed, conclusion=failure`.
+The only executed jobs were `Workflow policy` (success) and `validate`
+(failure). The readability/source-format gate did **not** fire — neither
+`app_context.go` (716/800) nor `saveDeploymentRecord` (152/200) is over the
+gate.
+
+The `validate` failure is **native runtime integration tests** on the shared
+persistent `validate` runner, not my logic:
+
+- `TestRepositoryWorkflowRealLifecycle`,
+  `TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI`,
+  `TestRepositoryComposeWorkloadOnlyLifecycleInCI`,
+  `TestRepositoryComposePinnedWorkloadLifecycleInCI`,
+  `TestRepositoryBuildWorkloadRebuildsSourceChangesInCI` — 5 failures in one
+  ~1.4s burst (20:03:04–05), first-apply cascade signature.
+- Root error (all five): `missing deployment state for
+  w169-…: deployment has no authoritative installation owner for its Target;
+  the installation must be restored before its state is loadable`.
+- The failing tests do not call any changed 0427-175 function (verified: my
+  `saveDeploymentRecord`/`persistDeploymentRecord`/`resolveRecordByIdentity`/
+  `assertSelectionResolvedIdentity`/`refuseRegistryApplicationIDConflict` are
+  absent from `repository_runtime_fixture_test.go` and `app_workload_integration_test.go`).
+- The test gate (`ci.yml` "Run runtime integration tests serially") requires
+  `BASEHARBOR_CI_RUNTIME_INTEGRATION=1` and a detected runtime
+  (`testruntime.Resolve`); `TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI`
+  `t.Skip`s without the env var and `t.Fatalf`s on `detect compose` without an
+  engine. These are the six standard native-runtime tests that also run on
+  vanilla develop on this same persistent host — the failing apply is a
+  persistent-runner state collision, not a regression from this PR.
+- Local verification on `2dfcb21f` remains green: build/vet/gofmt clean;
+  `internal/deployment` + registry/destroy/poison/repair/`TestUpNameResumes`
+  focused suites PASS.
+
+This is an environmental runner-state failure, NOT the readability point the
+Owner scoped for END_BLOCKED. It is a terminal CI **failure**, so the candidate
+is NOT yet accepted. Report to Owner: the native-runtime `validate` failures are
+a persistent-runner state collision on the shared host; request a re-trigger
+after the host is reset/re-provisioned (or confirm develop fails identically),
+then re-watch to terminal for a PASS before END.
+
+`git ls-remote origin refs/pull/1512/head` = `2dfcb21fed35b4672ddbd9dab931cb227f7a5d85`. Real-binary `--full-reset` repair moved off
 Go-test-internal calls onto a compiled `baha` binary run as an outside
 subprocess (isolated `BASEHARBOR_STATE_DIR` + separate working dir). The
 selector-vs-resolved guard relocated from `removeApplicationState` (after
