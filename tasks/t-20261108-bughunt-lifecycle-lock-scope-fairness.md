@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-w176-lockfairness
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: lock granularity or ordering documented and improved so independent apps do not serialize; starvation-free acquisition (fairness…
 kanban_title: 0427-176 · Target lock serializes and sta
 priority: normal
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-lifecycle-lock-scope-fairness · Bug Hunt v0.4.27: Target lock serializes and starves #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-lifecycle-lock-scope-fairness · Bug Hunt v0.4.27: Target lock serializes and starves #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-w176-lockfairness · **Priority:** normal  
     **PR:** [baseharbor#1507](https://github.com/mcpdev80/baseharbor/pull/1507)  
@@ -31,7 +31,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-w176-lockfairness  
