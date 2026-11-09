@@ -15,7 +15,7 @@ kanban_title: 0427-174 · Permission and invalid-name er
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: ["https://github.com/mcpdev80/baseharbor/pull/1506"]
+prs: ["https://github.com/mcpdev80/baseharbor/pull/1506", mcpdev80/baseharbor#1506]
 sources: []
 blocker: ""
 wait_reason: ""

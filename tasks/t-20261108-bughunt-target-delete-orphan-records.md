@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: pending-lane-0427-165-r4
+owner: lane-w165d-orphanrec4
 kanban_status: active
 kanban_lane: active
 kanban_summary: Deleting a target either refuses while apps/records exist (naming them) or prunes its records under the existing destroy…
