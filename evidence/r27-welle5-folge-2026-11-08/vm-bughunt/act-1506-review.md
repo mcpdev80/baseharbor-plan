@@ -59,8 +59,8 @@ Korrigiere `internal/deployment/deployment_list.go`, `cmd/baha/app_context.go`, 
 
 Vor weiterer Abnahme auf den aktuellen PR-Base `develop@b3a8042d18ea60f162a32a51df34a499cad6a237` integrieren und den exakten neuen Head mit ausgewählten Checks prüfen. Der aktuelle erfolgreiche Lauf beweist ausschließlich den alten PR-Head und dessen Paketregressionen.
 
-END_DONE 0427-174-review: KORREKTUR — Kandidat `fb21a02eec29890c793ae3da5e8ab7d3567fa829`; Evidence auf baseharbor-plan origin/main zu veröffentlichen.
+END_DONE 0427-174-review: KORREKTUR — Kandidat `fb21a02eec29890c793ae3da5e8ab7d3567fa829`; Evidence veröffentlicht auf baseharbor-plan origin/main.
 
 ## Planning validation
 
-`python3 scripts/plan.py check` was attempted and failed before evaluating this act: `scripts/plan.py:650 short_ref` raised `ValueError: not enough values to unpack (expected 2, got 1)` while generating a task PR link from existing vault metadata. This review did not modify task metadata. `git diff --check` passed, and the act contains no checkbox syntax.
+An initial `python3 scripts/plan.py check` before refreshing Planning `origin/main` failed in existing vault metadata: `scripts/plan.py:650 short_ref` raised `ValueError: not enough values to unpack (expected 2, got 1)` while generating a task PR link. After pulling the newer Planning `origin/main`, the check passed with 435 tasks, 0 errors, and 4 dependency warnings. This review did not modify task metadata. `git diff --check` passed, and the act contains no checkbox syntax.
