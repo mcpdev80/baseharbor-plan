@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: planned
-kanban_summary: ""
-kanban_title: "0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests"
+kanban_lane: ready
+kanban_summary: "One or two sentences: the observable outcome."
+kanban_title: 0427-182 · 0427-182 · Serve Integr test
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/planned
+- [ ] t-20261109-0427-182-serve-integration-holder-leak · 0427-182 · Serve integration test leaks a bound+serving holder that poisons later cmd/baha tests #task #release/v0-4-27 #status/planned #view/ready #kind/bug
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
@@ -56,5 +70,4 @@ One or two sentences: the observable outcome.
 - Current state, branch, PR and evidence links. Newest first.
 
 ## Task Note
-- [ ] Make cmd/baha hermetic: no TestServe* leaves a bound+serving holder behind.
 Follow-on of 0427-181 (which isolated only the `up` side). Witness (hosted, exact): run 42678151766 on 03a4544de (PR #1512 head, base develop 8a2912c62) fails `--- FAIL: TestUpNameResumesThroughCommandEntrypoint (80.57s)` at runtime_ports_test.go:340 with `holder: root=/tmp/TestServeCommandIntegrationOwnershipOnValidRoot.../runtime` and `holder bound+serving at 127.0.0.1:43423` — a SERVE integration test's holder stays bound/serving into a later test, i.e. the same contamination family, different emitter. Required: teardown guarantee (stop + wait release) for every serve holder created in cmd/baha tests, plus a guard assertion that no listener from another test's temp root is bound when the entrypoint test starts. Must run (no SKIP) in the always-executed CI group.
