@@ -465,3 +465,10 @@ Verbindliche Richtung: [Decision](../decisions/2026-11-09-r27-local-delta-delive
 - Regression test added at `aa7bbac8`: mutable Git ref `main` must fail with `ErrorValidationFailed` at the real HTTP create boundary before registration; the test does not imply a runtime deployment proof.
 - Follow the latest approved dev delta and Target preset decision (#1513); the earlier Git/OCI-only PR prose was corrected. Do not remove the existing authorized developer delta source-transfer path.
 - Still OPEN: branch reconciliation with develop (10 overlapping changed files at inspection), exact-head CI, and physical independent Dev-PC -> Core-local Docker -> application READY, second delta apply, update and destroy. Do not merge or mark the smoke PASS. No live VM changes were made.
+
+## 2026-11-09 – Rebase qualification and CI corrections
+
+- Owner's true rebase finished at `03c12b93db5e5bbabeae72460b33b058a51fc7cd` on `develop` `d2e225f2000b88ee255559b0cc3f9ac51c225e7e`; GitHub confirmed mergeable before follow-up commits. Four conflict resolutions; local build/vet/test compilation PASS per handoff, full Go tests delegated to CI.
+- Exact-head Ready CI `42687471705` revealed two concrete failures: `PR · Source format` because `cmd/baha/app_context.go` had 807 lines (800 limit), and `PR · Validation · pr-planner-tests` because the generated EN CLI index was missing `--tenant-id UUID` in `baha target create`.
+- Fixed by moving `resolvedApplication.ResourceLabel()` to `cmd/baha/app_context_resource_label.go` (`29ac9d44`, `bc0e6d42`), and aligning both EN/DE command indices with actual CLI Usage (`e480f05e`, `d1965fa4`). No application behavior changed. Fresh CI is required on the new exact head; earlier in-progress jobs do not qualify the new commits.
+- Remains active/unmerged: full exact-head CI, physical independent developer workstation -> authenticated Core -> Core-local Docker -> application READY, second delta apply, update and destroy. Preserve VM and security/tenant state.
