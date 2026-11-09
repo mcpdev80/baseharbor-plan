@@ -132,3 +132,7 @@ passes on hosted runner. WARTET AUF LANDING: a develop push where
 TestUpNameResumesThroughCommandEntrypoint and
 TestControlPlaneSingleDefaultNativeRuntimeInCI both run in native Docker AND
 Podman and pass. Native destroy-retry failures are runner-isolation STATE.
+
+## Heil-Nachweis (coord, 2026-11-09, Landing)
+- PR #1502 squash-gelandet (develop 1912734ff); karte closed. Rostblockade aufgehoben: folgende PR-gates (u.a. #1505 run 42590616765 auf base>=942111d5a) completed/success ohne die zwei benannten fails.
+- Develop-push traegt nur Runtime-Core-Workflows; cmd/baha suite laeuft PR-seitig nach impact-selektor — dauerhafte Erfassung liegt beim CI-inhaber (.github scope), Befund notiert, kein Blocker.
