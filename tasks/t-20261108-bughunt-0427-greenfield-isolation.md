@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: owner-chatgpt-r27
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "An isolated greenfield run (BASEHARBORTARGET-selected second target, docker-2 style) completes bootstrap + core self-install +…"
 kanban_title: "0427-133 · greenfield isolation open"
 priority: normal
@@ -19,11 +19,11 @@ prs: [mcpdev80/baseharbor#1460, mcpdev80/baseharbor#1503]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1503", "https://github.com/mcpdev80/baseharbor/actions/runs/42704543118", "https://github.com/mcpdev80/baseharbor/actions/jobs/129457862242", "https://github.com/mcpdev80/baseharbor/actions/jobs/129457862319", "https://github.com/mcpdev80/baseharbor/actions/jobs/129461596461"]
 ---
 
-- [ ] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **PR:** [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460), [baseharbor#1503](https://github.com/mcpdev80/baseharbor/pull/1503)  
@@ -96,3 +96,12 @@ Draft #1503's two fail-closed proof-verifier files were replayed on post-#1518 `
 - [BaseHarbor PR #1503](https://github.com/mcpdev80/baseharbor/pull/1503) is now **merged** into `develop` at `78963050a66e8758569223d01967174abadbffc4` (2026-11-09 21:36 UTC), after exact-head [PR workflow #42702568290](https://github.com/mcpdev80/baseharbor/actions/runs/42702568290) succeeded. The PR contains the native Greenfield Go test and proof verifier and registers the Docker/Podman proof workflow steps in `.github/workflows/ci.yml`.
 - **Do not mark native two-engine E2E accepted from that PR workflow alone:** its reported jobs did not include the newly introduced `pr_native_greenfield_proof` job, even though the workflow is now present on `develop`. A subsequent selected PR/native run must execute both real Docker/Podman Greenfield cells and the exact-SHA two-engine aggregate proof. The physical independent-workstation/Core/Connector/READY journey is also a separate release acceptance requirement.
 - Preserve **active** until the actual selected native proof has been captured and reviewed, then move to review/closed with true HTTPS evidence. No early release/tag.
+
+## Accepted native proof — 2026-11-09
+
+- PR [#1503](https://github.com/mcpdev80/baseharbor/pull/1503) merged into `develop` at `78963050a66e8758569223d01967174abadbffc4`.
+- Hosted exact-head CI [#42704543118](https://github.com/mcpdev80/baseharbor/actions/runs/42704543118) at PR #1520 HEAD `9e9acee89ecc28072b4695a3ee00d74d116530b2` executed both engine proof jobs successfully **after** #1503 integration.
+- Docker [job 129457862242](https://github.com/mcpdev80/baseharbor/actions/jobs/129457862242): actual isolated Greenfield Core lifecycle PASS, proof artifact published, cleanup PASS.
+- Podman [job 129457862319](https://github.com/mcpdev80/baseharbor/actions/jobs/129457862319): actual isolated Greenfield Core lifecycle PASS, proof artifact published, cleanup PASS.
+- [Two-engine exact-head verifier job 129461596461](https://github.com/mcpdev80/baseharbor/actions/jobs/129461596461): PASS, and PR Selected Checks PASS. This meets the Greenfield native isolation proof acceptance; **0427-133 accepted**.
+- Earlier notes reporting proof not yet executed are superseded by this verified run. A separate independent developer-PC -> Core -> Connector -> READY smoke remains tracked by remote integration acceptance cards and is not part of this test's closure.
