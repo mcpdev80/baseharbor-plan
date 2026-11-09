@@ -16,7 +16,7 @@ priority: normal
 depends_on: [t-20261017-release-0-4-31-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["mcpdev80/baseharbor#603", "mcpdev80/baseharbor#846"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
