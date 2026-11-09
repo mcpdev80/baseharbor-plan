@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: lane-0427-175-r2
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "concurrent init is serialized or CAS-rejected so duplicates cannot exist; if a target is already poisoned, a named CLI recovery…"
 kanban_title: "0427-175 · Double init poisons target"
 priority: normal
@@ -19,19 +19,19 @@ prs: [mcpdev80/baseharbor#1512]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md", "https://github.com/mcpdev80/baseharbor/commit/bc839f054"]
 superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
-- [ ] t-20261108-bughunt-concurrent-init-double-registration · Bug Hunt v0.4.27: Double init poisons target #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-concurrent-init-double-registration · Bug Hunt v0.4.27: Double init poisons target #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** lane-0427-175-r2 · **Priority:** normal  
     **PR:** [baseharbor#1512](https://github.com/mcpdev80/baseharbor/pull/1512)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/bughunt-concurrent-init-double-registration/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor/commit/bc839f054)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-175-r2  
