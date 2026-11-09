@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-178-rebase
+owner: none
 kanban_status: review
 kanban_lane: review
 kanban_summary: "batch or cache owner verification so list cost is not linear per-record re-verification through the engine, while fail-closed…"
@@ -25,7 +25,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 ---
 - [ ] t-20261108-bughunt-app-list-owner-check-scaling · Bug Hunt v0.4.27: App list scales with every record #task #release/v0-4-27 #status/review #view/review #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** lane-0427-178-rebase · **Priority:** normal  
+    **Owner:** none · **Priority:** normal  
     **PR:** [baseharbor#1508](https://github.com/mcpdev80/baseharbor/pull/1508), [baseharbor#1509](https://github.com/mcpdev80/baseharbor/pull/1509), [baseharbor#1511](https://github.com/mcpdev80/baseharbor/pull/1511)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/vm-bughunt/hp4.md)  
     <!-- /generated:card -->
@@ -34,7 +34,7 @@ superseded_by: t-20261108-bughunt-0427-test-bootstrap-leak
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** lane-0427-178-rebase  
+**Owner:** none  
 **Priority:** normal  
 **PRs:** [baseharbor#1508](https://github.com/mcpdev80/baseharbor/pull/1508), [baseharbor#1509](https://github.com/mcpdev80/baseharbor/pull/1509), [baseharbor#1511](https://github.com/mcpdev80/baseharbor/pull/1511)  
 **Source:** 
