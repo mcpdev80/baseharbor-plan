@@ -23,15 +23,15 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1503", "https://github.com/mcpdev80/baseharbor/actions/runs/42704543118", "https://github.com/mcpdev80/baseharbor/actions/jobs/129457862242", "https://github.com/mcpdev80/baseharbor/actions/jobs/129457862319", "https://github.com/mcpdev80/baseharbor/actions/jobs/129461596461"]
 ---
 
-- [x] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/closed #view/closed #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-greenfield-isolation · Bug Hunt v0.4.27: Greenfield-Isolation offen #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **PR:** [baseharbor#1460](https://github.com/mcpdev80/baseharbor/pull/1460), [baseharbor#1503](https://github.com/mcpdev80/baseharbor/pull/1503)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-target-env/act-1451-review.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-greenfield-isolation/acceptance-gap-audit.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1503), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42704543118), [proof 3](https://github.com/mcpdev80/baseharbor/actions/jobs/129457862242), [proof 4](https://github.com/mcpdev80/baseharbor/actions/jobs/129457862319), [proof 5](https://github.com/mcpdev80/baseharbor/actions/jobs/129461596461)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md)  
 **Owner:** owner-chatgpt-r27  
