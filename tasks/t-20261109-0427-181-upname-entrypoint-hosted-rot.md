@@ -1,7 +1,7 @@
 ---
 id: t-20261109-0427-181-upname-entrypoint-hosted-rot
 card_number: "0427-181"
-card_short_title: "TestUpNameResumes fails in hosted"
+card_short_title: "TestUpNameResumes hosted rot"
 type: bug
 areas: [lifecycle, compose]
 release: v0.4.27
@@ -11,9 +11,9 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: ""
-kanban_title: 0427-181 · TestUpNameResumes fails in hosted
+kanban_title: 0427-181 · TestUpNameResumes hosted rot
 priority: normal
-depends_on: [t-20261108-bughunt-upname-entrypoint-develop-rot]
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -34,13 +34,12 @@ superseded_by: ""
 <!-- generated:links -->
 **State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261108-bughunt-upname-entrypoint-develop-rot](t-20261108-bughunt-upname-entrypoint-develop-rot.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
 <!-- /generated:links -->
-<!-- generated:card -->
 
 ## Task Note
 
