@@ -1,6 +1,6 @@
 # Round 10 — PR #1499 (0427-159 r10): band-write-error propagation + ApplicationID binding
 
-**Status:** green CI run in progress on exact head `d69d3c0b`.
+**Status:** TERMINAL GREEN — `PR · Selected Checks` = pass.
 **Head:** `d69d3c0b98af287b172b5b027d24112ef903c81e` on `0427-159-damagedstate` (PR #1499), linear fast-forward of the r9 green head `3a14ce16`.
 **r9 verdict:** `act-1499-review-r9.md` — KORREKTUR. Two trust-placement gaps confirmed.
 
@@ -93,8 +93,36 @@ Function span      PASS (<= 200 lines or no worse than explicit baseline)
 Regression ratchet PASS (new/worsened violations fail closed)
 ```
 
-## Run
+## Terminal run (own api-read)
 
-Run **42619991654** on head `d69d3c0b` — `PR · Source format` pass, `Trusted
-Plan`/`Native impact selection`/`cli-gofmt` pass; `go-unit-tests` + `go-build`
-pending. Terminal run to be recorded here once `completed/success`.
+- Run 42619991654: `{status:"completed", conclusion:"success",
+  head_commit:"d69d3c0b98af287b172b5b027d24112ef903c81e"}`.
+- Jobs: `PR · Selected Checks`=pass, `PR · Source format`=success
+  (job 129169344508), `PR · Validation · go-unit-tests`=success
+  (job 129169432966), `go-build`/`go-vet`=success. 14 success, 0 failure.
+- `go-unit-tests` CI log: `ok github.com/mcpdev80/baseharbor/cmd/baha
+  539.361s` and `ok github.com/mcpdev80/baseharbor/internal/deployment
+  0.577s` — every package `ok`, zero `FAIL`/panic/timeout. My r8+r10 band
+  tests (`TestRetainedOwnershipBandIsWrittenAndSurvivesDamagedState`,
+  `TestSaveDeploymentRecordPropagatesBandWriteError`) live in the passing
+  `cmd/baha` package; the sibling same-name/different-ID fail-closed regression
+  runs in the same green package.
+
+## Witness lines (verbatim, own reads)
+
+```text
+$ git ls-remote origin refs/pull/1499/head
+d69d3c0b98af287b172b5b027d24112ef903c81e  refs/pull/1499/head
+
+$ git ls-remote origin refs/heads/0427-159-damagedstate
+d69d3c0b98af287b172b5b027d24112ef903c81e  refs/heads/0427-159-damagedstate
+
+$ gh api repos/mcpdev80/baseharbor/actions/runs/42619991654 --jq '{status,conclusion,head:.head_commit.id}'
+{"status":"completed","conclusion":"success","head":"d69d3c0b98af287b172b5b027d24112ef903c81e"}
+
+$ gh api repos/mcpdev80/baseharbor/actions/jobs/129169432966 --jq '{status,conclusion}'   # go-unit-tests
+{"status":"completed","conclusion":"success"}
+
+$ gh pr checks 1499 | grep "Selected Checks"
+PR · Selected Checks   pass   11s   https://github.com/mcpdev80/baseharbor/actions/runs/42619991654/job/129174258079
+```
