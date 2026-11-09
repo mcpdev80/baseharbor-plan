@@ -129,13 +129,16 @@ Race regression `cmd/baha/app_init_concurrent_race_test.go` UNCHANGED.
 ## CI status
 
 - New candidate `03a4544d` pushed to `origin/0427-175-initlock` at
-  `2026-11-09`.
-- Hosted CI for the new head was awaited; the newest completed run on this
-  branch remains the r7 run (the pushed candidate's selected checks had not
-  reached a terminal state at handoff). The CI-durable proofs (drift guard unit
-  test, byte-identical-sibling seam regression) execute in the normal
-  `go-unit-tests` group; the real-binary `--full-reset` subprocess runs under
-  the native acceptance gate on the SSH host.
+  `2026-11-09`; base attestation `git merge-base --is-ancestor 84f60778a HEAD`
+  → YES (r7 is the sole parent lineage).
+- Hosted CI for the new head was awaited via own `gh run list` polls (no
+  reruns / workflow_dispatch — Owner scope). The newest terminal run on this
+  branch remains the r7 run `42661724281` (completed/success); the pushed
+  candidate's selected checks had not reached a terminal state at handoff.
+- The CI-durable proofs (drift-guard unit test, byte-identical-sibling seam
+  regression, unchanged race regression) execute in the normal `go-unit-tests`
+  group; the real-binary `--full-reset` repair subprocess runs under the native
+  acceptance gate on the SSH host.
 
 ## repo-rule compliance
 
