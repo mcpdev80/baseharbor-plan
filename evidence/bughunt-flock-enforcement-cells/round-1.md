@@ -58,6 +58,7 @@
 - Positive selection: a change under `./internal/...` is covered by `go test ./...`.
 - No `.github/**` change needed; the test is picked up by the existing `go test ./...` in the validate job (Owner directive 2026-11-07 satisfied by the existing group trigger).
 - First CI run (PR #1515) surfaced `exec: "go": executable file not found in $PATH` from the probe's `go run`-based child: CI's `setup-go` sets `GOROOT` and may place Go on a non-default PATH that a freshly-spawned `exec.Command("go", "run", ...)` child does not inherit, and `go run` in a temp module dir also needs `GOMODCACHE`/`GOCACHE` that a bare child lacks. Root cause fixed by replacing `go run` with an EMBEDDED statically-linked Linux/AMD64 probe binary (`internal/stableid/testdata/lock-probe-linux-amd64`, stdlib-only `syscall`, runs with NO toolchain/PATH/module cache) plus a `go build` toolchain fallback for non-amd64 platforms that reports `errProbeUnavailable` (fail closed) when neither is available.
+- Final CI run `42624603781` on PR head `35910ae3f`: **all 23 jobs green**, including `PR · Validation · go-unit-tests` = SUCCESS (executes the new stableid tests via `go test ./...`), `go-build`/`go-vet`/`authority-package-tests` SUCCESS, `PR Selected Checks` = SUCCESS (mergeable gate).
 
 ## Local check results (this host, go1.26.8)
 
@@ -104,4 +105,9 @@
 
 ## END status
 
-- (to be filled at terminal END)
+- END_DONE. Card 0427-179 implemented: the advisory `flock()` lock is now verified cross-process at acquire time and fails closed when the runtime filesystem cannot enforce it.
+- Product candidate SHA: `35910ae3f` (branch `0427-179-flock-enforcement`, base `develop fea92f379`, single commit, base is ancestor, no foreign commit).
+- PR: #1515 against `develop` (https://github.com/mcpdev80/baseharbor/pull/1515), head `35910ae3f`.
+- CI: run `42624603781` — all 23 jobs green, `go-unit-tests` SUCCESS, `PR Selected Checks` SUCCESS (mergeable).
+- Evidence on `baseharbor-plan` origin/main: `evidence/bughunt-flock-enforcement-cells/round-1.md` (pushed).
+- No compose/container projects started on any host; `/tmp/0427-179-*` helper artifacts removed.
