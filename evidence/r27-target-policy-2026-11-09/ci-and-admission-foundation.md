@@ -21,3 +21,8 @@
 
 ## Next proof
 Review source admission/consent implementation and add trusted evidence producer plus atomic Core-side gate ahead of any lifecycle state mutation. Then verify exact-head CI and independent Docker/Podman native E2E. Do not treat domain unit tests as deployment acceptance.
+
+## Policy gate integration follow-up
+- [Commit 1de1aa04](https://github.com/mcpdev80/baseharbor/commit/1de1aa04a5fa2b3884f59d3fe39f816b46034a81) now invokes the fail-closed evaluator in the local/remote apply lifecycle and again at the pending-record write guard.
+- Restricted targets without Core-trusted proofs are denied before runtime/state mutation. **This does not complete the policy user story:** a verified provenance producer and immutable source publication still need wiring to permit valid protected deployments.
+- [CI run 42612522801](https://github.com/mcpdev80/baseharbor/actions/runs/42612522801) was pending at last inspection; no PASS or E2E acceptance claimed.
