@@ -14,7 +14,9 @@ Repo: mcpdev80/baseharbor (product), worktree `/tmp/opencode/0427-178-r2-bughunt
 - Fix F2: add public batched-list fixture in `internal/deployment/deployment_list_owner_scale_test.go` asserting each kind + 144 foreign-tolerance; widen the owner-resolution seam bound to tenant-resolver work
 - Local checks: `go test ./internal/deployment/...`, vet, build, source-readability-audit, gofmt
 - CI coverage: the new/changed tests run under `deployment-package-tests` (`go test ./internal/deployment/...`, ci.yml:964, pr-incremental-reuse.go:31) under the `pull_request` trigger for `develop` — no `.github/**` edit (Owner scope)
-- New terminal run on exact head: `deployment-package-tests` + Selected Checks terminal success; `ls-remote` + cleanliness
+- Branch pushed: `0427-178-r2-pr1508` -> `03d144134292d4eae53c966c9f578bbd068d8358` (confirmed via `git ls-remote origin 0427-178-r2-pr1508`). Ancestry: `b3a8042d` (origin/develop) and `dbb1df08` (refs/pull/1508/head) both ancestors, only my commit on top of `dbb1df08`.
+- CI (hosted, GitHub-hosted shared runners): `deployment-package-tests` runs `go test ./internal/deployment/...` for this `pull_request` targeting `develop` (ci.yml:964, pr-incremental-reuse.py:31, selected by ci.yml:418/450/489/529). Terminal result + run-ID recorded once CI reaches terminal state. No rerun/workflow_dispatch by the lane (Owner scope).
+- Cleanliness: no containers/compose projects started; no orphaned runtimes.
 - Evidence written only in baseharbor-plan; no VM/docker/podman (card is a Core-batch unit fix; the required test is a Go unit test)
 
 ## Scope decision (recorded, not parked — Owner directive)
@@ -50,11 +52,12 @@ File: `internal/deployment/deployment_list_owner_scale_test.go`.
 
 ## Checks (local) — run and pasted in the terminal-run section
 - `go test ./internal/deployment/... -count=1`: PASS (exit 0)
+- Owner-batch regression `-count=1`: `TestBatchedListClassifiesAccessForeignMissing` (missing/foreign/access subtests), `TestBatchedListForeignToleranceControl`, `TestBatchedListOncePerTargetResolverBound`, plus all existing `TestListOwner*`/`TestBatchCache*`/`TestDeploymentOwner*` — PASS
 - `go vet ./internal/deployment/...`: clean (exit 0)
 - `go build ./...`: clean (exit 0)
 - `gofmt -l` on both changed files: clean
 - source-readability-audit.sh: PASS (Go file size / Function span / Regression ratchet)
-- `go test ./cmd/baha/... -count=1`: in progress (cmd/baha is a heavy lifecycle-suite)
+- `go test ./cmd/baha/...`: FAIL — but ONLY the pre-existing `corrupt deployment state for p427-podman-boot/gone/dev ... application id "00000000-..." must be a UUIDv4` init tests, identical on clean PR head `dbb1df08` (verified). None touch owner/batch/scaling. Not my regression.
 
 ## CI coverage (durable evidence)
 `deployment-package-tests` (`scripts/pr-incremental-reuse.py:31` maps the check to `./internal/deployment/...`; `.github/workflows/ci.yml:964` dispatches it) runs `go test ./internal/deployment/...`. It is selected for `pull_request` targeting `develop` (ci.yml:418,450,489,529 — base_ref == `develop`, draft==false). Both changed files live under `internal/deployment/`, so the job runs them under that trigger. No `.github/**` change required (Owner scope); no rerun/workflow_dispatch triggered by the lane. A failing check is reported as STATE (check name + failing log line) and the lane stops there — no rerun by the lane.
@@ -71,9 +74,11 @@ No containers/compose projects started (card is a Core-batch unit fix; required 
 ## Repo-rule compliance
 - Write-set: `internal/deployment/deployment_list_owner_batch.go` (fix), `internal/deployment/deployment_list_owner_scale_test.go` (new fixture). Only under `internal/deployment/`. No `.github/**` edited.
 - Branch provenance: cut from `dbb1df08` (= PR #1508 head = origin `0427-178-listscale`); `b3a8042d` (origin/develop) is an ancestor of the first commit. Only my own commits on this branch.
+- Commit: `03d144134292d4eae53c966c9f578bbd068d8358` on branch `0427-178-r2-pr1508`, pushed to `origin` (confirmed via `git ls-remote origin 0427-178-r2-pr1508`). Only this commit sits on top of `dbb1df08`.
 - One integration candidate per chain: single branch `0427-178-r2-pr1508` for PR #1508.
-- Evidence lives only in baseharbor-plan (planning repo). No evidence files in the product repo.
+- Evidence lives only in baseharbor-plan (planning repo) at evidence/bughunt-app-list-owner-check-scaling/round-2.md. No evidence files in the product repo.
 - No subagents (Owner directive 2026-11-04). All steps run in this session.
+- Pre-existing cmd/baha init failures (UUIDv4 corruption) verified identical on clean PR head `dbb1df08` — not my regression.
 
 ## Status
-IN PROGRESS — awaiting local test run, then CI.
+IN PROGRESS — local deployment package + owner-batch regression PASS; cmd/baha pre-existing failures confirmed not mine; branch pushed; awaiting terminal CI.
