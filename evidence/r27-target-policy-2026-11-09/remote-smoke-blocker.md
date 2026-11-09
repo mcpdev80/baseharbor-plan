@@ -19,3 +19,8 @@ No external developer machine/runtime is accessible through this session's GitHu
 - A dedicated exact-commit validation ref `runtime-validation/ci/r27-remote-snapshot-4da01d` started [Actions run 42619879783](https://github.com/mcpdev80/baseharbor/actions/runs/42619879783). No success is claimed until it is terminal green.
 - PR #1473 currently reports `mergeable_state=dirty` against newer `develop`, so reconciliation is required before merging; do not overwrite concurrent changes.
 - **Still outstanding:** actual independent workstation HTTPS Core -> Connector -> Docker/Podman READY, second delta apply, update and destroy live-host smoke. No release/tag/merge and no unconditional READY claim.
+
+## Exact-head CI follow-up after gofmt fix
+- Commit [5cf86ddd](https://github.com/mcpdev80/baseharbor/commit/5cf86ddd93ab279bbb826cb7d23333029bd29f38) resolves all four gofmt differences from failed exact-head [run 42619879783](https://github.com/mcpdev80/baseharbor/actions/runs/42619879783).
+- Validation ref `runtime-validation/ci/r27-remote-snapshot-4da01d` now points at `5cf86ddd`. [Run 42620209276](https://github.com/mcpdev80/baseharbor/actions/runs/42620209276) has reached the Go unit/package test step and was in progress at last check; do not claim complete PASS yet.
+- Smoke CLI can be built from PR #1473 using a separate Git worktree. A real Node/Connector READY proof remains outstanding and requires access to the enrolled target.
