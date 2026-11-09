@@ -1,11 +1,14 @@
 # 0427-175 round 1 — concurrent `baha app init` double-registration: implementation candidate
 
 Mission: `/tmp/opencode/mission-175-impl.md`. Lane: `lane-w175-initlock` (worker-flash).
-Candidate: branch `0427-175-initlock`, single commit `f32f3557614` (verified ancestry:
-`git merge-base --is-ancestor b3a8042d1 HEAD` → OK; `git log b3a8042d1..HEAD --oneline` shows
-only this commit). Base develop pin `b3a8042d18ea60f162a32a51df34a499cad6a237`
-(remote develop has since moved to `942111d5a`; the diff touch-set below is against the pinned base).
-PR: https://github.com/mcpdev80/baseharbor/pull/1512 (draft→ready per workflow; no `.github/**` files changed).
+Candidates: branch `0427-175-initlock`.
+- `f32f35576` — the fix, single commit on develop pin `b3a8042d18ea60f162a32a51df34a499cad6a237`
+  (ancestry proven: `merge-base --is-ancestor` OK; `log b3a8042d1..HEAD` shows only this commit).
+- `b4dff2caf` — drift merge of develop @ `942111d5a` (0427-174 landed meanwhile; the PR's
+  "Source format" gate flagged the resulting 818-line store file, fixed below).
+- `f442b7e99` — merge follow-up: the resolution prologue re-integration (see "Drift notes"), the
+  0427-174 owner-state cells, and the store-file split back under 800 lines.
+PR: https://github.com/mcpdev80/baseharbor/pull/1512 (no `.github/**` files changed).
 
 ## PLAN
 
@@ -28,7 +31,7 @@ failed closed with a generic "inventory damaged" text, both twins were unreachab
 (ambiguity guard) and the advertised healings (`app prune`, plain destroy) did not work on
 this shape (hp4 BF-10; lesson 162).
 
-## The fix (candidate f32f3557614)
+## The fix (candidate f32f35576)
 
 Write seam (`internal/deployment`):
 - `registry_lock.go` — `WithDeploymentRegistryWriteLock` + `DeploymentClaimExists`. Non-blocking
@@ -108,7 +111,28 @@ CLI/MCP surfaces (`cmd/baha`):
 
 ## Stop/open items for the review
 
-- Hosted CI outcome for `f32f3557614` is appended to this note when the run reaches terminal state
+- Hosted CI outcome for `f32f35576` is appended to this note when the run reaches terminal state
   (Eigenes-Run observation §4.6; monitor running in the lane).
 - Native Docker/Podman cells are not required: every new/changed behavior is pure-Go storage/CLI
   logic and is covered by the Go unit job.
+
+## Drift notes (merge of develop @ 942111d5a, card 0427-174)
+
+- 0427-174 rewrote the head of `resolveApplicationEnvironment` (localWorkloadScope +
+  extractApplicationEnvironment prologue) and added the owner-state warning propagation in
+  `resolveRegisteredApplication` plus the 074-line growth of `deployment_store.go`. My first merge
+  kept MY head (dropping their prologue) — caught by the parity diff, corrected in `f442b7e99`:
+  develop's prologue runs verbatim, the uuid selector is stripped from the FILTERED args (the old
+  `withoutEnvironmentSelector` is no longer used on this path), and the `--uuid`-without-NAME shape
+  falls through to the registry seam instead of the usage error.
+- The merged-in cell `TestResolveRegisteredApplicationPropagatesOwnerStateNotNotFound` failed against
+  the combined tree because its fixture only did `store.Create` (no `deployment.json`): an
+  incomplete directory correctly yields the "incomplete" warning, not an owner error. Reproduced on
+  the 942111d5a worktree with the uuid/registration probes (see ## Runs). The fixture now persists
+  the record through the PRODUCTION `SaveDeploymentRecord` seam before corrupting the installation;
+  the cell passes on the merged candidate and no rule was weakened (verified against develop: the
+  cell passed there only because develop's listing kept the registration path open — our registry
+  guard must fail closed there, so the fixture, not the guard, carries the correction).
+- `deployment_store.go` grew back to 818 lines through the merge; the registry/conflict cluster now
+  lives in `internal/deployment/registry_conflict.go` (778-line store, readability audit PASS,
+  no baseline-ratchet entry touched).
