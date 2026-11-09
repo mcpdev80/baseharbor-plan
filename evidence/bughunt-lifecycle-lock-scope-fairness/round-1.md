@@ -95,3 +95,49 @@ Fix (verbatim): key the per-app lock inside the application's OWN deployments di
 ## END
 
 - lane DONE / BLOCKED — see below
+
+---
+
+## Round 2 — regression fix (coordinator rejected the BLOCKED as a misclassification)
+
+The prior BLOCKED was a misclassification (Lernfall 172-r2). The `go-unit-tests` failure on exact head `43d359f48` (run `42562480986`, job `128981766564`) was a REAL regression I introduced in `cmd/baha`, not a `.github/**` / native-STATE finding. The 26 identical base failures were misleading; the new cmd/baha failures were:
+
+- `TestRemoteUnsupportedProviderDisclosesCurrentImpactBeforeTechnicalDenial`: the initial keying `<root>/lock/<scope>` created a new top-level target-root member, violating the "unsupported remote apply must not stage any new target-root member except `.installation.lock`" contract.
+- `TestCoreStopCLIJSONAndMCPExposeSameCurrentScopeWithoutEnvironmentConsentReuse`: the empty-scope guard rejected control-plane stop/destroy, which pass `resolvedApplication{}` with no deployment id / manifest name.
+- `TestW138*` never-delivered: a populated `deployments/` namespace disqualified never-delivered detection.
+
+### Fix (commit `16dfda39f476a481dc72c85492c298230e51a59d`, branch `0427-176-lockfairness`)
+
+- `internal/stableid/lock.go`: key the per-app lock as a hidden dotfile
+  `<root>/deployments/.<id>.app_installation.lock`. The leading dot keeps it out of
+  `listDeploymentRecords` (directories only) and from the never-delivered empty
+  check (dotfiles ignored), so a lock file is never read as a partial
+  deployment. Exported `AppLifecycleLockFileName`.
+- `internal/stableid/lock_test.go`: assert the dotfile key path.
+- `cmd/baha/app_context.go`: `eligibleNeverDeliveredLocalDestroy` ignores
+  dotfiles, so a refused-apply lock no longer disqualifies never-delivered.
+- `cmd/baha/application_lifecycle_lock.go`: key the per-app deployments lock
+  only for local repository applications (deployment id present, not remote);
+  remote applications and control-plane destroy/stop keep the existing
+  per-target `.installation.lock` via `AcquireLifecycleLock`, so neither stages
+  a local deployments member and control-plane stays serialized per target.
+
+### Verification (verbatim, local)
+
+- `go build ./...` OK; `go vet ./...` clean; `source-readability-audit.sh` PASS.
+- `go test ./internal/application/... ./contracts/...` (CI go-unit-tests command):
+  `ok ... internal/application 2.965s`, `ok ... contracts ...` — 0 FAIL.
+- Full cmd/baha failing set == base failing set (14 == 14; `comm -13 base_cmb.txt my_cmb_reg.txt` empty): zero new cmd/baha regressions.
+- Regressions confirmed fixed: `TestRemoteUnsupportedProviderDisclosesCurrentImpactBeforeTechnicalDenial`, `TestCoreStopCLIJSONAndMCPExposeSameCurrentScopeWithoutEnvironmentConsentReuse`, all `TestW138*`, plus the restore/edit suites — PASS.
+
+### Hosted run (terminal)
+
+- PR: https://github.com/mcpdev80/baseharbor/pull/1507, head `16dfda39f`.
+- CI run id `42578679997` (triggered by the synchronize push; run_attempt 1, event `pull_request`), exact head `16dfda39f`, status completed, conclusion **success**.
+- All executed jobs succeeded; 0 failures / 0 non-success (the `skipped` jobs — Release Source Preflight, validate, Consumer Pins, Selected Runtime, native HA, Keycloak/Core matrix — are legitimately skipped for a non-release PR push).
+- Key gates: `PR · Validation · go-unit-tests` success, `PR · Native destroy retry · docker` success, `PR · Native destroy retry · podman` success, `go-build`/`go-vet` success.
+- The previously-blocking `Native destroy retry` docker/podman gates now PASS on the corrected head — they were failing only because of the regression this round fixed.
+
+## END
+
+- lane DONE. The lock-file keying fix is committed (`16dfda39f`), CI run `42578679997` is terminal with conclusion success, and all required gates pass. Merge review + Planning close remain Owner/Codex-Merge scope (no release/tag without separate Owner approval).
