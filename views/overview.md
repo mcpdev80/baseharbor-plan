@@ -14,9 +14,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 0 |
 | wait | 6 |
 | blocked | 0 |
-| ready | 1 |
+| ready | 0 |
 | queued | 26 |
-| waiting | 179 |
+| waiting | 180 |
 | backlog | 7 |
 | closed | 225 |
 
@@ -50,15 +50,13 @@ None.
 
 ## Ready to assign
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261109-r27-ci-go-shard-reuse](../tasks/t-20261109-r27-ci-go-shard-reuse.md) | CI: reuse green Go shards when their verified inputs are unchanged | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261109-r27-ci-go-unit-shards](../tasks/t-20261109-r27-ci-go-unit-shards.md) | — |
+None.
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 27 open, 157 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 7 open, 0 closed ([view](releases/v0.4.28.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 26 open, 157 closed ([view](releases/v0.4.27.md))
+- [v0.4.28](../releases/v0.4.28.md): Console and management workflows — 8 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 8 open, 0 closed ([view](releases/v0.4.31.md))

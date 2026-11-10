@@ -4,6 +4,4 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261109-r27-ci-go-shard-reuse](../tasks/t-20261109-r27-ci-go-shard-reuse.md) | CI: reuse green Go shards when their verified inputs are unchanged | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261109-r27-ci-go-unit-shards](../tasks/t-20261109-r27-ci-go-unit-shards.md) | — |
+None.

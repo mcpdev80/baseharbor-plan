@@ -34,7 +34,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
 **Depends on:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
-**Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md)  
+**Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md), [t-20261109-r27-ci-go-shard-reuse](t-20261109-r27-ci-go-shard-reuse.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  

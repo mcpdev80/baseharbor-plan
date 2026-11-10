@@ -11,12 +11,12 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 155/184 · **Blocked:** 0 · **Waiting:** 16  
+    **Accepted tasks:** 155/183 · **Blocked:** 0 · **Waiting:** 16  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console and management workflows #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 0/7 · **Blocked:** 0 · **Waiting:** 6  
+    **Accepted tasks:** 0/8 · **Blocked:** 0 · **Waiting:** 7  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/later
