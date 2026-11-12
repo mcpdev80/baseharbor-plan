@@ -16,11 +16,11 @@ kanban_title: "0427-006 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: [mcpdev80/baseharbor#1151]
+prs: [mcpdev80/baseharbor#1151, mcpdev80/baseharbor#1522, mcpdev80/baseharbor-demo#129]
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-13.md"]
 wait_reason: ""
 
 ---
@@ -28,8 +28,8 @@ wait_reason: ""
 - [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
-    **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md)  
+    **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151), [baseharbor#1522](https://github.com/mcpdev80/baseharbor/pull/1522), [baseharbor-demo#129](https://github.com/mcpdev80/baseharbor-demo/pull/129)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-13.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -39,7 +39,7 @@ wait_reason: ""
 **Required by:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
 **Owner:** owner-chatgpt-r27  
 **Priority:** normal  
-**PRs:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
+**PRs:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151), [baseharbor#1522](https://github.com/mcpdev80/baseharbor/pull/1522), [baseharbor-demo#129](https://github.com/mcpdev80/baseharbor-demo/pull/129)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -82,3 +82,6 @@ owner-direktive 2026-11-07: release-vorbereitung FORTSETZEN aber NICHT veroeffen
 PR#1151 (prepare-branch) MERGED. Karte BLEIBT active gemaess owner-direktive 2026-11-07: release PREPARE ja, PUBLISH/TAG nein bis freigabe. Kein board-lie — GATE=owner publish.
 
 PR#1151 prepare-branch MERGED. Karte NICHT in arbeit (kein worker) — wartet auf OWNER publish-freigabe (direktive prepare-ja/publish-nein) => wait, nicht active. trigger: owner publish-anweisung.
+
+
+2026-11-13: Reconciled the current release cards and merged documentation. Core #1522 merged as `1cbfaefe24e19ed6110a0cc68eb8b9b869880e52`; Demo #129 merged as `530c64af8e8943db19d17a2552ef0fd6e7be3e84`. The selected implementation cards for workstation/user lifecycle, stage versions and Demo consent are accepted. Target policy presets remain active; the broader docs card and user/team, local/remote runtime, and stage/promotion proofs remain waiting. Exact four-repository pins still do not form a v0.4.27 candidate: Demo points to an older Core SHA, while Console and Connector still declare v0.4.26. Keep Prepare active and Qualify waiting. See `evidence/v0.4.27-prepare-2026-11-13.md`; no release, tag or publication occurred.
