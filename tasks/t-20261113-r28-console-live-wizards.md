@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-console-live-wizards
 card_number: "0428-016"
-card_short_title: "Connect existing management wi"
+card_short_title: "Wire live application wizard"
 type: task
 areas: [console]
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Wire already-built application create/edit, Target and workspace flows to permitted canonical Core operations. Reuse 0.4.26 c"
-kanban_title: "0428-016 · Connect existing management wizards"
+kanban_summary: "Connect ONLY existing application new/edit wizard to authenticated Core plan/confirm/apply. No Target or workspace wizard chan"
+kanban_title: "0428-016 · Wire live application wizard"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts]
 repos: [mcpdev80/baseharbor-console]
@@ -24,23 +24,24 @@ evidence: []
 
 - [ ] t-20261113-r28-console-live-wizards · Connect existing management wizards #task #release/v0-4-28 #status/planned #area/console #kind/task
 
-## Outcome and scope
+## Goal
 
-Wire already-built application create/edit, Target and workspace flows to permitted canonical Core operations. Reuse 0.4.26 capabilities/footprint and 0.4.27 onboarding policies. Only actually supported commands; no speculative backend or new wizard engine.
+Connect ONLY existing application new/edit wizard to authenticated Core plan/confirm/apply. No Target or workspace wizard changes.
 
 ## Acceptance
 
-One login -> select Target -> inspect/plan/confirm/apply/status or explicit unsupported response. Duplicate mutation, missing consent, denied role and stale session are rejected.
+App create/edit with actual Core result; denied, missing consent, stale session, duplicate submit tested.
 
 ## Dependencies and file ownership
 
-- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts.
-- Console wizard and new/detail route files only. No shared adapters, Providers/Observability pages or workflow YAML edits.
-- No worker may modify another worker's reserved file set or invent interfaces while a predecessor is pending. Read current merged heads and old PRs before coding.
+- Exclusive product writes: src/components/wizard/application-* and src/app/applications/new/**; no shared adapters.
+- Dependencies are the frontmatter depends_on values. Do not wait for unrelated Grafana/Console cards.
+- Before implementation read current exact-source contract and named files only. If an API is missing, report one concrete blocker to Coordinator; do not invent a second API.
 
 ## Required checks and CI routing
 
-Existing wizard component tests and exact Core-authenticated browser journey on selected runtime.
+- Small positive/negative tests for the listed acceptance; bind exact tests to existing selected CI triggers, native tests only for covered runtime behavior.
+- Worker supplies exact PR HEAD, affected files, commands/checks, results and cleanup; no skipped test counted as passing.
 
 ## Coordinator / Codex handoff
 
