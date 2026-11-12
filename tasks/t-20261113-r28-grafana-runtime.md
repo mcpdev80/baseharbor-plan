@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Implement only optional Grafana native container start and truthful readiness with pinned image. No auth, datasources or lifec"
 kanban_title: "0428-010 · Launch optional Grafana"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-contract-seam]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -54,3 +54,9 @@ Go renderer/validation and opt-in default-negative tests; selected native Docker
 ## Handoff
 
 Not claimed. Do not mark accepted from plan creation or a draft PR.
+
+## Binding current-source implementation note (2026-11-13)
+
+Entry points: `internal/provider/builtin/catalog.go` (existing catalog), `internal/capability/integration_contract.go` (validated descriptor), `internal/providerui/application.go` (optional UI lifecycle example), `internal/metrics/prometheus_files.go` + `internal/metrics/prometheus.go` (native service template), `internal/runtime/` (existing runtime provider execution). Implement ONLY contract-compatible optional Grafana bootstrap and readiness. Do not bypass descriptor/registry, invent portable `metrics` capability or touch general provider resolver. If contract seam is not accepted, stop.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
