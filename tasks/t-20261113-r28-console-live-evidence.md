@@ -50,3 +50,9 @@ Correlated Core execution records appear accurately; denied/empty/expired states
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/evidence/page.tsx` obtains preview data (verified code search). Display actual Core executions/events with identities and source. Do NOT recreate deprecated GitHub Actions evidence/receipt approval machinery.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
