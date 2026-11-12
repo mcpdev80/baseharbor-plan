@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Provision exactly an existing, authorized managed Prometheus as Grafana datasource via native provisioning. Reuse pro"
 kanban_title: "0428-011 · Connect Grafana Prometheus"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime, t-20261113-r28-grafana-contract-seam, t-20261113-r28-grafana-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -54,3 +54,9 @@ Provisioning JSON/YAML, invalid URL/CA, missing backend and isolated real Promet
 ## Handoff
 
 Not claimed. Do not mark accepted from plan creation or a draft PR.
+
+## Binding current-source implementation note (2026-11-13)
+
+Exact sources: `internal/metrics/prometheus.go`, `internal/metrics/prometheus_files.go`, `internal/metrics/management_ui.go`, `internal/capability/reference.go`, `internal/application/provider_registry.go`. Provision only existing authorized provider instance; use accepted Provider Contract seam and protected endpoint/CA. Never hardcode localhost, claim cross-Target read or invent scrape jobs. This card owns Prometheus only.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
