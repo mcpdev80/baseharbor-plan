@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Integrate targeted real Docker and rootless Podman Grafana smoke: opt-in start, auth denial, 3 datasource queries, dashboards"
 kanban_title: "0428-030 · Prove Grafana native monitoring"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-lifecycle, t-20261113-r28-grafana-dashboards, t-20261113-r28-grafana-log-trace-dash, t-20261113-r28-grafana-secure-access, t-20261113-r28-grafana-alerts, t-20261113-r28-grafana-contact-routing]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-lifecycle, t-20261113-r28-grafana-dashboards, t-20261113-r28-grafana-log-trace-dash, t-20261113-r28-grafana-secure-access, t-20261113-r28-grafana-alerts, t-20261113-r28-grafana-contact-routing, t-20261113-r28-grafana-dashboard-hosts, t-20261113-r28-grafana-dashboard-databases, t-20261113-r28-grafana-dashboard-messaging]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -50,3 +50,9 @@ Actual selected native jobs execute all assertions and clean up on exact HEAD/pi
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Binding current-code reference
+
+Use current `internal/metrics/prometheus.go`, `internal/logs/query.go`, `internal/traces/tempo.go` and existing selected native CI. Validate conditional provider dashboard activation and genuine Docker/Podman Grafana operation; no Console UI E2E.
+
+Worker must verify path and source at current exact commit, not assume any pre-existing proof means live readiness. Codex reviews source-specific tests and CI routing.
