@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Implement a small provider/Target-aware dashboard catalog selection that enables only dashboard templates whose req"
 kanban_title: "0428-034 · Gate dashboard template activation"
 priority: high
-depends_on: [t-20261113-r28-grafana-signal-inventory, t-20261113-r28-grafana-contract-seam]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-signal-inventory, t-20261113-r28-grafana-contract-seam]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -45,3 +45,9 @@ Read this card, named exact files, accepted predecessor contracts and relevant t
 ## Handoff
 
 Not started.
+
+## Binding current-code reference
+
+Read `internal/application/provider_registry.go`, `internal/capability/integration_contract.go`, `internal/capability/reference.go`, and accepted 0428-033 signal matrix. Only real metric names and labels permit template selection, not a declared provider alone.
+
+Worker must verify path and source at current exact commit, not assume any pre-existing proof means live readiness. Codex reviews source-specific tests and CI routing.
