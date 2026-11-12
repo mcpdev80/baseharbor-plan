@@ -53,3 +53,9 @@ Authorized provider list, empty/denied, no fixture fallback.
 ## Handoff
 
 Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/providers/page.tsx` uses `previewData.providers()` and no `LiveCoreView`; reuse the connected pattern in `src/app/applications/page.tsx` and existing `src/components/live/live-core-view.tsx` (read routes). If Core has no permitted provider-list operation, STOP and submit one Core operation gap; no UI fake data.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
