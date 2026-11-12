@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-grafana-secure-access
 card_number: "0428-013"
-card_short_title: "Protect Grafana operator login"
+card_short_title: "Secure Grafana login"
 type: task
 areas: [security]
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Integrate the optional Grafana UI with existing operator identity/trust gateway using its supported auth integration."
-kanban_title: "0428-013 · Protect Grafana operator login"
+kanban_summary: "Connect only private Grafana UI auth to existing operator/OIDC gateway; no Console API dependency, no new identity store."
+kanban_title: "0428-013 · Secure Grafana login"
 priority: high
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime]
 repos: [mcpdev80/baseharbor]
