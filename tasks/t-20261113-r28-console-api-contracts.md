@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-console-api-contracts
 card_number: "0428-009"
-card_short_title: "Pin Console Core interfaces"
+card_short_title: "Align Console Core decoders"
 type: task
 areas: [console]
 release: v0.4.28
@@ -10,11 +10,11 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Adjust the existing Console adapter and validated wire decoders solely for accepted 0.4.27 Core operations, Target access and"
-kanban_title: "0428-009 · Pin Console Core interfaces"
+kanban_summary: "Align existing typed Core discovery/read-model decoders against the actual released 0.4.27 Core schema. ONLY update w"
+kanban_title: "0428-009 · Align Console Core decoders"
 priority: high
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-current-contract-inventory]
-repos: [mcpdev80/baseharbor-console, mcpdev80/baseharbor]
+repos: [mcpdev80/baseharbor-console]
 prs: []
 sources: []
 blocker: ""
@@ -22,33 +22,35 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-console-api-contracts · Pin Console Core interfaces #task #release/v0-4-28 #status/planned #area/console #kind/task
+- [ ] t-20261113-r28-console-api-contracts · Align Console Core decoders #task #release/v0-4-28 #status/planned #area/console #kind/task
 
-## Outcome and scope
+## Goal
 
-Adjust the existing Console adapter and validated wire decoders solely for accepted 0.4.27 Core operations, Target access and auth/tenant filtering. Determine and carve any truly missing Core HTTP/authorization subtask before changing shared backend. Reuse existing session/transport; no second Core or RBAC.
+Align existing typed Core discovery/read-model decoders against the actual released 0.4.27 Core schema. ONLY update wire decode/contract fixtures as necessary. Do not touch UI pages or change Core semantics. If Core operation missing, raise separate issue and stop that operation.
 
 ## Acceptance
 
-Existing live routes pass exact-source read/deny/error contract tests for new Core; unknown or unsupported features remain explicitly unavailable. No fixture fallback.
+One pinned Core commit, canonical schema/golden parity, valid and invalid decode cases and no fixture fallback; exact HEAD + check/trigger proof.
 
 ## Dependencies and file ownership
 
-- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-current-contract-inventory.
-- Console src/lib/baseharbor/ transport/read-models/contract adapters only; Core shared HTTP changes require a separate later owned task. No page or CI workflow edits.
-- No worker may modify another worker's reserved file set or invent interfaces while a predecessor is pending. Read current merged heads and old PRs before coding.
+- Hard prerequisites (not mere priority): t-20261017-release-0-4-28-updates, t-20261113-r28-current-contract-inventory.
+- **Exclusive write ownership:** contracts/core-machine/v1/** and src/lib/baseharbor/{discovery,machine-wire,read-models}.ts as verified; worker must claim exact files before edit. No other shared session files or CI YAML.
+- A referenced task must be accepted/merged before implementation if an actual interface is needed; read-only inspection and isolated schema fixtures may start earlier. Never base work on another worker's unmerged branch.
+
+## Worker instructions (256k context budget)
+
+1. Read this card and only the directly named source files, predecessor interface/commit and existing tests. Do not load the whole ecosystem into context.
+2. Identify the exact existing implementation, change only the specified behavior and reserved files. If a missing dependency or conflicting owner appears, stop and hand the Coordinator one concrete missing contract/path; do not self-expand the scope.
+3. Add/adjust the smallest executable positive and negative regressions described here. **Test -> existing CI check -> file-change trigger -> actual result** is mandatory; no skipped assertion may count as pass.
+4. Run targeted source checks; native Docker/Podman/browser only where this card uniquely requires them. Reuse existing selected CI jobs and fixture owners; no shadow approval/evidence system.
+5. Open one limited product PR against the normal development branch and hand off exact commit SHA, changed files, commands/check IDs, actual passed assertions, gaps and rollback. No worker self-merges.
+6. **Codex reviews independently and merges** only after required tests on the exact PR HEAD. Coordinator updates this plan note/Obsidian state after acceptance; max five non-overlapping workers concurrently.
 
 ## Required checks and CI routing
 
-Console unit/contract and architecture tests with exact pinned source; identify selected CI check and negative authorization case.
-
-## Coordinator / Codex handoff
-
-- Coordinator assigns one independent ready task to one of five workers, claims it in planning before work, and dispatches only after accepted dependencies. Capacity is a ceiling, not a requirement to start five agents.
-- Worker delivers one small PR against product repository's normal development branch with exact HEAD, tests -> selected check -> trigger -> execution result, and records a planning handoff; no self-review, merge or release.
-- Codex is the independent reviewer and designated merger for approved, green PRs; it checks architecture, changed paths, test routing and exact-source evidence before merging. No merge on skipped/failed mandatory assertions.
-- Following merge, coordinator reconciles the planning card and unlocks dependent ready work only after acceptance. No release/tag/promotion by worker or coordinator.
+npm contract/architecture tests and canonical source-lock verification; negative unknown/malformed and cross-target responses.
 
 ## Handoff
 
-Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+Not claimed. Do not mark accepted from plan creation or a draft PR.
