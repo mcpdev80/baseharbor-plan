@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-grafana-runtime
 card_number: "0428-010"
-card_short_title: "Launch optional Grafana OSS"
+card_short_title: "Launch optional Grafana"
 type: task
 areas: [observability]
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Implement the minimum optional Grafana OSS service declaration and native runtime start/readiness using existing cont"
-kanban_title: "0428-010 · Launch optional Grafana OSS"
+kanban_summary: "Implement only optional Grafana native container start and truthful readiness with pinned image. No auth, datasources or lifec"
+kanban_title: "0428-010 · Launch optional Grafana"
 priority: high
 depends_on: [t-20261017-release-0-4-28-updates]
 repos: [mcpdev80/baseharbor]
