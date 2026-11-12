@@ -54,3 +54,9 @@ Component/navigation test for enabled/disabled, origin mismatch and denied actor
 ## Handoff
 
 Not claimed. Do not mark accepted from plan creation or a draft PR.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current shell/session: `src/components/shell/core-session-provider` and `src/components/live/live-core-view.tsx` already enforce verified Core session. Use the authorized provider management surface URL from accepted Grafana contract (032) and access work (013), not arbitrary `NEXT_PUBLIC_` URL or hard-coded Grafana port. Scope UI navigation to selected installation.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
