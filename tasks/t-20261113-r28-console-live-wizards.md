@@ -53,3 +53,9 @@ App create/edit with actual Core result; denied, missing consent, stale session,
 ## Handoff
 
 Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/applications/new/page.tsx` renders `ApplicationInitWizard`; source `src/components/wizard/application-init-wizard.tsx`. Existing actual mutation UX in `src/components/live/live-core-view.tsx` has `ApplicationActions`; reuse `MachineSession` and safety consent from that component. Do not add a second wizard engine or direct runtime control.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
