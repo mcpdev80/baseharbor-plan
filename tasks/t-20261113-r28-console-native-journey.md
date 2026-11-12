@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Integrate and update existing browser/native tests, including Console PR #8; do not recreate covered tests. Prove representat"
 kanban_title: "0428-018 · Qualify native Console journeys"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-monitoring-entry]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-monitoring-entry, t-20261113-r28-grafana-alerts]
 repos: [mcpdev80/baseharbor-console, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
@@ -34,7 +34,7 @@ Both native families execute actual assertions and clean up. Every new test is d
 
 ## Dependencies and file ownership
 
-- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-monitoring-entry.
+- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-monitoring-entry, t-20261113-r28-grafana-alerts.
 - Browser E2E fixtures, CI-selected test wiring and readiness matrix only; no feature implementation. Reviewer Codex checks test evidence before merge.
 - No worker may modify another worker's reserved file set or invent interfaces while a predecessor is pending. Read current merged heads and old PRs before coding.
 
