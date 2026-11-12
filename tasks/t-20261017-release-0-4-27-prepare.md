@@ -8,10 +8,10 @@ release: v0.4.27
 version: v0.4.27
 release_stage: prepare
 parent: v0.4.27
-owner: mcpdev80
-kanban_lane: wait
+owner: owner-chatgpt-r27
+kanban_lane: active
 kanban_summary: Prepare the v0.4.27 ecosystem release-readiness dossier while implementation progress is tracked by its own CardBoard tasks and…
-kanban_status: wait
+kanban_status: active
 kanban_title: "0427-006 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -21,24 +21,23 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md"]
-wait_reason: "prepare-branch (PR#1151) gemergt; wartet auf OWNER publish-freigabe (direktive prepare-ja/publish-nein), keine aktive bahn"
+wait_reason: ""
 
 ---
 
-- [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** mcpdev80 · **Priority:** normal  
+    **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Waiting:** prepare-branch (PR\#1151) gemergt; wartet auf OWNER publish-freigabe (direktive prepare-ja/publish-nein), keine aktive bahn  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
-**Owner:** mcpdev80  
+**Owner:** owner-chatgpt-r27  
 **Priority:** normal  
 **PRs:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
 **Source:** 
