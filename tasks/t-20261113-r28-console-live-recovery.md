@@ -50,3 +50,9 @@ One supported repair/recovery path with approvals, denial/no-replay/expired sess
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/recovery/page.tsx` obtains fixture-backed `previewData` (verified code search). Reuse existing Core operations advertised by machine discovery; no direct Docker/Podman API and no speculative Restore endpoint.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
