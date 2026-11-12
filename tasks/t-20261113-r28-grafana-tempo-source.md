@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Provision only existing owned/authorized Tempo query endpoint into Grafana with current CA and access policy; no new tracing "
 kanban_title: "0428-023 · Connect Grafana Tempo"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime, t-20261113-r28-grafana-contract-seam, t-20261113-r28-grafana-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -50,3 +50,9 @@ One actual Tempo trace lookup and absent endpoint handling, TLS errors fail clos
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Binding current-source implementation note (2026-11-13)
+
+Existing Tempo: `internal/traces/tempo.go`, `internal/traces/runtime_retirement.go`, `internal/capability/reference.go`. Verify actual Tempo query endpoint and source-scoped trace access. No new trace source, no fake correlation, no direct Console credentials.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
