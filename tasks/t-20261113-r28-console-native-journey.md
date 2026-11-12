@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Integrate and update existing browser/native tests, including Console PR #8; do not recreate covered tests. Prove representat"
 kanban_title: "0428-018 · Qualify native Console journeys"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-monitoring-entry, t-20261113-r28-grafana-alerts]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-live-observability, t-20261113-r28-console-live-target-wizard, t-20261113-r28-console-live-workspace-wizard, t-20261113-r28-console-live-recovery, t-20261113-r28-console-live-evidence]
 repos: [mcpdev80/baseharbor-console, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
@@ -52,3 +52,9 @@ Source/contract/build + selected native Docker/Podman and browser tests, exact S
 ## Handoff
 
 Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+
+## Binding current-code reference
+
+Use existing Console PR #8, `scripts/browser/live-browser.mjs`, `scripts/browser/application-journey.mjs`, and `src/components/live/live-core-view.tsx`. Grafana native proof is separate 0428-030: do not serialize Console on monitoring implementation.
+
+Worker must verify path and source at current exact commit, not assume any pre-existing proof means live readiness. Codex reviews source-specific tests and CI routing.
