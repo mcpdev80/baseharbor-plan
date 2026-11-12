@@ -8,38 +8,39 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: ChatGPT (remote-client regression)
-kanban_lane: active
+owner: mcpdev80 (awaiting worker reassignment)
+kanban_lane: wait
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-023 · resolve trusted local or"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access, t-20261105-r27-connection-authority-boundary]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1380, mcpdev80/baseharbor#1473]
+prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
+wait_reason: "PRs #1380 and #1473 are merged, but the required developer workstation to remote Core to Connector to READY end-to-end proof remains incomplete. Waiting for Maintainer to assign a new worker."
 ---
 
-- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/active #view/active #area/remote #kind/task
+- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/wait #view/wait #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** ChatGPT (remote-client regression) · **Priority:** normal  
-    **PR:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473)  
+    **Owner:** mcpdev80 (awaiting worker reassignment) · **Priority:** normal  
+    **Waiting:** PRs \#1380 and \#1473 are merged, but the required developer workstation to remote Core to Connector to READY end-to-end proof remains incomplete. Waiting for Maintainer to assign a new worker.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1380)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261108-smoke-0427-operator-api-undocumented](t-20261108-smoke-0427-operator-api-undocumented.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
-**Owner:** ChatGPT (remote-client regression)  
+**Owner:** mcpdev80 (awaiting worker reassignment)  
 **Priority:** normal  
-**PRs:** [baseharbor#1380](https://github.com/mcpdev80/baseharbor/pull/1380), [baseharbor#1473](https://github.com/mcpdev80/baseharbor/pull/1473)  
+**PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
 <!-- /generated:links -->
 

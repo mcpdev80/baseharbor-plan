@@ -7,19 +7,19 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-003-podman2-bughunt
+owner: mcpdev80 (awaiting worker reassignment)
 kanban_lane: wait
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
 kanban_status: wait
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1429, mcpdev80/baseharbor#1432]
+prs: []
 sources: ["mcpdev80/baseharbor#815"]
 source_updated: "2026-10-15T16:50:55Z"
 labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
 blocker: ""
-wait_reason: "kein aktiver owner/lane; PRs #815/#1429/#1432 offen — wartet auf neuen claim oder owner-decision"
+wait_reason: "Source issue #815 is closed and PRs #1429/#1432 are merged; current Docker/Podman READY evidence is still missing. Waiting for Maintainer to assign a new worker."
 resolution: ""
 evidence: []
 
@@ -27,18 +27,17 @@ evidence: []
 
 - [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/wait #view/wait #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** lane-0427-003-podman2-bughunt  
-    **PR:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
-    **Waiting:** kein aktiver owner/lane; PRs \#815/\#1429/\#1432 offen — wartet auf neuen claim oder owner-decision  
+    **Owner:** mcpdev80 (awaiting worker reassignment)  
+    **Waiting:** Source issue \#815 is closed and PRs \#1429/\#1432 are merged; current Docker/Podman READY evidence is still missing. Waiting for Maintainer to assign a new worker.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
-**Owner:** lane-0427-003-podman2-bughunt  
+**Owner:** mcpdev80 (awaiting worker reassignment)  
 **Priority:** not set  
-**PRs:** [baseharbor#1429](https://github.com/mcpdev80/baseharbor/pull/1429), [baseharbor#1432](https://github.com/mcpdev80/baseharbor/pull/1432)  
+**PRs:** none  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
 <!-- /generated:links -->
 

@@ -7,7 +7,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: lane-0427-107-docker2-bughunt
+owner: mcpdev80 (awaiting worker reassignment)
 kanban_lane: wait
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
 kanban_status: wait
@@ -20,14 +20,14 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
-wait_reason: "Bisherige Worker-Lane beendet; fuer ausstehende 8/8 Core/Demo/Console/Connector-Integrationsnachweise fehlt die neu zugeordnete CI-Owner-/Coordinator-Abnahmebahn. Bestehende GitHub-hosted Runtime-CI bevorzugen; keine neue Hardware-/VM-Testpflicht."
+wait_reason: "The previous worker lane ended. The eight Core/Demo/Console/Connector integration results remain unrecorded. Waiting for Maintainer to assign a coordinator; prefer existing GitHub-hosted runtime CI, with no new hardware/VM test requirement."
 
 ---
 
 - [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0427-107-docker2-bughunt · **Priority:** high  
-    **Waiting:** Bisherige Worker-Lane beendet; fuer ausstehende 8/8 Core/Demo/Console/Connector-Integrationsnachweise fehlt die neu zugeordnete CI-Owner-/Coordinator-Abnahmebahn. Bestehende GitHub-hosted Runtime-CI bevorzugen; keine neue Hardware-/VM-Test…  
+    **Owner:** mcpdev80 (awaiting worker reassignment) · **Priority:** high  
+    **Waiting:** The previous worker lane ended. The eight Core/Demo/Console/Connector integration results remain unrecorded. Waiting for Maintainer to assign a coordinator; prefer existing GitHub-hosted runtime CI, with no new hardware/VM test requirement.  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -35,7 +35,7 @@ wait_reason: "Bisherige Worker-Lane beendet; fuer ausstehende 8/8 Core/Demo/Cons
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** lane-0427-107-docker2-bughunt  
+**Owner:** mcpdev80 (awaiting worker reassignment)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
