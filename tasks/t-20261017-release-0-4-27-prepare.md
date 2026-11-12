@@ -20,7 +20,7 @@ prs: [mcpdev80/baseharbor#1151]
 sources: []
 blocker: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md"]
 wait_reason: ""
 
 ---
@@ -29,7 +29,7 @@ wait_reason: ""
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
     **PR:** [baseharbor#1151](https://github.com/mcpdev80/baseharbor/pull/1151)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -73,7 +73,9 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
-2026-11-07: Preparation started with a read-only audit. Verified missing `docs/releases/v0.4.27.md` and `docs/releases/v0.4.27.demo-ref` on product develop, plus incomplete release scope and missing final four-repository candidate qualification. See `evidence/v0.4.27-prepare-2026-11-07.md`. No release jobs, tags, promotion, Pages publication or product branch changes authorized/performed. Continue preparation only; do not mark accepted until all criteria are met.
+2026-11-07: Preparation started with a read-only audit. Verified missing `docs/releases/v0.4.27.md` and `docs/releases/v0.4.27.demo-ref` on product develop, plus incomplete release scope and missing final four-repository candidate qualification. See `evidence/v0.4.27-prepare-2026-11-07.md`.
+
+2026-11-12: Confirmed v0.4.27 is still **unreleased** (GitHub latest is v0.4.26) and inventoried the four fetched source tips. The exact-source preflight fails because Demo's `baseharbor-core.ref` is not the current Core candidate; Console and Connector manifests remain on the 0.4.26 matrix. Release documentation PRs remain open Draft; BaseHarbor #1522 is conflicting. Candidate refs must be updated only after implementation/consumer acceptance settles. See `evidence/v0.4.27-prepare-2026-11-12.md` for exact SHAs and the next sequence. No full pre-release, release jobs, tags, promotion, Pages publication, or product source changes were made. Preparation remains active and incomplete.
 
 owner-direktive 2026-11-07: release-vorbereitung FORTSETZEN aber NICHT veroeffentlichen (kein pre-release/tag/promotion bis separate freigabe). umbrella; wartet auf rest der welle (117+ci-seam+118+003).
 
