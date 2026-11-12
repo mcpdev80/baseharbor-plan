@@ -12,7 +12,7 @@ Source: [baseharbor#209](https://github.com/mcpdev80/baseharbor/issues/209) (`st
 
 ## Goal
 
-
+The complete Grafana OSS integration formerly listed here has been moved into v0.4.28 by explicit Owner decision (2026-11-13), and is no longer a post-v0.5 backlog item. This epic retains only the other deferred capabilities and tooling.
 
 ## Content
 
@@ -32,7 +32,6 @@ BaseHarbor core owns application intent, capability semantics, provider contract
 
 The following work remains valuable, but moves behind the v0.5 core/product milestone:
 
-- Grafana visualization integration (former #166)
 - messaging semantics/providers: queue, pub/sub, streams (former #167)
 - AI inference/model-access capability (former #168)
 - application MCP provide/consume capability (former #169; distinct from BaseHarbor's pre-v0.5 agent MCP interface #215)
@@ -51,7 +50,6 @@ Candidate tooling:
 - Managed Identity: Keycloak Admin Console as optional provider-native administration UI;
 - Cache/Valkey: Valkey Admin as optional developer/admin UI where Valkey is the selected provider;
 - Secrets/OpenBao: OpenBao UI as optional provider-native administration UI;
-- Observability: Grafana as the preferred cross-tool visualization UI for metrics/logs/traces where applicable;
 - Prometheus native UI remains diagnostic tooling rather than an application capability.
 
 Desired BaseHarbor developer experience may later converge on a provider-neutral convenience surface such as:
@@ -66,7 +64,7 @@ baha open observability
 
 The exact command shape is intentionally **not frozen here**.
 
-BaseHarbor should resolve the selected provider and open or expose the appropriate native tool without making pgAdmin, Keycloak, Valkey Admin, OpenBao UI, Grafana or another product part of portable application intent.
+BaseHarbor should resolve the selected provider and open or expose the appropriate native tool without making pgAdmin, Keycloak Admin, Valkey Admin, OpenBao UI or another product part of portable application intent.
 
 ##### Environment policy expectations
 
@@ -131,7 +129,6 @@ If a feature needs broad core changes, first treat that as an architecture findi
 
 No fixed release numbers yet. Likely sequence:
 
-- optional visualization integrations such as Grafana;
 - second/reference providers to prove provider portability;
 - messaging;
 - AI inference/model access;
@@ -163,7 +160,7 @@ Use without BaseHarbor Core changes
 
 - no pressure to ship every listed integration;
 - no logo-driven roadmap;
-- no mandatory Grafana/AI/messaging stack;
+- no mandatory AI/messaging stack;
 - no application-contract fields that exist only to satisfy one product;
 - no weakening of secure defaults for developer convenience.
 
