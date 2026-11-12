@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-console-live-security
 card_number: "0428-017"
-card_short_title: "Connect security recovery view"
+card_short_title: "Bind live Security view"
 type: task
 areas: [console]
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Replace preview-only Security, Recovery and Evidence views only for already-supported protected Core operations. Preserve act"
-kanban_title: "0428-017 · Connect security recovery views"
+kanban_summary: "Connect ONLY Security read-only status/list with Core-authenticated state; no Recovery/Evidence and no new secret UI."
+kanban_title: "0428-017 · Bind live Security view"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts]
 repos: [mcpdev80/baseharbor-console]
@@ -24,23 +24,24 @@ evidence: []
 
 - [ ] t-20261113-r28-console-live-security · Connect security recovery views #task #release/v0-4-28 #status/planned #area/console #kind/task
 
-## Outcome and scope
+## Goal
 
-Replace preview-only Security, Recovery and Evidence views only for already-supported protected Core operations. Preserve actor, ownership, safe redaction, destructive confirmation and current provider controls; no browser-managed secret store.
+Connect ONLY Security read-only status/list with Core-authenticated state; no Recovery/Evidence and no new secret UI.
 
 ## Acceptance
 
-Read and permitted mutation flow show real Core results, denial and expiry are safe, and unsupported controls are explicitly unavailable rather than acting on fixtures.
+Live redacted security state; denied roles/logout safe; no secret leak.
 
 ## Dependencies and file ownership
 
-- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts.
-- Console security/recovery/evidence pages and components only; no shared adapter or other pages.
-- No worker may modify another worker's reserved file set or invent interfaces while a predecessor is pending. Read current merged heads and old PRs before coding.
+- Exclusive product writes: src/app/security/** and src/components/security/**; no shared adapters.
+- Dependencies are the frontmatter depends_on values. Do not wait for unrelated Grafana/Console cards.
+- Before implementation read current exact-source contract and named files only. If an API is missing, report one concrete blocker to Coordinator; do not invent a second API.
 
 ## Required checks and CI routing
 
-Contract/UI tests with negative authorization, redaction and no-replay; selected browser Core journey.
+- Small positive/negative tests for the listed acceptance; bind exact tests to existing selected CI triggers, native tests only for covered runtime behavior.
+- Worker supplies exact PR HEAD, affected files, commands/checks, results and cleanup; no skipped test counted as passing.
 
 ## Coordinator / Codex handoff
 
