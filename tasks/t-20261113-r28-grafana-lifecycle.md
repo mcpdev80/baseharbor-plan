@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Provide existing CLI/management integration for explicit enable/status/disable and clean owned Grafana removal; do not delete"
 kanban_title: "0428-021 · Grafana lifecycle commands"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime, t-20261113-r28-grafana-contract-seam]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -50,3 +50,9 @@ Enable -> status -> disable roundtrip idempotent; disable retains telemetry; fai
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Binding current-source implementation note (2026-11-13)
+
+Source integration: `internal/application/provider_registry.go` and existing CLI provider/management command dispatch (inspect actual current registration before editing), `internal/providerui/application.go` for existing UI lifecycle, `docs/spec/provider-contract-v1.md`. Only installation-owned Grafana lifecycle, never remove metrics/logs/traces instances. No fabricated command name; user-facing CLI syntax must match actual command registration.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
