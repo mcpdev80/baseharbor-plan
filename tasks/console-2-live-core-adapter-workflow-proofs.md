@@ -21,6 +21,7 @@ labels: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task

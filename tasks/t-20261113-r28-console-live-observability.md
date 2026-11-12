@@ -20,6 +20,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] t-20261113-r28-console-live-observability · Bind Console Observability view #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task

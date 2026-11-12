@@ -21,6 +21,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] t-20261017-release-0-4-28-prepare · v0.4.28 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/acceptance

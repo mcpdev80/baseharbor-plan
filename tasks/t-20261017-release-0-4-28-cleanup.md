@@ -9,30 +9,32 @@ version: v0.4.28
 release_stage: cleanup
 parent: v0.4.28
 owner: ""
-kanban_lane: queued
+kanban_lane: planned
 kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: planned
 kanban_title: "0428-002 · reconcile old PRs, tasks and"
 priority: high
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-verify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
-- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/queued #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Later release** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
 **Required by:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
 **Owner:** unassigned  
 **Priority:** high  

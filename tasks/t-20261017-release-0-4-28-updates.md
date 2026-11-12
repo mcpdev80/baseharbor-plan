@@ -21,6 +21,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] t-20261017-release-0-4-28-updates · v0.4.28 · Release start: integrate Renovate updates before feature work #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/maintenance

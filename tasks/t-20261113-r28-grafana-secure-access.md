@@ -20,6 +20,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] t-20261113-r28-grafana-secure-access · Protect Grafana operator login #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/security #kind/task

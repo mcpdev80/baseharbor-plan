@@ -20,6 +20,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] t-20261113-r28-grafana-tempo-source · Connect Grafana Tempo #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task

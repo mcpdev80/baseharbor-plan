@@ -20,6 +20,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
 - [ ] t-20261109-r27-ci-go-shard-reuse · CI: reuse green Go shards when their verified inputs are unchanged #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/ci #kind/task
