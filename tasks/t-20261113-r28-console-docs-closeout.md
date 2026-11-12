@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Update concise English/German operator/developer docs for optional Grafana, enabled data sources, supported Console journeys,"
 kanban_title: "0428-019 · Finish monitoring Console docs"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-native-journey]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-native-journey, t-20261113-r28-grafana-native-proof]
 repos: [mcpdev80/baseharbor-console, mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -52,3 +52,9 @@ EN/DE docs build, link/check and command reference verification against current 
 ## Handoff
 
 Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+
+## Binding current-code reference
+
+Read `docs/how-to/observability.md`, `docs/de/how-to/observability.md`, Console `docs/CONTRACT-READINESS.md`. Document only genuine tested source and dashboard prerequisites.
+
+Worker must verify path and source at current exact commit, not assume any pre-existing proof means live readiness. Codex reviews source-specific tests and CI routing.
