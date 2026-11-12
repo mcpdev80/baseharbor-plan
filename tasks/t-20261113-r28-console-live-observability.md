@@ -50,3 +50,9 @@ Authenticated live signals with empty/unknown, denied/logout no preview fallback
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/observability/page.tsx` calls `previewData` (verified code search). Use only existing authenticated `src/lib/baseharbor/read-models.ts` and native signals; Grafana dashboard navigation is separate `0428-014`. No direct backend cookies, proxy auth or Loki/Prometheus fetch from browser.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
