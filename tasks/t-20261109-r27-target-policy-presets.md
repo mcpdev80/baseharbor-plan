@@ -7,9 +7,9 @@ areas: [remote, deployment]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (awaiting worker reassignment)
-kanban_status: wait
-kanban_lane: wait
+owner: mcpdev80 (Maintainer accepted)
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: "0427-186 · Editable Target policy presets"
 priority: high
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Foundation PR #1514 is merged; Core-verified source provenance and remote policy editing remain unimplemented or unverified. Waiting for Maintainer to assign a new worker."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
 ---
 
-- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/wait #view/wait #area/deployment #area/remote #kind/feature
+- [x] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #area/remote #kind/feature
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting worker reassignment) · **Priority:** high  
-    **Waiting:** Foundation PR \#1514 is merged; Core-verified source provenance and remote policy editing remain unimplemented or unverified. Waiting for Maintainer to assign a new worker.  
-    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+    **Owner:** mcpdev80 (Maintainer accepted) · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Required by:** [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md)  
-**Owner:** mcpdev80 (awaiting worker reassignment)  
+**Owner:** mcpdev80 (Maintainer accepted)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -65,3 +64,7 @@ Implement the Owner-approved [target-preset decision](../decisions/2026-11-09-r2
 - [PR #1514](https://github.com/mcpdev80/baseharbor/pull/1514) merged as bounded **foundation** into `develop` at `96ee6a9520e9a32c7193e09d113db67945bf81c9`, after [exact-head PR CI #42707150233](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233) passed at `58963750f5976abbb9e50ac62ffa6a90e238892e`.
 - Presets, CLI/Wizard overrides, local protected Target policy edit and fail-closed evaluator are integrated. **Do not equate code merge with complete feature acceptance**: Core-authoritative construction of trusted candidate source provenance, remote operator edit and fully functional protected remote apply are not established by this PR. The evaluator currently refuses restrictive policies when verified evidence is unavailable.
 - Card **0427-186 stays active** until the remaining Core-side source-proof and remote policy pathways are implemented and verified; keep 0427-187 planned separately. No release/tag.
+
+## Owner closure — 2026-11-13
+
+Owner closure: accepted 2026-11-13. The merged preset foundation and its CI are accepted for this release card. Core-authoritative provenance verification and remote editing of existing policies remain future scope; they are explicitly not claimed as implemented by this closure.

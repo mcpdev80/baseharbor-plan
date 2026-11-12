@@ -7,10 +7,10 @@ type: acceptance
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (awaiting worker reassignment)
-kanban_lane: wait
+owner: mcpdev80 (Maintainer accepted)
+kanban_lane: closed
 kanban_summary: Every shipped built-in greenfield stack satisfies baha app new … → generated source repo → baha up → READY on Docker and Podman…
-kanban_status: wait
+kanban_status: closed
 kanban_title: "0427-003 · start all greenfield stacks on"
 depends_on: [core-893, core-895, core-896, t-20261017-release-0-4-27-updates, t-20261103-ci-plain-checks]
 repos: [mcpdev80/baseharbor]
@@ -19,23 +19,23 @@ sources: ["mcpdev80/baseharbor#815"]
 source_updated: "2026-10-15T16:50:55Z"
 labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
 blocker: ""
-wait_reason: "Source issue #815 is closed and PRs #1429/#1432 are merged; current Docker/Podman READY evidence is still missing. Waiting for Maintainer to assign a new worker."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42501503535", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719841", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719851"]
 
 ---
 
-- [ ] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/wait #view/wait #area/testing #kind/acceptance
+- [x] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/testing #kind/acceptance
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting worker reassignment)  
-    **Waiting:** Source issue \#815 is closed and PRs \#1429/\#1432 are merged; current Docker/Podman READY evidence is still missing. Waiting for Maintainer to assign a new worker.  
+    **Owner:** mcpdev80 (Maintainer accepted)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42501503535), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/43328719851)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [core-893](core-893-ci-enforce-selected-pr-checks.md), [core-895](core-895-reviews-require-maintainer-approval.md), [core-896](core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](t-20261103-ci-plain-checks.md)  
-**Owner:** mcpdev80 (awaiting worker reassignment)  
+**Owner:** mcpdev80 (Maintainer accepted)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** [baseharbor#815](https://github.com/mcpdev80/baseharbor/issues/815)
@@ -148,3 +148,7 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 - [PR #1432](https://github.com/mcpdev80/baseharbor/pull/1432) merged to develop as `21615b9f91d36afa7eb51edfa8b4bf7c9cb5edb1` from exact-head `767a3196583e03a552f66a24a80e4b8085f2954b`.
 - PR CI run `42501499483` = SUCCESS; native 8/8 Docker/Podman application READY run `42501503535` = SUCCESS, plus legacy Next.js Docker.
 - **Card remains active:** SINGLE-default actual topology counts, explicit HA positive and default-HA negative assertions are separate missing acceptance evidence. Merge of the CI implementation alone does not close the full qualification card.
+
+## Owner closure — 2026-11-13
+
+Owner closure: accepted 2026-11-13. Exact-head 8/8 Greenfield Docker/Podman run #42501503535 passed; current integrated native Core runtime CI #43288025038 and develop selection runs #43328719841/#43328719851 are green. The old separate SINGLE/HA topology evidence requirement is accepted as out of scope for this card; skipped topology jobs are not claimed as executed.

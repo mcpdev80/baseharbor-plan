@@ -26,7 +26,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
     <!-- generated:card -->
     **Owner:** mcpdev80  
     **PR:** [baseharbor#1425](https://github.com/mcpdev80/baseharbor/pull/1425)  
-    **Needs:** [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/runtime-broker/round-1.md)  
     <!-- /generated:card -->
 

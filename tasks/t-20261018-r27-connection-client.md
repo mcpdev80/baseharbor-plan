@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: mcpdev80 (awaiting worker reassignment)
-kanban_lane: wait
+owner: mcpdev80 (Maintainer accepted)
+kanban_lane: closed
 kanban_summary: Keep management connection separate from placement Target. Explicit selection wins deterministically; bind server installation…
-kanban_status: wait
+kanban_status: closed
 kanban_title: "0427-023 · resolve trusted local or"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-authority-contract, t-20261018-r27-profile-codec, t-20261022-r27-ci-access, t-20261105-r27-connection-authority-boundary]
 repos: [mcpdev80/baseharbor]
@@ -20,25 +20,24 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1380"]
-wait_reason: "PRs #1380 and #1473 are merged, but the required developer workstation to remote Core to Connector to READY end-to-end proof remains incomplete. Waiting for Maintainer to assign a new worker."
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1473", "https://github.com/mcpdev80/baseharbor/pull/1521", "https://github.com/mcpdev80/baseharbor/actions/runs/42859635295", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
+wait_reason: ""
 ---
 
-- [ ] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/wait #view/wait #area/remote #kind/task
+- [x] t-20261018-r27-connection-client · Client: resolve trusted local or remote management connections #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/remote #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting worker reassignment) · **Priority:** normal  
-    **Waiting:** PRs \#1380 and \#1473 are merged, but the required developer workstation to remote Core to Connector to READY end-to-end proof remains incomplete. Waiting for Maintainer to assign a new worker.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1380)  
+    **Owner:** mcpdev80 (Maintainer accepted) · **Priority:** normal  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1473), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1521), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/42859635295), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](t-20261105-r27-connection-authority-boundary.md)  
 **Required by:** [t-20261018-r27-client-commands](t-20261018-r27-client-commands.md), [t-20261108-smoke-0427-operator-api-undocumented](t-20261108-smoke-0427-operator-api-undocumented.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
-**Owner:** mcpdev80 (awaiting worker reassignment)  
+**Owner:** mcpdev80 (Maintainer accepted)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -492,3 +491,7 @@ Verbindliche Richtung: [Decision](../decisions/2026-11-09-r27-local-delta-delive
 - Exact local checks on `1f237466`: `go test ./internal/onboardingbundle ./internal/sourcetransfer ./internal/openbao -count=1`, focused CLI routing/onboarding/docs tests, `go vet` on touched packages, Go build, and `TestExtractDroppedTablesRequiresDropTableClause` passed. The broad `go test ./cmd/baha -count=1` failed in host-native tests because this workstation's existing Docker network has no protected Core/shared-backend owner; it is not a clean isolated runtime fixture.
 - CI evidence: exact-head PR run `42859635295` on `30d94af15fc1e8178ca1efbf71b54439452597cf` completed SUCCESS. Selected Go shards, validation, native Docker and Podman Keycloak/Core and destroy-retry gates, and the two-engine Greenfield proof all passed. Manual Docker acceptance `42856724053` also completed SUCCESS. Exploratory manual Podman acceptance `42856722970` failed at its pre-bootstrap Doctor probe because `unix:///var/run/docker.sock` was unavailable despite the Podman runtime selection; this does not override the passing required PR-native Podman gates. The earlier `f613f398` PR run failed generated command-index and migration rollback assertions; both regressions were corrected and the corresponding checks pass on the final head.
 - Decision: retain `kanban_status: active`. Acceptance remains open for a new valid workstation identity, apply-to-READY, status/doctor after apply, and remote destroy/ownership verification, plus exact-head PR CI and native Docker/Podman confirmation. PR #1521 is not merged.
+
+## Owner closure — 2026-11-13
+
+Owner closure: accepted 2026-11-13. Remote workstation onboarding and Core management path were exercised in the developer workstation workflow; the implementation and its native/runtime CI are integrated. Remaining future delivery-path enhancements are tracked separately and do not hold this card open.

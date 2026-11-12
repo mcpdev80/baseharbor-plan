@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (awaiting worker reassignment)
-kanban_status: wait
-kanban_lane: wait
+owner: mcpdev80 (Maintainer accepted)
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-183 · Repository workload CI rot
 priority: ""
@@ -18,22 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "The develop counter-probe records five failing repository lifecycle/Compose tests, but no active worker or open PR is assigned. Waiting for Maintainer to assign a worker to identify the regression and provide exact-SHA test-to-CI evidence."
-resolution: ""
-evidence: []
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
 ---
 
-- [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/wait #view/wait #kind/bug
+- [x] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting worker reassignment)  
-    **Waiting:** The develop counter-probe records five failing repository lifecycle/Compose tests, but no active worker or open PR is assigned. Waiting for Maintainer to assign a worker to identify the regression and provide exact-SHA test-to-CI evidence.  
+    **Owner:** mcpdev80 (Maintainer accepted)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42690054408), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** mcpdev80 (awaiting worker reassignment)  
+**Owner:** mcpdev80 (Maintainer accepted)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -71,3 +71,7 @@ One or two sentences: the observable outcome.
 
 ## Task Note
 Counter-probe (workflow_dispatch on refs/heads/develop d2e225f20, run 42690054408, job "Run runtime integration tests serially", 20:20:2xZ) fails 5 repository lifecycle/compose cells: TestRepositoryBuildWorkloadRebuildsSourceChangesInCI, TestRepositoryComposePinnedWorkloadLifecycleInCI, TestRepositoryComposeWorkloadOnlyLifecycleInCI, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI, TestRepositoryWorkflowRealLifecycle. Same w169/deployment-state family as 0427-181/182 but on the CURRENT develop head — every PR-side go-test run that executes these serial cells is blocked. Nucleus to find: which of today's landed chains (damaged-state 230221700 / app-list 8a2912c62 / reclaim 82c15567c / isolate d9bf3d94e) changed the repository-workload assumptions.
+
+## Owner closure — 2026-11-13
+
+Owner closure: accepted 2026-11-13. The failing develop counter-probe is retained as historical evidence; later integrated PR CI is green. The exact five serial integration test names were not independently reproduced in the retained current run logs, so this closure records Maintainer acceptance/triage and does not claim a rerun of those exact tests.

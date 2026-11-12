@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
+    **Needs:** [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

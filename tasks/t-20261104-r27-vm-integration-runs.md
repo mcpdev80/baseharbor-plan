@@ -7,10 +7,10 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (awaiting worker reassignment)
-kanban_lane: wait
+owner: mcpdev80 (Maintainer accepted)
+kanban_lane: closed
 kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
-kanban_status: wait
+kanban_status: closed
 kanban_title: "0427-107 · real Docker and Podman Integr"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
@@ -18,24 +18,24 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-conso
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
-wait_reason: "The previous worker lane ended. The eight Core/Demo/Console/Connector integration results remain unrecorded. Waiting for Maintainer to assign a coordinator; prefer existing GitHub-hosted runtime CI, with no new hardware/VM test requirement."
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43288025038", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719841", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719851", "https://github.com/mcpdev80/baseharbor-demo/actions/runs/43310767287"]
+wait_reason: ""
 
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
+- [x] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting worker reassignment) · **Priority:** high  
-    **Waiting:** The previous worker lane ended. The eight Core/Demo/Console/Connector integration results remain unrecorded. Waiting for Maintainer to assign a coordinator; prefer existing GitHub-hosted runtime CI, with no new hardware/VM test requirement.  
+    **Owner:** mcpdev80 (Maintainer accepted) · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43328719851), [proof 4](https://github.com/mcpdev80/baseharbor-demo/actions/runs/43310767287)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Required by:** [t-20261107-r27-runtime-broker-oras-missing-edge-readiness](t-20261107-r27-runtime-broker-oras-missing-edge-readiness.md)  
-**Owner:** mcpdev80 (awaiting worker reassignment)  
+**Owner:** mcpdev80 (Maintainer accepted)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -109,3 +109,7 @@ owner-direktive: hand-festival docker-2 — greenfield+brownfield+alle wizards, 
 - Die direkten technischen Voraussetzungen `device-enrollment`, `node-service`, `vm-rebuild-integration` sowie der private Integration Path sind in den Plan-Karten `closed`/`accepted`. Der alte Nachweisstand `Docker core+console 2/4 PASS` ist historisch; die vollstaendigen acht Kombinationen sind nicht belegt.
 - CI-Owner-/Coordinator-Uebergabe steht aus. Nach aktueller Owner-CI-Policy werden Native-/PR-Tests auf GitHub-hosted Docker/Podman-Runnern ausgefuehrt; Cross-Repo-E2E wird in der develop-/Release-Qualifikation geprueft, nicht als zusaetzliches PR-Gate oder manuelle Hardwarepflicht. Die alten VM-Anweisungen in Scope/Acceptance sind historische Ausgangsanforderungen und muessen vor Wiederaufnahme mit der aktuellen CI-Policy abgestimmt werden.
 - Nicht `closed`: kein 8/8-Run und keine SHA-genauen allseitigen Integrationsnachweise behauptet. Nicht `active`: kein aktueller Worker nachgewiesen. Wiederaufnahme, sobald Coordinator die CI-Integration/Abnahme explizit uebernimmt.
+
+## Owner closure — 2026-11-13
+
+Owner closure: accepted 2026-11-13. Per the current CI policy, runtime validation is performed by hosted Docker/Podman gates and release qualification; the old eight-cell two-host VM matrix is retired. These links prove the cited repository runs only; they are not represented as one eight-cell cross-repository run.

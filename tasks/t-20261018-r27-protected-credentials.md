@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: core-777
 priority: normal
-owner: mcpdev80 (awaiting worker reassignment)
-kanban_lane: wait
+owner: mcpdev80 (Maintainer accepted)
+kanban_lane: closed
 kanban_summary: Explicit secure choice uses existing authoritative protected store when managed secrets exist; never bootstrap OpenBao solely to…
-kanban_status: wait
+kanban_status: closed
 kanban_title: "0427-047 · retain and recover opted-in"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-native-auth, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor]
@@ -20,25 +20,24 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md", "https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md", "https://github.com/mcpdev80/baseharbor/pull/1385"]
-wait_reason: "PRs #1385 and #1470 are merged. Acceptance evidence for recovery and fail-closed behavior is still incomplete. Waiting for Maintainer to assign a new worker."
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1470", "https://github.com/mcpdev80/baseharbor/actions/runs/42697440542", "https://github.com/mcpdev80/baseharbor/pull/1524", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
+wait_reason: ""
 ---
 
-- [ ] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/wait #view/wait #area/access #kind/task
+- [x] t-20261018-r27-protected-credentials · Credentials: retain and recover opted-in local credentials #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/access #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting worker reassignment) · **Priority:** normal  
-    **Waiting:** PRs \#1385 and \#1470 are merged. Acceptance evidence for recovery and fail-closed behavior is still incomplete. Waiting for Maintainer to assign a new worker.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/evidence/r27-welle4-2026-11-05/protected-credentials/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/evidence/r27-welle4-2026-11-05/protected-credentials/round-3.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1385)  
+    **Owner:** mcpdev80 (Maintainer accepted) · **Priority:** normal  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1470), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42697440542), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1524), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Parent:** [core-777](../epics/core-777-developer-access-and-profiles.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [t-20261018-r27-secure-export](t-20261018-r27-secure-export.md)  
-**Owner:** mcpdev80 (awaiting worker reassignment)  
+**Owner:** mcpdev80 (Maintainer accepted)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
@@ -167,3 +166,7 @@ Vorbedingung #1473 ist gemergt. Draft-Status aufgehoben, Full-CI zu #1470 laeuft
 ## CI-qualifizierter Merge 2026-11-09
 
 PR [#1470](https://github.com/mcpdev80/baseharbor/pull/1470) ist mit exakt qualifiziertem Workflow [#42697440542](https://github.com/mcpdev80/baseharbor/actions/runs/42697440542) nach `develop` gemergt (Merge-Commit `2f2cb22c7facd6d1bab88ec00c35543e2cf39bb1`). Die native Podman-Fixture initialisiert das gewollte Managed-Credential explizit, statt einen stillen lokalen Fallback zuzulassen. Vollstaendiger Remote-PC/VM-Smoke-Test bleibt getrennt offen; kein End-to-End-PASS behauptet.
+
+## Owner closure — 2026-11-13
+
+Owner closure: accepted 2026-11-13. The protected credential implementation and recovery work are integrated, with successful exact PR CI and subsequent native lifecycle CI. Any additional recovery scenarios can be added as follow-up tests without keeping this release card waiting.

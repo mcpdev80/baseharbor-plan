@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "Implement Connector enrollment against the Core's verified installation authority. The release contract already requires remote…"
 kanban_title: 0427-168 · serve needs local core
 priority: high
@@ -22,15 +22,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/cli #area/connector #kind/bug
+- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/connector #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261108-smoke-0427-up-ignores-target](t-20261108-smoke-0427-up-ignores-target.md)  
 **Required by:** [t-20261108-smoke-0427-operator-api-undocumented](t-20261108-smoke-0427-operator-api-undocumented.md)  

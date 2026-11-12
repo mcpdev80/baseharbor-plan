@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 1 |
 | review | 0 |
-| wait | 7 |
+| wait | 0 |
 | blocked | 0 |
-| ready | 0 |
+| ready | 3 |
 | queued | 25 |
-| waiting | 215 |
+| waiting | 212 |
 | backlog | 7 |
-| closed | 225 |
+| closed | 232 |
 
 ## Active
 
@@ -32,15 +32,7 @@ None.
 
 ## Waiting for resources
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [core-815](../tasks/core-815-tests-greenfield-stacks-native-runtimes.md) | Tests: start all greenfield stacks on native runtimes | wait | not set | mcpdev80 (awaiting worker reassignment) | [core-893](../tasks/core-893-ci-enforce-selected-pr-checks.md), [core-895](../tasks/core-895-reviews-require-maintainer-approval.md), [core-896](../tasks/core-896-runners-isolate-parallel-pr-checks.md), [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261103-ci-plain-checks](../tasks/t-20261103-ci-plain-checks.md) | — |
-| [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | Client: resolve trusted local or remote management connections | wait | normal | mcpdev80 (awaiting worker reassignment) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-authority-contract](../tasks/t-20261018-r27-authority-contract.md), [t-20261018-r27-profile-codec](../tasks/t-20261018-r27-profile-codec.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261105-r27-connection-authority-boundary](../tasks/t-20261105-r27-connection-authority-boundary.md) | — |
-| [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Nodes: finish guided add connect status and disconnect | wait | normal | mcpdev80 (awaiting worker reassignment) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261018-r27-protected-credentials](../tasks/t-20261018-r27-protected-credentials.md) | Credentials: retain and recover opted-in local credentials | wait | normal | mcpdev80 (awaiting worker reassignment) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-native-auth](../tasks/t-20261018-r27-native-auth.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
-| [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: real Docker and Podman integration runs with core, demo, console and connector | wait | high | mcpdev80 (awaiting worker reassignment) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](../tasks/t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
-| [t-20261109-0427-183-repository-workload-ci-rot](../tasks/t-20261109-0427-183-repository-workload-ci-rot.md) | 0427-183 · Repository lifecycle/compose CI tests fail on develop head | wait | not set | mcpdev80 (awaiting worker reassignment) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | wait | high | mcpdev80 (awaiting worker reassignment) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) (open) | — |
+None.
 
 ## Blocked
 
@@ -48,12 +40,16 @@ None.
 
 ## Ready to assign
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261018-r27-remote-docker-web](../tasks/t-20261018-r27-remote-docker-web.md) | Remote Docker: verify SQL cache and reachable HTTPS workload | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md), [t-20261018-r27-remote-material](../tasks/t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) | Serve: enrollment needs local Core | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md), [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | — |
+| [t-20261109-r27-local-delta-delivery](../tasks/t-20261109-r27-local-delta-delivery.md) | Remote: dirty source snapshot and OCI delta delivery | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 26 open, 157 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 19 open, 164 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console, Grafana OSS and management workflows — 40 open, 0 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
