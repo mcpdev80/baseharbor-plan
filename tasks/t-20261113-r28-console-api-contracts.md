@@ -54,3 +54,9 @@ npm contract/architecture tests and canonical source-lock verification; negative
 ## Handoff
 
 Not claimed. Do not mark accepted from plan creation or a draft PR.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current Console files: `src/lib/baseharbor/client.ts` already pins HTTPS/Core origin and bearer, `src/lib/baseharbor/read-models.ts` already contains `LiveCoreAdapter`, `src/components/live/live-core-view.tsx` already executes live apps/Targets/workspaces/runtime. Core source: `docs/spec/machine-http-v1.md`, `internal/machine/contract.go`, `cmd/baha/machine_http_operations.go`. Identify only exact mismatches and pin canonical source artifacts; do not rewrite working adapter or invent API routes.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
