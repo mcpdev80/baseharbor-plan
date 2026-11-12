@@ -50,3 +50,9 @@ One permitted Target change with policy preview and confirmation, denied/unavail
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/targets/page.tsx` uses `LiveCoreView view="targets"` and links `/targets/new`; retain this exact route and existing Core read model. Access/provider boundaries in Core: `docs/spec/target-access-v1.md`, `internal/machine/contract.go`. Preserve 0.4.27 Target policy presets, no new Target schema.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
