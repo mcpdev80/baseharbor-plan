@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Provision only existing owned/authorized Loki endpoint into Grafana. Reuse Loki access policy and real labels; no new log col"
 kanban_title: "0428-022 · Connect Grafana Loki"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime, t-20261113-r28-grafana-contract-seam, t-20261113-r28-grafana-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -50,3 +50,9 @@ One real Loki log query, missing Loki no-data, TLS/credential denial; no leaked 
 ## Handoff
 
 Unassigned. No code or acceptance evidence yet.
+
+## Binding current-source implementation note (2026-11-13)
+
+Existing Loki: `internal/logs/driver.go`, `internal/logs/query.go`, `internal/logs/lifecycle.go`, `internal/capability/reference.go`. Use authorized Loki instance/source/labels and existing mTLS. No new Alloy collector or Loki server; no direct browser access.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
