@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Connect only private Grafana UI auth to existing operator/OIDC gateway; no Console API dependency, no new identity store."
 kanban_title: "0428-013 · Secure Grafana login"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime, t-20261113-r28-grafana-contract-seam]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -54,3 +54,9 @@ Positive authorized / negative unauthenticated, forbidden actor, expired token, 
 ## Handoff
 
 Not claimed. Do not mark accepted from plan creation or a draft PR.
+
+## Binding current-source implementation note (2026-11-13)
+
+Exact source: `docs/spec/management-access-v1.md`, `docs/spec/provider-management-acceptance-v1.md`, `internal/metrics/management_ui.go`, `internal/providerui/application.go`, `cmd/baha/app_dev_routing.go`. Reuse existing management authentication class/role mapping and Core authority. Grafana auth is not automatically equal to Core OIDC: prove supported Grafana OSS flow and fail closed if role parity cannot be enforced.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
