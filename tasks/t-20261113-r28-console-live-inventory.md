@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-console-live-inventory
 card_number: "0428-015"
-card_short_title: "Bind provider monitoring inven"
+card_short_title: "Bind live Providers view"
 type: task
 areas: [console]
 release: v0.4.28
@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Replace fixture-only Providers and Observability index content with existing protected Core read-model operations. Preserve d"
-kanban_title: "0428-015 · Bind provider monitoring inventory"
+kanban_summary: "Connect ONLY Providers list to existing protected Core read operations; Observability is a different task."
+kanban_title: "0428-015 · Bind live Providers view"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts]
 repos: [mcpdev80/baseharbor-console]
@@ -24,23 +24,24 @@ evidence: []
 
 - [ ] t-20261113-r28-console-live-inventory · Bind provider monitoring inventory #task #release/v0-4-28 #status/planned #area/console #kind/task
 
-## Outcome and scope
+## Goal
 
-Replace fixture-only Providers and Observability index content with existing protected Core read-model operations. Preserve dedicated preview mode. Show unknown/unsupported collection and capabilities honestly; no new telemetry service.
+Connect ONLY Providers list to existing protected Core read operations; Observability is a different task.
 
 ## Acceptance
 
-Authenticated operator sees actual authorized providers and signals, tenant-denied objects are absent, logout never displays stale live data, and no preview fallback occurs.
+Authorized provider list, empty/denied, no fixture fallback.
 
 ## Dependencies and file ownership
 
-- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts.
-- Console provider and observability pages/components only; shared adapter changes only through task 009.
-- No worker may modify another worker's reserved file set or invent interfaces while a predecessor is pending. Read current merged heads and old PRs before coding.
+- Exclusive product writes: src/app/providers/** and src/components/providers/**; no shared adapters.
+- Dependencies are the frontmatter depends_on values. Do not wait for unrelated Grafana/Console cards.
+- Before implementation read current exact-source contract and named files only. If an API is missing, report one concrete blocker to Coordinator; do not invent a second API.
 
 ## Required checks and CI routing
 
-Focused UI read-model/empty/denied tests and selected Console CI/browser smoke.
+- Small positive/negative tests for the listed acceptance; bind exact tests to existing selected CI triggers, native tests only for covered runtime behavior.
+- Worker supplies exact PR HEAD, affected files, commands/checks, results and cleanup; no skipped test counted as passing.
 
 ## Coordinator / Codex handoff
 
