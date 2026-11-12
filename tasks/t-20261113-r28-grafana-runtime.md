@@ -1,7 +1,7 @@
 ---
 id: t-20261113-r28-grafana-runtime
 card_number: "0428-010"
-card_short_title: "Provide optional Grafana runti"
+card_short_title: "Launch optional Grafana OSS"
 type: task
 areas: [observability]
 release: v0.4.28
@@ -10,10 +10,10 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Add Grafana OSS as an explicitly enabled, optional installation-owned visualization service using existing Compose/Quadlet pr"
-kanban_title: "0428-010 · Provide optional Grafana runtime"
+kanban_summary: "Implement the minimum optional Grafana OSS service declaration and native runtime start/readiness using existing cont"
+kanban_title: "0428-010 · Launch optional Grafana OSS"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-current-contract-inventory]
+depends_on: [t-20261017-release-0-4-28-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -22,33 +22,35 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-runtime · Provide optional Grafana runtime #task #release/v0-4-28 #status/planned #area/observability #kind/task
+- [ ] t-20261113-r28-grafana-runtime · Launch optional Grafana OSS #task #release/v0-4-28 #status/planned #area/observability #kind/task
 
-## Outcome and scope
+## Goal
 
-Add Grafana OSS as an explicitly enabled, optional installation-owned visualization service using existing Compose/Quadlet provider/Target realization patterns. Only selected installations use it; no new portable app capability and no automatic addition to minimal applications. Record runtime image by verified digest at implementation time; no guessed version. Cover lifecycle and removal without deleting existing Prometheus/Loki/Tempo data.
+Implement the minimum optional Grafana OSS service declaration and native runtime start/readiness using existing container-asset conventions. No Grafana is started by an ordinary application. Pin verified version/image digest at implementation. Do not implement datasource, alert, auth or uninstall in this card.
 
 ## Acceptance
 
-On demand enable/status/disable preserves provider ownership and retention; unavailable runtime fails before mutation; no Grafana is started by default.
+An explicitly enabled isolated Grafana starts, health is truthful, no default footprint, exact image/version recorded, all owned temporary resources cleaned in tests.
 
 ## Dependencies and file ownership
 
-- Depends on: t-20261017-release-0-4-28-updates, t-20261113-r28-current-contract-inventory.
-- New isolated Grafana runtime module/asset files only. Existing shared CLI registration, gateway and authentication files are reserved for later integration slices.
-- No worker may modify another worker's reserved file set or invent interfaces while a predecessor is pending. Read current merged heads and old PRs before coding.
+- Hard prerequisites (not mere priority): t-20261017-release-0-4-28-updates.
+- **Exclusive write ownership:** New isolated internal/grafana/runtime*.go and internal/grafana/assets/** only; do not touch shared CLI registry, serviceaccess, metrics, logs, traces or CI.
+- A referenced task must be accepted/merged before implementation if an actual interface is needed; read-only inspection and isolated schema fixtures may start earlier. Never base work on another worker's unmerged branch.
+
+## Worker instructions (256k context budget)
+
+1. Read this card and only the directly named source files, predecessor interface/commit and existing tests. Do not load the whole ecosystem into context.
+2. Identify the exact existing implementation, change only the specified behavior and reserved files. If a missing dependency or conflicting owner appears, stop and hand the Coordinator one concrete missing contract/path; do not self-expand the scope.
+3. Add/adjust the smallest executable positive and negative regressions described here. **Test -> existing CI check -> file-change trigger -> actual result** is mandatory; no skipped assertion may count as pass.
+4. Run targeted source checks; native Docker/Podman/browser only where this card uniquely requires them. Reuse existing selected CI jobs and fixture owners; no shadow approval/evidence system.
+5. Open one limited product PR against the normal development branch and hand off exact commit SHA, changed files, commands/check IDs, actual passed assertions, gaps and rollback. No worker self-merges.
+6. **Codex reviews independently and merges** only after required tests on the exact PR HEAD. Coordinator updates this plan note/Obsidian state after acceptance; max five non-overlapping workers concurrently.
 
 ## Required checks and CI routing
 
-Source tests for enable/reconcile/remove and no-default footprint, plus exact selected Docker and rootless Podman native lifecycle gates.
-
-## Coordinator / Codex handoff
-
-- Coordinator assigns one independent ready task to one of five workers, claims it in planning before work, and dispatches only after accepted dependencies. Capacity is a ceiling, not a requirement to start five agents.
-- Worker delivers one small PR against product repository's normal development branch with exact HEAD, tests -> selected check -> trigger -> execution result, and records a planning handoff; no self-review, merge or release.
-- Codex is the independent reviewer and designated merger for approved, green PRs; it checks architecture, changed paths, test routing and exact-source evidence before merging. No merge on skipped/failed mandatory assertions.
-- Following merge, coordinator reconciles the planning card and unlocks dependent ready work only after acceptance. No release/tag/promotion by worker or coordinator.
+Go renderer/validation and opt-in default-negative tests; selected native Docker/Podman start/readiness smoke.
 
 ## Handoff
 
-Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+Not claimed. Do not mark accepted from plan creation or a draft PR.
