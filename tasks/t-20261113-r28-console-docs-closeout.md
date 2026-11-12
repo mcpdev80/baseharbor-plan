@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Update concise English/German operator/developer docs for optional Grafana, enabled data sources, supported Console journeys,"
+kanban_summary: ""
 kanban_title: "0428-019 · Finish monitoring Console docs"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-native-journey, t-20261113-r28-grafana-native-proof]
@@ -22,7 +22,22 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-console-docs-closeout · Finish monitoring Console docs #task #release/v0-4-28 #status/planned #area/documentation #kind/task
+- [ ] t-20261113-r28-console-docs-closeout · Finish monitoring Console docs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/documentation #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Outcome and scope
 

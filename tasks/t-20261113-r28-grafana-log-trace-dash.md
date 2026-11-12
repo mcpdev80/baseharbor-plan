@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Create ONE small dashboard for Loki logs and Tempo traces using exact available source identity labels; don't invent correlat"
+kanban_summary: "Create ONE small dashboard for Loki logs and Tempo traces using exact available source identity labels; don't invent correlation…"
 kanban_title: "0428-024 · Grafana logs and traces panels"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-loki-source, t-20261113-r28-grafana-tempo-source]
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-log-trace-dash · Grafana logs and traces panels #task #release/v0-4-28 #status/planned #area/observability #kind/task
+- [ ] t-20261113-r28-grafana-log-trace-dash · Grafana logs and traces panels #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-loki-source](t-20261113-r28-grafana-loki-source.md), [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-source.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-loki-source](t-20261113-r28-grafana-loki-source.md), [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-source.md)  
+**Required by:** [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

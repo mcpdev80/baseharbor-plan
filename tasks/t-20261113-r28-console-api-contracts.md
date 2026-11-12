@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Align existing typed Core discovery/read-model decoders against the actual released 0.4.27 Core schema. ONLY update w"
+kanban_summary: Align existing typed Core discovery/read-model decoders against the actual released 0.4.27 Core schema. ONLY update wire…
 kanban_title: "0428-009 · Align Console Core decoders"
 priority: high
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-current-contract-inventory]
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-console-api-contracts · Align Console Core decoders #task #release/v0-4-28 #status/planned #area/console #kind/task
+- [ ] t-20261113-r28-console-api-contracts · Align Console Core decoders #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-current-contract-inventory](t-20261113-r28-current-contract-inventory.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-current-contract-inventory](t-20261113-r28-current-contract-inventory.md)  
+**Required by:** [t-20261113-r28-console-live-evidence](t-20261113-r28-console-live-evidence.md), [t-20261113-r28-console-live-inventory](t-20261113-r28-console-live-inventory.md), [t-20261113-r28-console-live-observability](t-20261113-r28-console-live-observability.md), [t-20261113-r28-console-live-recovery](t-20261113-r28-console-live-recovery.md), [t-20261113-r28-console-live-security](t-20261113-r28-console-live-security.md), [t-20261113-r28-console-live-target-wizard](t-20261113-r28-console-live-target-wizard.md), [t-20261113-r28-console-live-wizards](t-20261113-r28-console-live-wizards.md), [t-20261113-r28-console-live-workspace-wizard](t-20261113-r28-console-live-workspace-wizard.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

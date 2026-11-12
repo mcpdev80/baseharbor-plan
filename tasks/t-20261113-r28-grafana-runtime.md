@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Implement only optional Grafana native container start and truthful readiness with pinned image. No auth, datasources or lifec"
+kanban_summary: Implement the minimum optional Grafana OSS service declaration and native runtime start/readiness using existing container-asset…
 kanban_title: "0428-010 · Launch optional Grafana"
 priority: high
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-contract-seam]
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-runtime · Launch optional Grafana OSS #task #release/v0-4-28 #status/planned #area/observability #kind/task
+- [ ] t-20261113-r28-grafana-runtime · Launch optional Grafana OSS #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md)  
+**Required by:** [t-20261113-r28-grafana-datasources](t-20261113-r28-grafana-datasources.md), [t-20261113-r28-grafana-lifecycle](t-20261113-r28-grafana-lifecycle.md), [t-20261113-r28-grafana-loki-source](t-20261113-r28-grafana-loki-source.md), [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-access.md), [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-source.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

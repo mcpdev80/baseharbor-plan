@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Choose existing provider management interface or minimal v1-compatible extension; no fake application capability."
+kanban_summary: "First implementable architecture gate: integrate optional Grafana OSS into the existing Provider Contract v1, provider…"
 kanban_title: "0428-032 · Define Grafana provider seam"
 priority: critical
 depends_on: [t-20261017-release-0-4-28-updates]
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-contract-seam · Define Grafana provider seam #task #release/v0-4-28 #status/planned #area/observability #kind/architecture
+- [ ] t-20261113-r28-grafana-contract-seam · Define Grafana provider seam #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/architecture
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** critical  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Required by:** [t-20261113-r28-grafana-dashboard-selection](t-20261113-r28-grafana-dashboard-selection.md), [t-20261113-r28-grafana-datasources](t-20261113-r28-grafana-datasources.md), [t-20261113-r28-grafana-lifecycle](t-20261113-r28-grafana-lifecycle.md), [t-20261113-r28-grafana-loki-source](t-20261113-r28-grafana-loki-source.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md), [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-access.md), [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-source.md)  
+**Owner:** unassigned  
+**Priority:** critical  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

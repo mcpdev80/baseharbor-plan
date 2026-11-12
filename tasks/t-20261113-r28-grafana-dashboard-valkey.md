@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Selectively adapt Grafana Redis exporter dashboard 763 (https://grafana.com/grafana/dashboards/763-redis-dashb"
+kanban_summary: Selectively adapt Grafana Redis exporter dashboard 763…
 kanban_title: "0428-038 · Qualify Valkey dashboard"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-dashboard-selection]
@@ -22,7 +22,22 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-dashboard-valkey · Qualify Valkey dashboard #task #release/v0-4-28 #status/planned #area/observability #kind/task
+- [ ] t-20261113-r28-grafana-dashboard-valkey · Qualify Valkey dashboard #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-dashboard-selection](t-20261113-r28-grafana-dashboard-selection.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-dashboard-selection](t-20261113-r28-grafana-dashboard-selection.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

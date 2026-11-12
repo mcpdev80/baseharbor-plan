@@ -10,10 +10,10 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Integrate targeted real Docker and rootless Podman Grafana smoke: opt-in start, auth denial, 3 datasource queries, dashboards"
-kanban_title: "0428-030 · Prove Grafana native monitoring"
+kanban_summary: "Integrate targeted real Docker and rootless Podman Grafana smoke: opt-in start, auth denial, 3 datasource queries, dashboards,…"
+kanban_title: 0428-030 · Prove Grafana native monitorin
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-lifecycle, t-20261113-r28-grafana-dashboards, t-20261113-r28-grafana-log-trace-dash, t-20261113-r28-grafana-secure-access, t-20261113-r28-grafana-alerts, t-20261113-r28-grafana-contact-routing, t-20261113-r28-grafana-dashboard-hosts, t-20261113-r28-grafana-dashboard-databases, t-20261113-r28-grafana-dashboard-messaging]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-alerts, t-20261113-r28-grafana-contact-routing, t-20261113-r28-grafana-dashboard-databases, t-20261113-r28-grafana-dashboard-hosts, t-20261113-r28-grafana-dashboard-messaging, t-20261113-r28-grafana-dashboards, t-20261113-r28-grafana-lifecycle, t-20261113-r28-grafana-log-trace-dash, t-20261113-r28-grafana-secure-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-native-proof · Prove Grafana native monitoring #task #release/v0-4-28 #status/planned #area/acceptance #kind/task
+- [ ] t-20261113-r28-grafana-native-proof · Prove Grafana native monitoring #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/acceptance #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md), [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashboard-hosts.md), [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-dashboard-messaging.md), [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md), [t-20261113-r28-grafana-lifecycle](t-20261113-r28-grafana-lifecycle.md), [t-20261113-r28-grafana-log-trace-dash](t-20261113-r28-grafana-log-trace-dash.md), [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-access.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md), [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashboard-hosts.md), [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-dashboard-messaging.md), [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md), [t-20261113-r28-grafana-lifecycle](t-20261113-r28-grafana-lifecycle.md), [t-20261113-r28-grafana-log-trace-dash](t-20261113-r28-grafana-log-trace-dash.md), [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-access.md)  
+**Required by:** [t-20261113-r28-console-docs-closeout](t-20261113-r28-console-docs-closeout.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

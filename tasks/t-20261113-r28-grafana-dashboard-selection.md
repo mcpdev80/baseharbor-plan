@@ -10,10 +10,10 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Implement a small provider/Target-aware dashboard catalog selection that enables only dashboard templates whose req"
-kanban_title: "0428-034 · Gate dashboard template activation"
+kanban_summary: Implement a small provider/Target-aware dashboard catalog selection that enables only dashboard templates whose required…
+kanban_title: 0428-034 · Gate dashboard template activa
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-signal-inventory, t-20261113-r28-grafana-contract-seam]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-contract-seam, t-20261113-r28-grafana-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-dashboard-selection · Gate dashboard template activation #task #release/v0-4-28 #status/planned #area/observability #kind/task
+- [ ] t-20261113-r28-grafana-dashboard-selection · Gate dashboard template activation #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-signal-inventory](t-20261113-r28-grafana-signal-inventory.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-signal-inventory](t-20261113-r28-grafana-signal-inventory.md)  
+**Required by:** [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md), [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashboard-hosts.md), [t-20261113-r28-grafana-dashboard-identity](t-20261113-r28-grafana-dashboard-identity.md), [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-dashboard-messaging.md), [t-20261113-r28-grafana-dashboard-valkey](t-20261113-r28-grafana-dashboard-valkey.md), [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

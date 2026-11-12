@@ -10,10 +10,10 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Connect only private Grafana UI auth to existing operator/OIDC gateway; no Console API dependency, no new identity store."
+kanban_summary: Integrate the optional Grafana UI with existing operator identity/trust gateway using its supported auth integration. Keep…
 kanban_title: "0428-013 · Secure Grafana login"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-runtime, t-20261113-r28-grafana-contract-seam]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-contract-seam, t-20261113-r28-grafana-runtime]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-grafana-secure-access · Protect Grafana operator login #task #release/v0-4-28 #status/planned #area/security #kind/task
+- [ ] t-20261113-r28-grafana-secure-access · Protect Grafana operator login #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/security #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
+**Required by:** [t-20261113-r28-console-monitoring-entry](t-20261113-r28-console-monitoring-entry.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

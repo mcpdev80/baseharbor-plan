@@ -10,10 +10,10 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Integrate and update existing browser/native tests, including Console PR #8; do not recreate covered tests. Prove representat"
-kanban_title: "0428-018 · Qualify native Console journeys"
+kanban_summary: ""
+kanban_title: 0428-018 · Qualify native Console journey
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-security, t-20261113-r28-console-live-observability, t-20261113-r28-console-live-target-wizard, t-20261113-r28-console-live-workspace-wizard, t-20261113-r28-console-live-recovery, t-20261113-r28-console-live-evidence]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-live-evidence, t-20261113-r28-console-live-inventory, t-20261113-r28-console-live-observability, t-20261113-r28-console-live-recovery, t-20261113-r28-console-live-security, t-20261113-r28-console-live-target-wizard, t-20261113-r28-console-live-wizards, t-20261113-r28-console-live-workspace-wizard]
 repos: [mcpdev80/baseharbor-console, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-console-native-journey · Qualify native Console journeys #task #release/v0-4-28 #status/planned #area/acceptance #kind/task
+- [ ] t-20261113-r28-console-native-journey · Qualify native Console journeys #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/acceptance #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** high  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-live-evidence](t-20261113-r28-console-live-evidence.md), [t-20261113-r28-console-live-inventory](t-20261113-r28-console-live-inventory.md), [t-20261113-r28-console-live-observability](t-20261113-r28-console-live-observability.md), [t-20261113-r28-console-live-recovery](t-20261113-r28-console-live-recovery.md), [t-20261113-r28-console-live-security](t-20261113-r28-console-live-security.md), [t-20261113-r28-console-live-target-wizard](t-20261113-r28-console-live-target-wizard.md), [t-20261113-r28-console-live-wizards](t-20261113-r28-console-live-wizards.md), [t-20261113-r28-console-live-workspace-wizard](t-20261113-r28-console-live-workspace-wizard.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-live-evidence](t-20261113-r28-console-live-evidence.md), [t-20261113-r28-console-live-inventory](t-20261113-r28-console-live-inventory.md), [t-20261113-r28-console-live-observability](t-20261113-r28-console-live-observability.md), [t-20261113-r28-console-live-recovery](t-20261113-r28-console-live-recovery.md), [t-20261113-r28-console-live-security](t-20261113-r28-console-live-security.md), [t-20261113-r28-console-live-target-wizard](t-20261113-r28-console-live-target-wizard.md), [t-20261113-r28-console-live-wizards](t-20261113-r28-console-live-wizards.md), [t-20261113-r28-console-live-workspace-wizard](t-20261113-r28-console-live-workspace-wizard.md)  
+**Required by:** [t-20261113-r28-console-docs-closeout](t-20261113-r28-console-docs-closeout.md)  
+**Owner:** unassigned  
+**Priority:** high  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Outcome and scope
 

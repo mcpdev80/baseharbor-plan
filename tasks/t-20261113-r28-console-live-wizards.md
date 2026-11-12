@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Connect ONLY existing application new/edit wizard to authenticated Core plan/confirm/apply. No Target or workspace wizard chan"
+kanban_summary: Connect ONLY existing application new/edit wizard to authenticated Core plan/confirm/apply. No Target or workspace wizard changes.
 kanban_title: "0428-016 · Wire live application wizard"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts]
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-console-live-wizards · Connect existing management wizards #task #release/v0-4-28 #status/planned #area/console #kind/task
+- [ ] t-20261113-r28-console-live-wizards · Connect existing management wizards #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
+**Required by:** [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

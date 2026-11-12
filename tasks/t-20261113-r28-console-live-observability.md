@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Convert ONLY the existing Observability page from preview into actual supported Core read-model; no Grafana iframe or direct "
-kanban_title: "0428-025 · Bind Console Observability view"
+kanban_summary: Convert ONLY the existing Observability page from preview into actual supported Core read-model; no Grafana iframe or direct…
+kanban_title: 0428-025 · Bind Console Observability vie
 priority: normal
 depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-console-api-contracts]
 repos: [mcpdev80/baseharbor-console]
@@ -22,7 +22,23 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261113-r28-console-live-observability · Bind Console Observability view #task #release/v0-4-28 #status/planned #area/console #kind/task
+- [ ] t-20261113-r28-console-live-observability · Bind Console Observability view #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned · **Priority:** normal  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** waiting  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
+**Required by:** [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md)  
+**Owner:** unassigned  
+**Priority:** normal  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
