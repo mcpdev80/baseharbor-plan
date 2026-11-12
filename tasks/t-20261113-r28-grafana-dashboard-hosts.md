@@ -1,0 +1,47 @@
+---
+id: t-20261113-r28-grafana-dashboard-hosts
+card_number: "0428-035"
+card_short_title: "Qualify host container panels"
+type: task
+areas: [observability]
+release: v0.4.28
+version: ""
+parent: v0.4.28
+owner: ""
+kanban_status: planned
+kanban_lane: planned
+kanban_summary: "Evaluate verified Grafana templates Node Exporter Full 1860 (https://grafana.com/grafana/dashboards/1860-node-expor"
+kanban_title: "0428-035 · Qualify host container panels"
+priority: high
+depends_on: [t-20261113-r28-grafana-dashboard-selection]
+repos: [mcpdev80/baseharbor]
+prs: []
+sources: []
+blocker: ""
+resolution: ""
+evidence: []
+---
+
+- [ ] t-20261113-r28-grafana-dashboard-hosts · Qualify host container panels #task #release/v0-4-28 #status/planned #area/observability #kind/task
+
+## Goal
+
+Evaluate verified Grafana templates Node Exporter Full 1860 (https://grafana.com/grafana/dashboards/1860-node-exporter-full/) and Docker cAdvisor 15798 (https://grafana.com/grafana/dashboards/15798-docker-monitoring/). Import/pin or adapt only when actual node_exporter or cAdvisor metrics and required labels exist. Podman must not be advertised as Docker-equivalent without separate matching evidence.
+
+## Acceptance
+
+If exporter is present, panels show real CPU/RAM/disk/network series. If not, template is unselected and reason visible; no automatic privileged host/socket exporter deployment.
+
+## Exact source entry points
+
+`internal/capability/integration_contract.go` (provider observability), `internal/capability/reference.go` (per-provider signals), `internal/application/provider_registry.go` (real instances and scope), `internal/metrics/prometheus.go` (Prometheus), `internal/logs/driver.go` (Loki), `internal/traces/tempo.go` (Tempo). Use accepted 0428-033 verified matrix; do not interpret descriptor support as collected live data. Source dashboard revisions/JSON pin/checksum when importing; adapt dashboard queries to actual authenticated labels, not the reverse.
+
+## Exclusive file ownership and minimal worker procedure
+
+New internal/grafana/dashboards/hosts* assets/tests only.
+
+Read this card, named exact files, accepted predecessor contracts and relevant tests only. Do NOT load whole repo. Check current source HEAD. One narrow feature change and tests; no new runtime collector, no cross-Target data, no unverified dashboard import. Show positive and negative test, source-change CI route, actual run/check result, PR HEAD. Codex reviews/merges; Coordinator updates accepted Kanban, max five non-overlapping workers.
+
+## Handoff
+
+Not started.
