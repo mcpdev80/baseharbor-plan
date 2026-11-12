@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Deliver ONE Grafana OSS dashboard for real Target/application infrastructure metrics present in Prometheus. Inspect l"
 kanban_title: "0428-012 · Grafana infrastructure dashboard"
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-datasources]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261113-r28-grafana-datasources, t-20261113-r28-grafana-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -54,3 +54,9 @@ JSON schema/provisioning validation, expected panel queries, test data/no-data s
 ## Handoff
 
 Not claimed. Do not mark accepted from plan creation or a draft PR.
+
+## Binding current-source implementation note (2026-11-13)
+
+Own only one native BaseHarbor infrastructure dashboard. Read `docs/spec/provider-contract-v1.md`, `internal/capability/integration_contract.go`, `internal/application/runtime_telemetry.go` and accepted signal matrix 0428-033. Only use tested real PromQL names/labels and real available signals. Community host/container and product-specific dashboards belong to 0428-035..037, NOT this card.
+
+Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
