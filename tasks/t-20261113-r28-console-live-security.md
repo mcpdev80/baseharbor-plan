@@ -53,3 +53,9 @@ Live redacted security state; denied roles/logout safe; no secret leak.
 ## Handoff
 
 Not started. Claim, PR, checks, evidence and actual blockers will be recorded here.
+
+## Verified code entry points and no-guess rule (2026-11-13)
+
+Current `src/app/security/page.tsx` explicitly calls `previewData.securityMaterials()`. Connect only authorized existing Core evidence; if no machine read model provides redacted security status, mark unsupported and hand one narrowly scoped Core gap to Coordinator; do not guess fields or expose secrets.
+
+Before coding, confirm files against exact current develop/main HEAD and actual named CI. If source differs, stop and hand one precise diff to Coordinator; no guessed endpoint or promise of success.
