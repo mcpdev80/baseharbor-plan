@@ -27,7 +27,7 @@ early: true
 
 - [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
+    **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
     **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
@@ -39,7 +39,7 @@ early: true
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
 **Owner:** unassigned  
-**Priority:** not set  
+**Priority:** high  
 **PRs:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
 **Source:** [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2)
 <!-- /generated:links -->
