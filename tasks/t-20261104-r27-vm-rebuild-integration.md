@@ -14,7 +14,7 @@ kanban_status: closed
 kanban_title: "0427-108 · reproducible rebuild of the"
 priority: critical
 depends_on: [t-20261017-release-0-4-27-updates]
-repos: [mcpdev80/baseharbor-node-connector]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
@@ -50,8 +50,7 @@ references, so release qualification rests on executed runs rather than skipped 
 ## Scope
 
 - In scope: scripted rebuild and full cleanup of the Docker test VM and the Podman test VM (pure test
-  environments, Owner authorization 2026-11-04), functional proof of each runtime, then executed integration
-  runs of core, demo, console and connector on both hosts with recorded revision pairs.
+  environments, Owner authorization 2026-11-04), functional proof of each runtime for the Core + Demo developer-workstation-to-Core-VM acceptance runs. Separate runtime Connector checks are v0.4.28.
 - Out of scope: Proxmox hosts and any productive service, GitHub workflow and runner definitions (shared GitHub
   runners only), release promotion or tagging, and weakening any test to make a host pass.
 
@@ -84,7 +83,7 @@ references, so release qualification rests on executed runs rather than skipped 
 
 - Owner directive 2026-11-04 (16:0x): test VMs are pure test environments, full cleanup and rebuild authorized,
   prefer reproducible rebuild over manual repair, Proxmox and productive services untouched, then run the real
-  Docker/Podman integration tests with core, demo, console and connector, in parallel to the PR fixes.
+  Docker/Podman integration tests with Core and Demo on Docker and Podman, in parallel to the PR fixes. Console and Connector are outside the .27 run.
 - Lanes w116 (Docker host) and w117 (Podman host) execute the rebuild phase. A second pair of lanes executes
   the integration phase once both hosts report functional.
 

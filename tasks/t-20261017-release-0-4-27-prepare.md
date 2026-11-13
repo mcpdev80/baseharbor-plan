@@ -15,8 +15,8 @@ kanban_status: active
 kanban_title: "0427-006 · complete ecosystem readiness"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates]
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
-prs: [mcpdev80/baseharbor-console#17, mcpdev80/baseharbor-node-connector#23]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
+prs: []
 sources: []
 blocker: ""
 resolution: ""
@@ -28,7 +28,6 @@ wait_reason: ""
 - [ ] t-20261017-release-0-4-27-prepare · v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** owner-chatgpt-r27 · **Priority:** normal  
-    **PR:** [baseharbor-console#17](https://github.com/mcpdev80/baseharbor-console/pull/17), [baseharbor-node-connector#23](https://github.com/mcpdev80/baseharbor-node-connector/pull/23)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-07.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-12.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-prepare-2026-11-13.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-full-card-audit-2026-11-13.md)  
     <!-- /generated:card -->
 
@@ -39,7 +38,7 @@ wait_reason: ""
 **Required by:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
 **Owner:** owner-chatgpt-r27  
 **Priority:** normal  
-**PRs:** [baseharbor-console#17](https://github.com/mcpdev80/baseharbor-console/pull/17), [baseharbor-node-connector#23](https://github.com/mcpdev80/baseharbor-node-connector/pull/23)  
+**PRs:** none  
 **Source:** 
 <!-- /generated:links -->
 
@@ -51,14 +50,14 @@ Prepare the v0.4.27 ecosystem release-readiness dossier while implementation pro
 
 - Apply canonical audit sections 1–8 and section 9 atomic-first prerequisites, plus RELEASE_WORKFLOW.md#prepare. Re-read current sources and workflows instead of copying obsolete v0.4.25 exceptions.
 - Inventory outstanding implementation/CI/docs/consumer tasks from the release scope, existing CardBoard views and epics. Document release-note/epic criteria and deferred or waived test debts; all required work must be accepted before release qualification.
-- Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor, Demo, Console and Node Connector compatibility; real supported developer journeys, auth/mTLS and cleanup tests.
+- Complete implementation/security/ownership/standards and CLI/JSON/MCP parity for the v0.4.27 Core + Demo scope; prove the developer-workstation-to-Core-VM journey on supported Docker/Podman runtimes. Console/Grafana and separate runtime Connector compatibility are v0.4.28 scope.
 - Complete concise EN/DE docs/reference/specs, navigation/links, changelog and actual human release message, compatibility/security/upgrade/deferred notes, strict Pages candidate builds/workflow without deployment. Keep process rules out of the product README.
 - Freeze actual immutable ecosystem SHAs, candidate tree, gate requirements and required test inputs. Verify all required targeted checks, runtime/platform gates and consumer test execution; missing/failed/skipped/unverified requirements block readiness.
 - Deliver a reviewable readiness dossier and exact authorized-run plan. Preparation does not authorize full pre-release, promotion, tag, publication or public Pages deployment.
 
 ## Mandatory CI test-routing audit (Owner decision 2026-11-07)
 
-Before declaring preparation complete, require a test-to-check-to-trigger matrix for every new or modified v0.4.27 regression, including already accepted Core, Demo, Console and Node Connector cards. The matrix must establish actual package discovery, native Docker and rootless Podman/Quadlet execution where supported, real external prerequisites, and explicit develop-acceptance or release gate registration. A new test with no executable CI route or a silent skip blocks qualification. Use [the current audit](../evidence/v0.4.27-ci-test-routing-audit-2026-11-07.md); coordinate implementation with the assigned [CI-lanes owner](t-20261018-r27-ci-lanes.md). Do not modify that worker's files from this release-preparation task.
+Before declaring preparation complete, require a test-to-check-to-trigger matrix for every new or modified v0.4.27 regression, including accepted Core and Demo cards in this release scope. The matrix must establish actual package discovery, native Docker and rootless Podman/Quadlet execution where supported, real external prerequisites, and explicit develop-acceptance or release gate registration. A new test with no executable CI route or a silent skip blocks qualification. Use [the current audit](../evidence/v0.4.27-ci-test-routing-audit-2026-11-07.md); coordinate implementation with the assigned [CI-lanes owner](t-20261018-r27-ci-lanes.md). Do not modify that worker's files from this release-preparation task.
 
 The candidate release catalog presently lacks v0.4.27 registration; prepare the mapping without assuming publication. This card authorizes no release workflow execution, tag, promotion or publication.
 
@@ -73,7 +72,7 @@ Existing canonical documentation audit, strict EN/DE MkDocs, source/contracts/bu
 
 ## Handoff
 
-2026-11-07: Preparation started with a read-only audit. Verified missing `docs/releases/v0.4.27.md` and `docs/releases/v0.4.27.demo-ref` on product develop, plus incomplete release scope and missing final four-repository candidate qualification. See `evidence/v0.4.27-prepare-2026-11-07.md`.
+2026-11-07: Preparation started with a read-only audit. Verified missing `docs/releases/v0.4.27.md` and `docs/releases/v0.4.27.demo-ref` on product develop, plus incomplete release scope and missing final Core+Demo candidate qualification. See `evidence/v0.4.27-prepare-2026-11-07.md`.
 
 2026-11-12: Confirmed v0.4.27 is still **unreleased** (GitHub latest is v0.4.26) and inventoried the four fetched source tips. The exact-source preflight fails because Demo's `baseharbor-core.ref` is not the current Core candidate; Console and Connector manifests remain on the 0.4.26 matrix. Release documentation PRs remain open Draft; BaseHarbor #1522 is conflicting. Strict EN/DE MkDocs builds passed on its draft head, but the full documentation audit found a fenced-command parity mismatch in the workstation guide; no candidate Pages run/deployment exists. Candidate refs must be updated only after implementation/consumer acceptance settles. See `evidence/v0.4.27-prepare-2026-11-12.md` for exact SHAs and the next sequence. No full pre-release, release jobs, tags, promotion, Pages publication, or product source changes were made. Preparation remains active and incomplete.
 
@@ -93,4 +92,9 @@ GitHub reports zero open implementation PRs in Core and Demo; Console #17 and Co
 
 ## Full v0.4.27 card audit — 2026-11-13
 
-The full card audit found 28 open tasks: Prepare active; nine explicit wait cards; one ready card; and 17 other planned tasks waiting on prerequisites. Nine prior closed states were corrected where card-specific acceptance was still missing. Current source heads do not form an immutable compatible candidate: Demo still pins an older Core SHA, while Console and Connector still identify v0.4.26. Console #17 and Connector #23 remain Draft release-note PRs. The latest Core Docker/Podman develop workflows passed selection but skipped the runtime cells. v0.4.27 remains unqualified and unpublished. Full details and exact heads are in [the full audit](../evidence/v0.4.27-full-card-audit-2026-11-13.md).
+After scope correction, 181 cards remain in v0.4.27: 135 accepted, 20 superseded, 2 dropped and 24 open. Open: Prepare active, six Wait, one Ready and 16 other Planned tasks. Connector acceptance moved to v0.4.28, and the Keycloak destroy card was restored to accepted after verifying its passing native Docker/Podman test. Current Core+Demo source heads do not form an immutable compatible candidate: Demo still pins an older Core SHA. Console #17 and Connector #23 are outside v0.4.27 scope. The latest Core Docker/Podman develop workflows passed selection but skipped the runtime cells. v0.4.27 remains unqualified and unpublished. Full details and exact heads are in [the full audit](../evidence/v0.4.27-full-card-audit-2026-11-13.md).
+
+
+## Maintainer scope correction — 2026-11-13
+
+The selected v0.4.27 journey is the developer workstation connecting to Core on a Docker/Podman VM, then deploying and managing the Demo through that Core. The VM Core manages its own runtime; no separate Connector daemon is involved. Connector enrollment/remote-node acceptance and Console/Grafana are v0.4.28. The candidate matrix is Core + Demo only. See [the corrected full audit](../evidence/v0.4.27-full-card-audit-2026-11-13.md).

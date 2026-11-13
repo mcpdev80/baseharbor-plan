@@ -4,7 +4,7 @@ card_number: "0427-113"
 card_short_title: "export a minimal"
 type: task
 areas: [platform]
-release: v0.4.27
+release: v0.4.28
 version: ""
 parent: ""
 owner: coord-welle4 (Lane w155)
@@ -13,7 +13,7 @@ kanban_lane: closed
 kanban_summary: internal/targetaccess exposes one small test-only helper package (or exported constructor) that yields a handshake-bearing mTLS…
 kanban_title: "0427-113 · export a minimal"
 priority: high
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-trust]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-node-trust]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor-node-connector#21]
 sources: []
@@ -22,17 +22,18 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-node-connector/pull/21", "https://github.com/mcpdev80/baseharbor-node-connector/commit/0643d51cc8e934f174fdf6ba875624c112f69235", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41938178236", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807383", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807440", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-streams/review-21a.md"]
 ---
 
-- [x] t-20261105-r27-test-wire-helper · Testing: export a minimal real-handshake test wire for cross-package evidence #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
+- [x] t-20261105-r27-test-wire-helper · Testing: export a minimal real-handshake test wire for cross-package evidence #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle4 (Lane w155) · **Priority:** high  
     **PR:** [baseharbor-node-connector#21](https://github.com/mcpdev80/baseharbor-node-connector/pull/21)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-node-connector/pull/21), [proof 2](https://github.com/mcpdev80/baseharbor-node-connector/commit/0643d51cc8e934f174fdf6ba875624c112f69235), [proof 3](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41938178236), [proof 4](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807383), [proof 5](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41934807440), [proof 6](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-04/node-streams/review-21a.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md)  
 **Required by:** [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md)  
 **Owner:** coord-welle4 (Lane w155)  
 **Priority:** high  

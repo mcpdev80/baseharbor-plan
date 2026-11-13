@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: Enable only end-to-end verified Docker remote capabilities; retain rejection for every unsupported capability. Real app consumes…
 kanban_status: planned
 kanban_title: "0427-050 · verify SQL cache and reachable"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-cli, t-20261018-r27-remote-material, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-remote-material, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -24,17 +24,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-remote-docker-web · Remote Docker: verify SQL cache and reachable HTTPS workload #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/runtime #kind/task
+- [ ] t-20261018-r27-remote-docker-web · Remote Docker: verify SQL cache and reachable HTTPS workload #task #release/v0-4-27 #status/planned #view/ready #area/runtime #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
 **Owner:** unassigned  
 **Priority:** normal  

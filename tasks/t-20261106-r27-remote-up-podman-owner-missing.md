@@ -11,7 +11,7 @@ owner: mcpdev80
 kanban_status: closed
 kanban_title: "0427-117 · podman-family Deploy owner"
 kanban_lane: closed
-depends_on: [t-20261017-release-0-4-27-updates, t-20261106-r27-remote-up-cli-path]
+depends_on: [t-20261017-release-0-4-27-updates]
 prs: [mcpdev80/baseharbor#1419]
 repos: [mcpdev80/baseharbor]
 blocker: ""
@@ -30,7 +30,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
+**Required by:** [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
 **Owner:** mcpdev80  
 **Priority:** high  
 **PRs:** [baseharbor#1419](https://github.com/mcpdev80/baseharbor/pull/1419)  

@@ -13,7 +13,7 @@ kanban_lane: closed
 kanban_summary: Build remote provider/exposure/TLS projections using existing provider owners. Secrets/keys remain protected at required…
 kanban_status: closed
 kanban_title: "0427-051 · project exposure material to"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261018-r27-node-trust, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-candidate-ingress, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1418]
 sources: ["mcpdev80/baseharbor#777"]
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-candidate-ingress](t-20261018-r27-candidate-ingress.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
 **Owner:** 0427-051-exposure-node  
 **Priority:** normal  

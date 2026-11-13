@@ -4,38 +4,39 @@ card_number: "0427-042"
 card_short_title: "qualify rotation revocation"
 areas: [connector]
 type: task
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 priority: normal
 owner: ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)
 kanban_lane: closed
 kanban_summary: "Reconcile existing implementation, then close actual token/mTLS/CA overlap/revocation/reconnect gaps against immutable Core…"
 kanban_status: closed
 kanban_title: "0427-042 · qualify rotation revocation"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-service, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-node-service, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: [mcpdev80/baseharbor-node-connector#20]
 sources: ["mcpdev80/baseharbor-node-connector#3"]
 aliases: []
-early: false
+early: true
 blocker: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-node-connector/commit/346e5ae77ffa929e771ecf1b1322b78fb65bc165", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924876155", "https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924886585"]
 ---
 
-- [x] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/connector #kind/task
+- [x] t-20261018-r27-node-trust · Connector: qualify rotation revocation and session recovery #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive) · **Priority:** normal  
     **PR:** [baseharbor-node-connector#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-node-connector/commit/346e5ae77ffa929e771ecf1b1322b78fb65bc165), [proof 2](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924876155), [proof 3](https://github.com/mcpdev80/baseharbor-node-connector/actions/runs/41924886585)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
-**Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-material](t-20261018-r27-remote-material.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md)  
 **Owner:** ChatGPT (externe Übernahme 2026-11-04, Owner-Direktive)  
 **Priority:** normal  
 **PRs:** [baseharbor-node-connector#20](https://github.com/mcpdev80/baseharbor-node-connector/pull/20)  

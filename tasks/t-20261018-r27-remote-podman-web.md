@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Same portable SQL/cache/web candidate on rootless Podman; native Quadlet startup/ownership and TLS verification, no fake Compose…"
 kanban_status: planned
 kanban_title: "0427-052 · verify native Quadlet HTTPS"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-streams, t-20261018-r27-remote-docker-web, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-remote-docker-web, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -34,8 +34,8 @@ evidence: []
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
-**Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  

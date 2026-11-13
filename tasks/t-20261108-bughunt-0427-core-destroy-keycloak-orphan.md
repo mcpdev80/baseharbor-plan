@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "coordinator"
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: A consented baha destroy (and baha destroy --all) of the local control plane removes or explicitly reports every Core-owned…
 kanban_title: "0427-122 · destroy leaves keycloak up"
 priority: high
@@ -18,21 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1444, mcpdev80/baseharbor#1448, mcpdev80/baseharbor#1449]
 sources: []
 blocker: ""
-wait_reason: "Native Docker/Podman destroy-retry test passed, but retained logs do not show the required Keycloak resource-count assertion on the integrated SHA."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158", "https://github.com/mcpdev80/baseharbor/commit/1449"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/ab8c16158", "https://github.com/mcpdev80/baseharbor/commit/1449", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
 ---
 
-- [ ] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/wait #view/wait #area/identity #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-core-destroy-keycloak-orphan · Bug Hunt v0.4.27: Core destroy lässt Keycloak-Container laufen #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/identity #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** coordinator · **Priority:** high  
     **PR:** [baseharbor#1444](https://github.com/mcpdev80/baseharbor/pull/1444), [baseharbor#1448](https://github.com/mcpdev80/baseharbor/pull/1448), [baseharbor#1449](https://github.com/mcpdev80/baseharbor/pull/1449)  
-    **Waiting:** Native Docker/Podman destroy-retry test passed, but retained logs do not show the required Keycloak resource-count assertion on the integrated SHA.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1449)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/ab8c16158), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1449), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coordinator  
@@ -138,3 +136,8 @@ A consented `baha destroy` (and `baha destroy --all`) of the local control plane
 ## Full-card audit correction — 2026-11-13
 
 0427-122 destroy/Keycloak remains open: prove the exact Keycloak-up, consented destroy/retry, and zero-owned-resource assertion on Docker and Podman. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.
+
+
+## Acceptance verified — 2026-11-13
+
+The exact native `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` passed on Docker and Podman in [PR CI #43288025038](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038). The test starts a real managed Keycloak container and asserts that the owned Keycloak project has zero resources after full installation destroy. Its source blob (`installation_destroy_native_test.go`, `6909783f`) is identical on the tested head and current Core develop. This is full-Core `baha destroy` behavior, separate from application destroy. Card restored to accepted.

@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-board
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
 kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
@@ -18,21 +18,19 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1447, mcpdev80/baseharbor#1450]
 sources: []
 blocker: ""
-wait_reason: "Resolver-layer tests passed on both engines, but full two-app CLI up/down acceptance stopped at operator-OIDC and is not recorded as passed."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f", "https://github.com/mcpdev80/baseharbor/commit/1450"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f", "https://github.com/mcpdev80/baseharbor/commit/1450", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
 ---
 
-- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/wait #view/wait #area/lifecycle #area/sql #kind/bug
+- [x] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
     **Owner:** coord-board · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
-    **Waiting:** Resolver-layer tests passed on both engines, but full two-app CLI up/down acceptance stopped at operator-OIDC and is not recorded as passed.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1450)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1450), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-board  
@@ -129,3 +127,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 ## Full-card audit correction — 2026-11-13
 
 0427-121 phantom SQL reference remains open: complete the two-app CLI up/down journey with the legacy record on Docker and Podman. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.
+
+
+## Acceptance verified — 2026-11-13
+
+This is a legacy-record stop-planning regression, not SQL provider CRUD/lifecycle coverage. `TestForeignLegacySQLReferenceDoesNotPoisonUnrelatedStopPlan` constructs the malformed persisted record and exercises the production stop-plan builder while asserting the foreign record remains unchanged. The exact test file is present at the tested PR head and current Core develop (`b9c646cc`). PR CI #43288025038 ran all 1,628 discovered CLI tests across its successful Go unit shards. This focused regression is accepted; no extra two-app provider deployment is needed for this pure persisted-state planning case.

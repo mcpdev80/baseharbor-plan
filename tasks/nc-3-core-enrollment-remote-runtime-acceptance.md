@@ -1,18 +1,18 @@
 ---
 id: nc-3
-card_number: "0427-004"
-card_short_title: "Core-compatible enrollment and"
+card_number: "0428-041"
+card_short_title: "Core Connector runtime"
 areas: [connector]
 type: task
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 owner: ""
 kanban_lane: planned
 kanban_summary: "The Node Connector integrates with real Core enrollment and sessions, and real remote Docker Compose and rootless Podman Quadlet…"
 kanban_status: planned
-kanban_title: "0427-004 · Core-compatible enrollment and"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-node-cli, t-20261018-r27-node-service, t-20261018-r27-node-streams, t-20261018-r27-node-trust, t-20261018-r27-remote-podman-web, t-20261018-r27-remote-rollout]
+kanban_title: 0428-041 · Core Connector runtime
+depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-node-cli, t-20261018-r27-node-service, t-20261018-r27-node-streams, t-20261018-r27-node-trust, t-20261106-r27-remote-up-cli-path]
 repos: [mcpdev80/baseharbor-node-connector]
 prs: []
 sources: ["mcpdev80/baseharbor-node-connector#3"]
@@ -23,17 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/connector #kind/task
+- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** unassigned  
 **Priority:** not set  
@@ -99,3 +99,8 @@ Core PR [#1438](https://github.com/mcpdev80/baseharbor/pull/1438), exact source 
 ### 2026-11-08 Docker2 E2E fehlender First-Owner-Pfad (ChatGPT)
 
 - [Native Docker2 Evidence](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/e2e-abnahme/docker2.md) auf Core `0fe53052`: Bootstrap `baha up --control-plane-only` READY, aber erstes Operator-OIDC-Login `baha login -e dev --init-tenant` wurde nicht ausgefuehrt; folglich fehlten verifizierter Operator-User, Authority-Profil, echtes Node-Enrollment und erfolgreicher Remote-Up. `node add` und Wizard scheiterten korrekt fail-closed. Report-Labels `CELL 1 PASS`/`CELL 3 PASS` pruefen nur Teilgrenzen, **nicht** den E2E-Erfolg. Die bestehende Karte bleibt die Freigabe-Abnahme fuer echten First-Owner-OIDC (vorher Managed-Realm/Client, danach verifizierter First Owner), Connector und Remote-Deployment. Keine privilegierte Testidentitaet ohne Login im Produkt seeden.
+
+
+## Release scope correction — 2026-11-13
+
+Separate Core-to-Connector enrollment and remote runtime-host acceptance is v0.4.28 work. It is not needed when the selected Core itself runs Docker or Podman on the target VM.

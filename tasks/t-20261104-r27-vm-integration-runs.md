@@ -1,7 +1,7 @@
 ---
 id: t-20261104-r27-vm-integration-runs
 card_number: "0427-107"
-card_short_title: "real Docker and Podman Integr"
+card_short_title: "Core Demo runtime flow"
 type: task
 areas: [platform]
 release: v0.4.27
@@ -9,32 +9,32 @@ version: ""
 parent: v0.4.27
 owner: mcpdev80 (awaiting release acceptance)
 kanban_lane: wait
-kanban_summary: "The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and connector, and each…"
+kanban_summary: The selected release candidate completes the developer-PC-to-Core-VM journey with Core and Demo on Docker and Podman. Each…
 kanban_status: wait
-kanban_title: "0427-107 · real Docker and Podman Integr"
+kanban_title: 0427-107 · Core Demo runtime flow
 priority: high
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service, t-20261104-r27-vm-rebuild-integration]
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261104-r27-vm-rebuild-integration]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43328719841", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719851"]
-wait_reason: "A full current four-repository × Docker/Podman result set is not recorded. Current Core develop runtime workflows #43328719841/#43328719851 selected successfully but skipped the actual native runtime cells. Keep open for release-candidate cross-repository qualification."
+wait_reason: "The old eight-cell Core/Demo/Console/Connector matrix is out of scope. Keep this card open only until the current pinned Core+Demo candidate has the intended developer-PC-to-VM lifecycle evidence on Docker and Podman; selector-only CI runs do not count as a runtime result."
 
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: real Docker and Podman integration runs with core, demo, console and connector #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
+- [ ] t-20261104-r27-vm-integration-runs · Operations: Core + Demo developer-workstation-to-VM flow on Docker and Podman #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** mcpdev80 (awaiting release acceptance) · **Priority:** high  
-    **Waiting:** A full current four-repository × Docker/Podman result set is not recorded. Current Core develop runtime workflows \#43328719841/\#43328719851 selected successfully but skipped the actual native runtime cells. Keep open for release-candidate…  
+    **Waiting:** The old eight-cell Core/Demo/Console/Connector matrix is out of scope. Keep this card open only until the current pinned Core+Demo candidate has the intended developer-PC-to-VM lifecycle evidence on Docker and Podman; selector-only CI runs…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43328719851)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Owner:** mcpdev80 (awaiting release acceptance)  
 **Priority:** high  
 **PRs:** none  
@@ -43,9 +43,7 @@ wait_reason: "A full current four-repository × Docker/Podman result set is not 
 
 ## Goal
 
-The real Docker and Podman integration suites run on the rebuilt test hosts against core, demo, console and
-connector, and each combination leaves a pass/fail line with the exact revisions used, so release qualification
-is based on executed runs instead of skipped gates.
+The selected release candidate completes the developer-PC-to-Core-VM journey with Core and Demo on Docker and Podman. Each runtime result records exact Core/Demo revisions and the user-visible lifecycle outcome.
 
 ## Scope
 
@@ -56,8 +54,7 @@ is based on executed runs instead of skipped gates.
 
 ## Acceptance
 
-- Eight combinations are executed (two hosts x core, demo, console, connector) and each leaves a run line with
-  host, repository, source revision and result.
+- Two runtime journeys are executed: developer workstation → Core on Docker VM, and developer workstation → Core on Podman VM. Each records exact Core/Demo revisions and result.
 - A skipped or simulated run does not count; the evidence holds the command and its output.
 - Product defects are filed on their own cards; this card closes when the runs themselves work.
 - A worker executes the runs; the coordinator verifies on disk and publishes.
@@ -116,4 +113,9 @@ Owner closure: accepted 2026-11-13. Per the current CI policy, runtime validatio
 
 ## Reopened after full v0.4.27 audit — 2026-11-13
 
-A full current four-repository × Docker/Podman result set is not recorded. Current Core develop runtime workflows #43328719841/#43328719851 selected successfully but skipped the actual native runtime cells. Keep open for release-candidate cross-repository qualification.
+The old eight-cell Core/Demo/Console/Connector matrix is out of scope. Keep this card open only until the current pinned Core+Demo candidate has the intended developer-PC-to-VM lifecycle evidence on Docker and Podman; selector-only CI runs do not count as a runtime result.
+
+
+## Release scope correction — 2026-11-13
+
+This card no longer requires Console or Node Connector cells. The v0.4.27 user journey is driven from the developer workstation against Core running on the selected Docker/Podman VM; the Core executes the app on that same VM. Separate remote-runtime Connector acceptance is v0.4.28.

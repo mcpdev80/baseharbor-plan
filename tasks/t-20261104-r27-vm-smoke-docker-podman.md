@@ -4,16 +4,16 @@ card_number: "0427-109"
 card_short_title: "real-VM smoke test of"
 type: task
 areas: [platform]
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 owner: coord-welle5 (Lane w227)
 kanban_lane: closed
 kanban_summary: "A workstation enrolls once against a real BaseHarbor installation and the node service installs, starts, restarts and is removed…"
 kanban_status: closed
 kanban_title: "0427-109 · real-VM smoke test of"
 priority: high
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-device-enrollment, t-20261018-r27-node-service]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -23,17 +23,17 @@ blocker: ""
 
 ---
 
-- [x] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
+- [x] t-20261104-r27-vm-smoke-docker-podman · Operations: real-VM smoke test of enrollment and node service on Docker and Podman hosts #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** coord-welle5 (Lane w227) · **Priority:** high  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/vm-smoke/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
-**Required by:** [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md)  
 **Owner:** coord-welle5 (Lane w227)  
 **Priority:** high  
 **PRs:** none  
