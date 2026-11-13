@@ -7,7 +7,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: ""
-owner: lane-0427-110-compose-native-acceptance
+owner: "release-qualification (Owner/Codex)"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1383]
 sources: []
 resolution: ""
-wait_reason: "Native Podman app readiness and the complete Docker/Podman matrix are not evidenced; round-9 records unfinished Podman cells and leak analysis."
+wait_reason: "Merged Core PR #1383 exists. Qualification only: correlate current actual Docker and rootless Podman isolated repository lifecycle test assertions, including foreign live Core/daemon and no SKIP; no duplicate implementation."
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1383", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
 blocker: ""
 
@@ -358,3 +358,9 @@ Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.
 ## Full-card audit correction — 2026-11-13
 
 0427-110 Compose-host isolation remains open: Podman app readiness and the complete isolated-runtime matrix need current exact-head evidence. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.
+
+## 2026-11-13 Release qualification handoff
+
+Merged Core PR #1383 exists. Qualification only: correlate current actual Docker and rootless Podman isolated repository lifecycle test assertions, including foreign live Core/daemon and no SKIP; no duplicate implementation.
+
+Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
