@@ -7,7 +7,7 @@ areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (awaiting release acceptance)
+owner: "release-qualification (Owner/Codex)"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Historical develop counter-probe #42690054408 failed five named repository lifecycle tests. The later PR run #43288025038 is green but does not expose an execution record for those exact serial integration tests; the latest develop runtime jobs skipped their native test cells. Keep open until exact tests pass on current develop or are explicitly retired with evidence."
+wait_reason: "Qualification only: current five named serial repository lifecycle tests must actually execute PASS on exact release candidate or have evidence-backed explicit retirement; generic green shards/selectors are insufficient."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719841"]
 ---
@@ -80,3 +80,9 @@ Owner closure: accepted 2026-11-13. The failing develop counter-probe is retaine
 ## Reopened after full v0.4.27 audit — 2026-11-13
 
 Historical develop counter-probe #42690054408 failed five named repository lifecycle tests. The later PR run #43288025038 is green but does not expose an execution record for those exact serial integration tests; the latest develop runtime jobs skipped their native test cells. Keep open until exact tests pass on current develop or are explicitly retired with evidence.
+
+## 2026-11-13 Release qualification handoff
+
+Qualification only: current five named serial repository lifecycle tests must actually execute PASS on exact release candidate or have evidence-backed explicit retirement; generic green shards/selectors are insufficient.
+
+Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
