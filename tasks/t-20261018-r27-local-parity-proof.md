@@ -8,10 +8,10 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 priority: normal
-owner: ""
-kanban_lane: ready
+owner: cg-s3
+kanban_lane: active
 kanban_summary: Same init/up/status semantics on local Docker and Podman without login/server/bundle; no compulsory services beyond…
-kanban_status: planned
+kanban_status: active
 kanban_title: "0427-032 · prove unchanged no-login local"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor-demo]
@@ -24,18 +24,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-local-parity-proof · Acceptance: prove unchanged no-login local operation #task #release/v0-4-27 #status/planned #view/ready #area/acceptance #kind/acceptance
+- [ ] t-20261018-r27-local-parity-proof · Acceptance: prove unchanged no-login local operation #task #release/v0-4-27 #status/active #view/active #area/acceptance #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** cg-s3 · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** unassigned  
+**Owner:** cg-s3  
 **Priority:** normal  
 **PRs:** none  
 **Source:** [baseharbor#777](https://github.com/mcpdev80/baseharbor/issues/777)
