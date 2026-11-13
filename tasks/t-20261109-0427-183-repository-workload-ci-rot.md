@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "release-qualification (Owner/Codex)"
-kanban_status: wait
-kanban_lane: wait
+owner: cg-s3
+kanban_status: active
+kanban_lane: active
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-183 · Repository workload CI rot
 priority: ""
@@ -18,23 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Qualification only: current five named serial repository lifecycle tests must actually execute PASS on exact release candidate or have evidence-backed explicit retirement; generic green shards/selectors are insufficient."
+wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719841"]
+evidence: []
 ---
 
-- [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/wait #view/wait #kind/bug
+- [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/active #view/active #kind/bug
     <!-- generated:card -->
-    **Owner:** release-qualification (Owner/Codex)  
-    **Waiting:** Qualification only: current five named serial repository lifecycle tests must actually execute PASS on exact release candidate or have evidence-backed explicit retirement; generic green shards/selectors are insufficient.  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42690054408), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841)  
+    **Owner:** cg-s3  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** release-qualification (Owner/Codex)  
+**Owner:** cg-s3  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
