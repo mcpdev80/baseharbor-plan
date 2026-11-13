@@ -4,6 +4,4 @@
 
 Derived from accepted prerequisites and active release (or explicit early work). Ready does not grant assignment; the Maintainer assigns work. Missing priority is shown as not set.
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-docs](../tasks/t-20261018-r27-docs.md) | Docs: document one local remote and team workflow | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-local-registry](../tasks/t-20261018-r27-local-registry.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
+None.
