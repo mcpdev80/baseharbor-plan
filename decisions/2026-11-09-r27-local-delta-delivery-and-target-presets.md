@@ -7,6 +7,10 @@ sources: []
 
 Decision owner: BaseHarbor product owner. This is agreed product direction, **not** implementation acceptance or CI proof.
 
+## Release placement clarification — Owner 2026-11-13
+
+This accepted decision remains the **product direction**, not a claim of shipped implementation. The unresolved dirty/untracked source delta and fully verified remotely editable target policy rules are assigned to **v0.4.28**, to allow release of the separately qualified v0.4.27 workstation -> Core VM -> same-host Docker/Podman workflow. The accepted 0.4.27 policy foundation is retained; full provenance, repeat delta transfer and optional Connector topology must not be advertised as complete in 0.4.27. See [release cutover audit](../evidence/v0.4.27-open-card-release-cut-2026-11-13.md).
+
 ## User workflow
 `baha use docker-dev` selects the existing persistent Target. `baha app apply` submits the **current local working tree**, including suitable dirty and untracked files; no required commit, push, remote Git credentials or Core-side clone. Source fingerprint identifies exact bytes independently of Git revision. A Git SHA/branch may be recorded as provenance, but never substituted for the actual dirty content.
 
