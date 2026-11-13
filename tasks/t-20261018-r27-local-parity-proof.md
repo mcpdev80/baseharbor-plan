@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: cg-s3
-kanban_lane: active
+kanban_lane: blocked
 kanban_summary: Same init/up/status semantics on local Docker and Podman without login/server/bundle; no compulsory services beyond…
-kanban_status: active
+kanban_status: blocked
 kanban_title: "0427-032 · prove unchanged no-login local"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-authority]
 repos: [mcpdev80/baseharbor-demo]
@@ -19,18 +19,20 @@ prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
-blocker: ""
+blocker: "Canonical local acceptance test contradicts its own fixture and current local-owner/consent semantics; local API/direct-owner same-state race proof is missing."
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-local-parity-0427-032-2026-11-13.md"]
 ---
 
-- [ ] t-20261018-r27-local-parity-proof · Acceptance: prove unchanged no-login local operation #task #release/v0-4-27 #status/active #view/active #area/acceptance #kind/acceptance
+- [ ] t-20261018-r27-local-parity-proof · Acceptance: prove unchanged no-login local operation #task #release/v0-4-27 #status/blocked #view/blocked #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** cg-s3 · **Priority:** normal  
+    **Blocker:** Canonical local acceptance test contradicts its own fixture and current local-owner/consent semantics; local API/direct-owner same-state race proof is missing.  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-local-parity-0427-032-2026-11-13.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
@@ -63,3 +65,5 @@ Reuse unaffected verifier-valid local gates; run only changed owner/dispatch cas
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+2026-11-13: Claimed as `cg-s3` on Maintainer instruction and tested Core develop `1cbfaefe24e19ed6110a0cc68eb8b9b869880e52` on the supplied rootless Docker and Podman VMs. The unchanged `TestCorelessFreshWorkloadRuntimeLifecycle` fails on both before runtime use because `configureTestTarget` registers an installation and the next assertion requires it absent. Temporary test-only diagnostics passed local `app init/plan/up/status/doctor` on both runtimes without a running Core server, but this does not qualify the unchanged test or prove the required local API/direct-owner race. Full commands, outcomes, and verified cleanup are in [the native VM report](../evidence/v0.4.27-local-parity-0427-032-2026-11-13.md). Blocked pending a canonical test that matches the card's local-authority boundary, current consent behavior, cleanup assertions, and same-state concurrency proof. No product checkout was edited.
