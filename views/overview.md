@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
-| review | 0 |
+| active | 1 |
+| review | 1 |
 | wait | 1 |
 | blocked | 0 |
 | ready | 0 |
@@ -25,11 +25,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261113-remote-installation-destroy](../tasks/t-20261113-remote-installation-destroy.md) | Lifecycle: destroy remote Core installations from the workstation | active | high | cg-s3 (Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261113-remote-installation-destroy](../tasks/t-20261113-remote-installation-destroy.md) | Lifecycle: destroy remote Core installations from the workstation | review | high | cg-s3 (Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1532](https://github.com/mcpdev80/baseharbor/pull/1532) |
 
 ## Waiting for resources
 

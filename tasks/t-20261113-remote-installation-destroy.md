@@ -8,33 +8,35 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: cg-s3 (Codex)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: baha destroy invoked on a developer workstation must permanently remove the BaseHarbor-owned installation reached through its…
 kanban_title: 0427-188 · destroy remote Core
 priority: "high"
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1532]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: [https://github.com/mcpdev80/baseharbor/pull/1532, https://github.com/mcpdev80/baseharbor/commit/b0c812fe106bf244ad6f07bac42ef4db3317d2cf]
 ---
 
-- [ ] t-20261113-remote-installation-destroy · Lifecycle: destroy remote Core installations from the workstation #task #release/v0-4-27 #status/active #view/active #area/cli #area/lifecycle #area/runtime #kind/task
+- [ ] t-20261113-remote-installation-destroy · Lifecycle: destroy remote Core installations from the workstation #task #release/v0-4-27 #status/review #view/review #area/cli #area/lifecycle #area/runtime #kind/task
     <!-- generated:card -->
     **Owner:** cg-s3 (Codex) · **Priority:** high  
+    **PR:** [baseharbor#1532](https://github.com/mcpdev80/baseharbor/pull/1532)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1532), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b0c812fe106bf244ad6f07bac42ef4db3317d2cf)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** cg-s3 (Codex)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1532](https://github.com/mcpdev80/baseharbor/pull/1532)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -71,6 +73,8 @@ evidence: []
 
 ## Handoff
 
-- Current state: confirmed missing remote path at merged SHA `197ece9843e0563f75dd47adb8bed3a12089f973`; CLI `baha app destroy` routes remotely but installation-wide discovery calls native `detectRuntimeForTarget` and rejects remote Targets. VM inventory currently contains only `local/dev`; no `prod` deployment is registered. No live resources were removed.
-- Product branch: `fix/remote-installation-destroy`, based on `develop` SHA `197ece9843e0563f75dd47adb8bed3a12089f973`.
-- Required gates: exact remote HTTP journey selection in existing CLI checks; Docker and rootless Podman native destroy-retry gates for local parity. Record exact test -> gate -> trigger -> run/SHA before handoff.
+- Product branch `fix/remote-installation-destroy` is at exact source SHA `b0c812fe106bf244ad6f07bac42ef4db3317d2cf`, based on `develop` `197ece9843e0563f75dd47adb8bed3a12089f973`. Draft PR [#1532](https://github.com/mcpdev80/baseharbor/pull/1532) is open.
+- Local verification passed: `go test ./cmd/baha -run 'Test(RemoteInstallationDestroy|FullDestroy|InstallationDestroy|SecondSameHost)'`; `go test ./internal/machinehttp`; `go vet ./cmd/baha ./internal/machinehttp`; CLI build; `scripts/source-readability-audit.sh`; generated machine documentation test; EN/DE integrity and page parity; CI impact selector test.
+- Exact test-to-CI routing: `cmd/baha` remote journey tests `TestRemoteInstallationDestroyReviewsAndExecutesExactPlan` and `TestRemoteInstallationDestroyRejectsStaleConsentBeforeMutation`, plus terminal/idempotency transport tests, run in existing Draft Go CLI shards; `internal/machinehttp` terminal receipt/idempotency tests run in the Draft Go packages lane. PR `b0c812fe` was selected by the Draft workflow; at handoff these jobs were queued/running, so no CI result is claimed yet.
+- Local parity tests `TestFullDestroyRemovesOwnedLocalStateButPreservesSourceRepository`, `TestFullDestroyRemotePhaseExcludesOnlyRemoteTargetsAndKeepsLocalTarget`, and `TestFullDestroyRefusesMultipleRemoteCoresBeforeMutation` are included in the CLI package tests. `TestInstallationDestroyCurrentChildrenInterruptedVolumeAndRetry` and `TestSecondSameHostCoreNativeConflictInCI` are selected through `scripts/ci-single-default-impact.sh` and executed by the existing native installation-destroy gate on both Docker and rootless Podman. The impact-selector positive/negative proof passes locally. Draft policy currently skips those native gates; they must actually run on PR ready and pass before acceptance.
+- No live local Docker, Podman, VM or Core was destroyed during this work. Native and remote runtime acceptance remains outstanding; do not close or accept the task until the selected PR-ready CI gates execute successfully.
