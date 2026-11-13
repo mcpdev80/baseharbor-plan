@@ -13,12 +13,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | active | 1 |
 | review | 0 |
 | wait | 2 |
-| blocked | 1 |
+| blocked | 0 |
 | ready | 1 |
 | queued | 25 |
 | waiting | 214 |
 | backlog | 7 |
-| closed | 229 |
+| closed | 230 |
 
 ## Active
 
@@ -39,9 +39,7 @@ None.
 
 ## Blocked
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | blocked | high | cg-s2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
+None.
 
 ## Ready to assign
 
@@ -52,7 +50,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 9 open, 156 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 8 open, 157 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console, Grafana OSS and management workflows — 53 open, 5 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

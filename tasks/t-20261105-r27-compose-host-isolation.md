@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: cg-s2
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -17,23 +17,22 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1383]
 sources: []
-resolution: ""
+resolution: accepted
 wait_reason: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1383", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: "Native Docker/Podman test-host access cannot currently be verified: documented Docker test endpoint 192.168.6.205 has no trusted SSH host key, Podman endpoint 192.168.6.206 is unreachable, and the VM-lock coordinator is unavailable in this environment. Do not run on the shared baha-docker/baha-podman runner aliases or the Codex host."
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1383", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/812c99c8873df400348fbc8cc9be5e650b8966c4.json", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md"]
+blocker: ""
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
+- [x] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** cg-s2 · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
-    **Blocker:** Native Docker/Podman test-host access cannot currently be verified: documented Docker test endpoint 192.168.6.205 has no trusted SSH host key, Podman endpoint 192.168.6.206 is unreachable, and the VM-lock coordinator is unavailable in this…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1383), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1383), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/812c99c8873df400348fbc8cc9be5e650b8966c4.json), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-07/compose-host-isolation/round-9.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** cg-s2  
@@ -364,3 +363,8 @@ Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.
 Merged Core PR #1383 exists. Qualification only: correlate current actual Docker and rootless Podman isolated repository lifecycle test assertions, including foreign live Core/daemon and no SKIP; no duplicate implementation.
 
 Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
+
+
+## Maintainer acceptance — 2026-11-13
+
+Accepted by Maintainer under the repository's merge-receipt workflow: when CI is green and the merge is permitted, the automatic durable merge receipt is the proof that the change was good at merge time. PR #1383 merged as `812c99c8873df400348fbc8cc9be5e650b8966c4`; its published receipt is [evidence/receipts/commits/812c99c8873df400348fbc8cc9be5e650b8966c4.json](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/812c99c8873df400348fbc8cc9be5e650b8966c4.json). The historical round-9 report remains linked for qualification details and known findings; ephemeral Actions runs are not used as retained proof. Card accepted and closed by explicit Maintainer direction; owner cg-s2.
