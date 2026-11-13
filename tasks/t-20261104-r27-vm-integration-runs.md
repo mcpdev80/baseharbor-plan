@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "release-qualification (Owner/Codex)"
-kanban_lane: wait
+kanban_lane: closed
 kanban_summary: The selected release candidate completes the developer-PC-to-Core-VM journey with Core and Demo on Docker and Podman. Each…
-kanban_status: wait
+kanban_status: closed
 kanban_title: 0427-107 · Core Demo runtime flow
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-device-enrollment, t-20261104-r27-vm-rebuild-integration]
@@ -18,21 +18,19 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43328719841", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719851"]
-wait_reason: "Release qualification only: user reports current real developer workstation -> Core VM -> Docker/Podman E2E successful; link exact Core/Demo source SHAs, transcripts and cleanup before acceptance. Earlier selector-only CI jobs are not equivalent."
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-vm-owner-acceptance-2026-11-13.md", "https://github.com/mcpdev80/baseharbor/commit/b7047d627521a392f5518be75836bd64ee3bf26ae7566bd6fb4dea0a0a4bc41c"]
 
 ---
 
-- [ ] t-20261104-r27-vm-integration-runs · Operations: Core + Demo developer-workstation-to-VM flow on Docker and Podman #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
+- [x] t-20261104-r27-vm-integration-runs · Operations: Core + Demo developer-workstation-to-VM flow on Docker and Podman #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** release-qualification (Owner/Codex) · **Priority:** high  
-    **Waiting:** Release qualification only: user reports current real developer workstation -\> Core VM -\> Docker/Podman E2E successful; link exact Core/Demo source SHAs, transcripts and cleanup before acceptance. Earlier selector-only CI jobs are not equi…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43328719851)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-vm-owner-acceptance-2026-11-13.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b7047d627521a392f5518be75836bd64ee3bf26ae7566bd6fb4dea0a0a4bc41c)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
 **Owner:** release-qualification (Owner/Codex)  
@@ -71,6 +69,7 @@ The selected release candidate completes the developer-PC-to-Core-VM journey wit
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- Maintainer acceptance — 2026-11-13: Marcel confirms local Docker and Podman VM runs are complete and directs closure. The full Core + Demo developer-workstation-to-Docker-VM run is also recorded in local memory as successful (`ready=true`, `baha doctor READY`; full Demo status 42/42 on the recorded run). See [VM owner acceptance](../evidence/v0.4.27-vm-owner-acceptance-2026-11-13.md). Skipped selector-only workflows remain explicitly excluded as proof. This accepts the v0.4.27 Core-hosted VM path only; Connector smoke remains v0.4.28.
 - Lage 2026-11-04 (Koordinator, plattenfest): der NEGATIVE nachweis ist auf der Rechnerseite erfuellt
   (Ablehnung ohne wirkung, anwendung bleibt nicht ausgeliefert, rueckgabewert eins), der POSITIVE zyklus ist
   ohne den gemeinsamen stapel derzeit NICHT herstellbar. grundlage und folgenarbeit stehen auf

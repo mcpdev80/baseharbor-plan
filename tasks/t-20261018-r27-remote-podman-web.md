@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: closed
 kanban_summary: "Same portable SQL/cache/web candidate on rootless Podman; native Quadlet startup/ownership and TLS verification, no fake Compose…"
-kanban_status: planned
+kanban_status: closed
 kanban_title: "0427-052 · verify native Quadlet HTTPS"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-remote-docker-web, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
@@ -20,19 +20,18 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-vm-owner-acceptance-2026-11-13.md"]
 ---
 
-- [ ] t-20261018-r27-remote-podman-web · Remote Podman: verify native Quadlet HTTPS workload #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/runtime #kind/task
+- [x] t-20261018-r27-remote-podman-web · Remote Podman: verify native Quadlet HTTPS workload #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/runtime #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/v0.4.27-vm-owner-acceptance-2026-11-13.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-remote-docker-web](t-20261018-r27-remote-docker-web.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md)  
@@ -65,3 +64,7 @@ One targeted rootless Podman web lifecycle gate, actual SQL/cache consumers and 
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Maintainer acceptance — 2026-11-13
+
+Accepted on the Maintainer's explicit confirmation that the local Podman VM tests are complete. The Maintainer attestation and the limits of the recorded revision details are documented in [the VM acceptance record](../evidence/v0.4.27-vm-owner-acceptance-2026-11-13.md). This does not represent skipped CI as a pass.

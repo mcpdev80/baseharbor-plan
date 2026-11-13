@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 1 |
 | review | 0 |
-| wait | 6 |
+| wait | 5 |
 | blocked | 0 |
 | ready | 1 |
 | queued | 25 |
-| waiting | 216 |
+| waiting | 214 |
 | backlog | 7 |
-| closed | 224 |
+| closed | 227 |
 
 ## Active
 
@@ -35,7 +35,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Node Connector: finish guided enrollment and remote-host lifecycle | wait | normal | mcpdev80 (awaiting release acceptance) | [t-20261017-release-0-4-28-updates](../tasks/t-20261017-release-0-4-28-updates.md) (open), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261104-r27-vm-integration-runs](../tasks/t-20261104-r27-vm-integration-runs.md) | Operations: Core + Demo developer-workstation-to-VM flow on Docker and Podman | wait | high | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](../tasks/t-20261018-r27-device-enrollment.md), [t-20261104-r27-vm-rebuild-integration](../tasks/t-20261104-r27-vm-rebuild-integration.md) | — |
 | [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | wait | high | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | wait | high | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446) |
 | [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | wait | normal | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
@@ -49,12 +48,12 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-remote-docker-web](../tasks/t-20261018-r27-remote-docker-web.md) | Remote Docker: verify SQL cache and reachable HTTPS workload | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-remote-material](../tasks/t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+| [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md) | Integration: register the accepted CLI JSON MCP HTTP operations | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md), [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-remote-podman-web](../tasks/t-20261018-r27-remote-podman-web.md), [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 14 open, 151 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 11 open, 154 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console, Grafana OSS and management workflows — 53 open, 5 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
