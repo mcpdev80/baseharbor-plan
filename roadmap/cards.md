@@ -11,8 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 158/165 · **Blocked:** 1 · **Waiting:** 3  
-    **Blocker:** [t-20261018-r27-local-parity-proof](../tasks/t-20261018-r27-local-parity-proof.md) — Canonical local acceptance test contradicts its own fixture and current local-owner/consent semantics; local API/direct-owner same-state race proof is missing.  
+    **Accepted tasks:** 159/165 · **Blocked:** 0 · **Waiting:** 3  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
 - [ ] v0.4.28 · Console, Grafana OSS and management workflows #roadmap #roadmap-state/next
