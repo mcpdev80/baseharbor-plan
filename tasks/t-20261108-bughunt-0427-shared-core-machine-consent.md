@@ -7,9 +7,9 @@ areas: [lifecycle,dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "release-qualification (Owner/Codex)"
-kanban_status: wait
-kanban_lane: wait
+owner: "cg-s3"
+kanban_status: active
+kanban_lane: active
 kanban_summary: Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 kanban_title: "0427-123 · shared-core consent blocks"
 priority: high
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1445, mcpdev80/baseharbor#1446]
 sources: []
 blocker: ""
-wait_reason: "Core PRs #1445 and #1446 merged. Qualification only: attach current native Docker and Podman PTY two-stage app-down positive/deny flows, exact SHA, cleanup; do not relax consent gates."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/1446"]
 
@@ -28,19 +28,18 @@ evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https:/
 
 Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
 
-- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/wait #view/wait #area/dx #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** release-qualification (Owner/Codex) · **Priority:** high  
+    **Owner:** cg-s3 · **Priority:** high  
     **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
-    **Waiting:** Core PRs \#1445 and \#1446 merged. Qualification only: attach current native Docker and Podman PTY two-stage app-down positive/deny flows, exact SHA, cleanup; do not relax consent gates.  
     **Evidence:** [proof 1](https://github.com/marcel/dev/baseharbor/commit/db06f01e9), [proof 2](https://github.com/mcpdev80/baseharbor/commit/db06f01e9), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1446)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** release-qualification (Owner/Codex)  
+**Owner:** cg-s3  
 **Priority:** high  
 **PRs:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
 **Source:** 
@@ -109,3 +108,10 @@ All existing PR, commit, and CI evidence remains unchanged. No new PASS claimed.
 Core PRs #1445 and #1446 merged. Qualification only: attach current native Docker and Podman PTY two-stage app-down positive/deny flows, exact SHA, cleanup; do not relax consent gates.
 
 Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
+
+## 2026-11-13 cg-s3 card review
+
+- Reassigned to `cg-s3` and moved to `active` for the requested qualification review.
+- Acceptance remains open: this environment has Docker Engine 29.6.0 but no `podman` executable, so it cannot produce the required Docker **and** Podman PTY evidence. No native PTY result or cleanup proof is claimed.
+- The available BaseHarbor checkout is at `64d12492c5067b119224b14a2b9c82932b91f9e7`, with local `develop` 1,251 commits behind `origin/develop`; it is not suitable evidence for current-source qualification. Its unrelated untracked `.kilo/` and `bin/` content was left untouched.
+- Next qualification step requires a current `develop` source and a native Podman-capable environment; run positive and denial flows for both runtimes, recording exact SHA and verified cleanup. Consent gates must remain unchanged.
