@@ -4,9 +4,9 @@ card_number: "0427-053"
 card_short_title: "apply a new candidate without"
 areas: [providers]
 type: task
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 priority: normal
 owner: ""
 kanban_lane: planned
@@ -18,13 +18,13 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
-early: false
+early: true
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-remote-rollout · Remote lifecycle: apply a new candidate without losing the previous owner #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/providers #kind/task
+- [ ] t-20261018-r27-remote-rollout · Remote lifecycle: apply a new candidate without losing the previous owner #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/providers #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -65,3 +65,9 @@ Focused candidate transition/failure/crash/recovery tests against actual product
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Release boundary decision — 2026-11-13
+
+Advanced revision replacement, last-good recovery and restart/reconciliation for repeated remote rollouts move to v0.4.28. Initial remote apply, status and destroy as shipped in v0.4.27 are not deferred; no promise of zero-downtime update/automatic rollback in release notes.
+
+No implementation/acceptance is inferred; original stable card_number remains unchanged. Complete this through the normal v0.4.28 Coordinator/Worker/Codex merge process and current native tests.
