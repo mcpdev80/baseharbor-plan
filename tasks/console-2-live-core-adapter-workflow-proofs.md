@@ -11,6 +11,7 @@ owner: ""
 kanban_lane: planned
 kanban_summary: "The Console's live mode reads and mutates only through the protected Core adapter, with live workflow and stream proofs.…"
 kanban_status: planned
+priority: high
 kanban_title: "0428-001 · replace fixtures with the"
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]
 repos: [mcpdev80/baseharbor-console]
@@ -42,6 +43,15 @@ early: true
 **PRs:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
 **Source:** [baseharbor-console#2](https://github.com/mcpdev80/baseharbor-console/issues/2)
 <!-- /generated:links -->
+
+## Assignment boundary (Owner decision 2026-11-13)
+
+**This is a high-priority integration/acceptance umbrella, NOT a single autonomous 256k-context implementation assignment.** The large source scope predates the accepted 0.4.27 Core/Console implementation and must not be reimplemented in one PR.
+
+- Dispatch the bounded worker tasks 0428-008 and 0428-009 first; use their current-code gap inventory and accepted adapter contract to drive 0428-015, 016, 017, 025-029 and the dedicated Console/Grafana integration 0428-014.
+- Keep this historical task and PR #8 for non-duplicative integration reconciliation and real browser proof. Existing qualified functionality must be reused, not rebuilt.
+- Codex performs final independent review and merges the actual scoped PRs; Coordinator may accept this umbrella only after all in-scope Console slices and their exact-source native/browser evidence are recorded. Do not claim acceptance from the existence of child cards or historical PR results.
+- This umbrella does NOT block dispatch of independent child tasks once their own formal prerequisites are accepted. Reserve shared browser CI and core adapter files for the named owning cards, not this umbrella.
 
 ## Goal
 
