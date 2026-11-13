@@ -7,7 +7,7 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: coord-board
+owner: "release-qualification (Owner/Codex)"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1454]
 sources: []
 blocker: ""
-wait_reason: "PR #1454 implements teardown, but the card explicitly says post-test Docker/Podman inventory proving zero leftover bootstrap objects is not recorded."
+wait_reason: "Core PR #1454 merged. Qualification only: attach actual post-test zero owned bootstrap container/volume/network inventory from Docker and rootless Podman. Do not re-implement teardown."
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
 ---
@@ -75,3 +75,9 @@ Depends on 0427-124 only if that fix changes target naming used by the helper; w
 ## Full-card audit correction — 2026-11-13
 
 0427-127 test-bootstrap cleanup remains open: record zero leftover containers, volumes, and networks after the Docker and Podman test packages. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.
+
+## 2026-11-13 Release qualification handoff
+
+Core PR #1454 merged. Qualification only: attach actual post-test zero owned bootstrap container/volume/network inventory from Docker and rootless Podman. Do not re-implement teardown.
+
+Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
