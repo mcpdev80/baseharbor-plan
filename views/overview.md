@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 0 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 1 |
+| ready | 0 |
 | queued | 25 |
 | waiting | 214 |
 | backlog | 7 |
@@ -25,6 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md) | Integration: register the accepted CLI JSON MCP HTTP operations | active | normal | cg-s2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md), [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-remote-podman-web](../tasks/t-20261018-r27-remote-podman-web.md), [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 
 ## Ready for review
 
@@ -42,9 +43,7 @@ None.
 
 ## Ready to assign
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md) | Integration: register the accepted CLI JSON MCP HTTP operations | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md), [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-remote-podman-web](../tasks/t-20261018-r27-remote-podman-web.md), [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
+None.
 
 ## By release
 
