@@ -4,9 +4,9 @@ card_number: "0427-061"
 card_short_title: "prove real stage versions"
 areas: [demo]
 type: acceptance
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 priority: normal
 owner: ""
 kanban_lane: planned
@@ -18,13 +18,13 @@ repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
-early: false
+early: true
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-video-proof · Acceptance: prove real stage versions artifacts and promotion #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/demo #kind/acceptance
+- [ ] t-20261018-r27-video-proof · Acceptance: prove real stage versions artifacts and promotion #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/demo #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -62,3 +62,9 @@ Reuse authenticated unchanged team/local/Docker/Podman/registry receipts only th
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Explicit scope transfer to v0.4.28 — 2026-11-13
+
+Deferred from v0.4.27 release: broader three-stage/demo/Connector acceptance already depends on nc-3 in v0.4.28. Current 0.4.27 single-host Core remote workstation proof remains required.
+
+Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
