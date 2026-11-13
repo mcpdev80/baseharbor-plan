@@ -8,9 +8,9 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: "cg-s3"
-kanban_status: active
-kanban_lane: active
-kanban_summary: Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
+kanban_status: closed
+kanban_lane: closed
+kanban_summary: The two-stage interactive consent behavior and fail-closed refusal paths are covered by the merged CI regression test. Native…
 kanban_title: "0427-123 · shared-core consent blocks"
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates]
@@ -19,24 +19,24 @@ prs: [mcpdev80/baseharbor#1445, mcpdev80/baseharbor#1446]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/1446"]
+resolution: accepted
+evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/1446", "https://github.com/mcpdev80/baseharbor/pull/1446", "https://github.com/mcpdev80/baseharbor/actions/runs/42431899984"]
 
 ---
 
 ## Outcome and acceptance
 
-Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
+The two-stage interactive consent behavior and fail-closed refusal paths are covered by the merged CI regression test. Native Docker/Podman PTY follow-up is not required per Maintainer decision recorded below.
 
-- [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/active #view/active #area/dx #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** cg-s3 · **Priority:** high  
     **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
-    **Evidence:** [proof 1](https://github.com/marcel/dev/baseharbor/commit/db06f01e9), [proof 2](https://github.com/mcpdev80/baseharbor/commit/db06f01e9), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1446)  
+    **Evidence:** [proof 1](https://github.com/marcel/dev/baseharbor/commit/db06f01e9), [proof 2](https://github.com/mcpdev80/baseharbor/commit/db06f01e9), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1446), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1446), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/42431899984)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** cg-s3  
@@ -102,6 +102,12 @@ All existing PR, commit, and CI evidence remains unchanged. No new PASS claimed.
 ## Full-card audit correction — 2026-11-13
 
 0427-123 shared-Core consent remains open: native PTY two-stage app-down and denial proof on Docker and Podman are missing. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.
+
+## 2026-11-13 Maintainer closeout
+
+- Closed as `accepted` on Marcel's explicit instruction: the additional native Docker/Podman PTY qualification is not required because CI already exercises the two-stage consent behavior.
+- Evidence: merged [PR #1446](https://github.com/mcpdev80/baseharbor/pull/1446), head `90e9aae7f5c07729a309f97672f60247885c4845`, merge `f9e207ac0d0b4c983fbb01d4357a8784c41c92de`, and recorded exact-head [CI run #42431899984](https://github.com/mcpdev80/baseharbor/actions/runs/42431899984) (10 PASS, 0 FAIL, 0 pending). It tests two acknowledgements, refusal at each stage, and current-plan binding through `authorizeApplicationStop`.
+- This acceptance records the Maintainer's decision to omit further runtime qualification; the CI test is an in-process interaction regression, not a claim that native Docker/Podman PTY runs occurred. Consent gates remain unchanged.
 
 ## 2026-11-13 Release qualification handoff
 
