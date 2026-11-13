@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: Single owner wires accepted callable adapters into public commands and machine discovery without duplicates. Same…
 kanban_status: planned
 kanban_title: "0427-048 · register the accepted CLI JSON"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-wizard, t-20261018-r27-delegated-handoff, t-20261018-r27-maintenance-client, t-20261018-r27-management-host, t-20261018-r27-onboarding-wizard, t-20261018-r27-promote, t-20261018-r27-remote-podman-web, t-20261018-r27-remote-rollout, t-20261018-r27-version-view, t-20261022-r27-ci-access, t-20261022-r27-ci-authority, t-20261022-r27-ci-delivery, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-wizard, t-20261018-r27-delegated-handoff, t-20261018-r27-maintenance-client, t-20261018-r27-management-host, t-20261018-r27-onboarding-wizard, t-20261018-r27-remote-podman-web, t-20261018-r27-version-view, t-20261022-r27-ci-access, t-20261022-r27-ci-authority, t-20261022-r27-ci-delivery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -73,3 +73,9 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
   ein öffentliches Kommando ist Aufgabe DIESER Karte, nicht der Kodierungsfremden Karte.
 - Auslöser: Rezept 7 des Prüfauftrags review-1363c (coeprdf: profile-codec Runde 5) wurde mit
   Eigentumsbegründung hierher verschoben; nicht stillschweigend fallen lassen.
+
+## v0.4.27 release API closure boundary — 2026-11-13
+
+This task covers **only operations actually supported in v0.4.27** by the existing CLI/JSON/MCP/HTTP Core machine authority: authenticated workstation onboarding, supported local and selected remote Docker/Podman initial app lifecycle, Target selection, status, consent and authorization. The optional generalized cross-environment promotion (0427-036) and advanced multiple-candidate remote rollout are now v0.4.28 and must not be promised by the v0.4.27 public API.
+
+The Coordinator/Owner must compare current production entrypoints and their actual selected CI/VM tests. Record exact operation inventory and a truthful unsupported state for any missing function. Do not mark accepted merely because the CLI build is green; attach exact source and selected live proof.
