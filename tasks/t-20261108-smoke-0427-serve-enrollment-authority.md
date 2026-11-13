@@ -4,12 +4,12 @@ card_number: "0427-168"
 card_short_title: "serve needs local core"
 type: bug
 areas: [connector, cli]
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 owner: ""
 kanban_status: planned
-kanban_lane: ready
+kanban_lane: planned
 kanban_summary: "Implement Connector enrollment against the Core's verified installation authority. The release contract already requires remote…"
 kanban_title: 0427-168 · serve needs local core
 priority: high
@@ -20,9 +20,10 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
-- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-27 #status/planned #view/ready #area/cli #area/connector #kind/bug
+- [ ] t-20261108-smoke-0427-serve-enrollment-authority · Serve: enrollment needs local Core #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/connector #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Ready to assign** · prerequisites accepted  
@@ -83,3 +84,9 @@ Implement Connector enrollment against the Core's verified installation authorit
 ## Scope confirmation 2026-11-08
 
 The accepted core-777 / v0.4.27 contract includes an authenticated remote developer client and host-owned management Core. This is an implementation dependency, **not** an unresolved Owner scope decision. Resume once remote management binding from [0427-023](t-20261018-r27-connection-client.md) and remote bootstrap safety from [0427-167](t-20261108-smoke-0427-up-ignores-target.md) are qualified. The remote E2E remains FAIL.
+
+## Explicit scope transfer to v0.4.28 — 2026-11-13
+
+Deferred Connector enrollment against remotely registered Core: v0.4.27 supports workstation->Core installed on VM, executing Docker/Podman on that VM; separate remote runtime Connector topology is v0.4.28. Do not weaken workstation onboarding security.
+
+Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
