@@ -7,7 +7,7 @@ areas: [platform]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (awaiting release acceptance)
+owner: "release-qualification (Owner/Codex)"
 kanban_lane: wait
 kanban_summary: The selected release candidate completes the developer-PC-to-Core-VM journey with Core and Demo on Docker and Podman. Each…
 kanban_status: wait
@@ -20,7 +20,7 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/43328719841", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719851"]
-wait_reason: "The old eight-cell Core/Demo/Console/Connector matrix is out of scope. Keep this card open only until the current pinned Core+Demo candidate has the intended developer-PC-to-VM lifecycle evidence on Docker and Podman; selector-only CI runs do not count as a runtime result."
+wait_reason: "Release qualification only: user reports current real developer workstation -> Core VM -> Docker/Podman E2E successful; link exact Core/Demo source SHAs, transcripts and cleanup before acceptance. Earlier selector-only CI jobs are not equivalent."
 
 ---
 
@@ -119,3 +119,9 @@ The old eight-cell Core/Demo/Console/Connector matrix is out of scope. Keep this
 ## Release scope correction — 2026-11-13
 
 This card no longer requires Console or Node Connector cells. The v0.4.27 user journey is driven from the developer workstation against Core running on the selected Docker/Podman VM; the Core executes the app on that same VM. Separate remote-runtime Connector acceptance is v0.4.28.
+
+## 2026-11-13 Release qualification handoff
+
+Release qualification only: user reports current real developer workstation -> Core VM -> Docker/Podman E2E successful; link exact Core/Demo source SHAs, transcripts and cleanup before acceptance. Earlier selector-only CI jobs are not equivalent.
+
+Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
