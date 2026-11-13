@@ -4,9 +4,9 @@ card_number: "0427-169"
 card_short_title: "operator API runbook missing"
 type: bug
 areas: [docs, cli]
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
@@ -20,9 +20,10 @@ sources: []
 blocker: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -87,3 +88,9 @@ The following is **source inspection only**, not a validated installation runboo
 - Connector enrollment additionally recognizes `BASEHARBOR_CONNECTOR_ENROLLMENT_ENABLED`, `BASEHARBOR_CONNECTOR_AUTHORITY_TARGET`, `BASEHARBOR_CONNECTOR_LISTEN_ADDR` and `BASEHARBOR_CONNECTOR_TLS_{CERT,KEY,CA}_FILE`; workstation enrollment has `BASEHARBOR_WORKSTATION_ENROLLMENT_ENABLED`.
 - Client currently uses `BASEHARBOR_CONNECTION_PROFILE` with explicit pinned HTTPS CA, installation identity, tenant-bound Target, and operator OIDC `dev` session. Machine routes: authenticated `GET /api/v1/management/installation`, `GET /api/v1/machine/discovery`, `POST /api/v1/machine/executions`, `GET /api/v1/machine/executions/{execution_id}`; 202 is admission only.
 - **Do not publish a copy-paste production startup recipe** from this inspection: TLS/Keycloak provisioning and client app registration remain untested on the real Docker host.
+
+## Explicit scope transfer to v0.4.28 — 2026-11-13
+
+Deferred legacy `baha serve`/Connector operator API runbook details to follow the Connector enrollment topology card in v0.4.28; v0.4.27 still must have accurate `baha up`/`baha onboard` developer-to-VM documentation.
+
+Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
