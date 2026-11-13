@@ -4,9 +4,9 @@ card_number: "0427-020"
 card_short_title: "Deferred CI consumption"
 areas: [docs]
 type: task
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 priority: normal
 owner: ""
 kanban_lane: planned
@@ -17,13 +17,13 @@ depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-docs, t-20261018-
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-early: false
+early: true
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/docs #kind/task
+- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -59,3 +59,9 @@ The sole execution order is [CODEMAN-START.md](../evidence/r27-ci-replacement-20
 ## Current CI contract — 2026-11-03
 
 The Owner retires the evidence and receipt approval chain. This task supplies only the missing ordinary test selection/execution for its domain. Job results flow through normal dependencies; no gate manifests, archived-run verification or evidence reuse. The only CI receipt is merge SHA plus PR number. The replacement baseline task remains open until its actual checks pass.
+
+## Explicit scope transfer to v0.4.28 — 2026-11-13
+
+Deferred from v0.4.27 release: GitHub Actions/GitLab example consumption is optional developer integration documentation, not the VM CLI->Core acceptance gate.
+
+Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
