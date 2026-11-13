@@ -21,14 +21,14 @@ labels: [kind/acceptance, area/runtime, area/evidence, area/dx]
 blocker: ""
 wait_reason: ""
 resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42501503535", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719841", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719851"]
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42501503535", "https://github.com/mcpdev80/baseharbor/actions/runs/42514307992", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404e.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/control-plane-single-default/round-3.md"]
 
 ---
 
 - [x] core-815 · Tests: start all greenfield stacks on native runtimes #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/testing #kind/acceptance
     <!-- generated:card -->
     **Owner:** mcpdev80 (Maintainer accepted)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42501503535), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/43328719851)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42501503535), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42514307992), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/control-plane-single-default/act-1404e.md), [proof 4](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/control-plane-single-default/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -151,4 +151,4 @@ podman-seite: hand-festival auf baha-podman-2 (frisch rebuildet, w283) — gleic
 
 ## Owner closure — 2026-11-13
 
-Owner closure: accepted 2026-11-13. Exact-head 8/8 Greenfield Docker/Podman run #42501503535 passed; current integrated native Core runtime CI #43288025038 and develop selection runs #43328719841/#43328719851 are green. The old separate SINGLE/HA topology evidence requirement is accepted as out of scope for this card; skipped topology jobs are not claimed as executed.
+Owner closure: accepted 2026-11-13 after full audit. Exact-head Greenfield 8/8 Docker/Podman run #42501503535 passed. Separate Docker/Podman evidence in the accepted control-plane task and review #1404e records SINGLE defaults and explicit HA-positive cells; native SINGLE regression #42514307992 passed on both engines. This supports closing the formerly outstanding topology criteria; the later develop runs #43328719841/#43328719851 are not used as topology proof because their runtime cells were skipped.

@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-board
-kanban_status: closed
-kanban_lane: closed
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
 kanban_title: "0427-127 · test bootstrap leaks cores"
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1454]
 sources: []
 blocker: ""
-wait_reason: ""
-resolution: accepted
+wait_reason: "PR #1454 implements teardown, but the card explicitly says post-test Docker/Podman inventory proving zero leftover bootstrap objects is not recorded."
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
 ---
 
-- [x] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** coord-board · **Priority:** normal  
     **PR:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
+    **Waiting:** PR \#1454 implements teardown, but the card explicitly says post-test Docker/Podman inventory proving zero leftover bootstrap objects is not recorded.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1454)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md)  
 **Owner:** coord-board  
@@ -69,3 +70,8 @@ Depends on 0427-124 only if that fix changes target naming used by the helper; w
 
 - `baseharbor/develop` `b73a13a9`: `cmd/baha/runtime_integration_test_support_test.go` hat `TestMain` mit Package-End-Teardown und langlebigem Cleanup-Marker; `runRuntimeIntegrationTestMain` uebernimmt nach Prozessabbruch verwaiste Marker, bricht bei fehlgeschlagener Adoption fail-closed ab und setzt einen Fehlercode, wenn Teardown scheitert. `destroyRuntimeIntegrationTrustPlane` entfernt Keycloak, Daten-Provider, Control Plane und prueft das Restinventar; eine Einzelschritt-Fehlfunktion verhindert die spaeteren Aufraeumversuche nicht.
 - [PR #1454](https://github.com/mcpdev80/baseharbor/pull/1454) gemergt, exact-head [PR-CI #42464014150](https://github.com/mcpdev80/baseharbor/actions/runs/42464014150) terminal SUCCESS. **Code-Fix vorhanden.** CI-Erfolg allein ist jedoch keine hier eigens protokollierte Host-Nachmessung aller Docker-/Podman-Restobjekte nach dem Testpaket. Diese externe Restressourcen-Abnahme bleibt offen; deshalb Karte `review`, nicht voreilig `closed`.
+
+
+## Full-card audit correction — 2026-11-13
+
+0427-127 test-bootstrap cleanup remains open: record zero leftover containers, volumes, and networks after the Docker and Podman test packages. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.

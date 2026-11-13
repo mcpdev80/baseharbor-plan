@@ -13,7 +13,7 @@ kanban_lane: closed
 kanban_summary: Two independent gaps block a demo-app (services.secrets enabled) from reaching READY against an isolated single-default Core at…
 kanban_title: "0427-118 · runtime broker readiness"
 priority: ""
-depends_on: [t-20261017-release-0-4-27-updates, t-20261104-r27-vm-integration-runs]
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1425]
 sources: []
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-w
 <!-- generated:links -->
 **State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261104-r27-vm-integration-runs](t-20261104-r27-vm-integration-runs.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Required by:** [t-20261107-oci-pull-error-propagation](t-20261107-oci-pull-error-propagation.md)  
 **Owner:** mcpdev80  
 **Priority:** not set  
@@ -97,3 +97,7 @@ CODEX request-changes: /readyz default 503 ohne executor-URL (nur env-waiver) + 
 - Produktfix fuer klassifizierten `oras`-Fehler, unverifizierbares OCI und Broker-Readiness integriert. Dies bestaetigt noch **keine** externe Demo-App-READY-Abnahme gegen das aktuelle Core/Image auf Docker und Podman; Karte bleibt **review**, bis der beschriebene reale Matrix-Nachweis akzeptiert ist.
 
 MERGED von owner (a1cb141bf). review-flag exec.ErrNotFound-preserve: owner hat gemergt, ggf follow-up.
+
+## Dependency correction — 2026-11-13
+
+The earlier link to 0427-107 recorded where the defect was discovered; completing the broader cross-repository runtime matrix is not a prerequisite for accepting this narrow, independently fixed and tested ORAS/readiness defect. The broader qualification remains open on 0427-107 and the release Qualify card.

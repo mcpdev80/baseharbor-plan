@@ -7,9 +7,9 @@ areas: [remote, deployment]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (Maintainer accepted)
-kanban_status: closed
-kanban_lane: closed
+owner: mcpdev80 (awaiting release acceptance)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: "0427-186 · Editable Target policy presets"
 priority: high
@@ -18,23 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
-resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
+wait_reason: "Merged PR #1514 is documented as a foundation only. Core-verified source provenance and remote editing of existing Target policy are still missing from the accepted task notes and are part of the Maintainer-selected v0.4.27 release scope. Keep open pending implementation/acceptance or a separate explicit scope decision."
+resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233"]
 ---
 
-- [x] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/deployment #area/remote #kind/feature
+- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/wait #view/wait #area/deployment #area/remote #kind/feature
     <!-- generated:card -->
-    **Owner:** mcpdev80 (Maintainer accepted) · **Priority:** high  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
+    **Owner:** mcpdev80 (awaiting release acceptance) · **Priority:** high  
+    **Waiting:** Merged PR \#1514 is documented as a foundation only. Core-verified source provenance and remote editing of existing Target policy are still missing from the accepted task notes and are part of the Maintainer-selected v0.4.27 release scope.…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Required by:** [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md)  
-**Owner:** mcpdev80 (Maintainer accepted)  
+**Owner:** mcpdev80 (awaiting release acceptance)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
@@ -68,3 +69,7 @@ Implement the Owner-approved [target-preset decision](../decisions/2026-11-09-r2
 ## Owner closure — 2026-11-13
 
 Owner closure: accepted 2026-11-13. The merged preset foundation and its CI are accepted for this release card. Core-authoritative provenance verification and remote editing of existing policies remain future scope; they are explicitly not claimed as implemented by this closure.
+
+## Reopened after full v0.4.27 audit — 2026-11-13
+
+Merged PR #1514 is documented as a foundation only. Core-verified source provenance and remote editing of existing Target policy are still missing from the accepted task notes and are part of the Maintainer-selected v0.4.27 release scope. Keep open pending implementation/acceptance or a separate explicit scope decision.

@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: coord-board
-kanban_status: closed
-kanban_lane: closed
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "An application whose recorded intent carries the malformed SQL instance-reference key \"/\" can no longer block baha app down of a…"
 kanban_title: "0427-121 · phantom SQL key blocks down"
 priority: high
@@ -18,21 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1447, mcpdev80/baseharbor#1450]
 sources: []
 blocker: ""
-wait_reason: "Native Docker/Podman two-app stop-plan regression passed; full CLI app up/down E2E awaits operator-OIDC availability and verified end-to-end execution."
-resolution: accepted
+wait_reason: "Resolver-layer tests passed on both engines, but full two-app CLI up/down acceptance stopped at operator-OIDC and is not recorded as passed."
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f", "https://github.com/mcpdev80/baseharbor/commit/1450"]
 ---
 
-- [x] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/lifecycle #area/sql #kind/bug
+- [ ] t-20261108-bughunt-0427-sql-ref-key-cross-app-block · Bug Hunt v0.4.27: Phantom-SQL-Referenz-Key blockiert app down #task #release/v0-4-27 #status/wait #view/wait #area/lifecycle #area/sql #kind/bug
     <!-- generated:card -->
     **Owner:** coord-board · **Priority:** high  
     **PR:** [baseharbor#1447](https://github.com/mcpdev80/baseharbor/pull/1447), [baseharbor#1450](https://github.com/mcpdev80/baseharbor/pull/1450)  
-    **Waiting:** Native Docker/Podman two-app stop-plan regression passed; full CLI app up/down E2E awaits operator-OIDC availability and verified end-to-end execution.  
+    **Waiting:** Resolver-layer tests passed on both engines, but full two-app CLI up/down acceptance stopped at operator-OIDC and is not recorded as passed.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/commit/8f8be71df2d73846d2cfed275cf6dfbf28ded89f), [proof 2](https://github.com/mcpdev80/baseharbor/commit/1450)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** coord-board  
@@ -124,3 +124,8 @@ An application whose recorded intent carries the malformed SQL instance-referenc
 
 - Changed `blocked` to `wait`: old frontmatter asserted native two-app acceptance was **never** executed, contradicted by [round-1 evidence](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-08/bughunt-sql-ref-key/round-1.md). Both Docker and Podman ran real CLI stop-impact *resolver-layer* tests and passed, with legacy phantom-key deployment record preserved unmodified. These were Go test invocations on native hosts, **not** full containerized two-app `baha up`→`baha app down` CLI lifecycle acceptance.
 - Complete CLI journey stopped at the operator-OIDC authentication precondition; do not claim runtime E2E PASS. Await a functioning operator login / native CLI E2E with the two-app reproduction. Existing merged #1447/#1450 safety guards and regressions stay intact; coordinator retains task ownership.
+
+
+## Full-card audit correction — 2026-11-13
+
+0427-121 phantom SQL reference remains open: complete the two-app CLI up/down journey with the legacy record on Docker and Podman. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.

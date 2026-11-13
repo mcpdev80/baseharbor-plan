@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: lane-0427-110-compose-native-acceptance
-kanban_status: closed
-kanban_lane: closed
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -17,21 +17,23 @@ depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1383]
 sources: []
-resolution: accepted
+resolution: ""
+wait_reason: "Native Podman app readiness and the complete Docker/Podman matrix are not evidenced; round-9 records unfinished Podman cells and leak analysis."
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1383", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
 blocker: ""
 
 ---
 
-- [x] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-110-compose-native-acceptance · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Waiting:** Native Podman app readiness and the complete Docker/Podman matrix are not evidenced; round-9 records unfinished Podman cells and leak analysis.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1383), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-110-compose-native-acceptance  
@@ -351,3 +353,8 @@ Before/after `docker ps` + Cleanliness-Zeile in dieser Akte dokumentiert.
 
 - [#1383](https://github.com/mcpdev80/baseharbor/pull/1383) ist gemergt (`812c99c8873df400348fbc8cc9be5e650b8966c4`); er ist **kein offener PR-Blocker** mehr.
 - Die in round-9 beschriebene offene Podman-App-Readiness, die unvollstaendige Podman-Matrix und die getrennte count=2-Prozess-Leak-Analyse sind fachliche Restbelege. Daher `active` nicht automatisch zu `closed`. Die historische Lane-Bezeichnung darf nicht als aktuell laufender Worker interpretiert werden, bevor die Coordinator-Zustaendigkeit bestaetigt ist.
+
+
+## Full-card audit correction — 2026-11-13
+
+0427-110 Compose-host isolation remains open: Podman app readiness and the complete isolated-runtime matrix need current exact-head evidence. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.

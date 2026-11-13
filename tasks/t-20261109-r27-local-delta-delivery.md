@@ -9,7 +9,7 @@ version: ""
 parent: v0.4.27
 owner: ""
 kanban_status: planned
-kanban_lane: ready
+kanban_lane: planned
 kanban_summary: "Implement the approved local delta delivery, as scoped by issue #1513. Existing snapshot/candidate-ingress and OCI-native…"
 kanban_title: 0427-187 · Dirty + OCI delta delivery
 priority: high
@@ -23,14 +23,15 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-27 #status/planned #view/ready #area/delivery #area/remote #kind/feature
+- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/delivery #area/remote #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
 **Owner:** unassigned  

@@ -7,9 +7,9 @@ areas: []
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: mcpdev80 (Maintainer accepted)
-kanban_status: closed
-kanban_lane: closed
+owner: mcpdev80 (awaiting release acceptance)
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "One or two sentences: the observable outcome."
 kanban_title: 0427-183 · Repository workload CI rot
 priority: ""
@@ -18,22 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: ""
-resolution: accepted
-evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038"]
+wait_reason: "Historical develop counter-probe #42690054408 failed five named repository lifecycle tests. The later PR run #43288025038 is green but does not expose an execution record for those exact serial integration tests; the latest develop runtime jobs skipped their native test cells. Keep open until exact tests pass on current develop or are explicitly retired with evidence."
+resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "https://github.com/mcpdev80/baseharbor/actions/runs/43288025038", "https://github.com/mcpdev80/baseharbor/actions/runs/43328719841"]
 ---
 
-- [x] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/closed #view/closed #board/planned #kind/bug
+- [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 (Maintainer accepted)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42690054408), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038)  
+    **Owner:** mcpdev80 (awaiting release acceptance)  
+    **Waiting:** Historical develop counter-probe \#42690054408 failed five named repository lifecycle tests. The later PR run \#43288025038 is green but does not expose an execution record for those exact serial integration tests; the latest develop runtime…  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42690054408), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** mcpdev80 (Maintainer accepted)  
+**Owner:** mcpdev80 (awaiting release acceptance)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
@@ -75,3 +76,7 @@ Counter-probe (workflow_dispatch on refs/heads/develop d2e225f20, run 4269005440
 ## Owner closure — 2026-11-13
 
 Owner closure: accepted 2026-11-13. The failing develop counter-probe is retained as historical evidence; later integrated PR CI is green. The exact five serial integration test names were not independently reproduced in the retained current run logs, so this closure records Maintainer acceptance/triage and does not claim a rerun of those exact tests.
+
+## Reopened after full v0.4.27 audit — 2026-11-13
+
+Historical develop counter-probe #42690054408 failed five named repository lifecycle tests. The later PR run #43288025038 is green but does not expose an execution record for those exact serial integration tests; the latest develop runtime jobs skipped their native test cells. Keep open until exact tests pass on current develop or are explicitly retired with evidence.
