@@ -10,9 +10,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 1 |
+| active | 2 |
 | review | 0 |
-| wait | 5 |
+| wait | 4 |
 | blocked | 0 |
 | ready | 1 |
 | queued | 25 |
@@ -25,6 +25,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | active | high | cg-s2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 
 ## Ready for review
 
@@ -35,7 +36,6 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-node-cli](../tasks/t-20261018-r27-node-cli.md) | Node Connector: finish guided enrollment and remote-host lifecycle | wait | normal | mcpdev80 (awaiting release acceptance) | [t-20261017-release-0-4-28-updates](../tasks/t-20261017-release-0-4-28-updates.md) (open), [t-20261018-r27-client-commands](../tasks/t-20261018-r27-client-commands.md), [t-20261018-r27-node-trust](../tasks/t-20261018-r27-node-trust.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) | CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon | wait | high | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383) |
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | wait | high | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446) |
 | [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | wait | normal | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 | [t-20261109-0427-183-repository-workload-ci-rot](../tasks/t-20261109-0427-183-repository-workload-ci-rot.md) | 0427-183 · Repository lifecycle/compose CI tests fail on develop head | wait | not set | release-qualification (Owner/Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
