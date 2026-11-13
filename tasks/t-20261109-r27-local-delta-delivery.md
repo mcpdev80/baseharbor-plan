@@ -4,9 +4,9 @@ card_number: "0427-187"
 card_short_title: "Dirty + OCI delta delivery"
 type: feature
 areas: [remote, delivery]
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
@@ -21,9 +21,10 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
+early: true
 ---
 
-- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/delivery #area/remote #kind/feature
+- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/delivery #area/remote #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
@@ -52,3 +53,9 @@ Implement the approved [local delta delivery](../decisions/2026-11-09-r27-local-
 - Independent workstation -> authenticated Core -> Connector -> Docker/Podman READY, second changed-only apply, update and destroy, preserving Target/App/environment identity, consent and last good deployment.
 - Negative trust/tenant, symlink/secret, tamper, source-concurrency, dirty/policy cases; real hosted/native proof and CI mapping.
 - Planned and unassigned as of 2026-11-09; no PR, no completion claim. No release/tag.
+
+## Explicit scope transfer to v0.4.28 — 2026-11-13
+
+Deferred from v0.4.27 release: local dirty/untracked delta transfer and repeat apply are separate unfinished enhancements. v0.4.27 release docs must not claim these as supported.
+
+Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
