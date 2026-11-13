@@ -30,9 +30,9 @@ Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open
 
 - [ ] t-20261108-bughunt-0427-shared-core-machine-consent · 0427-123 · App up/down haengt an machine-consent #task #release/v0-4-27 #status/wait #view/wait #area/dx #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** coordinator · **Priority:** high  
+    **Owner:** release-qualification (Owner/Codex) · **Priority:** high  
     **PR:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
-    **Waiting:** Merged consent-path regressions are not a real PTY Docker/Podman two-stage app-down and denial journey.  
+    **Waiting:** Core PRs \#1445 and \#1446 merged. Qualification only: attach current native Docker and Podman PTY two-stage app-down positive/deny flows, exact SHA, cleanup; do not relax consent gates.  
     **Evidence:** [proof 1](https://github.com/marcel/dev/baseharbor/commit/db06f01e9), [proof 2](https://github.com/mcpdev80/baseharbor/commit/db06f01e9), [proof 3](https://github.com/mcpdev80/baseharbor/commit/1446)  
     <!-- /generated:card -->
 
@@ -40,7 +40,7 @@ Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** coordinator  
+**Owner:** release-qualification (Owner/Codex)  
 **Priority:** high  
 **PRs:** [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446)  
 **Source:** 

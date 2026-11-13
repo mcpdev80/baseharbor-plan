@@ -26,8 +26,8 @@ wait_reason: "Release qualification only: user reports current real developer wo
 
 - [ ] t-20261104-r27-vm-integration-runs · Operations: Core + Demo developer-workstation-to-VM flow on Docker and Podman #task #release/v0-4-27 #status/wait #view/wait #area/platform #kind/task
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting release acceptance) · **Priority:** high  
-    **Waiting:** The old eight-cell Core/Demo/Console/Connector matrix is out of scope. Keep this card open only until the current pinned Core+Demo candidate has the intended developer-PC-to-VM lifecycle evidence on Docker and Podman; selector-only CI runs…  
+    **Owner:** release-qualification (Owner/Codex) · **Priority:** high  
+    **Waiting:** Release qualification only: user reports current real developer workstation -\> Core VM -\> Docker/Podman E2E successful; link exact Core/Demo source SHAs, transcripts and cleanup before acceptance. Earlier selector-only CI jobs are not equi…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43328719851)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ wait_reason: "Release qualification only: user reports current real developer wo
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-device-enrollment](t-20261018-r27-device-enrollment.md), [t-20261104-r27-vm-rebuild-integration](t-20261104-r27-vm-rebuild-integration.md)  
-**Owner:** mcpdev80 (awaiting release acceptance)  
+**Owner:** release-qualification (Owner/Codex)  
 **Priority:** high  
 **PRs:** none  
 **Source:** 

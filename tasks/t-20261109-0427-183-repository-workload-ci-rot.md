@@ -25,8 +25,8 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "h
 
 - [ ] t-20261109-0427-183-repository-workload-ci-rot · 0427-183 · Repository lifecycle/compose CI tests fail on develop head #task #release/v0-4-27 #status/wait #view/wait #kind/bug
     <!-- generated:card -->
-    **Owner:** mcpdev80 (awaiting release acceptance)  
-    **Waiting:** Historical develop counter-probe \#42690054408 failed five named repository lifecycle tests. The later PR run \#43288025038 is green but does not expose an execution record for those exact serial integration tests; the latest develop runtime…  
+    **Owner:** release-qualification (Owner/Codex)  
+    **Waiting:** Qualification only: current five named serial repository lifecycle tests must actually execute PASS on exact release candidate or have evidence-backed explicit retirement; generic green shards/selectors are insufficient.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/actions/runs/42690054408), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/43288025038), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/43328719841)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/actions/runs/42690054408", "h
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
-**Owner:** mcpdev80 (awaiting release acceptance)  
+**Owner:** release-qualification (Owner/Codex)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

@@ -25,9 +25,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
 
 - [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** coord-board · **Priority:** normal  
+    **Owner:** release-qualification (Owner/Codex) · **Priority:** normal  
     **PR:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
-    **Waiting:** PR \#1454 implements teardown, but the card explicitly says post-test Docker/Podman inventory proving zero leftover bootstrap objects is not recorded.  
+    **Waiting:** Core PR \#1454 merged. Qualification only: attach actual post-test zero owned bootstrap container/volume/network inventory from Docker and rootless Podman. Do not re-implement teardown.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1454)  
     <!-- /generated:card -->
 
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
 **State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md)  
-**Owner:** coord-board  
+**Owner:** release-qualification (Owner/Codex)  
 **Priority:** normal  
 **PRs:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
 **Source:** 
