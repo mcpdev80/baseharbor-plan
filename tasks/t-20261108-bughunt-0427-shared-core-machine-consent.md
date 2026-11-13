@@ -7,7 +7,7 @@ areas: [lifecycle,dx]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "coordinator"
+owner: "release-qualification (Owner/Codex)"
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: Merged unit/contract fixes are not native Docker/Podman PTY acceptance; see open test requirements below.
@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1445, mcpdev80/baseharbor#1446]
 sources: []
 blocker: ""
-wait_reason: "Merged consent-path regressions are not a real PTY Docker/Podman two-stage app-down and denial journey."
+wait_reason: "Core PRs #1445 and #1446 merged. Qualification only: attach current native Docker and Podman PTY two-stage app-down positive/deny flows, exact SHA, cleanup; do not relax consent gates."
 resolution: ""
 evidence: ["https://github.com/marcel/dev/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/db06f01e9", "https://github.com/mcpdev80/baseharbor/commit/1446"]
 
@@ -103,3 +103,9 @@ All existing PR, commit, and CI evidence remains unchanged. No new PASS claimed.
 ## Full-card audit correction — 2026-11-13
 
 0427-123 shared-Core consent remains open: native PTY two-stage app-down and denial proof on Docker and Podman are missing. The merged implementation and earlier evidence are retained; no missing acceptance is inferred from a green unrelated workflow.
+
+## 2026-11-13 Release qualification handoff
+
+Core PRs #1445 and #1446 merged. Qualification only: attach current native Docker and Podman PTY two-stage app-down positive/deny flows, exact SHA, cleanup; do not relax consent gates.
+
+Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
