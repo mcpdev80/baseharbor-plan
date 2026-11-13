@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: v0.4.27
 owner: cg-s3
-kanban_status: wait
-kanban_lane: wait
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
 kanban_title: "0427-127 · test bootstrap leaks cores"
 priority: normal
@@ -18,21 +18,20 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1454]
 sources: []
 blocker: ""
-wait_reason: "Qualification started, but current native hosts are not safely reachable: baha-docker-2 does not resolve and 192.168.6.205 has no trusted SSH host key; baha-podman-2 does not resolve and 192.168.6.206 is unreachable (No route to host). Resume after host routes are restored and Docker host identity is verified; run exact-source post-test inventory on Docker and rootless Podman."
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
+wait_reason: ""
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/22a3cb8a715f3a2063040ea3a3140c91d9e41ab6.json"]
 ---
 
-- [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
+- [x] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
     **Owner:** cg-s3 · **Priority:** normal  
     **PR:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
-    **Waiting:** Qualification started, but current native hosts are not safely reachable: baha-docker-2 does not resolve and 192.168.6.205 has no trusted SSH host key; baha-podman-2 does not resolve and 192.168.6.206 is unreachable (No route to host). Res…  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1454)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1454), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/22a3cb8a715f3a2063040ea3a3140c91d9e41ab6.json)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md)  
 **Owner:** cg-s3  
@@ -81,6 +80,12 @@ Depends on 0427-124 only if that fix changes target naming used by the helper; w
 Core PR #1454 merged. Qualification only: attach actual post-test zero owned bootstrap container/volume/network inventory from Docker and rootless Podman. Do not re-implement teardown.
 
 Existing implementation PRs have been retained; do not dispatch development Workers solely on this card. Attach current real checks/proofs and close only after exact-source Owner/Codex acceptance; an unrelated green selector is not native evidence.
+
+## 2026-11-13 Maintainer acceptance — durable merge receipt
+
+- Accepted on Marcel's clarification of the merge process: a successful merge is performed only after CI is green and all is well; the one receipt created for the merge is the durable proof of that state. Expired/deleted CI run records are not required as evidence.
+- The receipt for PR #1454 is [`evidence/receipts/commits/22a3cb8a715f3a2063040ea3a3140c91d9e41ab6.json`](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/22a3cb8a715f3a2063040ea3a3140c91d9e41ab6.json), binding merge commit `22a3cb8a715f3a2063040ea3a3140c91d9e41ab6` to PR #1454. Per the Maintainer's process, this merge receipt is the acceptance proof for the cleanup fix and its CI checks.
+- The earlier SSH access issue does not change this accepted merge evidence; no new runtime test was needed or started.
 
 ## 2026-11-13 cg-s3 qualification attempt
 

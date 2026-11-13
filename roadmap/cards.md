@@ -11,7 +11,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.27 · Remote development and onboarding #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 152/165 · **Blocked:** 1 · **Waiting:** 5  
+    **Accepted tasks:** 154/165 · **Blocked:** 1 · **Waiting:** 5  
     **Blocker:** [t-20261105-r27-compose-host-isolation](../tasks/t-20261105-r27-compose-host-isolation.md) — Native Docker/Podman test-host access cannot currently be verified: documented Docker test endpoint 192.168.6.205 has no trusted SSH host key, Podman endpoint…  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
