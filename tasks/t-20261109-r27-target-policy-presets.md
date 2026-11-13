@@ -4,12 +4,12 @@ card_number: "0427-186"
 card_short_title: "Editable Target policy presets"
 type: feature
 areas: [remote, deployment]
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
-owner: mcpdev80 (awaiting release acceptance)
-kanban_status: wait
-kanban_lane: wait
+parent: v0.4.28
+owner: ""
+kanban_status: planned
+kanban_lane: planned
 kanban_summary: ""
 kanban_title: "0427-186 · Editable Target policy presets"
 priority: high
@@ -18,12 +18,13 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-wait_reason: "Merged PR #1514 is documented as a foundation only. Core-verified source provenance and remote editing of existing Target policy are still missing from the accepted task notes and are part of the Maintainer-selected v0.4.27 release scope. Keep open pending implementation/acceptance or a separate explicit scope decision."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233"]
+early: true
 ---
 
-- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-27 #status/wait #view/wait #area/deployment #area/remote #kind/feature
+- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-28 #status/wait #view/wait #area/deployment #area/remote #kind/feature
     <!-- generated:card -->
     **Owner:** mcpdev80 (awaiting release acceptance) · **Priority:** high  
     **Waiting:** Merged PR \#1514 is documented as a foundation only. Core-verified source provenance and remote editing of existing Target policy are still missing from the accepted task notes and are part of the Maintainer-selected v0.4.27 release scope.…  
@@ -73,3 +74,9 @@ Owner closure: accepted 2026-11-13. The merged preset foundation and its CI are 
 ## Reopened after full v0.4.27 audit — 2026-11-13
 
 Merged PR #1514 is documented as a foundation only. Core-verified source provenance and remote editing of existing Target policy are still missing from the accepted task notes and are part of the Maintainer-selected v0.4.27 release scope. Keep open pending implementation/acceptance or a separate explicit scope decision.
+
+## Explicit scope transfer to v0.4.28 — 2026-11-13
+
+Deferred remaining target-policy work: accepted PR #1514 foundation remains in 0.4.27; unverified Core provenance and remote target policy editing must not be claimed complete until 0.4.28 acceptance.
+
+Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
