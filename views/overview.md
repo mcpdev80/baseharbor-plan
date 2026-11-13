@@ -10,22 +10,21 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 2 |
+| active | 1 |
 | review | 0 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 0 |
+| ready | 2 |
 | queued | 25 |
-| waiting | 214 |
+| waiting | 212 |
 | backlog | 7 |
-| closed | 231 |
+| closed | 232 |
 
 ## Active
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md) | Integration: register the accepted CLI JSON MCP HTTP operations | active | normal | cg-s2 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](../tasks/t-20261018-r27-access-wizard.md), [t-20261018-r27-delegated-handoff](../tasks/t-20261018-r27-delegated-handoff.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-management-host](../tasks/t-20261018-r27-management-host.md), [t-20261018-r27-onboarding-wizard](../tasks/t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-remote-podman-web](../tasks/t-20261018-r27-remote-podman-web.md), [t-20261018-r27-version-view](../tasks/t-20261018-r27-version-view.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
 
 ## Ready for review
 
@@ -43,12 +42,15 @@ None.
 
 ## Ready to assign
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261018-r27-docs](../tasks/t-20261018-r27-docs.md) | Docs: document one local remote and team workflow | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-local-registry](../tasks/t-20261018-r27-local-registry.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
+| [t-20261018-r27-local-parity-proof](../tasks/t-20261018-r27-local-parity-proof.md) | Acceptance: prove unchanged no-login local operation | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-authority](../tasks/t-20261022-r27-ci-authority.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 7 open, 158 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 6 open, 159 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): Console, Grafana OSS and management workflows — 53 open, 5 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))

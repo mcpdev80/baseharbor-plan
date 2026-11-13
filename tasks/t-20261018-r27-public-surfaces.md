@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.27
 priority: normal
 owner: cg-s2
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: Single owner wires accepted callable adapters into public commands and machine discovery without duplicates. Same…
-kanban_status: active
+kanban_status: closed
 kanban_title: "0427-048 · register the accepted CLI JSON"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-access-wizard, t-20261018-r27-delegated-handoff, t-20261018-r27-maintenance-client, t-20261018-r27-management-host, t-20261018-r27-onboarding-wizard, t-20261018-r27-remote-podman-web, t-20261018-r27-version-view, t-20261022-r27-ci-access, t-20261022-r27-ci-authority, t-20261022-r27-ci-delivery, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -20,17 +20,18 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: false
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/0427-048-public-surfaces-audit-2026-11-13.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/1cbfaefe24e19ed6110a0cc68eb8b9b869880e52.json"]
 ---
 
-- [ ] t-20261018-r27-public-surfaces · Integration: register the accepted CLI JSON MCP HTTP operations #task #release/v0-4-27 #status/active #view/active #area/cli #kind/task
+- [x] t-20261018-r27-public-surfaces · Integration: register the accepted CLI JSON MCP HTTP operations #task #release/v0-4-27 #status/closed #view/closed #board/planned #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** cg-s2 · **Priority:** normal  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/0427-048-public-surfaces-audit-2026-11-13.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/receipts/commits/1cbfaefe24e19ed6110a0cc68eb8b9b869880e52.json)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-wizard](t-20261018-r27-access-wizard.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-management-host](t-20261018-r27-management-host.md), [t-20261018-r27-onboarding-wizard](t-20261018-r27-onboarding-wizard.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md), [t-20261022-r27-ci-authority](t-20261022-r27-ci-authority.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
@@ -77,3 +78,8 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 This task covers **only operations actually supported in v0.4.27** by the existing CLI/JSON/MCP/HTTP Core machine authority: authenticated workstation onboarding, supported local and selected remote Docker/Podman initial app lifecycle, Target selection, status, consent and authorization. The optional generalized cross-environment promotion (0427-036) and advanced multiple-candidate remote rollout are now v0.4.28 and must not be promised by the v0.4.27 public API.
 
 The Coordinator/Owner must compare current production entrypoints and their actual selected CI/VM tests. Record exact operation inventory and a truthful unsupported state for any missing function. Do not mark accepted merely because the CLI build is green; attach exact source and selected live proof.
+
+
+## Maintainer acceptance — 2026-11-13
+
+Accepted by delegated Maintainer authority after exact-source audit: the supported CLI/JSON/MCP/HTTP registrations, machine coverage inventory, onboarding profile consumer and fail-closed registration test routing are already integrated at `develop` `1cbfaefe24e19ed6110a0cc68eb8b9b869880e52`. The focused command-tree, JSON/MCP, HTTP-discovery/authorization and management-access tests pass at that SHA; the standard merge receipt is linked above. No duplicate product code or new CI workflow was necessary. Details and exact commands: [0427-048 audit](../evidence/0427-048-public-surfaces-audit-2026-11-13.md). Scope excludes v0.4.28 promotion and multi-candidate rollout.

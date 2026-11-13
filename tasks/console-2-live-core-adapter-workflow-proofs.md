@@ -30,7 +30,7 @@ early: true
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
