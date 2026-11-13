@@ -12,11 +12,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 1 |
 | review | 0 |
-| wait | 7 |
+| wait | 6 |
 | blocked | 0 |
-| ready | 2 |
+| ready | 1 |
 | queued | 25 |
-| waiting | 214 |
+| waiting | 216 |
 | backlog | 7 |
 | closed | 224 |
 
@@ -40,7 +40,6 @@ None.
 | [t-20261108-bughunt-0427-shared-core-machine-consent](../tasks/t-20261108-bughunt-0427-shared-core-machine-consent.md) | 0427-123 · App up/down haengt an machine-consent | wait | high | coordinator | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1445](https://github.com/mcpdev80/baseharbor/pull/1445), [baseharbor#1446](https://github.com/mcpdev80/baseharbor/pull/1446) |
 | [t-20261108-bughunt-0427-test-bootstrap-leak](../tasks/t-20261108-bughunt-0427-test-bootstrap-leak.md) | Bug Hunt v0.4.27: Test-Bootstrap leak't Cores | wait | normal | coord-board | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](../tasks/t-20261108-bughunt-0427-target-env-ignored.md) | [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454) |
 | [t-20261109-0427-183-repository-workload-ci-rot](../tasks/t-20261109-0427-183-repository-workload-ci-rot.md) | 0427-183 · Repository lifecycle/compose CI tests fail on develop head | wait | not set | mcpdev80 (awaiting release acceptance) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | wait | high | mcpdev80 (awaiting release acceptance) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 
 ## Blocked
 
@@ -51,13 +50,12 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261018-r27-remote-docker-web](../tasks/t-20261018-r27-remote-docker-web.md) | Remote Docker: verify SQL cache and reachable HTTPS workload | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-remote-material](../tasks/t-20261018-r27-remote-material.md), [t-20261022-r27-ci-runtime](../tasks/t-20261022-r27-ci-runtime.md) | — |
-| [t-20261108-smoke-0427-serve-enrollment-authority](../tasks/t-20261108-smoke-0427-serve-enrollment-authority.md) | Serve: enrollment needs local Core | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md), [t-20261108-smoke-0427-up-ignores-target](../tasks/t-20261108-smoke-0427-up-ignores-target.md) | — |
 
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 24 open, 151 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): Console, Grafana OSS and management workflows — 43 open, 5 closed ([view](releases/v0.4.28.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 14 open, 151 closed ([view](releases/v0.4.27.md))
+- [v0.4.28](../releases/v0.4.28.md): Console, Grafana OSS and management workflows — 53 open, 5 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 8 open, 0 closed ([view](releases/v0.4.31.md))

@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Implement the approved local delta delivery, as scoped by issue #1513. Existing snapshot/candidate-ingress and OCI-native…"
 kanban_title: 0427-187 · Dirty + OCI delta delivery
 priority: high
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client, t-20261109-r27-target-policy-presets]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-connection-client, t-20261109-r27-target-policy-presets]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]
 prs: []
 sources: []
@@ -28,13 +28,13 @@ early: true
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  

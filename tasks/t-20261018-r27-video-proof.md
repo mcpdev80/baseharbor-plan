@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Qualify real-world operation, not a filmed demonstration: same app has three independent release/component versions and…"
 kanban_status: planned
 kanban_title: "0427-061 · prove real stage versions"
-depends_on: [nc-3, t-20261017-release-0-4-27-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-consumption, t-20261018-r27-delegated-handoff, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-local-registry, t-20261018-r27-promote, t-20261018-r27-team-proof, t-20261018-r27-version-view, t-20261022-r27-ci-runtime]
+depends_on: [nc-3, t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-consumption, t-20261018-r27-delegated-handoff, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-local-registry, t-20261018-r27-promote, t-20261018-r27-team-proof, t-20261018-r27-version-view, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -28,13 +28,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Needs:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  

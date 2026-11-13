@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: Apply an explicitly selected next version through native Docker Compose or Podman Quadlet/systemd using existing…
 kanban_status: planned
 kanban_title: "0427-053 · apply a new candidate without"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-journal-wiring, t-20261018-r27-mutation-lock, t-20261018-r27-remote-podman-web, t-20261018-r27-stage-versions, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-journal-wiring, t-20261018-r27-mutation-lock, t-20261018-r27-remote-podman-web, t-20261018-r27-stage-versions, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -28,14 +28,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
-**Required by:** [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Required by:** [t-20261018-r27-promote](t-20261018-r27-promote.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  

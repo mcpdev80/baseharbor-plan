@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: Prove external corporate OIDC without managed Keycloak and optional managed-Identity invite/profile path. Trusted Dev Remote…
 kanban_status: planned
 kanban_title: "0427-012 · qualify managed and external"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-access]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -28,13 +28,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  
