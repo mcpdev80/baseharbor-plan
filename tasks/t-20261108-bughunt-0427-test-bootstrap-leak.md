@@ -7,9 +7,9 @@ areas: [lifecycle, compose]
 release: v0.4.27
 version: ""
 parent: v0.4.27
-owner: "release-qualification (Owner/Codex)"
-kanban_status: wait
-kanban_lane: wait
+owner: cg-s3
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Runtime integration tests leave no residual bootstrap Core: after the test binary finishes, docker ps -a (and volumes/networks)…"
 kanban_title: "0427-127 · test bootstrap leaks cores"
 priority: normal
@@ -18,24 +18,23 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1454]
 sources: []
 blocker: ""
-wait_reason: "Core PR #1454 merged. Qualification only: attach actual post-test zero owned bootstrap container/volume/network inventory from Docker and rootless Podman. Do not re-implement teardown."
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1454"]
 ---
 
-- [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/wait #view/wait #area/compose #area/lifecycle #kind/bug
+- [ ] t-20261108-bughunt-0427-test-bootstrap-leak · Bug Hunt v0.4.27: Test-Bootstrap leak't Cores #task #release/v0-4-27 #status/active #view/active #area/compose #area/lifecycle #kind/bug
     <!-- generated:card -->
-    **Owner:** release-qualification (Owner/Codex) · **Priority:** normal  
+    **Owner:** cg-s3 · **Priority:** normal  
     **PR:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
-    **Waiting:** Core PR \#1454 merged. Qualification only: attach actual post-test zero owned bootstrap container/volume/network inventory from Docker and rootless Podman. Do not re-implement teardown.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1454)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261108-bughunt-0427-target-env-ignored](t-20261108-bughunt-0427-target-env-ignored.md)  
-**Owner:** release-qualification (Owner/Codex)  
+**Owner:** cg-s3  
 **Priority:** normal  
 **PRs:** [baseharbor#1454](https://github.com/mcpdev80/baseharbor/pull/1454)  
 **Source:** 
