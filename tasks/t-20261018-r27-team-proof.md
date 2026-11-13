@@ -4,9 +4,9 @@ card_number: "0427-059"
 card_short_title: "prove two workstations share"
 areas: [acceptance]
 type: acceptance
-release: v0.4.27
+release: v0.4.28
 version: ""
-parent: v0.4.27
+parent: v0.4.28
 priority: normal
 owner: ""
 kanban_lane: planned
@@ -18,13 +18,13 @@ repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
-early: false
+early: true
 blocker: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
+- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
@@ -65,3 +65,9 @@ One bounded two-client Docker integration; API/filesystem negatives elsewhere re
 ## Handoff
 
 Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native run, merge or release authorized by this note. Product implementation starts after release startup prerequisites and Maintainer assignment. Preserve current v0.4.26 work and historical consumer PR commits.
+
+## Release boundary decision — 2026-11-13
+
+Two concurrent independent workstation sessions, revocation isolation and multi-user authority stress acceptance move to v0.4.28. v0.4.27 still requires real single-workstation authenticated management, ownership and denial proof.
+
+No implementation/acceptance is inferred; original stable card_number remains unchanged. Complete this through the normal v0.4.28 Coordinator/Worker/Codex merge process and current native tests.
