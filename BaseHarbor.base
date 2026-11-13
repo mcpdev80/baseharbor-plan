@@ -29,7 +29,7 @@ views:
       and:
         - note.release == "v0.4.27"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -40,12 +40,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.4.26
@@ -53,7 +53,7 @@ views:
       and:
         - note.release == "v0.4.26"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -64,12 +64,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.4.28
@@ -77,7 +77,7 @@ views:
       and:
         - note.release == "v0.4.28"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -88,12 +88,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.4.29
@@ -101,7 +101,7 @@ views:
       and:
         - note.release == "v0.4.29"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -112,12 +112,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.4.30
@@ -125,7 +125,7 @@ views:
       and:
         - note.release == "v0.4.30"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -136,12 +136,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.4.31
@@ -149,7 +149,7 @@ views:
       and:
         - note.release == "v0.4.31"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -160,12 +160,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.4.x
@@ -173,7 +173,7 @@ views:
       and:
         - note.release == "v0.4.x"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -184,12 +184,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.5.x
@@ -197,7 +197,7 @@ views:
       and:
         - note.release == "v0.5.x"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -208,12 +208,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.7.x
@@ -221,7 +221,7 @@ views:
       and:
         - note.release == "v0.7.x"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -232,12 +232,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: v0.8.x
@@ -245,7 +245,7 @@ views:
       and:
         - note.release == "v0.8.x"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -256,12 +256,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: backlog
@@ -269,7 +269,7 @@ views:
       and:
         - note.release == "backlog"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -280,12 +280,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: triage
@@ -293,7 +293,7 @@ views:
       and:
         - note.release == "triage"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -304,12 +304,12 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: kanban
     name: maintenance
@@ -317,7 +317,7 @@ views:
       and:
         - note.release == "maintenance"
     groupBy:
-      property: kanban_lane
+      property: note.kanban_lane
       direction: ASC
     groupOrder:
       - backlog
@@ -328,18 +328,18 @@ views:
       - review
       - blocked
     order:
-      - kanban_title
-      - id
-      - owner
-      - kanban_summary
-      - priority
-      - areas
+      - note.kanban_title
+      - note.id
+      - note.owner
+      - note.kanban_summary
+      - note.priority
+      - note.areas
     columnWidth: 420
   - type: table
     name: Alle Details
     order:
-      - kanban_title
-      - kanban_status
-      - priority
-      - owner
-      - release
+      - note.kanban_title
+      - note.kanban_status
+      - note.priority
+      - note.owner
+      - note.release
