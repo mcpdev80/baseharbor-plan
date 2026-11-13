@@ -8,8 +8,8 @@ release: v0.4.27
 version: ""
 parent: ""
 owner: cg-s2
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: "TestRepositoryWorkflowRealLifecycle, TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI,…"
 kanban_title: "0427-110 · composed InCI tests must run"
 priority: high
@@ -20,19 +20,20 @@ sources: []
 resolution: ""
 wait_reason: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1383", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md"]
-blocker: ""
+blocker: "Native Docker/Podman test-host access cannot currently be verified: documented Docker test endpoint 192.168.6.205 has no trusted SSH host key, Podman endpoint 192.168.6.206 is unreachable, and the VM-lock coordinator is unavailable in this environment. Do not run on the shared baha-docker/baha-podman runner aliases or the Codex host."
 
 ---
 
-- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/active #view/active #area/platform #kind/task
+- [ ] t-20261105-r27-compose-host-isolation · CI: composed InCI tests must run against an isolated runtime state, never a shared live daemon #task #release/v0-4-27 #status/blocked #view/blocked #area/platform #kind/task
     <!-- generated:card -->
     **Owner:** cg-s2 · **Priority:** high  
     **PR:** [baseharbor#1383](https://github.com/mcpdev80/baseharbor/pull/1383)  
+    **Blocker:** Native Docker/Podman test-host access cannot currently be verified: documented Docker test endpoint 192.168.6.205 has no trusted SSH host key, Podman endpoint 192.168.6.206 is unreachable, and the VM-lock coordinator is unavailable in this…  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1383), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle4-2026-11-05/execution-journal/baseline-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-2026-11-06/compose-host-isolation/round-7.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** cg-s2  
