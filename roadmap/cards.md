@@ -14,12 +14,12 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
     **Accepted tasks:** 160/166 · **Blocked:** 0 · **Waiting:** 3  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
-- [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/next
-    **Release:** planned  
-    **Accepted tasks:** 10/109 · **Blocked:** 0 · **Waiting:** 61  
+- [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
+    **Release:** active  
+    **Accepted tasks:** 10/109 · **Blocked:** 0 · **Waiting:** 60  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
-- [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/later
+- [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
     **Release:** planned  
     **Accepted tasks:** 0/15 · **Blocked:** 0 · **Waiting:** 14  
     [Scope](../releases/v0.4.29.md) · [Tasks](../views/releases/v0.4.29.md)

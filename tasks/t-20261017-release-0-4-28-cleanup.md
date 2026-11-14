@@ -9,12 +9,12 @@ version: v0.4.28
 release_stage: cleanup
 parent: v0.4.28
 owner: ""
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: planned
 kanban_title: "0428-002 · reconcile old PRs, tasks and"
 priority: high
-depends_on: [t-20261017-release-0-4-27-verify]
+depends_on: []
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
@@ -24,17 +24,16 @@ evidence: []
 early: true
 ---
 
-- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/ready #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
-**Depends on:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
+**Depends on:** none  
 **Required by:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
 **Owner:** unassigned  
 **Priority:** high  
@@ -65,3 +64,7 @@ Inspect actual remote state; verify required changes are incorporated before del
 ## Handoff
 
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
+
+## Owner sequencing decision — 2026-11-14
+
+v0.4.27 completion is not a prerequisite for starting v0.4.28. Reconcile shared PRs, branches and ownership without interrupting or claiming completion of parallel v0.4.27 work. Preserve the v0.4.28 cleanup and update-intake stages and their actual checks.

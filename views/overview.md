@@ -14,9 +14,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 0 |
 | wait | 0 |
 | blocked | 0 |
-| ready | 0 |
+| ready | 1 |
 | queued | 25 |
-| waiting | 220 |
+| waiting | 219 |
 | backlog | 7 |
 | closed | 278 |
 
@@ -40,7 +40,9 @@ None.
 
 ## Ready to assign
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | ready | high | — | — | — |
 
 ## By release
 
