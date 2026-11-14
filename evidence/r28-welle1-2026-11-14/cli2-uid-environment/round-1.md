@@ -93,3 +93,30 @@
 - END status: in progress (round 1 brief established; implementation pending)
 - Candidate SHA: none yet
 - Next trigger: implement internal/environment package
+
+## Round-1 implementation — DONE (2026-11-14)
+
+- New package `internal/environment` (`environment.go`): `NewID()` / `MustNewID()` / `Validate()` / `ValidateNonEmpty()` + `Environment{ID,Name}` with stable UUIDv4 identity (via `stableid`) and slug-validated, renameable name. Rename never changes the ID.
+- New seam `internal/deployment/environment_identity.go`: `GetEnvironment(target, env)` / `EnvironmentID(target, env)` / `EnvironmentRecord{Target,Name,Identity}`. Home: `targets/<target>/.baseharbor/environments/<env>/environment.json` (OUTSIDE the deployment-registry namespace `targets/<t>/deployments`).
+  - First creation: primes the Target root with an idempotent `MkdirAll` (so the shared `WithDeploymentRegistryWriteLock` engages), takes the Target-wide registry write lock, re-checks, creates atomically via temp+rename with foreign-claim rejection.
+  - Idempotent brownfield reuse; renames never reach the seam with a new ID.
+  - Non-blocking lock with bounded retry: concurrent first-registration losers retry (env creation is rare/cheap) and converge on the winner's ID; the winner's rename is the atomic single-source-of-truth.
+- Tests: 9 (`internal/environment/environment_test.go`) + 7 (`internal/deployment/environment_identity_test.go`): uniqueness, UUID shape, invalid-input fail-closed, rename-stability, 32-goroutine concurrent-registration atomicity, per-target isolation, brownfield reuse, namespace isolation.
+- LOCAL RESULTS (exact candidate SHA = 0e9ccb582 worktree HEAD):
+  - `go build -buildvcs=false ./...` — OK
+  - `go vet ./internal/environment/ ./internal/deployment/` — OK
+  - `go test ./internal/application/ -count=1` — ok (2.7s)
+  - `go test -race ./internal/deployment/ ./internal/environment/` — ok (2.5s / 1.2s)
+  - `go test ./cmd/baha/ -run 'Test.*Environment|Test.*Env' -count=1` — ok (60.9s)
+  - CI mapping: `internal/environment` + `internal/deployment` covered by existing `go test ./internal/... ./cmd/baha` (ci.yml). NO `.github/**` change required.
+- HOSTED CI (run id 43644615047, candidate SHA 670402fde, PR #1578, base develop):
+  - Triggered by PR push (ci.yml `pull_request` + `push` triggers). NOT a rerun/dispatch (Owner scope).
+  - Result: **completed / success**. Active jobs all `success`:
+    - `PR · Draft source and routing` → success
+    - `PR · Draft Go · cli-0` → success
+    - `PR · Draft Go · cli-1` → success
+    - `PR · Draft Go · cli-2` → success
+    - `PR · Draft Go · packages` → success
+    - `PR · Draft Go · cli-3` → success
+    - (remaining jobs skipped — gated on non-draft / release branches)
+  - Witness: `gh api repos/mcpdev80/baseharbor/actions/runs/43644615047/jobs --jq '.jobs[] | "\(.name)  \(.conclusion)"'` → all active jobs `success`.
