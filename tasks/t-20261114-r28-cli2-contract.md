@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: lane-cli2-contract-r28
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Specify reviewed CLI contract. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-049 · Specify reviewed CLI contract
 priority: high
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-contract · CLI redesign: Specify reviewed CLI contract #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-contract · CLI redesign: Specify reviewed CLI contract #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** lane-cli2-contract-r28 · **Priority:** high  
     **Needs:** [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-audit-access](t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md), [t-20261114-r28-cli2-audit-wizards](t-20261114-r28-cli2-audit-wizards.md)  
 **Required by:** [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
-**Owner:** unassigned  
+**Owner:** lane-cli2-contract-r28  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
