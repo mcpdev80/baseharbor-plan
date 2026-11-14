@@ -9,9 +9,9 @@ version: v0.4.27
 release_stage: publish
 parent: v0.4.27
 owner: mission-closeout27
-kanban_lane: active
+kanban_lane: wait
 kanban_summary: Promote only approved content and provide the complete exact tagging command to the Maintainer.
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-007 · promote the validated"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-qualify]
@@ -19,18 +19,20 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
+wait_reason: "prepared only: #1574 CONFLICTING, main aff1532c nicht ahne von release-head 385b0410 — owner-decision noetig"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-publish · v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-publish · v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
+    **Waiting:** prepared only: \#1574 CONFLICTING, main aff1532c nicht ahne von release-head 385b0410 — owner-decision noetig  
     **Needs:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
 **Required by:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  

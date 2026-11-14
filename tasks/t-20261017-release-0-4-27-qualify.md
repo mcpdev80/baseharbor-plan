@@ -9,9 +9,9 @@ version: v0.4.27
 release_stage: qualify
 parent: v0.4.27
 owner: mission-closeout27
-kanban_lane: active
+kanban_lane: wait
 kanban_summary: Obtain complete release-boundary validation for the frozen candidate.
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-008 · complete required candidate"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-prepare]
@@ -19,18 +19,20 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
+wait_reason: "targeted run 43633496362 FAIL auf fe018b97 + demo-ref 2494b05a nur auf PR #160 — kandidat nicht eingefroren"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-qualify · v0.4.27 · Pre-release: complete required candidate checks #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-qualify · v0.4.27 · Pre-release: complete required candidate checks #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
+    **Waiting:** targeted run 43633496362 FAIL auf fe018b97 + demo-ref 2494b05a nur auf PR \#160 — kandidat nicht eingefroren  
     **Needs:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Required by:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  

@@ -9,9 +9,9 @@ version: v0.4.27
 release_stage: verify
 parent: v0.4.27
 owner: mission-closeout27
-kanban_lane: active
+kanban_lane: wait
 kanban_summary: Prove the published release is usable and close the release cycle.
-kanban_status: active
+kanban_status: wait
 kanban_title: "0427-010 · verify publication, artifacts,"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-publish]
@@ -19,18 +19,20 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
+wait_reason: "owner-punkt: v0.4.27 tag/release fehlt noch (closeout-dossier a9f5235c)"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-verify · v0.4.27 · Release: verify publication, artifacts, Pages and closeout #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-verify · v0.4.27 · Release: verify publication, artifacts, Pages and closeout #task #release/v0-4-27 #status/wait #view/wait #area/release #kind/acceptance
     <!-- generated:card -->
     **Owner:** mission-closeout27 · **Priority:** normal  
+    **Waiting:** owner-punkt: v0.4.27 tag/release fehlt noch (closeout-dossier a9f5235c)  
     **Needs:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** wait  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
 **Required by:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
