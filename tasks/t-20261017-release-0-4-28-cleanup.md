@@ -8,10 +8,10 @@ release: v0.4.28
 version: v0.4.28
 release_stage: cleanup
 parent: v0.4.28
-owner: ""
-kanban_lane: planned
+owner: lane-0428-002-r28
+kanban_lane: active
 kanban_summary: Reconcile previous-release leftovers before new development.
-kanban_status: planned
+kanban_status: active
 kanban_title: "0428-002 · reconcile old PRs, tasks and"
 priority: high
 depends_on: [t-20261017-release-0-4-27-verify]
@@ -24,19 +24,18 @@ evidence: []
 early: true
 ---
 
-- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/active #view/active #area/release #kind/maintenance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** lane-0428-002-r28 · **Priority:** high  
     **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
 **Depends on:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
 **Required by:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
-**Owner:** unassigned  
+**Owner:** lane-0428-002-r28  
 **Priority:** high  
 **PRs:** none  
 **Source:** 

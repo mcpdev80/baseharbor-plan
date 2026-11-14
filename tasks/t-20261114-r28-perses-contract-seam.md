@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-0428-075-r28
+kanban_status: active
+kanban_lane: active
 kanban_summary: Specify optional Perses management/visualization through the existing provider and authorization boundaries; never falsely…
 kanban_title: 0428-075 · Define Perses Prov seam
 priority: normal
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
+- [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0428-075-r28 · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** unassigned  
+**Owner:** lane-0428-075-r28  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

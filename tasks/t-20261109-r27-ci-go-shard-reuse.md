@@ -7,9 +7,9 @@ areas: [ci]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: closed
-kanban_lane: closed
+owner: lane-0427-185-r28
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0427-185 · Reuse green Go shards
 priority: critical
@@ -23,18 +23,18 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026
 early: true
 ---
 
-- [x] t-20261109-r27-ci-go-shard-reuse · CI: reuse green Go shards when their verified inputs are unchanged #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/ci #kind/task
+- [ ] t-20261109-r27-ci-go-shard-reuse · CI: reuse green Go shards when their verified inputs are unchanged #task #release/v0-4-28 #status/active #view/active #area/ci #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** critical  
+    **Owner:** lane-0427-185-r28 · **Priority:** critical  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261109-r27-ci-go-unit-shards](t-20261109-r27-ci-go-unit-shards.md)  
-**Owner:** unassigned  
+**Owner:** lane-0427-185-r28  
 **Priority:** critical  
 **PRs:** none  
 **Source:** 
