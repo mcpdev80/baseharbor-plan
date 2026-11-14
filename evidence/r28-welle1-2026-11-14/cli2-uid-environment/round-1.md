@@ -150,6 +150,16 @@ Owner directive 15.11: basis-karte now formally cli2-uid-app; stack #1578 on `la
 - #1578 still untouched at `7930095b0`; worktree clean; 2 commits off `0e9ccb582`.
 - DECISION: do NOT rebase onto `c0664c8e` (known-failing) — stacking #1578 on a red app head would require a full re-run on the fix head and risks a dirty candidate. Per the Owner's own "#1579 ... ich melde den fix-stand" the fix head is pending. Awaiting the new app head (CI-green + accepted) before rebasing.
 
+## Round-3b rebase trigger — READY, seat HELD (2026-11-15)
+
+Owner retarget 15.11: #1578 base now formally `lane-0428-uid-app` (base SHA `2bf0c9295`, verified via API `pulls/1578.base.sha`). No rebase needed per Owner's assumption.
+
+- App fix landed: `lane-0428-uid-app` `c0664c8e` → `2bf0c9295` ("cmd/baha: fix CWD state leak in concurrent uid-app test"; 0428-050). Directly affects my `cmd/baha` CLI tests (CWD leaked into deleted temp path).
+- App CI `43651708694` → **completed / success** (cli-0/1/2/3, packages, source+routing all green). #1579 green.
+- #1579 reviewDecision=null, mergeable=MERGEABLE, mergeState=CLEAN — accepted gate pending only the re-dispatched verdict (Owner re-sent for head `7930095b0` + new base).
+- #1578 head `7930095b0` verified against new base; worktree clean.
+- Owner instruction 15.11 (final note): re-dispatched verdict to `7930095b0` + new base; **worker holds seat, does nothing.** Awaiting verdict result before any rebase/force-push.
+
 - New package `internal/environment` (`environment.go`): `NewID()` / `MustNewID()` / `Validate()` / `ValidateNonEmpty()` + `Environment{ID,Name}` with stable UUIDv4 identity (via `stableid`) and slug-validated, renameable name. Rename never changes the ID.
 - New seam `internal/deployment/environment_identity.go`: `GetEnvironment(target, env)` / `EnvironmentID(target, env)` / `EnvironmentRecord{Target,Name,Identity}`. Home: `targets/<target>/.baseharbor/environments/<env>/environment.json` (OUTSIDE the deployment-registry namespace `targets/<t>/deployments`).
   - First creation: primes the Target root with an idempotent `MkdirAll` (so the shared `WithDeploymentRegistryWriteLock` engages), takes the Target-wide registry write lock, re-checks, creates atomically via temp+rename with foreign-claim rejection.
