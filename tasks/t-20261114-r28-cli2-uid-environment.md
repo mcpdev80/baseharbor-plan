@@ -13,7 +13,7 @@ kanban_lane: review
 kanban_summary: "Introduce logical environment identity. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-051 · Introduce logical Env identity
 priority: high
-depends_on: [t-20261114-r28-cli2-contract]
+depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-uid-app]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1578]
 sources: []
@@ -27,16 +27,17 @@ evidence: []
     <!-- generated:card -->
     **Owner:** lane-0428-uid-environment · **Priority:** high  
     **PR:** [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578)  
+    **Needs:** [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
     <!-- /generated:card -->
 
-STACK (owner-anweisung 2026-11-14): lane-0428-uid-app (develop-kette: app -> env -> target; owner-anweisung 2026-11-14; bei basis-aenderung nach review: nachziehen + notiz aktualisiert)
+STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->target, max 3 ebenen); branch am kopf der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken
 
 
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
-**Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
+**Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
+**Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Owner:** lane-0428-uid-environment  
 **Priority:** high  
 **PRs:** [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578)  

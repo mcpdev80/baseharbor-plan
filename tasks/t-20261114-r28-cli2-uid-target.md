@@ -13,7 +13,7 @@ kanban_lane: active
 kanban_summary: "Add stable target identity. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-052 · Add stable target identity
 priority: high
-depends_on: [t-20261114-r28-cli2-contract]
+depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-uid-environment]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1580]
 sources: []
@@ -27,15 +27,16 @@ evidence: []
     <!-- generated:card -->
     **Owner:** lane-0428-uid-target · **Priority:** high  
     **PR:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
+    **Needs:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
     <!-- /generated:card -->
 
-STACK (owner-anweisung 2026-11-14): lane-0428-uid-environment (kette: app -> env -> target; owner-anweisung 2026-11-14; max 3 ebenen; bei basis-aenderung nach review: rebasen + im board sichtbar)
+STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-environment (kette app->env->target, max 3 ebenen); branch am kopf der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken
 
 
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
+**Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md)  
 **Required by:** [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Owner:** lane-0428-uid-target  
 **Priority:** high  
