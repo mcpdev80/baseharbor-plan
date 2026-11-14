@@ -25,6 +25,7 @@ Prepare the ecosystem release-readiness dossier while feature work is tracked on
 
 ## Scope and acceptance
 
+- At the release-window begin marker, verify the candidate Core's `scripts/pr-gate-map-v1.json` `release` label equals `{{version}}`. A mismatch is a red flag that blocks Prepare; update the map label and catalog regression in the same reviewed candidate before proceeding. Record the exact Core SHA and observed label.
 - Apply canonical audit sections 1–8 and section 9 atomic-first prerequisites, plus RELEASE_WORKFLOW.md#prepare. Re-read current sources and workflows instead of copying obsolete v0.4.25 exceptions.
 - Track outstanding implementation/CI/docs/consumer scope in the existing feature cards, epics and release view, without copying all task dependencies into this preparation card. Inventory release-note/epic criteria and deferred or waived test debts; qualification remains blocked until all required scope is accepted.
 - Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor and Demo compatibility; archived Console and Node Connector are excluded; real supported developer journeys, auth/mTLS and cleanup tests.

@@ -48,6 +48,7 @@ Prepare the v0.4.27 ecosystem release-readiness dossier while implementation pro
 
 ## Scope and acceptance
 
+- At the release-window begin marker, verify candidate Core `scripts/pr-gate-map-v1.json` has `release: v0.4.27`. A mismatch is a red flag and blocks Prepare until the map label and catalog regression are reconciled in the reviewed candidate; record the exact Core SHA and observed label.
 - Apply canonical audit sections 1–8 and section 9 atomic-first prerequisites, plus RELEASE_WORKFLOW.md#prepare. Re-read current sources and workflows instead of copying obsolete v0.4.25 exceptions.
 - Inventory outstanding implementation/CI/docs/consumer tasks from the release scope, existing CardBoard views and epics. Document release-note/epic criteria and deferred or waived test debts; all required work must be accepted before release qualification.
 - Complete implementation/security/ownership/standards and CLI/JSON/MCP parity for the v0.4.27 Core + Demo scope; prove the developer-workstation-to-Core-VM journey on supported Docker/Podman runtimes. Console/Grafana and separate runtime Connector compatibility are v0.4.28 scope.

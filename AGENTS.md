@@ -6,6 +6,13 @@ Whenever implementation adds or changes a test, the same task owns its executabl
 
 Every task handoff must state test -> check/gate -> trigger -> execution result with exact candidate SHA; absent, missing, skipped or failing mandatory tests are NOT PASS. The CI owner coordinates shared planner/workflow files and backfills prior accepted v0.4.27 test additions; feature workers do not claim CI files without assignment. See [CI routing audit](evidence/v0.4.27-ci-test-routing-audit-2026-11-07.md) and [CI integration task](tasks/t-20261018-r27-ci-lanes.md). v0.4.27 is unreleased: this decision authorizes neither full pre-release, promotion, release tags nor publication.
 
+## Test discovery and gate-catalog doctrine
+
+- Ordinary Go unit tests are package-discovered through `go list ./...` and `go test -list`; never create a per-test registration list for them. Reject proposals for such a list.
+- A contract test that protects a card acceptance invariant must be added to `REQUIRED_CLIENT_TESTS` or that package's equivalent in the same PR. Each task card's **Test binding** row must select exactly one accurate route: normal auto-discovery, contract/REQUIRED-set, or new check/catalog. Review must stop when the row is missing, ambiguous or inconsistent with the PR.
+- Adding/removing validation check files (`scripts/ci-*.py`, `scripts/test_*.py`, or gate/check scripts) or a pre-release gate requires same-PR updates to `scripts/pr-gate-plan.py` and `scripts/release-requirements.json`. `scripts/ci-workflow-policy.sh` enforces the changed-file and gate-ID cases.
+- At a release-window begin marker, the exact candidate Core `scripts/pr-gate-map-v1.json` `release` label must equal the release being opened. A mismatch blocks Prepare until the label and its catalog regression are reconciled.
+
 ## Native Bases Kanban — binding task status workflow (2026-11-04)
 
 The native Obsidian Bases board [BaseHarbor.base](BaseHarbor.base) replaces the unsupported CardBoard plugin. All task notes carry `kanban_status` (canonical lifecycle for agents), `kanban_lane` (writable Obsidian board column, including derived ready/waiting/queued), `kanban_title` and `kanban_summary` (generated display text). **Never modify generated #status/ tags or checkboxes directly.** Agents change `kanban_status`, Obsidian drag-and-drop changes `kanban_lane`; the renderer reconciles both and derives Ready from prerequisites. Run `python3 scripts/plan.py render && python3 scripts/plan.py check` before committing and pushing. `plan.py claim` keeps both lifecycle fields in sync. Moving to closed requires a resolution and genuine HTTPS evidence; active/review/blocked retain owner/PR/blocker validation. Read [BASES-KANBAN.md](BASES-KANBAN.md) for details.
