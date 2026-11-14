@@ -20,12 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+- https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/audit-app.md
 ---
 
 - [ ] t-20261114-r28-cli2-audit-app · CLI redesign: Audit app command semantics #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-044-r28 · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/audit-app.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

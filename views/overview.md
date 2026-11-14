@@ -10,7 +10,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 6 |
+| active | 5 |
 | review | 0 |
 | wait | 1 |
 | blocked | 0 |
@@ -28,7 +28,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-audit-access](../tasks/t-20261114-r28-cli2-audit-access.md) | CLI redesign: Audit identity and access semantics | active | high | lane-0428-046-r28 | — | — |
 | [t-20261114-r28-cli2-audit-app](../tasks/t-20261114-r28-cli2-audit-app.md) | CLI redesign: Audit app command semantics | active | high | lane-0428-044-r28 | — | — |
 | [t-20261114-r28-cli2-audit-platform](../tasks/t-20261114-r28-cli2-audit-platform.md) | CLI redesign: Audit platform and target semantics | active | high | lane-0428-045-r28 | — | — |
-| [t-20261114-r28-cli2-audit-wizards](../tasks/t-20261114-r28-cli2-audit-wizards.md) | CLI redesign: Audit guided user journeys | active | high | lane-0428-048-r28 | — | — |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | active | normal | lane-0428-075-r28 | — | — |
 
 ## Ready for review
