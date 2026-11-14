@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Integrate the optional Grafana UI with existing operator identity/trust gateway using its supported auth integration. Keep…
 kanban_title: "0428-013 · Secure Grafana login"
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261114-r28-perses-secure-access
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md"]
 early: true
 ---
 
-- [ ] t-20261113-r28-grafana-secure-access · Protect Grafana operator login #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/security #kind/task
+- [x] t-20261113-r28-grafana-secure-access · Protect Grafana operator login #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/security #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
 **Required by:** [t-20261113-r28-console-monitoring-entry](t-20261113-r28-console-monitoring-entry.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
@@ -77,3 +78,7 @@ Not claimed. Do not mark accepted from plan creation or a draft PR.
 Exact source: `docs/spec/management-access-v1.md`, `docs/spec/provider-management-acceptance-v1.md`, `internal/metrics/management_ui.go`, `internal/providerui/application.go`, `cmd/baha/app_dev_routing.go`. Reuse existing management authentication class/role mapping and Core authority. Grafana auth is not automatically equal to Core OIDC: prove supported Grafana OSS flow and fail closed if role parity cannot be enforced.
 
 Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
+
+## Superseded by Owner decision (2026-11-14)
+
+Closed as superseded by [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md). The Owner chose Perses in place of Grafana visualization; historical planning is retained. Alert rule evaluation and contact routing are re-specified rather than presumed to be Perses features. No implementation is asserted.

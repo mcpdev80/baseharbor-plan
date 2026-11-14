@@ -4,16 +4,16 @@ card_number: "0431-008"
 card_short_title: "CLI man page after cleanup"
 type: task
 areas: [cli, docs]
-release: v0.4.31
+release: v0.4.28
 version: ""
-parent: v0.4.31
+parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: "Once the v0.4.31 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable,…"
+kanban_summary: "Once the v0.4.28 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable,…"
 kanban_title: 0431-008 · CLI man page after cleanup
 priority: normal
-depends_on: [t-20261017-release-0-4-31-updates]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-cli-docs]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261109-r31-cli-manpage-after-consolidation · CLI: provide a man page after the final command organization #task #release/v0-4-31 #status/planned #view/waiting #board/planned #area/cli #area/docs #kind/task
+- [ ] t-20261109-r31-cli-manpage-after-consolidation · CLI: provide a man page after the final command organization #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.31](../releases/v0.4.31.md)  
-**Depends on:** [t-20261017-release-0-4-31-updates](t-20261017-release-0-4-31-updates.md)  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
+**Required by:** [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
@@ -42,13 +43,13 @@ evidence: []
 
 ## Goal
 
-Once the v0.4.31 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable, maintained `man baha` manual for the **shipped** CLI. Do not document a provisional command layout or prematurely freeze aliases.
+Once the v0.4.28 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable, maintained `man baha` manual for the **shipped** CLI. Do not document a provisional command layout or prematurely freeze aliases.
 
 ## Sequencing
 
-- **Start only after the final human CLI surface is accepted**, including the consolidated command names/groups, help output and task-oriented wizard routes (source scope core #603 / #846 and the v0.4.31 semantic acceptance).
+- **Start only after the final human CLI surface is accepted**, including the consolidated command names/groups, help output and task-oriented wizard routes (source scope core #603 / #846 and the v0.4.28 CLI contract acceptance).
 - This card is `planned`, not `wait`: no work has started and no active worker is assigned.
-- Finish before v0.4.31 release qualification/publication; coordinate documentation and packaging with the release owner.
+- Finish before v0.4.28 release qualification/publication; coordinate documentation and packaging with the release owner.
 
 ## Scope
 
@@ -70,3 +71,7 @@ Once the v0.4.31 CLI consolidation and final command ordering/hierarchy are comp
 ## Ownership boundaries
 
 CLI command taxonomy and its tests belong to the CLI consolidation scope. This task documents and packages its final output, avoiding parallel command renames or `.github/**` edits without CI-owner coordination.
+
+## Scope move (2026-11-14)
+
+Owner moved CLI implementation and its installable manual into v0.4.28. Existing card ID and 0431-008 number are retained for traceability; v0.4.31 retains cross-release semantic acceptance, not a duplicate manual implementation. This is a planned move, not proof of delivery.

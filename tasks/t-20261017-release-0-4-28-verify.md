@@ -15,7 +15,7 @@ kanban_status: planned
 kanban_title: "0428-007 · verify publication, artifacts,"
 priority: normal
 depends_on: [t-20261017-release-0-4-28-publish]
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""

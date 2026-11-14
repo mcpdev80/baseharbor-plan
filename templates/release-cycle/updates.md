@@ -9,7 +9,7 @@ parent: {{release}}
 owner: ""
 priority: high
 depends_on: []
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
@@ -25,7 +25,7 @@ Complete dependency intake before feature development.
 
 ## Scope and acceptance
 
-- Immediately inventory all open Renovate PRs, dependency-dashboard entries, grouped updates and lockfile/container/action/toolchain pins in all four product repositories; include this plan repository when applicable.
+- Immediately inventory all open Renovate PRs, dependency-dashboard entries, grouped updates and lockfile/container/action/toolchain pins in the active BaseHarbor and Demo product repositories; include this plan repository when applicable.
 - Process and integrate all applicable pending updates first through product PR review and sufficient targeted checks. Resolve stale bases, conflicts, grouped/superseded PRs and actual failures; then freeze the post-update baseline.
 - Never merge unverified or incompatible updates blindly. An update that cannot safely land is an explicit blocker until fixed or the Maintainer explicitly decides its documented exclusion; remaining unresolved updates do not silently count as done.
 - Record PRs, merged SHAs, exact checks and any explicit exclusion. Keep subsequent Renovate arrivals in the normal intake; candidate-time changes go back through affected qualification.

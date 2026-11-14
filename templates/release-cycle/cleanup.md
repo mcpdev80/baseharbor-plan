@@ -9,7 +9,7 @@ parent: {{release}}
 owner: ""
 priority: high
 depends_on: []
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
@@ -25,7 +25,7 @@ Reconcile previous-release leftovers before new development.
 
 ## Scope and acceptance
 
-- Read current remote PRs, task claims, branches, release evidence and running CI across BaseHarbor, Demo, Console, Connector and this plan repository.
+- Read current remote PRs, task claims, branches, release evidence and running CI across BaseHarbor, Demo and this plan repository; archived Console and Node Connector are excluded.
 - Close or supersede obsolete PRs/tasks only with an integration or explicit-obsolescence reference. Preserve genuinely active/future work and owner claims; no blanket deletion of unmerged code.
 - Delete incorporated temporary branches. Preserve maintained tracks, immutable tags, approval/candidate refs and evidence still needed by release verifiers; apply existing artifact-GC retention rules.
 - Publish a concise kept/removed/deferred inventory with reasons on planning main. No product changes, release or task acceptance is implied by cleanup.

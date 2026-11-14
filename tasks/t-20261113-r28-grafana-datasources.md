@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Provision exactly an existing, authorized managed Prometheus as Grafana datasource via native provisioning. Reuse provider…"
 kanban_title: "0428-011 · Connect Grafana Prometheus"
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261114-r28-perses-datasources
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md"]
 early: true
 ---
 
-- [ ] t-20261113-r28-grafana-datasources · Connect Grafana Prometheus #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [x] t-20261113-r28-grafana-datasources · Connect Grafana Prometheus #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md), [t-20261113-r28-grafana-signal-inventory](t-20261113-r28-grafana-signal-inventory.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md), [t-20261113-r28-grafana-signal-inventory](t-20261113-r28-grafana-signal-inventory.md)  
 **Required by:** [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md), [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md)  
@@ -77,3 +78,7 @@ Not claimed. Do not mark accepted from plan creation or a draft PR.
 Exact sources: `internal/metrics/prometheus.go`, `internal/metrics/prometheus_files.go`, `internal/metrics/management_ui.go`, `internal/capability/reference.go`, `internal/application/provider_registry.go`. Provision only existing authorized provider instance; use accepted Provider Contract seam and protected endpoint/CA. Never hardcode localhost, claim cross-Target read or invent scrape jobs. This card owns Prometheus only.
 
 Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
+
+## Superseded by Owner decision (2026-11-14)
+
+Closed as superseded by [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md). The Owner chose Perses in place of Grafana visualization; historical planning is retained. Alert rule evaluation and contact routing are re-specified rather than presumed to be Perses features. No implementation is asserted.

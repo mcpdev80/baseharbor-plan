@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Provide existing CLI/management integration for explicit enable/status/disable and clean owned Grafana removal; do not delete…
 kanban_title: "0428-021 · Grafana lifecycle commands"
 priority: normal
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: superseded
+superseded_by: t-20261114-r28-perses-lifecycle
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md"]
 early: true
 ---
 
-- [ ] t-20261113-r28-grafana-lifecycle · Grafana lifecycle commands #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [x] t-20261113-r28-grafana-lifecycle · Grafana lifecycle commands #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-perses-replaces-grafana-v0428.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** superseded  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md)  
 **Required by:** [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
@@ -73,3 +74,7 @@ Unassigned. No code or acceptance evidence yet.
 Source integration: `internal/application/provider_registry.go` and existing CLI provider/management command dispatch (inspect actual current registration before editing), `internal/providerui/application.go` for existing UI lifecycle, `docs/spec/provider-contract-v1.md`. Only installation-owned Grafana lifecycle, never remove metrics/logs/traces instances. No fabricated command name; user-facing CLI syntax must match actual command registration.
 
 Worker must quote current exact Core/Console commit, confirm entry points still exist, and stop with explicit blocker if changed. Codex checks exact source and CI selected gate before merge.
+
+## Superseded by Owner decision (2026-11-14)
+
+Closed as superseded by [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md). The Owner chose Perses in place of Grafana visualization; historical planning is retained. Alert rule evaluation and contact routing are re-specified rather than presumed to be Perses features. No implementation is asserted.

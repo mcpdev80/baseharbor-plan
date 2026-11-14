@@ -9,7 +9,7 @@ parent: {{release}}
 owner: ""
 priority: normal
 depends_on: []
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo, mcpdev80/baseharbor-console, mcpdev80/baseharbor-node-connector]
+repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
@@ -27,7 +27,7 @@ Prepare the ecosystem release-readiness dossier while feature work is tracked on
 
 - Apply canonical audit sections 1–8 and section 9 atomic-first prerequisites, plus RELEASE_WORKFLOW.md#prepare. Re-read current sources and workflows instead of copying obsolete v0.4.25 exceptions.
 - Track outstanding implementation/CI/docs/consumer scope in the existing feature cards, epics and release view, without copying all task dependencies into this preparation card. Inventory release-note/epic criteria and deferred or waived test debts; qualification remains blocked until all required scope is accepted.
-- Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor, Demo, Console and Node Connector compatibility; real supported developer journeys, auth/mTLS and cleanup tests.
+- Complete implementation/security/ownership/standards and CLI/JSON/MCP parity; current Core/BaseHarbor and Demo compatibility; archived Console and Node Connector are excluded; real supported developer journeys, auth/mTLS and cleanup tests.
 - Complete concise EN/DE docs/reference/specs, navigation/links, changelog and actual human release message, compatibility/security/upgrade/deferred notes, strict Pages candidate builds/workflow without deployment. Keep process rules out of the product README.
 - Freeze actual immutable ecosystem SHAs, candidate tree, gate requirements and required test inputs. Verify all required targeted checks, runtime/platform gates and consumer test execution; missing/failed/skipped/unverified requirements block readiness.
 - Deliver a reviewable readiness dossier and exact authorized-run plan. Preparation does not authorize full pre-release, promotion, tag, publication or public Pages deployment.

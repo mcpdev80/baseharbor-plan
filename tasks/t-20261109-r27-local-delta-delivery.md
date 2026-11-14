@@ -14,7 +14,7 @@ kanban_summary: "Implement the approved local delta delivery, as scoped by issue
 kanban_title: 0427-187 · Dirty + OCI delta delivery
 priority: high
 depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-connection-client, t-20261109-r27-target-policy-presets]
-repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-node-connector]
+repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
@@ -50,7 +50,7 @@ Implement the approved [local delta delivery](../decisions/2026-11-09-r27-local-
 - Developer workstation with dirty and suitable untracked changes can perform `baha app apply` without mandatory commit, push or remote Git credentials.
 - Bounded, immutable source snapshot with safe exclusions, integrity hashes, deletions and mode changes. First transfer full; next apply transfers only relevant changes using a chosen established standard rather than inventing an unauthenticated protocol.
 - Existing OCI images reused; digest/platform checked; avoid unnecessary layer transfer, rebuilding and restarts.
-- Independent workstation -> authenticated Core -> Connector -> Docker/Podman READY, second changed-only apply, update and destroy, preserving Target/App/environment identity, consent and last good deployment.
+- Independent workstation -> authenticated Core -> Core-owned Docker/Podman READY, second changed-only apply, update and destroy, preserving Target/App/environment identity, consent and last good deployment.
 - Negative trust/tenant, symlink/secret, tamper, source-concurrency, dirty/policy cases; real hosted/native proof and CI mapping.
 - Planned and unassigned as of 2026-11-09; no PR, no completion claim. No release/tag.
 
@@ -59,3 +59,7 @@ Implement the approved [local delta delivery](../decisions/2026-11-09-r27-local-
 Deferred from v0.4.27 release: local dirty/untracked delta transfer and repeat apply are separate unfinished enhancements. v0.4.27 release docs must not claim these as supported.
 
 Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
+
+## Public Connector scope correction (2026-11-14)
+
+The archived public Node Connector is outside release scope; this Core task must not require Connector development or qualification. Existing historical evidence remains unchanged. Validate the supported workstation-to-Core-owned runtime route instead.

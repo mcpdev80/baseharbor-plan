@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: ""
 kanban_status: planned
 kanban_lane: planned
-kanban_summary: Coordinate the CLI redesign as one owner-requested programme with at most five implementation/audit workers and one coordinator.…
+kanban_summary: Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme with at most five implementation/audit workers…
 kanban_title: 0428-072 · coordinate five workers
 priority: high
 depends_on: [t-20261017-release-0-4-28-updates]
@@ -42,7 +42,7 @@ evidence: []
 
 ## Goal
 
-Coordinate the CLI redesign as one owner-requested programme with at most five implementation/audit workers and one coordinator. Maintain the existing `t-20261114-r28-cli-command-semantics` umbrella and all release prerequisites.
+Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme with at most five implementation/audit workers total and one coordinator. Maintain the existing `t-20261114-r28-cli-command-semantics` umbrella and Perses dependency graph and all release prerequisites.
 
 ## Coordinator duties
 
@@ -62,3 +62,7 @@ Coordinate the CLI redesign as one owner-requested programme with at most five i
 ## Handoff
 
 Planned, unassigned. No workers dispatched, implementation, product merge or release has occurred.
+
+## Perses coordination expansion (2026-11-14)
+
+The same single coordinator schedules the Perses cards and CLI cards under one global limit of five workers. Use the v0.4.28 release ordering, preserve the provider-contract and real-signal prerequisites, and do not assign overlapping Core registries, gateway or CI files concurrently. Perses native proof follows all required datasource, dashboard, auth and alert tasks.

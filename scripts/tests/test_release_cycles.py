@@ -83,6 +83,25 @@ class ReleaseCycleTests(unittest.TestCase):
         cycles.sync(f.dir)
         self.assertNotIn('core-1', plan.Vault(f.dir).load().tasks[prepare_id]['depends_on'])
 
+    def test_dropped_work_is_excluded_from_release_scope_without_losing_history(self):
+        f = self.fixture()
+        f.add_task('core-1', task_note('core-1', 'Dropped external work'))
+        f.add_task('core-2', task_note('core-2', 'Active work'))
+        f.finish()
+        cycles.sync(f.dir)
+        vault = plan.Vault(f.dir).load()
+        retired = vault.tasks['core-1']['path']
+        retired.write_text(retired.read_text().replace('- [ ]', '- [x]')
+                           .replace('#status/planned', '#status/closed')
+                           .replace('resolution: ""', 'resolution: dropped')
+                           .replace('evidence: []', 'evidence: ["https://example.org/decision"]'))
+        vault = plan.Vault(f.dir).load()
+        scope = {t['id'] for t in cycles.scope_tasks(vault, 'v1.0.0', 'v1.0.0')}
+        self.assertNotIn('core-1', scope)
+        self.assertIn('core-2', scope)
+        self.assertTrue(retired.exists())
+        self.assertEqual(vault.tasks['core-1']['resolution'], 'dropped')
+
     def test_prepare_is_not_a_duplicate_feature_board(self):
         f = self.fixture()
         f.add_task('core-1', task_note('core-1', 'A: implementation'))

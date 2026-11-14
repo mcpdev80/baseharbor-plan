@@ -41,7 +41,7 @@ def stage_id(version, stage):
 
 def scope_tasks(vault, version, release):
     return [t for t in vault.tasks.values() if not t['meta'].get('release_stage') and
-            t['release'] == release and t['resolution'] != 'superseded' and
+            t['release'] == release and t['resolution'] not in ('superseded', 'dropped') and
             (t['version'] == version or release == version)]
 
 

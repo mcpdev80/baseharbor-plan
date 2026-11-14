@@ -47,13 +47,13 @@ Platform and access wizards. Follow the [owner working brief](../evidence/cli-re
 
 ## Scope
 
-Implement guided local/remote/node/organization/access/provider paths in assigned adapter files; keep device enrollment and user login separate and no local remote fallback.
+Implement guided local/remote/organization/access/provider paths in assigned adapter files; keep device enrollment and user login separate and no local remote fallback.
 
 ## Entry points and ownership
 
-- Starting points: `cmd/baha/onboarding*.go; access_wizard_command.go; provider_external.go; node.go adapters only`. Verify exact current lines before changing files.
+- Starting points: `cmd/baha/onboarding*.go; access_wizard_command.go; provider_external.go adapters only; no archived Node Connector implementation`. Verify exact current lines before changing files.
 - Own only this slice and its dedicated tests; coordinate shared file writes and interface changes through the coordinator. `cmd/baha/commands.go`, shared parser/machine registry, `.github/**`, release notes and generated indexes are reserved for their respective integration/CI owners. Do not edit another worker's reserved files concurrently.
-- One task/branch/PR per worker. Stop when dependency or safe behavior is undecided; do not guess or quietly weaken policy. No Console/Node Connector public repo implementation.
+- One task/branch/PR per worker. Stop when dependency or safe behavior is undecided; do not guess or quietly weaken policy. No new Node Connector functionality, public repository implementation or Connector-based release qualification.
 
 ## Acceptance
 
