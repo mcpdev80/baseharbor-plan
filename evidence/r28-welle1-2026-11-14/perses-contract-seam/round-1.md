@@ -93,4 +93,9 @@ NOTE TO COORDINATOR / OWNER: the concrete file list below is the intended implem
 
 ## END status
 
-- DONE pending: local tests pass, evidence committed to origin/main, draft PR created, CI pass, END posted.
+- DONE. Declarative, fail-closed optional Perses provider seam specified and implemented, tests added, draft PR #1575 (base develop 0e9ccb582) with PASS on touched Go CI groups. Evidence committed to origin/main (HEAD e6a4897d), path confirmed via git ls-remote. Merge frost honored: PR is DRAFT, not merged.
+
+origin/main HEAD: e6a4897d32a9077c0fceec0ee8d39ac227fb38fb
+origin/main evidence path: origin/main:evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md
+PR: https://github.com/mcpdev80/baseharbor/pull/1575 (draft)
+Candidate SHA: 61f76fa18 feat(0428-075): define optional Perses provider seam (fail-closed) on lane-0428-075-perses-seam
