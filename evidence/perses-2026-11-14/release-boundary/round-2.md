@@ -97,4 +97,9 @@ Hosted runs (self-observed to terminal state, no reruns or dispatch, no `.github
 - Planning repo push witness (second-to-last action):
   - `git ls-remote origin refs/heads/main` before the final evidence push: `131c1b918b87e579799e12fa55aca3d13623e1b5	refs/heads/main` (the earlier round-2 content commit; the file was corrected forward in this same evidence push).
 
+## Worktree and cleanup
+
+- Worktree: `/tmp/opencode/lane-0428-092-seam-r2-wt` (branch `lane-0428-092-seam-r2` tracking `origin/0428-092-perses-boundary`; pushed via refspec `HEAD:refs/heads/0428-092-perses-boundary`). No second remote branch exists for this card; the local branch name is the lane identity only.
+- No Docker/Podman containers or compose projects were started on this host or any SSH test host; nothing to bring down (`cleanliness: ambient host untouched`).
+
 END mission-092-r2.md DONE — final candidate 29dba54dddb02f48568c571e9ce37f671d21e6aa on PR #1577 (draft); hosted runs 43642605616, 43642760720 and 43643473988 terminal success.
