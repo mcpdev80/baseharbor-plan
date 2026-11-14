@@ -11,7 +11,6 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261114-r28-cli2-audit-app](../tasks/t-20261114-r28-cli2-audit-app.md) | CLI redesign: Audit app command semantics | ready | high | — | — | — |
-| [t-20261114-r28-cli2-audit-interface](../tasks/t-20261114-r28-cli2-audit-interface.md) | CLI redesign: Audit help and machine compatibility | ready | high | — | — | — |
 | [t-20261114-r28-cli2-audit-platform](../tasks/t-20261114-r28-cli2-audit-platform.md) | CLI redesign: Audit platform and target semantics | ready | high | — | — | — |
 | [t-20261114-r28-cli2-audit-wizards](../tasks/t-20261114-r28-cli2-audit-wizards.md) | CLI redesign: Audit guided user journeys | ready | high | — | — | — |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | — | — | — |
