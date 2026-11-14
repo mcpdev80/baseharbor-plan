@@ -90,9 +90,14 @@
 
 ## End-of-shift marker
 
-- END status: in progress (round 1 brief established; implementation pending)
-- Candidate SHA: none yet
-- Next trigger: implement internal/environment package
+- END status: DONE (round-1 brief + implementation + hosted CI success)
+- END lane: DONE
+- Candidate SHA: 670402fdefc57440a144365fce672b909a661228
+- PR: #1578 (DRAFT, base develop)
+- Hosted CI run 43644615047 → completed/success on candidate SHA
+- Evidence on origin/main: f51a68bd (witness: `git ls-remote origin refs/heads/main` → f51a68bd...)
+- Compose cleanliness: NO lane-0428 containers/compose projects running; unit tests used t.TempDir only.
+- Next trigger: Owner review of DRAFT PR #1578; CLI wiring of the seam stays with the umbrella CLI-integration owner.
 
 ## Round-1 implementation — DONE (2026-11-14)
 
