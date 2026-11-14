@@ -30,7 +30,7 @@ c0664c8e49e4efb56ea69cc793b94da7cc270765	refs/pull/1579/head
 ## Repo-rule compliance
 
 - Evidence repository root: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (`git rev-parse --show-toplevel`).
-- Planning repo fast-forwarded to evidence base `01d5dad4eeeb7a791a769c03efaf033e07e0795d` before committing this note.
+- Evidence commit `15e29a17effe7218c8afb5718861d218d9defa3b` has parent `d4b3a9afcbd1013adf048553f52c046513a2645f`; push output confirmed the planning remote advanced from that parent to this commit. The earlier ls-remote witness below was captured before a concurrent main advance.
 - Exact `git ls-remote origin main` output before evidence publication:
 
 ```text
@@ -39,6 +39,11 @@ c0664c8e49e4efb56ea69cc793b94da7cc270765	refs/pull/1579/head
 
 - No product files or workflows were modified. Evidence is confined to this planning repository.
 - `python3 scripts/plan.py check`: 531 tasks, 7 epics, 13 releases, 21 decisions; 0 errors, 10 pre-existing dependency warnings.
+- Current exact `git ls-remote origin main` output confirming evidence availability:
+
+```text
+15e29a17effe7218c8afb5718861d218d9defa3b	refs/heads/main
+```
 
 ## Verdict
 
