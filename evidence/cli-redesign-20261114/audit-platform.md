@@ -72,7 +72,12 @@ Every `file:line` in this dossier refers to that product SHA. The mission text n
   context7 MCP library `/golang/go` (https://github.com/golang/go/blob/master/src/os/file.go).
   Relevance: BaseHarbor reimplements these lookups by hand in §2, so the standard-library semantics
   are the yardstick for "is a missing variable an error or a silent default".
-- XDG Base Directory Specification, version 0.8 (08 May 2021), Freedesktop.org,
+- Go build-time platform selection, `go help environment` (`GOOS`, `GOARCH`) and the
+  `//go:build` tag mechanism, retrieved through the same context7 library
+  (`/golang/go`, https://github.com/golang/go/blob/master/src/cmd/go/alldocs.go). Relevance: every
+  OS branch in §6 is a compile-time choice, so a binary built for Linux cannot "detect" a supported
+  macOS/Windows path at runtime — the support matrix in §6 is the authoritative statement.
+- XDG Base Directory Specification, version 0.8 (8 May 2021), Freedesktop.org,
   https://specifications.freedesktop.org/basedir/latest/ — §2 Basics, §3 Environment variables.
   Normative points used here: the base directories **must be absolute** and a relative value
   "should be considered invalid and ignored"; `$XDG_STATE_HOME` (default `$HOME/.local/state`) is the
@@ -82,11 +87,8 @@ Every `file:line` in this dossier refers to that product SHA. The mission text n
 - The Twelve-Factor App, Config (III): "stores config in environment variables … easy to change
   between deploys without changing code", https://12factor.net/config. Relevance: the brief's
   per-terminal active context and the `BASEHARBOR_*` overrides follow this convention; the audit
-  checks that an env override is always *observable* in output, which 12-factor does not require but
-  the brief's "names and meaning must be consistent" does.
-- Go `runtime.GOOS` / `GOARCH` as the build-time platform selector (`go help environment`,
-  https://github.com/golang/blob/master/src/cmd/go/alldocs.go via context7 `/golang/go`), and the
-  `//go:build` tag mechanism used by the platform-specific files in §6.
+  additionally checks that an override is *observable* in output, which 12-factor does not require
+  but the brief's "names and meaning must be consistent" does.
 
 ## 2. State-root, UID and file-ownership paths
 
@@ -113,8 +115,9 @@ UID / ownership paths:
   (`<config-dir>/active-target`, size-capped at 1024 bytes, `!detached:` prefix), mutation under a
   state lock with `0700`/`0600` and an `Lstat` ownership re-check in
   `cmd/baha/target_selection_mutation.go:32-50`, `:53-70`.
-- Privilege probes that read the real/effective UID: `cmd/baha/local_workload_authority.go:71-95`
-  (mode `&0077`, no symlink, on the target state root and runtime root),
+- Privilege probes that read the real/effective UID: `cmd/baha/local_workload_authority.go:66-95`
+  (an OIDC env variable disables the local authority at `:68-72`; then mode `&0077` and
+  no symlink on the target state root and runtime root at `:84-95`),
   `cmd/baha/node_disconnect_plan.go:175` (per-entry `stat.Uid != uint32(os.Geteuid())`),
   `cmd/baha/dev_hosts.go:205` (`os.Geteuid() != 0` → prefix `sudo --`),
   `cmd/baha/update_etcd_identity.go:18-73` (rootless namespace UID mapping for etcd recovery),
@@ -131,15 +134,16 @@ Verdicts for §2 are items T1-T6 in §7.
 
 ## 3. Target selection and target-scope paths
 
-Effective-target resolution is implemented once and reused everywhere:
+Effective-target resolution is implemented once and reused everywhere (`effectiveTarget`,
+`cmd/baha/target.go:87-124`):
 
 ```
 explicit --target            cmd/baha/main.go:187-200  -> withTargetOverride (target.go:53)
 BASEHARBOR_TARGET            cmd/baha/target.go:93
 persisted active-target      cmd/baha/target_selection.go:23-46, :66
-configured default_target    internal/deployment/config.go (DefaultTarget), target_selection.go:76
+configured default_target    cmd/baha/target_selection.go:76
 unique configured target     cmd/baha/target_selection.go:79-83
-implicit "local"             internal/deployment/target.go:326-347 (ResolveTarget)
+implicit "local"             internal/deployment/target.go:326-347 (Config.ResolveTarget)
 organization layer           cmd/baha/target.go:98-123 (orgconfig.ResolveEffective wins over :101/:123)
 ```
 
@@ -178,23 +182,26 @@ organization layer           cmd/baha/target.go:98-123 (orgconfig.ResolveEffecti
 ## 4. Environment selection and environment-named semantics
 
 - The `-e` / `--environment` flag is parsed per command, not globally: the shared extractor is
-  `cmd/baha/app_context.go:597-640` (also consumes `--uuid`), with command-local copies in
+  `cmd/baha/app_context.go:597-643` (also consumes `--uuid`), with command-local copies in
   `cmd/baha/runtime.go:93-101`, `cmd/baha/app.go:577-585`, `cmd/baha/policy.go:80`,
   `cmd/baha/onboarding_command.go:152`, `cmd/baha/completion.go:84-90`.
-  Conflicting duplicate selections fail closed (`app_context.go:129-134`, `:610-616`).
+  Conflicting duplicate selections fail closed (`app_context.go:129-134`, `:609-616`, `:623-628`).
 - An explicit environment selects a **complete manifest**, never an overlay:
   `internal/application/environment.go:24-31` (doc) and `:69-90`; an `envs/<name>/baseharbor.yaml`
   that declares a different environment is a hard error (`:179-187`); a root manifest reused for
-  another environment only overrides the deployment context (`:80-89`, `LegacyState`), and
+  another environment only overrides the deployment context (`:80-89`), and
   `applyApplicationEnvironmentOverride` revalidates after the override
-  (`cmd/baha/app_context.go:44-58`). Multiple candidate manifests without `-e` fails closed
-  (`environment.go:112-121`).
+  (`cmd/baha/app_context.go:50-59`). Multiple candidate manifests without `-e` fail closed
+  (`environment.go:106-121`). The `LegacyState` marker is set only for the root-manifest reuse (`:88`, `:194-201`).
 - Environment identity is **name-only**; the stable per-environment ID the brief asks for does not
-  exist. The three identity axes are Target + Application + Environment (`internal/deployment`
-  `DeploymentIdentity`), and the deployment ID stays separate, as the brief wants.
+  exist. The three identity axes are Target + Application + Environment
+  (`deployment.NewDeploymentIdentity`,
+  `internal/deployment/deployment_store.go:218`, called at `cmd/baha/app_context.go:266`), and the
+  deployment ID stays separate, as the brief wants.
 - A process-global mutable override carries the value between layers:
   `var applicationEnvironmentOverride string` (`cmd/baha/app_context.go:16`) with
-  `pushApplicationEnvironmentOverride` (`:44-48`). It is read from
+  `pushApplicationEnvironmentOverride` (`:44-48`) and
+  `applyApplicationEnvironmentOverride` (`:50-59`). It is read from
   `organizationEnvironment` (`cmd/baha/target.go:147-161`) and `collectTargetInspection`
   (`target.go:445-452`). The same value is threaded differently in the machine plane:
   `withOrganizationEnvironment(ctx, …)` (`target.go:141-145`, callers
@@ -212,17 +219,19 @@ organization layer           cmd/baha/target.go:98-123 (orgconfig.ResolveEffecti
     `management_remote_repository.go:41`, `management_remote_dev_credentials.go:36/60`,
     `management_remote_dev_domain.go:32/46`, `machine_http_dev_domain.go:33`,
     `machine_http_dev_credentials.go:30`, `dev_operations.go:54` (`const environment = "dev"`).
-  - `cmd/baha/runtime_destroy_authority.go:75-80` ranks environments by name to pick the most
-    protected one.
-  - `internal/application/metrics_policy.go:78-86`, `internal/application/workload_security.go:244-252`,
-    `internal/devaccess/credentials.go:23-30`, `internal/logs/lifecycle.go:203-211`,
-    `internal/metrics/prometheus_verify.go:202-211`, `internal/metrics/prometheus_files.go:295`,
-    `internal/providerui/application.go:433-440`, `internal/runtimebroker/broker.go:264-272`,
-    `internal/identityprovider/keycloak_driver.go:636-643`: all switch on `"dev"`/`"development"`.
+  - `cmd/baha/runtime_destroy_authority.go:70-72` picks the most protected environment through
+    `installationDestroyAuthorizationEnvironment` (`:75-84`), which ranks by name.
+  - `internal/application/metrics_policy.go:78-86`, `internal/application/workload_security.go:243-252`,
+    `internal/devaccess/credentials.go:22-30`, `internal/logs/lifecycle.go:190-211`,
+    `internal/metrics/prometheus_verify.go:204-211` and `internal/metrics/prometheus_files.go:295`,
+    `internal/providerui/application.go:432-439`, `internal/runtimebroker/broker.go:264-272`,
+    `internal/identityprovider/keycloak_driver.go:635-643`: all switch on `"dev"`/`"development"`.
   - `internal/serviceaccess/policy.go:94-101` is the only place that documents the alternative:
     `dev|development` unauthenticated, `test|testing|stage|staging|prod|production` authenticated,
     and *everything else* treated as managed rather than silently weakened (fail-closed default).
-    `internal/application/availability_policy.go:157` uses the same `default:` posture.
+    the same fail-closed posture appears in `internal/application/workload_security.go:257-259` (an
+    override can never weaken managed policy) and in `availability.Intent.Validate` reached through
+    `internal/application/manifest_validation.go:36`.
   - `cmd/baha/prompt.go:331-350` renders the shell prompt from name semantics
     (`prod`/`production` → PROD indicator, `test`/`stage`/`staging` in critical-only mode).
   - `internal/orgconfig/effective.go:54-57` defaults an empty environment to `"dev"`, and `:67`
@@ -238,7 +247,7 @@ organization layer           cmd/baha/target.go:98-123 (orgconfig.ResolveEffecti
 
 The brief proposes the taxonomy `app`, `env`, `target`, `context`, `platform`, `access`, `system`
 with "Platform local/remote/node". Today no `baha platform` command exists
-(`grep -rn 'Name: *"platform"' cmd/baha/` is empty; `command-map.md:31-36` marks the mapping as
+(`grep -rn 'Name: *"platform"' cmd/baha/` is empty; `command-map.md:10,18,22-23,27,38,51-59` marks the mapping as
 proposed). The underlying surfaces are:
 
 - **platform local** (the Core / management host on this machine): `baha up --control-plane-only`
@@ -274,13 +283,13 @@ proposed). The underlying surfaces are:
   `internal/hosttrust/hosttrust.go:455-520`, browser NSS `internal/hosttrust/browser_nss.go:27-39`)
   and `baha openbao status|bootstrap|unseal|rotate` (`cmd/baha/openbao.go:15-190`). The machine
   surface for the same domain is `cmd/baha/mcp_platform_tools.go:25-77`. Both print **no secret
-  material** (`openbao.go:20` Long, `mcp_platform_tools.go:36`), matching guidelines §6
+  material** (`cmd/baha/openbao.go:19-21`, `cmd/baha/mcp_platform_tools.go:36`), matching guidelines §6
   (`docs/DEVELOPMENT_GUIDELINES.md:56-59`).
   Note that `baha trust install` is the only trust action that can silently escalate:
   `runMaybePrivileged` falls back to `sudo -- install …` and `sudo -- update-ca-*`
   (`internal/hosttrust/hosttrust.go:551-569`) after an unprivileged attempt, while
   `installManagedTrust` refuses to claim an operator-owned root
-  (`cmd/baha/trust_operations.go:85-88`).
+  (`cmd/baha/trust_operations.go:84-88`).
 
 ## 6. OS-conditional behaviour
 
@@ -319,34 +328,34 @@ internally inconsistent or ambiguous, not provably wrong.
 | # | Path | Verdict | Witness |
 | --- | --- | --- | --- |
 | T1 | single effective-target resolver, ordered, fail-closed on ambiguity | **trifft** | `cmd/baha/target_selection.go:59-92`, `cmd/baha/target.go:87-124` |
-| T2 | `target delete` = detach + recovery, never data removal | **trifft** | `cmd/baha/target.go:253-258`, `:563-604`; `docs/cli/targets.md:52-70` |
-| T3 | root `destroy` ≠ app `destroy` (installation vs application) | **trifft** | `cmd/baha/runtime_destroy_all.go:39-101`, `cmd/baha/app_lifecycle.go:197-215`; `command-map.md:5,15` |
+| T2 | `target delete` = detach + recovery, never data removal | **trifft** | `cmd/baha/target.go:253-258`, `:563-604`; `docs/cli/targets.md:52-62` |
+| T3 | root `destroy` ≠ app `destroy` (installation vs application) | **trifft** | `cmd/baha/runtime_destroy_all.go:39-101`, `cmd/baha/app_lifecycle.go:197-215`; `command-map.md:3,10,18` |
 | T4 | activation binds authority before persisting; no silent fallback after detach | **trifft** | `cmd/baha/target.go:278-293`, `cmd/baha/use_target.go:25-40`, `target_selection.go:39-41` |
-| T5 | target selection is documented as shell-local but implemented as per-user persisted | **weicht ab** | `docs/explanation/targets.md:153-168` vs `cmd/baha/target.go:260-263`, `target_selection.go:48-57` |
+| T5 | target selection is documented as shell-local but implemented as per-user persisted | **weicht ab** | `docs/explanation/targets.md:152-168` vs `cmd/baha/target.go:260-263`, `target_selection.go:48-57` |
 | T6 | three vocabularies for one selection state (`selection_origin` vs `Selectors` vs machine flags); `Active` ignores `--target` | **Konsistenz-Risiko** | `target_selection.go:94-115`, `target.go:231-240`, `machine_navigation.go:96-102` |
 | T7 | `--target` is global (before the verb) with no `-t` short form anywhere; docs are not aligned with each other | **weicht ab** (brief wants `-t`) | `cmd/baha/main.go:187-200`; `grep '"-t"' cmd/baha/` empty; `docs/cli/global-options.md:7`; `docs/cli/targets.md:30` |
-| T8 | `-c`/`--component` exists only as `--component SOURCE=ID` in two commands, no comma lists, no `-c` short form | **weicht ab** (brief wants `-c`, comma-separated, throughout) | `cmd/baha/app_workspace.go:81,102,115`; `cmd/baha/stack.go:176-185`; `app_access.go:21,61,100,143,174,196` (no `-c` at all) |
-| T9 | environment name drives authentication, metrics, workload security, log retention, dev credentials, remote-read admission, destroy ranking and prompt colour | **weicht ab** (brief: name-independent, policy-driven) | `internal/operatorauth/config.go:83-90`; `authorization.go:155-170`; `cmd/baha/management_remote_reads.go:42-47`; `runtime_destroy_authority.go:75-80`; `internal/serviceaccess/policy.go:94-101`; `internal/application/workload_security.go:244-252`; `cmd/baha/prompt.go:331-350` |
-| T10 | `serviceaccess`/`availability` carry the fail-closed `default:` posture that the rest of the code lacks | **Konsistenz-Risiko** | `internal/serviceaccess/policy.go:99-101`; `internal/application/availability_policy.go:157` |
-| T11 | environment selection is complete-manifest, never an overlay; duplicates fail closed | **trifft** | `internal/application/environment.go:24-31,69-90,112-121,179-193` |
-| T12 | environment identity is name-only; no stable environment ID | **weicht ab** (brief: stable IDs for env/app/target) | `internal/deployment` `DeploymentIdentity` via `cmd/baha/app_context.go:265-269`; `environment.go:18-22` |
+| T8 | `-c`/`--component` exists only as `--component SOURCE=ID` in two commands, no comma lists, no `-c` short form | **weicht ab** (brief wants `-c`, comma-separated, throughout) | `cmd/baha/app_workspace.go:81,102,115`; `cmd/baha/stack.go:176-185`; `cmd/baha/app_access.go:21,61,100,143,174,196` (no `-c` at all) |
+| T9 | environment name drives authentication, metrics, workload security, log retention, dev credentials, remote-read admission, destroy ranking and prompt colour | **weicht ab** (brief: name-independent, policy-driven) | `internal/operatorauth/config.go:83-90`; `internal/operatorauth/authorization.go:155-170`; `cmd/baha/management_remote_reads.go:42-47`; `cmd/baha/runtime_destroy_authority.go:75-80`; `internal/serviceaccess/policy.go:94-101`; `internal/application/workload_security.go:243-252`; `cmd/baha/prompt.go:331-350` |
+| T10 | `serviceaccess` and `workload_security` carry the fail-closed `default:` posture that the rest of the environment branching lacks | **Konsistenz-Risiko** | `internal/serviceaccess/policy.go:99-101`; `internal/application/workload_security.go:253-259` |
+| T11 | environment selection is complete-manifest, never an overlay; duplicates fail closed | **trifft** | `internal/application/environment.go:24-31,69-90,106-121,179-193` |
+| T12 | environment identity is name-only; no stable environment ID | **weicht ab** (brief: stable IDs for env/app/target) | `internal/deployment/deployment_store.go:218` (`NewDeploymentIdentity`) via `cmd/baha/app_context.go:266`; `internal/application/environment.go:15-22` |
 | T13 | the same environment value travels by two mechanisms (process-global string vs context value) | **Konsistenz-Risiko** | `cmd/baha/app_context.go:16,44-58` vs `cmd/baha/target.go:141-145` + `machine_http_executor.go:108` |
 | T14 | `-e` is parsed per command in five places instead of once | **Konsistenz-Risiko** | `app_context.go:597-640`, `runtime.go:93-101`, `app.go:577-585`, `policy.go:80`, `onboarding_command.go:152` |
-| T15 | no `baha platform` command; the proposed local/remote/node/provider/stack taxonomy is unimplemented | **weicht ab** (expected: proposal, not yet truth) | `command-map.md:31-36`; `grep -rn 'Name: *"platform"' cmd/baha/` empty |
+| T15 | no `baha platform` command; the proposed local/remote/node/provider/stack taxonomy is unimplemented; the closest existing surface is `baha stack create --scope`, which scopes a profile file and not a deployment platform | **weicht ab** (expected: proposal, not yet truth) | `command-map.md:10,18,22-23,27,38,51-59`; `grep -rn 'Name: *"platform"' cmd/baha/` empty; `cmd/baha/stack.go:176-193`; `cmd/baha/stack_operations.go:54-63` |
 | T16 | Core-vs-target-vs-connector separation enforced; Core install is local-only, remote Core is startup-bound | **trifft** | `core_installation.go:57-60`, `:222-285`; `application_core_authority.go:47-80`; `target.go:686-700` |
 | T17 | provider registration and provider authoring stay separate surfaces | **trifft** | `provider.go:13-60`, `provider_external.go:39-197`, `:465`, `:596` |
-| T18 | trust/OpenBao and machine tool outputs never print secret material | **trifft** | `openbao.go:20`, `trust_operations.go:75-103`, `mcp_platform_tools.go:36` |
+| T18 | trust/OpenBao and machine tool outputs never print secret material | **trifft** | `cmd/baha/openbao.go:19-21`, `cmd/baha/trust_operations.go:75-103`, `cmd/baha/mcp_platform_tools.go:36` |
 | T19 | `baha dev credentials` prints the plaintext developer password in the human path while the JSON path returns only the protected-file reference | **weicht ab** (guidelines §6; brief "no plaintext in normal machine output" — the human path is the outlier) | `cmd/baha/dev_access.go:106-121` vs `:110-116`; HTTP twin returns no password `machine_http_dev_credentials.go:30-45` |
 | T20 | host-trust install escalates through `sudo` after a failed unprivileged attempt; self-update refuses escalation by design | **Konsistenz-Risiko** (two privilege postures) | `internal/hosttrust/hosttrust.go:551-569` vs `cmd/baha/update_mutation.go:144-150`, `cmd/baha/dev_hosts.go:195-212` |
-| T21 | state roots are re-derived per subsystem (`DataRoot`, `resolveStateDir`, `SessionPath`, `trustStateRoot`, CLI copies) | **Konsistenz-Risiko**, guidelines §7 | §2 table; `internal/deployment/target.go:95-121`, `internal/runtime/stack.go:435-484`, `internal/operatorauth/config.go:92-113`, `internal/operatorauth/trust.go:79-91`, `cmd/baha/target_recovery.go:28`, `cmd/baha/node_install.go:42`, `cmd/baha/app_backup_restore_guided.go:601-604` |
-| T22 | none of the root resolvers rejects a relative `BASEHARBOR_STATE_DIR` / `XDG_*` value | **weicht ab** (XDG spec: relative value must be ignored; Go's `UserCacheDir` errors) | `internal/deployment/target.go:96,110`, `internal/runtime/stack.go:439,453`, `internal/orgconfig/store.go:18,32`, `internal/operatorauth/config.go:102`; counter-example `cmd/baha/app_backup_restore_guided.go:602-604` |
-| T23 | persistent per-user state (target selection, org config, sessions, recovery material) has no `XDG_STATE_HOME` concept, and operator sessions land in cache (`XDG_RUNTIME_DIR` → `UserCacheDir`) | **weicht ab** (XDG 0.8 §2/§3) | `internal/deployment/target.go:20` (dir of config file), `internal/orgconfig/store.go:31-43`, `internal/operatorauth/config.go:102-110` |
-| T24 | unset `XDG_RUNTIME_DIR` falls back to `/run/user/<uid>` with no warning; a missing `HOME` fails with an untyped error | **Konsistenz-Risiko** | `internal/providers/runtime/podman/quadlet_runtime.go:55-64`; `internal/deployment/target.go:102-105`, `internal/runtime/stack.go:478-483` |
-| T25 | a legacy `.baseharbor/runtime` (CWD-relative) state directory is reused whenever global state does not exist | **Konsistenz-Risiko** (surprise in shared checkouts) | `internal/runtime/stack.go:18`, `:459-476` |
-| T26 | `BASEHARBOR_TARGET` and `--target` win over organization defaults, so a distributed org policy can be overridden per invocation | **Konsistenz-Risiko** (open decision in brief) | `cmd/baha/target.go:98-123`; `internal/orgconfig/effective.go:67-91`; `brief.md:19` |
-| T27 | an empty environment silently becomes `"dev"` in org resolution and management defaults, while other call sites silently default `"dev"` only for remote reads | **Konsistenz-Risiko** | `internal/orgconfig/effective.go:54-57`, `cmd/baha/management_remote_reads.go:42-44`, `cmd/baha/config_org.go:220` |
-| T28 | doctor/health reports `darwin`/`windows` as an OK platform check although the support matrix marks them unsupported | **Konsistenz-Risiko** | `cmd/baha/control_plane_operations.go:155`, `internal/health/doctor.go:28`, `docs/reference/platform-support.md:11-15` |
-| T29 | completion suggests only the three fixed environment values `dev|test|prod`, which reinforces the very special cases the brief wants removed | **weicht ab** | `cmd/baha/completion.go:84-90` vs `brief.md:13` |
+| T21 | state roots are re-derived per subsystem (`DataRoot`, `resolveStateDir`, `SessionPath`, `trustStateRoot`, CLI copies) | **Konsistenz-Risiko**, guidelines §7 | §2 table; `internal/deployment/target.go:95-121`; `internal/runtime/stack.go:435-484`; `internal/operatorauth/config.go:92-113`; `internal/operatorauth/trust.go:79-91`; `cmd/baha/target_recovery.go:28`; `cmd/baha/node_install.go:42`; `cmd/baha/app_backup_restore_guided.go:601-604` |
+| T22 | no root resolver rejects a relative `BASEHARBOR_STATE_DIR` / `XDG_*` value | **weicht ab** (XDG spec: a relative value must be ignored; Go's `UserCacheDir` errors instead) | `internal/deployment/target.go:96,110`; `internal/runtime/stack.go:439,453`; `internal/orgconfig/store.go:18,32`; `internal/operatorauth/config.go:102-110`; `internal/operatorauth/trust.go:81-90`; the only absolute-path guard is `cmd/baha/app_backup_restore_guided.go:602-604` |
+| T23 | persistent per-user state (target selection, org cache, operator sessions, recovery material) has no `XDG_STATE_HOME` concept: the selection file sits beside the config file, sessions in cache | **weicht ab** (XDG 0.8 §2/§3) | `cmd/baha/target_selection.go:15-21` with `internal/deployment/target.go:95-107`; `internal/orgconfig/store.go:31-43`; `internal/operatorauth/config.go:102-110` |
+| T24 | unset `XDG_RUNTIME_DIR` falls back to `/run/user/<uid>` with no warning; a missing `HOME` yields an untyped error in some resolvers and an actionable one in another | **Konsistenz-Risiko** | `internal/providers/runtime/podman/quadlet_runtime.go:54-64`; `internal/deployment/target.go:102-105`, `:116-119`; `internal/runtime/stack.go:475-483` |
+| T25 | a legacy `.baseharbor/runtime` (CWD-relative) state directory is reused whenever global state does not exist | **Konsistenz-Risiko** (surprise in shared checkouts) | `internal/runtime/stack.go:18`, `:449-473` |
+| T26 | `BASEHARBOR_TARGET` and `--target` win over organization defaults, so a distributed org policy can be overridden per invocation | **Konsistenz-Risiko** (open decision in brief) | `cmd/baha/target.go:98-123`; `internal/orgconfig/effective.go:67-91`; `brief.md:14` |
+| T27 | an empty environment silently becomes dev in org resolution and in the organization set/read defaults, while other call sites default it only for remote reads | **Konsistenz-Risiko** | `internal/orgconfig/effective.go:54-57`; `cmd/baha/management_remote_reads.go:42-44`; `cmd/baha/config_org.go:219-220`, `:260-261` |
+| T28 | doctor/health reports `darwin`/`windows` as an OK platform check although the support matrix marks them unsupported; only the self-update path enforces the narrow matrix at runtime | **Konsistenz-Risiko** | `cmd/baha/control_plane_operations.go:155`; `internal/health/doctor.go:28`; `cmd/baha/update.go:179-181`; `docs/reference/platform-support.md:11-15` |
+| T29 | completion suggests only the three fixed environment values dev, test and prod, which reinforces the very special cases the brief wants removed | **weicht ab** | `cmd/baha/completion.go:84-90` vs `brief.md:12` |
 | T30 | remote connector surface is offered (`baha node add`) while its implementation repository is archived and the matrix says "Integration pending" | **weicht ab** (unimplemented capability must be explicit) | `cmd/baha/node.go:141-150`; `docs/reference/platform-support.md:17`; archived banner in `https://github.com/mcpdev80/baseharbor-node-connector` |
 
 ## 8. Roll-up and the acceptance questions
@@ -358,29 +367,31 @@ full-install-destruction distinction, and the version-sensitive gaps.
 
 | Path | What it mutates | Recovery door | Witness |
 | --- | --- | --- | --- |
-| `target activate` / `use` | one file `<config-dir>/active-target` (0600, under a state lock) | `baha target deactivate` clears it | `target_selection.go:48-57`, `target.go:289-293`, `:297-312` |
-| `target create` | `config.yaml` target + access entries | `target delete` (detach) | `target.go:456-560`, `target_mutation.go:49` |
-| `target delete` (detach) | removes the config entry, writes a protected recovery copy, marks a persisted selection detached | restore with `baha target create NAME --from-recovery PATH` (`target.go:250`) | `target.go:563-604`, `target_recovery.go:28`, `target_selection_mutation.go:17-29` |
-| `node add` / `node disconnect` | remote Target + one-use enrollment bundle; disconnect revokes and retains recovery owners | retained recovery owners; `node disconnect` requires `--yes` after impact acknowledgement | `node.go:145,149`, `node_disconnect_lifecycle.go`, `node_disconnect_plan.go:175` |
-| root `destroy` | every configured and every state-directory Target, Core services, local state root; host trust removal | none inside the command; data volumes are reported, not silently removed | `runtime_destroy_all.go:83-101`, `runtime_destroy_discovery.go:19-81`, `runtime_destroy_inventory.go:125-205` |
-| `app destroy` | one application's runtime, data, credentials, recovery state and registration | explicitly `app stop` for data-preserving stop | `app_lifecycle.go:197-215`, `app_destroy_lifecycle.go:64-140` |
-| `trust install` / `uninstall` | system anchor directory + OS trust refresh (may escalate) | `baha trust uninstall`; `baha trust export` for a manual path | `trust.go:117-190`, `hosttrust.go:511-536` |
-| `openbao bootstrap/unseal/rotate` | managed trust plane; recovery material stays in the operator-held file | `--recovery-file PATH` / the persisted target-scoped recovery path | `openbao.go:76-190`, `docs/reference/secrets-and-openbao.md:15-17` |
-| `serve` / `up --control-plane-only` | Core installation under `<data-root>/targets/<target>/runtime` | `baha update --recover --version V --yes` for HA PostgreSQL/DCS restore | `runtime.go:78-156`, `core_installation.go:43-100`, `update.go:73-105` |
+| `target activate` / `use` | one file `<config-dir>/active-target` (0600, under a state lock) | `baha target deactivate` clears it | `cmd/baha/target_selection.go:48-57`, `cmd/baha/target.go:289-293`, `:297-312` |
+| `target create` | `config.yaml` target + access entries (`Config.SaveExpected`, `internal/deployment/config_mutation.go:44`) | `target delete` (detach) | `cmd/baha/target.go:456-560`, `cmd/baha/target_mutation.go:49` |
+| `target delete` (detach) | removes the config entry, writes a protected recovery copy, marks a persisted selection detached | restore with `baha target create NAME --from-recovery PATH` (`cmd/baha/target.go:250`) | `cmd/baha/target.go:563-604`, `cmd/baha/target_recovery.go:28`,
+  `cmd/baha/target_selection_mutation.go:17-29` |
+| `node add` / `node disconnect` | remote Target + one-use enrollment bundle; disconnect revokes and retains recovery owners | retained recovery owners; `node disconnect` requires `--yes` after impact acknowledgement | `cmd/baha/node.go:145,149`, `cmd/baha/node_disconnect_lifecycle.go`, `cmd/baha/node_disconnect_plan.go:175` |
+| root `destroy` | every configured and every state-directory Target, Core services, local state root; host trust removal | none inside the command; data volumes are reported, not silently removed | `cmd/baha/runtime_destroy_all.go:83-101`, `cmd/baha/runtime_destroy_discovery.go:19-81`, `cmd/baha/runtime_destroy_inventory.go:125-205` |
+| `app destroy` | one application's runtime, data, credentials, recovery state and registration | explicitly `app stop` for data-preserving stop | `cmd/baha/app_lifecycle.go:197-215`, `cmd/baha/app_destroy_lifecycle.go:64-140` |
+| `trust install` / `uninstall` | system anchor directory + OS trust refresh (may escalate) | `baha trust uninstall`; `baha trust export` for a manual path | `cmd/baha/trust.go:117-190`, `internal/hosttrust/hosttrust.go:511-536` |
+| `openbao bootstrap/unseal/rotate` | managed trust plane; recovery material stays in the operator-held file | `--recovery-file PATH` / the persisted target-scoped recovery path | `cmd/baha/openbao.go:76-190`, `docs/reference/secrets-and-openbao.md:15-17` |
+| `serve` / `up --control-plane-only` | Core installation under `<data-root>/targets/<target>/runtime` | `baha update --recover --version V --yes` for HA PostgreSQL/DCS restore | `cmd/baha/runtime.go:78-156`, `cmd/baha/core_installation.go:43-100`, `cmd/baha/update.go:73-105` |
 
 ### 8.2 Target detach versus full-install destruction (explicit)
 
 `baha target delete` is configuration detach with a protected recovery copy: existing deployments,
 bindings, processes, volumes, data and access definitions all remain
-(`cmd/baha/target.go:253-258`, `:563-604`; `docs/cli/targets.md:52-70`; the detach marker even blocks
+(`cmd/baha/target.go:253-258`, `:563-604`; `docs/cli/targets.md:52-62`; the detach marker even blocks
 automatic selection afterwards, `target_selection.go:39-41`). Root `destroy` is the opposite end of
 the scale — it walks every Target, including state directories that are no longer configured
-(`runtime_destroy_discovery.go:44-66`), removes owned Core services and removes the local state root
-(`runtime_destroy_all.go:631-658`). `command-map.md:5` and `:15` keep the two names apart, and the
+(`runtime_destroy_discovery.go:44-66`), removes owned Core services
+(`runtime_destroy_inventory.go:125-171`) and removes the local state root
+(`runtime_destroy_all.go:631-658`). `command-map.md:3` and `:10/:18` keep the two names apart, and the
 code matches. Nothing in the audited tree lets one command reach the other's blast radius. Verdict:
 **trifft** (T2, T3), with one documentation caution: `baha destroy --all` is accepted as a
 "backwards-compatible alias" while installation scope is already the default
-(`runtime_destroy_all.go:45-53`), so the flag's presence still suggests a narrower mode that no
+(`cmd/baha/runtime_destroy_all.go:46-53`), so the flag's presence still suggests a narrower mode that no
 longer exists.
 
 ### 8.3 Version-sensitive gaps
@@ -389,16 +400,18 @@ longer exists.
   intent (`commands.go:79`), which is exactly what `ResolveRepositoryEnvironment` does
   (`environment.go:28-31, 80-89`); the `LegacyState` marker is the version-compatibility seam
   between the pre-global-state path (`.baseharbor`, `internal/runtime/stack.go:18`) and
-  `XDG_DATA_HOME`-based state (`:459-476`). A repository that already has both is resolved by
+  `XDG_DATA_HOME`-based state (`:449-473`). A repository that already has both is resolved by
   "global wins, legacy reused only when global is absent", so an upgrade is not atomic across the
   two roots (T25).
 - `platform-support.md:5-8` pins the matrix to the released v0.4.22 baseline and marks v0.4.23
   qualification pending, while `up`/`doctor` gate features on `runtime.GOOS` (`§6`). Any claim about
   "supported platform" in CLI output must be read against that baseline, not against the code's
   broader GOOS switches (T28).
-- `internal/runtime/contract/api.go:240-249` accepts any slug-like provider kind but only `docker`
-  and `podman` are registered (`internal/runtime/resolver/resolver.go:11-23`, `:41-44`);
-  `kubernetes`/`openshift` kinds exist as constants (`:5-10`) with no registration, so a Target
+- `internal/runtime/contract/api.go:240-249` accepts any slug-like provider kind, but only
+  `docker` and `podman` are registered
+  (`internal/runtime/resolver/resolver.go:11-23`, `:41-44`);
+  `kubernetes`/`openshift` kinds exist as constants
+  (`internal/runtime/contract/api.go:18-19`) with no registration, so a Target
   created with `--runtime-provider kubernetes` fails at resolution rather than at creation.
   This is the "unimplemented must be explicit" gap in the platform axis (T15, T30-adjacent).
 
@@ -440,7 +453,7 @@ integration/CI owners (card note) and were only read, never edited.
 ## 10. Open items for the contract task (not decisions of this lane)
 
 1. Whether the target selection stays per-user persisted (today's implementation, `target.go:260-263`)
-   or becomes shell-local (today's documentation, `docs/explanation/targets.md:153-168`). T5/T26.
+   or becomes shell-local (today's documentation, `docs/explanation/targets.md:152-168`). T5/T26.
 2. One vocabulary for selection state across human, JSON and MCP output (T6), and one owner for the
    `-t` / `-c` short forms the brief names but the code never defines (T7, T8).
 3. Replacing environment-name semantics with explicit policy/authorization, including the
@@ -468,9 +481,12 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
 - card: `t-20261114-r28-cli2-audit-platform` (0428-045), state `active` at start of this lane
 - product base audited: `develop` @ `0e9ccb582f5bdcdc74049bbe3996263cdce6500c` (no candidate branch,
   no PR: merge-frost, reine Bestandsaufnahme)
-- plan base at start: `origin/main` @ `9aad6e585a8e7337f4415addefa4b4950b67714e`
-- deliverable: this dossier; 30 verdicts in §7, of which 11 **trifft**, 10 **weicht ab**,
-  9 **Konsistenz-Risiko**
+- plan base at start: `origin/main` @ `9aad6e585a8e7337f4415addefa4b4950b67714e`; the remote moved on
+  while this dossier was being written, so the dossier commit was rebased onto the fetched head
+  `3aa218da73504b3ff428b687d253095bee7fa9dd` before push (single own commit on top, `git log
+  --oneline 3aa218da..HEAD` shows exactly one line; no force-push, no history rewrite)
+- deliverable: this dossier; 30 verdicts in §7 (T1-T30), of which 8 **trifft**, 11 **weicht ab**
+  and 11 **Konsistenz-Risiko**
 - required checks: none applicable (read-only planning evidence; no product source changed, so no
   Go test, vet, build, Docker/Podman gate or new test needs CI routing from this lane — and
   therefore no `.github/**` change request)
