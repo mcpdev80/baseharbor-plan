@@ -26,7 +26,6 @@ evidence: []
 - [ ] t-20261114-r28-cli2-contract · CLI redesign: Specify reviewed CLI contract #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-cli2-contract-r28 · **Priority:** high  
-    **Needs:** [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
