@@ -5,7 +5,7 @@ Date: 2026-11-14
 Card: t-20261114-r28-perses-release-boundary (0428-092), release v0.4.28
 PR: https://github.com/mcpdev80/baseharbor/pull/1577 (OPEN, DRAFT)
 Prior candidate reviewed: e955f43507de193cb21dee51ce4021248f3bd08f (REJECT per evidence/r28-welle1-2026-11-14/vm-bughunt/act-1577-review-r1.md)
-Candidate after this round: 79a2bf6ccdcdc0e0423003b75066c725e445658f
+Candidate after this round: 29dba54dddb02f48568c571e9ce37f671d21e6aa
 
 ## PLAN
 
@@ -28,10 +28,12 @@ Planning repo identity, exact command and output before the first evidence commi
 Remote product truth (never the quarantined workers/baseharbor checkout as evidence of remote state):
 
     git ls-remote origin refs/heads/develop refs/heads/0428-092-perses-boundary refs/pull/1577/head refs/pull/1575/head
-    79a2bf6ccdcdc0e0423003b75066c725e445658f	refs/heads/0428-092-perses-boundary
+    29dba54dddb02f48568c571e9ce37f671d21e6aa	refs/heads/0428-092-perses-boundary
     0e9ccb582f5bdcdc74049bbe3996263cdce6500c	refs/heads/develop
     dc670bfd4d32baf29afde0e4b021bfdb63f4e0be	refs/pull/1575/head
-    79a2bf6ccdcdc0e0423003b75066c725e445658f	refs/pull/1577/head
+    29dba54dddb02f48568c571e9ce37f671d21e6aa	refs/pull/1577/head
+
+Exact `refs/pull/1577/head` witness for the final candidate: `29dba54dddb02f48568c571e9ce37f671d21e6aa`.
 
 Base attestation: this round continues the existing PR #1577 branch (the mission
 names it as the single candidate; no second branch). The round-1 base is
@@ -43,12 +45,13 @@ act and re-verified here via `git merge-base origin/develop HEAD` =
 Own-commits-only log line over the fetched base:
 
     git log --oneline 0e9ccb582f5bdcdc74049bbe3996263cdce6500c..HEAD
+    29dba54dd docs(0428-092): smooth DE sentence flow in the v0.4.28 release note
     79a2bf6cc docs(0428-092): state the Perses encryption-key startup boundary (upstream v0.55.0)
     a78bb4189 docs(0428-092): correct v0.4.28 release scope, Perses boundary wording and DE terms (review r1)
     e955f4350 docs(v0.4.28): set optional Perses release boundary (pin v0.55.1)
 
-All three commits are 0428-092 release-boundary work (the first from round 1 of
-this same card/PR chain, the latter two from this session); no foreign
+All four commits are 0428-092 release-boundary work (the first from round 1 of
+this same card/PR chain, the latter three from this session); no foreign
 candidate is carried on top.
 
 ## Changes applied (mapping to the review recipe)
@@ -80,7 +83,8 @@ Local gates on the worktree:
 
 Hosted runs (self-observed to terminal state, no reruns or dispatch, no `.github/**` change):
 - Run `43642605616` on candidate `a78bb4189` — completed/success. `PR · Draft source and routing` and all five `PR · Draft Go` jobs succeeded; remaining jobs skipped under draft selection, as on round 1.
-- Run `43642760720` on candidate `79a2bf6cc` — completed/success. Same draft-selection pattern: `PR · Draft source and routing` + `PR · Draft Go · cli-0..3` + `packages` succeeded, all others skipped.
+- Run `43642760720` on candidate `79a2bf6cc` — completed/success. Same draft-selection pattern.
+- Run `43643473988` on final candidate `29dba54dd` — completed/success. `PR · Draft source and routing` + `PR · Draft Go · cli-0..3` + `packages` succeeded, all other jobs skipped under draft selection.
 
 ## Scope and repo-rules compliance
 
@@ -91,6 +95,6 @@ Hosted runs (self-observed to terminal state, no reruns or dispatch, no `.github
 - No subagents; every step executed in this session.
 - No containers/compose projects were started on this host; no VM smoke test is part of this mission.
 - Planning repo push witness (second-to-last action):
-  - `git ls-remote origin main` before push: `3803c2f670adc9d018cb2a268749d99ed0daec99	refs/heads/main`
+  - `git ls-remote origin refs/heads/main` before the final evidence push: `131c1b918b87e579799e12fa55aca3d13623e1b5	refs/heads/main` (the earlier round-2 content commit; the file was corrected forward in this same evidence push).
 
-END mission-092-r2.md DONE — candidate 79a2bf6ccdcdc0e0423003b75066c725e445658f on PR #1577 (draft), runs 43642605616 and 43642760720 terminal success.
+END mission-092-r2.md DONE — final candidate 29dba54dddb02f48568c571e9ce37f671d21e6aa on PR #1577 (draft); hosted runs 43642605616, 43642760720 and 43643473988 terminal success.
