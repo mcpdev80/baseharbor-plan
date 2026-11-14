@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 5 |
+| active | 6 |
 | review | 0 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 8 |
+| ready | 7 |
 | queued | 25 |
 | waiting | 206 |
 | backlog | 7 |
@@ -27,6 +27,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261114-r28-cli2-audit-access](../tasks/t-20261114-r28-cli2-audit-access.md) | CLI redesign: Audit identity and access semantics | active | high | lane-0428-046-r28 | — | — |
 | [t-20261114-r28-cli2-audit-app](../tasks/t-20261114-r28-cli2-audit-app.md) | CLI redesign: Audit app command semantics | active | high | lane-0428-044-r28 | — | — |
+| [t-20261114-r28-cli2-audit-platform](../tasks/t-20261114-r28-cli2-audit-platform.md) | CLI redesign: Audit platform and target semantics | active | high | lane-0428-045-r28 | — | — |
 | [t-20261114-r28-cli2-audit-wizards](../tasks/t-20261114-r28-cli2-audit-wizards.md) | CLI redesign: Audit guided user journeys | active | high | lane-0428-048-r28 | — | — |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | active | normal | lane-0428-075-r28 | — | — |
 
@@ -52,7 +53,6 @@ None.
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
-| [t-20261114-r28-cli2-audit-platform](../tasks/t-20261114-r28-cli2-audit-platform.md) | CLI redesign: Audit platform and target semantics | ready | high | — | — | — |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | — | — | — |
 | [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | ready | high | — | — | — |
 | [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | Audit real observability signals | ready | normal | — | — | — |
