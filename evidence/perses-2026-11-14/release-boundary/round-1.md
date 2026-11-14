@@ -10,6 +10,20 @@ Branch provenance: first commit built on 0e9ccb582; `git log` lists only my own 
 
 > Evidence provenance (Owner rules): evidence lives ONLY in baseharbor-plan evidence/ (never in the product repo). Base verified via `git ls-remote`/fresh remote ref, never via the quarantined workers/baseharbor checkout. No `.github/**` edited, no reruns/workflow_dispatch. No subagents.
 
+git ls-remote origin develop:
+`0e9ccb582f5bdcdc74049bbe3996263cdce6500c refs/heads/develop`
+
+git log (only my commit on top of base develop):
+```
+e955f4350 docs(v0.4.28): set optional Perses release boundary (pin v0.55.1)
+0e9ccb582 chore: pin v0.4.27 demo acceptance (#1573)
+```
+
+`git merge-base --is-ancestor 0e9ccb582 e955f4350` => base is ancestor of the product commit.
+
+Evidence on origin/main (second-to-last action witness):
+`git ls-tree origin/main -- evidence/perses-2026-11-14/release-boundary/round-1.md` => `100644 blob 04f5c04fa208f5e7fcaf4fe53cb27c25762a6c5d ...`
+
 ## Goal (from card + release sheet)
 
 Set the release-SIDE boundary for Perses on the v0.4.28 release:
