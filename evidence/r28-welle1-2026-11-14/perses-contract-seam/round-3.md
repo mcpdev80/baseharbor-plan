@@ -156,8 +156,52 @@ is missing, skipped-unexpectedly or not passed.)
 - Reality witnesses taken via git ls-remote against the product remote; the quarantined
   workers/baseharbor checkout was never cited.
 
+## Local verification on the exact r3 candidate
+
+- gofmt -l: clean; go vet ./cmd/baha: clean; go build ./...: OK (toolchain go1.26.8).
+- go test ./cmd/baha -run 'TestBahaStatusPerses|TestPersesRelease' -count=1: PASS, run 4x
+  deterministically (subtests selected/unselected-fail-closed included).
+- go test ./internal/capability ./internal/metrics ./internal/application -count=1: ok.
+- Full-suite context: this host (the coordinator/codeman machine) runs several lanes'
+  `go test ./cmd/baha` package passes at once; a local full-package run under that load
+  hit the 10-minute Go-test alarm in unrelated runtime cells
+  (TestAppEditCommandCompleteProviderEditRunsRealLifecycle: "start real isolated Core for
+  App Edit: existing native network lacks a protected Core or shared backend owner" — a
+  shared-daemon fixture collision, present identically when the base candidate dc670bfd is
+  run here; not a change introduced by this lane). The authoritative full-package verdict
+  is the hermetic hosted shard runs recorded above, all green on the exact r3 head.
+
 ## END witnesses
 
-(candidate SHA + ls-remote + hosted run: pasted below as they are observed)
+Exact `git ls-remote` after the push (from the product remote of the worktree):
 
-END line: see final section.
+`git ls-remote origin refs/pull/1575/head refs/heads/lane-0428-075-perses-seam refs/heads/develop`
+`0e9ccb582f5bdcdc74049bbe3996263cdce6500c	refs/heads/develop`
+`c195a9a2049253accdf57a082e6eb33fc36ec7dd	refs/heads/lane-0428-075-perses-seam`
+`c195a9a2049253accdf57a082e6eb33fc36ec7dd	refs/pull/1575/head`
+
+Own-commits log base..HEAD (`git log --format='%H %an <%ae> %s' origin/develop..HEAD`):
+
+`c195a9a2049253accdf57a082e6eb33fc36ec7dd lane-0428-075-perses-seam <lane-0428-075-perses-seam@baseharbor.dev> test(0428-075): execute the genuine baha status path for the Perses seam + unknown-owner fail-closed (r3)`
+`dc670bfd4d32baf29afde0e4b021bfdb63f4e0be mcpdev80 <dev@pfingstgraef.eu> fix(0428-075): ground Perses seam in manifest truth, fail-closed + unverified reachability`
+`61f76fa18897d4a0709c09c27ae67e1ded8dba20 lane-0428-075-perses-seam <lane-0428-075-perses-seam@baseharbor.dev> feat(0428-075): define optional Perses provider seam (fail-closed)`
+
+All three commits belong to this card's chain on the named branch (r1, r2, r3); no foreign
+commit is carried on top. `git merge-base --is-ancestor dc670bfd4 HEAD` exits 0.
+
+Pre-push remote witness of the planning repo:
+
+`git ls-remote origin main`
+(see final pasted output below the evidence commit)
+
+Candidate SHA under review: c195a9a2049253accdf57a082e6eb33fc36ec7dd
+Hosted run: 43647090290 (terminal, success; per-test PASS witness: the shard
+aggregate lines above + the runner's fail-closed per-test completeness check).
+
+Cleanliness: this lane started no containers, compose projects, networks or volumes and
+left no state directories (all Go tmp roots are under /tmp and removed by the test
+runner); docker was used read-only for an ambient `docker info` check. No .github/**
+change; no subagent.
+
+END mission-075-r3.md DONE — candidate c195a9a2049253accdf57a082e6eb33fc36ec7dd on
+refs/pull/1575/head, run 43647090290 success.

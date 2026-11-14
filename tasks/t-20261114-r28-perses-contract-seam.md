@@ -20,13 +20,14 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-3.md"]
 ---
 
 - [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-075-seam-r3 · **Priority:** normal  
     **PR:** [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
