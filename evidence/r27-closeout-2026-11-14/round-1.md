@@ -123,11 +123,11 @@ Current facts:
 
     $ git fetch --quiet origin main
     $ git ls-tree origin/main evidence/r27-closeout-2026-11-14/
-    100644 blob b0e3edad77b2837b192b962e77c3695a8480d758	evidence/r27-closeout-2026-11-14/round-1.md
+    100644 blob 077776a67064ce22a80b64130de2b80117f83012	evidence/r27-closeout-2026-11-14/round-1.md
     $ git rev-parse origin/main
-    2218a1c986b85951bd6d5d86acb2bdbb41337bc2
+    eabacb2d6a818e31b8e1f17022958c17a5978ce1
 
-Candidate/act SHAs (baseharbor-plan main): claim commit 9639472346dee29c50fbe31006f3e96f66baed44, evidence commits 2218a1c986b85951bd6d5d86acb2bdbb41337bc2 (closeout dossier) and 097411bf6a71bbd31e4bc6c8867fdf00c25c9b50 (witness addendum, final origin/main head at END time). `git log 2218a1c9..097411bf --oneline` lists exactly the one addendum commit — no foreign candidate on top.
+Candidate/act SHAs (baseharbor-plan main): claim commit 9639472346dee29c50fbe31006f3e96f66baed44; evidence commits 2218a1c986b85951bd6d5d86acb2bdbb41337bc2 (closeout dossier), 097411bf6a71bbd31e4bc6c8867fdf00c25c9b50 (witness addendum), eabacb2d6a818e31b8e1f17022958c17a5978ce1 (final SHA line, origin/main head at END time). Each delta commit list (e.g. `git log 2218a1c9..097411bf --oneline`) contains exactly this lane's own commits — no foreign candidate on top.
 Candidate refs verified (baseharbor): release/v0.4.27 = 385b0410d6b5182471028e0f8616ad8196925f1f (develop 0e9ccb58 is an ancestor; main aff1532c is NOT — see F-P2). No product-branch work was created by this lane (closeout = reading, attestation and planning only; mission freeze respected).
 
 ## VM / runtime hygiene
