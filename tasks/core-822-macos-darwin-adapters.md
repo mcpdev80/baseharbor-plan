@@ -12,7 +12,7 @@ kanban_lane: planned
 kanban_summary: Implement and qualify the native macOS/Darwin Host Platform adapter and the macOS Dev Local journey without claiming runtime…
 kanban_status: planned
 kanban_title: "0429-005 · implement and qualify Darwin"
-depends_on: [core-820, core-883, core-884, t-20261017-release-0-4-29-updates]
+depends_on: [core-820, core-883, core-884, t-20261017-release-0-4-29-updates, t-20261114-r28-cli-command-semantics]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: ["mcpdev80/baseharbor#822"]
@@ -27,14 +27,14 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned  
     **Waiting for prerequisites**  
-    **Needs:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
+    **Needs:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md), [t-20261114-r28-cli-command-semantics](t-20261114-r28-cli-command-semantics.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.29](../releases/v0.4.29.md)  
 **Parent:** [core-818](../epics/core-818-host-platforms.md)  
-**Depends on:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md)  
+**Depends on:** [core-820](core-820-linux-host-adapters-regressions.md), [core-883](core-883-macos-quadlet-inside-podman-machine.md), [core-884](core-884-tests-macos-runtime-real-mac.md), [t-20261017-release-0-4-29-updates](t-20261017-release-0-4-29-updates.md), [t-20261114-r28-cli-command-semantics](t-20261114-r28-cli-command-semantics.md)  
 **Required by:** [core-823](core-823-tests-platform-conformance-support.md)  
 **Owner:** unassigned  
 **Priority:** not set  
