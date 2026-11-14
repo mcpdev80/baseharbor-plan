@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Make BaseHarbor's human CLI predictable for Linux developers before WSL2 and macOS work relies on that interface. Commands must…"
 kanban_title: "0428-043 · harmonize human CLI semantics"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-final-acceptance]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -26,13 +26,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
 **Required by:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md)  
 **Owner:** unassigned  
 **Priority:** high  
@@ -43,6 +43,10 @@ evidence: []
 ## Goal
 
 Make BaseHarbor's human CLI predictable for Linux developers before WSL2 and macOS work relies on that interface. Commands must state clearly what resource they act on, which Target they select, and what a destructive action removes.
+
+## Split implementation coordination
+
+The owner requested five parallel workers, one coordinator and Codex/Owner-delegated Maintainer acceptance. The bounded `t-20261114-r28-cli2-*` cards hold the audit, contract, implementation and final acceptance chain. This umbrella cannot be accepted until `t-20261114-r28-cli2-final-acceptance` has actually completed; release startup remains mandatory. Owner decisions and still-proposed names are recorded in [the working brief](../evidence/cli-redesign-20261114/brief.md). Existing platform dependents continue to depend on this umbrella.
 
 ## Scope and acceptance
 
