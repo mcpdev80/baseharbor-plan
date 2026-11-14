@@ -63,5 +63,4 @@ Canonical audit sections 10–13 and existing release-only/artifact/checksum/pro
 
 ## Handoff
 
-- 2026-11-14 (mission-closeout27, review-pending act): no v0.4.27 tag or GitHub Release exists (latest: v0.4.26), so publication verification is impossible and honestly unclaimed; CHANGELOG 0.4.27 section and docs/releases/v0.4.27.md already exist on develop/release branch as future witnesses. Full dossier with remote-truth witnesses: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md).
-Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
+- 2026-11-14 (mission-closeout27, review-pending act): no v0.4.27 tag or GitHub Release exists (latest: v0.4.26), so publication verification is impossible and honestly unclaimed; CHANGELOG 0.4.27 section and docs/releases/v0.4.27.md already exist on develop/release branch as future witnesses. Full dossier with remote-truth witnesses: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md). Review state deferred: schema requires a card PR (plan.py:417); no admissible product PR exists for this acceptance card.
