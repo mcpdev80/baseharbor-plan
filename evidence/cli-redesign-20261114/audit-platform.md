@@ -490,24 +490,30 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
 
 ```
 $ git ls-remote origin main
-5575f383f4082964a0bc2aef4df9e971c1d8314b	refs/heads/main
+337da5ba0f9671fd1c37a4afd360bf621427143b	refs/heads/main
 $ git ls-tree origin/main evidence/cli-redesign-20261114/audit-platform.md
-100644 blob bfe0e255583b64138d0478c1fb714c29ec73593e	evidence/cli-redesign-20261114/audit-platform.md
+100644 blob eda5878979ffec65bd7ac934aeff112c9625e836	evidence/cli-redesign-20261114/audit-platform.md
 $ git rev-parse origin/main:evidence/cli-redesign-20261114/audit-platform.md
-bfe0e255583b64138d0478c1fb714c29ec73593e
+eda5878979ffec65bd7ac934aeff112c9625e836
 $ git log --oneline origin/main..HEAD
 (empty: nothing of this lane is left unpushed)
-$ git log --oneline -2 origin/main
+$ git log --oneline origin/main -4
+337da5ba 0428-045 audit-platform: delivery note for the two-commit witness sequence
+5575f383 0428-045 audit-platform: evidence witnesses (ls-remote, ls-tree) added
+35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
+3aa218da coord: 0428-090 signal-inventar angenommen (akte fern)
+$ git log --oneline 3aa218da..HEAD
+337da5ba 0428-045 audit-platform: delivery note for the two-commit witness sequence
 5575f383 0428-045 audit-platform: evidence witnesses (ls-remote, ls-tree) added
 35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
 ```
 
-Delivery note: the dossier is published as two commits (`35d0a975`, `5575f383`), both inside this
-lane's write-set and both touching only this file. The second commit exists because the mandated
-`ls-remote`/`ls-tree` witnesses must record a state that is only reachable after the first push; a
-file cannot contain the witness of its own push. Provenance of the first commit was measured before
-it was pushed and is recorded in §12 (`9aad6e58` at lane start, `3aa218da` as the fetched base,
-`origin/main` an ancestor of the commit head, one own commit on top at that moment).
+Delivery note: the dossier is published as three commits (`35d0a975`, `5575f383`, `337da5ba`) on top
+of the fetched base `3aa218da`; that log line lists ONLY this lane's commits, no foreign candidate
+is carried. All three stay inside this lane's write-set and touch only this file. The extra commits
+exist because the mandated `ls-remote`/`ls-tree` witnesses can only record a state that appears
+after a push; a file cannot contain the witness of its own push. Base provenance of the first commit
+was measured before it was pushed and is recorded in §12.
 
 ## END
 
