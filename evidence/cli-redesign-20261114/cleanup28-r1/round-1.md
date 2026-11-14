@@ -153,4 +153,22 @@ All 30 branches are old fix/branches (`fix/v0414-*`, `fix/v0419-*`, `fix/v0.4.26
 - Lane END: DONE. Evidence pushed to planning origin/main (ls-tree witness below). No containers/compose started (read-only inventory). No product writes.
 
 ## ls-tree witness (evidence on origin/main before END)
-- Capture below in the evidence-push section.
+
+- `git ls-remote origin main` after push:
+  ```
+  8de847aed71f597092f630f391cbe03572ac716e	refs/heads/main
+  ```
+- `git ls-tree -r origin/main --name-only` confirms the akte is tracked:
+  ```
+  evidence/cli-redesign-20261114/cleanup28-r1/round-1.md
+  ```
+- Commit `8de847ae` is my only commit on main; base `334ff1a1` is its ancestor (`git merge-base --is-ancestor 334ff1a1 HEAD` → YES). No foreign commit carried on main.
+
+## Repo-rule compliance (this lane)
+
+- No product repos touched; no `.github/**` files edited; no reruns/workflow_dispatch triggered.
+- No merges, no PR merges, no PR closes (merge-frost 2026-11-14 honored).
+- Immutable tags (`v0.4.x`) and release branches (`release/v0.4.27`, `release/v0.4.26`, `release-publish/v0.4.26-owner-20261026`) untouched.
+- No containers/compose/docker/podman started (read-only inventory; clean host).
+- Evidence written only to planning main; no evidence path in any product repo.
+- Remote truth via `gh` + `git ls-remote` only; quarantined `workers/baseharbor` never cited.
