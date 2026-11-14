@@ -7,7 +7,7 @@ areas: [release, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: lane-0428-092-r28
+owner: lane-0428-092-seam-r2
 kanban_status: active
 kanban_lane: active
 kanban_summary: "Align current Core release/audit entry points with the accepted public scope: Core, Demo, the delivered CLI and optional Perses.…"
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/active #view/active #area/documentation #area/release #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0428-092-r28 · **Priority:** high  
+    **Owner:** lane-0428-092-seam-r2 · **Priority:** high  
     **PR:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
     <!-- /generated:card -->
 
@@ -33,7 +33,7 @@ evidence: []
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** lane-0428-092-r28  
+**Owner:** lane-0428-092-seam-r2  
 **Priority:** high  
 **PRs:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
 **Source:** 
