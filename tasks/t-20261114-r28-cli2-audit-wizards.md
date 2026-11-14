@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-048-r28
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Audit guided user journeys. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-048 · Audit guided user journeys
 priority: high
@@ -19,19 +19,19 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence:
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/audit-wizards.md
 ---
 
-- [ ] t-20261114-r28-cli2-audit-wizards · CLI redesign: Audit guided user journeys #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-audit-wizards · CLI redesign: Audit guided user journeys #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-048-r28 · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/audit-wizards.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
