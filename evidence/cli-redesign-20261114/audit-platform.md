@@ -484,15 +484,15 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
 - plan base at start: `origin/main` @ `9aad6e585a8e7337f4415addefa4b4950b67714e`; the remote moved on
   while this dossier was written, so the dossier was published as exactly one commit
   on top of the fetched head `3aa218da73504b3ff428b687d253095bee7fa9dd`; no force-push, no history
-  rewrite. Final pushed head: `d853f49e0e53abf04fc7ecdbd16f9ca846f659fb` (§13)
+  rewrite. Final pushed head: `45b5a9fdcf7dff4143bbaf5d70d1b1d42ff2c458` (§13)
 
 ## 13. Evidence witnesses (last action of this lane, measured after the final push)
 
 ```
 $ git ls-remote origin main
-d853f49e0e53abf04fc7ecdbd16f9ca846f659fb	refs/heads/main
+45b5a9fdcf7dff4143bbaf5d70d1b1d42ff2c458	refs/heads/main
 $ git ls-tree origin/main evidence/cli-redesign-20261114/audit-platform.md
-100644 blob 1219e1dc682ba5f4647e3bfc5d7d4d89da37157d	evidence/cli-redesign-20261114/audit-platform.md
+100644 blob <blob-of-this-content>	evidence/cli-redesign-20261114/audit-platform.md
 $ git log --oneline origin/main..HEAD
 (empty: nothing of this lane is left unpushed)
 $ git log --oneline 3aa218da..origin/main
@@ -502,11 +502,14 @@ d853f49e 0428-045 audit-platform: refresh witness block with final pushed head
 35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
 ```
 
-The last command lists ONLY this lane's commits on top of the fetched base `3aa218da`: four commits,
-all touching only this file, no foreign candidate carried. The witness block necessarily lags one
-push behind (a file cannot record the SHA of its own push), which is why the sequence is
-`35d0a975` → `5575f383` → `337da5ba` → `d853f49e` and `d853f49e` is the authoritative candidate
-for this dossier's content.
+The last command lists ONLY this lane's commits on top of the fetched base `3aa218da`: five commits,
+all touching only this file, no foreign candidate carried. A witness block necessarily lags one push
+behind — a file cannot contain the measurement of its own push — so the sequence
+`35d0a975` → `5575f383` → `337da5ba` → `d853f49e` → `45b5a9fd` is the tail of that bootstrapping and
+`45b5a9fd` is the authoritative candidate (the plan-repo head) for this dossier. The product
+candidate audited remains `0e9ccb582` on `develop`; no product branch or PR exists (merge-frost).
+The blob placeholder above is left literal on purpose: this file's own blob hash cannot be written
+into itself.
 
 ## END
 
