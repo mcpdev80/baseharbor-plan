@@ -13,7 +13,7 @@ The `mcpdev80/baseharbor-console` and `mcpdev80/baseharbor-node-connector` repos
 
 All open BaseHarbor-plan task cards dedicated to Console delivery or Node Connector delivery are closed with resolution `dropped`. The Console product epic is closed. There is no separate Node Connector epic in the current planning vault; its remaining top-level delivery item is the `nc-3` task card.
 
-This closes future work in the public planning scope. It does not remove repository history, tags, releases, previously delivered code, accepted evidence, or historical planning records.
+Console and Node Connector will not be developed further under the public BaseHarbor plan. This closes future work in the public planning scope. It does not remove repository history, tags, releases, previously delivered code, accepted evidence, or historical planning records.
 
 ## Boundaries
 
