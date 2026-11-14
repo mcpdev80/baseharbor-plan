@@ -55,16 +55,38 @@
 - Environment is currently a plain string selector (NOT an identity):
   - `internal/application/manifest.go` — `Manifest.Environment` string.
   - `internal/application/environment.go` — `ResolveRepositoryEnvironment` / `RepositoryEnvironmentSelection.Environment` (string), slug-validated via `validateSlug("environment", requested)`.
+  - `internal/application/environment.go:207` — `RepositoryEnvironmentStateRoot` = `.<repo>/.baseharbor/environments/<env>` (explicit/multi-env case).
   - `internal/deployment/deployment_store.go:235` — `DeploymentIdentity.Environment` string; `Validate()` requires non-empty, no `/`.
   - `internal/application/environment_test.go` — existing tests, package `application`.
 - `internal/stableid/id.go` — `NewUUIDv4(label)` / `ValidateUUIDv4(label, id)` (already used for app/deployment).
-- CI: `ci.yml` runs `go test ./internal/... ./cmd/baha` (job at line ~122) — `internal/application` and `internal/deployment` are covered; `cmd/baha` env tests covered by the same job. New tests in `internal/environment` need a matching `./internal/environment/...` path in that job (to be mapped, not edited — Owner scope).
+- CI: `ci.yml` runs `go test ./internal/... ./cmd/baha` — `internal/application` and `internal/deployment` are covered; `cmd/baha` env tests covered by the same job. New tests in `internal/environment` and `internal/deployment` are picked up by that existing job (NO `.github/**` change needed — confirmed by mapping the two new test files to existing paths).
 
-## TODO / unknowns to resolve (report to Owner, do not guess)
+## Implementation (r28 round-1) — DONE, tested, unverified-on-remote
 
-- Exact deployment-store write location for the environment registry (new package owns slice; shared-file interface change via coordinator per card).
-- Whether `app setup env` create path is in scope for this lane or reserved.
-- CI path mapping for `internal/environment` package tests (if new package, may need a job entry — report file:line to Owner, do not edit `.github/**`).
+- New package `internal/environment` (`environment.go`): `NewID()` / `MustNewID()` / `Validate()` / `ValidateNonEmpty()` + `Environment{ID,Name}` with `Rename` (ID preserved). UUIDv4 via stableid. Name slug-validated (mirrors target slug).
+- New seam `internal/deployment/environment_identity.go`: `GetEnvironment(target, env)` / `EnvironmentID(target, env)` / `EnvironmentRecord{Target,Name,Identity}`. Home: `targets/<target>/.baseharbor/environments/<env>/environment.json` (OUTSIDE deployment-registry namespace `targets/<t>/deployments`).
+  - First creation: MkdirAll primes the Target root (so the shared `WithDeploymentRegistryWriteLock` engages — see finding below), then takes the Target-wide registry write lock, re-checks, creates atomically via temp+rename, foreign-claim rejection at rename.
+  - Idempotent: existing record returns unchanged (brownfield reuse). Renames never reach this seam with a new ID.
+  - Non-blocking lock with bounded retry: concurrent first-registration losers retry (env creation is rare/cheap) and converge on the winner's ID; the winner's rename is the atomic single-source-of-truth.
+- Tests: `internal/environment/environment_test.go` (9 tests) + `internal/deployment/environment_identity_test.go` (7 tests incl. 32-goroutine concurrent-registration atomicity + per-target isolation + brownfield reuse + namespace isolation + invalid-input fail-closed).
+- LOCAL RESULTS (exact candidate SHA = 0e9ccb582 worktree HEAD):
+  - `go build -buildvcs=false ./...` — OK
+  - `go vet ./internal/environment/ ./internal/deployment/` — OK
+  - `go test ./internal/application/ -count=1` — ok (2.7s)
+  - `go test -race ./internal/deployment/ ./internal/environment/` — ok (2.5s / 1.2s)
+  - `go test ./cmd/baha/ -run 'Test.*Environment|Test.*Env' -count=1` — ok (60.9s)
+  - CI mapping: `internal/environment` + `internal/deployment` covered by existing `go test ./internal/... ./cmd/baha` (ci.yml). NO `.github/**` change required.
+
+## Finding: shared registry lock does NOT engage until the Target root exists
+
+- `internal/deployment/registry_lock.go:WithDeploymentRegistryWriteLock` runs `fn()` **lock-free** when `TargetStateRoot(target)` does not exist (`os.ErrNotExist` → `return fn()`). On the very first concurrent registration of a brand-new Target, all first-writers race through the UNLOCKED path and each writes its own identity — a genuine double-create hole.
+- Fix applied in this seam: `GetEnvironment` calls `os.MkdirAll(filepath.Dir(home), 0o700)` BEFORE `WithDeploymentRegistryWriteLock`, priming the Target root so the lock engages. MkdirAll writes no record (never mutates observable state). This is safe: the lock is shared with `SaveDeploymentRecord` and unchanged here; the prime is idempotent.
+- NOTE for Owner: the shared `WithDeploymentRegistryWriteLock` still has the "no lock until root exists" property. It is not a bug for deployments because a deployment's first registration is gated elsewhere; but a reviewer may want the same priming (or a lock-on-missing-root) there. **Reported as STATE — Owner scope, not edited.**
+
+## TODO / unknowns (reported to Owner 2026-11-14)
+
+- CLI wiring: whether `environment_id` must be surfaced via a new `env` command or only reachable through the deployment seam. The card's card-level entry point is `internal/environment` + `deployment_store.go` interface; this lane owns the seam and its tests. CLI UX (new `env` command, `-e/--environment` resolving to the durable ID) is reserved for the umbrella CLI-integration owner — **reported as STATE (file:line pending) — Owner scope, not edited.**
+- Exact deployment-store interface method (if any) that should expose `EnvironmentID` to `cmd/baha` — confirmed NOT needed: the seam reads/writes the existing per-Target deployment-state home directly; `deployment_store.go` is unchanged.
 
 ## End-of-shift marker
 

@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 5 |
-| review | 1 |
-| wait | 1 |
+| review | 0 |
+| wait | 2 |
 | blocked | 0 |
 | ready | 5 |
 | queued | 25 |
@@ -32,15 +32,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | review | high | lane-0428-092-seam-r2 | — | [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577) |
+None.
 
 ## Waiting for resources
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
+| [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | wait | high | lane-0428-092-seam-r2 | — | [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577) |
 
 ## Blocked
 
