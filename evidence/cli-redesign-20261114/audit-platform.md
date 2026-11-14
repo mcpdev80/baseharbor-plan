@@ -506,11 +506,11 @@ The last command lists ONLY this lane's commits on top of the fetched base `3aa2
 all touching only this file, no foreign candidate carried. A witness block necessarily lags one push
 behind — a file cannot contain the measurement of its own push — so the sequence
 `35d0a975` → `5575f383` → `337da5ba` → `d853f49e` → `45b5a9fd` is the tail of that bootstrapping and
-`45b5a9fd` is the authoritative candidate (the plan-repo head) for this dossier. The product
+`45b5a9fd` is an authoritative candidate (a plan-repo head) for this dossier. The product
 candidate audited remains `0e9ccb582` on `develop`; no product branch or PR exists (merge-frost).
 The blob placeholder above is left literal on purpose: this file's own blob hash cannot be written
 into itself.
 
 ## END
 
-END_DONE mission-audit-platform.md: platform/environment/target/UID paths audited at develop 0e9ccb582, 30 file:line verdicts in evidence/cli-redesign-20261114/audit-platform.md; candidate SHA 0e9ccb582f5bdcdc74049bbe3996263cdce6500c; no product change (merge-frost), card could not move to review (review requires a prs entry; see §12).
+END_DONE mission-audit-platform.md: platform/target/environment/UID paths inventoried at develop 0e9ccb582; 30 file:line verdicts (8 trifft, 11 weicht ab, 11 Konsistenz-Risiko) in evidence/cli-redesign-20261114/audit-platform.md; product candidate 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, dossier candidate f1fdaefd45831c5639f0872ab11e1404abfcbf5f (ancestor of origin/main 65956641, log proves only this lane's commits); no product change (merge-frost); card left active - the review column needs a prs entry and merge-frost yields no PR (see 12).
