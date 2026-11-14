@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 4 |
+| active | 5 |
 | review | 1 |
 | wait | 1 |
 | blocked | 0 |
-| ready | 6 |
+| ready | 5 |
 | queued | 25 |
 | waiting | 205 |
 | backlog | 7 |
@@ -27,6 +27,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261114-r28-cli2-audit-platform](../tasks/t-20261114-r28-cli2-audit-platform.md) | CLI redesign: Audit platform and target semantics | active | high | lane-0428-045-r28 | — | — |
 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | CLI redesign: Specify reviewed CLI contract | active | high | lane-cli2-contract-r28 | [t-20261114-r28-cli2-audit-access](../tasks/t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](../tasks/t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](../tasks/t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](../tasks/t-20261114-r28-cli2-audit-platform.md) (open), [t-20261114-r28-cli2-audit-wizards](../tasks/t-20261114-r28-cli2-audit-wizards.md) | — |
+| [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | active | high | lane-0428-092-r28 | — | — |
 | [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | Audit real observability signals | active | normal | lane-0428-090-r28 | — | — |
 
 ## Ready for review
@@ -54,7 +55,6 @@ None.
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | — | — | — |
-| [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | ready | high | — | — | — |
 
 ## By release
 
