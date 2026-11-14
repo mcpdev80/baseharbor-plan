@@ -3,8 +3,10 @@
 **Card:** `t-20261114-r28-cli2-uid-target` (0428-052) · **Release:** v0.4.28
 **Lane:** `lane-0428-uid-target` · **Owner:** lane-0428-uid-target
 **Base (verified):** `0e9ccb582f5bdcdc74049bbe3996263cdce6500c` (`origin/develop`)
+**Candidate SHA (pushed, origin/HEAD):** `ebeafa56a2d14d962603cbc649e4764628104417` (`git ls-remote origin lane-0428-uid-target` witness)
+**Draft PR:** [#1580](https://github.com/mcpdev80/baseharbor/pull/1580) — base `develop`, head `lane-0428-uid-target`, DRAFT, OPEN
 **Planning repo root (verified):** `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (origin/main `24ef397d`)
-**Evidence path (only in planning repo):** `evidence/r28-welle1-2026-11-14/cli2-uid-target/round-1.md`
+**Evidence path (only in planning repo):** `evidence/r28-welle1-2026-11-14/cli2-uid-target/round-1.md` — present on origin/main (verified via `git show origin/main:evidence/...`)
 
 ## Plan checklist
 
@@ -53,6 +55,14 @@ Owner clarified the exact destination:
 
 - No merge on develop; PR to be opened DRAFT (base develop). No release/tag.
 
+## Push + PR witnesses (END)
+
+- `git ls-remote origin lane-0428-uid-target` -> `ebeafa56a2d14d962603cbc649e4764628104417` (matches local HEAD).
+- `git merge-base --is-ancestor 0e9ccb582 HEAD` -> PASS; `git log origin/develop..HEAD` -> only `ebeafa56a feat(r28): stable target UID without runtime-ownership change (0428-052)`.
+- `git diff --name-only 0e9ccb582 HEAD` -> 7 files, all this lane's slice (target.go, target_mutation.go, target_uid_cli_test.go, config_target_recovery.go, target.go, target_id.go, target_id_test.go).
+- Draft PR #1580 OPEN, base develop, head lane-0428-uid-target, isDraft=true.
+- Evidence on origin/main: `git show origin/main:evidence/r28-welle1-2026-11-14/cli2-uid-target/round-1.md` -> present.
+
 ## END status
 
-ROUND-1 DONE: implementation + dedicated tests + local verification complete. Branch `lane-0428-uid-target` pushed to origin; draft PR opened (base develop). Ready for CODEX-REVIEW against the contract.
+ROUND-1 DONE: implementation + dedicated tests + local verification complete. Branch `lane-0428-uid-target` pushed to origin (SHA ebeafa56a2); draft PR #1580 opened (base develop). Ready for CODEX-REVIEW against the contract.
