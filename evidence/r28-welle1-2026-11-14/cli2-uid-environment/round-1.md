@@ -11,15 +11,15 @@
 
 ## PLAN
 
-- [ ] Establish working brief (scope decision, base attestation, witnesses)
-- [ ] Read contract + exact current lines before any change
-- [ ] Implement internal/environment package (NewEnvironmentID/ValidateEnvironmentID, uniqueness/concurrent, rename stability, migration, multi-app/nodes)
-- [ ] Wire internal/deployment/deployment_store.go interface (owned slice only; shared-file changes via coordinator)
-- [ ] Add focused unit tests (uniqueness, concurrency, rename, migration) + CI mapping
-- [ ] Local focused tests + vet + build at exact SHA
-- [ ] Cut candidate branch from 0e9ccb582 + DRAFT PR (base develop)
-- [ ] Hosted CI run on exact head (Owner scope; no rerun edit) + record run-id/PASS
-- [ ] Push evidence to origin/main (ls-remote witness BEFORE END) + compose cleanup + END
+- Establish working brief (scope decision, base attestation, witnesses)
+- Read contract + exact current lines before any change
+- Implement internal/environment package (NewEnvironmentID/ValidateEnvironmentID, uniqueness/concurrent, rename stability, migration, multi-app/nodes)
+- Wire internal/deployment/deployment_store.go interface (owned slice only; shared-file changes via coordinator)
+- Add focused unit tests (uniqueness, concurrency, rename, migration) + CI mapping
+- Local focused tests + vet + build at exact SHA
+- Cut candidate branch from 0e9ccb582 + DRAFT PR (base develop)
+- Hosted CI run on exact head (Owner scope; no rerun edit) + record run-id/PASS
+- Push evidence to origin/main (ls-remote witness BEFORE END) + compose cleanup + END
 
 ## Scope decision (Owner-answered 2026-11-14)
 
