@@ -1016,7 +1016,7 @@ def render_views(vault):
     for r in sorted_releases(vault):
         d = views / "releases"
         items = [t for t in vault.tasks.values() if t["release"] == r["id"]]
-        epics = [e for e in vault.epics.values() if e["release"] == r["id"]]
+        epics = [e for e in vault.epics.values() if e["release"] == r["id"] and e["status"] == "open"]
         lines = [f"# {r['id']} · {r['title']}", "", GENERATED_NOTICE, "",
                  f"Release note: {release_link(vault, r['id'], d)} · release status: **{r['status']}** "
                  "(maintained in the release note; task states never qualify a release).", ""]

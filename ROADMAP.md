@@ -24,7 +24,7 @@ v0.4.23 (#571), v0.4.24 (#603) and v0.4.25 (#872, closed 2026-10-15) are publish
 | --- | --- | --- |
 | v0.4.26 | [v0.4.26](releases/v0.4.26.md) · epic [core-888](epics/core-888-development-and-ci.md) | Compact needs-first wizard, CLI/JSON/MCP footprint and developer docs; bounded workflow/CI V1 with small PRs and conservative test selection |
 | v0.4.27 | [v0.4.27](releases/v0.4.27.md) | One local/remote workflow, shared installation-owned state and app binding; durable operations, native registry/local-store delivery, independent stage versions/readable release inventory/thin promotion, remote web and developer access/profile portability [core-777](epics/core-777-developer-access-and-profiles.md) |
-| v0.4.28 | [v0.4.28](releases/v0.4.28.md) | Web Console management and complete developer journeys |
+| v0.4.28 | [v0.4.28](releases/v0.4.28.md) | Consistent CLI semantics and guided developer journeys; optional Perses integration with real dashboards and supported observability backends |
 | v0.4.29 | [v0.4.29](releases/v0.4.29.md) · epic [core-818](epics/core-818-host-platforms.md) | Host portability: core-819…core-823; audit core-817; Darwin prerequisite core-882, Podman Machine core-883, real macOS runtime evidence core-884 |
 | v0.4.30 | [v0.4.30](releases/v0.4.30.md) | Native TLS / justified proxies core-902; attack-protection baseline and DDoS/operator boundaries core-903 |
 | v0.4.31 | [v0.4.31](releases/v0.4.31.md) | Final semantic acceptance; quality completion core-862 and a no-new-features stability reconciliation before the freeze |
@@ -57,7 +57,7 @@ No pre-v1 migration obligation is introduced by the compatibility/versioning roa
 - Release notes own scope, ordering, cross-cutting acceptance and release completion. Focused tasks reference their parent; do not create duplicate roadmaps or turn every heading into a task.
 - Planning lives in this repository (see [WORKFLOW.md](WORKFLOW.md)); specs own normative semantics, ADRs rationale and release notes delivered history — all in the product repositories. Source GitHub issues retain discussion/history; [the activation record](migration/cutover-checklist.md) defines the switch.
 - A task closes only when its bounded implementation and required evidence are complete. Missing/failed/skipped/unverified acceptance stays open. Reuse green evidence only when the verifier proves unchanged inputs; rerun affected gates.
-- Candidate readiness covers BaseHarbor, Demo, Console, Node Connector, CLI/JSON/MCP contracts, EN/DE docs, Pages candidate build/navigation, changelog/release notes, immutable ecosystem pins and release-specific evidence.
+- Candidate readiness covers the active BaseHarbor and Demo repositories, CLI/JSON/MCP contracts, EN/DE docs, Pages candidate build/navigation, changelog/release notes, immutable ecosystem pins and release-specific evidence.
 - Preparation does not authorize complete pre-release execution, merge, tag, publication or production Pages deployment; those follow separately authorized release steps.
 
 ## Roadmap clarifications kept from the source comments

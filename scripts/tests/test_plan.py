@@ -135,6 +135,20 @@ class PlanTests(unittest.TestCase):
         self.assertIn("core-2", ready)
         self.assertNotIn("core-1", ready)
 
+    def test_release_view_lists_only_open_epics_but_preserves_history(self):
+        f = self.fixture()
+        for eid, status in (("core-10", "open"), ("core-11", "closed")):
+            (f.dir / "epics" / f"{eid}.md").write_text(
+                f"---\nid: {eid}\ntitle: {eid} title\nstatus: {status}\n"
+                "release: v1.0\nparent: \"\"\nsources: []\n---\n")
+        f.finish()
+        code, out = f.checked()
+        self.assertEqual(code, 0, out)
+        release_view = (f.dir / "views/releases/v1.0.md").read_text()
+        self.assertIn("core-10", release_view)
+        self.assertNotIn("core-11", release_view)
+        self.assertIn("core-11", (f.dir / "views/epics.md").read_text())
+
     def test_render_is_stable(self):
         f = self.fixture()
         f.add_task("core-1", task_note("core-1", "Area: first"))
