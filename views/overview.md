@@ -11,14 +11,14 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 1 |
-| review | 1 |
+| review | 0 |
 | wait | 0 |
 | blocked | 0 |
 | ready | 0 |
 | queued | 25 |
 | waiting | 227 |
 | backlog | 7 |
-| closed | 270 |
+| closed | 271 |
 
 ## Active
 
@@ -28,9 +28,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 ## Ready for review
 
-| Task | Title | State | Priority | Owner | Depends on | PRs |
-| --- | --- | --- | --- | --- | --- | --- |
-| [t-20261113-remote-installation-destroy](../tasks/t-20261113-remote-installation-destroy.md) | Lifecycle: destroy remote Core installations from the workstation | review | high | cg-s3 (Codex) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1532](https://github.com/mcpdev80/baseharbor/pull/1532) |
+None.
 
 ## Waiting for resources
 
@@ -47,7 +45,7 @@ None.
 ## By release
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
-- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 5 open, 161 closed ([view](releases/v0.4.27.md))
+- [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 162 closed ([view](releases/v0.4.27.md))
 - [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 68 open, 41 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
