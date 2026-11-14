@@ -377,6 +377,20 @@ That single mechanism explains 2.2, the 4.x format rows and 6 row 2.
 
 ## Evidence on origin/main
 
-Placeholder replaced below by the `git ls-tree` witness before END.
+Verified from this clone immediately before END (`git ls-remote` + `git ls-tree` on the fetched
+remote ref, so it describes GitHub truth, not the local working copy):
 
-END_PENDING
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin main
+5c8ed01108baee3f9de4481a579db93cf4c49585	refs/heads/main
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r origin/main --name-only | grep audit-interface
+evidence/cli-redesign-20261114/audit-interface.md
+tasks/t-20261114-r28-cli2-audit-interface.md
+```
+
+The evidence commit for this dossier is `5c8ed011` in baseharbor-plan, parent `6ad3edaa`
+(planning `origin/main` at turn start was `6b34b1d9`; the lane fast-forwarded before committing).
+Product base attestation for the audited source is `0e9ccb582f5bdcdc74049bbe3996263cdce6500c`
+(`origin/develop`, see section 0). No product branch, PR or release was created (merge-frost).
+
+END: END_DONE mission-audit-interface.md: audit-interface dossier delivered to plan main 5c8ed011, card 0428-047 -> review, candidate = plan 5c8ed011 on develop base 0e9ccb582 (no product change, merge-frost).
