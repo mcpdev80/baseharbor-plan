@@ -484,7 +484,13 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
 - plan base at start: `origin/main` @ `9aad6e585a8e7337f4415addefa4b4950b67714e`; the remote moved on
   while this dossier was written, so the dossier was published as exactly one commit
   on top of the fetched head `3aa218da73504b3ff428b687d253095bee7fa9dd`; no force-push, no history
-  rewrite. Final pushed head: `45b5a9fdcf7dff4143bbaf5d70d1b1d42ff2c458` (§13)
+  rewrite. Final pushed head at that measurement: `44467981172696361b59d29f0cfc75e888450b9d` (§13);
+  the dossier's own audit body is frozen at `f1fdaefd45831c5639f0872ab11e1404abfcbf5f`.
+- card state note: the Kanban rule set requires the `review` column to carry a non-empty `prs` list,
+  and merge-frost produces no PR, so this lane could not publish `active -> review` itself. The
+  owner accepted the dossier and closed the card directly on plan `origin/main`
+  (`kanban_status: closed`, `resolution: accepted`, evidence pointing at `44467981`); this lane did
+  not touch the card. Precedent: 0428-047 hit the same rule.
 
 ## 13. Evidence witnesses (last action of this lane, measured after the final push)
 
@@ -513,9 +519,10 @@ into itself.
 
 ## END
 
-The audit body of this dossier is complete at commit `f1fdaefd45831c5639f0872ab11e1404abfcbf5f`, file
-blob `c1a4a172d0936b1e08b2e5f8a0b25e8161d9824a`. Every later commit by this lane (`b367f347`) edits
-only this END paragraph, so the audited inventory itself is frozen at `f1fdaefd`; that commit is an
-ancestor of the pushed `origin/main` (`git merge-base --is-ancestor f1fdaefd origin/main` -> yes).
+Post-handoff resolution (measured after the owner's acceptance, no card edit by this lane): the
+owner accepted this dossier and closed card 0428-045 on plan `origin/main`
+(`kanban_status: closed`, `resolution: accepted`, evidence
+`https://github.com/mcpdev80/baseharbor-plan/commit/44467981`). The §12 note about the missing `prs`
+entry is therefore settled by owner action; with all five r28 CLI2 audits accepted the seat is free.
 
-END_DONE mission-audit-platform.md: platform/target/environment/UID paths inventoried at develop 0e9ccb582; 30 file:line verdicts (8 trifft, 11 weicht ab, 11 Konsistenz-Risiko) in evidence/cli-redesign-20261114/audit-platform.md; product candidate 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, dossier candidate f1fdaefd45831c5639f0872ab11e1404abfcbf5f (blob c1a4a172d0936b1e08b2e5f8a0b25e8161d9824a, ancestor of pushed origin/main); no product change (merge-frost); card left active - the review column needs a prs entry and merge-frost yields no PR (see 12).
+END_DONE mission-audit-platform.md: ACCEPTED by owner — dossier evidence/cli-redesign-20261114/audit-platform.md (audit body f1fdaefd45831c5639f0872ab11e1404abfcbf5f, blob c1a4a172d0936b1e08b2e5f8a0b25e8161d9824a; published 44467981172696361b59d29f0cfc75e888450b9d), product base develop 0e9ccb582f5bdcdc74049bbe3996263cdce6500c; 30 file:line verdicts; no product change (merge-frost); card closed by owner, seat free.
