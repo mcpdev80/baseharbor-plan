@@ -1,5 +1,4 @@
 ---
-stack-base: lane-0428-uid-environment (kette: app -> env -> target; owner-anweisung 2026-11-14; max 3 ebenen; bei basis-aenderung nach review: rebasen + im board sichtbar)
 id: t-20261114-r28-cli2-uid-target
 card_number: "0428-052"
 card_short_title: "Add stable target identity"
@@ -29,6 +28,9 @@ evidence: []
     **Owner:** lane-0428-uid-target · **Priority:** high  
     **PR:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
     <!-- /generated:card -->
+
+STACK (owner-anweisung 2026-11-14): lane-0428-uid-environment (kette: app -> env -> target; owner-anweisung 2026-11-14; max 3 ebenen; bei basis-aenderung nach review: rebasen + im board sichtbar)
+
 
 <!-- generated:links -->
 **State:** active  
