@@ -119,6 +119,21 @@ Current facts:
 
 - gh CLI manual (gh release create --target/--verify-tag semantics) via context7 /cli/cli; git merge-tree, git ls-remote, gh pr checks/run list as above; product workflows read read-only from origin/release/v0.4.27 blobs.
 
+## Evidence publication witness (required by mission, ran as second-to-last action)
+
+    $ git fetch --quiet origin main
+    $ git ls-tree origin/main evidence/r27-closeout-2026-11-14/
+    100644 blob b0e3edad77b2837b192b962e77c3695a8480d758	evidence/r27-closeout-2026-11-14/round-1.md
+    $ git rev-parse origin/main
+    2218a1c986b85951bd6d5d86acb2bdbb41337bc2
+
+Candidate/act SHAs (baseharbor-plan main): claim commit 9639472346dee29c50fbe31006f3e96f66baed44, evidence commit 2218a1c986b85951bd6d5d86acb2bdbb41337bc2 (ancestor: 96394723; `git log 96394723..2218a1c9 --oneline` lists exactly this one closeout commit — no foreign candidate on top).
+Candidate refs verified (baseharbor): release/v0.4.27 = 385b0410d6b5182471028e0f8616ad8196925f1f (develop 0e9ccb58 is an ancestor; main aff1532c is NOT — see F-P2). No product-branch work was created by this lane (closeout = reading, attestation and planning only; mission freeze respected).
+
+## VM / runtime hygiene
+
+No containers, compose projects or VM cells were started by this lane (read-only closeout); nothing to bring down.
+
 ## Open points for the owner (next triggers)
 
 0. Routing question for this closeout (the only decision this lane cannot make itself): the Qualify and Publish cards each require a Maintainer authorization the mission does not contain ("fehlendes als QUESTION/befund"). Triggering the complete pre-release matrix, merging anything to main, or pushing tags all sit beyond this lane's scope; the three cards stay `active` under `mission-closeout27` with the blockers F-Q1..F-Q4 documented, and cannot legally enter `review` without a card PR. Decide one of: (a) dispatch the full pre-release on a re-frozen candidate after points 1-2 below close, (b) hand the cards to the prepare lane `owner-chatgpt-r27`, or (c) accept the review-state limitation and let the owner close the cards from this dossier.
