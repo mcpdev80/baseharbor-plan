@@ -134,7 +134,13 @@ Review akte: `evidence/r28-welle1-2026-11-14/vm-bughunt/act-1578-review-r1.md`. 
 - `git log --oneline 0e9ccb582..7930095b0` lists exactly 2 commits, both `lane-0428-uid-environment`: `670402fde` (r1) + `7930095b0` (r2). No foreign commit carried on the branch.
 - `git ls-remote origin refs/pull/1578/head` → `7930095b0...` at r2.
 
-## Round-1 implementation — DONE (2026-11-14)
+## Round-3 structural rebase — WAITING (2026-11-14)
+
+Owner directive 2026-11-14 (ERNTET r2, card → review; verdict dispatched): structural fix — branch `lane-0428-uid-environment` was cut onto `develop` (base `0e9ccb582`), but the correct base is the app branch `lane-0428-uid-app` (stack chain app→env). Same #1578 head remains `7930095b0`.
+
+- INSTRUCTION: do NOT rewrite anything now (CI green on r2, review running). Once PR #1579 (uid-app) is CI-green AND accepted: `git rebase --onto <new app branch head> 0e9ccb582 lane-0428-uid-environment` in the worktree, force-push to `origin lane-0428-uid-environment`, exact-head terminal CI run, report new head.
+- PR #1579 still OPEN at `c0664c8e...`; hosted run `43646891492` = **failure** (job `PR · Draft Go · cli-1` → failure; all other active jobs success). Expected "1579 may fail this round" per directive.
+- Action taken: NOTHING rebased. Branch #1578 still at `7930095b0`, worktree clean. Waiting for Owner to report the #1579 fix state before rebasing.
 
 - New package `internal/environment` (`environment.go`): `NewID()` / `MustNewID()` / `Validate()` / `ValidateNonEmpty()` + `Environment{ID,Name}` with stable UUIDv4 identity (via `stableid`) and slug-validated, renameable name. Rename never changes the ID.
 - New seam `internal/deployment/environment_identity.go`: `GetEnvironment(target, env)` / `EnvironmentID(target, env)` / `EnvironmentRecord{Target,Name,Identity}`. Home: `targets/<target>/.baseharbor/environments/<env>/environment.json` (OUTSIDE the deployment-registry namespace `targets/<t>/deployments`).
