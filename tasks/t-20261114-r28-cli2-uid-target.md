@@ -1,4 +1,5 @@
 ---
+stack-base: lane-0428-uid-environment (kette: app -> env -> target; owner-anweisung 2026-11-14; max 3 ebenen; bei basis-aenderung nach review: rebasen + im board sichtbar)
 id: t-20261114-r28-cli2-uid-target
 card_number: "0428-052"
 card_short_title: "Add stable target identity"

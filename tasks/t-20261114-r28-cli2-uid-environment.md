@@ -1,4 +1,5 @@
 ---
+stack-base: lane-0428-uid-app (develop-kette: app -> env -> target; owner-anweisung 2026-11-14; bei basis-aenderung nach review: nachziehen + notiz aktualisiert)
 id: t-20261114-r28-cli2-uid-environment
 card_number: "0428-051"
 card_short_title: "Introduce logical Env identity"
