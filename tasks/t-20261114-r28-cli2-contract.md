@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-cli2-contract-r28
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Specify reviewed CLI contract. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-049 · Specify reviewed CLI contract
 priority: high
@@ -19,20 +19,20 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 evidence:
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/contract/cli-command-contract-v1.md
   - https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/contract/round-1.md
 ---
 
-- [ ] t-20261114-r28-cli2-contract · CLI redesign: Specify reviewed CLI contract #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-contract · CLI redesign: Specify reviewed CLI contract #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-cli2-contract-r28 · **Priority:** high  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/contract/cli-command-contract-v1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/cli-redesign-20261114/contract/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-audit-access](t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md), [t-20261114-r28-cli2-audit-wizards](t-20261114-r28-cli2-audit-wizards.md)  
 **Required by:** [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
