@@ -176,4 +176,12 @@ command-map.md
 
 ## END
 
-lane 0428-044-r28 · audit COMPLETE · candidate: read-only evidence file `evidence/cli-redesign-20261114/audit-app.md` on plan main · SHA after push: (pending) · card → review → END per dispatch to 594fd2f5.
+lane 0428-044-r28 · audit COMPLETE (read-only, MERGE-FROST honored) · candidate evidence: `evidence/cli-redesign-20261114/audit-app.md` on plan main · my commits: `9b025693` (audit) + `97be908e` (frontmatter/evidence-link); base `9aad6e58` is an ancestor · card left `active` (evidence-only deliverable, no PR — mission forbids a PR and the schema's `review` requires a `prs` entry) · evidence blob on origin/main: `efe44ff31b0759520c122a88b089af9135f09f97`.
+
+## repo-rule compliance
+
+Read-only audit; zero product edits; no evidence written into the product repo (no `.evidence/`, no main-branch writes in baseharbor); no subagents (§4.8); no `git add -A`; isolated read-only worktree `/tmp/baha-audit-wt` at `0e9ccb582` (detached HEAD, not a candidate branch) now removed; no Docker/Podman started; no `.github/**` touched; no CI reruns. Base `origin/main` re-verified immediately before each commit.
+
+## END_DONE
+
+lane 0428-044-r28 · END_DONE · audit-app.md · candidate SHA 9b025693 (plan main); 97be908e frontmatter · card active (evidence-only, no PR) · END per dispatch to 594fd2f5.
