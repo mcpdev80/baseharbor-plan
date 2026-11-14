@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: closed
 kanban_summary: Prove external corporate OIDC without managed Keycloak and optional managed-Identity invite/profile path. Trusted Dev Remote…
-kanban_status: planned
+kanban_status: closed
 kanban_title: "0427-012 · qualify managed and external"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-public-surfaces, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
@@ -20,19 +20,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: true
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md"]
 ---
 
-- [ ] t-20261018-r27-access-proof · Acceptance: qualify managed and external identity onboarding #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
+- [x] t-20261018-r27-access-proof · Acceptance: qualify managed and external identity onboarding #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
@@ -71,3 +71,7 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 The extended external corporate OIDC + managed identity cross-provider acceptance is beyond the single-Core workstation onboarding path of v0.4.27. Basic secure authenticated workstation-to-Core acceptance stays in v0.4.27. No release claim of fully qualified external corporate OIDC until this task passes.
 
 No implementation/acceptance is inferred; original stable card_number remains unchanged. Complete this through the normal v0.4.28 Coordinator/Worker/Codex merge process and current native tests.
+
+## Owner-directed closure — 2026-11-14
+
+The Owner stated that this work was already performed and explicitly directed acceptance. See the [Owner decision](../decisions/2026-11-14-owner-close-inherited-work.md). This closure does not claim independently reproduced tests or newly verified CI evidence.

@@ -8,30 +8,29 @@ priority: normal
 type: task
 areas: [cli, remote]
 owner: ""
-kanban_status: planned
+kanban_status: closed
 kanban_title: 0428-042 · CLI start path for Prov-bound
-kanban_lane: planned
+kanban_lane: closed
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-node-cli, t-20261106-r27-remote-up-podman-owner-missing]
 prs: [mcpdev80/baseharbor#1407, mcpdev80/baseharbor#1437, mcpdev80/baseharbor#1438]
 sources: ["mcpdev80/baseharbor#777"]
 repos: [mcpdev80/baseharbor]
 blocker: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md", "https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0"]
-resolution: ""
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md", "https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0"]
+resolution: dropped
 
 ---
 
-- [ ] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/remote #kind/task
+- [x] t-20261106-r27-remote-up-cli-path · Remote app up: CLI start path for provider-bound remote apps #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/cli #area/remote #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **PR:** [baseharbor#1407](https://github.com/mcpdev80/baseharbor/pull/1407), [baseharbor#1437](https://github.com/mcpdev80/baseharbor/pull/1437), [baseharbor#1438](https://github.com/mcpdev80/baseharbor/pull/1438)  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r27-welle5-folge-2026-11-06/remote-up-cli/round-3-docker.md), [proof 3](https://github.com/mcpdev80/baseharbor/commit/0fe53052d00a8d440b499c66a6a65c0d54bae5a0)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261106-r27-remote-up-podman-owner-missing](t-20261106-r27-remote-up-podman-owner-missing.md)  
 **Required by:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md)  
@@ -143,3 +142,7 @@ integration gemergt (0fe53052/#1438); E2E-ABNAHME laeuft real auf docker-2+podma
 ## Release scope correction — 2026-11-13
 
 This card covers a separate Node Connector-bound app lifecycle, not the v0.4.27 workstation-to-Core-VM path. The historical Docker/Podman records did not demonstrate a successful real CLI `baha app up` followed by healthy `baha doctor` on both runtimes. Keep this acceptance in v0.4.28 and run it against that release candidate.
+
+## Owner scope decision — 2026-11-14
+
+The remaining Connector-bound acceptance is dropped because Connector development has stopped. Historical PR and test records remain; this is not acceptance or evidence of an end-to-end Connector journey. Supported workstation-to-Core access is tracked separately. See the [Owner decision](../decisions/2026-11-14-owner-close-inherited-work.md).

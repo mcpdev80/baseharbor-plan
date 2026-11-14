@@ -9,9 +9,9 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: closed
 kanban_summary: Apply an explicitly selected next version through native Docker Compose or Podman Quadlet/systemd using existing…
-kanban_status: planned
+kanban_status: closed
 kanban_title: "0427-053 · apply a new candidate without"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-artifact-resolution, t-20261018-r27-journal-wiring, t-20261018-r27-mutation-lock, t-20261018-r27-remote-podman-web, t-20261018-r27-stage-versions, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor]
@@ -20,19 +20,19 @@ sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: true
 blocker: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md"]
 ---
 
-- [ ] t-20261018-r27-remote-rollout · Remote lifecycle: apply a new candidate without losing the previous owner #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/providers #kind/task
+- [x] t-20261018-r27-remote-rollout · Remote lifecycle: apply a new candidate without losing the previous owner #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/providers #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-artifact-resolution](t-20261018-r27-artifact-resolution.md), [t-20261018-r27-journal-wiring](t-20261018-r27-journal-wiring.md), [t-20261018-r27-mutation-lock](t-20261018-r27-mutation-lock.md), [t-20261018-r27-remote-podman-web](t-20261018-r27-remote-podman-web.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Required by:** [t-20261018-r27-promote](t-20261018-r27-promote.md)  
@@ -71,3 +71,7 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 Advanced revision replacement, last-good recovery and restart/reconciliation for repeated remote rollouts move to v0.4.28. Initial remote apply, status and destroy as shipped in v0.4.27 are not deferred; no promise of zero-downtime update/automatic rollback in release notes.
 
 No implementation/acceptance is inferred; original stable card_number remains unchanged. Complete this through the normal v0.4.28 Coordinator/Worker/Codex merge process and current native tests.
+
+## Owner-directed closure — 2026-11-14
+
+The Owner stated that this work was already performed and explicitly directed acceptance. See the [Owner decision](../decisions/2026-11-14-owner-close-inherited-work.md). This closure does not claim independently reproduced tests or newly verified CI evidence.

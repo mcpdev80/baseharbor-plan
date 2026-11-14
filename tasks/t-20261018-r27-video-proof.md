@@ -27,7 +27,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026
 - [x] t-20261018-r27-video-proof · Acceptance: prove real stage versions artifacts and promotion #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/demo #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-drop-standalone-stage-proof.md)  
     <!-- /generated:card -->
 

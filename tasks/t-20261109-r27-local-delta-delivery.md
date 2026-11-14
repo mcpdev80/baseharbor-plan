@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Implement the approved local delta delivery, as scoped by issue #1513. Existing snapshot/candidate-ingress and OCI-native…"
 kanban_title: 0427-187 · Dirty + OCI delta delivery
 priority: high
@@ -19,20 +19,20 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md"]
 early: true
 ---
 
-- [ ] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/delivery #area/remote #kind/feature
+- [x] t-20261109-r27-local-delta-delivery · Remote: dirty source snapshot and OCI delta delivery #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/delivery #area/remote #kind/feature
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md), [t-20261109-r27-target-policy-presets](t-20261109-r27-target-policy-presets.md)  
 **Owner:** unassigned  
@@ -63,3 +63,7 @@ Preserve original card ID/number, prior PR and test history. This is a release-s
 ## Public Connector scope correction (2026-11-14)
 
 The archived public Node Connector is outside release scope; this Core task must not require Connector development or qualification. Existing historical evidence remains unchanged. Validate the supported workstation-to-Core-owned runtime route instead.
+
+## Owner-directed closure — 2026-11-14
+
+The Owner stated that this work was already performed and explicitly directed acceptance. See the [Owner decision](../decisions/2026-11-14-owner-close-inherited-work.md). This closure does not claim independently reproduced tests or newly verified CI evidence.
