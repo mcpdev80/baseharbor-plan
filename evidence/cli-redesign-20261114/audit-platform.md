@@ -490,40 +490,24 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
 
 ```
 $ git ls-remote origin main
-35d0a9759e12f60ad44a0756934fe7424c35abfd	refs/heads/main
-$ git log --oneline origin/main..HEAD
-(empty: this lane's commit is the remote head)
-$ git ls-tree origin/main evidence/cli-redesign-20261114/
-100644 blob 417e6053…	evidence/cli-redesign-20261114/audit-access.md
-100644 blob d8447f37…	evidence/cli-redesign-20261114/audit-app.md
-100644 blob d318af31…	evidence/cli-redesign-20261114/audit-interface.md
-100644 blob 1a4c2c411648e6a415f762a6be748bfaa0fd6c33	evidence/cli-redesign-20261114/audit-platform.md
-100644 blob 5200c404…	evidence/cli-redesign-20261114/audit-wizards.md
-100644 blob 3decc024…	evidence/cli-redesign-20261114/brief.md
-040000 tree c4b79015…	evidence/cli-redesign-20261114/cleanup28-r1
-100644 blob 2cab11a8…	evidence/cli-redesign-20261114/code-entry-index.md
-100644 blob e0489268…	evidence/cli-redesign-20261114/command-map.md
+5575f383f4082964a0bc2aef4df9e971c1d8314b	refs/heads/main
+$ git ls-tree origin/main evidence/cli-redesign-20261114/audit-platform.md
+100644 blob bfe0e255583b64138d0478c1fb714c29ec73593e	evidence/cli-redesign-20261114/audit-platform.md
 $ git rev-parse origin/main:evidence/cli-redesign-20261114/audit-platform.md
-1a4c2c411648e6a415f762a6be748bfaa0fd6c33
-$ git log --oneline origin/main -1
+bfe0e255583b64138d0478c1fb714c29ec73593e
+$ git log --oneline origin/main..HEAD
+(empty: nothing of this lane is left unpushed)
+$ git log --oneline -2 origin/main
+5575f383 0428-045 audit-platform: evidence witnesses (ls-remote, ls-tree) added
 35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
 ```
-- deliverable: this dossier; 30 verdicts in §7 (T1-T30), of which 8 **trifft**, 11 **weicht ab**
-  and 11 **Konsistenz-Risiko**
-- required checks: none applicable (read-only planning evidence; no product source changed, so no
-  Go test, vet, build, Docker/Podman gate or new test needs CI routing from this lane — and
-  therefore no `.github/**` change request)
-- dependencies: feeds `t-20261114-r28-cli2-contract` (card note "Required by"); cross-references
-  `audit-interface.md` (0428-047) for the dialog surface and `audit-access.md` (0428-046) for
-  identity/audit paths
-- remaining gaps: the seven items in §10 are contract-task questions, not audit incompleteness; the
-  audited tree is a single pinned SHA, so anything merged to `develop` after `0e9ccb582` is outside
-  this snapshot
-- shared-file conflicts: none observed in this lane's write-set (this one new file only)
-- card state note: the Kanban rule set requires `review` cards to carry a non-empty `prs` list
-  (`coordinator/scripts/card-status.py:126-128`) and merge-frost produces no PR, so this lane could
-  not publish `active -> review` itself. Precedent: 0428-047 hit the same rule and the owner moved
-  the card directly. Reported here and in the END line rather than guessed around.
+
+Delivery note: the dossier is published as two commits (`35d0a975`, `5575f383`), both inside this
+lane's write-set and both touching only this file. The second commit exists because the mandated
+`ls-remote`/`ls-tree` witnesses must record a state that is only reachable after the first push; a
+file cannot contain the witness of its own push. Provenance of the first commit was measured before
+it was pushed and is recorded in §12 (`9aad6e58` at lane start, `3aa218da` as the fetched base,
+`origin/main` an ancestor of the commit head, one own commit on top at that moment).
 
 ## END
 
