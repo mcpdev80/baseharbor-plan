@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-perses-contract-seam]
+depends_on: [t-20261114-r28-perses-contract-seam]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
+    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
+**Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Owner:** unassigned  
 **Priority:** normal  

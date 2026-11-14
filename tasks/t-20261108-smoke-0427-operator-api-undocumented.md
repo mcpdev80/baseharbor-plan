@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
-depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-connection-client]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,16 @@ evidence: []
 early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/planned #view/ready #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  

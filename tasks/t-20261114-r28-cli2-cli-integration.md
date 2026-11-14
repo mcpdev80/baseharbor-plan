@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Register unified command tree. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-069 · Register unified command tree
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-app-data, t-20261114-r28-cli2-app-export, t-20261114-r28-cli2-app-interact, t-20261114-r28-cli2-app-status, t-20261114-r28-cli2-context-shell, t-20261114-r28-cli2-source-pull, t-20261114-r28-cli2-wizard-env, t-20261114-r28-cli2-wizard-platform]
+depends_on: [t-20261114-r28-cli2-app-data, t-20261114-r28-cli2-app-export, t-20261114-r28-cli2-app-interact, t-20261114-r28-cli2-app-status, t-20261114-r28-cli2-context-shell, t-20261114-r28-cli2-source-pull, t-20261114-r28-cli2-wizard-env, t-20261114-r28-cli2-wizard-platform]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
+    **Needs:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
+**Depends on:** [t-20261114-r28-cli2-app-data](t-20261114-r28-cli2-app-data.md), [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md), [t-20261114-r28-cli2-wizard-env](t-20261114-r28-cli2-wizard-env.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
 **Required by:** [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
 **Owner:** unassigned  
 **Priority:** high  

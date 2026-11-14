@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Unify up and down semantics. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-060 · Unify up and down semantics
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-policy]
+depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-policy]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
+    **Needs:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
+**Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
 **Owner:** unassigned  
 **Priority:** high  

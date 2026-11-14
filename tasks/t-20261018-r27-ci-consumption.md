@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: ""
 kanban_status: planned
 kanban_title: "0427-020 · Deferred CI consumption"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-docs, t-20261018-r27-public-surfaces, t-20261022-r27-ci-delivery]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-docs, t-20261018-r27-public-surfaces, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/docs #kind/task
+- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/planned #view/ready #area/docs #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  

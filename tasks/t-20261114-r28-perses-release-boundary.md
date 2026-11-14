@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "Align current Core release/audit entry points with the accepted public scope: Core, Demo, the delivered CLI and optional Perses.…"
 kanban_title: 0428-092 · Align release docs with Perses
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/documentation #area/release #kind/task
+- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/planned #view/ready #area/documentation #area/release #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** none  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  

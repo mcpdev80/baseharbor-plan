@@ -34,6 +34,7 @@ evidence: []
 **State:** waiting  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
+**Required by:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  

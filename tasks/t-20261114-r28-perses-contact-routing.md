@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Design opt-in notification routing, evaluate existing compatible Alertmanager integration first; preserve authorization and…"
 kanban_title: 0428-074 · Define alert notification
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-perses-alerts, t-20261114-r28-perses-secure-access]
+depends_on: [t-20261114-r28-perses-alerts, t-20261114-r28-perses-secure-access]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
+    **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
+**Depends on:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  

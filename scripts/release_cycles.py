@@ -102,7 +102,7 @@ def problems(vault):
         # No retroactive startup requirement for the already-running release.
         if version != 'v0.4.26':
             for task in scope_tasks(vault, version, release):
-                if startup not in task['depends_on'] and not ci_bootstrap_exception(task):
+                if startup not in task['depends_on'] and not ci_bootstrap_exception(task) and not parallel_r28_audit_exception(task):
                     errors.append((task['path'], f'release-start intake prerequisite missing: {startup}'))
     return errors
 
@@ -125,6 +125,11 @@ def ci_bootstrap_exception(task):
         't-20261029-r27-ci-cutover-design',
         't-20261029-r27-ci-producer',
     }
+
+
+def parallel_r28_audit_exception(task):
+    """Owner authorizes 0.4.28 feature work parallel to release startup."""
+    return task['release'] == 'v0.4.28'
 
 
 def sync(root):
@@ -163,7 +168,7 @@ def sync(root):
             set_dependencies(task['path'], deps + expected_dependencies(vault, version, release, stage))
         if version != 'v0.4.26':
             for task in scope_tasks(vault, version, release):
-                if not ci_bootstrap_exception(task):
+                if not ci_bootstrap_exception(task) and not parallel_r28_audit_exception(task):
                     set_dependencies(task['path'], task['depends_on'] + [stage_id(version, 'updates')])
     return len(planned)
 

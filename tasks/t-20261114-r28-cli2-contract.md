@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Specify reviewed CLI contract. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-049 · Specify reviewed CLI contract
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-audit-access, t-20261114-r28-cli2-audit-app, t-20261114-r28-cli2-audit-interface, t-20261114-r28-cli2-audit-platform, t-20261114-r28-cli2-audit-wizards]
+depends_on: [t-20261114-r28-cli2-audit-access, t-20261114-r28-cli2-audit-app, t-20261114-r28-cli2-audit-interface, t-20261114-r28-cli2-audit-platform, t-20261114-r28-cli2-audit-wizards]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-audit-access](t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md), [t-20261114-r28-cli2-audit-wizards](t-20261114-r28-cli2-audit-wizards.md)  
+    **Needs:** [t-20261114-r28-cli2-audit-access](t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md), [t-20261114-r28-cli2-audit-wizards](t-20261114-r28-cli2-audit-wizards.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-audit-access](t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md), [t-20261114-r28-cli2-audit-wizards](t-20261114-r28-cli2-audit-wizards.md)  
+**Depends on:** [t-20261114-r28-cli2-audit-access](t-20261114-r28-cli2-audit-access.md), [t-20261114-r28-cli2-audit-app](t-20261114-r28-cli2-audit-app.md), [t-20261114-r28-cli2-audit-interface](t-20261114-r28-cli2-audit-interface.md), [t-20261114-r28-cli2-audit-platform](t-20261114-r28-cli2-audit-platform.md), [t-20261114-r28-cli2-audit-wizards](t-20261114-r28-cli2-audit-wizards.md)  
 **Required by:** [t-20261114-r28-cli2-app-export](t-20261114-r28-cli2-app-export.md), [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-lifecycle](t-20261114-r28-cli2-app-lifecycle.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md), [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md), [t-20261114-r28-cli2-wizard-platform](t-20261114-r28-cli2-wizard-platform.md)  
 **Owner:** unassigned  
 **Priority:** high  

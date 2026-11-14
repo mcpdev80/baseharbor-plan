@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "Audit guided user journeys. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-048 · Audit guided user journeys
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-audit-wizards · CLI redesign: Audit guided user journeys #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-audit-wizards · CLI redesign: Audit guided user journeys #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** none  
 **Required by:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
 **Owner:** unassigned  
 **Priority:** high  
@@ -71,3 +70,7 @@ Report actual TTY/non-TTY behavior, missing guidance, parent-shell constraints a
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
+
+## Parallel planning boundary — 2026-11-14
+
+This bounded audit/coordination may proceed while v0.4.27 remains unreleased. Preserve active work and file ownership. Implementation tasks may proceed when their actual technical prerequisites are accepted; coordinate shared files and preserve active work. Release stages retain their own prerequisites.

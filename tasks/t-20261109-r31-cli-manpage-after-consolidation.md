@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Once the v0.4.28 CLI consolidation and final command ordering/hierarchy are complete and approved, deliver an installable,…"
 kanban_title: 0431-008 · CLI man page after cleanup
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-cli-docs]
+depends_on: [t-20261114-r28-cli2-cli-docs]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
+    **Needs:** [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
+**Depends on:** [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md)  
 **Required by:** [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
 **Owner:** unassigned  
 **Priority:** normal  

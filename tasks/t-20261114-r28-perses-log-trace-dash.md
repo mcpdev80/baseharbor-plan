@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: Provide native Perses log/trace dashboards using validated Loki/Tempo plugin versions and actual telemetry.
 kanban_title: 0428-085 · Perses log and trace views
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-perses-loki-source, t-20261114-r28-perses-tempo-source]
+depends_on: [t-20261114-r28-perses-loki-source, t-20261114-r28-perses-tempo-source]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
+    **Needs:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
+**Depends on:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  

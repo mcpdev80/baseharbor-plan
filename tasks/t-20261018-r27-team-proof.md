@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "Two isolated homes/checkouts attach one app on Docker VM; A changes, B sees same IDs and current revision. Race same…"
 kanban_status: planned
 kanban_title: "0427-059 · prove two workstations share"
-depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-maintenance-client, t-20261018-r27-public-surfaces, t-20261018-r27-stage-versions, t-20261018-r27-state-recovery, t-20261022-r27-ci-access]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-maintenance-client, t-20261018-r27-public-surfaces, t-20261018-r27-stage-versions, t-20261018-r27-state-recovery, t-20261022-r27-ci-access]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
@@ -24,17 +24,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/acceptance #kind/acceptance
+- [ ] t-20261018-r27-team-proof · Acceptance: prove two workstations share one authoritative deployment #task #release/v0-4-28 #status/planned #view/ready #area/acceptance #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](t-20261022-r27-ci-access.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  

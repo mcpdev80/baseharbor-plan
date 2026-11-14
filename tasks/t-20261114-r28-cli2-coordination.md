@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme with at most five implementation/audit workers…
 kanban_title: 0428-072 · coordinate five workers
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** none  
 **Owner:** unassigned  
 **Priority:** high  
 **PRs:** none  
@@ -66,3 +65,7 @@ Planned, unassigned. No workers dispatched, implementation, product merge or rel
 ## Perses coordination expansion (2026-11-14)
 
 The same single coordinator schedules the Perses cards and CLI cards under one global limit of five workers. Use the v0.4.28 release ordering, preserve the provider-contract and real-signal prerequisites, and do not assign overlapping Core registries, gateway or CI files concurrently. Perses native proof follows all required datasource, dashboard, auth and alert tasks.
+
+## Parallel planning boundary — 2026-11-14
+
+This bounded audit/coordination may proceed while v0.4.27 remains unreleased. Preserve active work and file ownership. Implementation tasks may proceed when their actual technical prerequisites are accepted; coordinate shared files and preserve active work. Release stages retain their own prerequisites.

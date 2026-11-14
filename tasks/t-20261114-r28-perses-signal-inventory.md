@@ -9,11 +9,11 @@ version: ""
 parent: v0.4.28
 owner: ""
 kanban_status: planned
-kanban_lane: planned
+kanban_lane: ready
 kanban_summary: "Inventory actual metrics, labels, exporters, logs and trace bindings produced by supported Core providers; mark gaps instead of…"
 kanban_title: 0428-090 · Audit real observability
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates]
+depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-signal-inventory · Audit real observability signals #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-signal-inventory · Audit real observability signals #task #release/v0-4-28 #status/planned #view/ready #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+    **Ready to assign** · prerequisites accepted  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** ready  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
+**Depends on:** none  
 **Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Owner:** unassigned  
 **Priority:** normal  
@@ -81,3 +80,7 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-signal-inventory](t-20261113-r28-grafana-signal-inventory.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+## Parallel planning boundary — 2026-11-14
+
+This bounded audit/coordination may proceed while v0.4.27 remains unreleased. Preserve active work and file ownership. Implementation tasks may proceed when their actual technical prerequisites are accepted; coordinate shared files and preserve active work. Release stages retain their own prerequisites.

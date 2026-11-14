@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Make BaseHarbor's human CLI predictable for Linux developers before WSL2 and macOS work relies on that interface. Commands must…"
 kanban_title: "0428-043 · harmonize human CLI semantics"
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-final-acceptance]
+depends_on: [t-20261114-r28-cli2-final-acceptance]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -26,13 +26,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
+    **Needs:** [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
+**Depends on:** [t-20261114-r28-cli2-final-acceptance](t-20261114-r28-cli2-final-acceptance.md)  
 **Required by:** [core-821](core-821-wsl2-host-behavior-windows-boundaries.md), [core-822](core-822-macos-darwin-adapters.md)  
 **Owner:** unassigned  
 **Priority:** high  

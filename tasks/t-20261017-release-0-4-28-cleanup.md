@@ -9,12 +9,12 @@ version: v0.4.28
 release_stage: cleanup
 parent: v0.4.28
 owner: ""
-kanban_lane: ready
+kanban_lane: planned
 kanban_summary: Reconcile previous-release leftovers before new development.
 kanban_status: planned
 kanban_title: "0428-002 · reconcile old PRs, tasks and"
 priority: high
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-verify]
 repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
@@ -24,16 +24,17 @@ evidence: []
 early: true
 ---
 
-- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/ready #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
 **Required by:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
 **Owner:** unassigned  
 **Priority:** high  
@@ -67,4 +68,4 @@ Not started. Record actual source SHAs, outcomes, authorization where required, 
 
 ## Owner sequencing decision — 2026-11-14
 
-v0.4.27 completion is not a prerequisite for starting v0.4.28. Reconcile shared PRs, branches and ownership without interrupting or claiming completion of parallel v0.4.27 work. Preserve the v0.4.28 cleanup and update-intake stages and their actual checks.
+v0.4.27 remains unreleased, so previous-release cleanup waits for its actual verification. The specifically authorized read-only 0.4.28 audits and coordination may proceed in parallel without treating v0.4.27 work as leftovers.

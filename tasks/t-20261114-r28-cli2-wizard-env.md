@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: "Environment setup wizards. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-066 · Env setup wizards
 priority: high
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-cli2-audit-events, t-20261114-r28-cli2-env-delete, t-20261114-r28-cli2-org-env]
+depends_on: [t-20261114-r28-cli2-audit-events, t-20261114-r28-cli2-env-delete, t-20261114-r28-cli2-org-env]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
+    **Needs:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
+**Depends on:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
 **Owner:** unassigned  
 **Priority:** high  

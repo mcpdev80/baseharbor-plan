@@ -13,7 +13,7 @@ kanban_lane: planned
 kanban_summary: Define eligibility and provisioning for Perses-native dashboards based on real signal/label inventory and authorized providers.
 kanban_title: 0428-080 · Select compatible Perses
 priority: normal
-depends_on: [t-20261017-release-0-4-28-updates, t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-signal-inventory]
+depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-signal-inventory]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
+    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
+**Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-dashboard-databases](t-20261114-r28-perses-dashboard-databases.md), [t-20261114-r28-perses-dashboard-hosts](t-20261114-r28-perses-dashboard-hosts.md), [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md), [t-20261114-r28-perses-dashboard-messaging](t-20261114-r28-perses-dashboard-messaging.md), [t-20261114-r28-perses-dashboard-valkey](t-20261114-r28-perses-dashboard-valkey.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
 **Owner:** unassigned  
 **Priority:** normal  

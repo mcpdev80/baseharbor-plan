@@ -21,6 +21,12 @@ class ReleaseCycleTests(unittest.TestCase):
         self.assertFalse(cycles.ci_bootstrap_exception({**allowed, 'release': 'v0.4.28'}))
         self.assertFalse(cycles.ci_bootstrap_exception({**allowed, 'id': 't-20261018-r27-profile-contract'}))
 
+    def test_parallel_r28_exception_is_limited_to_release(self):
+        allowed = {'id': 't-20261114-r28-cli2-audit-app', 'release': 'v0.4.28'}
+        self.assertTrue(cycles.parallel_r28_audit_exception(allowed))
+        self.assertFalse(cycles.parallel_r28_audit_exception({**allowed, 'release': 'v0.4.29'}))
+        self.assertTrue(cycles.parallel_r28_audit_exception({**allowed, 'id': 't-20261114-r28-perses-runtime'}))
+
     def fixture(self):
         fixture = Fixture()
         self.addCleanup(shutil.rmtree, fixture.dir)
