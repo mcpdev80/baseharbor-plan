@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
+    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

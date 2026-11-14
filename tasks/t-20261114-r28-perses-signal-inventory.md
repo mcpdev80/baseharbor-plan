@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-090-r28
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Inventory actual metrics, labels, exporters, logs and trace bindings produced by supported Core providers; mark gaps instead of…"
 kanban_title: 0428-090 · Audit real observability
 priority: normal
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/perses-2026-11-14/signal-inventory.md"]
 ---
 
-- [ ] t-20261114-r28-perses-signal-inventory · Audit real observability signals #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [x] t-20261114-r28-perses-signal-inventory · Audit real observability signals #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-090-r28 · **Priority:** normal  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/perses-2026-11-14/signal-inventory.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
