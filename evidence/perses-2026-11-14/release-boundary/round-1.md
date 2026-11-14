@@ -105,8 +105,10 @@ These are release-facing, not the seam lane's `docs/spec/*` files.
 
 ## Hosted run
 
-- To be decided after the doc delta is in. If a PR is opened the Go spec/capability group is the seam lane's; this task's doc-only changes route through the docs/CI group. Decided: doc-only commit to the lane branch (no PR), because opening a draft PR that overlaps the seam lane's write-set is a scope risk and the mission allows doc-only delivery.
+- Doc-only change; no Go code touched, so the seam lane's Go group (#1575) does not apply. CI will run the docs group on the draft PR.
+- Draft PR: #1577 (DRAFT, base develop 0e9ccb582), https://github.com/mcpdev80/baseharbor/pull/1577. Doc-only, 9 files, no `.github/**`.
+- Local: `go vet ./internal/... ./cmd/...` PASS (no Go change). `bash scripts/documentation-audit.sh` PASS (exit 0, EN/DE parity OK, 168 matched pages).
 
 ## END status
 
-- PENDING: write akte (this file), doc changes in product repo, lane branch, local checks (go vet + documentation-audit), evidence committed to origin/main, ls-tree witness, END line.
+- DONE: akte written, product-doc changes in place (EN+DE), lane branch `0428-092-perses-boundary` (cut from base develop `0e9ccb582`), draft PR #1577 (doc-only), local go vet PASS + documentation-audit PASS (exit 0, EN/DE parity 168 pages). Evidence committed to origin/main. No compose started. No `.github/**` touched. No subagents.
