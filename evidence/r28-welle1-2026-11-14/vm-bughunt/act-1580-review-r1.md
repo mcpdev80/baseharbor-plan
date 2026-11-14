@@ -56,9 +56,15 @@ ceb9b9cb4c7d43ab7c245b5e0b8eec568114a5b5	refs/heads/main
 
 - Only this review evidence file is intended for the planning commit. No product or workflow files were modified.
 - `python3 scripts/plan.py check`: 531 tasks, 7 epics, 13 releases, 21 decisions; 0 errors, 10 pre-existing dependency warnings.
+- Review evidence was pushed and verified present at `origin/main`; final remote witness follows below.
+- Exact `git ls-remote origin main` output before the final evidence update:
+
+```text
+e9fe68061febe1e36f3b27a2cafd1339662d26da	refs/heads/main
+```
 
 ## Verdict
 
 REJECT PR #1580 at `ebeafa56a2d14d962603cbc649e4764628104417` for the missing persisted legacy-target migration and tests that bypass the real CLI entry point. The generated UID field is distinct in code from TenantID and deployment identities, target names remain addressable, and no target data paths move; rename and serialized-role regression coverage remain missing. No merge.
 
-END DONE — PR #1580 rejected; review evidence to be published on planning origin/main.
+END DONE — PR #1580 rejected; review evidence published on planning origin/main.
