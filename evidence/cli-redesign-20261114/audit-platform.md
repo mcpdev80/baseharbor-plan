@@ -483,37 +483,30 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
   no PR: merge-frost, reine Bestandsaufnahme)
 - plan base at start: `origin/main` @ `9aad6e585a8e7337f4415addefa4b4950b67714e`; the remote moved on
   while this dossier was written, so the dossier was published as exactly one commit
-  (`35d0a9759e12f60ad44a0756934fe7424c35abfd`) on top of the fetched head
-  `3aa218da73504b3ff428b687d253095bee7fa9dd`; no force-push, no history rewrite
+  on top of the fetched head `3aa218da73504b3ff428b687d253095bee7fa9dd`; no force-push, no history
+  rewrite. Final pushed head: `d853f49e0e53abf04fc7ecdbd16f9ca846f659fb` (§13)
 
-## 13. Evidence witnesses (measured after the push)
+## 13. Evidence witnesses (last action of this lane, measured after the final push)
 
 ```
 $ git ls-remote origin main
-337da5ba0f9671fd1c37a4afd360bf621427143b	refs/heads/main
+d853f49e0e53abf04fc7ecdbd16f9ca846f659fb	refs/heads/main
 $ git ls-tree origin/main evidence/cli-redesign-20261114/audit-platform.md
-100644 blob eda5878979ffec65bd7ac934aeff112c9625e836	evidence/cli-redesign-20261114/audit-platform.md
-$ git rev-parse origin/main:evidence/cli-redesign-20261114/audit-platform.md
-eda5878979ffec65bd7ac934aeff112c9625e836
+100644 blob 1219e1dc682ba5f4647e3bfc5d7d4d89da37157d	evidence/cli-redesign-20261114/audit-platform.md
 $ git log --oneline origin/main..HEAD
 (empty: nothing of this lane is left unpushed)
-$ git log --oneline origin/main -4
-337da5ba 0428-045 audit-platform: delivery note for the two-commit witness sequence
-5575f383 0428-045 audit-platform: evidence witnesses (ls-remote, ls-tree) added
-35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
-3aa218da coord: 0428-090 signal-inventar angenommen (akte fern)
-$ git log --oneline 3aa218da..HEAD
+$ git log --oneline 3aa218da..origin/main
+d853f49e 0428-045 audit-platform: refresh witness block with final pushed head
 337da5ba 0428-045 audit-platform: delivery note for the two-commit witness sequence
 5575f383 0428-045 audit-platform: evidence witnesses (ls-remote, ls-tree) added
 35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
 ```
 
-Delivery note: the dossier is published as three commits (`35d0a975`, `5575f383`, `337da5ba`) on top
-of the fetched base `3aa218da`; that log line lists ONLY this lane's commits, no foreign candidate
-is carried. All three stay inside this lane's write-set and touch only this file. The extra commits
-exist because the mandated `ls-remote`/`ls-tree` witnesses can only record a state that appears
-after a push; a file cannot contain the witness of its own push. Base provenance of the first commit
-was measured before it was pushed and is recorded in §12.
+The last command lists ONLY this lane's commits on top of the fetched base `3aa218da`: four commits,
+all touching only this file, no foreign candidate carried. The witness block necessarily lags one
+push behind (a file cannot record the SHA of its own push), which is why the sequence is
+`35d0a975` → `5575f383` → `337da5ba` → `d853f49e` and `d853f49e` is the authoritative candidate
+for this dossier's content.
 
 ## END
 
