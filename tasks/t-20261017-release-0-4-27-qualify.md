@@ -8,10 +8,10 @@ release: v0.4.27
 version: v0.4.27
 release_stage: qualify
 parent: v0.4.27
-owner: ""
-kanban_lane: planned
+owner: mission-closeout27
+kanban_lane: active
 kanban_summary: Obtain complete release-boundary validation for the frozen candidate.
-kanban_status: planned
+kanban_status: active
 kanban_title: "0427-008 · complete required candidate"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-prepare]
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-qualify · v0.4.27 · Pre-release: complete required candidate checks #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-qualify · v0.4.27 · Pre-release: complete required candidate checks #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** mission-closeout27 · **Priority:** normal  
     **Needs:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-prepare](t-20261017-release-0-4-27-prepare.md)  
 **Required by:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
-**Owner:** unassigned  
+**Owner:** mission-closeout27  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -64,4 +63,5 @@ Normal required-job result checks and actual Docker/rootless Podman/consumer tes
 
 ## Handoff
 
+- 2026-11-14 (mission-closeout27, review-pending act): no complete pre-release run exists on any 0.4.27 candidate head; targeted run 43633496362 failed at fe018b97 and current head 385b0410 has no checks reported. Candidate not frozen (pinned Demo SHA 2494b05a only on open PR #160), pre-release source gate broken on main (PR #1576, .github/ routing = Owner), no Maintainer run authorization recorded. Full dossier: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md). Cannot enter review: the schema needs a card PR and none is admissible here.
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.

@@ -8,10 +8,10 @@ release: v0.4.27
 version: v0.4.27
 release_stage: verify
 parent: v0.4.27
-owner: ""
-kanban_lane: planned
+owner: mission-closeout27
+kanban_lane: active
 kanban_summary: Prove the published release is usable and close the release cycle.
-kanban_status: planned
+kanban_status: active
 kanban_title: "0427-010 · verify publication, artifacts,"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-publish]
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-verify · v0.4.27 · Release: verify publication, artifacts, Pages and closeout #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-verify · v0.4.27 · Release: verify publication, artifacts, Pages and closeout #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** mission-closeout27 · **Priority:** normal  
     **Needs:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-publish](t-20261017-release-0-4-27-publish.md)  
 **Required by:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
-**Owner:** unassigned  
+**Owner:** mission-closeout27  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -64,4 +63,5 @@ Canonical audit sections 10–13 and existing release-only/artifact/checksum/pro
 
 ## Handoff
 
+- 2026-11-14 (mission-closeout27, review-pending act): no v0.4.27 tag or GitHub Release exists (latest: v0.4.26), so publication verification is impossible and honestly unclaimed; CHANGELOG 0.4.27 section and docs/releases/v0.4.27.md already exist on develop/release branch as future witnesses. Full dossier with remote-truth witnesses: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md).
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.

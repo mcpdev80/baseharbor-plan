@@ -8,10 +8,10 @@ release: v0.4.27
 version: v0.4.27
 release_stage: publish
 parent: v0.4.27
-owner: ""
-kanban_lane: planned
+owner: mission-closeout27
+kanban_lane: active
 kanban_summary: Promote only approved content and provide the complete exact tagging command to the Maintainer.
-kanban_status: planned
+kanban_status: active
 kanban_title: "0427-007 · promote the validated"
 priority: normal
 depends_on: [t-20261017-release-0-4-27-qualify]
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261017-release-0-4-27-publish · v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands #task #release/v0-4-27 #status/planned #view/waiting #board/planned #area/release #kind/acceptance
+- [ ] t-20261017-release-0-4-27-publish · v0.4.27 · Release: promote the validated candidate and deliver exact tagging commands #task #release/v0-4-27 #status/active #view/active #area/release #kind/acceptance
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** mission-closeout27 · **Priority:** normal  
     **Needs:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md) (v0.4.27)  
 **Depends on:** [t-20261017-release-0-4-27-qualify](t-20261017-release-0-4-27-qualify.md)  
 **Required by:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
-**Owner:** unassigned  
+**Owner:** mission-closeout27  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -65,4 +64,5 @@ Direct Git candidate/published-tree checks, normal required jobs and immutable m
 
 ## Handoff
 
+- 2026-11-14 (mission-closeout27, review-pending act): promotion not authorized and prerequisites unmet — PR #1574 is CONFLICTING against main (478 conflicted paths, all .github/** = Owner scope), validation missing, pinned Demo SHA unreachable. No tag/Release/publication executed (frozen scope). Ready-to-paste guards and the post-merge block recipe are in the dossier; the final actual-SHA block needs the authorized promotion merge first. Full dossier: [round-1](../evidence/r27-closeout-2026-11-14/round-1.md).
 Not started. Record actual source SHAs, outcomes, authorization where required, evidence and remaining blockers; do not infer acceptance from card creation.
