@@ -80,4 +80,4 @@ The bounded slice already exists on `0e9ccb582` (identity reuse via `ResolveIden
 
 ## END STATE
 
-- `END_DONE` pending final acceptance steps. Scope locked to Option B.
+- Branch `lane-0428-uid-app` pushed (candidate SHA `c0664c8e4`), draft PR #1579 (base `develop`, draft=true): https://github.com/mcpdev80/baseharbor/pull/1579 . No merge/release authorized (merge-frost). Evidence on origin/main `98456052`.
