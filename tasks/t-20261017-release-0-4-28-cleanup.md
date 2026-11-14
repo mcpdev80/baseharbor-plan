@@ -20,7 +20,7 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: "inventar geliefert + angenommen (2ab26e5f); release-stage-kette wartet auf 0-4-27-verify (planned) — stufe bleibt bis 27-veroeffentlichung offen"
-resolution: accepted
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f"]
 early: true
 ---
