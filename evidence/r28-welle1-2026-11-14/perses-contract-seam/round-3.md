@@ -105,9 +105,35 @@ Reachability stays 'unverified' everywhere; no container is started; no probe is
 
 The changed path is cmd/baha; scripts/pr-go-unit-shard.py discovers Test* names with
 `go test ./cmd/baha -list .` and distributes them over the cli-0..cli-3 shards of the
-"PR · Draft Go" jobs (workflow "CI · Source & Quality", event pull_request). The six test
-names in the file all appear in `go test ./cmd/baha -list .` output; no trigger rule or
-workflow file was touched.
+"PR · Draft Go" jobs (workflow "CI · Source & Quality", event pull_request). No trigger
+rule or workflow file was touched. Replaying the shard selector on this candidate, the
+six cells land deterministically and were each executed-and-passed (the shard runner
+raises "CLI shard incomplete" on any selected test that is missing or did not pass):
+
+- cli-0: TestBahaStatusPersesCLIEntrypointResolvesWithoutContainer,
+  TestBahaStatusPersesSurfaceFailsClosedAndUnverified, TestPersesReleaseFailClosedOnUnknownAuthClass
+- cli-1: TestBahaStatusPersesReportsUnsupportedAuthThroughCLI,
+  TestBahaStatusPersesUnknownOwnerFailsClosedThroughCLI
+- cli-3: TestBahaStatusPersesSurfaceReachableOnlyWithObservabilityManagementUI
+
+## Hosted run record (Eigenes-Run-Pflicht, watched to terminal by this lane)
+
+Run: 43647090290, workflow "CI · Source & Quality", event pull_request,
+headSha c195a9a2049253accdf57a082e6eb33fc36ec7dd (exact r3 candidate).
+status=completed, conclusion=success. Observed by this session from dispatch to the
+terminal result. Job results (all executed jobs; everything else skipped under draft
+selection; no rerun or workflow_dispatch):
+
+- PR · Draft source and routing: success
+- PR · Draft Go · cli-0: success — log line: PASS cli-0: 411 passed / 13 intentionally skipped / 424 discovered; CLI inventory total=1675
+- PR · Draft Go · cli-1: success — PASS cli-1: 405 passed / 10 intentionally skipped / 415 discovered; CLI inventory total=1675
+- PR · Draft Go · cli-2: success — PASS cli-2: 407 passed / 19 intentionally skipped / 426 discovered; CLI inventory total=1675
+- PR · Draft Go · cli-3: success — PASS cli-3: 395 passed / 15 intentionally skipped / 410 discovered; CLI inventory total=1675
+- PR · Draft Go · packages: success
+
+(The shard scripts print aggregate PASS lines, not per-test names; the per-cell pass
+witness is each shard job's success, since the runner fails closed when a selected test
+is missing, skipped-unexpectedly or not passed.)
 
 ## Local verification on the exact r3 candidate
 
