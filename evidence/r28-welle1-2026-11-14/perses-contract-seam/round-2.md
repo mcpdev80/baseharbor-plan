@@ -70,13 +70,43 @@ So: Provisioned is grounded in manifest truth (surface selected + pinned release
 - Manifest round-trip test: internal/application/manifest_test.go.
 - metrics test dir: internal/metrics/ (base has prometheus_integration_test.go etc.).
 
+## Correction applied (round 2, against 61f76fa18)
+
+Branch: lane-0428-075-perses-seam (existing; continued here, no second branch). New head dc670bfd4d32baf29afde0e4b021bfdb63f4e0be, built on 61f76fa18 on 0e9ccb582 (base develop; ancestor confirmed).
+
+Manifest-erdet provisioned + separate reachability=unverified (owner direct 2026-11-14):
+
+- internal/capability/perses.go: PersesManagementSurface gained a separate Reachability string field; PersesReachabilityUnverified = "unverified". PersesManagementSurfaceNow now takes (selected bool): Provisioned=true only when selected AND ValidatePersesRelease passes; unprovisioned => fail-closed not-configured. Reachability is ALWAYS unverified — no Perses health probe exists here, never "healthy"/true, no SUPPORTED HA claim. PersesManagementSurfaceUnprovisioned sets Reachability=unverified.
+- internal/metrics/management_ui.go: VerifyPersesManagementUIAt fails closed without a pinned release; reachability stays unverified, never a false "configured".
+- internal/application/management_ui.go: surface render passes m.Services.Perses to PersesManagementSurfaceNow(true) (manifest truth, not compile-time default).
+- docs/spec/provider-management-acceptance-v1.md: Perses HA row => UNSUPPORTED (configuration-only seam; no Perses health probe; reachability unverified).
+- cmd/baha/app_perses_cli_test.go (new, 5 tests): genuine baha status CLI entry — run via collectResolvedApplicationStatus + application.ApplicationManagementUISurfaces on a tmp root over retainedNativeBackendFixture (no container, no HTTP probe): (1) fail-closed not-configured when unselected, (2) Provisioned when selected with pinned release, (3) reachability ALWAYS unverified, (4) observability surface only present when observability.management_ui selected, (5) unknown-ownership/missing-auth fail-closed (unsupported auth class). internal/capability/perses_test.go updated for the selection-gated Provisioned and unverified reachability.
+- internal/application/manifest.go: gofmt only (struct field realignment), no semantic change.
+
+No container lifecycle implemented (task boundary). No .github/** touched.
+
+## Hosted CI run witness (run 43642055022)
+
+Exact command: `curl -s https://api.github.com/repos/mcpdev80/baseharbor/actions/runs/43642055022`
+Run 43642055022 head_sha: dc670bfd4d32baf29afde0e4b021bfdb63f4e0be, status completed, conclusion success. Triggered by the draft PR update (pull_request event). Job-level results:
+
+- PR · Draft source and routing → Validate changed Go formatting and CI routes → **success** (the R1 R1 failing check on manifest.go is now green).
+- PR · Draft Go · cli-0 → completed success.
+- PR · Draft Go · cli-1 → completed success.
+- PR · Draft Go · cli-2 → completed success.
+- PR · Draft Go · cli-3 → completed success.
+- PR · Draft Go · packages → completed success.
+- Workflow policy → skipped (draft selection).
+
+My new CLI tests run in the cli-* shards (genuine command execution, no container). No rerun or workflow_dispatch was initiated; the source/routing check is green.
+
 ## repo-rule compliance
 
-- Planning repo verified as /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan (real origin). workers/baseharbor-plan is the bookkeeping repo and was NOT used; a misplaced evidence file there was removed before work.
-- No .github/** edited. No reruns, no workflow_dispatch.
+- Planning repo verified as /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan (real origin; `git rev-parse --show-toplevel`). workers/baseharbor-plan is the bookkeeping repo and was NOT used.
+- No .github/** edited. No reruns, no workflow_dispatch. The .github CI trigger for the new test shard is Owner scope; this run confirms the existing Draft Go shards cover the new test path.
+- Branch cut from base develop 0e9ccb582 (ancestor of dc670bfd). Only my own commits (61f76fa1, dc670bfd) on top of 0e9ccb582.
 - No subagents used. Every step done in this session.
-- Branch cut from base develop SHA 0e9ccb582, an ancestor of the candidate.
 - Evidence lives only in baseharbor-plan evidence/ (never in the product repo).
-- Managed compose/test stacks brought down by my last action (none started this round).
+- Managed compose/test stacks: none started this round (genuine-CLI tests use tmp roots, no containers).
 
-END round-2 in progress.
+END round-2 DONE — candidate dc670bfd4d32baf29afde0e4b021bfdb63f4e0be on lane-0428-075-perses-seam (PR #1575 DRAFT); CI 43642055022 SUCCESS.
