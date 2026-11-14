@@ -73,3 +73,10 @@ ad8123972f47b4111465522184d25a80958acc60	refs/heads/main
 ```
 
 ## END DONE
+
+## PLAN (r2 review)
+
+1. Verify the exact r2 candidate, retargeted app-branch base, ancestry, own-commit log, live PR state, and exact hosted run.
+2. Review identity creation, lock behavior, legacy reuse, durable rename, CLI-entry coverage, identity-role separation, and path ownership against the contract.
+3. Record a SHA-specific independent review verdict and actionable findings in the planning evidence.
+4. Run planning validation, publish the updated evidence to origin/main, verify its remote presence, and post END.

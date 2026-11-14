@@ -76,8 +76,31 @@ The bounded slice already exists on `0e9ccb582` (identity reuse via `ResolveIden
 ## Test → CI routing (AGENTS 4.8 / mission §6)
 
 - Tests live in `cmd/baha`, which the CI Go unit-test shards discover via `go test ./cmd/baha/ -list .` and run in the `cli-0..cli-3` + `go-unit-tests` shards (`scripts/pr-go-unit-shard.py`, CI `.github/workflows/ci.yml:122-123`). No `.github/**` edit required — the file path already falls under the existing required CLI-shard trigger.
-- Actual result at candidate SHA (local mirror of the CI shard): `go test ./cmd/baha/ -run 'TestUIDAppSlice' -race -count=1` → `ok`; identity/adoption subset → `ok`. (One unrelated shared-machine flake `TestPerformSelfUpdate...` on the full `cmd/baha` run; re-runs clean and is cross-lane CWD contention, not this change.)
+
+## CI regression → root cause → fix → terminal green
+
+### Regression observed
+Hosted CI run `43646891492` (candidate `c0664c8e4`), job `PR · Draft Go · cli-1` FAILED with four existing tests failing: `TestAppNewWizardPersistsExactExplicitPreferenceForLaterResolution`, `TestAppStatusHonorsEnvironmentTargetThroughProductionCLI`, `TestFastForwardGitApplicationUpdateUsesExactFetchedTarget`, `TestGuidedInitQuickFailsClosedOnAmbiguousCompose` (and more), all with `getwd: no such file or directory`.
+
+### Root cause (confirmed, not ordering)
+My `TestUIDAppSliceConcurrentFirstCreateConvergesOnOneOwner` parked racer goroutines in `os.Chdir` to `t.TempDir()` paths. `t.TempDir()` removed those paths when the test returned, leaving the **process CWD deleted**. Go's test framework then restored CWD to a deleted path, so every subsequent test whose `getwd`/`t.Chdir` ran against a gone path failed with `no such file or directory`. This is **global package-level state leakage**, not test-ordering.
+
+### Fix (same branch/PR, commit `2bf0c9295` on top of `c0664c8e4`)
+1. Restore the process CWD **inside each racer goroutine** after the CLI call (before temp-dir cleanup) so a racer never parks in a deleted CWD.
+2. Add a `t.Cleanup` that restores CWD to a **stable** temp dir captured from `t.TempDir()` (lives until the test ends), guaranteeing a valid CWD whenever the test returns.
+
+### Regression check
+`go test ./cmd/baha/ -run 'TestUIDAppSliceConcurrentFirstCreateConvergesOnOneOwner|TestAppNewWizardPersistsExactExplicitPreferenceForLaterResolution|TestAppStatusHonorsEnvironmentTargetThroughProductionCLI|TestFastForwardGitApplicationUpdateUsesExactFetchedTarget|TestGuidedInitQuickFailsClosedOnAmbiguousCompose|TestMachineProviderChangeHasNoRawDiagnosticStdout' -count=1` → `ok`.
+
+### Pre-existing failures (NOT this change)
+Full `cmd/baha` run (`-count=1`, 10 min timeout) still ends FAIL — but both failing tests fail identically on the true base `0e9ccb582`:
+- `TestAppEditCommandCompleteProviderEditRunsRealLifecycle`: `start real isolated Core for App Edit: existing native network lacks a protected Core or shared backend owner` — needs a real isolated Core (environmental).
+- `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`: `native Git archive failed: signal: killed` — OOM on a heavy Git archive step.
+Both are pre-existing environmental failures, unrelated to this slice. Confirmed by running them on `0e9ccb582`.
+
+### Terminal green CI run
+Run `43651708694` on SHA `2bf0c929506a5b0e64b7359a6fc8711ab3f48526` → **completed success**. All relevant shards green: `cli-0` pass, `cli-1` pass, `cli-2` pass, `cli-3` pass, `packages` pass, `source and routing` pass. No FAIL/UNSTABLE. Other jobs `skip` (outside this file's CI footprint).
 
 ## END STATE
 
-- Branch `lane-0428-uid-app` pushed (candidate SHA `c0664c8e4`), draft PR #1579 (base `develop`, draft=true): https://github.com/mcpdev80/baseharbor/pull/1579 . No merge/release authorized (merge-frost). Evidence on origin/main `98456052`.
+- Branch `lane-0428-uid-app` pushed, two commits on top of base `0e9ccb582`: slice `c0664c8e4` + CWD-leak fix `2bf0c9295`. Draft PR #1579 (base `develop`, draft=true): https://github.com/mcpdev80/baseharbor/pull/1579 . No merge/release authorized (merge-frost). Terminal green CI run `43651708694` on SHA `2bf0c9295`. Evidence on origin/main.
