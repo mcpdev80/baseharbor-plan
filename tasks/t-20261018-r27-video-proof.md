@@ -9,32 +9,32 @@ version: ""
 parent: v0.4.28
 priority: normal
 owner: ""
-kanban_lane: planned
+kanban_lane: closed
 kanban_summary: "Qualify real-world operation, not a filmed demonstration: same app has three independent release/component versions and…"
-kanban_status: planned
+kanban_status: closed
 kanban_title: "0427-061 · prove real stage versions"
-depends_on: [nc-3, t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-consumption, t-20261018-r27-delegated-handoff, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-local-registry, t-20261018-r27-promote, t-20261018-r27-team-proof, t-20261018-r27-version-view, t-20261022-r27-ci-runtime]
+depends_on: [t-20261017-release-0-4-27-updates, t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-ci-consumption, t-20261018-r27-delegated-handoff, t-20261018-r27-docs, t-20261018-r27-local-parity-proof, t-20261018-r27-local-registry, t-20261018-r27-promote, t-20261018-r27-team-proof, t-20261018-r27-version-view, t-20261022-r27-ci-runtime]
 repos: [mcpdev80/baseharbor-demo]
 prs: []
 sources: ["mcpdev80/baseharbor#777"]
 aliases: []
 early: true
 blocker: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-drop-standalone-stage-proof.md"]
 ---
 
-- [ ] t-20261018-r27-video-proof · Acceptance: prove real stage versions artifacts and promotion #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/demo #kind/acceptance
+- [x] t-20261018-r27-video-proof · Acceptance: prove real stage versions artifacts and promotion #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/demo #kind/acceptance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
-    **Needs:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-drop-standalone-stage-proof.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-ci-consumption](t-20261018-r27-ci-consumption.md), [t-20261018-r27-delegated-handoff](t-20261018-r27-delegated-handoff.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-local-parity-proof](t-20261018-r27-local-parity-proof.md), [t-20261018-r27-local-registry](t-20261018-r27-local-registry.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md), [t-20261018-r27-version-view](t-20261018-r27-version-view.md), [t-20261022-r27-ci-runtime](t-20261022-r27-ci-runtime.md)  
 **Owner:** unassigned  
 **Priority:** normal  
 **PRs:** none  
@@ -65,6 +65,10 @@ Planning only, 2026-10-18. Unassigned; no product changes, acceptance, native ru
 
 ## Explicit scope transfer to v0.4.28 — 2026-11-13
 
-Deferred from v0.4.27 release: broader three-stage/demo/Connector acceptance already depends on nc-3 in v0.4.28. Current 0.4.27 single-host Core remote workstation proof remains required.
+Deferred from v0.4.27 release: broader three-stage/demo acceptance is assigned to v0.4.28. The earlier Connector dependency was removed under the 2026-11-14 public scope decision; use supported Core-owned paths and keep the actual multi-environment acceptance. Current 0.4.27 single-host Core remote workstation proof remains required.
 
 Preserve original card ID/number, prior PR and test history. This is a release-scope move, not acceptance or implementation completion. The Coordinator must inspect current merged Core code, first-party provider contracts, real selected CI, and the existing task before dispatch; Codex independently reviews/merges. Release v0.4.27 cannot claim the deferred feature as complete.
+
+## Owner scope decision — 2026-11-14
+
+The Owner removed this standalone video/stage-proof card from release scope. It is dropped, not accepted; its historical context remains. This does not remove acceptance requirements independently owned by other active cards.
