@@ -409,4 +409,12 @@ The mission requires "karte->review" but the board tool refuses that transition 
 This lane did not guess: the card stays `active` with owner `lane-0428-audit-interface` and the
 dossier published, and the block is reported as the END line below.
 
+## 12. Cleanliness
+
+The lane started no container, no compose project and no network on any host: `docker ps -q` on this
+session host returns 2 entries, both pre-existing ambient stacks from other owners (the lane ran no
+`docker`/`podman` command at all; product truth came from `git ls-remote` and the clone under
+`/tmp/opencode/audit-interface-wt`). Scratch notes were deleted; the persistent clone is kept for
+review re-checks.
+
 END: END_DONE mission-audit-interface.md: audit-interface dossier delivered and verified on plan main (49d27c9f, content 5c8ed011); card 0428-047 stays active because card-status.py:127 needs a PR for 'review' and merge-frost yields none - QUESTION: how should plan-only audit cards reach review? Candidate = plan 49d27c9f on develop base 0e9ccb582, no product change.
