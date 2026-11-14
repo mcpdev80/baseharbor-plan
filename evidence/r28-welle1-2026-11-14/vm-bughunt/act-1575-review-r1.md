@@ -12,7 +12,7 @@ Fetched base: 0e9ccb582f5bdcdc74049bbe3996263cdce6500c (develop)
 - Fetch and verify the PR head and base, establish provenance, and record remote witnesses. (done)
 - Review the exact diff against the task contract, entry point, CI rollup, and file ownership. (done)
 - Record a verdict with an actionable correction recipe and stop criterion. (done)
-- Commit and push this evidence to planning main, then report completion. (in progress)
+- Commit and push this evidence to planning main, then report completion. (done)
 
 ## Repository and candidate witnesses
 
@@ -60,6 +60,10 @@ Findings:
 Exact output of `git ls-remote origin main` before this evidence commit:
 
 `9ce0b31c8d811ee36768aa08f4dae7ca25672989	refs/heads/main`
+
+## Evidence publication
+
+The review record was pushed to planning `main` and verified by fetching `main` and reading this path from the fetched commit. The publication commit at that verification point was `45a1000a89d738b75599a195fd12cf5eeb7401bd`.
 
 ## CI selection and trigger
 
