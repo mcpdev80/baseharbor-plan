@@ -388,10 +388,25 @@ evidence/cli-redesign-20261114/audit-interface.md
 tasks/t-20261114-r28-cli2-audit-interface.md
 ```
 
-The dossier content was published in plan commit `5c8ed011`; this final act adds the witness below
-and the END line (candidate chain `5c8ed011..d9c25971`, plan `origin/main`). Planning `origin/main`
+The dossier content was published in plan commit `5c8ed011`; this final act adds the witness
+block and the END line (candidate chain `5c8ed011..d9c25971`, plan `origin/main`). Planning `origin/main`
 at turn start was `6b34b1d9`, and the card-move commit follows this one.
 Product base attestation for the audited source is `0e9ccb582f5bdcdc74049bbe3996263cdce6500c`
-(`origin/develop`, see section 0). No product branch, PR or release was created (merge-frost).
+(`origin/develop`, see section 0). No product branch, PR or release was created (merge-frost), so the
+card's `prs:` list is legitimately empty. The `review` transition could not be published by this lane:
+`coordinator/scripts/card-status.py:127` requires a non-empty `prs` list for that column
+("review braucht owner + prs"), and a pure Bestandsaufnahme has no PR to name. See the QUESTION below.
 
-END: END_DONE mission-audit-interface.md: audit-interface dossier delivered to plan main, card 0428-047 -> review, candidate = plan d9c25971 on develop base 0e9ccb582 (no product change, merge-frost).
+## 11. Scope question for the coordinator (posted as QUESTION, not parked in a dialog)
+
+The mission requires "karte->review" but the board tool refuses that transition without a PR
+(`card-status.py:127`). Two ways out, coordinator's call:
+
+- exempt plan-only audit cards (recommendation: an `--allow-empty-prs` flag for cards whose
+  deliverable is an evidence file, or move them through `wait` with `wait_reason` naming the dossier), or
+- name the evidence commit as the `--pr` value, which would pollute the PR column with a non-PR token.
+
+This lane did not guess: the card stays `active` with owner `lane-0428-audit-interface` and the
+dossier published, and the block is reported as the END line below.
+
+END: END_DONE mission-audit-interface.md: audit-interface dossier delivered and verified on plan main (49d27c9f, content 5c8ed011); card 0428-047 stays active because card-status.py:127 needs a PR for 'review' and merge-frost yields none - QUESTION: how should plan-only audit cards reach review? Candidate = plan 49d27c9f on develop base 0e9ccb582, no product change.
