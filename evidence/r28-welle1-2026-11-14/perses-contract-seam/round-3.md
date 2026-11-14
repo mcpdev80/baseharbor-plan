@@ -101,6 +101,37 @@ r3 changes (only cmd/baha/app_perses_cli_test.go; no feature, doc or .github cha
 
 Reachability stays 'unverified' everywhere; no container is started; no probe is faked.
 
+## SOP witnesses (first END lines, per owner instruction 2026-11-14)
+
+Exact `git ls-remote` of the product remote (final r3 head confirmed):
+
+`git ls-remote origin refs/pull/1575/head refs/heads/lane-0428-075-perses-seam`
+`c195a9a2049253accdf57a082e6eb33fc36ec7dd	refs/heads/lane-0428-075-perses-seam`
+`c195a9a2049253accdf57a082e6eb33fc36ec7dd	refs/pull/1575/head`
+
+Hosted run on the exact head: 43647090290 — completed/success (owner-run witness
+confirmed identical). Shard PASS lines: see the hosted run record below.
+
+Test-name PASS lines, executed locally by this lane on the exact r3 head
+`c195a9a2049253accdf57a082e6eb33fc36ec7dd` (`go test ./cmd/baha -run
+'TestBahaStatusPerses|TestPersesRelease' -v -count=1`, stable across 3 repeats):
+
+```
+--- PASS: TestBahaStatusPersesSurfaceFailsClosedAndUnverified (2.35s)
+    --- PASS: TestBahaStatusPersesSurfaceFailsClosedAndUnverified/selected (1.17s)
+    --- PASS: TestBahaStatusPersesSurfaceFailsClosedAndUnverified/unselected-fail-closed (1.18s)
+--- PASS: TestBahaStatusPersesSurfaceReachableOnlyWithObservabilityManagementUI (0.48s)
+--- PASS: TestBahaStatusPersesCLIEntrypointResolvesWithoutContainer (2.38s)
+--- PASS: TestBahaStatusPersesUnknownOwnerFailsClosedThroughCLI (1.16s)
+--- PASS: TestBahaStatusPersesReportsUnsupportedAuthThroughCLI (1.22s)
+--- PASS: TestPersesReleaseFailClosedOnUnknownAuthClass (0.00s)
+ok  	github.com/mcpdev80/baseharbor/cmd/baha	7.605s
+```
+
+On the hosted shards the runner prints aggregate PASS lines and fails closed if a
+selected test is missing or not passed; the six cells map deterministically onto
+cli-0/cli-1/cli-3 under `scripts/pr-go-unit-shard.py` (mapping replayed below).
+
 ## CI pickup (no .github changes)
 
 The changed path is cmd/baha; scripts/pr-go-unit-shard.py discovers Test* names with
