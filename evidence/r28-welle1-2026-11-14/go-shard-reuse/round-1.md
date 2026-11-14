@@ -47,17 +47,23 @@ exact unchanged coverage is cryptographically/auditably proven. Depends on #1519
   planning repo — only `decisions/2026-11-09-r27-local-delta-delivery-and-target-presets.md` exists.
   The card instead cites `decisions/2026-11-14-owner-close-inherited-work.md`.
 
-## CONTRADICTION (needs Owner decision)
+## CONTRADICTION (Owner variant 3 — report only, no card change)
 
-- Owner decision `2026-11-14-owner-close-inherited-work.md` (status: **accepted**): "Cards 012, 046,
-  053, **185** and 187 are accepted by explicit Owner direction... does not assert an independently
-  reproduced test, an exact candidate SHA, or newly verified CI evidence."
-- Card `t-20261109-r27-ci-go-shard-reuse.md` still has `kanban_status: active` (also mirrored in
-  `views/releases/v0.4.28.md` line 32 and `views/overview.md` line 29).
-- The decision says "already performed and directed their closure."
+- Owner decision `2026-11-14-owner-close-inherited-work.md` (status: **accepted**), line 8:
+  "Cards 012, 046, 053, **185** and 187 are accepted by explicit Owner direction... This records
+  the Owner's statement and decision; it does not assert an independently reproduced test, an exact
+  candidate SHA, or newly verified CI evidence."
+- Card `t-20261109-r27-ci-go-shard-reuse.md` still has `kanban_status: active` (line 11), mirrored in
+  `views/releases/v0.4.28.md` line 32 and `views/overview.md` line 29.
+- develop (0e9ccb58) carries the already-integrated reuse (see finding above).
 
-So: is the intent (a) implement + prove, or (b) accept-as-done and close the card? This is a scope
-decision I will NOT infer.
+## Owner decision (2026-11-14, variant 3)
+
+"Documente the contradiction precisely in round-1, leave the CARD UNCHANGED (no status/resolution
+edits — board cleanup is a coordinator/Owner action), post END_BLOCKED with the one line
+'zur Owner-annahme bereit, nichts zu tun'. No new branch, no run, no change."
+
+Applied exactly. No branch cut, no CI run, no card/board edit.
 
 ## Merge-frost (mission)
 
@@ -84,7 +90,7 @@ decision I will NOT infer.
 
 ## STATUS
 
-BLOCKED on Owner scope decision before any scope-changing action.
+Resolved by Owner variant 3 — contradiction documented, card left unchanged. No scope action taken.
 
 ## END
 
