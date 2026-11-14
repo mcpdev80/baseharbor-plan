@@ -189,10 +189,13 @@ Own-commits log base..HEAD (`git log --format='%H %an <%ae> %s' origin/develop..
 All three commits belong to this card's chain on the named branch (r1, r2, r3); no foreign
 commit is carried on top. `git merge-base --is-ancestor dc670bfd4 HEAD` exits 0.
 
-Pre-push remote witness of the planning repo:
+Pre-push remote witness of the planning repo (exact command and output):
 
 `git ls-remote origin main`
-(see final pasted output below the evidence commit)
+`6bb7a3b457796a16b06b112ae3997e00fa83a4b4	refs/heads/main`
+
+Post-push witness: main moved to c44acb61042be4e941ff1c697319624e2a7dbf3e (this file +
+the card's evidence links).
 
 Candidate SHA under review: c195a9a2049253accdf57a082e6eb33fc36ec7dd
 Hosted run: 43647090290 (terminal, success; per-test PASS witness: the shard
