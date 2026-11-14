@@ -142,6 +142,14 @@ Owner directive 2026-11-14 (ERNTET r2, card → review; verdict dispatched): str
 - PR #1579 still OPEN at `c0664c8e...`; hosted run `43646891492` = **failure** (job `PR · Draft Go · cli-1` → failure; all other active jobs success). Expected "1579 may fail this round" per directive.
 - Action taken: NOTHING rebased. Branch #1578 still at `7930095b0`, worktree clean. Waiting for Owner to report the #1579 fix state before rebasing.
 
+## Round-3a rebase gate check (2026-11-15)
+
+Owner directive 15.11: basis-karte now formally cli2-uid-app; stack #1578 on `lane-0428-uid-app` head, NOT develop. Board-stack-zeile in the card updated. App head "derzeit c0664c8e, Fix folgt."
+
+- VERIFIED (live): `lane-0428-uid-app` remote head still `c0664c8e` (unchanged since 2026-11-14T22:12:44Z); PR #1579 still OPEN, merge=null; hosted run `43646891492` = **failure** (job `PR · Draft Go · cli-1`). This is the KNOWN-FAILING pre-fix head.
+- #1578 still untouched at `7930095b0`; worktree clean; 2 commits off `0e9ccb582`.
+- DECISION: do NOT rebase onto `c0664c8e` (known-failing) — stacking #1578 on a red app head would require a full re-run on the fix head and risks a dirty candidate. Per the Owner's own "#1579 ... ich melde den fix-stand" the fix head is pending. Awaiting the new app head (CI-green + accepted) before rebasing.
+
 - New package `internal/environment` (`environment.go`): `NewID()` / `MustNewID()` / `Validate()` / `ValidateNonEmpty()` + `Environment{ID,Name}` with stable UUIDv4 identity (via `stableid`) and slug-validated, renameable name. Rename never changes the ID.
 - New seam `internal/deployment/environment_identity.go`: `GetEnvironment(target, env)` / `EnvironmentID(target, env)` / `EnvironmentRecord{Target,Name,Identity}`. Home: `targets/<target>/.baseharbor/environments/<env>/environment.json` (OUTSIDE the deployment-registry namespace `targets/<t>/deployments`).
   - First creation: primes the Target root with an idempotent `MkdirAll` (so the shared `WithDeploymentRegistryWriteLock` engages), takes the Target-wide registry write lock, re-checks, creates atomically via temp+rename with foreign-claim rejection.
