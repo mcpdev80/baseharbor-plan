@@ -388,9 +388,10 @@ evidence/cli-redesign-20261114/audit-interface.md
 tasks/t-20261114-r28-cli2-audit-interface.md
 ```
 
-The evidence commit for this dossier is `5c8ed011` in baseharbor-plan, parent `6ad3edaa`
-(planning `origin/main` at turn start was `6b34b1d9`; the lane fast-forwarded before committing).
+The dossier content was published in plan commit `5c8ed011`; this final act adds the witness below
+and the END line (candidate chain `5c8ed011..d9c25971`, plan `origin/main`). Planning `origin/main`
+at turn start was `6b34b1d9`, and the card-move commit follows this one.
 Product base attestation for the audited source is `0e9ccb582f5bdcdc74049bbe3996263cdce6500c`
 (`origin/develop`, see section 0). No product branch, PR or release was created (merge-frost).
 
-END: END_DONE mission-audit-interface.md: audit-interface dossier delivered to plan main 5c8ed011, card 0428-047 -> review, candidate = plan 5c8ed011 on develop base 0e9ccb582 (no product change, merge-frost).
+END: END_DONE mission-audit-interface.md: audit-interface dossier delivered to plan main, card 0428-047 -> review, candidate = plan d9c25971 on develop base 0e9ccb582 (no product change, merge-frost).
