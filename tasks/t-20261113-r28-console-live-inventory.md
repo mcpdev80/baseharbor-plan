@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Connect ONLY Providers list to existing protected Core read operations; Observability is a different task.
 kanban_title: "0428-015 · Bind live Providers view"
 priority: normal
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor-console]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md"]
 early: true
 ---
 
-- [ ] t-20261113-r28-console-live-inventory · Bind provider monitoring inventory #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
+- [x] t-20261113-r28-console-live-inventory · Bind provider monitoring inventory #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/console #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md)  
 **Required by:** [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md)  

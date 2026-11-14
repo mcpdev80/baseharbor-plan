@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: ""
 kanban_title: "0428-019 · Finish monitoring Console docs"
 priority: normal
@@ -18,20 +18,20 @@ repos: [mcpdev80/baseharbor-console, mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md"]
 early: true
 ---
 
-- [ ] t-20261113-r28-console-docs-closeout · Finish monitoring Console docs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/documentation #kind/task
+- [x] t-20261113-r28-console-docs-closeout · Finish monitoring Console docs #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/documentation #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md)  
 **Owner:** unassigned  

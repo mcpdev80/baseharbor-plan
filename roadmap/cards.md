@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · Console, Grafana OSS and management workflows #roadmap #roadmap-state/next
     **Release:** planned  
-    **Accepted tasks:** 5/58 · **Blocked:** 0 · **Waiting:** 52  
+    **Accepted tasks:** 5/58 · **Blocked:** 0 · **Waiting:** 36  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/later

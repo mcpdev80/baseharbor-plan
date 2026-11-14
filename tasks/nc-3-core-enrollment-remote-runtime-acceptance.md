@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_lane: planned
+kanban_lane: closed
 kanban_summary: "The Node Connector integrates with real Core enrollment and sessions, and real remote Docker Compose and rootless Podman Quadlet…"
-kanban_status: planned
+kanban_status: closed
 kanban_title: 0428-041 · Core Connector runtime
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-node-cli, t-20261018-r27-node-service, t-20261018-r27-node-streams, t-20261018-r27-node-trust, t-20261106-r27-remote-up-cli-path]
 repos: [mcpdev80/baseharbor-node-connector]
@@ -19,19 +19,19 @@ sources: ["mcpdev80/baseharbor-node-connector#3"]
 source_updated: "2026-10-08T13:52:57Z"
 labels: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md"]
 ---
 
-- [ ] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/connector #kind/task
+- [x] nc-3 · Node Connector: Core-compatible enrollment and real remote Docker/Podman acceptance #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/connector #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  

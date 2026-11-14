@@ -8,9 +8,9 @@ release: v0.4.28
 version: ""
 parent: console-1
 owner: ""
-kanban_lane: planned
+kanban_lane: closed
 kanban_summary: "The Console's live mode reads and mutates only through the protected Core adapter, with live workflow and stream proofs.…"
-kanban_status: planned
+kanban_status: closed
 priority: high
 kanban_title: "0428-001 · replace fixtures with the"
 depends_on: [t-20261017-release-0-4-28-updates, t-20261018-r27-access-proof, t-20261018-r27-public-surfaces, t-20261018-r27-team-proof]
@@ -20,21 +20,21 @@ sources: ["mcpdev80/baseharbor-console#2"]
 source_updated: "2026-10-08T13:49:16Z"
 labels: []
 blocker: ""
-resolution: ""
-evidence: []
+resolution: dropped
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md"]
 early: true
 ---
 
-- [ ] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/console #kind/task
+- [x] console-2 · Console: replace fixtures with the protected Core adapter and live workflow proofs #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/console #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
     **PR:** [baseharbor-console#8](https://github.com/mcpdev80/baseharbor-console/pull/8)  
-    **Waiting for prerequisites**  
     **Needs:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-public-console-connector-scope.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** dropped  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
