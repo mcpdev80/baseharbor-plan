@@ -20,12 +20,15 @@ sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence:
+  - evidence/cli-redesign-20261114/contract/cli-command-contract-v1.md
+  - evidence/cli-redesign-20261114/contract/round-1.md
 ---
 
 - [ ] t-20261114-r28-cli2-contract · CLI redesign: Specify reviewed CLI contract #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-cli2-contract-r28 · **Priority:** high  
+    **Evidence:** [proof 1](evidence/cli-redesign-20261114/contract/cli-command-contract-v1.md), [proof 2](evidence/cli-redesign-20261114/contract/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
