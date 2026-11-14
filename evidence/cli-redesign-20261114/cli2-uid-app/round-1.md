@@ -59,6 +59,25 @@ These are mutually exclusive by design. I cannot both (a) commit a portable `app
 
 Owner confirmed **Option B**: keep `app.id` OUT of `baseharbor.yaml` (contract §6 governs; brief line 14 remains an OPEN decision until the Owner explicitly approves committing it). Build the BOUNDED slice: stable, system-owned identity — reuse across checkouts/legacy, fail-closed on conflict, convergence on concurrent create, no secret leakage. No contract change. This akte carries the open-point note (brief line 14) with one contract-cited line so the Owner sees it in the akte (not the board); the Owner will pour it into a question the next day.
 
+## Open owner point (brief line 14) — recorded for the Owner
+
+brief line 14 (user wants a non-secret `app.id` committed in versioned `baseharbor.yaml`) is an OPEN decision. The normative contract contradicts it: `docs/spec/application-contract-v1.md` §Stable identity states "Developer-authored manifests MUST NOT contain `app.id` ... Deployment identity remains Target-local protected state and MUST NOT become portable Application Intent." Awaiting explicit Owner authorization to amend the contract before any committed `app.id`.
+
+## Bounded slice implementation (Option B)
+
+The bounded slice already exists on `0e9ccb582` (identity reuse via `ResolveIdentity`/`InitializeIdentity`, fail-closed conflict in `ResolveIdentity`, two-process concurrent-create guard in `deployment.SaveDeploymentRecord`, `AuthoredYAML()` stripping the ID). This lane's contribution is a focused, real-CLI regression suite proving the four acceptance scenarios end-to-end without touching internal seams:
+
+- New test file: `cmd/baha/app_init_uid_app_slice_test.go`
+  - `TestUIDAppSliceFirstCreateThenCheckoutReuseIdentityNoAuthoredLeak` — first create allocates one system-owned ID; repeat checkout reuses it (no drift), no second canonical owner, ID never in authored manifest bytes.
+  - `TestUIDAppSliceLegacyImportReusesExistingCanonicalIdentity` — repo with canonical store but no manifest adopts the existing ID, allocates no new one, writes no ID.
+  - `TestUIDAppSliceConcurrentFirstCreateConvergesOnOneOwner` — 6 concurrent real `baha app init --quick` processes converge on exactly one canonical owner.
+  - `TestUIDAppSliceNoIDLeakIntoNormalMachineOutput` — routine init summary and authored manifest never carry the allocated ID.
+
+## Test → CI routing (AGENTS 4.8 / mission §6)
+
+- Tests live in `cmd/baha`, which the CI Go unit-test shards discover via `go test ./cmd/baha/ -list .` and run in the `cli-0..cli-3` + `go-unit-tests` shards (`scripts/pr-go-unit-shard.py`, CI `.github/workflows/ci.yml:122-123`). No `.github/**` edit required — the file path already falls under the existing required CLI-shard trigger.
+- Actual result at candidate SHA (local mirror of the CI shard): `go test ./cmd/baha/ -run 'TestUIDAppSlice' -race -count=1` → `ok`; identity/adoption subset → `ok`. (One unrelated shared-machine flake `TestPerformSelfUpdate...` on the full `cmd/baha` run; re-runs clean and is cross-lane CWD contention, not this change.)
+
 ## END STATE
 
 - `END_DONE` pending final acceptance steps. Scope locked to Option B.
