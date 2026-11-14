@@ -18,7 +18,7 @@ repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
 blocker: ""
-resolution: accepted
+resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/decisions/2026-11-14-owner-close-inherited-work.md"]
 early: true
 ---
