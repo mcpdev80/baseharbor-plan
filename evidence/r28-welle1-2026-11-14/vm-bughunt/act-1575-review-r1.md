@@ -53,6 +53,14 @@ Findings:
 4. Add deterministic tests for unknown ownership and missing authorization through the public CLI path, or narrow the implementation/spec claims if the existing boundary cannot support those cases. Keep new tests in the existing Go package coverage selected by the draft Go CI group and confirm the triggering source path; do not edit `.github/**`.
 5. Re-run the changed candidate's required existing checks after the fixes are committed. Stop if the source/routing check remains red, the CLI still reports provisioned without runtime evidence, or the authorization/ownership result is not fail-closed.
 
+## Planning validation and pre-push witness
+
+`python3 scripts/plan.py check`: 531 tasks, 7 epics, 13 releases, 21 decisions; 0 errors, 11 pre-existing warnings. `git diff --check` produced no output.
+
+Exact output of `git ls-remote origin main` before this evidence commit:
+
+`9ce0b31c8d811ee36768aa08f4dae7ca25672989	refs/heads/main`
+
 ## CI selection and trigger
 
 The existing `CI · Source & Quality` workflow selected `PR · Draft Go` package jobs for the draft PR update. The new Go tests were picked up by package jobs `cli-0` through `cli-3` and `packages`, all successful on the reviewed SHA. The same draft push selected `PR · Draft source and routing`, which failed on the formatting line above. Runtime Docker/Podman gates were skipped; this candidate contains no container lifecycle implementation.
@@ -64,4 +72,4 @@ The existing `CI · Source & Quality` workflow selected `PR · Draft Go` package
 - No subagents used. No secrets copied into this evidence.
 - Review is tied to the exact fetched candidate and base above.
 
-END act-1575-review-r1 DONE — REJECT; evidence publication is pending; candidate 61f76fa18897d4a0709c09c27ae67e1ded8dba20.
+END act-1575-review-r1 DONE — REJECT; candidate 61f76fa18897d4a0709c09c27ae67e1ded8dba20.
