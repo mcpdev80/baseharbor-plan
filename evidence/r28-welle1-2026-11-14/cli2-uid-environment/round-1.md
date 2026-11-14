@@ -99,6 +99,41 @@
 - Compose cleanliness: NO lane-0428 containers/compose projects running; unit tests used t.TempDir only.
 - Next trigger: Owner review of DRAFT PR #1578; CLI wiring of the seam stays with the umbrella CLI-integration owner.
 
+## Round-2 correction — DONE (2026-11-14), addresses PR #1578 review R1 (REJECT, 3 findings)
+
+Review akte: `evidence/r28-welle1-2026-11-14/vm-bughunt/act-1578-review-r1.md`. Verdict REJECT at `670402fde` for 3 blockers: (1) persistent rename changed the uid; (2) name field serialized the uid; (3) no real CLI entry in tests. Same branch #1578, head was `670402fde` before r2.
+
+### Fix 1 — persistent rename retains the uid (blocker 1)
+- `internal/deployment/environment_identity.go` adds `RenameEnvironment(target, oldName, newName)`: atomic metadata update under the shared `WithDeploymentRegistryWriteLock` that keeps the exact UUID and only rewrites the `Name` field. Never allocates a new ID, never relocates across targets. Reopening under the new name returns the same UUID.
+- R2 commit `7930095b0` marshals `EnvironmentRecord{Target: source.Target, Name: newName, Identity: source.Identity}` (`environment_identity.go:347`) — Name ≠ Identity. `readEnvironmentRecord` validates the stored target/name binding fail-closed.
+
+### Fix 2 — serialize name and uid as distinct fields (blocker 2)
+- `EnvironmentRecord` stays `{Target, Name, Identity}` with distinct `json:"target"/"name"/"id"`. `persistEnvironmentRecord` (r2 `environment_identity.go:112`) marshals `EnvironmentRecord{Target, Name: <name>, Identity: id}` — the generated uid goes only to `Identity`, the real name to `Name`. The prior regression wrote the uid into the `name` slot; `TestEnvironmentRecordSerializesNameAndIdentitySeparately` decodes the on-disk file and asserts `Target`, `Name`, `Identity` are all correct and distinct.
+
+### Fix 3 — real CLI entry (blocker 3)
+- New file `cmd/baha/environment_identity_cli_test.go`: two command-path tests via `runWithIO` (precedent 175-r8). `TestEnvironmentIdentityReachableThroughProductionCLI` creates an env record via the seam under a private XDG state root, runs the production `baha target show --json` path, asserts the JSON `state_root` names the seam's per-Target environment home and that reopening/renaming through the same state root preserves the UUID. `TestEnvironmentIdentityCLIPathCreatesOnFirstUse` asserts create-once under the production CLI state root.
+
+### r2 test results (exact candidate SHA = 7930095b0, worktree at 0e9ccb582)
+- `go build ./...` — OK
+- `go vet ./internal/deployment/ ./internal/environment/ ./cmd/baha/` — OK
+- `go test -race ./internal/deployment/ -count=1` — ok (2.5s)
+- `go test ./internal/environment/ -count=1` — ok
+- `go test ./cmd/baha/ -run 'TestEnvironmentIdentity' -count=1` — ok (2 new tests PASS)
+- `go test ./cmd/baha/ -run 'Environment|Target|Show' -count=1` — ok (23.4s, no regression)
+- CI mapping: `internal/deployment` + `internal/environment` + `cmd/baha` covered by existing `go test ./internal/... ./cmd/baha` (ci.yml). NO `.github/**` change required (Owner scope).
+
+### r2 hosted CI (run id 43647672376, candidate SHA 7930095b0, PR #1578, base develop)
+- Triggered by branch push (ci.yml `pull_request` + `push`). NOT a rerun/dispatch (Owner scope). PR #1578 remains OPEN/DRAFT.
+- Result: **completed / success**. Active jobs all `success`:
+  - `PR · Draft source and routing`, `PR · Draft Go · cli-0/1/2/3`, `PR · Draft Go · packages` → success
+  - (remaining jobs skipped — gated on non-draft / release branches)
+- Witness: `gh api repos/mcpdev80/baseharbor/actions/runs/43647672376/jobs --jq '.jobs[] | "\(.name)  \(.conclusion)"'` → all active jobs `success`.
+
+### PR #1578 branch provenance (r2)
+- Candidate head `7930095b0...`; base ancestor `0e9ccb582` verified (`git merge-base --is-ancestor 0e9ccb582 HEAD` → exit 0).
+- `git log --oneline 0e9ccb582..7930095b0` lists exactly 2 commits, both `lane-0428-uid-environment`: `670402fde` (r1) + `7930095b0` (r2). No foreign commit carried on the branch.
+- `git ls-remote origin refs/pull/1578/head` → `7930095b0...` at r2.
+
 ## Round-1 implementation — DONE (2026-11-14)
 
 - New package `internal/environment` (`environment.go`): `NewID()` / `MustNewID()` / `Validate()` / `ValidateNonEmpty()` + `Environment{ID,Name}` with stable UUIDv4 identity (via `stableid`) and slug-validated, renameable name. Rename never changes the ID.
