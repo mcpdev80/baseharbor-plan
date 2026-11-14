@@ -482,9 +482,32 @@ SSH test host was used, because no runtime gate was in scope for a read-only inv
 - product base audited: `develop` @ `0e9ccb582f5bdcdc74049bbe3996263cdce6500c` (no candidate branch,
   no PR: merge-frost, reine Bestandsaufnahme)
 - plan base at start: `origin/main` @ `9aad6e585a8e7337f4415addefa4b4950b67714e`; the remote moved on
-  while this dossier was being written, so the dossier commit was rebased onto the fetched head
-  `3aa218da73504b3ff428b687d253095bee7fa9dd` before push (single own commit on top, `git log
-  --oneline 3aa218da..HEAD` shows exactly one line; no force-push, no history rewrite)
+  while this dossier was written, so the dossier was published as exactly one commit
+  (`35d0a9759e12f60ad44a0756934fe7424c35abfd`) on top of the fetched head
+  `3aa218da73504b3ff428b687d253095bee7fa9dd`; no force-push, no history rewrite
+
+## 13. Evidence witnesses (measured after the push)
+
+```
+$ git ls-remote origin main
+35d0a9759e12f60ad44a0756934fe7424c35abfd	refs/heads/main
+$ git log --oneline origin/main..HEAD
+(empty: this lane's commit is the remote head)
+$ git ls-tree origin/main evidence/cli-redesign-20261114/
+100644 blob 417e6053…	evidence/cli-redesign-20261114/audit-access.md
+100644 blob d8447f37…	evidence/cli-redesign-20261114/audit-app.md
+100644 blob d318af31…	evidence/cli-redesign-20261114/audit-interface.md
+100644 blob 1a4c2c411648e6a415f762a6be748bfaa0fd6c33	evidence/cli-redesign-20261114/audit-platform.md
+100644 blob 5200c404…	evidence/cli-redesign-20261114/audit-wizards.md
+100644 blob 3decc024…	evidence/cli-redesign-20261114/brief.md
+040000 tree c4b79015…	evidence/cli-redesign-20261114/cleanup28-r1
+100644 blob 2cab11a8…	evidence/cli-redesign-20261114/code-entry-index.md
+100644 blob e0489268…	evidence/cli-redesign-20261114/command-map.md
+$ git rev-parse origin/main:evidence/cli-redesign-20261114/audit-platform.md
+1a4c2c411648e6a415f762a6be748bfaa0fd6c33
+$ git log --oneline origin/main -1
+35d0a975 0428-045 audit-platform: platform, target, environment and UID path inventory at develop 0e9ccb582
+```
 - deliverable: this dossier; 30 verdicts in §7 (T1-T30), of which 8 **trifft**, 11 **weicht ab**
   and 11 **Konsistenz-Risiko**
 - required checks: none applicable (read-only planning evidence; no product source changed, so no
