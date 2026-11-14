@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-audit-interface
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Audit help and machine compatibility. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-047 · Audit help and machine Compat
 priority: high
@@ -19,17 +19,18 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/4c1444f8"]
 ---
 
-- [ ] t-20261114-r28-cli2-audit-interface · CLI redesign: Audit help and machine compatibility #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [x] t-20261114-r28-cli2-audit-interface · CLI redesign: Audit help and machine compatibility #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-audit-interface · **Priority:** high  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/4c1444f8)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
