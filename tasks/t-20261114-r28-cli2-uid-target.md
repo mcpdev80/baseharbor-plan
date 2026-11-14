@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-uid-target
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Add stable target identity. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-052 · Add stable target identity
 priority: high
 depends_on: [t-20261114-r28-cli2-contract]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1580]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,19 +23,20 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-uid-target · CLI redesign: Add stable target identity #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-uid-target · CLI redesign: Add stable target identity #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-uid-target · **Priority:** high  
+    **PR:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
 **Required by:** [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
 **Owner:** lane-0428-uid-target  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580)  
 **Source:** 
 <!-- /generated:links -->
 
