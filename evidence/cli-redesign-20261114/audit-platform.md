@@ -513,4 +513,9 @@ into itself.
 
 ## END
 
-END_DONE mission-audit-platform.md: platform/target/environment/UID paths inventoried at develop 0e9ccb582; 30 file:line verdicts (8 trifft, 11 weicht ab, 11 Konsistenz-Risiko) in evidence/cli-redesign-20261114/audit-platform.md; product candidate 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, dossier candidate f1fdaefd45831c5639f0872ab11e1404abfcbf5f (ancestor of origin/main 65956641, log proves only this lane's commits); no product change (merge-frost); card left active - the review column needs a prs entry and merge-frost yields no PR (see 12).
+The audit body of this dossier is complete at commit `f1fdaefd45831c5639f0872ab11e1404abfcbf5f`, file
+blob `c1a4a172d0936b1e08b2e5f8a0b25e8161d9824a`. Every later commit by this lane (`b367f347`) edits
+only this END paragraph, so the audited inventory itself is frozen at `f1fdaefd`; that commit is an
+ancestor of the pushed `origin/main` (`git merge-base --is-ancestor f1fdaefd origin/main` -> yes).
+
+END_DONE mission-audit-platform.md: platform/target/environment/UID paths inventoried at develop 0e9ccb582; 30 file:line verdicts (8 trifft, 11 weicht ab, 11 Konsistenz-Risiko) in evidence/cli-redesign-20261114/audit-platform.md; product candidate 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, dossier candidate f1fdaefd45831c5639f0872ab11e1404abfcbf5f (blob c1a4a172d0936b1e08b2e5f8a0b25e8161d9824a, ancestor of pushed origin/main); no product change (merge-frost); card left active - the review column needs a prs entry and merge-frost yields no PR (see 12).
