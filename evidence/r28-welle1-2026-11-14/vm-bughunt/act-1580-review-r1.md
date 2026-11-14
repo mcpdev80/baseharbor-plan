@@ -41,20 +41,21 @@ Correction recipe: implement the legacy name-to-UID migration at the config reso
 - Run `43647367175` completed with conclusion `success` on exact candidate `ebeafa56a2d14d962603cbc649e4764628104417`, event `pull_request`, workflow `CI · Source & Quality`.
 - All active jobs passed: `PR · Draft source and routing`, `PR · Draft Go · cli-0`, `cli-1`, `cli-2`, `cli-3`, and `packages`.
 - `PR Selected Checks`, workflow policy, source format, validation, and other non-draft/native jobs were skipped under draft selection. This is a successful terminal draft run; skipped checks are not reported as passing.
-- The added Go tests are within `cmd/baha` and `internal/deployment`; the existing PR draft Go CLI/package groups picked them up on the `pull_request` trigger. No workflow change, rerun, or workflow dispatch was made.
+- CI selection was verified read-only in `.github/workflows/ci.yml`: `pull_request` includes `develop` (`:12-16`); draft Go shards run for draft PRs (`:1400-1405`); changed Go package selection feeds the CLI shards and package test group (`:1435-1487`). `scripts/pr-go-unit-shard.py:28-40,64-115` discovers and executes the actual `cmd/baha` test inventory. The PR run passed CLI shard summaries: cli-0 409 passed, cli-1 403, cli-2 407, cli-3 396; package group ran `go test -p 1` for `./internal/deployment`, which passed. The three new CLI-package test names hash to cli-0 (`TestCreateTargetPersistsStableUID`) and cli-3 (`TestCreateTargetUIDIdempotentOnRetry`, `TestCreateTargetRejectsUIDCollisionByName`); they are present in the shard inventory. This confirms CI picks up the tests despite the helper-level nature of their assertions.
+- No workflow change, rerun, or workflow dispatch was made.
 
 ## Repo-rule compliance
 
 - Evidence repository root verified before this evidence commit: `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (`git rev-parse --show-toplevel`).
-- Planning repo was fast-forward refreshed before review recording; current local `main` before evidence commit: `064bf0bede19615e5d127b2c671c8a3b4f0997cc`.
+- Planning repo was fast-forward refreshed before evidence recording; exact evidence base SHA: `ceb9b9cb4c7d43ab7c245b5e0b8eec568114a5b5`.
 - Exact `git ls-remote origin main` output immediately before evidence publication:
 
 ```text
-<pending exact witness>
+ceb9b9cb4c7d43ab7c245b5e0b8eec568114a5b5	refs/heads/main
 ```
 
 - Only this review evidence file is intended for the planning commit. No product or workflow files were modified.
-- `python3 scripts/plan.py check`: pending final run before publication.
+- `python3 scripts/plan.py check`: 531 tasks, 7 epics, 13 releases, 21 decisions; 0 errors, 10 pre-existing dependency warnings.
 
 ## Verdict
 
