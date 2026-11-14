@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: lane-0428-uid-environment
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Introduce logical environment identity. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-051 · Introduce logical Env identity
 priority: high
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-uid-environment · CLI redesign: Introduce logical environment identity #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-uid-environment · CLI redesign: Introduce logical environment identity #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** lane-0428-uid-environment · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md)  
-**Owner:** unassigned  
+**Owner:** lane-0428-uid-environment  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
