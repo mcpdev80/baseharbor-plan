@@ -80,3 +80,62 @@ ad8123972f47b4111465522184d25a80958acc60	refs/heads/main
 2. Review identity creation, lock behavior, legacy reuse, durable rename, CLI-entry coverage, identity-role separation, and path ownership against the contract.
 3. Record a SHA-specific independent review verdict and actionable findings in the planning evidence.
 4. Run planning validation, publish the updated evidence to origin/main, verify its remote presence, and post END.
+
+## R2 review — candidate 7930095b
+
+Review role: CODEX-REVIEW only; no merge. Exact requested candidate `7930095b04ae716fe2375ee8f6a578535990eec2`, branch `lane-0428-uid-environment`, PR #1578, OPEN/DRAFT. `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/heads/lane-0428-uid-app refs/pull/1578/head refs/pull/1579/head` returned:
+
+```text
+0e9ccb582f5bdcdc74049bbe3996263cdce6500c	refs/heads/develop
+2bf0c929506a5b0e64b7359a6fc8711ab3f48526	refs/heads/lane-0428-uid-app
+7930095b04ae716fe2375ee8f6a578535990eec2	refs/pull/1578/head
+2bf0c929506a5b0e64b7359a6fc8711ab3f48526	refs/pull/1579/head
+```
+
+The declared PR base is `lane-0428-uid-app` at `2bf0c929506a5b0e64b7359a6fc8711ab3f48526`. `git merge-base --is-ancestor 2bf0c929506a5b0e64b7359a6fc8711ab3f48526 7930095b04ae716fe2375ee8f6a578535990eec2` failed (exit 1); their merge-base is `0e9ccb582f5bdcdc74049bbe3996263cdce6500c`. The candidate's log from develop lists only its two lane-owned commits, `670402fd` and `7930095b`. The app branch is PR #1579 head `2bf0c929`, OPEN/DRAFT; its active checks on run `43651708694` passed, but Planning still lists the uid-app dependency as not accepted.
+
+Combined-chain inspection: the app branch contributes `cmd/baha/app_init_uid_app_slice_test.go`; #1578 contributes `cmd/baha/environment_identity_cli_test.go`, `internal/deployment/environment_identity.go` and its tests, and `internal/environment/environment.go` and its tests. A local merge-tree of the fetched app base and exact #1578 head completed without conflicts (tree `10f4fcd9e884315b19886b13d702fa74de0c5bd7`). The app base is nevertheless not an ancestor of #1578, so the candidate is not structurally based on the declared stack head. No files overlap between the two PR diffs.
+
+### Criteria review
+
+1. UUIDv4 generation is non-secret, and first use is idempotent under the shared target registry lock; the candidate has a 32-goroutine convergence test. The creation/locking portion is supported by source and tests.
+
+2. Reopening a valid `environment.json` returns its stored identity. The brownfield test reopens a record created by this same new implementation; the combined diff has no migration from the pre-existing environment state to this newly introduced record. Card acceptance explicitly includes migration and reuse of historical identity, which remains unproven.
+
+3. R2 adds persisted `RenameEnvironment` and a test reopening under the new name with the same UUID (`internal/deployment/environment_identity.go:246-383`; test `:216-274`). The seam-level rename behavior passes by inspection. The CLI test does not invoke rename through the CLI itself, as detailed below.
+
+4. The added test calls `runWithIO` for `target show --json` (`cmd/baha/environment_identity_cli_test.go:61-83`), but the command itself does not call the environment identity seam. `GetEnvironment`, `RenameEnvironment`, and `EnvironmentID` are called directly by the test before or after the command (`:55-58,85-109,119-130`); source search finds no production caller of those methods. The CLI assertion checks target output and target state root, not an environment UID. This is a helper-path test wrapped around a real but unrelated CLI command, not a real CLI-entry regression for the UID feature. Blocking.
+
+5. The candidate does keep `EnvironmentRecord.Identity` distinct from deployment IDs. However, the owner rule forbids a second registry: the implementation creates a new authoritative per-name file at `targets/<target>/.baseharbor/environments/<env>/environment.json` (`internal/deployment/environment_identity.go:41-63`) and tests that it is outside the deployment registry (`internal/deployment/environment_identity_test.go:136-156`). This is a separate environment identity store, not a UID attribute on the existing canonical `(target, environment)` state. Also, `readEnvironmentRecord(path)` validates that stored target/name are non-empty and syntactically valid but does not compare them with the requested target/name (`environment_identity.go:66-98,161-168`). A valid record copied under a different target or environment path can therefore return an identity bound to another environment, contrary to the role-separation and no-cross-tenant-mixing requirement. The current corrupt-binding test covers only an empty target (`environment_identity_test.go:332-350`), not a valid mismatched binding. Finally, `RenameEnvironment` writes the new path with `os.Rename` without first rejecting an existing destination record (`:341-375`). On systems where rename replaces an existing file, renaming one environment over an already registered name overwrites that environment's UID. There is no regression test for a conflicting destination. Blocking.
+
+6. Hosted run `43647672376` is terminal `completed/success`, event `pull_request`, workflow `CI · Source & Quality`, exact head `7930095b04ae716fe2375ee8f6a578535990eec2`. Active jobs `PR · Draft source and routing`, `PR · Draft Go · cli-0/1/2/3`, and `PR · Draft Go · packages` passed; other jobs were skipped under draft selection. The run was created `2026-11-14T22:21:34Z`, before the retargeted PR update at `2026-11-14T23:08:58Z`; it proves the exact source SHA passed, not the combined app-base candidate. No rerun was requested or triggered.
+
+7. The combined change paths are limited to the app UID test in the app lane and the environment package/seam plus dedicated tests in this lane. No application or target implementation paths and no `.github/**` paths changed. Path ownership is respected, although the active candidate still lacks the designated base ancestry.
+
+### Required correction recipe
+
+Keep one PR/branch and rebase that same candidate onto the exact current designated app-lane head under the stack directive. Store the environment UID as an attribute of the canonical existing `(target, environment)` state; do not introduce a second authoritative registry. On read, validate that stored target and name exactly match the requested binding/path and reject mismatches. Reject a rename when its destination already belongs to a different environment; never overwrite that record. Add a legacy-state migration/reuse fixture. Wire the identity operation into the relevant production CLI command and make the `runWithIO` regression assert UID creation, reopen and rename through that actual command path, without direct calls to the seam standing in for CLI behavior. Then obtain terminal CI for the exact candidate with the app base in place; the existing CI grouping is `PR · Draft Go · cli-0/1/2/3` and `PR · Draft Go · packages`, triggered by `pull_request`.
+
+### Verdict
+
+REJECT exact candidate `7930095b04ae716fe2375ee8f6a578535990eec2`. Blocking findings: separate identity store conflicts with the explicit no-second-registry design; target/name bindings are not checked against the requested path; rename can overwrite an existing destination UID; the alleged CLI regression never exercises the UID via the CLI; legacy-state migration/reuse is not demonstrated; and the candidate is not based on the current declared app-branch head. The exact-SHA hosted run passed, but it predates the retarget and does not cure these findings. PR #1578 remains DRAFT; no PR action was taken.
+
+## R2 repo-rule compliance
+
+Planning root verification before the R2 evidence commit:
+
+```text
+/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
+```
+
+The prior review worktree `/tmp/opencode/mission-rev1578-wt` already existed; it was not extended. This round used a fresh clone at `/tmp/opencode/mission-rev1578-r2-wt`. No product source was changed, no local tests or containers were run, and no workflow, rerun, dispatch, merge, or PR update was made. At initial inspection, `git status` showed `evidence/cli-redesign-20261114/cli2-uid-app/round-1.md` modified; it was never staged or edited by this review, and it was clean at final pre-publication status. Planning validation and the exact main witness are recorded below.
+
+Planning validation: `python3 scripts/plan.py render && python3 scripts/plan.py check` reported 531 tasks, 7 epics, 13 releases, 21 decisions; 0 errors and 12 warnings. The task-specific warnings are that this environment task is in review while its uid-app dependency is not accepted, and the dependent uid-target task is active although this task is not accepted. The mission-listed separate `cli2-uid-environment/round-2.md` file is absent on current planning main; the r2 correction report is embedded in the `Round-2 correction` section of `round-1.md`.
+
+Planning `origin/main` exact `git ls-remote` witness before the R2 evidence commit:
+
+```text
+ee055ada1b2a7b670d0f50964bdaa0c9fb8a956a	refs/heads/main
+```
+
+## END DONE (r2 review)
