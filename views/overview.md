@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 5 |
-| review | 1 |
+| active | 4 |
+| review | 2 |
 | wait | 1 |
 | blocked | 0 |
 | ready | 5 |
@@ -28,13 +28,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) | CLI redesign: Persist portable app identity | active | high | lane-0428-uid-app | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | — |
 | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | CLI redesign: Introduce logical environment identity | active | high | lane-0428-uid-environment | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | — |
 | [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | CLI redesign: Add stable target identity | active | high | lane-0428-uid-target | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | — |
-| [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | active | high | lane-0428-092-seam-r2 | — | [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577) |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | review | normal | lane-0428-075-r28 | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
+| [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | review | high | lane-0428-092-seam-r2 | — | [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577) |
 
 ## Waiting for resources
 
