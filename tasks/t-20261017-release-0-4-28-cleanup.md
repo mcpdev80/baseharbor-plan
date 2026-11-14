@@ -9,9 +9,9 @@ version: v0.4.28
 release_stage: cleanup
 parent: v0.4.28
 owner: lane-0428-002-r28
-kanban_lane: closed
+kanban_lane: wait
 kanban_summary: Reconcile previous-release leftovers before new development.
-kanban_status: closed
+kanban_status: wait
 kanban_title: "0428-002 · reconcile old PRs, tasks and"
 priority: high
 depends_on: [t-20261017-release-0-4-27-verify]
@@ -19,20 +19,22 @@ repos: [mcpdev80/baseharbor, mcpdev80/baseharbor-demo]
 prs: []
 sources: []
 blocker: ""
+wait_reason: "inventar geliefert + angenommen (2ab26e5f); release-stage-kette wartet auf 0-4-27-verify (planned) — stufe bleibt bis 27-veroeffentlichung offen"
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f"]
 early: true
 ---
 
-- [x] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-28-cleanup · v0.4.28 · Release start: reconcile old PRs, tasks and branches #task #release/v0-4-28 #status/wait #view/wait #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** lane-0428-002-r28 · **Priority:** high  
+    **Waiting:** inventar geliefert + angenommen (2ab26e5f); release-stage-kette wartet auf 0-4-27-verify (planned) — stufe bleibt bis 27-veroeffentlichung offen  
     **Needs:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/commit/2ab26e5f)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** accepted  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
 **Depends on:** [t-20261017-release-0-4-27-verify](t-20261017-release-0-4-27-verify.md)  
 **Required by:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  

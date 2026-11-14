@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 11/109 · **Blocked:** 0 · **Waiting:** 46  
+    **Accepted tasks:** 10/109 · **Blocked:** 0 · **Waiting:** 47  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

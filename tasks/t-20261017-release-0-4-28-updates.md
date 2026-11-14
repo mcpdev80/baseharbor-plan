@@ -9,7 +9,7 @@ version: v0.4.28
 release_stage: updates
 parent: v0.4.28
 owner: ""
-kanban_lane: ready
+kanban_lane: planned
 kanban_summary: Complete dependency intake before feature development.
 kanban_status: planned
 kanban_title: "0428-006 · integrate Renovate updates"
@@ -24,14 +24,15 @@ evidence: []
 early: true
 ---
 
-- [ ] t-20261017-release-0-4-28-updates · v0.4.28 · Release start: integrate Renovate updates before feature work #task #release/v0-4-28 #status/planned #view/ready #area/release #kind/maintenance
+- [ ] t-20261017-release-0-4-28-updates · v0.4.28 · Release start: integrate Renovate updates before feature work #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/release #kind/maintenance
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Waiting for prerequisites**  
+    **Needs:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
 **Depends on:** [t-20261017-release-0-4-28-cleanup](t-20261017-release-0-4-28-cleanup.md)  
 **Required by:** [console-2](console-2-live-core-adapter-workflow-proofs.md), [nc-3](nc-3-core-enrollment-remote-runtime-acceptance.md), [t-20261017-release-0-4-28-prepare](t-20261017-release-0-4-28-prepare.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-node-cli](t-20261018-r27-node-cli.md), [t-20261018-r27-node-service](t-20261018-r27-node-service.md), [t-20261018-r27-node-streams](t-20261018-r27-node-streams.md), [t-20261018-r27-node-trust](t-20261018-r27-node-trust.md), [t-20261018-r27-promote](t-20261018-r27-promote.md), [t-20261018-r27-remote-rollout](t-20261018-r27-remote-rollout.md), [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md), [t-20261104-r27-vm-smoke-docker-podman](t-20261104-r27-vm-smoke-docker-podman.md), [t-20261105-r27-test-wire-helper](t-20261105-r27-test-wire-helper.md), [t-20261106-r27-remote-up-cli-path](t-20261106-r27-remote-up-cli-path.md), [t-20261108-smoke-0427-serve-enrollment-authority](t-20261108-smoke-0427-serve-enrollment-authority.md), [t-20261109-r27-ci-go-shard-reuse](t-20261109-r27-ci-go-shard-reuse.md), [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md), [t-20261113-r28-console-api-contracts](t-20261113-r28-console-api-contracts.md), [t-20261113-r28-console-docs-closeout](t-20261113-r28-console-docs-closeout.md), [t-20261113-r28-console-live-evidence](t-20261113-r28-console-live-evidence.md), [t-20261113-r28-console-live-inventory](t-20261113-r28-console-live-inventory.md), [t-20261113-r28-console-live-observability](t-20261113-r28-console-live-observability.md), [t-20261113-r28-console-live-recovery](t-20261113-r28-console-live-recovery.md), [t-20261113-r28-console-live-security](t-20261113-r28-console-live-security.md), [t-20261113-r28-console-live-target-wizard](t-20261113-r28-console-live-target-wizard.md), [t-20261113-r28-console-live-wizards](t-20261113-r28-console-live-wizards.md), [t-20261113-r28-console-live-workspace-wizard](t-20261113-r28-console-live-workspace-wizard.md), [t-20261113-r28-console-monitoring-entry](t-20261113-r28-console-monitoring-entry.md), [t-20261113-r28-console-native-journey](t-20261113-r28-console-native-journey.md), [t-20261113-r28-current-contract-inventory](t-20261113-r28-current-contract-inventory.md), [t-20261113-r28-grafana-alerts](t-20261113-r28-grafana-alerts.md), [t-20261113-r28-grafana-contact-routing](t-20261113-r28-grafana-contact-routing.md), [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md), [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md), [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashboard-hosts.md), [t-20261113-r28-grafana-dashboard-identity](t-20261113-r28-grafana-dashboard-identity.md), [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-dashboard-messaging.md), [t-20261113-r28-grafana-dashboard-selection](t-20261113-r28-grafana-dashboard-selection.md), [t-20261113-r28-grafana-dashboard-valkey](t-20261113-r28-grafana-dashboard-valkey.md), [t-20261113-r28-grafana-dashboards](t-20261113-r28-grafana-dashboards.md), [t-20261113-r28-grafana-datasources](t-20261113-r28-grafana-datasources.md), [t-20261113-r28-grafana-lifecycle](t-20261113-r28-grafana-lifecycle.md), [t-20261113-r28-grafana-log-trace-dash](t-20261113-r28-grafana-log-trace-dash.md), [t-20261113-r28-grafana-loki-source](t-20261113-r28-grafana-loki-source.md), [t-20261113-r28-grafana-native-proof](t-20261113-r28-grafana-native-proof.md), [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md), [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-access.md), [t-20261113-r28-grafana-signal-inventory](t-20261113-r28-grafana-signal-inventory.md), [t-20261113-r28-grafana-tempo-source](t-20261113-r28-grafana-tempo-source.md)  

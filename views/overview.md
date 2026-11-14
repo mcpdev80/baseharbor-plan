@@ -12,13 +12,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 4 |
 | review | 0 |
-| wait | 0 |
+| wait | 1 |
 | blocked | 0 |
-| ready | 11 |
+| ready | 10 |
 | queued | 25 |
-| waiting | 205 |
+| waiting | 206 |
 | backlog | 7 |
-| closed | 279 |
+| closed | 278 |
 
 ## Active
 
@@ -35,7 +35,9 @@ None.
 
 ## Waiting for resources
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
 
 ## Blocked
 
@@ -45,7 +47,6 @@ None.
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261017-release-0-4-28-updates](../tasks/t-20261017-release-0-4-28-updates.md) | v0.4.28 · Release start: integrate Renovate updates before feature work | ready | high | — | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | — |
 | [t-20261018-r27-ci-consumption](../tasks/t-20261018-r27-ci-consumption.md) | Deferred CI consumption examples for accepted product APIs | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-docs](../tasks/t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](../tasks/t-20261022-r27-ci-delivery.md) | — |
 | [t-20261018-r27-team-proof](../tasks/t-20261018-r27-team-proof.md) | Acceptance: prove two workstations share one authoritative deployment | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-maintenance-client](../tasks/t-20261018-r27-maintenance-client.md), [t-20261018-r27-public-surfaces](../tasks/t-20261018-r27-public-surfaces.md), [t-20261018-r27-stage-versions](../tasks/t-20261018-r27-stage-versions.md), [t-20261018-r27-state-recovery](../tasks/t-20261018-r27-state-recovery.md), [t-20261022-r27-ci-access](../tasks/t-20261022-r27-ci-access.md) | — |
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
@@ -61,7 +62,7 @@ None.
 
 - [v0.4.26](../releases/v0.4.26.md): App wizard, capability editing and development/CI V1 — 0 open, 46 closed ([view](releases/v0.4.26.md))
 - [v0.4.27](../releases/v0.4.27.md): Remote development and onboarding — 4 open, 162 closed ([view](releases/v0.4.27.md))
-- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 60 open, 49 closed ([view](releases/v0.4.28.md))
+- [v0.4.28](../releases/v0.4.28.md): CLI semantics and Perses — 61 open, 48 closed ([view](releases/v0.4.28.md))
 - [v0.4.29](../releases/v0.4.29.md): Linux, WSL2 and macOS — 15 open, 0 closed ([view](releases/v0.4.29.md))
 - [v0.4.30](../releases/v0.4.30.md): Simplify TLS and strengthen attack protection — 6 open, 0 closed ([view](releases/v0.4.30.md))
 - [v0.4.31](../releases/v0.4.31.md): Final semantic acceptance — 7 open, 0 closed ([view](releases/v0.4.31.md))
