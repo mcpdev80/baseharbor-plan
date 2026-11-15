@@ -97,8 +97,8 @@ Toolchain go1.26.8 linux/amd64, clean tmpfs GOCACHE/GOPATH/HOME to avoid host /t
 
 ## EVIDENCE PROVENANCE
 
-- Planning repo origin/main (to be confirmed before END):
-  - 06816348f260badb4de3e1bc3ccc41bb2b12ac6c
+- Planning repo origin/main confirmed before END:
+  - b58da568d56c1b46747581a0788f897c8873cbe7 (my evidence commit `evidence(r28): driftfix-r1 ...`), local = origin/main = b58da568
 
 ## repo-rule compliance
 
