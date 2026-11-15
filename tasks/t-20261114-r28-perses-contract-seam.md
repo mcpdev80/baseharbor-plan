@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06
 **State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
+**Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Owner:** lane-0428-075-seam-r4  
 **Priority:** normal  
 **PRs:** [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575)  

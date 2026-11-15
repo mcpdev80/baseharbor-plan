@@ -27,13 +27,13 @@ evidence: []
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
     **Waiting for prerequisites**  
-    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), t-20261114-r28-perses-runtime  
+    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
 **State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), t-20261114-r28-perses-runtime  
+**Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  
