@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: "ChatGPT"
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Batch Podman runtime ownership and Quadlet inspections; prevent repeated discovery; prove Docker/Podman parity and timings."
+kanban_summary: "Reduce rootless Podman lifecycle latency without weakening project ownership, Quadlet systemd controls, readiness or security;…"
 kanban_title: 0428-095 · Speed up Podman lifecycle
 priority: high
 depends_on: []
@@ -23,7 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261115-r28-podman-runtime-performance · Speed up Podman lifecycle #task #release/v0-4-28 #status/active #view/active #area/runtime #kind/task
+- [ ] t-20261115-r28-podman-runtime-performance · Speed up Podman lifecycle #task #release/v0-4-28 #status/active #view/active #area/ci #area/runtime #kind/task
+    <!-- generated:card -->
+    **Owner:** ChatGPT · **Priority:** high  
+    **PR:** [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** ChatGPT  
+**Priority:** high  
+**PRs:** [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Implementation PR
 

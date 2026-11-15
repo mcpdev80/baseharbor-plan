@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
+    **PR:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
     **Waiting:** candidate \#1602 head ca8181c0ecc delivered; review-block: prereq 080 not accepted (plan.py gate)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
@@ -37,7 +38,7 @@ evidence: []
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** unassigned  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
 **Source:** 
 <!-- /generated:links -->
 
