@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: m186-policy-presets (0427-186 lane)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: ""
 kanban_title: "0427-186 · Editable Target policy presets"
 priority: high
@@ -18,21 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1588]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "approved on 9534edd (act-1588-review-r1); operator-edit = future-scope per card; frost-bis"
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1514", "https://github.com/mcpdev80/baseharbor/actions/runs/42707150233"]
 early: true
 ---
 
-- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-28 #status/review #view/review #area/deployment #area/remote #kind/feature
+- [ ] t-20261109-r27-target-policy-presets · Target: editable best-practice deployment policy presets #task #release/v0-4-28 #status/wait #view/wait #area/deployment #area/remote #kind/feature
     <!-- generated:card -->
     **Owner:** m186-policy-presets (0427-186 lane) · **Priority:** high  
     **PR:** [baseharbor#1588](https://github.com/mcpdev80/baseharbor/pull/1588)  
+    **Waiting:** approved on 9534edd (act-1588-review-r1); operator-edit = future-scope per card; frost-bis  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1514), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/42707150233)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Required by:** [t-20261109-r27-local-delta-delivery](t-20261109-r27-local-delta-delivery.md)  
