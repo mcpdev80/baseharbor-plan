@@ -44,6 +44,10 @@ evidence: []
 
 Implement environment registry. Follow the [owner working brief](../evidence/cli-redesign-20261114/brief.md), [command mapping](../evidence/cli-redesign-20261114/command-map.md) and [code entry index](../evidence/cli-redesign-20261114/code-entry-index.md); revalidate current `develop` and the owner-approved contract. This task is a bounded slice of existing umbrella `t-20261114-r28-cli-command-semantics`, not a second independent product.
 
+## DESIGN-RULING (owner decision 2026-11-15)
+
+Option B: app/target/node association is stored inside the existing per-Target environment state record (`environment.json`, per owner uid-env decision). No new registry package (C rejected: second source of truth); config/definition-layer-only (A) not chosen. CLI wiring is NOT part of this card — it belongs to 0428-053 (cmd/baha/commands* write set). Migration idempotent, collision fail-closed.
+
 ## Scope
 
 Provide authoritative Core registry and app/target/node association for shared environments per accepted contract; do not infer matching from names; preserve organization source-vs-runtime authority.

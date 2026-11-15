@@ -9,7 +9,14 @@ Branch basis: lane-0428-075-perses-seam head af308e66d (PR base, retarget, no de
 
 - Step 1: Read contract via plan.py show + read the card; confirm scope/write-set/acceptance
 - Step 2: Reality check ls-remote of both repos (baseharbor + baseharbor-plan)
-- Step 3: Claim + push BEFORE any change (§4.3)
+- Step 3: Claim + push BEFORE any change (§4.3); kanban_status -> active
+- Step 4: Investigate seam + runtime seam (manifest services.perses, runtime compose render, management-ui projection, WorkloadPlan lifecycle, env/port/volume projection)
+- Step 5: Verify seam builds + tests green before touching code
+- Step 6: Implement Perses as managed compose UI service gated on services.perses (port, data volume, TLS), project provider files, wire EnsureApplicationManagementUIs + Verify + runtime env; fail-closed not_configured without selection
+- Step 7: Deterministic tests: not_configured w/o selection/pin (no container), configured_unverified when selected+pinned, removal/restart/foreign-owner
+- Step 8: Run focused Go tests locally (terminal observed, fail-closed)
+- Step 9: Write evidence (PLAN/result/repo-rule compliance/witnesses + cleanliness)
+- Step 10: Draft PR (base = perses-seam, retarget); compose down; END post
 - Step 4: Implement within strict write-set; environment.json/identity paths read-only only
 - Step 5: Own-run checks (terminal observed, terminal state)
 - Step 6: Write evidence (PLAN / result / repo-rule compliance / witnesses)
@@ -43,7 +50,31 @@ Read seam `af308e66` (branch worktree `/tmp/baseharbor-perses-wt`) and develop (
 
 ## BLOCKER (not an implementation stop)
 
-## Owner authorization (2026-11-15, 17:5xZ) — FULL RUNTIME SCOPE
+## Implementation plan (Owner-authorized full runtime scope)
+
+Wire Perses as an OPTIONAL, managed, single-instance compose service on the existing Docker/Podman lifecycle, mirroring `writePostgresUIComposeService` (Postgres UI). Fail-closed: no Perses container without `services.perses selected + release pinned`. Three states untouched: `verified` only via a real health path (none here); `configured_unverified` when selected+pinned; `not_configured` otherwise.
+
+Files to change (application layer, read-only seam/capability/metrics):
+1. `internal/application/runtime_postgres.go` `RuntimeComposeYAMLForProject`: add `if m.Services.Perses && observability-selected { writePersesUIComposeService(&b) }` + data volume + network alias.
+2. `internal/application/runtime_environment.go` `ensureDesiredRuntimeValues`: allocate `BASEHARBOR_PERSES_UI_HOST_PORT` loopback port when `m.Services.Perses`; `runtimeEnvContent`: project it.
+3. `internal/application/runtime_lifecycle.go` `ExpectedRuntimeResourcesForIdentity`: add Perses UI container + data volume (for inspect/destroy).
+4. `internal/application/management_ui.go` `EnsureApplicationManagementUIs`: when `m.Services.Perses`, project Perses provider files (TLS + config) under `providers/management-ui/perses/...`; `VerifyApplicationManagementUIChecks`: add a Perses check that does NOT assert verified (degraded/healthy path absent -> unverified, not failure).
+5. New file `internal/application/perses_runtime.go`: `PersesUIHostPortEnv`, `writePersesUIComposeService`, `PersesRuntimeVolumeName`, provider-file projection, health-path absent by design.
+
+Constraints: single-instance (no HA/gateway/credentials); no new application capability; secrets (if any) written owner-only and never logged; tests leave no containers/networks/volumes (cleanliness line in evidence.md). Do NOT edit seam files under capability/perses.go or metrics; do NOT touch .github/**.
+
+Observability reconciliation (`reconcileManagedRuntimeObservability`) is Prometheus data-source focused and OUT OF SCOPE for Perses (the visualization layer over existing Prometheus sources) — Perses does not add Prometheus targets.
+
+Wire Perses as an OPTIONAL, managed, single-instance compose service on the existing Docker/Podman lifecycle, mirroring `writePostgresUIComposeService` (Postgres UI). Fail-closed: no Perses container without `services.perses selected + release pinned`. Three states untouched: `verified` only via a real health path (none here); `configured_unverified` when selected+pinned; `not_configured` otherwise.
+
+Files to change (application layer, read-only seam/capability/metrics):
+1. `internal/application/runtime_postgres.go` `RuntimeComposeYAMLForProject`: add `if m.Services.Perses && observability-selected { writePersesUIComposeService(&b) }` + data volume + network alias.
+2. `internal/application/runtime_environment.go` `ensureDesiredRuntimeValues`: allocate `BASEHARBOR_PERSES_UI_HOST_PORT` loopback port when `m.Services.Perses`; `runtimeEnvContent`: project it.
+3. `internal/application/runtime_lifecycle.go` `ExpectedRuntimeResourcesForIdentity`: add Perses UI container + data volume (for inspect/destroy).
+4. `internal/application/management_ui.go` `EnsureApplicationManagementUIs`: when `m.Services.Perses`, project Perses provider files (TLS + config) under `providers/management-ui/perses/...`; `VerifyApplicationManagementUIChecks`: add a Perses check that does NOT assert verified (degraded/healthy path absent -> unverified, not failure).
+5. New file `internal/application/perses_runtime.go`: `PersesUIHostPortEnv`, `writePersesUIComposeService`, `PersesRuntimeVolumeName`, provider-file projection, health-path absent by design.
+
+Constraints: single-instance (no HA/gateway/credentials); no new application capability; secrets (if any) written owner-only and never logged; tests leave no containers/networks/volumes (cleanliness line in evidence.md). Do NOT edit seam files under capability/perses.go or metrics; do NOT touch .github/**.
 
 Owner answered the QUESTION: my card t-20261114-r28-perses-runtime IS the "reviewed contract" the seam comment refers to. The seam declares only selection + fail-closed states; container lifecycle (launch, pin v0.55.1, optional, degraded-not-blocked) is implemented in the runtime slice here, hereby authorized. NO extra spec/contract task needed — card + seam suffice.
 

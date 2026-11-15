@@ -71,3 +71,7 @@ Two arbitrary names with identical settings behave equally; varied policy differ
 ## Handoff
 
 Planned and unassigned. No product implementation or acceptance yet.
+
+## Note (owner 2026-11-15)
+
+CLI wiring owner-fest: the `baha env ...` surface (and registry-related command wiring) belongs to this card (0428-053), NOT to 0428-054. Stack basis: lane-0428-env-registry branch once delivered.
