@@ -1,6 +1,6 @@
 ---
 id: t-20261115-bughunt-d28-bad-config-quiet
-card_number: ""
+card_number: "0428-094"
 card_short_title: ""
 type: task
 areas: []
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: queued
 kanban_summary: "H-D28 finding BF-05; owner terminiert v0.4.28 (15.11) — dossier h-d28.md"
-kanban_title: "BF-05 corrupted config file silently ignored"
+kanban_title: "0428-094 · BF-05: corrupted config silently ignored"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

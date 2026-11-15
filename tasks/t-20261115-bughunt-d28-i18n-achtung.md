@@ -1,6 +1,6 @@
 ---
 id: t-20261115-bughunt-d28-i18n-achtung
-card_number: ""
+card_number: "0428-093"
 card_short_title: ""
 type: task
 areas: []
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: queued
 kanban_summary: "H-D28 finding BF-04; owner terminiert v0.4.28 (15.11) — dossier h-d28.md"
-kanban_title: "BF-04 German 'Achtung' hint in English output and JSON contract (15 sites)"
+kanban_title: "0428-093 · BF-04: German Achtung in English output and JSON contract"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]

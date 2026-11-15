@@ -1,6 +1,6 @@
 ---
 id: t-20261115-bughunt-d28-app-new-reg
-card_number: ""
+card_number: "0427-188"
 card_short_title: ""
 type: task
 areas: []
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: queued
 kanban_summary: "One or two sentences: the observable outcome."
-kanban_title: "BF-02 baha app new writes no registration (only up/apply create state)"
+kanban_title: "0427-188 · BF-02: baha app new writes no registration (doc cross-check)"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
