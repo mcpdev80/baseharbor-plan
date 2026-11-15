@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: seam-r3
-kanban_status: active
-kanban_lane: active
+owner: 7f91bcd5
+kanban_status: review
+kanban_lane: review
 kanban_summary: Specify optional Perses management/visualization through the existing provider and authorization boundaries; never falsely…
 kanban_title: 0428-075 · Define Perses Prov seam
 priority: normal
@@ -23,19 +23,19 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** seam-r3 · **Priority:** normal  
+    **Owner:** 7f91bcd5 · **Priority:** normal  
     **PR:** [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** seam-r3  
+**Owner:** 7f91bcd5  
 **Priority:** normal  
 **PRs:** [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575)  
 **Source:** 
@@ -96,3 +96,5 @@ test
 r2 head cb4367f347; exact-head ci = nach rate-reset (owner-/coord-dispatch)
 
 exact-head rot: manifest_parse 821>800 zeilen + stale contract test — r3 laeuft
+
+r3 head 293e0e05ac0, exact-head CI SUCCESS (43768376429) — luna r3 laeuft
