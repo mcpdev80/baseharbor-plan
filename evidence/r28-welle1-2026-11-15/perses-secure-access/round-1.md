@@ -547,6 +547,42 @@ changed paths committed on one branch).
 No scratch, cache or stray file was created under
 `/home/marcel/dev/baseharbor-ecosystem/` itself.
 
+## Evidence-on-origin verification (mandatory, second-to-last action)
+
+Exact command and output:
+
+`cd /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan && git branch -a --contains 7230e623033812ce2f5027ca029761ebf485b06a`
+
+```
+* main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+```
+
+`git ls-remote origin main`
+
+```
+5d91ade2962f8aead1c7343a27109d9deb6d0d35	refs/heads/main
+```
+
+`git cat-file -e origin/main:evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md`
+exit 0, so the akte path is present on origin/main, not merely local. The akte
+blob commit is `7230e623`; the `review` transition commit that publishes the
+card fields advanced planning main to `5d91ade2`.
+
+## CardBoard transition
+
+`card-status.py t-20261114-r28-perses-secure-access review --owner welle2-089
+--pr mcpdev80/baseharbor#1599 --evidence <https blob link> --note <candidate>`
+
+```
+ok: t-20261114-r28-perses-secure-access -> review (render+check gruen, publiziert)
+```
+
+The card went `planned` -> `claimed` (`08ac9c64`) -> `review`. The check warning
+"review although dependencies are not accepted" is the expected consequence of
+the mission's stacking rule and is recorded in the akte above, not silenced.
+
 ## END lane-welle2-089 DONE
 
 Candidate: `872c6c701f00941521be153320ea1f6d122d3066` on
