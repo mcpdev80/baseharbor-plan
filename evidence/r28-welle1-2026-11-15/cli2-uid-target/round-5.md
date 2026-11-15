@@ -142,12 +142,28 @@ $ git push origin lane-0428-uid-target --force-with-lease
 PUSH_EXIT=0
 ```
 
-Remote head after push (ls-remote):
+Remote head after push (ls-remote, x3 sequential, authoritative):
 
 ```
-756d21b7839a05c83435e6a39fc0daeb8b0580be	refs/heads/lane-0428-uid-target
+3a91e2a8362bc8028c8f4a7ef278f8c9d96df823	refs/heads/lane-0428-uid-target
+3a91e2a8362bc8028c8f4a7ef278f8c9d96df823	refs/heads/lane-0428-uid-target
+3a91e2a8362bc8028c8f4a7ef278f8c9d96df823	refs/heads/lane-0428-uid-target
 756d21b7839a05c83435e6a39fc0daeb8b0580be	refs/pull/1580/head
 ```
+Commits on remote head not on 756d21b7 (my 3 ONLY, no foreign):
+```
+3a91e2a8 target: fix CLI cmd/baha unit tests for read-triggered UID migration
+2247832b target: idempotent legacy-target UID migration + real-CLI tests
+b60411bd feat(r28): stable target UID without runtime-ownership change (0428-052)
+```
+
+INTEGRITY NOTE (Owner-scope, document only): The transient base-refresh rebased the uid-target chain, so the remote lane head briefly returned to bare `756d21b7` (my commits unreachable) after my first force-push. Verified by re-pushing with an explicit refspec:
+```
+$ git push --force https://github.com/mcpdev80/baseharbor.git HEAD:refs/heads/lane-0428-uid-target
+   756d21b7..3a91e2a8  HEAD -> lane-0428-uid-target
+PUSH_EXIT=0
+```
+Re-verified remote head = `3a91e2a8` (x3), ancestry witness exit 0, only my 3 commits above `756d21b7`. The earlier `0770fbdb...756d21b7` push-display and `--force-with-lease` "up-to-date" were a race with the base-refresh reset; the explicit-refspec force-push landed cleanly.
 
 PR #1580 state via `gh pr view 1580 --repo mcpdev80/baseharbor`:
 
