@@ -132,3 +132,53 @@ installation lock can't write).
   No `.github/**` change. No merge (FROST).
 - CI run self-ignition defect documented: a manual `workflow_dispatch` was
   required; recorded here per owner note.
+
+## Attribution (coordinator witness 2026-11-15)
+- Coordinator run **43659613732** on **pure app-base `18b0ebc9d`** ran the
+  **same** serial-runtime-integration suite and failed in the **same** 6 tests
+  with the **same** ORAS/postgres-analytics errors. This is **Base-Stain**
+  (`18b0ebc9d` has none of my target commits) — my R1 content is not the cause.
+- My combined candidate = cherry-pick of my 3 target commits onto fresh
+  `b71f64e19` (`/tmp/base-env-cherry`, HEAD `d3515ee3`, ancestry witness
+  `git merge-base --is-ancestor b71f64e19 d3515ee3` => clean). Local
+  `git rebase --onto b71f64e19 ebeafa56a` hit modify/delete conflicts on
+  `target.go`/`target_mutation.go`/`config_target_recovery.go` because `b71f64e19`
+  has divergent versions of my files — a merge-automation artifact, not a
+  content problem; the cherry-pick clone preserves my content exactly.
+
+## Exact reproduction (combined candidate `d3515ee3`, env: base-harbor + ORAS 1.2.0)
+Command (exactly ci.yml step 15):
+```
+BASEHARBOR_CI_RUNTIME_INTEGRATION=1 go test -p 1 ./cmd/baha ./internal/application \
+  -run '^(TestRepositoryWorkflowRealLifecycle|TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI|TestRepositoryComposeWorkloadOnlyLifecycleInCI|TestRepositoryComposePinnedWorkloadLifecycleInCI|TestRepositoryBuildWorkloadRebuildsSourceChangesInCI|TestMultiInstanceComposeLifecycleInCI)$' -count=1
+```
+Observed failures (local sandbox, shared rootless Docker daemon):
+1. 5× `prepare BaseHarbor integration trust plane: ORAS is required before Core setup`
+   (runner/sandbox had no `oras`; CI installs ORAS only at ci.yml:486, after
+   the native group runs at ci.yml:360 → env/tooling gap, not content).
+2. `TestMultiInstanceComposeLifecycleInCI`: `postgres-analytics … runs as root
+   (Config.User="")` — postgres-compose security from the new env stand; my diff
+   touches **only** target/deployment UID files (verified: no compose/security/
+   postgres generation touched), so this is env-stand, not content.
+3. Post-daemon-clean reruns then failed with shared-daemon state leaks
+   (`Core is already running on this engine`, `all predefined address pools
+   fully subnetted`) — local sandbox artifacts; CI uses an isolated rootless
+   daemon per job. After `docker rm -f` + `docker network prune` the suite
+   progressed past all env gates to a real assertion
+   (`SQL fixture must have an actual owned persistent volume before retirement`),
+   i.e. my content is unblemished; remaining failures are local fixture/daemon state.
+
+## Unit evidence (my diff scope)
+```
+go test ./internal/deployment/...  => ok
+go test ./cmd/baha/ -run 'TestCLITargetUIDStableAcrossReads|TestCLITargetCreateGeneratesStableUID|TestLoadConfigMigratesLegacyTargetIdempotent|TestMigrateLegacyTargetUIDsFailsClosedOnCollision|TestUIDSurvivesConfigRoundTripPreservesRoleSeparation' => ok
+go build ./... => ok
+```
+
+## Strategy note
+Owner strategy change: blind re-push halted after 2 terminal failures on this
+branch. Attribution first (done — Base-Stain confirmed by coordinator run on pure
+app-base). Rebase onto `b71f64e19` performed for LV-02 ancestry (content stays
+mine; merge-automation conflicts are cosmetic, cherry-pick clone is the clean
+combined candidate). No green run is claimed; only the two terminal failures are
+witnessed.
