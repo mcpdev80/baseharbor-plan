@@ -4,7 +4,7 @@ card_number: ""
 card_short_title: ""
 type: task
 areas: []
-release: 0.4.27
+release: v0.4.27
 version: ""
 parent: ""
 owner: ""
@@ -16,11 +16,11 @@ priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: []
+sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
 - [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/0-4-27 #status/planned #view/queued #kind/task
@@ -41,7 +41,7 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+BF-01 (blocker): BASEHARBOR_STATE_DIR does not isolate target selection; target switch reads foreign registrations. Found on develop 0e9ccb582 during H-D28.
 
 ## Scope
 
