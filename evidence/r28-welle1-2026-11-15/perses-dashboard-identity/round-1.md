@@ -44,8 +44,14 @@ FAÄCHERREGEL forbids edits to `perses_selection.go` (owned by the unaccepted 08
 ## END
 
 - lane: w078
-- status: DONE | BLOCKED
-- head SHA: (pushed)
+- status: DONE
+- base head (ls-remote origin, this session): `lane-0428-080-r28-perses-selection` = `a270725bdd795a5c944caf96fd1161ec44688a55`
+- candidate head (local commit): `1c124c47dc06073f1cee38944a697829caee4369`
+- candidate head (ls-remote origin, this session): `lane-0428-078-perses-identity` = `1c124c47dc06073f1cee38944a697829caee4369`
+- PR: #1606 (draft, open), base `lane-0428-080-r28-perses-selection`
+- Ancestry: `git merge-base --is-ancestor a270725bd HEAD` → true; `git log a270725bd..HEAD` lists only my own commit.
+- CI: dispatched to coordinator for the 0428-078 gate (Owner scope; no workflow_dispatch / rerun by this lane).
+- Cleanliness: only /tmp/opencode/w078/ touched; no docker/podman compose started this shift. No foreign state.
 
 ## Fan-in BEFUND 1: selection catalog identity backend (perses_selection.go — 080 lane)
 
