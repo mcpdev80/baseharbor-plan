@@ -48,10 +48,9 @@ STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->
 
 Introduce logical environment identity. Follow the [owner working brief](../evidence/cli-redesign-20261114/brief.md), [command mapping](../evidence/cli-redesign-20261114/command-map.md) and [code entry index](../evidence/cli-redesign-20261114/code-entry-index.md); revalidate current `develop` and the owner-approved contract. This task is a bounded slice of existing umbrella `t-20261114-r28-cli-command-semantics`, not a second independent product.
 
-## DESIGN-RULING (coordinator 2026-11-15, fund-1 klaerung)
+## DESIGN-RULING (coordinator 2026-11-15, owner decision B)
 
-envUid ist ein FELD im bestehenden deployment-state-datensatz (keyed target,app,env,deployment_id); uid(target,env) konsistent ueber alle records selben tuples: existierende uid uebernehmen (fail-closed bei konflikt), sonst generieren (idempotent unter lock). Kein environment.json-katalog, keine neue datei.
-
+OWNER DECISION 2026-11-15: Option B. Environment identity is a dedicated per-target identity record (`environment.json`), NOT a field inside existing deployment-state records. Storage: under the target's state root, one lean versioned record carrying the environment UID plus renameable metadata (name), generated idempotent under lock, reused on checkout, fail-closed on conflict. Deployment-state records stay unchanged. uid-target (#1580) is confirmed built correctly on this basis.
 ## Scope
 
 Implement shared environment UID and stable renameable metadata independently of app, node, target and deployment; support multiple apps and multiple execution nodes. Define ownership/locking and versioned storage from accepted contract.
