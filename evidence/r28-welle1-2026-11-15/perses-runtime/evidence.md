@@ -40,3 +40,4 @@ Per mission (冲突/unklarheit -> QUESTION, kein subagent) I report this as a QU
 ## Status
 
 - END lane: BLOCKED (awaiting seam acceptance / Owner decision on the merge-frost window)
+- QUESTION posted 2026-11-15: seam is state `wait` (not accepted), PR #1575 open, merge forbidden under frost; evidence on origin/main (d27cb729); no branch cut, no merge attempted.
