@@ -74,15 +74,61 @@ installation lock can't write).
 ## Pushed
 `c769cd107..4e02383ef` to GitHub `origin` (remote `github`).
 
-## CI observation
-- Round-2 run `43650256316` (head `c769cd107`) FAILED — 11 `cmd/baha` unit failures
-  (the root cause above).
-- Round-3 run for head `4e02383ef` triggered but was still in the GitHub Actions
-  queue when the core API rate limit (0/60) was hit; observation pending
-  completion. Awaiting core-API reset to record the run result + pass/fail of
-  affected cells before END.
+## CI observation (terminal — watched to completion, owner 4.6)
+- Round-2 run `43650256316` (head `c769cd107`) FAILED — 11 `cmd/baha` unit
+  failures (the root cause above).
+- The `4e02383ef` push did **not** self-ignite a run (sync-ignition defect):
+  ~5 min of polling showed zero runs and the PR's last activity was my push at
+  00:08. No `.github/**` change exists; CI routes through the existing
+  `ci.yml` release-source group, so the trigger was a workflow defect, not a
+  selection result.
+- Manual fallback (owner note authorized): `gh api -X POST
+  .../actions/workflows/352609139/dispatches -f ref=lane-0428-uid-target` →
+  run **`43657589559`** started at `2026-11-15T00:19:20Z`.
+- **Terminal: run `43657589559` status=completed, conclusion=FAIL.**
+  - `Workflow policy` → success. `validate` → failure. All other jobs skipped
+    (release-source selection: `Native impact selection` → skipped; Go/CLI,
+    validation, contracts, runtime, HA gates skipped).
+  - `validate` step 15, "Run runtime integration tests serially" → failure.
+  - `Run unit and package tests` → **success** (the `cmd/baha` unit failures
+    from round-2 are fixed by this change).
+  - 6 failing tests, all in `cmd/baha`, all `*InCI` / `RealLifecycle` native
+    integration tests:
+    `TestRepositoryWorkflowRealLifecycle`,
+    `TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI`,
+    `TestRepositoryComposeWorkloadOnlyLifecycleInCI`,
+    `TestRepositoryComposePinnedWorkloadLifecycleInCI`,
+    `TestRepositoryBuildWorkloadRebuildsSourceChangesInCI`,
+    `TestMultiInstanceComposeLifecycleInCI`.
+  - Root cause: each failed with
+    `… app_*_integration_test.go:NN: prepare BaseHarbor integration trust plane:
+    ORAS is required before Core setup; install it manually …` — a **missing
+    `oras` binary in the CI runner**, an environment/tooling gap.
+  - Not a unit regression: the failing group is native daemon + ORAS Core
+    bootstrap. The migration (`internal/deployment/target.go`) makes **no
+    external-process calls** (verified: zero exec/oras/docker/system matches in
+    the diff) — it is pure YAML decode → `TargetUID` fill → atomic CAS write.
+    It cannot produce "ORAS is required".
+  - Runner/tooling gap, confirmed against current `ci.yml`: the native group
+    runs at `ci.yml:360` (step 15 of `validate`), but the ORAS install lives at
+    `ci.yml:486` in a **different** job. The `validate` job has no ORAS install
+    (grep for `oras|ORAS` in `validate` job scope → none; only "Run runtime
+    integration tests serially"). The runner simply lacked `oras` when this step
+    executed. This is a workflow ordering/tooling defect, not reachable from this
+    lane's change set.
 
-## Watched-run discipline (owner 4.6)
-Will continue polling via the Actions web UI (auto-refresh) and search API while
-the core limit is exhausted; record SHA, run_id, per-cell pass/fail and END when
-terminal.
+## END (terminal reached, owner 4.6 satisfied)
+- Exact head via `git ls-remote https://github.com/mcpdev80/baseharbor.git
+  refs/pull/1580/head`:
+  ```
+  4e02383efefeab7637bd51aabbcfdc1788bc4d3b	refs/pull/1580/head
+  ```
+- Run `43657589559` (manually triggered `workflow_dispatch`, `--ref
+  lane-0428-uid-target`) → terminal **FAIL** at `validate` step 15 due to a
+  missing `oras` in the runner — environment/tooling, **not** the R1 migration.
+  Unit/package tests (`Run unit and package tests` → success) pass; the round-2
+  `cmd/baha` unit failures are fixed.
+- Same branch/PR #1580, head `4e02383ef`, base `lane-0428-uid-environment`.
+  No `.github/**` change. No merge (FROST).
+- CI run self-ignition defect documented: a manual `workflow_dispatch` was
+  required; recorded here per owner note.

@@ -17,6 +17,8 @@ Zweifelhafte Faelle: mit `ZWEIFEL` markieren und auf Owner-Entscheidung warten.
 
 Belegakte aller Funde: evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md (H-D28, Owner-stop-Harvest).
 
+| LV-02 stack-pruefung: PR#1578 kopf war nicht ahne von PR#1580 kopf (stapel-bruch, env-zelle auf stack nicht testbar) | (keine — vorgang in 0428-052 karte) | kette/prozess | NIEDRIG — 0.4.28-intern, kein develop-defect | CODEMAN-BEHOBEN: rebase-auftrag an lane (ancestry-zeugnis in round-3); querverweis live-verify/round-1.md |
+
 ## Abarbeitet / abgegeben
 
 (noch keine)
