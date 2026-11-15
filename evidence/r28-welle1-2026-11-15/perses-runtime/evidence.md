@@ -94,7 +94,7 @@ Per mission (冲突/unklarheit -> QUESTION, kein subagent) I report this as a QU
 
 ## Status
 
-- END lane: BLOCKED (awaiting seam acceptance / Owner decision on the merge-frost window)
+- END lane: END_DONE (implementation delivered, draft PR #1592, evidence on origin/main). Awaiting CODEX-REVIEW/Owner integration onto develop for the CI-gated run.
 - 2026-11-15 17:5xZ: OWNER AUTHORIZED full runtime scope. Cut candidate from af308e66d. Implementing Perses runtime/lifecycle in internal/runtime, tests leave no containers/networks/volumes. Draft PR base = lane-0428-075-perses-seam (retarget, no develop PR, no merge).
 - QUESTION posted 2026-11-15: seam is state `wait` (not accepted), PR #1575 open, merge forbidden under frost; evidence on origin/main (d27cb729); no branch cut, no merge attempted.
 
