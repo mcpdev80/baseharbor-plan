@@ -4,12 +4,21 @@ Karte: t-20261108-smoke-0427-operator-api-undocumented · Release v0.4.28 · Lan
 
 ## PLAN
 
-1. Pull baseharbor-plan, karte lesen, Claim via plan.py claim + Push VOR Aenderung.
-2. Realitaetsabgleich: API-Routen und Env-Contract aus dem Code auf develop ableiten (ls-remote + frischer Klon, kein Gedaechtnis).
-3. Runbook docs/how-to/operator-api.md (EN) + DE-Version nach docs-Muster, aus mkdocs-Navigation referenziert; `baha serve --help` verlinkt die Seite.
-4. Doku-Checks wie im Repo ueblich (documentation-audit, locale parity, translation integrity, mkdocs --strict); keine Produkt-Aenderungen am Verhalten.
-5. Branch vom attestierten develop-SHA, Draft-PR base develop.
-6. CI-Lauf terminal beobachten, Ergebnis hier ergaenzen; Akte publizieren; END.
+1. Pull baseharbor-plan, karte lesen, Claim via plan.py claim + Push VOR Aenderung. DONE (claim-commit edb6bdd7, remote main witness).
+2. Realitaetsabgleich: API-Routen und Env-Contract aus dem Code auf develop ableiten (ls-remote + frischer Klon, kein Gedaechtnis). DONE.
+3. Runbook docs/how-to/operator-api.md (EN) + DE-Version nach docs-Muster, aus mkdocs-Navigation referenziert; `baha serve --help` verlinkt die Seite. DONE.
+4. Doku-Checks wie im Repo ueblich (documentation-audit, locale parity, translation integrity, mkdocs --strict); keine Produkt-Aenderungen am Verhalten. DONE.
+5. Branch vom attestierten develop-SHA, Draft-PR base develop. DONE (PR #1587).
+6. CI-Lauf terminal beobachten, Ergebnis hier ergaenzen; Akte publizieren; END. DONE (Run 43709246427 completed/success beobachtet).
+
+## Planning repository identity witness (wrong-zone check)
+
+```
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel
+/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
+```
+
+Remote-Truth: die Akte liegt nur im echten Planning-Repo (Org github.com/mcpdev80/baseharbor-plan). Das Verzeichnis `workers/baseharbor-plan` ist ein Buchfuehrungs-Ordner im workers-Repo und wurde nicht benutzt; dieser Klon unter /tmp/opencode/0427-169-wt/baseharbor-plan hat `origin = https://github.com/mcpdev80/baseharbor-plan.git` (ls-remote-Zeuge unten) und wird per Push auf origin/main veraeffentlicht.
 
 ## Base attestation and provenance
 
