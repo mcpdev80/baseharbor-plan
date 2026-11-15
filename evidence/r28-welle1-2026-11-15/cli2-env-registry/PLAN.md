@@ -40,6 +40,20 @@
 - Reserved to others: cmd/baha/commands.go, shared parser/machine registry, .github/**, release notes, generated indexes.
 - Frost: NO merge.
 
+## OWNER QUESTION (open 2026-11-15) — STILL AWAITING RULING
+
+**Status: HOLD on the storage side of app/target/node association.** Owner pulled my Option-B pre-decision back as a genuine open question 2026-11-15. Do NOT implement the storage side of the environment<->apps/nodes association until the owner ruling is in.
+
+- Options-neutral prep (domain API form, tests, migration idiom) is permitted.
+- No stiller further build on B-basis. Report finished prep briefly when the owner ruling arrives.
+
+## FINDINGS (options-neutral, done)
+
+- Base HEAD `3a91e2a8` (lane-0428-uid-target) already carries: (a) env-identity seam `internal/deployment/environment_identity.go` + `internal/environment/environment.go` (per-Target `environment.json` OUTSIDE the deployments namespace, atomic under shared registry write lock, fail-closed bind-check), and (b) target-UID seam `internal/deployment/target_id.go` (`TargetDefinition.TargetUID`, idempotent migration, `ResolveTargetUIDs`/`CheckTargetUIDCollision` fail-closed).
+- App identity: `(ApplicationID, Environment)` is the system identity (ADR 0017); `FindDeployment(target, applicationID, environment)` enforces exactly-one-deployment-per-pair. Association currently lives at the deployment-record level.
+- CLI wiring (`cmd/baha/commands*`) is reserved to card 053 (env-policy) — NOT in scope for this task.
+
 ## STOP CRITERIA
 
 - If app/target/node association semantics are undecided or would require editing reserved files (commands.go, .github/**), STOP and post QUESTION with findings + exact needed change (file:line).
+- While the storage question is open, STOP implementation and await the owner ruling; no storage-side write.
