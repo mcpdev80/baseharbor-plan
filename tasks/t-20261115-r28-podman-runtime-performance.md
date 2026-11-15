@@ -16,7 +16,7 @@ priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1600]
-sources: ["https://github.com/mcpdev80/baseharbor/issues/376"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
