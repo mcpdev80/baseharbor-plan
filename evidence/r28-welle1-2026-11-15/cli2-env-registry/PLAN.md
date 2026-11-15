@@ -40,20 +40,28 @@
 - Reserved to others: cmd/baha/commands.go, shared parser/machine registry, .github/**, release notes, generated indexes.
 - Frost: NO merge.
 
-## OWNER QUESTION (open 2026-11-15) — STILL AWAITING RULING
+## OWNER RULING (2026-11-15, wortlich): "B — Fuer 054 die App-/Target-/Node-Zuordnung im bestehenden per-Target-Environment-Zustand (environment.json) ablegen. CLI-Wiring bleibt bei 053."
 
-**Status: HOLD on the storage side of app/target/node association.** Owner pulled my Option-B pre-decision back as a genuine open question 2026-11-15. Do NOT implement the storage side of the environment<->apps/nodes association until the owner ruling is in.
+**HOLEB AUFGEHOBEN. Implementing Option B.** Association is a field/array on the existing per-Target `environment.json` record — NOT a second source of truth.
 
-- Options-neutral prep (domain API form, tests, migration idiom) is permitted.
-- No stiller further build on B-basis. Report finished prep briefly when the owner ruling arrives.
+## IMPLEMENTED DESIGN (Option B, locked)
 
-## FINDINGS (options-neutral, done)
-
-- Base HEAD `3a91e2a8` (lane-0428-uid-target) already carries: (a) env-identity seam `internal/deployment/environment_identity.go` + `internal/environment/environment.go` (per-Target `environment.json` OUTSIDE the deployments namespace, atomic under shared registry write lock, fail-closed bind-check), and (b) target-UID seam `internal/deployment/target_id.go` (`TargetDefinition.TargetUID`, idempotent migration, `ResolveTargetUIDs`/`CheckTargetUIDCollision` fail-closed).
-- App identity: `(ApplicationID, Environment)` is the system identity (ADR 0017); `FindDeployment(target, applicationID, environment)` enforces exactly-one-deployment-per-pair. Association currently lives at the deployment-record level.
-- CLI wiring (`cmd/baha/commands*`) is reserved to card 053 (env-policy) — NOT in scope for this task.
+- Extension of `internal/deployment/environment_identity.go` (NEUE date `environment_association.go`): keep `EnvironmentRecord{Target,Name,Identity}` (identity fields untouched, byte-compatible read); add `Associations []AssociationBinding` appended to the SAME `environment.json` record.
+  - `AssociationBinding{SubjectKind (app|node), SubjectID string}` — canonical Core record of who belongs to this (Target, environment).
+  - New seam: `RegisterEnvironmentAssociation(target, env, kind, id)`, `DeregistrationEnvironmentAssociation(target, env, kind, id)`, `ListEnvironmentAssociations(target, env)`.
+- Idempotent migration: registering an existing (kind,id) is a no-op that returns the existing binding; the field is additive so a record written before this seam stays readable.
+- Collision fail-closed: a duplicate (kind,id) on the same environment refuses `ErrAssociationAlreadyRegistered`; two concurrent first registrations converge under the shared registry write lock (mirroring `GetEnvironment`).
+- Core-authoritative, no name-matching: the association is the source of truth; name-based matching is never inferred.
+- No `cmd/baha` touch (`command_target_env.go` and `commands.go` untouched) — CLI wiring stays with 053.
+- Tests in `internal/deployment` (domain package, runs under CI `packages` shard via `go test ./...`): create/reuse (idempotent), per-(target,env) isolation, duplicate/conflict fail-closed, concurrent atomicity, Core-restart persistence (record survives a fresh state root read), no plaintext secret leak, additive field backward-compat with a pre-seam record.
 
 ## STOP CRITERIA
 
-- If app/target/node association semantics are undecided or would require editing reserved files (commands.go, .github/**), STOP and post QUESTION with findings + exact needed change (file:line).
-- While the storage question is open, STOP implementation and await the owner ruling; no storage-side write.
+- If association semantics are undecided or would require editing reserved files (commands.go, .github/**), STOP and post QUESTION with findings + exact needed change (file:line).
+- Frost (no merge).
+
+## WORKFLOW / SCOPE
+
+- Draft PR base = `lane-0428-uid-target` (3a91e2a8), retarget; show base head ancestor + log witness (own commits only).
+- Run `go build ./...`, `go vet ./internal/deployment/`, `go test ./internal/deployment/` at candidate SHA; watch terminal (terminal-run duty).
+- akte `round-1.md` (cite owner ruling verbatim), END post.
