@@ -3,8 +3,8 @@
 - Mission: `/tmp/opencode/mission-bf01-fix2.md` (card `t-20261115-bughunt-d28-state-dir-target` = 0427-189)
 - Rolle: FIX-LANE (rotation; predecessor left no remote state — see witnesses below)
 - Coordinator-Inbox: `594fd2f5-4e80-43b6-9841-92879146a85e`
-- Product repo: mcpdev80/baseharbor, branch `lane-0428-fix-bf01`, DRAFT PR https://github.com/mcpdev80/baseharbor/pull/1584 (base develop, merge-frost respected)
-- Candidate SHA: `f048627c14164cb4c0a147e997e80ac92d076668`
+- Product repo: mcpdev80/baseharbor, branch `lane-0428-fix-bf01`, DRAFT PR https://github.com/mcpdev80/baseharbor/pull/1586 (base develop, merge-frost respected; supersedes PR #1584, which was closed without merge)
+- Candidate SHA: `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0`
 - Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/.models/flash/bf01-base-wt`
 - Start: 2026-11-15 ~04:50 CET
 
@@ -24,11 +24,13 @@ https://github.com/mcpdev80/baseharbor-plan.git
 - Own commits above base (`git log --oneline 0e9ccb582..HEAD`):
 
 ```
+7bdeaa084 test(cli): mirror real organization-state placement in the BF-01 regression
+8041a9f01 fix(cli): keep foreign organization defaults out of isolated state roots
 f048627c1 fix(cli): state-root override owns target selection state
 18c922e37 test(cli): add BF-01 state-dir target-selection isolation regression
 ```
 
-Only these two commits (both authored by this lane) sit on top of base; no foreign candidate is carried.
+Only these four commits (all authored by this lane) sit on top of base; no foreign candidate is carried.
 
 ## Rotation: predecessor state
 
@@ -131,4 +133,4 @@ f048627c14164cb4c0a147e997e80ac92d076668	refs/heads/lane-0428-fix-bf01
 
 ## END
 
-END_KORRIGIERT: Der gehostete Lauf 43680573412 (CI PR #1584) endete failure (nur access_wizard-Zellen, siehe round-2); die Zeile 'red on the mechanism paths the fix touches' ist zurueckgenommen - der Test ist auf base 0e9ccb582 GRUEN (doppelte Worktree-Wiederholung). Konsolidierter Kandidat und terminal gruener Lauf: round-2.md (PR #1585, Run 43684179345, success).
+END_KORRIGIERT: Der gehostete Lauf 43680573412 (CI PR #1584) endete failure (nur access_wizard-Zellen, siehe round-2); die Zeile 'red on the mechanism paths the fix touches' ist zurueckgenommen - der Test ist auf base 0e9ccb582 GRUEN (doppelte Worktree-Wiederholung). Konsolidierter Kandidat und terminal gruener Lauf: round-3.md (PR #1585, Kopf 7bdeaa084, Run 43685670514, success); #1584/#1586 sind als Alt-Ketten geschlossen, develop unveraendert (Merge-frost).
