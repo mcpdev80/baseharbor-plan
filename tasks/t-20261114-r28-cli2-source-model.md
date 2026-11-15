@@ -15,18 +15,20 @@ kanban_title: 0428-059 · Extend app sources and
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-uid-app]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1595]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md"]
 ---
 
 - [ ] t-20261114-r28-cli2-source-model · CLI redesign: Extend app sources and components #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-059-cli2-source-model (flash) · **Priority:** high  
+    **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
     **Needs:** [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -36,7 +38,7 @@ evidence: []
 **Required by:** [t-20261114-r28-cli2-app-interact](t-20261114-r28-cli2-app-interact.md), [t-20261114-r28-cli2-app-status](t-20261114-r28-cli2-app-status.md), [t-20261114-r28-cli2-source-pull](t-20261114-r28-cli2-source-pull.md)  
 **Owner:** lane-0428-059-cli2-source-model (flash)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
 **Source:** 
 <!-- /generated:links -->
 
