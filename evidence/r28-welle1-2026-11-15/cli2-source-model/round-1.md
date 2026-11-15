@@ -119,11 +119,13 @@ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote get-url orig
 https://github.com/mcpdev80/baseharbor-plan.git
 ```
 
-## Second-to-last action witness (run at END, output pasted below before push)
+## Second-to-last action witness (mandated origin/main presence check)
 ```
 git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main -- evidence/r28-welle1-2026-11-15/cli2-source-model
+evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md
 ```
-(output appended immediately before this file's final push)
+Commit carrying this file on origin/main: 4393ff50.
+Wrong-zone check: /home/marcel/dev/baseharbor-ecosystem/workers/baseharbor-plan is bookkeeping-only (inside the workers repo); no commits were made there. All evidence lives in the real planning repo above.
 
 ## Cleanliness
 - No containers/compose/networks/volumes started by this lane (domain/CLI unit work only): `docker ps --format '{{.Names}}'` before first edit and at END show only pre-existing foreign stacks (witness appended at END). Scratch zones: /tmp/opencode/w059cli-wt (worktree), /tmp/opencode/w059-*.log + smoke dirs, /home/marcel/dev/baseharbor-ecosystem/workers/tmp-w059 (test TMPDIR to dodge the /tmp usrquota artifact); none are product repos.
