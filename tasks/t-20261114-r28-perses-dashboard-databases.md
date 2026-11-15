@@ -7,15 +7,15 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: 27319c95
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver PostgreSQL/MongoDB panels only when verified compatible metrics and permissions exist.
 kanban_title: 0428-076 · Perses database dashboards
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1597]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,21 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-databases · Perses database dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** 27319c95 · **Priority:** normal  
+    **PR:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** 27319c95  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,3 +75,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-dashboard-databases](t-20261113-r28-grafana-dashboard-databases.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+delivered: head 2e5f8703, ci dispatcht, base-parity-lauf laeuft

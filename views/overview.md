@@ -11,12 +11,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 5 |
-| review | 2 |
+| review | 3 |
 | wait | 17 |
 | blocked | 0 |
 | ready | 4 |
 | queued | 25 |
-| waiting | 191 |
+| waiting | 190 |
 | backlog | 7 |
 | closed | 285 |
 
@@ -36,6 +36,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | CLI redesign: Extend app sources and components | review | high | lane-0428-059-cli2-source-model (flash) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) (open) | [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595) |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | review | normal | 1db159d2 | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
+| [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | review | normal | 27319c95 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 
 ## Waiting for resources
 
