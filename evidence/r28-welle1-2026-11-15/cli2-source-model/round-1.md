@@ -35,6 +35,9 @@ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor ls-remote lane-origin re
 
 Base ref cut-from: `refs/heads/lane-0428-uid-target` = **3a91e2a8362bc8028c8f4a7ef278f8c9d96df823** (mission STAPELREGEL; NOT a PR head — it is the branch ref itself; PR #1580 with that head was CLOSED/merged, verified via gh). `develop` (0e9ccb582) is an ancestor of the base head (git merge-base --is-ancestor exit 0), so the stack sits on current develop. 3a91e2a8 is an ancestor of every commit I push (branch was created with `git worktree add -b lane-0428-059-cli2-source-model <wt> 3a91e2a8`).
 
+## TOPOLOGY NOTE (documented deviation, deliberate per mission)
+lane-0428-uid-target @3a91e2a8 carries ONLY the uid-target slice (#1580; state CLOSED at that head) on top of develop. The uid-environment Decision-B commits (756d21b78, head of open #1578) and the uid-app candidate (2b91371a, open #1579) are NOT ancestors of my base: merge-base(lane-0428-uid-target, #1578-head) = f353d1f73. The mission's STAPELREGEL pinned the branch basis explicitly to 3a91e2a8, so I cut there. Consequence: #1595 is not stacked on the full chain; at retarget time the integration owner resolves overlaps in the shared files (my touched files are disjoint from the env/target UID slices except none in common). If the coordinator's intent was the full chain (uid-app → uid-env → uid-target), the retarget/merge sequencing belongs to the integration candidate, not to this lane; flagging here as a checkpoint, action taken exactly as the mission text commands.
+
 ## REALITY WITNESSES (planning)
 origin/main at claim time: ca451492dcaa6f89572446435ff67dd292d233b4; after claim push: e00377d6.
 
@@ -47,7 +50,7 @@ Card `t-20261114-r28-cli2-uid-app` (PR #1579, base develop) is in `wait` state: 
 - internal/development/workspace_git.go: local sources participate in Git inspection only when the directory IS a Git worktree root (rev-parse --show-toplevel equality); plain directories are skipped like OCI sources and never enter the update loop.
 - cmd/baha/app_workspace.go: `init --local ID=PATH`; `--component` now required (acceptance: "no artificial components"); show/resolve print `local` rows; help text updated.
 - cmd/baha/app_workspace_source_model.go (new): `workspace source add|remove`, `workspace component list|add|remove`, `workspace path SOURCE [PATH] [--show-current]` (alias `paths` for map-era muscle memory); -o json results share machine.ContractVersion; authorization through the existing read operation + full model Validate on every persisted write; ownership-safe path conflicts (one path per source per app).
-- cmd/baha/workspace_mutation.go: `map` on a local source fails closed with a pointer to the portable path surface.
+- cmd/baha/workspace_mutation.go: `map` accepts repository sources and local directory sources alike (a mapping records the developer-local override; OCI still fails closed).
 - cmd/baha/app_workspace_wizard.go: guided "Local directory" source choice.
 - cmd/baha/machine_coverage.go + regenerated docs/reference/cli-machine-coverage.md, docs/cli/command-index.md, docs/de/cli/command-index.md (generator-owned; BASEHARBOR_UPDATE_MACHINE_DOCS=1, the mechanism the repo's own CI documentation prescribes).
 - cmd/baha/mcp_workspace_mutation.go: jsonschema descriptions updated for the extended model (same field shapes; no registry change).
@@ -55,14 +58,34 @@ Card `t-20261114-r28-cli2-uid-app` (PR #1579, base develop) is in `wait` state: 
 
 ## Test IDs (declared before implementation per contract)
 - Package internal/development: TestSourceModelAllowsOptionalUniqueComponents, TestSourceModelLocalDirectorySource, TestResolveWorkspaceLocalDirectoryWithSubPaths, TestRemoveSourceRejectsLastSourceAndReportsReferences, TestSourceAndComponentUpsertReplaceWithoutDuplicates, TestSaveRemovableSourceDetachesMappingOnly (source_model_test.go).
-- Package cmd/baha: TestWorkspaceInitAcceptsLocalDirectorySource, TestWorkspaceInitRejectsArtificialComponents, TestWorkspaceSourceAddAndRemoveDetachSafely, TestWorkspaceComponentAddListRemove, TestWorkspacePathSetsAndShowsSourcePaths, TestWorkspacePathRejectsForeignCheckoutOwnership, TestWorkspaceSourceModelMachineParity, TestWorkspaceGitStatusIncludesLocalGitSources (app_workspace_source_model_test.go).
+- Package cmd/baha: TestWorkspaceInitAcceptsLocalDirectorySource, TestWorkspaceInitRejectsArtificialComponents, TestWorkspaceSourceAddAndRemoveDetachSafely, TestWorkspaceComponentAddListRemove, TestWorkspacePathSetsAndShowsSourcePaths, TestWorkspacePathRejectsForeignCheckoutOwnership, TestWorkspaceLocalSourceMappingOverridesPortablePath, TestWorkspaceSourceModelMachineParity, TestWorkspaceSourceModelPreservesExistingMachineSemantics, TestWorkspaceRootNamespaceMirrorsSourceModelCommands, TestWorkspaceGitStatusIncludesLocalGitSources (app_workspace_source_model_test.go).
 - Fixtures: t.TempDir manifests + XDG_CONFIG_HOME isolation only; native Git where a checkout is required; no Docker/Podman/TLS/native runtime needed for this slice (domain metadata + CLI only), so unit coverage is the correct durable evidence.
+
+## TESTS → CI → TRIGGER
+- Every new test is an ordinary `go test` test in packages internal/development and cmd/baha; both packages are executed by the repository's existing Go test job on every pull_request (and on push). No `.github/**` change was made or is needed for the tests themselves.
+- FINDING (state report, no rerun/dispatch triggered by this lane): `.github/workflows/ci.yml:14-16` — the `pull_request` trigger filters `branches: [develop, main]`, so a PR whose base is `lane-0428-uid-target` (this stacked chain) receives NO hosted CI run. Observed state: `gh pr checks 1595` → "no checks reported on the 'lane-0428-059-cli2-source-model' branch"; `gh pr checks 1591` (same stack base) reports "no checks reported on the 'lane-0428-env-registry' branch" — the sibling stacked lane gets no CI either; the base branch's CI history contains only `workflow_dispatch` and older `pull_request` runs (e.g. run 43647367175 success, 43650256316 failure). Exact change needed (Owner scope): include the stacked-chain lane bases in the filter (e.g. `branches: [develop, main, 'lane-0428-*']`) or otherwise route PRs whose base is a lane branch. Until then the durable evidence for this candidate is the local package runs recorded below, executed on the exact candidate SHA.
+- The documentation/coverage audit gates (scripts/documentation-audit.sh, scripts/source-readability-audit.sh, TestMachineDocumentation*/TestHumanCommandIndex*) run inside the same CI job set when it is triggered, and pass locally on this SHA.
+- No VM smoke test is named in this mission; none required (no runtime/delivery behavior changed).
+
+## CANDIDATE
+- Branch: lane-0428-059-cli2-source-model @ **eda0cd61cc182d071657ac64848cf5cb306e30be** (pushed; ls-remote below)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1595 (draft, base lane-0428-uid-target)
+- `git log --oneline 3a91e2a8..HEAD` shows exactly ONE commit: `eda0cd61c feat(r28): extend app sources and unique components (0428-059)` — own commits only, no foreign candidate carried.
+- Ancestry: `git merge-base --is-ancestor 3a91e2a8 HEAD` → exit 0 (witnessed above).
+
+```
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor ls-remote lane-origin refs/heads/lane-0428-059-cli2-source-model refs/pull/1595/head
+eda0cd61cc182d071657ac64848cf5cb306e30be	refs/heads/lane-0428-059-cli2-source-model
+eda0cd61cc182d071657ac64848cf5cb306e30be	refs/pull/1595/head
+```
 
 ## RESULT
 - Focused local runs (TMPDIR off the quota-carrying /tmp):
-  - `go test ./internal/development/ ./cmd/baha/ -run 'TestWorkspace|TestSource|TestResolve|TestRemoveSource' -count=1` → both `ok`.
-  - `go build ./...`, `go vet ./cmd/baha ./internal/development`, `gofmt -l` clean; `scripts/source-readability-audit.sh` PASS; `scripts/documentation-audit.sh` result recorded below.
-- Exact candidate SHA + full-suite and CI results: appended in this file after push (Eigenes-Run-Pflicht, terminal observation).
+  - `go test ./internal/development/ ./cmd/baha/ -run 'TestWorkspace|TestSource|TestResolve|TestRemoveSource|TestMachine|TestCommandTree|TestHelp|TestHumanCommandIndex' -count=1` → both `ok` (incl. all new tests and regenerated-documentation gate tests).
+  - `go build ./...`, `go vet ./...` clean; `gofmt -l cmd internal` clean.
+  - `bash scripts/documentation-audit.sh` exit 0 (incl. DE technical integrity after the paired DE updates); `bash scripts/source-readability-audit.sh` exit 0.
+  - Real CLI smoke on the built binary: init --local / path set / path --show-current / missing-dir refusal / show — outputs recorded in this round (see smoke notes in PR).
+- Exact CI results on eda0cd61c: appended below after terminal observation (Eigenes-Run-Pflicht).
 
 ## Environment caveat (documented, not a candidate defect)
 - This host's /tmp is tmpfs with usrquota and ~2.6G free; the pre-existing heavy tests TestStagePinnedGitTreeExportsCommitNotDirtyWorktree / TestPrepareStagedCoreGitCandidatePinsCanonicalApplication (64 MiB writes + native `git archive`) fail here with "disk quota exceeded"/"signal: killed" both WITH and WITHOUT my changes (baseline stash-run reproduced identically). Full-package runs therefore used TMPDIR=/home/marcel/dev/baseharbor-ecosystem/workers/tmp-w059. GitHub CI (ubuntu runners, no such quota) executes the same tests.
@@ -83,7 +106,8 @@ git diff --name-only 3a91e2a8..HEAD | grep -E '^\.github/|^cmd/baha/commands\.go
 (result appended after commit)
 
 ## Cleanliness
-- No containers/compose/networks/volumes started by this lane (domain/CLI unit work only); `docker ps` untouched. Scratch: /tmp/opencode/w059cli-wt (worktree), /tmp/opencode/w059-*.log, /home/marcel/dev/baseharbor-ecosystem/workers/tmp-w059 (test TMPDIR).
+- No containers/compose/networks/volumes started by this lane (domain/CLI unit work only): `docker ps --format '{{.Names}}'` before first edit and at END show only pre-existing foreign stacks (witness appended at END). Scratch zones: /tmp/opencode/w059cli-wt (worktree), /tmp/opencode/w059-*.log + smoke dirs, /home/marcel/dev/baseharbor-ecosystem/workers/tmp-w059 (test TMPDIR to dodge the /tmp usrquota artifact); none are product repos.
+- Global git config touched: added `*` to `safe.directory` after worktree ownership diagnostics (host already had a growing per-path list; no product state). Documented for the coordinator.
 
 ## Handoff
 - Branch: lane-0428-059-cli2-source-model (from 3a91e2a8). PR: draft, base lane-0428-uid-target (retarget stack per mission; NOT a develop PR).
