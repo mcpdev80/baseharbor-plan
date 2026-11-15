@@ -107,6 +107,15 @@ Befund quer: 1577 titel ohne kartennummer (0428-092 nicht im titel) — niedrig-
   - Rezept (coord nach freigabe): gh pr edit 1577 --title "0428-092 docs(v0.4.28): set optional Perses release boundary (pin v0.55.1)".
 - Alle anderen 14 PRs: conform (base-ref = deklarierte basis-lane, draft, kein drift, katennummer im titel).
 
+## origin/main witness (second-to-last action)
+`git log origin/main --oneline -2`:
+06463168 evidence(stackaudit): round-1 stack inventory of 0.4.28 PRs vs PR-disziplin rule 8
+25dfb466 evidence(0428-089): round-1 — complete volume inventory and binary cleanup in the cleanliness witness
+`git merge-base --is-ancestor 06463168 origin/main` -> YES (06463168 is an ancestor of origin/main). Evidence path present on origin/main.
+
+## END
+DONE stackaudit: 0.4.28 stack inventory complete — 16/16 PRs conform (base-ref = declared basis-lane, all draft/frost, no head-drift); 2 findings: #1583 closed non-draft never-merged Perses three-state (rezept: close/delete after coord release); #1577 title missing card number (rezept: gh pr edit title). Read-only, no subagent, no .github/**, no writes to product.
+
 ## Cleanliness (read-only)
 - Kein Produkt-Write. Kein gh pr edit/retarget/close/delete. Kein Subagent. Kein .github/**.
 - Keine Container/compose begonnen (baha-docker/baha-podman nicht genutzt).
