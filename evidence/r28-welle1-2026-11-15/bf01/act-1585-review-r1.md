@@ -77,7 +77,7 @@ Planning validation: `python3 scripts/plan.py check` completed with `536 tasks, 
 Publication preflight, exact `git ls-remote origin refs/heads/main` output:
 
 ```text
-0d117bd3fec101300c674437c9fcaf108ab5e2be\trefs/heads/main
+0d117bd3fec101300c674437c9fcaf108ab5e2be	refs/heads/main
 ```
 
 The planning repository root was verified above. This review did not create a branch, so no branch-cut base attestation applies.
