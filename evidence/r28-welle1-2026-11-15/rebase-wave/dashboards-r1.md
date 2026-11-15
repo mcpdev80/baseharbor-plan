@@ -103,6 +103,13 @@ minimal conflict-free merge; normal merge-commit push.
 ## Scope compliance
 - No merge to develop. No .github/** touched. No ready_for_review. No force-push. No subagent (§4.8). No feature changes — content merge only. PR stays draft.
 
+## origin/main witness (before END)
+```
+9a47fafc evidence(r28-welle1-2026-11-15): rebase wave step2 dashboards merge PR #1597 (7f3a25a0b)
+43705fc7 evidence(0428-080 perses r28): rebase-wave step1 merge a270725b, PRs #1590/#1597 lose manifest_parse inheritance
+76a32ad8 plan(coord): fund->karte — bf01 orphan-test removal (zeuge live-verify r4 d3651819)
+```
+
 ## END
 - lane: perses-dashboard-databases-lane (PR #1597)
 - result: DONE

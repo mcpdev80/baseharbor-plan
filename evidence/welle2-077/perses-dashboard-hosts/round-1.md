@@ -51,14 +51,20 @@ Host/container coverage decision:
 
 ## Focused test run (recorded below)
 
-- go build ./... 
-- go vet ./internal/metrics/ ./cmd/baha/
-- go test ./internal/metrics/ -run TestPersesHost -v
-- go test ./cmd/baha/ -run TestBahaStatusHostContainersDashboardsExposesUnavailable -v
+- go build ./... -> exit 0
+- go vet ./internal/metrics/ ./cmd/baha/ -> exit 0
+- gofmt -l on all touched files -> clean (empty)
+- go test ./internal/metrics/ -run 'TestPersesHost' -> PASS (8 tests)
+- go test ./cmd/baha/ -run 'TestBahaStatusHostContainersDashboardsExposesUnavailable' -> PASS
+- go test ./internal/metrics/ -> PASS (full metrics package)
+- go test ./cmd/baha/ (full suite) -> heavyweight full-matrix; ran in background for completeness.
 
 ## CI coverage
 
-- New tests run under the standard go test CI group. State any required .github workflow change as a finding with file:line (Owner scope) — do not edit .github/**.
+- New metrics tests (perses_dashboards_hosts_test.go) run under .github/workflows/ci.yml job `release_source_preflight` -> "Run release-source tests" -> `go test ./contracts/... ./internal/... ./spec/...` (ci.yml ~line 122). No .github change required: internal/metrics is covered by the existing ./internal/... pattern.
+- New CLI test (app_perses_host_containers_cli_test.go) runs under the same job -> `go test ./cmd/baha` (ci.yml ~line 123). No .github change required.
+- gofmt enforced by ci.yml "Check Go formatting" step on all touched files.
+- NO .github/** file was edited (Owner scope). No workflow change needed; the new tests fall under existing trigger patterns.
 
 ## repo-rule compliance
 
@@ -69,7 +75,8 @@ Host/container coverage decision:
 
 ## Cleanliness
 
-- All state under /tmp/opencode/w077/ (worktree + build). No containers, no compose projects, no network. No orphans.
+- All state under /tmp/opencode/w077/ (worktree + build + logs). No containers, no compose projects, no network. No orphans.
+- Build binary/logs: /tmp/opencode/w077/cmdbaha.log (background full cmd/baha suite).
 
 ## END
 
