@@ -122,9 +122,33 @@ covered.
 - No `.github/**` files edited (Owner scope). No CI rerun / `workflow_dispatch` triggered.
 - No product-repo evidence writes; evidence lives only in `baseharbor-plan`.
 - No subagents used (Owner directive 2026-11-04); every step run in this session.
-- `go test` for the changed path is picked up by the existing `pull_request` group that covers
-  `internal/orgconfig`; no `.github/**` change needed — the new tests run under the normal unit-test
-  trigger.
+- CI wiring: the new and updated tests live in `internal/orgconfig` and run under the
+  normal `pull_request` unit-test group that already covers that path — no `.github/**`
+  change is needed. The changed package is exercised by the CI `pull_request` trigger on
+  branch `lane-0428-fix-bf03` (candidate).
+
+## PR
+
+```
+$ gh pr view 1582 --json number,title,state,baseRefName,isDraft,url,headRefOid
+{"baseRefName":"develop","headRefOid":"829d75bc9e710daebee62ad16710dd468db1fe13",
+ "isDraft":true,"number":1582,"state":"OPEN",
+ "title":"fix(BF-03): persist target selection in private user state ...",
+ "url":"https://github.com/mcpdev80/baseharbor/pull/1582"}
+
+$ git ls-remote origin lane-0428-fix-bf03
+829d75bc9e710daebee62ad16710dd468db1fe13	refs/heads/lane-0428-fix-bf03
+```
+
+PR #1582 (DRAFT, base `develop`, head `829d75bc`) at
+https://github.com/mcpdev80/baseharbor/pull/1582. MERGE-FROZEN: owner cherry-picks into
+`release/v0.4.27`. Candidate SHA `829d75bc9e710daebee62ad16710dd468db1fe13`.
+
+## CI
+
+CI result pending (hosted GitHub-runners, Owner-managed). This lane did not trigger a rerun
+(Owner scope: `.github/**`). The unit tests for `internal/orgconfig` run under the normal
+`pull_request` trigger on PR #1582.
 
 ## Base attestation
 
