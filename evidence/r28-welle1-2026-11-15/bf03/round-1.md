@@ -129,11 +129,15 @@ covered.
 ## Base attestation
 
 ```
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin HEAD
-51df02be0f67ddfdd7d8381d83f0712902da285c	HEAD
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin
+e5f5368b21a7e291c61032c79289923a00bff211	HEAD
+e5f5368b21a7e291c61032c79289923a00bff211	refs/heads/main
+51df02be0f67ddfdd7d8381d83f0712902da285c	refs/heads/... (previous origin/main)
 ```
 
-Planning-repo base = `51df02be0f67ddfdd7d8381d83f0712902da285c` (origin/main).
+Planning-repo base = `51df02be0f67ddfdd7d8381d83f0712902da285c` (origin/main, prior to my push).
+Evidence commit `e5f5368b21a7e291c61032c79289923a00bff211` is on origin/main (witnessed above;
+`git ls-remote origin` lists `refs/heads/main` at that SHA).
 
 ## END
 
