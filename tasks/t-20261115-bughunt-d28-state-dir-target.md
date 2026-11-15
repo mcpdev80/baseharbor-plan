@@ -10,30 +10,30 @@ parent: ""
 owner: lane-0428-fix-bf01 (flash)
 kanban_status: active
 kanban_lane: active
-kanban_summary: "H-D28 finding BF-01 on develop 0e9ccb582; owner-decision 2026-11-15: vor-TAG-FIX — fix lane, PR base develop, SHA in TRIAGE-QUEUE"
-kanban_title: "0427-186 · BF-01: BASEHARBOR_STATE_DIR must isolate target selection"
+kanban_summary: "BF-01 (blocker): BASEHARBORSTATEDIR does not isolate target selection; target switch reads foreign registrations. Found on…"
+kanban_title: 0427-186 · BF-01 target selection ignores
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/0-4-27 #status/active #view/queued #kind/task
+- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Owner:** lane-0428-fix-bf01 (flash)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** 0.4.27  
+**State:** active  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** lane-0428-fix-bf01 (flash)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 

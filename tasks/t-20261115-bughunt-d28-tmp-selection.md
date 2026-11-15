@@ -9,33 +9,34 @@ version: ""
 parent: ""
 owner: "lane-0427-187-fix-bf03 (ornith)"
 kanban_status: review
-kanban_lane: queued
-kanban_summary: "H-D28 finding BF-03 on develop 0e9ccb582; owner-decision 2026-11-15: vor-TAG-FIX (mirroring BF-01) — fix lane, PR base develop, SHA in TRIAGE-QUEUE"
-kanban_title: "0427-187 · BF-03: persisted target selection must not live in world-writable /tmp"
+kanban_lane: review
+kanban_summary: "BF-03 (daemon security): persisted target selection lives in a world-writable /tmp/baha-test- path. Found on develop 0e9ccb582…"
+kanban_title: 0427-187 · BF-03 persisted target
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1582"]
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Owner:** lane-0427-187-fix-bf03 (ornith)  
+    **PR:** [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** 0.4.27  
+**State:** review  
+**Release:** [v0.4.27](../releases/v0.4.27.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** lane-0427-187-fix-bf03 (ornith)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582)  
 **Source:** 
 <!-- /generated:links -->
 

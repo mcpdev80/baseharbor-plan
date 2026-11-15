@@ -9,29 +9,30 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: queued
-kanban_summary: "H-D28 finding BF-05; owner terminiert v0.4.28 (15.11) — dossier h-d28.md"
-kanban_title: "0428-094 · BF-05: corrupted config silently ignored"
+kanban_lane: ready
+kanban_summary: "BF-05 (daemon): corrupted config file is silently ignored. Found on develop 0e9ccb582 during H-D28."
+kanban_title: 0428-094 · BF-05 corrupted config file
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-bad-config-quiet · BF-05 corrupted config file silently ignored #task #release/0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261115-bughunt-d28-bad-config-quiet · BF-05 corrupted config file silently ignored #task #release/0-4-27 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** 0.4.27  
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  

@@ -9,29 +9,30 @@ version: ""
 parent: ""
 owner: ""
 kanban_status: planned
-kanban_lane: queued
-kanban_summary: "H-D28 finding BF-04; owner terminiert v0.4.28 (15.11) — dossier h-d28.md"
-kanban_title: "0428-093 · BF-04: German Achtung in English output and JSON contract"
+kanban_lane: ready
+kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
+kanban_title: "0428-093 · BF-04 German 'Achtung' hint in"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/0-4-27 #status/planned #view/queued #kind/task
+- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/0-4-27 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Later release** · prerequisites accepted  
+    **Ready to assign** · prerequisites accepted  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** queued  
-**Release:** 0.4.27  
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
