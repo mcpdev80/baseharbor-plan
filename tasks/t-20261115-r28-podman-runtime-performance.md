@@ -15,7 +15,7 @@ kanban_title: 0428-095 · Speed up Podman lifecycle
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1600]
 sources: ["https://github.com/mcpdev80/baseharbor/issues/376"]
 blocker: ""
 wait_reason: ""
@@ -24,6 +24,10 @@ evidence: []
 ---
 
 - [ ] t-20261115-r28-podman-runtime-performance · Speed up Podman lifecycle #task #release/v0-4-28 #status/in_progress #view/in_progress #area/runtime #kind/task
+
+## Implementation PR
+
+- [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600)
 
 ## Goal
 
