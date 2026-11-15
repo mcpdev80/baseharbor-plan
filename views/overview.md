@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
+| active | 9 |
 | review | 5 |
 | wait | 18 |
 | blocked | 0 |
 | ready | 5 |
 | queued | 25 |
-| waiting | 185 |
+| waiting | 184 |
 | backlog | 7 |
 | closed | 285 |
 
@@ -31,6 +31,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w078 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-valkey](../tasks/t-20261114-r28-perses-dashboard-valkey.md) | Perses Valkey dashboard | active | normal | w081 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
+| [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | w083-perses-datasources | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) (open), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | — |
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 
 ## Ready for review
