@@ -15,19 +15,19 @@ kanban_title: 0427-189 · bf01 state-dir isolation
 priority: ""
 depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1462]
+prs: [mcpdev80/baseharbor#1585]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md"]
 ---
 
 - [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-fix-bf01 (flash)  
-    **PR:** [baseharbor#1462](https://github.com/mcpdev80/baseharbor/pull/1462)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md)  
+    **PR:** [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/bf01/round-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0428-fix-bf01 (flash)  
 **Priority:** not set  
-**PRs:** [baseharbor#1462](https://github.com/mcpdev80/baseharbor/pull/1462)  
+**PRs:** [baseharbor#1585](https://github.com/mcpdev80/baseharbor/pull/1585)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -70,3 +70,7 @@ BF-01 (blocker): BASEHARBOR_STATE_DIR does not isolate target selection; target 
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+**Zwischenstand 15.11.:** BF-01-Kandidat veroeffentlicht: Draft PR mcpdev80/baseharbor#1585 (Branch lane-0428-fix-bf01-v2, Kopf 8041a9f0119e390e03533082da05f9d62bdcc7e1, base develop 0e9ccb582; Merge-Frost: Draft, kein Merge). Gehosteter Lauf CI PR #1585, run 43684179345, terminal success. Evidenz: evidence/r28-welle1-2026-11-15/bf01/round-1.md (round-1, END-Zeile korrigiert) und round-2.md (Konsolidierung, Rot-Zustand ehrlich zurueckgenommen: Test ist auf base gruen, Kandidat haertet die Grenze strukturell). PR #1584 war dasselbe Material mit veralteter Historie und ist geschlossen.
+
+*__Ende*
