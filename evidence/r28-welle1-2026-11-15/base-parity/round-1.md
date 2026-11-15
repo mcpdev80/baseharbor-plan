@@ -19,6 +19,8 @@ These geprüft: „alle failure-signaturen der 7 roten exact-head/runs sind base
 
 ## Zelle 1 — Wörtliche Fehlstellen je run (gh run view --log)
 
+Artefakte: Logs unter `/tmp/opencode/bp/logs/<run>.log` (via `gh run view --log`), Job/Step-Tabellen via `gh run view --json jobs`.
+
 Alle 7 runs sind `workflow_dispatch`, exact head SHA bestätigt gegen `gh pr view --json headRefOid` und `git ls-remote`.
 
 | Run | Head | Job::Step (failure) | Wörtliche Kernzeile |
@@ -86,7 +88,7 @@ Gesamtthese: für 4/6 PRs voll bestätigt (base-parity). Für die Perses-Kette (
 
 ## cleanliness
 
-- Read-only Mission: keine Container/Netzwerke/Volumes/State-Verzeichnisse auf diesem Host oder einem Ziel-Host erzeugt (keine docker/podman-Befehle; SSH-Hosts nicht benötigt). Alle Artefakte unter /tmp/opencode/bp/ (logs/, parity/ docs-extract, *.txt, *.sh, *.yml).
+- Read-only Mission: keine Container, Netzwerke oder Compose-Projekte von dieser Lane gestartet (keine docker/podman-Kommandos außer zwei reinen ps/ls-inspect-Ansichten; SSH-Ziel-Hosts nicht benötigt). Zeuge: `docker network ls | grep -E 'bh-|baseharbor'` = leer, `docker ps -a` = keine laufenden Container vor/nach der Lane. Vorhandene Volumes/Rechte (`site/`, alte multi-ci-Volume-Namen) gehören früheren anderen Lanes/Rechnerzustand und wurden nicht angefasst oder erweitert (Owner-Hygiene: nur der eigene Bestand ist bis END abzubauen — hier: keiner).
 - Produktrepo baseharbor: nur fetch/show/log/merge-base (keine Schreibrefs außer fetched remote-tracking refs).
 - Planungszonen-Check: `workers/baseharbor-plan` wurde nicht committet; nur `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (Toplevel-Zeuge oben). Fremde Working-Tree-Änderung dort (`cli2-uid-target/driftfix-r1.md`, anderer Lane) wurde NICHT angerührt oder committet.
 - state-Verzeichnisse: /tmp/opencode/bp ist das einzige state-Verzeichnis dieser Lane.
