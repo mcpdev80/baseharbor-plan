@@ -94,7 +94,7 @@ base head: `85b4cbb598272e28944e48b6895ce8935031c9ba` (origin head of lane-0428-
   - Only my commits on the head branch (git log 85b4cbb5..ca8181c0e lists ca8181c0e alone).
   - 85b4cbb598272e28944e48b6895ce8935031c9ba IS an ancestor of ca8181c0e.
 - Evidence committed to origin/main:
-  - git ls-remote origin main -> bc470ea77f3725a483bc16c4e404c3335cd6c301 refs/heads/main
-  - git log -3 -- evidence/welle2-077/perses-dashboard-hosts/round-1.md -> bc470ea7 (my evidence present in HEAD).
+  - git ls-remote origin main -> dff7d9d561caf588bccf198951399ad3c3606c19 refs/heads/main
+  - git log -3 -- evidence/welle2-077/perses-dashboard-hosts/round-1.md -> dff7d9d5 (my evidence present in HEAD).
 - Draft PR #1601 was a miscreated candidate (wrong head branch work/0427-020-ci-consumption); closed. #1602 is the correct candidate.
-- STATE (blocks active->review transition): prerequisite t-20261114-r28-perses-dashboard-selection (080) in state `wait` (NOT accepted). Candidate delivered; review transition cannot complete until 080 is accepted. No code change required by me to unblock.
+- STATE (blocks active->review transition): prerequisite t-20261114-r28-perses-dashboard-selection (080) in state `wait` (NOT accepted); its own prerequisite t-20261114-r28-perses-contract-seam is NOT accepted either. Candidate delivered; transition to active/review cannot complete until the seam is accepted upstream. No code change by me can unblock this chain.
