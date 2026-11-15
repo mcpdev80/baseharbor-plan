@@ -86,7 +86,7 @@ Test-to-CI routing (kein neuer Test): Diese Akte fuegt keinen Test hinzu; das do
 
 ## CI run watch (Eigenes-Run-Pflicht)
 
-Ausgeloest durch den PR-Push; Run 43709246427 (CI · Source & Quality, pull_request, branch work/r28-operator-api-runbook, head 20e0537cc3332c53500091ca1776fc6b408670d0). Terminaler Zustand beobachtet: `completed/success`, startedAt 2026-11-15T11:30:29Z, updatedAt 2026-11-15T11:34:36Z, https://github.com/mcpdev80/baseharbor/actions/runs/43709246427. Check-Ergebnisse: PR · Draft source and routing SUCCESS; PR · Draft Go · cli-0/cli-1/cli-2/cli-3 SUCCESS; PR · Draft Go · packages SUCCESS; Heavy-Gates SKIPPED (Draft/Zweck: docs-only). `documentation-audit` ist in diesem Run nicht ausgewaehlt (Docs-Zweck laeuft im vollen PR-Workflow); der lokale Vorlauf desselben Checks (`bash scripts/documentation-audit.sh` incl. Locale-Paritaet und Uebersetzungstreue) ist oben als PASS dokumentiert. KEIN Fehlcheck; damit kein STATE-Befund.
+Ausgeloest durch den PR-Push; Run 43709246427 (CI · Source & Quality, pull_request, branch work/r28-operator-api-runbook, head 20e0537cc3332c53500091ca1776fc6b408670d0). Terminaler Zustand beobachtet: `completed/success`, startedAt 2026-11-15T11:30:29Z, updatedAt 2026-11-15T11:34:36Z, https://github.com/mcpdev80/baseharbor/actions/runs/43709246427. Check-Liste des Runs (PR #1587 Draft): `PR · Draft source and routing`, `PR · Draft Go · cli-0/1/2/3` und `PR · Draft Go · packages` SUCCESS; die Schwere-Gates des Workflows SKIPPED, weil Draft-Zweig/Draft-PR. Der Docs-Check `documentation-audit` ist in diesem Run nicht ausgewaehlt (er laeuft im vollen PR-Workflow `scripts/documentation-audit.sh` mit Locale-Paritaet und Uebersetzungstreue an `.github/workflows/ci.yml:138/320`); dieser selbe Check wurde lokal auf exakt dem Kandidatenbaum ausgefuehrt und ist PASS (Zeugen oben). KEIN Fehlcheck, kein STATE-Befund.
 
 ## Evidence publishing (remote witness, second-to-last action)
 
@@ -100,6 +100,10 @@ akte-final-http:200
 ```
 
 Die Akte liegt auf origin/main (Planning-Repo, Zonen-Zeuge oben). Karte auf review mit PR #1587 und Evidence-Link.
+
+## VM lock
+
+Kein Pruef-VM-Gate genutzt. Der `vm-lock.sh claim baha-docker-2` wurde verworfen (rc-Pfad: keine VM-Arbeit), das Schloss sofort zurueckgegeben; release-Zeuge: `FREE host=baha-docker-2` vor Ende der Akte.
 
 ## END
 
