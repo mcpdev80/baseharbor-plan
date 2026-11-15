@@ -43,6 +43,17 @@ Read seam `af308e66` (branch worktree `/tmp/baseharbor-perses-wt`) and develop (
 
 ## BLOCKER (not an implementation stop)
 
+## Owner authorization (2026-11-15, 17:5xZ) — FULL RUNTIME SCOPE
+
+Owner answered the QUESTION: my card t-20261114-r28-perses-runtime IS the "reviewed contract" the seam comment refers to. The seam declares only selection + fail-closed states; container lifecycle (launch, pin v0.55.1, optional, degraded-not-blocked) is implemented in the runtime slice here, hereby authorized. NO extra spec/contract task needed — card + seam suffice.
+
+Boundaries (do not violate):
+1. Three states NOT touched: `verified` only via a real health path; never configured=verified. `VerifyPersesManagementUIAt` stays unverified (no Perses health probe).
+2. Start only on services.perses selected + release-pinned; else `not_configured` pass WITHOUT a container.
+3. Clean: my tests leave no containers/networks/volumes (cleanliness line in evidence.md).
+
+## Investigation findings (committed to evidence, not product)
+
 
 My card t-20261114-r28-perses-runtime is in state `waiting`, explicitly blocked on prerequisite t-20261114-r28-perses-contract-seam. That prerequisite is in state `wait`, NOT `accepted`. The transition `wait -> accepted` on the seam requires the Maintainer/Owner to merge PR #1575 — an action forbidden for a worker under the merge frost ("Frost: kein merge"). No newer Owner decision lifts the freeze; the Owner decision 2026-11-14-perses-replaces-grafana-v0428 confirms Perses cards "remain planned and depend on the same release startup".
 
@@ -53,4 +64,5 @@ Per mission (冲突/unklarheit -> QUESTION, kein subagent) I report this as a QU
 ## Status
 
 - END lane: BLOCKED (awaiting seam acceptance / Owner decision on the merge-frost window)
+- 2026-11-15 17:5xZ: OWNER AUTHORIZED full runtime scope. Cut candidate from af308e66d. Implementing Perses runtime/lifecycle in internal/runtime, tests leave no containers/networks/volumes. Draft PR base = lane-0428-075-perses-seam (retarget, no develop PR, no merge).
 - QUESTION posted 2026-11-15: seam is state `wait` (not accepted), PR #1575 open, merge forbidden under frost; evidence on origin/main (d27cb729); no branch cut, no merge attempted.
