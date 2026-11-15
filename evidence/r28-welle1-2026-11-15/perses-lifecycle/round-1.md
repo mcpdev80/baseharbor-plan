@@ -125,3 +125,9 @@ PR #1598 status check rollup is empty (no CI job has executed on the pushed head
 ## END
 
 END_DONE lane-0428-084-perses-lifecycle head=bcd13ddcb627fece4eae360ce6349199e22651f1 pr=1598 (base lane-0428-075-perses-seam @ 219a0a24) evidence=origin/main (planning) evidence path evidence/r28-welle1-2026-11-15/perses-lifecycle/round-1.md. Runtime e2e deferred to release window under current gate scope. CI not yet run (Owner-managed); report as STATE.
+
+## origin/main witness (to-root git ls-tree, pasted before END)
+
+```
+100644 blob 82df49e95d56168346e9e5258c26e2dfa1d708a1	evidence/r28-welle1-2026-11-15/perses-lifecycle/round-1.md
+```
