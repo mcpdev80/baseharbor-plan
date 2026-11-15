@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 3 |
+| active | 4 |
 | review | 1 |
 | wait | 14 |
 | blocked | 0 |
 | ready | 4 |
 | queued | 25 |
-| waiting | 197 |
+| waiting | 196 |
 | backlog | 7 |
 | closed | 285 |
 
@@ -27,6 +27,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) | v0.4.27 · Pre-release: complete ecosystem readiness and candidate preparation | active | normal | owner-chatgpt-r27 | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) | CLI redesign: Implement environment registry | active | high | lane-0428-env-registry | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open), [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) (open) | — |
 | [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | CLI redesign: Extend app sources and components | active | high | lane-0428-059-cli2-source-model (flash) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) (open) | — |
+| [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) | Launch optional Perses | active | normal | lane-0428-088-r1 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) (open) | — |
 
 ## Ready for review
 
