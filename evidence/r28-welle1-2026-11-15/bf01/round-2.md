@@ -156,4 +156,4 @@ liegender Cache-Auflösung.
 
 ## END
 
-END_PENDING (END_DONE mit terminal beobachtetem Run 43684179345 success und ls-tree-Zeuge dieses Dokuments auf origin/main).
+END_DONE: Kandidat 8041a9f0119e390e03533082da05f9d62bdcc7e1, Draft PR #1585, CI-Run 43684179345 terminal success, ls-tree-Zeuge dieses Dokuments auf origin/main (97d58cf3).
