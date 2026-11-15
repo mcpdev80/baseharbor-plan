@@ -55,7 +55,9 @@ All live v0.4.28 Core entry points, documentation and selected gates consistentl
 
 ## Owner decision 2026-11-15 (option 1)
 
-The Perses contract in `docs/spec/` (the spec file touched by accepted seam #1575, i.e. `management-access-v1.md`) stays the ONLY normative source. Prose and release notes in this PR must not mirror normative sentences: replace deviating mirrors with a clear pointer to the spec plus a short factual summary. One mechanical correction round; the reviewer then checks #1577 against this approach once.
+Owner refinement 2026-11-15 (same turn): the normativity of `docs/spec/management-access-v1.md` is LIMITED to authentication and role-mapping findings. Perses pin, release scope and state semantics must NOT be derived normatively from that spec; keep those spots as short, factual release summaries (no pointer-based normativity). The reviewer pass covers ONLY the agreed mirror spots under this scope.
+
+Original option 1 (scope corrected by the refinement above): replace deviating mirrors with a clear pointer to the spec plus a short factual summary for auth/role-mapping spots only. One mechanical correction round; the reviewer then checks #1577 against this approach once.
 ## Handoff
 
 Planned, unassigned. No product work or release authorization.
