@@ -97,3 +97,20 @@ Per mission (冲突/unklarheit -> QUESTION, kein subagent) I report this as a QU
 - END lane: BLOCKED (awaiting seam acceptance / Owner decision on the merge-frost window)
 - 2026-11-15 17:5xZ: OWNER AUTHORIZED full runtime scope. Cut candidate from af308e66d. Implementing Perses runtime/lifecycle in internal/runtime, tests leave no containers/networks/volumes. Draft PR base = lane-0428-075-perses-seam (retarget, no develop PR, no merge).
 - QUESTION posted 2026-11-15: seam is state `wait` (not accepted), PR #1575 open, merge forbidden under frost; evidence on origin/main (d27cb729); no branch cut, no merge attempted.
+
+## Implementation deliverable (f55d9f94)
+
+Perses as an OPTIONAL, provider-owned visualization surface on the accepted Perses seam (0428-075, af308e66d). Never an application capability or required Core bundle; rides the existing Docker/Podman compose lifecycle as single-instance, managed, fail-closed service.
+
+Files (read-only seam/capability/metrics; NO .github edits):
+- internal/application/perses_runtime.go (new): pinned reviewed image v0.55.1 (docker.io/persesdev/perses:v0.55.1) as realization metadata; single managed compose service render; application-scoped data volume; fail-closed provider-file projection.
+- runtime_postgres.go RuntimeComposeYAMLForProject: render Perses service + data volume + loopback port when services.perses selected.
+- runtime_lifecycle.go ExpectedRuntimeResourcesForIdentity: inspect/retire Perses container + volume.
+- runtime_environment.go: allocate + project loopback host port; fail-closed validation.
+- management_ui.go EnsureApplicationManagementUIs: project Perses files; VerifyApplicationManagementUIChecks: configured_unverified verify check (never ready/verified).
+- cmd/baha/app_status_collect.go: render Perses as a degraded unverified observation (never "ready").
+- internal/application/perses_runtime_test.go (new): 7 deterministic unit tests + gated real-container smoke test.
+
+Contract preserved: selected+pinned => configured_unverified; verified reachable only through a real health path this Core does not ship; no management-ui check reports ready.
+
+Test results (terminal, observed): go build ./... exit 0; go vet clean; internal/application suite fully green on af308e66d; Perses unit tests 7/7 pass; cmd/baha TestBahaStatusPerses* ok. 2 cmd/baha failures are PRE-EXISTING native-runtime gates (confirmed identical on clean seam branch; need a real Docker host). Cleanliness: no containers/networks/volumes started (BASEHARBOR_PERSES_RUNTIME_SMOKE not set).
