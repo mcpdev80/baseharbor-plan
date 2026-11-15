@@ -11,8 +11,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | State | Tasks |
 | --- | ---: |
 | active | 3 |
-| review | 3 |
-| wait | 6 |
+| review | 2 |
+| wait | 7 |
 | blocked | 0 |
 | ready | 8 |
 | queued | 25 |
@@ -34,7 +34,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | review | high | lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert) | — | [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577) |
 | [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | review | not set | lane-0428-fix-bf01 (flash) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1462](https://github.com/mcpdev80/baseharbor/pull/1462) |
-| [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | review | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
 
 ## Waiting for resources
 
@@ -46,6 +45,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
 | [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) | CLI redesign: Persist portable app identity | wait | high | lane-0428-uid-app | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | [baseharbor#1579](https://github.com/mcpdev80/baseharbor/pull/1579) |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | wait | normal | lane-0428-075-seam-r4 | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
+| [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | wait | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
 
 ## Blocked
 
