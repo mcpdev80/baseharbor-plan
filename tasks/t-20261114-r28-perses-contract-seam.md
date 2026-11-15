@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: lane-0428-075-seam-r4
-kanban_status: wait
-kanban_lane: wait
+owner: 1db159d2
+kanban_status: active
+kanban_lane: active
 kanban_summary: Specify optional Perses management/visualization through the existing provider and authorization boundaries; never falsely…
 kanban_title: 0428-075 · Define Perses Prov seam
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1575]
 sources: []
 blocker: ""
-wait_reason: "APPROVED auf af308e66d (act-1575-review-r8, plan 21b134d9); merge frost-bis — im window: nach uid-app-kette, vor #1577"
+wait_reason: ""
 resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-2.md", "https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-3.md"]
 ---
 
-- [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-contract-seam · Define Perses provider seam #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0428-075-seam-r4 · **Priority:** normal  
+    **Owner:** 1db159d2 · **Priority:** normal  
     **PR:** [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575)  
-    **Waiting:** APPROVED auf af308e66d (act-1575-review-r8, plan 21b134d9); merge frost-bis — im window: nach uid-app-kette, vor \#1577  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-2.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/6bb7a3b457796a16b06b112ae3997e00fa83a4b4/evidence/r28-welle1-2026-11-14/perses-contract-seam/round-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** lane-0428-075-seam-r4  
+**Owner:** 1db159d2  
 **Priority:** normal  
 **PRs:** [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575)  
 **Source:** 
@@ -85,3 +84,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-contract-seam](t-20261113-r28-grafana-contract-seam.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+luna review-r1: REQUEST_CHANGES (act-luna-1575-r1.md @ b14a483e) — korrekturrunde laeuft
