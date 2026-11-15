@@ -40,8 +40,9 @@ git log --oneline 2bf0c9295..HEAD            -> 0d9e9387a (r1) + <r3 head>
 ## LOCAL RESULTS (exact r3 head = 94937e885, base 2bf0c9295)
 - `go build ./...` — OK
 - `go vet ./internal/deployment/ ./internal/environment/ ./cmd/baha/` — OK
-- `go test -race ./internal/deployment/ ./internal/environment/` — ok
-- `go test ./cmd/baha/ -run 'TestEnvironmentIdentity|Test.*Target.*Show' -count=1` — ok (regression exercises UID via CLI)
+- `go test -race ./internal/deployment/ ./internal/environment/ -count=1` — ok (3.2s / 1.0s)
+- `go test ./cmd/baha/ -run 'TestEnvironmentUID|TestEnvironmentIdentity|TestTargetShow' -count=1` — ok
+- Full `cmd/baha` sweep: 2 FAILs (TestAppEditCommandCompleteProviderEditRunsRealLifecycle, TestPrepareStagedCoreGitCandidatePinsCanonicalApplication) — **verified identical on original head 7930095b0 with changes stashed; both are native integration tests requiring verified Docker/Podman + git-archive runtimes unavailable in this sandbox. NOT caused by r3.**
 
 ## HOSTED CI (terminal, exact r3 head)
 - Run id: (pending after force-push)

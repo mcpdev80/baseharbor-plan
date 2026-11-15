@@ -10,12 +10,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 5 |
-| review | 0 |
+| active | 4 |
+| review | 1 |
 | wait | 5 |
 | blocked | 0 |
 | ready | 5 |
-| queued | 25 |
+| queued | 30 |
 | waiting | 199 |
 | backlog | 7 |
 | closed | 285 |
@@ -28,11 +28,12 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) | CLI redesign: Persist portable app identity | active | high | lane-0428-uid-app | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | [baseharbor#1579](https://github.com/mcpdev80/baseharbor/pull/1579) |
 | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | CLI redesign: Introduce logical environment identity | active | high | lane-0428-uid-environment | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) (open) | [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578) |
 | [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | CLI redesign: Add stable target identity | active | high | lane-0428-uid-target | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580) |
-| [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | active | normal | lane-0428-075-seam-r4 | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
 
 ## Ready for review
 
-None.
+| Task | Title | State | Priority | Owner | Depends on | PRs |
+| --- | --- | --- | --- | --- | --- | --- |
+| [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | review | normal | lane-0428-075-seam-r4 | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
 
 ## Waiting for resources
 
