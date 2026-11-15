@@ -1,7 +1,7 @@
 ---
 id: t-20261115-bughunt-d28-state-dir-target
-card_number: "0427-186"
-card_short_title: ""
+card_number: "0427-189"
+card_short_title: "bf01 state-dir isolation"
 type: task
 areas: []
 release: v0.4.27
@@ -11,9 +11,9 @@ owner: lane-0428-fix-bf01 (flash)
 kanban_status: active
 kanban_lane: active
 kanban_summary: "BF-01 (blocker): BASEHARBORSTATEDIR does not isolate target selection; target switch reads foreign registrations. Found on…"
-kanban_title: 0427-186 · BF-01 target selection ignores
+kanban_title: 0427-189 · bf01 state-dir isolation
 priority: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v-0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-fix-bf01 (flash)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
@@ -32,7 +32,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 <!-- generated:links -->
 **State:** active  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0428-fix-bf01 (flash)  
 **Priority:** not set  
 **PRs:** none  

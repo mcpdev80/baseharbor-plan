@@ -1,7 +1,7 @@
 ---
 id: t-20261115-bughunt-d28-bad-config-quiet
 card_number: "0428-094"
-card_short_title: ""
+card_short_title: "bf05 config fail loud"
 type: task
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "BF-05 (daemon): corrupted config file is silently ignored. Found on develop 0e9ccb582 during H-D28."
-kanban_title: 0428-094 · BF-05 corrupted config file
+kanban_title: 0428-094 · bf05 config fail loud
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-bad-config-quiet · BF-05 corrupted config file silently ignored #task #release/0-4-27 #status/planned #view/ready #kind/task
+- [ ] t-20261115-bughunt-d28-bad-config-quiet · BF-05 corrupted config file silently ignored #task #release/v-0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  

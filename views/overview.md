@@ -12,7 +12,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | ---: |
 | active | 5 |
 | review | 1 |
-| wait | 5 |
+| wait | 6 |
 | blocked | 0 |
 | ready | 8 |
 | queued | 25 |
@@ -28,13 +28,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) | CLI redesign: Introduce logical environment identity | active | high | lane-0428-uid-environment | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) (open) | [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578) |
 | [t-20261114-r28-cli2-uid-target](../tasks/t-20261114-r28-cli2-uid-target.md) | CLI redesign: Add stable target identity | active | high | lane-0428-uid-target | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | [baseharbor#1580](https://github.com/mcpdev80/baseharbor/pull/1580) |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | active | normal | lane-0428-075-seam-r4 | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
-| [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | active | not set | lane-0428-fix-bf01 (flash) | — | — |
+| [t-20261115-bughunt-d28-state-dir-target](../tasks/t-20261115-bughunt-d28-state-dir-target.md) | BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) | active | not set | lane-0428-fix-bf01 (flash) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 
 ## Ready for review
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | review | not set | lane-0427-187-fix-bf03 (ornith) | — | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
+| [t-20261115-bughunt-d28-tmp-selection](../tasks/t-20261115-bughunt-d28-tmp-selection.md) | BF-03 persisted target selection in world-writable /tmp path | review | not set | lane-0427-187-fix-bf03 (ornith) | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582) |
 
 ## Waiting for resources
 
@@ -44,6 +44,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261017-release-0-4-27-qualify](../tasks/t-20261017-release-0-4-27-qualify.md) | v0.4.27 · Pre-release: complete required candidate checks | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-prepare](../tasks/t-20261017-release-0-4-27-prepare.md) (open) | — |
 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) | v0.4.27 · Release: verify publication, artifacts, Pages and closeout | wait | normal | mission-closeout27 | [t-20261017-release-0-4-27-publish](../tasks/t-20261017-release-0-4-27-publish.md) (open) | — |
 | [t-20261017-release-0-4-28-cleanup](../tasks/t-20261017-release-0-4-28-cleanup.md) | v0.4.28 · Release start: reconcile old PRs, tasks and branches | wait | high | lane-0428-002-r28 | [t-20261017-release-0-4-27-verify](../tasks/t-20261017-release-0-4-27-verify.md) (open) | — |
+| [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) | CLI redesign: Persist portable app identity | wait | high | lane-0428-uid-app | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md) | [baseharbor#1579](https://github.com/mcpdev80/baseharbor/pull/1579) |
 | [t-20261114-r28-perses-release-boundary](../tasks/t-20261114-r28-perses-release-boundary.md) | Align release docs with Perses and archived projects | wait | high | lane-0428-092-seam-r2 | — | [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577) |
 
 ## Blocked
@@ -59,7 +60,7 @@ None.
 | [t-20261108-smoke-0427-operator-api-undocumented](../tasks/t-20261108-smoke-0427-operator-api-undocumented.md) | Remote Core: API route runbook missing | ready | normal | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261109-r27-target-policy-presets](../tasks/t-20261109-r27-target-policy-presets.md) | Target: editable best-practice deployment policy presets | ready | high | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](../tasks/t-20261018-r27-connection-client.md) | — |
 | [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | — | — | — |
-| [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | — | — |
+| [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261115-bughunt-d28-bad-config-quiet](../tasks/t-20261115-bughunt-d28-bad-config-quiet.md) | BF-05 corrupted config file silently ignored | ready | not set | — | — | — |
 | [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) | BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) | ready | not set | — | — | — |
 

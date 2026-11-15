@@ -1,7 +1,7 @@
 ---
 id: t-20261115-bughunt-d28-app-new-reg
-card_number: "0427-188"
-card_short_title: ""
+card_number: "0427-191"
+card_short_title: "bf02 app new registration"
 type: task
 areas: []
 release: v0.4.27
@@ -11,9 +11,9 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "BF-02 (ux): baha app new writes no registration; only baha up / baha app apply create state. Found on develop 0e9ccb582 during…"
-kanban_title: 0427-188 · BF-02 baha app new writes no
+kanban_title: 0427-191 · bf02 app new registration
 priority: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-app-new-reg · BF-02 baha app new writes no registration (only up/apply create state) #task #release/0-4-27 #status/planned #view/ready #kind/task
+- [ ] t-20261115-bughunt-d28-app-new-reg · BF-02 baha app new writes no registration (only up/apply create state) #task #release/v-0-4-27 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 <!-- generated:links -->
 **State:** ready  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** unassigned  
 **Priority:** not set  
 **PRs:** none  

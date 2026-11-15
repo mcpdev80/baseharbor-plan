@@ -1,7 +1,7 @@
 ---
 id: t-20261115-bughunt-d28-i18n-achtung
 card_number: "0428-093"
-card_short_title: ""
+card_short_title: "bf04 english-only hints"
 type: task
 areas: []
 release: v0.4.28
@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: ready
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
-kanban_title: "0428-093 · BF-04 German 'Achtung' hint in"
+kanban_title: "0428-093 · bf04 english-only hints"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/0-4-27 #status/planned #view/ready #kind/task
+- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v-0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  

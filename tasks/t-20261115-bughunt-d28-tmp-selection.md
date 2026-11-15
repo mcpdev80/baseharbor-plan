@@ -1,7 +1,7 @@
 ---
 id: t-20261115-bughunt-d28-tmp-selection
-card_number: "0427-187"
-card_short_title: ""
+card_number: "0427-190"
+card_short_title: "bf03 private selection store"
 type: task
 areas: []
 release: v0.4.27
@@ -11,9 +11,9 @@ owner: "lane-0427-187-fix-bf03 (ornith)"
 kanban_status: review
 kanban_lane: review
 kanban_summary: "BF-03 (daemon security): persisted target selection lives in a world-writable /tmp/baha-test- path. Found on develop 0e9ccb582…"
-kanban_title: 0427-187 · BF-03 persisted target
+kanban_title: 0427-190 · bf03 private selection store
 priority: ""
-depends_on: []
+depends_on: [t-20261017-release-0-4-27-updates]
 repos: [mcpdev80/baseharbor]
 prs: ["mcpdev80/baseharbor#1582"]
 sources: []
@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/0-4-27 #status/review #view/review #kind/task
+- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/v-0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-187-fix-bf03 (ornith)  
     **PR:** [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582)  
@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 <!-- generated:links -->
 **State:** review  
 **Release:** [v0.4.27](../releases/v0.4.27.md)  
-**Depends on:** none  
+**Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md)  
 **Owner:** lane-0427-187-fix-bf03 (ornith)  
 **Priority:** not set  
 **PRs:** [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582)  
