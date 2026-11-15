@@ -143,3 +143,20 @@ No containers, compose projects or VM cells were started by this lane (read-only
 4. Only after a green complete validation: promotion merge → actual main SHA → final tagging block (Publish card) → tag push (owner) → this lane's successor verifies publication (Verify card).
 
 END_BLOCKED mission-closeout27.md: closeout dossier published; all three cards blocked on real prerequisites (no v0.4.27 tag/Release, no complete pre-release run, candidate not mergeable/frozen); nothing irreversible executed.
+
+
+## Candidate merge reconciliation — 2026-11-15
+
+### Conflict resolution and #1346 functional coverage
+
+- The release candidate remains authoritative for conflicted product, workflow, script and documentation files. The merge was built on `release/v0.4.27` with `main` as the second parent; only the PR branch moved. `main` remains at `aff1532c2f6c6782a8c13afad83245d1351815e7`.
+- New PR #1574 head: `5c6744dc6ba149ae2aedc2016a459d3dfb068f4b`, merge parents `091319ba268f3366e5889c9332327d65f0a7cb76` (release) and `aff1532c2f6c6782a8c13afad83245d1351815e7` (main). GitHub reports the PR mergeable; it remains Draft. No workflow runs or combined status checks were reported for this SHA at read time.
+- Conflict inventory: 478 merge-tree conflict records (399 add/add, 77 content, 2 rename/delete); 476 unmerged target paths were resolved with release-side content. Evidence stayed append-only: four main-only and one release-only evidence fragments are present in the merge result.
+- PR #1346 is functionally superseded in the candidate. `bash scripts/ci-workflow-policy.sh` passed (20 approved workflows); `python3 scripts/test_receipt_writer.py` passed (12 tests); `python3 scripts/test_receipt_postrun.py` passed (1 test); `python3 scripts/test_pr_registration_ci.py` exited 0; four focused receipt-runner registration, trusted-base routing and fail-closed binding tests passed; `git diff --check` passed.
+- Deploy-target check: the tree contains `scripts/receipt_writer.py`, the main-only manual `receipt-post-run.yml` publication route, its default-main guard/token/`--commit-pr` binding, and the `receipt-execution-tests` planner/runner/CI registration. No missing publication component was found; cherry-pick rest list: none.
+- A full `python3 scripts/test_pr_check_runner.py` attempt was not usable here: the environment's `/usr/bin/go` responds `Go: Unknown option: test` (and also rejects `version`). The four focused binding tests above passed. Do not treat this as a Go test pass.
+- PR #1576 was closed as superseded, not merged; its Postgres service/test URL and ORAS/registry setup are present in the release workflow.
+
+### Remaining qualification state
+
+The merge conflict is resolved on the PR branch. Release qualification is still incomplete: CI has not yet reported checks for `5c6744dc6ba149ae2aedc2016a459d3dfb068f4b`, and the full pre-release run on this exact head remains required. No release-ready, promotion, tag or publication claim is made.
