@@ -24,6 +24,11 @@ Belegakte aller Funde: evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md (H-D28
 
 | Q-CIFIRE pull_request-suite feuert nach beobachtung NUR bei base=develop — PRs mit lane-branch-base (stacked, z.B. #1578 auf lane-0428-uid-app) zoenden GAR keine checks (f353d1f7: 0 check-runs, auch nach 2 leeren re-trigger-commits) — gestoerte PR-gates bleiben "skipped", re-trigger-pushing hilft nicht | (keine — infra) | blocker/prozess | BETRIFFT QUALIFIKATION — derselbe gate-pfad gilt fuer 0.4.27-qualify | OWNER-SCOPE: .github ist owner-hand; belege: lane evidence 503f344e + runs 43658208331/43659613732 (identische failing lines, pre-existing belegt) |
 
+| LV-01 stack-conflict orgconfig/store.go zwischen #1579 und #1584 | (vorgang in 0427-189) | mittel | 0.4.27-relevant nur beim gemeinsamen cherry-pick | CODEMAN-INTEGRIERT: BF-01-laeuft auf #1582-consolidation auf |
+| LV-02 cross-PR build gap: #1584 loescht #1582s worldWritableCheckOptOutEnv + guard — kombinierter orgconfig-test baut nicht | (integration zwischen 0427-186 und 0427-190) | HOCH-integration | BETRIFFT CHERRY-PICK-REIHENFOLGE | BEHOBEN DURCH: BF-01-lane traegt guard+symbol in ihr konsolidiertes store.go (auftrag 06:4xZ), combined-go-vet-zeugnis Pflicht |
+| LV-03 chain-lineage #1578/#1580 develop-siblings, base drift | (keine — prozess) | niedrig | nein | akzeptiert: autoreihenfolge statt git-linear, merge-window-regel deckt es |
+| LV-04 #1580 nicht im r2-stack | (keine) | info | nein | runde 3 holt es nach |
+
 ## Abarbeitet / abgegeben
 
 (noch keine)
