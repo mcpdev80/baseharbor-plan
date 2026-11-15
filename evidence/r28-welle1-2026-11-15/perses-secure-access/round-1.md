@@ -537,9 +537,16 @@ host
 none
 ```
 
+`docker volume ls --format '{{.Name}}'` after the last test run lists only
+ambient and other-card volumes (installation/shared-core and named
+`baseharbor-*`/`bh-*` sets); this lane created none, and no volume was removed
+because none is owned here.
+
 cleanliness: clean — no test-owned containers, networks, volumes or state
 directories; the before and after inventories are identical; ambient
-core/other-card images and projects were left untouched.
+core/other-card images, projects and volumes were left untouched. The 56 MB
+`baha` verification binary was deleted; only the worktree and the before/after
+failure-inventory files remain in `/tmp/opencode/welle2-089/`.
 
 `git status --porcelain` in the worktree at the final push: empty (all fifteen
 changed paths committed on one branch).
