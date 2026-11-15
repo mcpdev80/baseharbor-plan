@@ -19,7 +19,7 @@ Belegakte aller Funde: evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md (H-D28
 
 | LV-02 stack-pruefung: PR#1578 kopf war nicht ahne von PR#1580 kopf (stapel-bruch, env-zelle auf stack nicht testbar) | (keine — vorgang in 0428-052 karte) | kette/prozess | NIEDRIG — 0.4.28-intern, kein develop-defect | CODEMAN-BEHOBEN: rebase-auftrag an lane (ancestry-zeugnis in round-3); querverweis live-verify/round-1.md |
 
-| Q-RUNTIME serial-runtime-integration failt auf purer develop (0e9ccb582): workflow_dispatch 43630766290 completed/failure, Gegenlauf 43660888288 laeuft; base uid-app 18b0ebc9d dispatch 43659613732 ebenfalls failed — die gesamte 0.4.28-kette kann damit keinen gruenen runtime-gate zeigen | (keine — ambient-befund, keine lane-schuld) | blocker/qualitaet | MOEGHLICH HOCH — ein 0.4.27-tag-lauf wuerde dieselbe suite zeigen | ZWEIFEL: Owner-Entscheidung noetig (release-Welt: Runner-/suite-ambiente vs. product-defect); Codeman haelt alle kartenaufnahmen auf review aus, bis gate wieder gruen beweisbar ist |
+| Q-RUNTIME serial-runtime-integration failt auf purer develop (0e9ccb582): workflow_dispatch 43630766290 completed/failure, Gegenlauf 43660888288 ebenfalls completed/FAILURE — BESTAETIGT auf purer develop; base uid-app 18b0ebc9d dispatch 43659613732 ebenfalls failed — die gesamte 0.4.28-kette kann damit keinen gruenen runtime-gate zeigen | (keine — ambient-befund, keine lane-schuld) | blocker/qualitaet | MOEGHLICH HOCH — ein 0.4.27-tag-lauf wuerde dieselbe suite zeigen | ZWEIFEL (bestaetigt dreifach): Owner-Entscheidung noetig (release-Welt: Runner-/suite-ambiente vs. product-defect); Codeman haelt alle kartenaufnahmen auf review aus, bis gate wieder gruen beweisbar ist |
 
 ## Abarbeitet / abgegeben
 
