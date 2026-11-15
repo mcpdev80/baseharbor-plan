@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-contract-seam]
 repos: [mcpdev80/baseharbor]
 prs: []
 sources: []
-blocker: ""
+blocker: "BEHALLE-URTEIL (coord 2026-11-15, §3.3#8): prerequisites-stop AUFGEHOBN — seam kanban_status wait im 0.4.28-Schema = APPROVED auf af308e66d, nur MERGE fehlt (frost). Stapelregel: gefolgt am Kopf der Basis-LANE, gewartet auf Inhalte NIE auf Merge. PR #1575 content-complete (internal/capability/perses.go fail-closed 3-state seam + provider-contract-v1.md + tests); content-fertig, nur Merge frostgeboren. Basis af308e66d, PR-base lane-0428-075-perses-seam (retarget)."
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-088-r1 · **Priority:** normal  
+    **Blocker:** BEHALLE-URTEIL (coord 2026-11-15, §3.3\#8): prerequisites-stop AUFGEHOBN — seam kanban\_status wait im 0.4.28-Schema = APPROVED auf af308e66d, nur MERGE fehlt (frost). Stapelregel: gefolgt am Kopf der Basis-LANE, gewartet auf Inhalte NIE auf…  
     **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
     <!-- /generated:card -->
 
