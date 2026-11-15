@@ -29,7 +29,20 @@ Branch basis: lane-0428-075-perses-seam head af308e66d (PR base, retarget, no de
 - Seam card t-20261114-r28-perses-contract-seam state = `wait` (kanban_status=wait); wait_reason = "APPROVED auf af308e66d (act-1575-review-r8, plan 21b134d9); merge frost-bis".
 - Release-boundary card t-20261114-r28-perses-release-boundary state = `wait`; signal-inventory accepted.
 
+## Investigation findings (committed to evidence, not product)
+
+Read seam `af308e66` (branch worktree `/tmp/baseharbor-perses-wt`) and develop (`/tmp/baseharbor-dev-wt`).
+
+- capability/perses.go: declarative Perses management-provider descriptor + pinned release v0.55.1 (image persesdev/perses:v0.55.1, Prometheus plugin v0.6.0) + fail-closed ValidatePersesRelease() (empty version/image -> PersesNotConfiguredError; unknown auth class -> error) + public three-state PersesStatus {not_configured, configured_unverified, verified} + PersesManagementSurfaceNow(selected) grounded in manifest truth, Reachability always unverified.
+- manifest: optional services.perses selection (only valid under observability), round-trips parse/render, fail-closed without pinned release.
+- metrics/management_ui.go: VerifyPersesManagementUIAt(ctx) fail-closed — validates release, reports unverified (no Perses health probe exists here).
+- app/management_ui.go: observability surface declared only when observability.management_ui AND perses selected; auth class from perses.AuthClass().
+- CLI test app_perses_cli_test.go: drives genuine `baha status --json`; asserts perses field == configured_unverified, surface purpose=observability, auth=unsupported, reachability unverified.
+- RUNTIME SEAM (contract/lifecycle.go): InternalWorkloadProvider = {Preflight, Apply, WaitReady, Observe, Logs, Exec, Destroy} over model.WorkloadPlan (app/env/target/services/bindings) + model.Observation {Found, Services[]Ready}. External providers = versioned baseharbor.runtime.provider/v1 protocol.
+- Docker/Podman compose lifecycle lives in internal/runtime (compose_*.go, service_retirement.go, service_stop.go, stack.go with embedded assets/compose.yaml + compose-single.yaml; Prometheus rendered as managed service in internal/metrics/prometheus_render.go).
+
 ## BLOCKER (not an implementation stop)
+
 
 My card t-20261114-r28-perses-runtime is in state `waiting`, explicitly blocked on prerequisite t-20261114-r28-perses-contract-seam. That prerequisite is in state `wait`, NOT `accepted`. The transition `wait -> accepted` on the seam requires the Maintainer/Owner to merge PR #1575 — an action forbidden for a worker under the merge frost ("Frost: kein merge"). No newer Owner decision lifts the freeze; the Owner decision 2026-11-14-perses-replaces-grafana-v0428 confirms Perses cards "remain planned and depend on the same release startup".
 
