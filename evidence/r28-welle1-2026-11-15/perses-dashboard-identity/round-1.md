@@ -7,15 +7,15 @@
 
 ## PLAN
 
-- [x] Reality check: `git ls-remote origin` (baseharbor + baseharbor-plan), `plan.py show`/`claim`, branch provenance from `a270725bd`
-- [x] Inspect current Core source: metrics perses catalog, capability signal registry, Keycloak current metric signal, 0428-076 golden precedent
-- [ ] Implement identity panels in own file `internal/metrics/perses_identity_dashboards.go` (own catalog, disjoint write-set per FÄCHERREGEL); no edits to `perses_selection.go`
-- [ ] Add `identity-keycloak` backend + signal-zeugnis to selection catalog as BEFUND (file:line, exact 1–2 line proposal) for coordinator fan-in; do NOT edit
-- [ ] Golden-file tests per identity panel (real Keycloak fixture + no-data/unavailable), determinism, Perses-native JSON, key-mapping
-- [ ] Wire identity panels into CLI status JSON witness (own path; register wiring as BEFUND for coordinator fan-in)
-- [ ] `go vet`, `go test ./internal/metrics/... ./cmd/baha/...`, build binary
-- [ ] Draft PR (title 0428-078), push lane branch, evidence with ls-remote shas, cleanliness state
-- [ ] Down container stacks, END with head SHA
+- Reality check: `git ls-remote origin` (baseharbor + baseharbor-plan), `plan.py show`/`claim`, branch provenance from `a270725bd`
+- Inspect current Core source: metrics perses catalog, capability signal registry, Keycloak current metric signal, 0428-076 golden precedent
+- Implement identity panels in own file `internal/metrics/perses_identity_dashboards.go` (own catalog, disjoint write-set per FÄCHERREGEL); no edits to `perses_selection.go`
+- Add `identity-keycloak` backend + signal-zeugnis to selection catalog as BEFUND (file:line, exact 1–2 line proposal) for coordinator fan-in; do NOT edit
+- Golden-file tests per identity panel (real Keycloak fixture + no-data/unavailable), determinism, Perses-native JSON, key-mapping
+- Wire identity panels into CLI status JSON witness (own path; register wiring as BEFUND for coordinator fan-in)
+- `go vet`, `go test ./internal/metrics/... ./cmd/baha/...`, build binary
+- Draft PR (title 0428-078), push lane branch, evidence with ls-remote shas, cleanliness state
+- Down container stacks, END with head SHA
 
 ## Reality witnesses
 
