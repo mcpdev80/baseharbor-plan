@@ -29,6 +29,8 @@ Belegakte aller Funde: evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md (H-D28
 | LV-03 chain-lineage #1578/#1580 develop-siblings, base drift | (keine — prozess) | niedrig | nein | akzeptiert: autoreihenfolge statt git-linear, merge-window-regel deckt es |
 | LV-04 #1580 nicht im r2-stack | (keine) | info | nein | runde 3 holt es nach |
 
+| HOST-BEFUND /tmp: ~4GB root-eigene test-artefalte (go-toolchain-modcache in /tmp/clean-home-baha-style, root-inners in TestAccess...-dirs) — sweep-rechte reichen nicht | (keine — host-wartung) | betrieb | KEINE produkt-relevanz | OWNER: ein root-durchlauf loescht /tmp/clean-home-baha-style + /tmp/Test*root-Inhalte |
+
 ## Abarbeitet / abgegeben
 
 (noch keine)
