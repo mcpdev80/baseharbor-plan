@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
+owner: 9814002a
 kanban_status: wait
 kanban_lane: wait
 kanban_summary: "Deliver host/container panels only for actually available matching metrics, without adding privileged exporters."
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
+    **Owner:** 9814002a · **Priority:** normal  
     **PR:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
     **Waiting:** candidate \#1602 head ca8181c0ecc delivered; review-block: prereq 080 not accepted (plan.py gate)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
@@ -36,7 +36,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** 9814002a  
 **Priority:** normal  
 **PRs:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
 **Source:** 
