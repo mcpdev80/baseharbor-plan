@@ -10,7 +10,7 @@ parent: ""
 owner: ""
 kanban_status: planned
 kanban_lane: queued
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_summary: "H-D28 finding BF-03 on develop 0e9ccb582; owner-decision 2026-11-15: vor-TAG-FIX (mirroring BF-01) — fix lane, PR base develop, SHA in TRIAGE-QUEUE"
 kanban_title: "BF-03 persisted target selection in world-writable /tmp path"
 priority: ""
 depends_on: []
