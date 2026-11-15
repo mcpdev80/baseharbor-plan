@@ -66,6 +66,15 @@ Namenshinweis: dies ist die r3-KORREKTURRUNDE der Mission (Base cb4367f347). Die
 
 - Push triggered PR run "CI · Source & Quality" run-id 43768376429 on 293e0e05a — in progress at the time of writing this file; terminal outcome and test names are appended below in the follow-up section of this act (or the END post if the run completes first).
 
+## Hosted CI — terminal outcome (appended after watch)
+
+- Run 43768376429 completed: status=completed conclusion=SUCCESS. No failed job.
+- Executed and succeeded: "PR · Draft source and routing" (Validate changed Go formatting and CI routes), "PR · Draft Go · packages", "PR · Draft Go · cli-0" through "cli-2" (all shards success). Heavyweight/native/HA jobs correctly skipped for a draft source-only candidate.
+- Log witnesses for the touched packages (job PR · Draft Go · packages):
+  - `ok  	github.com/mcpdev80/baseharbor/internal/application	2.705s`
+  - `ok  	github.com/mcpdev80/baseharbor/internal/capability	0.006s`
+  - `ok  	github.com/mcpdev80/baseharbor/internal/metrics	0.285s`
+
 ## END
 
 - New candidate head: 293e0e05ac04716e441a72679704cbfcc38d6e0e (ls-remote verified above).
