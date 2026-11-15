@@ -30,7 +30,8 @@ ROLLE: REVIEW
 
 - `parseServiceField` moved from `internal/application/manifest_parse.go` into `internal/application/manifest_parse_services.go`. The moved function body is unchanged; imports are in the new file. The lane reports the source-readability audit passing and an external comparison harness returning identical parser outputs on base and candidate for its scanned YAML and Perses grammar cases.
 - The descriptor test rewrite is present and retains its declared intent. Its positive validation and reference-catalog exclusion do not, however, resolve the contract issue below.
-- Planning `scripts/plan.py check`: 536 tasks, 7 epics, 13 releases and 22 decisions; **0 errors, 17 warnings**. The warnings concern existing unrelated dependency-state inconsistencies.
+- Planning `scripts/plan.py check` before publishing this artifact: 536 tasks, 7 epics, 13 releases and 22 decisions; **0 errors, 17 warnings**. The warnings concern existing unrelated dependency-state inconsistencies.
+- After a concurrent `main` commit was integrated during the push rebase, the final check failed on that new task's malformed source reference: `tasks/t-20261115-r28-podman-runtime-performance.md` has `sources: ["https://github.com/mcpdev80/baseharbor/issues/376"]`, while `plan.py` expects `repo#issue` and raises `ValueError: not enough values to unpack`. This review did not edit that unrelated task.
 
 ## Exact-head verification
 
