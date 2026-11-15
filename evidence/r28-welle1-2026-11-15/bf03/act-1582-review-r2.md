@@ -19,6 +19,12 @@ Planning repository root witness (`git rev-parse --show-toplevel`):
 /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
 ```
 
+Planning remote witness immediately before publication (`git ls-remote origin refs/heads/main`):
+
+```text
+16f815784d34652cc11cc257223ddc30ddbd7274	refs/heads/main
+```
+
 Product `git ls-remote` witness:
 
 ```text
