@@ -8,10 +8,10 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 priority: normal
-owner: ""
-kanban_lane: ready
+owner: worker-0427-020-ci-consumption (ornith-laptop)
+kanban_lane: active
 kanban_summary: ""
-kanban_status: planned
+kanban_status: active
 kanban_title: "0427-020 · Deferred CI consumption"
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-docs, t-20261018-r27-public-surfaces, t-20261022-r27-ci-delivery]
 repos: [mcpdev80/baseharbor]
@@ -23,18 +23,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/planned #view/ready #area/docs #kind/task
+- [ ] t-20261018-r27-ci-consumption · Deferred CI consumption examples for accepted product APIs #task #release/v0-4-28 #status/active #view/active #area/docs #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** worker-0427-020-ci-consumption (ornith-laptop) · **Priority:** normal  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-docs](t-20261018-r27-docs.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261022-r27-ci-delivery](t-20261022-r27-ci-delivery.md)  
 **Required by:** [t-20261018-r27-video-proof](t-20261018-r27-video-proof.md)  
-**Owner:** unassigned  
+**Owner:** worker-0427-020-ci-consumption (ornith-laptop)  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
