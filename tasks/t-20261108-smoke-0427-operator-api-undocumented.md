@@ -8,8 +8,9 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: flash-lane mission-169-runbook (session 0427-169)
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
+wait_reason: "approved on 20e0537c (act-1587-review-r1); frost-bis, dann 0.4.28 window"
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
@@ -23,15 +24,16 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa
 early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/review #view/review #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/wait #view/wait #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** flash-lane mission-169-runbook (session 0427-169) · **Priority:** normal  
     **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
+    **Waiting:** approved on 20e0537c (act-1587-review-r1); frost-bis, dann 0.4.28 window  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** flash-lane mission-169-runbook (session 0427-169)  
