@@ -15,7 +15,7 @@ kanban_title: "0427-187 · BF-03: persisted target selection must not live in wo
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: ["https://github.com/mcpdev80/baseharbor/pull/1582"]
+prs: ["mcpdev80/baseharbor#1582"]
 sources: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 blocker: ""
 wait_reason: ""
