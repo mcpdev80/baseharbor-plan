@@ -8,33 +8,35 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: flash-lane mission-169-runbook (session 0427-169)
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: A developer can start and use the Core operator API from documentation alone.
 kanban_title: 0427-169 · operator API runbook missing
 priority: normal
 depends_on: [t-20261017-release-0-4-27-updates, t-20261018-r27-connection-client]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: ["mcpdev80/baseharbor#1587"]
 sources: []
 blocker: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md"]
 early: true
 ---
 
-- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/active #view/active #area/cli #area/docs #kind/bug
+- [ ] t-20261108-smoke-0427-operator-api-undocumented · Remote Core: API route runbook missing #task #release/v0-4-28 #status/review #view/review #area/cli #area/docs #kind/bug
     <!-- generated:card -->
     **Owner:** flash-lane mission-169-runbook (session 0427-169) · **Priority:** normal  
+    **PR:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/fe99e1298005246dfaa6e3986acde9d35d1ed389/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-27-updates](t-20261017-release-0-4-27-updates.md), [t-20261018-r27-connection-client](t-20261018-r27-connection-client.md)  
 **Owner:** flash-lane mission-169-runbook (session 0427-169)  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1587](https://github.com/mcpdev80/baseharbor/pull/1587)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,6 +77,7 @@ A developer can start and use the Core operator API from documentation alone.
 
 ## Handoff
 
+- 2026-11-15 lane flash (0427-169): runbook published as draft PR [#1587](https://github.com/mcpdev80/baseharbor/pull/1587) (docs-only candidate 20e0537cc3332c53500091ca1776fc6b408670d0, base develop 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, ancestry verified; CI run 43709246427 completed/success observed). Scope kept to the supported authenticated workstation-to-Core path; unverified topology stays labeled spec-only per the 2026-11-14 clarification. Evidence file: [akte.md](https://github.com/mcpdev80/baseharbor-plan/blob/8a65515263b712bac757ac137e14f6265c518d61/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md) (immutable at the review-publishing commit). Awaiting CODEX-REVIEW and merge; no product behavior change.
 - Found 2026-11-08 in E2E smoke-test (API route requirement confirmed with maintainer mid-run). Newest first.
 
 ## E2E follow-up 2026-11-08
