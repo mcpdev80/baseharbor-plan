@@ -160,3 +160,8 @@ END_BLOCKED mission-closeout27.md: closeout dossier published; all three cards b
 ### Remaining qualification state
 
 The merge conflict is resolved on the PR branch. Release qualification is still incomplete: CI has not yet reported checks for `5c6744dc6ba149ae2aedc2016a459d3dfb068f4b`, and the full pre-release run on this exact head remains required. No release-ready, promotion, tag or publication claim is made.
+
+
+## CI follow-up — 2026-11-15
+
+GitHub Actions run [43656135702](https://github.com/mcpdev80/baseharbor/actions/runs/43656135702), run #5949, was associated with PR #1574 at head `5c6744dc6ba149ae2aedc2016a459d3dfb068f4b`. Its conclusion was `skipped`; all listed jobs were skipped, including Release Source Preflight, Workflow policy, Go unit shards and PR Selected Checks. This is not a CI pass. PR #1574 remains Draft and mergeable; no full pre-release run has completed on this head.
