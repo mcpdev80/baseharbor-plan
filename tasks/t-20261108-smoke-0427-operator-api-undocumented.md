@@ -77,7 +77,7 @@ A developer can start and use the Core operator API from documentation alone.
 
 ## Handoff
 
-- 2026-11-15 lane flash (0427-169): runbook published as draft PR [#1587](https://github.com/mcpdev80/baseharbor/pull/1587) (docs-only candidate 20e0537cc3332c53500091ca1776fc6b408670d0, base develop 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, ancestry verified; CI run 43709246427 completed/success observed). Scope kept to the supported authenticated workstation-to-Core path; unverified topology stays labeled spec-only per the 2026-11-14 clarification. Evidence file: [akte.md](../blob/8a65515263b712bac757ac137e14f6265c518d61/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md) (immutable at the review-publishing commit). Awaiting CODEX-REVIEW and merge; no product behavior change.
+- 2026-11-15 lane flash (0427-169): runbook published as draft PR [#1587](https://github.com/mcpdev80/baseharbor/pull/1587) (docs-only candidate 20e0537cc3332c53500091ca1776fc6b408670d0, base develop 0e9ccb582f5bdcdc74049bbe3996263cdce6500c, ancestry verified; CI run 43709246427 completed/success observed). Scope kept to the supported authenticated workstation-to-Core path; unverified topology stays labeled spec-only per the 2026-11-14 clarification. Evidence file: [akte.md](https://github.com/mcpdev80/baseharbor-plan/blob/8a65515263b712bac757ac137e14f6265c518d61/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md) (immutable at the review-publishing commit). Awaiting CODEX-REVIEW and merge; no product behavior change.
 - Found 2026-11-08 in E2E smoke-test (API route requirement confirmed with maintainer mid-run). Newest first.
 
 ## E2E follow-up 2026-11-08
