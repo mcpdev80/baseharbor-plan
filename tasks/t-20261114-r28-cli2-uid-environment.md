@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-uid-environment
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Introduce logical environment identity. Follow the owner working brief, command mapping and code entry index; revalidate current…"
 kanban_title: 0428-051 · Introduce logical Env identity
 priority: high
@@ -18,15 +18,16 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1578]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "approved on 756d21b7 (act-1578-review-r1); frost-bis, dann uid-app->uid-env->uid-target"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-uid-environment · CLI redesign: Introduce logical environment identity #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-uid-environment · CLI redesign: Introduce logical environment identity #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-uid-environment · **Priority:** high  
     **PR:** [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578)  
+    **Waiting:** approved on 756d21b7 (act-1578-review-r1); frost-bis, dann uid-app-\>uid-env-\>uid-target  
     **Needs:** [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
     <!-- /generated:card -->
 
@@ -34,7 +35,7 @@ STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->
 
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
 **Required by:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md), [t-20261114-r28-cli2-env-registry](t-20261114-r28-cli2-env-registry.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
