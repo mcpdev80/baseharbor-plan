@@ -59,6 +59,13 @@ Model: Ornith-Laptop · Session: 476ffa1d-add0-483f-bd43-a8a318d1b888
 ## End state
 
 - Candidate branch: wt-0428-081 (base a270725bd, verified).
-- Commit SHA pending first commit + push.
-- PR: draft, title contains 0428-081, base = lane-0428-080-r28-perses-selection.
+- Implementation commit: `8221f51b6` (single commit, on top of a270725bd; git log lists only my own commit).
+- Implementation pushed: `git push -u origin wt-0428-081` => OK.
+- Draft PR: **#1604** https://github.com/mcpdev80/baseharbor/pull/1604
+  - Title: `[0428-081] Perses-native Valkey dashboard (explicit UNAVAILABLE)` (contains 0428-081).
+  - Base: `lane-0428-080-r28-perses-selection` (verified via ls-remote = a270725bd).
+  - Head: `wt-0428-081`. State: OPEN, draft.
+- Evidence on planning origin/main: `a3e11b2f` (file `evidence/r28-welle1-2026-11-15/perses-dashboard-valkey/round-1.md` confirmed in remote main tree).
+- No Docker/Podman containers started (clean).
 - CI dispatched by coordinator (per mission).
+- Card state: active (reflects draft-PR candidate; not review/accepted).
