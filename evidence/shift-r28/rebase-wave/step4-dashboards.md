@@ -130,6 +130,15 @@ All four PRs remain OPEN and DRAFT (not promoted):
 
 Selection target unchanged: `lane-0428-080-r28-perses-selection` = `8ce0df9148e4f388ba18386e3b731f1fc2cbd500`.
 
+## Evidence on origin/main (required before END)
+
+`git ls-remote origin HEAD` (planning repo mcpdev80/baseharbor-plan):
+```
+55d20758fe96823216169dc73d8d3279c66bc019	refs/heads/main
+```
+Commit `55d20758` = "evidence r28 step4: four dashboard followers merged with Perses selection head".
+Evidence path present on origin/main: `evidence/shift-r28/rebase-wave/step4-dashboards.md`.
+
 ## END
 
 STATUS: DONE
