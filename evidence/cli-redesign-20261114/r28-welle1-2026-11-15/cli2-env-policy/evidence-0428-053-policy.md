@@ -18,15 +18,15 @@ Worker session: 227fd65a · model: Ornith (confirmed at spawn)
 
 ## BASE ATTESTATION
 
-- Cut ref: `lane-0428-env-registry` @ `b85efaf6c94cd158de68a6b8f837dc4a23be455a`
-- `git merge-base --is-ancestor b85efaf6c... HEAD` → true (base is ancestor of my commit 018b4e58a).
+- Cut ref (base): `lane-0428-env-registry` @ `b85efaf6c94cd158de68a6b8f837dc4a23be455a` (0428-054 delivered HEAD).
+- Candidate head branch: `cli2-env-policy-head` @ `018b4e58a3aaf417f61b6b1c2bb37c1c17a49ccc` (my single commit on top of b85efaf6).
+- `git merge-base --is-ancestor b85efaf6c... cli2-env-policy-head` → true (base is ancestor of my commit 018b4e58a).
 - Only my commit sits on top of the base:
   ```
   018b4e58a fix(0428-053): replace name-based env policy with explicit trustedLocal policy
   b85efaf6c internal/deployment: env-registry app/target/node association on environment.json (0428-054, owner ruling B)
-  3a91e2a83 target: fix CLI cmd/baha unit tests for read-triggered UID migration
   ```
-- PR base = this same branch (`lane-0428-env-registry`), no develop PR (owner ruling).
+- PR: #1594 (draft), base `lane-0428-env-registry` (b85efaf6, stack-rule), head `cli2-env-policy-head`. No develop PR (owner ruling).
 
 ## SCOPE (card + owner note 2026-11-15)
 
@@ -95,10 +95,9 @@ Baseline (base lane b85efaf6) was green before any change; all above green after
 
 ## CI STATE (Owner scope — reported, not fixed)
 
-- Commit `018b4e58a` pushed to `lane-0428-env-registry` at 2026-11-15 (~20:12 UTC).
-- PR #1591 (head `lane-0428-env-registry`, base `lane-0428-uid-target`) automatically carries my commit as head.
-- GitHub CI on `lane-0428-env-registry`: no run has picked up `018b4e58a`. The `validate` group's `push` trigger (ci.yml lines ~8-16) only fires on `runtime-validation/**` branches; `pull_request` fires only on develop/main. A lane PR (#1591 → lane-0428-uid-target) matches neither, and CI runs on other lane SHAs are currently failing under the ongoing CI repair.
-- This is a CI-routing/infra condition during repair, NOT caused by this change (all affected local suites green). Per Owner scope-split: `.github/**` not edited, no rerun/workflow_dispatch issued. Finding: lane PRs need a CI trigger (e.g. add `lane-0428-env-registry` or a `lane-0428-*` pattern to ci.yml push branches, or route lane PRs through develop) so new tests become durable evidence — Owner scope.
+- Draft PR #1594 (base `lane-0428-env-registry` b85efaf6, head `cli2-env-policy-head` 018b4e58a).
+- GitHub CI on lane-PRs: no run has picked up `018b4e58a`. The `validate` group's `push` trigger (ci.yml lines ~8-16) only fires on `runtime-validation/**` branches; `pull_request` fires only on develop/main. A lane PR (#1594 → lane-0428-env-registry) matches neither, and CI runs on other lane SHAs are currently failing under the ongoing CI repair.
+- This is a CI-routing/infra condition during repair, NOT caused by this change (all affected local suites green). Per Owner scope-split: `.github/**` not edited, no rerun/workflow_dispatch issued. Finding: lane PRs need a CI trigger (e.g. add `lane-0428-*` or a broader lane pattern to ci.yml push branches, or route lane PRs through develop) so new tests become durable evidence — Owner scope.
 
 ## EVIDENCE LAYOUT (baseharbor-plan ONLY, never a product repo)
 
@@ -107,7 +106,8 @@ Baseline (base lane b85efaf6) was green before any change; all above green after
 
 ## HANDOFF
 
-- Branch/commit: `lane-0428-env-registry` @ `018b4e58a3aaf417f61b6b1c2bb37c1c17a49ccc` (base b85efaf6c, only my commit on top).
+- Head branch/commit: `cli2-env-policy-head` @ `018b4e58a3aaf417f61b6b1c2bb37c1c17a49ccc` (base b85efaf6c, only my commit on top).
+- PR: #1594 (draft), base `lane-0428-env-registry` (b85efaf6, stack-rule), head `cli2-env-policy-head`. No develop PR (owner ruling).
 - Tests → check/gate → trigger → result: above.
 - Remaining gap: CI has not executed on this SHA (routing during repair, Owner scope). Acceptance must be blocked until actual execution is proven OR the Owner routes lane PRs into a CI-triggering group.
 - No release/tag authorized.
