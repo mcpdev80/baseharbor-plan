@@ -92,3 +92,5 @@ r2 auf luna-recipe: head cb4367f347, exact-head ci dispatcht
 r2 head cb4367f347 (ancestry ok), exact-head ci dispatcht
 
 test
+
+r2 head cb4367f347; exact-head ci = nach rate-reset (owner-/coord-dispatch)
