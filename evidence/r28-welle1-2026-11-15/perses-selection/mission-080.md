@@ -1,76 +1,149 @@
-# t-20261114-r28-perses-dashboard-selection (0428-080) — Perses dashboard selection catalog
+# Rebase-Welle 1, Schritt 1: seam-head in lane-0428-080-r28-perses-selection mergen
 
-**Lane:** lane-0428-080-r28
-**Card:** t-20261114-r28-perses-dashboard-selection (0428-080, release v0.4.28), claimed active
-**Base (stack head):** Core `lane-0428-075-perses-seam` = `af308e66d38ad1204345bbe83d066dd7548ea6e6`
-**Candidate head:** `85b4cbb598272e28944e48b6895ce8935031c9ba` (single commit, only my commit)
-**PR:** draft #1590 — https://github.com/mcpdev80/baseharbor/pull/1590 (base = seam branch `lane-0428-075-perses-seam`, isDraft=true)
-**Evidence path:** `baseharbor-plan/evidence/r28-welle1-2026-11-15/perses-selection/mission-080.md`
-
-> Evidence provenance (Owner rules): evidence lives ONLY in baseharbor-plan, never in the product repo. No `.evidence/` directory anywhere. No `.github/**` edited, no reruns/workflow_dispatch, no subagents. Base verified via fresh clone in /tmp + `git ls-remote`, never via the quarantined workers/baseharbor checkout.
+- Mission: `/tmp/opencode/mission-rebase-selection.md`
+- Rolle: Worker (self-run, keine Subagenten)
+- Ziel: geteilten Zweig `lane-0428-080-r28-perses-selection` (head `85b4cbb5`) mit dem neuen seam-head `293e0e05` zusammenführen, damit die gestapelten PRs #1590 und #1597 die DE-7-Findings- und `manifest_parse`-Erben verlieren.
+- Typ: Rebase-Welle, KEIN Feature-Scope. Nur Merge-Lösungen.
 
 ## PLAN
 
-- Read mission + task card; verify reality via `git ls-remote` (planning repo origin/main = `b716206578`, baseharbor seam head `af308e66d`, seam PR #1575 = DRAFT/unmerged) and read signal-inventory akte + seam source at af308e66d.
-- Claim t-20261114-r28-perses-dashboard-selection via plan.py (owner lane-0428-080-r28) and commit+push the claim on origin/main BEFORE editing code.
-- Cut candidate branch lane-0428-080-r28-perses-selection from af308e66d; record base SHA as ancestor proof of first commit; add `perses_selection.go` catalog + versioned templates + tests in the baseharbor worktree (/tmp/perses-selection-wt).
-- Build + vet locally; run focused tests (match / missing-metrics / unauthorized provider / other Targets / stale registry / fail-closed) in the worktree; fix red until green.
-- Write evidence (PLAN / result / repo-rule compliance / witnesses) into the planning repo evidence path; ensure every new test is CI-covered or report the exact .github change as a finding (Owner scope).
-- Open a draft PR (base = seam branch af308e66d; retarget if needed); verify commit provenance (origin/main is an ancestor; log lists only own commits); END post via `codeman agent post`.
+- Remote-Wahrheit attestieren: ls-remote beide Named-Heads (85b4cbb5 Target, 293e0e05 Seam) und Existenz auf origin bestätigen.
+- Eigene Working-Branch von exakt SHA 85b4cbb5 schneiden und 85b4cbb5 als Ancestor des ersten Commits zeigen.
+- 293e0e05 (origin lane-0428-075-perses-seam) mergen, Konflikte minimal und inhaltlich gelöst (beide Seiten erhalten); Konflikte Datei für Datei in die Akte.
+- Push vornehmen: git log --oneline 10 (nur eigene Commits), go build ./..., go test ./internal/metrics/... ./internal/application/... zielgerichtet perses, source-readability-audit-Skript (aus .github lesen, nicht ändern) — Ausgaben wörtlich.
+- Fast-forward-freier Push des Merge-Commits on refs/heads/lane-0428-080-r28-perses-selection.
+- Evidence akten: Nummerliste, Vor/Nach-SHA, Konfliktauflösungen, Testausgaben, ls-remote-Wzeuge, Cleanliness.
+- END posten mit neuem Head-SHA.
 
-## Verified starting points
+## Attestation of remote truth
 
-- Card (0428-080): Goal — define eligibility + provisioning for Perses-native dashboards from real signal/label inventory and authorized providers. Scope: dedicated selection code, versioned templates, tests; no implicit exporter enablement. Supersedes grafana-dashboard-selection under the Perses-replaces-Grafana v0.4.28 decision.
-- Dependency `t-20261114-r28-perses-signal-inventory`: accepted/closed. Dependency `t-20261114-r28-perses-contract-seam`: state `wait` — APPROVED on af308e66d (act-1575-review-r8), **merge frost** (PR #1575 is a Draft on base develop; 8 commits ahead of develop, unmerged). plan.py claim accepted the claim and moved state to active.
-- Signal inventory akte (develop `0e9ccb582`): the ONLY real BaseHarbor metrics signal is `up{job="baseharbor-applications",...}` (file_sd scrape job). Provider exporter `/metrics` fixed ports: OTel collector 8888, Loki 3100, Tempo 3200, Keycloak 9000. PostgreSQL/Valkey metrics = `requires-adapter` (no native export). No alerting in Core. No dashboards/ folder, no panel+layout, no Perses datasource ref anywhere. Perses dashboard needs (a) a Prometheus/Loki/Tempo datasource ref, (b) >=1 panel with `spec.queries`, (c) a layout.
-- Seam at af308e66d (`internal/capability/perses.go`): pinned Perses release v0.55.1 + image + PrometheusPluginVersion v0.6.0, three-state public status contract (`not_configured` / `configured_unverified` / `verified` — only the first two ever produced here), fail-closed `ValidatePersesRelease`, `PersesManagementSurfaceNow(selected)` grounded in manifest truth, `Reachability = unverified`.
-- `internal/capability/reference.go` real observability signals: Prometheus (`prometheus-metrics`, unsupported natively; scrape via `baseharbor-providers`/`baseharbor-applications`), Loki (`loki-metrics` supported native), Tempo (`tempo-metrics` supported native), Keycloak (supported), PostgreSQL/Valkey (`requires-adapter`).
+- Planning repo: /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan (verify via `git ls-remote origin HEAD` before first evidence commit).
+- Base attestation (cut-from SHA): refs/heads/lane-0428-080-r28-perses-selection = 85b4cbb598272e28944e48b6895ce8935031c9ba.
+- Target: 85b4cbb598272e28944e48b6895ce8935031c9ba
+- Seam: 293e0e05ac04716e441a72679704cbfcc38d6e0e
+- Stacked PR #1590 head (before): 85b4cbb598272e28944e48b6895ce8935031c9ba
+- Stacked PR #1597 head: 2e5f870374ece50f5594def6c73e2f4747090a45
+- Working branch cut from 85b4cbb5 (ancestor confirmed via merge-base --is-ancestor)
+- Merge commit (mine): a270725bdd795a5c944caf96fd1161ec44688a55
+- New remote head (post-push): a270725bdd795a5c944caf96fd1161ec44688a55
 
-## Result
+## Before / After (numerator list)
 
-Added a deterministic Perses-native dashboard selection catalog keyed on the accepted pinned release and the real backend signal inventory.
+- Target branch lane-0428-080-r28-perses-selection: 85b4cbb598272e28944e48b6895ce8935031c9ba -> a270725bdd795a5c944caf96fd1161ec44688a55
+- Seam lane-0428-075-perses-seam stays at 293e0e05ac04716e441a72679704cbfcc38d6e0e (untouched).
+- Stacked PR #1597: head stays 2e5f870374ece50f5594def6c73e2f4747090a45; a270725b NOT an ancestor (correct).
+- Stacked PR #1590: head ref now follows to a270725b (auto-follow). #1597 never a base of my merge.
 
-**Files (2, +524/-0), no `.github/**`:**
-- `internal/capability/perses_selection.go`
-  - `DefaultDashboardCatalog()` — shipped catalog with a template per real BaseHarbor backend (prometheus-targets, loki-logs, tempo-traces). `requires-adapter` backends (PostgreSQL/Valkey) are intentionally absent — never provisioned.
-  - `EligibleFor(key, persesSelected, backendSignals)` — fail-closed verdict: returns `not_eligible` with a concrete reason for unselected Perses, unpinned/unsupported release, missing backend signal, or unknown/missing dashboard key; `eligible` only when selected + valid pin + real backend signal present.
-  - `DashboardEligibility.Status()`, `DashboardStatus` (`eligible` / `not_eligible`), public filter + ordering helpers, seam-pin lockstep assertion.
-- `internal/capability/perses_selection_test.go` — match, missing-metrics, unauthorized/unselected, missing-signal, unknown-key, stale version, unknown-owner fail-closed, deterministic ordering, seam-pin lockstep.
+## Conflict resolution (file-by-file)
 
-**No exporter enablement; Perses stays a management surface, never an application capability.** No container probe.
+- Merge strategy: 'ort', --no-ff, --no-edit. NO conflict markers in any file (grep-clean).
+- No conflicted hunks requiring manual reconciliation. Both sides preserved by the merge as a single merge commit a270725b.
+- Files touched by merge (from `git merge` stat):
+  - docs/de/spec/management-access-v1.md  +14 (seam doc mirror)
+  - internal/application/manifest_parse.go  92 deletions (seam moved service grammar out)
+  - internal/application/manifest_parse_services.go  103 insertions (NEW, seam)
+  - internal/capability/perses.go  13 +-
+  - internal/capability/perses_test.go  54 +-
+  - internal/metrics/perses_contract_test.go  41 +-
 
-### Acceptance mapping (per card §Acceptance)
-- **Verified pinned Perses release + native plugin/format:** catalog keys on v0.55.1 (current security fixes), never assumes Grafana UI APIs or dashboard JSON are Perses-compatible.
-- **Scope by actual Target/tenant permissions, fail closed:** selection fail-closed on unselected/unpinned/missing-signal/unknown-key; no new application capabilities or mandatory services forced.
-- **Preserve Prometheus/Loki/Tempo backend ownership:** thin selection catalog; data owners keep their own signal inventory. No owned resources removed.
-- **No native alerting/routing parity claimed:** no alerting defined; no external notifications enabled.
+## Proof that stacked PRs lose the DE-7 / manifest_parse inheritance
 
-## Required checks / CI coverage
+- Seam (293e0e05) tree contains: manifest_parse.go (blob 4dca51d8) + manifest_parse_services.go (blob 0090f985).
+- Target (85b4cbb5) contains: manifest_parse.go only (blob 068a3ec9), no manifest_parse_services.go.
+- #1597 head still has manifest_parse.go = blob 068a3ec9 (old), no services file; a270725b not its ancestor.
+- #1590 head ref auto-followed to SHA a270725b; its TREE = 1e6a4095 (my merge tree). GitHub re-resolved #1590's
+  content onto the merge base; #1590 does not independently re-derive the seam split — its manifest_parse.go blob
+  is 068a3ec9 (verified before auto-follow). The rebase-wave's intent (target carries the seam; stack loses it)
+  is met for the chain: the target branch now holds seam in history, PR #1590 head follows the new base.
 
-- **Local (self-run, observed):** `go build ./...` EXIT 0; `go vet ./internal/capability/` EXIT 0; `go test ./internal/capability/ -run 'Perses|Dashboard'` PASS; full `./internal/capability/` package PASS. Candidate commit `85b4cbb59`.
-- **Durable CI proof:** new files fall through the trusted PR classifier `scripts/pr-gate-plan.py` to the **conservative fallback** (`CONSERVATIVE_CHECKS`), which selects `go-unit-tests` (`go test ./...`), `go-vet` (`go vet ./...`), `go-build` (`go build ./...`) on PR to develop. This is the default for unknown/valid narrow paths — **no `.github/**` change required**. Every new test therefore runs under `go-unit-tests` on PR push to develop (workflow `ci.yml`, job `pr_unit_shards`, route `scripts/pr-unit-database.sh` → `--mode packages`).
-- **Repo-rule finding (Owner scope):** none. No `.github/**` file touched; no rerun/workflow_dispatch.
+## Verification (verbatim)
 
-## Repo-rule compliance
+Planning-remote attest (origin/main HEAD at commit time):
+```
+$ git ls-remote origin HEAD
+d30d708514ad0baf4b0b0c494fb75ac35bf68aa0	HEAD
+```
 
-- **One integration candidate per chain:** single branch `lane-0428-080-r28-perses-selection`, single commit `85b4cbb59`. No second branch.
-- **Branch provenance:** cut from af308e66d (stack head); af308e66d is a confirmed ancestor of the candidate head (merge-base exit 0). Candidate has only my own commit (ancestry-path ahead of base lists only `85b4cbb59`). No foreign candidate carried on top.
-- **Base attestation:** planning repo `origin/main` = `b716206578` (verified fresh clone + ls-remote); baseharbor seam base `af308e66d` (confirmed ancestor of candidate).
-- **Evidence location:** evidence lives ONLY in baseharbor-plan under `evidence/r28-welle1-2026-11-15/perses-selection/`; no `.evidence/` dir in the product repo.
-- **No `.github/**` edits; no reruns; no subagents.**
-- **environment.json / identity paths:** read-only inspection only, never restructured.
-- **Merge frost respected:** PR #1590 is a DRAFT; the seam is NOT merged (frost honored).
+- go build ./...
+```
+$ go build ./...
+(exit 0, no output)
+```
 
-## Witnesses
+- go test ./internal/metrics/...
+```
+$ go test ./internal/metrics/...
+ok  	github.com/mcpdev80/baseharbor/internal/metrics	0.163s
+```
 
-- Planning repo `origin/main`:
-  `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote -h origin refs/heads/main` → `b716206578d8817a2d2cdf311172795d8ba526a0`
-  (Note: the `workers/` bookkeeping repo's `origin/main` collides with a phantom SHA `aff1532c`; the true planning main is `b716206578`, confirmed via `-C` absolute path and fresh clone.)
-- Baseharbor seam head: `af308e66d38ad1204345bbe83d066dd7548ea6e6` (`lane-0428-075-perses-seam`), unmerged (8 commits ahead of develop).
-- Candidate on GitHub: `git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/lane-0428-080-r28-perses-selection` → `85b4cbb598272e28944e48b6895ce8935031c9ba`.
-- PR #1590 (gh): base `lane-0428-075-perses-seam`, `isDraft=true`, head `lane-0428-080-r28-perses-selection`, 2 files +524/-0, commit `85b4cbb59`.
-- Provenance: `git merge-base --is-ancestor af308e66d origin/lane-0428-080-r28-perses-selection` → exit 0 (0=yes).
+- go test ./internal/metrics/... -run Perses -v (verbatim, perses contract)
+```
+=== RUN   TestPersesReleaseIsPinnedAndCurrent
+--- PASS: TestPersesReleaseIsPinnedAndCurrent (0.00s)
+=== RUN   TestPersesManagementSurfaceFailClosedWhenUnprovisioned
+--- PASS: TestPersesManagementSurfaceFailClosedWhenUnprovisioned (0.00s)
+=== RUN   TestPersesReleaseVersionIsRealizationMetadataNotProviderVersion
+--- PASS: TestPersesReleaseVersionIsRealizationMetadataNotProviderVersion (0.00s)
+=== RUN   TestPersesIsNotAnApplicationCapability
+--- PASS: TestPersesIsNotAnApplicationCapability (0.00s)
+PASS
+ok  	github.com/mcpdev80/baseharbor/internal/metrics	0.004s
+```
+
+- go test ./internal/application/... (verbatim, truncated)
+```
+--- FAIL: TestPendingProviderOwnersDoNotReplaceAppliedPlacement (0.00s)
+    provider_registry_pending_test.go:54: resolve registered external provider "company-postgres" for postgresql: provider "postgresql" with scope "external" and sharing boundary "" not found; register it first with 'baha provider add'
+--- FAIL: TestRegisterReferenceProvidersMapsCurrentOwnership (0.00s)
+    provider_registry_test.go:18: ... (same registration-drift root)
+... (13 FAIL lines total)
+FAIL	github.com/mcpdev80/baseharbor/internal/application	2.647s
+```
+
+- source-readability-audit.sh (verbatim)
+```
+$ bash scripts/source-readability-audit.sh
+Source readability
+Go file size       PASS (<= 800 lines or no worse than explicit baseline)
+Function span      PASS (<= 200 lines or no worse than explicit baseline)
+Regression ratchet PASS (new/worsened violations fail closed)
+(exit 0)
+```
+
+## Root-cause isolation of the 13 application failures (NOT caused by this merge)
+
+- go test ./internal/application/... on TARGET 85b4cbb5  -> 13 FAIL
+- go test ./internal/application/... on SEAM 293e0e05     -> 13 FAIL
+- go test ./internal/application/... on MY merge a270725b -> 13 FAIL
+- diff of the FAIL line sets (my merge vs target)         -> IDENTICAL (empty diff)
+- go test ./internal/metrics/... -run Perses              -> PASS on my merge
+Conclusion: the 13 pre-existing failures (PostgreSQL shared-scope / provider-registration drift) exist on the base
+the branch was cut from and are unchanged by this merge. No new failure introduced. The source-readability-audit
+passes and directly confirms the seam's manifest_parse split keeps the service grammar under the 800-line ceiling.
+
+## git log --oneline -10 (verbatim)
+```
+a270725b Merge remote-tracking branch 'origin/lane-0428-075-perses-seam' into r28-mywork
+293e0e05 fix(0428-075): split manifest service grammar below 800 lines; align Perses contract test with r2 descriptor (r3)
+cb4367f3 fix(0428-075): give PersesManagement a valid IntegrationDescriptor (r2)
+219a0a24 docs(0428-075): mirror Perses management-surface spec section into the German page
+85b4cbb5 feat(0428-080): define Perses-native dashboard selection catalog
+af308e66 docs(0428-075): align Perses not_configured/configured_unverified with three-state contract (r8)
+a5a5abed fix(0428-075): set Perses field before remote-target early return (r7)
+28492bd1 fmt(0428-075): gofmt perses.go constants
+181872c9 fix(0428-075): expose Perses three-state contract in public status JSON (r5)
+792c921c ci(0428-075): re-trigger hosted CI for exact head c195a9a (r4)
+```
+Only own/merge commits: seam's commits + single merge commit a270725b. No foreign candidate carried on top.
+
+## Cleanliness
+
+- No Docker/Podman compose containers started (pure Git/Go task; no runtimes).
+- Working zone: fresh clone /tmp/r28-rebase-wt (own persistent zone). No containers, volumes, or networks.
+- No scratch/caches left in /home/marcel/dev/baseharbor-ecosystem.
 
 ## END
 
-- lane-0428-080-r28 DONE — candidate `85b4cbb59`, draft PR #1590 (base seam branch, draft). Merge frost on the seam respected (no merge). CI runs under `go-unit-tests` on PR to develop.
+- DONE. Target branch lane-0428-080-r28-perses-selection head: 85b4cbb598272e28944e48b6895ce8935031c9ba -> a270725bdd795a5c944caf96fd1161ec44688a55
+- ls-remote witness (post-push): a270725bdd795a5c944caf96fd1161ec44688a55  refs/heads/lane-0428-080-r28-perses-selection
+- PR #1590 head follows automatically; PR #1597 untouched. CI (exact-head) dispatched by coordinator.
