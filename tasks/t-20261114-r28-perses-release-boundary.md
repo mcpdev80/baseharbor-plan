@@ -7,9 +7,9 @@ areas: [release, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: lane-0428-092-seam-r2
-kanban_status: wait
-kanban_lane: wait
+owner: "lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert)"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Align current Core release/audit entry points with the accepted public scope: Core, Demo, the delivered CLI and optional Perses.…"
 kanban_title: 0428-092 · Align release docs with Perses
 priority: high
@@ -18,23 +18,22 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1577]
 sources: []
 blocker: ""
-wait_reason: "text selbst bestanden; blockierer liegt in PR #1575 (status-unterscheidung konfiguriert vs. erreichbar) — nach dessenannahme gemeinschaftliches urteil"
+
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/wait #view/wait #area/documentation #area/release #kind/task
+- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/active #view/active #area/documentation #area/release #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0428-092-seam-r2 · **Priority:** high  
+    **Owner:** lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert) · **Priority:** high  
     **PR:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
-    **Waiting:** text selbst bestanden; blockierer liegt in PR \#1575 (status-unterscheidung konfiguriert vs. erreichbar) — nach dessenannahme gemeinschaftliches urteil  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** lane-0428-092-seam-r2  
+**Owner:** lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert)  
 **Priority:** high  
 **PRs:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
 **Source:** 
