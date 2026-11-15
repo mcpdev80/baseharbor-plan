@@ -21,6 +21,8 @@ Belegakte aller Funde: evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md (H-D28
 
 | Q-RUNTIME serial-runtime-integration failt auf purer develop (0e9ccb582): workflow_dispatch 43630766290 completed/failure, Gegenlauf 43660888288 ebenfalls completed/FAILURE — BESTAETIGT auf purer develop; base uid-app 18b0ebc9d dispatch 43659613732 ebenfalls failed — die gesamte 0.4.28-kette kann damit keinen gruenen runtime-gate zeigen | (keine — ambient-befund, keine lane-schuld) | blocker/qualitaet | MOEGHLICH HOCH — ein 0.4.27-tag-lauf wuerde dieselbe suite zeigen | ZWEIFEL (bestaetigt dreifach): Owner-Entscheidung noetig (release-Welt: Runner-/suite-ambiente vs. product-defect); Codeman haelt alle kartenaufnahmen auf review aus, bis gate wieder gruen beweisbar ist |
 
+| Q-CIFIRE pull_request-suite feuert strukturell nicht auf lane-branches (ci.yml pfad-/ref-regel: pull_request nur develop/main, validate excludes pull_request) — gestoerte PR-gates bleiben "skipped", re-trigger-pushing hilft nicht | (keine — infra) | blocker/prozess | BETRIFFT QUALIFIKATION — derselbe gate-pfad gilt fuer 0.4.27-qualify | OWNER-SCOPE: .github ist owner-hand; belege: lane evidence 503f344e + runs 43658208331/43659613732 (identische failing lines, pre-existing belegt) |
+
 ## Abarbeitet / abgegeben
 
 (noch keine)
