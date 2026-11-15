@@ -81,3 +81,17 @@ Publication preflight, exact `git ls-remote origin refs/heads/main` output:
 ```
 
 The planning repository root was verified above. This review did not create a branch, so no branch-cut base attestation applies.
+
+Fresh follow-up status before posting this QUESTION: PR #1585 remains open at head `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0`; run `43685670514` is now `completed/success` on that exact head. This supersedes the earlier in-progress observation above but does not change the review target pinned by this mission (`8041a9f...`).
+
+Pre-push `git ls-remote origin refs/heads/main` output:
+
+```text
+9badcb003d9083f9c30d4ae56ddd0bc1f6c19a60	refs/heads/main
+```
+
+Follow-up publication preflight, exact `git ls-remote origin refs/heads/main` output:
+
+```text
+20968f414bb7ba31c996f3e7b31b8b41b6a57cd3	refs/heads/main
+```
