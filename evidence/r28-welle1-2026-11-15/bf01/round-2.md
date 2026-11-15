@@ -3,7 +3,7 @@
 - Mission: `/tmp/opencode/mission-bf01-fix.md` / `mission-bf01-fix2.md` (card `t-20261115-bughunt-d28-state-dir-target` = 0427-189)
 - Rolle: FIX-LANE (continuation of round-1, same claim `lane-0428-fix-bf01` (flash))
 - Coordinator-Inbox: `594fd2f5-4e80-43b6-9841-92879146a85e`
-- Produktzweig: `lane-0428-fix-bf01-v2` (inzwischen identischer HEAD wie `lane-0428-fix-bf01`), DRAFT PRs: https://github.com/mcpdev80/baseharbor/pull/1584 (round-1) und https://github.com/mcpdev80/baseharbor/pull/1585 (round-2, gleicher Kopf)
+- Produktzweig: `lane-0428-fix-bf01-v2` (inzwischen identischer HEAD wie `lane-0428-fix-bf01`), DRAFT PR: https://github.com/mcpdev80/baseharbor/pull/1585 (round-1 war #1584, wegen veralteter Kopf-Historie geschlossen)
 - Kandidat SHA (final): `8041a9f0119e390e03533082da05f9d62bdcc7e1`
 - Base: develop `0e9ccb582f5bdcdc74049bbe3996263cdce6500c` (ls-remote witness unten)
 - Worktree: `/home/marcel/dev/baseharbor-ecosystem/workers/.models/flash/bf01-base-wt`

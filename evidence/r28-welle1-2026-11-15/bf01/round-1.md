@@ -131,4 +131,4 @@ f048627c14164cb4c0a147e997e80ac92d076668	refs/heads/lane-0428-fix-bf01
 
 ## END
 
-END_PENDING (set to END_DONE with the terminal hosted-run state and origin/main ls-tree witness before the END post).
+END_KORRIGIERT: Der gehostete Lauf 43680573412 (CI PR #1584) endete failure (nur access_wizard-Zellen, siehe round-2); die Zeile 'red on the mechanism paths the fix touches' ist zurueckgenommen - der Test ist auf base 0e9ccb582 GRUEN (doppelte Worktree-Wiederholung). Konsolidierter Kandidat und terminal gruener Lauf: round-2.md (PR #1585, Run 43684179345, success).
