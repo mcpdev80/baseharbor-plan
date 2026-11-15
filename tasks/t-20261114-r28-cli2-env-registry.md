@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-env-registry
-kanban_status: review
-kanban_lane: review
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Implement environment registry. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-054 · Implement Env registry
 priority: high
@@ -18,20 +18,21 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1591]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "approved on b85efaf6 (act-1591-review-r1); frost-bis, dann window in stack-reihenfolge"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-env-registry · CLI redesign: Implement environment registry #task #release/v0-4-28 #status/wait #view/wait #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-env-registry · **Priority:** high  
     **PR:** [baseharbor#1591](https://github.com/mcpdev80/baseharbor/pull/1591)  
+    **Waiting:** approved on b85efaf6 (act-1591-review-r1); frost-bis, dann window in stack-reihenfolge  
     **Needs:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-uid-environment](t-20261114-r28-cli2-uid-environment.md), [t-20261114-r28-cli2-uid-target](t-20261114-r28-cli2-uid-target.md)  
 **Required by:** [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-context-shell](t-20261114-r28-cli2-context-shell.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-org-env](t-20261114-r28-cli2-org-env.md)  
