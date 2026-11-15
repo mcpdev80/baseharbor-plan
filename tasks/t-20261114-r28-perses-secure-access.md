@@ -8,35 +8,37 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: welle2-089
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
 kanban_title: 0428-089 · Protect Perses operator access
 priority: normal
 depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1599]
 sources: []
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** welle2-089 · **Priority:** normal  
+    **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
     **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** welle2-089  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -75,3 +77,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-access.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+candidate 872c6c70 on lane-welle2-089-perses-secure-access, draft PR #1599 against base lane-0428-075-perses-seam (cb4367f3). 59 Perses cells pass; one failing check in internal/metrics reported as STATE and assigned to 0428-075.
