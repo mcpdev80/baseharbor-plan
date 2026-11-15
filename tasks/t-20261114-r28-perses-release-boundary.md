@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert)"
-kanban_status: review
-kanban_lane: review
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Align current Core release/audit entry points with the accepted public scope: Core, Demo, the delivered CLI and optional Perses.…"
 kanban_title: 0428-092 · Align release docs with Perses
 priority: high
@@ -23,14 +23,14 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/review #view/review #area/documentation #area/release #kind/task
+- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/active #view/active #area/documentation #area/release #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert) · **Priority:** high  
     **PR:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert)  
@@ -53,6 +53,9 @@ Align current Core release/audit entry points with the accepted public scope: Co
 
 All live v0.4.28 Core entry points, documentation and selected gates consistently exclude archived repositories while honestly covering shipped supported functionality; Perses is optional and not asserted implemented. Exact impacted tests and docs audit map to actual existing CI triggers. Codex/Owner-delegated Maintainer reviews exact HEAD and merges only after required real checks.
 
+## Owner decision 2026-11-15 (option 1)
+
+The Perses contract in `docs/spec/` (the spec file touched by accepted seam #1575, i.e. `management-access-v1.md`) stays the ONLY normative source. Prose and release notes in this PR must not mirror normative sentences: replace deviating mirrors with a clear pointer to the spec plus a short factual summary. One mechanical correction round; the reviewer then checks #1577 against this approach once.
 ## Handoff
 
 Planned, unassigned. No product work or release authorization.
