@@ -35,7 +35,7 @@
 
 ## Combined build
 
-- Combined tree HEAD (throwaway): ad80d7559 lv3 combined: store.go union resolve BF-01/BF-03
+- Combined tree HEAD (throwaway): ad80d7559 lv3 combined: store.go union resolve BF-01/BF-03 (only my commits on top of the merged 9 PR heads)
 - Build: go build -o /tmp/opencode/lv3-baha-combined ./cmd/baha -> BUILD EXIT 0
 - Version line: baha dev (commit none, built unknown)
 - store.go BF-01/BF-03 conflict resolved as union of pr1582 + pr1585 additions (StateRootOwnsOrganizationState, OrganizationTargetSelection, underRoot, selectsWithin, sort import) — no duplicate symbols, build green
