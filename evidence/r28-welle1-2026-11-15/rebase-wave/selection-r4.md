@@ -58,26 +58,36 @@ Merge lane-0428-080-r28-perses-selection (selection head ~a270725bd) with the AC
 ## Merge result
 
 - Method: normal fast-forward-protected merge (git merge 492b8e8f) of seam-head into selection working branch. No rebase, no force-push.
-- Merge commit SHA: (recorded at push time)
+- Merge commit SHA: 8ce0df9148e4f388ba18386e3b731f1fc2cbd500
 - Parent 1 (selection head): a270725bdd795a5c944caf96fd1161ec44688a55
 - Parent 2 (seam head): 492b8e8f994b16e6f73819a08175f8178cd63292
+- Ancestor checks: `git merge-base --is-ancestor a270725b HEAD` -> YES; `git merge-base --is-ancestor 492b8e8f HEAD` -> YES.
+- `git log --oneline -3`: 8ce0df914 (this merge) / 492b8e8f (seam) / a270725b (selection base). Only my merge commit on top; no foreign commit carried.
+- `git diff --check`: clean (no conflict markers).
 
 ## Conflict list (file-for-file)
 
-- (to be filled: list every file with a conflict marker and its bilateral resolution)
-- If no conflicts: no conflicts; merge is a clean three-way combining both heads' Perses changes.
+- No conflict markers; clean three-way merge. Changed files (all bilateral Perses changes preserved, both heads' contributions present):
+  - internal/capability/perses.go — 90 lines changed: Perses now a distinct management-surface contract (from seam) on top of the selection work.
+  - internal/capability/perses_test.go — 144 lines changed.
+  - internal/metrics/perses_contract_test.go — 50 lines changed.
+  - Net: 192 insertions, 92 deletions. No file required manual conflict resolution; both heads' semantics retained.
 
 ## Tests
 
-- go build ./...: (output)
-- go test ./internal/metrics/... -run Perses: (output)
-- source-readability audit (>800 lines?): (verbatim)
+- go build ./...: EXIT 0 (no errors).
+- go test ./internal/metrics/... -run Perses -count=1: ok github.com/mcpdev80/baseharbor/internal/metrics 0.006s — EXIT 0.
+- go vet ./internal/metrics/...: EXIT 0; go vet ./internal/capability/...: EXIT 0.
+- source-readability audit (>800 lines?): verbatim from scripts/source-readability-audit.sh — "Go file size PASS (<= 800 lines or no worse than explicit baseline) / Function span PASS (<= 200 lines or no worse than explicit baseline) / Regression ratchet PASS". Changed file sizes: perses.go 302 lines, perses_test.go 164 lines, perses_contract_test.go 81 lines — all well under 800.
 
 ## Before / After SHAs
 
-- Before (selection head): a270725bdd795a5c944caf96fd1161ec44688a55
-- Seam head merged: 492b8e8f994b16e6f73819a08175f8178cd63292
-- After (new selection head): (recorded at push time)
+- Before (selection head / base cut from): a270725bdd795a5c944caf96fd1161ec44688a55
+- Seam head merged (accepted): 492b8e8f994b16e6f73819a08175f8178cd63292
+- After (new selection head / merge commit): 8ce0df9148e4f388ba18386e3b731f1fc2cbd500
+- Remote head now: `git ls-remote origin lane-0428-080-r28-perses-selection` -> 8ce0df9148e4f388ba18386e3b731f1fc2cbd500
+- PR #1590 head: `git ls-remote origin refs/pull/1590/head` -> 8ce0df9148e4f388ba18386e3b731f1fc2cbd500
+- Stray temp branch work/0428-080-r28-selection-r4merge deleted from remote (before: 8ce0df914 present; after: gone). Only the named candidate carries the merge.
 
 ## Cleanliness
 
