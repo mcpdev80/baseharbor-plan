@@ -8,8 +8,9 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: lane-0428-088-r1
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
+prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
 priority: normal
