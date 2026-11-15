@@ -1,97 +1,99 @@
-# PR #1585 Review R1 — BF-01 state-dir honoring
+# PR #1585 Review R1 — BF-01 state-dir isolation
 
-ROLE: CODEX-REVIEW (no merge).
+ROLE: CODEX-REVIEW. No merge; frost remains in force.
 
 ## PLAN
 
-1. Verify exact PR #1585 head/base refs, ancestry and single-candidate log, metadata, prior PR #1584 closure, and exact-head run 43684179345.
-2. Compare the access/init test diff with `develop` to ensure green results come from correct state-dir honoring, not weakened expectations.
-3. Verify positive two-state-dir isolation, no temp-write regression per BF-03, and no duplicate registration.
-4. Write verdict and actionable recipe with exact witnesses and cherry-pick SHA if approved, validate and publish evidence on `origin/main`, then post END.
+1. Verify the current PR #1585 head and base, refs, ancestry, candidate commit list, and exact-head CI run.
+2. Compare access/init test changes and CI results; confirm no expectations were weakened.
+3. Review the current two-root isolation test and production state-root, temporary-write, and target-registration paths.
+4. Record the verdict and correction recipe, validate and publish this evidence, then post END.
 
-## Review evidence
+## Review target and remote witnesses
 
-Requested review target: PR #1585, base `develop` at `0e9ccb582f5bdcdc74049bbe3996263cdce6500c`, head `8041a9f0119e390e03533082da05f9d62bdcc7e1`, branch `lane-0428-fix-bf01-v2`.
+The owner corrected the dispatch pin. I reviewed the current exact candidate `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0` against `develop` at `0e9ccb582f5bdcdc74049bbe3996263cdce6500c`.
 
-Planning repository identity, verified before evidence commit:
-`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel` => `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan`
-
-Exact refs observed at initial review:
-`git ls-remote https://github.com/mcpdev80/baseharbor.git refs/heads/develop refs/heads/lane-0428-fix-bf01-v2 refs/pull/1584/head refs/pull/1585/head`
+Planning repository identity, verified before evidence publication:
 
 ```text
-0e9ccb582f5bdcdc74049bbe3996263cdce6500c	refs/heads/develop
-8041a9f0119e390e03533082da05f9d62bdcc7e1	refs/heads/lane-0428-fix-bf01-v2
-f048627c14164cb4c0a147e997e80ac92d076668	refs/pull/1584/head
-8041a9f0119e390e03533082da05f9d62bdcc7e1	refs/pull/1585/head
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse --show-toplevel
+/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan
 ```
 
-Exact metadata observed at initial review:
-
-```json
-{"baseRefName":"develop","headRefName":"lane-0428-fix-bf01-v2","headRefOid":"8041a9f0119e390e03533082da05f9d62bdcc7e1","isDraft":true,"number":1585,"state":"OPEN","url":"https://github.com/mcpdev80/baseharbor/pull/1585"}
-{"baseRefName":"develop","closedAt":"2026-11-15T06:21:32Z","headRefName":"lane-0428-fix-bf01","headRefOid":"f048627c14164cb4c0a147e997e80ac92d076668","isDraft":true,"number":1584,"state":"CLOSED","url":"https://github.com/mcpdev80/baseharbor/pull/1584"}
-```
-
-Exact requested run witness:
-
-```json
-{"conclusion":"success","databaseId":43684179345,"event":"pull_request","headSha":"8041a9f0119e390e03533082da05f9d62bdcc7e1","status":"completed","workflowName":"CI · Source & Quality"}
-```
-
-The exact requested head is an ancestor of base `develop`. `git log --oneline develop..8041a9f0119e390e03533082da05f9d62bdcc7e1` listed only the three BF-01 chain commits: `8041a9f0` (organization-default registration boundary), `f048627c` (state-root target selection), and `18c922e3` (isolation regression). The predecessor PR #1584 is closed without merge. The source/test diff against develop changed no existing access/init tests: the only test-path change is the added `cmd/baha/target_selection_state_dir_isolation_test.go` (164 lines). `git diff --check` passed.
-
-The exact-head CI jobs observed completed successfully: Go CLI shards cli-0 through cli-3, packages, and source/routing. The logs report `PASS cli-0: 408 passed / 13 intentionally skipped / 421 discovered`, `PASS cli-1: 403 passed / 10 intentionally skipped / 413 discovered`, `PASS cli-2: 408 passed / 19 intentionally skipped / 427 discovered`, and `PASS cli-3: 394 passed / 15 intentionally skipped / 409 discovered`; `internal/orgconfig` package log is `ok`. The failed run on the closed predecessor is historical and is not the exact-head run requested here.
-
-Code review at the requested SHA found target selection rooted under `BASEHARBOR_STATE_DIR/config/active-target` through `TargetSelectionRoot`, with XDG/user config precedence only when the override is absent. Organization active state is rejected under an isolated root unless its resolution or cache reference belongs to that root. The added regression gives A and B separate roots, checks A's persisted selection is absent in B, checks B fails closed without naming A's target, then activates B and confirms A remains selected when returning to A. No existing expectations were weakened. The production diff adds no temporary-directory fallback/write path and does not introduce a second target-registration source; the registration check reads the existing `deployment.Config.Targets` map. Temporary directories are used only by the test fixture.
-
-## State change during review
-
-Before this evidence was finalized, a fresh remote read showed the exact PR branch had advanced beyond the mission target. Latest witnesses:
+Fresh product refs:
 
 ```text
 0e9ccb582f5bdcdc74049bbe3996263cdce6500c	refs/heads/develop
 7bdeaa08499f4b3d8113d537a48e36d4f9881bf0	refs/heads/lane-0428-fix-bf01
 7bdeaa08499f4b3d8113d537a48e36d4f9881bf0	refs/heads/lane-0428-fix-bf01-v2
-f048627c14164cb4c0a147e997e80ac92d076668	refs/pull/1584/head
 7bdeaa08499f4b3d8113d537a48e36d4f9881bf0	refs/pull/1585/head
-7bdeaa08499f4b3d8113d537a48e36d4f9881bf0	refs/pull/1586/head
 ```
 
-Current PR #1585 metadata is `{"baseRefName":"develop","headRefName":"lane-0428-fix-bf01-v2","headRefOid":"7bdeaa08499f4b3d8113d537a48e36d4f9881bf0","state":"OPEN","url":"https://github.com/mcpdev80/baseharbor/pull/1585"}`. Run `43685670514` is for that new head and is currently `in_progress`; no workflow was triggered by this review. Since the task contract pins the reviewed SHA to `8041a9f...`, this is a scope change. I am withholding APPROVE/REJECT and requesting direction on whether to review the new exact head `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0` after its run becomes terminal.
+Current PR metadata:
 
-No product files, PR state, or workflow files were modified. No tests were run locally.
+```json
+{"baseRefName":"develop","headRefName":"lane-0428-fix-bf01-v2","headRefOid":"7bdeaa08499f4b3d8113d537a48e36d4f9881bf0","isDraft":true,"state":"OPEN","url":"https://github.com/mcpdev80/baseharbor/pull/1585"}
+```
+
+PR #1584 is closed without merge at `f048627c14164cb4c0a147e997e80ac92d076668`; duplicate PR #1586 is closed at the reviewed `7bdeaa0` head. The two live branch names both resolve to the same current candidate. `develop` is an ancestor of the reviewed head. The complete log above base contains only this BF-01 chain:
+
+```text
+7bdeaa084 test(cli): mirror real organization-state placement in the BF-01 regression
+8041a9f01 fix(cli): keep foreign organization defaults out of isolated state roots
+f048627c1 fix(cli): state-root override owns target selection state
+18c922e37 test(cli): add BF-01 state-dir target-selection isolation regression
+```
+
+## CI evidence
+
+Exact run witness:
+
+```json
+{"conclusion":"success","databaseId":43685670514,"event":"pull_request","headSha":"7bdeaa08499f4b3d8113d537a48e36d4f9881bf0","status":"completed","workflowName":"CI · Source & Quality"}
+```
+
+Run `43685670514` completed successfully on the exact reviewed head. The `pull_request` trigger executed `PR · Draft Go · cli-0` through `cli-3` and `PR · Draft Go · packages`; all five jobs completed successfully. The shard logs report cli-0 `408 passed / 13 skipped / 421 discovered`, cli-1 `403 / 10 / 413`, cli-2 `408 / 19 / 427`, and cli-3 `394 / 15 / 409`; `internal/orgconfig` reports `ok`. Source and routing job `132725534769` also succeeded. The new test is in `cmd/baha`, covered by the CLI package shards on PR pushes. No workflow file was changed or rerun by this review.
+
+## Review findings
+
+No existing `TestAccessAssign*`, `TestAccessOffboard*`, or `TestGuidedInit*` test was changed. The only test-path delta against develop is the added `cmd/baha/target_selection_state_dir_isolation_test.go`; its 7bde amendment changes only that new fixture/assertion. The access/init green result is therefore not caused by weakened expectations.
+
+The production diff keeps target selection under `BASEHARBOR_STATE_DIR/config/active-target`, filters active organization state whose source/cache is outside the selected root, and checks organization-default targets against the existing `deployment.Config.Targets` registry. It adds no second target-registration store and no production temporary-directory fallback/write. `t.TempDir()` is confined to test fixtures. No BF-03 temporary-persistence behavior was changed. `git diff --check` passed.
+
+The new test does positively assert that A's persisted selection is absent from B and that switching B to `beta` leaves A's `alpha` selection intact. However, its central resolver assertion does not exercise the organization-default path or the new registration-boundary guard. At lines 57 and 84, B has two registered targets (`beta`, `gamma`), no persisted B selection, and no configured default. `effectiveTarget` calls `selectedTargetName` first; `cmd/baha/target_selection.go:92-97` returns “multiple deployment targets configured” before `cmd/baha/target.go:98` can call `resolveTargetWithOrganization`. The test at `target_selection_state_dir_isolation_test.go:84-90` accepts any error that omits `alpha`, so that unrelated ambiguity error satisfies it.
+
+I ran the exact new test file against both the candidate and `develop` code. Both passed:
+
+```text
+Candidate 7bdeaa084, with its test file:
+ok   github.com/mcpdev80/baseharbor/cmd/baha  0.026s
+
+develop 0e9ccb582, with the same 7bdeaa084 test file:
+ok   github.com/mcpdev80/baseharbor/cmd/baha  0.021s
+```
+
+The first local attempt did not reach test execution because inherited Go temp/cache paths were read-only. Re-running with `TMPDIR`, `GOTMPDIR`, and `GOCACHE` under `/tmp/opencode` produced the two results above. CI independently ran the same package on the candidate.
+
+Thus the reported round-3 “red on base” claim is not reproduced: the current test passes unchanged against base. More importantly, the test does not distinguish the candidate's new guard from the pre-existing multiple-target selection error. This leaves the changed behavior without a discriminating regression assertion.
+
+## Actionable correction
+
+Keep the two-root persisted-selection assertions, but separately exercise the organization resolver without an earlier ambiguous-selection return. A focused same-package test can call `resolveTargetWithOrganization` with no explicit or user selection, a root-local organization default of `local`, and B registrations that omit `local`. Candidate code should reject that organization default at the state-root registration boundary; the base resolver would otherwise accept the built-in `local` fallback. Assert the specific boundary error (and the root-local valid-target case) so the test fails on base for the intended reason. Keep the test in `cmd/baha`; the existing `PR · Draft Go · cli-*` jobs selected by the `pull_request` trigger already cover it. Then update the exact-head CI receipt.
 
 ## repo-rule compliance
 
-Read-only CODEX-REVIEW. Fresh product clone under `/tmp/opencode/w1585-pr1585-review-r1-wt`; no product writes. No workflow edits, reruns, or dispatches. Evidence is in the planning repository only. Existing unrelated modification `evidence/r28-welle1-2026-11-15/bf01/round-1.md` was preserved.
+Read-only CODEX-REVIEW. Product source was not modified; the candidate and base test runs used separate worktrees under `/tmp/opencode`. No PR, workflow, or develop state was changed. Evidence is in the actual `baseharbor-plan` repository. No branch was created by this review, so a branch-cut attestation does not apply. No containers were started.
 
 ## Verdict
 
-QUESTION: target PR moved from the mission-pinned SHA while this review was in progress. No verdict is issued against the stale SHA and no cherry-pick receipt is provided pending confirmation of the new target.
+**REJECT** candidate `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0` for the non-discriminating BF-01 regression test described above. The code change is narrowly scoped and CI is green, but the added assertion passes on base and exits through the pre-existing ambiguity error before testing the new organization-default guard. Recipe: bypass that early selection error in a focused resolver test, assert the new registration-boundary result, and prove the test fails on base and passes on the candidate. No cherry-pick SHA is provided.
 
-END BLOCKED
+Planning validation is recorded after running `python3 scripts/plan.py check`; its result is `536 tasks, 7 epics, 13 releases, 22 decisions; 0 errors, 12 warnings`.
 
-Planning validation: `python3 scripts/plan.py check` completed with `536 tasks, 7 epics, 13 releases, 22 decisions; 0 errors, 12 warnings`. Warnings are the existing accepted/dependency and active/dependency notices printed by the validator.
-
-Publication preflight, exact `git ls-remote origin refs/heads/main` output:
-
-```text
-0d117bd3fec101300c674437c9fcaf108ab5e2be	refs/heads/main
-```
-
-The planning repository root was verified above. This review did not create a branch, so no branch-cut base attestation applies.
-
-Fresh follow-up status before posting this QUESTION: PR #1585 remains open at head `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0`; run `43685670514` is now `completed/success` on that exact head. This supersedes the earlier in-progress observation above but does not change the review target pinned by this mission (`8041a9f...`).
+END_DONE: Review complete, verdict REJECT on exact candidate `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0`; PR #1585 remains draft and unmerged.
 
 Pre-push `git ls-remote origin refs/heads/main` output:
 
 ```text
-9badcb003d9083f9c30d4ae56ddd0bc1f6c19a60	refs/heads/main
-```
-
-Follow-up publication preflight, exact `git ls-remote origin refs/heads/main` output:
-
-```text
-20968f414bb7ba31c996f3e7b31b8b41b6a57cd3	refs/heads/main
+8153a1de1f21a2d856fa0c67707f81380cbd73a9	refs/heads/main
 ```
