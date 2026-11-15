@@ -72,3 +72,16 @@ go build ./...  => ok
 - Keine grüne pr-run erreichbar; keine weitere CI-Aktion ohne neue Owner-Entscheidung.
 - Next End an `594fd2f5`, sobald ein pull_request-lauf auf dem neuen Kopf
   terminal grün ODER als base-stain belegt ist (base-stain hier belegt).
+
+## Round-5-Vermerk (Owner-Entscheidung B, warm gehalten)
+- **B-Entscheidung (owner 08:4xZ):** `envUid` wird EIGENE `environment.json`
+  identity record pro target (kein feld in deployment-records). Mein #1580-stand
+  `0770fbdb` ist laut owner korrekt auf dieser base (env-r5 `f353d1f73`) aufgebaut.
+- **Aufgabe:** auf den neuen #1578-head der 051-lane (post von mir selbst per
+  rebase) rebase auf lane-0428-uid-target, merge-base-ancestry zeugen, run
+  terminal, akte round-5, END. Bis dahin warm halten, nichts pushen.
+- **Befund (2026-11-15 ~08:5x):** 051-lane noch NICHT im repo (keine
+  branch-ref, kein neuer commit auf uid-environment). Draft #1580 steht
+  unverändert bei `0770fbdb`.环境 build repaired (stales `/var/tmp/gotmp-bf01`
+  recreated) + unit-scope grün (`internal/deployment` ok, `cmd/baha` UID-Tests ok).
+  Kein push — post #1578 der 051-lane folgt erst. Warm gehalten.
