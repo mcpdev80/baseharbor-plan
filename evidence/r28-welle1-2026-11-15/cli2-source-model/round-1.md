@@ -79,17 +79,25 @@ eda0cd61cc182d071657ac64848cf5cb306e30be	refs/heads/lane-0428-059-cli2-source-mo
 eda0cd61cc182d071657ac64848cf5cb306e30be	refs/pull/1595/head
 ```
 
+## CI STATE WITNESS (recorded, no dispatch by this lane — scope split)
+- `gh run list --repo mcpdev80/baseharbor --branch lane-0428-uid-target`: the base branch itself has recent "CI · Source & Quality" runs; run 43755008378 on exactly my base head 3a91e2a8 (workflow_dispatch) concluded **failure** — the base chain is red BEFORE my commit; run 43647367175 success, older ones failure. My PR #1595 gets no checks because pull_request only targets develop/main (finding above).
+- Base-failure inspection (one job log from 43755008378) is recommended to the coordinator; per the CI-execution discipline I do not launch replacement runs for inputs I did not change.
+- PR content witness: `gh pr diff 1595 --name-only` == `git diff --name-only 3a91e2a8..HEAD` (19 files, identical) — the PR carries ONLY my slice, no foreign candidate on top.
+
 ## RESULT
-- Focused local runs (TMPDIR off the quota-carrying /tmp):
-  - `go test ./internal/development/ ./cmd/baha/ -run 'TestWorkspace|TestSource|TestResolve|TestRemoveSource|TestMachine|TestCommandTree|TestHelp|TestHumanCommandIndex' -count=1` → both `ok` (incl. all new tests and regenerated-documentation gate tests).
-  - `go build ./...`, `go vet ./...` clean; `gofmt -l cmd internal` clean.
-  - `bash scripts/documentation-audit.sh` exit 0 (incl. DE technical integrity after the paired DE updates); `bash scripts/source-readability-audit.sh` exit 0.
-  - Real CLI smoke on the built binary: init --local / path set / path --show-current / missing-dir refusal / show — outputs recorded in this round (see smoke notes in PR).
-- Exact CI results on eda0cd61c: appended below after terminal observation (Eigenes-Run-Pflicht).
+- Full local package runs at candidate SHA eda0cd61c (go 1.26, host linux, TMPDIR off the quota tmpfs):
+  - `go test ./internal/development/ -count=1`: all tests PASS except TestStagePinnedGitTreeExportsCommitNotDirtyWorktree ("native Git archive failed: signal: killed") — reproduced identically at baseline (git stash of all changes), i.e. NOT caused by this slice; environment artifact documented below.
+  - `go test ./cmd/baha/ -count=1 -timeout 25m`: 4 FAILs: TestNonTTYBackupDefaultUsesProtectedExternalArchive, TestAppEditCommandCompleteProviderEditRunsRealLifecycle ("start real isolated Core for App Edit: existing native network lacks a protected Core or shared backend owner" — needs the isolated Core runtime this host cannot provide), TestSharedBackendReconcileRejectsSecondProcess, TestPrepareStagedCoreGitCandidatePinsCanonicalApplication (60s git-archive kill, same artifact). These same tests failed in the pre-change baseline run recorded earlier this shift (w059-full-tests.log at 3a91e2a8+stash); none touches workspace/source paths. All Workspace*/Source*/Machine*/CommandTree*/Help*/Human* tests PASS.
+  - Focused: `go test ./cmd/baha/ ./internal/development/ -count=1 -run 'TestWorkspace|TestSource|TestResolve|TestRemoveSource|TestMachine|TestCommandTree|TestHelp|TestHumanCommandIndex'` → both `ok`.
+  - `go build ./...`, `go vet ./...` clean; `gofmt -l` clean; `bash scripts/documentation-audit.sh` exit 0; `bash scripts/source-readability-audit.sh` exit 0.
+  - Real-binary smoke on the candidate build (init --local, path set/show/refusal, show, source add/remove, component add/list/remove, root namespace): outputs recorded in PR discussion of this round's commits; key witnesses embedded in tests.
 
 ## Environment caveat (documented, not a candidate defect)
-- This host's /tmp is tmpfs with usrquota and ~2.6G free; the pre-existing heavy tests TestStagePinnedGitTreeExportsCommitNotDirtyWorktree / TestPrepareStagedCoreGitCandidatePinsCanonicalApplication (64 MiB writes + native `git archive`) fail here with "disk quota exceeded"/"signal: killed" both WITH and WITHOUT my changes (baseline stash-run reproduced identically). Full-package runs therefore used TMPDIR=/home/marcel/dev/baseharbor-ecosystem/workers/tmp-w059. GitHub CI (ubuntu runners, no such quota) executes the same tests.
-- One Go-toolchain quirk found while diagnosing: `exec.Cmd.Wait` after a StdoutPipe EOF can hang past the test timeout when the 60 s command-context cancel raced (goroutine dump in the log; also observed in a standalone reproducer, git 2.53.0). Pre-existing product code path, untouched by this slice; recorded as an observation, no scope taken.
+- This host's /tmp is tmpfs with usrquota and ~2.6G free; the pre-existing heavy tests TestStagePinnedGitTreeExportsCommitNotDirtyWorktree / TestPrepareStagedCoreGitCandidatePinsCanonicalApplication (64 MiB writes + native `git archive`) fail here with "disk quota exceeded"/"signal: killed". Both failures are reproduced WITHOUT my changes (baseline stash run, this shift): TestStagePinnedGitTree failed at the unmodified base 3a91e2a8 in /tmp AND passed in the disk-quota-free TMPDIR (see w059-dev-final.log), so the cause is the tmpfs usrquota environment, not product code and not this slice. GitHub CI runs the same tests on quota-free runners.
+- Related observation (diagnostics, no scope taken): the 64 MiB snapshot test TestSourceSnapshotNilHookAbortAtLayer1 and the archive tests depend on free tmpfs quota; the 60 s context-cancel path of StagePinnedGitTree surfaced a `cmd.Wait` goroutine dump during diagnosis. Pre-existing code path, untouched here.
+
+## END
+END_DONE mission-059cli.md: 0428-059 source-model slice delivered — branch lane-0428-059-cli2-source-model, candidate SHA eda0cd61cc182d071657ac64848cf5cb306e30be, draft PR https://github.com/mcpdev80/baseharbor/pull/1595 (base lane-0428-uid-target, retarget stack per STAPELREGEL), no merge (frost), no .github/** change; CI trigger finding recorded in this akte.
 
 ## repo-rule compliance
 - Smallest correct design: only the slice's files; no neighboring scans, no artificial components; every refusal carries an actionable next step (guidelines §§1-2, 6, 11).
@@ -102,8 +110,20 @@ eda0cd61cc182d071657ac64848cf5cb306e30be	refs/pull/1595/head
 ## Witness: no writes to reserved files
 ```
 git diff --name-only 3a91e2a8..HEAD | grep -E '^\.github/|^cmd/baha/commands\.go$' || echo RESERVED-CLEAN
+RESERVED-CLEAN
 ```
-(result appended after commit)
+
+## Planning repo witness (mandated before first evidence commit)
+```
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote get-url origin
+https://github.com/mcpdev80/baseharbor-plan.git
+```
+
+## Second-to-last action witness (run at END, output pasted below before push)
+```
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main -- evidence/r28-welle1-2026-11-15/cli2-source-model
+```
+(output appended immediately before this file's final push)
 
 ## Cleanliness
 - No containers/compose/networks/volumes started by this lane (domain/CLI unit work only): `docker ps --format '{{.Names}}'` before first edit and at END show only pre-existing foreign stacks (witness appended at END). Scratch zones: /tmp/opencode/w059cli-wt (worktree), /tmp/opencode/w059-*.log + smoke dirs, /home/marcel/dev/baseharbor-ecosystem/workers/tmp-w059 (test TMPDIR to dodge the /tmp usrquota artifact); none are product repos.
