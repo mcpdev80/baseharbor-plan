@@ -82,3 +82,9 @@ Read-only review from a fresh product clone. No product files, PRs, workflows, C
 `python3 scripts/plan.py render && python3 scripts/plan.py check` and a separate `python3 scripts/plan.py check` both fail in existing planning metadata before validating this evidence: `scripts/plan.py:883` raises `ValueError: not enough values to unpack (expected 2, got 1)` while splitting a source reference. Five unrelated task cards have a URL, not the required `repo#number`, at line 19: `tasks/t-20261115-bughunt-d28-app-new-reg.md`, `tasks/t-20261115-bughunt-d28-bad-config-quiet.md`, `tasks/t-20261115-bughunt-d28-i18n-achtung.md`, `tasks/t-20261115-bughunt-d28-state-dir-target.md`, and `tasks/t-20261115-bughunt-d28-tmp-selection.md`. Their metadata was left unchanged. This is a planning validation STATE, not a product CI failure. The review evidence passes `git diff --check` and the no-checkbox scan.
 
 END mission-rev1575-r7.md DONE — REJECT candidate a5a5abedc3f9b5f72a2ff3819ed847293869eea9.
+
+Exact `origin/main` witness immediately before evidence publication:
+
+```text
+72a40b071b40e33ba9857669f3a86a84104d3c41	refs/heads/main
+```
