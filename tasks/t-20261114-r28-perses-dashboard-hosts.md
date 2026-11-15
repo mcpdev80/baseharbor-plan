@@ -8,30 +8,30 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: ""
-kanban_status: planned
-kanban_lane: planned
+kanban_status: wait
+kanban_lane: wait
 kanban_summary: "Deliver host/container panels only for actually available matching metrics, without adding privileged exporters."
 kanban_title: 0428-077 · Perses host and container
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1602]
 sources: []
 blocker: ""
-wait_reason: ""
+wait_reason: "candidate #1602 head ca8181c0ecc delivered; review-block: prereq 080 not accepted (plan.py gate)"
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Waiting:** candidate \#1602 head ca8181c0ecc delivered; review-block: prereq 080 not accepted (plan.py gate)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** wait  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
@@ -74,3 +74,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashboard-hosts.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+akte dff7d9d5

@@ -10,9 +10,9 @@ parent: ""
 owner: ""
 kanban_status: planned
 source_note: "live-verify round-4 finding d3651819 (owner-seitiger Hinweis: drop bf01 orphan test)"
-kanban_lane: planned
-kanban_summary: ""
-kanban_title: "BF-01 orphan test removal: drop unreachable leftover test from bf01 lineage"
+kanban_lane: ready
+kanban_summary: "One or two sentences: the observable outcome."
+kanban_title: 0428-096 · drop unreachable leftover test
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -24,7 +24,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261115-bf01-orphan-test · BF-01 orphan test removal: drop unreachable leftover test from bf01 lineage #task #release/v0-4-28 #status/planned
+- [ ] t-20261115-bf01-orphan-test · BF-01 orphan test removal: drop unreachable leftover test from bf01 lineage #task #release/v0-4-28 #status/planned #view/ready #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Ready to assign** · prerequisites accepted  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** ready  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 
