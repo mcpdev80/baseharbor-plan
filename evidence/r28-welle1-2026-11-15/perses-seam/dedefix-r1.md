@@ -207,6 +207,18 @@ Der Push hat den PR-Lauf der Kette selbst ausgelöst:
   Board-Statuswechsel durch diese Lane (Coordinator-Aktion), kein Merge, kein
   Release, kein Tag.
 
+## Evidence-Push-Zeuge (zweitletzte Aktion)
+
+```
+$ git ls-remote origin refs/heads/main
+c451f6862110b551b89fa29c5c9e390e3b28a9ac	refs/heads/main
+```
+
+Verifiziert im Frisch-Clone `/tmp/opencode/plan-check-dedefix` (gleicher SHA,
+Pfad `evidence/r28-welle1-2026-11-15/perses-seam/dedefix-r1.md` vorhanden,
+12106 Bytes). Im selben Verzeichnis liegt `act-1575-review-r8.md` einer anderen
+Lane; die wurde nicht angefasst.
+
 ## END
 
 END_DONE mission-seam-dedefix.md: 7 DE-Literale in docs/spec/management-access-v1.md
