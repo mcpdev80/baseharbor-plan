@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v-0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
     **Ready to assign** · prerequisites accepted  

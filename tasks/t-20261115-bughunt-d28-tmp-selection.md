@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/v-0-4-27 #status/review #view/review #kind/task
+- [ ] t-20261115-bughunt-d28-tmp-selection · BF-03 persisted target selection in world-writable /tmp path #task #release/v0-4-27 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** lane-0427-187-fix-bf03 (ornith)  
     **PR:** [baseharbor#1582](https://github.com/mcpdev80/baseharbor/pull/1582)  

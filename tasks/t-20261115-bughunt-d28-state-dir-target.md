@@ -23,7 +23,7 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v-0-4-27 #status/active #view/active #kind/task
+- [ ] t-20261115-bughunt-d28-state-dir-target · BF-01 target selection ignores BASEHARBOR_STATE_DIR (reads foreign registrations) #task #release/v0-4-27 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** lane-0428-fix-bf01 (flash)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
