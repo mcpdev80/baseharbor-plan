@@ -88,6 +88,17 @@ Test-to-CI routing (kein neuer Test): Diese Akte fuegt keinen Test hinzu; das do
 
 Ausgeloest durch den PR-Push; Run 43709246427 (CI · Source & Quality, pull_request, branch work/r28-operator-api-runbook, head 20e0537cc3332c53500091ca1776fc6b408670d0). Terminaler Zustand beobachtet: `completed/success`, startedAt 2026-11-15T11:30:29Z, updatedAt 2026-11-15T11:34:36Z, https://github.com/mcpdev80/baseharbor/actions/runs/43709246427. Check-Ergebnisse: PR · Draft source and routing SUCCESS; PR · Draft Go · cli-0/cli-1/cli-2/cli-3 SUCCESS; PR · Draft Go · packages SUCCESS; Heavy-Gates SKIPPED (Draft/Zweck: docs-only). `documentation-audit` ist in diesem Run nicht ausgewaehlt (Docs-Zweck laeuft im vollen PR-Workflow); der lokale Vorlauf desselben Checks (`bash scripts/documentation-audit.sh` incl. Locale-Paritaet und Uebersetzungstreue) ist oben als PASS dokumentiert. KEIN Fehlcheck; damit kein STATE-Befund.
 
+## Evidence publishing (remote witness, second-to-last action)
+
+```
+git fetch -q origin main && git rev-parse origin/main
+8a65515263b712bac757ac137e14f6265c518d61
+curl -s -o /dev/null -w "akte-http:%{http_code}\n" "https://github.com/mcpdev80/baseharbor-plan/blob/8a65515263b712bac757ac137e14f6265c518d61/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md"
+akte-http:200
+```
+
+Die Akte liegt auf origin/main (Planning-Repo, Zonen-Zeuge oben). Karte auf review mit PR #1587 und Evidence-Link.
+
 ## END
 
 END_DONE mission-169-runbook.md: operator-API-Runbook EN/DE + serve-Help-Link, Kandidat 20e0537cc3332c53500091ca1776fc6b408670d0, PR #1587 (DRAFT, base develop), CI-Run 43709246427 beobachtet.
