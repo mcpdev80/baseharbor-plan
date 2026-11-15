@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w2026-084
+kanban_status: active
+kanban_lane: active
 kanban_summary: Guide enable/status/disable and ownership-safe removal of optional Perses using the accepted CLI contract; preserve monitoring…
 kanban_title: 0428-084 · Perses lifecycle commands
 priority: normal
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-lifecycle · Perses lifecycle commands #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** w2026-084 · **Priority:** normal  
     **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** w2026-084  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
