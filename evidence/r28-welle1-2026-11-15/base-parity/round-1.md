@@ -10,7 +10,7 @@ These geprüft: „alle failure-signaturen der 7 roten exact-head/runs sind base
 - Schritt 3: Zelle 1b/2 — Baseline-run 43757001183 + Signaturvergleich je PR — erledigt
 - Schritt 4: Zelle 3 — Verwurzelung (git log/annotate auf develop, file:line-Zeugen) — erledigt
 - Schritt 5: Zelle 4 — Urteil-Tabelle — erledigt
-- Schritt 6: Akte + Commit + Push auf origin/main + END — läuft
+- Schritt 6: Akte + Commit + Push auf origin/main + END — erledigt
 
 ## Planungszonen-Zeuge (Pflicht)
 
@@ -96,6 +96,9 @@ Gesamtthese: für 4/6 PRs voll bestätigt (base-parity). Für die Perses-Kette (
 - KEIN Produktkandidat, KEIN PR (Abnahme-/Zeugnis-Mission). Candidate = die 7 bestehenden gehosteten runs (URLs in Zelle 1-Tabelle; alle under https://github.com/mcpdev80/baseharbor/actions/runs/<id>).
 - Runs/Logs gemessen 2026-11-15 (MESZ) gegen exakte head SHAs (gh pr view headRefOid + ls-remote bestätigt).
 - Diese Akte enthält keine Markdown-Checkboxes (Kontrolle: `grep -cE '^\s*- \[' round-1.md` = 0, beim Commit-Lauf ausgeführt).
+
+- Witness (zweitletzte Aktion): `git ls-remote origin refs/heads/main` → `e5c4eccc… refs/heads/main` (finaler Evidence-SHA, verifiziert im Frisch-Clone plan-check mit Pfadliste).
+- These-Vergleich: alle Zellen sind runner-/base-seitige Defekte (Entscheidungsbaum, keine Einzelbehauptung): Signatur O und R reproduzieren wörtlich auf der develop-Baseline (Run 43757001183); die PR-Kandidaten ändern an den betroffenen Pfaden nichts (`git diff --name-only 0e9ccb582..head` leer je); Signatur D sitzt in EN-Doku-Commits, die nur in der Perses-Kette existieren (`gh pr diff --name-only` der PRs selbst = 0 doc-files; Kette-vs-develop = die 4 doc-Commits) — für diese Kette ist die These also widerlegt.
 
 ## repo-rule compliance
 
