@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: "ChatGPT"
-kanban_status: in_progress
-kanban_lane: in_progress
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Batch Podman runtime ownership and Quadlet inspections; prevent repeated discovery; prove Docker/Podman parity and timings."
 kanban_title: 0428-095 · Speed up Podman lifecycle
 priority: high
@@ -23,7 +23,7 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261115-r28-podman-runtime-performance · Speed up Podman lifecycle #task #release/v0-4-28 #status/in_progress #view/in_progress #area/runtime #kind/task
+- [ ] t-20261115-r28-podman-runtime-performance · Speed up Podman lifecycle #task #release/v0-4-28 #status/active #view/active #area/runtime #kind/task
 
 ## Implementation PR
 
