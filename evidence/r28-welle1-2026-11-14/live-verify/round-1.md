@@ -405,3 +405,22 @@ END status: END_DONE — mission delivered as redirected (deliver what is witnes
 diagnosis).
 END lane: live-verify (mission-live-verify.md), flash.
 Candidate SHA: none (no product candidate). Stack tip diagnosed: `2c6e7521a2cd3c65028ded2589d9350f851793d0`.
+
+Acta verification, run immediately before this push (`git ls-remote origin refs/heads/main` after
+pushing, and the product-ref witness proving no product branch was moved):
+
+```text
+$ git ls-remote origin refs/heads/main           # baseharbor-plan
+b5c8fc49baf41403f7c04bb53ab5f524686428b7	refs/heads/main
+$ git ls-tree -r --name-only origin/main -- evidence/r28-welle1-2026-11-14/live-verify/
+evidence/r28-welle1-2026-11-14/live-verify/round-1.md
+$ git ls-remote --heads https://github.com/mcpdev80/baseharbor.git develop lane-0428-uid-app lane-0428-uid-environment lane-0428-uid-target lane-0428-075-perses-seam
+0e9ccb582f5bdcdc74049bbe3996263cdce6500c	refs/heads/develop
+28492bd12419f2c2e02048e07bfb92d09bb9735f	refs/heads/lane-0428-075-perses-seam
+18b0ebc9d0d99c634a3c8b74b571a8074ce0393d	refs/heads/lane-0428-uid-app
+b71f64e19601a1b312b1166597848274f8773592	refs/heads/lane-0428-uid-environment
+4e02383efefeab7637bd51aabbcfdc1788bc4d3b	refs/heads/lane-0428-uid-target
+```
+
+Every product ref above is byte-identical to the start-of-task witness: no product branch was
+created, moved, pushed or merged by this lane.
