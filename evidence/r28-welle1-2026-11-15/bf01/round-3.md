@@ -63,4 +63,9 @@ f048627c1 fix(cli): state-root override owns target selection state
 
 ## END
 
-END_pending (Run `43685670514` terminal beobachten; ls-tree-Zeuge vor dem END-Post ergaenzt).
+END_DONE: Kandidat `7bdeaa08499f4b3d8113d537a48e36d4f9881bf0`, DRAFT PR #1585 (base develop, merge-frost gehalten), CI-Run `43685670514` terminal success auf exakt diesem Kopf, Akte publiziert. ls-tree-Zeuge:
+
+```
+git ls-tree -r origin/main -- evidence/r28-welle1-2026-11-15/bf01/round-3.md
+100644 blob 8494fa6e74ba0b11e2f13dbfc51bbdd7cad545d8	evidence/r28-welle1-2026-11-15/bf01/round-3.md
+```
