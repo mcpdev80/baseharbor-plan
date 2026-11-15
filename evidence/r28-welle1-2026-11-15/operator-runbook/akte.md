@@ -92,9 +92,11 @@ Ausgeloest durch den PR-Push; Run 43709246427 (CI · Source & Quality, pull_requ
 
 ```
 git fetch -q origin main && git rev-parse origin/main
-8a65515263b712bac757ac137e14f6265c518d61
-curl -s -o /dev/null -w "akte-http:%{http_code}\n" "https://github.com/mcpdev80/baseharbor-plan/blob/8a65515263b712bac757ac137e14f6265c518d61/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md"
-akte-http:200
+dc28c6df4520d01602286d3b79916dbeb44503da
+git cat-file -e origin/main:evidence/r28-welle1-2026-11-15/operator-runbook/akte.md && echo "akte on origin/main: YES"
+akte on origin/main: YES
+curl -s -o /dev/null -w "akte-final-http:%{http_code}\n" "https://github.com/mcpdev80/baseharbor-plan/blob/dc28c6df4520d01602286d3b79916dbeb44503da/evidence/r28-welle1-2026-11-15/operator-runbook/akte.md"
+akte-final-http:200
 ```
 
 Die Akte liegt auf origin/main (Planning-Repo, Zonen-Zeuge oben). Karte auf review mit PR #1587 und Evidence-Link.
