@@ -146,9 +146,36 @@ https://github.com/mcpdev80/baseharbor/pull/1582. MERGE-FROZEN: owner cherry-pic
 
 ## CI
 
-CI result pending (hosted GitHub-runners, Owner-managed). This lane did not trigger a rerun
-(Owner scope: `.github/**`). The unit tests for `internal/orgconfig` run under the normal
-`pull_request` trigger on PR #1582.
+Run `43668270812` on head `c678cdd0` (branch `lane-0428-fix-bf03`), trigger `pull_request`:
+
+```
+$ gh run view 43668270812 --repo mcpdev80/baseharbor --json status,conclusion
+{"conclusion":"success","status":"completed"}
+```
+
+Result: **terminal SUCCESS**. The previously-failing "PR · Draft source and routing"
+(routing/metric gate on the PR object) now passes. Root cause of the earlier
+`43667577512` FAILURE was a `gofmt` violation in `internal/orgconfig/store.go`
+(my own code, not a PR-object metadata gate) — fixed by `gofmt -w` and committed as
+`c678cdd0`. All 6 Go jobs pass (cli-0/1/2/3, packages). Remaining jobs (Targeted
+HA, Native, validation, ...) are queued/pending on the normal matrix, not failed.
+
+CI for `internal/orgconfig` runs under the normal `pull_request` unit-test trigger
+on PR #1582. No `.github/**` change needed (Owner scope); no rerun triggered by this
+lane beyond the automatic `pull_request` run on the push.
+
+### Round-2 note (routing gate vs. gofmt)
+
+The coordinator observed the `43667577512` failure was the "PR · Draft source and
+routing" job. Reading the job log (`gh run view 43667577512 --log-failed
+--job 132670279399`) showed the gate's failing assertion was:
+
+```
+Unformatted Go source: internal/orgconfig/store.go
+```
+
+i.e. the `gofmt -l` check, not a PR-title/body/label/card-source requirement. Code
+left unchanged except the `gofmt` reformat; PR #1582 metadata unchanged.
 
 ## Base attestation
 
