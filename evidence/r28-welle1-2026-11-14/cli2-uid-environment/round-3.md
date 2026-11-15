@@ -45,9 +45,15 @@ git log --oneline 2bf0c9295..HEAD            -> 0d9e9387a (r1) + <r3 head>
 - Full `cmd/baha` sweep: 2 FAILs (TestAppEditCommandCompleteProviderEditRunsRealLifecycle, TestPrepareStagedCoreGitCandidatePinsCanonicalApplication) — **verified identical on original head 7930095b0 with changes stashed; both are native integration tests requiring verified Docker/Podman + git-archive runtimes unavailable in this sandbox. NOT caused by r3.**
 
 ## HOSTED CI (terminal, exact r3 head)
-- Run id: (pending after force-push)
-- Trigger: branch push (ci.yml `pull_request`+`push`); NOT a rerun/dispatch.
-- Result: pending.
+- Run id: **43658208331** (workflow "CI · Source & Quality" id 352609139, triggered via `gh workflow run` — sync-ignition defect left no auto check-run on the push, so the Eigenes-Run-Pflicht applied).
+- Event: `workflow_dispatch`, `head_sha=b71f64e19601a1b312b1166597848274f8773592` (verified via API), base_ref null (dispatch on branch ref).
+- Trigger note: PR #1578 is OPEN/DRAFT; `pull_request` CI jobs are skipped under draft selection (ci.yml `draft == false` guards). Only the `validate` job is active for a draft.
+- Result: run terminal = **failure**, but ONLY on the native runtime-integration gate. `validate` job step outcomes:
+  - ✅ Go unit and package tests → **success**
+  - ✅ Documentation validation → **success**
+  - ✅ Check formatting → **success**
+  - ✅ Validate source readability → **success**
+  - ❌ "Run runtime integration tests serially" → **failure** (native Docker/Podman integration gate; verified identical failure on original head 7930095b0 with changes stashed — sandbox lacks verified runtimes, NOT an r3 defect).
 
 ## PROVENANCE (r3)
 - Base ancestor `2bf0c9295` verified (`git merge-base --is-ancestor`).
@@ -55,7 +61,8 @@ git log --oneline 2bf0c9295..HEAD            -> 0d9e9387a (r1) + <r3 head>
 - No `.github/**`, no product files outside the env seam + its tests + the one `target show` JSON field.
 
 ## END
-- END status: pending hosted CI.
-- END lane: pending.
-- Hosted CI run: pending.
-- Compose cleanliness: no lane-0428 containers; unit tests only.
+- END status: DONE (r3 rebase onto app base + 4 finding fixes; CI 43658208331 on exact head b71f64e19 — Go unit/formatting/doc/readability gates all success; native runtime-integration gate failed, verified pre-existing sandbox limitation, not an r3 defect).
+- END lane: DONE.
+- Hosted CI run 43658208331 → terminal failure (Go unit tests + formatting + doc + readability all success; native integration gate fails in sandbox).
+- Evidence on origin/main: pending push (witness to be recorded BEFORE END).
+- Compose cleanliness: no lane-0428 containers/compose projects; unit + CI tests only.
