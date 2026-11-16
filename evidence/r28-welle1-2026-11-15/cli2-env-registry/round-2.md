@@ -3,9 +3,12 @@
 - Task: `t-20261114-r28-cli2-env-registry` (card `0428-054`)
 - PR: `#1591`
 - Candidate head to fix: `4d14741ee9485b7e0c346fa873ed59f637e71b68`
+- Candidate head AFTER fix: `3d1841bab3f5c933a16f1116ece4105cc68bdcee`
 - PR base (authoritative): `lane-0428-uid-target` @ `ae0602e02882619dea151dc82d62b98b72481566`
-- Base provenance: `ae0602e` is an ancestor of my working HEAD (verified below); the lane log lists only the existing merge commit — no foreign commits.
-- Working worktree: `/tmp/opencode/lane-0428-env-registry-wt` (detached at `4d14741ee`)
+- Base provenance: `ae0602e` is an ancestor of my working HEAD (verified); the lane log lists only my commit `3d1841bab` on top of the merge — no foreign commits.
+- Working worktree: `/tmp/opencode/lane-0428-env-registry-wt` (detached at `4d14741ee`, then commit `3d1841bab`)
+- ls-remote `lane-0428-env-registry`: `4d14741ee` -> push -> `3d1841bab` (before/after witness)
+- Evidence on `origin/main`: `46af5c63` (this akte)
 - Scope boundaries (from mission): NO `.github/**`, no merge, NO `ready_for_review`, NO force-push, NO subagent.
 
 ## PLAN
@@ -32,8 +35,16 @@
 
 ## Tests
 
-- Table tests through read + mutation paths: unknown kind, empty kind, empty id, path-bearing id.
-- Fail-closed assertion on the read path and no-write assertion on the failed mutation.
+- Table tests through read + mutation paths: unknown kind, empty kind, empty id, path-bearing id (`TestEnvironmentRecordAssociationsRejectsInvalidPersistedEntry`).
+- Register fail-closed on unknown persisted kind and path-bearing persisted id (`TestRegisterEnvironmentAssociationRejectsInvalidPersistedEntry`).
+- Deregister fail-closed on path-bearing persisted id (`TestDeregistrationEnvironmentAssociationRejectsInvalidPersistedEntry`).
+- Fail-closed + no-write: `TestInvalidPersistedAssociationNoWrite` asserts the failed mutation leaves the on-disk bytes byte-for-byte (poison preserved, not normalized).
+- Existing duplicate/conflict/permission/restart/concurrent coverage unchanged; full `Association` suite passes on an isolated tmpfs mount.
+
+## CI
+
+- CI group: `.github/workflows/ci.yml` "go" job runs `go test ./contracts/... ./internal/... ./spec/...` and `go vet ./...` — the standard Go unit-test group with no per-directory skip, so the new `internal/deployment/` tests run on GitHub-hosted shared runners under the CI `pull_request` group covering `internal/`. No `.github/**` change needed (Owner scope: none touched).
+- Local runs isolated on a fresh tmpfs (`/tmp/bahatest`): the host `/tmp` (tmpfs, ~2.6G free) hits disk-quota races on the stableid lock-probe, which writes its probe to `$TMPDIR`. With `TMPDIR=/tmp/bahatest` the full `Association` suite passes 5/5 consecutively; without it the concurrency test flakes on the shared-probe quota — an environmental artifact affecting the baseline identically, not caused by this change.
 
 ## repo-rule compliance
 
@@ -42,4 +53,4 @@
 
 ## END
 
-END_DONE mission-registry-r2.md: env-association persisted-entry validation fix (luna-r1) — head SHA <pending>
+END_DONE mission-registry-r2.md: env-association persisted-entry validation fix (luna-r1) — head SHA 3d1841bab3f5c933a16f1116ece4105cc68bdcee
