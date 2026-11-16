@@ -61,7 +61,7 @@ cmd/baha/commands.go note (transparency, shared-file rule): the card reserves co
 
 ## CANDIDATE
 
-- Branch: lane-0428-063-cli2-app-interact @ beb2ee5859a8a2ffa07fd5725370275411e27011 (pushed; `git ls-remote origin refs/heads/lane-0428-063-cli2-app-interact` → beb2ee5859a8a2ffa07fd5725370275411e27011)
+- Branch: lane-0428-063-cli2-app-interact @ beb2ee5859a8a2ffa07fd5725370275411e27011 (pushed; ls-remote above). Note: the PR was first created against head 78e8257eb; the second commit beb2ee585 updated the branch head — gh reports the live headRefOid, matching the remote branch witness above.
 - PR: https://github.com/mcpdev80/baseharbor/pull/1623 (draft, base cli2-identity-secrets-head, title contains 0428-063)
 - `gh pr view 1623 --json headRefOid,isDraft,baseRefName` → head beb2ee5859a8a2ffa07fd5725370275411e27011, isDraft true, base cli2-identity-secrets-head.
 
