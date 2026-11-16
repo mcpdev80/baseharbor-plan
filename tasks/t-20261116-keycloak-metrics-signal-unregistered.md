@@ -7,15 +7,15 @@ areas: [runtime, capability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
+owner: coord
+kanban_status: review
 kanban_lane: planned
 kanban_summary: "Make the declared keycloak-metrics native signal actually resolvable at runtime so the identity fan-in gate can ever be true."
 kanban_title: 0428-097 · Register keycloak-metrics signal
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1660]
 sources: [evidence/r28-welle2-2026-11-16/perses-dashboard-identity/on-resolver-round-2.md]
 blocker: ""
 wait_reason: ""
