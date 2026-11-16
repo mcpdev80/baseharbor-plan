@@ -95,6 +95,24 @@ New test `test_20_dual_match_accepts_achtung_and_warning_confirm_prompts` in
   core in-process. No CI workflow change is required; the existing PR-on-main
   trigger already runs it.
 
+## Evidence: CI run (Eigenes-run-pflicht, terminal SUCCESS)
+
+Run `43963399114` on exact head `86afbbebb7574b5c4bc1caeb098a4406e1e4a9e3`:
+```
+$ gh api repos/mcpdev80/baseharbor-demo/actions/runs/43963399114
+run_id=43963399114 status=completed conclusion=success event=workflow_dispatch sha=86afbbe
+job 133636420423 "Guided consent · production-path regressions" = completed/success
+```
+Triggered via `gh workflow run 406972393 --ref lane-0428-099-demo-warning-match` (existing
+`pr-guided-consent.yml`, Owner CI territory — no `.github` edit). The PR-triggered check suite
+(`119010613292`) stayed in runner-queue behind other PRs for ~8 min without picking up; the
+explicit workflow_dispatch produced a tracked terminal SUCCESS on the same head SHA.
+
+The job runs `python3 -m unittest discover -s tests/guided -p 'test_*.py' -v` which discovers the
+new `test_20_dual_match_accepts_achtung_and_warning_confirm_prompts`, plus `py_compile` on
+`drive.py`. All green. Durable GitHub CI evidence; no `.github` change needed (existing
+PR-on-main trigger already covers it).
+
 ## END
 
-END_DONE <lane>: ...
+END_DONE lane-0428-099-demo-warning-match: 0428-099 demo Warning-marker dual-match. Widen demo confirm-prompt regex in drive.up_rules (drive.py:507-508, 1st+2nd stage) and CurrentConsent.rule (new_edit.py:203) to alternation (?:Achtung|Warning): pure superset, no hard switch. Add dual-match positive regression test_20. new_edit_helpers_test control unchanged. 21/21 guided tests green locally, py_compile clean. Draft PR #164 base=develop head=86afbbe. CI run 43963399114 (workflow_dispatch on pr-guided-consent.yml, sha 86afbbe) TERMINAL SUCCESS "Guided consent · production-path regressions"; test_20 runs via existing PR-on-main discovery, no .github change. Evidence on origin/main 3c47082c. No core-repo edit.
