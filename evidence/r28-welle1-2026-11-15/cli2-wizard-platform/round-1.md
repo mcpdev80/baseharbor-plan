@@ -80,8 +80,14 @@ File: `cmd/baha/app_access.go`, human `--reveal` branch of `appCredsCommand`.
 
 ## CI routing (STATE)
 
-- The new regression test runs under the existing `cmd/baha` unit-test group on pull_request / push (the standard `go test ./cmd/baha` job). No `.github/**` change was needed because the cmd/baha unit group already covers `app_access_test.go`.
-- Exact workflow file, job and trigger line are reported to the coordinator for the handoff (Owner-owned `.github/**` not touched).
+- The new regression test runs under the existing **"Release Source Preflight"** job in
+  `.github/workflows/ci.yml`, step "Run release-source tests" at `ci.yml:118-124`, which runs
+  `BASEHARBOR_LOGS_ENABLED=false go test ./cmd/baha` (`ci.yml:123`). This job triggers on
+  `pull_request` (non-draft) and `workflow_dispatch`.
+- The test lives in `cmd/baha/app_access_test.go`, so it is discovered by that group with **no
+  `.github/**` change required** (Owner scope — not touched).
+- Handoff to coordinator: wire/confirm the exact trigger for this job in the release-source group;
+  no workflow edit was made or requested by this lane.
 
 ## Repo-rule compliance
 
