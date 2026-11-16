@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: lane-0428-065-cli2-app-export
+kanban_status: active
+kanban_lane: active
 kanban_summary: "App export and recovery UX. Follow the owner working brief, command mapping and code entry index; revalidate current develop and…"
 kanban_title: 0428-065 · App export and recovery UX
 priority: high
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-app-export · CLI redesign: App export and recovery UX #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Waiting for prerequisites**  
+    **Owner:** lane-0428-065-cli2-app-export · **Priority:** high  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** unassigned  
+**Owner:** lane-0428-065-cli2-app-export  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
