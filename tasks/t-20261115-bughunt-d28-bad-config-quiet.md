@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coord
-kanban_status: active
+kanban_status: review
 kanban_lane: active
 kanban_summary: "BF-05 (daemon): corrupted config file is silently ignored. Found on develop 0e9ccb582 during H-D28."
 kanban_title: 0428-094 · bf05 config fail loud
