@@ -123,4 +123,10 @@ This lane started no containers or compose projects. Pre-existing `bh-w169-*` do
 - TestAgentDescribeJSON on the 065 lineage carried the pre-fix assertion; resolved per mission rule 2 (063 invariant wins). If the coord dispatches further children of the 057 line, they need the same rule.
 - CI dispatch is coord's job (mission line 5); this lane triggered nothing hosted and touched no .github/**.
 
+    git ls-remote origin refs/heads/main   # (run before this final append; see note)
+    560575b89538c46c4452ea28ecf15de692924ee4	refs/heads/main
+    git ls-tree origin/main -- evidence/r28-welle1-2026-11-15/children-baseheal/round-1.md
+    100644 blob 9f43cd9d7292d1d9069beb8fb78c4411c7bf6965	evidence/r28-welle1-2026-11-15/children-baseheal/round-1.md
+    git log --oneline -3   # 560575b8 (this evidence) on top of 7e67d2ac (origin/main before); no rebase occurred; this appended witness line is amended into the same evidence commit
+
 END_DONE mission-children-baseheal.md: both children healed — 063 head 7ee9c8808, 065 head 5e175d36a (FF pushes, build+2 tests green both paths)
