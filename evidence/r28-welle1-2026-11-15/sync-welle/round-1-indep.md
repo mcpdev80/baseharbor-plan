@@ -112,12 +112,13 @@ das veraltete Verzeichnis workers/baseharbor-plan wurde nicht verwendet.)
 ## Evidence-auf-origin/main-Zeuge (vor END, zweite-zuletzt-Aktion)
 
     $ git ls-remote origin refs/heads/main
-    c861733dfafecf396f1fefca985afdcdd00e73cf  refs/heads/main
+    a28c25ef27b3cfeb30b2849c9e7960a65e2b5e60  refs/heads/main
     $ git log --oneline origin/main -1
-    c861733d evidence: sync-welle round-1 drei unabhaengige 0.4.28-Pfade auf develop-Stand 14d8f17d1aa
+    a28c25ef evidence: sync-welle round-1 END-Block, Zonen-/origin-Zeugen und Ergebnistabelle
 
-Der Evidence-Pfad `evidence/r28-welle1-2026-11-15/sync-welle/round-1-indep.md` ist Teil
-dieses Commits; das Einloggen zeigt nur meinen Commit als neuesten auf origin/main.
+Der Evidence-Pfad `evidence/r28-welle1-2026-11-15/sync-welle/round-1-indep.md` ist in
+`c861733d` entstanden und in `a28c25ef` vollendet; beide sind Commits von origin/main und die
+Einlog-Ausgabe zeigt nur meine Commits.
 
 ## Abschluss-Checkliste / END
 
