@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 9814002a
-kanban_status: wait
-kanban_lane: wait
+owner: coord
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Deliver host/container panels only for actually available matching metrics, without adding privileged exporters."
 kanban_title: 0428-077 · Perses host and container
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1602]
 sources: []
 blocker: ""
-wait_reason: "candidate #1602 head ca8181c0ecc delivered; review-block: prereq 080 not accepted (plan.py gate)"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-hosts · Perses host and container dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 9814002a · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
-    **Waiting:** candidate \#1602 head ca8181c0ecc delivered; review-block: prereq 080 not accepted (plan.py gate)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 9814002a  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1602](https://github.com/mcpdev80/baseharbor/pull/1602)  
 **Source:** 
