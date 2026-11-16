@@ -7,15 +7,15 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: coord
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver RabbitMQ panels conditional on real supported metrics.
 kanban_title: 0428-079 · Perses messaging dashboards
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1603]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,21 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-messaging · Perses messaging dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** coord · **Priority:** normal  
+    **PR:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** coord  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1603](https://github.com/mcpdev80/baseharbor/pull/1603)  
 **Source:** 
 <!-- /generated:links -->
 
