@@ -4,7 +4,7 @@
 
 **Mission:** `coordinator/mission-luna-batch10.md`; object 2 replaced per owner instruction: PR #1610 is closed; review PR #1645 at the supplied exact head. The local mission text is otherwise unchanged.
 
-**Session identity:** assigned as CODEX-REVIEW (Luna). The runtime does not expose an independently verifiable provider-side model identity to this review; no model alias is asserted.
+**Session identity:** Codex session `09fd9bba-985e-4058-a1f8-2d544bd7c3b0`; Codeman reports CLI `0.167.0`, display model `GPT-6-Luna` (`source=screen`). Role: CODEX-REVIEW (Luna).
 
 | PR | Exact head | Exact-head `pull_request` run | Verdict |
 |---|---|---|---|
