@@ -77,6 +77,11 @@ Decide a concrete provider-owned optional management-tool representation compati
 
 ## Required checks
 
+- **New Perses contract tests required:** Add dedicated provider registration/discovery, descriptor/spec validation, optional/disabled capability, version compatibility, tenant authorization, ownership, error-path and security regression tests; update impacted existing provider tests. Legacy green provider tests alone do not cover the new Perses feature.
+- **CI mapping required:** Register each new Perses test in the existing package/test mapping and CI selectors/gates. Evaluate and update `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, `REQUIRED_CLIENT_TESTS` or package equivalent and affected workflow triggers with the CI owner. Include the new contract coverage in applicable release qualification.
+- **Blocking proof:** Record candidate PR SHA -> named new and modified tests -> actual mapped CI gate -> triggering event/paths -> successful run. Demonstrate positive path selection and no silent omission for stacked or ready-for-review PRs. Coordinate CI changes with reserved file owners, and use native Docker/rootless Podman checks where runtime risk applies.
+
+
 Record exact candidate SHA and focused tests by name. Route every changed test through an existing CI check/native gate with trigger and actual execution; no skipped/faked native proof. Require isolated Docker and rootless Podman only when runtime risk requires them; no blanket full matrix. Produce deterministic negative/authorization/ownership tests as appropriate.
 
 ## Dependencies and handoff
