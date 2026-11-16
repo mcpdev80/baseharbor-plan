@@ -100,4 +100,14 @@ None of the new wordings redefine state semantics; `verified` is no longer tied 
 
 ## END
 
-END_DONE mission-fix-boundary.md: reduced six EN/DE perses-mirror sentences to state-name mention + spec pointer, committed on 0428-092-perses-boundary @ <candidate SHA>
+END_DONE mission-fix-boundary.md: reduced six EN/DE perses-mirror sentences to state-name mention + spec pointer; candidate on 0428-092-perses-boundary @ 70b7bfc8e99c79cb20acc6974c67dcf2c037d446; evidence on baseharbor-plan origin/main @ 75ceb980
+
+## Final attestations
+
+- Product base (ls-remote origin): `git ls-remote origin refs/heads/develop` => `14d8f17d1aa61496db9ed4d57bd4c22eda34ae95`
+- Candidate head (ls-remote origin): `git ls-remote origin refs/heads/0428-092-perses-boundary` => `70b7bfc8e99c79cb20acc6974c67dcf2c037d446`
+- Only my commit above base: `git log --oneline 5e8d138..0428-092-perses-boundary` => `70b7bfc8e docs(perses): reduce release-boundary mirror prose to state-name mention + spec pointer`
+- `git merge-base --is-ancestor 5e8d138 HEAD` => YES (fast-forward only)
+- PR #1577: `gh pr view 1577 --repo mcpdev80/baseharbor --json isDraft,state` => `{"isDraft":true,"state":"OPEN"}` (draft, base develop)
+- Evidence commit: `git commit 75ceb980` on baseharbor-plan, file `evidence/r28-welle1-2026-11-15/perses-release-boundary/round-2.md` present in origin/main tree; origin/main HEAD (ls-remote) => `75ceb980849783553dc894fd11dd627311c41857`
+- `git diff --check` clean; no old "...selected, pinned and reachable"/"...je nach Wahl, fixierter Pin und Erreichbarkeit"/"...je nach aktueller Umgebung"/"...depending on the current environment" pattern remains in docs/.
