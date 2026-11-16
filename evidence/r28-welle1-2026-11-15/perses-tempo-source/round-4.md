@@ -102,3 +102,21 @@ finding F3, unchanged).
 - status: END_DONE — candidate `w091-0428-091` @ `601f3c3af26a7aec00551f8d37899c30918b9939` pushed (FF over 7a2736ba58c), PR #1610 stays draft, no merge, no CI trigger by this lane (coord dispatches).
 - Cleanliness: no docker/podman/compose started this shift (`docker ps` untouched); work zones: `/var/tmp/tempo-r4/{wt,base,schema,gotmp}` under the lane's own /var/tmp path; `/tmp/opencode/tempo-r4-wt` left as an empty abandoned dir (worktree add failed there on tmpfs size before the move); no product or planning writes outside the declared paths; `git stash` used once inside the own worktree and popped (verified `git status` clean of stashes: `git stash list` empty).
 - repo-rule compliance: no `.github/**` touched; no workflow triggered; single candidate branch; evidence lives only in baseharbor-plan; no subagents (§4.8); upstream sources fetched read-only from github.com/perses and the Go module proxy (public, no credentials); no secrets logged.
+
+## Push witnesses (this session, verbatim)
+
+```
+$ git ls-remote origin refs/heads/w091-0428-091     # before push
+7a2736ba58c6d0ba0f6c9375791c53e6920ba7d4	refs/heads/w091-0428-091
+$ git push origin 601f3c3af26a7aec00551f8d37899c30918b9939:refs/heads/w091-0428-091
+To https://github.com/mcpdev80/baseharbor.git
+   7a2736ba5..601f3c3af  601f3c3af26a7aec00551f8d37899c30918b9939 -> w091-0428-091
+$ git ls-remote origin refs/heads/w091-0428-091     # after push
+601f3c3af26a7aec00551f8d37899c30918b9939	refs/heads/w091-0428-091
+```
+
+## origin/main witness (second-to-last action)
+
+```
+$ git ls-remote origin main    # baseharbor-plan
+```
