@@ -120,3 +120,17 @@ Jobs: `PR · Draft Go · cli-0/1/2/3` = success; native/runtime/Demo/HA = skippe
 
 First run 43950312560 was CANCELLED (concurrency cancellation); re-triggered `gh run rerun 43950312560` and watched to terminal SUCCESS.
 
+## END
+
+END_DONE lane-0428-093-i18n-abachtung: i18n Achtung localized. 15 non-test sites (9 user output + 3 contract setters + contract schema consts + 30+ test assertions + golden/testdata) changed Achtung->Warning. Draft PR #1663 base develop, head 55550400, 51 files. CI run 43950312560 (sha 55550400) TERMINAL SUCCESS; cli-0/1/2/3 Go shards pass; regression TestProviderImpactConsequenceHintIsEnglishOutputAndContractMarker runs under release_source_preflight 'go test ./cmd/baha' (ci.yml:125), no .github change needed. Evidence on origin/main b127c1c2. Compose: none started this lane.
+
+## Findings for Owner (out of this lane's write-set)
+
+1. baseharbor-demo golden rules in tests/guided/drive.py match the CLI prompt text literally:
+   - drive.py:507-508 `(?:Confirm the displayed provider changes|Achtung: confirm the displayed outcome without a working alternative)`
+   - drive.py:203 same alternation
+   - new_edit_helpers_test.py:190 matches `Achtung: separately authorize permanent deletion...`
+   These need the same Achtung->Warning update in baseharbor-demo for the demo acceptance run to pass against this candidate. baseharbor-demo is a pinned consumer; not editable from the product branch. Report for Owner to land.
+2. German docs (docs/de/**) intentionally left "Achtung" — correct, out of scope.
+3. Contract value "Warning" is read by baseharbor-demo tests/fixture-consent.py:28 by presence (`plan.get("attention")`), not by literal — the presence check is unaffected by the rename.
+
