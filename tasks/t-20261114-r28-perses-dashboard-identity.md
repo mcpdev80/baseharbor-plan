@@ -7,15 +7,15 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w078
-kanban_status: active
-kanban_lane: active
+owner: coord
+kanban_status: review
+kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1606]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w078 · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
+    **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w078  
+**Owner:** coord  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606)  
 **Source:** 
 <!-- /generated:links -->
 
