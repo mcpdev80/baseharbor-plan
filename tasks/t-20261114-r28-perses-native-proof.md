@@ -68,6 +68,11 @@ After all predecessors, run exact-SHA isolated native Docker and rootless Podman
 
 ## Required checks
 
+- **New native E2E coverage:** Implement and register new Perses-specific opt-in/install, readiness, authorization denial, tenant isolation, real Prometheus/Loki/Tempo signal, dashboard provisioning/readback, approved alert route, restart, removal, persistence/retention and foreign-owner safeguard tests, where the approved contract supports each feature. Update existing affected tests. No fixture-only substitute for required native checks.
+- **Native CI and mapping:** Wire all new Docker and rootless Podman tests into the existing observability/native acceptance checks, selectors and release gates. With CI owner review, update `scripts/pr-gate-plan.py`, `scripts/release-requirements.json`, and affected workflow trigger/path mapping as required. Prove positive selection on affected paths and exact integrated-candidate SHA execution for both runtimes.
+- **Blocking acceptance:** Missing test, test-to-gate mapping, trigger, required native execution, or real signal is a BLOCKER, never PASS. A previously green legacy suite or manual-only release run does not replace new registered CI coverage.
+
+
 Record exact candidate SHA and focused tests by name. Route every changed test through an existing CI check/native gate with trigger and actual execution; no skipped/faked native proof. Require isolated Docker and rootless Podman only when runtime risk requires them; no blanket full matrix. Produce deterministic negative/authorization/ownership tests as appropriate.
 
 ## Dependencies and handoff
