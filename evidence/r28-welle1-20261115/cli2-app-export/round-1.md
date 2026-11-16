@@ -74,4 +74,4 @@ Contract (0428-049 `cli-command-contract-v1` §7) maps `baha app secure-profile`
 
 ## END
 
-END lane DONE (or BLOCKED) line for this shift, filled in the final action.
+END lane DONE: delivery complete. Draft PR #1625 (base `cli2-identity-secrets-head` @ `22e0404c`, head `lane-0428-065-cli2-app-export` @ `8d591adb`) is published and closed as draft; no merge / no ready_for_review / no .github edit / no force-push / no subagent. Local unit evidence recorded at head `8d591adb`. CI (Docker/Podman unit gates) is dispatched by the coordinator per the task handoff ("CI dispatcht coord."), not by this lane. Base refreshed via owner-ordered develop-SYNC (old `5008b991` → new `22e0404c`); branch merged to the new base and re-pushed; both heads attested above. Full `cmd/baha` unit suite: 1 pre-existing OOM failure (`TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`) that reproduces on the clean base — not this candidate. Clean working tree, no containers/compose started.

@@ -11,17 +11,25 @@ Environment-scoped destruction with impact preview, one Keep-data (default)/Dele
 
 ## PLAN
 
-- Step 1: Establish base SHA and isolated worktree on cli2-env-policy-head; confirm build + existing env/deployment tests pass.
-- Step 2: Define the environment-destroy domain seam (fail-closed ownership, per-(target,env) deployment inventory, association-aware member list, Keep/Delete data choice, audit).
-- Step 3: Wire the CLI leaf `baha env destroy [NAME] [--keep-data | --delete-data] [--yes]` on top of the impact preview + consent path; register a new top-level `env` group.
-- Step 4: Add dedicated tests (cross-env app protection, unknown ownership fail-closed, retain/recover, data-delete consent, partial failure/retry) routed into the existing CI group covering cmd/baha and internal/deployment.
-- Step 5: Bundle, run focused local tests + vet + build, open a DRAFT PR, publish claim via plan.py, update evidence + board, post END with head SHA.
+- Step 1: Establish base SHA and isolated worktree on cli2-env-policy-head; confirm build + existing env/deployment tests pass. DONE (re-attested to post-sync base e5ad8a68).
+- Step 2: Define the environment-destroy domain seam (fail-closed ownership, per-(target,env) deployment inventory, association-aware member list, Keep/Delete data choice, audit). DONE: internal/deployment/environment_destroy_scope.go + 7 domain tests.
+- Step 3: Wire the CLI leaf `baha env destroy [NAME] [--keep-data | --delete-data] [--yes]` on top of the impact preview + consent path; register a new top-level `env` group. DONE: cmd/baha/env_destroy.go + registered in commands.go:141.
+- Step 4: Add dedicated tests (cross-env app protection, unknown ownership fail-closed, retain/recover, data-delete consent, partial failure/retry) routed into the existing CI group covering cmd/baha and internal/deployment. DONE: domain tests + 4 CLI integration tests.
+- Step 5: Bundle, run focused local tests + vet + build, open a DRAFT PR, publish claim via plan.py, update evidence + board, post END with head SHA. PENDING.
+
+## STATUS (progress)
+
+- Steps 1-4 implemented and locally verified on the post-sync base.
+- Full cmd/baha regression suite in progress (10m Go test timeout; other lanes share the runner).
 
 ## BASE ATTESTATION
 
-- ls-remote base ref (2026-11-16):
-  `018b4e58a3aaf417f61b6b1c2bb37c1c17a49ccc  refs/heads/cli2-env-policy-head`
-- Branch cut from that SHA; git log origin/<base>..HEAD will list only own commits.
+- Old base (pre-sync): `018b4e58a3aaf417f61b6b1c2bb37c1c17a49ccc  refs/heads/cli2-env-policy-head`
+- New base AFTER develop-sync (coord, 2026-11-16): `e5ad8a6882550168ea262b18dfbdf8c2e4518c1d  refs/heads/cli2-env-policy-head`
+  - New head is `Merge remote-tracking branch 'origin/develop' into cli2-env-policy-head`.
+  - Branch reset onto new base; work re-applied from stash; build + all env tests green on new base.
+  - Consumed seams (ListDeployments, ListEnvironmentAssociations, GetEnvironment) unchanged by the sync diff; CollectableOrphans refactor is internal-only (not called by this slice).
+- Final diff-witness in this file must be the post-sync base head above.
 
 ## DELIVERED CONTENT CONSUMED (Read-only, on base)
 
