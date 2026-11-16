@@ -55,6 +55,10 @@ Reduce rootless Podman lifecycle latency without weakening project ownership, Qu
 
 ## Acceptance
 
+- Update existing Podman unit/integration/regression tests as necessary and add dedicated new batch inspection and command-count tests. Register each added/changed test in the existing test-to-CI-gate mapping; evaluate/update `scripts/pr-gate-plan.py`, `scripts/release-requirements.json` and Docker/rootless Podman workflow triggers with the CI owner.
+- Prove affected-path gate selection, unrelated-path non-selection and actual successful candidate-SHA execution. Missing mapping, skipped required native run or unverified Docker equivalence blocks acceptance.
+
+
 - Batch Podman resource ownership inspections by kind and reuse the existing container snapshot for Quadlet-unit labels.
 - Fail closed on missing, malformed, conflicting or foreign ownership; do not silently skip partial failures.
 - Preserve systemd managed stop semantics, resource cleanup and current public API behavior.
