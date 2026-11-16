@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coord
-kanban_status: active
+kanban_status: review
 kanban_lane: active
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
 kanban_title: "0428-093 · bf04 english-only hints"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1663]
 sources: []
 blocker: ""
 wait_reason: ""
