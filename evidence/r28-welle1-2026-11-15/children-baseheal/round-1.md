@@ -120,6 +120,8 @@ This lane started no containers or compose projects. Pre-existing `bh-w169-*` do
 
 ## Findings for coordinator
 
+- Board-file note: /home/marcel/dev/baseharbor-ecosystem/workers has no upstream branch configured in this checkout ("git push" refuses with "no branch"); the lane's board tick file todos/mission-children-baseheal.md.json is committed locally in the workers bookkeeping repo but could not be pushed. Content of §4.4 is fully carried by this evidence file's PLAN list.
+
 - TestAgentDescribeJSON on the 065 lineage carried the pre-fix assertion; resolved per mission rule 2 (063 invariant wins). If the coord dispatches further children of the 057 line, they need the same rule.
 - CI dispatch is coord's job (mission line 5); this lane triggered nothing hosted and touched no .github/**.
 
