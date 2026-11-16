@@ -48,4 +48,7 @@ Lane: `cli2-org-env-head` (this worker). Recipe/branch named in mission: `cli2-e
 
 ## END
 
-BLOCKED — scope/verification mismatch: recipe code does not exist at any verifiable input; candidate SHA not resolvable in clone; branch name differs from assigned candidate. Awaiting Owner/coordinator decision (rebase to the recipe's candidate branch, or a corrected recipe with a resolvable SHA).
+END_DONE
+BLOCKED — scope/verification mismatch: recipe helper `ManagedEnvironmentWithPolicy`/`ResolveWithPolicy` absent from working branch AND git history; candidate SHA `e5ad8a68` is an unverifiable remote-side ref in this clone (not a resolvable tree/blob; `git grep` → "unable to parse object"); named branch `cli2-env-policy-head` differs from assigned candidate `cli2-org-env-head`. No code change, no branch cut, no force-push. Awaiting Owner/coordinator decision: either rebase this lane to the recipe's candidate branch, or supply a corrected recipe with a resolvable SHA.
+
+Evidence provenance: push `90df3b46..ac66ddd8` and `03903828..60d940d6` on plan origin/main; `git merge-base --is-ancestor ac66ddd8 origin/main` → YES.
