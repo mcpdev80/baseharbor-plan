@@ -89,9 +89,69 @@ STOP file:line:
 
 No .github/** touched, no force-push, no PR mutation, no subagent. Every step in this session.
 
+## STOP CORRECTED BY OWNER (2026-11-16)
+
+Owner grep on the merged stack 1369328e7: the resolver surface is NOT missing. The gate
+(NonForgeableAvailable / backendSignals / EligibleFor / FilterEligibleDashboards) lives in
+internal/capability/perses_selection.go (my own rebase output), and reference.go:160 statically
+declares the keycloak-metrics native openmetrics signal (Mode: ObservabilityNative). The missing
+piece was NOT a new 080 resolver — it was the production witness derivation from real primitives.
+Wiring through reference.go -> gate is the task. RESOLVED, no STOP.
+
 ## Run status
 
-- go build ./internal/capability/... => OK
+### Task 3 — production call-site wiring (DONE)
+
+Design (reference.go as path, gate as decision — NO new 080 resolver):
+
+  - metrics.IdentitySelectionWitnessAt(m, placement, dataDir, namespace) in
+    internal/metrics/perses_identity_witness.go builds the non-forgeable witness from real
+    production primitives only (never a caller status):
+      * SelectionConfirmed   = application.HasIdentity(m), never an assumed exporter.
+      * TargetAuthorized     = ProviderPlacement.Validate() ok AND Scope != ScopeExternal (valid
+        BaseHarbor-owned Keycloak placement, never external OIDC).
+      * MetricPresent        = keycloak-metrics signal registered for this Target in the
+        observability signal registry (observability.List, prometheus_verify.go pattern).
+      * MetricCurrent        = that signal matches the native openmetrics realization declared in
+        capability.ReferenceIntegration(Keycloak).Observability.Signals (reference.go:160).
+    Any missing flag fails closed to the zero witness. Available is derived (AND) inside the
+    constructor — cannot be forged by a caller. metrics was the only package importing
+    application + capability + observability without a cycle (capability cannot import application).
+  - Call-site cmd/baha/app_status_result.go: resolve the Keycloak placement, build the witness
+    (metricsprovider.IdentitySelectionWitnessAt with resolved.TargetStateRoot / target name),
+    compute NonForgeableAvailable(), surface it as new JSON field `identity_dashboard_eligible` on
+    BOTH the local and remote-target status faces (computed before the remote-target early return).
+  - Eligibility decision: identity-keycloak eligible ONLY via NonForgeableAvailable() + real
+    per-backend keycloak-metrics signal. No caller can obtain a positive claim by supplying a status
+    boolean.
+
+Build / vet / gofmt / tests:
+  - go build ./... => OK (local TMPDIR: shared system /tmp tmpfs 80% full).
+  - go vet ./internal/metrics/... ./cmd/baha/... => OK.
+  - gofmt -l on all three changed files => clean.
+  - go test ./internal/metrics/... ./internal/capability/... => OK.
+  - 4 new witness tests (internal/metrics/perses_identity_witness_test.go): 1 POSITIVE (real signal
+    + valid target auth -> NonForgeableAvailable()==true, all four flags true) + 3 NEGATIVE (no
+    signal / identity not selected / external OIDC placement -> fail-closed).
+
+Repo-rule compliance:
+  - No .github/** touched. No force-push. No PR mutation. No subagent. Only three files changed:
+    1 new witness builder, 1 new test, 1 call-site edit (additive JSON field).
+  - Evidence lives only in baseharbor-plan (not in the product repo).
+
+## Commit + push (DONE)
+
+  - Commit d94d477d9: "fix(0428-078): wire Perses identity-keycloak call-site through resolver gate (r2)".
+    Staged precisely (never `git add -A`): perses_identity_witness.go + perses_identity_witness_test.go +
+    app_status_result.go. 3 files, 328 insertions / 18 deletions.
+  - Pushed via refspec to lane-0428-078-perses-identity-on-resolver; ls-remote attest:
+    d94d477d92f16c9fba5f76b681a332ee03f8456e.
+  - CI run #6365 "CI · PR #1650" @ d94d477d9 => completed / SUCCESS (run-id 43913569730).
+  - PR #1650 still OPEN / DRAFT, base lane-0428-080-r28-perses-selection (isDraft confirmed true).
+
+## Run status
+
+  - go build ./internal/capability/... => OK
 - go vet ./internal/capability/... => OK
 - gofmt -l => clean
 - go test ./internal/capability/... -run Identity|Dashboard|Eligible|Catalog|Filter|Backend => PASS (20+)
@@ -103,7 +163,7 @@ No .github/** touched, no force-push, no PR mutation, no subagent. Every step in
 
 ## END status
 
-- DONE pending: resolver surface is an 080 scope expansion -> STOP (file:line above), no own build.
-- PR #1650 left untouched (still DRAFT). No push. No evidence path committed to a product repo
-  (this akte lives only in baseharbor-plan; workers/baseharbor-plan is bookkeeping and untouched).
-- END post required.
+- PRODUCTION call-site wiring DONE and CI-green @ d94d477d9.
+- PR #1650 still OPEN/DRAFT, base lane-0428-080-r28-perses-selection (verified isDraft==true).
+- Evidence path lives only in baseharbor-plan (this akte); no product-repo evidence written.
+- END post below.
