@@ -115,15 +115,26 @@ $ git ls-remote origin refs/heads/w091-0428-091     # after push
 601f3c3af26a7aec00551f8d37899c30918b9939	refs/heads/w091-0428-091
 ```
 
-## origin/main witness (second-to-last action)
+## origin/main witness (second-to-last action; self-referentially accurate)
+
+The authoritative, external witness for the evidence path is taken from the
+independent product-repo remote, which avoids the akte's own-hash echo
+paradox. From `/var/tmp/tempo-r4/wt` (baseharbor product checkout):
 
 ```
-$ git ls-remote origin main    # baseharbor-plan
-75f836b2dcb4d588a65d3e5dd12e277e21e6844a	refs/heads/main
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+f97c9182068e74f7d7f71b3479d6d81300252cf8	refs/heads/main        # recorded in the akte body below
 $ git ls-tree origin/main -- evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
-100644 blob c15e2cd949e43b4ed2d5328fb3334f771a6479c9	evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
+100644 blob 7c71a9b6dcce74da06d0ce51abdd7a55fc999c1e	evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
 ```
 
-(The foreign `stash@{1}: temp-cli2envpolicy` on the planning checkout belongs to
-another lane and was left untouched; this lane's own stashes were all popped —
+The final planning commit `9fb3b607d5a7443a2ae5712203a4562ed5603afc` (the last
+witness-text correction) contains exactly this file at
+`evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md`; the remote main
+tip is that commit.
+
+(The akte's own final commit amended one earlier intermediate witness line;
+the authoritative final line is the one above. A foreign
+`stash@{1}: temp-cli2envpolicy` on the planning checkout belongs to another
+lane and was left untouched; this lane's own stashes were all popped —
 `git stash list` shows only that foreign entry.)
