@@ -88,8 +88,8 @@ $ go test ./internal/logs/ -run TestPersesLoki -v
 ## EVIDENCE COMMITTED TO origin/main
 
 - `git ls-remote origin main` before push: (see above)
-- evidence committed to planning repo; commit on origin/main after push:
-- ls-remote origin main after evidence push:
+- evidence committed to planning repo; commit on origin/main after push: 97107d87423dce243f335bae071d0040a6fc4627
+- ls-remote origin main after evidence push: 97107d87423dce243f335bae071d0040a6fc4627 (refs/heads/main)
 
 ## PUSH WITNESSES
 
