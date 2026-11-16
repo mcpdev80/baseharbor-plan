@@ -10,13 +10,13 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 10 |
 | review | 5 |
 | wait | 18 |
 | blocked | 0 |
 | ready | 5 |
 | queued | 25 |
-| waiting | 184 |
+| waiting | 183 |
 | backlog | 7 |
 | closed | 285 |
 
@@ -29,6 +29,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | w130-idempotent-0427 | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | active | high | w2c3555a6-0428-057 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
+| [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | Define and provision alert rules | active | normal | w073-perses-alerts | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w078 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-valkey](../tasks/t-20261114-r28-perses-dashboard-valkey.md) | Perses Valkey dashboard | active | normal | w081 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
 | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) | Connect Perses Prometheus | active | normal | w083-perses-datasources | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) (open), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | — |

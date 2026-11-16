@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: w073-perses-alerts
+kanban_status: active
+kanban_lane: active
 kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** w073-perses-alerts · **Priority:** normal  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** w073-perses-alerts  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
