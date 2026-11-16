@@ -15,7 +15,7 @@ kanban_title: "0428-098 · Guided rootless bootstrap"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1662]
+prs: [mcpdev80/baseharbor#1664]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -71,4 +71,4 @@ A fresh Linux workstation can complete the supported `baha up new` local-Core jo
 
 ## Handoff
 
-Implementation in progress: [baseharbor#1662](https://github.com/mcpdev80/baseharbor/pull/1662) (draft). Preliminary implementation and consent regression checks are in the isolated PR branch; real first-run host repair is not yet natively proven. No merge or release authorized.
+Implementation candidate: [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) (draft, feature branch `feat/0428-098-guided-rootless-pr`). Replaces prematurely opened and closed PR #1662. Implementation includes guided repair, consent/fail-closed regression tests, EN/DE documentation and existing-gate source mappings. Await exact-head CI and real first-run Linux evidence before acceptance; no merge/release claimed.
