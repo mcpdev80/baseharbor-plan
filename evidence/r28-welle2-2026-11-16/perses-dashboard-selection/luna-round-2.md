@@ -93,4 +93,8 @@ DONE — lane-0428-080-r28-perses-selection: Luna batch12 REQUEST CHANGES closed
 
 ## CI follow-up (EIGENES-RUN-PFLICHT)
 
-- This correction changed only the selection/fan-in catalog signature (`internal/capability/perses_selection.go` + test). It is a draft-PR selection-thread fix; the exact-head PR CI run is owned by the next coordinator tick to observe to terminal. No runner/VM/container work. No `.github/**` touched.
+- Correction PR CI run `43894440297` on `1781277d3` (owned from the correction, observed to terminal per the self-run duty).
+- Run: `lane-0428-080-r28-perses-selection CI · Source & Quality mcpdev80/baseharbor#1590`, run id `43894440297`, `pull_request`, conclusion **success** (observed via `gh run watch` to terminal; no ✗/FAIL/cancelled lines — the only non-success jobs are `-` skipped because the PR is a draft).
+- Visible jobs green: ✓ Draft source and routing (18s), ✓ Draft Go cli-0 (3m35s), cli-1 (2m13s), cli-2 (4m4s), cli-3 (2m54s), ✓ Draft Go packages (2m46s).
+- This is the selection/fan-in catalog fix on a draft PR; not merge evidence. Correct-candidate observation complete.
+- No runner/VM/container work. No `.github/**` touched.
