@@ -31,12 +31,12 @@ w0*-*, perf/0428-*). Die 8 Release-Welt-PRs bleiben unbewertet, nur als fremd no
 
 ## PLAN
 
-- 1. done - Vorbereiten: gh/git/plan.py Reichweite, Zonen; Schreibpfad ausschliesslich diese Akte
-- 2. done - Zelle 1: pro PR state/isDraft/base-ref/head-SHA + ls-remote-HEAD der head-Ref; Abweichung = DRIFT-BEFUND
-- 3. done - Zelle 2: Basis-Treue: base-ref jedes gestapelten PRs gegen die deklarierte Basis-Lane (uid-, perses-, cli2-Kette)
-- 4. done - Zelle 3: Sync-Stand pro Branch: merge-base --is-ancestor gegen origin/develop 14d8f17d1aa; Liste nicht-syncter Pfade
-- 5. done - Zelle 4: Draft-Guard: alle PRs mit draft=false im Faecher; die 8 Release-Welt-Pfade nur als fremd notiert
-- 6. done - Akte auf origin/main der baseharbor-plan pushen, origin-Zeuge, END-Post
+- 1. done - Vorbereiten: gh/git/plan.py Reichweite, Zonen, kein Schreibpfad ausser der einen Akte
+- 2. done - Zelle 1: pro PR state/isDraft/base-ref/head-SHA + ls-remote-HEAD der head-Ref; Drift = Befund
+- 3. done - Zelle 2: Basis-Treue base-ref gegen deklarierte Basis-Lane (uid-, perses-, cli2-Kette)
+- 4. done - Zelle 3: Sync-Stand pro Branch gegen origin/develop 14d8f17d1aa (merge-base --is-ancestor), Liste nicht-syncter Pfade
+- 5. done - Zelle 4: Draft-Guard-Befunde (draft=false im Faecher), ausser den 8 unbewerteten Release-Welt-Pfaden
+- 6. done - Akte auf origin/main der baseharbor-plan pushen, origin-Zeuge, Endpost
 
 ## Repo-rule compliance
 
@@ -196,3 +196,162 @@ secrets->policy, wizard->policy, interact->secrets, status->source-model.
 
 Zelle-2-Ergebnis: KEINE Basis-Abweichung. Alle 30 base-refs zeigen auf den Zweig der
 deklarierten Basis-Lane.
+
+## Zelle 3 - Sync-Stand nach der develop-sync-welle
+
+Anker: origin/develop = 14d8f17d1aa61496db9ed4d57bd4c22eda34ae95 (committiert
+2026-11-16T03:26:12+01:00). Gemessen an den 30 Branch-HEADs aus Zelle 1 (frischer fetch
+in /tmp/opencode/stackaudit2-r2/wt, nicht shallow, 3562 Commits auf origin/develop).
+"contains-old-HEAD" prueft zusaetzlich den develop-HEAD vor der Welle
+(0e9ccb582f5bd, 2026-11-14T20:11:39+01:00) als Abgrenzung "gar nicht gesynct" vs.
+"teil-/alt-synct".
+
+| Branch-Ref | Branch-HEAD | develop 14d8f17d1aa drin? | alte develop 0e9ccb582f drin? | own commits ahead | behind |
+| --- | --- | --- | --- | --- | --- |
+| `lane-0428-uid-app` | `22c545d8242f` | SYNCED | yes | 5 | 0 |
+| `lane-0428-uid-environment` | `36c90e270a92` | SYNCED | yes | 13 | 0 |
+| `lane-0428-uid-target` | `ae79d1bc7b4d` | SYNCED | yes | 16 | 0 |
+| `lane-0428-fix-bf03` | `e196c0e2e07c` | SYNCED | yes | 8 | 0 |
+| `lane-0428-fix-bf01-v2` | `55a8c0f3550d` | SYNCED | yes | 9 | 0 |
+| `perf/0428-095-podman-runtime-batching` | `b150fd3fed38` | SYNCED | yes | 6 | 0 |
+| `lane-0428-075-perses-seam` | `66ff93d1cfe1` | SYNCED | yes | 13 | 0 |
+| `lane-0428-080-r28-perses-selection` | `e6f5e650d048` | SYNCED | yes | 17 | 0 |
+| `perses-dashboard-databases-lane` | `22d72f3e4349` | SYNCED | yes | 21 | 0 |
+| `lane-0428-084-perses-lifecycle` | `e866723746a5` | SYNCED | yes | 16 | 0 |
+| `lane-0428-088-perses-runtime` | `2cc8bf6952ad` | SYNCED | yes | 15 | 0 |
+| `lane-welle2-089-perses-secure-access` | `85b01f0ff6df` | SYNCED | yes | 19 | 0 |
+| `w083-perses-datasources` | `c77c76870dc0` | SYNCED | yes | 16 | 0 |
+| `w091-0428-091` | `4b222b1dd5b5` | SYNCED | yes | 16 | 0 |
+| `w073-perses-alerts` | `53300858e21f` | SYNCED | yes | 16 | 0 |
+| `lane-0428-086-perses-loki-source` | `fdb4f84b47e4` | SYNCED | yes | 15 | 0 |
+| `lane-0428-077-r28-perses-dashboard-hosts` | `d558acea55e6` | SYNCED | yes | 20 | 0 |
+| `lane-0428-079-r28-perses-messaging` | `fed843492482` | SYNCED | yes | 20 | 0 |
+| `wt-0428-081` | `bf58a9cf7254` | SYNCED | yes | 20 | 0 |
+| `lane-0428-env-registry` | `bdacdf392dc1` | SYNCED | yes | 17 | 0 |
+| `cli2-org-env-reconcile` | `b651e614a9f0` | SYNCED | yes | 18 | 0 |
+| `cli2-env-policy-head` | `e5ad8a688255` | SYNCED | yes | 18 | 0 |
+| `cli2-identity-secrets-head` | `22e0404c44b8` | SYNCED | yes | 20 | 0 |
+| `lane-0428-059-cli2-source-model` | `0963d08d022c` | SYNCED | yes | 17 | 0 |
+| `lane-0428-062-cli2-app-status` | `63468454fe24` | SYNCED | yes | 18 | 0 |
+| `lane-0428-063-cli2-app-interact` | `1004ecd5f155` | SYNCED | yes | 22 | 0 |
+| `w067-cli2-wizard-platform` | `5fadbf1c5c90` | SYNCED | yes | 19 | 0 |
+| `0428-092-perses-boundary` | `ab9086f5fc39` | **NOT-SYNCED** | yes | 8 | 226 |
+| `lane-0428-078-perses-identity` | `1c124c47dc06` | **NOT-SYNCED** | yes | 14 | 226 |
+| `lane-0428-085-perses-log-trace-dash` | `937b8a747cd7` | **NOT-SYNCED** | yes | 16 | 226 |
+
+Zelle-3-Ergebnis: 27/30 Branches tragen develop 14d8f17d1aa als Vorfahren
+(merge-base == 14d8f17d1aa, behind=0). 3 Branches sind NICHT gesynct; alle drei haengen
+an der alten develop-Spitze 0e9ccb582f (merge-base == 0e9ccb582f, behind=226) und sind
+ein Vorfahr des jeweiligen sync-erfahrenen Branch-HEADs.
+
+## Zelle 4 - Draft-Guard
+
+Alle 30 PRs des Faechers sind draft=true -> KEIN draft-guard-Verstoss.
+
+Nur als fremd notiert, unbewertet gemäss Mission: die Release-Welt-Pfade #1574
+(draft=false, base main), #1611 (draft=false, base develop), #1612 (draft=false, base
+develop), #1622 (draft=false, base develop), #1581 (draft=false, base develop) sowie
+#1587, #1588, #1589 (alle draft=true, base develop).
+
+## Befunde (du aenderst NICHTS)
+
+B1 DRIFT-BEFUND #1602. Feld: PR-head vs branch-head. Erwartung: identisch
+(Missionsregel 1). Wirklichkeit: PR #1602 zeigt auf 3634321d7ebc5227c1d3086009ee1fb610b88885
+("Merge Perses selection head 8ce0df914 into perses-dashboard-hosts (r4 rebase-wave
+step4)", 2026-11-16T00:47:02+01:00); der Branch lane-0428-077-r28-perses-dashboard-hosts
+steht auf d558acea55e664847de6d4003d8748245b6622ca ("Merge commit
+'e6f5e650d048c28004cdc59608e9205c648bb509' into HEAD", enthaelt develop 14d8f17d1aa).
+Der PR-head ist Vorfahr des Branch-heads; die sync-Welle hat den Branch nach dem letzten
+PR-push bewegt, der PR zeigt auf den r4-Stand ohne develop-Inhalt.
+Zeuge: Zelle-1-Tabelle; `git -C wt log --oneline 3634321d7ebc..d558acea55e6`;
+`git merge-base --is-ancestor` (pr-head ist ancestor of branch-head).
+
+B2 DRIFT-BEFUND #1603. Wie B1, Lane lane-0428-079-r28-perses-messaging: PR-head
+62c35c9a4505fd195a2b500530dc338150698c9a vs branch-head fed843492482b26572f093049a28e8bdcd19f777.
+
+B3 DRIFT-BEFUND #1604. Wie B1, Lane wt-0428-081: PR-head d681e181079152e4577328b22ae39c98a0b67253
+vs branch-head bf58a9cf7254f6f5ebc3d9b7f9c8679e13f54ce8.
+
+B4 SYNC-BEFUND #1577. Lane 0428-092-perses-boundary. Erwartung nach Sync-Welle: develop
+14d8f17d1aa enthaelten. Wirklichkeit: Branch-HEAD ab9086f5fc39d34348c7a5db49525cd14566c52a
+(2026-11-15T11:32:21+01:00) enthaelt nur 0e9ccb582f (behind 226). PR-head == Branch-head
+(kein drift): die Sync-Welle hat diesen Branch nicht erfasst.
+
+B5 SYNC-BEFUND #1606. Lane lane-0428-078-perses-identity. Branch-HEAD 1c124c47dc06073f1cee38944a697829caee4369
+(2026-11-16T00:34:58+01:00) haengt bei 0e9ccb582f fest (behind 226), trotz same-day-Commit;
+nicht von der Welle erfasst.
+
+B6 SYNC-BEFUND #1619. Lane lane-0428-085-perses-log-trace-dash. Branch-HEAD 937b8a747cd7b6e95e620f0e90cbe6f1bdba90f0
+(2026-11-16T03:08:43+01:00) enthaelt develop 14d8f17d1aa NICHT, obwohl dieser erst 17
+Minuten spaeter (03:26:12) auf develop gelandet war - die Welle hat also auch einen
+spaeten Branch-HEAD nicht erfasst bzw. die Reihenfolge hat das verpasst. Basis von #1619
+ist w091-0428-091 (der gesynct ist); 937b8a747cd7 enthaelt aber dessen sync-HEAD
+bf58a9cf7254 (wt-0428-081) / 4b222b1dd5b5 nicht als develop-Inhalt: `merge-base --is-ancestor`
+gegen develop -> NO, merge-base mit develop = 0e9ccb582f.
+
+B7 DRIFT-IN-SYNC (niedrig). Die drei DRIFT-Lanes (1602/1603/1604) zeigen PR-head-seitig
+auf den ungesyncten r4-Stand (3634321d/62c35c9a/d681e181, jeweils "no" bei
+`merge-base --is-ancestor 14d8f17d1aa <pr-head>`), waehrend ihre Branches gesynct sind.
+Der GitHub-Review/CI-Kontext dieser PRs prueft damit weiterhin den alten Stand; ein
+Push/PR-sync (z. B. `gh pr sync`-Action oder ein pushloses refetch) ist faellig, bevor
+Luna diese drei Kandidaten gegen develop-Grundlage reviewed.
+
+B8 NAMENS-/LANESPRACHE (niedrig, Vorwurf-frei). Die Branches wt-0428-081,
+w067-cli2-wizard-platform, w073-perses-alerts, w083-perses-datasources, w091-0428-091,
+cli2-env-policy-head, cli2-identity-secrets-head, cli2-org-env-reconcile und
+perf/0428-095-podman-runtime-batching folgen nicht dem lane-0428-NNN-Muster der Kette.
+Keine Missionsnummer verletzt; nur als Beobachtung notiert.
+
+Keine Befunde: Basis-Treue (Zelle 2: 30/30 ok), Draft-Guard (Zelle 4: 30/30 draft).
+
+## Summary (counts)
+
+- PRs untersucht: 30 (alle offen, alle draft)
+- DRIFT-Befunde: 3 (#1602 #1603 #1604)
+- nicht-syncte Branches: 3 (0428-092-perses-boundary / lane-0428-078-perses-identity /
+  lane-0428-085-perses-log-trace-dash)
+- sync-erfahrene PR-heads mit drift: 3 (B7, Teil der DRIFT-Befunde)
+- draft-verstoesse im Faecher: 0
+- basis-abweichungen: 0
+
+## GRENZEN / cleanliness witnesses (read-only)
+
+- Kein Write auf baseharbor (Produkt): nur `gh api` (read) + `git ls-remote` + Fetch in
+  die eigene Zone /tmp/opencode/stackaudit2-r2. `git -C .../workers/baseharbor` wurde
+  NICHT fuer Remote-Realitaet zitiert (Quarantine-Regel).
+- Kein Write auf baseharbor-plan-Karten (`git show --name-only` des Evidence-Commits: nur
+  die Akte), kein plan.py claim/render, keine .github/**-Aenderung, kein Rerun/dispatch.
+- Keine Subagenten; keine docker/podman/compose-Projekte gestartet (Host-Container-Liste
+  unveraendert, keine VM genutzt).
+- Scratch: /tmp/opencode/stackaudit2-r2/{wt,prs.tsv,branchheads.tsv,sync.tsv,...};
+  Board-Datei: /home/marcel/dev/baseharbor-ecosystem/workers/todos/mission-stackaudit2.md.json.
+
+## origin/main witness (second-to-last action)
+
+```
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse HEAD
+acda8a06660e4bf24f9ab09d81f310175d5f7460
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse origin/main
+acda8a06660e4bf24f9ab09d81f310175d5f7460
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan merge-base --is-ancestor b42d5c49e1b060335b6009e41a1ffcbc66a871de HEAD
+yes   # base attestation: baseharbor-plan main b42d5c49 ist Vorfahr meines Evidence-Commits
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan log --oneline b42d5c49..HEAD
+acda8a06 evidence(stackaudit r2): stack inventory 0.4.28 fan after develop sync wave - 3 drift, 3 not-synced, 0 base deviations, 0 draft violations
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only HEAD | grep -i stack-inventory
+evidence/r28-welle1-2026-11-15/stack-inventory/round-1.md
+evidence/r28-welle1-2026-11-15/stack-inventory/round-2.md
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main
+acda8a06660e4bf24f9ab09d81f310175d5f7460	refs/heads/main
+```
+
+Der Log b42d5c49..HEAD zeigt GENAU EINEN Commit (mein eigener), die Akte ist auf
+origin/main (ls-tree bestaetigt den Pfad), ls-remote zeugt acda8a0666 als remote main.
+
+## END
+
+END_DONE mission-stackaudit2.md: 0.4.28-Faecher r2-Inventur (30 PRs) abgeschlossen:
+3 DRIFT-Befunde (#1602 #1603 #1604 - PR-head = alter r4-Stand, Branch bereits
+develop-synced), 3 nicht-syncte Branches (0428-092-perses-boundary,
+lane-0428-078-perses-identity, lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f,
+behind 226), 0 draft-verstoesse, 0 basis-abweichungen. Candidate: baseharbor-plan
+acda8a06660e4bf24f9ab09d81f310175d5f7460 (evidence only). Read-only; keine PR-/Karten-/Produkt-Aenderungen.
