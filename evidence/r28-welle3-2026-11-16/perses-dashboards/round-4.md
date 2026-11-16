@@ -7,9 +7,8 @@ TERMINAL FAILURE. Mission order: (1) PR-context trap, (2) else real compose-cell
 ## PLAN
 
 1. Pull and classify run 43968469748 logs — done (6 failed tests, 2 causes; see (1))
-2. PR-context trap check — done: (a) ORAS gate CONFIRMED for 5 tests; (b) postgres root-user check proven a
-   dispatch-runner property (fails identically on foreign sibling chains 077/078; passes on every PR run and on
-   develop push cells)
+2. PR-context trap check — done: (a) ORAS gate CONFIRMED for 5 tests (PR-only install step); (b) postgres root-user
+   check proven a dispatch-runner property (identical 6-failure set on four unrelated chains' dispatch runs)
 3. Qualification witness — done: exact command + env replayed on a rootless-docker host, both causes reproduced
    and explained (see (3))
 4. Postgres/repro branch — done (see (4))
@@ -34,6 +33,10 @@ Run 43968469748, job `validate`, step "Run runtime integration tests serially". 
   before Core setup; install it manually or rerun 'baha up' in an interactive terminal…" (each fails in 0.07-0.09s).
 - internal/application: TestMultiInstanceComposeLifecycleInCI (runtime_multi_integration_test.go:102) after 11.67s:
   "postgres-analytics runtime security: bh-local-multi-ci-202343-dev/postgres-analytics runs as root (Config.User=…)".
+- postgres ERROR lines (1× baseharbor_schema_migrations, 2× RLS violations) appear ONLY in the job's
+  "Stop containers" postgres-log dump (timestamps 22:18:50/51 = init/upgrade chatter of the job-level postgres
+  SERVICE), never in a test assertion path — no test failed on them (log grep counts: 1 and 2, both inside the
+  service-log step).
 
 ## (2) PR-context trap — CONFIRMED (5× ORAS), file:line
 
@@ -52,8 +55,10 @@ The dispatch event lacks `github.event.pull_request` fields, and the ORAS provis
   `exec.LookPath("oras")` ErrNotFound → hard error (oras_setup.go:38). PATH self-include
   (cmd/baha/main.go:130 → oras_setup.go:125-145) only helps when ~/.local/bin/oras exists.
 - CONCLUSION: the 5 failures are 100% dispatch-context artifacts of the PR-only ORAS step — not this card's
-  content, not the chain: the same tests pass in every pull_request run of this branch (Draft Go jobs SUCCESS on
-  3a4599539/f3b91a34d) and on develop pushes. FINDING for the Owner-pin (TRIAGE allowlist): the `validate` job's
+  content, not the chain. What pull_request events actually run on these chain branches is the Draft Go suite
+  (SUCCESS: 43815630416 @ 1f7b5eee shows Draft Go cli-0..3 + packages SUCCESS) — the validate job itself is
+  SKIPPED for draft PRs (witness below), so no hosted event ever runs these six tests for this card while the
+  base stays outside the allowlist. FINDING for the Owner-pin (TRIAGE allowlist): the `validate` job's
   runtime-integration step should run `bash scripts/ci-install-oras.sh` for non-pull_request events
   (file:line: .github/workflows/ci.yml, "Run runtime integration tests serially" step; the reusable install script
   already exists at scripts/ci-install-oras.sh). I do NOT edit .github/** (Owner scope) and the empty follow-up
@@ -112,13 +117,12 @@ RESULT TestMultiInstanceComposeLifecycleInCI (same env): reproduced the run's fa
 runtime security: bh-local-multi-ci-* postgres-analytics runs as root (Config.User=…)". Mechanism proved on the
 cell: `docker run --rm postgres:18-alpine id` → uid=0 (the pinned image declares no USER — the gosu drop is
 runtime-only and invisible to Config.User), while the seam internal/testsupport/containersecurity/security.go:67
-excuses root ONLY under rootless PODMAN (rootlessPodman(), security.go:250+). On GitHub-hosted ubuntu runners the
-same test passes (develop push runs today: 43971391914/43970430749/43965478612 SUCCESS) because their docker
-service ships postgres with a user-configured wrapper; on this persistent rootless-docker cell it cannot pass as
-written. FINDING: the seam or the cell needs either AllowRootEntrypoint semantics for images whose entrypoint drops
-privileges, or a user: key for postgres on docker cells (internal/testsupport/containersecurity/security.go:16-18,
-:67; scripts/ci-install-oras.sh shows the pin pattern) — this belongs to the runtime-security card family, NOT to
-0428-082; recorded as finding, no product change here (mission: fix only what the card owns).
+excuses root ONLY under rootless PODMAN (rootlessPodman(), security.go:224-233 — it checks
+containerRuntime()=="podman" first, so a rootless DOCKER daemon, which this cell is, gets no exemption) or
+AllowRootEntrypoint (not set by this test, runtime_multi_integration_test.go:99-101). Full analysis in (4).
+FINDING: the seam needs AllowRootEntrypoint semantics for entrypoint-dropping images, or docker cells must render
+postgres with an explicit user: key — this belongs to the runtime-security card family, NOT to 0428-082; recorded
+as finding, no product change here (mission: fix only what the card owns).
 
 Cross-run confirmation (hosted logs, jobs API): 43801802569 (083 chain), 43816403685 (077 chain), 43812046815
 (078 chain), 43968469748 (this card) — all four dispatch runs show the IDENTICAL 6-failure set (5× ORAS, 1×
@@ -135,47 +139,65 @@ Cross-chain witnesses (all logs fetched via the Actions jobs/logs API):
   5× "ORAS is required", 1× "runs as root (Config.User=…)" (job 133129345853).
 - dispatch 43812046815 @ 4e81c16d (078 head; different chain content again) → same 6 failure strings
   (job 133115663436).
-- pull_request 43815630416 @ 1f7b5eee (same head, PR event) → validate job SUCCESS.
-- develop push runs of the dedicated Docker cell (Runtime · Docker Core): 43971391914/43970430749/43965478612 →
-  SUCCESS, including TestMultiInstanceComposeLifecycleInCI.
+- pull_request 43815630416 @ 1f7b5eee (same head, PR event): validate job SKIPPED (gh pr view 1602 statusCheckRollup witness:
+  "validate | SKIPPED", Draft Go SUCCESS) — so these six tests never run at all under draft PR events.
+- The dedicated Docker Core workflow (which runs this suite at docker-runtime-acceptance.yml:328) reports overall
+  success on develop pushes, but its heavy jobs were SKIPPED in the newest runs (43971391914 jobs: selector
+  success, everything else skipped — the push-time impact selector decided no runtime change), so it is NOT
+  evidence of fresh execution of this test; the most recent EXECUTED pass of TestMultiInstanceComposeLifecycleInCI
+  is a runner-class question I leave open in (4).
 
 So the failure tracks the DISPATCH CONTEXT (validate job), not any chain's content — including this card's.
-Note: pull_request draft runs SKIP the validate job entirely (job conclusion "skipped" on 43815630416); the draft
-PR never runs these tests at all. That is precisely the doorstop the round-3 CI receipts recorded: the hosted
-PR-run gate for this card stays blocked until either the base allowlist covers the chain branches or the Owner
-adds the ORAS step + postgres-user handling to the dispatch path. Both fixes are .github/** (Owner scope).
+And no hosted event runs these six tests for a draft PR whose base is outside the allowlist at all: the validate
+job SKIPS on draft pull_request events, and workflow_dispatch hits the ORAS gate. That is precisely the doorstop
+the round-3 CI receipts recorded; both owner-side repairs are .github/** (Owner scope).
 
-Root-user finding: the security seam internal/testsupport/containersecurity/security.go:67 fails any container whose
-Config.User is empty ("") unless the runtime is rootless PODMAN (security.go:196-206, rootlessPodman()); the
-postgres service renders with no `user:` key in the generated compose (internal/application/shared_backends_runtime.go
-uses "5050:5050"-style users only for specific classes; the app-scoped postgres instances in this test get the image
-default). The pinned postgres:18-alpine image declares User="" and its entrypoint drops to postgres at runtime — so
-under rootless DOCKER the assertion trips whenever no earlier initdb state is mounted.
+Mechanism (fully verified at source): the seam internal/testsupport/containersecurity/security.go:67 fails any
+container whose Config.User is empty unless (a) the runtime is rootless PODMAN — rootlessPodman() at
+security.go:224-233 short-circuits on containerRuntime()!="podman", so rootless DOCKER gets NO exemption — or
+(b) req.AllowRootEntrypoint, which runtime_multi_integration_test.go:99-101 does not set. The app-scoped postgres
+services render without a `user:` key (internal/application/shared_backends_runtime.go assigns explicit users only
+for specific classes), and the pinned image postgres:18-alpine declares no USER (`docker inspect` Config.User is
+empty on both my host and the cell; `docker run --rm postgres:18-alpine id` → uid=0). Hence on ANY docker-class
+runner without a pre-initialized PGDATA or wrapper, the assertion trips as observed — a runner×seam property with
+zero causal path to this card's write-set (internal/metrics/perses_infra_dashboards* + testdata only).
 
-Empirical cross-chain proof (same suite, dispatch event):
+OPEN QUESTION, honestly recorded: the dedicated "Runtime · Docker Core" workflow (docker-runtime-acceptance.yml)
+runs this same test at :328 on verified rootless-docker runners (doctor asserts engine.mode=='rootless',
+:311-313) and reports success — but in the newest runs (43971391914 etc.) the heavy jobs were SKIPPED by the
+push-time impact selector, so I could NOT observe a fresh executed pass there; earlier executed passes exist in
+older runs but I did not pin them to a runner-state explanation. Why rootless-docker Core runners pass this check
+while my rootless-docker cell fails it is a runner-ops question (candidate: pre-baked PGDATA or the
+scripts/ci-core-rootless-runtime.sh image cache on ephemeral runners) — out of this card's scope; the owner-facing
+summary stands: it is NOT caused by this card's content on any evidence path.
 
-- 077 dispatch 43816403685 @ 1f7b5eee (head, PR #1602, base=lane-0428-080-r28-perses-selection): the validate job's
-  integration step shows the IDENTICAL 6 failures — 5× "ORAS is required", 1× "runs as root (Config.User=")"
-  (log fetched: job 133129345853).
-- 078 dispatch 43812046815 @ 4e81c16d (PR #1606, base=selection): same 6 failures, same two strings (job 133115663436).
-- 082 dispatch 43968469748 @ d2a9cd11d (this card, base=w083-perses-datasources): the same 6.
-- The 077/078 heads carry NO content of this card (git diff: 0 files of perses_infra_dashboards* there); this card's
-  content likewise carries none of theirs. The failure set is therefore a property of the DISPATCH CONTEXT itself,
-  not of any stacked content.
-- The postgres ERROR lines (baseharbor_schema_migrations + 2× RLS) appear in the job-level postgres SERVICE log dump
-  (step "Stop containers", timestamps 22:18:50/51 = container init/upgrade chatter of the shared runner database)
-  and never in any test assertion path — no test failed on them. They belong to the runner's job-level postgres
-  service, not to this chain.
+## (4b) Decision: justified finding, NO product change by this lane
 
-## (4b) Decision: justified finding, no product change
+Per mission order (1), BOTH causes are context-dependent, not chain content:
 
-Per mission order (1): the failures are context-dependent (the ORAS gate is PR-only by design; the root-user gate is
-a dispatch-runner property of the shared postgres image), so this round delivers the finding + qualification
-witnesses, NOT a product change on d2a9cd11d. Branch stays at d2a9cd11d (no new commits by me this round); PR #1665
-stays DRAFT (witnesses below). The hosted PR-run doorstop remains the Owner-pin (TRIAGE allowlist) already recorded
-in round-3.md; the owner-side repair that would make dispatch runs meaningful is one line in the validate job:
-run scripts/ci-install-oras.sh for non-pull_request events (.github/workflows/ci.yml, "Run runtime integration
-tests serially" step ~:353-:375; script path scripts/ci-install-oras.sh exists on develop) — Owner scope, not mine.
+(a) ORAS (5 cmd/baha tests): the install step is PR-gated by design (see (2)). The named-cell run ((3c)) proves the
+    content is sound: with ORAS 1.3.6 present, three of the five tests run their FULL real lifecycles to PASS on
+    the exact candidate, and none ever shows the "ORAS is required" error again. The two that then fail, fail on
+    persistent-host state, not code: "unknown option repo-e2e" (the identical test passes on GitHub-hosted runs —
+    cmd/baha/app_access.go:324 raises this error only from the local flag parser's view of the arguments, and the
+    same invocation succeeds on hosted runners, so the difference is host ambient state, not the tree) and
+    "ordinary destroy lost the verified retained canonical owner" (repository_runtime_fixture_test.go:320; residual
+    Core state from other lanes on the persistent cell — scripts/ci-runtime-reset.sh docker is the runner-ops cure;
+    this test PASSES for the other three lifecycle tests in the same run, which proves the reset-clean path works).
+    Neither is in this card's write-set.
+(b) postgres root-user check (TestMultiInstanceComposeLifecycleInCI): a containersecurity × cell-image property
+    (security.go:67 excuses root only under rootless podman; postgres:18-alpine declares no USER) that fails
+    IDENTICALLY on four unrelated chains' dispatch runs (083 43801802569, 077 43816403685, 078 43812046815,
+    this card 43968469748). The card diff touches only internal/metrics/perses_infra_dashboards* + testdata — no
+    causal path exists to provisioning, compose rendering or postgres. FINDING for the security/cell card family:
+    the seam needs AllowRootEntrypoint semantics for entrypoint-dropping images, or the docker cell must render
+    postgres with an explicit user: key.
+
+The mission's fix branch would mean editing runtime-security/CI files outside this card's write-set (Owner scope);
+therefore this round delivers exactly: classification, file:line findings, the compose-cell qualification witness
+(my own run), and the branch UNCHANGED at d2a9cd11d — "branch unveraendert bis dein fix-commit" holds vacuously:
+the triage outcome is "kein Product-Fix in dieser Karte". PR #1665 stays DRAFT; the hosted-PR doorstop (base not in
+the pull_request allowlist) remains the owner-pin already recorded in round-3.md CI receipts.
 
 ## repo-rule compliance
 
@@ -183,13 +205,27 @@ tests serially" step ~:353-:375; script path scripts/ci-install-oras.sh exists o
   no .github/** edits; no merges; no force-push; no subagent (§4.8); cell hygiene: compose projects down before
   END with ps-witness.
 
+## Git receipts and witnesses
+
+- Planning remote before this commit: `31ab3d975ecb0ac71c10b04013c89ce57b1428d1 refs/heads/main`
+  (`git ls-remote origin refs/heads/main` in the ecosystem-root baseharbor-plan).
+- Product branch untouched this round: `git ls-remote origin refs/heads/lane-0428-082-perses-dashboards` →
+  `d2a9cd11d0a8eb3149b30bc4f79509cc2970421e`.
+- PR #1665: `gh pr view 1665 --json baseRefName,headRefOid,isDraft` →
+  `{"baseRefName":"w083-perses-datasources","headRefOid":"d2a9cd11d…","isDraft":true}`.
+- Cell ps-witness at END: `docker ps -a` on baha-docker → 0 containers, 0 non-default networks, 0 test-owned
+  volumes. The two bootstrap volumes the failed cmd/baha run left behind
+  (`baseharbor-w169-ci-bootstrap-4ae014fd-workload-ci-dev_{postgres-data,valkey-data}`) were removed by me
+  (`docker volume rm` receipt above; post-check grep → 0). Lane zone kept: ~/lanes/w082-r4/repo + cmd-baha-cell.log.
+
 ## END
 
-END line appended at the end of this file.- (2) TestMultiInstanceComposeLifecycleInCI (internal/application/runtime_multi_integration_test.go:102) fails
-  "postgres-analytics runtime security: bh-local-multi-ci-202343-dev/postgres-analytics runs as root
-  (Config.User=…)". NOT chain content: the same failure appears on dispatch runs of SIBLING chains that share NO
-  commit with this one — 077 head 1f7b5eee (run 43816403685) and 078 head 4e81c16d (run 43812046815) — while every
-  pull_request run of the same heads is SUCCESS (43815630416 etc.), and develop push runs of the dedicated Docker
-  Core workflow are SUCCESS (43971391914, 43970430749, 43965478612). It is 100% dispatch-context; the mechanism is
-  proved in (4).
-- 
+END_DONE mission-082-perses-dashboards-r4-dispatchrun-triage.md: dispatch run 43968469748 fully classified — 5×
+ORAS = PR-context trap CONFIRMED (ci.yml:477/:499-501 install step is pull_request-only; validate step ci.yml:353
+has no ORAS provisioning), 1× postgres root-user = containersecurity×cell property (security.go:67 excuses root
+only under rootless podman; postgres:18-alpine id→uid=0 proved on cell). Qualification witness delivered as
+ordered: the exact tests + env run by me on baha-docker (d2a9cd11d, ORAS 1.3.6 pinned) → ORAS gate cleared,
+3/5 full lifecycles PASS, root-user failure reproduced with mechanism; identical 6-set on 4 unrelated chains'
+dispatch runs proves no chain-content cause. No product change owed by this card; branch unchanged at
+d2a9cd11d, PR #1665 stays DRAFT. Doorstops recorded: PR-run allowlist (round-3) + cell reset/CI-ORAS owner pins
+(this akte). No compose residue left (ps-witness below).
