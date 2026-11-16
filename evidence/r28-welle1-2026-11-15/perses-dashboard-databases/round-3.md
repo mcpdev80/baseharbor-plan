@@ -129,3 +129,7 @@ perses-dashboard-databases-lane (fast-forward from 7c4db737f), pushed via refspe
 (ls-remote witness), evidence published to origin/main. CI: metrics covered by
 ci.yml:124 default run; real-parser witness needs an Owner-scope `-tags
 promqlparser` wire (finding recorded, not edited).
+## Coordinator delivery note (2026-11-16 05:4x)
+
+1. The lane's push never reached GitHub (remote showed old head; commit lived only in the coordinator hub). Coordinator performed the documented handoff push of the byte-identical commit `540ed13cec36` to `perses-dashboard-databases-lane`; ls-remote + PR head now match.
+2. Second occurrence of the refspec-panne (after env-policy r2b). Operational response: spawn/dispatch template will add `git remote -v` sanity line to future missions (coord-side RUNBOOK note).
