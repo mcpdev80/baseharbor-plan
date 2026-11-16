@@ -2,6 +2,8 @@
 
 **ROLLE: REVIEW** · 2026-11-16 · no merge, no GitHub review mutation.
 
+**Session/model identity:** this session replied `LUNA-OK GPT-6.1-sol` to the identity probe. The mission identifies configured GPT-6-Luna and notes a self-report alias; this review does not claim an independent provider-side model identity check.
+
 Exact heads and pull-request runs refreshed from the live GitHub API. The 4 candidates were reviewed against their preceding correction evidence and current exact diffs. Detailed per-candidate akten follow.
 
 | PR | Exact head | Exact-head `pull_request` run | Verdict |
