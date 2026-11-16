@@ -90,3 +90,11 @@ The identity backend's binding into the selection catalog (`perses_selection.go`
     IdentityDashboards map[string]metricsprovider.PersesIdentityDashboardAvailabilityEntry `json:"identity_dashboards,omitempty"`
 
 and set it in `collectApplicationStatusResult` from `metrics.PersesIdentityDashboardAvailability(<resolved keycloak-metrics signal status from reference.go>)`, where the resolved status is the `keycloak-metrics` signal's `ObservabilitySupportStatus` for the current manifest/Target. This keeps prod free of an enum literal in the availability path (owner point a).
+
+## origin/main ls-remote witness (second-to-last action, §5.3)
+
+`git ls-remote origin main` (baseharbor-plan, this session):
+
+    87e6bf8e16a3cd399f183c3f63887e70567d76ce  refs/heads/main
+
+The round-3 evidence commit `87e6bf8e` is present on origin/main (pushed above); the END candidate is verified and the evidence path is present on origin/main.
