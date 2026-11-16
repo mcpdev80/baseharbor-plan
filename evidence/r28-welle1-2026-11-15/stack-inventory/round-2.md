@@ -416,5 +416,7 @@ lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f, behind 226), 0 draft-v
 0 basis-abweichungen. Messzeitpunkte B/C (END-Vorbereitung): eine nachlaufende Sync-Welle
 hat alle Branches auf develop 14d8f17d1aa gehoben und die PR-heads nachgezogen; Final-Zeugnis:
 0 Drift, 0 nicht-synct, 0 draft-verstoesse, 0 basis-abweichungen. Candidate:
-baseharbor-plan eb337895be6a5362dbcd8aae36e03be3ef992e42 (evidence only, base-Zeuge
+baseharbor-plan c5ac6dcfe754076c78164241b7a574d5d45a31f2 (evidence only, base-Zeuge
 b42d5c49..: nur eigene Akten-Commits + ein fremder, unveraenderter Lane-Commit fa9d734c).
+Hinweis: ein parallel aktiver Pfad evidence/r28-welle1-20261115/cli2-app-export/round-1.md
+(andere Lane, 04:12) wurde nicht angefasst, nicht committet und nicht gestasht.
