@@ -135,6 +135,16 @@ Ergebnistabelle (alt -> neu, alle Basen origin/develop @ 14d8f17d1aa, alle PRs b
 | lane-0428-fix-bf01-v2 | #1585 | 13e096fc66d90e20b8f262b7f58024790c62b0e5 | 55a8c0f3550d9cb5638a6223f3c8cbad314c48e6 | BUILD_OK |
 | lane-0428-fix-bf03 | #1582 | 756b2be7eb2ee2e0671de6cf2e7862395e3881fc | e196c0e2e07c9385d405f5d9a278cdbcab99eee0 | BUILD_OK |
 
+Cleanup-Zeuge (letzte Messung, letzte ls-remote-Aufzählung):
+
+    14d8f17d1aa61496db9ed4d57bd4c22eda34ae95  refs/heads/develop      (unveraendert)
+    b150fd3fed388e294b5f4028b710c758da6faa44  refs/heads/perf/0428-095-podman-runtime-batching
+    55a8c0f3550d9cb5638a6223f3c8cbad314c48e6  refs/heads/lane-0428-fix-bf01-v2
+    e196c0e2e07c9385d405f5d9a278cdbcab99eee0  refs/heads/lane-0428-fix-bf03
+
+Lokale Hilfs-Branches (sync-indep-*) und drei Worktrees entfernt;
+/tmp/opencode/w-syncci/ ist leer; keine Container/Netzwerke/Volumes/State jemals erzeugt.
+
 END_DONE mission-sync-indep.md: drei unabhaengige 0.4.28-Pfade auf develop 14d8f17d1aa gesynct
 (b150fd3fe / 55a8c0f35 / e196c0e2e), je go build OK, alle PRs bleiben draft, Evidence origin/main c861733d.
 
