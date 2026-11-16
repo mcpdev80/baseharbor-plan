@@ -14,7 +14,11 @@ Naming note: the existing round-2.md akte was the earlier gofmt-only round (01bc
 5. Replaced nil-on-pinned-only expectation; added cells: unselected, absent provider, absent sources, denied sources, foreign-owned source, invalid snapshot, bad URL, query error propagation, real query success (httptest incl. exact query, 401-denied, untrusted-CA), down-answer stays unverified; golden now carries the materialized endpoint config.
 6. go build ./... + go vet ./... + go test ./internal/metrics/ ./internal/capability/ green; source-readability audit PASS; gofmt -l empty.
 7. Commits pushed to branch w083-perses-datasources (PR #1608 stays draft, base seam unchanged). Provenance witnesses below.
-8. Evidence akte committed + pushed to planning origin/main (this file); END post.
+8. Evidence akte committed + pushed to planning origin/main; END post.
+
+## NAMING / HISTORY of this akte
+
+- This akte replaces the first-filed copy (akte path round-2-luna-correction.md, planning commit 98442949), which was filed while head was 11bdc332d. The run pushed an intermediate form (e6efd9cd4), amended it into 06ec8e24e with one --force-with-lease pinned to the lane's own intermediate (never below base), then added docs-only fixes 11bdc332d and 8b00fe2c8. Final head: 8b00fe2c80777498d18d574cb39b9299e5b160f8. The earlier round-2.md akte in this directory is the prior gofmt-only round and is preserved untouched.
 
 ## FIX SUMMARY (vs recipe)
 
@@ -31,22 +35,23 @@ Naming note: the existing round-2.md akte was the earlier gofmt-only round (01bc
 - ls-remote (before first push): `c77c76870dc0245d7f7e6be4caf13b562435dd6e  refs/heads/w083-perses-datasources`
 - Branch cut exactly at that head (git worktree add --detach c77c76870, then local branch); `git merge-base --is-ancestor c77c76870 HEAD` => YES.
 - c77c76870 is the existing PR #1608 head (merge of seam 66ff93d1 + card commits); base lane-0428-075-perses-seam left unchanged, per mission.
-- git log c77c76870..HEAD = ONLY my own commits (06ec8e24e fix + 11bdc332d comment-line cleanup; the intermediate push e6efd9cd4 was amended into 06ec8e24e before the final push — see push notes).
+- git log c77c76870..HEAD = ONLY my own commits (06ec8e24e fix + 11bdc332d and 8b00fe2c8 comment-line cleanups; the intermediate push e6efd9cd4 was amended into 06ec8e24e before the final pushes — see push notes).
 
 ## WITNESSES
 
 Push + head (origin, after push):
 ```
 $ git ls-remote origin refs/heads/w083-perses-datasources
-11bdc332d676b0f7bc696a5cbf04351b9927b35c	refs/heads/w083-perses-datasources
+8b00fe2c80777498d18d574cb39b9299e5b160f8	refs/heads/w083-perses-datasources
 $ git log --oneline c77c76870dc0245d7f7e6be4caf13b562435dd6e..origin/w083-perses-datasources
+8b00fe2c8 docs(0428-083): name the build entry point in its doc comment
 11bdc332d docs(0428-083): drop duplicated comment line
 06ec8e24e fix(0428-083): fail closed on missing/denied/invalid Prometheus sources; verify health by real query (luna-r1)
 ```
 - No foreign commit in that range (both are this lane's own commits).
 - No extra remote branch: `git ls-remote origin | grep mission-fix-ds-branch` => empty (local helper branch only; single candidate branch w083-perses-datasources per mission).
-- Push note: the first push (e6efd9cd4) was replaced by its amended form 06ec8e24e via ONE --force-with-lease pinned to e6efd9cd4 (never below base c77c76870), then fast-forward 06ec8e24e..11bdc332d. Lease witness above.
-- PR #1608 (gh): baseRefName lane-0428-075-perses-seam, headRefOid tracks branch, isDraft true, state OPEN (checked at head e6efd9cd4; branch head since advanced only by this lane's own commits).
+- Push note: the first push (e6efd9cd4) was replaced by its amended form 06ec8e24e via ONE --force-with-lease pinned to e6efd9cd4 (never below base c77c76870), then fast-forwards 06ec8e24e..11bdc332d..8b00fe2c8. Lease witness above.
+- PR #1608 (gh): baseRefName lane-0428-075-perses-seam, isDraft true, state OPEN; headRefOid tracks the branch head (ls-remote witness above).
 
 ## TEST + BUILD VITNESSES
 
@@ -103,4 +108,4 @@ $ bash scripts/source-readability-audit.sh
 
 ## END LINE
 
-END DONE mission-fix-datasources.md: 0428-083 luna-r1 correction — datasource construction fail-closed on missing/denied/invalid sources and bad endpoint (errors propagate, no empty-config nil-error path), health verify runs a real Prometheus up=1 query over the service-access client (pin validation alone never passes), golden pins the materialized config; 19 test cells PASS, gofmt/build/vet/readability clean; branch w083-perses-datasources head 11bdc332d676b0f7bc696a5cbf04351b9927b35c (own commits on c77c76870 only), PR #1608 draft, base seam unchanged.
+END DONE mission-fix-datasources.md: 0428-083 luna-r1 correction — datasource construction fail-closed on missing/denied/invalid sources and bad endpoint (errors propagate, no empty-config nil-error path), health verify runs a real Prometheus up=1 query over the service-access client (pin validation alone never passes), golden pins the materialized config; 19 test cells PASS, gofmt/build/vet/readability clean; branch w083-perses-datasources head 8b00fe2c80777498d18d574cb39b9299e5b160f8 (own commits on c77c76870 only), PR #1608 draft, base seam unchanged.
