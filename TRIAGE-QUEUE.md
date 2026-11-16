@@ -46,3 +46,7 @@ Behauptung der Lane: alle ci.yml-jobs gated `if: ... draft == false` (17 gates; 
 
 ## CI-BRANCHES-ALLOWLIST (coord via envgrand-lane, 2026-11-16 12:5xZ)
 ci.yml:13-16: pull_request.branches = [develop, main] -> feature-branch-PRs (#1620 #1627 #1623 #1625) erzeugen 0 check-runs. **ZWEIFEL-Vermerk**: #1594/#1578/#1613 bekamen pull_request-runs auf branch-heads — Filter wirkt also nicht durchgaengig (base-branch-Logik?). Owner-pruefung: branches-liste ergaenzen oder diskrepanz aufklaeren. Fund-Akte: evidence/r28-welle2-2026-11-16/envgrand-trigger/round-1.md. ZWEITER BELEG (children-lane, a32bf194): leere trigger-commits auf lane-* branches (#1623@8014d71e, #1625@da7a4e62) erzeugen ebenfalls KEINEN pull_request-run — waehrend #1578/#1594/#1613 branch-head-pushes BEWIESSEN runs ausloesten. Diskrepanz zusaetzlich zur allowlist-Hypothese: PR-IDs/altersstruktur oder base-wechsel koennten unterscheiden; owner-aufklaerung erwuenscht (read-only evidence komplett in den zwei runden-akten).
+
+
+## TEMPO-PR-SWITCH (coord, 2026-11-16 13:4xZ)
+#1610 wurde von extern (author-Sicht mcpdev80) geschlossen und der Inhalt auf neuem PR #1645 (base develop, initially NICHT draft) weitergefuehrt. Linie ist inhaltlich sauber (601f3c3af -> 5740a4d rename -> c781eb86 gofmt, exact-head run 43874313785 SUCCESS). Coord hat #1645 zurueck auf DRAFT gesetzt (merge-frost-Direktive). Falls der Schwenk von ChatGPT-Welt/Owner kam: in Ordnung, aber bitte Uebergabe kuenftig per TRIAGE-Zeile, nicht per PR-Tod — Board-Lauflisten lesen nur PRs der Karten.
