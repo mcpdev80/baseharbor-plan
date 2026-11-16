@@ -37,7 +37,10 @@
 
 - Loki plugin pin belongs in seam file internal/capability/perses.go struct PersesRelease (fields 126-128 PrometheusPluginVersion; add LokiPluginVersion string). This is the seam vertagsdatei — OUT OF SCOPE (mission grenze). Befehl: add field `LokiPluginVersion string` to PersesRelease at internal/capability/perses.go:128 and set it in PersesDefaultRelease (~perses.go:151) to the pinned Loki plugin version. Owner decides whether to add it (option-2-pfad als befeh).
 - shared catalogs (internal/provider/builtin/catalog.go) untouched — Perses never registers as an application capability provider.
-- no .github/** edits (owner scope). CI group that runs serviceaccess tests: internal/serviceaccess/*_test.go via `go test ./internal/serviceaccess/...` in the unit-test CI job — verify trigger name in evidence.
+- no .github/** edits (owner scope). CI trigger (verified, not edited):
+  - ci.yml: `go test ./...` at line 341, fires on pull_request (opened/synchronize/.../converted_to_draft -> develop/main). My draft PR #1616 triggers this.
+  - targeted-integration.yml "Shared provider unit and contract verification" job: `go test ./...` + `go vet ./...` (lines 547-548), workflow_dispatch by coordinator.
+  - My new tests run under `go test ./...` for packages internal/logs, internal/capability, internal/metrics (all green locally).
 
 ## repo-rule compliance
 
@@ -51,4 +54,11 @@
 
 ## END status
 
-- END: BLOCKED (round-1 incomplete: adapter + test not yet implemented; see below)
+- PR: https://github.com/mcpdev80/baseharbor/pull/1616 (DRAFT, isDraft=true, base lane-0428-075-perses-seam)
+- head SHA: 7bf8f407afebc1cf605376cd53e79201a69b8fe3
+- PR title contains 0428-086 ✓
+- NOT ready_for_review, NOT merged ✓
+- evidence committed to origin/main: b571b296 (ls-remote origin main confirmed)
+- docker/podman: no compose projects started this lane; `docker compose ls` empty (cleanliness witness)
+- END: DONE (round-1 complete: adapter + 13 tests green, build/vet clean, draft PR #1616, evidence on origin/main; Loki plugin-pin finding handed to Owner for seam edit)
+
