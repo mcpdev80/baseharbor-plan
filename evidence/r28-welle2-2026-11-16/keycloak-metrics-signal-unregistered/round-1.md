@@ -49,13 +49,41 @@ The registration is the missing link the 078 witness reads. I do NOT add the wit
 
 ## Implementation
 
+Root cause + fix (see round-1 for investigation): `reference.go:160` declares the keycloak-metrics
+native openmetrics signal but nothing registers it at runtime, so `observability.List(SignalMetrics)`
+returns no Keycloak source and the 078 witness (`source.ID == "keycloak-metrics"`) can never match.
+
+Fix in `internal/identityprovider/keycloak_realization.go`: added
+`registerKeycloakSignals()`, called at the end of `localKeycloakRealization.Apply`, mirroring the
+Loki (`logs/realization.go`), Tempo (`traces/tempo.go`) and OTel (`telemetry/realization.go`)
+registration: the reference descriptor is the path, the deployment metrics policy is the gate.
+`Enabled[SignalMetrics]=metricsEnabled` gates the source so a Target without metrics collection
+keeps every gate fail-closed (no 080 non-forgeability regression).
+
+CRITICAL ID MATCH: the registration `ID` MUST be the literal `"keycloak-metrics"` (NOT
+`"keycloak:<project>"`). The witness iterates `observability.List` results and matches on
+`source.ID == "keycloak-metrics"`; the registry stores `SignalSource.ID = registration.ID` and the
+shared-scope dedup (`registry.go:245`) removes prior sources with the same ID+provider before
+appending. A project-suffixed ID would register a source that the witness never matches. This is the
+actual bug surface, not only "not registered".
+
+Chain note (mission item 3): #1650 (0428-078) consumes this via
+`internal/metrics/perses_identity_witness.go:118` — `IdentitySelectionWitnessAt` ->
+`keycloakMetricSignals` -> `observability.List(SignalMetrics, ...)` then matches
+`source.Provider == capability.ProviderKeycloak && source.ID == "keycloak-metrics"`. My registration
+provides exactly that source. The production call-site wiring (app_status_result.go) is still the
+078 lane's; my card only supplies the registered signal it reads.
+
+## Implementation
+
 (will record diff, build/vet/gofmt, test results here)
 
 ## repo-rule compliance
 
 - No .github/** touched. No merge. No force-push. No ready_for_review. No subagent.
-- Worktree under workers/ per workspace-layout rule; staging repo = /home/marcel/dev/baseharbor-ecosystem/baseharbor (origin/main verified).
+- Worktree under workers/ per workspace-layout rule; staging repo = /home/marcel/dev/baseharbor-ecosystem/baseharbor (origin/main verified at 13ffdd15d).
 - Evidence lives only in baseharbor-plan.
+- Full `go test ./...` run: my changed packages pass — identityprovider 139.8s, metrics 1.7s, observability 0.19s, runtimeobservability cached. The failing packages (cmd/baha, internal/controlplaneruntime, internal/database, internal/development, internal/machinehttp) are UNRELATED to my change and FAIL identically on clean develop (13ffdd15d) due to the local environment: no runtime executor (HTTP 503 / AppRole login failed), no native Core network, and "signal: killed"/XDG_DATA_HOME resource failures. Not a regression.
 
 ## END status
 
