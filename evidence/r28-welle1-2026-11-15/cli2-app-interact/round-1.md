@@ -146,3 +146,5 @@ END_DONE mission-welle2-063.md: 0428-063 guided app logs/exec/urls over the deli
 git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main -- evidence/r28-welle1-2026-11-15/cli2-app-interact
 evidence/r28-welle1-2026-11-15/cli2-app-interact/round-1.md
 ```
+
+Evidence commit: 145b15ad on origin/main (pushed; witness above taken after the push).
