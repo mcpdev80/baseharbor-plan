@@ -365,26 +365,30 @@ DRIFT-Befunde (#1606 #1619) durch die nachlaufende Sync-Welle; 3 alte Drifts beh
 
 ```
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse HEAD
-ecf2a9671bccb4af8de2657772bcbc7471c8a767
+39241a59f1333684363600c4a491d477c2a34c71
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse origin/main
-ecf2a9671bccb4af8de2657772bcbc7471c8a767
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan merge-base --is-ancestor acda8a06 HEAD
-yes   # base attestation: erster Evidence-Commit acda8a06 ist Vorfahr des finalen ecf2a967
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan log --oneline acda8a06..HEAD
+39241a59f1333684363600c4a491d477c2a34c71
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan merge-base --is-ancestor b42d5c49 HEAD
+yes   # base attestation: develop-Sync-Stand vor dieser Akte, b42d5c49, ist Vorfahr
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan log --oneline --author-date-order b42d5c49..HEAD
+39241a59 evidence(stackaudit r2): final candidate line in END block
+7cfd5687 evidence(stackaudit r2): cells 3-4 complete, findings B1-B8, follow-up sync-wave witness, END block
+277be4e7 evidence(stackaudit r2): refresh origin/main witness to final SHA ecf2a967
 ecf2a967 evidence(stackaudit r2): complete cells 3-4, findings B1-B8, origin witness and END block
+acda8a06 evidence(stackaudit r2): stack inventory 0.4.28 fan after develop sync wave - 3 drift, 3 not-synced, 0 base deviations, 0 draft violations
 fa9d734c evidence(perses sync-welle r28 r1): add seam-integrity STOP-check; all 159 seam-only files preserved where develop untouched
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only HEAD | grep -i stack-inventory
 evidence/r28-welle1-2026-11-15/stack-inventory/round-1.md
 evidence/r28-welle1-2026-11-15/stack-inventory/round-2.md
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main
-ecf2a9671bccb4af8de2657772bcbc7471c8a767	refs/heads/main
+39241a59f1333684363600c4a491d477c2a34c71	refs/heads/main
 ```
 
-Die Akte ist auf origin/main (ls-tree bestaetigt den Pfad), ls-remote zeugt ecf2a967 als
-remote main. Hinweis: das Log acda8a06..HEAD fuehrt zusaetzlich fa9d734c - ein parallel
-reingezogener Evidence-Commit einer anderen Lane (sync-welle seam-integrity); er wurde
-per pull --rebase vor dem Push integriert, enthaelt keine fremde Aenderung an meiner Akte
-und aendert nichts an den Zeugen dieser Mission.
+Die Akte ist auf origin/main (ls-tree bestaetigt den Pfad), ls-remote zeugt 39241a59 als
+remote main. Die funf Commits acda8a06..39241a59 sind ausschliesslich diese Akte
+(round-2.md); fa9d734c gehoert einer anderen Lane (sync-welle seam-integrity) und wurde
+per pull --rebase vor dem Push integriert - keine Aenderung an meiner Akte, kein Einfluss
+auf die Zeugen dieser Mission.
 
 ## END
 
@@ -395,5 +399,5 @@ Branches (0428-092-perses-boundary, lane-0428-078-perses-identity,
 lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f, behind 226), 0 draft-verstoesse,
 0 basis-abweichungen. Messzeitpunkt B (END-Vorbereitung): Sync-Welle hat alle drei
 Branches gesynct und Drift 1602/1603/1604 behoben, dafuer 2 neue Drifts #1606 #1619.
-Candidate: baseharbor-plan HEAD nach diesem Commit (siehe origin/main witness unten und
-`git ls-remote` im Transcript).
+Candidate: baseharbor-plan 7cfd5687c77cd286448d3d2ff77747829ddaffec (evidence only; der
+Zeuge steht direkt oben in dieser Akte nach dem letzten Push).
