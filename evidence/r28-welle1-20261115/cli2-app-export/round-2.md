@@ -49,7 +49,7 @@ Only my own commit is on the branch after the base:
 
 ```
 git log --oneline 8d591adb..HEAD
-<new-head> <short>: doc(de): restore lost baha app export literal in DE machine coverage (0428-065)
+191367a12 doc(de): restore lost baha app export literal in DE machine coverage (0428-065 round-2)
 ```
 
 No foreign candidate carried; `develop` and other cli2-stack lanes are deliberately NOT ancestors of this checkout.
@@ -130,15 +130,26 @@ cleanliness: /tmp/opencode/lane-0428-065-cli2-app-export-r2-wt contains the deta
 
 ## Handoff
 
-- Candidate `lane-0428-065-cli2-app-export` now at the new head (witnessed via ls-remote below). The change is a single DE documentation row; the DE machine-coverage page and the EN machine-coverage page now carry identical command rows (164 each). No shared-file or generator action needed for the integrator (only a prose literal was missing; no registry/commands.go/command-index change).
+- Candidate `lane-0428-065-cli2-app-export` now at the new head `191367a12df7f0506d321eb578e215a3987e7f5a` (witnessed via ls-remote below). The change is a single DE documentation row; the DE machine-coverage page and the EN machine-coverage page now carry identical command rows (164 each). No shared-file or generator action needed for the integrator (only a prose literal was missing; no registry/commands.go/command-index change).
 - Remaining gaps: none introduced. The round-1 pre-existing environment failures (OOM `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`, base-parity `TestAgentDescribeJSON`/`TestAppEditCommandCompleteProviderEditRunsRealLifecycle`) are unchanged and unrelated to this documentation fix.
 
 ## END
 
-END_DONE mission-aexp-r2.md: 0428-065 cli2-app-export correction round — restored the lost `baha app export` literal in the DE paired reference page docs/de/reference/cli-machine-coverage.md (single row mirroring the EN row, inserted between `baha app evidence` and `baha app exec`); gate `check_de_translation_integrity.py` now PASS (167 paired pages), full `documentation-audit.sh` green, `go build/vet` and `TestMachineDocumentationTracksRegistryAndCommandTree` green; candidate extended FAST-FORWARD only on lane-0428-065-cli2-app-export (no second branch, no foreign commit), PR #1625 stays draft, base stays cli2-identity-secrets-head head 8d591adb; no .github/**, no merge, no ready_for_review, no force-push, no subagent.
+END_DONE mission-aexp-r2.md: 0428-065 cli2-app-export correction round — restored the lost `baha app export` literal in the DE paired reference page docs/de/reference/cli-machine-coverage.md (single row mirroring the EN row, inserted between `baha app evidence` and `baha app exec`); gate `check_de_translation_integrity.py` now PASS (167 paired pages), full `documentation-audit.sh` green, `go build/vet` and `TestMachineDocumentationTracksRegistryAndCommandTree` green; candidate lane-0428-065-cli2-app-export now @ 191367a12df7f0506d321eb578e215a3987e7f5a (FAST-FORWARD only from base 8d591adb, no foreign commit), PR #1625 stays draft, base stays cli2-identity-secrets-head head 8d591adb; no .github/**, no merge, no ready_for_review, no force-push, no subagent.
 
 ## Second-to-last action witness (mandated origin/main presence check)
 
 ```
 git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main -- evidence/r28-welle1-20261115/cli2-app-export
+evidence/r28-welle1-20261115/cli2-app-export/round-1.md
+evidence/r28-welle1-20261115/cli2-app-export/round-2.md
 ```
+
+## Product candidate head witness (mandated ls-remote)
+
+```
+git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor ls-remote origin lane-0428-065-cli2-app-export
+191367a12df7f0506d321eb578e215a3987e7f5a refs/heads/lane-0428-065-cli2-app-export
+```
+
+PR #1625 (gh pr view 1625): title contains `0428-065`, state OPEN, isDraft true, baseRefName `cli2-identity-secrets-head`, headRefOid `191367a12df7f0506d321eb578e215a3987e7f5a`.
