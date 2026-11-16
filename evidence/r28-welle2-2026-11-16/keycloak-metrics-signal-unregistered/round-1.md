@@ -85,6 +85,21 @@ provides exactly that source. The production call-site wiring (app_status_result
 - Evidence lives only in baseharbor-plan.
 - Full `go test ./...` run: my changed packages pass — identityprovider 139.8s, metrics 1.7s, observability 0.19s, runtimeobservability cached. The failing packages (cmd/baha, internal/controlplaneruntime, internal/database, internal/development, internal/machinehttp) are UNRELATED to my change and FAIL identically on clean develop (13ffdd15d) due to the local environment: no runtime executor (HTTP 503 / AppRole login failed), no native Core network, and "signal: killed"/XDG_DATA_HOME resource failures. Not a regression.
 
+## Commit + push (DONE)
+
+- Branch `lane-0428-097-keycloak-signal` cut from develop 13ffdd15d24fcfb4a379c834d25450ebb2737a6a
+  (confirmed ancestor of the commit via `git merge-base --is-ancestor`).
+- Commit f709e14b58f55be9e6ef93323e31bb9166aa04e8: "fix(0428-097): register keycloak-metrics native
+  observability signal" — exactly ONE commit on top of the develop base, two files:
+  `internal/identityprovider/keycloak_realization.go` (registration method + call in Apply) and
+  `internal/identityprovider/keycloak_signal_registration_test.go` (positive + fail-closed regression).
+- Pushed via refspec to lane-origin; ls-remote witness:
+  f709e14b58f55be9e6ef93323e31bb9166aa04e8 refs/heads/lane-0428-097-keycloak-signal.
+- PR #1660, base develop, head f709e14b5, **DRAFT/OPEN**. CI run 43929204510: all non-SKIPPED draft
+  jobs (source-and-routing, Draft Go cli-0..3, Draft Go packages) COMPLETED/SUCCESS — run-id
+  43929204510. (Draft PR policy skips the release/native/contract gates; this is the focused draft gate.)
+
 ## END status
 
-- END_DONE / END_BLOCKED (to be posted last)
+- PRODUCTION registration DONE, PR #1660 OPEN/DRAFT/base develop, CI green @ f709e14b5 (run 43929204510).
+- Evidence path lives only in baseharbor-plan (this akte); no product-repo evidence written.
