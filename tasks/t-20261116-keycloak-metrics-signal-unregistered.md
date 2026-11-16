@@ -11,7 +11,7 @@ owner: ""
 kanban_status: planned
 kanban_lane: planned
 kanban_summary: "Make the declared keycloak-metrics native signal actually resolvable at runtime so the identity fan-in gate can ever be true."
-kanban_title: "Runtime: register keycloak-metrics native signal in observability registry"
+kanban_title: 0428-097 · Register keycloak-metrics signal
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
