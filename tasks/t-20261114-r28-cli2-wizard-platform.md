@@ -7,15 +7,15 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w067
-kanban_status: active
-kanban_lane: active
+owner: coord
+kanban_status: review
+kanban_lane: review
 kanban_summary: "Platform and access wizards. Follow the owner working brief, command mapping and code entry index; revalidate current develop…"
 kanban_title: 0428-067 · Platform and access wizards
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-env-policy]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1620]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-wizard-platform · CLI redesign: Platform and access wizards #task #release/v0-4-28 #status/review #view/review #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** w067 · **Priority:** high  
+    **Owner:** coord · **Priority:** high  
+    **PR:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
     **Needs:** [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](t-20261114-r28-cli2-env-policy.md)  
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
-**Owner:** w067  
+**Owner:** coord  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620)  
 **Source:** 
 <!-- /generated:links -->
 

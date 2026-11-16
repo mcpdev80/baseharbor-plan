@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 11 |
-| review | 8 |
+| active | 10 |
+| review | 9 |
 | wait | 18 |
 | blocked | 0 |
 | ready | 5 |
@@ -29,7 +29,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-cli2-app-status](../tasks/t-20261114-r28-cli2-app-status.md) | CLI redesign: Unify app status and versions | active | high | w062-cli2-app-status | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) (open) | — |
 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) | CLI redesign: Replace name-based environment policy | active | high | w130-idempotent-0427 | [t-20261114-r28-cli2-uid-environment](../tasks/t-20261114-r28-cli2-uid-environment.md) (open) | — |
 | [t-20261114-r28-cli2-org-env](../tasks/t-20261114-r28-cli2-org-env.md) | CLI redesign: Organization environment reconciliation | active | high | welle2-056-cli2-org-env | [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | — |
-| [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | active | high | w067 | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | — |
 | [t-20261114-r28-perses-alerts](../tasks/t-20261114-r28-perses-alerts.md) | Define and provision alert rules | active | normal | w073-perses-alerts | [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) | Perses identity dashboard | active | normal | w078 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
 | [t-20261114-r28-perses-dashboard-valkey](../tasks/t-20261114-r28-perses-dashboard-valkey.md) | Perses Valkey dashboard | active | normal | w081 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
@@ -42,6 +41,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261114-r28-cli2-identity-secrets](../tasks/t-20261114-r28-cli2-identity-secrets.md) | CLI redesign: Separate human/runtime secret authority | review | high | w2c3555a6-0428-057 | [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open), [t-20261114-r28-cli2-env-registry](../tasks/t-20261114-r28-cli2-env-registry.md) (open) | [baseharbor#1615](https://github.com/mcpdev80/baseharbor/pull/1615) |
 | [t-20261114-r28-cli2-source-model](../tasks/t-20261114-r28-cli2-source-model.md) | CLI redesign: Extend app sources and components | review | high | lane-0428-059-cli2-source-model (flash) | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-uid-app](../tasks/t-20261114-r28-cli2-uid-app.md) (open) | [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595) |
+| [t-20261114-r28-cli2-wizard-platform](../tasks/t-20261114-r28-cli2-wizard-platform.md) | CLI redesign: Platform and access wizards | review | high | coord | [t-20261114-r28-cli2-contract](../tasks/t-20261114-r28-cli2-contract.md), [t-20261114-r28-cli2-env-policy](../tasks/t-20261114-r28-cli2-env-policy.md) (open) | [baseharbor#1620](https://github.com/mcpdev80/baseharbor/pull/1620) |
 | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) | Define Perses provider seam | review | normal | 1a678edb | — | [baseharbor#1575](https://github.com/mcpdev80/baseharbor/pull/1575) |
 | [t-20261114-r28-perses-dashboard-databases](../tasks/t-20261114-r28-perses-dashboard-databases.md) | Perses database dashboards | review | normal | 27319c95 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | [baseharbor#1597](https://github.com/mcpdev80/baseharbor/pull/1597) |
 | [t-20261114-r28-perses-lifecycle](../tasks/t-20261114-r28-perses-lifecycle.md) | Perses lifecycle commands | review | normal | 8c2da3ba | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md) (open), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open) | [baseharbor#1598](https://github.com/mcpdev80/baseharbor/pull/1598) |
