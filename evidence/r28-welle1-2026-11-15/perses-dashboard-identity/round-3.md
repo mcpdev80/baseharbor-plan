@@ -76,11 +76,11 @@ The identity backend's binding into the selection catalog (`perses_selection.go`
 - lane: perses-identity-r3
 - status: DONE (correction candidate committed + pushed; PR #1606 stays draft, awaiting owner 080 merge-window + Codex abnahme)
 - base head (ls-remote origin, this session): `lane-0428-078-perses-identity` = `6e9b1224385e385484cc54dbfa69eab0502bdb20`
-- candidate head (local commit): (filled before END)
-- candidate head (ls-remote origin, this session): (filled after push)
+- candidate head (local commit): `4e81c16ddcf7d1cd1bec1cbec663c97df91b198f`
+- candidate head (ls-remote origin, this session): `lane-0428-078-perses-identity` = `4e81c16ddcf7d1cd1bec1cbec663c97df91b198f`
 - PR: #1606 (draft, open), base `lane-0428-080-r28-perses-selection`
-- Ancestry: `git merge-base --is-ancestor 6e9b1224385e385484cc54dbfa69eab0502bdb20 HEAD` => PASS; `git log 6e9b1224385e385484cc54dbfa69eab0502bdb20..HEAD` lists only my own commit.
-- Tests (self-run, this session): (filled after run)
+- Ancestry: `git merge-base --is-ancestor 6e9b1224385e385484cc54dbfa69eab0502bdb20 HEAD` => PASS; `git log 6e9b1224385e385484cc54dbfa69eab0502bdb20..HEAD` lists only my own commit `4e81c16dd`.
+- Tests (self-run, this session): `go test ./internal/metrics/...` => ok; `./cmd/baha/... -run "Perses|Identity|Dashboard"` => ok; `go build ./...` => OK; `go vet ./internal/metrics/` => clean; gofmt clean.
 - Cleanliness: only /tmp/opencode/perses-identity-r3/ touched; no docker/podman compose started this shift. No foreign state.
 
 ## Fan-in BEFUND (single prod CLI call-site, 080 owner merge-window)
