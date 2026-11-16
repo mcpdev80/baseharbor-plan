@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: active
+kanban_status: review
 kanban_lane: planned
 kanban_summary: ""
 kanban_title: 0428-099 · Demo Warning-marker rename
 priority: ""
 depends_on: [t-20261115-bughunt-d28-i18n-achtung]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor-demo#164]
 sources: []
 blocker: ""
 wait_reason: ""
