@@ -304,15 +304,50 @@ Keine Missionsnummer verletzt; nur als Beobachtung notiert.
 
 Keine Befunde: Basis-Treue (Zelle 2: 30/30 ok), Draft-Guard (Zelle 4: 30/30 draft).
 
+## Follow-up witness - a later sync wave closed the three gaps (measured at END-preparation)
+
+While the Akte was being finalized, the three NOT-SYNCED Branches received their own
+develop-merge (measured again via fresh ls-remote + fetch, no product write):
+
+```
+CHANGED 0428-092-perses-boundary: was ab9086f5fc39... now 5e8d138cd659cbd7a72fde4713b3b1389b95dcdb
+CHANGED lane-0428-078-perses-identity: was 1c124c47dc06... now e38ed06d24a341db3920e79c9dc3a75215bec498
+CHANGED lane-0428-085-perses-log-trace-dash: was 937b8a747cd7... now fbffb965f72585b160d4fee7bcc6050287c10fc2
+```
+
+All three new HEADs: SYNCED (develop 14d8f17d1aa is an ancestor; the old r4-HEAD is an
+ancestor of the new one). The other 27 Branch-HEADs were unchanged at re-measurement.
+PR-side effect measured in the same pass: #1577 and #1602 #1603 #1604 now show PR-head ==
+branch-head (drift cleared as the merge landed on the PR Branch), while #1606 and #1619
+show the reverse pattern (PR-head 1c124c47dc06 / 937b8a747cd7 older than their synced
+Branch-heads e38ed06d24a3 / fbffb965f725):
+
+| PR | base-ref | head-ref | PR-head (gh) | ls-remote Branch-HEAD | Ergebnis |
+| --- | --- | --- | --- | --- | --- |
+| 1577 | `develop` | `0428-092-perses-boundary` | `5e8d138cd659` | `5e8d138cd659` | ok (war ok, jetzt synced) |
+| 1602 | `lane-0428-080-r28-perses-selection` | `lane-0428-077-r28-perses-dashboard-hosts` | `d558acea55e6` | `d558acea55e6` | ok (Drift behoben) |
+| 1603 | `lane-0428-080-r28-perses-selection` | `lane-0428-079-r28-perses-messaging` | `fed843492482` | `fed843492482` | ok (Drift behoben) |
+| 1604 | `lane-0428-080-r28-perses-selection` | `wt-0428-081` | `bf58a9cf7254` | `bf58a9cf7254` | ok (Drift behoben) |
+| 1606 | `lane-0428-080-r28-perses-selection` | `lane-0428-078-perses-identity` | `1c124c47dc06` | `e38ed06d24a3` | **DRIFT (neu)** |
+| 1619 | `w091-0428-091` | `lane-0428-085-perses-log-trace-dash` | `937b8a747cd7` | `fbffb965f725` | **DRIFT (neu)** |
+
+Befund-Status zum END-Zeitpunkt: B1/B2/B3 durch die spaetere Welle behoben; B4/B5/B6
+(Sync-Luecken) behoben; dafuer zwei neue DRIFT-Befunde (#1606, #1619) mit derselben
+Ursache (Merge-Welle schreibt den Branch, PR-Ref hinkt nach). Da die Mission
+read-only ist, wurde NICHTS nachgezogen; dies ist der reine Zeugnis-Stand.
+
 ## Summary (counts)
 
+Messzeitpunkt A (Erstinventur, ~03:50 UTC+1):
 - PRs untersucht: 30 (alle offen, alle draft)
 - DRIFT-Befunde: 3 (#1602 #1603 #1604)
-- nicht-syncte Branches: 3 (0428-092-perses-boundary / lane-0428-078-perses-identity /
-  lane-0428-085-perses-log-trace-dash)
-- sync-erfahrene PR-heads mit drift: 3 (B7, Teil der DRIFT-Befunde)
+- nicht-syncte Branches: 3 (0428-092-perses-boundary, lane-0428-078-perses-identity,
+  lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f, behind 226)
 - draft-verstoesse im Faecher: 0
 - basis-abweichungen: 0
+
+Messzeitpunkt B (END-Vorbereitung, ~04:15 UTC+1): 0 nicht-syncte Branches, aber 2 neue
+DRIFT-Befunde (#1606 #1619) durch die nachlaufende Sync-Welle; 3 alte Drifts behoben.
 
 ## GRENZEN / cleanliness witnesses (read-only)
 
@@ -353,10 +388,12 @@ und aendert nichts an den Zeugen dieser Mission.
 
 ## END
 
-END_DONE mission-stackaudit2.md: 0.4.28-Faecher r2-Inventur (30 PRs) abgeschlossen:
-3 DRIFT-Befunde (#1602 #1603 #1604 - PR-head = alter r4-Stand, Branch bereits
-develop-synced), 3 nicht-syncte Branches (0428-092-perses-boundary,
-lane-0428-078-perses-identity, lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f,
-behind 226), 0 draft-verstoesse, 0 basis-abweichungen. Candidate: baseharbor-plan
-ecf2a9671bccb4af8de2657772bcbc7471c8a767 (evidence only, base acda8a0666 auf b42d5c49).
-Read-only; keine PR-/Karten-/Produkt-Aenderungen.
+END_DONE mission-stackaudit2.md: 0.4.28-Faecher r2-Inventur (30 PRs) abgeschlossen,
+read-only, 0 Karten-/PR-/Produkt-Aenderungen. Messzeitpunkt A: 3 DRIFT-Befunde (#1602
+#1603 #1604 - PR-head auf altem r4-Stand, Branch bereits develop-synced), 3 nicht-syncte
+Branches (0428-092-perses-boundary, lane-0428-078-perses-identity,
+lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f, behind 226), 0 draft-verstoesse,
+0 basis-abweichungen. Messzeitpunkt B (END-Vorbereitung): Sync-Welle hat alle drei
+Branches gesynct und Drift 1602/1603/1604 behoben, dafuer 2 neue Drifts #1606 #1619.
+Candidate: baseharbor-plan HEAD nach diesem Commit (siehe origin/main witness unten und
+`git ls-remote` im Transcript).
