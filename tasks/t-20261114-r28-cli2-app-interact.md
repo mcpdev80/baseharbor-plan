@@ -15,7 +15,7 @@ kanban_title: 0428-063 · Guide app logs exec and urls
 priority: high
 depends_on: [t-20261114-r28-cli2-contract, t-20261114-r28-cli2-identity-secrets, t-20261114-r28-cli2-source-model]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1623]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -26,6 +26,7 @@ evidence: []
 - [ ] t-20261114-r28-cli2-app-interact · CLI redesign: Guide app logs exec and urls #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
     **Owner:** w063 (flash) · **Priority:** high  
+    **PR:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
     **Needs:** [t-20261114-r28-cli2-identity-secrets](t-20261114-r28-cli2-identity-secrets.md), [t-20261114-r28-cli2-source-model](t-20261114-r28-cli2-source-model.md)  
     <!-- /generated:card -->
 
@@ -36,7 +37,7 @@ evidence: []
 **Required by:** [t-20261114-r28-cli2-cli-integration](t-20261114-r28-cli2-cli-integration.md)  
 **Owner:** w063 (flash)  
 **Priority:** high  
-**PRs:** none  
+**PRs:** [baseharbor#1623](https://github.com/mcpdev80/baseharbor/pull/1623)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -69,4 +70,4 @@ Component filtering, ambiguous/non-interactive behavior, safe quoting, no unrela
 
 ## Handoff
 
-Planned and unassigned. No product implementation or acceptance yet.
+Round-1 delivered by w063 (flash): candidate lane-0428-063-cli2-app-interact @ beb2ee5859a8a2ffa07fd5725370275411e27011, draft PR baseharbor#1623 (base cli2-identity-secrets-head). Guided logs/exec/urls over the delivered read view, fail-closed app.logs/app.exec/app.urls authorization; no merge, no ready_for_review. Evidence: evidence/r28-welle1-2026-11-15/cli2-app-interact/round-1.md. CI dispatch belongs to the coordinator.
