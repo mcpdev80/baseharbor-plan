@@ -6,7 +6,7 @@
 - Ziel-Branche: `lane-0428-094-config-fail`, PR-Base `develop`, DRAFT (frost)
 - Build-Zeugnis: `go1.26.8`, `go build -o baha ./cmd/baha` exit 0
 
-## STATUS: candidate builds + tests green; PR/DRAFT + CI-Run ausstehend (END_PENDING)
+## STATUS: fertig — Fix + Tests green, CI #1666 grün, PR DRAFT, Evidence auf origin/main (END_READY)
 
 ## 1. Reproduktion — wo die config-beladung fehler verschluckt (file:line)
 
@@ -101,6 +101,16 @@ gofmt -l internal/deployment/target.go internal/deployment/config_fail_loud_test
 - `./internal/orgconfig/...` ok
 - `./cmd/baha/` target + org-scope (inkl. `TestOrganizationTargetOverrideCannotBypassManagedConstraint`) ok
 
+## 5. Terminaler CI-Run (PR #1666, Run 43952223844)
+
+Die Go-unit-Shards, die `internal/deployment` abdeckten, liefen an und sind grün:
+
+- `Draft Go · cli-0` pass (3m50s), `cli-1` pass (2m15s), `cli-2` pass (5m4s), `cli-3` pass (3m3s)
+- `Draft Go · packages` pass (3m21s); `Draft source and routing` pass
+- Run-ID: https://github.com/mcpdev80/baseharbor/actions/runs/43952223844
+
+Kein roter Pflicht-Check.
+
 ## 5. End-to-End-Verifikation (eigener Build, absoluter Pfad)
 
 ```
@@ -141,6 +151,8 @@ berührt.
 
 ## END
 
-END_PENDING mission-094-config-quiet.md: Fix implementiert + lokal green (build/vet/gofmt, deployment +
-cmd/baha + orgconfig). Ausstehend: Branch + DRAFT-PR pushen (origin), CI-Run beobachten, Evidence auf
-origin/main, todos.json ticken, END post.
+END_DONE mission-094-config-quiet.md: Fix implementiert + lokal green (build/vet/gofmt, deployment +
+cmd/baha + orgconfig). Branch `lane-0428-094-config-fail` = `5b0197a9` (Base `14d8f17d`, Ancestor
+von develop), PR #1666 DRAFT, Base develop. Terminaler CI Run 43952223844: Go-unit-Shards
+cli-0/1/2/3 + packages alle pass. Evidence auf origin/main (`27677405`). Kein Merge, kein
+force-push.
