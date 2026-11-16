@@ -20,7 +20,10 @@ Environment-scoped destruction with impact preview, one Keep-data (default)/Dele
 ## STATUS (progress)
 
 - Steps 1-4 implemented and locally verified on the post-sync base.
-- Full cmd/baha regression suite in progress (10m Go test timeout; other lanes share the runner).
+- Full cmd/baha regression suite ran to completion (569s, fresh single run, runner now clear): exactly ONE failure — `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication` — a native `git archive` subprocess killed by OOM under shared-runner memory pressure (`signal: killed`). Reproduced on the CLEAN base in isolation; it is unrelated to this env-delete slice (does not touch management_core_git_candidate). No env-delete, coverage, or doc-drift failures.
+- gofmt: clean on all 4 files. go vet ./cmd/baha/ ./internal/deployment/: clean.
+- Focused scope green: TestCLIEnvDestroy* (4), internal/deployment full suite, cmd/baha command/coverage/doc tests.
+- Note: the worktree `/tmp/opencode/w-envdel` was deleted out from under me mid-run while a full-suite run was queued behind runner contention; all 4 source files were recreated verbatim from authored content, re-registered (commands.go:141), and re-verified green. Base attestation unchanged.
 
 ## BASE ATTESTATION
 
@@ -44,3 +47,19 @@ Decision line (owner, 2026-11-16): OPTION A confirmed — top-level `baha env de
 ## END
 
 END lane DONE (pending)
+
+## COMMIT WITNESS (post-sync)
+
+- Base (post-sync): `e5ad8a6882550168ea262b18dfbdf8c2e4518c1d` (HEAD of cli2-env-policy-head; `Merge remote-tracking branch 'origin/develop' into cli2-env-policy-head`).
+- Own commit: `c69d3fb6ce30a57e140816dcdc91c5b478f1d642` — `cli2: add baha env destroy (env-scoped identity removal)`.
+- Ancestry: `git log e5ad8a68..HEAD` lists exactly the one own commit; merge-base(e5ad8a68, HEAD) = e5ad8a68.
+- Write-set (9 files, 1108 insertions, 0 deletions of existing behavior):
+  - `cmd/baha/env_destroy.go` (323) — CLI leaf.
+  - `cmd/baha/env_destroy_integration_test.go` (172) — 4 CLI integration tests.
+  - `internal/deployment/environment_destroy_scope.go` (324) — domain seam.
+  - `internal/deployment/environment_destroy_scope_test.go` (280) — 7 domain tests.
+  - `cmd/baha/commands.go` (+1) — registration line 141.
+  - `cmd/baha/machine_coverage.go` (+2) — env + env destroy presentation classification.
+  - `docs/cli/command-index.md`, `docs/de/cli/command-index.md`, `docs/reference/cli-machine-coverage.md` — regenerated.
+- Local checks on post-sync base: build OK; gofmt clean on all 4 files; `go vet ./cmd/baha/ ./internal/deployment/` clean; `TestCLIEnvDestroy*` green; `internal/deployment` full suite green; cmd/baha command/coverage/doc tests green.
+- Regression: full cmd/baha suite ran to completion (569s, runner clear) — exactly ONE failure, `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`, a native `git archive` subprocess killed by OOM under shared-runner contention (`signal: killed`); reproduces on the CLEAN base in isolation; unrelated to this slice (does not touch management_core_git_candidate).
