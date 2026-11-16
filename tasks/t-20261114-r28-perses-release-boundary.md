@@ -7,10 +7,10 @@ areas: [release, documentation]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: "lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert)"
-kanban_status: wait
-kanban_lane: wait
-wait_reason: "approved on ab9086f5 (act-1577-review-final); merge frost-bis, dann in 0.4.28 window"
+owner: coord
+kanban_status: active
+kanban_lane: active
+wait_reason: ""
 kanban_summary: "Align current Core release/audit entry points with the accepted public scope: Core, Demo, the delivered CLI and optional Perses.…"
 kanban_title: 0428-092 · Align release docs with Perses
 priority: high
@@ -24,18 +24,17 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/wait #view/wait #area/documentation #area/release #kind/task
+- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/active #view/active #area/documentation #area/release #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert) · **Priority:** high  
+    **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
-    **Waiting:** approved on ab9086f5 (act-1577-review-final); merge frost-bis, dann in 0.4.28 window  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** lane-0428-075 (bevollmaechtigt 2026-11-15, uebergabe dokumentiert)  
+**Owner:** coord  
 **Priority:** high  
 **PRs:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
 **Source:** 
