@@ -192,9 +192,15 @@ the Go-unit shards once the PR is ready (per existing selection rules). VM smoke
   readability checks" (baseharbor/AGENTS.md, CI execution discipline). The two SUCCESS runs predate the retarget and
   are not acceptance for the new exact head; a new draft-head run needs the policy's own scheduling path (base push,
   ready transition, or workflow_dispatch) — all outside this lane's write-set (.github/** = Owner scope).
-- Local equivalent of the draft gate (my own runs): go build ./... clean, go vet clean, gofmt clean,
-  `go test ./internal/metrics/ ./internal/capability/ -count=1` ok — the Draft Go · packages job runs
-  `go test ./contracts/... ./internal/... ./spec/...`, i.e. the same code paths.
+- Local equivalent of the draft gate (my own runs at exact head d2a9cd11d, tree == 47d4ff298): go build ./...
+  (packages touched) clean, go vet clean, gofmt clean, `go test ./internal/metrics/ ./internal/capability/
+  -count=1` ok — the Draft Go · packages job runs `go test ./contracts/... ./internal/... ./spec/...`, i.e. the
+  same code paths. FINDING (STATE) for the coordinator: #1666's post-correction run fired because that PR keeps
+  base=develop (a base=develop push schedules normally); PR #1665 is the first draft with a NON-develop base, and
+  pushes to it after the retarget produced NO pull_request workflow — consistent with the draft-job selection
+  keying off the base branch. A dispatched run (ci.yml 352609139, .github/** = Owner scope) or a coordination
+  decision on stacked-draft CI selection is the next external action; it is outside this lane's write-set and the
+  mission forbids workflow_dispatch here.
 
 ## Candidate chain (final, strict-fast-forward restored)
 
@@ -224,10 +230,10 @@ the Go-unit shards once the PR is ready (per existing selection rules). VM smoke
 
 ## END
 
-END_DONE mission-082-perses-dashboards-r3-luna.md: Luna batch17 Object-3 recipe executed point-for-point — native
-Perses resource schema with upstream witnesses (P1), per-panel own-query missing-signal seam (P2), node_exporter
-series pruned to scrape-witnessed backend families (P3), PR #1665 retargeted to the declared datasources base with
-justification (P4). Candidate content SHA 47d4ff298612a867de691efd58d7a020d8330e60, branch head d2a9cd11d
-(empty scheduling marker), PR stays DRAFT, local gate-equivalent green. Lead: the exact-head hosted CI run for the
-new base did not schedule by itself after the retarget (see CI receipts) — a dispatched/queued run for #1665 is the
-next external action, not a lane action.
+END_BLOCKED mission-082-perses-dashboards-r3-luna.md: Luna batch17 Object-3 recipe executed point-for-point (P1
+native schema + witnesses, P2 per-panel own-query seam, P3 node_exporter pruned to scrape-witnessed backend
+families, P4 retarget to w083-perses-datasources). Candidate content 47d4ff298612a867de691efd58d7a020d8330e60,
+branch head d2a9cd11d0a8eb3149b30bc4f79509cc2970421e (strict fast-forwards after the disclosed interim squash), PR
+#1665 DRAFT, local draft-gate equivalents green at exact head. BLOCKED ONLY ON: the exact-head hosted run does not
+schedule for a draft PR with a non-develop base (finding in CI receipts) — next trigger: a dispatched/queued run
+for #1665 by the Owner or a coordinator decision on stacked-draft CI selection.
