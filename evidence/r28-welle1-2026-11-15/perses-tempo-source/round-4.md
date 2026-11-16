@@ -89,6 +89,7 @@ finding F3, unchanged).
 
 ## 7. Delivery witnesses
 
+- Planning evidence published BEFORE the product push: `git ls-remote origin main` (baseharbor-plan, this session) → `13910110be41b5396cbbc431e99269033b31a02d  refs/heads/main`, and `git ls-tree origin/main -- evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md` → `100644 blob 9c8aba046d1012d25997eee6c24d7e3a72e6e29a` (path present on origin/main). The final akte revision (this delivery-witness paragraph) is the last planning commit below.
 - Before push: `git ls-remote origin refs/heads/w091-0428-091` → `7a2736ba58c6d0ba0f6c9375791c53e6920ba7d4`
 - New commit: `601f3c3af26a7aec00551f8d37899c30918b9939` (single commit on top of base; ancestry + log line above)
 - Push: `git push origin 601f3c3af26a7aec00551f8d37899c30918b9939:refs/heads/w091-0428-091` (explicit refspec, FF)
