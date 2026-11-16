@@ -336,6 +336,22 @@ Befund-Status zum END-Zeitpunkt: B1/B2/B3 durch die spaetere Welle behoben; B4/B
 Ursache (Merge-Welle schreibt den Branch, PR-Ref hinkt nach). Da die Mission
 read-only ist, wurde NICHTS nachgezogen; dies ist der reine Zeugnis-Stand.
 
+Nachziehen des PR-Zeugs im selben Zeitraum (gh api, 30 PRs): die PR-heads folgen den
+Branch-Merges, sodass zuletzt KEIN PR mehr driftet und KEIN Branch mehr ungesynct ist.
+Die zwei neuen Drifts (#1606 #1619) waren ein Moment des laufenden Wellenprozesses und
+sind behoben; B1-B7 gelten damit als erledigt, B8 bleibt als Beobachtung stehen.
+
+## Final witness (END-Vorbereitung, 2026-11-16 ~04:25 UTC+1)
+
+```
+$ gh api repos/mcpdev80/baseharbor/pulls/<n> ... (30 PRs, 30 Aufrufe)
+  30/30: state=open, draft=true, base-ref unveraendert (Zelle-2-Erwartungen alle erfuellt)
+$ git -C wt ls-remote origin 'refs/heads/*'   # 192 refs
+  PR-head == branch-head fuer alle 30 head-refs: 0 DRIFT
+$ git -C wt merge-base --is-ancestor 14d8f17d1aa <branch-head>   # 30 Branches
+  30/30 SYNCED (0 nicht-synct)
+```
+
 ## Summary (counts)
 
 Messzeitpunkt A (Erstinventur, ~03:50 UTC+1):
@@ -397,7 +413,8 @@ read-only, 0 Karten-/PR-/Produkt-Aenderungen. Messzeitpunkt A: 3 DRIFT-Befunde (
 #1603 #1604 - PR-head auf altem r4-Stand, Branch bereits develop-synced), 3 nicht-syncte
 Branches (0428-092-perses-boundary, lane-0428-078-perses-identity,
 lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f, behind 226), 0 draft-verstoesse,
-0 basis-abweichungen. Messzeitpunkt B (END-Vorbereitung): Sync-Welle hat alle drei
-Branches gesynct und Drift 1602/1603/1604 behoben, dafuer 2 neue Drifts #1606 #1619.
-Candidate: baseharbor-plan 7cfd5687c77cd286448d3d2ff77747829ddaffec (evidence only; der
-Zeuge steht direkt oben in dieser Akte nach dem letzten Push).
+0 basis-abweichungen. Messzeitpunkte B/C (END-Vorbereitung): eine nachlaufende Sync-Welle
+hat alle Branches auf develop 14d8f17d1aa gehoben und die PR-heads nachgezogen; Final-Zeugnis:
+0 Drift, 0 nicht-synct, 0 draft-verstoesse, 0 basis-abweichungen. Candidate:
+baseharbor-plan af5c15861edf0d56ec2278d62b0def1ce7c61267 (evidence only, base-Zeuge
+b42d5c49..: nur eigene Akten-Commits + ein fremder, unveraenderter Lane-Commit fa9d734c).
