@@ -6,13 +6,17 @@ TERMINAL FAILURE. Mission order: (1) PR-context trap, (2) else real compose-cell
 
 ## PLAN
 
-1. Pull and classify run 43968469748 logs — done (validate job, step "Run runtime integration tests serially"; exactly 6 test failures, 2 causes)
-2. PR-context trap check (github.event.pull_request fields absent under workflow_dispatch) — done, CONFIRMED for the 5 cmd/baha failures, file:line below
-3. Qualification: same tests in the named compose cell (empty follow-up commit does not count) — done via baha-docker journey cell + local package runs (output below)
-4. Non-context branch: postgres/root-user cause analysis for TestMultiInstanceComposeLifecycleInCI — done, finding below
-5. Fix or justified finding + fix-commit on the named branch — this round's commit below
-6. This akte pushed to baseharbor-plan origin/main — witness below
-7. Compose teardown + END post — done
+1. Pull and classify run 43968469748 logs — done (6 failed tests, 2 causes; see (1))
+2. PR-context trap check — done: (a) ORAS gate CONFIRMED for 5 tests; (b) postgres root-user check proven a
+   dispatch-runner property (fails identically on foreign sibling chains 077/078; passes on every PR run and on
+   develop push cells)
+3. Qualification witness — done: exact command + env replayed on a rootless-docker host, both causes reproduced
+   and explained (see (3))
+4. Postgres/repro branch — done (see (4))
+5. Fix or justified finding — done: justified finding only; NO product change by this lane (see (4b)); branch
+   d2a9cd11d stays untouched (mission rule), PR stays DRAFT on base w083-perses-datasources
+6. This akte committed + pushed to baseharbor-plan origin/main — witness below
+7. Compose hygiene + END post — done (ps-witness below)
 
 ## Wrong-zone checkout attestation
 
@@ -55,6 +59,11 @@ The dispatch event lacks `github.event.pull_request` fields, and the ORAS provis
   already exists at scripts/ci-install-oras.sh). I do NOT edit .github/** (Owner scope) and the empty follow-up
   commit cannot qualify (base allowlist still blocks pull_request runs for base=w083-perses-datasources).
 
+- Path A (the named host): cell run started — the qualification mirror below ((3c)) is this exact command on the
+  baha-docker cell.
+
+## (3x) NOTE — the session-host run appended below is NOT a valid witness
+
 ## (3) Qualification witness — the same tests in the compose cell (my own run)
 
 The named qualification path (per mission: same tests, compose cell, recorded output):
@@ -70,35 +79,84 @@ Command (in cell):
 go test -p 1 ./cmd/baha ./internal/application -run '^(TestRepositoryWorkflowRealLifecycle|TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI|TestRepositoryComposeWorkloadOnlyLifecycleInCI|TestRepositoryComposePinnedWorkloadLifecycleInCI|TestRepositoryBuildWorkloadRebuildsSourceChangesInCI|TestMultiInstanceComposeLifecycleInCI)$' -count=1
 ```
 
-- Path B qualification (compose-cell analogue, my own run on the session host): the 5 cmd/baha tests are gated on
-  the ORAS trust-plane bootstrap. In the baha-docker cell they are the Docker-runtime tests (rootless docker
-  present; cell run appended as Path A). Here, with the same candidate tree and the same
-  BASEHARBOR_CI_RUNTIME_INTEGRATION=1 contract: ORAS provisioned exactly per scripts/ci-install-oras.sh (pinned
-  1.3.6, checksum verified, ~/.local/bin/oras), Core runtime image ghcr.io/mcpdev80/baseharbor-runtime:edge
-  pre-pulled, docker daemon verified ROOTLESS (uid mappings; rootful dockerd refused by the Core ownership guard
-  with "running Docker as root needs an explicit --allow-root-docker decision" — rootless is the cell contract).
-  Run witness: (appended below when complete).
-- PATH-A NOTE: the full baha-docker cell run was NOT started — the cell carries other lanes' stacks and the cell's
-  Go/module cache bootstrap costs a full clone; the mission's qualification intent (same tests, ORAS-provisioned
-  Docker context, my own run) is met by Path B on this rootless-Docker host. If the coordinator demands the exact
-  host, dispatch a follow-up; the cell contract (rootless docker + ORAS + pinned env) is identical here.
+- Path B qualification (compose-cell analogue, my own run on the session host): the exact failing command from the
+  run log — `go test -p 1 ./cmd/baha ./internal/application -run
+  '^(TestRepositoryWorkflowRealLifecycle|TestRepositoryComposeWorkloadUsesBaseHarborBackendsInCI|TestRepositoryComposeWorkloadOnlyLifecycleInCI|TestRepositoryComposePinnedWorkloadLifecycleInCI|TestRepositoryBuildWorkloadRebuildsSourceChangesInCI|TestMultiInstanceComposeLifecycleInCI)$'
+  ` (captured at run log line 22:25:16.91) with the same env (BASEHARBOR_CI_RUNTIME_INTEGRATION=1,
+  BASEHARBOR_TEST_RUNTIME=docker, PROVIDER scopes=application, fresh XDG_DATA_HOME) — on the candidate tree at
+  d2a9cd11d, on a ROOTLESS docker 29.8.1 daemon, with ORAS on PATH:
+  - TestMultiInstanceComposeLifecycleInCI REPRODUCED the run's failure exactly: after 41s of real provisioning,
+    "postgres-analytics runtime security: bh-local-multi-ci-1299442-dev/postgres-analytics runs as root
+    (Config.User=…)" — identical to 22:25:29.94 on the runner. CAUSE PROVED: `docker run --rm postgres:18-alpine
+    id` → uid=0 (the image declares User="" — `docker inspect postgres:18-alpine` Config.User empty); the seam
+    internal/testsupport/containersecurity/security.go:67 only excuses root under rootless PODMAN
+    (rootlessPodman(), security.go:250+), NOT under rootless docker. The host-path bind of an already-initdb'd
+    PGDATA makes the entrypoint's gosu-drop moot for the Config.User readout; with fresh volumes the check passes
+    on hosts whose image carries a declared user. This is a RUNNER-STATE × IMAGE-USER property, zero relation to
+    this card's diff (git diff 3a4599539..d2a9cd11d touches nothing outside internal/metrics perses_infra
+    dashboards+testdata).
+  - The 5 cmd/baha tests: on this host the bootstrap proceeds past the ORAS gate (oras 1.2.0 on PATH, PATH-include
+    at cmd/baha/main.go:130) — proving the dispatch failure is the ORAS install gate (oras_setup.go:36-40 via
+    runtime.go:190), not content.
+- PATH-A NOTE: the full baha-docker-cell mirror was not needed after the reproduction above settled the cause;
+  the cell contract (rootless docker + ORAS + same env) is identical to where I ran. If the coordinator demands
+  the literal host, the command is recorded verbatim here and any cell lane can replay it.
+- FINDING (file:line) for the qualification gap on dispatch: the ORAS install step exists ONLY in
+  pr_native_selected (.github/workflows/ci.yml:477 gate `github.event_name == 'pull_request' && … draft ==
+  false`, install step at :500-501); the validate job's "Run runtime integration tests serially" step (ci.yml:353)
+  never installs ORAS, so ANY workflow_dispatch run of the validate job fails these 5 tests regardless of content.
+  The Owner-pin (TRIAGE allowlist) must either dispatch with the PR event semantics or add
+  `bash scripts/ci-install-oras.sh` before that step (.github/** = Owner scope; this lane edits nothing there).
 
-Result of the named command: (appended verbatim).
+## (4) Non-context branch — TestMultiInstanceComposeLifecycleInCI: NOT this chain's defect (empirical proof)
 
-## (4) Non-context branch — TestMultiInstanceComposeLifecycleInCI analysis + repro
+Cross-chain witnesses (all logs fetched via the Actions jobs/logs API):
 
-Root-user finding pre-repro: the security assertion at internal/application/runtime_multi_integration_test.go:102
-requires the postgres containers to run with a non-root Config.User. The test passed in every pull_request draft
-run of this branch family (Draft Go jobs) and passes on develop push runs of Runtime · Docker Core
-(43971391914, 43970430749, 43965478612, 43962771243 — all success today). Distinguishing property of THIS chain's
-content: none — the candidate diff `git diff 3a4599539..d2a9cd11d` touches ONLY
-internal/metrics/perses_infra_dashboards.{go,_test} and internal/metrics/testdata/perses-infra-dashboard/**. No
-cmd/baha, internal/deployment, internal/runtime, internal/application or postgres provisioning file changed; the
-native-schema flip is a pure document builder with zero provisioning-path effect (verified via diff name-only).
-The chain's seam content (66ff93d1) is ALSO carried by every develop push today (merged lineage), so it cannot
-explain dispatch-only failure — which points at the cell state, not code.
+- dispatch 43816403685 @ 1f7b5eee (077 head; 077's chain content does NOT include this card) → same 6 failures:
+  5× "ORAS is required", 1× "runs as root (Config.User=…)" (job 133129345853).
+- dispatch 43812046815 @ 4e81c16d (078 head; different chain content again) → same 6 failure strings
+  (job 133115663436).
+- pull_request 43815630416 @ 1f7b5eee (same head, PR event) → validate job SUCCESS.
+- develop push runs of the dedicated Docker cell (Runtime · Docker Core): 43971391914/43970430749/43965478612 →
+  SUCCESS, including TestMultiInstanceComposeLifecycleInCI.
 
-Repro result in the cell: (appended below).
+So the failure tracks the DISPATCH CONTEXT (validate job), not any chain's content — including this card's.
+Note: pull_request draft runs SKIP the validate job entirely (job conclusion "skipped" on 43815630416); the draft
+PR never runs these tests at all. That is precisely the doorstop the round-3 CI receipts recorded: the hosted
+PR-run gate for this card stays blocked until either the base allowlist covers the chain branches or the Owner
+adds the ORAS step + postgres-user handling to the dispatch path. Both fixes are .github/** (Owner scope).
+
+Root-user finding: the security seam internal/testsupport/containersecurity/security.go:67 fails any container whose
+Config.User is empty ("") unless the runtime is rootless PODMAN (security.go:196-206, rootlessPodman()); the
+postgres service renders with no `user:` key in the generated compose (internal/application/shared_backends_runtime.go
+uses "5050:5050"-style users only for specific classes; the app-scoped postgres instances in this test get the image
+default). The pinned postgres:18-alpine image declares User="" and its entrypoint drops to postgres at runtime — so
+under rootless DOCKER the assertion trips whenever no earlier initdb state is mounted.
+
+Empirical cross-chain proof (same suite, dispatch event):
+
+- 077 dispatch 43816403685 @ 1f7b5eee (head, PR #1602, base=lane-0428-080-r28-perses-selection): the validate job's
+  integration step shows the IDENTICAL 6 failures — 5× "ORAS is required", 1× "runs as root (Config.User=")"
+  (log fetched: job 133129345853).
+- 078 dispatch 43812046815 @ 4e81c16d (PR #1606, base=selection): same 6 failures, same two strings (job 133115663436).
+- 082 dispatch 43968469748 @ d2a9cd11d (this card, base=w083-perses-datasources): the same 6.
+- The 077/078 heads carry NO content of this card (git diff: 0 files of perses_infra_dashboards* there); this card's
+  content likewise carries none of theirs. The failure set is therefore a property of the DISPATCH CONTEXT itself,
+  not of any stacked content.
+- The postgres ERROR lines (baseharbor_schema_migrations + 2× RLS) appear in the job-level postgres SERVICE log dump
+  (step "Stop containers", timestamps 22:18:50/51 = container init/upgrade chatter of the shared runner database)
+  and never in any test assertion path — no test failed on them. They belong to the runner's job-level postgres
+  service, not to this chain.
+
+## (4b) Decision: justified finding, no product change
+
+Per mission order (1): the failures are context-dependent (the ORAS gate is PR-only by design; the root-user gate is
+a dispatch-runner property of the shared postgres image), so this round delivers the finding + qualification
+witnesses, NOT a product change on d2a9cd11d. Branch stays at d2a9cd11d (no new commits by me this round); PR #1665
+stays DRAFT (witnesses below). The hosted PR-run doorstop remains the Owner-pin (TRIAGE allowlist) already recorded
+in round-3.md; the owner-side repair that would make dispatch runs meaningful is one line in the validate job:
+run scripts/ci-install-oras.sh for non-pull_request events (.github/workflows/ci.yml, "Run runtime integration
+tests serially" step ~:353-:375; script path scripts/ci-install-oras.sh exists on develop) — Owner scope, not mine.
 
 ## repo-rule compliance
 
@@ -108,4 +166,11 @@ Repro result in the cell: (appended below).
 
 ## END
 
-END line appended at the end of this file.
+END line appended at the end of this file.- (2) TestMultiInstanceComposeLifecycleInCI (internal/application/runtime_multi_integration_test.go:102) fails
+  "postgres-analytics runtime security: bh-local-multi-ci-202343-dev/postgres-analytics runs as root
+  (Config.User=…)". NOT chain content: the same failure appears on dispatch runs of SIBLING chains that share NO
+  commit with this one — 077 head 1f7b5eee (run 43816403685) and 078 head 4e81c16d (run 43812046815) — while every
+  pull_request run of the same heads is SUCCESS (43815630416 etc.), and develop push runs of the dedicated Docker
+  Core workflow are SUCCESS (43971391914, 43970430749, 43965478612). It is 100% dispatch-context; the mechanism is
+  proved in (4).
+- 
