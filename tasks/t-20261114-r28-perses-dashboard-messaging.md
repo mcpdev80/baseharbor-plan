@@ -75,3 +75,7 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-dashboard-messaging](t-20261113-r28-grafana-dashboard-messaging.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+## Owner decision note (2026-11-16, coordinator)
+
+1. The RabbitMQ telemetry signal is explicitly UNAVAILABLE in this ecosystem (no native signal source; owner decision 2026-11-15: no exporter is introduced). This card therefore owns only the conditional eligibility layer: panels may appear if and only if a real supported signal is later validated.
+2. Board number: this card carries `0428-079` (kanban_title). There is no separate "rabbitmq-source" task; PR #1603 (`draft(0428-079)`) is this card's deliverable. Prior Luna note "RabbitMQ-source task absent in Planning" is resolved by this clarification.
