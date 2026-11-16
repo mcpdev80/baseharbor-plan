@@ -98,6 +98,30 @@ Full `cmd/baha` suite: RUNNING (background) at time of write — see log `/tmp/o
 - No `.evidence/` directory in any product repo. No main-branch writes in baseharbor.
 - Worktree: `/tmp/opencode/w057-wt` (cleanliness: only candidate writes + this akte + run log).
 
+## ACTUAL FULL cmd/baha SUITE (background, 538.7s)
+
+```
+$ go test ./cmd/baha/   (full)   → 538.742s  FAIL (1 test)
+FAIL: TestPrepareStagedCoreGitCandidatePinsCanonicalApplication (60.07s)
+   → management_core_git_candidate_test.go:49: "native Git archive failed: signal: killed"
+```
+
+**Diagnosis — base-parity, NOT caused by this change.** The failing test uses `git archive`
+(native Git) and is OOM-killed (`signal: killed`) after 60s on this shared host (another lane
+was concurrently running `go test ./...`). Reproduced the SAME failure on the CLEAN base branch
+(`git stash` my changes, run in isolation: `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`
+FAILS with identical `signal: killed`). Pre-existing host `git archive` resource condition,
+unrelated to the secret-reveal slice. Confirmed base-parity; no candidate regression.
+
+All other cmd/baha tests pass, including every test touching my changed paths.
+
 ## END
 
-- In progress. Full cmd/baha suite pending before END.
+- DONE. Candidate SHA: `6f0555c447514a37a41a09983c5015b4879f4170` (branch `cli2-identity-secrets-head`, base `cli2-env-policy-head` @ `018b4e58a`, only own commit; base-is-ancestor verified).
+- PR: #1615 (DRAFT, base `cli2-env-policy-head`, head `6f0555c44`) — draft flag kept per mission.
+- Card: t-20261114-r28-cli2-identity-secrets → `review` (kanban_status), owner `w2c3555a6-0428-057`, PR #1615, HTTPS evidence link — published to baseharbor-plan origin/main `c6fab33b`.
+- Evidence published to baseharbor-plan origin/main: `evidence/r28-welle1-2026-11-15/cli2-identity-secrets/round-1.md` (git ls-remote witness: origin/main `c6fab33b4c672a380c158e1ad49d200c94b6fd27`).
+- CI: dispatched by coordinator per mission. CI routing during CI repair is Owner scope; lane PRs need a trigger so lane tests become durable evidence — reported in 053 precedent, not fixed by this lane.
+- No compose/runtime projects started this lane (worktree clean, no containers).
+- No merge, no ready_for_review, no .github/** edit, no workflow_dispatch, no subagent.
+
