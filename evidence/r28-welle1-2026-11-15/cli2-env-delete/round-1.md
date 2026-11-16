@@ -62,4 +62,6 @@ END lane DONE (pending)
   - `cmd/baha/machine_coverage.go` (+2) — env + env destroy presentation classification.
   - `docs/cli/command-index.md`, `docs/de/cli/command-index.md`, `docs/reference/cli-machine-coverage.md` — regenerated.
 - Local checks on post-sync base: build OK; gofmt clean on all 4 files; `go vet ./cmd/baha/ ./internal/deployment/` clean; `TestCLIEnvDestroy*` green; `internal/deployment` full suite green; cmd/baha command/coverage/doc tests green.
+- PR #1627 (`mcpdev80/baseharbor`), base `cli2-env-policy-head` = `e5ad8a68`, HEAD `cli2-env-delete` = `c69d3fb6`, state DRAFT/OPEN/MERGEABLE, write-set = 9 files.
+- Runtime smoke (built binary, real state dir): `env --help` and `env destroy --help` render; `--json` preview returns plan with rc 0 and no mutation; `--keep-data --yes` with no matching identity fails closed rc 1; `--delete-data --yes` without typed `DELETE` confirmation (EOF) fails safe.
 - Regression: full cmd/baha suite ran to completion (569s, runner clear) — exactly ONE failure, `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`, a native `git archive` subprocess killed by OOM under shared-runner contention (`signal: killed`); reproduces on the CLEAN base in isolation; unrelated to this slice (does not touch management_core_git_candidate).
