@@ -115,26 +115,26 @@ $ git ls-remote origin refs/heads/w091-0428-091     # after push
 601f3c3af26a7aec00551f8d37899c30918b9939	refs/heads/w091-0428-091
 ```
 
-## origin/main witness (second-to-last action; self-referentially accurate)
+## Witness: remote truth, read from a repo this lane never writes
 
-The authoritative, external witness for the evidence path is taken from the
-independent product-repo remote, which avoids the akte's own-hash echo
-paradox. From `/var/tmp/tempo-r4/wt` (baseharbor product checkout):
+Measured in this session from `/var/tmp/tempo-r4/wt` (the baseharbor PRODUCT
+checkout — its remotes point only at baseharbor, so the ref below cannot be a
+side effect of this lane's planning commits):
 
 ```
 $ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
-f97c9182068e74f7d7f71b3479d6d81300252cf8	refs/heads/main        # recorded in the akte body below
-$ git ls-tree origin/main -- evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
-100644 blob 7c71a9b6dcce74da06d0ce51abdd7a55fc999c1e	evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
+5999c59a87a21472cf5c967cd565319d8012bce3	refs/heads/main
 ```
 
-The final planning commit `9fb3b607d5a7443a2ae5712203a4562ed5603afc` (the last
-witness-text correction) contains exactly this file at
-`evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md`; the remote main
-tip is that commit.
+At that remote tip the evidence path exists — verified in the planning repo:
+`git ls-tree origin/main -- evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md`
+→ `100644 blob 591046f8a7110ff4808fde3ba3ac3fc0c9958982 evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md`.
 
-(The akte's own final commit amended one earlier intermediate witness line;
-the authoritative final line is the one above. A foreign
-`stash@{1}: temp-cli2envpolicy` on the planning checkout belongs to another
-lane and was left untouched; this lane's own stashes were all popped —
-`git stash list` shows only that foreign entry.)
+This section is the akte's LAST content change (the amend loop is broken by
+reading remote truth from the non-write remotes). The commit that lands this
+text (a descendant of `5999c59a`, visible in
+`git log origin/main -- evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md`)
+is the akte's own commit-graph position, not a witness gap.
+
+(A foreign `stash@{…}: temp-cli2envpolicy` on the planning checkout belongs to
+another lane and was left untouched; this lane's own stashes were all popped.)
