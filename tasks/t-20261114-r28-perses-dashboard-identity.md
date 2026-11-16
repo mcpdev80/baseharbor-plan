@@ -17,7 +17,7 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606]
 sources: []
-blocker: "owner decision selection-thread: production wiring of signal/Target witness (luna-r3 finding, akte round-4 @6d824f58); next trigger: owner word option1/2"
+blocker: "Owner-Entscheidung 2026-11-16: fail-closed/unavailable bis Keycloak-Metriksignal + target-authorization im resolver/fan-in nachgewiesen; setzt 0428-080 (selection/resolver) voraus; keine Verfuegbarkeit aus caller-supplied Status"
 wait_reason: ""
 resolution: ""
 evidence: []
@@ -27,7 +27,7 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606)  
-    **Blocker:** owner decision selection-thread: production wiring of signal/Target witness (luna-r3 finding, akte round-4 @6d824f58); next trigger: owner word option1/2  
+    **Blocker:** Owner-Entscheidung 2026-11-16: fail-closed/unavailable bis Keycloak-Metriksignal + target-authorization im resolver/fan-in nachgewiesen; setzt 0428-080 (selection/resolver) voraus; keine Verfuegbarkeit aus caller-supplied Status  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 

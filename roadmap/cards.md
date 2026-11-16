@@ -17,7 +17,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
     **Accepted tasks:** 18/113 · **Blocked:** 1 · **Waiting:** 19  
-    **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — owner decision selection-thread: production wiring of signal/Target witness (luna-r3 finding, akte round-4 @6d824f58); next trigger: owner word option1/2  
+    **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Owner-Entscheidung 2026-11-16: fail-closed/unavailable bis Keycloak-Metriksignal + target-authorization im resolver/fan-in nachgewiesen; setzt 0428-080 (select…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
