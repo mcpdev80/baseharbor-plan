@@ -7,16 +7,16 @@
 
 ## PLAN (work plan, §4.4)
 
-- [ ] 1. First action: fresh clone to /tmp/opencode/tempo-r5-wt, `ls-remote` witness, `rev-parse`==`601f3c3af26` as proof, confirm it is the PR #1610 head.
-- [ ] 2. Confirm exact HEAD `601f3c3af26` is an ancestor of the branch I cut; record base SHA in evidence.
-- [ ] 3. Identify all eight embedded upstream `.go` witness files and every `//go:embed` + validation path that references them.
-- [ ] 4. Rename each `.go` witness to a non-Go suffix, preserving content; update embed paths and validation paths accordingly.
-- [ ] 5. `go build ./...` + focused Perses tests locally; verify selector loads no `.go` under testdata (run `scripts/pr-draft-go-packages.py` if local, else structural argument).
-- [ ] 6. Record exact SHA of PR #1610 head as the base; fast-forward commit on `w091-0428-091`.
-- [ ] 7. Push `HEAD:refs/heads/w091-0428-091`, capture `ls-remote` witness AFTER push.
-- [ ] 8. Get an exact-head PR run green; record Run-ID/status.
-- [ ] 9. Commit evidence to baseharbor-plan `origin/main`; run `git log origin/main` as second-to-last action; paste exact output.
-- [ ] 10. Down any docker/podman compose I started (none expected); post formal END post.
+- 1. First action: fresh clone to /tmp/opencode/tempo-r5-wt, `ls-remote` witness, `rev-parse`==`601f3c3af26` as proof, confirm it is the PR #1610 head.
+- 2. Confirm exact HEAD `601f3c3af26` is an ancestor of the branch I cut; record base SHA in evidence.
+- 3. Identify all eight embedded upstream `.go` witness files and every `//go:embed` + validation path that references them.
+- 4. Rename each `.go` witness to a non-Go suffix, preserving content; update embed paths and validation paths accordingly.
+- 5. `go build ./...` + focused Perses tests locally; verify selector loads no `.go` under testdata (run `scripts/pr-draft-go-packages.py` if local, else structural argument).
+- 6. Record exact SHA of PR #1610 head as the base; fast-forward commit on `w091-0428-091`.
+- 7. Push `HEAD:refs/heads/w091-0428-091`, capture `ls-remote` witness AFTER push.
+- 8. Get an exact-head PR run green; record Run-ID/status.
+- 9. Commit evidence to baseharbor-plan `origin/main`; run `git log origin/main` as second-to-last action; paste exact output.
+- 10. Down any docker/podman compose I started (none expected); post formal END post.
 
 ## repo-rule compliance
 
