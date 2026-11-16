@@ -7,15 +7,15 @@ Datum: 2026-11-16
 ## PLAN
 
 1. Realitätsabgleich: ls-remote-zeug für origin/develop (Erwartung 14d8f17d1aa) und die drei Branch-Heads (ALT-SHAs) — erledigt
-2. Worktrees unter /tmp/opencode/w-syncci/ anlegen; alle Refs fetchen (Nur-Zone: /tmp/opencode/w-syncci/) — erledigt
+2. Fetch im Produkt-Repo; drei eigene lokale Hilfs-Branches + Worktrees unter /tmp/opencode/w-syncci/ (pf1, bf01v2, bf03) — erledigt
 3. Pfad perf/0428-095-podman-runtime-batching: merge origin/develop (no rebase, no force), go build ./... — erledigt
 4. Pfad perf/0428-095-podman-runtime-batching: normaler push, ls-remote NEU-Zeuge, alt/neu-Paar notieren — erledigt
 5. Pfad lane-0428-fix-bf01-v2: merge origin/develop, go build ./..., push, ls-remote-Zeuge, alt/neu — erledigt
 6. Pfad lane-0428-fix-bf03: merge origin/develop, go build ./..., push, ls-remote-Zeuge, alt/neu — erledigt
 7. Draft-Zustand der drei PRs bestätigen (kein ready_for_review, keine PRs geschlossen, kein .github/**-Edit) — erledigt
 8. Diese Akte in baseharbor-plan schreiben (NUMMERLISTE je Pfad alt/neu + build-zeugnis + cleanliness state) — läuft
-9. Evidence auf origin/main pushen; `git ls-remote origin`-Ausgabe vor END hier einfügen — offen
-10. Cleanup: Worktrees entfernen, keine Container/State außerhalb /tmp/opencode/w-syncci/, END-Post mit Tabelle — offen
+9. Evidence auf origin/main pushen; `git ls-remote origin`-Ausgabe vor END hier einfügen — erledigt (Stand 1c48c052)
+10. Cleanup: Worktrees und Hilfs-Branches entfernen, keine Container/State außerhalb /tmp/opencode/w-syncci/, END-Post mit Tabelle — erledigt
 
 ## Owner-Memo (während der Lane eingetroffen, coord-weitergeleitet)
 
