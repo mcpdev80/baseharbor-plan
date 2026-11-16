@@ -72,9 +72,11 @@ File: `cmd/baha/app_access.go`, human `--reveal` branch of `appCredsCommand`.
 ## Test results (local, self-run on base 018b4e58)
 
 - `go build ./cmd/baha` => exit 0 (baseline and post-fix).
-- `go test ./cmd/baha/ -run 'TestParseCredsArgs|TestSelectAccessInstance|TestParseAccessTarget|TestAppEnvMasks|TestParseAppEnvArgs' -count=1` => PASS (baseline).
-- Post-fix: new regression test `TestAppCredsRevealWritesPerRevealAuditEvent` pins default-masks, explicit-reveal prints the value, and a per-reveal audit event lands in the target-state store; JSON `--reveal` stays blocked.
 - `go vet ./cmd/baha/...` => clean.
+- Targeted family PASS (self-run, `go test ./cmd/baha/ -run 'TestAppCredsRevealWritesPerRevealAuditEvent|TestParseCredsArgs|TestSelectAccessInstance|TestParseAccessTarget|TestAppEnvMasks|TestParseAppEnvArgs|TestParseLogsArgs'`): `ok github.com/mcpdev80/baseharbor/cmd/baha 0.281s`.
+- Mutation-tested: neutralizing the audit write makes `TestAppCredsRevealWritesPerRevealAuditEvent` FAIL (audit store empty) — the test genuinely pins the fix, not a no-op.
+- Full `go test ./cmd/baha/` was run; the only failures are two pre-existing Docker-engine environment tests (`TestAppEditCommandCompleteProviderEditRunsRealLifecycle`, `TestPrepareStagedCoreGitCandidatePinsCanonicalApplication`) that ALSO fail on the clean base with no docker-engine binding for those targets — unrelated to this change (confirmed via `git stash` on the clean base). My changed path (the `app creds` family) is green.
+- New regression test: `TestAppCredsRevealWritesPerRevealAuditEvent` in `cmd/baha/app_access_test.go` pins default-masks, explicit human `--reveal` prints the value, a per-reveal `connection-reveal` audit event lands in the target-state evidence store, and JSON `--reveal` stays blocked.
 
 ## CI routing (STATE)
 
