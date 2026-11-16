@@ -112,7 +112,7 @@ Each list shows only this lane's own merge/fix commit plus the sanctioned base h
 
 ## Branch cleanup (one candidate per chain)
 
-Local working branches heal-063/heal-065 existed only inside this lane's worktree and were never pushed to origin; remote shows no such refs (final ls-remote above lists only the two named candidate branches). No second branch for either card exists on the remote.
+Local working branches heal-063/heal-065 existed only inside this lane's worktree and were never pushed to origin (`git ls-remote origin | grep heal-06` → empty); both were deleted locally after pushing to the named candidate branches. No second branch for either card exists on the remote.
 
 ## Container/compose hygiene
 
