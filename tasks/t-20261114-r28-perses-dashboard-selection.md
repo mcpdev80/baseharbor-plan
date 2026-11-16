@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: lane-0428-080-r28
-kanban_status: wait
-kanban_lane: wait
+owner: coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: Define eligibility and provisioning for Perses-native dashboards based on real signal/label inventory and authorized providers.
 kanban_title: 0428-080 · Select compatible Perses
 priority: normal
@@ -18,25 +18,24 @@ repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1590]
 sources: []
 blocker: ""
-wait_reason: "approved on 85b4cbb5 (act-1590-review-r1); frost-bis, dann 0.4.28 window"
+wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-selection · Select compatible Perses dashboards #task #release/v0-4-28 #status/wait #view/wait #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-selection · Select compatible Perses dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** lane-0428-080-r28 · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1590](https://github.com/mcpdev80/baseharbor/pull/1590)  
-    **Waiting:** approved on 85b4cbb5 (act-1590-review-r1); frost-bis, dann 0.4.28 window  
     **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** wait  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-dashboard-databases](t-20261114-r28-perses-dashboard-databases.md), [t-20261114-r28-perses-dashboard-hosts](t-20261114-r28-perses-dashboard-hosts.md), [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md), [t-20261114-r28-perses-dashboard-messaging](t-20261114-r28-perses-dashboard-messaging.md), [t-20261114-r28-perses-dashboard-valkey](t-20261114-r28-perses-dashboard-valkey.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** lane-0428-080-r28  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1590](https://github.com/mcpdev80/baseharbor/pull/1590)  
 **Source:** 
