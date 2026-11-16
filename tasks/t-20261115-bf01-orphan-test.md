@@ -11,17 +11,17 @@ owner: ""
 kanban_status: planned
 source_note: "live-verify round-4 finding d3651819 (owner-seitiger Hinweis: drop bf01 orphan test)"
 kanban_lane: ready
-kanban_summary: "One or two sentences: the observable outcome."
+kanban_summary: "No unreachable bf-01-only leftover test (`cmd/baha/target_selection_state_dir_isolation_test.go`) exists on any persistent ref; the drop is decided (bf-03 supersedes the StateRoot* chain) and verified. See evidence/r28-welle3-2026-11-16/bf01-orphan-test/decision-1.md"
 kanban_title: 0428-096 · drop unreachable leftover test
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: []
-sources: []
+sources: [evidence/r28-welle1-2026-11-15/live-verify/round-4.md]
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: [evidence/r28-welle3-2026-11-16/bf01-orphan-test/decision-1.md]
 ---
 
 - [ ] t-20261115-bf01-orphan-test · BF-01 orphan test removal: drop unreachable leftover test from bf01 lineage #task #release/v0-4-28 #status/planned #view/ready #kind/task
@@ -42,7 +42,7 @@ evidence: []
 
 ## Goal
 
-One or two sentences: the observable outcome.
+No unreachable bf-01-only leftover test (`cmd/baha/target_selection_state_dir_isolation_test.go`) exists on any persistent ref; the drop is decided (bf-03 supersedes the StateRoot* chain) and verified. See evidence/r28-welle3-2026-11-16/bf01-orphan-test/decision-1.md
 
 ## Scope
 
