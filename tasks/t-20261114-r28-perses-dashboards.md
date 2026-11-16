@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_summary: Create native Perses infrastructure dashboards with verified metrics and explicit missing-signal behavior.
 kanban_title: 0428-082 · Perses Infra dashboards
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection, t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1665]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboards · Perses infrastructure dashboards #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboards · Perses infrastructure dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
+    **PR:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md), [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** coord  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1665](https://github.com/mcpdev80/baseharbor/pull/1665)  
 **Source:** 
 <!-- /generated:links -->
 
