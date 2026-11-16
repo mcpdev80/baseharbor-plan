@@ -416,5 +416,5 @@ lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f, behind 226), 0 draft-v
 0 basis-abweichungen. Messzeitpunkte B/C (END-Vorbereitung): eine nachlaufende Sync-Welle
 hat alle Branches auf develop 14d8f17d1aa gehoben und die PR-heads nachgezogen; Final-Zeugnis:
 0 Drift, 0 nicht-synct, 0 draft-verstoesse, 0 basis-abweichungen. Candidate:
-baseharbor-plan af5c15861edf0d56ec2278d62b0def1ce7c61267 (evidence only, base-Zeuge
+baseharbor-plan eb337895be6a5362dbcd8aae36e03be3ef992e42 (evidence only, base-Zeuge
 b42d5c49..: nur eigene Akten-Commits + ein fremder, unveraenderter Lane-Commit fa9d734c).
