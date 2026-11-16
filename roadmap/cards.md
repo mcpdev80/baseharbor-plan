@@ -16,8 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 18/113 · **Blocked:** 1 · **Waiting:** 19  
-    **Blocker:** [t-20261114-r28-perses-dashboard-identity](../tasks/t-20261114-r28-perses-dashboard-identity.md) — Owner-Entscheidung 2026-11-16: fail-closed/unavailable bis Keycloak-Metriksignal + target-authorization im resolver/fan-in nachgewiesen; setzt 0428-080 (select…  
+    **Accepted tasks:** 18/113 · **Blocked:** 0 · **Waiting:** 19  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next

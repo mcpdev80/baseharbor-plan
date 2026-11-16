@@ -8,37 +8,36 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
 priority: normal
 depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1606]
+prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
-blocker: "Owner-Entscheidung 2026-11-16: fail-closed/unavailable bis Keycloak-Metriksignal + target-authorization im resolver/fan-in nachgewiesen; setzt 0428-080 (selection/resolver) voraus; keine Verfuegbarkeit aus caller-supplied Status"
+blocker: ""
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
+- [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
-    **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606)  
-    **Blocker:** Owner-Entscheidung 2026-11-16: fail-closed/unavailable bis Keycloak-Metriksignal + target-authorization im resolver/fan-in nachgewiesen; setzt 0428-080 (selection/resolver) voraus; keine Verfuegbarkeit aus caller-supplied Status  
+    **PR:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
     **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** coord  
 **Priority:** normal  
-**PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606)  
+**PRs:** [baseharbor#1606](https://github.com/mcpdev80/baseharbor/pull/1606), [baseharbor#1650](https://github.com/mcpdev80/baseharbor/pull/1650)  
 **Source:** 
 <!-- /generated:links -->
 
