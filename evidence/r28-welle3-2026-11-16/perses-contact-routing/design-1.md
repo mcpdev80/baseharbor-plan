@@ -161,3 +161,14 @@ Adopt **Option A** in §2.2: extend `PersesAlertEvaluator` (`internal/metrics/pe
 - planning origin/main HEAD witnessed (above), candidate committed to it, log shows only my own commit.
 - no product repo touched, no `.github/**` edited, no merge, no subagent.
 - compose/Docker: none started this round.
+- Candidate provenance (origin, after push):
+  ```
+  $ git log --oneline -1 origin/main
+  aab30249 design(0428-074): opt-in notification routing on Perses/alerts contract (read-only design-1)
+  $ git ls-tree -r origin/main --name-only | grep perses-contact-routing
+  evidence/r28-welle3-2026-11-16/perses-contact-routing/design-1.md
+  ```
+
+## END
+
+END lane: mission-074-contact-routing-design — DONE (design-1.md committed + pushed to planning origin/main; read-only design, no product change)
