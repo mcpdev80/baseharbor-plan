@@ -16,16 +16,23 @@ Der base-branch `lane-0428-uid-app` ist auf `22c545d82` (luna-approved). Ziel: c
 - Planning repo origin/main head: `e25d7dccf6dfee8ceeffacb0e7296b164c22e9ba` (verified via ls-remote before committing akte).
 - Cutting branch from existing local `lane-0428-uid-environment`; remote head `36c90e270`.
 
-## Numbered facts (measured, delivered)
-- merge-base (base vs mine): `14d8f17d1aa61496db9ed4d57bd4c22eda34ae95`
-- base-stand `22c545d82` = tip of `lane-0428-uid-app`; `command_target_env.go` ABSENT there (`git rev-parse 22c545d82:cmd/baha/command_target_env.go` -> fatal: path does not exist)
-- my remote head `36c90e270` = tip of `lane-0428-uid-environment`; all 6 uid files PRESENT (`command_target_env.go` blob `4a8bf930...`)
-- local working branch head `7930095b0`, 2 local commits `670402fde`/`7930095b0` on an OLDER develop basis (`22c545d82` NOT an ancestor)
-- `git diff 22c545d82 36c90e270 -- cmd/** internal/**`: these 6 files are ADDED by `36c90e270` (my head has them; base-stand lacks them)
-- A full `git merge --no-ff --no-commit origin/lane-0428-uid-app` from `36c90e270` auto-merges cleanly but pulls 133 staged files incl. 5 `.github/workflows/**` (Owner scope) + 2 `baseharbor-plan/evidence/**` (cross-repo), and would DELETE the 6 uid files -> not a bounded basis-heal
-- PR #1578 head `f353d1f736` exists, base `lane-0428-uid-app`, OPEN/DRAFT (sibling lane `cli2-uid-environment`)
-- No container/compose started this shift; product repo left clean (`git checkout -- .github/`, removed stray `baseharbor-plan/`)
-- push ls-remote AFTER: (none — blocked before push)
+## Numbered facts (measured + delivered)
+- merge-base (36c90e270 vs 22c545d82): `14d8f17d1aa61496db9ed4d57bd4c22eda34ae95` (both develop-synced; coordinator-measured)
+- side-branch commits brought by base-stand from 14d8f17d: `2b91371a` (race store Create single-owner convergence), `18b0ebc9` (fix concurrent uid-app test CWD race), `2bf0c929`, `c0664c8e`
+- base-stand `22c545d82` tip of `lane-0428-uid-app`; `command_target_env.go` ABSENT there (rev-parse fatal)
+- my HEAD `36c90e270` tip of `lane-0428-uid-environment`; all 6 uid files present at 36c90e270
+- FRESH CLONE (coordinator NEW ARBEITSBAUM decision): `git clone -b lane-0428-uid-environment origin` in `/var/tmp/uidenv-heal-wt/fresh-uidenv`; first action verified HEAD == `36c90e270a921f7bf4039e6c7d53280630fe50b6` via ls-remote witness (NOT the old divergent local 7930095b0)
+- MERGE-COMMIT: `9c5bc09a1f1fb0258100a96f8b3cf91c3743d283` (normal merge-commit, no force/rebase/retarget)
+- NEW HEAD after push: `9c5bc09a1f1fb0258100a96f8b3cf91c3743d283` (confirmed via ls-remote AFTER push)
+- PROVENANCE: `36c90e270` IS ancestor of `9c5bc09a` (merge-base --is-ancestor verified)
+- CONTENT DIFF 36c90e270..9c5bc09a: EXACTLY 1 file `cmd/baha/app_init_uid_app_slice_test.go` modified; .github/** touches = 0
+- go build ./... -> exit 0
+- go vet ./cmd/baha/ -> exit 0
+- race test `TestUIDAppSliceConcurrentFirstCreateConvergesOnOneOwner` (+ all UIDApp/ConcurrentFirstCreate) -race -> ok 1.701s
+- broader `./internal/environment/... ./internal/deployment/...` -> ok (0.002s / 0.882s)
+- push refspec `origin HEAD:refs/heads/lane-0428-uid-environment`: `36c90e27..9c5bc09a` (exit 0; remote dependabot notice is informational, not a gate)
+- ls-remote AFTER push: `lane-0428-uid-environment -> 9c5bc09a...`, `lane-0428-uid-app -> 22c545d82...`
+- No container/compose started this shift; fresh clone only (git, no docker/podman)
 
 ## BLOCKER (scope conflict requiring Coordinator/Owner decision)
 The measured reality INVERTS the mission premise:
@@ -40,10 +47,12 @@ The measured reality INVERTS the mission premise:
 - No container/compose started this shift; product repo left clean.
 
 ## Lane status
-END_BLOCKED lane-0428-uid-environment (scope conflict; END_BLOCKED posted to coordinator d4212c96). Awaiting scope direction.
+END_DONE lane-0428-uid-environment. Candidate head `9c5bc09a` pushed and ls-remote-witnessed. END posted to coordinator d4212c96.
 
 ## Cleanup / hygiene (end-of-shift)
-- Product repo `/home/marcel/dev/baseharbor-ecosystem/baseharbor`: clean, on branch `lane-0428-uid-environment` head `7930095b0`. No in-progress merge.
-- Stray `baseharbor-plan/` tree left in product repo by an earlier aborted dry-merge was removed; `.github/workflows/**` restored via `git checkout -- .github/`.
-- Evidence akte committed to planning repo `baseharbor-plan` (origin/main), commit `4e4b02e3` (verified ancestor of origin/main before END).
-- No containers/compose started by this lane. The 6 docker containers currently running (`bh-w169-ci-bootstrap-*`) belong to lane w169, not this lane — left untouched.
+- Fresh clone at `/var/tmp/uidenv-heal-wt/fresh-uidenv` (git only; no docker/podman). /tmpfs clone hit a disk quota, moved to /var/tmp (sda1, 26G free) per mission guidance.
+- Evidence akte committed to planning repo `baseharbor-plan` (origin/main): round-1 (4e4b02e3) + cleanup/hygiene note (7c77927b); both verified ancestor of origin/main before END.
+- Product repo was NOT touched this shift (fresh clone only) — no dirty state to clean.
+
+## BLOCKER (superseded by coordinator NEW ARBEITSBAUM decision)
+The earlier END_BLOCKED was based on the WRONG local checkout (7930095b0, a divergent older-basis duplicate). Coordinator measured at the hub: merge-base(36c90e270, 22c545d82)=14d8f17d (both develop-synced); base-stand delta from 14d8f17d is small and .github-free; a merge into the ECHTEN head (36c90e270) sweeps NO 130 files. The correct path was a fresh clone into a new directory, verifying HEAD==36c90e270 first. Executed per the NEW decision.
