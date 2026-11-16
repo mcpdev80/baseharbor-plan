@@ -7,15 +7,15 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w073-perses-alerts
-kanban_status: active
-kanban_lane: active
+owner: coord
+kanban_status: review
+kanban_lane: review
 kanban_summary: Define actual alert rule evaluation and persistence using supported existing Prometheus contract or an Owner-approved…
 kanban_title: 0428-073 · Define and provision alert
 priority: normal
 depends_on: [t-20261114-r28-perses-datasources]
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1613]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -23,20 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-alerts · Define and provision alert rules #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w073-perses-alerts · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
+    **PR:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
     **Needs:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w073-perses-alerts  
+**Owner:** coord  
 **Priority:** normal  
-**PRs:** none  
+**PRs:** [baseharbor#1613](https://github.com/mcpdev80/baseharbor/pull/1613)  
 **Source:** 
 <!-- /generated:links -->
 
