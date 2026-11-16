@@ -34,3 +34,4 @@ Belegakte aller Funde: evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md (H-D28
 ## Abarbeitet / abgegeben
 
 (noch keine)
+| HOST-FORCEPUSH | lane df17e72b (073-r2) push -f gegen w073-perses-alerts: PR #1613 zurückgesetzt+closed, c043d143 remote-verloren (lokal vorhanden) | hoch | befehl protokolliert; wiederherstellung via fast-forward-push + reopen (coord-anweisung 00:5x) | 0428-073 |
