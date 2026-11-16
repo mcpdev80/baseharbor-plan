@@ -7,8 +7,8 @@ areas: []
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
+owner: coord
+kanban_status: active
 kanban_lane: planned
 kanban_summary: ""
 kanban_title: 0428-098 · Demo Warning-marker rename
@@ -27,7 +27,7 @@ evidence: []
 
 ## Goal
 
-baseharbor-demo/tests/guided/drive.py:431-432 (and 507-508, 203, new_edit_helpers_test.py:190 per lane finding) still match the literal "Achtung:" prompt. core #1663 renames it to "Warning:" — after #1663 MERGES, the demo consumer matchers must be renamed in the same window; before the merge the demo must keep matching "Achtung:" against current core, so this card is intentionally merge-window work (dep: content+merge of 0428-093).
+baseharbor-demo/tests/guided/drive.py:431-432 (and 507-508, 203, new_edit_helpers_test.py:190 per lane finding) still match the literal "Achtung:" prompt. core #1663 renames it to "Warning:" — after #1663 MERGES, the demo consumer matchers must be renamed in the same window; before the merge the demo must keep matching "Achtung:" against current core, Delivery mode: DUAL-MATCH (alternation Achtung|Warning) so the demo stays green against both pre-merge and post-merge core; no merge-window dependency remains. 0428-093 stays listed as content dep for the eventual hard switch.
 
 One or two sentences: the observable outcome.
 
