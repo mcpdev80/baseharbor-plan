@@ -295,3 +295,19 @@ commit was made; PR #1625 head stays `191367a12` (draft, base `cli2-identity-sec
 `22e0404c4`, witnessed ancestor). Route the fix to 057/063 or authorize a golden-only commit here.
 Evidence: `evidence/r28-welle1-20261115/cli2-app-export/round-3.md` on baseharbor-plan `origin/main`
 (witness below).
+
+## EVIDENCE-ON-origin/main WITNESS (second-to-last action, as mandated)
+
+```
+$ git ls-tree origin/main -- evidence/r28-welle1-20261115/cli2-app-export/
+100644 blob ac44bffc08bafeb487c94cf3b8250118a86819c7	evidence/r28-welle1-20261115/cli2-app-export/round-1.md
+100644 blob 55782bee48c83bf5ef57a9f5212528917498c1cf	evidence/r28-welle1-20261115/cli2-app-export/round-2.md
+100644 blob 58cca78420efeaaf722fc9b921d286fe0967ef7e	evidence/r28-welle1-20261115/cli2-app-export/round-3.md
+
+$ git ls-remote origin refs/heads/main
+f36add09b2e39c504714f4be8afa7ec36b08d4bd	refs/heads/main
+```
+
+Evidence commit on planning `origin/main`: `f36add09` (this file, 297 lines, blob
+`58cca784`). The END line above is inside that blob, i.e. published before this post.
+
