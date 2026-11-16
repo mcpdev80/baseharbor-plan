@@ -92,4 +92,8 @@ The recipe's second axis (an authorization/ownership witness for the actual Targ
 
 ## origin/main ls-remote witness (second-to-last action, §5.3)
 
-- to be recorded after the evidence commit + push below.
+`git ls-remote origin main` (baseharbor-plan, this session):
+
+    c70a08e843be9fe7ea877948eac0ca81814c964b  refs/heads/main
+
+The round-4 evidence commit `c70a08e8` is present on origin/main (pushed above); the END candidate is verified and the evidence path is present on origin/main.
