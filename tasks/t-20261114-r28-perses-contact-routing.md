@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: planned
+owner: coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Design opt-in notification routing, evaluate existing compatible Alertmanager integration first; preserve authorization and…"
 kanban_title: 0428-074 · Define alert notification
 priority: normal
@@ -23,19 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/planned #view/waiting #board/planned #area/observability #kind/task
+- [ ] t-20261114-r28-perses-contact-routing · Define alert notification routing #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** normal  
-    **Waiting for prerequisites**  
+    **Owner:** coord · **Priority:** normal  
     **Needs:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** waiting  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** unassigned  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 

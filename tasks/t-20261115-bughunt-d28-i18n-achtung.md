@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
 kanban_title: "0428-093 · bf04 english-only hints"
 priority: ""
@@ -23,18 +23,17 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md"]
 ---
 
-- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261115-bughunt-d28-i18n-achtung · BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
