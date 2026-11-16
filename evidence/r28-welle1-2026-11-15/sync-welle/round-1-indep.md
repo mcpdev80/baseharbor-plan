@@ -99,3 +99,41 @@ von dieser Lane erzeugt; auf diesem Host (Coordinator/Codeman-Server) wurde per 
 gestartet. worktree-Liste davor und danach identisch außer den drei eigenen Einträgen;
 die drei Worktrees bleiben bis unmittelbar vor END bestehen (documentation duty), danach
 `git worktree remove` je Pfad, kein fremder Arbeitsbaum wurde berührt.
+
+## Planungszonen-Zeuge (Pflichtzeile)
+
+    $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan remote -v
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (fetch)
+    origin  https://github.com/mcpdev80/baseharbor-plan.git (push)
+
+(Ziel der baseharbor-plan-Verzweigung, überprüft VOR dem ersten Evidence-Commit;
+das veraltete Verzeichnis workers/baseharbor-plan wurde nicht verwendet.)
+
+## Evidence-auf-origin/main-Zeuge (vor END, zweite-zuletzt-Aktion)
+
+    $ git ls-remote origin refs/heads/main
+    c861733dfafecf396f1fefca985afdcdd00e73cf  refs/heads/main
+    $ git log --oneline origin/main -1
+    c861733d evidence: sync-welle round-1 drei unabhaengige 0.4.28-Pfade auf develop-Stand 14d8f17d1aa
+
+Der Evidence-Pfad `evidence/r28-welle1-2026-11-15/sync-welle/round-1-indep.md` ist Teil
+dieses Commits; das Einloggen zeigt nur meinen Commit als neuesten auf origin/main.
+
+## Abschluss-Checkliste / END
+
+Cleanup ausgeführt (unten als Zeuge nachgetragen): drei eigene Worktrees unter
+/tmp/opencode/w-syncci/ (pf1, bf01v2, bf03), Zone bleibt bestehen; keine
+Container/Netzwerke/Volumes jemals gestartet (ps-Zeuge: diese Lane startete keinen
+Docker-/Podman-Befehl; die gesamte Lane ist Datei-/Build-Arbeit).
+
+Ergebnistabelle (alt -> neu, alle Basen origin/develop @ 14d8f17d1aa, alle PRs bleiben draft/open):
+
+| Pfad | PR | ALT | NEU | Build |
+| --- | --- | --- | --- | --- |
+| perf/0428-095-podman-runtime-batching | #1600 | 9dfbedce1b9ff98643a73bb38f5515d5b4569fe2 | b150fd3fed388e294b5f4028b710c758da6faa44 | BUILD_OK |
+| lane-0428-fix-bf01-v2 | #1585 | 13e096fc66d90e20b8f262b7f58024790c62b0e5 | 55a8c0f3550d9cb5638a6223f3c8cbad314c48e6 | BUILD_OK |
+| lane-0428-fix-bf03 | #1582 | 756b2be7eb2ee2e0671de6cf2e7862395e3881fc | e196c0e2e07c9385d405f5d9a278cdbcab99eee0 | BUILD_OK |
+
+END_DONE mission-sync-indep.md: drei unabhaengige 0.4.28-Pfade auf develop 14d8f17d1aa gesynct
+(b150fd3fe / 55a8c0f35 / e196c0e2e), je go build OK, alle PRs bleiben draft, Evidence origin/main c861733d.
+
