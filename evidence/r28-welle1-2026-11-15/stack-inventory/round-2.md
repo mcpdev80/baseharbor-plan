@@ -330,22 +330,26 @@ Keine Befunde: Basis-Treue (Zelle 2: 30/30 ok), Draft-Guard (Zelle 4: 30/30 draf
 
 ```
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse HEAD
-acda8a06660e4bf24f9ab09d81f310175d5f7460
+ecf2a9671bccb4af8de2657772bcbc7471c8a767
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan rev-parse origin/main
-acda8a06660e4bf24f9ab09d81f310175d5f7460
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan merge-base --is-ancestor b42d5c49e1b060335b6009e41a1ffcbc66a871de HEAD
-yes   # base attestation: baseharbor-plan main b42d5c49 ist Vorfahr meines Evidence-Commits
-$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan log --oneline b42d5c49..HEAD
-acda8a06 evidence(stackaudit r2): stack inventory 0.4.28 fan after develop sync wave - 3 drift, 3 not-synced, 0 base deviations, 0 draft violations
+ecf2a9671bccb4af8de2657772bcbc7471c8a767
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan merge-base --is-ancestor acda8a06 HEAD
+yes   # base attestation: erster Evidence-Commit acda8a06 ist Vorfahr des finalen ecf2a967
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan log --oneline acda8a06..HEAD
+ecf2a967 evidence(stackaudit r2): complete cells 3-4, findings B1-B8, origin witness and END block
+fa9d734c evidence(perses sync-welle r28 r1): add seam-integrity STOP-check; all 159 seam-only files preserved where develop untouched
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only HEAD | grep -i stack-inventory
 evidence/r28-welle1-2026-11-15/stack-inventory/round-1.md
 evidence/r28-welle1-2026-11-15/stack-inventory/round-2.md
 $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main
-acda8a06660e4bf24f9ab09d81f310175d5f7460	refs/heads/main
+ecf2a9671bccb4af8de2657772bcbc7471c8a767	refs/heads/main
 ```
 
-Der Log b42d5c49..HEAD zeigt GENAU EINEN Commit (mein eigener), die Akte ist auf
-origin/main (ls-tree bestaetigt den Pfad), ls-remote zeugt acda8a0666 als remote main.
+Die Akte ist auf origin/main (ls-tree bestaetigt den Pfad), ls-remote zeugt ecf2a967 als
+remote main. Hinweis: das Log acda8a06..HEAD fuehrt zusaetzlich fa9d734c - ein parallel
+reingezogener Evidence-Commit einer anderen Lane (sync-welle seam-integrity); er wurde
+per pull --rebase vor dem Push integriert, enthaelt keine fremde Aenderung an meiner Akte
+und aendert nichts an den Zeugen dieser Mission.
 
 ## END
 
@@ -354,4 +358,5 @@ END_DONE mission-stackaudit2.md: 0.4.28-Faecher r2-Inventur (30 PRs) abgeschloss
 develop-synced), 3 nicht-syncte Branches (0428-092-perses-boundary,
 lane-0428-078-perses-identity, lane-0428-085-perses-log-trace-dash; alle bei 0e9ccb582f,
 behind 226), 0 draft-verstoesse, 0 basis-abweichungen. Candidate: baseharbor-plan
-acda8a06660e4bf24f9ab09d81f310175d5f7460 (evidence only). Read-only; keine PR-/Karten-/Produkt-Aenderungen.
+ecf2a9671bccb4af8de2657772bcbc7471c8a767 (evidence only, base acda8a0666 auf b42d5c49).
+Read-only; keine PR-/Karten-/Produkt-Aenderungen.
