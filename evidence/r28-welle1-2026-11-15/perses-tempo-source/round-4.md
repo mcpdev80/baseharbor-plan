@@ -119,4 +119,11 @@ $ git ls-remote origin refs/heads/w091-0428-091     # after push
 
 ```
 $ git ls-remote origin main    # baseharbor-plan
+75f836b2dcb4d588a65d3e5dd12e277e21e6844a	refs/heads/main
+$ git ls-tree origin/main -- evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
+100644 blob c15e2cd949e43b4ed2d5328fb3334f771a6479c9	evidence/r28-welle1-2026-11-15/perses-tempo-source/round-4.md
 ```
+
+(The foreign `stash@{1}: temp-cli2envpolicy` on the planning checkout belongs to
+another lane and was left untouched; this lane's own stashes were all popped —
+`git stash list` shows only that foreign entry.)
