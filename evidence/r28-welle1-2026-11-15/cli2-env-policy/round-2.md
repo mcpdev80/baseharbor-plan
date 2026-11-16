@@ -33,11 +33,18 @@ Lane: `cli2-org-env-head` (this worker). Recipe/branch named in mission: `cli2-e
 - Additionally the recipe names a different integration branch (`cli2-env-policy-head`) than my assigned branch (`cli2-org-env-head`). AGENTS 3.8 / mission: exactly one integration candidate per chain; I must stay on the named candidate.
 - The recipe's own STOP criterion applies: if the bool semantics it assumes are not the one encoded by the current code, report file:line to the coordinator instead of acting unilaterally. The precondition of the fix (the helper existing to correct) is not met.
 
+### Evidence provenance (on origin/main)
+
+- Push witness: `To https://github.com/mcpdev80/baseharbor-plan.git  90df3b46..ac66ddd8  main -> main` — my commit `ac66ddd8` reached origin/main.
+- `git merge-base --is-ancestor ac66ddd8 origin/main` → **YES** (after `git fetch origin main`), confirms `ac66ddd8` is on origin/main (an ancestor; other lanes advanced the tip to `03903828`).
+- `git ls-tree --name-only ac66ddd8 evidence/r28-welle1-2026-11-15/cli2-env-policy/` lists `act-luna-r1.md` and `round-2.md`.
+- Note: `git ls-remote origin/main` returns a transport error in this clone (`fatal: 'origin/main' does not appear to be a git repository`); the push line above plus the successful fetch/ancestry check are the authoritative witnesses for presence on origin/main.
+
 ### Repo-rule compliance
 
-- No product file written, no branch cut, no push, no force-push.
+- No product file written, no branch cut, no push of anything but my own plan-evidence, no force-push.
 - `.github/**` untouched. No CI dispatch/rerun. No merge. No subagent.
-- Evidence written only in baseharbor-plan (the planning repo). Plan repo working tree shown below; local uncommitted edits are a different lane's perses round-2, not mine — left untouched.
+- Evidence written only in baseharbor-plan (the planning repo). Plan repo working tree shown below; local uncommitted edits (perses round-2 files) belong to another lane — left untouched.
 
 ## END
 
