@@ -107,6 +107,9 @@ Note lane-0428-085: first attempt pushed a w091-only merge (f9b0e0a81); correcte
 - pre-existing OTHER worktrees /tmp/opencode/w083-r2 and /tmp/opencode/welle2-084 left untouched (not mine to delete).
 - cleanliness: /tmp/opencode/w-syncp holds only detached-HEAD merge commits; no stray untracked product writes left in a working tree.
 
-## END line
+## seam product integrity (STOP-condition check)
 
-- DONE
+- Verified all 159 seam-only files (on seam, not on develop). Of those, files develop never touched are byte-identical to seam-before in the merged seam (0 differences).
+- The 139 path-level diffs vs seam-before are all develop's own upstream changes carried by the content-merge (merged == develop version); e.g. internal/logs/render.go, internal/policy/assignment.go, cmd/baha/*.go. This is the correct develop content-merge, not clobbering of seam-approved content.
+- Representative seam content preserved: internal/logs/runtime_retirement.go function `ExistingRuntimeInventoryAt` present in both seam-before and merged.
+- STOP condition (merge altering seam product files) NOT triggered.
