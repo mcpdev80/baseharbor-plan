@@ -55,3 +55,10 @@ Tests added:
 
 ## END
 DONE — draft PR #1665 open, CI run 43951946780 success.
+
+
+## Coordinator note (persisted 2026-11-16)
+Diese round-1-Akte stammt aus derOwner-seitig entfernten laptop-session 267d1f55. Ihr worktree
+(inkl. uncommitted staende) wurde geraeumt; gesichert sind origin lane-0428-082-perses-dashboards
+@ 3a4599539 + PR #1665 (draft). Uebernahme mit eigenem worktree durch flash-lane e130086d —
+deren handoff-akte laeuft unter evidence/r28-welle3-2026-11-16/perses-dashboards/.

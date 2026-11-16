@@ -109,6 +109,14 @@ Decision (both options allowed by mission: "string-wert korrigieren ODER feld-pr
 - Draft PR pushed via refspec, run to terminal state (Eigenes-run-pflicht)
 - Compose/container teardown before END
 
-## END
+## Evidence: CI run (Eigenes-run-pflicht, terminal SUCCESS)
 
-END_DONE lane-0428-093-i18n-abachtung: (filled at end)
+Run `43950312560` on exact head `55550400c1e41769d646fb73864b66d91606bf70`:
+```
+$ gh api repos/mcpdev80/baseharbor/actions/runs/43950312560
+run_id=43950312560 status=completed conclusion=success event=pull_request sha=55550400c1e41769d646fb73864b66d91606bf70
+```
+Jobs: `PR · Draft Go · cli-0/1/2/3` = success; native/runtime/Demo/HA = skipped (draft, no native runtime required). My regression test runs under the `release_source_preflight` "Run release-source tests" step (`ci.yml:125`, `go test ./cmd/baha`) — durable GitHub CI evidence, no `.github` change needed (existing group covers `cmd/baha`).
+
+First run 43950312560 was CANCELLED (concurrency cancellation); re-triggered `gh run rerun 43950312560` and watched to terminal SUCCESS.
+
