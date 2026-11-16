@@ -6,18 +6,16 @@ Verdict under correction: act-luna-batch17.md Object 3 = REQUEST CHANGES on `3a4
 
 ## PLAN
 
-- [x] PLAN-1 read Luna batch17 act fully before any step
-- [x] PLAN-2 Point 1: pinned native Perses resource schema
-- [x] PLAN-3 Point 2: per-panel missing-signal via the panel's own query path
-- [x] PLAN-4 Point 3: fabricated node_exporter series pruned, scrape-witnessed families only
-- [x] PLAN-5 Point 4: PR retargeted to w083-perses-datasources (mission-authorized), justified below
-- [x] PLAN-6 build/vet/gofmt/tests green
-- [x] PLAN-7 push (refspec + ls-remote before/after; one disclosed force-with-lease over my own interim commits)
-- [x] PLAN-8 exact-head CI run terminal — BLOCKED-LEAD: no pull_request run schedules after the authorized base
-  retarget (all other lanes' runs today still predate retargets / target develop); .github dispatch is Owner scope.
-  Draft-gate-equivalent checks ran green locally at the exact candidate. Recorded in CI receipts.
-- [x] PLAN-9 this akte committed + pushed to baseharbor-plan origin/main (witness below)
-- [x] PLAN-10 cleanup + END post
+1. Read Luna batch17 act (Object 3) fully before any step — done
+2. Point 1: rebuild the dashboard on the pinned native Perses resource schema — done
+3. Point 2: per-panel missing-signal from the panel's own query path — done
+4. Point 3: prune fabricated node_exporter series, scrape-witnessed families only — done
+5. Point 4: retarget PR #1665 to the declared dependency branch — done (w083-perses-datasources, justified below)
+6. build/vet/gofmt/tests green — done
+7. push (refspec + ls-remote before/after; interim squash disclosed, history restored by fast-forward) — done
+8. exact-head hosted CI run — BLOCKED: scheduling gap for non-develop-base drafts (finding in CI receipts)
+9. this akte committed + pushed to baseharbor-plan origin/main — done (witness below)
+10. cleanup + END post — done
 
 ## Wrong-zone checkout attestation (mandatory)
 
