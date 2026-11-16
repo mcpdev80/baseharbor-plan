@@ -91,12 +91,14 @@ None of the new wordings redefine state semantics; `verified` is no longer tied 
 ## Recovery note (scope incident)
 
 - After the first edit pass a foreign checkout (`lane-0428-080-r28-perses-selection`) moved the shared product-repo HEAD onto a merge of other lanes' commits and orphaned my working-tree edits. Recovered by: re-checking out the clean base `5e8d138`, re-applying the exact six sentence reductions, committing one docs-only commit `70b7bfc8e`, then pointing branch `0428-092-perses-boundary` at it and pushing. The contaminated foreign commits were never carried onto this branch. No product state was lost; the working-tree edits were re-applied from the known originals.
+- Note to coordinator: shared product-repo HEAD got moved by a concurrent foreign checkout mid-edit; branch `0428-092-perses-boundary` was repointed cleanly at my single docs commit. If this needs a Board/status update, that is a coordinator action.
+- Language-purity reminder (AGENTS 3.3.7): "Bahn"/"Kopf"/"Lauf"/"Zweig" stay English in German coordinator text — noted, not acted on (I am the worker lane here).
 
 ## Delivery
 
 - Branch: `0428-092-perses-boundary` (draft PR #1577, base develop)
-- Candidate pushed head (ls-remote): (paste)
-- Evidence on origin/main: (paste `git ls-remote origin refs/heads/main`)
+- Candidate pushed head (ls-remote origin): `70b7bfc8e99c79cb20acc6974c67dcf2c037d446`
+- Evidence on origin/main (baseharbor-plan): `git ls-remote origin refs/heads/main` => `cf5ef14d830fe9f31cacd2c4a8617053684aa204`
 
 ## END
 
