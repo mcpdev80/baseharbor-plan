@@ -9,10 +9,27 @@ Contract: `python3 baseharbor-plan/scripts/plan.py show t-20261114-r28-perses-te
 ## BASE (single-base rule 8)
 
 - Base lane: `lane-0428-075-perses-seam`, base head `492b8e8f994b16e6f73819a08175f8178cd63292` (LUNA-APPROVED content, act-luna-1575-r4.md).
-- `ls-remote origin lane-0428-075-perses-seam` => `492b8e8f994b16e6f73819a08175f8178cd63292` (confirmed, matches mission).
-- Planning repo attested: `origin/main` = `a6d07c01742c12688fce8adaa4a4f6af0e490c4a` (`git -C baseharbor-plan ls-remote origin main`).
+- `ls-remote origin lane-0428-075-perses-seam` BEFORE commit: `492b8e8f994b16e6f73819a08175f8178cd63292` (matches mission, LUNA-APPROVED).
+- `ls-remote origin lane-0428-075-perses-seam` AFTER commit: `492b8e8f994b16e6f73819a08175f8178cd63292` (unchanged — seam lane untouched).
+- `ls-remote origin w091-0428-091` AFTER commit: `c27e7a789a1b6eaf52afabcb545e1a9e351b057a` (my commit, NOT the base seam head).
 - Base SHA written before branch cut; shown as ancestor of first commit:
-  `git -C /tmp/opencode/w091-wt merge-base --is-ancestor 492b8e8f994b16e6f73819a08175f8178cd63292 HEAD` => OK.
+  `git -C workers/w091-tempo merge-base --is-ancestor 492b8e8f994b16e6f73819a08175f8178cd63292 HEAD` => OK.
+
+## Branch provenance (verified)
+
+- Branch: `w091-0428-091`, remote head `c27e7a789a1b6eaf52afabcb545e1a9e351b057a` (own commit, on top of base).
+- `git log --oneline origin/lane-0428-075-perses-seam..w091-0428-091`:
+  - `c27e7a789 perses-tempo-source (0428-091): add Perses Tempo datasource adapter`
+  - exactly ONE commit on top of base — no foreign commit carried on the branch.
+- `git diff --stat origin/lane-0428-075-perses-seam w091-0428-091`:
+  - `internal/metrics/perses_tempo_datasource.go` (+210)
+  - `internal/metrics/perses_tempo_datasource_test.go` (+190)
+  - `internal/metrics/testdata/perses-tempo-datasource/tempo.json` (+6)
+- PR #1610 base retargeted from `develop` to `lane-0428-075-perses-seam` via
+  `gh api -X --repo mcpdev80/baseharbor pulls/1610 -f base=lane-0428-075-perses-seam`.
+  PR state: `baseRefName=lane-0428-075-perses-seam`, `headRefName=w091-0428-091`,
+  `headRefOid=c27e7a789`, `isDraft=true`, `state=OPEN`.
+  (Round-1 correction: the first PR #1610 head was exactly the base seam head `492b8e8` = no own commit; the branch was empty of my work. Redone on a disk-based worktree under `workers/w091-tempo`; the /tmp worktree copy was lost to tmpfs and re-created identically.)
 
 ## Write-set (mine only)
 
@@ -32,7 +49,8 @@ Verified starting points (Core): `internal/traces/tempo.go`, `internal/traces/re
 ## Required checks — exact SHA, test names, CI job + trigger
 
 - Candidate head SHA: `492b8e8f994b16e6f73819a08175f8178cd63292`
-- CI run: #43779179242, workflow "CI · Source & Quality", conclusion **success**, event `pull_request`, headSha `492b8e8f994b16e6f73819a08175f8178cd63292`.
+- CI run: #43780642360, workflow "CI · Source & Quality", conclusion **success**, event `pull_request`, headSha `c27e7a789a1b6eaf52afabcb545e1a9e351b057a`.
+- (Also #43779179242 success, headSha `492b8e8` — that run was on the empty branch before the redo; superseded.)
 - Trigger: `pull_request` (opened/synchronize) on `develop` — runs "PR · Go unit · `${{ matrix.shard }}"` (full `go test ./internal/...` coverage) and "Run release-source tests" (`go test ./internal/...`, `go vet`).
 - Local before push:
   - `go build ./internal/metrics/...` => rc 0
