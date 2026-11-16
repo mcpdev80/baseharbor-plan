@@ -40,4 +40,10 @@ The measured reality INVERTS the mission premise:
 - No container/compose started this shift; product repo left clean.
 
 ## Lane status
-END_BLOCKED lane-0428-uid-environment (scope conflict; QUESTION posted, awaiting direction).
+END_BLOCKED lane-0428-uid-environment (scope conflict; END_BLOCKED posted to coordinator d4212c96). Awaiting scope direction.
+
+## Cleanup / hygiene (end-of-shift)
+- Product repo `/home/marcel/dev/baseharbor-ecosystem/baseharbor`: clean, on branch `lane-0428-uid-environment` head `7930095b0`. No in-progress merge.
+- Stray `baseharbor-plan/` tree left in product repo by an earlier aborted dry-merge was removed; `.github/workflows/**` restored via `git checkout -- .github/`.
+- Evidence akte committed to planning repo `baseharbor-plan` (origin/main), commit `4e4b02e3` (verified ancestor of origin/main before END).
+- No containers/compose started by this lane. The 6 docker containers currently running (`bh-w169-ci-bootstrap-*`) belong to lane w169, not this lane — left untouched.
