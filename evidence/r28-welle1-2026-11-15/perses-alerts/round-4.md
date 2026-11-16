@@ -106,10 +106,17 @@ ok  	github.com/mcpdev80/baseharbor/internal/capability
 
 ```
 $ git ls-remote origin refs/heads/w073-perses-alerts
-<NEW_SHA>	refs/heads/w073-perses-alerts
+2dcbfebb88f73d539376debbf3477f6420eaceca	refs/heads/w073-perses-alerts
 $ git log --oneline 53300858e21f2625d53b766bf5c0fb6216af6c62..origin/w073-perses-alerts
+2dcbfebb8 fix(0428-073): fail-closed Perses alert health verifier + recipient validation (luna-r1)
 ```
-- Only my own commit on top of 53300858e (no foreign commit in that range).
+- Only my own commit on top of 53300858e (no foreign commit in that range). Push was a NORMAL fast-forward `git push origin HEAD:refs/heads/w073-perses-alerts` (53300858e..2dcbfebb8, no -f, no amend).
+- PR #1613 after push (gh): baseRefName lane-0428-075-perses-seam, isDraft true, state OPEN; headRefOid 2dcbfebb88f73d539376debbf3477f6420eaceca.
+- Evidence on planning origin/main:
+```
+$ git ls-remote origin main
+2df2a87e62028594ba6a78f57c1f53d745fcc067	refs/heads/main
+```
 
 ## REPO-RULE COMPLIANCE
 
