@@ -13,9 +13,11 @@ Verdict under correction: act-luna-batch17.md Object 3 = REQUEST CHANGES on `3a4
 5. Point 4: retarget PR #1665 to the declared dependency branch — done (w083-perses-datasources, justified below)
 6. build/vet/gofmt/tests green — done
 7. push (refspec + ls-remote before/after; interim squash disclosed, history restored by fast-forward) — done
-8. exact-head hosted CI run — BLOCKED: scheduling gap for non-develop-base drafts (finding in CI receipts)
-9. this akte committed + pushed to baseharbor-plan origin/main — done (witness below)
-10. cleanup + END post — done
+- [PLAN-8] Exact-head CI run to terminal SUCCESS — BLOCKED (see CI receipts): no pull_request run schedules for a
+  draft PR whose base is not develop; draft-gate equivalents run green locally at the exact head; finding recorded;
+  END posted END_BLOCKED on that single hosted-run trigger.
+- [PLAN-9] This akte committed + pushed to baseharbor-plan origin/main — done (witness below)
+- [PLAN-10] Cleanup + END post — done
 
 ## Wrong-zone checkout attestation (mandatory)
 
@@ -185,11 +187,15 @@ the Go-unit shards once the PR is ready (per existing selection rules). VM smoke
 
 - superseded interim candidates: runs 43951946780 (3a4599539) and 43963757839 (f3b91a34d) — both completed/success
   with base=develop, BEFORE the authorized retarget.
-- exact-head candidate: no pull_request event fired for 47d4ff298/d2a9cd11d. The cause is structural, not a hangup:
-  the repo rule "Ordinary branch pushes do not start CI. Draft PRs run workflow policy, source formatting and
-  readability checks" (baseharbor/AGENTS.md, CI execution discipline). The two SUCCESS runs predate the retarget and
-  are not acceptance for the new exact head; a new draft-head run needs the policy's own scheduling path (base push,
-  ready transition, or workflow_dispatch) — all outside this lane's write-set (.github/** = Owner scope).
+- Exact-head final verification (my own observation, second-to-last action of this round):
+  `gh run list --branch lane-0428-082-perses-dashboards` => latest pull_request run remains 43963757839 (head
+  f3b91a34d); NO run exists for 47d4ff298/d2a9cd11d. The mission's "terminal SUCCESS DANN END" precondition is
+  therefore unmet — END posts as END_BLOCKED on that single trigger (see END and the finding above).
+- Cause of the missing run: draft-PR CI selection appears to key off the base branch (repo rule: "Ordinary branch
+  pushes do not start CI. Draft PRs run workflow policy, source formatting and readability checks",
+  baseharbor/AGENTS.md, CI execution discipline). The two SUCCESS runs predate the retarget and are not acceptance
+  for the new exact head; a new draft-head run needs the policy's own scheduling path (base push, ready transition,
+  or workflow_dispatch) — all outside this lane's write-set (.github/** = Owner scope).
 - Local equivalent of the draft gate (my own runs at exact head d2a9cd11d, tree == 47d4ff298): go build ./...
   (packages touched) clean, go vet clean, gofmt clean, `go test ./internal/metrics/ ./internal/capability/
   -count=1` ok — the Draft Go · packages job runs `go test ./contracts/... ./internal/... ./spec/...`, i.e. the
