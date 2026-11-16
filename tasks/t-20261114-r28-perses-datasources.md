@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w083-perses-datasources
+owner: coord
 kanban_status: active
 kanban_lane: active
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w083-perses-datasources · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
     **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
-**Owner:** w083-perses-datasources  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
