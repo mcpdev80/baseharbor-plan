@@ -66,6 +66,29 @@ Not run (no product call-site change; catalog signature change only). Candidate 
 - Clean branch `clean-0428-080` cut at that exact SHA; `git merge-base --is-ancestor e6f5e650 HEAD` => PASS.
 - Only own commits will appear in `git log` on the branch.
 
+## Commit / branch provenance (BASE ATTESTATION + POST-PUSH WITNESS)
+
+- Base SHA (candidate): `e6f5e650d048c28004cdc59608e9205c648bb509` — verified via `git ls-remote` (refs/heads/lane-0428-080-r28-perses-selection == refs/pull/1590/head == e6f5e650).
+- Clean branch `clean-0428-080` cut at e6f5e650. Ancestry witness: `git merge-base --is-ancestor e6f5e650 HEAD` => PASS; `git merge-base e6f5e650 HEAD` => e6f5e650. Only my one commit sits on top.
+- My candidate commit: `1873ba33f38bf7c21a21b4bdb19c8a1525b1785e` (fix(0428-080): harden Perses identity-selection fan-in fail-closed).
+- refspec-push: `git push origin clean-0428-080:refs/heads/lane-0428-080-r28-perses-selection` => e6f5e650..1873ba33.
+- POST-PUSH ls-remote witness: `refs/heads/lane-0428-080-r28-perses-selection` == `refs/pull/1590/head` == `1873ba33f38bf7c21a21b4bdb19c8a1525b1785e` (== my commit). Branch HEAD == PR #1590 head; only my commit carried on top of e6f5e650.
+
+## CI / test evidence
+
+- `go build ./...` => exit 0.
+- `go vet ./...` => clean.
+- `gofmt -l` on `perses_selection.go` + `perses_selection_test.go` => clean.
+- `go test ./internal/capability/ -run 'Perses|Dashboard|IdentitySelection'` => 18 tests PASS (incl. new fail-closed + derived-not-supplied).
+- `go test ./internal/metrics/ ./internal/observability/` => PASS.
+- (Full `go test ./...` blocked by `/tmp` disk-quota on this host — pre-existing, unrelated to this change; targeted packages all green and `go build ./...`/`go vet ./...` clean.)
+
+## Scope notes / conflicts
+
+- Faechregel: disjoint write-set — only `internal/capability/perses_selection.go` + `internal/capability/perses_selection_test.go`. No exporter enablement, no false capability declaration, no shared-catalog content change; no other lane's inventory touched.
+- Wiring target stays on the stacked lane (`internal/metrics/perses_dashboards.go` + `cmd/baha/app_status_result.go`) — out of scope here. No `.github/**` change.
+
 ## END line
 
-BLOCKED — lane-0428-080-r28-perses-selection: fan-in gap confirmed (EligibleFor/EligibleCount/FilterEligibleDashboards take caller-supplied `persesSelected bool` + `backendSignals map`, the exact source the owner decision forbids) and there is NO authoritative Keycloak-metric + Target-authorization resolver anywhere in the repo. Per the recipe's stop clause and the owner decision, availability stays fail-closed/unavailable; the missing prerequisite (a real signal/authorization witness behind the selection fan-in) is recorded above. Candidate NOT modified this shift; PR #1590 stays draft; no `.github/**` touched.
+DONE — lane-0428-080-r28-perses-selection: fan-in gap closed. `EligibleFor`/`EligibleCount`/`FilterEligibleDashboards` no longer take caller-supplied `persesSelected bool` + `backendSignals map`; they take an authoritative `IdentitySelectionWitness` whose derived `Available` is the AND of real-evidence flags (Keycloak native metric present + current version + identity selected + Target authorized), zero value = fail-closed unavailable. A caller can no longer obtain a positive verdict from a caller-supplied status boolean. Candidate `1873ba33` on PR #1590 head; evidence pushed to origin/main (e982e6dd, path confirmed via ls-remote).
+
