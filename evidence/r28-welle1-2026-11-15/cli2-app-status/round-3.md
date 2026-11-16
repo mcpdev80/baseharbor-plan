@@ -125,6 +125,13 @@ docker ps --format '{{.Names}}'
 END_DONE mission-status-r3-regression.md: 0428-062 regression r3 STOP — the two CI-red target tests (management_remote_mutation_test.go:58, control_plane_stop_impact_test.go:150) DO NOT reproduce on the exact pinned head 80d4df52e: they PASS in isolation AND in the full cli-1 shard under BASEHARBOR_CI_RUNTIME_INTEGRATION=1 (witness /var/tmp/r3_full_ci.log). The base..HEAD diff is exactly one commit (80d4df52e) that touches ONLY two acceptance-gate TEST files (app_edit_apply_test.go, management_core_git_candidate_test.go), no product code, and neither failing route is a 062 file (blame 532278d565 / 84183b9919, old Marcel core commits). r2 placement wiring (app_versions_*.go) is unrelated to the remote-mutation validator / control-plane-stop consent path. No 062-owned production fix is warranted and core-test edits are out of scope; the 7 local FAILs are a host artifact (existing Core on shared w169-ci-bootstrap engine), not this lane. Fix candidate if the CI rerun still fails: the leak is shared per-run CI data-root state (TestMain runtime_integration_test_support_test.go:115) — root-causing registration test, still a core-test concern outside 062. Candidate head 80d4df52e913e4472334a5f257fe868d26d5976e, branch lane-0428-062-cli2-app-status, draft PR https://github.com/mcpdev80/baseharbor/pull/1614, no .github/** change, no product edit.
 
 ## second-to-last witness (origin/main evidence presence)
+Committed to planning main as e507b411, merged into origin/main (receipt ff3c947467). Verified presence:
 ```
-git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main -- evidence/r28-welle1-2026-11-15/cli2-app-status
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree -r --name-only origin/main -- evidence/r28-welle1-2026-11-15/cli2-app-status/
+evidence/r28-welle1-2026-11-15/cli2-app-status/act-luna-r1.md
+evidence/r28-welle1-2026-11-15/cli2-app-status/round-1.md
+evidence/r28-welle1-2026-11-15/cli2-app-status/round-2.md
+evidence/r28-welle1-2026-11-15/cli2-app-status/round-3.md
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan merge-base --is-ancestor e507b411 origin/main && echo present
+present
 ```
