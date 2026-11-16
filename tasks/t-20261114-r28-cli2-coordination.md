@@ -7,9 +7,9 @@ areas: [cli, architecture]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: coord
+kanban_status: active
+kanban_lane: active
 kanban_summary: Coordinate both v0.4.28 CLI redesign and Perses as one owner-requested programme with at most five implementation/audit workers…
 kanban_title: 0428-072 · coordinate five workers
 priority: high
@@ -23,17 +23,16 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/planned #view/ready #area/architecture #area/cli #kind/task
+- [ ] t-20261114-r28-cli2-coordination · CLI redesign: coordinate five workers #task #release/v0-4-28 #status/active #view/active #area/architecture #area/cli #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned · **Priority:** high  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** coord · **Priority:** high  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** unassigned  
+**Owner:** coord  
 **Priority:** high  
 **PRs:** none  
 **Source:** 
