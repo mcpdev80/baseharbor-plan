@@ -7,15 +7,15 @@ areas: [runtime, cli, security]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: "ChatGPT"
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Offer explicit, justified, opt-in repair of missing Rootless Docker and ORAS prerequisites during first-run local Core setup."
 kanban_title: "0428-098 · Guided rootless bootstrap"
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1662]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -71,4 +71,4 @@ A fresh Linux workstation can complete the supported `baha up new` local-Core jo
 
 ## Handoff
 
-Planning task only. No code implementation, PR, native test or release qualification claimed.
+Implementation in progress: [baseharbor#1662](https://github.com/mcpdev80/baseharbor/pull/1662) (draft). Preliminary implementation and consent regression checks are in the isolated PR branch; real first-run host repair is not yet natively proven. No merge or release authorized.
