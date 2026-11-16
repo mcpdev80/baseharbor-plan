@@ -98,3 +98,10 @@ File: `cmd/baha/app_access.go`, human `--reveal` branch of `appCredsCommand`.
 - Stray/unowned artifacts in the bookkeeping repo working tree (pre-existing, not created by this lane) left untouched.
 
 ## END
+
+- Candidate: `w067-cli2-wizard-platform` @ `acffea785041c1160854e0c6a2564c268794a5ae`
+  (one own commit above base `018b4e58`; base is an ancestor; no foreign commit carried).
+- Draft PR: https://github.com/mcpdev80/baseharbor/pull/1620 (base `cli2-env-policy-head`, state DRAFT/OPEN, merge-state CLEAN). NOT ready for review.
+- Evidence on planning origin/main: `evidence/r28-welle1-2026-11-15/cli2-wizard-platform/round-1.md` (commit `b744840e`).
+- No compose stack / containers started this lane; no teardown required. `/tmp/opencode` clean of w067 artifacts.
+- END <lane> DONE: platform/access wizard slice (per-reveal audit hardening of `baha app creds --reveal`) delivered as a draft; audit write is the carried F1 fix; JSON path and repo boundaries respected. CI dispatches to coordinator.
