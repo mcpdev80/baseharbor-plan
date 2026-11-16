@@ -50,3 +50,9 @@ ci.yml:13-16: pull_request.branches = [develop, main] -> feature-branch-PRs (#16
 
 ## TEMPO-PR-SWITCH (coord, 2026-11-16 13:4xZ)
 #1610 wurde von extern (author-Sicht mcpdev80) geschlossen und der Inhalt auf neuem PR #1645 (base develop, initially NICHT draft) weitergefuehrt. Linie ist inhaltlich sauber (601f3c3af -> 5740a4d rename -> c781eb86 gofmt, exact-head run 43874313785 SUCCESS). Coord hat #1645 zurueck auf DRAFT gesetzt (merge-frost-Direktive). Falls der Schwenk von ChatGPT-Welt/Owner kam: in Ordnung, aber bitte Uebergabe kuenftig per TRIAGE-Zeile, nicht per PR-Tod — Board-Lauflisten lesen nur PRs der Karten.
+
+## DISPATCH-ORAS-GAP (lane 0428-082, 2026-11-16 23:0xZ)
+workflow_dispatch-runs koennen die cmd/baha-compose-lifecycles nie qualifizieren: der ORAS-Bootstrap ist pull_request-only (ci.yml:477/:499-501), der validate-step (ci.yml:353) installiert kein ORAS. Behelf bis fix: zellen-qualifikation (praesedenz round-4.md, ORAS 1.3.6 gepinnt). Owner-scope: ORAS-bereitstellung auch im dispatch-pfad ODER doku-festlegung das dispatch-runs als qualifizierung ungeeignet sind.
+
+## POSTGRES-USER-CELL (lane 0428-082, 2026-11-16 23:0xZ)
+TestMultiInstanceComposeLifecycleInCI faellt auf dem runner-Cell an der containersecurity-grenze: postgres:18-alpine laeuft dort uid=0, security.go:67 entschuldigt root nur unter rootless podman — identischer fehlsatz auf 4 fremden dispatch-runs (083/077/078/082) belegt zellen-eigenschaft, kein content-defekt. ZWEIFEL: braucht die zelle ein non-root postgres-image-fuer CI, oder ist die root-entschuldigung auf docker-root-pfade zu erweitern? Owner-wort.
