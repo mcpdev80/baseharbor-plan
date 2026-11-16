@@ -92,3 +92,8 @@ Not run (no product call-site change; catalog signature change only). Candidate 
 
 DONE — lane-0428-080-r28-perses-selection: fan-in gap closed. `EligibleFor`/`EligibleCount`/`FilterEligibleDashboards` no longer take caller-supplied `persesSelected bool` + `backendSignals map`; they take an authoritative `IdentitySelectionWitness` whose derived `Available` is the AND of real-evidence flags (Keycloak native metric present + current version + identity selected + Target authorized), zero value = fail-closed unavailable. A caller can no longer obtain a positive verdict from a caller-supplied status boolean. Candidate `1873ba33` on PR #1590 head; evidence pushed to origin/main (e982e6dd, path confirmed via ls-remote).
 
+## CI follow-up (EIGENES-RUN-PFLICHT, run 43885791170)
+- Run: `lane-0428-080-r28-perses-selection CI · Source & Quality mcpdev80/baseharbor#1590`, run id `43885791170`.
+- Terminal conclusion: **success** (observed via `gh run watch` to terminal).
+- Jobs: all visible jobs green (✓ Draft source+routing, ✓ Draft Go cli-0/1/2/3, ✓ Draft Go packages); no ✗/FAIL lines in the job listing.
+
