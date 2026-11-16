@@ -126,7 +126,7 @@ Host-bound paths (logs/exec/shell) refuse remote Cores with an explicit actionab
 ## Cleanliness
 
 - This lane started NO containers, compose projects, networks or volumes on this host (`docker ps` before/after shows only foreign w169 ambient stacks — untouched per owner directive).
-- State lives only under /tmp/opencode/w063/ (wt worktree, tmpcache for test TMPDIR, basewt removed+pruned after the parity runs). Nothing written to /home/marcel/dev/baseharbor-ecosystem itself; no product-repo evidence files.
+- State lives only under /tmp/opencode/w063/ (wt worktree, tmpcache for test TMPDIR, evidence-draft.md, mergetree.out ancestry probe output; the detached basewt parity worktree and the compiled /tmp/opencode/w063/baha were removed after their runs). Nothing written to /home/marcel/dev/baseharbor-ecosystem itself; no product-repo evidence files.
 cleanliness: /tmp/opencode/w063 contains wt + tmpcache + evidence-draft.md only; no lane-owned containers or compose projects remain (none were created).
 
 ## Handoff
