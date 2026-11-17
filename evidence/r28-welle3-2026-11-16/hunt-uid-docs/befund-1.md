@@ -137,3 +137,14 @@ END_DONE mission-hunt-uid-docs.md — Doku-Konsistenz develop@8db0d9bdf geprueft
 - Probe-roots /var/tmp/hunt-uid-* und lane-caches /var/tmp/baha-gocache-hunt-uid, /var/tmp/baha-gomod-hunt-uid sowie das lane-binaer /var/tmp/baha-hunt-uid sind GELUESCHT (ls-zeug: "cannot access").
 - Nachher-Docker: 7 container, alle `bh-local-shared-*` — das sind ambient-core container ANDERER, laufender karren (owner-direktive 2026-11-08: fremder karren bleiben unangetastet). Diese lane hat sie nicht erzeugt (Vorher-liste dieser lane: 0 eigene projekte; `docker compose ls` nennt nur fremde stacks) und nicht veraendert. Der earlier "0 zeilen"-satz oben zaehlte die lane-eigenen projekte; die vollstaendige host-liste ist die 7-zeilige ambient-tabelle.
 - cleanliness: this lane started no containers/networks/volumes/compose projects; all lane-owned probe state deleted; ambient bh-local-shared-* (foreign lanes) untouched.
+
+## origin/main-Zeuge (Pflicht vor END)
+
+```
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+ce94a05e21499b151954253f0916489d649e0437	refs/heads/main
+$ git fetch --quiet origin main && git ls-tree --name-only origin/main evidence/r28-welle3-2026-11-16/hunt-uid-docs/
+evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md
+```
+
+Die Akte steht auf origin/main unter ce94a05e (Hunt-Commits: 27cfd8e8 → ce94a05e).
