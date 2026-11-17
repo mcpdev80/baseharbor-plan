@@ -63,3 +63,45 @@
 ## END
 
 END_DONE mission-1577-hopf4-takeover.md: takeover of stalled lane 0428-092-perses-boundary (PR #1577, head 11f640a2b, base develop bcae1e8c1). Base-freshness merge of origin/develop into candidate = clean no-op (develop fully contained, 1676 metrics delta already in candidate, no application_otlp/handoff conflict). build/vet/gofmt clean; perses-boundary boundary tests green. PR #1577 OPEN at head 11f640a2b, CI run 44024698938 terminal SUCCESS (10/20/0, 0 failure). Branch ready for Owner merge.
+
+## HOPF-5 + MERGE (welle1h, 2026-11-17)
+
+### Fresh base and delta
+
+Before the hop, product `git ls-remote` showed:
+
+```text
+4bab986dc65ae2bdbc6696328026d86fc2c57f9e refs/heads/develop
+11f640a2bee57895d5f9ef973cc9de9041935ab2 refs/heads/0428-092-perses-boundary
+11f640a2bee57895d5f9ef973cc9de9041935ab2 refs/pull/1577/head
+```
+
+The normal `git merge --no-edit origin/develop` succeeded without conflict. New merge head: `507467df4187724f3f6a1d8d6ff4c7a5324288ff`; parents are candidate `11f640a2bee57895d5f9ef973cc9de9041935ab2` and develop `4bab986dc65ae2bdbc6696328026d86fc2c57f9e`. The develop-side delta from merge base `bcae1e8c1261c9e44db03fe285a5d090c532dfcd` contains the 20 Perses seam files from #1575. Its file intersection with #1577's own candidate delta is empty. No force, rebase, conflict resolution, or product-content edits were made.
+
+### Local verification on `507467df`
+
+- `go build ./...` — pass.
+- `go vet ./...` — pass.
+- `go test ./internal/serviceaccess ./internal/identityprovider ./internal/coreinstallation` — pass.
+- `go test ./internal/application ./internal/capability ./internal/metrics` — pass.
+- `go test ./cmd/baha -run 'Test.*(Perses|Status|AppApplyResult|AppMachineAdapters|AppProviderChoice|AppWizardController|App.*Resolution|App.*CapabilityRuntime|App.*SelectiveRuntime|App.*IdentitySelect)'` — pass.
+
+### Push and exact-head run
+
+- Refspec push: `11f640a2..507467df HEAD -> 0428-092-perses-boundary`; remote branch and `refs/pull/1577/head` both verified at `507467df4187724f3f6a1d8d6ff4c7a5324288ff`.
+- Run `44033956265`: `pull_request`, terminal `completed / success` on exact head `507467df4187724f3f6a1d8d6ff4c7a5324288ff`.
+- Required `PR Selected Checks`: SUCCESS from GitHub Actions integration `15368`; exact-head checks reported no failures. PR was OPEN, ready, MERGEABLE/CLEAN; zero unresolved review threads.
+- ci-cost-note: run 44033956265, runner-minutes approx 10 (sum of rounded durations for completed, non-skipped jobs in the run summary; 30 jobs, 175 elapsed job-seconds).
+
+### Guarded squash merge receipt
+
+Merged #1577 with `--squash --match-head-commit 507467df4187724f3f6a1d8d6ff4c7a5324288ff` at `2026-11-17T06:50:36Z`. GitHub returned merge commit `ed55d893374b593a7a6032f0de496ca9920ad08d`.
+
+Post-merge `git ls-remote` witness:
+
+```text
+ed55d893374b593a7a6032f0de496ca9920ad08d refs/heads/develop
+507467df4187724f3f6a1d8d6ff4c7a5324288ff refs/pull/1577/head
+```
+
+END_DONE mission-codex-welle1h-1577hopf.md: PR #1577 hopf-5 merged after exact-head SUCCESS/CLEAN; merge commit `ed55d893374b593a7a6032f0de496ca9920ad08d`; cost note recorded.
