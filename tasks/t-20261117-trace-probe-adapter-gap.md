@@ -22,7 +22,7 @@ card_short_title: runtimeComponentTraceProbe
 
 - [x] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** traceprobe (mission-108 lane)  
+    **Owner:** coord  
     **PR:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648), [proof 6](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178)  
     <!-- /generated:card -->
@@ -32,7 +32,7 @@ card_short_title: runtimeComponentTraceProbe
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
-**Owner:** traceprobe (mission-108 lane)  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
 **Source:** 
