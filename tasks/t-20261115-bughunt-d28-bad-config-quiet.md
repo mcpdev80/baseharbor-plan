@@ -9,7 +9,7 @@ version: ""
 parent: ""
 owner: coord
 kanban_status: closed
-kanban_lane: active
+kanban_lane: closed
 kanban_summary: "BF-05 (daemon): corrupted config file is silently ignored. Found on develop 0e9ccb582 during H-D28."
 kanban_title: 0428-094 · bf05 config fail loud
 priority: ""
@@ -23,19 +23,20 @@ resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md", "https://github.com/mcpdev80/baseharbor/pull/1666"]
 ---
 
-- [ ] t-20261115-bughunt-d28-bad-config-quiet · BF-05 corrupted config file silently ignored #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261115-bughunt-d28-bad-config-quiet · BF-05 corrupted config file silently ignored #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** coord  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md)  
+    **PR:** [baseharbor#1666](https://github.com/mcpdev80/baseharbor/pull/1666)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-14/vm-bughunt/h-d28.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1666)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1666](https://github.com/mcpdev80/baseharbor/pull/1666)  
 **Source:** 
 <!-- /generated:links -->
 
