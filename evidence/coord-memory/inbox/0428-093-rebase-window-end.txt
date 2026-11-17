@@ -1,0 +1,9 @@
+END_BLOCKED lane-0428-093-i18n-abachtung (mission-1663-rebase)
+- ls-remote: develop=bcae1e8c1261c9e44db03fe285a5d090c532dfcd; lane-0428-093=b6055fd47a160b47f55c9f2c50317a014d313091 (ff-push 55550400..b6055fd4, kein force)
+- zwei normale merges origin/develop (2581000b, bcae1e8c), null konflikte; build/vet/gofmt clean
+- run 44025048848 auf exakt b6055fd47: TERMINAL FAILURE (Selected Core-less docker+podman coreless-lifecycle · application)
+- fehlerzeile: application_otlp_handoff_runtime_test.go:120 TestManagedRegisteredOTLPNativeConsumerHandoff — shared Identity union add opentelemetry-collector/shared
+- root cause: base-gap — PR #1657 ersetzte auf develop configureTestTarget->configureTestTargetEmpty in derselben zeile; merge hielt branch-seite; eine zeile korrektur noetig (kein force-fix, missionsregel)
+- PR #1663 OPEN READY mergeable=MERGEABLE mergeStateStatus=BLOCKED
+- akte: evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md auf origin/main 5ab42c21
+- sauberkeit: keine lane-eigenen container/netzwerke/volumes; w093-devcheck entfernt

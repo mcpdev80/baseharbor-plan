@@ -48,4 +48,22 @@ Task: reality-sync, merge origin/develop, build/vet/gofmt + seam tests, refspec-
 - no foreign commits on branch: confirmed
 - CI status: NOT RUN (Owner scope .github/** — no reruns; report any red as STATE if a gate auto-fires)
 - docker/podman/compose test stacks: NONE started this shift — nothing to bring DOWN (ps-witness: bh-* containers are pre-existing shared-host services, not mine)
-- evidence origin/main: 1b467b6b, blob 0ec6edcd
+- evidence origin/main: de0c9201
+
+## REVIEW CORRECTION (hopf-4r, reviewer -> this lane)
+- Review finding: process history (Luna/REQUEST_CHANGES/r2/PR-iteration) in source text
+  of internal/capability/perses.go (~L47) and internal/metrics/perses_contract_test.go
+  violated docs/DEVELOPMENT_GUIDELINES.md (history lives in akte/PR-text, not code).
+- Correction: removed the historical narrative, kept the technical justification
+  (what the contract/schnitt guarantees, why). NO functional change, NO test-logic change.
+- New head: 87b287259a1d6f13fa255877558a5d027078a0b1
+  (commit docs(0428-075): drop process history from perses seam comments).
+- Verified: go build/vet/gofmt clean; ./internal/capability, ./internal/metrics,
+  ./cmd/baha -run Perses|Status|Seam all PASS (TMPDIR=/var/tmp/opencode/hopf4-wt/tmp).
+- refspec-pushed f24041a6..87b28725 -> lane-0428-075-perses-seam (remote 87b28725).
+- Previous exact-head run 44026509996 superseded by new head (comment-only change;
+  affected suites re-run green locally — no lost evidence).
+- rebase-window-1.md hopf-4 block appended; evidence on origin/main blob 2c15df07.
+- END_DONE mission-1575-hopf4: PR #1575 seam-schnittmenge null verifiziert; review
+  correction applied (process history removed, tech justification kept); candidate
+  87b287259a1d6f13fa255877558a5d027078a0b1 pushed; READY.

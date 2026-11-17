@@ -166,11 +166,12 @@ Umgebungs-Einfluss ist laut Rechenprobe AUSGESCHLOSSEN, nicht behauptet:
   (app_identity_shared_runtime_test.go:101, runWithIO-Pfad Zeile ~119) ist der
   Gehweg bis zur Fehlerstelle.
 
-These: **content** (Develop-Integration-Luecke zwischen der leeren Coreless-Target-
-Assumption aus #1657 und der Add-Union-/Probe-Adapter-Aenderung aus #1664/#1676),
-kein Flake, kein Umgebungsfehler, kein Branch-Inhaltsfehler. Fix gehoert als eigene
-Karte/Bahn (Write-Set: coreless-Handoff-Test oder Runtime-Probe-Adapter), nicht als
-Silent-Fix in einer base-freshness-Lane. Kein Force-Fix, kein Gate-Umgehen.
+These: **content** — see the deeper root cause below; **kein Flake, kein
+Umgebungsfehler** (Neutral-Host-Beweis in "Diagnose-Pflicht"), **kein Branch-Inhaltsfehler**:
+der einzige Branch-Input an der Fehlerdatei ist der marker-Wert Achtung→Warning (Zeile 139).
+Der Fix gehoert als eigene Karte/Bahn (Write-Set: cmd/baha/app_traces.go:150 /
+observability-Registry oder coreless-Fixture), nicht als Silent-Fix in einer base-freshness-Lane.
+Kein Force-Fix, kein Gate-Umgehen.
 
 ## Actions taken / needed
 
