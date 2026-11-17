@@ -9,5 +9,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | ready | not set | — | — | — |
-| [t-20261117-hunt-signals-107](../tasks/t-20261117-hunt-signals-107.md) | docs/de keeps Warnung/Fehler/Hinweis labels (low) | ready | not set | — | — | — |
 | [t-20261117-hunt-uid-docs-109](../tasks/t-20261117-hunt-uid-docs-109.md) | v0.4.28 lacks release notes page and populated CHANGELOG | ready | not set | — | — | — |
