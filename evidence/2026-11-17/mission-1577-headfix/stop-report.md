@@ -20,12 +20,12 @@ Confirmed by lineage: `git merge-base ab9086f5 70b7bfc8e == ab9086f5` — the cu
   - 0428-092-perses-boundary = 70b7bfc8e99c79cb20acc6974c67dcf2c037d446
   - develop = 8db0d9bdf8d9ae77db94c9ddce9c209001c4da54
   - Work at /var/tmp/1577-fix-wt (isolated worktree), aligned to remote head 70b7bfc8e.
-* [ ]git merge origin/develop (8db0d9bdf) — normal merge-commit, NO force/reset/rebase.
-* [ ]build/vet/gofmt + affected boundary tests green.
-* [ ]refspec-push + ls-remote witness; confirm my 70b7bfc8e base is ancestor of push; PR #1577 READY (gh pr ready if draft).
-* [ ]exact-head pull_request CI run to terminal (Eigenes-run-pflicht; cancelled => rerun).
-* [ ]append lineage block (merge-base proof, 572865ed stands) to akte evidence/r28-welle3-2026-11-16/perses-release-boundary/rebase-window-1.md.
-* [ ]END post to owner; GUI todos worker/todos/mission-1577-headfix.md.json.
+* ( )git merge origin/develop (8db0d9bdf) — normal merge-commit, NO force/reset/rebase.
+* ( )build/vet/gofmt + affected boundary tests green.
+* ( )refspec-push + ls-remote witness; confirm my 70b7bfc8e base is ancestor of push; PR #1577 READY (gh pr ready if draft).
+* ( )exact-head pull_request CI run to terminal (Eigenes-run-pflicht; cancelled => rerun).
+* ( )append lineage block (merge-base proof, 572865ed stands) to akte evidence/r28-welle3-2026-11-16/perses-release-boundary/rebase-window-1.md.
+* ( )END post to owner; GUI todos worker/todos/mission-1577-headfix.md.json.
 
 ## Repo-rule compliance
 

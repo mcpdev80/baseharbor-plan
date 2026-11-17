@@ -79,3 +79,4 @@ One or two sentences: the observable outcome.
 
 - Current state, branch, PR and evidence links. Newest first.
 - r3-owner: codex (parallel-autorisiert 2026-11-17T04:17Z)
+- 2026-11-17 r3 local progress: `EnsureRuntime` now registers the workload identity as runtime metadata with verification disabled; provider target projection, network attachment, and scrape verification skip only this non-verifiable source. Regression tests run through `EnsureRuntime -> EnsureProviderFiles -> runtime-sources.json -> VerifyProviderSourcesAt` for workload-only and service apps; neither permits the symbolic target into file_sd. `go build ./cmd/baha`, `go vet ./internal/application ./internal/metrics`, `go test ./internal/application ./internal/metrics`, and `git diff --check` passed on the uncommitted r3 working tree. Exact source SHA and CI run are pending.
