@@ -47,4 +47,5 @@ Task: reality-sync, merge origin/develop, build/vet/gofmt + seam tests, refspec-
 - base SHA bcae1e8c ancestor of merge commit f24041a6: confirmed
 - no foreign commits on branch: confirmed
 - CI status: NOT RUN (Owner scope .github/** — no reruns; report any red as STATE if a gate auto-fires)
-- docker/podman/compose test stacks: NONE started this shift — nothing to bring DOWN (ps-witness: no orphan stacks)
+- docker/podman/compose test stacks: NONE started this shift — nothing to bring DOWN (ps-witness: bh-* containers are pre-existing shared-host services, not mine)
+- evidence origin/main: 1b467b6b, blob 0ec6edcd
