@@ -9,7 +9,7 @@ kanban_lane: active
 kanban_title: 0428-108 · runtimeComponentTraceProbe
 kanban_summary: ""
 sources: []
-source_note: "0428-093 lane diagnose-pflicht END_BLOCKED (akte: evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md)"
+source_note: "0428-093 lane diagnose-pflicht END_BLOCKED (akte: evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md); PR zu frueh geoeffnet, candidate unvollstaendig bis restauration; run auf af2fb5f6 zaehlt nicht"
 depends_on: []
 owner: traceprobe (mission-108 lane)
 blocker: ""

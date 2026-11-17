@@ -12,7 +12,7 @@ sources: []
 source_note: "hunt hunt-signals befund-1 (akte: evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)"
 depends_on: [t-20261117-trace-probe-adapter-gap]
 owner: Codex
-blocker: "PR #1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; remote develop is 4094448543359a13ba312119304f1f70d3bc40a9; active dependency 0428-108 has open PR #1679 at incomplete head af2fb5f6 with failed exact run #44040963470, so rebase and exact-head rerun wait for a complete accepted 108 fix."
+blocker: "halde bis merge von 0428-108 (neuer develop-shead, nicht ed55d893)"
 wait_reason: ""
 resolution: ""
 superseded_by: ""
@@ -25,7 +25,7 @@ card_short_title: App-Klasse fehlt in der
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
-    **Blocker:** PR \#1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; remote develop is 4094448543359a13ba312119304f1f70d3bc40a9; active dependency 0428-108 has open PR \#1679 at incomplete h…  
+    **Blocker:** halde bis merge von 0428-108 (neuer develop-shead, nicht ed55d893)  
     **Needs:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829)  
     <!-- /generated:card -->
