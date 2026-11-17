@@ -4,34 +4,32 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-102"
 title: "application-Klasse fehlt in der Signal-Registry"
-kanban_status: blocked
-kanban_lane: blocked
+kanban_status: active
+kanban_lane: active
 kanban_title: 0428-102 · App-Klasse fehlt in der
 kanban_summary: ""
 sources: []
 source_note: "hunt hunt-signals befund-1 (akte: evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)"
 depends_on: [t-20261117-trace-probe-adapter-gap]
 owner: Codex
-blocker: "halde bis merge von 0428-108 (neuer develop-shead, nicht ed55d893)"
+blocker: ""
 wait_reason: ""
 resolution: ""
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1677]
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md", "https://github.com/mcpdev80/baseharbor/pull/1677", "https://github.com/mcpdev80/baseharbor/actions/runs/44031866829"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md", "https://github.com/mcpdev80/baseharbor/pull/1677", "https://github.com/mcpdev80/baseharbor/actions/runs/44031866829", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178"]
 card_short_title: App-Klasse fehlt in der
 ---
 
-- [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
+- [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
-    **Blocker:** halde bis merge von 0428-108 (neuer develop-shead, nicht ed55d893)  
-    **Needs:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 5](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** blocked  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md)  
 **Required by:** [t-20261117-hunt-signals-103](t-20261117-hunt-signals-103.md), [t-20261117-hunt-signals-104](t-20261117-hunt-signals-104.md)  
@@ -79,3 +77,9 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 
 
 - 0428-108 has pushed provider-scoped registry correction `39810520b5b1b7859faee4d9b489a4864a150948`; clean-checkout `go build ./...`, affected-package vet, observability tests, and focused application trace/empty-desired tests pass. Exact CI [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648) is active. Keep #1677 blocked pending this exact head's gates and acceptance, then rebase against current develop.
+
+
+## Dependency accepted - 2026-11-17
+
+- 0428-108 / PR #1679 is accepted and merged at 0ec4706b12c8fa869a2c23db18b6cab4f91f2178; current develop is that SHA. The blocker is cleared and 0428-102 is active again.
+- PR #1677 still points at head 58db26baf9dcd80566dcbb0042eed2818e5af822 and is four commits behind develop. Rebase the lane, preserve local environment-isolation commit f7b9275dddf2ab0d508df44912e4aac8d8a3fa88, then push and run exact-head selected checks.

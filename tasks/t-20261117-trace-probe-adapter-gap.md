@@ -4,8 +4,8 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-108"
 title: "runtimeComponentTraceProbe lacks trace-consumer adapter for prometheus sources"
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_title: 0428-108 · runtimeComponentTraceProbe
 kanban_summary: ""
 sources: []
@@ -13,28 +13,26 @@ source_note: "0428-093 lane diagnose-pflicht END_BLOCKED (akte: evidence/r28-wel
 depends_on: []
 owner: coord
 blocker: ""
-resolution: ""
+resolution: accepted
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1679]
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470", "https://github.com/mcpdev80/baseharbor/actions/runs/44042477049", "https://github.com/mcpdev80/baseharbor/actions/runs/44046875648"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470", "https://github.com/mcpdev80/baseharbor/actions/runs/44042477049", "https://github.com/mcpdev80/baseharbor/actions/runs/44046875648", "https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178"]
 card_short_title: runtimeComponentTraceProbe
-wait_reason: ""
-
 ---
 
-- [ ] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0-4-28 #status/review #view/review #kind/task
+- [x] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** coord  
+    **Owner:** traceprobe (mission-108 lane)  
     **PR:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648), [proof 6](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
-**Owner:** coord  
+**Owner:** traceprobe (mission-108 lane)  
 **Priority:** not set  
 **PRs:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
 **Source:** 
@@ -66,4 +64,8 @@ wait_reason: ""
 - Clean remote-head witness at 39810520b: clean detached checkout; `go build ./...` passed; `go vet ./cmd/baha ./internal/observability ./internal/telemetry ./internal/application` passed; `go test ./internal/observability -count=1` and `go test ./internal/application -run '^Test(WorkloadTrace|WorkloadReceiver|LegacyPrometheus|ReceiverTracePrune|RuntimeComponentReconcile)'` passed. The focused same-ID and empty-desired runtime-component cases passed; an isolated fail-first with the old caller confirmed stale metrics remain without explicit ownership.
 - Exact-head run [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648) is in progress on this commit. Run #44042477049 is green only for the previous head and is not evidence for this change. Keep acceptance pending the new run and final diff review.
 
-candidate 39810520b, run 44046875648 SUCCESS, reviewer null-befund; merge laeuft owner-delegiert (Codex welle2c obj1)
+
+## Maintainer acceptance - 2026-11-17
+
+- Owner-delegated Maintainer acceptance by Codex. Exact PR head 39810520b5b1b7859faee4d9b489a4864a150948 passed required selected CI run [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648); clean detached build, affected-package vet, observability tests and focused trace/runtime-component regressions are recorded above.
+- Independent diff review resolved the receiver identity, same-ID provider ownership, and empty-desired runtime-component findings with regressions. PR [#1679](https://github.com/mcpdev80/baseharbor/pull/1679) merged to develop at merge commit [0ec4706b12c8fa869a2c23db18b6cab4f91f2178](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178); verified remote develop points to that commit.
