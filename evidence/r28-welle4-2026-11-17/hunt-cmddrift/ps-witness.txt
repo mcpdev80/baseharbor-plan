@@ -1,0 +1,10 @@
+Zeugenlauf 2026-11-17 (Host: coordinator/codeman server, keine Runtime-Tests hier laut Direktive):
+$ docker ps --format '{{.Names}}' | grep -i cmddrift
+keine Ausgabe — diese Lane hat KEINEN container/netzwerk/volume gestartet.
+$ docker compose ls
+bh-local-shared running(4) — ambient, fremde Lane; unangetastet.
+$ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor worktree list | grep cmddrift
+(vor prune: work/hunt-cmddrift-wt/baseharbor 62eaea2c8) — nach 'git worktree prune' und rm -rf: keine Spur.
+$ ls /tmp/opencode | grep cmddrift
+keine Ausgabe.
+cleanliness: Lane-Zone besenrein (worktree entfernt, binary+caches+probe-dirs gelöscht, keine lane-eigenen docker/podman-Ressourcen).
