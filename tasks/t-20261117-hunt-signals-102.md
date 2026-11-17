@@ -53,9 +53,10 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - The CI plan selected Docker observability for this PR; no Podman runtime job was selected. Acceptance remains open until the failure is diagnosed and applicable exact-head checks are green.
 
 
-## Review finding for the next push
+## Review fix prepared for the next push
 
-- Exact-diff review found application metrics verification filters the registry by app name but not by environment, while IDs are keyed by app+environment and pruning is environment-specific. If one app has sources registered in two environments under a shared Prometheus instance, a verification call can try to query the other environments ID using the current environments labels. On the planned post-0428-108 refresh, filter source IDs by the current app/environment prefix and add a regression fixture with a second environment before running exact-head CI.
+- Exact-diff review found application metrics verification filters the registry by app name but not by environment, while IDs are keyed by app+environment and pruning is environment-specific. Fixed in separate local commit `f7b9275dddf2ab0d508df44912e4aac8d8a3fa88`: verification skips IDs outside the current app/environment prefix, with a regression fixture registering the same app in dev and prod and asserting only the current environment is queried.
+- Verified on that commit: the targeted regression test, `go test ./internal/observability ./internal/metrics -count=1`, `go vet ./internal/observability ./internal/metrics`, and `git diff --check` pass. Commit remains local/unpushed until the planned 0428-108 hop so the next candidate run includes both fixes. No exact-head CI claim for this commit yet.
 
 ## CI failure triage
 
