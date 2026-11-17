@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 wait_reason: ""
 kanban_summary: "Align current Core release/audit entry points with the accepted public scope: Core, Demo, the delivered CLI and optional Perses.…"
 kanban_title: 0428-092 · Align release docs with Perses
@@ -20,18 +20,19 @@ prs: [mcpdev80/baseharbor#1577]
 sources: []
 blocker: ""
 
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1577", "https://github.com/mcpdev80/baseharbor-plan/blob/d0ea1485ac6ed68d11dad843cfd693b12f4ad419/evidence/r28-welle3-2026-11-16/perses-release-boundary/merge-1.md"]
 ---
 
-- [ ] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/review #view/review #area/documentation #area/release #kind/task
+- [x] t-20261114-r28-perses-release-boundary · Align release docs with Perses and archived projects #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/documentation #area/release #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** high  
     **PR:** [baseharbor#1577](https://github.com/mcpdev80/baseharbor/pull/1577)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1577), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/d0ea1485ac6ed68d11dad843cfd693b12f4ad419/evidence/r28-welle3-2026-11-16/perses-release-boundary/merge-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
@@ -62,3 +63,5 @@ Original option 1 (scope corrected by the refinement above): replace deviating m
 ## Handoff
 
 Planned, unassigned. No product work or release authorization.
+
+Accepted after Hopf-5 and PR #1577 squash merge ed55d893374b593a7a6032f0de496ca9920ad08d. Exact-head run 44033956265 SUCCESS; ci-cost-note and complete remote witnesses are in merge-1.md.

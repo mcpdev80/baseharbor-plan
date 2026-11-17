@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 24/128 · **Blocked:** 1 · **Waiting:** 19  
+    **Accepted tasks:** 25/128 · **Blocked:** 1 · **Waiting:** 19  
     **Blocker:** [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) — PR \#1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; origin/develop advanced to 4bab986dc, so…  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
