@@ -49,6 +49,8 @@ No gate manifests, archived evidence reuse, Actions run/job re-verification or r
 
 Require complete validation and separate Maintainer authorization. Use one release/promotion PR and verify the resulting Git tree against the intended frozen candidate, including main-only hotfixes. Do not promote later unrelated develop changes or bypass actual technical gates.
 
+Before authorizing a tag, reconcile every entry in `TRIAGE-QUEUE.md` line by line. Move resolved entries to “Abarbeitet / abgegeben” with a concise resolution and durable HTTPS evidence (for example, the exact merged PR, candidate run, or release). Keep unresolved and `ZWEIFEL` entries open; a release-relevant unresolved entry needs an explicit Owner disposition before tagging. A candidate-only fix is not resolved for the release unless the exact tagged tree contains it. Do not clear the queue wholesale.
+
 Before completion provide one complete executable tagging block with the actual version and full resulting main SHA. Verify repository/remote, clean state, fetched main/tree and local/remote tag absence. Create an annotated immutable tag on that explicit SHA and push only that tag. If only preparation is authorized, do not execute it. Never move a published tag.
 
 The normal Release workflow validates the tag and directly runs reusable pre-release checks on that exact source before publishing images, binaries, checksums, human release notes and build provenance. It does not consume an approval artifact or query earlier CI runs. A prepared command is not a pushed tag or a verified publication.
