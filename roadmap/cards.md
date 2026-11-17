@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 28/129 · **Blocked:** 2 · **Waiting:** 20  
+    **Accepted tasks:** 29/129 · **Blocked:** 2 · **Waiting:** 20  
     **Blocker:** [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) — PR \#1608 wurde vom OWNER selbst 07:43:40Z ohne merge geschlossen (lane END\_BLOCKED; hopf war sukses, head 770c71b74 am zweig). Reopen/supersede-entscheid des o…  
     **Blocker:** [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) — halde bis merge von 0428-108 (neuer develop-shead, nicht ed55d893)  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
