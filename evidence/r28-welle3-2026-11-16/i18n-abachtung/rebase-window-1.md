@@ -100,6 +100,17 @@ and the aggregate `PR Selected Checks`):
     FAIL: TestManagedRegisteredOTLPNativeConsumerHandoff (cmd/baha/application_otlp_handoff_runtime_test.go:120)
     shared Identity failed common union: complete=true changes=[{InstanceID:opentelemetry-collector/shared Action:add ...}]
 
+Log-Zeilen der Fehlerstelle (attempt 1, docker job):
+
+    application_otlp_handoff_runtime_test.go:94: live runtime inventory: Core containers=0 total containers=1
+    application_otlp_handoff_runtime_test.go:120: shared Identity failed common union: complete=true changes=[{InstanceID:opentelemetry-collector/shared Action:add Reason:required by active consumer or dependency Ownership:baseharbor Consumers:[application/.../dev] PreserveData:true}]
+    application_otlp_handoff_runtime_test.go:120: shared Identity apply: Verifying trace ingestion: native OTLP trace source prometheus:bh-docker-dev-otlp-handoff-dev has no runtime probe adapter
+
+Zeuge fuer die Content-These: application_otlp_handoff_runtime_test.go:120 haelt den
+production command entrance ueber `runWithIO` (main.go:129 -> cmd.Execute ->
+`newAppCommand` -> app_up.go), d. h. der Fehlerweg laeuft durch den produktiven
+CLI-Pfad, nicht nur ueber Test-Aufrufe.
+
 Everything else green/skipped-appropriately: go-build, go-vet, cli-gofmt, documentation-audit,
 mkdocs EN/DE strict, pages-candidate-build, all Go unit shards, owner-node native, Demo Pin,
 Focused Python, Native gate plan, Trusted Plan.
@@ -116,14 +127,113 @@ Focused Python, Native gate plan, Trusted Plan.
 - The CI itself computed integration merge `30cfe779` (develop bcae1e8c + head b6055fd47);
   the failing gate ran against that merge, so the gap is real at GitHub's merge tip.
 
+## Semantic-gap fix attempt — finding: develop-side already carried, no delta to push
+
+Korrekturauftrag bat, in `application_otlp_handoff_runtime_test.go` exakt die
+develop-Seite zu uebernehmen (configureTestTargetEmpty statt configureTestTarget).
+Realitaetspruefung auf dem Kandidaten b6055fd47:
+
+- `configureTestTargetEmpty(t)` steht bereits in Zeile 73 der Funktion
+  `TestManagedRegisteredOTLPNativeConsumerHandoff` (der Ort der CI-Fehlerstelle;
+  die Log-Zeilen 94/120 gehoeren zu dieser Funktion). Ubernommen durch Merge acb69658
+  von develop@2581000b, das 9448baec enthaelt (`git merge-base --is-ancestor 9448baec 2581000b` → true;
+  `git log -1 origin/develop -- <file>` → 9448baec "test: use empty target for coreless runtime gates").
+- Das einzige Zitat von develop in dieser Datei ist Zeile 36
+  (`TestNativeOTLPHandoffFixtureAuthoredIntent`) — develop-seitig unveraendert
+  configureTestTarget, weil die Funktion kein Coreless-Host-Assert hat. Der
+  PR-Diff der Datei enthaelt nur die marker-Korrektur (Achtung→Warning, Zeile ~139).
+- Damit ist der Push delta-frei: `git push` → "Everything up-to-date". Erzwungener
+  identical-content Commit wuerde nur CI-Signale duplizieren; nach AGENTS §5.4
+  kein Push ohne echten Input-Wechsel.
+
+Umgebungs-Einfluss ist laut Rechenprobe AUSGESCHLOSSEN, nicht behauptet:
+
+- Gegenprobe auf neutralem develop@bcae1e8c im separaten Worktree `/var/tmp/semantic-gap-check2`,
+  mit demselben Befehlspfad wie die CI (Acceptance-Marker + Runtime-ENV):
+
+      BASEHARBOR_OTLP_HANDOFF_ACCEPTANCE=1 BASEHARBOR_TEST_RUNTIME=docker \
+        go test ./cmd/baha/ -run TestManagedRegisteredOTLPNativeConsumerHandoff
+      --- FAIL (107.72s)
+      application_otlp_handoff_runtime_test.go:94: live runtime inventory: Core containers=0 total containers=7
+      application_otlp_handoff_runtime_test.go:120: shared Identity failed common union: ... Action:add ...
+      application_otlp_handoff_runtime_test.go:120: ... has no runtime probe adapter
+
+  Identische Fehlerstelle wie im gehosteten docker+podman Gate — OHNE diesen Branch-Content.
+  Also: die develop-Kombination #1657+#1664+#1676 (#1676 merged 05:16, 18 Min. vor meinem
+  Push) ist auf develop selbst rot; der Branch erbt die Rot, der i18n-Content ist unschuldig.
+- Detail: der Test laeuft durch den production command entrance (`runWithIO` → main.go:129
+  → cmd.Execute → newAppCommand), das `app apply` in applySelectiveIdentityIntent
+  (app_identity_shared_runtime_test.go:101, runWithIO-Pfad Zeile ~119) ist der
+  Gehweg bis zur Fehlerstelle.
+
+These: **content** (Develop-Integration-Luecke zwischen der leeren Coreless-Target-
+Assumption aus #1657 und der Add-Union-/Probe-Adapter-Aenderung aus #1664/#1676),
+kein Flake, kein Umgebungsfehler, kein Branch-Inhaltsfehler. Fix gehoert als eigene
+Karte/Bahn (Write-Set: coreless-Handoff-Test oder Runtime-Probe-Adapter), nicht als
+Silent-Fix in einer base-freshness-Lane. Kein Force-Fix, kein Gate-Umgehen.
+
 ## Actions taken / needed
 
-- No force-fix (mission rule). One normal `git merge origin/develop` (bcae1e8c) fold-in was
-  already this window's job; the remaining defect is a one-line integration fix in
-  application_otlp_handoff_runtime_test.go (`configureTestTarget` -> `configureTestTargetEmpty`)
-  that requires a re-merge resolution or a follow-up corrective commit — FLAGGED to Coordinator
-  for dispatch decision, since this lane was contractually base-freshness only.
-- PR #1663 post-state: `state=OPEN isDraft=false mergeable=MERGEABLE mergeStateStatus=BLOCKED`.
+### Diagnose-Pflicht abgearbeitet (coord-Anweisung 2026-11-17)
+
+(1) Parent-run 44025048848 attempt 2 TERMINAL: `completed/failure` auf unveraendertem
+    b6055fd47. Failende Jobs: docker app-gate (133853045345), docker gate-Verbund
+    (133854970890), podman app-gate (133853045455), PR Selected Checks.
+
+(2) Job-Logs verglichen:
+    - attempt 1, docker app: `runtime_test.go:120: shared Identity failed common union:
+      complete=true changes=[{InstanceID:opentelemetry-collector/shared Action:add ...}]`
+      + `...:120: shared Identity apply: Verifying trace ingestion: native OTLP trace
+      source prometheus:bh-docker-dev-otlp-handoff-dev has no runtime probe adapter`
+      (`:94: live runtime inventory: Core containers=0 total containers=1`)
+    - attempt 2, docker app: **identische Zeile-120-Fehlerstelle** (gleiche Meldung,
+      eigener App-UUID 0f354ccd…) → rerun bestaetigt die Diagnose, kein neuer Fehler.
+    - attempt 2, podman app: dieselbe `:120` union add + probe-adapter-Meldung.
+    - attempt 2, docker gate-Verbund (133854970890): anderer Zweig —
+      `TestSelectiveApplicationBackendRuntimeAddRemoveReAdd/document_database`
+      (`runtime_test.go:130: stale-impact-consent`, mongodb `Action:preserve`
+      "runtime ownership/state is unverifiable"). Wird als moeglicher Flake
+      mitbeobachtet; nicht Ziel des Zeile-120-Gaps.
+
+(3) Ein-zeiligen develop-seiten-Fix pruefen: die befohlene Zeile
+    `configureTestTarget`→`configureTestTargetEmpty` ist SHA-genau bereits an Bord
+    (Zeile 73; develop-Commit dafuer 9448baec ⊆ 2581000b ⊆ b6055fd47; `git diff
+    origin/develop..HEAD -- <file>` zeigt als einzige Branch-Aenderung den
+    marker-Wert Achtung→Warning in Zeile 139 — die卡片-Inhalt, kein Rueckstand).
+    Der Befehl war auf Basis der attempt-1-These formuliert; ein Push waere
+    inhaltlich delta-frei. Stattdessen wurde der echte Fehlergrund lokal
+    reproduzierbar gemacht: identischer FAIL auf **neutralem develop@bcae1e8c**
+    (`/var/tmp/semantic-gap-check2`, `BASEHARBOR_OTLP_HANDOFF_ACCEPTANCE=1
+    BASEHARBOR_TEST_RUNTIME=docker go test ./cmd/baha -run TestManagedRegisteredOTLP…`,
+    102s): `:94 Core containers=0 total containers=7` + `:120` union-add +
+    probe-adapter. Der Gate失败 haengt also NICHT an den in Zeile 73/139 stehenden
+    Inhalt, sondern an develop-eigener Rot in dieser Zelle (siehe These-Block).
+    Die Union meldet `Action:add` fuer den shared collector **waehrend des apply**,
+    obgleich derselbe Collector schon laeuft und der App-Intent gar kein OTLP
+    deklariert (`nativeOTLPHandoffIntent`: signals=[traces] am HTTP-Workload ohne
+    identity-Komponente). Das ist dieselbe Zeile-120-Wunde wie im CI.
+
+(4) Weiterer exact-head run auf einem FIX-commit: blockiert, weil kein Fix-delta
+    existiert, das die Zeile-120-Ursache aendert. Ein Push des Unveraenderten ist
+    ausdruecklich untersagt.
+
+### Tiefere Ursache aus dem Source (für die nächste Bahn)
+
+    cmd/baha/app_traces.go:150 runtimeComponentTraceProbe switcht nur
+    Provider ∈ {runtime-broker, runtime-executor}; default => "has no runtime
+    probe adapter".
+
+    Signal-ID im Fehler ist `prometheus:bh-docker-dev-otlp-handoff-dev`, d. h.
+    der gemausste Trace-Consumer ist an die Prometheus-Quelle gekoppelt, nicht an
+    einen OTLP-Receiver (opentelemetry-collector/shared). Der Verify-Pfad in
+    app apply haelt auf dieser Quelle. => Entwell muss die Coreless-Fixture den
+    shared collector als existing provider fuehren (Provider-Wert mit Adapter),
+    oder die Observability-Auflösung (`ListTraces` / registry.go:340
+    `ReconcileSignals`, Registrierung durch #1676/#1664) darf den Trace-Consumer
+    nicht an `prometheus:*` binden. Write-Set: cmd/baha/app_traces.go +
+    internal/observability/registry.go oder coreless-Test-Fixtures — NICHT der
+    i18n-Kandidat.
+
 
 ## repo-rule compliance
 
