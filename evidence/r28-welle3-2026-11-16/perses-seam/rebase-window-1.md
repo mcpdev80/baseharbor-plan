@@ -65,6 +65,16 @@ Both approval SHAs are direct ANCESTORS of the pre-refresh head 66ff93d1c
     push:   66ff93d1..8aa9574d  8aa9574d -> lane-0428-075-perses-seam
     after:  8aa9574d7b1a049b3132e091bf546c49b65d1411	refs/heads/lane-0428-075-perses-seam
 
+## PROOF-BLOCK: base-freshness now satisfied
+
+Remote truth re-verified after push:
+
+    e6cce9c73b8edddeff98fa858e83e4b08e8836ef is an ancestor of
+    8aa9574d7b1a049b3132e091bf546c49b65d1411  (git merge-base --is-ancestor -> true)
+
+    after:  8aa9574d7b1a049b3132e091bf546c49b65d1411	refs/heads/lane-0428-075-perses-seam
+    after:  8aa9574d7b1a049b3132e091bf546c49b65d1411	refs/pull/1575/head
+
 ## VERIFICATION (local, in /var/tmp/mission-1575-wt/repo)
 
 - `go build ./...` → pass
