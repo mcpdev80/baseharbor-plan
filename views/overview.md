@@ -17,7 +17,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | ready | 1 |
 | queued | 25 |
 | waiting | 173 |
-| backlog | 7 |
+| backlog | 12 |
 | closed | 288 |
 
 ## Active

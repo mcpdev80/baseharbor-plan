@@ -2,10 +2,10 @@
 id: t-20261117-hunt-signals-103
 card_number: "0428-103"
 title: "postgres-/valkey-Adapter ohne Plan"
-kanban_status: planned
+kanban_status: backlog
 kanban_lane: backlog
-kanban_title: 0428-103 · postgres-/valkey-Adapter ohne Plan
-kanban_summary: "postgres and valkey telemetry adapters are without a plan entry (hunt finding 3): add plan coverage or document intentional exclusion. Fund aus bug-hunt hunt-signals auf develop@1df7c343; file:line-Details in der akte."
+kanban_title: 0428-103 · postgres-/valkey-Adapter ohne
+kanban_summary: ""
 sources: []
 source_note: "hunt hunt-signals befund-1 (akte: evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)"
 depends_on: []
@@ -16,8 +16,23 @@ resolution: ""
 superseded_by: ""
 prs: []
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md"]
+card_short_title: postgres-/valkey-Adapter ohne
 ---
 
-- [ ] t-20261117-hunt-signals-103 · postgres-/valkey-Adapter ohne Plan
+- [ ] t-20261117-hunt-signals-103 · postgres-/valkey-Adapter ohne Plan #task #release/v0-4-28 #status/backlog #view/backlog #kind/task
+    <!-- generated:card -->
+    **Owner:** unassigned  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** backlog  
+**Release:**   
+**Depends on:** none  
+**Owner:** unassigned  
+**Priority:** not set  
+**PRs:** none  
+**Source:** 
+<!-- /generated:links -->
 
 Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als normale task-kette (claim -> branch -> CI -> evidence -> review).
