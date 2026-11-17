@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: w081
-kanban_status: active
-kanban_lane: active
+owner: coord
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Deliver Valkey dashboards conditional on validated Valkey/compatible metrics and labels.
 kanban_title: 0428-081 · Perses Valkey dashboard
 priority: normal
@@ -19,21 +19,22 @@ prs: []
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1604"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-valkey · Perses Valkey dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [x] t-20261114-r28-perses-dashboard-valkey · Perses Valkey dashboard #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** w081 · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1604)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** w081  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** none  
 **Source:** 
@@ -73,3 +74,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-dashboard-valkey](t-20261113-r28-grafana-dashboard-valkey.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+squash-merge 62eaea2c8 durch Codex welle2c obj2 (exact head beb440289, run 44049695785 SUCCESS, review APPROVE); Mission-Label-Fehler (079/081) von Codex korrigiert und dokumentiert
