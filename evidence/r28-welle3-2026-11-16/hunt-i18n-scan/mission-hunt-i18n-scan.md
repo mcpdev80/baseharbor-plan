@@ -16,9 +16,20 @@
 - [ ] Commit evidence to planning repo origin/main; confirm present
 - [ ] Post END_DONE; clean up any containers/compose
 
-## BASE ATTESTATION
+## FINDINGS
 
-- Remote `origin develop`: `git ls-remote origin develop` -> `bcae1e8c1261c9e44db03fe285a5d090c532dfcd`
-- Base SHA for scan: `bcae1e8c1261c9e44db03fe285a5d090c532dfcd`
-- This is a read-only findings hunt; no branch cut, no commit to the product repo. No candidate commit exists, so the ancestor-of-first-commit check does not apply.
-- Repo: `origin` = `https://github.com/mcpdev80/baseharbor.git`; product root `/home/marcel/dev/baseharbor-ecosystem/baseharbor`.
+This is a read-only bug-hunt. Two findings, prioritized by user impact:
+
+**FINDING 1 (HIGH — consumer-visible, 12 occurrences):** German fallback/label strings rendered directly to end users on destructive, consent-gated CLI paths. `Achtung:` (German "Warning/Caution") is hardcoded in Go string literals via `fmt.Fprintln`/`fmt.Fprintf` with no i18n layer:
+- `cmd/baha/control_plane_stop_impact.go:180`
+- `cmd/baha/node_disconnect_client.go:158`
+- `cmd/baha/target_definition_change.go:33`
+- `cmd/baha/application_stop_impact.go:189`
+- `cmd/baha/runtime_destroy_impact.go:178,180`
+- `cmd/baha/provider_change_confirmation.go:42,82,84,104`
+- `cmd/baha/application_restore_authorization.go:158`
+- `cmd/baha/provider_external_removal.go:36`
+
+These appear on stop / destroy / restore / provider-change / disconnect / Core-stop flows. A German-speaking operator reads `Achtung:` as an intended safety warning; an English-speaking operator sees an untranslated German word embedded in an English sentence — genuine i18n regression degrading a safety-critical lead token. The `Achtung` value is also a language-neutral model const in `contracts/provider-impact/v1/impact.schema.json:33,1051` and `scope.schema.json:30` (data, not a renderable label). Untouched by cards 093/099; descends from v0.4.25 capability-contract work (#905).
+
+**FINDING 2 (LOW — docs-only / data, no user impact):** Remaining `Warnung`/`Fehler`/`Hinweis:` occurrences are confined to `docs/de/releases/*.md` (intentional German docs) and `mkdocs.de.yml:102,120` (German doc nav labels), plus test-fixture/model-const JSON. No product-output regression.
