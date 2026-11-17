@@ -30,6 +30,7 @@ card_short_title: runtimeComponentTraceProbe
 **State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
+**Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
 **Owner:** traceprobe (mission-108 lane)  
 **Priority:** not set  
 **PRs:** none  

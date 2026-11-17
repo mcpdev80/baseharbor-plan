@@ -86,7 +86,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | application-Klasse fehlt in der Signal-Registry | blocked | not set | Codex | — | [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677) |
+| [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | application-Klasse fehlt in der Signal-Registry | blocked | not set | Codex | [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md) (open) | [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677) |
 
 ## Ready to assign
 
