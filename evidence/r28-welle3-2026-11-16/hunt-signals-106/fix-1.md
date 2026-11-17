@@ -54,18 +54,33 @@ No product test asserts any of the rendered German strings (grep across `cmd/bah
 - New test run under CI: `ci.yml` → "Release Source Preflight" → "Run release-source tests", trigger `pull_request`.
 
 ## Local checks
-- `go test ./cmd/baha -run 'Consent|I18n|ConsentLabels|ProviderImpact' -count=1` (result recorded below)
-- `go vet ./...`
-- `go build -o /tmp/baha ./cmd/baha`
+- `go build ./...` OK
+- `go vet ./cmd/baha/ ./internal/application/` OK
+- Focused consent/i18n tests PASS: `go test ./cmd/baha -run 'Consent|I18n|Catalog|ProviderImpact|RuntimeDestroy'` (PASS)
+- Targeted consent/impact/disconnect/i18n suite PASS (107s).
+- `gofmt -l` clean on all changed files.
+- Note: the full `./cmd/baha` suite under `-p 1` times out / fails on environment-only tests here (missing ORAS tool, git candidate prep requiring network) — not caused by this change. CI "Release Source Preflight" runs the same group on the pushed candidate and is authoritative; it is SUCCESS.
 
 ## Git / PR
 - Branch: `lane-0428-106-cli-consent-i18n` (cut at base SHA `62eaea2c8`).
 - Commit log must list ONLY this lane's commits (foreign commit = scope violation).
+- Candidate SHA: `1e74846d1` — commit only touches the 10 consent files (8 render sites + catalog + new test), gofmt-clean.
+- Ancestor witness:
+```
+$ git -C /tmp/opencode/mission-106-cli-consent-wt merge-base --is-ancestor 62eaea2c8c5b29f73db03ae9b3e7efaf772e4458 HEAD && echo OK
+OK
+```
+- Commit log lists only my commit on top of base:
+```
+$ git -C /tmp/opencode/mission-106-cli-consent-wt log --oneline -3
+1e74846d1 [0428-106] CLI destructive-consent: English catalog labels instead of German Achtung fallback
+62eaea2c8 [0428-081] Perses-native Valkey dashboard (explicit UNAVAILABLE) (#1604)
+```
 
 ## End state
 - Status: DONE
-- Candidate SHA: (filled at END from `git log`)
-- CI exact-head run: (run id + terminal status at END)
+- Candidate SHA: `1e74846d1` (branch `lane-0428-106-cli-consent-i18n`)
+- CI exact-head run: 44065394600 (CI · Source & Quality) — status completed, conclusion **success**, headSha `1e74846d1`, trigger `pull_request`.
 
 ## Cleanup
 - Docker/Podman: none started.
