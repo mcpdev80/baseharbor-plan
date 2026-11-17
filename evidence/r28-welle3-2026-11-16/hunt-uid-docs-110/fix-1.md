@@ -67,7 +67,7 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 ## Regressionen
 
 - `internal/deployment/config_mutation_fail_loud_test.go`: corrupt/empty/populated/ghost/clean-first-run auf `LoadConfigForMutation`, SaveExpected- und SaveExpectedPreservingTarget-Weigerung gegenueber corruptem owner ohne overwrite, read-path familie + hint parity.
-- `cmd/baha/config_mutation_fail_loud_command_test.go`: `target create` (corrupt + double-append), `target activate`, `config prompt` ueber die production command entrance (rootCommand().Execute / runWithIO, same code path wie das binary).
+- `cmd/baha/config_mutation_fail_loud_command_test.go`: `target create` (corrupt + double-append) und `target activate` ueber `targetCommand().Execute`, `config prompt` ueber `runWithIO` — jeweils der production command entrance (derselbe cli.Execute-command-tree-pfad, den das binary nimmt). Anmerkung: der target-create-pfad durch `runWithIO` wuerde auf den CI-hosts den owned-core readiness-schritt (connectivity probe) VOR dem config-load ausfuehren und mit runtime-unavailable gegen die family-assertion laufen; `Execute` umgeht den globalen bootstrap, praezedenzgleich zu `target_definition_native_test.go:74`.
 - CI-Aufnahme: laeuft in der GitHub CI "Run release-source tests" (`go test ./internal/... ./spec/...` + `go test ./cmd/baha`) auf jedem PR — kein .github/** Eingriff noetig (Befund-Rezept der Hunt-Akte).
 
 ## Checks (lokal, isolated HOME; /tmp ist auf diesem host quota-limitiert — TMPDIR/GOCACHE unter /var/tmp)
@@ -83,7 +83,6 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 ## CI
 
 - Run 44060840263 "CI · Source & Quality", headSha 1d01ea16c003adffa0dfd529282417956560e2a4, status in_progress bei Akte-Erstellung; Terminalzustand wird im END nachgetragen.
-
 ## Sauberkeit
 
 - Vorher (dieser host, lane-eigene Projekte): `docker ps -a` = keine lane-eigenen container/netzwerke/volumes; `docker compose ls` = nur fremde karren (ambient). Diese Lane hat KEINEN container/netzwerk/volume/compose gestartet.
@@ -93,6 +92,11 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 
 ## Hinweise (fund, keine eigenmacht)
 
+- **Laufzeit-Selbsttest der Test-Assertions (diese Lane, negative Pilotlaeufe):**
+  - Family/check-Entfernung in `LoadConfigForMutation` (decode-family + populated/ghost): `TestTargetCreateFailsLoudOnCorruptConfig`, `TestLoadConfigForMutationCorruptFailsLoud`, `TestLoadConfigForMutationMissingUnderPopulatedRootFailsLoud`, `TestLoadConfigForMutationXDGGhostRootFailsLoudAndNeverWrites` → `--- FAIL` (Ghost-Write rc=0, user-cfg ignoriert).
+  - Ghost-Zweig-Entfernung (root-absent branch, `if false`): `TestTargetCreateFailsLoudOnXDGDoubleAppend` → `--- FAIL` (create rc=0, ghost-config.yaml in der nested dir angelegt).
+  - Save-route ghost-Zweig-Entfernung: der create-ghost-test bleibt gruen, weil die create-Sequenz (Load + SaveExpected) den Ghost zuerst im load-Zweig trifft — die CAS-Pruefung in saveWithPreparation ist die zweite Verteidigungslinie, kein Alleingang.
+  Damit ist keine der neuen Assertions ein Papiertiger. Die leere-file- und save-route-assertions pruefen andere Code-Pfade (`readConfigurationOwner` mode-Check, `Config.Save` probe, `saveWithPreparation` CAS) und bleiben in den Piloten an — die Pfad-Trennung ist damit nachgewiesen.
 - Die Host-Umgebung dieses coordinators teilt `~/.config/baseharbor` (entholt .installation.lock + organization/ von anderen lanes); Tests, die HOME nicht isolieren, erben dort ein populated-root ohne config.yaml und schlagen auf develop BASE vor — environment-Artefakt, kein Produktdefekt (baseline-Stash-Zeuge).
 - Flaky-Kandidat (Befund fuer eine spaetere Karte, auferhalb dieses write-sets): `readConfigurationOwner` in LoadConfigForMutation lehnt eine EXISTENTE, aber nicht protected owner-datei (mode&0077 != 0) mit der generischen "protected existing owner" melodie ab, statt der config-familie — asymmetrisch zum read-pfad, der solche dateien liest. Diese Lane andert security.go/readConfigurationOwner bewusst nicht (Mission-GRENZE: security.go unveraendert).
 - Die 094-Doku-Luecke (Befund 2: kein docs-Absatz fuer das neue Verhalten) bleibt offen und ist NICHT Teil dieses Fixes (Mission write-set); sie braucht eine eigene docs-Karte.
