@@ -16,7 +16,7 @@ blocker: ""
 resolution: ""
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1679]
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470", "https://github.com/mcpdev80/baseharbor/actions/runs/44042477049"]
 card_short_title: runtimeComponentTraceProbe
 ---
 
@@ -24,7 +24,7 @@ card_short_title: runtimeComponentTraceProbe
     <!-- generated:card -->
     **Owner:** traceprobe (mission-108 lane)  
     **PR:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -48,4 +48,11 @@ card_short_title: runtimeComponentTraceProbe
 ## 2026-11-17 complete candidate refresh
 
 - Lane pushed complete clean candidate `082cefab0d5a2624031daa520e52c14f17379a69`, including the trace receiver adapter, receiver/project-scoped pruning, and regressions for unbinding, receiver transitions, legacy cleanup, and removed OTLP intent. Clean-worktree build was reported as `BUILD_OK`.
-- Exact-head run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) completed successfully on this head. Independent review remains acceptance-blocking: same-ID cross-provider preservation needs provider-scoped registration and pruning (or a consistently enforced global-ID invariant). Independent review is checking that trace pruning preserves same-ID registrations owned by a different provider/application; the current foreign-source test uses a distinct ID. Acceptance waits for review resolution and green required checks.
+- Exact-head run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) completed successfully on this head. Independent review remains acceptance-blocking: same-ID cross-provider preservation requires provider-scoped registration and pruning. The provider-explicit reconcile must also handle an empty desired set; the runtime-component caller must pass its provider so disabled collection removes stale owned signals while preserving a same-ID foreign provider. Regression must exercise the real caller path. This run predates these uncommitted fixes and is not their acceptance evidence.
+
+
+## Review follow-up - 2026-11-17
+
+- The registry can hold same-ID records across providers. Reconcile and prune must both scope mutations by provider; the empty-desired case must pass explicit ownership so disabled runtime-component collection removes stale owned records while preserving a same-ID foreign source.
+- Verify this through the runtime-component caller, not only registry unit tests. The current API exists but the caller was still being wired at last review.
+- Run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) succeeded on old candidate 082cefab and does not cover review fixes. Require a clean complete checkout and a new terminal exact-head run before acceptance.

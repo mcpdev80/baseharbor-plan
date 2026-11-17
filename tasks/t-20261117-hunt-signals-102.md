@@ -72,4 +72,7 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - Latest verified `origin/develop`: `4094448543359a13ba312119304f1f70d3bc40a9`. Keep #1677 blocked on 0428-108 acceptance; preserve local environment-isolation commit `f7b9275d` for the combined post-dependency candidate.
 
 
-- 0428-108 has advanced from the incomplete `af2fb5f6` candidate to complete PR head `082cefab0d5a2624031daa520e52c14f17379a69`; exact run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) completed successfully; independent review remains open. Independent review remains open, so #1677 stays blocked pending accepted 108 and then a fresh develop rebase.
+- 0428-108 has advanced from the incomplete `af2fb5f6` candidate to complete PR head `082cefab0d5a2624031daa520e52c14f17379a69`; exact run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) completed successfully; independent review remains open. #1677 stays blocked pending accepted 108 and then a fresh develop rebase.
+
+
+- 0428-108 review requires provider-scoped reconciliation and pruning, including the real empty-desired runtime-component caller, with a same-ID foreign-provider regression. Run #44042477049 is green only on pre-review head 082cefab; it is not acceptance evidence for the follow-up changes.
