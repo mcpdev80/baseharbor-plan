@@ -100,9 +100,14 @@ Remote truth re-verified after push:
 ## HOSTED RUN (exact head, self-observed)
 
 - Run for head 8aa9574d: https://github.com/mcpdev80/baseharbor/actions/runs/44017521244
-  (observed pending→running at push; per GRENZEN this lane never triggers
-  workflow_dispatch or reruns and does not edit .github/**; the run's terminal
-  outcome belongs to the watchers/next window — READY is kept).
+  Observations: at push pending; after ~10 min 18 jobs pass, cli-0/cli-2 and one
+  Selected-docker-lifecycle job pending; terminal witness:
+
+    gh run view 44017521244 --json status,conclusion -> completed/success
+    gh pr checks 1575 -> no fail, no pending (all pass/skipping)
+
+  The exact-head run finished GREEN. READY; no rerun or dispatch was triggered by
+  this lane (GRENZEN: no .github/**).
 
 ## repo-rule compliance
 
