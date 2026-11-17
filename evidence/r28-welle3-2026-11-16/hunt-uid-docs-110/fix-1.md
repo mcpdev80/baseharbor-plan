@@ -82,7 +82,7 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 
 ## CI
 
-- Run 44060840263 "CI · Source & Quality", headSha 1d01ea16c003adffa0dfd529282417956560e2a4, status in_progress bei Akte-Erstellung; Terminalzustand wird im END nachgetragen.
+- Run 44060840263 "CI · Source & Quality", headSha 1d01ea16c003adffa0dfd529282417956560e2a4, TERMINAL: completed, conclusion=success (beobachtet von dieser Lane bis zum Endzustand, 2026-11-17). Alle required Jobs gruen; die schweren runtime-Matrix-Jobs sind bei PRs skipped (selektiver Pfad nach CI-Regel der Repo-AGENTS).
 ## Sauberkeit
 
 - Vorher (dieser host, lane-eigene Projekte): `docker ps -a` = keine lane-eigenen container/netzwerke/volumes; `docker compose ls` = nur fremde karren (ambient). Diese Lane hat KEINEN container/netzwerk/volume/compose gestartet.
@@ -103,4 +103,4 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 
 ## END
 
-END_DONE mission-110-mutation-loud.md — 0428-110: beide silent-pfade (corrupt config, XDG double-append) auf mutationspfaden reproduziert und gefixt: LoadConfigForMutation + Save-Routen pruefen die geladene config wie der read-pfad, werfen ErrConfigMissing/ErrConfigEmpty-familie loud, ghost-root wird konservativ abgelehnt (hint, kein dedupe), corrupter owner nie ueberschrieben; 094-assertions intact; regressionen unit + production entrance; build/vet/gofmt/affected tests gruen; Kandidat 1d01ea16c003adffa0dfd529282417956560e2a4 auf lane-0428-110-mutation-loud, PR #1682 READY gegen develop; Run 44060840263 exact-head.
+END_DONE mission-110-mutation-loud.md — 0428-110: beide silent-pfade (corrupt config, XDG double-append) auf mutationspfaden reproduziert und gefixt: LoadConfigForMutation + Save-Routen pruefen die geladene config wie der read-pfad, werfen ErrConfigMissing/ErrConfigEmpty-familie loud, ghost-root wird konservativ abgelehnt (hint, kein dedupe), corrupter owner nie ueberschrieben; 094-assertions intact; regressionen unit + production entrance; build/vet/gofmt/affected tests gruen; Kandidat 1d01ea16c003adffa0dfd529282417956560e2a4 auf lane-0428-110-mutation-loud, PR #1682 READY gegen develop; Run 44060840263 exact-head TERMINAL SUCCESS (completed/success, von dieser Lane beobachtet).
