@@ -16,15 +16,16 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 superseded_by: ""
-prs: []
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md"]
+prs: [mcpdev80/baseharbor#1677]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md", "https://github.com/mcpdev80/baseharbor/pull/1677", "https://github.com/mcpdev80/baseharbor/actions/runs/44031866829"]
 card_short_title: App-Klasse fehlt in der
 ---
 
 - [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** Codex  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)  
+    **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -34,8 +35,17 @@ card_short_title: App-Klasse fehlt in der
 **Required by:** [t-20261117-hunt-signals-103](t-20261117-hunt-signals-103.md), [t-20261117-hunt-signals-104](t-20261117-hunt-signals-104.md)  
 **Owner:** Codex  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
 **Source:** 
 <!-- /generated:links -->
 
 Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als normale task-kette (claim -> branch -> CI -> evidence -> review).
+
+
+## Test binding
+
+- **Test binding (select exactly one):** ☑ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
+- Tests: `internal/observability.TestListApplicationMetricsRequiresExplicitClassAndApplicationScope`; `internal/metrics.TestBindWritesAttributedTargetAndPrunesOnlySameApplication`; `internal/metrics.TestVerifyProviderAndApplicationSourcesSkipsOnlySnapshotMetadata`; existing `internal/metrics.TestWorkloadOnlyRegistersSharedSnapshotOnDeploy`.
+- Local route: `go test ./internal/observability ./internal/metrics -count=1` passed at PR head `58db26baf9dcd80566dcbb0042eed2818e5af822`; `go vet ./internal/observability ./internal/metrics` passed. Compile-only checks for updated List call sites in `cmd/baha` and `internal/identityprovider` passed.
+- CI trigger/route: Ready PR #1677 with changed Go source paths selected `PR · Go unit · packages`, `PR · Go unit · owner`, `PR · Validation · go-build`, `PR · Validation · go-vet`, and `PR · Validation · identity-provider-package-tests`. Run [44031866829](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829) is exact-head. It selected Docker observability and Docker identity runtime jobs; both are pending, and no Podman runtime job was selected by the current mapping.
+- CI execution and acceptance remain open until the exact-head selected checks are terminal and green.
