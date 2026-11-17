@@ -75,3 +75,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-dashboard-hosts](t-20261113-r28-grafana-dashboard-hosts.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 akte dff7d9d5
+
+kandidat a4d0c3cb (echter merge-durchlauf, FF-push, run 44049875883 SUCCESS, mergeable unknown=>neu bestimmen)
