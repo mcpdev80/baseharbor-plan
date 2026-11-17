@@ -67,3 +67,24 @@ Task: reality-sync, merge origin/develop, build/vet/gofmt + seam tests, refspec-
 - END_DONE mission-1575-hopf4: PR #1575 seam-schnittmenge null verifiziert; review
   correction applied (process history removed, tech justification kept); candidate
   87b287259a1d6f13fa255877558a5d027078a0b1 pushed; READY.
+
+## REVIEW-FIX-1 (coord clarification 2026-11-17, PR #1575)
+- Coord: card acceptance requires BOTH — (A) fail-closed validation AND (B) lossless
+  serialization for the valid case.
+- (A) manifest_validation.go validateObservabilityUIPreference: added fail-closed check —
+  perses=true without observability.management_ui returns an error (no still-nil path).
+- (B) manifest_render.go: unchanged guard (perses stays inside management_ui block);
+  invalid (true,ohne) never serializes because validation rejects it.
+- (C) manifest_test.go: three regression cases, no existing assertion weakened —
+  (true,ohne)=>error, (true,true)=>lossless round-trip, (false,ohne)=>ignored baseline.
+- New head: 9fc771859415fa44145720ff5079851943b2c020
+  (commit fix(0428-075): fail-closed perses without management_ui; lossless round-trip).
+- Verified: go build/vet/gofmt clean; ./internal/application full PASS (137.7s);
+  ./internal/capability + ./internal/metrics Perses PASS.
+- refspec-pushed 87b28725..9fc77185 -> lane-0428-075-perses-seam (remote 9fc77185).
+- Exact-head run 44029539129 -> completed/success (all checks pass incl. Exact Candidate,
+  Go unit cli-0..3, owner, packages, runtime lifecycle, source format, docs/pages).
+  Previous run 44026509996 superseded. No workflow_dispatch/rerun (GRENZEN: no .github/**).
+- rebase-window-1.md review-fix-1 block appended.
+- END_DONE mission-1575-hopf4: PR #1575 — fail-closed validation + lossless serialization;
+  candidate 9fc771859415fa44145720ff5079851943b2c020 pushed, run 44029539129 completed/success, READY.
