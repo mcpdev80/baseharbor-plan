@@ -32,5 +32,7 @@ At commit content immediately before commit `178b8a00`:
 
 ## Exact-head CI and review
 
-- Exact-head PR run: https://github.com/mcpdev80/baseharbor/actions/runs/44022175082 on `178b8a00`; IN PROGRESS at time of this note. Prior run 44018836577 is stale for this commit and is not used as acceptance evidence.
-- Independent review-3 requested against the clarified contract. No merge until exact-head selected checks pass and review-3 is PASS.
+- Exact-head PR run: https://github.com/mcpdev80/baseharbor/actions/runs/44022175082 on `178b8a00` is **terminal `completed/success`** (`status=completed`, `conclusion=success`, `head_sha=178b8a00aa72acd11c29499038834bdbcc0fb038`). Executed gates all `success`: Go unit owner/cli-0/1/2/3/packages, go-build, go-vet, Focused Python, Source format, Trusted Plan, Native gate plan. Expensive native/release/exact-candidate gates skipped by trusted-plan selection; no red jobs.
+- Round-4schnittmenge (shared-file conflict resolved): external probe helper + temporary `wdiagnose_test.go` removed; production `VerifyProviderSourcesAt` probe API reverted to un-exported stand; product diff vs `ecfccbb9b` is test-only. Projection-absence evidence retained in `workload_only_source_test.go` (compose/network-absence via `assertNoWorkloadComposeNetwork` + file_sd-absence + snapshot-presence). Codex in-package recorder-test (`prometheus_verify_workload_only_test.go`, `TestVerifyProviderSourcesSkipsOnlySnapshotMetadata`) untouched and remains the single verification-evidence guardrail-1 witness.
+- Guardrail-1 gap closed: workload-only identity stays out of file_sd AND provider-network projection (positive absence in generated Compose), snapshot identity positively preserved, real endpoint-backed sources keep verification.
+- No merge, no GitHub review mutation. Independent review-3 requested against the clarified contract.
