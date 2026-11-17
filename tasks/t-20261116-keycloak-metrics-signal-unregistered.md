@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
+kanban_status: closed
 kanban_lane: planned
 kanban_summary: "Make the declared keycloak-metrics native signal actually resolvable at runtime so the identity fan-in gate can ever be true."
 kanban_title: 0428-097 · Register keycloak-metrics signal
@@ -19,8 +19,8 @@ prs: [mcpdev80/baseharbor#1660]
 sources: [evidence/r28-welle2-2026-11-16/perses-dashboard-identity/on-resolver-round-2.md]
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor/pull/1660"]
 ---
 
 - [ ] t-20261116-keycloak-metrics-signal-unregistered · Runtime: register keycloak-metrics native signal in observability registry #task #release/v0-4-28 #status/planned
@@ -64,3 +64,5 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+
+merged 2026-11-17T03:30:15Z als 1df7c343 (Luna CODEX-MERGE welle1c, identity-check sauber)
