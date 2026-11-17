@@ -26,7 +26,6 @@ evidence: []
 - [ ] t-20261114-r28-perses-dashboard-valkey · Perses Valkey dashboard #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** w081 · **Priority:** normal  
-    **Needs:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

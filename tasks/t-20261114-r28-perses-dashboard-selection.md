@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: Define eligibility and provisioning for Perses-native dashboards based on real signal/label inventory and authorized providers.
 kanban_title: 0428-080 · Select compatible Perses
 priority: normal
@@ -19,18 +19,19 @@ prs: [mcpdev80/baseharbor#1590]
 sources: []
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: []
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/perses-dashboard-selection/merge-1.md", "https://github.com/mcpdev80/baseharbor/pull/1590", "https://github.com/mcpdev80/baseharbor/actions/runs/44040693658", "https://github.com/mcpdev80/baseharbor/commit/4094448543359a13ba312119304f1f70d3bc40a9"]
 ---
 
-- [ ] t-20261114-r28-perses-dashboard-selection · Select compatible Perses dashboards #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [x] t-20261114-r28-perses-dashboard-selection · Select compatible Perses dashboards #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1590](https://github.com/mcpdev80/baseharbor/pull/1590)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/perses-dashboard-selection/merge-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1590), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040693658), [proof 4](https://github.com/mcpdev80/baseharbor/commit/4094448543359a13ba312119304f1f70d3bc40a9)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-dashboard-databases](t-20261114-r28-perses-dashboard-databases.md), [t-20261114-r28-perses-dashboard-hosts](t-20261114-r28-perses-dashboard-hosts.md), [t-20261114-r28-perses-dashboard-identity](t-20261114-r28-perses-dashboard-identity.md), [t-20261114-r28-perses-dashboard-messaging](t-20261114-r28-perses-dashboard-messaging.md), [t-20261114-r28-perses-dashboard-valkey](t-20261114-r28-perses-dashboard-valkey.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
