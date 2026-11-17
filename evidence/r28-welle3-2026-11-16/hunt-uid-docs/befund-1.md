@@ -130,3 +130,10 @@ Befund 4.1: die 094-Aenderung fuegt keinen flag und keinen machine error code hi
 ## END
 
 END_DONE mission-hunt-uid-docs.md — Doku-Konsistenz develop@8db0d9bdf geprueft fuer 0428-094 (#1666) und 0428-097 (#1660): (c) CHANGELOG/Release-Note fehlt fuer beide Pfade (Unreleased leer, kein v0.4.28-file); (b) kein docs-Absatz beschreibt das neue Konfigurations-Fehlerverhalten, und die fail-loud-Garantie gilt nur read-seitig — corrupt- und XDG-double-append-Faelle bleiben im mutation-Pfad silent (probe-zeugen), DE/EN teilen die Luecke; (a) help/manifest konsistent, kein flag-Mismatch, aber JSON-Code `internal_error` fuer Konfig-Ausnahmen als Klassifikationsbefund; das 097-Signal und `identity_dashboard_eligible` sind nirgends dokumentiert (haengt an der offenen 082-Perses-Doku). Akte in baseharbor-plan origin/main, kein Produkt-Commit, keine container.
+
+## Nachtrag Teardown-zeugen (END-zone)
+
+- Produkt-Worktree `workers/.models/flash/wt/hunt-uid-docs`: `git status --porcelain` = 0 zeilen (detached 8db0d9bdf, nichts gepusht).
+- Probe-roots /var/tmp/hunt-uid-* und lane-caches /var/tmp/baha-gocache-hunt-uid, /var/tmp/baha-gomod-hunt-uid sowie das lane-binaer /var/tmp/baha-hunt-uid sind GELUESCHT (ls-zeug: "cannot access").
+- Nachher-Docker: 7 container, alle `bh-local-shared-*` — das sind ambient-core container ANDERER, laufender karren (owner-direktive 2026-11-08: fremder karren bleiben unangetastet). Diese lane hat sie nicht erzeugt (Vorher-liste dieser lane: 0 eigene projekte; `docker compose ls` nennt nur fremde stacks) und nicht veraendert. Der earlier "0 zeilen"-satz oben zaehlte die lane-eigenen projekte; die vollstaendige host-liste ist die 7-zeilige ambient-tabelle.
+- cleanliness: this lane started no containers/networks/volumes/compose projects; all lane-owned probe state deleted; ambient bh-local-shared-* (foreign lanes) untouched.
