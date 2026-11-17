@@ -21,14 +21,14 @@ source_note: "contract-ruling (coord 2026-11-17): workload-only Prometheus sourc
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md"]
 ---
 
 - [ ] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** codex  
     **PR:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -89,3 +89,10 @@ One or two sentences: the observable outcome.
 ## contract-ruling (coord 04:5xZ)
 
 Snapshot-only registration ist der gebilligte contract fuer workload-only apps: source erscheint im snapshot-metadata, aber NICHT als scrape-target (file_sd/network/query) — ein erfundener endpoint waere der gemeldete perpetually-down-bug. Evidenz-pflicht: positiver absence-test im generierten file_sd + unveraenderte pruefung echter endpoints. Review hat gegen diesen contract zu pruefen.
+
+## round-4 progress (Codex + Codeman, 2026-11-17)
+
+- Product commit `178b8a00aa72acd11c29499038834bdbcc0fb038` pushed to PR #1676 after merging current develop `2581000b5fdb78f4af577fc13ce1205ca32a84e8`.
+- Added Compose network absence coverage for workload-only registration, retained service-app network compatibility coverage, and added a query recorder proving the real endpoint source still reaches verification while the logical workload ID is not queried. Existing provider-network fixture now declares a real metrics source.
+- Targeted package tests, `go test ./internal/application ./internal/metrics`, `go build ./cmd/baha`, `go vet ./internal/application ./internal/metrics`, and `git diff --check` passed locally. Exact-head PR run [44022175082](https://github.com/mcpdev80/baseharbor/actions/runs/44022175082) is running on `178b8a00`; this is the only valid CI run for the changed head.
+- Separate review-3 requested. Status remains active until exact-head CI is green and review-3 passes. No merge yet.
