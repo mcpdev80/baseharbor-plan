@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 8 |
+| active | 7 |
 | review | 25 |
 | wait | 14 |
 | blocked | 0 |
-| ready | 5 |
+| ready | 6 |
 | queued | 25 |
 | waiting | 173 |
 | backlog | 7 |
@@ -31,7 +31,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-dashboard-valkey](../tasks/t-20261114-r28-perses-dashboard-valkey.md) | Perses Valkey dashboard | active | normal | w081 | [t-20261114-r28-perses-dashboard-selection](../tasks/t-20261114-r28-perses-dashboard-selection.md) (open) | — |
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
-| [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | active | not set | Codex (0428-101) | — | — |
 
 ## Ready for review
 
@@ -91,6 +90,7 @@ None.
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
+| [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | application-Klasse fehlt in der Signal-Registry | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-103](../tasks/t-20261117-hunt-signals-103.md) | postgres-/valkey-Adapter ohne Plan | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-104](../tasks/t-20261117-hunt-signals-104.md) | Drei Quellen ohne Destroy-Cleanup | ready | not set | — | — | — |
