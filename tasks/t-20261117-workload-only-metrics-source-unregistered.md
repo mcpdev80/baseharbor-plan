@@ -7,7 +7,7 @@ areas: []
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: codex
+owner: coord
 kanban_status: closed
 kanban_lane: closed
 kanban_summary: "Before the fix, real EnsureRuntime deployment of a workload-only app left the shared Prometheus runtime-sources.json empty, so…"
@@ -26,7 +26,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 - [x] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
-    **Owner:** codex  
+    **Owner:** coord  
     **PR:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1676), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44022175082), [proof 6](https://github.com/mcpdev80/baseharbor/commit/bcae1e8c1261c9e44db03fe285a5d090c532dfcd), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-3.md)  
     <!-- /generated:card -->
@@ -35,7 +35,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 **State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
-**Owner:** codex  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
 **Source:** 
@@ -98,3 +98,5 @@ Snapshot-only registration ist der gebilligte contract fuer workload-only apps: 
 - Separate review-3 requested. Status remains active until exact-head CI is green and review-3 passes. No merge yet.
 
 2026-11-17: snapshot-only contract reviewed; PR #1676 merged at bcae1e8c1261c9e44db03fe285a5d090c532dfcd after exact-head run 44022175082 and REVIEW-3 APPROVE. Full witness in review-3.md.
+
+review-3 APPROVE (akte) + merged 05:16:49Z als bcae1e8c1 (Codex, head-guard; contract: snapshot-only ruling)
