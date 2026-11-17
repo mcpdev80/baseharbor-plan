@@ -4,13 +4,13 @@ Date: 2026-11-17. Role: WORKER, owner-authorized Codex lane. Candidate PR #1676,
 
 ## PLAN
 
-- [x] 1. Refresh PR #1676, remote branch, current develop, Planning task/claim and inspect repository rules.
-- [x] 2. Trace workload `RuntimeTarget(project, "workload")` through the actual Prometheus `provider-*.json` file_sd generation. It is copied verbatim and no Prometheus runtime-target resolver exists.
-- [ ] 3. STOP+QUESTION: target contract is not defined for a workload-only app with no declared metrics service/port or workload `/metrics` endpoint. Do not invent a target or weaken verification.
-- [ ] 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
-- [ ] 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
-- [ ] 6. Merge current develop into the PR lane without force, push with explicit refspec, and observe its own exact-head pull_request run to terminal success.
-- [ ] 7. Re-review the exact new head against the batch21/r3 recipes; merge only if all exact-head checks and review gates pass, then publish both role akten and END posts.
+ * [x] 1. Refresh PR #1676, remote branch, current develop, Planning task/claim and inspect repository rules.
+ * [x] 2. Trace workload `RuntimeTarget(project, "workload")` through the actual Prometheus `provider-*.json` file_sd generation. It is copied verbatim and no Prometheus runtime-target resolver exists.
+ * [ ] 3. STOP+QUESTION: target contract is not defined for a workload-only app with no declared metrics service/port or workload `/metrics` endpoint. Do not invent a target or weaken verification.
+ * [ ] 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
+ * [ ] 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
+ * [ ] 6. Merge current develop into the PR lane without force, push with explicit refspec, and observe its own exact-head pull_request run to terminal success.
+ * [ ] 7. Re-review the exact new head against the batch21/r3 recipes; merge only if all exact-head checks and review gates pass, then publish both role akten and END posts.
 
 ## Ownership and baseline
 
