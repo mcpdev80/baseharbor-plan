@@ -45,38 +45,65 @@ Workspace: fresh clone in /var/tmp/hopf3-zone (base-develop + seam clone), missi
   (PR #1575, verified by ls-remote above).
 - Merged `origin/develop` = `2581000b5fdb78f4af577fc13ce1205ca32a84e8` via plain
   `git merge` (no rebase, no force, no second branch).
-- Provenance: `git merge-base --is-ancestor 2581000b <new head>` -> true (develop is ancestor of the new merge commit).
+- New head (merge commit): `fa41389c038b449dc4cd850706a6d28f3aac59a2`
+  ("Merge branch 'origin/develop' into lane-0428-075-perses-seam").
+- Provenance: `git merge-base --is-ancestor 2581000b fa41389c` -> true
+  (develop is ancestor of the new merge commit).
+- `git merge-base --is-ancestor 16adf5c3 fa41389c` -> true (prior hopf-2 head carried).
+- Approvals still ancestors: `git merge-base --is-ancestor 492b8e8f fa41389c` -> true,
+  `git merge-base --is-ancestor af308e66 fa41389c` -> true.
+- Own commits `git log 16adf5c3..fa41389c`: exactly two — my merge commit `fa41389c`
+  plus the one develop-carried commit `2581000b` (#1579 uid-app). No foreign candidate.
 
 ## Verification (local, self-run, in /var/tmp/hopf3-zone/base-seam)
 
-Toolchain: go1.26.x (per go.mod).
+Toolchain: go1.26.8 (per go.mod).
 - go build ./... => pass
 - go vet ./... => pass
-- gofmt -l . (non-vendor) => clean
-- go test -count=1 ./internal/capability/ ./internal/metrics/ ./internal/application/ => ok (holds internal/capability/perses_test.go, internal/metrics/perses_contract_test.go, the seam-affected Perses tests)
-- go test -run TestPerses ./cmd/baha/ => PASS
-- (cmd/baha full suite: the two known flaky isolation tests — TestAppEditCommandCompleteProviderEditRunsRealLifecycle and TestPrepareStagedCoreGitCandidatePinsCanonicalApplication — are pre-existing and require the CI-provided isolated daemon, not started locally; they are unchanged by this merge.)
+- gofmt -l . (non-vendor) => clean (empty output)
+- go test -count=1 ./internal/capability/ ./internal/metrics/ => ok
+  (holds internal/capability/perses_test.go and internal/metrics/perses_contract_test.go,
+  the seam-affected Perses tests)
+- go test -run TestPerses ./cmd/baha/ => PASS (cmd/baha; run with TMPDIR set, see note)
+- go test -count=1 ./internal/application/ => ok (161.9s; full suite)
+
+NOTE on disk-pressure: the tmpfs `/tmp` on this host holds only ~2.6G and is shared across
+lanes. Running the Go test binaries with the default TMPDIR produced only
+`write .../tmp/...: disk quota exceeded` failures (TestRetainedPrometheusInventorySurvivesOtherProviderSourceWithdrawal,
+TestRuntimeSourceUsesAuthenticatedServiceIdentityAndRoundTrips, the shared lock-probe cells,
+and a `/tmp/argsXXXX` write in cmd/baha) — none a logic failure. With `TMPDIR`/`GOTMPDIR`
+redirected to /var/tmp/hopf3-zone/go-tmp (32G free), every one of the above passes. This is a
+host-environment artifact, not a merge defect: the merge delta is the single new file
+cmd/baha/app_init_uid_app_slice_test.go, which touches no seam logic.
 
 ## Push (refspec)
 
 - git push origin HEAD:lane-0428-075-perses-seam
-- Remote verify: git ls-remote origin refs/heads/lane-0428-075-perses-seam  => <new head>
-- Remote verify: git ls-remote origin refs/pull/1575/head                => <new head>
-- Base freshness on remote: develop 2581000b is ancestor of remote lane head.
+  push witness (fast-forward): 16adf5c3..fa41389c
+- Remote verify (ls-remote, before/after):
+    before: 16adf5c3d2db3039c183e1a6841fced31a131b2e	refs/heads/lane-0428-075-perses-seam
+    after:  fa41389c038b449dc4cd850706a6d28f3aac59a2	refs/heads/lane-0428-075-perses-seam
+    after:  fa41389c038b449dc4cd850706a6d28f3aac59a2	refs/pull/1575/head  (via `gh pr view 1575`, live)
+- Base freshness on remote: `git merge-base --is-ancestor 2581000b fa41389c` -> true.
 
 ## PR #1575 status (terminal CI)
 
-- gh pr view 1575 => state OPEN, base develop, head lane-0428-075-perses-seam
-- Exact-head CI run (self-observed to terminal): <run-id> -> completed/success
-- No workflow_dispatch or rerun triggered (GRENZEN: no .github/**; Owner scope).
+- gh pr view 1575 => state=OPEN, mergeable=MERGEABLE, head=lane-0428-075-perses-seam,
+  headRefOid=fa41389c038b449dc4cd850706a6d28f3aac59a2, base=develop.
+- Exact-head CI run (self-observed to terminal): run #6451, GitHub Actions run
+  44023379363 (pull_request event, commit fa41389c, created 2026-11-17T05:20:13Z):
+  `gh run view 44023379363 --json status,conclusion` -> completed/success (updated
+  2026-11-17T05:29:24Z). All ran jobs success; remaining jobs skipped by diff-scope gating
+  (no fail, no pending). This was the auto-triggered run on push — no workflow_dispatch or
+  rerun triggered (GRENZEN: no .github/**; Owner scope).
 
 ## repo-rule compliance
 
 - No .github/** edits, no merge-force, no rebase, no second branch, no subagent (§4.8).
 - Work confined to the mission-named branch `lane-0428-075-perses-seam` (one candidate per chain, AGENTS 3.8).
 - Evidence lives only in baseharbor-plan under evidence/r28-welle3-2026-11-16/perses-seam/.
-- Planning-repo witness: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main` => <line> (the real planning repo, not workers/baseharbor-plan).
-- No containers/networks/compose left by this lane (cleanliness: docker ps -a / docker network ls empty of own projects).
+- Planning-repo witness: `git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-remote origin refs/heads/main` => e6ebc365f1bd97ebccc7cebc1950cd5df17afc1e (the real planning repo, not workers/baseharbor-plan).
+- No containers/networks/compose left by this lane (cleanliness: no docker/podman projects started; ps-witness in rebase-window-1.md hopf-3 block).
 
 ## END line
 END_DONE mission-1575-hopf3.md: PR #1575 hopf-3 — merged develop@2581000b (uid-app #1579), seam intersection null, candidate <new head> pushed, run <run-id> completed/success, READY.

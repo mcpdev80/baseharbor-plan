@@ -153,3 +153,47 @@ Develop had advanced past e6cce9c73; PR base was behind again (strict gate close
 - No GitHub review comment per directive (content delta already proven in window 1).
 
 END_DONE mission-1575-seam-rebase.md: PR #1575 hopf-2 — merged develop@8db0d9bdf, candidate 16adf5c3d2db3039c183e1a6841fced31a131b2e, run 44019202219 completed/success, READY.
+
+## HOPF-3 (base-hop follow-up, coordinator directive 2026-11-17; mission mission-1575-hopf3.md)
+
+Develop advanced past the hopf-2 head 16adf5c3 (strict gate had closed).
+
+- Reality sync (`git ls-remote https://github.com/mcpdev80/baseharbor.git`, fresh clone in
+  /var/tmp/hopf3-zone):
+
+    2581000b5fdb78f4af577fc13ce1205ca32a84e8	refs/heads/develop
+    16adf5c3d2db3039c183e1a6841fced31a131b2e	refs/heads/lane-0428-075-perses-seam
+
+- Base freshness: `git merge-base --is-ancestor 16adf5c3 origin/develop` => NO (HEAD behind
+  develop), so a re-merge was required.
+- Delta develop brings past 16adf5c3: EXACTLY ONE file — cmd/baha/app_init_uid_app_slice_test.go
+  (0428-050 uid-app Option B, PR #1579, merged 04:58:47Z). The seam-schnittmenge with the
+  Perses chain (internal/capability/perses.go, contracts/, deploy/) is null; merge cannot
+  conflict on seam files.
+- Merge: plain `git merge origin/develop` (ort, exit 0, ZERO conflicts) into the same
+  candidate branch — no rebase, no force, no second branch. New head
+  `fa41389c038b449dc4cd850706a6d28f3aac59a2`
+  ("Merge branch 'origin/develop' into lane-0428-075-perses-seam"). Own commits
+  `git log 16adf5c3..fa41389c`: exactly the merge commit plus the one develop-carried
+  commit 2581000b (#1579) — no foreign candidate.
+- Ancestry: `git merge-base --is-ancestor 2581000b fa41389c` -> true; 16adf5c3 and the
+  approvals 492b8e8f / af308e66 remain ancestors (all re-verified: --is-ancestor -> true).
+- Verification local (go1.26.8): `go build ./...` pass, `go vet ./...` pass, `gofmt -l` clean,
+  `go test ./internal/capability/ ./internal/metrics/ ./internal/application/` all ok,
+  `go test -run TestPerses ./cmd/baha/` PASS.
+  Host note: the tmpfs `/tmp` on this host holds only ~2.6G and is shared across lanes; the Go
+  test binaries failed with `write .../tmp/...: disk quota exceeded` under the default TMPDIR.
+  With `TMPDIR`/`GOTMPDIR` redirected to /var/tmp/hopf3-zone/go-tmp (32G free), every suite
+  passes — a disk-pressure artifact, not a merge defect.
+- Push witness (fast-forward): `16adf5c3..fa41389c  -> lane-0428-075-perses-seam`;
+  after: `fa41389c038b449dc4cd850706a6d28f3aac59a2 refs/heads/lane-0428-075-perses-seam`,
+  refs/pull/1575/head same.
+- Exact-head run (self-observed to terminal): https://github.com/mcpdev80/baseharbor/actions/runs/44023379363
+  (run #6451) `gh run view 44023379363 --json status,conclusion` -> completed/success.
+  No workflow_dispatch or rerun triggered (GRENZEN: no .github/**).
+- gh pr view 1575 => state=OPEN, mergeable=MERGEABLE, head=lane-0428-075-perses-seam,
+  headRefOid=fa41389c.
+- No containers/networks started (cleanliness: zero own docker/podman projects; ps-witness
+  — none to list).
+
+END_DONE mission-1575-hopf3.md: PR #1575 hopf-3 — merged develop@2581000b (uid-app #1579), seam intersection null, candidate fa41389c038b449dc4cd850706a6d28f3aac59a2 pushed, run 44023379363 completed/success, READY.
