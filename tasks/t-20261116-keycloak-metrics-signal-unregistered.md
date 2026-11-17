@@ -9,21 +9,37 @@ version: ""
 parent: v0.4.28
 owner: coord
 kanban_status: closed
-kanban_lane: planned
-kanban_summary: "Make the declared keycloak-metrics native signal actually resolvable at runtime so the identity fan-in gate can ever be true."
-kanban_title: 0428-097 · Register keycloak-metrics signal
+source_note: "hunt/live-verify akte: evidence/r28-welle2-2026-11-16/perses-dashboard-identity/on-resolver-round-2.md"
+kanban_lane: closed
+kanban_summary: "The keycloak-metrics ProviderObservabilitySignal declared in internal/capability/reference.go (Keycloak provider descriptor,…"
+kanban_title: 0428-097 · register keycloak-metrics
 priority: high
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1660]
-sources: [evidence/r28-welle2-2026-11-16/perses-dashboard-identity/on-resolver-round-2.md]
+sources: []
 blocker: ""
 wait_reason: ""
 resolution: accepted
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1660"]
 ---
 
-- [ ] t-20261116-keycloak-metrics-signal-unregistered · Runtime: register keycloak-metrics native signal in observability registry #task #release/v0-4-28 #status/planned
+- [x] t-20261116-keycloak-metrics-signal-unregistered · Runtime: register keycloak-metrics native signal in observability registry #task #release/v0-4-28 #status/closed #view/closed #board/planned #area/capability #area/runtime #kind/task
+    <!-- generated:card -->
+    **Owner:** coord · **Priority:** high  
+    **PR:** [baseharbor#1660](https://github.com/mcpdev80/baseharbor/pull/1660)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1660)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** accepted  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** coord  
+**Priority:** high  
+**PRs:** [baseharbor#1660](https://github.com/mcpdev80/baseharbor/pull/1660)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

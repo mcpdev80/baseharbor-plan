@@ -10,8 +10,8 @@ parent: v0.4.28
 owner: codex
 kanban_status: active
 kanban_lane: active
-kanban_summary: ""
-kanban_title: 0428-100 · Workload-only metrics source registration
+kanban_summary: Deploying a workload-only app (no declared services) through the real product path leaves…
+kanban_title: 0428-100 · deploy of a workload-only app
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
@@ -23,7 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/planned
+- [ ] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/active #view/active #kind/task
+    <!-- generated:card -->
+    **Owner:** codex  
+    **PR:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** codex  
+**Priority:** not set  
+**PRs:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

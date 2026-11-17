@@ -10,7 +10,7 @@ parent: v0.4.28
 owner: "ChatGPT"
 kanban_status: active
 kanban_lane: active
-kanban_summary: "Offer explicit, justified, opt-in repair of missing Rootless Docker and ORAS prerequisites during first-run local Core setup."
+kanban_summary: A fresh Linux workstation can complete the supported baha up new local-Core journey without manually discovering how to install…
 kanban_title: "0428-098 · Guided rootless bootstrap"
 priority: high
 depends_on: []
@@ -23,7 +23,21 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261116-r28-guided-rootless-bootstrap · Guided rootless runtime prerequisite repair #task #release/v0-4-28 #status/planned #area/runtime #area/cli #area/security #kind/task
+- [ ] t-20261116-r28-guided-rootless-bootstrap · Guided rootless runtime prerequisite repair #task #release/v0-4-28 #status/active #view/active #area/cli #area/runtime #area/security #kind/task
+    <!-- generated:card -->
+    **Owner:** ChatGPT · **Priority:** high  
+    **PR:** [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664)  
+    <!-- /generated:card -->
+
+<!-- generated:links -->
+**State:** active  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Depends on:** none  
+**Owner:** ChatGPT  
+**Priority:** high  
+**PRs:** [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664)  
+**Source:** 
+<!-- /generated:links -->
 
 ## Goal
 

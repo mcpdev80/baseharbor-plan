@@ -6,8 +6,4 @@ Derived from accepted prerequisites and active release (or explicit early work).
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |
-| [t-20261114-r28-cli2-coordination](../tasks/t-20261114-r28-cli2-coordination.md) | CLI redesign: coordinate five workers | ready | high | — | — | — |
-| [t-20261115-bf01-orphan-test](../tasks/t-20261115-bf01-orphan-test.md) | BF-01 orphan test removal: drop unreachable leftover test from bf01 lineage | ready | not set | — | — | — |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
-| [t-20261115-bughunt-d28-bad-config-quiet](../tasks/t-20261115-bughunt-d28-bad-config-quiet.md) | BF-05 corrupted config file silently ignored | ready | not set | — | — | — |
-| [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) | BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) | ready | not set | — | — | — |
