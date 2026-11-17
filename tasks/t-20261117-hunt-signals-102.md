@@ -12,7 +12,7 @@ sources: []
 source_note: "hunt hunt-signals befund-1 (akte: evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)"
 depends_on: [t-20261117-trace-probe-adapter-gap]
 owner: Codex
-blocker: "PR #1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; remote develop advanced to ed55d893374b593a7a6032f0de496ca9920ad08d after #1577, so rebase and exact-head rerun wait for active fix 0428-108."
+blocker: "PR #1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; remote develop is 4094448543359a13ba312119304f1f70d3bc40a9; active dependency 0428-108 has open PR #1679 at incomplete head af2fb5f6 with failed exact run #44040963470, so rebase and exact-head rerun wait for a complete accepted 108 fix."
 wait_reason: ""
 resolution: ""
 superseded_by: ""
@@ -25,7 +25,7 @@ card_short_title: App-Klasse fehlt in der
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
-    **Blocker:** PR \#1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; remote develop advanced to ed55d893374b593a7a6032f0de496ca9920ad08d after \#1577, so rebase and exact-head rerun wait for…  
+    **Blocker:** PR \#1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; remote develop is 4094448543359a13ba312119304f1f70d3bc40a9; active dependency 0428-108 has open PR \#1679 at incomplete h…  
     **Needs:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829)  
     <!-- /generated:card -->
@@ -64,3 +64,9 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - Side-find (`--confirm-candidate`, no new card): bounded failure summary in job 133865952530 at log lines 3176-3181 contains both the expected negative-consent message (`:3179`) and the distinct actual failure, `native OTLP trace source ... has no runtime probe adapter` (`:3180`), followed by the consented-path exit (`:3181`). The refusal is implemented at `cmd/baha/app_candidate_consent.go:148-152` (message at `:150`) and the full-stack fixture proceeds to the consented apply at `cmd/baha/app_observability_acceptance_test.go:190`; the terminal assertion is trace queryability at `:249-250`. Thus the bounded summary does not indicate a `--confirm-candidate` gate defect: the refusal is an expected negative-consent assertion, while the separately failing trace assertion is owned by 0428-108. No extra card is warranted.
 - Root cause verified from job logs and source: app workload traces are recorded with ProviderPrometheus, Mode Native, Protocol otlp, and a symbolic runtime target; runtimeComponentTraceProbe only supports RuntimeBroker and RuntimeExecutor. This code is already in develop at 4bab986dc; #1677 only touches registry/list/metrics verification paths and does not introduce the trace source.
 - Base freshness also changed: latest verified remote develop is ed55d893374b593a7a6032f0de496ca9920ad08d following #1575 and #1577. Branch head remains 58db26baf9dcd80566dcbb0042eed2818e5af822. Coordinator confirmed that 0428-108 is already active on this same root cause and received the independent reproduction as a fourth regression; 0428-102 waits for 0428-108 before rebase and exact-head rerun.
+
+
+## Dependency refresh - 2026-11-17
+
+- 0428-108 now has PR [#1679](https://github.com/mcpdev80/baseharbor/pull/1679), but it is still in progress: current remote head `af2fb5f6` is incomplete and exact run [44040963470](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470) failed compile/test checks. Do not rebase or rerun #1677 against this candidate.
+- Latest verified `origin/develop`: `4094448543359a13ba312119304f1f70d3bc40a9`. Keep #1677 blocked on 0428-108 acceptance; preserve local environment-isolation commit `f7b9275d` for the combined post-dependency candidate.
