@@ -10,11 +10,11 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
+| active | 10 |
 | review | 24 |
 | wait | 14 |
 | blocked | 0 |
-| ready | 6 |
+| ready | 5 |
 | queued | 25 |
 | waiting | 175 |
 | backlog | 7 |
@@ -33,6 +33,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) | application-Klasse fehlt in der Signal-Registry | active | not set | Codex | — | — |
+| [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md) | runtimeComponentTraceProbe lacks trace-consumer adapter | active | not set | traceprobe (mission-108 lane) | — | — |
 
 ## Ready for review
 
@@ -95,7 +96,6 @@ None.
 | [t-20261117-hunt-signals-105](../tasks/t-20261117-hunt-signals-105.md) | Alert-Ebene develop-weit leer | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-107](../tasks/t-20261117-hunt-signals-107.md) | docs/de keeps Warnung/Fehler/Hinweis labels (low) | ready | not set | — | — | — |
-| [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md) | runtimeComponentTraceProbe lacks trace-consumer adapter | ready | not set | — | — | — |
 
 ## By release
 

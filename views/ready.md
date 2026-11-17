@@ -11,4 +11,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | [t-20261117-hunt-signals-105](../tasks/t-20261117-hunt-signals-105.md) | Alert-Ebene develop-weit leer | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-107](../tasks/t-20261117-hunt-signals-107.md) | docs/de keeps Warnung/Fehler/Hinweis labels (low) | ready | not set | — | — | — |
-| [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md) | runtimeComponentTraceProbe lacks trace-consumer adapter | ready | not set | — | — | — |
