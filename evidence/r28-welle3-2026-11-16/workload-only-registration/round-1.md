@@ -74,3 +74,21 @@ existing), `go test ./internal/application/ ./internal/observability/` pass,
 (job at .github/workflows/ci.yml:124, `go test ./... ./internal/... ./spec/...`),
 which runs the new tests in `internal/metrics/prometheus_verify_workload_test.go`
 automatically. No .github/** change needed (Owner scope).
+
+## END state (0428-100)
+
+- Branch: lane-0428-100-workload-only-registration, HEAD ea7d0b2fd, develop
+  ancestor, only my commit on the branch.
+- PR #1676, base develop, head lane-0428-100-workload-only-registration.
+  isDraft=true BEFORE and AFTER the push cycle (Owner/Frost directive;
+  ready_for_review forbidden).
+- CI run 44000884721 completed/success. Go unit (cli-0..3, packages, owner),
+  go-build, go-vet, Source format, Workflow policy all pass.
+- Evidence published to baseharbor-plan origin/main:
+  evidence/r28-welle3-2026-11-16/workload-only-registration/round-1.md
+  blob 2d676422c59 (verified present on origin/main before END).
+- Write-set: internal/metrics/prometheus_verify.go + new test file only.
+  Did NOT touch cmd/baha/app_status_result.go,
+  internal/metrics/perses_infra_dashboards*.go,
+  internal/metrics/perses_prometheus_datasource.go (scope guard).
+- Worktree cleaned, compose/projects down.
