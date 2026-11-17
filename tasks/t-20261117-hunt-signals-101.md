@@ -1,5 +1,5 @@
 ---
-id: "t-20261117-hunt-signals-101"
+id: t-20261117-hunt-signals-101
 card_number: "0428-101"
 title: "ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs"
 kanban_status: planned

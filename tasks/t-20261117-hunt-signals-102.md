@@ -1,5 +1,5 @@
 ---
-id: "t-20261117-hunt-signals-102"
+id: t-20261117-hunt-signals-102
 card_number: "0428-102"
 title: "application-Klasse fehlt in der Signal-Registry"
 kanban_status: planned

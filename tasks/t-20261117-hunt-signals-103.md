@@ -1,5 +1,5 @@
 ---
-id: "t-20261117-hunt-signals-103"
+id: t-20261117-hunt-signals-103
 card_number: "0428-103"
 title: "postgres-/valkey-Adapter ohne Plan"
 kanban_status: planned

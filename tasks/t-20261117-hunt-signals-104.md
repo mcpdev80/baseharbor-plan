@@ -1,5 +1,5 @@
 ---
-id: "t-20261117-hunt-signals-104"
+id: t-20261117-hunt-signals-104
 card_number: "0428-104"
 title: "Drei Quellen ohne Destroy-Cleanup"
 kanban_status: planned
