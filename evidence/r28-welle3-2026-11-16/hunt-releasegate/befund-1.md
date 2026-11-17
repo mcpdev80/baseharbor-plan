@@ -105,3 +105,5 @@ Binding release-readiness vocabulary (baseharbor product, develop `4bab986dc`):
 ## END
 
 END_DONE mission-hunt-releasegate.md: Release-Gate-Audit develop (4bab986dc). Deckungs-Matrix fertig: 0428-092 (boundary) durch code+tests/doku gedeckt (Console/Node Connector archiert, Demo active consumer, Perses optional fail-closed, owner-decision 2026-11-15 normativity-limited). 0428-073 (alerts): alert rule **evaluation + persistence FEHLT** — nur Deklaration + fail-closed tests, kein Evaluator/Persistenz/notification-owner; metrics.rules permission deklariert, nicht evaluiert. run-bare probes build/vet/tests + production CLI entrance (baha perses) ok, keine deployments.
+
+Evidence committed to baseharbor-plan origin/main: commit `ce9ed512` "hunt-releasegate: release-gate-audit develop befund-1" — verified ancestor of origin/main `be0f39bf` (git ls-remote refs/heads/main tip).
