@@ -47,6 +47,19 @@ internal/deployment/target.go
 
 Kein PR, kein Produkt-Commit. Arbeitsbaum der Lane: 0 Aenderungen (`git status --porcelain` = leer auf 1df7c343).
 
+## Evidence-Pfad auf origin/main (vor END-Post, Mission 2026-11-05)
+
+```
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+6e27aad9f6fcbbebbc6dd0890705b9b182f710cd	refs/heads/main
+$ git ls-tree origin/main evidence/r28-welle3-2026-11-16/hunt-signals/
+100644 blob 47868841c2a1be20b3e232d635fbccdd416582cc	evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md
+```
+
+## Nachtrag: Disk-Lage (Fund, keine eigenmachtige Aenderung)
+
+/tmp/opencode (tmpfs 13G) stand waehrend dieser Lane bei 80% (2.6G frei); eine Worktree-Anlage dort schlug mit "Disk quota exceeded" fehl, und ein mv-Versuch beschadigte einen Teilbaum. Lane-Worktree liegt daher unter `workers/.models/flash/wt/hunt-signals` (Legitimation: die dortigen Vorgaenger-Lanes nutzen genau diesen Pfad). Beschleunigend waere eine Aueraeumrunde der alten /tmp/opencode/w*-wt-Baeume (~2.8G) — Coordinator-Entscheidung, diese Lane hat nichts geloescht.
+
 ## Befund 1 — Die registrier-pfade sind ueber alle provider heterogen
 
 Das Muster-Fund 097 (keycloak registrierte sein deklariertes metrik-Signal nie) war kein Einzelfall: die Signalregistrierung laeuft ueber DREI verschiedene, unkoordinierte Pfade mit vier verschiedenen ID-Formaten. Die Registry selbst ist dokumentarisch generisch (`internal/observability/registry.go:180 RegisterProviderSignals`, `:274 PruneOwnedProviderInstances`, `:318 UpdateSignal`, `:338 ReconcileSignals`, `:367 Remove`).
