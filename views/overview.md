@@ -10,8 +10,8 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 
 | State | Tasks |
 | --- | ---: |
-| active | 9 |
-| review | 21 |
+| active | 8 |
+| review | 22 |
 | wait | 14 |
 | blocked | 2 |
 | ready | 6 |
@@ -32,7 +32,6 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | active | not set | worker-flash (mission-110-mutation-loud) | — | — |
-| [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md) | runtimeComponentTraceProbe lacks trace-consumer adapter | active | not set | traceprobe (mission-108 lane) | — | [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679) |
 
 ## Ready for review
 
@@ -59,6 +58,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261114-r28-perses-tempo-source](../tasks/t-20261114-r28-perses-tempo-source.md) | Connect Perses Tempo | review | normal | coord | [t-20261114-r28-perses-contract-seam](../tasks/t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](../tasks/t-20261114-r28-perses-runtime.md) (open), [t-20261114-r28-perses-signal-inventory](../tasks/t-20261114-r28-perses-signal-inventory.md) | [baseharbor#1610](https://github.com/mcpdev80/baseharbor/pull/1610) |
 | [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) | BF-04 German 'Achtung' hint in English output and JSON contract (15 sites) | review | not set | coord | — | [baseharbor#1663](https://github.com/mcpdev80/baseharbor/pull/1663) |
 | [t-20261116-i18n-demo-consumer-rename](../tasks/t-20261116-i18n-demo-consumer-rename.md) | Demo: match renamed Warning marker after core 0428-093 lands | review | not set | coord | [t-20261115-bughunt-d28-i18n-achtung](../tasks/t-20261115-bughunt-d28-i18n-achtung.md) (open) | [baseharbor-demo#164](https://github.com/mcpdev80/baseharbor-demo/pull/164) |
+| [t-20261117-trace-probe-adapter-gap](../tasks/t-20261117-trace-probe-adapter-gap.md) | runtimeComponentTraceProbe lacks trace-consumer adapter | review | not set | coord | — | [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679) |
 
 ## Waiting for resources
 

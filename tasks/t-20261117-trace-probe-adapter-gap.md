@@ -4,35 +4,37 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-108"
 title: "runtimeComponentTraceProbe lacks trace-consumer adapter for prometheus sources"
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_title: 0428-108 · runtimeComponentTraceProbe
 kanban_summary: ""
 sources: []
 source_note: "0428-093 lane diagnose-pflicht END_BLOCKED (akte: evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md); PR zu frueh geoeffnet, candidate unvollstaendig bis restauration; run auf af2fb5f6 zaehlt nicht"
 depends_on: []
-owner: traceprobe (mission-108 lane)
+owner: coord
 blocker: ""
 resolution: ""
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1679]
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470", "https://github.com/mcpdev80/baseharbor/actions/runs/44042477049", "https://github.com/mcpdev80/baseharbor/actions/runs/44046875648"]
 card_short_title: runtimeComponentTraceProbe
+wait_reason: ""
+
 ---
 
-- [ ] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
-    **Owner:** traceprobe (mission-108 lane)  
+    **Owner:** coord  
     **PR:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
-**Owner:** traceprobe (mission-108 lane)  
+**Owner:** coord  
 **Priority:** not set  
 **PRs:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
 **Source:** 
@@ -63,3 +65,5 @@ card_short_title: runtimeComponentTraceProbe
 - Additive commit 39810520b is pushed to PR #1679. It scopes reconcile and prune by provider, adds explicit ownership for empty desired sets, wires runtime-component reconciliation to that API, and adds same-ID cross-provider and disabled-policy regressions.
 - Clean remote-head witness at 39810520b: clean detached checkout; `go build ./...` passed; `go vet ./cmd/baha ./internal/observability ./internal/telemetry ./internal/application` passed; `go test ./internal/observability -count=1` and `go test ./internal/application -run '^Test(WorkloadTrace|WorkloadReceiver|LegacyPrometheus|ReceiverTracePrune|RuntimeComponentReconcile)'` passed. The focused same-ID and empty-desired runtime-component cases passed; an isolated fail-first with the old caller confirmed stale metrics remain without explicit ownership.
 - Exact-head run [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648) is in progress on this commit. Run #44042477049 is green only for the previous head and is not evidence for this change. Keep acceptance pending the new run and final diff review.
+
+candidate 39810520b, run 44046875648 SUCCESS, reviewer null-befund; merge laeuft owner-delegiert (Codex welle2c obj1)
