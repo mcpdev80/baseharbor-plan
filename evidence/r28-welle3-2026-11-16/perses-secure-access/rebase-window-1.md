@@ -75,6 +75,13 @@ Worktree: /tmp/opencode/w1599-hopf-wt (lane-local, /tmp zone per mission; no VM/
 - Exactly one candidate branch: `lane-welle2-089-perses-secure-access` (the mission-named PR head). No second branch created; `ls-remote` shows only this ref for the card.
 - Generated-doc regeneration used the repo's own test-harness switch (not a workflow change); coverage classification rows were authored inside `cmd/baha/machine_coverage.go` (product Go, in scope for wiring 0428-084's `baha app perses` commands into the coverage inventory — the CI `unclassified command` failure made this unavoidable in-candidate).
 
+## Hygiene witness (before END, host cleanliness)
+
+No containers/networks/volumes/compose projects were started by this lane (mission names no VM/compose
+work; docker/podman gates live only on baha-docker/baha-podman hosts, untouched here). `docker ps` at
+END shows only coordinator-ambient core containers (karren-baseharbor-core, node-connector-*,
+w097-core, r28-p20-core, …) — none created by this lane, none deleted. cleanliness: lane contributed zero residue.
+
 ## Open point (posted as QUESTION, not parked dialog)
 
 Coordinator directive was "diagnose before next push; kein erneut-push ins Blaue". Diagnosis + fix are complete and bounded (one doc file). The corrective push of 2c44db837 is a fast-forward on the PR head branch. I am awaiting the coordinator go/no-go (or instruction to re-merge 62eaea2c8 first) before pushing and observing the new exact-head run to terminal.
