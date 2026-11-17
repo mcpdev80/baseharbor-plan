@@ -101,6 +101,17 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 - Flaky-Kandidat (Befund fuer eine spaetere Karte, auferhalb dieses write-sets): `readConfigurationOwner` in LoadConfigForMutation lehnt eine EXISTENTE, aber nicht protected owner-datei (mode&0077 != 0) mit der generischen "protected existing owner" melodie ab, statt der config-familie — asymmetrisch zum read-pfad, der solche dateien liest. Diese Lane andert security.go/readConfigurationOwner bewusst nicht (Mission-GRENZE: security.go unveraendert).
 - Die 094-Doku-Luecke (Befund 2: kein docs-Absatz fuer das neue Verhalten) bleibt offen und ist NICHT Teil dieses Fixes (Mission write-set); sie braucht eine eigene docs-Karte.
 
+## origin/main-Zeuge (Pflicht, zweite-letzte Aktion)
+
+```
+$ git ls-remote https://github.com/mcpdev80/baseharbor-plan.git refs/heads/main
+ec8c38f451b80d2ceb005d1cb631222d1f701eb2	refs/heads/main
+$ git ls-tree --name-only origin/main evidence/r28-welle3-2026-11-16/hunt-uid-docs-110/
+evidence/r28-welle3-2026-11-16/hunt-uid-docs-110/fix-1.md
+```
+
+Die Akte steht auf origin/main unter ec8c38f4 (Commits: 5602c082 → 12a5886d → fc195b5f → ec8c38f4).
+
 ## END
 
 END_DONE mission-110-mutation-loud.md — 0428-110: beide silent-pfade (corrupt config, XDG double-append) auf mutationspfaden reproduziert und gefixt: LoadConfigForMutation + Save-Routen pruefen die geladene config wie der read-pfad, werfen ErrConfigMissing/ErrConfigEmpty-familie loud, ghost-root wird konservativ abgelehnt (hint, kein dedupe), corrupter owner nie ueberschrieben; 094-assertions intact; regressionen unit + production entrance; build/vet/gofmt/affected tests gruen; Kandidat 1d01ea16c003adffa0dfd529282417956560e2a4 auf lane-0428-110-mutation-loud, PR #1682 READY gegen develop; Run 44060840263 exact-head TERMINAL SUCCESS (completed/success, von dieser Lane beobachtet).
