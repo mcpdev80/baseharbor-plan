@@ -9,12 +9,32 @@
 
 ## PLAN
 
-- [x] Read mission, attest remote develop@bcae1e8c, set up evidence dir
-- [ ] Run grep-matrix across cmd/ internal/ deploy* demos/ docs* at base SHA
-- [ ] Categorize each find: consumer-visible vs docs-only; rank by user impact
-- [ ] Write prioritized befund-*.md evidence files
-- [ ] Commit evidence to planning repo origin/main; confirm present
-- [ ] Post END_DONE; clean up any containers/compose
+- Read mission, attest remote develop@bcae1e8c, set up evidence dir. DONE.
+- Run grep-matrix across cmd/ internal/ deploy* demos/ docs* at base SHA. DONE.
+- Categorize each find: consumer-visible vs docs-only; rank by user impact. DONE.
+- Write prioritized befund-*.md evidence files. DONE (befund-1.md, befund-2.md).
+- Commit evidence to planning repo origin/main; confirm present. DONE (commit a56a320e, verified on origin/main).
+- Post END_DONE; clean up any containers/compose. DONE (no containers started).
+
+## BASE ATTESTATION
+
+- Remote `origin develop`: `git ls-remote origin develop` -> `bcae1e8c1261c9e44db03fe285a5d090c532dfcd`. Confirmed.
+- Base SHA for scan: `bcae1e8c1261c9e44db03fe285a5d090c532dfcd`.
+- Read-only findings hunt; no branch cut, no commit to the product repo. No candidate commit exists, so the ancestor-of-first-commit check does not apply.
+- Repo: `origin` = `https://github.com/mcpdev80/baseharbor.git`; product root `/home/marcel/dev/baseharbor-ecosystem/baseharbor`.
+- Evidence repo: planning repo `/home/marcel/dev/baseharbor-ecosystem/baseharbor-plan` (origin/main), NOT `workers/baseharbor-plan` (quarantined checkout).
+
+## EVIDENCE ON origin/main (before END)
+
+`git ls-tree origin/main --name-only -r -- evidence/r28-welle3-2026-11-16/hunt-i18n-scan/` after `git fetch origin main`:
+
+```
+evidence/r28-welle3-2026-11-16/hunt-i18n-scan/befund-1.md
+evidence/r28-welle3-2026-11-16/hunt-i18n-scan/befund-2.md
+evidence/r28-welle3-2026-11-16/hunt-i18n-scan/mission-hunt-i18n-scan.md
+```
+
+Committed locally in `a56a320e`; present on `origin/main`. Path confirmed.
 
 ## FINDINGS
 
@@ -33,3 +53,9 @@ This is a read-only bug-hunt. Two findings, prioritized by user impact:
 These appear on stop / destroy / restore / provider-change / disconnect / Core-stop flows. A German-speaking operator reads `Achtung:` as an intended safety warning; an English-speaking operator sees an untranslated German word embedded in an English sentence — genuine i18n regression degrading a safety-critical lead token. The `Achtung` value is also a language-neutral model const in `contracts/provider-impact/v1/impact.schema.json:33,1051` and `scope.schema.json:30` (data, not a renderable label). Untouched by cards 093/099; descends from v0.4.25 capability-contract work (#905).
 
 **FINDING 2 (LOW — docs-only / data, no user impact):** Remaining `Warnung`/`Fehler`/`Hinweis:` occurrences are confined to `docs/de/releases/*.md` (intentional German docs) and `mkdocs.de.yml:102,120` (German doc nav labels), plus test-fixture/model-const JSON. No product-output regression.
+
+---
+
+## END STATUS
+
+END_DONE posted to coordinator d4212c96-16b8-4fe3-a6ef-587d20c0e0d0. No product edits, no branch cut, no commits to product repo. No containers/compose started this shift (cleanliness: none; ambient-core `bh-local-shared-*` stacks are foreign and left untouched).
