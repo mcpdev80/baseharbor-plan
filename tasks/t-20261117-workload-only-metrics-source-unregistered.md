@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: coord
-kanban_status: review
-kanban_lane: planned
+owner: codex
+kanban_status: active
+kanban_lane: active
 kanban_summary: ""
 kanban_title: 0428-100 · Workload-only metrics source registration
 priority: ""
@@ -64,3 +64,4 @@ One or two sentences: the observable outcome.
 ## Handoff
 
 - Current state, branch, PR and evidence links. Newest first.
+- r3-owner: codex (parallel-autorisiert 2026-11-17T04:17Z)
