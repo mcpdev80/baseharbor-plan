@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: active
+kanban_status: review
 kanban_lane: planned
 kanban_summary: ""
 kanban_title: 0428-100 · Workload-only metrics source registration
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: []
+prs: [mcpdev80/baseharbor#1676]
 sources: []
 blocker: ""
 wait_reason: ""
