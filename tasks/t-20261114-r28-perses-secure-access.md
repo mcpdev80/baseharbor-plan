@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: 13be0c4f
+owner: coord
 kanban_status: review
 kanban_lane: review
 kanban_summary: "Integrate Perses with existing management access, verified transport and authorization; inspect selected upstream version…"
@@ -25,7 +25,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5
 
 - [ ] t-20261114-r28-perses-secure-access · Protect Perses operator access #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** 13be0c4f · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5027ca029761ebf485b06a/evidence/r28-welle1-2026-11-15/perses-secure-access/round-1.md)  
@@ -36,7 +36,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/7230e623033812ce2f5
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-contact-routing](t-20261114-r28-perses-contact-routing.md), [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
-**Owner:** 13be0c4f  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1599](https://github.com/mcpdev80/baseharbor/pull/1599)  
 **Source:** 
@@ -81,3 +81,5 @@ Supersedes [t-20261113-r28-grafana-secure-access](t-20261113-r28-grafana-secure-
 candidate 872c6c70 on lane-welle2-089-perses-secure-access, draft PR #1599 against base lane-0428-075-perses-seam (cb4367f3). 59 Perses cells pass; one failing check in internal/metrics reported as STATE and assigned to 0428-075.
 
 delivered: 872c6c70 draft; base-defekt (seam r3) haengt an 075-korrektur
+
+kandidat 2c44db837 (documentation-audit-fix, DE-rows ergaenzt), exact-head run 44058489510 SUCCESS (coord-uebernahme nach lane-idle), state behind => hopf in merge-welle
