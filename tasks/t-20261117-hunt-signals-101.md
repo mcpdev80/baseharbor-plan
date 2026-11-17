@@ -1,5 +1,7 @@
 ---
 id: t-20261117-hunt-signals-101
+release: v0.4.28
+repos: [mcpdev80/baseharbor]
 card_number: "0428-101"
 title: "ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs"
 kanban_status: backlog
@@ -27,7 +29,7 @@ card_short_title: ID-Raum-Heterogenitaet und
 
 <!-- generated:links -->
 **State:** backlog  
-**Release:**   
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** unassigned  
 **Priority:** not set  
