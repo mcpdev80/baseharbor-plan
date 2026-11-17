@@ -116,6 +116,13 @@ workflow state unchanged).
 - Evidence lives only in baseharbor-plan (this file); nothing written to product repos.
 - Base attestation + ancestor test + log-line witness shown above per protocol.
 
+## Evidence push witness (second-to-last action)
+
+    $ git ls-remote origin refs/heads/main   # in baseharbor-plan, after push
+    76b97075f23f22297e3d71563d5c8979e28b1a7b  refs/heads/main
+
+This dossier is committed and pushed on origin/main of baseharbor-plan.
+
 ## Cleanliness
 
 - No docker/podman/compose projects were started by this lane (ps witness: none
