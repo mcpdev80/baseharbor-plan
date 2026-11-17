@@ -40,6 +40,7 @@ Changed files in that delta: `internal/application/manifest_render.go`, `interna
 ## Exact-head CI and GitHub state
 
 - Exact-head workflow run `44029539129`: `completed / success` on `9fc771859415fa44145720ff5079851943b2c020`.
+- ci-cost-note: run 44029539129, runner-minutes approx 35 (sum of rounded durations for completed, non-skipped jobs in the run summary).
 - Required `PR Selected Checks`: SUCCESS, GitHub Actions integration `15368`, exact candidate SHA. `gh pr checks --required` reports pass.
 - `PR · Trusted Plan`, `PR · Native gate plan`, Go unit shards, `go-build`, `go-vet`, `Exact Candidate`, selected runtime Docker lifecycle, source-format, docs and pages checks all completed successfully. Native gates outside the selected runtime plan were skipped by selection; the selected Docker lifecycle gate ran and passed.
 - PR review threads: zero unresolved.
