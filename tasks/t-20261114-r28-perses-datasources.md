@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
-kanban_lane: review
+kanban_status: blocked
+kanban_lane: blocked
 kanban_summary: Provision authorized existing Prometheus datasource in Perses using supported pinned native plugin and proxy/TLS contract.
 kanban_title: 0428-083 · Connect Perses Prometheus
 priority: normal
@@ -17,21 +17,22 @@ depends_on: [t-20261114-r28-perses-contract-seam, t-20261114-r28-perses-runtime,
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1608]
 sources: []
-blocker: ""
+blocker: "PR #1608 wurde vom OWNER selbst 07:43:40Z ohne merge geschlossen (lane END_BLOCKED; hopf war sukses, head 770c71b74 am zweig). Reopen/supersede-entscheid des owners ausstehend; #1665-base haengt an diesem zweig"
 wait_reason: ""
 resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
+- [ ] t-20261114-r28-perses-datasources · Connect Perses Prometheus #task #release/v0-4-28 #status/blocked #view/blocked #area/observability #kind/task
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1608](https://github.com/mcpdev80/baseharbor/pull/1608)  
+    **Blocker:** PR \#1608 wurde vom OWNER selbst 07:43:40Z ohne merge geschlossen (lane END\_BLOCKED; hopf war sukses, head 770c71b74 am zweig). Reopen/supersede-entscheid des owners ausstehend; \#1665-base haengt an diesem zweig  
     **Needs:** [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md), [t-20261114-r28-perses-signal-inventory](t-20261114-r28-perses-signal-inventory.md)  
 **Required by:** [t-20261114-r28-perses-alerts](t-20261114-r28-perses-alerts.md), [t-20261114-r28-perses-dashboards](t-20261114-r28-perses-dashboards.md)  
