@@ -118,3 +118,38 @@ Remote truth re-verified after push:
   → 3709109959a1fbca0a1b0b6a7fffdf6e8ee41c06 (the real planning repo, not workers/baseharbor-plan).
 
 END_DONE mission-1575-seam-rebase.md: PR #1575 refreshed on develop@e6cce9c73, inheritance of 492b8e8f+af308e66 proven, candidate 8aa9574d7b1a049b3132e091bf546c49b65d1411 pushed fast-forward.
+
+## HOPF-2 (base-hop follow-up, coordinator directive 2026-11-17)
+
+Develop had advanced past e6cce9c73; PR base was behind again (strict gate closed).
+
+- Reality sync (`git ls-remote https://github.com/mcpdev80/baseharbor.git`):
+
+    8db0d9bdf8d9ae77db94c9ddce9c209001c4da54	refs/heads/develop
+    8aa9574d7b1a049b3132e091bf546c49b65d1411	refs/heads/lane-0428-075-perses-seam
+    8aa9574d7b1a049b3132e091bf546c49b65d1411	refs/pull/1575/head
+
+- Merge: plain `git merge` of origin/develop 8db0d9bdf (PR #1666) into the same
+  candidate branch — no rebase, no force, no second branch. New head
+  `16adf5c3d2db3039c183e1a6841fced31a131b2e`
+  ("Merge branch 'origin/develop' (8db0d9bdf) into lane-0428-075-perses-seam
+  (base refresh hopf-2 for PR #1575)"). No conflicts; delta carried only
+  develop commits (8db0d9bd #1666, 1df7c343 #1660).
+- Ancestry: `git merge-base --is-ancestor 8db0d9bdf 16adf5c3` -> true;
+  8aa9574d and the approvals 492b8e8f / af308e66 remain ancestors (all re-verified:
+  `--is-ancestor` true for 66ff93d1, 492b8e8f, af308e66).
+- Own-commits list `git log 8aa9574d..16adf5c3`: exactly the merge commit plus the
+  two develop-carried commits (8db0d9bd #1666, 1df7c343 #1660) — no foreign candidate.
+- Verification local: `go build ./...` pass, `go vet ./...` pass, `gofmt -l` clean,
+  `go test -count=1 ./internal/capability/ ./internal/metrics/ ./internal/application/`
+  all ok, `go test -run TestPerses ./cmd/baha/` PASS. No containers/networks left
+  (cleanliness: docker ps -a / network ls empty of own projects; ps-witness in window-1 section).
+- Push witness (fast-forward): `8aa9574d..16adf5c3  -> lane-0428-075-perses-seam`;
+  after: `16adf5c3d2db3039c183e1a6841fced31a131b2e refs/heads/lane-0428-075-perses-seam`,
+  `refs/pull/1575/head` same.
+- Exact-head run (self-observed to terminal): https://github.com/mcpdev80/baseharbor/actions/runs/44019202219
+  `gh run view 44019202219 --json status,conclusion -> completed/success`.
+  No workflow_dispatch or rerun triggered (GRENZEN: no .github/**).
+- No GitHub review comment per directive (content delta already proven in window 1).
+
+END_DONE mission-1575-seam-rebase.md: PR #1575 hopf-2 — merged develop@8db0d9bdf, candidate 16adf5c3d2db3039c183e1a6841fced31a131b2e, run 44019202219 completed/success, READY.
