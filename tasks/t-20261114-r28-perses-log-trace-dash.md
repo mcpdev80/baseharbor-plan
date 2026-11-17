@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** review  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** coord  

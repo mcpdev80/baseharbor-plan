@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** review  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md), [t-20261114-r28-perses-runtime](t-20261114-r28-perses-runtime.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** 8c2da3ba  

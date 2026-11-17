@@ -35,7 +35,7 @@ early: true
 
 <!-- generated:links -->
 **State:** dropped  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Parent:** [console-1](../epics/console-1-console-product-plan.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261018-r27-access-proof](t-20261018-r27-access-proof.md), [t-20261018-r27-public-surfaces](t-20261018-r27-public-surfaces.md), [t-20261018-r27-team-proof](t-20261018-r27-team-proof.md)  
 **Owner:** unassigned  

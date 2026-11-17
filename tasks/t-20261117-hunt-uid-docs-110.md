@@ -29,7 +29,7 @@ card_short_title: Corrupt-config and mutation
 
 <!-- generated:links -->
 **State:** active  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** worker-flash (mission-110-mutation-loud)  
 **Priority:** not set  

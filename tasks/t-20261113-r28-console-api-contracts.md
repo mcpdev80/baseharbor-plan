@@ -32,7 +32,7 @@ early: true
 
 <!-- generated:links -->
 **State:** dropped  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261113-r28-current-contract-inventory](t-20261113-r28-current-contract-inventory.md)  
 **Required by:** [t-20261113-r28-console-live-evidence](t-20261113-r28-console-live-evidence.md), [t-20261113-r28-console-live-inventory](t-20261113-r28-console-live-inventory.md), [t-20261113-r28-console-live-observability](t-20261113-r28-console-live-observability.md), [t-20261113-r28-console-live-recovery](t-20261113-r28-console-live-recovery.md), [t-20261113-r28-console-live-security](t-20261113-r28-console-live-security.md), [t-20261113-r28-console-live-target-wizard](t-20261113-r28-console-live-target-wizard.md), [t-20261113-r28-console-live-wizards](t-20261113-r28-console-live-wizards.md), [t-20261113-r28-console-live-workspace-wizard](t-20261113-r28-console-live-workspace-wizard.md)  
 **Owner:** unassigned  

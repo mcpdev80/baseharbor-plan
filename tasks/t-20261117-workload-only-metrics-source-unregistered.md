@@ -33,7 +33,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Owner:** coord  
 **Priority:** not set  

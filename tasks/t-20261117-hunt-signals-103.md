@@ -31,7 +31,7 @@ card_short_title: postgres-/valkey-Adapter ohne
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** [t-20261117-hunt-signals-101](t-20261117-hunt-signals-101.md), [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
 **Owner:** unassigned  
 **Priority:** not set  

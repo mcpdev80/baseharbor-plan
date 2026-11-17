@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/commit/19021e7"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** [v0.4.28](../releases/v0.4.28.md)  
+**Release:** v0.4.28  
 **Depends on:** none  
 **Required by:** [t-20261114-r28-cli2-contract](t-20261114-r28-cli2-contract.md)  
 **Owner:** lane-0428-046-r28  
