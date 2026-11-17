@@ -43,3 +43,9 @@ card_short_title: runtimeComponentTraceProbe
 
 - PR #1679 is open at exact head `af2fb5f6fac1c8a56079a2fe18faecbb06fc2315`, based on `develop`; exact run [44040963470](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470) failed Go unit shards, build, vet, and selected checks. This head is incomplete: the lane worktree has additive commit `1b5a0df37` with the production trace receiver adapter/pruning files, while the work was still restoring omitted intent-removal and project-scope regression changes. The run is not acceptance evidence.
 - Latest verified BaseHarbor `origin/develop` is `4094448543359a13ba312119304f1f70d3bc40a9`. Keep 0428-108 active; require a clean complete candidate and a new exact-head CI run.
+
+
+## 2026-11-17 complete candidate refresh
+
+- Lane pushed complete clean candidate `082cefab0d5a2624031daa520e52c14f17379a69`, including the trace receiver adapter, receiver/project-scoped pruning, and regressions for unbinding, receiver transitions, legacy cleanup, and removed OTLP intent. Clean-worktree build was reported as `BUILD_OK`.
+- Exact-head run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) is in progress. Independent review is checking that trace pruning preserves same-ID registrations owned by a different provider/application; the current foreign-source test uses a distinct ID. Acceptance waits for review resolution and green required checks.

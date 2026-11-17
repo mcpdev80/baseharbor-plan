@@ -70,3 +70,6 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 
 - 0428-108 now has PR [#1679](https://github.com/mcpdev80/baseharbor/pull/1679), but it is still in progress: current remote head `af2fb5f6` is incomplete and exact run [44040963470](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470) failed compile/test checks. Do not rebase or rerun #1677 against this candidate.
 - Latest verified `origin/develop`: `4094448543359a13ba312119304f1f70d3bc40a9`. Keep #1677 blocked on 0428-108 acceptance; preserve local environment-isolation commit `f7b9275d` for the combined post-dependency candidate.
+
+
+- 0428-108 has advanced from the incomplete `af2fb5f6` candidate to complete PR head `082cefab0d5a2624031daa520e52c14f17379a69`; exact run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) is active. Independent review remains open, so #1677 stays blocked pending accepted 108 and then a fresh develop rebase.
