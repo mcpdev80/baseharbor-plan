@@ -27,7 +27,6 @@ evidence: []
     <!-- generated:card -->
     **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1590](https://github.com/mcpdev80/baseharbor/pull/1590)  
-    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->

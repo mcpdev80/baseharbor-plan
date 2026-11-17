@@ -28,7 +28,6 @@ evidence: []
     **Owner:** lane-0428-088-r1 · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
     **Waiting:** approved on f55d9f94 (act-1592-review-r1); frost-bis, dann window  
-    **Needs:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
