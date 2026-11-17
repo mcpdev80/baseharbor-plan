@@ -52,6 +52,19 @@ Changed files in that delta: `internal/application/manifest_render.go`, `interna
 
 **CODEX-MERGE: STOP — not executed.** `/home/marcel/.config/baseharbor-coordinator/COST_CONTROL.md` currently says “do not merge PRs” while the cost-allocation clarification is pending. That binding stop blocks the otherwise-ready squash merge. No PR mutation was performed. Resume the head-guarded squash merge only when that stop is cleared; recheck develop/head, required checks and ruleset immediately before it.
 
+## Merge receipt (owner authorization resumed 2026-11-17)
+
+The owner supplied a newer explicit authorization for Codex review and merge to `develop` and resolved the cost stop for this window. Immediately before merge, develop remained `bcae1e8c1261c9e44db03fe285a5d090c532dfcd`, PR #1575 remained OPEN/READY/CLEAN at exact head `9fc771859415fa44145720ff5079851943b2c020`, run `44029539129` was terminal SUCCESS, and required `PR Selected Checks` was SUCCESS from integration `15368`. The squash merge used `--match-head-commit 9fc771859415fa44145720ff5079851943b2c020`; GitHub confirmed merged at `2026-11-17T06:36:09Z` with merge commit `4bab986dc65ae2bdbc6696328026d86fc2c57f9e`.
+
+Post-merge `git ls-remote` witness:
+
+```text
+4bab986dc65ae2bdbc6696328026d86fc2c57f9e refs/heads/develop
+9fc771859415fa44145720ff5079851943b2c020 refs/pull/1575/head
+```
+
+The earlier STOP disposition records the state before the owner’s renewed authorization; this receipt records the completed merge after that authorization.
+
 ## repo-rule compliance
 
 - Candidate inspection was read-only; no product file, PR, review, or branch was changed.
