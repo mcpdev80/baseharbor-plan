@@ -10,24 +10,25 @@ parent: v0.4.28
 owner: codex
 kanban_status: active
 kanban_lane: active
-kanban_summary: Deploying a workload-only app (no declared services) through the real product path leaves…
+kanban_summary: "Before the fix, real EnsureRuntime deployment of a workload-only app left the shared Prometheus runtime-sources.json empty, so…"
 kanban_title: 0428-100 · deploy of a workload-only app
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1676]
 sources: []
+source_note: "contract-ruling (coord 2026-11-17): workload-only Prometheus source is snapshot-only; see task Handoff contract-ruling and review-2 evidence"
 blocker: ""
 wait_reason: ""
 resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-1.md"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md"]
 ---
 
 - [ ] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
     **Owner:** codex  
     **PR:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-1.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-1.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -42,18 +43,22 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 
 ## Goal
 
-Deploying a workload-only app (no declared services) through the real product path leaves `state/targets/<boot>/providers/prometheus/shared/runtime-sources.json` with `sources:[]`, so `VerifyProviderSourcesAt` fail-closes with "no materialized Prometheus sources" and every dashboard/identity verifier downstream reads missing-signal forever. Diagnose whether the registration step skips service-less applications (lead: `internal/metrics/prometheus_verify.go:117-150` observability.ListMetrics path) and make the deploy register the application metrics source for workload-only shapes, with a regression through the deploy path. Fund: 0428-082 round-5 cell runs 25/26/28 at dda073da4.
+Before the fix, real `EnsureRuntime` deployment of a workload-only app left the shared Prometheus `runtime-sources.json` empty, so downstream dashboard/identity signal discovery had no runtime identity to report. The workload has no declared service, port, or scrapeable `/metrics` endpoint. Owner decision (2026-11-17): represent this as logical snapshot metadata only; do not invent a scrape target.
 
 One or two sentences: the observable outcome.
 
 ## Scope
 
-- In scope:
-- Out of scope:
+- In scope: register an app-owned workload identity in the shared runtime source snapshot through the actual deploy path; ensure the symbolic `runtime://<project>/workload` value is never emitted as a Prometheus file_sd target or provider network attachment; retain service-app registration compatibility.
+- Out of scope: inventing a workload service, port, exporter, or `/metrics` endpoint; changing verification of real scrape-enabled provider sources.
 
 ## Acceptance
 
-- Each criterion as a plain bullet. Do not use checkboxes here: only the card line above is a checkbox.
+- A workload-only real deploy produces a non-empty shared runtime source snapshot with the expected app-owned logical workload identity.
+- The logical identity is metadata only: it is absent from Prometheus file_sd targets and provider network projection; `VerifyProviderSourcesAt` succeeds without attempting to scrape it.
+- Existing real scrape-enabled provider sources continue through the normal verification path; no verification is skipped for those sources.
+- Service-app deploy registration remains compatible.
+- Regression tests exercise `EnsureRuntime -> EnsureProviderFiles -> snapshot assertion -> VerifyProviderSourcesAt`; no manual registry update or mirrored helper may stand in for deployment.
 
 ## Required checks
 
@@ -80,7 +85,7 @@ One or two sentences: the observable outcome.
 
 - Current state, branch, PR and evidence links. Newest first.
 - r3-owner: codex (parallel-autorisiert 2026-11-17T04:17Z)
-- 2026-11-17 R3 worker candidate `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c` (PR #1676) passed local build/vet/package tests and exact-head run [44018836577](https://github.com/mcpdev80/baseharbor/actions/runs/44018836577); see round-3 akte. Sequential CODEX-REVIEW returned CHANGES_REQUESTED in `review-1.md`, requiring either a concrete scrapeable endpoint/positive scrape verification or explicit owner approval to revise acceptance to non-scraped logical registration. Codex asked coordinator to reconcile this against the r3 worker instruction that allowed registration without file_sd; PR is not merged and card remains active pending that ruling.
+- 2026-11-17 owner clarified the contract: workload-only runtime identity is logical snapshot metadata, with no invented scrape endpoint; real scrape sources retain normal verification. PR #1676 head `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c` passed exact-head run [44018836577](https://github.com/mcpdev80/baseharbor/actions/runs/44018836577) and local build/vet/package tests. Review-1 `CHANGES_REQUESTED` is superseded by this explicit owner decision; Codex requested a sequential review-2 against the revised card acceptance. PR is not merged pending review-2.
 ## contract-ruling (coord 04:5xZ)
 
 Snapshot-only registration ist der gebilligte contract fuer workload-only apps: source erscheint im snapshot-metadata, aber NICHT als scrape-target (file_sd/network/query) — ein erfundener endpoint waere der gemeldete perpetually-down-bug. Evidenz-pflicht: positiver absence-test im generierten file_sd + unveraenderte pruefung echter endpoints. Review hat gegen diesen contract zu pruefen.

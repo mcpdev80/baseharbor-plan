@@ -1,4 +1,5 @@
 ---
+id: "t-20261117-hunt-signals-105"
 card_number: "0428-105"
 title: "Alert-Ebene develop-weit leer"
 kanban_status: planned
@@ -17,8 +18,6 @@ prs: []
 evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md"]
 ---
 
-## PLAN
+- [ ] t-20261117-hunt-signals-105 · Alert-Ebene develop-weit leer
 
-* [ ] Realitaets-sync + akte-studium (befund-1.md, fund 5)
-* [ ] Umsetzen nach fund-recipes der akte
-* [ ] CI + evidence + review
+Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als normale task-kette (claim -> branch -> CI -> evidence -> review).
