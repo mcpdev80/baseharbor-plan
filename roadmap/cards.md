@@ -16,7 +16,7 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
 
 - [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
     **Release:** active  
-    **Accepted tasks:** 22/128 · **Blocked:** 1 · **Waiting:** 19  
+    **Accepted tasks:** 24/128 · **Blocked:** 1 · **Waiting:** 19  
     **Blocker:** [t-20261117-hunt-signals-102](../tasks/t-20261117-hunt-signals-102.md) — PR \#1677 Docker observability gate failed; awaiting terminal workflow logs before remediation or rerun.  
     [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
 
