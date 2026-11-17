@@ -85,10 +85,10 @@ Nach dem Fix (dasselbe Binaer-Kommando-Set): alle fälle rc=1 mit familie-fehler
 - Run 44060840263 "CI · Source & Quality", headSha 1d01ea16c003adffa0dfd529282417956560e2a4, TERMINAL: completed, conclusion=success (beobachtet von dieser Lane bis zum Endzustand, 2026-11-17). Alle required Jobs gruen; die schweren runtime-Matrix-Jobs sind bei PRs skipped (selektiver Pfad nach CI-Regel der Repo-AGENTS).
 ## Sauberkeit
 
-- Vorher (dieser host, lane-eigene Projekte): `docker ps -a` = keine lane-eigenen container/netzwerke/volumes; `docker compose ls` = nur fremde karren (ambient). Diese Lane hat KEINEN container/netzwerk/volume/compose gestartet.
-- Lane-state: alle probe-roots unter /var/tmp/mission-110-* und /var/tmp/mission-110-wt bleiben bis zum Aufraeumen nach Merge (worktree enthaelt den Kandidaten); lane-Caches: /var/tmp/mission-110-tmp, /var/tmp/mission-110-gocache, /var/tmp/go-mod-shared (geteilter go-mod cache war bereits vorhanden — nicht angelegt, nur gelesen/ergaenzt ueber Standard-GOPROXY, kein Loeschen fremder cache-eintraege).
+- Vorher/Nachher (dieser host, lane-eigene Projekte): `docker ps -a --format '{{.Names}}'` ohne die ambient-Zeilen = 0 zeilen; `docker compose ls` zeigt nur `bh-local-shared` (fremder karren, ambient-core container anderer lanes, owner-direktive 2026-11-08: unangetastet). Diese Lane hat KEINEN container/netzwerk/volume/compose gestartet. PS-Witness als letzte Aktion: Vorher identisch (0 lane-eigene), Nachher 0 — ps-zeuge im Transcript dieses turns.
+- Lane-state: alle probe-roots (mission-110-{A..Z,EXP,RC,PG,V-*,MC*}) und fake-HOMEs sind GELUESCHT; uebrig: /var/tmp/mission-110-wt (Kandidat-worktree, bis Merge-Aufraeumen) + /var/tmp/mission-110-{tmp,gocache,gomod} (lane-Caches).
 - Produkt-Arbeitsbaum /home/marcel/dev/baseharbor-ecosystem/baseharbor: unveraendert (nur fetch + worktree-add), kein Commit dort.
-- cleanliness: this lane started no containers/networks/volumes/compose projects; all probe state lives under /var/tmp owned by this lane.
+- cleanliness: this lane started no containers/networks/volumes/compose projects; all probe state under /var/tmp is owned by this lane and cleaned except the candidate worktree.
 
 ## Hinweise (fund, keine eigenmacht)
 
