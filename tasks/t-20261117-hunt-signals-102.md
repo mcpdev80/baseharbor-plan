@@ -76,3 +76,6 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 
 
 - 0428-108 review requires provider-scoped reconciliation and pruning, including the real empty-desired runtime-component caller, with a same-ID foreign-provider regression. Run #44042477049 is green only on pre-review head 082cefab; it is not acceptance evidence for the follow-up changes.
+
+
+- 0428-108 has pushed provider-scoped registry correction `39810520b5b1b7859faee4d9b489a4864a150948`; clean-checkout build/vet plus observability/application tests pass. Exact CI [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648) is active. Keep #1677 blocked pending this exact head's gates and acceptance, then rebase against current develop.

@@ -16,7 +16,7 @@ blocker: ""
 resolution: ""
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1679]
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470", "https://github.com/mcpdev80/baseharbor/actions/runs/44042477049"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md", "https://github.com/mcpdev80/baseharbor/pull/1679", "https://github.com/mcpdev80/baseharbor/actions/runs/44040963470", "https://github.com/mcpdev80/baseharbor/actions/runs/44042477049", "https://github.com/mcpdev80/baseharbor/actions/runs/44046875648"]
 card_short_title: runtimeComponentTraceProbe
 ---
 
@@ -24,7 +24,7 @@ card_short_title: runtimeComponentTraceProbe
     <!-- generated:card -->
     **Owner:** traceprobe (mission-108 lane)  
     **PR:** [baseharbor#1679](https://github.com/mcpdev80/baseharbor/pull/1679)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44040963470), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
@@ -56,3 +56,10 @@ card_short_title: runtimeComponentTraceProbe
 - The registry can hold same-ID records across providers. Reconcile and prune must both scope mutations by provider; the empty-desired case must pass explicit ownership so disabled runtime-component collection removes stale owned records while preserving a same-ID foreign source.
 - Verify this through the runtime-component caller, not only registry unit tests. The current API exists but the caller was still being wired at last review.
 - Run [44042477049](https://github.com/mcpdev80/baseharbor/actions/runs/44042477049) succeeded on old candidate 082cefab and does not cover review fixes. Require a clean complete checkout and a new terminal exact-head run before acceptance.
+
+
+## Provider-scoped registry fix - 2026-11-17
+
+- Additive commit 39810520b is pushed to PR #1679. It scopes reconcile and prune by provider, adds explicit ownership for empty desired sets, wires runtime-component reconciliation to that API, and adds same-ID cross-provider and disabled-policy regressions.
+- Clean remote-head witness at 39810520b: clean checkout; `go build ./...` and `go vet ./...` passed; `go test ./internal/observability ./internal/application -count=1` passed. Focused same-ID and runtime-component tests passed; an isolated fail-first with the old caller confirmed stale metrics remain without explicit ownership.
+- Exact-head run [44046875648](https://github.com/mcpdev80/baseharbor/actions/runs/44046875648) is in progress on this commit. Run #44042477049 is green only for the previous head and is not evidence for this change. Keep acceptance pending the new run and final diff review.
