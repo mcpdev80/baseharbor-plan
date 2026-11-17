@@ -274,3 +274,55 @@ END_DONE mission-1575-hopf4.md: PR #1575 hopf-4r — review correction, process 
 from perses.go + perses_contract_test.go comments (technical justification kept), no
 functional change, candidate 87b287259a1d6f13fa255877558a5d027078a0b1 pushed, run 44026509996
 replaced by new head, READY.
+
+## REVIEW-FIX-1 (coord clarification 2026-11-17, PR #1575)
+
+Coordinator clarification of the open reviewer-befund on 87b28725: the card acceptance
+requires BOTH, not either.
+- (A) FAIL-CLOSED VALIDATION: `services.observability.perses=true` WITHOUT
+  `management_ui=true` is rejected — the still-nil path in
+  `validateObservabilityUIPreference` (manifest_validation.go ~508-510) is eliminated.
+- (B) LOSSLESS SERIALIZATION for the VALID case: YAML must not drop the perses field
+  (guard manifest_render.go ~106-111 so observability/perses is retained, and for the
+  valid case the perses line stays inside the management_ui block).
+
+Implementation (one coherent commit series on lane-0428-075-perses-seam):
+- manifest_validation.go `validateObservabilityUIPreference`: added a top fail-closed
+  check — `perses=true && !ObservabilityManagementUI` returns an error before the
+  early-return nil path.
+- manifest_render.go: unchanged guard (perses renders inside the management_ui block;
+  the invalid `(true,ohne)` case never reaches serialization because validation rejects
+  it first).
+- manifest_test.go: three regression cases, no existing assertion weakened:
+  - `(perses=true, management_ui=ohne)` => `Validate()` fails closed (new test).
+  - `(perses=true, management_ui=true)` => lossless round-trip (existing test, still green).
+  - `(perses=false, management_ui=ohne)` => observability block not rendered, no error,
+    flags stay false (new baseline test).
+
+Verification local (go1.26.8): `go build ./...` pass, `go vet ./...` pass, `gofmt -l`
+clean, `go test ./internal/application/` all PASS (137.7s, TMPDIR=/var/tmp/opencode/hopf4-wt/tmp),
+`go test ./internal/capability/ ./internal/metrics/ -run "Perses"` PASS.
+
+New head: `9fc771859415fa44145720ff5079851943b2c020`
+(commit fix(0428-075): fail-closed perses without management_ui; lossless round-trip).
+Own commits `git log fa41389c..9fc77185`: the merge f24041a6, the #1676 commit bcae1e8c,
+the docs-only correction 87b28725, and the review-fix-1 9fc77185 — no foreign candidate.
+Ancestry: `git merge-base --is-ancestor bcae1e8c 9fc77185` -> true.
+
+Run: the previous exact-head run 44026509996 (head 87b28725) was superseded by the new
+head 9fc77185. Exact-head run self-observed to terminal: run 44029539129 ->
+completed/success (all checks pass, including Exact Candidate, Go unit cli-0..3, owner,
+packages, runtime lifecycle, source format, docs/pages validation). No workflow_dispatch
+or rerun triggered (GRENZEN: no .github/**).
+
+Run witness: https://github.com/mcpdev80/baseharbor/actions/runs/44029539129
+
+Push witness (fast-forward): `87b28725..9fc77185 -> lane-0428-075-perses-seam`;
+after: `9fc771859415fa44145720ff5079851943b2c020 refs/heads/lane-0428-075-perses-seam`,
+refs/pull/1575/head same.
+
+END_DONE mission-1575-hopf4.md: PR #1575 review-fix-1 — coordinator clarification applied
+BOTH fail-closed validation (perses w/o management_ui rejected) AND lossless serialization
+(valid perses+management_ui round-trips); 3 regression cases, no assertion weakened,
+candidate 9fc771859415fa44145720ff5079851943b2c020 pushed, exact-head run 44029539129
+completed/success, READY.
