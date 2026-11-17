@@ -172,15 +172,15 @@ the test file with `git add` and amended, but a `git checkout HEAD -- <paths>`
 line I ran on the *shared main repository* (`.../baseharbor`, a different
 worktree) had clobbered my lane worktree's tracked files back to HEAD content
 while the build/vet/test I ran afterwards passed against the then-dirty
-tree — so "green locally" was measured against content that was not on the
+tree  -  so "green locally" was measured against content that was not on the
 candidate. The pushed head therefore could not compile (the committed adapter
 test referenced `nativeTraceSourceProbe`, which the head did not contain).
 
 Learning recorded here: (a) never run history or checkout commands against
-another worktree of the same repository to inspect state — use a temporary
+another worktree of the same repository to inspect state  -  use a temporary
 worktree with an explicit revision; (b) before any push, verify the commit
 content itself (`git cat-file -p <commit>:<path>`) and build the pushed head in
-a clean checkout — worktree status is not the candidate.
+a clean checkout  -  worktree status is not the candidate.
 
 ## Restoration and final candidate (additive, no reset, no force)
 
@@ -201,26 +201,80 @@ a clean checkout — worktree status is not the candidate.
   traces-disabled path (managed/external split), (4) exact-identity (project-
   scoped) pruning so dev-disable cannot touch prod, (5) prune moved ahead of
   the no-intent early return.
+- Sixth review item (acceptance-blocking, resolved as ONE batch across three
+  reviewer addenda) on head `082cefab`, committed additively as `39810520b`
+  "key registry mutations on provider, not ID alone":
+  - 6a: `pruneWorkloadTraceSignals` used ID-only `PruneSignals` while
+    `RegisterProviderSignals` keys replacement on ID+provider - a same-ID
+    source under another provider/owner could be co-deleted. Fixed with
+    `PruneProviderSignals(id, receiver, kinds...)` (ID AND provider key).
+  - 6b: `ReconcileSignals` (registry.go) deleted EVERY same-ID entry
+    regardless of provider, so the same co-deletion existed on the reconcile
+    path before any prune ran. Fixed: provider-scoped removal.
+  - 6c (completion check): ownership derived from the desired set alone would
+    silently keep stale entries when desired is legitimately EMPTY (disabled
+    policies; `ReconcileRuntimeComponentObservability` reaches that state).
+    Fixed with the explicit `ReconcileProviderSignals(id, owned, desired)`
+    and the runtime-component caller now passes
+    `map[ProviderKind]struct{}{component.Provider: {}}`, preserving the old
+    stale-reclaim semantics for empty desired while sparing foreign providers.
+    The dead `PruneOwnedProviderSignals` export is removed (finding: unused
+    export). `RegistryHasSignal` exposes exact registrations for contract
+    checks, immune to listing filters (which deliberately hide foreign
+    same-ID records - reviewer addendum 2).
+  - Regressions: `TestWorkloadTracePruneKeepsSameIDUnderOtherProvider`
+    (application pkg; both paths - reconcile + intent-removal prune - assert
+    via `RegistryHasSignal`); `TestRuntimeComponentReconcileEmptyDesiredKeeps
+    ForeignSameID` (application pkg; real disabled-component caller path);
+    `TestReconcileProviderSignalsEmptyDesiredPrunesOnlyOwnedProvider`
+    (observability pkg; API boundary, incl. rejecting a desired signal whose
+    provider is outside the owned set).
+  - Fail-first witnesses (isolated /var/tmp worktrees against the current
+    tree): (a) reverting the reconcile provider-scope fails path-one with
+    `same-ID trace source under another provider died during reconciliation`;
+    (b) keying the prune on the wrong provider fails with
+    `workload's own external-receiver trace identity survived the intent
+    removal`; (c) reverting the component caller to derived ownership fails
+    with `disabled policies left the component's stale metrics signal
+    registered`.
 
 ## Remote head + clean-checkout witness (mandatory)
 
-    $ git ls-remote origin refs/heads/lane-0428-108-traceprobe
-    4809c864814e61c6c53d777f7392cd4f245a2b7b  refs/heads/lane-0428-108-traceprobe
+Final head after the finding-6 batch:
 
-Clean checkout of exactly that SHA (`git worktree add --detach ... 4809c8648`,
-`git status --porcelain` empty):
+    $ git ls-remote origin refs/heads/lane-0428-108-traceprobe
+    39810520b5b1b7859faee4d9b489a4864a150948  refs/heads/lane-0428-108-traceprobe
+
+Clean checkout of exactly that SHA (`git worktree add --detach ... 39810520b`,
+`git status --porcelain` empty, rev-parse confirms the SHA):
 
     go build ./...      -> OK (no output)
     go vet ./cmd/baha ./internal/observability ./internal/telemetry ./internal/application -> OK
-    go test ./internal/observability -count=1 -> ok 0.192s
+    go test ./internal/observability -count=1 -> ok 0.133s
+    go test ./internal/application -run '^Test(WorkloadTrace|WorkloadReceiver|LegacyPrometheus|ReceiverTracePrune|RuntimeComponentReconcile)' -> ok 1.640s
 
-Provenance: `git log --oneline origin/develop..HEAD` on the candidate lists
-ONLY this lane's own commits (see next section); `git merge-base --is-ancestor
-origin/develop HEAD` -> true.
+Provenance: `git log --oneline origin/develop..HEAD` lists only this lane's
+commits; `git merge-base --is-ancestor origin/develop HEAD` -> true against
+origin/develop@409444854.
+
+## Process error: PR opened before the clean-checkout witness (Lernpflicht)
+
+PR #1679 was opened while the pushed head `af2fb5f6f` was still the incomplete
+(tests-only) candidate, i.e. BEFORE the mandated clean-checkout build witness
+existed. That left a red PR occupying the review queue. Corrected sequence,
+applied for every head since: commit -> push -> `git ls-remote` -> clean
+detached worktree of the remote head -> build/vet/test witnesses -> only then
+PR/CI evidence. The earlier runs on superseded heads (44040963470 failure on
+af2fb5f6, 44042182261 cancelled) are explicitly NOT counted as evidence.
 
 ## PR and CI run
 
-(pending - filled below before END)
+- PR: #1679 (base develop, head lane-0428-108-traceprobe, READY).
+- Exact-head run for `39810520b`: 44046875648 (CI - Source & Quality,
+  pull_request), started 2026-11-17T08:27:25Z; outcome recorded in the END
+  section once terminal (Eigenes-run-pflicht).
+- The prior green run 44042477049 proves only the superseded head `082cefab`
+  and is not acceptance evidence for the current code.
 
 ## VM/compose cleanliness
 
