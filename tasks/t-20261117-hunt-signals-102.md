@@ -83,3 +83,9 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 
 - 0428-108 / PR #1679 is accepted and merged at 0ec4706b12c8fa869a2c23db18b6cab4f91f2178; current develop is that SHA. The blocker is cleared and 0428-102 is active again.
 - PR #1677 still points at head 58db26baf9dcd80566dcbb0042eed2818e5af822 and is four commits behind develop. Rebase the lane, preserve local environment-isolation commit f7b9275dddf2ab0d508df44912e4aac8d8a3fa88, then push and run exact-head selected checks.
+
+## Candidate refresh - 2026-11-17
+
+- After prerequisite 0428-108 merged as develop commit `0ec4706b12c8fa869a2c23db18b6cab4f91f2178`, integrated latest develop into the existing PR branch with a normal merge commit (`merge develop for 0428-102 freshness`) and retained the task fix as commit `ad2f5f5db9dbdd7553e5e523ed553c308638bafc`. A rebase would require force-pushing the shared PR branch, prohibited by repository policy.
+- Published the branch update normally; PR #1677 exact head is `ad2f5f5db9dbdd7553e5e523ed553c308638bafc`. Fresh run [44048634632](https://github.com/mcpdev80/baseharbor/actions/runs/44048634632) is in progress; selected Go unit/build/vet/identity-provider jobs and source-format checks are running. Runtime-selection result is still pending.
+- At this exact candidate, `git diff --check`, `go test ./internal/observability ./internal/metrics -count=1`, and `go vet ./internal/observability ./internal/metrics` passed. The diff does not modify `security.go`. Exact-head acceptance remains open pending all selected run jobs and independent final PR diff review.
