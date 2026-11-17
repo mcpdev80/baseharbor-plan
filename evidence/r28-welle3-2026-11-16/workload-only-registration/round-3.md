@@ -10,8 +10,8 @@ Date: 2026-11-17. Role: WORKER, owner-authorized Codex lane. Candidate PR #1676,
  * [x] 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
  * [x] 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
  * [x] 6a. Merge current develop into the PR lane with an ordinary merge commit and push with explicit refspec (no force).
- * [ ] 6b. Observe exact-head pull_request run to terminal success.
- * [ ] 7. Independent REVIEW role checks the exact new head against batch21/r3 recipes; merge only if all exact-head checks and review gates pass, then publish both role akten and END posts.
+ * [x] 6b. Exact-head pull_request run 44018836577 completed successfully on `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c`.
+ * [x] 7. Independent REVIEW role checked the exact new head against batch21/r3 recipes; verdict CHANGES REQUESTED on the unmet scrapeable-target contract. No merge; see `review-1.md` and review END post.
 
 ## Ownership and baseline
 
@@ -47,6 +47,6 @@ The prior candidate test that manually called `observability.Update` was removed
 
 Candidate commit `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c` is PR #1676 head, following ordinary merge commit `8db0d9bdf8d9ae77db94c9ddce9c209001c4da54` (current develop at rebase). Local exact-head checks passed: `go build ./cmd/baha`; `go vet ./internal/application ./internal/metrics`; `go test ./internal/application ./internal/metrics`; `git diff --check`.
 
-Exact-head PR workflow: [run 44018836577](https://github.com/mcpdev80/baseharbor/actions/runs/44018836577). At evidence update: Workflow policy, native gate plan, trusted plan, and source format succeeded. `PR · Go unit · packages`, cli shards, focused Python, `PR · Validation · go-build`, and `go-vet` were running. Runtime Docker/Podman checks were skipped by the trusted plan for this source diff. Terminal run outcome and independent REVIEW verdict are pending.
+Exact-head PR workflow: [run 44018836577](https://github.com/mcpdev80/baseharbor/actions/runs/44018836577). Run completed successfully at 2026-11-17T04:45:52Z. Workflow policy, native gate plan, trusted plan, source format, all selected Go unit shards (including `PR · Go unit · packages` and isolated non-root PostgreSQL), focused Python, `go-build`, and `go-vet` succeeded. Docker/Podman native gates were skipped by trusted impact selection for this metadata/target-projection change; no native gate was required by the selected plan. PR #1676 was OPEN and MERGEABLE at this exact head. Sequential CODEX-REVIEW completed with CHANGES REQUESTED; no merge. Review evidence: `review-1.md`; review END post is in `evidence/coord-memory/inbox/0428-100-r3-review-end.md`.
 
 Plan renderer/validator now pass after coordinator repair: `python3 scripts/plan.py render && python3 scripts/plan.py check` => 542 tasks, 0 errors, 35 warnings. The 35 warnings are dependency-resolution warnings on existing accepted/review/active cards; no plan errors remain.
