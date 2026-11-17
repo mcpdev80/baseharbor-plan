@@ -12,7 +12,7 @@ sources: []
 source_note: "hunt hunt-signals befund-1 (akte: evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)"
 depends_on: []
 owner: Codex
-blocker: "PR #1677 Docker observability gate failed; awaiting terminal workflow logs before remediation or rerun."
+blocker: "PR #1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; origin/develop advanced to 4bab986dc, so rebase and exact-head rerun wait for trace-path resolution."
 wait_reason: ""
 resolution: ""
 superseded_by: ""
@@ -25,7 +25,7 @@ card_short_title: App-Klasse fehlt in der
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
-    **Blocker:** PR \#1677 Docker observability gate failed; awaiting terminal workflow logs before remediation or rerun.  
+    **Blocker:** PR \#1677 exact-head Docker observability gate fails on pre-existing native OTLP trace source registered as Prometheus; origin/develop advanced to 4bab986dc, so rebase and exact-head rerun wait for trace-path resolution.  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829)  
     <!-- /generated:card -->
 
@@ -48,5 +48,12 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - **Test binding (select exactly one):** ☑ normal (auto-discovered) · ☐ contract → add to `REQUIRED_CLIENT_TESTS` or the package equivalent in the same PR · ☐ new check → update `scripts/pr-gate-plan.py` and `scripts/release-requirements.json` in the same PR.
 - Tests: `internal/observability.TestListApplicationMetricsRequiresExplicitClassAndApplicationScope`; `internal/metrics.TestBindWritesAttributedTargetAndPrunesOnlySameApplication`; `internal/metrics.TestVerifyProviderAndApplicationSourcesSkipsOnlySnapshotMetadata`; existing `internal/metrics.TestWorkloadOnlyRegistersSharedSnapshotOnDeploy`.
 - Local route: `go test ./internal/observability ./internal/metrics -count=1` passed at PR head `58db26baf9dcd80566dcbb0042eed2818e5af822`; `go vet ./internal/observability ./internal/metrics` passed. Compile-only checks for updated List call sites in `cmd/baha` and `internal/identityprovider` passed.
-- CI trigger/route: Ready PR #1677 with changed Go source paths selected `PR · Go unit · packages`, `PR · Go unit · owner`, `PR · Validation · go-build`, `PR · Validation · go-vet`, and `PR · Validation · identity-provider-package-tests`. Run [44031866829](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829) is exact-head. Go unit shards, package/owner unit checks, build, vet, identity-provider package checks and Docker identity passed. Docker observability failed. The parent PR check is still in progress, so its failure logs are not yet available; no rerun has been started.
+- CI trigger/route: Ready PR #1677 with changed Go source paths selected `PR · Go unit · packages`, `PR · Go unit · owner`, `PR · Validation · go-build`, `PR · Validation · go-vet`, and `PR · Validation · identity-provider-package-tests`. Run [44031866829](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829) is exact-head. Go unit shards, package/owner unit checks, build, vet, identity-provider package checks and Docker identity passed. Docker observability failed. Job 133865952530 terminally failed at guided-up-consented: prometheus:bh-atomic-docker-observability-demo-dev is a native OTLP trace source with no runtime probe adapter. The preceding --confirm-candidate refusal is the expected negative-consent assertion; the confirmed flow then fails on trace verification. The offending source is already present on origin/develop (internal/application/runtime_observability.go); #1677 does not change it. Develop advanced from the PR base to 4bab986dc after #1575 merged. Keep #1677 unmerged; coordinate a separate trace-source fix/assignment, then rebase and rerun exact-head checks.
 - The CI plan selected Docker observability for this PR; no Podman runtime job was selected. Acceptance remains open until the failure is diagnosed and applicable exact-head checks are green.
+
+
+## CI failure triage
+
+- Exact run [44031866829](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), Docker observability job [133865952530](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829/job/133865952530), failed in TestObservabilityFullStackAcceptanceInCI on the consented guided-up path. The non-consented candidate refusal is the expected security assertion.
+- Root cause verified from job logs and source: app workload traces are recorded with ProviderPrometheus, Mode Native, Protocol otlp, and a symbolic runtime target; runtimeComponentTraceProbe only supports RuntimeBroker and RuntimeExecutor. This code is already in develop at 4bab986dc; #1677 only touches registry/list/metrics verification paths and does not introduce the trace source.
+- Base freshness also changed: develop is now 4bab986dc following #1575. Branch head remains 58db26baf9dcd80566dcbb0042eed2818e5af822; do not rebase/merge until the trace gate is resolved or explicitly rerouted.
