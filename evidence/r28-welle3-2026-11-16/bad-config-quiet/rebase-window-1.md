@@ -119,9 +119,9 @@ workflow state unchanged).
 ## Evidence push witness (second-to-last action)
 
     $ git ls-remote origin refs/heads/main   # in baseharbor-plan, after push
-    687fc450031c10d75111a2f157f051aa820bda16  refs/heads/main
+    772bb6f85f4d96cd95474240b4179c56cdaa4294  refs/heads/main
 
-(follow-up commit recording the witness itself; evidence file present at origin/main.)
+(final witness commit; the dossier itself is an ancestor of this origin/main head.)
 
 This dossier is committed and pushed on origin/main of baseharbor-plan.
 
