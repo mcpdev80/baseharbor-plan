@@ -7,8 +7,8 @@ areas: []
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: ""
-kanban_status: planned
+owner: coord
+kanban_status: active
 kanban_lane: planned
 kanban_summary: ""
 kanban_title: 0428-100 · Workload-only metrics source registration
