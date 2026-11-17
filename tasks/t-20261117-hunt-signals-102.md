@@ -4,15 +4,15 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-102"
 title: "application-Klasse fehlt in der Signal-Registry"
-kanban_status: active
-kanban_lane: active
+kanban_status: blocked
+kanban_lane: blocked
 kanban_title: 0428-102 · App-Klasse fehlt in der
 kanban_summary: ""
 sources: []
 source_note: "hunt hunt-signals befund-1 (akte: evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md)"
-depends_on: [t-20261117-trace-probe-adapter-gap]
+depends_on: [t-20261117-trace-probe-adapter-gap, t-20261117-docker-loki-ingestion-timeout]
 owner: Codex
-blocker: ""
+blocker: "0428-113 ZWEIFEL: exact Docker Loki provider-ingestion gate fails twice at d144945a; cause unresolved"
 wait_reason: ""
 resolution: ""
 superseded_by: ""
@@ -21,17 +21,19 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 card_short_title: App-Klasse fehlt in der
 ---
 
-- [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/blocked #view/blocked #kind/task
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
+    **Blocker:** 0428-113 ZWEIFEL: exact Docker Loki provider-ingestion gate fails twice at d144945a; cause unresolved  
+    **Needs:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 5](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
-**Depends on:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md)  
+**Depends on:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md), [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
 **Required by:** [t-20261117-hunt-signals-103](t-20261117-hunt-signals-103.md), [t-20261117-hunt-signals-104](t-20261117-hunt-signals-104.md)  
 **Owner:** Codex  
 **Priority:** not set  
@@ -94,3 +96,8 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - Updated the six direct `List` call sites with explicit application-source exclusion, preserving provider listing behavior. `go vet ./...`, the targeted runtime observability regressions, and `git diff --check` passed locally. Corrective commit [d144945af13641e5bdb1564f77b807b2d52b81cb](https://github.com/mcpdev80/baseharbor/commit/d144945af13641e5bdb1564f77b807b2d52b81cb) is pushed to PR #1677. Awaiting its fresh selected CI run; no acceptance until it is green.
 - Exact-head run [44049176474](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474) passed workflow policy, source format, all Go unit shards, Go build/vet, identity-provider tests, and Docker identity. Docker observability reached the consented workload path and successfully scraped metrics, then failed while querying Loki log ingestion for `prometheus/workload`: the Loki API request timed out after 47.4s (`context deadline exceeded`). The preceding candidate-consent refusal is the expected negative-consent assertion. This is an actual unresolved runtime-gate failure; rerun only this failed gate on the same head to determine reproducibility before acceptance.
 - Additional local verification at `d144945af13641e5bdb1564f77b807b2d52b81cb`: `go vet ./...`, full `go test ./internal/application -count=1` (277s), and `go build ./...` passed. Runtime gate remains open pending diagnosis.
+
+
+## Handoff - 2026-11-17
+
+**ZWEIFEL / not accepted.** The implementation and unit/build/vet checks are complete, but PR #1677 cannot be accepted while the selected Docker observability gate repeatedly times out querying Loki for prometheus/workload. Two executions at exact head d144945af13641e5bdb1564f77b807b2d52b81cb failed with context deadline exceeded after the metrics scrape passed; the expected negative-consent assertion is separate. See [0428-113](t-20261117-docker-loki-ingestion-timeout.md), [run 44049176474](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474), and [candidate commit](https://github.com/mcpdev80/baseharbor/commit/d144945af13641e5bdb1564f77b807b2d52b81cb). PR #1677 remains open and unmerged. This lane stops work on 0428-102 and moves to next independent Ready card 0428-105; 0428-113 is queued for a separate lane to diagnose the gate failure.
