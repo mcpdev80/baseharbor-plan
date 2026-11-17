@@ -7,9 +7,9 @@ areas: []
 release: v0.4.28
 version: ""
 parent: ""
-owner: ""
-kanban_status: planned
-kanban_lane: ready
+owner: Codex (Codeman lane)
+kanban_status: active
+kanban_lane: active
 kanban_summary: "Determine whether the Docker observability gate timeout is caused by product behavior, the combined 0428-108/0428-102 candidate,…"
 kanban_title: 0428-113 · Docker Loki Prov ingestion
 priority: ""
@@ -23,19 +23,18 @@ resolution: ""
 evidence: ["https://github.com/mcpdev80/baseharbor/pull/1677", "https://github.com/mcpdev80/baseharbor/actions/runs/44049176474", "https://github.com/mcpdev80/baseharbor/commit/d144945af13641e5bdb1564f77b807b2d52b81cb"]
 ---
 
-- [ ] t-20261117-docker-loki-ingestion-timeout · Observability: Docker Loki provider ingestion gate times out #task #release/v0-4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261117-docker-loki-ingestion-timeout · Observability: Docker Loki provider ingestion gate times out #task #release/v0-4-28 #status/active #view/active #kind/task
     <!-- generated:card -->
-    **Owner:** unassigned  
-    **Ready to assign** · prerequisites accepted  
+    **Owner:** Codex (Codeman lane)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 2](https://github.com/mcpdev80/baseharbor/actions/runs/44049176474), [proof 3](https://github.com/mcpdev80/baseharbor/commit/d144945af13641e5bdb1564f77b807b2d52b81cb)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** active  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
-**Owner:** unassigned  
+**Owner:** Codex (Codeman lane)  
 **Priority:** not set  
 **PRs:** none  
 **Source:** 
