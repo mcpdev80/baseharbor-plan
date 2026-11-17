@@ -13,7 +13,6 @@ source_note: "0428-093 lane diagnose-pflicht END_BLOCKED (akte: evidence/r28-wel
 depends_on: []
 owner: ""
 blocker: ""
-wait_reason: "neutral-host reproduction on develop; fix precedes #1663 rebase+run"
 resolution: ""
 superseded_by: ""
 prs: []
@@ -21,10 +20,9 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
 card_short_title: runtimeComponentTraceProbe
 ---
 
-- [ ] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0.4-28 #status/planned #view/ready #kind/task
+- [ ] t-20261117-trace-probe-adapter-gap · runtimeComponentTraceProbe lacks trace-consumer adapter #task #release/v0-4-28 #status/planned #view/ready #kind/task
     <!-- generated:card -->
     **Owner:** unassigned  
-    **Waiting:** neutral-host reproduction on develop; fix precedes \#1663 rebase+run  
     **Ready to assign** · prerequisites accepted  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/i18n-abachtung/rebase-window-1.md)  
     <!-- /generated:card -->
