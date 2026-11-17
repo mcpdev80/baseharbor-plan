@@ -8,8 +8,8 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: codex
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_summary: "Before the fix, real EnsureRuntime deployment of a workload-only app left the shared Prometheus runtime-sources.json empty, so…"
 kanban_title: 0428-100 · deploy of a workload-only app
 priority: ""
@@ -20,19 +20,19 @@ sources: []
 source_note: "contract-ruling (coord 2026-11-17): workload-only Prometheus source is snapshot-only; see task Handoff contract-ruling and review-2 evidence"
 blocker: ""
 wait_reason: ""
-resolution: ""
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md"]
+resolution: accepted
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md", "https://github.com/mcpdev80/baseharbor/pull/1676", "https://github.com/mcpdev80/baseharbor/actions/runs/44022175082", "https://github.com/mcpdev80/baseharbor/commit/bcae1e8c1261c9e44db03fe285a5d090c532dfcd", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-3.md"]
 ---
 
-- [ ] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261117-workload-only-metrics-source-unregistered · Runtime: deploy of a workload-only app registers no metrics source in shared runtime-sources snapshot #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** codex  
     **PR:** [baseharbor#1676](https://github.com/mcpdev80/baseharbor/pull/1676)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-4.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/round-3.md), [proof 3](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-2.md), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1676), [proof 5](https://github.com/mcpdev80/baseharbor/actions/runs/44022175082), [proof 6](https://github.com/mcpdev80/baseharbor/commit/bcae1e8c1261c9e44db03fe285a5d090c532dfcd), [proof 7](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/workload-only-registration/review-3.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** codex  
@@ -96,3 +96,5 @@ Snapshot-only registration ist der gebilligte contract fuer workload-only apps: 
 - Added Compose network absence coverage for workload-only registration, retained service-app network compatibility coverage, and added a query recorder proving the real endpoint source still reaches verification while the logical workload ID is not queried. Existing provider-network fixture now declares a real metrics source.
 - Targeted package tests, `go test ./internal/application ./internal/metrics`, `go build ./cmd/baha`, `go vet ./internal/application ./internal/metrics`, and `git diff --check` passed locally. Exact-head PR run [44022175082](https://github.com/mcpdev80/baseharbor/actions/runs/44022175082) is running on `178b8a00`; this is the only valid CI run for the changed head.
 - Separate review-3 requested. Status remains active until exact-head CI is green and review-3 passes. No merge yet.
+
+2026-11-17: snapshot-only contract reviewed; PR #1676 merged at bcae1e8c1261c9e44db03fe285a5d090c532dfcd after exact-head run 44022175082 and REVIEW-3 APPROVE. Full witness in review-3.md.
