@@ -27,7 +27,6 @@ evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-w
     <!-- generated:card -->
     **Owner:** lane-0428-059-cli2-source-model (flash) · **Priority:** high  
     **PR:** [baseharbor#1595](https://github.com/mcpdev80/baseharbor/pull/1595)  
-    **Needs:** [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle1-2026-11-15/cli2-source-model/round-1.md)  
     <!-- /generated:card -->
 

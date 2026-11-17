@@ -28,7 +28,6 @@ evidence: []
     **Owner:** lane-0428-uid-environment · **Priority:** high  
     **PR:** [baseharbor#1578](https://github.com/mcpdev80/baseharbor/pull/1578)  
     **Waiting:** approved on 756d21b7 (act-1578-review-r1); frost-bis, dann uid-app-\>uid-env-\>uid-target  
-    **Needs:** [t-20261114-r28-cli2-uid-app](t-20261114-r28-cli2-uid-app.md)  
     <!-- /generated:card -->
 
 STACK (owner-anweisung 2026-11-15): basis-karte = cli2-uid-app (kette app->env->target, max 3 ebenen); branch am kopf der basis-lane, gewartet wird nur auf inhalte, nie auf merges; nach basis-anderung: rebasen + hier vermerken — PR #1578 base = lane-0428-uid-app (retarget 15.11)+
