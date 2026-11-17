@@ -4,8 +4,8 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-102"
 title: "application-Klasse fehlt in der Signal-Registry"
-kanban_status: ready
-kanban_lane: ready
+kanban_status: planned
+kanban_lane: planned
 kanban_title: 0428-102 · App-Klasse fehlt in der
 kanban_summary: ""
 sources: []
@@ -25,16 +25,17 @@ card_short_title: App-Klasse fehlt in der
 
 Owner decision (2026-11-17): Unblock for implementation. Integrate the already merged 0428-108 trace adapter fix, resolve the Docker/Loki ingestion failure tracked under 0428-113 with the owning lane, rebase PR #1677 onto current develop, and rerun exact-head targeted CI plus the required observability acceptance tests. Do not merge while relevant gates are red.
 
-- [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/ready #view/ready #kind/task
+- [ ] t-20261117-hunt-signals-102 · application-Klasse fehlt in der Signal-Registry #task #release/v0-4-28 #status/planned #view/waiting #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codex  
     **PR:** [baseharbor#1677](https://github.com/mcpdev80/baseharbor/pull/1677)  
+    **Waiting for prerequisites**  
     **Needs:** [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
     **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-signals/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/pull/1677), [proof 3](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), [proof 4](https://github.com/mcpdev80/baseharbor/pull/1679), [proof 5](https://github.com/mcpdev80/baseharbor/commit/0ec4706b12c8fa869a2c23db18b6cab4f91f2178)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** ready  
+**State:** waiting  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261117-trace-probe-adapter-gap](t-20261117-trace-probe-adapter-gap.md), [t-20261117-docker-loki-ingestion-timeout](t-20261117-docker-loki-ingestion-timeout.md)  
 **Required by:** [t-20261117-hunt-signals-103](t-20261117-hunt-signals-103.md), [t-20261117-hunt-signals-104](t-20261117-hunt-signals-104.md)  

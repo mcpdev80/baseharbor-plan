@@ -23,13 +23,13 @@
 
 ## PLAN
 
-- [x] Scope + base attestation: verify remote develop HEAD 62eaea2c8 via `git ls-remote origin develop`; inspect read-only in the baseharbor worktree; write base SHA into evidence.
-- [x] Slice (a): map the merged Perses dashboard area on develop against the perses-contract (datasource-refs, panel-uids, duplications). Found: only `perses.go` seam + `perses_selection.go` catalog + valkey-unavailable; NO dashboard JSON committed; 077/082 faces live only on unmerged lanes.
-- [x] Slice (b): apply->read-back round via `baha status --json` over a temp root with `services.perses=true`; confirm fields stable on re-apply, no Perses container started.
-- [x] Slice (c): error paths traced live — nonexistent datasource key returns an error; missing backend signal fails closed; identity-witness OR-gate at `perses_selection.go:294` is correct-by-de-Morgan with the per-backend gate holding.
-- [x] Write findings per severity with file/command-accurate repro: `befund-1.md` (dead catalog), `befund-2.md` (OR-gate fragility).
-- [x] Compose cleanliness: no project started; `bh-local-shared` untouched.
-- [ ] Commit evidence to `baseharbor-plan` origin/main; verify `ls-remote` shows the path; post END to coordinator.
+- **Done:** Scope + base attestation: verify remote develop HEAD 62eaea2c8 via `git ls-remote origin develop`; inspect read-only in the baseharbor worktree; write base SHA into evidence.
+- **Done:** Slice (a): map the merged Perses dashboard area on develop against the perses-contract (datasource-refs, panel-uids, duplications). Found: only `perses.go` seam + `perses_selection.go` catalog + valkey-unavailable; NO dashboard JSON committed; 077/082 faces live only on unmerged lanes.
+- **Done:** Slice (b): apply->read-back round via `baha status --json` over a temp root with `services.perses=true`; confirm fields stable on re-apply, no Perses container started.
+- **Done:** Slice (c): error paths traced live — nonexistent datasource key returns an error; missing backend signal fails closed; identity-witness OR-gate at `perses_selection.go:294` is correct-by-de-Morgan with the per-backend gate holding.
+- **Done:** Write findings per severity with file/command-accurate repro: `befund-1.md` (dead catalog), `befund-2.md` (OR-gate fragility).
+- **Done:** Compose cleanliness: no project started; `bh-local-shared` untouched.
+- **Done:** Evidence committed to `baseharbor-plan` main in `f2a83752`; verified the evidence path exists on current origin/main.
 
 ## Findings
 
@@ -53,4 +53,4 @@ The merged develop tree declares a Perses dashboard selection catalog (`internal
 
 ## END
 
-- Status: **END_DONE** — bug-hunt complete, two findings (befund-1 MEDIUM, befund-2 LOW) written to `baseharbor-plan/evidence/r28-welle4-2026-11-17/hunt-perses-dashboards/`, repo clean, build/vet/test green. Evidence pending origin/main commit (last step).
+- Status: **END_DONE** — bug-hunt complete, two findings (befund-1 MEDIUM, befund-2 LOW) written to `baseharbor-plan/evidence/r28-welle4-2026-11-17/hunt-perses-dashboards/`; evidence commit `f2a83752` is present on origin/main. Product build/vet/test were green on the attested develop base 62eaea2c8.

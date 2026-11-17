@@ -4,8 +4,8 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-109"
 title: "v0.4.28 lacks release notes page and populated CHANGELOG"
-kanban_status: active
-kanban_lane: active
+kanban_status: closed
+kanban_lane: closed
 kanban_title: 0428-109 · v0.4.28 lacks release notes
 kanban_summary: "Document the merged v0.4.28 configuration-error behavior from #1666 and Keycloak native metrics registration from #1660 in the…"
 sources: []
@@ -14,22 +14,22 @@ depends_on: []
 owner: Codex (Codeman lane)
 blocker: ""
 wait_reason: ""
-resolution: ""
+resolution: accepted
 superseded_by: ""
 prs: [mcpdev80/baseharbor#1681]
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md", "https://github.com/mcpdev80/baseharbor/commit/b548828d33856e70a8f206a5150824ed9f8fe520", "https://github.com/mcpdev80/baseharbor/pull/1681", "https://github.com/mcpdev80/baseharbor/actions/runs/44060670144"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md", "https://github.com/mcpdev80/baseharbor/commit/b548828d33856e70a8f206a5150824ed9f8fe520", "https://github.com/mcpdev80/baseharbor/pull/1681", "https://github.com/mcpdev80/baseharbor/actions/runs/44060670144", "https://github.com/mcpdev80/baseharbor/commit/907f16713cbf38693d30c9dadaad7fe299759219"]
 card_short_title: v0.4.28 lacks release notes
 ---
 
-- [ ] t-20261117-hunt-uid-docs-109 · v0.4.28 lacks release notes page and populated CHANGELOG #task #release/v0-4-28 #status/active #view/active #kind/task
+- [x] t-20261117-hunt-uid-docs-109 · v0.4.28 lacks release notes page and populated CHANGELOG #task #release/v0-4-28 #status/closed #view/closed #board/planned #kind/task
     <!-- generated:card -->
     **Owner:** Codex (Codeman lane)  
     **PR:** [baseharbor#1681](https://github.com/mcpdev80/baseharbor/pull/1681)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b548828d33856e70a8f206a5150824ed9f8fe520), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1681), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44060670144)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor/commit/b548828d33856e70a8f206a5150824ed9f8fe520), [proof 3](https://github.com/mcpdev80/baseharbor/pull/1681), [proof 4](https://github.com/mcpdev80/baseharbor/actions/runs/44060670144), [proof 5](https://github.com/mcpdev80/baseharbor/commit/907f16713cbf38693d30c9dadaad7fe299759219)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** accepted  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** Codex (Codeman lane)  
@@ -58,8 +58,8 @@ Document the merged v0.4.28 configuration-error behavior from #1666 and Keycloak
 
 - Test binding: normal documentation validation.
 - Local route: bash scripts/documentation-audit.sh; python3 scripts/check_docs_locale_parity.py; git diff --check. All passed on exact commit b548828d33856e70a8f206a5150824ed9f8fe520.
-- CI route: ready PR paths select mkdocs-en-strict, mkdocs-de-strict, pages-candidate-build, documentation-audit, Source format and Trusted Plan. Exact PR run: 44060670144 (currently in progress).
+- CI route: ready PR paths select mkdocs-en-strict, mkdocs-de-strict, pages-candidate-build, documentation-audit, Source format and Trusted Plan. Exact PR run: 44060670144 passed.
 
 ## Handoff
 
-PR #1681 is open against develop at b548828d33856e70a8f206a5150824ed9f8fe520. Local documentation audit and EN/DE parity checks pass; exact PR CI run 44060670144 is pending.
+PR #1681 merged to develop as 907f16713cbf38693d30c9dadaad7fe299759219 from head b548828d33856e70a8f206a5150824ed9f8fe520. Local documentation audit and EN/DE parity checks passed; exact-head CI run 44060670144 passed.
