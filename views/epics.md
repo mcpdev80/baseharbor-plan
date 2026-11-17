@@ -4,7 +4,7 @@
 
 ## [console-1](../epics/console-1-console-product-plan.md) · Console product architecture and implementation plan
 
-Status: closed · release: v0.4.28
+Status: closed · release: [v0.4.28](../releases/v0.4.28.md)
 
 | Task | Title | State | Priority | Owner | Depends on | PRs |
 | --- | --- | --- | --- | --- | --- | --- |

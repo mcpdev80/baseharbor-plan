@@ -32,7 +32,7 @@ early: true
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md), [t-20261109-r27-ci-go-unit-shards](t-20261109-r27-ci-go-unit-shards.md)  
 **Owner:** unassigned  
 **Priority:** critical  

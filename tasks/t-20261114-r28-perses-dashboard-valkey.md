@@ -31,7 +31,7 @@ evidence: ["https://github.com/mcpdev80/baseharbor/pull/1604"]
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
 **Owner:** coord  
@@ -76,3 +76,5 @@ Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no con
 Supersedes [t-20261113-r28-grafana-dashboard-valkey](t-20261113-r28-grafana-dashboard-valkey.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
 
 squash-merge 62eaea2c8 durch Codex welle2c obj2 (exact head beb440289, run 44049695785 SUCCESS, review APPROVE); Mission-Label-Fehler (079/081) von Codex korrigiert und dokumentiert
+
+squash-merge 62eaea2c8 durch Codex welle2c obj2 (exact head beb440289, run 44049695785 SUCCESS, review-1.md APPROVE am band)

@@ -14,6 +14,12 @@ Read-only release cards, not executable tasks. Edit releases/ and tasks/, then r
     **Accepted tasks:** 160/169 · **Blocked:** 0 · **Waiting:** 0  
     [Scope](../releases/v0.4.27.md) · [Tasks](../views/releases/v0.4.27.md)
 
+- [ ] v0.4.28 · CLI semantics and Perses #roadmap #roadmap-state/current
+    **Release:** active  
+    **Accepted tasks:** 31/129 · **Blocked:** 1 · **Waiting:** 20  
+    **Blocker:** [t-20261114-r28-perses-datasources](../tasks/t-20261114-r28-perses-datasources.md) — PR \#1608 wurde vom OWNER selbst 07:43:40Z ohne merge geschlossen (lane END\_BLOCKED; hopf war sukses, head 770c71b74 am zweig). Reopen/supersede-entscheid des o…  
+    [Scope](../releases/v0.4.28.md) · [Tasks](../views/releases/v0.4.28.md)
+
 - [ ] v0.4.29 · Linux, WSL2 and macOS #roadmap #roadmap-state/next
     **Release:** planned  
     **Accepted tasks:** 0/15 · **Blocked:** 0 · **Waiting:** 14  

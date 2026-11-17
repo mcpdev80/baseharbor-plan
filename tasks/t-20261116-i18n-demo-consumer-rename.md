@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** review  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261115-bughunt-d28-i18n-achtung](t-20261115-bughunt-d28-i18n-achtung.md)  
 **Owner:** coord  
 **Priority:** not set  

@@ -33,7 +33,7 @@ early: true
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** v0.4.28 (v0.4.28)  
+**Release:** [v0.4.28](../releases/v0.4.28.md) (v0.4.28)  
 **Depends on:** [t-20261017-release-0-4-28-updates](t-20261017-release-0-4-28-updates.md)  
 **Required by:** [t-20261017-release-0-4-28-qualify](t-20261017-release-0-4-28-qualify.md)  
 **Owner:** unassigned  

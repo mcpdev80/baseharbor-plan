@@ -30,7 +30,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** active  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** coord  
 **Priority:** high  

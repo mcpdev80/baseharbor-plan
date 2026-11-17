@@ -29,7 +29,7 @@ card_short_title: runtimeComponentTraceProbe
 
 <!-- generated:links -->
 **State:** accepted  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Required by:** [t-20261117-hunt-signals-102](t-20261117-hunt-signals-102.md)  
 **Owner:** coord  

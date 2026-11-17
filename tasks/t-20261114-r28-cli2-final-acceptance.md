@@ -32,7 +32,7 @@ evidence: []
 
 <!-- generated:links -->
 **State:** waiting  
-**Release:** v0.4.28  
+**Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261109-r31-cli-manpage-after-consolidation](t-20261109-r31-cli-manpage-after-consolidation.md), [t-20261114-r28-cli2-audit-events](t-20261114-r28-cli2-audit-events.md), [t-20261114-r28-cli2-cli-docs](t-20261114-r28-cli2-cli-docs.md), [t-20261114-r28-cli2-env-delete](t-20261114-r28-cli2-env-delete.md)  
 **Required by:** [t-20261114-r28-cli-command-semantics](t-20261114-r28-cli-command-semantics.md)  
 **Owner:** unassigned  
