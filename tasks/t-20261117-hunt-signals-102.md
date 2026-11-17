@@ -53,6 +53,10 @@ Einzelschritte in der referenzierten hunt-akte (befund-1.md); Umsetzung als norm
 - The CI plan selected Docker observability for this PR; no Podman runtime job was selected. Acceptance remains open until the failure is diagnosed and applicable exact-head checks are green.
 
 
+## Review finding for the next push
+
+- Exact-diff review found application metrics verification filters the registry by app name but not by environment, while IDs are keyed by app+environment and pruning is environment-specific. If one app has sources registered in two environments under a shared Prometheus instance, a verification call can try to query the other environments ID using the current environments labels. On the planned post-0428-108 refresh, filter source IDs by the current app/environment prefix and add a regression fixture with a second environment before running exact-head CI.
+
 ## CI failure triage
 
 - Exact run [44031866829](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829), Docker observability job [133865952530](https://github.com/mcpdev80/baseharbor/actions/runs/44031866829/job/133865952530), failed in TestObservabilityFullStackAcceptanceInCI on the consented guided-up path. The non-consented candidate refusal is the expected security assertion.
