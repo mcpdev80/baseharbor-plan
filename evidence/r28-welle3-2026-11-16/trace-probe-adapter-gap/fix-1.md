@@ -297,3 +297,8 @@ untouched. cleanliness: clean (no lane-owned residue).
   (/tmp/opencode was disk-quota blocked).
 - Write-set respected: no touches to internal/capability/perses.go,
   perses_contract_test.go or 0428-092 files.
+
+## coord-verification (END nachgeliefert, routing-defekt)
+- outcome: COMPLETE. exact head 39810520b5b1b7859faee4d9b489a4864a150948; run 44046875648 terminal SUCCESS (statusCheckRollup ohne failure/pending, mergeState CLEAN); PR #1679 base develop.
+- reviewer null-befund (Codex, same-ID/prune/empty-desired gelost mit caller-path tests) am band; alter run 44042477049 verworfen als old-head evidence.
+- lane-END-post fehlgeroutet (codex-mode routing-defekt muster 094/100); disposition per zeugen, sitz released.
