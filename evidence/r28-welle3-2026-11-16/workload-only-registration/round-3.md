@@ -6,11 +6,12 @@ Date: 2026-11-17. Role: WORKER, owner-authorized Codex lane. Candidate PR #1676,
 
  * [x] 1. Refresh PR #1676, remote branch, current develop, Planning task/claim and inspect repository rules.
  * [x] 2. Trace workload `RuntimeTarget(project, "workload")` through the actual Prometheus `provider-*.json` file_sd generation. It is copied verbatim and no Prometheus runtime-target resolver exists.
- * [ ] 3. STOP+QUESTION: target contract is not defined for a workload-only app with no declared metrics service/port or workload `/metrics` endpoint. Do not invent a target or weaken verification.
- * [ ] 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
- * [ ] 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
- * [ ] 6. Merge current develop into the PR lane without force, push with explicit refspec, and observe its own exact-head pull_request run to terminal success.
- * [ ] 7. Re-review the exact new head against the batch21/r3 recipes; merge only if all exact-head checks and review gates pass, then publish both role akten and END posts.
+ * [x] 3. Resolve target contract with the coordinator: retain the symbolic runtime identity in the shared snapshot, without a scrape target; exclude it from Prometheus file_sd and do not weaken verification for real scrape sources.
+ * [x] 4. Add integrated workload-only regression from deploy registration through `EnsureProviderFiles` snapshot and positive verification; add service-app compatibility via the real registration path.
+ * [x] 5. Run gofmt, affected package tests, build, vet, and inspect the complete diff against #1665 scope.
+ * [x] 6a. Merge current develop into the PR lane with an ordinary merge commit and push with explicit refspec (no force).
+ * [ ] 6b. Observe exact-head pull_request run to terminal success.
+ * [ ] 7. Independent REVIEW role checks the exact new head against batch21/r3 recipes; merge only if all exact-head checks and review gates pass, then publish both role akten and END posts.
 
 ## Ownership and baseline
 
@@ -28,9 +29,24 @@ Date: 2026-11-17. Role: WORKER, owner-authorized Codex lane. Candidate PR #1676,
 - No product files changed; no tests, merge, push, or CI run started. The existing branch remains at `0b8cecb058efb7dc7678071a3113bc8786890d2d`.
 - The planning blockers were subsequently repaired and published by coord (`1f124360` fixes path-form `sources`; `d3aff342` neutralizes the 092 stop-report checkbox syntax). `plan.py show t-20261117-workload-only-metrics-source-unregistered` now succeeds and reports `active`. The card is locally clean at current `baseharbor-plan/main`.
 
-## Resume after coord update
+## Resume after coord update (historical stop below is superseded)
+
+- Superseded on 2026-11-17 by the coordinator R3 direction: workload-only registration is logical snapshot metadata; it must stay out of file_sd/network/query, while normal backend sources retain scrape verification.
 
 - Coord directed the WORKER role to continue, publish a corrected candidate, observe a terminal exact-head run, and then END before opening a distinct REVIEW object. This resumes the same WORKER role; it does not answer the unresolved target-contract question below.
 - The prior R2 akte says the URI registration was intended to satisfy `SignalSource.Validate` “without fabricating a scrape backend.” R3's explicit owner requirement now says the target must be scrapeable without weakening verification. Product code still writes this URI verbatim to Prometheus file_sd, and neither the card nor repository defines a workload metrics service/port/endpoint for the fixture. Thus the R2 logical registration cannot satisfy the new scrapeability requirement as implemented, and selecting a DNS alias/port would invent product behavior.
-- STOP+QUESTION remains: what concrete workload service, port, and `/metrics` endpoint is the contract for this workload-only shape, or should this card's contract change to a non-scraped logical registration? Await this definition before product edits, tests, base merge, push, or CI.
+- Historical STOP+QUESTION (resolved as recorded above): the owner selected non-scraped logical registration. The following historical paragraph describes the state before that direction and is no longer current.
 - Coordinator reports planning render/check now pass (0 errors) and band published. This supersedes the previous note that those checks were blocked; no planning-blocker remains.
+
+
+## Codex R3 implementation and exact-head CI (2026-11-17)
+
+The coordinator's R3 direction resolved the stop point: retain a workload-only runtime identity in the shared snapshot, but do not invent a scrape endpoint. This implementation uses `Verification: ObservabilityVerifyNone` for that symbolic source and excludes it from provider file_sd target generation, provider network projection, and provider scrape queries. Existing verifiable backend sources keep their current verification path. No `security.go` or `.github/**` files changed; approved batch19/20 behavior was not weakened.
+
+The prior candidate test that manually called `observability.Update` was removed. New tests are external-package tests using the real sequence `application.EnsureRuntime -> metrics.EnsureProviderFiles -> read runtime-sources.json -> metrics.VerifyProviderSourcesAt`; the workload-only case asserts its exact owner/identity/symbolic target is present and no matching Prometheus file_sd target exists. The service-app compatibility case also uses this real path.
+
+Candidate commit `ecfccbb9bb897e3bcd1d4cad8f5559b3a6e23e6c` is PR #1676 head, following ordinary merge commit `8db0d9bdf8d9ae77db94c9ddce9c209001c4da54` (current develop at rebase). Local exact-head checks passed: `go build ./cmd/baha`; `go vet ./internal/application ./internal/metrics`; `go test ./internal/application ./internal/metrics`; `git diff --check`.
+
+Exact-head PR workflow: [run 44018836577](https://github.com/mcpdev80/baseharbor/actions/runs/44018836577). At evidence update: Workflow policy, native gate plan, trusted plan, and source format succeeded. `PR · Go unit · packages`, cli shards, focused Python, `PR · Validation · go-build`, and `go-vet` were running. Runtime Docker/Podman checks were skipped by the trusted plan for this source diff. Terminal run outcome and independent REVIEW verdict are pending.
+
+Plan renderer/validator now pass after coordinator repair: `python3 scripts/plan.py render && python3 scripts/plan.py check` => 542 tasks, 0 errors, 35 warnings. The 35 warnings are dependency-resolution warnings on existing accepted/review/active cards; no plan errors remain.
