@@ -90,9 +90,40 @@ mergeable=MERGEABLE` — remains READY.
 ## Evidence: CI run (Eigenes-run-pflicht)
 
 Run `44025048848` (`CI · Source & Quality`, event=pull_request) started on exact
-head b6055fd47 at 2026-11-17T05:34:23Z; observed to terminal state below.
+head b6055fd47 at 2026-11-17T05:34:23Z. Terminal outcome:
 
-(terminal outcome appended before END)
+    run_id=44025048848 status=completed conclusion=failure sha=b6055fd47a160b47f55c9f2c50317a014d313091
+
+Failed jobs (all `PR · Selected Core-less · {docker,podman} / coreless-lifecycle · application`
+and the aggregate `PR Selected Checks`):
+
+    FAIL: TestManagedRegisteredOTLPNativeConsumerHandoff (cmd/baha/application_otlp_handoff_runtime_test.go:120)
+    shared Identity failed common union: complete=true changes=[{InstanceID:opentelemetry-collector/shared Action:add ...}]
+
+Everything else green/skipped-appropriately: go-build, go-vet, cli-gofmt, documentation-audit,
+mkdocs EN/DE strict, pages-candidate-build, all Go unit shards, owner-node native, Demo Pin,
+Focused Python, Native gate plan, Trusted Plan.
+
+## Root cause of the failure (base-internalization gap, not content)
+
+- The i18n commit 55550400c was cut from develop@34c2ede5.
+- Meanwhile merged PR #1657 (coreless app backend empty target) changed
+  `configureTestTarget(t)` -> `configureTestTargetEmpty(t)` in the same test file
+  on develop (git diff 34c2ede5..bcae1e8c -- cmd/baha/application_otlp_handoff_runtime_test.go).
+- The base merge folded develop in but kept the branch side of that hunk (no textual conflict),
+  so the candidate runs the OTLP test on the old (non-empty) target setup, which the shared
+  coreless identity union now flags — exactly what #1657 fixed.
+- The CI itself computed integration merge `30cfe779` (develop bcae1e8c + head b6055fd47);
+  the failing gate ran against that merge, so the gap is real at GitHub's merge tip.
+
+## Actions taken / needed
+
+- No force-fix (mission rule). One normal `git merge origin/develop` (bcae1e8c) fold-in was
+  already this window's job; the remaining defect is a one-line integration fix in
+  application_otlp_handoff_runtime_test.go (`configureTestTarget` -> `configureTestTargetEmpty`)
+  that requires a re-merge resolution or a follow-up corrective commit — FLAGGED to Coordinator
+  for dispatch decision, since this lane was contractually base-freshness only.
+- PR #1663 post-state: `state=OPEN isDraft=false mergeable=MERGEABLE mergeStateStatus=BLOCKED`.
 
 ## repo-rule compliance
 
