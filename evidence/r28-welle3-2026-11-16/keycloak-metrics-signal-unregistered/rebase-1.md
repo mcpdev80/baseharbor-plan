@@ -79,6 +79,15 @@ Mission GRENZEN say "KEIN force-push — wenn force noetig waere: STOP+QUESTION"
 ## Decision requested (QUESTION → coordinator)
 
 Either authorize `git push --force-with-lease` of `34fb154b4` (content-identical rebase of the single commit onto develop@e6cce9c73, no foreign commits) — then I publish, observe the exact-head pull_request run to terminal success and finish —
-or an alternative: merge `origin/develop` into the branch (fast-forward-free merge commit, ff push allowed) if a no-force path is preferred.
+or an alternative: merge `origin/develop` into the branch (merge commit, ff push allowed) if a no-force path is preferred.
+
+## Verification witnesses (as required by dispatch rules)
+
+```
+$ cd /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan && git ls-remote origin HEAD
+01285a93179270d0d5fe39e451e0bede287a58d7  HEAD        # evidence commit IS on origin/main
+$ git ls-remote origin refs/heads/lane-0428-097-keycloak-signal   # final re-check from product repo
+f709e14b58f55be9e6ef93323e31bb9166aa04e8  refs/heads/lane-0428-097-keycloak-signal   # unchanged, no force used
+```
 
 END_BLOCKED mission-097-rebase-develop.md: rebase clean onto develop@e6cce9c73 (candidate 34fb154b4, own commit only, local checks green) but push is non-fast-forward — force needed, STOP+QUESTION per mission gate.
