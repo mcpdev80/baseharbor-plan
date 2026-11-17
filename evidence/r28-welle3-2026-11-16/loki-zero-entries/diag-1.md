@@ -81,6 +81,7 @@ Both facts converge on the **registration/source-availability side**, not the qu
 - `git ls-remote lane-origin develop` -> `62eaea2c8c5b29f73db03ae9b3e7efaf772e4458`
 - `git ls-remote origin refs/pull/1677/head` -> `36bb9019654e5db150928614a6e5892b6c1a365b`
 - Candidate SHA under test: `d144945af13641e5bdb1564f77b807b2d52b81cb`
+- Evidence akte path on origin/main (commit `49c976ad84ed0f5994aae977b7b91e63b70441e6`): `evidence/r28-welle3-2026-11-16/loki-zero-entries/diag-1.md` (origin/main before END = `58a4e06ae7655beb0f66e700d01ab96468c0ea7d`; after my rebased push = `49c976ad84ed0f5994aae977b7b91e63b70441e6`, only my commit on top of `1ad37129`).
 - Run: 44051420634 / 44049176474, Docker observability gate, Loki/prometheus workload `up` series, 200 but total_entries=0, context deadline exceeded after 47.2s retry 2.
 
 ## END: mission-113-lokidiag DONE
