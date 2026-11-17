@@ -14,9 +14,9 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | review | 25 |
 | wait | 14 |
 | blocked | 0 |
-| ready | 5 |
+| ready | 3 |
 | queued | 25 |
-| waiting | 173 |
+| waiting | 175 |
 | backlog | 7 |
 | closed | 290 |
 
@@ -92,8 +92,6 @@ None.
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | ready | not set | — | — | — |
-| [t-20261117-hunt-signals-103](../tasks/t-20261117-hunt-signals-103.md) | postgres-/valkey-Adapter ohne Plan | ready | not set | — | — | — |
-| [t-20261117-hunt-signals-104](../tasks/t-20261117-hunt-signals-104.md) | Drei Quellen ohne Destroy-Cleanup | ready | not set | — | — | — |
 | [t-20261117-hunt-signals-105](../tasks/t-20261117-hunt-signals-105.md) | Alert-Ebene develop-weit leer | ready | not set | — | — | — |
 
 ## By release
