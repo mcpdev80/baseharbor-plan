@@ -4,8 +4,8 @@ release: v0.4.28
 repos: [mcpdev80/baseharbor]
 card_number: "0428-110"
 title: "Corrupt-config and mutation paths stay silent despite fail-loud guarantee"
-kanban_status: active
-kanban_lane: active
+kanban_status: review
+kanban_lane: review
 kanban_title: 0428-110 · Corrupt-config and mutation
 kanban_summary: ""
 sources: []
@@ -16,23 +16,24 @@ blocker: ""
 wait_reason: ""
 resolution: ""
 superseded_by: ""
-prs: []
-evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md"]
+prs: ["mcpdev80/baseharbor#1682"]
+evidence: ["https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md", "https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs-110/fix-1.md"]
 card_short_title: Corrupt-config and mutation
 ---
 
-- [ ] t-20261117-hunt-uid-docs-110 · Corrupt-config and mutation paths stay silent despite fail-l #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261117-hunt-uid-docs-110 · Corrupt-config and mutation paths stay silent despite fail-l #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** worker-flash (mission-110-mutation-loud)  
-    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md)  
+    **PR:** [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682)  
+    **Evidence:** [proof 1](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md), [proof 2](https://github.com/mcpdev80/baseharbor-plan/blob/main/evidence/r28-welle3-2026-11-16/hunt-uid-docs-110/fix-1.md)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** worker-flash (mission-110-mutation-loud)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1682](https://github.com/mcpdev80/baseharbor/pull/1682)  
 **Source:** 
 <!-- /generated:links -->
