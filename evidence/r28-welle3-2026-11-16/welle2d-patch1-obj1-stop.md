@@ -6,7 +6,7 @@ Mission: `coordinator/mission-codex-welle2d-patch1.md`
 
 ## OBJ0 completion witness
 
-0428-088 / PR #1592 worker phase finished at exact head `7ca9fc1c5fb8a8ed3b48559ead50192d4189125e`. Its exact-head PR run `44059721374` reached terminal `SUCCESS`; worker evidence is `evidence/r28-welle3-2026-11-16/perses-runtime/rebase-window-1.md` (Plan commit `1bd625dd`). PR #1592 remains OPEN and unmerged.
+0428-088 / PR #1592 worker phase finished at exact head `7ca9fc1c5fb8a8ed3b48559ead50192d4189125e`. Its exact-head PR run `44059721374` reached terminal `SUCCESS`; worker evidence is `evidence/r28-welle3-2026-11-16/perses-runtime/rebase-window-1.md` (Plan commit `1bd625dd`). PR #1592 remains OPEN and unmerged. After `develop` moved to `907f16713`, GitHub REST also reports #1592 base `62eaea2c8` and `mergeable_state=behind`; the worker END remains valid for its terminal run, but the future review/merge needs a fresh base hop and exact-head run.
 
 ## OBJ1 — #1616 / 0428-086
 
