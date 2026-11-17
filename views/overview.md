@@ -32,7 +32,7 @@ States: **active**, **wait**, **review** and **blocked** come from the card's st
 | [t-20261115-r28-podman-runtime-performance](../tasks/t-20261115-r28-podman-runtime-performance.md) | Speed up Podman lifecycle | active | high | ChatGPT | — | [baseharbor#1600](https://github.com/mcpdev80/baseharbor/pull/1600) |
 | [t-20261116-r28-guided-rootless-bootstrap](../tasks/t-20261116-r28-guided-rootless-bootstrap.md) | Guided rootless runtime prerequisite repair | active | high | ChatGPT | — | [baseharbor#1664](https://github.com/mcpdev80/baseharbor/pull/1664) |
 | [t-20261117-hunt-signals-106](../tasks/t-20261117-hunt-signals-106.md) | CLI destructive-consent paths still emit German Achtung fall | active | not set | worker-ornith1.5 | — | — |
-| [t-20261117-hunt-uid-docs-109](../tasks/t-20261117-hunt-uid-docs-109.md) | v0.4.28 lacks release notes page and populated CHANGELOG | active | not set | Codex (Codeman lane) | — | — |
+| [t-20261117-hunt-uid-docs-109](../tasks/t-20261117-hunt-uid-docs-109.md) | v0.4.28 lacks release notes page and populated CHANGELOG | active | not set | Codex (Codeman lane) | — | [baseharbor#1681](https://github.com/mcpdev80/baseharbor/pull/1681) |
 | [t-20261117-hunt-uid-docs-110](../tasks/t-20261117-hunt-uid-docs-110.md) | Corrupt-config and mutation paths stay silent despite fail-l | active | not set | worker-flash (mission-110-mutation-loud) | — | — |
 
 ## Ready for review
