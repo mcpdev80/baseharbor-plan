@@ -159,7 +159,64 @@ observability cell (second witness) runs in the same PR selection.
 ## Candidate and PR
 
 - Branch: lane-0428-108-traceprobe (exactly one candidate; refspec push).
-- Base at branch creation: bcae1e8c1 (develop, fetched).
+- Base at branch creation: bcae1e8c1 (develop, fetched). Rebased during work
+  onto develop@6cf12152; final ancestry witness below.
+
+## Process error found in review (fund -> Lernpflicht)
+
+The first push, `af2fb5f6f`, carried ONLY the two test files: the three
+production files (cmd/baha/app_traces.go, internal/observability/registry.go,
+internal/telemetry/otlp_interaction_trace.go) were still unstaged in the
+worktree. The cause was my own `git commit --amend` after a rebase: I staged
+the test file with `git add` and amended, but a `git checkout HEAD -- <paths>`
+line I ran on the *shared main repository* (`.../baseharbor`, a different
+worktree) had clobbered my lane worktree's tracked files back to HEAD content
+while the build/vet/test I ran afterwards passed against the then-dirty
+tree — so "green locally" was measured against content that was not on the
+candidate. The pushed head therefore could not compile (the committed adapter
+test referenced `nativeTraceSourceProbe`, which the head did not contain).
+
+Learning recorded here: (a) never run history or checkout commands against
+another worktree of the same repository to inspect state — use a temporary
+worktree with an explicit revision; (b) before any push, verify the commit
+content itself (`git cat-file -p <commit>:<path>`) and build the pushed head in
+a clean checkout — worktree status is not the candidate.
+
+## Restoration and final candidate (additive, no reset, no force)
+
+- Complete pre-amend commit `01c72e97f` (visible in reflog) carried all six
+  files; production files were restored from it with explicit-path
+  `git show 01c72e97f:<path> > <path>` and committed additively as
+  `1b5a0df37` ("production adapter + registry prune apis").
+- Fifth review item (OTLP-intent removal left `collector:<project>` registered
+  because the project-scoped prune sat behind the early return) fixed with the
+  prune moved ahead of the return +
+  TestWorkloadTraceSignalReclaimedWhenOTLPIntentRemoved, committed as
+  `4809c8648`. Fail-first witness: with the prune moved back behind the return
+  in an isolated copy, the test fails with
+  `collector trace identity survived the OTLP intent removal`.
+- Reviewer findings 1-5 are therefore ONE batch in this section: (1) both
+  receiver kinds reclaimed on transitions/unbind, (2) legacy Prometheus signal
+  reclaimed before the metrics-policy early return, (3) bounded prune on the
+  traces-disabled path (managed/external split), (4) exact-identity (project-
+  scoped) pruning so dev-disable cannot touch prod, (5) prune moved ahead of
+  the no-intent early return.
+
+## Remote head + clean-checkout witness (mandatory)
+
+    $ git ls-remote origin refs/heads/lane-0428-108-traceprobe
+    4809c864814e61c6c53d777f7392cd4f245a2b7b  refs/heads/lane-0428-108-traceprobe
+
+Clean checkout of exactly that SHA (`git worktree add --detach ... 4809c8648`,
+`git status --porcelain` empty):
+
+    go build ./...      -> OK (no output)
+    go vet ./cmd/baha ./internal/observability ./internal/telemetry ./internal/application -> OK
+    go test ./internal/observability -count=1 -> ok 0.192s
+
+Provenance: `git log --oneline origin/develop..HEAD` on the candidate lists
+ONLY this lane's own commits (see next section); `git merge-base --is-ancestor
+origin/develop HEAD` -> true.
 
 ## PR and CI run
 
