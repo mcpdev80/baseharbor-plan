@@ -271,8 +271,13 @@ af2fb5f6, 44042182261 cancelled) are explicitly NOT counted as evidence.
 
 - PR: #1679 (base develop, head lane-0428-108-traceprobe, READY).
 - Exact-head run for `39810520b`: 44046875648 (CI - Source & Quality,
-  pull_request), started 2026-11-17T08:27:25Z; outcome recorded in the END
-  section once terminal (Eigenes-run-pflicht).
+  pull_request), started 2026-11-17T08:27:25Z; observed to TERMINAL by this
+  lane (gh run watch, exit 0): status=completed conclusion=success, headSha
+  39810520b5b1b7859faee4d9b489a4864a150948. Jobs: Workflow policy, PR -
+  Trusted Plan, PR - Source format, PR - Native gate plan, PR Selected Checks,
+  Validation go-build/go-vet/cli-gofmt, Go unit packages/owner/cli-0..3 and
+  Focused Python all success; matrix/runtime gates skipped by selection for
+  this diff. No failed job.
 - The prior green run 44042477049 proves only the superseded head `082cefab`
   and is not acceptance evidence for the current code.
 
