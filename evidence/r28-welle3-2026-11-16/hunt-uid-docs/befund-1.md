@@ -8,13 +8,13 @@
 
 ## PLAN
 
-1. Mission lesen, Arbeitszone (workers/.models/flash/wt/hunt-uid-docs) auf develop@8db0d9bdf ansetzen; Planning-Repo wrong-zone-check
-2. (a) CLI-help/manifest-Tabellen vs. tatsaechliche flags/codes der gemergten Commits (#1660, #1666) pruefen
-3. (b) README/docs zu config-Fehler-Verhalten (quiet vs loud) vs. fail-loud-Pfad pruefen, inkl. probe-Matrix am gebauten develop-Binaer (nur lesen/builden)
-4. (c) Release-Notes-/CHANGELOG-Eintraege fuer die 0.4.28-Pfade pruefen
-5. Akte evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md in baseharbor-plan schreiben, committen, auf origin/main pushen
-6. Vorher/nachher container-liste + cleanliness-Zeile; probe-state loeschen
-7. END-Post an Coordinator
+1. Mission lesen, Arbeitszone (workers/.models/flash/wt/hunt-uid-docs) auf develop@8db0d9bdf ansetzen; Planning-Repo wrong-zone-check — DONE
+2. (a) CLI-help/manifest-Tabellen vs. tatsaechliche flags/codes der gemergten Commits (#1660, #1666) pruefen — DONE (0 mismatch; Befund 4.1 als Klassifikationsnebenfund)
+3. (b) README/docs zu config-Fehler-Verhalten (quiet vs loud) vs. fail-loud-Pfad pruefen, inkl. probe-Matrix am gebauten develop-Binaer (nur lesen/builden) — DONE (Befunde 2, 3, 6)
+4. (c) Release-Notes-/CHANGELOG-Eintraege fuer die 0.4.28-Pfade pruefen — DONE (Befunde 1, 5)
+5. Akte evidence/r28-welle3-2026-11-16/hunt-uid-docs/befund-1.md in baseharbor-plan schreiben, committen, auf origin/main pushen — siehe origin/main-Zeuge unten
+6. Vorher/nachher container-liste + cleanliness-Zeile; probe-state loeschen — DONE (Nachtrag Teardown-zeugen)
+7. END-Post an Coordinator — letzte Aktion
 
 ## Zone- und Basis-Zeugen
 
