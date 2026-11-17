@@ -100,3 +100,14 @@ $ git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree origin/ma
 END_DONE to coordinator d4212c96-16b8-4fe3-a6ef-587d20c0e0d0. No product edits,
 no branch cut, no PR. No containers/compose started (cleanliness: none; ambient-core
 `bh-local-shared-*` stacks foreign, left untouched).
+
+---
+## EVIDENCE ON origin/main (witness filled)
+
+`git -C /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan ls-tree origin/main --name-only -r -- evidence/r28-welle3-2026-11-16/hunt-signals-107/` after `git fetch origin main`:
+
+```
+evidence/r28-welle3-2026-11-16/hunt-signals-107/scan-1.md
+```
+
+Committed locally in `993a7144`; present on `origin/main` (`30476c47..993a7144`). Path confirmed.
