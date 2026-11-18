@@ -52,5 +52,5 @@ fix-1 akte red->green, CI 44409288750 SUCCESS
 red->green guard-fix, exact-head run 44409288750 SUCCESS auf f1df8d7f6, matrix-regression beide operanten
 
 red->green guard-fix, exact-head run 44409288750 SUCCESS auf f1df8d7f6, matrix-regression beide operanten
-## Invariant ruling (coord, 2026-11-19 after reviewer finding)
-For NON-continuation operations an unexpected extra disposition edge must FAIL CLOSED (status partial/error, reason 'unexpected edge'), not be accepted as applied. Regression matrix covers both continuation true/false; misleading comment in TestProviderChangeResult... replaced by explicit assertion. Implemented in correction round r2 (lane 91d9173b).
+## Invariant ruling REVISED (coord, 2026-11-19 after reviewer re-trace)
+Downgrade: no confirmed runtime defect at A=false (guard correctly skips continuation checks; the extra-edge acceptance is intentional current behavior). Finding stays as documentation mismatch. r2 scope: (a) fix the contradictory comment, (b) align test name + card phrasing with the intentional behavior, (c) PIN the current semantics in a matrix test (non-continuation fixture stays applied; continuation fixture fails on missing evidence) so a future fail-closed change must update this pin deliberately. Fail-closed enforcement, if ever wanted, belongs to 0428-120 (status honoring), not here.
