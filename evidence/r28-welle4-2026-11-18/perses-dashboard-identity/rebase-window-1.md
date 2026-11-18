@@ -87,4 +87,5 @@ Next: publish evidence to origin/main, update card status, post END with STATE.
 
 ## Evidence on origin/main
 
-TODO: paste `git ls-remote origin main` before END.
+`git ls-remote https://github.com/mcpdev80/baseharbor-plan.git main` => `6e67935c3e461f9ec24858f7cabb889c407b08b8`
+Evidence file `evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md` and card task `t-20261114-r28-perses-dashboard-identity.md` (kanban_status: blocked, blocker set) are committed and pushed to origin/main (6e67935c).
