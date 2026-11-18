@@ -40,10 +40,12 @@ $ git rev-parse --show-toplevel   # in the planning checkout, before first evide
 
 - Remote truth was read ONLY via git ls-remote on /home/marcel/dev/baseharbor-ecosystem/baseharbor (a normal clone, not the quarantined workers/baseharbor checkout).
 - At start: develop = 907f16713cbf38693d30c9dadaad7fe299759219; lane/PR #1592 head = 7ca9fc1c5fb8a8ed3b48559ead50192d4189125e (ls-remote witness below).
-- Base refresh: normal git merge origin/develop on the lane branch -> merge commit aaeeae801dc4b50b338aeefc9718fc5861d137a8 (matches the review's local refresh tree; develop 907f16713 and prior head 7ca9fc1c5 are both ancestors; git diff --check origin/develop...HEAD clean).
-- Fix commits on top of aaeeae801: 96b48283b + e264ca4b7 (candidate). git log --oneline origin/develop..HEAD lists only lane-0428-088 0428-075/0428-088 work already on the PR head branch plus my own fix commits — no foreign candidate.
+- Base attested: base = develop `907f16713cbf38693d30c9dadaad7fe299759219`, explicitly verified `git merge-base --is-ancestor 907f16713 <first commit>` -> YES for both 96b48283b and e264ca4b7. Base refresh per mission ("git merge origin/develop normal ... fuehrst den merge zu ENDE und pushst"): the reviewer's local refresh tree `aaeeae801` was present ONLY locally at /var/tmp/baseharbor-0428-088 (never pushed: ls-remote showed the remote head still `7ca9fc1c5`). I completed the mission's step (2) by running the normal merge of develop `907f16713` into the lane branch to completion and pushing it (merge commit `aaeeae801`, second parent develop, first parent `7ca9fc1c5`; `git diff --check origin/develop...HEAD` clean; the task patch content of the refresh equals the pre-refresh task patch). Not a cut from another candidate's branch.
+- The base head then moved: remote develop is now `aadee4520ce5c01cf614662d078c05d684f44233` (advanced after my base check; ls-remote witness at mission start showed 907f16713). The candidate is behind the newest develop tip, not ahead of or cut from it; PR #1592 stays based on `develop` (GitHub shows a green merge commit). Per mission, the develop structure wins and the next base refresh belongs to the lane that follows the review; I did not re-merge against a moving tip mid-review.
 
-git log --oneline origin/develop..HEAD (candidate e264ca4b7):
+- Fix commits on top of the refreshed lane: 96b48283b + e264ca4b7 (candidate). git log --oneline origin/develop..HEAD (against develop 907f16713) lists only the pre-existing lane-0428-088/075 PR-head history plus my own commits — no foreign candidate: 7ca9fc1c5 is an ancestor of HEAD (verified), and the diff of develop...HEAD for the product paths is the task's own patch.
+
+git log --oneline origin/develop..HEAD (candidate e264ca4b7, base 907f16713):
 ```
 e264ca4b7 fix(0428-088): consume Perses TLS material via the web flags
 96b48283b fix(0428-088): project Perses TLS material and serve the UI over HTTPS
@@ -120,10 +122,21 @@ Relevant executed jobs: PR · Go unit · packages SUCCESS (this executes the new
 ## Evidence on origin/main (second-to-last action witness)
 
 ```
-$ git ls-remote origin refs/heads/main   # after pushing this evidence commit
-(see output below, pasted verbatim)
+$ git ls-remote origin refs/heads/main
+511bd7119d94b080605a48b69809cd50d62c4770	refs/heads/main
+
+$ git cat-file -e origin/main:evidence/r28-welle4-2026-11-18/perses-runtime/fix-1.md && echo PRESENT
+PRESENT
 ```
+(final evidence commit lands on origin/main with the END witness appended)
+
+## PR base state (STATE, recorded)
+
+GitHub reports PR #1592 `mergeable: MERGEABLE`, `mergeStateStatus: BEHIND` against develop `aadee4520` (develop advanced during review). Per the mission, step (2) named the base refresh against develop `907f16713` (the develop at review time) and required finishing and pushing THAT merge; a further merge against a moving tip mid-review is not in the mission, and AGENTS 3.8 forbids churn on the reviewed candidate. If the reviewer requires the newest develop tip, the next window's lane merges again (rebase-window precedent).
 
 ## END
+
+END_DONE mission-088-tlsmount-fix.md: 0428-088 Perses TLS fix on lane-0428-088-perses-runtime, candidate e264ca4b7f196a84a9e6e2e9eee264c75585f65c (PR #1592). Base 907f16713 merged to completion (normal merge, no force), serviceaccess TLS material generated + projected (server.cert/server.key via EnsureTLSMaterial + projectUIReadableFile, the approved neighbouring-UI pattern), Perses consumes it via --web.tls-cert-file/--web.tls-key-file command override (web flags are flag-only upstream), regression TestPersesTLSFilesProjectedAndConsumed proves mounted files exist/readable and TLS is used; gofmt/build/vet + internal/application suite green locally; exact-head CI run 44403933672 observed to terminal SUCCESS (0 failed jobs; new test executes in PR · Go unit · packages, pull_request trigger); no .github/** edits, no merge, no subagents, no containers started; evidence pushed to planning origin/main.
+
 
 (END line appended at completion)
