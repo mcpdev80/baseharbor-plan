@@ -10,7 +10,7 @@ kanban_title: 0428-116 · receipt verification guard
 owner: coord
 wait_reason: ""
 blocker: ""
-prs: [mcpdev80/baseharbor#1686]
+prs: [mcpdev80/baseharbor#1686, "https://github.com/mcpdev80/baseharbor/pull/1686"]
 
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
@@ -57,3 +57,5 @@ Downgrade: no confirmed runtime defect at A=false (guard correctly skips continu
 
 ## r2 empirical confirmation (lane 91d9173b, ca149b3)
 Confirmed on PR #1686 head ca149b3: non-continuation applied receipt with a stray ghost edge -> `status=applied code=` (correct fix-1 guard); the un-parenthesised broken guard mislabels it `continuation-dependency-unverified` (red). Pin `TestProviderResultNonContinuationBehaviourPin` asserts both operands. Guard source unchanged.
+
+r2 END: head 7459d615d (guard unveraendert), exact-run 44423543955 SUCCESS vom reviewer bestaetigt; evidence-widerspruch getilgt (retraction + revision-labels); coord-flag als geloest gekennzeichnet + CI-capture nachgetragen; Re-review geroutet

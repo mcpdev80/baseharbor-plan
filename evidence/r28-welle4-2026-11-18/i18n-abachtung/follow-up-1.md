@@ -165,3 +165,5 @@ END_DONE mission-093-contract-evidence.md: evidence abgebrochen, head stale
 - Witness at cb3777dce: STALE/VOID — base moved to 8dccd4fe1, head superseded by merge d0351baf.
 - Exact final head d0351baf5def60d7ceaa40008d8553c809503310, run 44407750981: TERMINAL FAILURE (Docker application test TestSelectiveApplicationBackendRuntimeAddRemoveReAdd/document_database: stale-impact-consent after unverifiable runtime ownership state; messaging subtest passed; Public Contracts SKIPPED — owner .github wiring debt).
 - Acceptance: PENDING. In-flight: lane triage per coord instruction (local repeated runs on develop base vs d0351baf to classify flake vs merge-caused); retracted premature END for 4ef41a31 is reconciled here — no pending acceptance claims against 4ef41a31 remain.
+## coord addendum (2026-11-19): attempt-2 terminal witness
+Run 44407750981 attempt 2: completed SUCCESS (gh api actions/runs/44407750981, updated_at 2026-11-18T23:43Z; attempt 1 failure superseded — interim state, confirmed by independent reviewer poll). Public-contracts witness-3 is pristine at the same SHA d0351baf5. Candidate stands: MERGEABLE, exact-head CI terminal green.

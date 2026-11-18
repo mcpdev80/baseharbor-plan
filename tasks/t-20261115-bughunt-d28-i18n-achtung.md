@@ -8,14 +8,14 @@ release: v0.4.28
 version: ""
 parent: ""
 owner: coord
-kanban_status: active
+kanban_status: review
 kanban_lane: active
 kanban_summary: "BF-04 (ux/i18n): German \"Achtung\" hint appears in English output and inside the JSON contract (15 sites). Found on develop…"
 kanban_title: "0428-093 · bf04 english-only hints"
 priority: ""
 depends_on: []
 repos: [mcpdev80/baseharbor]
-prs: [mcpdev80/baseharbor#1663]
+prs: [mcpdev80/baseharbor#1663, "https://github.com/mcpdev80/baseharbor/pull/1663"]
 sources: []
 blocker: ""
 wait_reason: ""
@@ -91,3 +91,5 @@ CODEX-REVIEW REQUEST CHANGES 21:20Z: scope-verletzung — 51 files, docs/**-ante
 - Scope-reset head: `cb3777dceb70e3b2d2957044468e2ddee5f2ebe1` (38 paths, zero docs/**). run 44404028009 pending.
 - follow-up-1.md (old 4ef41a31 witness abort note) is VOID for acceptance.
 - Public Contracts witness must be produced AGAINST THE FINAL SHA after terminal CI, then CODEX re-review. Merge stays blocked until all three exist for the same SHA.
+
+scope-fix END: head d0351baf5 clean/MERGEABLE; run 44407750981 attempt2 completed SUCCESS (attempt1 war interim-Fehlerstand, upated_at 23:43Z — vom reviewer bestaetigt); pristine Public-Contracts witness-3 gleicher SHA; akten am band; Re-review geroutet
