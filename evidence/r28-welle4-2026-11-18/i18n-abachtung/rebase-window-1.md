@@ -203,6 +203,21 @@ GitHub-managed runners.
   revert-forward on this branch). This lane performs NO merge
   (abnahme-session merges after green terminal).
 
+## Evidence on origin/main (second-to-last action witness)
+
+    $ cd /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan && pwd && git rev-parse --show-toplevel
+    /home/marcel/dev/baseharbor-ecosystem/baseharbor-plan   (real planning repo — NOT workers/baseharbor-plan)
+    $ git push origin main
+       62086df3..fc8131e2  main -> main
+    $ git ls-remote origin refs/heads/main
+    fc8131e2057b144f874fd916efb674397f2b91b4  refs/heads/main
+    $ git cat-file -e origin/main:evidence/r28-welle4-2026-11-18/i18n-abachtung/rebase-window-1.md → exists (PATH_ON_ORIGIN_MAIN=yes)
+
+(Note: `git pull --rebase` was refused by a foreign uncommitted file
+`evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md`
+in the shared planning checkout — left untouched, another lane's work; the
+push was a plain fast-forward and succeeded, remote main verified above.)
+
 ## END
 
 END_DONE mission-093-1663-fixes.md: candidate 4ef41a31f (develop@907f1671
