@@ -125,6 +125,13 @@ GitHub-managed runners.
   changes; marker KEY names (`Attention`, `attention`) and every
   presence-based check (`!= ""`) are untouched — diff lines confirm the
   consent LOGIC is unchanged (label text and marker value only).
+- AC1a (surface demarcation, corrector note 2026-11-18): the patch is the
+  intended 15-site `Achtung` → `Warning` fix on the CODE / i18n-catalog
+  surface ONLY. The DOCS surface is explicitly OUT of scope here: docs keep
+  the unified **Achtung** label (card 0428-107, already-compliant) and card
+  0428-106 concerns only the consent paths. The `docs/spec/runtime-explorer-v1.md`
+  touch in the content commit is the machine-contract schema const (the JSON
+  contract marker), not a prose-doc localization change.
 - AC2: German docs (`docs/de/**`) remain German; English docs/contracts align
   to the renamed marker value.
 - AC3: Regression test `TestProviderImpactConsequenceHintIsEnglishOutputAndContractMarker`
