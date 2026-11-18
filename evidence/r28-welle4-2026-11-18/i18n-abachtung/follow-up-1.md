@@ -71,9 +71,26 @@ Run:
         --demo f23b6e09be34601ba542a3087e19b80764a4165d \
         --tag v0.4.26 --output /var/tmp/mission-093-pc-wt-out
 
-Transcript:
+Transcript (executed 2026-11-18 ~21:55Z, this session, in the pristine detached
+worktree above; stdout non-JSON lines are the script's final summaries):
 
-PENDING — appended verbatim after the run finishes in this session.
+    $ cd /var/tmp/mission-093-pc-wt && python3 scripts/pre-release-integration.py \
+        --gate integration/static/public-contracts \
+        --candidate cb3777dceb70e3b2d2957044468e2ddee5f2ebe1 \
+        --demo f23b6e09be34601ba542a3087e19b80764a4165d \
+        --tag v0.4.26 --output /var/tmp/mission-093-pc-wt-out2
+    ...
+    Passed 197 checks: go test -race -count=1 -json ./contracts/... ./internal/machine ./internal/machinereadmodels
+    Passed 6 checks: go test -race -count=1 -json ./cmd/baha -run ^TestExternalProviderRemoval
+    Passed 8 checks: go test -race -count=1 -json ./internal/application -run ^TestExternalRemoval
+    $ echo rc=$?
+    rc=0
+    # go test -json pass-events: 219 "Action":"pass" test events, 0 skip, 0 fail
+    # (197 + 6 + 8 = 211 named tests; the rest are package-level pass events)
+    # post-run verify_candidate_source re-checked: tree still pristine == cb3777dce
+
+RESULT: local public-contracts gate PASS on exactly cb3777dce (candidate and
+demo SHAs exact, tag v0.4.26, same command/args as ci.yml pr_public_contracts).
 
 ## Cleanliness census
 
