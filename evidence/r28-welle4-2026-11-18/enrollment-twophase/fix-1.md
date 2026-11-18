@@ -86,6 +86,8 @@
   configured test database` in `TestWorkstationEnrollmentDuplicateLiveBootstrapRejected`. Pre-existing
   environment-gated PostgreSQL integration test, unrelated to a comment-only change; I did not start a
   database on this host (test hosts are the named SSH hosts only) and did not modify it.
+- `scripts/check_de_translation_integrity.py` -> `DE technical integrity: PASS (168 paired pages)`
+  (my DE paragraph introduces no new inline literal and no fence, so the EN/DE literal comparison holds).
 - `bash scripts/documentation-audit.sh` -> `EN/DE page coverage OK: 168 matched Markdown pages`,
   `DE technical integrity: PASS (168 paired pages)`, and "Documentation audit ... PASS" for all sections.
 - `mkdocs build -f mkdocs.yml -d ... --strict` -> rc=0 (English linkcheck).
@@ -116,10 +118,46 @@
   `/tmp/opencode/w115-gocache`, `/tmp/opencode/w115-gopath`, `/tmp/opencode/w115-pr-body.md`.
 - "cleanliness: PASS"
 
-## CI terminal witness
+## CI terminal witness (self-run duty, observed by this session)
 
-(pending — filled in when run 44408281995 reaches a terminal state)
+- Run: `44408281995` ("CI · PR #1685", workflow `CI · Source & Quality`), event `pull_request`,
+  `headSha` = `2039628ba8d981488d93e90f59dff5023fb9a477` (== the candidate SHA, exact head).
+- Terminal state observed by this lane, watched from creation:
+  `gh run view 44408281995 --json status,conclusion` -> `{"conclusion":"success","status":"completed"}`
+  at 2026-11-18T22:15:29Z (queued 22:06Z -> in_progress 22:12Z -> completed/success 22:15Z).
+- All executed jobs passed (0 failures): `Workflow policy`, `PR · Trusted Plan`, `PR · Native gate plan`,
+  `PR · Source format`, `PR · Focused Python`, `PR · Validation · go-build`, `go-vet`,
+  `documentation-audit`, `mkdocs-en-strict`, `mkdocs-de-strict`, `pages-candidate-build`,
+  `PR · Go unit · owner|packages|cli-0|cli-1|cli-2|cli-3`, `PR · Native Keycloak/Core · docker`,
+  `PR · Native Keycloak/Core · podman`, `PR Selected Checks`.
+  Heavyweight release/pre-release and consumer-pin jobs are `skipping` by the routing rules for a
+  docs-and-comments-only diff — that selection is CI's own, no rerun or manual dispatch was triggered.
+- Which CI job covers the doc change, and under which trigger (AGENTS 5.3):
+  `PR · Validation · documentation-audit`, `mkdocs-en-strict` and `mkdocs-de-strict` run
+  `scripts/documentation-audit.sh` / `mkdocs build --strict`, i.e. they cover
+  `docs/decisions/0020-scoped-connector-enrollment.md` and its DE counterpart on every `pull_request`
+  into `develop`. No new test was introduced by this card, so no test-selection or workflow mapping
+  change is needed and nothing under `.github/**` is required from the Owner.
+- No runtime/VM smoke test is named by this mission, and none was run (docs-only, comment-only).
+
+## Findings / notes for the Coordinator
+
+- No `.github/**` change is needed for this card (finding-free on that axis).
+- Historical, not caused or fixed here: `docs/de/decisions/0020-scoped-connector-enrollment.md` was
+  introduced by `f4cf147aa` ("release: prepare qualified v0.4.24 on develop", 2026-10-11) in
+  machine-translated quality. The DE locale gates only compare code fences and inline literals, so
+  the prose passes while reading broken. I followed the existing (poor) DE idiom to keep the gates
+  green and added no cleanup, per the scope rule (AGENTS 4.2: the fix targets exactly the reported
+  documentation gap). If the Owner wants ADR DE prose rewritten, that is a separate card.
+- `internal/database` unit test run needs `BASEHARBOR_TEST_DATABASE_URL` (env-gated PostgreSQL
+  integration test). Pre-existing on `develop`; the CI jobs that need it passed on their own
+  configured database services.
 
 ## END
 
-- END_PENDING: mission-115-twophase-doc.md — waiting for the exact-head CI run 44408281995 to terminate.
+- END_DONE: mission-115-twophase-doc.md — DONE. Card t-20261118-enrollment-two-phase-boundary-doc
+  (0428-115) candidate `2039628ba8d981488d93e90f59dff5023fb9a477` on
+  `lane-0428-115-twophase-doc`, PR https://github.com/mcpdev80/baseharbor/pull/1685 (base `develop`),
+  CI run 44408281995 completed/success on the exact head. ADR 0020 EN+DE paragraph plus one
+  comment-only block in `internal/targetenrollment/authority.go`; no behavior change, no migration,
+  no `.github/**` edit, no containers started.

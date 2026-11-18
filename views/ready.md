@@ -8,4 +8,3 @@ Derived from accepted prerequisites and active release (or explicit early work).
 | --- | --- | --- | --- | --- | --- | --- |
 | [t-20261115-bughunt-d28-app-new-reg](../tasks/t-20261115-bughunt-d28-app-new-reg.md) | BF-02 baha app new writes no registration (only up/apply create state) | ready | not set | — | [t-20261017-release-0-4-27-updates](../tasks/t-20261017-release-0-4-27-updates.md) | — |
 | [t-20261117-hunt-signals-101](../tasks/t-20261117-hunt-signals-101.md) | ID-Raum-Heterogenitaet und Keycloak-Kollision in Signal-IDs | ready | not set | — | — | — |
-| [t-20261118-app-env-recovery-flags-claim](../tasks/t-20261118-app-env-recovery-flags-claim.md) | align app env recovery-flag docs with the real command contract | ready | not set | — | — | — |
