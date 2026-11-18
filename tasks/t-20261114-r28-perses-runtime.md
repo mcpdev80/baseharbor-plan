@@ -7,7 +7,7 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: Codex (session 09fd9bba-985e-4058-a1f8-2d544bd7c3b0)
+owner: worker m088-tlsmount (mission-088, claimed --force per coord handover 2026-11-18)
 kanban_status: active
 kanban_lane: active
 prs: [mcpdev80/baseharbor#1592]
@@ -25,7 +25,7 @@ evidence: []
 
 - [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** Codex (session 09fd9bba-985e-4058-a1f8-2d544bd7c3b0) · **Priority:** normal  
+    **Owner:** worker m088-tlsmount (mission-088, claimed --force per coord handover 2026-11-18) · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
     <!-- /generated:card -->
 
@@ -34,7 +34,7 @@ evidence: []
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** Codex (session 09fd9bba-985e-4058-a1f8-2d544bd7c3b0)  
+**Owner:** worker m088-tlsmount (mission-088, claimed --force per coord handover 2026-11-18)  
 **Priority:** normal  
 **PRs:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
 **Source:** 
