@@ -8,7 +8,7 @@ release: v0.4.28
 version: ""
 parent: v0.4.28
 owner: coord
-kanban_status: review
+kanban_status: blocked
 kanban_lane: review
 kanban_summary: Deliver identity-provider panels only for verified current Keycloak metrics; do not rely on obsolete SPI assumptions.
 kanban_title: 0428-078 · Perses identity dashboard
@@ -17,10 +17,10 @@ depends_on: [t-20261114-r28-perses-dashboard-selection]
 repos: [mcpdev80/baseharbor]
 prs: [mcpdev80/baseharbor#1606, mcpdev80/baseharbor#1650]
 sources: []
-blocker: ""
+blocker: Owner-scope CI-structure tests (.github/**, Owner-owned) fail identically on develop independent of candidate 022c454c: ci-executor-tests + Focused Python (test_pr_selected_runtime_matrix.py 14x max-parallel, test_targeted_gate_ref.py 2x inputs.gate/inputs.runtime assertions). The #1650 retarget merge 022c454c is structurally correct (parents 4f07c807+907f16713, first-parent chain = card commits only, 325ab0d4f ancestor) and all Go gates pass at exact head 022c454c; only these pre-existing Owner-scope Python jobs block the merge gate. Candidate deliverable is complete and accepted; merge decision + STATE-obliegen dem Owner.
 wait_reason: ""
 resolution: ""
-evidence: []
+evidence: ["evidence/r28-welle4-2026-11-18/perses-dashboard-identity/rebase-window-1.md"]
 ---
 
 - [ ] t-20261114-r28-perses-dashboard-identity · Perses identity dashboard #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
@@ -30,7 +30,7 @@ evidence: []
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** review  
+**State:** blocked  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-dashboard-selection](t-20261114-r28-perses-dashboard-selection.md)  
 **Required by:** [t-20261114-r28-perses-native-proof](t-20261114-r28-perses-native-proof.md)  
