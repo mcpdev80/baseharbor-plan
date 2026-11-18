@@ -3,29 +3,31 @@ id: t-20261118-receipt-guard-single-operand
 release: v0.4.28
 repos: [mcpdev80/baseharbor]
 depends_on: []
-kanban_status: active
+kanban_status: review
 card_number: 0428-116
 card_short_title: receipt verification guard
 kanban_title: 0428-116 · receipt verification guard
 owner: w1-lane-8a994dc2 (0428-116)
 wait_reason: ""
 blocker: ""
+prs: [mcpdev80/baseharbor#1686]
 
 ---
 # t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand
 
-- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/active #view/active #kind/task
+- [ ] t-20261118-receipt-guard-single-operand · receipt verification guard collapses to single operand #task #release/v0-4-28 #status/review #view/review #kind/task
     <!-- generated:card -->
     **Owner:** w1-lane-8a994dc2 (0428-116)  
+    **PR:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** none  
 **Owner:** w1-lane-8a994dc2 (0428-116)  
 **Priority:** not set  
-**PRs:** none  
+**PRs:** [baseharbor#1686](https://github.com/mcpdev80/baseharbor/pull/1686)  
 **Source:** 
 <!-- /generated:links -->
 
@@ -44,3 +46,5 @@ Fix `internal/application/provider_change_result.go:40-46`: the receipt verifica
 - Source: hunt 914 Befund 1 (HIGH), evidence/r28-welle4-2026-11-18/hunt-authsurf/befund-1.md (origin/main f00ca1e4).
 
 claim der guard-fix-lane; owner-feld fehlte im claim — ergaenzt, check wieder 0
+
+fix-1 akte red->green, CI 44409288750 SUCCESS
