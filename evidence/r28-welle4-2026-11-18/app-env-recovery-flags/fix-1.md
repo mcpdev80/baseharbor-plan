@@ -59,8 +59,6 @@ Confirmed: `app env` selects by NAME and rejects `--uuid`/`-e` — exactly what 
 
 - Docs-only change. No behavior change, no flag wiring into `app env`. No `.github/**` touched. No runner infrastructure. No container/compose. No subagent (self-run duty). Worktree under `/tmp`, caches under `/tmp`. Evidence committed only in baseharbor-plan.
 
-- In progress: source witness captured, base attested at 8dccd4fe1, PR #1687 open.
-
 ## CI result (terminal, self-run)
 
 - Run: `gh run list --repo mcpdev80/baseharbor --branch lane-0428-117-envflags-doc` → run #6501, workflow **CI · Source & Quality**, status `completed`, conclusion **success**, headSha `7aa8b01e97a425e30cdfc069206f35ac822bca82`, createdAt 2026-11-18T22:43:38Z, updatedAt 2026-11-18T22:45:00Z.
