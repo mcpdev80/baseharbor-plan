@@ -7,9 +7,9 @@ areas: [observability]
 release: v0.4.28
 version: ""
 parent: v0.4.28
-owner: worker m088-tlsmount (mission-088, claimed --force per coord handover 2026-11-18)
-kanban_status: active
-kanban_lane: active
+owner: coord
+kanban_status: review
+kanban_lane: review
 prs: [mcpdev80/baseharbor#1592]
 kanban_summary: "Implement explicitly enabled optional Perses runtime, pinned reviewed image/plugin versions, lifecycle and safe storage using…"
 kanban_title: 0428-088 · Launch optional Perses
@@ -23,18 +23,18 @@ resolution: ""
 evidence: []
 ---
 
-- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/active #view/active #area/observability #kind/task
+- [ ] t-20261114-r28-perses-runtime · Launch optional Perses #task #release/v0-4-28 #status/review #view/review #area/observability #kind/task
     <!-- generated:card -->
-    **Owner:** worker m088-tlsmount (mission-088, claimed --force per coord handover 2026-11-18) · **Priority:** normal  
+    **Owner:** coord · **Priority:** normal  
     **PR:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
     <!-- /generated:card -->
 
 <!-- generated:links -->
-**State:** active  
+**State:** review  
 **Release:** [v0.4.28](../releases/v0.4.28.md)  
 **Depends on:** [t-20261114-r28-perses-contract-seam](t-20261114-r28-perses-contract-seam.md)  
 **Required by:** [t-20261114-r28-perses-datasources](t-20261114-r28-perses-datasources.md), [t-20261114-r28-perses-lifecycle](t-20261114-r28-perses-lifecycle.md), [t-20261114-r28-perses-loki-source](t-20261114-r28-perses-loki-source.md), [t-20261114-r28-perses-secure-access](t-20261114-r28-perses-secure-access.md), [t-20261114-r28-perses-tempo-source](t-20261114-r28-perses-tempo-source.md)  
-**Owner:** worker m088-tlsmount (mission-088, claimed --force per coord handover 2026-11-18)  
+**Owner:** coord  
 **Priority:** normal  
 **PRs:** [baseharbor#1592](https://github.com/mcpdev80/baseharbor/pull/1592)  
 **Source:** 
@@ -75,3 +75,5 @@ Record exact candidate SHA and focused tests by name. Route every changed test t
 Prerequisites are encoded in `depends_on`. One worker per card/branch/PR, no concurrent writes to shared files. Codex/Owner-delegated Maintainer reviews and merges only after real checks; no independent-review claim. Archive Console/Node Connector repos are excluded. No implementation or release has occurred.
 
 Supersedes [t-20261113-r28-grafana-runtime](t-20261113-r28-grafana-runtime.md) under the [Owner decision](../decisions/2026-11-14-perses-replaces-grafana-v0428.md).
+
+kandidat e264ca4b7, exact-head run 44403933672 SUCCESS, TLS material generiert+projiziert via command override, regression TestPersesTLSFilesProjectedAndConsumed; BEHIND gegen 8dccd4fe1 => hopf in der merge-welle
