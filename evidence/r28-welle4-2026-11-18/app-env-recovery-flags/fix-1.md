@@ -34,6 +34,26 @@
 
 - `docs/reference/cli-machine-coverage.md:25` lists `baha app env` as JSON-capable via `--format json` (masked MCP only); consistent with the real contract. No new rows introduced; the doc change is prose-only.
 - The machine-docs consistency test is run as part of the Go unit suite (`go test ./...`); documented below which CI job covers it.
+- Docs audit: `bash scripts/documentation-audit.sh` green (structure/parity/integrity/language audit all PASS). This script is invoked by the repository's normal CI; it covers the affected EN/DE docs path.
+
+## Runtime witness (built from 8dccd4fe1, in /tmp/117-envflags-probe, no baseharbor.yaml)
+
+```
+$ /tmp/117-envflags-baha app env foo --uuid abc123
+Error: unknown option --uuid
+Next:
+  Run 'baha app env --help' for available options.
+  Did you mean '--quiet'?
+rc=2
+
+$ /tmp/117-envflags-baha app env foo -e dev
+Error: unknown option -e
+Next:
+  Run 'baha app env --help' for available options.
+  Did you mean '-h'?
+rc=2
+```
+Confirmed: `app env` selects by NAME and rejects `--uuid`/`-e` — exactly what the rewritten passage states.
 
 ## repo-rule compliance
 
@@ -42,3 +62,8 @@
 ## Status
 
 - In progress: source witness captured, base attested at 8dccd4fe1.
+
+## CI / trigger mapping (durable evidence)
+
+- Docs audit (`bash scripts/documentation-audit.sh`) plus `go test ./cmd/baha/...` (machine-docs consistency, CLI parsing, app-env argument handling, duplicate-resolution/`--uuid`) run under the repository's normal branch CI on a push of this lane's PR to `develop`. Trigger: pull_request on base develop.
+- No `.github/**` file was edited (Owner scope). The coverage of the affected docs path is already in the existing docs/CI group; no CI change is required to pick up this docs-only change.

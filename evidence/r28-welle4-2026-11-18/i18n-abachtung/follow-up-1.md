@@ -114,3 +114,8 @@ demo SHAs exact, tag v0.4.26, same command/args as ci.yml pr_public_contracts).
 
 END_DONE mission-093-contract-evidence.md: evidence abgebrochen, head stale
 (4ef41a31f, CODEX-REVIEW REQUEST CHANGES 21:20Z), re-run nach korrektur-SHA.
+
+## coord-status update (2026-11-18 22:4xZ)
+- Witness at cb3777dce: STALE/VOID — base moved to 8dccd4fe1, head superseded by merge d0351baf.
+- Exact final head d0351baf5def60d7ceaa40008d8553c809503310, run 44407750981: TERMINAL FAILURE (Docker application test TestSelectiveApplicationBackendRuntimeAddRemoveReAdd/document_database: stale-impact-consent after unverifiable runtime ownership state; messaging subtest passed; Public Contracts SKIPPED — owner .github wiring debt).
+- Acceptance: PENDING. In-flight: lane triage per coord instruction (local repeated runs on develop base vs d0351baf to classify flake vs merge-caused); retracted premature END for 4ef41a31 is reconciled here — no pending acceptance claims against 4ef41a31 remain.
